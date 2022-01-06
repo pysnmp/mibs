@@ -1,0 +1,2527 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoPibToMib"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoQosPIBMIB": {
+    "name": "ciscoQosPIBMIB",
+    "oid": "1.3.6.1.4.1.9.18.2.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-08-29 00:00",
+        "description": "Add new enum values in QosInterfaceQueueType textual convention for various queue type."
+      },
+      {
+        "revision": "2004-05-03 00:00",
+        "description": "Add new enum value in QosInterfaceQueueType textual convention for 1p3q8t queue type."
+      },
+      {
+        "revision": "2003-02-21 00:00",
+        "description": "Add new enum values in QosInterfaceQueueType textual convention to indicate queue types containing priority queue. Add new enum value in ThresholdSetRange textual convention for zero threshold."
+      },
+      {
+        "revision": "2002-05-02 00:00",
+        "description": "Fix the SYNTAX of Role and RoleCombination."
+      },
+      {
+        "revision": "2000-06-16 00:00",
+        "description": "Added QosInterfaceTypeCapabilities textual convention."
+      },
+      {
+        "revision": "2000-05-11 00:00",
+        "description": "Initial version of this PIB module."
+      }
+    ]
+  },
+  "Dscp": {
+    "name": "Dscp",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "QosLayer2Cos": {
+    "name": "QosLayer2Cos",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "QueueRange": {
+    "name": "QueueRange",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oneQ": 1,
+          "twoQ": 2,
+          "threeQ": 3,
+          "fourQ": 4,
+          "eightQ": 8,
+          "sixteenQ": 16,
+          "thirtyTwoQ": 32,
+          "sixtyFourQ": 64
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ThresholdSetRange": {
+    "name": "ThresholdSetRange",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "zeroT": 0,
+          "oneT": 1,
+          "twoT": 2,
+          "fourT": 4,
+          "eightT": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Percent": {
+    "name": "Percent",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "QosInterfaceQueueType": {
+    "name": "QosInterfaceQueueType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oneQ1t": 1,
+          "oneQ2t": 2,
+          "oneQ4t": 3,
+          "oneQ8t": 4,
+          "twoQ1t": 5,
+          "twoQ2t": 6,
+          "twoQ4t": 7,
+          "twoQ8t": 8,
+          "threeQ1t": 9,
+          "threeQ2t": 10,
+          "threeQ4t": 11,
+          "threeQ8t": 12,
+          "fourQ1t": 13,
+          "fourQ2t": 14,
+          "fourQ4t": 15,
+          "fourQ8t": 16,
+          "eightQ1t": 17,
+          "eightQ2t": 18,
+          "eightQ4t": 19,
+          "eightQ8t": 20,
+          "sixteenQ1t": 21,
+          "sixteenQ2t": 22,
+          "sixteenQ4t": 23,
+          "sixtyfourQ1t": 24,
+          "sixtyfourQ2t": 25,
+          "sixtyfourQ4t": 26,
+          "oneP1Q0t": 27,
+          "oneP1Q4t": 28,
+          "oneP1Q8t": 29,
+          "oneP2Q1t": 30,
+          "oneP2Q2t": 31,
+          "oneP3Q1t": 32,
+          "oneP7Q8t": 33,
+          "oneP3Q8t": 34,
+          "sixteenQ8t": 35,
+          "oneP15Q8t": 36,
+          "oneP15Q1t": 37,
+          "oneP7Q1t": 38,
+          "oneP31Q1t": 39,
+          "thirtytwoQ1t": 40,
+          "thirtytwoQ8t": 41,
+          "oneP31Q8t": 42,
+          "oneP7Q4t": 43,
+          "oneP3Q4t": 44,
+          "oneP7Q2t": 45
+        }
+      }
+    },
+    "status": "current"
+  },
+  "QosInterfaceTypeCapabilities": {
+    "name": "QosInterfaceTypeCapabilities",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "unspecified": 0,
+        "inputL2Classification": 1,
+        "inputIpClassification": 2,
+        "outputL2Classification": 3,
+        "outputIpClassification": 4,
+        "inputUflowPolicing": 5,
+        "inputAggregatePolicing": 6,
+        "outputUflowPolicing": 7,
+        "outputAggregatePolicing": 8,
+        "policeByMarkingDown": 9,
+        "policeByDropping": 10,
+        "fifo": 11,
+        "wrr": 12,
+        "wfq": 13,
+        "cq": 14,
+        "pq": 15,
+        "cbwfq": 16,
+        "tailDrop": 17,
+        "wred": 18,
+        "inputPortClassification": 19,
+        "outputPortClassification": 20,
+        "inputUflowShaping": 21,
+        "inputAggregateShaping": 22,
+        "outputUflowShaping": 23,
+        "outputAggregateShaping": 24,
+        "pqWrr": 25,
+        "pqCbwfq": 26
+      }
+    },
+    "status": "current"
+  },
+  "RoleCombination": {
+    "name": "RoleCombination",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "PolicyInstanceId": {
+    "name": "PolicyInstanceId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "Unsigned64": {
+    "name": "Unsigned64",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "qosPIBConformance": {
+    "name": "qosPIBConformance",
+    "oid": "1.3.6.1.4.1.9.18.2.1.1",
+    "class": "objectidentity"
+  },
+  "qosDeviceConfig": {
+    "name": "qosDeviceConfig",
+    "oid": "1.3.6.1.4.1.9.18.2.1.2",
+    "class": "objectidentity"
+  },
+  "qosDevicePibIncarnationTable": {
+    "name": "qosDevicePibIncarnationTable",
+    "oid": "1.3.6.1.4.1.9.18.2.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosDevicePibIncarnationEntry": {
+    "name": "qosDevicePibIncarnationEntry",
+    "oid": "1.3.6.1.4.1.9.18.2.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosDeviceIncarnationId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosDeviceIncarnationId": {
+    "name": "qosDeviceIncarnationId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosDevicePdpName": {
+    "name": "qosDevicePdpName",
+    "oid": "1.3.6.1.4.1.9.18.2.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosDevicePibIncarnation": {
+    "name": "qosDevicePibIncarnation",
+    "oid": "1.3.6.1.4.1.9.18.2.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 128,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosDevicePibTtl": {
+    "name": "qosDevicePibTtl",
+    "oid": "1.3.6.1.4.1.9.18.2.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosDeviceAttributeTable": {
+    "name": "qosDeviceAttributeTable",
+    "oid": "1.3.6.1.4.1.9.18.2.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosDeviceAttributeEntry": {
+    "name": "qosDeviceAttributeEntry",
+    "oid": "1.3.6.1.4.1.9.18.2.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosDeviceAttributeId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosDeviceAttributeId": {
+    "name": "qosDeviceAttributeId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosDevicePepDomain": {
+    "name": "qosDevicePepDomain",
+    "oid": "1.3.6.1.4.1.9.18.2.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosDevicePrimaryPdp": {
+    "name": "qosDevicePrimaryPdp",
+    "oid": "1.3.6.1.4.1.9.18.2.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosDeviceSecondaryPdp": {
+    "name": "qosDeviceSecondaryPdp",
+    "oid": "1.3.6.1.4.1.9.18.2.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosDeviceMaxMessageSize": {
+    "name": "qosDeviceMaxMessageSize",
+    "oid": "1.3.6.1.4.1.9.18.2.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosDeviceCapabilities": {
+    "name": "qosDeviceCapabilities",
+    "oid": "1.3.6.1.4.1.9.18.2.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "unspecified": 0,
+        "layer2Cos": 1,
+        "ipPrecedence": 2,
+        "dscp": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosInterfaceTypeTable": {
+    "name": "qosInterfaceTypeTable",
+    "oid": "1.3.6.1.4.1.9.18.2.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosInterfaceTypeEntry": {
+    "name": "qosInterfaceTypeEntry",
+    "oid": "1.3.6.1.4.1.9.18.2.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosInterfaceTypeId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosInterfaceTypeId": {
+    "name": "qosInterfaceTypeId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosInterfaceQueueType": {
+    "name": "qosInterfaceQueueType",
+    "oid": "1.3.6.1.4.1.9.18.2.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosInterfaceQueueType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosInterfaceTypeRoles": {
+    "name": "qosInterfaceTypeRoles",
+    "oid": "1.3.6.1.4.1.9.18.2.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RoleCombination",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosInterfaceTypeCapabilities": {
+    "name": "qosInterfaceTypeCapabilities",
+    "oid": "1.3.6.1.4.1.9.18.2.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosInterfaceTypeCapabilities",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosDomainConfig": {
+    "name": "qosDomainConfig",
+    "oid": "1.3.6.1.4.1.9.18.2.1.3",
+    "class": "objectidentity"
+  },
+  "qosDiffServMappingTable": {
+    "name": "qosDiffServMappingTable",
+    "oid": "1.3.6.1.4.1.9.18.2.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosDiffServMappingEntry": {
+    "name": "qosDiffServMappingEntry",
+    "oid": "1.3.6.1.4.1.9.18.2.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosDscp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosDscp": {
+    "name": "qosDscp",
+    "oid": "1.3.6.1.4.1.9.18.2.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosMarkedDscp": {
+    "name": "qosMarkedDscp",
+    "oid": "1.3.6.1.4.1.9.18.2.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosL2Cos": {
+    "name": "qosL2Cos",
+    "oid": "1.3.6.1.4.1.9.18.2.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosLayer2Cos",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosCosToDscpTable": {
+    "name": "qosCosToDscpTable",
+    "oid": "1.3.6.1.4.1.9.18.2.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosCosToDscpEntry": {
+    "name": "qosCosToDscpEntry",
+    "oid": "1.3.6.1.4.1.9.18.2.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosCosToDscpCos",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosCosToDscpCos": {
+    "name": "qosCosToDscpCos",
+    "oid": "1.3.6.1.4.1.9.18.2.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosLayer2Cos",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosCosToDscpDscp": {
+    "name": "qosCosToDscpDscp",
+    "oid": "1.3.6.1.4.1.9.18.2.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosUnmatchedPolicy": {
+    "name": "qosUnmatchedPolicy",
+    "oid": "1.3.6.1.4.1.9.18.2.1.4",
+    "class": "objectidentity"
+  },
+  "qosUnmatchedPolicyTable": {
+    "name": "qosUnmatchedPolicyTable",
+    "oid": "1.3.6.1.4.1.9.18.2.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosUnmatchedPolicyEntry": {
+    "name": "qosUnmatchedPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.18.2.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosUnmatchedPolicyId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosUnmatchedPolicyId": {
+    "name": "qosUnmatchedPolicyId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosUnmatchedPolicyRole": {
+    "name": "qosUnmatchedPolicyRole",
+    "oid": "1.3.6.1.4.1.9.18.2.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RoleCombination",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosUnmatchedPolicyDirection": {
+    "name": "qosUnmatchedPolicyDirection",
+    "oid": "1.3.6.1.4.1.9.18.2.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in": 0,
+          "out": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosUnmatchedPolicyDscp": {
+    "name": "qosUnmatchedPolicyDscp",
+    "oid": "1.3.6.1.4.1.9.18.2.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosUnmatchedPolicyDscpTrusted": {
+    "name": "qosUnmatchedPolicyDscpTrusted",
+    "oid": "1.3.6.1.4.1.9.18.2.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosUnmatchPolMicroFlowPolicerId": {
+    "name": "qosUnmatchPolMicroFlowPolicerId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosUnmatchedPolicyAggregateId": {
+    "name": "qosUnmatchedPolicyAggregateId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosPolicer": {
+    "name": "qosPolicer",
+    "oid": "1.3.6.1.4.1.9.18.2.1.5",
+    "class": "objectidentity"
+  },
+  "qosPolicerTable": {
+    "name": "qosPolicerTable",
+    "oid": "1.3.6.1.4.1.9.18.2.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosPolicerEntry": {
+    "name": "qosPolicerEntry",
+    "oid": "1.3.6.1.4.1.9.18.2.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosPolicerId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosPolicerId": {
+    "name": "qosPolicerId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosPolicerRate": {
+    "name": "qosPolicerRate",
+    "oid": "1.3.6.1.4.1.9.18.2.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosPolicerNormalBurst": {
+    "name": "qosPolicerNormalBurst",
+    "oid": "1.3.6.1.4.1.9.18.2.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosPolicerExcessBurst": {
+    "name": "qosPolicerExcessBurst",
+    "oid": "1.3.6.1.4.1.9.18.2.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosPolicerAction": {
+    "name": "qosPolicerAction",
+    "oid": "1.3.6.1.4.1.9.18.2.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 0,
+          "mark": 1,
+          "shape": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosAggregateTable": {
+    "name": "qosAggregateTable",
+    "oid": "1.3.6.1.4.1.9.18.2.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosAggregateEntry": {
+    "name": "qosAggregateEntry",
+    "oid": "1.3.6.1.4.1.9.18.2.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosAggregateId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosAggregateId": {
+    "name": "qosAggregateId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosAggregatePolicerId": {
+    "name": "qosAggregatePolicerId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosMacQos": {
+    "name": "qosMacQos",
+    "oid": "1.3.6.1.4.1.9.18.2.1.6",
+    "class": "objectidentity"
+  },
+  "qosMacClassificationTable": {
+    "name": "qosMacClassificationTable",
+    "oid": "1.3.6.1.4.1.9.18.2.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosMacClassificationEntry": {
+    "name": "qosMacClassificationEntry",
+    "oid": "1.3.6.1.4.1.9.18.2.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosMacClassificationId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosMacClassificationId": {
+    "name": "qosMacClassificationId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosDstMacVlan": {
+    "name": "qosDstMacVlan",
+    "oid": "1.3.6.1.4.1.9.18.2.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosDstMacAddress": {
+    "name": "qosDstMacAddress",
+    "oid": "1.3.6.1.4.1.9.18.2.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosDstMacCos": {
+    "name": "qosDstMacCos",
+    "oid": "1.3.6.1.4.1.9.18.2.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosLayer2Cos",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIpQos": {
+    "name": "qosIpQos",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7",
+    "class": "objectidentity"
+  },
+  "qosIpAceTable": {
+    "name": "qosIpAceTable",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosIpAceEntry": {
+    "name": "qosIpAceEntry",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosIpAceId": {
+    "name": "qosIpAceId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosIpAceDstAddr": {
+    "name": "qosIpAceDstAddr",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIpAceDstAddrMask": {
+    "name": "qosIpAceDstAddrMask",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIpAceSrcAddr": {
+    "name": "qosIpAceSrcAddr",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIpAceSrcAddrMask": {
+    "name": "qosIpAceSrcAddrMask",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIpAceDscpMin": {
+    "name": "qosIpAceDscpMin",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIpAceDscpMax": {
+    "name": "qosIpAceDscpMax",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIpAceProtocol": {
+    "name": "qosIpAceProtocol",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIpAceDstL4PortMin": {
+    "name": "qosIpAceDstL4PortMin",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIpAceDstL4PortMax": {
+    "name": "qosIpAceDstL4PortMax",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIpAceSrcL4PortMin": {
+    "name": "qosIpAceSrcL4PortMin",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIpAceSrcL4PortMax": {
+    "name": "qosIpAceSrcL4PortMax",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIpAcePermit": {
+    "name": "qosIpAcePermit",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIpAclDefinitionTable": {
+    "name": "qosIpAclDefinitionTable",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosIpAclDefinitionEntry": {
+    "name": "qosIpAclDefinitionEntry",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAclDefinitionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosIpAclDefinitionId": {
+    "name": "qosIpAclDefinitionId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosIpAclId": {
+    "name": "qosIpAclId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIpAceOrder": {
+    "name": "qosIpAceOrder",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIpAclDefAceId": {
+    "name": "qosIpAclDefAceId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIpAclActionTable": {
+    "name": "qosIpAclActionTable",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosIpAclActionEntry": {
+    "name": "qosIpAclActionEntry",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAclActionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosIpAclActionId": {
+    "name": "qosIpAclActionId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosIpAclActAclId": {
+    "name": "qosIpAclActAclId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIpAclInterfaceRoles": {
+    "name": "qosIpAclInterfaceRoles",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RoleCombination",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIpAclInterfaceDirection": {
+    "name": "qosIpAclInterfaceDirection",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in": 0,
+          "out": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIpAclOrder": {
+    "name": "qosIpAclOrder",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIpAclDscp": {
+    "name": "qosIpAclDscp",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIpAclDscpTrusted": {
+    "name": "qosIpAclDscpTrusted",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIpAclMicroFlowPolicerId": {
+    "name": "qosIpAclMicroFlowPolicerId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIpAclAggregateId": {
+    "name": "qosIpAclAggregateId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.7.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfParameters": {
+    "name": "qosIfParameters",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8",
+    "class": "objectidentity"
+  },
+  "qosIfSchedulingPreferencesTable": {
+    "name": "qosIfSchedulingPreferencesTable",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosIfSchedulingPreferenceEntry": {
+    "name": "qosIfSchedulingPreferenceEntry",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfSchedulingPreferenceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosIfSchedulingPreferenceId": {
+    "name": "qosIfSchedulingPreferenceId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosIfSchedulingRoles": {
+    "name": "qosIfSchedulingRoles",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RoleCombination",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfSchedulingPreference": {
+    "name": "qosIfSchedulingPreference",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfSchedulingDiscipline": {
+    "name": "qosIfSchedulingDiscipline",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "weightedFairQueueing": 1,
+          "weightedRoundRobin": 2,
+          "customQueueing": 3,
+          "priorityQueueing": 4,
+          "classBasedWFQ": 5,
+          "fifo": 6,
+          "pqWrr": 7,
+          "pqCbwfq": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfSchedulingQueueType": {
+    "name": "qosIfSchedulingQueueType",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosInterfaceQueueType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfDropPreferenceTable": {
+    "name": "qosIfDropPreferenceTable",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosIfDropPreferenceEntry": {
+    "name": "qosIfDropPreferenceEntry",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfDropPreferenceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosIfDropPreferenceId": {
+    "name": "qosIfDropPreferenceId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosIfDropRoles": {
+    "name": "qosIfDropRoles",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RoleCombination",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfDropPreference": {
+    "name": "qosIfDropPreference",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfDropDiscipline": {
+    "name": "qosIfDropDiscipline",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qosIfDropWRED": 1,
+          "qosIfDropTailDrop": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfDscpAssignmentTable": {
+    "name": "qosIfDscpAssignmentTable",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosIfDscpAssignmentEntry": {
+    "name": "qosIfDscpAssignmentEntry",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfDscpAssignmentId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosIfDscpAssignmentId": {
+    "name": "qosIfDscpAssignmentId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosIfDscpRoles": {
+    "name": "qosIfDscpRoles",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RoleCombination",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfQueueType": {
+    "name": "qosIfQueueType",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosInterfaceQueueType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfDscp": {
+    "name": "qosIfDscp",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfQueue": {
+    "name": "qosIfQueue",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfThresholdSet": {
+    "name": "qosIfThresholdSet",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfRedTable": {
+    "name": "qosIfRedTable",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosIfRedEntry": {
+    "name": "qosIfRedEntry",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfRedId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosIfRedId": {
+    "name": "qosIfRedId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosIfRedRoles": {
+    "name": "qosIfRedRoles",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RoleCombination",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfRedNumThresholdSets": {
+    "name": "qosIfRedNumThresholdSets",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ThresholdSetRange",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfRedThresholdSet": {
+    "name": "qosIfRedThresholdSet",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfRedThresholdSetLower": {
+    "name": "qosIfRedThresholdSetLower",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfRedThresholdSetUpper": {
+    "name": "qosIfRedThresholdSetUpper",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfTailDropTable": {
+    "name": "qosIfTailDropTable",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosIfTailDropEntry": {
+    "name": "qosIfTailDropEntry",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfTailDropId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosIfTailDropId": {
+    "name": "qosIfTailDropId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosIfTailDropRoles": {
+    "name": "qosIfTailDropRoles",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RoleCombination",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfTailDropNumThresholdSets": {
+    "name": "qosIfTailDropNumThresholdSets",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ThresholdSetRange",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfTailDropThresholdSet": {
+    "name": "qosIfTailDropThresholdSet",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfTailDropThresholdSetValue": {
+    "name": "qosIfTailDropThresholdSetValue",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfWeightsTable": {
+    "name": "qosIfWeightsTable",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosIfWeightsEntry": {
+    "name": "qosIfWeightsEntry",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfWeightsId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosIfWeightsId": {
+    "name": "qosIfWeightsId",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyInstanceId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosIfWeightsRoles": {
+    "name": "qosIfWeightsRoles",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RoleCombination",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfWeightsNumQueues": {
+    "name": "qosIfWeightsNumQueues",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QueueRange",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfWeightsQueue": {
+    "name": "qosIfWeightsQueue",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfWeightsDrainSize": {
+    "name": "qosIfWeightsDrainSize",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfWeightsQueueSize": {
+    "name": "qosIfWeightsQueueSize",
+    "oid": "1.3.6.1.4.1.9.18.2.1.8.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosPIBCompliances": {
+    "name": "qosPIBCompliances",
+    "oid": "1.3.6.1.4.1.9.18.2.1.1.1",
+    "class": "objectidentity"
+  },
+  "qosPIBGroups": {
+    "name": "qosPIBGroups",
+    "oid": "1.3.6.1.4.1.9.18.2.1.1.2",
+    "class": "objectidentity"
+  },
+  "qosPIBCompliance": {
+    "name": "qosPIBCompliance",
+    "oid": "1.3.6.1.4.1.9.18.2.1.1.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "qosDevicePibIncarnationTableGroup",
+        "module": "CISCO-QOS-PIB-MIB"
+      },
+      {
+        "object": "qosDeviceAttributeTableGroup",
+        "module": "CISCO-QOS-PIB-MIB"
+      },
+      {
+        "object": "qosInterfaceTypeTableGroup",
+        "module": "CISCO-QOS-PIB-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "qosDevicePibIncarnationTableGroup": {
+    "name": "qosDevicePibIncarnationTableGroup",
+    "oid": "1.3.6.1.4.1.9.18.2.1.1.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosDevicePdpName"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosDevicePibIncarnation"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosDevicePibTtl"
+      }
+    ],
+    "status": "current"
+  },
+  "qosDeviceAttributeTableGroup": {
+    "name": "qosDeviceAttributeTableGroup",
+    "oid": "1.3.6.1.4.1.9.18.2.1.1.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosDevicePepDomain"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosDevicePrimaryPdp"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosDeviceSecondaryPdp"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosDeviceMaxMessageSize"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosDeviceCapabilities"
+      }
+    ],
+    "status": "current"
+  },
+  "qosInterfaceTypeTableGroup": {
+    "name": "qosInterfaceTypeTableGroup",
+    "oid": "1.3.6.1.4.1.9.18.2.1.1.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosInterfaceQueueType"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosInterfaceTypeRoles"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosInterfaceTypeCapabilities"
+      }
+    ],
+    "status": "current"
+  },
+  "qosDiffServMappingTableGroup": {
+    "name": "qosDiffServMappingTableGroup",
+    "oid": "1.3.6.1.4.1.9.18.2.1.1.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosMarkedDscp"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosL2Cos"
+      }
+    ],
+    "status": "current"
+  },
+  "qosCosToDscpTableGroup": {
+    "name": "qosCosToDscpTableGroup",
+    "oid": "1.3.6.1.4.1.9.18.2.1.1.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosCosToDscpDscp"
+      }
+    ],
+    "status": "current"
+  },
+  "qosUnmatchedPolicyTableGroup": {
+    "name": "qosUnmatchedPolicyTableGroup",
+    "oid": "1.3.6.1.4.1.9.18.2.1.1.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosUnmatchedPolicyRole"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosUnmatchedPolicyDirection"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosUnmatchedPolicyDscp"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosUnmatchedPolicyDscpTrusted"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosUnmatchPolMicroFlowPolicerId"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosUnmatchedPolicyAggregateId"
+      }
+    ],
+    "status": "current"
+  },
+  "qosPolicerTableGroup": {
+    "name": "qosPolicerTableGroup",
+    "oid": "1.3.6.1.4.1.9.18.2.1.1.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosPolicerRate"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosPolicerNormalBurst"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosPolicerExcessBurst"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosPolicerAction"
+      }
+    ],
+    "status": "current"
+  },
+  "qosAggregateTableGroup": {
+    "name": "qosAggregateTableGroup",
+    "oid": "1.3.6.1.4.1.9.18.2.1.1.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosAggregatePolicerId"
+      }
+    ],
+    "status": "current"
+  },
+  "qosMacClassificationTableGroup": {
+    "name": "qosMacClassificationTableGroup",
+    "oid": "1.3.6.1.4.1.9.18.2.1.1.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosDstMacVlan"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosDstMacAddress"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosDstMacCos"
+      }
+    ],
+    "status": "current"
+  },
+  "qosIpAceTableGroup": {
+    "name": "qosIpAceTableGroup",
+    "oid": "1.3.6.1.4.1.9.18.2.1.1.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAceDstAddr"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAceDstAddrMask"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAceSrcAddr"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAceSrcAddrMask"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAceDscpMin"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAceDscpMax"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAceProtocol"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAceDstL4PortMin"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAceDstL4PortMax"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAceSrcL4PortMin"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAceSrcL4PortMax"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAcePermit"
+      }
+    ],
+    "status": "current"
+  },
+  "qosIpAclDefinitionTableGroup": {
+    "name": "qosIpAclDefinitionTableGroup",
+    "oid": "1.3.6.1.4.1.9.18.2.1.1.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAclId"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAceOrder"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAclDefAceId"
+      }
+    ],
+    "status": "current"
+  },
+  "qosIpAclActionTableGroup": {
+    "name": "qosIpAclActionTableGroup",
+    "oid": "1.3.6.1.4.1.9.18.2.1.1.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAclActAclId"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAclInterfaceRoles"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAclInterfaceDirection"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAclOrder"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAclDscp"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAclDscpTrusted"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAclMicroFlowPolicerId"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIpAclAggregateId"
+      }
+    ],
+    "status": "current"
+  },
+  "qosIfSchedulingPreferencesTableGroup": {
+    "name": "qosIfSchedulingPreferencesTableGroup",
+    "oid": "1.3.6.1.4.1.9.18.2.1.1.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfSchedulingRoles"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfSchedulingPreference"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfSchedulingDiscipline"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfSchedulingQueueType"
+      }
+    ],
+    "status": "current"
+  },
+  "qosIfDropPreferenceTableGroup": {
+    "name": "qosIfDropPreferenceTableGroup",
+    "oid": "1.3.6.1.4.1.9.18.2.1.1.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfDropRoles"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfDropPreference"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfDropDiscipline"
+      }
+    ],
+    "status": "current"
+  },
+  "qosIfDscpAssignmentTableGroup": {
+    "name": "qosIfDscpAssignmentTableGroup",
+    "oid": "1.3.6.1.4.1.9.18.2.1.1.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfDscpRoles"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfQueueType"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfDscp"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfQueue"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfThresholdSet"
+      }
+    ],
+    "status": "current"
+  },
+  "qosIfRedTableGroup": {
+    "name": "qosIfRedTableGroup",
+    "oid": "1.3.6.1.4.1.9.18.2.1.1.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfRedRoles"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfRedNumThresholdSets"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfRedThresholdSet"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfRedThresholdSetLower"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfRedThresholdSetUpper"
+      }
+    ],
+    "status": "current"
+  },
+  "qosIfTailDropTableGroup": {
+    "name": "qosIfTailDropTableGroup",
+    "oid": "1.3.6.1.4.1.9.18.2.1.1.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfTailDropRoles"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfTailDropNumThresholdSets"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfTailDropThresholdSet"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfTailDropThresholdSetValue"
+      }
+    ],
+    "status": "current"
+  },
+  "qosIfWeightsTableGroup": {
+    "name": "qosIfWeightsTableGroup",
+    "oid": "1.3.6.1.4.1.9.18.2.1.1.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfWeightsRoles"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfWeightsNumQueues"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfWeightsQueue"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfWeightsDrainSize"
+      },
+      {
+        "module": "CISCO-QOS-PIB-MIB",
+        "object": "qosIfWeightsQueueSize"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-QOS-PIB-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-QOS-PIB-MIB"
+  }
+}

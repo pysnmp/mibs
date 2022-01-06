@@ -1,0 +1,315 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOSB-MIB": [
+      "switch001"
+    ],
+    "CISCOSB-ROUTEMAP-MIB": [
+      "rlRouteMapPbrRouteMapName",
+      "rlRouteMapPbrRouteMapSectionId"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "rlPolicyBasedRouting": {
+    "name": "rlPolicyBasedRouting",
+    "oid": "1.3.6.1.4.1.9.6.1.101.228",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1970-01-01 00:00",
+        "description": "Added this MODULE-IDENTITY clause."
+      }
+    ]
+  },
+  "RlPBRInetType": {
+    "name": "RlPBRInetType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlPBRStatusType": {
+    "name": "RlPBRStatusType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "noIp": 2,
+          "interfaceDown": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlPBRTable": {
+    "name": "rlPBRTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.228.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPBREntry": {
+    "name": "rlPBREntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.228.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-PBR-MIB",
+        "object": "rlPBRIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-PBR-MIB",
+        "object": "rlPBRInetType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPBRIfIndex": {
+    "name": "rlPBRIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.228.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPBRInetType": {
+    "name": "rlPBRInetType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.228.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlPBRInetType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPBRRouteMapName": {
+    "name": "rlPBRRouteMapName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.228.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPBRStatus": {
+    "name": "rlPBRStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.228.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlPBRStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPBRRowStatus": {
+    "name": "rlPBRRowStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.228.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "RlPBRNexthopStatusType": {
+    "name": "RlPBRNexthopStatusType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notReachable": 2,
+          "notDirect": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlPBRInfoTable": {
+    "name": "rlPBRInfoTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.228.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPBRInfoEntry": {
+    "name": "rlPBRInfoEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.228.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-PBR-MIB",
+        "object": "rlPBRInetType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-PBR-MIB",
+        "object": "rlPBRIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-ROUTEMAP-MIB",
+        "object": "rlRouteMapPbrRouteMapName",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-ROUTEMAP-MIB",
+        "object": "rlRouteMapPbrRouteMapSectionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPBRInfoAccessListName": {
+    "name": "rlPBRInfoAccessListName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.228.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPBRInfoNexthopInetAddressType": {
+    "name": "rlPBRInfoNexthopInetAddressType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.228.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPBRInfoNexthopInetAddress": {
+    "name": "rlPBRInfoNexthopInetAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.228.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPBRInfoNexthopIfIndex": {
+    "name": "rlPBRInfoNexthopIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.228.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPBRInfoNexthopStatus": {
+    "name": "rlPBRInfoNexthopStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.228.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlPBRNexthopStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-PBR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCOSB-PBR-MIB"
+  }
+}

@@ -1,0 +1,3292 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrNone",
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
+    ]
+  },
+  "HWVlanId": {
+    "name": "HWVlanId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "HWMatchMode": {
+    "name": "HWMatchMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pvlan": 1,
+          "cvlan": 2,
+          "all": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HWTransmitAction": {
+    "name": "HWTransmitAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 1,
+          "pass": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hwDhcpSnpMib": {
+    "name": "hwDhcpSnpMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.112",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-08-17 00:00",
+        "description": "Modify the description of hwDhcpSnpChaddrAlarm."
+      },
+      {
+        "revision": "2016-10-28 00:00",
+        "description": "Change the DHCP Snooping Conformance."
+      },
+      {
+        "revision": "2016-10-11 00:00",
+        "description": "This MIB describes objects used for DHCP Snooping."
+      },
+      {
+        "revision": "2014-07-18 00:00",
+        "description": "This MIB describes objects used for DHCP Snooping."
+      },
+      {
+        "revision": "2014-01-27 00:00",
+        "description": "This revision adds MIB trap of bridge domain."
+      },
+      {
+        "revision": "2013-06-19 18:00",
+        "description": "This MIB describes objects used for DHCP Snooping,including configuring snooping,creating snooping bind table and collecting false packets' statistic information. When the system is attacked, some traps will be given."
+      },
+      {
+        "revision": "2006-09-16 18:00",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hwDhcpSnpObjects": {
+    "name": "hwDhcpSnpObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1",
+    "class": "objectidentity"
+  },
+  "hwDhcpSnpGlobal": {
+    "name": "hwDhcpSnpGlobal",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDhcpPktRateCheck": {
+    "name": "hwDhcpPktRateCheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDhcpPktRate": {
+    "name": "hwDhcpPktRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDhcpPktRateAlarmThreshold": {
+    "name": "hwDhcpPktRateAlarmThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDhcpPktRateAlarmEnable": {
+    "name": "hwDhcpPktRateAlarmEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDhcpSnpBindTblNomatchedArpGlobalAction": {
+    "name": "hwDhcpSnpBindTblNomatchedArpGlobalAction",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forward": 0,
+          "discard": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDhcpSnpBindTblNomatchedIpGlobalAction": {
+    "name": "hwDhcpSnpBindTblNomatchedIpGlobalAction",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forward": 0,
+          "discard": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDhcpSnpBindTblAutosaveFilename": {
+    "name": "hwDhcpSnpBindTblAutosaveFilename",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 51
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDhcpSnpBindTblAutosave": {
+    "name": "hwDhcpSnpBindTblAutosave",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDhcpSnpGlobalThreshold": {
+    "name": "hwDhcpSnpGlobalThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDhcpPktRateDiscardNum": {
+    "name": "hwDhcpPktRateDiscardNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDhcpSnpCfgTable": {
+    "name": "hwDhcpSnpCfgTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDhcpSnpCfgEntry": {
+    "name": "hwDhcpSnpCfgEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpVsiIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwDhcpSnpIfIndex": {
+    "name": "hwDhcpSnpIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDhcpSnpVlanIndex": {
+    "name": "hwDhcpSnpVlanIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDhcpSnpVsiIndex": {
+    "name": "hwDhcpSnpVsiIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDhcpSnpEnable": {
+    "name": "hwDhcpSnpEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpTrusted": {
+    "name": "hwDhcpTrusted",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trusted": 1,
+          "untrusted": 0
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpOption82Insert": {
+    "name": "hwDhcpOption82Insert",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpOption82Rebuild": {
+    "name": "hwDhcpOption82Rebuild",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpChaddrCheck": {
+    "name": "hwDhcpChaddrCheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpChaddrAlarmThreshold": {
+    "name": "hwDhcpChaddrAlarmThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpChaddrAlarmEnable": {
+    "name": "hwDhcpChaddrAlarmEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpArpCheck": {
+    "name": "hwDhcpArpCheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpBindTblNomatchedArpAction": {
+    "name": "hwDhcpSnpBindTblNomatchedArpAction",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forward": 0,
+          "discard": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "discard",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDhcpArpAlarmThreshold": {
+    "name": "hwDhcpArpAlarmThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpArpAlarmEnable": {
+    "name": "hwDhcpArpAlarmEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpIpCheck": {
+    "name": "hwDhcpIpCheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpBindTblNomatchedIpAction": {
+    "name": "hwDhcpSnpBindTblNomatchedIpAction",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forward": 0,
+          "discard": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "discard",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDhcpIpAlarmThreshold": {
+    "name": "hwDhcpIpAlarmThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpIpAlarmEnable": {
+    "name": "hwDhcpIpAlarmEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpUntrustReplyAlarmThreshold": {
+    "name": "hwDhcpUntrustReplyAlarmThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpUntrustReplyAlarmEnable": {
+    "name": "hwDhcpUntrustReplyAlarmEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpBindTblCheck": {
+    "name": "hwDhcpSnpBindTblCheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpBindTblAlarmThreshold": {
+    "name": "hwDhcpSnpBindTblAlarmThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpBindTblAlarmEnable": {
+    "name": "hwDhcpSnpBindTblAlarmEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpMatchMode": {
+    "name": "hwDhcpSnpMatchMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWMatchMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpDynamicItemCheck": {
+    "name": "hwDhcpSnpDynamicItemCheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "ipMac": 2,
+          "ipInterface": 3,
+          "ipMacInterface": 4,
+          "undo": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ipMacInterface",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpMaxUserNum": {
+    "name": "hwDhcpSnpMaxUserNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpUserLimitAlarmThreshold": {
+    "name": "hwDhcpSnpUserLimitAlarmThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpUserLimitAlarmEnable": {
+    "name": "hwDhcpSnpUserLimitAlarmEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpCfgTblRowStatus": {
+    "name": "hwDhcpSnpCfgTblRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpPktIfRateCheck": {
+    "name": "hwDhcpPktIfRateCheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpPktIfRate": {
+    "name": "hwDhcpPktIfRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpPktIfRateAlarmThreshold": {
+    "name": "hwDhcpPktIfRateAlarmThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpPktIfRateAlarmEnable": {
+    "name": "hwDhcpPktIfRateAlarmEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpIfVlanOption82RemoteId": {
+    "name": "hwDhcpSnpIfVlanOption82RemoteId",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpIfVlanOption82CircuitId": {
+    "name": "hwDhcpSnpIfVlanOption82CircuitId",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpBindTable": {
+    "name": "hwDhcpSnpBindTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDhcpSnpBindEntry": {
+    "name": "hwDhcpSnpBindEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindIpIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindPVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindCVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindVRFIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindVsiIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwDhcpSnpBindIpIndex": {
+    "name": "hwDhcpSnpBindIpIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDhcpSnpBindPVlanIndex": {
+    "name": "hwDhcpSnpBindPVlanIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDhcpSnpBindCVlanIndex": {
+    "name": "hwDhcpSnpBindCVlanIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDhcpSnpBindVRFIdIndex": {
+    "name": "hwDhcpSnpBindVRFIdIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDhcpSnpBindVsiIndex": {
+    "name": "hwDhcpSnpBindVsiIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDhcpSnpBindIfDescr": {
+    "name": "hwDhcpSnpBindIfDescr",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDhcpSnpBindPVlanId": {
+    "name": "hwDhcpSnpBindPVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDhcpSnpBindCVlanId": {
+    "name": "hwDhcpSnpBindCVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDhcpSnpBindVRFId": {
+    "name": "hwDhcpSnpBindVRFId",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDhcpSnpBindVsiId": {
+    "name": "hwDhcpSnpBindVsiId",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDhcpSnpBindMac": {
+    "name": "hwDhcpSnpBindMac",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDhcpSnpBindIp": {
+    "name": "hwDhcpSnpBindIp",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDhcpSnpBindStatus": {
+    "name": "hwDhcpSnpBindStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 1,
+          "static": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDhcpSnpBindLease": {
+    "name": "hwDhcpSnpBindLease",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDhcpSnpBindRowStatus": {
+    "name": "hwDhcpSnpBindRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpFalsePktStatisticTable": {
+    "name": "hwDhcpSnpFalsePktStatisticTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDhcpSnpFalsePktStatisticEntry": {
+    "name": "hwDhcpSnpFalsePktStatisticEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpVsiIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwDhcpSnpStatisticIfDescr": {
+    "name": "hwDhcpSnpStatisticIfDescr",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDhcpSnpStatisticVlanId": {
+    "name": "hwDhcpSnpStatisticVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwChaddrNomatchSrcMacDhcpPktNum": {
+    "name": "hwChaddrNomatchSrcMacDhcpPktNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwArpNomatchSnpBindTblPktNum": {
+    "name": "hwArpNomatchSnpBindTblPktNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpNomatchSnpBindTblPktNum": {
+    "name": "hwIpNomatchSnpBindTblPktNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNomatchSnpBindTblDhcpPktNum": {
+    "name": "hwNomatchSnpBindTblDhcpPktNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUntrustedReplyPktNum": {
+    "name": "hwUntrustedReplyPktNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDhcpSnpStatisticVsiId": {
+    "name": "hwDhcpSnpStatisticVsiId",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSnpBindingItemNum": {
+    "name": "hwSnpBindingItemNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSnpCfgMaxUserNum": {
+    "name": "hwSnpCfgMaxUserNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDhcpPktIfRateDiscardNum": {
+    "name": "hwDhcpPktIfRateDiscardNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDhcpSnpCarCfgTable": {
+    "name": "hwDhcpSnpCarCfgTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDhcpSnpCarCfgEntry": {
+    "name": "hwDhcpSnpCarCfgEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwDhcpSnpCarEnable": {
+    "name": "hwDhcpSnpCarEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.16.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {}
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpCarCir": {
+    "name": "hwDhcpSnpCarCir",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.16.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpCarPir": {
+    "name": "hwDhcpSnpCarPir",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.16.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpCaCbs": {
+    "name": "hwDhcpSnpCaCbs",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.16.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 64,
+            "max": 39314432
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32768,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpCarPbs": {
+    "name": "hwDhcpSnpCarPbs",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.16.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 64,
+            "max": 39314432
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65536,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpCarYellow": {
+    "name": "hwDhcpSnpCarYellow",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.16.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWTransmitAction",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpCarRed": {
+    "name": "hwDhcpSnpCarRed",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.16.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWTransmitAction",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpCarRowStatus": {
+    "name": "hwDhcpSnpCarRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.16.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpGlobalOption82Format": {
+    "name": "hwDhcpSnpGlobalOption82Format",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hex": 1,
+          "ascii": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDhcpSnpGlobalOption82PacketFormat": {
+    "name": "hwDhcpSnpGlobalOption82PacketFormat",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "extended": 1,
+          "standard": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDhcpSnpGlobalOption82RemoteId": {
+    "name": "hwDhcpSnpGlobalOption82RemoteId",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDhcpSnpGlobalOption82RemoteIdSysName": {
+    "name": "hwDhcpSnpGlobalOption82RemoteIdSysName",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDhcpSnpGlobalOption82CircuitId": {
+    "name": "hwDhcpSnpGlobalOption82CircuitId",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDhcpSnpGlobalOption82PktFormatTable": {
+    "name": "hwDhcpSnpGlobalOption82PktFormatTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDhcpSnpGlobalOption82PktFormatEntry": {
+    "name": "hwDhcpSnpGlobalOption82PktFormatEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpGlobalOption82Type",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwDhcpSnpGlobalOption82Type": {
+    "name": "hwDhcpSnpGlobalOption82Type",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "circuitid": 1,
+          "remoteid": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDhcpSnpGlobalOption82PktFormat": {
+    "name": "hwDhcpSnpGlobalOption82PktFormat",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "common": 1,
+          "extend": 2,
+          "userdefined": 3,
+          "default": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDhcpSnpGlobalOption82DefString": {
+    "name": "hwDhcpSnpGlobalOption82DefString",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDhcpSnpStaticBindTable": {
+    "name": "hwDhcpSnpStaticBindTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDhcpSnpStaticBindEntry": {
+    "name": "hwDhcpSnpStaticBindEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStaticBindIpIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStaticBindMacIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStaticBindPVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStaticBindCVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStaticBindIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwDhcpSnpStaticBindIpIndex": {
+    "name": "hwDhcpSnpStaticBindIpIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDhcpSnpStaticBindMacIndex": {
+    "name": "hwDhcpSnpStaticBindMacIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDhcpSnpStaticBindPVlanIndex": {
+    "name": "hwDhcpSnpStaticBindPVlanIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDhcpSnpStaticBindCVlanIndex": {
+    "name": "hwDhcpSnpStaticBindCVlanIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDhcpSnpStaticBindIfIndex": {
+    "name": "hwDhcpSnpStaticBindIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.23.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDhcpSnpStaticBindRowStatus": {
+    "name": "hwDhcpSnpStaticBindRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.23.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDhcpSnpServerDetectStatus": {
+    "name": "hwDhcpSnpServerDetectStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDhcpSnpBdFalsePktTable": {
+    "name": "hwDhcpSnpBdFalsePktTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDhcpSnpBdFalsePktEntry": {
+    "name": "hwDhcpSnpBdFalsePktEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwDhcpSnpBdIndex": {
+    "name": "hwDhcpSnpBdIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32768
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBdNomatchSnpBindTblDhcpPktNum": {
+    "name": "hwBdNomatchSnpBindTblDhcpPktNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBdChaddrNomatchSrcMacDhcpPktNum": {
+    "name": "hwBdChaddrNomatchSrcMacDhcpPktNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.25.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBdArpNomatchSnpBindTblPktNum": {
+    "name": "hwBdArpNomatchSnpBindTblPktNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.25.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBdIpNomatchSnpBindTblPktNum": {
+    "name": "hwBdIpNomatchSnpBindTblPktNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.25.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBdUntrustedReplyPktNum": {
+    "name": "hwBdUntrustedReplyPktNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.25.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBdSnpBindingItemNum": {
+    "name": "hwBdSnpBindingItemNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.25.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBdSnpCfgMaxUserNum": {
+    "name": "hwBdSnpCfgMaxUserNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.25.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDhcpSnpTraps": {
+    "name": "hwDhcpSnpTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2",
+    "class": "objectidentity"
+  },
+  "hwDhcpSnpChaddrAlarm": {
+    "name": "hwDhcpSnpChaddrAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwChaddrNomatchSrcMacDhcpPktNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpNomatchSnpBindTblPktAlarm": {
+    "name": "hwArpNomatchSnpBindTblPktAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwArpNomatchSnpBindTblPktNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpNomatchSnpBindTblPktAlarm": {
+    "name": "hwIpNomatchSnpBindTblPktAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwIpNomatchSnpBindTblPktNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwUntrustedReplyPktAlarm": {
+    "name": "hwUntrustedReplyPktAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwUntrustedReplyPktNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNomatchSnpBindTblDhcpPktAlarm": {
+    "name": "hwNomatchSnpBindTblDhcpPktAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwNomatchSnpBindTblDhcpPktNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDhcpPktRateAlarm": {
+    "name": "hwDhcpPktRateAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktRateDiscardNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSnpUserNumberAlarm": {
+    "name": "hwSnpUserNumberAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSnpUserNumberAlarmIf": {
+    "name": "hwSnpUserNumberAlarmIf",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSnpUserNumberAlarmIfResume": {
+    "name": "hwSnpUserNumberAlarmIfResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSnpUserNumberAlarmVlan": {
+    "name": "hwSnpUserNumberAlarmVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSnpUserNumberAlarmVlanResume": {
+    "name": "hwSnpUserNumberAlarmVlanResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSnpUserNumberAlarmGlobal": {
+    "name": "hwSnpUserNumberAlarmGlobal",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSnpUserNumberAlarmGlobalResume": {
+    "name": "hwSnpUserNumberAlarmGlobalResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNdSnpUserNumberAlarmIf": {
+    "name": "hwNdSnpUserNumberAlarmIf",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNdSnpUserNumberAlarmIfResume": {
+    "name": "hwNdSnpUserNumberAlarmIfResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNdSnpUserNumberAlarmGlobal": {
+    "name": "hwNdSnpUserNumberAlarmGlobal",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNdSnpUserNumberAlarmGlobalResume": {
+    "name": "hwNdSnpUserNumberAlarmGlobalResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBdNomatchSnpBindTblDhcpPktAlarm": {
+    "name": "hwBdNomatchSnpBindTblDhcpPktAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdNomatchSnpBindTblDhcpPktNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBdDhcpSnpChaddrAlarm": {
+    "name": "hwBdDhcpSnpChaddrAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdChaddrNomatchSrcMacDhcpPktNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBdArpNomatchSnpBindTblPktAlarm": {
+    "name": "hwBdArpNomatchSnpBindTblPktAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdArpNomatchSnpBindTblPktNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBdIpNomatchSnpBindTblPktAlarm": {
+    "name": "hwBdIpNomatchSnpBindTblPktAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdIpNomatchSnpBindTblPktNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBdUntrustedReplyPktAlarm": {
+    "name": "hwBdUntrustedReplyPktAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdUntrustedReplyPktNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBdSnpUserNumberAlarm": {
+    "name": "hwBdSnpUserNumberAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdSnpCfgMaxUserNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDhcpSnpChaddrAlarmResume": {
+    "name": "hwDhcpSnpChaddrAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwChaddrNomatchSrcMacDhcpPktNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpNomatchSnpBindTblPktAlarmResume": {
+    "name": "hwArpNomatchSnpBindTblPktAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwArpNomatchSnpBindTblPktNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpNomatchSnpBindTblPktAlarmResume": {
+    "name": "hwIpNomatchSnpBindTblPktAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwIpNomatchSnpBindTblPktNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwUntrustedReplyPktAlarmResume": {
+    "name": "hwUntrustedReplyPktAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwUntrustedReplyPktNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNomatchSnpBindTblDhcpPktAlarmResume": {
+    "name": "hwNomatchSnpBindTblDhcpPktAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwNomatchSnpBindTblDhcpPktNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSnpUserNumberAlarmResume": {
+    "name": "hwSnpUserNumberAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDhcpSnpCompliance": {
+    "name": "hwDhcpSnpCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.3",
+    "class": "objectidentity"
+  },
+  "hwDhcpSnpMibGroups": {
+    "name": "hwDhcpSnpMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.3.1",
+    "class": "objectidentity"
+  },
+  "hwDhcpSnpCfgGroup": {
+    "name": "hwDhcpSnpCfgGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpGlobal"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktRateCheck"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktRate"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktRateAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktRateAlarmEnable"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindTblNomatchedArpGlobalAction"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindTblNomatchedIpGlobalAction"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindTblAutosaveFilename"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindTblAutosave"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpGlobalThreshold"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpEnable"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpTrusted"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpOption82Insert"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpOption82Rebuild"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpChaddrCheck"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpChaddrAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpChaddrAlarmEnable"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpArpCheck"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindTblNomatchedArpAction"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpArpAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpArpAlarmEnable"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpIpCheck"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindTblNomatchedIpAction"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpIpAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpIpAlarmEnable"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpUntrustReplyAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpUntrustReplyAlarmEnable"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindTblCheck"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindTblAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindTblAlarmEnable"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpMatchMode"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpDynamicItemCheck"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpMaxUserNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpUserLimitAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpUserLimitAlarmEnable"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpCfgTblRowStatus"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktIfRateCheck"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktIfRate"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktIfRateAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktIfRateAlarmEnable"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpIfVlanOption82RemoteId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpIfVlanOption82CircuitId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpCarEnable"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpCarCir"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpCarPir"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpCaCbs"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpCarPbs"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpCarYellow"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpCarRed"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpGlobalOption82Format"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpGlobalOption82PacketFormat"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpGlobalOption82RemoteId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpGlobalOption82RemoteIdSysName"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpGlobalOption82CircuitId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpGlobalOption82PktFormat"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpGlobalOption82DefString"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpCarRowStatus"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpServerDetectStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDhcpSnpBindGroup": {
+    "name": "hwDhcpSnpBindGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindPVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindCVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindVRFId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindMac"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindVsiId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindIp"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindStatus"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindLease"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDhcpSnpStatisticGroup": {
+    "name": "hwDhcpSnpStatisticGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwChaddrNomatchSrcMacDhcpPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwArpNomatchSnpBindTblPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwIpNomatchSnpBindTblPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwNomatchSnpBindTblDhcpPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwUntrustedReplyPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktRateDiscardNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVsiId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktIfRateDiscardNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDhcpSnpTrapGroup": {
+    "name": "hwDhcpSnpTrapGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.3.1.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpChaddrAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwArpNomatchSnpBindTblPktAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwIpNomatchSnpBindTblPktAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwUntrustedReplyPktAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwNomatchSnpBindTblDhcpPktAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktRateAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpUserNumberAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpUserNumberAlarmIf"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpUserNumberAlarmIfResume"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpUserNumberAlarmVlan"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpUserNumberAlarmVlanResume"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpUserNumberAlarmGlobal"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpUserNumberAlarmGlobalResume"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwNdSnpUserNumberAlarmIf"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwNdSnpUserNumberAlarmIfResume"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwNdSnpUserNumberAlarmGlobal"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwNdSnpUserNumberAlarmGlobalResume"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdNomatchSnpBindTblDhcpPktAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdDhcpSnpChaddrAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdArpNomatchSnpBindTblPktAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdIpNomatchSnpBindTblPktAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdUntrustedReplyPktAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdSnpUserNumberAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpChaddrAlarmResume"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwArpNomatchSnpBindTblPktAlarmResume"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwIpNomatchSnpBindTblPktAlarmResume"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwUntrustedReplyPktAlarmResume"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwNomatchSnpBindTblDhcpPktAlarmResume"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpUserNumberAlarmResume"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDhcpSnpBdStatisticGroup": {
+    "name": "hwDhcpSnpBdStatisticGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.3.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdNomatchSnpBindTblDhcpPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdChaddrNomatchSrcMacDhcpPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdArpNomatchSnpBindTblPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdIpNomatchSnpBindTblPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdUntrustedReplyPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdSnpCfgMaxUserNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDhcpSnpCompliances": {
+    "name": "hwDhcpSnpCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.3.2",
+    "class": "objectidentity"
+  },
+  "hwDhcpSnpMibCompliance": {
+    "name": "hwDhcpSnpMibCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwDhcpSnpCfgGroup",
+        "module": "HUAWEI-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "hwDhcpSnpBindGroup",
+        "module": "HUAWEI-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "hwDhcpSnpStatisticGroup",
+        "module": "HUAWEI-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "hwDhcpSnpTrapGroup",
+        "module": "HUAWEI-DHCP-SNOOPING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-DHCP-SNOOPING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-DHCP-SNOOPING-MIB"
+  }
+}

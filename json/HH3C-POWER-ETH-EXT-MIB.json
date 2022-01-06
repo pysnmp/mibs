@@ -1,0 +1,2078 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "POWER-ETHERNET-MIB": [
+      "pethPsePortGroupIndex",
+      "pethPsePortDetectionStatus",
+      "pethMainPseGroupIndex",
+      "pethPsePortIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cPowerEthernetExt": {
+    "name": "hh3cPowerEthernetExt",
+    "oid": "1.3.6.1.4.1.25506.2.14",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-05-23 00:00",
+        "description": "Add the following nodes: hh3cPsePDDisableNotification,hh3cPsePortGroupIndex, hh3cPsePortIndex and hh3cPsePortDisableInfo."
+      },
+      {
+        "revision": "2015-07-25 00:00",
+        "description": "The initial version of this MIB module."
+      }
+    ]
+  },
+  "hh3cPsePortTable": {
+    "name": "hh3cPsePortTable",
+    "oid": "1.3.6.1.4.1.25506.2.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPsePortEntry": {
+    "name": "hh3cPsePortEntry",
+    "oid": "1.3.6.1.4.1.25506.2.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "POWER-ETHERNET-MIB",
+        "object": "pethPsePortGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "POWER-ETHERNET-MIB",
+        "object": "pethPsePortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPsePortFaultDescription": {
+    "name": "hh3cPsePortFaultDescription",
+    "oid": "1.3.6.1.4.1.25506.2.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPsePortPeakPower": {
+    "name": "hh3cPsePortPeakPower",
+    "oid": "1.3.6.1.4.1.25506.2.14.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPsePortAveragePower": {
+    "name": "hh3cPsePortAveragePower",
+    "oid": "1.3.6.1.4.1.25506.2.14.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPsePortCurrentPower": {
+    "name": "hh3cPsePortCurrentPower",
+    "oid": "1.3.6.1.4.1.25506.2.14.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPsePortPowerLimit": {
+    "name": "hh3cPsePortPowerLimit",
+    "oid": "1.3.6.1.4.1.25506.2.14.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPsePortProfileIndex": {
+    "name": "hh3cPsePortProfileIndex",
+    "oid": "1.3.6.1.4.1.25506.2.14.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cMainPseTable": {
+    "name": "hh3cMainPseTable",
+    "oid": "1.3.6.1.4.1.25506.2.14.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMainPseEntry": {
+    "name": "hh3cMainPseEntry",
+    "oid": "1.3.6.1.4.1.25506.2.14.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "POWER-ETHERNET-MIB",
+        "object": "pethMainPseGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMainPsePowerLimit": {
+    "name": "hh3cMainPsePowerLimit",
+    "oid": "1.3.6.1.4.1.25506.2.14.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cMainPseAveragePower": {
+    "name": "hh3cMainPseAveragePower",
+    "oid": "1.3.6.1.4.1.25506.2.14.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cMainPsePeakPower": {
+    "name": "hh3cMainPsePeakPower",
+    "oid": "1.3.6.1.4.1.25506.2.14.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cMainGuaranteedPowerRemaining": {
+    "name": "hh3cMainGuaranteedPowerRemaining",
+    "oid": "1.3.6.1.4.1.25506.2.14.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMainPsePriorityMode": {
+    "name": "hh3cMainPsePriorityMode",
+    "oid": "1.3.6.1.4.1.25506.2.14.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnection": 0,
+          "non-disconnection": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cMainPseLegacy": {
+    "name": "hh3cMainPseLegacy",
+    "oid": "1.3.6.1.4.1.25506.2.14.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 0,
+          "disable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cMainPsePowerPriority": {
+    "name": "hh3cMainPsePowerPriority",
+    "oid": "1.3.6.1.4.1.25506.2.14.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "high": 2,
+          "low": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPseProfilesTable": {
+    "name": "hh3cPseProfilesTable",
+    "oid": "1.3.6.1.4.1.25506.2.14.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPseProfilesEntry": {
+    "name": "hh3cPseProfilesEntry",
+    "oid": "1.3.6.1.4.1.25506.2.14.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPseProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPseProfileIndex": {
+    "name": "hh3cPseProfileIndex",
+    "oid": "1.3.6.1.4.1.25506.2.14.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPseProfileName": {
+    "name": "hh3cPseProfileName",
+    "oid": "1.3.6.1.4.1.25506.2.14.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPseProfilePowerMode": {
+    "name": "hh3cPseProfilePowerMode",
+    "oid": "1.3.6.1.4.1.25506.2.14.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "powerDisabled": 1,
+          "powerEnabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPseProfilePowerLimit": {
+    "name": "hh3cPseProfilePowerLimit",
+    "oid": "1.3.6.1.4.1.25506.2.14.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPseProfilePriority": {
+    "name": "hh3cPseProfilePriority",
+    "oid": "1.3.6.1.4.1.25506.2.14.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "high": 2,
+          "low": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPseProfilePairs": {
+    "name": "hh3cPseProfilePairs",
+    "oid": "1.3.6.1.4.1.25506.2.14.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "signal": 1,
+          "spare": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPseProfileApplyNum": {
+    "name": "hh3cPseProfileApplyNum",
+    "oid": "1.3.6.1.4.1.25506.2.14.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPseProfileRowStatus": {
+    "name": "hh3cPseProfileRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.14.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPseAutoDetectActive": {
+    "name": "hh3cPseAutoDetectActive",
+    "oid": "1.3.6.1.4.1.25506.2.14.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPsePowerMaxValue": {
+    "name": "hh3cPsePowerMaxValue",
+    "oid": "1.3.6.1.4.1.25506.2.14.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPsePolicyMode": {
+    "name": "hh3cPsePolicyMode",
+    "oid": "1.3.6.1.4.1.25506.2.14.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "priority": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPDPolicyMode": {
+    "name": "hh3cPDPolicyMode",
+    "oid": "1.3.6.1.4.1.25506.2.14.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "priority": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cpseportNotification": {
+    "name": "hh3cpseportNotification",
+    "oid": "1.3.6.1.4.1.25506.2.14.6",
+    "class": "objectidentity"
+  },
+  "hh3cpsePDChangeNotification": {
+    "name": "hh3cpsePDChangeNotification",
+    "oid": "1.3.6.1.4.1.25506.2.14.6.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "POWER-ETHERNET-MIB",
+        "object": "pethPsePortDetectionStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEDisconnectNotification": {
+    "name": "hh3cPOEDisconnectNotification",
+    "oid": "1.3.6.1.4.1.25506.2.14.6.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEAlarmModuleInfoIndex"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEModuleDisconnect"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEInputErrorNotification": {
+    "name": "hh3cPOEInputErrorNotification",
+    "oid": "1.3.6.1.4.1.25506.2.14.6.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEAlarmModuleInfoIndex"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEModuleInputError"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEOutputErrorNotification": {
+    "name": "hh3cPOEOutputErrorNotification",
+    "oid": "1.3.6.1.4.1.25506.2.14.6.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEAlarmModuleInfoIndex"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEModuleOutputError"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEOverVoltageNotification": {
+    "name": "hh3cPOEOverVoltageNotification",
+    "oid": "1.3.6.1.4.1.25506.2.14.6.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEAlarmModuleInfoIndex"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEModuleOverVoltage"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEOverTempNotification": {
+    "name": "hh3cPOEOverTempNotification",
+    "oid": "1.3.6.1.4.1.25506.2.14.6.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEAlarmModuleInfoIndex"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEModuleOverTemp"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEFanErrorNotification": {
+    "name": "hh3cPOEFanErrorNotification",
+    "oid": "1.3.6.1.4.1.25506.2.14.6.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEAlarmModuleInfoIndex"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEModuleFanError"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEModuleShutdownNotification": {
+    "name": "hh3cPOEModuleShutdownNotification",
+    "oid": "1.3.6.1.4.1.25506.2.14.6.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEAlarmModuleInfoIndex"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEModuleShutdown"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOECurRestrictedNotification": {
+    "name": "hh3cPOECurRestrictedNotification",
+    "oid": "1.3.6.1.4.1.25506.2.14.6.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEAlarmModuleInfoIndex"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEModuleCurRestricted"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEACSwitchNotification": {
+    "name": "hh3cPOEACSwitchNotification",
+    "oid": "1.3.6.1.4.1.25506.2.14.6.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEACSwitchStateIndex"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEACSwitchState"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEACInCurANotification": {
+    "name": "hh3cPOEACInCurANotification",
+    "oid": "1.3.6.1.4.1.25506.2.14.6.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEInCurAState"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEACInCurBNotification": {
+    "name": "hh3cPOEACInCurBNotification",
+    "oid": "1.3.6.1.4.1.25506.2.14.6.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEInCurBState"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEACInCurCNotification": {
+    "name": "hh3cPOEACInCurCNotification",
+    "oid": "1.3.6.1.4.1.25506.2.14.6.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEInCurCState"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEACSwitchVolABNotification": {
+    "name": "hh3cPOEACSwitchVolABNotification",
+    "oid": "1.3.6.1.4.1.25506.2.14.6.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOESwitchStateVolExIndex"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOESwitchStateInVolAB"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEACSwitchVolBCNotification": {
+    "name": "hh3cPOEACSwitchVolBCNotification",
+    "oid": "1.3.6.1.4.1.25506.2.14.6.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOESwitchStateVolExIndex"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOESwitchStateInVolBC"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEACSwitchVolCANotification": {
+    "name": "hh3cPOEACSwitchVolCANotification",
+    "oid": "1.3.6.1.4.1.25506.2.14.6.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOESwitchStateVolExIndex"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOESwitchStateInVolCA"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEDCOutVolNotification": {
+    "name": "hh3cPOEDCOutVolNotification",
+    "oid": "1.3.6.1.4.1.25506.2.14.6.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEDCOutStateIndex"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEDCOutDCVolAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEShutdownNotification": {
+    "name": "hh3cPOEShutdownNotification",
+    "oid": "1.3.6.1.4.1.25506.2.14.6.18",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hh3cPseComformance": {
+    "name": "hh3cPseComformance",
+    "oid": "1.3.6.1.4.1.25506.2.14.4",
+    "class": "objectidentity"
+  },
+  "hh3cPseCompliances": {
+    "name": "hh3cPseCompliances",
+    "oid": "1.3.6.1.4.1.25506.2.14.4.1",
+    "class": "objectidentity"
+  },
+  "hh3cPseCompliance": {
+    "name": "hh3cPseCompliance",
+    "oid": "1.3.6.1.4.1.25506.2.14.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hh3cPsePortGroup",
+        "module": "HH3C-POWER-ETH-EXT-MIB"
+      },
+      {
+        "object": "hh3cMainPseGroup",
+        "module": "HH3C-POWER-ETH-EXT-MIB"
+      },
+      {
+        "object": "hh3cPseScalarGroup",
+        "module": "HH3C-POWER-ETH-EXT-MIB"
+      },
+      {
+        "object": "hh3cPsePDNotificationGroup",
+        "module": "HH3C-POWER-ETH-EXT-MIB"
+      },
+      {
+        "object": "hh3cPseProfilesGroup",
+        "module": "HH3C-POWER-ETH-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPseGroup": {
+    "name": "hh3cPseGroup",
+    "oid": "1.3.6.1.4.1.25506.2.14.4.2",
+    "class": "objectidentity"
+  },
+  "hh3cPsePortGroup": {
+    "name": "hh3cPsePortGroup",
+    "oid": "1.3.6.1.4.1.25506.2.14.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPsePortProfileIndex"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPsePortPowerLimit"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPsePortCurrentPower"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPsePortAveragePower"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPsePortPeakPower"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPsePortFaultDescription"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cMainPsePriorityMode"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMainPseGroup": {
+    "name": "hh3cMainPseGroup",
+    "oid": "1.3.6.1.4.1.25506.2.14.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cMainPsePowerLimit"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cMainPseAveragePower"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cMainPsePeakPower"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cMainGuaranteedPowerRemaining"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPseScalarGroup": {
+    "name": "hh3cPseScalarGroup",
+    "oid": "1.3.6.1.4.1.25506.2.14.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPseAutoDetectActive"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPsePowerMaxValue"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPsePolicyMode"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPDPolicyMode"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPsePDNotificationGroup": {
+    "name": "hh3cPsePDNotificationGroup",
+    "oid": "1.3.6.1.4.1.25506.2.14.4.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cpsePDChangeNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPseProfilesGroup": {
+    "name": "hh3cPseProfilesGroup",
+    "oid": "1.3.6.1.4.1.25506.2.14.4.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPseProfileName"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPseProfilePowerMode"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPseProfilePowerLimit"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPseProfilePriority"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPseProfilePairs"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPseProfileApplyNum"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPseProfileRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEPowerThresholdLimitGroup": {
+    "name": "hh3cPOEPowerThresholdLimitGroup",
+    "oid": "1.3.6.1.4.1.25506.2.14.4.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEThresholdACMimimum"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEThresholdACMaximum"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEThresholdDCMinimum"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEThresholdDCMaximum"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEPowerSupInfoGroup": {
+    "name": "hh3cPOEPowerSupInfoGroup",
+    "oid": "1.3.6.1.4.1.25506.2.14.4.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEPowerType"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEPowerModuleNum"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOESupervisionModuleName"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOESMMajorVersion"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOESMMinorVersion"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOESMFactorName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEPowerDCOutStateGroup": {
+    "name": "hh3cPOEPowerDCOutStateGroup",
+    "oid": "1.3.6.1.4.1.25506.2.14.4.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEDCOutStateModuleNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEPowerDCOutInfoGroup": {
+    "name": "hh3cPOEPowerDCOutInfoGroup",
+    "oid": "1.3.6.1.4.1.25506.2.14.4.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEDCOutCurNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEPowerACSwitchStateModuleGroup": {
+    "name": "hh3cPOEPowerACSwitchStateModuleGroup",
+    "oid": "1.3.6.1.4.1.25506.2.14.4.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEACSwitchStateModuleNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEPowerInCurStateGroup": {
+    "name": "hh3cPOEPowerInCurStateGroup",
+    "oid": "1.3.6.1.4.1.25506.2.14.4.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEInCurStateModuleNum"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEInCurAState"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEInCurBState"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEInCurCState"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEPowerAlarmStateGroup": {
+    "name": "hh3cPOEPowerAlarmStateGroup",
+    "oid": "1.3.6.1.4.1.25506.2.14.4.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEAlarmStateModuleNum"
+      }
+    ],
+    "status": "current"
+  },
+  "ACAlarmState": {
+    "name": "ACAlarmState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "underLimit": 2,
+          "aboveLimit": 3,
+          "lackPhrase": 4,
+          "fuseBroken": 5,
+          "switchOff": 6,
+          "otherError": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DCAlarmState": {
+    "name": "DCAlarmState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "underLimit": 2,
+          "aboveLimit": 3,
+          "fuseBroken": 4,
+          "switchOff": 5,
+          "otherError": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SwitchState": {
+    "name": "SwitchState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "highVoltInput": 3,
+          "lowVoltInput": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ModuleAlarmState": {
+    "name": "ModuleAlarmState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "alarm": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cPOEPowerObjects": {
+    "name": "hh3cPOEPowerObjects",
+    "oid": "1.3.6.1.4.1.25506.2.14.8",
+    "class": "objectidentity"
+  },
+  "hh3cPOEThresholdLimitObjs": {
+    "name": "hh3cPOEThresholdLimitObjs",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.1",
+    "class": "objectidentity"
+  },
+  "hh3cPOEThresholdACMimimum": {
+    "name": "hh3cPOEThresholdACMimimum",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPOEThresholdACMaximum": {
+    "name": "hh3cPOEThresholdACMaximum",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPOEThresholdDCMinimum": {
+    "name": "hh3cPOEThresholdDCMinimum",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPOEThresholdDCMaximum": {
+    "name": "hh3cPOEThresholdDCMaximum",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPOESupModuleInfoObjs": {
+    "name": "hh3cPOESupModuleInfoObjs",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.2",
+    "class": "objectidentity"
+  },
+  "hh3cPOEPowerType": {
+    "name": "hh3cPOEPowerType",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEPowerModuleNum": {
+    "name": "hh3cPOEPowerModuleNum",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOESupervisionModuleName": {
+    "name": "hh3cPOESupervisionModuleName",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOESMMajorVersion": {
+    "name": "hh3cPOESMMajorVersion",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOESMMinorVersion": {
+    "name": "hh3cPOESMMinorVersion",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOESMFactorName": {
+    "name": "hh3cPOESMFactorName",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEModuleInfoTable": {
+    "name": "hh3cPOEModuleInfoTable",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPOEModuleInfoEntry": {
+    "name": "hh3cPOEModuleInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEModuleIndex": {
+    "name": "hh3cPOEModuleIndex",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cPOEModuleID": {
+    "name": "hh3cPOEModuleID",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEModuleInfoPower": {
+    "name": "hh3cPOEModuleInfoPower",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEModuleHardVerInfo": {
+    "name": "hh3cPOEModuleHardVerInfo",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEDCOutStateObjects": {
+    "name": "hh3cPOEDCOutStateObjects",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.3",
+    "class": "objectidentity"
+  },
+  "hh3cPOEDCOutStateModuleNum": {
+    "name": "hh3cPOEDCOutStateModuleNum",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEDCOutStateTable": {
+    "name": "hh3cPOEDCOutStateTable",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPOEDCOutStateEntry": {
+    "name": "hh3cPOEDCOutStateEntry",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEDCOutStateIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEDCOutStateIndex": {
+    "name": "hh3cPOEDCOutStateIndex",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cPOEDCOutDCVolAlarm": {
+    "name": "hh3cPOEDCOutDCVolAlarm",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DCAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEDCOutInfoObjects": {
+    "name": "hh3cPOEDCOutInfoObjects",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.4",
+    "class": "objectidentity"
+  },
+  "hh3cPOEDCOutCurNum": {
+    "name": "hh3cPOEDCOutCurNum",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEDCOutInfoTable": {
+    "name": "hh3cPOEDCOutInfoTable",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPOEDCOutInfoEntry": {
+    "name": "hh3cPOEDCOutInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEDCOutInfoIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEDCOutInfoIndex": {
+    "name": "hh3cPOEDCOutInfoIndex",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cPOEDCOutVol": {
+    "name": "hh3cPOEDCOutVol",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEDCOutInfoLoadCur": {
+    "name": "hh3cPOEDCOutInfoLoadCur",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEACSwitchStateModuleObjs": {
+    "name": "hh3cPOEACSwitchStateModuleObjs",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.5",
+    "class": "objectidentity"
+  },
+  "hh3cPOEACSwitchStateModuleNum": {
+    "name": "hh3cPOEACSwitchStateModuleNum",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEACSwitchStateTable": {
+    "name": "hh3cPOEACSwitchStateTable",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPOEACSwitchStateEntry": {
+    "name": "hh3cPOEACSwitchStateEntry",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEACSwitchStateIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEACSwitchStateIndex": {
+    "name": "hh3cPOEACSwitchStateIndex",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cPOEACSwitchState": {
+    "name": "hh3cPOEACSwitchState",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEInCurStateObjects": {
+    "name": "hh3cPOEInCurStateObjects",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.6",
+    "class": "objectidentity"
+  },
+  "hh3cPOEInCurStateModuleNum": {
+    "name": "hh3cPOEInCurStateModuleNum",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEInCurAState": {
+    "name": "hh3cPOEInCurAState",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ACAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEInCurBState": {
+    "name": "hh3cPOEInCurBState",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ACAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEInCurCState": {
+    "name": "hh3cPOEInCurCState",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ACAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOESwitchStateVolExTable": {
+    "name": "hh3cPOESwitchStateVolExTable",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.6.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPOESwitchStateVolExEntry": {
+    "name": "hh3cPOESwitchStateVolExEntry",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.6.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOESwitchStateVolExIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOESwitchStateVolExIndex": {
+    "name": "hh3cPOESwitchStateVolExIndex",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.6.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cPOESwitchStateInVolAB": {
+    "name": "hh3cPOESwitchStateInVolAB",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.6.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ACAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOESwitchStateInVolBC": {
+    "name": "hh3cPOESwitchStateInVolBC",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.6.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ACAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOESwitchStateInVolCA": {
+    "name": "hh3cPOESwitchStateInVolCA",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.6.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ACAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEAlarmStateObjects": {
+    "name": "hh3cPOEAlarmStateObjects",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.7",
+    "class": "objectidentity"
+  },
+  "hh3cPOEAlarmStateModuleNum": {
+    "name": "hh3cPOEAlarmStateModuleNum",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEAlarmStateInfoTable": {
+    "name": "hh3cPOEAlarmStateInfoTable",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPOEAlarmStateInfoEntry": {
+    "name": "hh3cPOEAlarmStateInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPOEAlarmModuleInfoIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPOEAlarmModuleInfoIndex": {
+    "name": "hh3cPOEAlarmModuleInfoIndex",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cPOEModuleDisconnect": {
+    "name": "hh3cPOEModuleDisconnect",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEModuleInputError": {
+    "name": "hh3cPOEModuleInputError",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEModuleOutputError": {
+    "name": "hh3cPOEModuleOutputError",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEModuleOverVoltage": {
+    "name": "hh3cPOEModuleOverVoltage",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEModuleOverTemp": {
+    "name": "hh3cPOEModuleOverTemp",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEModuleFanError": {
+    "name": "hh3cPOEModuleFanError",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEModuleShutdown": {
+    "name": "hh3cPOEModuleShutdown",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPOEModuleCurRestricted": {
+    "name": "hh3cPOEModuleCurRestricted",
+    "oid": "1.3.6.1.4.1.25506.2.14.8.7.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "Hh3cPDDisableState": {
+    "name": "Hh3cPDDisableState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "overInrush": 1,
+          "lessMPSCurrent": 2,
+          "peakPower": 3,
+          "overVoltage": 4,
+          "underVoltage": 5,
+          "overTemperature": 6,
+          "shortCircuit": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cPseNotification": {
+    "name": "hh3cPseNotification",
+    "oid": "1.3.6.1.4.1.25506.2.14.11",
+    "class": "objectidentity"
+  },
+  "hh3cPseNotificationPrefix": {
+    "name": "hh3cPseNotificationPrefix",
+    "oid": "1.3.6.1.4.1.25506.2.14.11.0",
+    "class": "objectidentity"
+  },
+  "hh3cPsePDDisableNotification": {
+    "name": "hh3cPsePDDisableNotification",
+    "oid": "1.3.6.1.4.1.25506.2.14.11.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPsePortGroupIndex"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPsePortIndex"
+      },
+      {
+        "module": "HH3C-POWER-ETH-EXT-MIB",
+        "object": "hh3cPsePortDisableInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPseNotificationObjects": {
+    "name": "hh3cPseNotificationObjects",
+    "oid": "1.3.6.1.4.1.25506.2.14.11.1",
+    "class": "objectidentity"
+  },
+  "hh3cPsePortGroupIndex": {
+    "name": "hh3cPsePortGroupIndex",
+    "oid": "1.3.6.1.4.1.25506.2.14.11.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cPsePortIndex": {
+    "name": "hh3cPsePortIndex",
+    "oid": "1.3.6.1.4.1.25506.2.14.11.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cPsePortDisableInfo": {
+    "name": "hh3cPsePortDisableInfo",
+    "oid": "1.3.6.1.4.1.25506.2.14.11.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cPDDisableState",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-POWER-ETH-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-POWER-ETH-EXT-MIB"
+  }
+}

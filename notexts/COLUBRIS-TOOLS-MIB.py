@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module COLUBRIS-TOOLS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-TOOLS-MIB.my
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:31:59 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:36:29 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
 colubrisMgmtV2, = mibBuilder.importSymbols("COLUBRIS-SMI", "colubrisMgmtV2")
 ColubrisNotificationEnable, = mibBuilder.importSymbols("COLUBRIS-TC", "ColubrisNotificationEnable")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-Unsigned32, ModuleIdentity, Counter64, MibIdentifier, Integer32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Bits, Counter32, ObjectIdentity, IpAddress, Gauge32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "ModuleIdentity", "Counter64", "MibIdentifier", "Integer32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Bits", "Counter32", "ObjectIdentity", "IpAddress", "Gauge32", "NotificationType")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+ModuleIdentity, Counter64, Counter32, TimeTicks, Unsigned32, NotificationType, Gauge32, ObjectIdentity, IpAddress, MibIdentifier, Bits, Integer32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Counter32", "TimeTicks", "Unsigned32", "NotificationType", "Gauge32", "ObjectIdentity", "IpAddress", "MibIdentifier", "Bits", "Integer32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 colubrisToolsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 8744, 5, 12))
 if mibBuilder.loadTexts: colubrisToolsMIB.setLastUpdated('200402200000Z')
 if mibBuilder.loadTexts: colubrisToolsMIB.setOrganization('Colubris Networks, Inc.')
@@ -54,4 +54,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 colubrisToolsNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 8744, 5, 12, 3, 2, 2)).setObjects(("COLUBRIS-TOOLS-MIB", "traceStatusNotification"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     colubrisToolsNotificationGroup = colubrisToolsNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("COLUBRIS-TOOLS-MIB", colubrisToolsMIBObjects=colubrisToolsMIBObjects, colubrisToolsMIBCompliance=colubrisToolsMIBCompliance, traceStatusNotification=traceStatusNotification, traceInterface=traceInterface, colubrisToolsNotificationGroup=colubrisToolsNotificationGroup, PYSNMP_MODULE_ID=colubrisToolsMIB, traceCaptureDestinationURL=traceCaptureDestinationURL, tracePacketSize=tracePacketSize, colubrisToolsMIBCompliances=colubrisToolsMIBCompliances, colubrisToolsMIBNotifications=colubrisToolsMIBNotifications, traceTimeout=traceTimeout, traceToolConfig=traceToolConfig, traceNumberOfPackets=traceNumberOfPackets, traceNotificationEnabled=traceNotificationEnabled, traceCaptureStatus=traceCaptureStatus, traceCaptureDestination=traceCaptureDestination, colubrisToolsMIB=colubrisToolsMIB, colubrisToolsMIBGroup=colubrisToolsMIBGroup, colubrisToolsMIBGroups=colubrisToolsMIBGroups, traceCaptureFilter=traceCaptureFilter, colubrisToolsMIBNotificationPrefix=colubrisToolsMIBNotificationPrefix, colubrisToolsMIBConformance=colubrisToolsMIBConformance)
+mibBuilder.exportSymbols("COLUBRIS-TOOLS-MIB", colubrisToolsMIBCompliance=colubrisToolsMIBCompliance, colubrisToolsMIBObjects=colubrisToolsMIBObjects, traceTimeout=traceTimeout, traceInterface=traceInterface, colubrisToolsMIB=colubrisToolsMIB, traceCaptureStatus=traceCaptureStatus, traceCaptureDestination=traceCaptureDestination, colubrisToolsMIBCompliances=colubrisToolsMIBCompliances, colubrisToolsMIBGroup=colubrisToolsMIBGroup, traceToolConfig=traceToolConfig, traceNotificationEnabled=traceNotificationEnabled, traceNumberOfPackets=traceNumberOfPackets, traceCaptureDestinationURL=traceCaptureDestinationURL, colubrisToolsMIBGroups=colubrisToolsMIBGroups, colubrisToolsMIBConformance=colubrisToolsMIBConformance, traceStatusNotification=traceStatusNotification, colubrisToolsMIBNotificationPrefix=colubrisToolsMIBNotificationPrefix, colubrisToolsMIBNotifications=colubrisToolsMIBNotifications, colubrisToolsNotificationGroup=colubrisToolsNotificationGroup, tracePacketSize=tracePacketSize, traceCaptureFilter=traceCaptureFilter, PYSNMP_MODULE_ID=colubrisToolsMIB)

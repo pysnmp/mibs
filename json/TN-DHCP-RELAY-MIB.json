@@ -1,0 +1,495 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "TRANSITION-SMI": [
+      "tnProducts"
+    ]
+  },
+  "tnDhcpRelayMib": {
+    "name": "tnDhcpRelayMib",
+    "oid": "1.3.6.1.4.1.868.2.5.148",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-04-20 00:00",
+        "description": "Initial Revision of this module"
+      }
+    ]
+  },
+  "TNDhcpRelayInformationPolicyType": {
+    "name": "TNDhcpRelayInformationPolicyType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "replace": 0,
+          "keep": 1,
+          "drop": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "tnDhcpRelayMibObjects": {
+    "name": "tnDhcpRelayMibObjects",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1",
+    "class": "objectidentity"
+  },
+  "tnDhcpRelayConfig": {
+    "name": "tnDhcpRelayConfig",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.2",
+    "class": "objectidentity"
+  },
+  "tnDhcpRelayConfigGlobals": {
+    "name": "tnDhcpRelayConfigGlobals",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.2.1",
+    "class": "objectidentity"
+  },
+  "tnDhcpRelayConfigGlobalsMode": {
+    "name": "tnDhcpRelayConfigGlobalsMode",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDhcpRelayConfigGlobalsServerIpAddress": {
+    "name": "tnDhcpRelayConfigGlobalsServerIpAddress",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDhcpRelayConfigGlobalsInformationMode": {
+    "name": "tnDhcpRelayConfigGlobalsInformationMode",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDhcpRelayConfigGlobalsInformationPolicy": {
+    "name": "tnDhcpRelayConfigGlobalsInformationPolicy",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDhcpRelayInformationPolicyType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDhcpRelayStatus": {
+    "name": "tnDhcpRelayStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.3",
+    "class": "objectidentity"
+  },
+  "tnDhcpRelayStatusStatistics": {
+    "name": "tnDhcpRelayStatusStatistics",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.3.1",
+    "class": "objectidentity"
+  },
+  "tnDhcpRelayStatusStatisticsServerPacketsRelayed": {
+    "name": "tnDhcpRelayStatusStatisticsServerPacketsRelayed",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatusStatisticsServerPacketErrors": {
+    "name": "tnDhcpRelayStatusStatisticsServerPacketErrors",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatusStatisticsClientPacketsRelayed": {
+    "name": "tnDhcpRelayStatusStatisticsClientPacketsRelayed",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatusStatisticsClientPacketErrors": {
+    "name": "tnDhcpRelayStatusStatisticsClientPacketErrors",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatusStatisticsAgentOptionErrors": {
+    "name": "tnDhcpRelayStatusStatisticsAgentOptionErrors",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatusStatisticsMissingAgentOption": {
+    "name": "tnDhcpRelayStatusStatisticsMissingAgentOption",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatusStatisticsBadCircuitId": {
+    "name": "tnDhcpRelayStatusStatisticsBadCircuitId",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatusStatisticsMissingCircuitId": {
+    "name": "tnDhcpRelayStatusStatisticsMissingCircuitId",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatusStatisticsBadRemoteId": {
+    "name": "tnDhcpRelayStatusStatisticsBadRemoteId",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatusStatisticsMissingRemoteId": {
+    "name": "tnDhcpRelayStatusStatisticsMissingRemoteId",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.3.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatusStatisticsReceiveServerPackets": {
+    "name": "tnDhcpRelayStatusStatisticsReceiveServerPackets",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.3.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatusStatisticsReceiveClientPackets": {
+    "name": "tnDhcpRelayStatusStatisticsReceiveClientPackets",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.3.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatusStatisticsReceiveClientAgentOption": {
+    "name": "tnDhcpRelayStatusStatisticsReceiveClientAgentOption",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.3.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatusStatisticsReplaceAgentOption": {
+    "name": "tnDhcpRelayStatusStatisticsReplaceAgentOption",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.3.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatusStatisticsKeepAgentOption": {
+    "name": "tnDhcpRelayStatusStatisticsKeepAgentOption",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.3.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatusStatisticsDropAgentOption": {
+    "name": "tnDhcpRelayStatusStatisticsDropAgentOption",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.3.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayControl": {
+    "name": "tnDhcpRelayControl",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.4",
+    "class": "objectidentity"
+  },
+  "tnDhcpRelayControlClearStatistics": {
+    "name": "tnDhcpRelayControlClearStatistics",
+    "oid": "1.3.6.1.4.1.868.2.5.148.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDhcpRelayMibConformance": {
+    "name": "tnDhcpRelayMibConformance",
+    "oid": "1.3.6.1.4.1.868.2.5.148.2",
+    "class": "objectidentity"
+  },
+  "tnDhcpRelayMibCompliances": {
+    "name": "tnDhcpRelayMibCompliances",
+    "oid": "1.3.6.1.4.1.868.2.5.148.2.1",
+    "class": "objectidentity"
+  },
+  "tnDhcpRelayMibGroups": {
+    "name": "tnDhcpRelayMibGroups",
+    "oid": "1.3.6.1.4.1.868.2.5.148.2.2",
+    "class": "objectidentity"
+  },
+  "tnDhcpRelayConfigGlobalsInfoGroup": {
+    "name": "tnDhcpRelayConfigGlobalsInfoGroup",
+    "oid": "1.3.6.1.4.1.868.2.5.148.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN-DHCP-RELAY-MIB",
+        "object": "tnDhcpRelayConfigGlobalsMode"
+      },
+      {
+        "module": "TN-DHCP-RELAY-MIB",
+        "object": "tnDhcpRelayConfigGlobalsServerIpAddress"
+      },
+      {
+        "module": "TN-DHCP-RELAY-MIB",
+        "object": "tnDhcpRelayConfigGlobalsInformationMode"
+      },
+      {
+        "module": "TN-DHCP-RELAY-MIB",
+        "object": "tnDhcpRelayConfigGlobalsInformationPolicy"
+      }
+    ],
+    "status": "current"
+  },
+  "tnDhcpRelayStatusStatisticsInfoGroup": {
+    "name": "tnDhcpRelayStatusStatisticsInfoGroup",
+    "oid": "1.3.6.1.4.1.868.2.5.148.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN-DHCP-RELAY-MIB",
+        "object": "tnDhcpRelayStatusStatisticsServerPacketsRelayed"
+      },
+      {
+        "module": "TN-DHCP-RELAY-MIB",
+        "object": "tnDhcpRelayStatusStatisticsServerPacketErrors"
+      },
+      {
+        "module": "TN-DHCP-RELAY-MIB",
+        "object": "tnDhcpRelayStatusStatisticsClientPacketsRelayed"
+      },
+      {
+        "module": "TN-DHCP-RELAY-MIB",
+        "object": "tnDhcpRelayStatusStatisticsClientPacketErrors"
+      },
+      {
+        "module": "TN-DHCP-RELAY-MIB",
+        "object": "tnDhcpRelayStatusStatisticsAgentOptionErrors"
+      },
+      {
+        "module": "TN-DHCP-RELAY-MIB",
+        "object": "tnDhcpRelayStatusStatisticsMissingAgentOption"
+      },
+      {
+        "module": "TN-DHCP-RELAY-MIB",
+        "object": "tnDhcpRelayStatusStatisticsBadCircuitId"
+      },
+      {
+        "module": "TN-DHCP-RELAY-MIB",
+        "object": "tnDhcpRelayStatusStatisticsMissingCircuitId"
+      },
+      {
+        "module": "TN-DHCP-RELAY-MIB",
+        "object": "tnDhcpRelayStatusStatisticsBadRemoteId"
+      },
+      {
+        "module": "TN-DHCP-RELAY-MIB",
+        "object": "tnDhcpRelayStatusStatisticsMissingRemoteId"
+      },
+      {
+        "module": "TN-DHCP-RELAY-MIB",
+        "object": "tnDhcpRelayStatusStatisticsReceiveServerPackets"
+      },
+      {
+        "module": "TN-DHCP-RELAY-MIB",
+        "object": "tnDhcpRelayStatusStatisticsReceiveClientPackets"
+      },
+      {
+        "module": "TN-DHCP-RELAY-MIB",
+        "object": "tnDhcpRelayStatusStatisticsReceiveClientAgentOption"
+      },
+      {
+        "module": "TN-DHCP-RELAY-MIB",
+        "object": "tnDhcpRelayStatusStatisticsReplaceAgentOption"
+      },
+      {
+        "module": "TN-DHCP-RELAY-MIB",
+        "object": "tnDhcpRelayStatusStatisticsKeepAgentOption"
+      },
+      {
+        "module": "TN-DHCP-RELAY-MIB",
+        "object": "tnDhcpRelayStatusStatisticsDropAgentOption"
+      }
+    ],
+    "status": "current"
+  },
+  "tnDhcpRelayControlInfoGroup": {
+    "name": "tnDhcpRelayControlInfoGroup",
+    "oid": "1.3.6.1.4.1.868.2.5.148.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN-DHCP-RELAY-MIB",
+        "object": "tnDhcpRelayControlClearStatistics"
+      }
+    ],
+    "status": "current"
+  },
+  "tnDhcpRelayMibCompliance": {
+    "name": "tnDhcpRelayMibCompliance",
+    "oid": "1.3.6.1.4.1.868.2.5.148.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "tnDhcpRelayConfigGlobalsInfoGroup",
+        "module": "TN-DHCP-RELAY-MIB"
+      },
+      {
+        "object": "tnDhcpRelayStatusStatisticsInfoGroup",
+        "module": "TN-DHCP-RELAY-MIB"
+      },
+      {
+        "object": "tnDhcpRelayControlInfoGroup",
+        "module": "TN-DHCP-RELAY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-DHCP-RELAY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-DHCP-RELAY-MIB"
+  }
+}

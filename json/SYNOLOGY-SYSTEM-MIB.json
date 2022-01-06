@@ -1,0 +1,285 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "synoSystem": {
+    "name": "synoSystem",
+    "oid": "1.3.6.1.4.1.6574.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-09-11 00:00",
+        "description": "Second draft."
+      }
+    ]
+  },
+  "synology": {
+    "name": "synology",
+    "oid": "1.3.6.1.4.1.6574",
+    "class": "objectidentity"
+  },
+  "systemStatus": {
+    "name": "systemStatus",
+    "oid": "1.3.6.1.4.1.6574.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperature": {
+    "name": "temperature",
+    "oid": "1.3.6.1.4.1.6574.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerStatus": {
+    "name": "powerStatus",
+    "oid": "1.3.6.1.4.1.6574.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fan": {
+    "name": "fan",
+    "oid": "1.3.6.1.4.1.6574.1.4",
+    "class": "objectidentity"
+  },
+  "systemFanStatus": {
+    "name": "systemFanStatus",
+    "oid": "1.3.6.1.4.1.6574.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuFanStatus": {
+    "name": "cpuFanStatus",
+    "oid": "1.3.6.1.4.1.6574.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsmInfo": {
+    "name": "dsmInfo",
+    "oid": "1.3.6.1.4.1.6574.1.5",
+    "class": "objectidentity"
+  },
+  "modelName": {
+    "name": "modelName",
+    "oid": "1.3.6.1.4.1.6574.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serialNumber": {
+    "name": "serialNumber",
+    "oid": "1.3.6.1.4.1.6574.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "version": {
+    "name": "version",
+    "oid": "1.3.6.1.4.1.6574.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upgradeAvailable": {
+    "name": "upgradeAvailable",
+    "oid": "1.3.6.1.4.1.6574.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemConformance": {
+    "name": "systemConformance",
+    "oid": "1.3.6.1.4.1.6574.1.6",
+    "class": "objectidentity"
+  },
+  "systemCompliances": {
+    "name": "systemCompliances",
+    "oid": "1.3.6.1.4.1.6574.1.6.1",
+    "class": "objectidentity"
+  },
+  "systemGroups": {
+    "name": "systemGroups",
+    "oid": "1.3.6.1.4.1.6574.1.6.2",
+    "class": "objectidentity"
+  },
+  "systemCompliance": {
+    "name": "systemCompliance",
+    "oid": "1.3.6.1.4.1.6574.1.6.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "systemGroup",
+        "module": "SYNOLOGY-SYSTEM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "systemGroup": {
+    "name": "systemGroup",
+    "oid": "1.3.6.1.4.1.6574.1.6.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SYNOLOGY-SYSTEM-MIB",
+        "object": "systemStatus"
+      },
+      {
+        "module": "SYNOLOGY-SYSTEM-MIB",
+        "object": "temperature"
+      },
+      {
+        "module": "SYNOLOGY-SYSTEM-MIB",
+        "object": "powerStatus"
+      },
+      {
+        "module": "SYNOLOGY-SYSTEM-MIB",
+        "object": "systemFanStatus"
+      },
+      {
+        "module": "SYNOLOGY-SYSTEM-MIB",
+        "object": "cpuFanStatus"
+      },
+      {
+        "module": "SYNOLOGY-SYSTEM-MIB",
+        "object": "modelName"
+      },
+      {
+        "module": "SYNOLOGY-SYSTEM-MIB",
+        "object": "serialNumber"
+      },
+      {
+        "module": "SYNOLOGY-SYSTEM-MIB",
+        "object": "version"
+      },
+      {
+        "module": "SYNOLOGY-SYSTEM-MIB",
+        "object": "upgradeAvailable"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/synology/SYNOLOGY-SYSTEM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SYNOLOGY-SYSTEM-MIB"
+  }
+}

@@ -1,0 +1,4939 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "hwSecurityMIB": {
+    "name": "hwSecurityMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.165",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-08-18 10:14",
+        "description": "Add node for hwL3LoopDetectAlarm and hwL3LoopDetectAlarmResume"
+      },
+      {
+        "revision": "2017-08-17 15:17",
+        "description": "Modify description of hwBaseSecurityMaDiscardedRateResume "
+      },
+      {
+        "revision": "2017-07-20 15:40",
+        "description": "Add hwCpcarAutoPortDefendAlarm for cpcar"
+      },
+      {
+        "revision": "2017-04-08 14:40",
+        "description": "Add hwCpcarAutoPortDefendAlarmResume for cpcar"
+      },
+      {
+        "revision": "2017-04-08 14:40",
+        "description": "Add hwStrackUserAbnormal for security trap"
+      },
+      {
+        "revision": "2017-01-25 15:58",
+        "description": "Add hwCpcarDropPacketAlarmResume for cpcar"
+      },
+      {
+        "revision": "2015-03-24 10:12",
+        "description": "CP-CAR Add hwAppliApperProtocolDescirption hwTcpIpDefendProtocolDescirption"
+      },
+      {
+        "revision": "2014-04-04 13:01",
+        "description": "SOC modify SeqNo"
+      },
+      {
+        "revision": "2013-03-06 14:43",
+        "description": "SOC add IPv6"
+      },
+      {
+        "revision": "2013-04-08 16:53",
+        "description": "Add ipprotocol(19) for hwMaDefendProtocol ."
+      },
+      {
+        "revision": "2013-04-17 11:11",
+        "description": "Add the VB object hwBaseSecurityStormControlInterfaceVlanID for hwBaseSecurityStormControlInterface and hwBaseSecurityStormControlInterfaceResume"
+      },
+      {
+        "revision": "2013-05-20 14:04",
+        "description": "Add telnetv6Server(64),telnetv6Client(65),tftpv6Client(66),icmpv6(67),dnsv6(68),pimv6(69),sshv6Server(70),ospfv3(71),bgpv6(72),ftpv6Client(73),ftpv6Server(74) for hwAppliApperProtocol"
+      },
+      {
+        "revision": "2013-06-05 17:56",
+        "description": "Add the indispensable fields, e.g. chassisid and slotid for hwBaseSecurityUrpfDiscardedRateRising, hwBaseSecurityUrpfDiscardedRateResume, hwBaseSecurityTcpIpAttackDiscardedRateRising, hwBaseSecurityTcpIpAttackDiscardedRateResume, hwBaseSecurityMaDiscardedRateRising, hwBaseSecurityMaDiscardedRateResume, hwBaseSecurityApplicationApperceiveDiscardedRateRising and hwBaseSecurityApplicationApperceiveDiscardedRateResume"
+      },
+      {
+        "revision": "2013-10-18 11:23",
+        "description": "Add webAuthServer(36) for hwAppliApperProtocol"
+      },
+      {
+        "revision": "2013-10-24 15:29",
+        "description": "Add hwArpsLearnStrictCheck"
+      },
+      {
+        "revision": "2014-09-18 20:20",
+        "description": "MIB file for NETSEC."
+      },
+      {
+        "revision": "2014-09-18 20:20",
+        "description": "MIB file fo APP alarm and MADEFEND."
+      },
+      {
+        "revision": "2015-03-24 10:12",
+        "description": "Add hwDapPortChange,hwDapMibPortChange for DAP"
+      },
+      {
+        "revision": "2015-04-07 11:02",
+        "description": "Add hwBaseSecurityTtlExpiredLoop"
+      },
+      {
+        "revision": "2015-05-26 20:23",
+        "description": "Add hwBaseArpVlanCarTrap"
+      },
+      {
+        "revision": "2015-09-29 16:48",
+        "description": "Add hwCfgApTrapObject hwCfgApTrap hwCfgApTrapFailAlarm for Virtual-Access"
+      },
+      {
+        "revision": "2015-10-14 14:20",
+        "description": "Add hwAntiAttack hwAntiAttackObjectGroup hwBaseSecurityAntiAttackRateRising hwBaseSecurityAntiAttackRateResume for DFNS(LDM)"
+      },
+      {
+        "revision": "2015-11-16 14:11",
+        "description": "Add hwCpcarDropPacketAlarm for cpcar"
+      },
+      {
+        "revision": "2016-01-22 11:25",
+        "description": "Add hwMACsecFailNotify for MACsec"
+      },
+      {
+        "revision": "2016-04-20 09:24",
+        "description": "Add node for hwBaseArpVlanCarTrap and hwBaseArpVlanCarResumeTrap"
+      },
+      {
+        "revision": "2016-05-11 09:19",
+        "description": "Add hwStrackPortAtk for Auto-port-defend"
+      },
+      {
+        "revision": "2016-05-20 11:44",
+        "description": "The private mib file includes the general extent information of the device.hwDatacomm(165).hwSecurityMIB."
+      },
+      {
+        "revision": "2016-06-17 10:50",
+        "description": "Add node for hwBaseArpVlanCarEnhanceTrap and hwBaseArpVlanCarEnhanceResumeTrap"
+      },
+      {
+        "revision": "2016-10-10 21:12",
+        "description": "Add node for hwMplsTrapObject and hwMplsTrap. Add hwTeSourceInterfaceCheckTable hwTeSourceInterfaceCheckEntry.Add hwTeSourceInterfaceCheckAlarm "
+      },
+      {
+        "revision": "2016-11-04 16:50",
+        "description": "Modify the Max-access of node hwMacFilterIfIndex, hwMacFilterIfIndex , hwMacFilterMacAddr "
+      },
+      {
+        "revision": "2016-12-24 16:50",
+        "description": "Add node hwArpSourceMacSpeedLimitALarm for hwArpsTrap"
+      }
+    ]
+  },
+  "hwBaseSecurityMIBObjects": {
+    "name": "hwBaseSecurityMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1",
+    "class": "objectidentity"
+  },
+  "hwLocalUrpf": {
+    "name": "hwLocalUrpf",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.2",
+    "class": "objectidentity"
+  },
+  "hwLocalUrpfTable": {
+    "name": "hwLocalUrpfTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwLocalUrpfEntry": {
+    "name": "hwLocalUrpfEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfChassisId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwLocalUrpfChassisId": {
+    "name": "hwLocalUrpfChassisId",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clc1": 1,
+          "clc2": 2,
+          "clc3": 3,
+          "clc4": 4,
+          "clc5": 5,
+          "clc6": 6,
+          "clc7": 7,
+          "clc8": 8
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwLocalUrpfSlotId": {
+    "name": "hwLocalUrpfSlotId",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwLocalUrpfCurrentRateLow": {
+    "name": "hwLocalUrpfCurrentRateLow",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLocalUrpfCurrentRateHigh": {
+    "name": "hwLocalUrpfCurrentRateHigh",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLocalUrpfNotifyEnabledStatus": {
+    "name": "hwLocalUrpfNotifyEnabledStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLocalUrpfRateThreshold": {
+    "name": "hwLocalUrpfRateThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLocalUrpfRateInterval": {
+    "name": "hwLocalUrpfRateInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTcpIpDefend": {
+    "name": "hwTcpIpDefend",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3",
+    "class": "objectidentity"
+  },
+  "hwTcpIpDefendTable": {
+    "name": "hwTcpIpDefendTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTcpIpDefendEntry": {
+    "name": "hwTcpIpDefendEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendChassisId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendSlotId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwTcpIpDefendChassisId": {
+    "name": "hwTcpIpDefendChassisId",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clc1": 1,
+          "clc2": 2,
+          "clc3": 3,
+          "clc4": 4,
+          "clc5": 5,
+          "clc6": 6,
+          "clc7": 7,
+          "clc8": 8
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwTcpIpDefendSlotId": {
+    "name": "hwTcpIpDefendSlotId",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwTcpIpDefendType": {
+    "name": "hwTcpIpDefendType",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abnormalPacket": 1,
+          "udpPacket": 2,
+          "tcpSyn": 3,
+          "ipFragmentation": 4
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwTcpIpDefendCurrentRateLow": {
+    "name": "hwTcpIpDefendCurrentRateLow",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTcpIpDefendCurrentRateHigh": {
+    "name": "hwTcpIpDefendCurrentRateHigh",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTcpIpDefendNotifyEnabledStatus": {
+    "name": "hwTcpIpDefendNotifyEnabledStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTcpIpDefendRateThreshold": {
+    "name": "hwTcpIpDefendRateThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTcpIpDefendRateInterval": {
+    "name": "hwTcpIpDefendRateInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTcpIpDefendProtocolDescirption": {
+    "name": "hwTcpIpDefendProtocolDescirption",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMaDefend": {
+    "name": "hwMaDefend",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.4",
+    "class": "objectidentity"
+  },
+  "hwMaDefendTable": {
+    "name": "hwMaDefendTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMaDefendEntry": {
+    "name": "hwMaDefendEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendChassisId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendSlotId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMaDefendChassisId": {
+    "name": "hwMaDefendChassisId",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clc1": 1,
+          "clc2": 2,
+          "clc3": 3,
+          "clc4": 4,
+          "clc5": 5,
+          "clc6": 6,
+          "clc7": 7,
+          "clc8": 8
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMaDefendSlotId": {
+    "name": "hwMaDefendSlotId",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMaDefendProtocol": {
+    "name": "hwMaDefendProtocol",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 1,
+          "ssh": 2,
+          "snmp": 3,
+          "telnet": 4,
+          "tftp": 5,
+          "bgp": 6,
+          "ldp": 7,
+          "rsvp": 8,
+          "ospf": 9,
+          "rip": 10,
+          "isis": 11,
+          "pim": 12,
+          "ntp": 13,
+          "lspping": 14,
+          "dhcpc": 15,
+          "dhcpr": 16,
+          "tcp": 17,
+          "udp": 18,
+          "ipprotocol": 19
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMaDefendCurrentRateLow": {
+    "name": "hwMaDefendCurrentRateLow",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMaDefendCurrentRateHigh": {
+    "name": "hwMaDefendCurrentRateHigh",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMaDefendNotifyEnabledStatus": {
+    "name": "hwMaDefendNotifyEnabledStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMaDefendRateThreshold": {
+    "name": "hwMaDefendRateThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMaDefendRateInterval": {
+    "name": "hwMaDefendRateInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwApplicationApperceive": {
+    "name": "hwApplicationApperceive",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5",
+    "class": "objectidentity"
+  },
+  "hwApplicationApperceiveTable": {
+    "name": "hwApplicationApperceiveTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwApplicationApperceiveEntry": {
+    "name": "hwApplicationApperceiveEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperChassisId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAppliApperChassisId": {
+    "name": "hwAppliApperChassisId",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clc1": 1,
+          "clc2": 2,
+          "clc3": 3,
+          "clc4": 4,
+          "clc5": 5,
+          "clc6": 6,
+          "clc7": 7,
+          "clc8": 8
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwAppliApperSlotId": {
+    "name": "hwAppliApperSlotId",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwAppliApperProtocol": {
+    "name": "hwAppliApperProtocol",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftpServer": 1,
+          "sshServer": 2,
+          "snmp": 3,
+          "telnetServer": 4,
+          "tftp": 5,
+          "bgp": 6,
+          "ldp": 7,
+          "rsvp": 8,
+          "ospf": 9,
+          "rip": 10,
+          "isis": 11,
+          "sftpSever": 12,
+          "icmp": 13,
+          "msdp": 14,
+          "pim": 15,
+          "ipv4Arp": 16,
+          "bpdu": 17,
+          "dhcp": 18,
+          "lacp": 19,
+          "ntp": 20,
+          "radius": 21,
+          "hwTacacs": 22,
+          "lspPing": 23,
+          "igmp": 24,
+          "vgmp": 25,
+          "rrpp": 26,
+          "vrrp": 27,
+          "bfd": 28,
+          "mplsOam": 29,
+          "eth8021ag": 30,
+          "ftpClient": 31,
+          "telnetClient": 32,
+          "sshClient": 33,
+          "sftpClient": 34,
+          "dnsClient": 35,
+          "webAuthServer": 36,
+          "telnetv6Server": 64,
+          "telnetv6Client": 65,
+          "tftpv6Client": 66,
+          "icmpv6": 67,
+          "dnsv6": 68,
+          "pimv6": 69,
+          "sshv6Server": 70,
+          "ospfv3": 71,
+          "bgpv6": 72,
+          "ftpv6Client": 73,
+          "ftpv6Server": 74
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwAppliApperCurrentRateLow": {
+    "name": "hwAppliApperCurrentRateLow",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAppliApperCurrentRateHigh": {
+    "name": "hwAppliApperCurrentRateHigh",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAppliApperNotifyEnabledStatus": {
+    "name": "hwAppliApperNotifyEnabledStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAppliApperRateThreshold": {
+    "name": "hwAppliApperRateThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAppliApperRateInterval": {
+    "name": "hwAppliApperRateInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAppliApperProtocolDescirption": {
+    "name": "hwAppliApperProtocolDescirption",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDefdPortVlan": {
+    "name": "hwDefdPortVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.6",
+    "class": "objectidentity"
+  },
+  "hwDefdPortVlanTable": {
+    "name": "hwDefdPortVlanTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDefdPortVlanEntry": {
+    "name": "hwDefdPortVlanEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwDefdPortVlanIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwDefdPortVlanIfIndex": {
+    "name": "hwDefdPortVlanIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwDefdPortVlanIfName": {
+    "name": "hwDefdPortVlanIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDefdPortVlanId": {
+    "name": "hwDefdPortVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDefdPortVlanCheckProtocol": {
+    "name": "hwDefdPortVlanCheckProtocol",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSocAttackTrapObject": {
+    "name": "hwSocAttackTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7",
+    "class": "objectidentity"
+  },
+  "hwSocAttackInfoTable": {
+    "name": "hwSocAttackInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSocAttackInfoEntry": {
+    "name": "hwSocAttackInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackSeqNo",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSocAttackSeqNo": {
+    "name": "hwSocAttackSeqNo",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSocAttackPossib": {
+    "name": "hwSocAttackPossib",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSocAttackReason": {
+    "name": "hwSocAttackReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSocAttackIfName": {
+    "name": "hwSocAttackIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSocAttackSubIfName": {
+    "name": "hwSocAttackSubIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSocAttackVlanIndex": {
+    "name": "hwSocAttackVlanIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSocAttackUserQinQIndex": {
+    "name": "hwSocAttackUserQinQIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSocAttackMacAddr": {
+    "name": "hwSocAttackMacAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSocAttackIPAddr": {
+    "name": "hwSocAttackIPAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSocAttackIPv6Addr": {
+    "name": "hwSocAttackIPv6Addr",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBaseSecurityNotifications": {
+    "name": "hwBaseSecurityNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11",
+    "class": "objectidentity"
+  },
+  "hwBaseSecurityUrpfDiscardedRateRising": {
+    "name": "hwBaseSecurityUrpfDiscardedRateRising",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfSlotId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseSecurityUrpfDiscardedRateResume": {
+    "name": "hwBaseSecurityUrpfDiscardedRateResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfSlotId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseSecurityTcpIpAttackDiscardedRateRising": {
+    "name": "hwBaseSecurityTcpIpAttackDiscardedRateRising",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendType"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendProtocolDescirption"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseSecurityTcpIpAttackDiscardedRateResume": {
+    "name": "hwBaseSecurityTcpIpAttackDiscardedRateResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendType"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendProtocolDescirption"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseSecurityMaDiscardedRateRising": {
+    "name": "hwBaseSecurityMaDiscardedRateRising",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseSecurityMaDiscardedRateResume": {
+    "name": "hwBaseSecurityMaDiscardedRateResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseSecurityApplicationApperceiveDiscardedRateRising": {
+    "name": "hwBaseSecurityApplicationApperceiveDiscardedRateRising",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperProtocol"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperProtocolDescirption"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseSecurityApplicationApperceiveDiscardedRateResume": {
+    "name": "hwBaseSecurityApplicationApperceiveDiscardedRateResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperProtocol"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperProtocolDescirption"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseSecurityStormControlInterface": {
+    "name": "hwBaseSecurityStormControlInterface",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterfaceChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterfaceSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterfaceName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterfaceVlanID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseSocAttackTrap": {
+    "name": "hwBaseSocAttackTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackSeqNo"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackPossib"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackReason"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackSubIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackVlanIndex"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackUserQinQIndex"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackMacAddr"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackIPAddr"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackIPv6Addr"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseSocAttackResumeTrap": {
+    "name": "hwBaseSocAttackResumeTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackSeqNo"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackPossib"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackReason"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackSubIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackVlanIndex"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackUserQinQIndex"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackMacAddr"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackIPAddr"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackIPv6Addr"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseSecurityStormControlInterfaceResume": {
+    "name": "hwBaseSecurityStormControlInterfaceResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterfaceChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterfaceSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterfaceName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterfaceVlanID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseSecurityTtlExpiredLoop": {
+    "name": "hwBaseSecurityTtlExpiredLoop",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopLastRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopLastRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopRateThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseSecurityTtlExpiredLoopResume": {
+    "name": "hwBaseSecurityTtlExpiredLoopResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopLastRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopLastRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopRateThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseArpVlanCarTrap": {
+    "name": "hwBaseArpVlanCarTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarLogIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarPhyIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarVlanId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseArpVlanCarResumeTrap": {
+    "name": "hwBaseArpVlanCarResumeTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarLogIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarPhyIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarVlanId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseSecurityAntiAttackRateRising": {
+    "name": "hwBaseSecurityAntiAttackRateRising",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAntiAttackType"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAntiAttackRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAntiAttackCurrentRate"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseSecurityAntiAttackRateResume": {
+    "name": "hwBaseSecurityAntiAttackRateResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAntiAttackType"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAntiAttackRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAntiAttackCurrentRate"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseArpVlanCarEnhanceTrap": {
+    "name": "hwBaseArpVlanCarEnhanceTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarEnhanceLogIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarEnhancePhyIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarEnhancePeVlanId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarEnhanceCeVlanId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarEnhanceSampleRate"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseArpVlanCarEnhanceResumeTrap": {
+    "name": "hwBaseArpVlanCarEnhanceResumeTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarEnhanceLogIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarEnhancePhyIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarEnhancePeVlanId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarEnhanceCeVlanId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarEnhanceSampleRate"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL3LoopDetectAlarm": {
+    "name": "hwL3LoopDetectAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwL3LoopDetectChassisID"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwL3LoopDetectSlotID"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwL3LoopDetectIPAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL3LoopDetectAlarmResume": {
+    "name": "hwL3LoopDetectAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwL3LoopDetectChassisID"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwL3LoopDetectSlotID"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwL3LoopDetectIPAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMacFilter": {
+    "name": "hwMacFilter",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12",
+    "class": "objectidentity"
+  },
+  "hwMacFilterModeTable": {
+    "name": "hwMacFilterModeTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMacFilterModeEntry": {
+    "name": "hwMacFilterModeEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMacFilterIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMacFilterIfIndex": {
+    "name": "hwMacFilterIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMacFilterInterface": {
+    "name": "hwMacFilterInterface",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMacFilterEnableMode": {
+    "name": "hwMacFilterEnableMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "whitelist": 1,
+          "balcklist": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMacFilterMatchNum": {
+    "name": "hwMacFilterMatchNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMacFilterMacAddrTable": {
+    "name": "hwMacFilterMacAddrTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMacFilterMacAddrEntry": {
+    "name": "hwMacFilterMacAddrEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMacFilterIfindex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMacFilterMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMacFilterIfindex": {
+    "name": "hwMacFilterIfindex",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMacFilterInterfaceBuf": {
+    "name": "hwMacFilterInterfaceBuf",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMacFilterMacAddr": {
+    "name": "hwMacFilterMacAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBaseSecurityStormControlInterfaceObjects": {
+    "name": "hwBaseSecurityStormControlInterfaceObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.13",
+    "class": "objectidentity"
+  },
+  "hwBaseSecurityStormControlInterfaceTable": {
+    "name": "hwBaseSecurityStormControlInterfaceTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.13.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBaseSecurityStormControlInterfaceEntry": {
+    "name": "hwBaseSecurityStormControlInterfaceEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.13.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterfaceChassisId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterfaceSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseSecurityStormControlInterfaceChassisId": {
+    "name": "hwBaseSecurityStormControlInterfaceChassisId",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.13.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBaseSecurityStormControlInterfaceSlotId": {
+    "name": "hwBaseSecurityStormControlInterfaceSlotId",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.13.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBaseSecurityStormControlInterfaceName": {
+    "name": "hwBaseSecurityStormControlInterfaceName",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.13.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBaseSecurityStormControlInterfaceVlanID": {
+    "name": "hwBaseSecurityStormControlInterfaceVlanID",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.13.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBaseArpVlanCarTrapObject": {
+    "name": "hwBaseArpVlanCarTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.14",
+    "class": "objectidentity"
+  },
+  "hwBaseArpVlanCarInfoTable": {
+    "name": "hwBaseArpVlanCarInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBaseArpVlanCarInfoEntry": {
+    "name": "hwBaseArpVlanCarInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarLogIfName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarPhyIfName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseArpVlanCarLogIfName": {
+    "name": "hwBaseArpVlanCarLogIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBaseArpVlanCarPhyIfName": {
+    "name": "hwBaseArpVlanCarPhyIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBaseArpVlanCarVlanId": {
+    "name": "hwBaseArpVlanCarVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.14.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTtlExpiredLoop": {
+    "name": "hwTtlExpiredLoop",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.15",
+    "class": "objectidentity"
+  },
+  "hwTtlExpiredLoopTable": {
+    "name": "hwTtlExpiredLoopTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.15.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTtlExpiredLoopEntry": {
+    "name": "hwTtlExpiredLoopEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.15.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopChassisId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwTtlExpiredLoopChassisId": {
+    "name": "hwTtlExpiredLoopChassisId",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.15.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwTtlExpiredLoopSlotId": {
+    "name": "hwTtlExpiredLoopSlotId",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.15.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwTtlExpiredLoopLastRateLow": {
+    "name": "hwTtlExpiredLoopLastRateLow",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.15.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTtlExpiredLoopLastRateHigh": {
+    "name": "hwTtlExpiredLoopLastRateHigh",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.15.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTtlExpiredLoopCurrentRateLow": {
+    "name": "hwTtlExpiredLoopCurrentRateLow",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.15.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTtlExpiredLoopCurrentRateHigh": {
+    "name": "hwTtlExpiredLoopCurrentRateHigh",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.15.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTtlExpiredLoopRateInterval": {
+    "name": "hwTtlExpiredLoopRateInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.15.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTtlExpiredLoopRateThreshold": {
+    "name": "hwTtlExpiredLoopRateThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.15.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAntiAttack": {
+    "name": "hwAntiAttack",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.16",
+    "class": "objectidentity"
+  },
+  "hwAntiAttackTable": {
+    "name": "hwAntiAttackTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.16.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAntiAttackEntry": {
+    "name": "hwAntiAttackEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.16.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAntiAttackType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAntiAttackType": {
+    "name": "hwAntiAttackType",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.16.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abnormal": 1,
+          "fragment": 2,
+          "tcpSyn": 3,
+          "udpFlood": 4,
+          "icmpFlood": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAntiAttackRateThreshold": {
+    "name": "hwAntiAttackRateThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.16.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAntiAttackCurrentRate": {
+    "name": "hwAntiAttackCurrentRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.16.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBaseArpVlanCarEnhanceTrapObject": {
+    "name": "hwBaseArpVlanCarEnhanceTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.17",
+    "class": "objectidentity"
+  },
+  "hwBaseArpVlanCarEnhanceInfoTable": {
+    "name": "hwBaseArpVlanCarEnhanceInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.17.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBaseArpVlanCarEnhanceInfoEntry": {
+    "name": "hwBaseArpVlanCarEnhanceInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.17.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarEnhanceLogIfName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarEnhancePhyIfName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarEnhancePeVlanId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarEnhanceCeVlanId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarEnhanceSampleRate",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseArpVlanCarEnhanceLogIfName": {
+    "name": "hwBaseArpVlanCarEnhanceLogIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.17.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBaseArpVlanCarEnhancePhyIfName": {
+    "name": "hwBaseArpVlanCarEnhancePhyIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.17.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBaseArpVlanCarEnhancePeVlanId": {
+    "name": "hwBaseArpVlanCarEnhancePeVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.17.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBaseArpVlanCarEnhanceCeVlanId": {
+    "name": "hwBaseArpVlanCarEnhanceCeVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.17.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBaseArpVlanCarEnhanceSampleRate": {
+    "name": "hwBaseArpVlanCarEnhanceSampleRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.17.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3LoopDetectObject": {
+    "name": "hwL3LoopDetectObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.18",
+    "class": "objectidentity"
+  },
+  "hwL3LoopDetectTable": {
+    "name": "hwL3LoopDetectTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.18.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL3LoopDetectEntry": {
+    "name": "hwL3LoopDetectEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.18.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwL3LoopDetectChassisID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwL3LoopDetectSlotID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwL3LoopDetectIPAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwL3LoopDetectChassisID": {
+    "name": "hwL3LoopDetectChassisID",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.18.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3LoopDetectSlotID": {
+    "name": "hwL3LoopDetectSlotID",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.18.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3LoopDetectIPAddr": {
+    "name": "hwL3LoopDetectIPAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.18.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMeSecurityMIBObjects": {
+    "name": "hwMeSecurityMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2",
+    "class": "objectidentity"
+  },
+  "hwSecurityTrapObject": {
+    "name": "hwSecurityTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1",
+    "class": "objectidentity"
+  },
+  "hwStrackTrapObject": {
+    "name": "hwStrackTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.1",
+    "class": "objectidentity"
+  },
+  "hwStrackTotalPacket": {
+    "name": "hwStrackTotalPacket",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStrackEndTime": {
+    "name": "hwStrackEndTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStrackSourceMac": {
+    "name": "hwStrackSourceMac",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStrackPacketPVlan": {
+    "name": "hwStrackPacketPVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStrackPacketCVlan": {
+    "name": "hwStrackPacketCVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStrackPacketIfName": {
+    "name": "hwStrackPacketIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStrackSourceIp": {
+    "name": "hwStrackSourceIp",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStrackSlotid": {
+    "name": "hwStrackSlotid",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStrackNormalAverage": {
+    "name": "hwStrackNormalAverage",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStrackActualRate": {
+    "name": "hwStrackActualRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStrackPacketType": {
+    "name": "hwStrackPacketType",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwArpsTrapObject": {
+    "name": "hwArpsTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.2",
+    "class": "objectidentity"
+  },
+  "hwArpsSourceInterface": {
+    "name": "hwArpsSourceInterface",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwArpsSourceIp": {
+    "name": "hwArpsSourceIp",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwArpsSourceMac": {
+    "name": "hwArpsSourceMac",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwArpsPVlan": {
+    "name": "hwArpsPVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwArpsCVlan": {
+    "name": "hwArpsCVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwArpsPacketDropNum": {
+    "name": "hwArpsPacketDropNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwArpsAlarmThreshold": {
+    "name": "hwArpsAlarmThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwArpsBlockTime": {
+    "name": "hwArpsBlockTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIpsgTrapObject": {
+    "name": "hwIpsgTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.3",
+    "class": "objectidentity"
+  },
+  "hwIpsgPacketDropNum": {
+    "name": "hwIpsgPacketDropNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIpsgAlarmThreshold": {
+    "name": "hwIpsgAlarmThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIpsgSourceInterface": {
+    "name": "hwIpsgSourceInterface",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIcmpTrapObject": {
+    "name": "hwIcmpTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.4",
+    "class": "objectidentity"
+  },
+  "hwIcmpPacketDropNum": {
+    "name": "hwIcmpPacketDropNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIcmpAlarmThreshold": {
+    "name": "hwIcmpAlarmThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIcmpSourceInterface": {
+    "name": "hwIcmpSourceInterface",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwDapTrapObject": {
+    "name": "hwDapTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.5",
+    "class": "objectidentity"
+  },
+  "hwDapPortChange": {
+    "name": "hwDapPortChange",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwDapDeviceIP": {
+    "name": "hwDapDeviceIP",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCfgApTrapObject": {
+    "name": "hwCfgApTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.6",
+    "class": "objectidentity"
+  },
+  "hwCfgApUserName": {
+    "name": "hwCfgApUserName",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCfgApIPAddress": {
+    "name": "hwCfgApIPAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCfgApApID": {
+    "name": "hwCfgApApID",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCfgApOperation": {
+    "name": "hwCfgApOperation",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCfgApReason": {
+    "name": "hwCfgApReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCpcarTrapObject": {
+    "name": "hwCpcarTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.7",
+    "class": "objectidentity"
+  },
+  "hwCpcarDropPacketSlotStr": {
+    "name": "hwCpcarDropPacketSlotStr",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCpcarDropPacketProtocol": {
+    "name": "hwCpcarDropPacketProtocol",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCpcarDropPacketCir": {
+    "name": "hwCpcarDropPacketCir",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCpcarDropPacketCbs": {
+    "name": "hwCpcarDropPacketCbs",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCpcarDropPacketNum": {
+    "name": "hwCpcarDropPacketNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCpcarAutoDefendIfName": {
+    "name": "hwCpcarAutoDefendIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCpcarAutoDefendSlotStr": {
+    "name": "hwCpcarAutoDefendSlotStr",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCpcarAutoDefendProtocol": {
+    "name": "hwCpcarAutoDefendProtocol",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMACsecTrapObject": {
+    "name": "hwMACsecTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.8",
+    "class": "objectidentity"
+  },
+  "hwMACsecIfName": {
+    "name": "hwMACsecIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMACsecReason": {
+    "name": "hwMACsecReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStrackPortTrapObject": {
+    "name": "hwStrackPortTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.9",
+    "class": "objectidentity"
+  },
+  "hwStrackPortPacketIfName": {
+    "name": "hwStrackPortPacketIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStrackPortPacketType": {
+    "name": "hwStrackPortPacketType",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMplsTrapObject": {
+    "name": "hwMplsTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.10",
+    "class": "objectidentity"
+  },
+  "hwTeSourceInterfaceCheckTable": {
+    "name": "hwTeSourceInterfaceCheckTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTeSourceInterfaceCheckEntry": {
+    "name": "hwTeSourceInterfaceCheckEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwRpfTeLabel",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwRpfPortName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwRpfTeLabel": {
+    "name": "hwRpfTeLabel",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwRpfPortName": {
+    "name": "hwRpfPortName",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecurityTraps": {
+    "name": "hwSecurityTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2",
+    "class": "objectidentity"
+  },
+  "hwStrackTrap": {
+    "name": "hwStrackTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.1",
+    "class": "objectidentity"
+  },
+  "hwStrackUserInfo": {
+    "name": "hwStrackUserInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackSourceMac"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketCVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketPVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackEndTime"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackTotalPacket"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStrackIfVlanInfo": {
+    "name": "hwStrackIfVlanInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketCVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketPVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackEndTime"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackTotalPacket"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStrackDenyPacket": {
+    "name": "hwStrackDenyPacket",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackSourceMac"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackSourceIp"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketCVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketPVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStrackErrorDown": {
+    "name": "hwStrackErrorDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStrackIpInfo": {
+    "name": "hwStrackIpInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.1.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackSourceIp"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketCVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketPVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackEndTime"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackTotalPacket"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStrackUserAbnormal": {
+    "name": "hwStrackUserAbnormal",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.1.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackSlotid"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackSourceIp"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketType"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackNormalAverage"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackActualRate"
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpsTrap": {
+    "name": "hwArpsTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2",
+    "class": "objectidentity"
+  },
+  "hwArpsGatewayConflict": {
+    "name": "hwArpsGatewayConflict",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceInterface"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceIp"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceMac"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsPVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsCVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpsEntryCheck": {
+    "name": "hwArpsEntryCheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceInterface"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceIp"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceMac"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsPVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsCVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpsPacketCheck": {
+    "name": "hwArpsPacketCheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceInterface"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceIp"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceMac"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsPVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsCVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpsDaiDropALarm": {
+    "name": "hwArpsDaiDropALarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsPacketDropNum"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpGlobleSpeedLimitALarm": {
+    "name": "hwArpGlobleSpeedLimitALarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsAlarmThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpIfSpeedLimitALarm": {
+    "name": "hwArpIfSpeedLimitALarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpVlanSpeedLimitALarm": {
+    "name": "hwArpVlanSpeedLimitALarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsPVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpMissGlobleSpeedLimitALarm": {
+    "name": "hwArpMissGlobleSpeedLimitALarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsAlarmThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpMissIfSpeedLimitALarm": {
+    "name": "hwArpMissIfSpeedLimitALarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpMissVlanSpeedLimitALarm": {
+    "name": "hwArpMissVlanSpeedLimitALarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsPVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpSourceIpSpeedLimitALarm": {
+    "name": "hwArpSourceIpSpeedLimitALarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceIp"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsAlarmThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpMissSourceIpSpeedLimitALarm": {
+    "name": "hwArpMissSourceIpSpeedLimitALarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceIp"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsAlarmThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpIfRateLimitBlockALarm": {
+    "name": "hwArpIfRateLimitBlockALarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceInterface"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsBlockTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpsLearnStrictCheck": {
+    "name": "hwArpsLearnStrictCheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceInterface"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceIp"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceMac"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsPVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpSourceMacSpeedLimitALarm": {
+    "name": "hwArpSourceMacSpeedLimitALarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceMac"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsAlarmThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpsgTrap": {
+    "name": "hwIpsgTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.3",
+    "class": "objectidentity"
+  },
+  "hwIpsgDropALarm": {
+    "name": "hwIpsgDropALarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIpsgPacketDropNum"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIpsgAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIpsgSourceInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIcmpTrap": {
+    "name": "hwIcmpTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.4",
+    "class": "objectidentity"
+  },
+  "hwIcmpGlobleDropALarm": {
+    "name": "hwIcmpGlobleDropALarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIcmpAlarmThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIcmpIfDropALarm": {
+    "name": "hwIcmpIfDropALarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.4.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIcmpAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIcmpSourceInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDapTrap": {
+    "name": "hwDapTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.5",
+    "class": "objectidentity"
+  },
+  "hwDapMibPortChange": {
+    "name": "hwDapMibPortChange",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.5.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwDapPortChange"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDapMibAuthRequest": {
+    "name": "hwDapMibAuthRequest",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.5.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwDapDeviceIP"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCfgApTrap": {
+    "name": "hwCfgApTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.6",
+    "class": "objectidentity"
+  },
+  "hwCfgApTrapFailAlarm": {
+    "name": "hwCfgApTrapFailAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.6.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCfgApUserName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCfgApIPAddress"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCfgApApID"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCfgApOperation"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCfgApReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCpcarTrap": {
+    "name": "hwCpcarTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.7",
+    "class": "objectidentity"
+  },
+  "hwCpcarDropPacketAlarm": {
+    "name": "hwCpcarDropPacketAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.7.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarDropPacketSlotStr"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarDropPacketProtocol"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarDropPacketCir"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarDropPacketCbs"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarDropPacketNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCpcarDropPacketAlarmResume": {
+    "name": "hwCpcarDropPacketAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.7.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarDropPacketSlotStr"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarDropPacketProtocol"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarDropPacketCir"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarDropPacketCbs"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarDropPacketNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCpcarAutoPortDefendAlarm": {
+    "name": "hwCpcarAutoPortDefendAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.7.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarAutoDefendSlotStr"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarAutoDefendProtocol"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarAutoDefendIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCpcarAutoPortDefendAlarmResume": {
+    "name": "hwCpcarAutoPortDefendAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.7.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarAutoDefendSlotStr"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarAutoDefendProtocol"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarAutoDefendIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMACsecTrap": {
+    "name": "hwMACsecTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.8",
+    "class": "objectidentity"
+  },
+  "hwMACsecFailNotify": {
+    "name": "hwMACsecFailNotify",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.8.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMACsecIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMACsecReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStrackPortTrap": {
+    "name": "hwStrackPortTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.9",
+    "class": "objectidentity"
+  },
+  "hwStrackPortAtk": {
+    "name": "hwStrackPortAtk",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.9.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPortPacketIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPortPacketType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTrap": {
+    "name": "hwMplsTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.10",
+    "class": "objectidentity"
+  },
+  "hwTeSourceInterfaceCheckAlarm": {
+    "name": "hwTeSourceInterfaceCheckAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwRpfTeLabel"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwRpfPortName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrafficSuppression": {
+    "name": "hwTrafficSuppression",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.3",
+    "class": "objectidentity"
+  },
+  "hwTrafficSuppressionTable": {
+    "name": "hwTrafficSuppressionTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTrafficSuppressionEntry": {
+    "name": "hwTrafficSuppressionEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTrafficSuppressionIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrafficSuppressionIfIndex": {
+    "name": "hwTrafficSuppressionIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTrafficSuppressionBcastRatio": {
+    "name": "hwTrafficSuppressionBcastRatio",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSecurityConformance": {
+    "name": "hwSecurityConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11",
+    "class": "objectidentity"
+  },
+  "hwSecurityCompliances": {
+    "name": "hwSecurityCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.1",
+    "class": "objectidentity"
+  },
+  "hwSecurityCompliance": {
+    "name": "hwSecurityCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwLocalUrpfObjectGroup",
+        "module": "HUAWEI-SECURITY-MIB"
+      },
+      {
+        "object": "hwTcpIpDefendObjectGroup",
+        "module": "HUAWEI-SECURITY-MIB"
+      },
+      {
+        "object": "hwMaDefendObjectGroup",
+        "module": "HUAWEI-SECURITY-MIB"
+      },
+      {
+        "object": "hwApplicationApperceiveObjectGroup",
+        "module": "HUAWEI-SECURITY-MIB"
+      },
+      {
+        "object": "hwBaseSecurityNotificationsObjectGroup",
+        "module": "HUAWEI-SECURITY-MIB"
+      },
+      {
+        "object": "hwMeSecurityObjectGroup",
+        "module": "HUAWEI-SECURITY-MIB"
+      },
+      {
+        "object": "hwMeSecurityTrapGroup",
+        "module": "HUAWEI-SECURITY-MIB"
+      },
+      {
+        "object": "hwDefdPortVlanObjectGroup",
+        "module": "HUAWEI-SECURITY-MIB"
+      },
+      {
+        "object": "hwSocAttackTrapGroup",
+        "module": "HUAWEI-SECURITY-MIB"
+      },
+      {
+        "object": "hwAntiAttackObjectGroup",
+        "module": "HUAWEI-SECURITY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseSecurityGroups": {
+    "name": "hwBaseSecurityGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.2",
+    "class": "objectidentity"
+  },
+  "hwLocalUrpfObjectGroup": {
+    "name": "hwLocalUrpfObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfNotifyEnabledStatus"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfSlotId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTcpIpDefendObjectGroup": {
+    "name": "hwTcpIpDefendObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendNotifyEnabledStatus"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendType"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendProtocolDescirption"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMaDefendObjectGroup": {
+    "name": "hwMaDefendObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendNotifyEnabledStatus"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "hwApplicationApperceiveObjectGroup": {
+    "name": "hwApplicationApperceiveObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperNotifyEnabledStatus"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperProtocol"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperProtocolDescirption"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBaseSecurityNotificationsObjectGroup": {
+    "name": "hwBaseSecurityNotificationsObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityUrpfDiscardedRateRising"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityUrpfDiscardedRateResume"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityTcpIpAttackDiscardedRateRising"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityTcpIpAttackDiscardedRateResume"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityMaDiscardedRateRising"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityMaDiscardedRateResume"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityApplicationApperceiveDiscardedRateRising"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityApplicationApperceiveDiscardedRateResume"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterface"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSocAttackTrap"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSocAttackResumeTrap"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterfaceResume"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityTtlExpiredLoop"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityTtlExpiredLoopResume"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarTrap"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarResumeTrap"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityAntiAttackRateRising"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityAntiAttackRateResume"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarEnhanceTrap"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarEnhanceResumeTrap"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwL3LoopDetectAlarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwL3LoopDetectAlarmResume"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMeSecurityObjectGroup": {
+    "name": "hwMeSecurityObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackTotalPacket"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackEndTime"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackSourceMac"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketPVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketCVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackSourceIp"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceInterface"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceIp"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceMac"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsPVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsCVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsPacketDropNum"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsBlockTime"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIpsgPacketDropNum"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIpsgAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIpsgSourceInterface"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIcmpPacketDropNum"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIcmpAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIcmpSourceInterface"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwDapPortChange"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCfgApUserName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCfgApIPAddress"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCfgApApID"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCfgApOperation"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCfgApReason"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarDropPacketSlotStr"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarDropPacketProtocol"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarDropPacketCir"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarDropPacketCbs"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarDropPacketNum"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMACsecIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMACsecReason"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPortPacketIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPortPacketType"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarAutoDefendIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarAutoDefendSlotStr"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarAutoDefendProtocol"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwDapDeviceIP"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMeSecurityTrapGroup": {
+    "name": "hwMeSecurityTrapGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackUserInfo"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackIfVlanInfo"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackDenyPacket"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackErrorDown"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackIpInfo"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsGatewayConflict"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsEntryCheck"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsPacketCheck"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsDaiDropALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpGlobleSpeedLimitALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpIfSpeedLimitALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpVlanSpeedLimitALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpMissGlobleSpeedLimitALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpMissIfSpeedLimitALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpMissVlanSpeedLimitALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpSourceIpSpeedLimitALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpMissSourceIpSpeedLimitALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpIfRateLimitBlockALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsLearnStrictCheck"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpSourceMacSpeedLimitALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIpsgDropALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIcmpGlobleDropALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIcmpIfDropALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwDapMibPortChange"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCfgApTrapFailAlarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarDropPacketAlarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMACsecFailNotify"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPortAtk"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTeSourceInterfaceCheckAlarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarDropPacketAlarmResume"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarAutoPortDefendAlarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCpcarAutoPortDefendAlarmResume"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwDapMibAuthRequest"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDefdPortVlanObjectGroup": {
+    "name": "hwDefdPortVlanObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwDefdPortVlanIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwDefdPortVlanId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwDefdPortVlanCheckProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSocAttackTrapGroup": {
+    "name": "hwSocAttackTrapGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackSeqNo"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackPossib"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackReason"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackSubIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackVlanIndex"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackUserQinQIndex"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackMacAddr"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackIPAddr"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackIPv6Addr"
+      }
+    ],
+    "status": "current"
+  },
+  "hwAntiAttackObjectGroup": {
+    "name": "hwAntiAttackObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAntiAttackType"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAntiAttackRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAntiAttackCurrentRate"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTeSourceInterfaceCheckGroup": {
+    "name": "hwTeSourceInterfaceCheckGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwRpfTeLabel"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwRpfPortName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-SECURITY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-SECURITY-MIB"
+  }
+}

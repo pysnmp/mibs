@@ -1,0 +1,3429 @@
+{
+  "imports": {
+    "class": "imports",
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Bits",
+      "TimeTicks",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "isilon": {
+    "name": "isilon",
+    "oid": "1.3.6.1.4.1.12124",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-09-23 00:00",
+        "description": "Removed support for the iSCSI protocol in nodeProtocolPerfTable"
+      },
+      {
+        "revision": "2015-04-07 00:00",
+        "description": "MIB maintenance, using smilint to fix errors and warnings in MIB as well as improving descriptions and fixing spelling and grammar errors. Added compliance groups for SMIv2, and removed unused imports."
+      },
+      {
+        "revision": "2010-10-21 00:00",
+        "description": "The list of protocols supported by OneFS and reported in the nodeProtocolPerfEntry tables has changed: CIFS was renamed to SMB1, SMB2 was added, NFS was renamed to NFS3 (which includes also version 2), and NFS4 was added."
+      },
+      {
+        "revision": "2010-06-29 00:00",
+        "description": "diskPerfOutBytesPerSecond was renamed to diskPerfOutBitsPerSecond. The value returned by the OID was and is bits per second. ifsFreeBytes was added, comparing with ifsAvailableBytes will show space used for Virtual Hot Spares (system reserve)."
+      },
+      {
+        "revision": "2009-12-15 00:00",
+        "description": "iSCSI and SyncIQ protocols were added to nodeProtocolPerfTable."
+      },
+      {
+        "revision": "2009-11-10 00:00",
+        "description": "The following OIDs were obsoleted: clusterNetworkInBytes, clusterNetworkOutBytes, nodeNetworkInBytes, and nodeNetworkOutBytes."
+      },
+      {
+        "revision": "2009-05-29 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "cluster": {
+    "name": "cluster",
+    "oid": "1.3.6.1.4.1.12124.1",
+    "class": "objectidentity"
+  },
+  "node": {
+    "name": "node",
+    "oid": "1.3.6.1.4.1.12124.2",
+    "class": "objectidentity"
+  },
+  "local": {
+    "name": "local",
+    "oid": "1.3.6.1.4.1.12124.4",
+    "class": "objectidentity"
+  },
+  "conformance": {
+    "name": "conformance",
+    "oid": "1.3.6.1.4.1.12124.5",
+    "class": "objectidentity"
+  },
+  "clusterStatus": {
+    "name": "clusterStatus",
+    "oid": "1.3.6.1.4.1.12124.1.1",
+    "class": "objectidentity"
+  },
+  "clusterPerformance": {
+    "name": "clusterPerformance",
+    "oid": "1.3.6.1.4.1.12124.1.2",
+    "class": "objectidentity"
+  },
+  "ifsFilesystem": {
+    "name": "ifsFilesystem",
+    "oid": "1.3.6.1.4.1.12124.1.3",
+    "class": "objectidentity"
+  },
+  "licenses": {
+    "name": "licenses",
+    "oid": "1.3.6.1.4.1.12124.1.5",
+    "class": "objectidentity"
+  },
+  "quotas": {
+    "name": "quotas",
+    "oid": "1.3.6.1.4.1.12124.1.12",
+    "class": "objectidentity"
+  },
+  "snapshots": {
+    "name": "snapshots",
+    "oid": "1.3.6.1.4.1.12124.1.13",
+    "class": "objectidentity"
+  },
+  "clusterName": {
+    "name": "clusterName",
+    "oid": "1.3.6.1.4.1.12124.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clusterHealth": {
+    "name": "clusterHealth",
+    "oid": "1.3.6.1.4.1.12124.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "attn": 1,
+          "down": 2,
+          "invalid": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clusterGUID": {
+    "name": "clusterGUID",
+    "oid": "1.3.6.1.4.1.12124.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nodeCount": {
+    "name": "nodeCount",
+    "oid": "1.3.6.1.4.1.12124.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "configuredNodes": {
+    "name": "configuredNodes",
+    "oid": "1.3.6.1.4.1.12124.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onlineNodes": {
+    "name": "onlineNodes",
+    "oid": "1.3.6.1.4.1.12124.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "offlineNodes": {
+    "name": "offlineNodes",
+    "oid": "1.3.6.1.4.1.12124.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clusterIfsPerf": {
+    "name": "clusterIfsPerf",
+    "oid": "1.3.6.1.4.1.12124.1.2.1",
+    "class": "objectidentity"
+  },
+  "clusterIfsInBytes": {
+    "name": "clusterIfsInBytes",
+    "oid": "1.3.6.1.4.1.12124.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clusterIfsInBitsPerSecond": {
+    "name": "clusterIfsInBitsPerSecond",
+    "oid": "1.3.6.1.4.1.12124.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clusterIfsOutBytes": {
+    "name": "clusterIfsOutBytes",
+    "oid": "1.3.6.1.4.1.12124.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clusterIfsOutBitsPerSecond": {
+    "name": "clusterIfsOutBitsPerSecond",
+    "oid": "1.3.6.1.4.1.12124.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clusterNetworkPerf": {
+    "name": "clusterNetworkPerf",
+    "oid": "1.3.6.1.4.1.12124.1.2.2",
+    "class": "objectidentity"
+  },
+  "clusterNetworkInBytes": {
+    "name": "clusterNetworkInBytes",
+    "oid": "1.3.6.1.4.1.12124.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "clusterNetworkInBitsPerSecond": {
+    "name": "clusterNetworkInBitsPerSecond",
+    "oid": "1.3.6.1.4.1.12124.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clusterNetworkOutBytes": {
+    "name": "clusterNetworkOutBytes",
+    "oid": "1.3.6.1.4.1.12124.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "clusterNetworkOutBitsPerSecond": {
+    "name": "clusterNetworkOutBitsPerSecond",
+    "oid": "1.3.6.1.4.1.12124.1.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clusterCPUPerf": {
+    "name": "clusterCPUPerf",
+    "oid": "1.3.6.1.4.1.12124.1.2.3",
+    "class": "objectidentity"
+  },
+  "clusterCPUUser": {
+    "name": "clusterCPUUser",
+    "oid": "1.3.6.1.4.1.12124.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clusterCPUNice": {
+    "name": "clusterCPUNice",
+    "oid": "1.3.6.1.4.1.12124.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clusterCPUSystem": {
+    "name": "clusterCPUSystem",
+    "oid": "1.3.6.1.4.1.12124.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clusterCPUInterrupt": {
+    "name": "clusterCPUInterrupt",
+    "oid": "1.3.6.1.4.1.12124.1.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clusterCPUIdlePct": {
+    "name": "clusterCPUIdlePct",
+    "oid": "1.3.6.1.4.1.12124.1.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifsTotalBytes": {
+    "name": "ifsTotalBytes",
+    "oid": "1.3.6.1.4.1.12124.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifsUsedBytes": {
+    "name": "ifsUsedBytes",
+    "oid": "1.3.6.1.4.1.12124.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifsAvailableBytes": {
+    "name": "ifsAvailableBytes",
+    "oid": "1.3.6.1.4.1.12124.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifsFreeBytes": {
+    "name": "ifsFreeBytes",
+    "oid": "1.3.6.1.4.1.12124.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "accessTimeEnabled": {
+    "name": "accessTimeEnabled",
+    "oid": "1.3.6.1.4.1.12124.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "accessTimeGracePeriod": {
+    "name": "accessTimeGracePeriod",
+    "oid": "1.3.6.1.4.1.12124.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenseTable": {
+    "name": "licenseTable",
+    "oid": "1.3.6.1.4.1.12124.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "licenseEntry": {
+    "name": "licenseEntry",
+    "oid": "1.3.6.1.4.1.12124.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISILON-MIB",
+        "object": "licenseIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "licenseIndex": {
+    "name": "licenseIndex",
+    "oid": "1.3.6.1.4.1.12124.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "licenseModuleName": {
+    "name": "licenseModuleName",
+    "oid": "1.3.6.1.4.1.12124.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenseStatus": {
+    "name": "licenseStatus",
+    "oid": "1.3.6.1.4.1.12124.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": -2,
+          "expired": -1,
+          "activated": 0,
+          "evaluation": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenseExpirationDate": {
+    "name": "licenseExpirationDate",
+    "oid": "1.3.6.1.4.1.12124.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "quotaTable": {
+    "name": "quotaTable",
+    "oid": "1.3.6.1.4.1.12124.1.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "quotaEntry": {
+    "name": "quotaEntry",
+    "oid": "1.3.6.1.4.1.12124.1.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISILON-MIB",
+        "object": "quotaDomainID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "quotaDomainID": {
+    "name": "quotaDomainID",
+    "oid": "1.3.6.1.4.1.12124.1.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 48,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "quotaType": {
+    "name": "quotaType",
+    "oid": "1.3.6.1.4.1.12124.1.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "defaultUser": 0,
+          "user": 1,
+          "defaultGroup": 2,
+          "group": 3,
+          "directory": 4,
+          "special": 5,
+          "max": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "quotaID": {
+    "name": "quotaID",
+    "oid": "1.3.6.1.4.1.12124.1.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "quotaIncludesSnapshotUsage": {
+    "name": "quotaIncludesSnapshotUsage",
+    "oid": "1.3.6.1.4.1.12124.1.12.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "quotaPath": {
+    "name": "quotaPath",
+    "oid": "1.3.6.1.4.1.12124.1.12.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "quotaHardThresholdDefined": {
+    "name": "quotaHardThresholdDefined",
+    "oid": "1.3.6.1.4.1.12124.1.12.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "quotaHardThreshold": {
+    "name": "quotaHardThreshold",
+    "oid": "1.3.6.1.4.1.12124.1.12.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "quotaSoftThresholdDefined": {
+    "name": "quotaSoftThresholdDefined",
+    "oid": "1.3.6.1.4.1.12124.1.12.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "quotaSoftThreshold": {
+    "name": "quotaSoftThreshold",
+    "oid": "1.3.6.1.4.1.12124.1.12.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "quotaAdvisoryThresholdDefined": {
+    "name": "quotaAdvisoryThresholdDefined",
+    "oid": "1.3.6.1.4.1.12124.1.12.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "quotaAdvisoryThreshold": {
+    "name": "quotaAdvisoryThreshold",
+    "oid": "1.3.6.1.4.1.12124.1.12.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "quotaGracePeriod": {
+    "name": "quotaGracePeriod",
+    "oid": "1.3.6.1.4.1.12124.1.12.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "quotaUsage": {
+    "name": "quotaUsage",
+    "oid": "1.3.6.1.4.1.12124.1.12.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "quotaUsageWithOverhead": {
+    "name": "quotaUsageWithOverhead",
+    "oid": "1.3.6.1.4.1.12124.1.12.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "quotaInodeUsage": {
+    "name": "quotaInodeUsage",
+    "oid": "1.3.6.1.4.1.12124.1.12.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "quotaIncludesOverhead": {
+    "name": "quotaIncludesOverhead",
+    "oid": "1.3.6.1.4.1.12124.1.12.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotSettings": {
+    "name": "snapshotSettings",
+    "oid": "1.3.6.1.4.1.12124.1.13.1",
+    "class": "objectidentity"
+  },
+  "snapshotScheduledCreateEnabled": {
+    "name": "snapshotScheduledCreateEnabled",
+    "oid": "1.3.6.1.4.1.12124.1.13.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotScheduledDeleteEnabled": {
+    "name": "snapshotScheduledDeleteEnabled",
+    "oid": "1.3.6.1.4.1.12124.1.13.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotReservedPct": {
+    "name": "snapshotReservedPct",
+    "oid": "1.3.6.1.4.1.12124.1.13.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotRootVisibilityNFS": {
+    "name": "snapshotRootVisibilityNFS",
+    "oid": "1.3.6.1.4.1.12124.1.13.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotRootAccessNFS": {
+    "name": "snapshotRootAccessNFS",
+    "oid": "1.3.6.1.4.1.12124.1.13.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotSubdirAccessNFS": {
+    "name": "snapshotSubdirAccessNFS",
+    "oid": "1.3.6.1.4.1.12124.1.13.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotRootVisibilityCIFS": {
+    "name": "snapshotRootVisibilityCIFS",
+    "oid": "1.3.6.1.4.1.12124.1.13.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotRootAccessCIFS": {
+    "name": "snapshotRootAccessCIFS",
+    "oid": "1.3.6.1.4.1.12124.1.13.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotSubdirAccessCIFS": {
+    "name": "snapshotSubdirAccessCIFS",
+    "oid": "1.3.6.1.4.1.12124.1.13.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotRootVisibilityLocal": {
+    "name": "snapshotRootVisibilityLocal",
+    "oid": "1.3.6.1.4.1.12124.1.13.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotRootAccessLocal": {
+    "name": "snapshotRootAccessLocal",
+    "oid": "1.3.6.1.4.1.12124.1.13.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotSubdirAccessLocal": {
+    "name": "snapshotSubdirAccessLocal",
+    "oid": "1.3.6.1.4.1.12124.1.13.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotScheduleTable": {
+    "name": "snapshotScheduleTable",
+    "oid": "1.3.6.1.4.1.12124.1.13.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snapshotScheduleEntry": {
+    "name": "snapshotScheduleEntry",
+    "oid": "1.3.6.1.4.1.12124.1.13.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotScheduleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snapshotScheduleIndex": {
+    "name": "snapshotScheduleIndex",
+    "oid": "1.3.6.1.4.1.12124.1.13.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotScheduleName": {
+    "name": "snapshotScheduleName",
+    "oid": "1.3.6.1.4.1.12124.1.13.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotScheduleAlias": {
+    "name": "snapshotScheduleAlias",
+    "oid": "1.3.6.1.4.1.12124.1.13.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotScheduleNamingPattern": {
+    "name": "snapshotScheduleNamingPattern",
+    "oid": "1.3.6.1.4.1.12124.1.13.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotScheduleSchedule": {
+    "name": "snapshotScheduleSchedule",
+    "oid": "1.3.6.1.4.1.12124.1.13.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotScheduleExpiration": {
+    "name": "snapshotScheduleExpiration",
+    "oid": "1.3.6.1.4.1.12124.1.13.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotSchedulePath": {
+    "name": "snapshotSchedulePath",
+    "oid": "1.3.6.1.4.1.12124.1.13.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotTable": {
+    "name": "snapshotTable",
+    "oid": "1.3.6.1.4.1.12124.1.13.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snapshotEntry": {
+    "name": "snapshotEntry",
+    "oid": "1.3.6.1.4.1.12124.1.13.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snapshotIndex": {
+    "name": "snapshotIndex",
+    "oid": "1.3.6.1.4.1.12124.1.13.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snapshotName": {
+    "name": "snapshotName",
+    "oid": "1.3.6.1.4.1.12124.1.13.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotCreated": {
+    "name": "snapshotCreated",
+    "oid": "1.3.6.1.4.1.12124.1.13.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotExpires": {
+    "name": "snapshotExpires",
+    "oid": "1.3.6.1.4.1.12124.1.13.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotSize": {
+    "name": "snapshotSize",
+    "oid": "1.3.6.1.4.1.12124.1.13.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotPath": {
+    "name": "snapshotPath",
+    "oid": "1.3.6.1.4.1.12124.1.13.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotAliasFor": {
+    "name": "snapshotAliasFor",
+    "oid": "1.3.6.1.4.1.12124.1.13.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snapshotLocked": {
+    "name": "snapshotLocked",
+    "oid": "1.3.6.1.4.1.12124.1.13.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nodeStatus": {
+    "name": "nodeStatus",
+    "oid": "1.3.6.1.4.1.12124.2.1",
+    "class": "objectidentity"
+  },
+  "nodePerformance": {
+    "name": "nodePerformance",
+    "oid": "1.3.6.1.4.1.12124.2.2",
+    "class": "objectidentity"
+  },
+  "nodeName": {
+    "name": "nodeName",
+    "oid": "1.3.6.1.4.1.12124.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nodeHealth": {
+    "name": "nodeHealth",
+    "oid": "1.3.6.1.4.1.12124.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "attn": 1,
+          "down": 2,
+          "invalid": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nodeType": {
+    "name": "nodeType",
+    "oid": "1.3.6.1.4.1.12124.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "storage": 0,
+          "accelerator": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "readOnly": {
+    "name": "readOnly",
+    "oid": "1.3.6.1.4.1.12124.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nodeIfsPerf": {
+    "name": "nodeIfsPerf",
+    "oid": "1.3.6.1.4.1.12124.2.2.1",
+    "class": "objectidentity"
+  },
+  "nodeIfsInBytes": {
+    "name": "nodeIfsInBytes",
+    "oid": "1.3.6.1.4.1.12124.2.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nodeIfsInBitsPerSecond": {
+    "name": "nodeIfsInBitsPerSecond",
+    "oid": "1.3.6.1.4.1.12124.2.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nodeIfsOutBytes": {
+    "name": "nodeIfsOutBytes",
+    "oid": "1.3.6.1.4.1.12124.2.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nodeIfsOutBitsPerSecond": {
+    "name": "nodeIfsOutBitsPerSecond",
+    "oid": "1.3.6.1.4.1.12124.2.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nodeNetworkPerf": {
+    "name": "nodeNetworkPerf",
+    "oid": "1.3.6.1.4.1.12124.2.2.2",
+    "class": "objectidentity"
+  },
+  "nodeNetworkInBytes": {
+    "name": "nodeNetworkInBytes",
+    "oid": "1.3.6.1.4.1.12124.2.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "nodeNetworkInBitsPerSecond": {
+    "name": "nodeNetworkInBitsPerSecond",
+    "oid": "1.3.6.1.4.1.12124.2.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nodeNetworkOutBytes": {
+    "name": "nodeNetworkOutBytes",
+    "oid": "1.3.6.1.4.1.12124.2.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "nodeNetworkOutBitsPerSecond": {
+    "name": "nodeNetworkOutBitsPerSecond",
+    "oid": "1.3.6.1.4.1.12124.2.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nodeCPUPerf": {
+    "name": "nodeCPUPerf",
+    "oid": "1.3.6.1.4.1.12124.2.2.3",
+    "class": "objectidentity"
+  },
+  "nodeCPUUser": {
+    "name": "nodeCPUUser",
+    "oid": "1.3.6.1.4.1.12124.2.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nodeCPUNice": {
+    "name": "nodeCPUNice",
+    "oid": "1.3.6.1.4.1.12124.2.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nodeCPUSystem": {
+    "name": "nodeCPUSystem",
+    "oid": "1.3.6.1.4.1.12124.2.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nodeCPUInterrupt": {
+    "name": "nodeCPUInterrupt",
+    "oid": "1.3.6.1.4.1.12124.2.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nodeCPUIdle": {
+    "name": "nodeCPUIdle",
+    "oid": "1.3.6.1.4.1.12124.2.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nodeCPUPerfTable": {
+    "name": "nodeCPUPerfTable",
+    "oid": "1.3.6.1.4.1.12124.2.2.3.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nodeCPUPerfEntry": {
+    "name": "nodeCPUPerfEntry",
+    "oid": "1.3.6.1.4.1.12124.2.2.3.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISILON-MIB",
+        "object": "nodePerCPUID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nodePerCPUUser": {
+    "name": "nodePerCPUUser",
+    "oid": "1.3.6.1.4.1.12124.2.2.3.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nodePerCPUNice": {
+    "name": "nodePerCPUNice",
+    "oid": "1.3.6.1.4.1.12124.2.2.3.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nodePerCPUSystem": {
+    "name": "nodePerCPUSystem",
+    "oid": "1.3.6.1.4.1.12124.2.2.3.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nodePerCPUInterrupt": {
+    "name": "nodePerCPUInterrupt",
+    "oid": "1.3.6.1.4.1.12124.2.2.3.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nodePerCPUIdle": {
+    "name": "nodePerCPUIdle",
+    "oid": "1.3.6.1.4.1.12124.2.2.3.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nodePerCPUID": {
+    "name": "nodePerCPUID",
+    "oid": "1.3.6.1.4.1.12124.2.2.3.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nodeProtocolPerfTable": {
+    "name": "nodeProtocolPerfTable",
+    "oid": "1.3.6.1.4.1.12124.2.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nodeProtocolPerfEntry": {
+    "name": "nodeProtocolPerfEntry",
+    "oid": "1.3.6.1.4.1.12124.2.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISILON-MIB",
+        "object": "protocolName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "protocolName": {
+    "name": "protocolName",
+    "oid": "1.3.6.1.4.1.12124.2.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "protocolOpCount": {
+    "name": "protocolOpCount",
+    "oid": "1.3.6.1.4.1.12124.2.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "protocolOpsPerSecond": {
+    "name": "protocolOpsPerSecond",
+    "oid": "1.3.6.1.4.1.12124.2.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inMinBytes": {
+    "name": "inMinBytes",
+    "oid": "1.3.6.1.4.1.12124.2.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inMaxBytes": {
+    "name": "inMaxBytes",
+    "oid": "1.3.6.1.4.1.12124.2.2.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inAvgBytes": {
+    "name": "inAvgBytes",
+    "oid": "1.3.6.1.4.1.12124.2.2.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inStdDevBytes": {
+    "name": "inStdDevBytes",
+    "oid": "1.3.6.1.4.1.12124.2.2.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inBitsPerSecond": {
+    "name": "inBitsPerSecond",
+    "oid": "1.3.6.1.4.1.12124.2.2.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outMinBytes": {
+    "name": "outMinBytes",
+    "oid": "1.3.6.1.4.1.12124.2.2.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outMaxBytes": {
+    "name": "outMaxBytes",
+    "oid": "1.3.6.1.4.1.12124.2.2.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outAvgBytes": {
+    "name": "outAvgBytes",
+    "oid": "1.3.6.1.4.1.12124.2.2.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outStdDevBytes": {
+    "name": "outStdDevBytes",
+    "oid": "1.3.6.1.4.1.12124.2.2.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outBitsPerSecond": {
+    "name": "outBitsPerSecond",
+    "oid": "1.3.6.1.4.1.12124.2.2.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "latencyMin": {
+    "name": "latencyMin",
+    "oid": "1.3.6.1.4.1.12124.2.2.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "latencyMax": {
+    "name": "latencyMax",
+    "oid": "1.3.6.1.4.1.12124.2.2.10.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "latencyAverage": {
+    "name": "latencyAverage",
+    "oid": "1.3.6.1.4.1.12124.2.2.10.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "latencyStdDev": {
+    "name": "latencyStdDev",
+    "oid": "1.3.6.1.4.1.12124.2.2.10.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskPerfTable": {
+    "name": "diskPerfTable",
+    "oid": "1.3.6.1.4.1.12124.2.2.52",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diskPerfEntry": {
+    "name": "diskPerfEntry",
+    "oid": "1.3.6.1.4.1.12124.2.2.52.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISILON-MIB",
+        "object": "diskPerfBay",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diskPerfBay": {
+    "name": "diskPerfBay",
+    "oid": "1.3.6.1.4.1.12124.2.2.52.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskPerfDeviceName": {
+    "name": "diskPerfDeviceName",
+    "oid": "1.3.6.1.4.1.12124.2.2.52.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskPerfOpsPerSecond": {
+    "name": "diskPerfOpsPerSecond",
+    "oid": "1.3.6.1.4.1.12124.2.2.52.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskPerfInBitsPerSecond": {
+    "name": "diskPerfInBitsPerSecond",
+    "oid": "1.3.6.1.4.1.12124.2.2.52.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskPerfOutBitsPerSecond": {
+    "name": "diskPerfOutBitsPerSecond",
+    "oid": "1.3.6.1.4.1.12124.2.2.52.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chassisTable": {
+    "name": "chassisTable",
+    "oid": "1.3.6.1.4.1.12124.2.51",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "chassisEntry": {
+    "name": "chassisEntry",
+    "oid": "1.3.6.1.4.1.12124.2.51.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISILON-MIB",
+        "object": "chassisNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "chassisNumber": {
+    "name": "chassisNumber",
+    "oid": "1.3.6.1.4.1.12124.2.51.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chassisConfigNumber": {
+    "name": "chassisConfigNumber",
+    "oid": "1.3.6.1.4.1.12124.2.51.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chassisSerialNumber": {
+    "name": "chassisSerialNumber",
+    "oid": "1.3.6.1.4.1.12124.2.51.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chassisModel": {
+    "name": "chassisModel",
+    "oid": "1.3.6.1.4.1.12124.2.51.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chassisUnitIDLEDOn": {
+    "name": "chassisUnitIDLEDOn",
+    "oid": "1.3.6.1.4.1.12124.2.51.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": -1,
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskTable": {
+    "name": "diskTable",
+    "oid": "1.3.6.1.4.1.12124.2.52",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diskEntry": {
+    "name": "diskEntry",
+    "oid": "1.3.6.1.4.1.12124.2.52.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISILON-MIB",
+        "object": "diskBay",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diskBay": {
+    "name": "diskBay",
+    "oid": "1.3.6.1.4.1.12124.2.52.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskLogicalNumber": {
+    "name": "diskLogicalNumber",
+    "oid": "1.3.6.1.4.1.12124.2.52.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskChassisNumber": {
+    "name": "diskChassisNumber",
+    "oid": "1.3.6.1.4.1.12124.2.52.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskDeviceName": {
+    "name": "diskDeviceName",
+    "oid": "1.3.6.1.4.1.12124.2.52.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskStatus": {
+    "name": "diskStatus",
+    "oid": "1.3.6.1.4.1.12124.2.52.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskModel": {
+    "name": "diskModel",
+    "oid": "1.3.6.1.4.1.12124.2.52.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskSerialNumber": {
+    "name": "diskSerialNumber",
+    "oid": "1.3.6.1.4.1.12124.2.52.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskFirmwareVersion": {
+    "name": "diskFirmwareVersion",
+    "oid": "1.3.6.1.4.1.12124.2.52.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskSizeBytes": {
+    "name": "diskSizeBytes",
+    "oid": "1.3.6.1.4.1.12124.2.52.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanTable": {
+    "name": "fanTable",
+    "oid": "1.3.6.1.4.1.12124.2.53",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fanEntry": {
+    "name": "fanEntry",
+    "oid": "1.3.6.1.4.1.12124.2.53.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISILON-MIB",
+        "object": "fanNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fanNumber": {
+    "name": "fanNumber",
+    "oid": "1.3.6.1.4.1.12124.2.53.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanName": {
+    "name": "fanName",
+    "oid": "1.3.6.1.4.1.12124.2.53.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanDescription": {
+    "name": "fanDescription",
+    "oid": "1.3.6.1.4.1.12124.2.53.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanSpeed": {
+    "name": "fanSpeed",
+    "oid": "1.3.6.1.4.1.12124.2.53.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempSensorTable": {
+    "name": "tempSensorTable",
+    "oid": "1.3.6.1.4.1.12124.2.54",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tempSensorEntry": {
+    "name": "tempSensorEntry",
+    "oid": "1.3.6.1.4.1.12124.2.54.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISILON-MIB",
+        "object": "tempSensorNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tempSensorNumber": {
+    "name": "tempSensorNumber",
+    "oid": "1.3.6.1.4.1.12124.2.54.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempSensorName": {
+    "name": "tempSensorName",
+    "oid": "1.3.6.1.4.1.12124.2.54.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempSensorDescription": {
+    "name": "tempSensorDescription",
+    "oid": "1.3.6.1.4.1.12124.2.54.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempSensorValue": {
+    "name": "tempSensorValue",
+    "oid": "1.3.6.1.4.1.12124.2.54.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerSensorTable": {
+    "name": "powerSensorTable",
+    "oid": "1.3.6.1.4.1.12124.2.55",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "powerSensorEntry": {
+    "name": "powerSensorEntry",
+    "oid": "1.3.6.1.4.1.12124.2.55.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISILON-MIB",
+        "object": "powerSensorNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "powerSensorNumber": {
+    "name": "powerSensorNumber",
+    "oid": "1.3.6.1.4.1.12124.2.55.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerSensorName": {
+    "name": "powerSensorName",
+    "oid": "1.3.6.1.4.1.12124.2.55.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerSensorDescription": {
+    "name": "powerSensorDescription",
+    "oid": "1.3.6.1.4.1.12124.2.55.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerSensorValue": {
+    "name": "powerSensorValue",
+    "oid": "1.3.6.1.4.1.12124.2.55.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "credentialBindings": {
+    "name": "credentialBindings",
+    "oid": "1.3.6.1.4.1.12124.4.1",
+    "class": "objectidentity"
+  },
+  "clusterGroups": {
+    "name": "clusterGroups",
+    "oid": "1.3.6.1.4.1.12124.5.1",
+    "class": "objectidentity"
+  },
+  "nodeGroups": {
+    "name": "nodeGroups",
+    "oid": "1.3.6.1.4.1.12124.5.2",
+    "class": "objectidentity"
+  },
+  "clusterStatusGroup": {
+    "name": "clusterStatusGroup",
+    "oid": "1.3.6.1.4.1.12124.5.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISILON-MIB",
+        "object": "clusterName"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "clusterHealth"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "clusterGUID"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "nodeCount"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "configuredNodes"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "onlineNodes"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "offlineNodes"
+      }
+    ],
+    "status": "current"
+  },
+  "clusterPerformanceGroups": {
+    "name": "clusterPerformanceGroups",
+    "oid": "1.3.6.1.4.1.12124.5.1.2",
+    "class": "objectidentity"
+  },
+  "clusterIfsPerfGroup": {
+    "name": "clusterIfsPerfGroup",
+    "oid": "1.3.6.1.4.1.12124.5.1.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISILON-MIB",
+        "object": "clusterIfsInBytes"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "clusterIfsInBitsPerSecond"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "clusterIfsOutBytes"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "clusterIfsOutBitsPerSecond"
+      }
+    ],
+    "status": "current"
+  },
+  "clusterNetworkPerfGroup": {
+    "name": "clusterNetworkPerfGroup",
+    "oid": "1.3.6.1.4.1.12124.5.1.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISILON-MIB",
+        "object": "clusterNetworkInBytes"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "clusterNetworkInBitsPerSecond"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "clusterNetworkOutBytes"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "clusterNetworkOutBitsPerSecond"
+      }
+    ],
+    "status": "current"
+  },
+  "clusterCPUPerfGroup": {
+    "name": "clusterCPUPerfGroup",
+    "oid": "1.3.6.1.4.1.12124.5.1.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISILON-MIB",
+        "object": "clusterCPUUser"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "clusterCPUNice"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "clusterCPUSystem"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "clusterCPUInterrupt"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "clusterCPUIdlePct"
+      }
+    ],
+    "status": "current"
+  },
+  "ifsFilesystemGroup": {
+    "name": "ifsFilesystemGroup",
+    "oid": "1.3.6.1.4.1.12124.5.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISILON-MIB",
+        "object": "ifsTotalBytes"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "ifsUsedBytes"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "ifsAvailableBytes"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "ifsFreeBytes"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "accessTimeEnabled"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "accessTimeGracePeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "licensesGroup": {
+    "name": "licensesGroup",
+    "oid": "1.3.6.1.4.1.12124.5.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISILON-MIB",
+        "object": "licenseModuleName"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "licenseStatus"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "licenseExpirationDate"
+      }
+    ],
+    "status": "current"
+  },
+  "quotasGroup": {
+    "name": "quotasGroup",
+    "oid": "1.3.6.1.4.1.12124.5.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISILON-MIB",
+        "object": "quotaType"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "quotaID"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "quotaIncludesSnapshotUsage"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "quotaPath"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "quotaHardThresholdDefined"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "quotaHardThreshold"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "quotaSoftThresholdDefined"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "quotaSoftThreshold"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "quotaAdvisoryThresholdDefined"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "quotaAdvisoryThreshold"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "quotaGracePeriod"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "quotaUsage"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "quotaUsageWithOverhead"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "quotaInodeUsage"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "quotaIncludesOverhead"
+      }
+    ],
+    "status": "current"
+  },
+  "snapshotsGroup": {
+    "name": "snapshotsGroup",
+    "oid": "1.3.6.1.4.1.12124.5.1.13",
+    "class": "objectidentity"
+  },
+  "snapshotSettingsGroup": {
+    "name": "snapshotSettingsGroup",
+    "oid": "1.3.6.1.4.1.12124.5.1.13.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotScheduledCreateEnabled"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotScheduledDeleteEnabled"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotReservedPct"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotRootVisibilityNFS"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotRootAccessNFS"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotSubdirAccessNFS"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotRootVisibilityCIFS"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotRootAccessCIFS"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotSubdirAccessCIFS"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotRootVisibilityLocal"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotRootAccessLocal"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotSubdirAccessLocal"
+      }
+    ],
+    "status": "current"
+  },
+  "snapshotScheduleTableGroup": {
+    "name": "snapshotScheduleTableGroup",
+    "oid": "1.3.6.1.4.1.12124.5.1.13.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotScheduleIndex"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotScheduleName"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotScheduleAlias"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotScheduleNamingPattern"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotScheduleSchedule"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotScheduleExpiration"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotSchedulePath"
+      }
+    ],
+    "status": "current"
+  },
+  "snapshotTableGroup": {
+    "name": "snapshotTableGroup",
+    "oid": "1.3.6.1.4.1.12124.5.1.13.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotName"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotCreated"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotExpires"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotSize"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotPath"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotAliasFor"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "snapshotLocked"
+      }
+    ],
+    "status": "current"
+  },
+  "nodeStatusGroup": {
+    "name": "nodeStatusGroup",
+    "oid": "1.3.6.1.4.1.12124.5.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISILON-MIB",
+        "object": "nodeName"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "nodeHealth"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "nodeType"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "readOnly"
+      }
+    ],
+    "status": "current"
+  },
+  "nodePerformanceGroup": {
+    "name": "nodePerformanceGroup",
+    "oid": "1.3.6.1.4.1.12124.5.2.2",
+    "class": "objectidentity"
+  },
+  "nodeIfsPerfGroup": {
+    "name": "nodeIfsPerfGroup",
+    "oid": "1.3.6.1.4.1.12124.5.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISILON-MIB",
+        "object": "nodeIfsInBytes"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "nodeIfsInBitsPerSecond"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "nodeIfsOutBytes"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "nodeIfsOutBitsPerSecond"
+      }
+    ],
+    "status": "current"
+  },
+  "nodeNetworkPerfGroup": {
+    "name": "nodeNetworkPerfGroup",
+    "oid": "1.3.6.1.4.1.12124.5.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISILON-MIB",
+        "object": "nodeNetworkInBytes"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "nodeNetworkInBitsPerSecond"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "nodeNetworkOutBytes"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "nodeNetworkOutBitsPerSecond"
+      }
+    ],
+    "status": "current"
+  },
+  "nodeCPUPerfGroup": {
+    "name": "nodeCPUPerfGroup",
+    "oid": "1.3.6.1.4.1.12124.5.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISILON-MIB",
+        "object": "nodeCPUUser"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "nodeCPUNice"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "nodeCPUSystem"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "nodeCPUInterrupt"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "nodeCPUIdle"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "nodePerCPUUser"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "nodePerCPUNice"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "nodePerCPUSystem"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "nodePerCPUInterrupt"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "nodePerCPUIdle"
+      }
+    ],
+    "status": "current"
+  },
+  "nodeProtocolPerfTableGroup": {
+    "name": "nodeProtocolPerfTableGroup",
+    "oid": "1.3.6.1.4.1.12124.5.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISILON-MIB",
+        "object": "protocolName"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "protocolOpCount"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "protocolOpsPerSecond"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "inMinBytes"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "inMaxBytes"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "inAvgBytes"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "inStdDevBytes"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "inBitsPerSecond"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "outMinBytes"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "outMaxBytes"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "outAvgBytes"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "outStdDevBytes"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "outBitsPerSecond"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "latencyMin"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "latencyMax"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "latencyAverage"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "latencyStdDev"
+      }
+    ],
+    "status": "current"
+  },
+  "diskPerfTableGroup": {
+    "name": "diskPerfTableGroup",
+    "oid": "1.3.6.1.4.1.12124.5.2.2.52",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISILON-MIB",
+        "object": "diskPerfBay"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "diskPerfDeviceName"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "diskPerfOpsPerSecond"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "diskPerfInBitsPerSecond"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "diskPerfOutBitsPerSecond"
+      }
+    ],
+    "status": "current"
+  },
+  "chassisTableGroup": {
+    "name": "chassisTableGroup",
+    "oid": "1.3.6.1.4.1.12124.5.2.51",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISILON-MIB",
+        "object": "chassisNumber"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "chassisConfigNumber"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "chassisSerialNumber"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "chassisModel"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "chassisUnitIDLEDOn"
+      }
+    ],
+    "status": "current"
+  },
+  "diskTableGroup": {
+    "name": "diskTableGroup",
+    "oid": "1.3.6.1.4.1.12124.5.2.52",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISILON-MIB",
+        "object": "diskBay"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "diskLogicalNumber"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "diskChassisNumber"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "diskDeviceName"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "diskStatus"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "diskModel"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "diskSerialNumber"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "diskFirmwareVersion"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "diskSizeBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "fanTableGroup": {
+    "name": "fanTableGroup",
+    "oid": "1.3.6.1.4.1.12124.5.2.53",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISILON-MIB",
+        "object": "fanNumber"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "fanName"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "fanDescription"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "fanSpeed"
+      }
+    ],
+    "status": "current"
+  },
+  "tempSensorTableGroup": {
+    "name": "tempSensorTableGroup",
+    "oid": "1.3.6.1.4.1.12124.5.2.54",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISILON-MIB",
+        "object": "tempSensorNumber"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "tempSensorName"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "tempSensorDescription"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "tempSensorValue"
+      }
+    ],
+    "status": "current"
+  },
+  "powerSensorTableGroup": {
+    "name": "powerSensorTableGroup",
+    "oid": "1.3.6.1.4.1.12124.5.2.55",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISILON-MIB",
+        "object": "powerSensorNumber"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "powerSensorName"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "powerSensorDescription"
+      },
+      {
+        "module": "ISILON-MIB",
+        "object": "powerSensorValue"
+      }
+    ],
+    "status": "current"
+  },
+  "isilonCompliance": {
+    "name": "isilonCompliance",
+    "oid": "1.3.6.1.4.1.12124.5.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "clusterStatusGroup",
+        "module": "ISILON-MIB"
+      },
+      {
+        "object": "clusterIfsPerfGroup",
+        "module": "ISILON-MIB"
+      },
+      {
+        "object": "clusterNetworkPerfGroup",
+        "module": "ISILON-MIB"
+      },
+      {
+        "object": "clusterCPUPerfGroup",
+        "module": "ISILON-MIB"
+      },
+      {
+        "object": "ifsFilesystemGroup",
+        "module": "ISILON-MIB"
+      },
+      {
+        "object": "licensesGroup",
+        "module": "ISILON-MIB"
+      },
+      {
+        "object": "quotasGroup",
+        "module": "ISILON-MIB"
+      },
+      {
+        "object": "snapshotSettingsGroup",
+        "module": "ISILON-MIB"
+      },
+      {
+        "object": "snapshotScheduleTableGroup",
+        "module": "ISILON-MIB"
+      },
+      {
+        "object": "snapshotTableGroup",
+        "module": "ISILON-MIB"
+      },
+      {
+        "object": "nodeStatusGroup",
+        "module": "ISILON-MIB"
+      },
+      {
+        "object": "nodeIfsPerfGroup",
+        "module": "ISILON-MIB"
+      },
+      {
+        "object": "nodeNetworkPerfGroup",
+        "module": "ISILON-MIB"
+      },
+      {
+        "object": "nodeCPUPerfGroup",
+        "module": "ISILON-MIB"
+      },
+      {
+        "object": "nodeProtocolPerfTableGroup",
+        "module": "ISILON-MIB"
+      },
+      {
+        "object": "diskPerfTableGroup",
+        "module": "ISILON-MIB"
+      },
+      {
+        "object": "chassisTableGroup",
+        "module": "ISILON-MIB"
+      },
+      {
+        "object": "diskTableGroup",
+        "module": "ISILON-MIB"
+      },
+      {
+        "object": "fanTableGroup",
+        "module": "ISILON-MIB"
+      },
+      {
+        "object": "tempSensorTableGroup",
+        "module": "ISILON-MIB"
+      },
+      {
+        "object": "powerSensorTableGroup",
+        "module": "ISILON-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/emc/ISILON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:28:51 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ISILON-MIB"
+  }
+}

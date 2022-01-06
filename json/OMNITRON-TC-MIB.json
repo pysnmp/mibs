@@ -1,0 +1,880 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "iso",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Gauge32",
+      "Bits",
+      "OBJECT-TYPE",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ostOmnitronTcMib": {
+    "name": "ostOmnitronTcMib",
+    "oid": "1.3.6.1.4.1.7342.11",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-05-13 12:00",
+        "description": "Added OstIpv6Addr, OstIpAddr "
+      },
+      {
+        "revision": "2015-01-21 12:00",
+        "description": "Initial version of v5.2 MIB. Added OstAccessibiltyType from the OMNITRON-ACL-MIB "
+      }
+    ]
+  },
+  "omnitron": {
+    "name": "omnitron",
+    "oid": "1.3.6.1.4.1.7342",
+    "class": "objectidentity"
+  },
+  "icAgent": {
+    "name": "icAgent",
+    "oid": "1.3.6.1.4.1.7342.1",
+    "class": "objectidentity"
+  },
+  "OstAccessibiltyType": {
+    "name": "OstAccessibiltyType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 1,
+          "permit": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OstClassOfService": {
+    "name": "OstClassOfService",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "OstClockFreq": {
+    "name": "OstClockFreq",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d-2",
+    "status": "current"
+  },
+  "OstCosL2cpDstAddr": {
+    "name": "OstCosL2cpDstAddr",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "OstCosNameString": {
+    "name": "OstCosNameString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 45
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "OstCosNameStringOrNone": {
+    "name": "OstCosNameStringOrNone",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 45
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "OstCosTrustType": {
+    "name": "OstCosTrustType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cosTrust": 1,
+          "cosUsePri": 2,
+          "cosUseClass": 3,
+          "cosUsePriClass": 4,
+          "cosGreenYellow": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OstEgressSchedulingProfileIndexType": {
+    "name": "OstEgressSchedulingProfileIndexType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "OstEgressQueueIndexType": {
+    "name": "OstEgressQueueIndexType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "OstElpsProtectType": {
+    "name": "OstElpsProtectType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "e1plus1UniNoAps": 1,
+          "e1plus1UniAps": 2,
+          "e1plus1BiAps": 3,
+          "e1to1": 4,
+          "notAvailable": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OstElpsRequestStates": {
+    "name": "OstElpsRequestStates",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noRequest": 0,
+          "doNotRevert": 1,
+          "revertRequest": 2,
+          "exercise": 4,
+          "waitToRestore": 5,
+          "manualSwitchWorking": 6,
+          "manualSwitch": 7,
+          "signalDegrade": 9,
+          "signalFailWorking": 11,
+          "forcedSwitch": 13,
+          "signalFailProtection": 14,
+          "lockoutProtection": 15,
+          "notAvailable": 16
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OstElpsSignalStates": {
+    "name": "OstElpsSignalStates",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nullSignal": 0,
+          "normalSignal": 1,
+          "notAvailable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OstErpsLinkState": {
+    "name": "OstErpsLinkState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 0,
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OstErpsPortState": {
+    "name": "OstErpsPortState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 0,
+          "forward": 1,
+          "blocked": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OstErpsPortType": {
+    "name": "OstErpsPortType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rp0": 1,
+          "rp1": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OstErpsRingStates": {
+    "name": "OstErpsRingStates",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noRequest": 0,
+          "rapsNr": 1,
+          "rapsNrRb": 2,
+          "wtbRunning": 3,
+          "wtbExpires": 4,
+          "wtrRunning": 5,
+          "wtrExpires": 6,
+          "manualSwitch": 7,
+          "rapsManualSwitch": 8,
+          "rapsSignalFail": 9,
+          "localClearSignalFail": 10,
+          "localSignalFail": 11,
+          "rapsForcedSwitch": 12,
+          "forcedSwtich": 13,
+          "clear": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OstErpsRingStatus": {
+    "name": "OstErpsRingStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initializing": 1,
+          "idle": 2,
+          "protection": 3,
+          "manualSwitch": 4,
+          "forcedSwitch": 5,
+          "pending": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OstErrorString": {
+    "name": "OstErrorString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "OstEvcNameString": {
+    "name": "OstEvcNameString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 45
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "OstEvcNameStringOrNone": {
+    "name": "OstEvcNameStringOrNone",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 45
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "OstFileNameString": {
+    "name": "OstFileNameString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 45
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "OstFingerprintString": {
+    "name": "OstFingerprintString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "OstFloatValue": {
+    "name": "OstFloatValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "OstFrameCount64": {
+    "name": "OstFrameCount64",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "OstFrameSizeList": {
+    "name": "OstFrameSizeList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "OstIndexIntegerNextFree": {
+    "name": "OstIndexIntegerNextFree",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "OstIpPriorityList": {
+    "name": "OstIpPriorityList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "OstIpv6Addr": {
+    "name": "OstIpv6Addr",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "2x:2x:2x:2x:2x:2x:2x:2x",
+    "status": "current"
+  },
+  "OstIpAddr": {
+    "name": "OstIpAddr",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "OstMhfCreation": {
+    "name": "OstMhfCreation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ostMHFdefault": 1,
+          "ostMHFexplicit": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OstMipdMethodOfCreation": {
+    "name": "OstMipdMethodOfCreation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ostExplicit": 1,
+          "ostImplicitMa": 2,
+          "ostImplicitMde": 3,
+          "ostExplicitImplicitMa": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OstModeType": {
+    "name": "OstModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "ap": 2,
+          "sp": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OstModuleSingleIndex": {
+    "name": "OstModuleSingleIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 101,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "OstPcpPriorityList": {
+    "name": "OstPcpPriorityList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "OstPortClockType": {
+    "name": "OstPortClockType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "adaptiveIdle": 1,
+          "adaptiveAcqu": 2,
+          "adaptiveTrk1": 3,
+          "adaptiveTrk2": 4,
+          "holdOver": 5,
+          "coax": 6,
+          "internal": 7,
+          "line": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OstPortList": {
+    "name": "OstPortList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "OstPortNumber": {
+    "name": "OstPortNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "OstPortSingleIndex": {
+    "name": "OstPortSingleIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10101,
+            "max": 999999
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "OstPriority": {
+    "name": "OstPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "OstProbeNameString": {
+    "name": "OstProbeNameString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 45
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "OstProfileNameString": {
+    "name": "OstProfileNameString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 45
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "OstTestResultType": {
+    "name": "OstTestResultType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pass": 1,
+          "fail": 2,
+          "oversubscribe": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OstTestStatusType": {
+    "name": "OstTestStatusType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "testNotStarted": 1,
+          "testInProcess": 2,
+          "testStopped": 3,
+          "testCompleted": 4,
+          "testInitializing": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OstUnsigned64": {
+    "name": "OstUnsigned64",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "OstUserNameString": {
+    "name": "OstUserNameString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "OstVlanId": {
+    "name": "OstVlanId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "OstVlanIdList": {
+    "name": "OstVlanIdList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 110
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/omnitron/OMNITRON-TC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "OMNITRON-TC-MIB"
+  }
+}

@@ -1,0 +1,447 @@
+{
+  "imports": {
+    "class": "imports",
+    "NETSCREEN-SMI": [
+      "netscreenResource"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "netscreenResourceMibModule": {
+    "name": "netscreenResourceMibModule",
+    "oid": "1.3.6.1.4.1.3224.16.0",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-05-03 00:00",
+        "description": "Modified copyright and contact information"
+      },
+      {
+        "revision": "2004-03-03 00:00",
+        "description": "Converted to SMIv2 by Longview Software"
+      },
+      {
+        "revision": "2003-11-10 00:00",
+        "description": "Correct spelling mistake"
+      },
+      {
+        "revision": "2002-05-05 00:00",
+        "description": "Remove active session"
+      },
+      {
+        "revision": "2001-04-30 00:00",
+        "description": "Creation Date"
+      }
+    ]
+  },
+  "nsResCPU": {
+    "name": "nsResCPU",
+    "oid": "1.3.6.1.4.1.3224.16.1",
+    "class": "objectidentity"
+  },
+  "nsResCpuAvg": {
+    "name": "nsResCpuAvg",
+    "oid": "1.3.6.1.4.1.3224.16.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsResCpuLast1Min": {
+    "name": "nsResCpuLast1Min",
+    "oid": "1.3.6.1.4.1.3224.16.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsResCpuLast5Min": {
+    "name": "nsResCpuLast5Min",
+    "oid": "1.3.6.1.4.1.3224.16.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsResCpuLast15Min": {
+    "name": "nsResCpuLast15Min",
+    "oid": "1.3.6.1.4.1.3224.16.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsResMem": {
+    "name": "nsResMem",
+    "oid": "1.3.6.1.4.1.3224.16.2",
+    "class": "objectidentity"
+  },
+  "nsResMemAllocate": {
+    "name": "nsResMemAllocate",
+    "oid": "1.3.6.1.4.1.3224.16.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsResMemLeft": {
+    "name": "nsResMemLeft",
+    "oid": "1.3.6.1.4.1.3224.16.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsResMemFrag": {
+    "name": "nsResMemFrag",
+    "oid": "1.3.6.1.4.1.3224.16.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsResSession": {
+    "name": "nsResSession",
+    "oid": "1.3.6.1.4.1.3224.16.3",
+    "class": "objectidentity"
+  },
+  "nsResSessAllocate": {
+    "name": "nsResSessAllocate",
+    "oid": "1.3.6.1.4.1.3224.16.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsResSessMaxium": {
+    "name": "nsResSessMaxium",
+    "oid": "1.3.6.1.4.1.3224.16.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsResSessFailed": {
+    "name": "nsResSessFailed",
+    "oid": "1.3.6.1.4.1.3224.16.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsResModTable": {
+    "name": "nsResModTable",
+    "oid": "1.3.6.1.4.1.3224.16.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "nsResModEntry": {
+    "name": "nsResModEntry",
+    "oid": "1.3.6.1.4.1.3224.16.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-RESOURCE-MIB",
+        "object": "nsResModModId",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-RESOURCE-MIB",
+        "object": "nsResModCpuId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "nsResModModId": {
+    "name": "nsResModModId",
+    "oid": "1.3.6.1.4.1.3224.16.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nsResModCpuId": {
+    "name": "nsResModCpuId",
+    "oid": "1.3.6.1.4.1.3224.16.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nsResModCpuCurr": {
+    "name": "nsResModCpuCurr",
+    "oid": "1.3.6.1.4.1.3224.16.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nsResModCpuLast1Min": {
+    "name": "nsResModCpuLast1Min",
+    "oid": "1.3.6.1.4.1.3224.16.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nsResModCpuLast5Min": {
+    "name": "nsResModCpuLast5Min",
+    "oid": "1.3.6.1.4.1.3224.16.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nsResModCpuLast15Min": {
+    "name": "nsResModCpuLast15Min",
+    "oid": "1.3.6.1.4.1.3224.16.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nsResModMemAllocated": {
+    "name": "nsResModMemAllocated",
+    "oid": "1.3.6.1.4.1.3224.16.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nsResModMemLeft": {
+    "name": "nsResModMemLeft",
+    "oid": "1.3.6.1.4.1.3224.16.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nsResModSessAllocated": {
+    "name": "nsResModSessAllocated",
+    "oid": "1.3.6.1.4.1.3224.16.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nsResModSessMaximum": {
+    "name": "nsResModSessMaximum",
+    "oid": "1.3.6.1.4.1.3224.16.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nsResModSessFailed": {
+    "name": "nsResModSessFailed",
+    "oid": "1.3.6.1.4.1.3224.16.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nsResModThresholdMem": {
+    "name": "nsResModThresholdMem",
+    "oid": "1.3.6.1.4.1.3224.16.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nsResModThresholdCpu": {
+    "name": "nsResModThresholdCpu",
+    "oid": "1.3.6.1.4.1.3224.16.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nsResModThresholdSession": {
+    "name": "nsResModThresholdSession",
+    "oid": "1.3.6.1.4.1.3224.16.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-RESOURCE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NETSCREEN-RESOURCE-MIB"
+  }
+}

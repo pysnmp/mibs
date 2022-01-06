@@ -1,0 +1,2449 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "JUNIPER-SMI": [
+      "jnxJdhcpMibRoot"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
+    ]
+  },
+  "jnxJdhcpMIB": {
+    "name": "jnxJdhcpMIB",
+    "oid": "1.3.6.1.4.1.2636.3.61.61",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-03-03 00:00",
+        "description": "Add statistics for leasequery and bulk leasequery messages"
+      },
+      {
+        "revision": "2011-07-09 00:00",
+        "description": "Add scalar for pkts dropped due to recovery in progress"
+      },
+      {
+        "revision": "2011-03-15 00:00",
+        "description": "Add OIDs to the Interface Statistics Table"
+      },
+      {
+        "revision": "2011-01-25 00:00",
+        "description": "Add Interface Statistics Table"
+      },
+      {
+        "revision": "2010-04-19 00:00",
+        "description": "Creation Date"
+      }
+    ]
+  },
+  "jnxJdhcpLocalServerObjects": {
+    "name": "jnxJdhcpLocalServerObjects",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1",
+    "class": "objectidentity"
+  },
+  "jnxJdhcpRelayObjects": {
+    "name": "jnxJdhcpRelayObjects",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2",
+    "class": "objectidentity"
+  },
+  "jnxJdhcpLocalServerStatistics": {
+    "name": "jnxJdhcpLocalServerStatistics",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1",
+    "class": "objectidentity"
+  },
+  "jnxJdhcpLocalServerBindings": {
+    "name": "jnxJdhcpLocalServerBindings",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.2",
+    "class": "objectidentity"
+  },
+  "jnxJdhcpLocalServerTraps": {
+    "name": "jnxJdhcpLocalServerTraps",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.3",
+    "class": "objectidentity"
+  },
+  "jnxJdhcpLocalServerTrapVars": {
+    "name": "jnxJdhcpLocalServerTrapVars",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.4",
+    "class": "objectidentity"
+  },
+  "jnxJdhcpLocalServerIfcStats": {
+    "name": "jnxJdhcpLocalServerIfcStats",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5",
+    "class": "objectidentity"
+  },
+  "jnxJdhcpLocalServerTotalDropped": {
+    "name": "jnxJdhcpLocalServerTotalDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBadHardwareDropped": {
+    "name": "jnxJdhcpLocalServerBadHardwareDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBadBootpOpcodeDropped": {
+    "name": "jnxJdhcpLocalServerBadBootpOpcodeDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBadOptionsDropped": {
+    "name": "jnxJdhcpLocalServerBadOptionsDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBadAddressDropped": {
+    "name": "jnxJdhcpLocalServerBadAddressDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerNoAddressDropped": {
+    "name": "jnxJdhcpLocalServerNoAddressDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerNoInterfaceDropped": {
+    "name": "jnxJdhcpLocalServerNoInterfaceDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerNoRoutingInstanceDropped": {
+    "name": "jnxJdhcpLocalServerNoRoutingInstanceDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerNoLocalAddressDropped": {
+    "name": "jnxJdhcpLocalServerNoLocalAddressDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerShortPacketDropped": {
+    "name": "jnxJdhcpLocalServerShortPacketDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBadReadDropped": {
+    "name": "jnxJdhcpLocalServerBadReadDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBadSendDropped": {
+    "name": "jnxJdhcpLocalServerBadSendDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerAuthenticationDropped": {
+    "name": "jnxJdhcpLocalServerAuthenticationDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerDynamicProfileDropped": {
+    "name": "jnxJdhcpLocalServerDynamicProfileDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerLicenseDropped": {
+    "name": "jnxJdhcpLocalServerLicenseDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBootRequestReceived": {
+    "name": "jnxJdhcpLocalServerBootRequestReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerDhcpDeclineReceived": {
+    "name": "jnxJdhcpLocalServerDhcpDeclineReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerDhcpDiscoverReceived": {
+    "name": "jnxJdhcpLocalServerDhcpDiscoverReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerDhcpInformReceived": {
+    "name": "jnxJdhcpLocalServerDhcpInformReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerDhcpReleaseReceived": {
+    "name": "jnxJdhcpLocalServerDhcpReleaseReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerDhcpRequestReceived": {
+    "name": "jnxJdhcpLocalServerDhcpRequestReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerDhcpBootReplySent": {
+    "name": "jnxJdhcpLocalServerDhcpBootReplySent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerDhcpOfferSent": {
+    "name": "jnxJdhcpLocalServerDhcpOfferSent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerDhcpAckSent": {
+    "name": "jnxJdhcpLocalServerDhcpAckSent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerDhcpNakSent": {
+    "name": "jnxJdhcpLocalServerDhcpNakSent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerForceRenewSent": {
+    "name": "jnxJdhcpLocalServerForceRenewSent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerTotalLeaseCount": {
+    "name": "jnxJdhcpLocalServerTotalLeaseCount",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerSwitchDropped": {
+    "name": "jnxJdhcpLocalServerSwitchDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerLeaseQueryReceived": {
+    "name": "jnxJdhcpLocalServerLeaseQueryReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBulkLeaseQueryReceived": {
+    "name": "jnxJdhcpLocalServerBulkLeaseQueryReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerLeaseActiveSent": {
+    "name": "jnxJdhcpLocalServerLeaseActiveSent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerLeaseUnknownSent": {
+    "name": "jnxJdhcpLocalServerLeaseUnknownSent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerLeaseUnAssignedSent": {
+    "name": "jnxJdhcpLocalServerLeaseUnAssignedSent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerLeaseQueryDoneSent": {
+    "name": "jnxJdhcpLocalServerLeaseQueryDoneSent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBindingsTable": {
+    "name": "jnxJdhcpLocalServerBindingsTable",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBindingsEntry": {
+    "name": "jnxJdhcpLocalServerBindingsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-JDHCP-MIB",
+        "object": "jnxJdhcpLocalServerBindingsIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBindingsIpAddress": {
+    "name": "jnxJdhcpLocalServerBindingsIpAddress",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBindingsMacAddress": {
+    "name": "jnxJdhcpLocalServerBindingsMacAddress",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBindingsState": {
+    "name": "jnxJdhcpLocalServerBindingsState",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "init": 1,
+          "selecting": 2,
+          "requesting": 3,
+          "release": 4,
+          "bound": 5,
+          "renewing": 6,
+          "rebinding": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBindingsLeaseEndTime": {
+    "name": "jnxJdhcpLocalServerBindingsLeaseEndTime",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBindingsLeaseExpireTime": {
+    "name": "jnxJdhcpLocalServerBindingsLeaseExpireTime",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBindingsLeaseStartTime": {
+    "name": "jnxJdhcpLocalServerBindingsLeaseStartTime",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBindingsIncomingClientInterface": {
+    "name": "jnxJdhcpLocalServerBindingsIncomingClientInterface",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBindingsClientInterfaceVlanId": {
+    "name": "jnxJdhcpLocalServerBindingsClientInterfaceVlanId",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBindingsDemuxInterfaceName": {
+    "name": "jnxJdhcpLocalServerBindingsDemuxInterfaceName",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBindingsServerIpAddress": {
+    "name": "jnxJdhcpLocalServerBindingsServerIpAddress",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBindingsBootpRelayAddress": {
+    "name": "jnxJdhcpLocalServerBindingsBootpRelayAddress",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBindingsPreviousBootpRelayAddress": {
+    "name": "jnxJdhcpLocalServerBindingsPreviousBootpRelayAddress",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBindingsClientPoolName": {
+    "name": "jnxJdhcpLocalServerBindingsClientPoolName",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerBindingsClientProfileName": {
+    "name": "jnxJdhcpLocalServerBindingsClientProfileName",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsTable": {
+    "name": "jnxJdhcpLocalServerIfcStatsTable",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsEntry": {
+    "name": "jnxJdhcpLocalServerIfcStatsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-JDHCP-MIB",
+        "object": "jnxJdhcpLocalServerIfcStatsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsIfIndex": {
+    "name": "jnxJdhcpLocalServerIfcStatsIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsTotalDropped": {
+    "name": "jnxJdhcpLocalServerIfcStatsTotalDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsBadHardwareDropped": {
+    "name": "jnxJdhcpLocalServerIfcStatsBadHardwareDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsBadBootpOpcodeDropped": {
+    "name": "jnxJdhcpLocalServerIfcStatsBadBootpOpcodeDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsBadOptionsDropped": {
+    "name": "jnxJdhcpLocalServerIfcStatsBadOptionsDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsBadAddressDropped": {
+    "name": "jnxJdhcpLocalServerIfcStatsBadAddressDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsNoAddressDropped": {
+    "name": "jnxJdhcpLocalServerIfcStatsNoAddressDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsNoInterfaceCfgDropped": {
+    "name": "jnxJdhcpLocalServerIfcStatsNoInterfaceCfgDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsNoLocalAddressDropped": {
+    "name": "jnxJdhcpLocalServerIfcStatsNoLocalAddressDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsShortPacketDropped": {
+    "name": "jnxJdhcpLocalServerIfcStatsShortPacketDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsBadSendDropped": {
+    "name": "jnxJdhcpLocalServerIfcStatsBadSendDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsAuthenticationDropped": {
+    "name": "jnxJdhcpLocalServerIfcStatsAuthenticationDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsDynamicProfileDropped": {
+    "name": "jnxJdhcpLocalServerIfcStatsDynamicProfileDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsLicenseDropped": {
+    "name": "jnxJdhcpLocalServerIfcStatsLicenseDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsBootRequestReceived": {
+    "name": "jnxJdhcpLocalServerIfcStatsBootRequestReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsDhcpDeclineReceived": {
+    "name": "jnxJdhcpLocalServerIfcStatsDhcpDeclineReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsDhcpDiscoverReceived": {
+    "name": "jnxJdhcpLocalServerIfcStatsDhcpDiscoverReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsDhcpInformReceived": {
+    "name": "jnxJdhcpLocalServerIfcStatsDhcpInformReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsDhcpReleaseReceived": {
+    "name": "jnxJdhcpLocalServerIfcStatsDhcpReleaseReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsDhcpRequestReceived": {
+    "name": "jnxJdhcpLocalServerIfcStatsDhcpRequestReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsDhcpBootReplySent": {
+    "name": "jnxJdhcpLocalServerIfcStatsDhcpBootReplySent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsDhcpOfferSent": {
+    "name": "jnxJdhcpLocalServerIfcStatsDhcpOfferSent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsDhcpAckSent": {
+    "name": "jnxJdhcpLocalServerIfcStatsDhcpAckSent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsDhcpNakSent": {
+    "name": "jnxJdhcpLocalServerIfcStatsDhcpNakSent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsForceRenewSent": {
+    "name": "jnxJdhcpLocalServerIfcStatsForceRenewSent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsTotalLeaseCount": {
+    "name": "jnxJdhcpLocalServerIfcStatsTotalLeaseCount",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsBadDhcpOpcodeDropped": {
+    "name": "jnxJdhcpLocalServerIfcStatsBadDhcpOpcodeDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsNoOptionsDropped": {
+    "name": "jnxJdhcpLocalServerIfcStatsNoOptionsDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsHopLimitDropped": {
+    "name": "jnxJdhcpLocalServerIfcStatsHopLimitDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsTtlExpiredDropped": {
+    "name": "jnxJdhcpLocalServerIfcStatsTtlExpiredDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsBadUdpCksumDropped": {
+    "name": "jnxJdhcpLocalServerIfcStatsBadUdpCksumDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerIfcStatsOption60Dropped": {
+    "name": "jnxJdhcpLocalServerIfcStatsOption60Dropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.5.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayStatistics": {
+    "name": "jnxJdhcpRelayStatistics",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1",
+    "class": "objectidentity"
+  },
+  "jnxJdhcpRelayBindings": {
+    "name": "jnxJdhcpRelayBindings",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.2",
+    "class": "objectidentity"
+  },
+  "jnxJdhcpRelayTraps": {
+    "name": "jnxJdhcpRelayTraps",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.3",
+    "class": "objectidentity"
+  },
+  "jnxJdhcpRelayTrapVars": {
+    "name": "jnxJdhcpRelayTrapVars",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.4",
+    "class": "objectidentity"
+  },
+  "jnxJdhcpRelayIfcStats": {
+    "name": "jnxJdhcpRelayIfcStats",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5",
+    "class": "objectidentity"
+  },
+  "jnxJdhcpRelayTotalDropped": {
+    "name": "jnxJdhcpRelayTotalDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayBadHardwareDropped": {
+    "name": "jnxJdhcpRelayBadHardwareDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayBadBootpOpcodeDropped": {
+    "name": "jnxJdhcpRelayBadBootpOpcodeDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayBadOptionsDropped": {
+    "name": "jnxJdhcpRelayBadOptionsDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayBadAddressDropped": {
+    "name": "jnxJdhcpRelayBadAddressDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayNoAddressDropped": {
+    "name": "jnxJdhcpRelayNoAddressDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayNoInterfaceDropped": {
+    "name": "jnxJdhcpRelayNoInterfaceDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayNoRoutingInstanceDropped": {
+    "name": "jnxJdhcpRelayNoRoutingInstanceDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayNoLocalAddressDropped": {
+    "name": "jnxJdhcpRelayNoLocalAddressDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayShortPacketDropped": {
+    "name": "jnxJdhcpRelayShortPacketDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayBadReadDropped": {
+    "name": "jnxJdhcpRelayBadReadDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayBadSendDropped": {
+    "name": "jnxJdhcpRelayBadSendDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayOption82Dropped": {
+    "name": "jnxJdhcpRelayOption82Dropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayOption60Dropped": {
+    "name": "jnxJdhcpRelayOption60Dropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayAuthenticationDropped": {
+    "name": "jnxJdhcpRelayAuthenticationDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayDynamicProfileDropped": {
+    "name": "jnxJdhcpRelayDynamicProfileDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayLicenseDropped": {
+    "name": "jnxJdhcpRelayLicenseDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayBootRequestReceived": {
+    "name": "jnxJdhcpRelayBootRequestReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayDhcpDeclineReceived": {
+    "name": "jnxJdhcpRelayDhcpDeclineReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayDhcpDiscoverReceived": {
+    "name": "jnxJdhcpRelayDhcpDiscoverReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayDhcpInformReceived": {
+    "name": "jnxJdhcpRelayDhcpInformReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayDhcpReleaseReceived": {
+    "name": "jnxJdhcpRelayDhcpReleaseReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayDhcpRequestReceived": {
+    "name": "jnxJdhcpRelayDhcpRequestReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayDhcpBootReplySent": {
+    "name": "jnxJdhcpRelayDhcpBootReplySent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayDhcpOfferSent": {
+    "name": "jnxJdhcpRelayDhcpOfferSent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayDhcpAckSent": {
+    "name": "jnxJdhcpRelayDhcpAckSent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayDhcpNakSent": {
+    "name": "jnxJdhcpRelayDhcpNakSent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayForceRenewSent": {
+    "name": "jnxJdhcpRelayForceRenewSent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayTotalLeaseCount": {
+    "name": "jnxJdhcpRelayTotalLeaseCount",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelaySwitchDropped": {
+    "name": "jnxJdhcpRelaySwitchDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayLeaseQuerySent": {
+    "name": "jnxJdhcpRelayLeaseQuerySent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayBulkLeaseQuerySent": {
+    "name": "jnxJdhcpRelayBulkLeaseQuerySent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayLeaseActiveReceived": {
+    "name": "jnxJdhcpRelayLeaseActiveReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayLeaseUnknownReceived": {
+    "name": "jnxJdhcpRelayLeaseUnknownReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayLeaseUnAssignedReceived": {
+    "name": "jnxJdhcpRelayLeaseUnAssignedReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayLeaseQueryDoneReceived": {
+    "name": "jnxJdhcpRelayLeaseQueryDoneReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayBindingsTable": {
+    "name": "jnxJdhcpRelayBindingsTable",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxJdhcpRelayBindingsEntry": {
+    "name": "jnxJdhcpRelayBindingsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-JDHCP-MIB",
+        "object": "jnxJdhcpRelayBindingsIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJdhcpRelayBindingsIpAddress": {
+    "name": "jnxJdhcpRelayBindingsIpAddress",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxJdhcpRelayBindingsLeaseState": {
+    "name": "jnxJdhcpRelayBindingsLeaseState",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "init": 1,
+          "selecting": 2,
+          "requesting": 3,
+          "release": 4,
+          "bound": 5,
+          "renewing": 6,
+          "rebinding": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayBindingsLeaseEndTime": {
+    "name": "jnxJdhcpRelayBindingsLeaseEndTime",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayBindingsLeaseExpireTime": {
+    "name": "jnxJdhcpRelayBindingsLeaseExpireTime",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayBindingsLeaseStartTime": {
+    "name": "jnxJdhcpRelayBindingsLeaseStartTime",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayBindingsIncomingClientInterface": {
+    "name": "jnxJdhcpRelayBindingsIncomingClientInterface",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayBindingsClientInterfaceVlanId": {
+    "name": "jnxJdhcpRelayBindingsClientInterfaceVlanId",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayBindingsDemuxInterfaceName": {
+    "name": "jnxJdhcpRelayBindingsDemuxInterfaceName",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayBindingsServerIpAddress": {
+    "name": "jnxJdhcpRelayBindingsServerIpAddress",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxJdhcpRelayBindingsServerInterface": {
+    "name": "jnxJdhcpRelayBindingsServerInterface",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayBindingsBootpRelayAddress": {
+    "name": "jnxJdhcpRelayBindingsBootpRelayAddress",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxJdhcpRelayBindingsPreviousBootpRelayAddress": {
+    "name": "jnxJdhcpRelayBindingsPreviousBootpRelayAddress",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxJdhcpRelayBindingsClientProfileName": {
+    "name": "jnxJdhcpRelayBindingsClientProfileName",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsTable": {
+    "name": "jnxJdhcpRelayIfcStatsTable",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsEntry": {
+    "name": "jnxJdhcpRelayIfcStatsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-JDHCP-MIB",
+        "object": "jnxJdhcpRelayIfcStatsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsIfIndex": {
+    "name": "jnxJdhcpRelayIfcStatsIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsTotalDropped": {
+    "name": "jnxJdhcpRelayIfcStatsTotalDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsBadHardwareDropped": {
+    "name": "jnxJdhcpRelayIfcStatsBadHardwareDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsBadBootpOpcodeDropped": {
+    "name": "jnxJdhcpRelayIfcStatsBadBootpOpcodeDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsBadOptionsDropped": {
+    "name": "jnxJdhcpRelayIfcStatsBadOptionsDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsBadAddressDropped": {
+    "name": "jnxJdhcpRelayIfcStatsBadAddressDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsNoAddressDropped": {
+    "name": "jnxJdhcpRelayIfcStatsNoAddressDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsNoInterfaceCfgDropped": {
+    "name": "jnxJdhcpRelayIfcStatsNoInterfaceCfgDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsNoLocalAddressDropped": {
+    "name": "jnxJdhcpRelayIfcStatsNoLocalAddressDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsShortPacketDropped": {
+    "name": "jnxJdhcpRelayIfcStatsShortPacketDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsBadSendDropped": {
+    "name": "jnxJdhcpRelayIfcStatsBadSendDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsAuthenticationDropped": {
+    "name": "jnxJdhcpRelayIfcStatsAuthenticationDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsDynamicProfileDropped": {
+    "name": "jnxJdhcpRelayIfcStatsDynamicProfileDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsLicenseDropped": {
+    "name": "jnxJdhcpRelayIfcStatsLicenseDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsBootRequestReceived": {
+    "name": "jnxJdhcpRelayIfcStatsBootRequestReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsDhcpDeclineReceived": {
+    "name": "jnxJdhcpRelayIfcStatsDhcpDeclineReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsDhcpDiscoverReceived": {
+    "name": "jnxJdhcpRelayIfcStatsDhcpDiscoverReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsDhcpInformReceived": {
+    "name": "jnxJdhcpRelayIfcStatsDhcpInformReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsDhcpReleaseReceived": {
+    "name": "jnxJdhcpRelayIfcStatsDhcpReleaseReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsDhcpRequestReceived": {
+    "name": "jnxJdhcpRelayIfcStatsDhcpRequestReceived",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsDhcpBootReplySent": {
+    "name": "jnxJdhcpRelayIfcStatsDhcpBootReplySent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsDhcpOfferSent": {
+    "name": "jnxJdhcpRelayIfcStatsDhcpOfferSent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsDhcpAckSent": {
+    "name": "jnxJdhcpRelayIfcStatsDhcpAckSent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsDhcpNakSent": {
+    "name": "jnxJdhcpRelayIfcStatsDhcpNakSent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsForceRenewSent": {
+    "name": "jnxJdhcpRelayIfcStatsForceRenewSent",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsTotalLeaseCount": {
+    "name": "jnxJdhcpRelayIfcStatsTotalLeaseCount",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsBadDhcpOpcodeDropped": {
+    "name": "jnxJdhcpRelayIfcStatsBadDhcpOpcodeDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsNoOptionsDropped": {
+    "name": "jnxJdhcpRelayIfcStatsNoOptionsDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsHopLimitDropped": {
+    "name": "jnxJdhcpRelayIfcStatsHopLimitDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsTtlExpiredDropped": {
+    "name": "jnxJdhcpRelayIfcStatsTtlExpiredDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsBadUdpCksumDropped": {
+    "name": "jnxJdhcpRelayIfcStatsBadUdpCksumDropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpRelayIfcStatsOption82Dropped": {
+    "name": "jnxJdhcpRelayIfcStatsOption82Dropped",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.5.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerLastDetected": {
+    "name": "jnxJdhcpLocalServerLastDetected",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJdhcpRouterName": {
+    "name": "jnxJdhcpRouterName",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 257
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerMacAddress": {
+    "name": "jnxJdhcpLocalServerMacAddress",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerInterfaceName": {
+    "name": "jnxJdhcpLocalServerInterfaceName",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerInterfaceLimit": {
+    "name": "jnxJdhcpLocalServerInterfaceLimit",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerEventSeverity": {
+    "name": "jnxJdhcpLocalServerEventSeverity",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "debug": 0,
+          "warning": 1,
+          "critical": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerEventString": {
+    "name": "jnxJdhcpLocalServerEventString",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJdhcpRelayRouterName": {
+    "name": "jnxJdhcpRelayRouterName",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 257
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJdhcpRelayInterfaceName": {
+    "name": "jnxJdhcpRelayInterfaceName",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJdhcpRelayInterfaceLimit": {
+    "name": "jnxJdhcpRelayInterfaceLimit",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerDuplicateClient": {
+    "name": "jnxJdhcpLocalServerDuplicateClient",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-JDHCP-MIB",
+        "object": "jnxJdhcpRouterName"
+      },
+      {
+        "module": "JUNIPER-JDHCP-MIB",
+        "object": "jnxJdhcpLocalServerMacAddress"
+      },
+      {
+        "module": "JUNIPER-JDHCP-MIB",
+        "object": "jnxJdhcpLocalServerInterfaceName"
+      },
+      {
+        "module": "JUNIPER-JDHCP-MIB",
+        "object": "jnxJdhcpLocalServerLastDetected"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerInterfaceLimitExceeded": {
+    "name": "jnxJdhcpLocalServerInterfaceLimitExceeded",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-JDHCP-MIB",
+        "object": "jnxJdhcpRouterName"
+      },
+      {
+        "module": "JUNIPER-JDHCP-MIB",
+        "object": "jnxJdhcpLocalServerInterfaceName"
+      },
+      {
+        "module": "JUNIPER-JDHCP-MIB",
+        "object": "jnxJdhcpLocalServerInterfaceLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerInterfaceLimitAbated": {
+    "name": "jnxJdhcpLocalServerInterfaceLimitAbated",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-JDHCP-MIB",
+        "object": "jnxJdhcpRouterName"
+      },
+      {
+        "module": "JUNIPER-JDHCP-MIB",
+        "object": "jnxJdhcpLocalServerInterfaceName"
+      },
+      {
+        "module": "JUNIPER-JDHCP-MIB",
+        "object": "jnxJdhcpLocalServerInterfaceLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJdhcpLocalServerHealth": {
+    "name": "jnxJdhcpLocalServerHealth",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.1.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-JDHCP-MIB",
+        "object": "jnxJdhcpRouterName"
+      },
+      {
+        "module": "JUNIPER-JDHCP-MIB",
+        "object": "jnxJdhcpLocalServerEventSeverity"
+      },
+      {
+        "module": "JUNIPER-JDHCP-MIB",
+        "object": "jnxJdhcpLocalServerEventString"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJdhcpRelayInterfaceLimitExceeded": {
+    "name": "jnxJdhcpRelayInterfaceLimitExceeded",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-JDHCP-MIB",
+        "object": "jnxJdhcpRelayRouterName"
+      },
+      {
+        "module": "JUNIPER-JDHCP-MIB",
+        "object": "jnxJdhcpRelayInterfaceName"
+      },
+      {
+        "module": "JUNIPER-JDHCP-MIB",
+        "object": "jnxJdhcpRelayInterfaceLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJdhcpRelayInterfaceLimitAbated": {
+    "name": "jnxJdhcpRelayInterfaceLimitAbated",
+    "oid": "1.3.6.1.4.1.2636.3.61.61.2.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-JDHCP-MIB",
+        "object": "jnxJdhcpRelayRouterName"
+      },
+      {
+        "module": "JUNIPER-JDHCP-MIB",
+        "object": "jnxJdhcpRelayInterfaceName"
+      },
+      {
+        "module": "JUNIPER-JDHCP-MIB",
+        "object": "jnxJdhcpRelayInterfaceLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-JDHCP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-JDHCP-MIB"
+  }
+}

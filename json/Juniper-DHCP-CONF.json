@@ -1,0 +1,219 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "AGENT-CAPABILITIES",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniDhcpAgent": {
+    "name": "juniDhcpAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.8",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-01-31 20:38",
+        "description": "Added DHCP Option 60 support, and following objects become obsoleted: rsDhcpLocalServerCableModemServerTable, rsDhcpLocalServerCableModemRequestIn, rsDhcpLocalServerCableModemResponseIn, rsDhcpLocalServerCableModemRequestOut, rsDhcpLocalServerCableModemResponseOut, rsDhcpLocalServerCableModemRequestDropped, rsDhcpLocalServerCableModemResponseDropped, rsDhcpLocalServerCableModemRequestBad, rsDhcpLocalServerCableModemResponseBad, rsDhcpLocalServerCableModemRequestDeleted, rsDhcpLocalServerCableModemPacketsIn, rsDhcpLocalServerCableModemPacketsOut, rsDhcpLocalServerCableModemPacketsDropped. Added juniDhcpRelayBroadcastFlagReplies to control unicast/broadcast delivery of DHCP reply packets. Added juniDhcpRelayGiaddrSelectsInterface for enable/diable of DHCP Relay Giaddr Selects Interface operation mode."
+      },
+      {
+        "revision": "2005-11-04 19:53",
+        "description": "Added new DHCP Relay statistics to rsDhcpRelayScalars."
+      },
+      {
+        "revision": "2005-05-17 19:18",
+        "description": "Added juniDhcpLocalServerSubInterfaceTable."
+      },
+      {
+        "revision": "2005-12-05 21:31",
+        "description": "Added juniDhcpLocalServerBindingsLeaseInterval, juniDhcpLocalServerBindingsLeaseStartTime and juniDhcpLocalServerBindingsInitialLeaseStartTime. Update definition of juniDhcpLocalServerBindingsExpireTime. Added juniDhcpLocalServerBindingsRowStatus to permit administrative clearing of an address binding. Added juniDhcpLocalServerPoolSharedInUse to indicate sharing of DHCP pool addresses. Added statistics for renews, rebinds, errors, and discards. Added juniDhcpRelayLayer2UnicastReplies to control L2 ucast L3 bcast of DHCP reply packets."
+      },
+      {
+        "revision": "2004-11-08 16:16",
+        "description": "Added ability to administratively delete DHCP local server address bindings."
+      },
+      {
+        "revision": "2004-01-23 16:30",
+        "description": "Added DHCP local server pool exhaustion variables and notifications for high pool utilization and pool exhaustion."
+      },
+      {
+        "revision": "2003-09-05 19:03",
+        "description": "Added support to exclude the subinterafce ID from option 82 circuit ID."
+      },
+      {
+        "revision": "2002-12-17 16:59",
+        "description": "Replaced Unisphere names with Juniper names. Added host name and virtual router name to the relay agent circuit ID."
+      },
+      {
+        "revision": "2002-05-10 19:37",
+        "description": "Added local server reservation and cable modem support. Refined agent info enable into agent circuit ID enable and agent remote ID enable."
+      },
+      {
+        "revision": "2001-03-30 18:46",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniDhcpRelayAgent": {
+    "name": "juniDhcpRelayAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.8.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "juniDhcpRelayAgentV1": {
+    "name": "juniDhcpRelayAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.8.1.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the DHCP relay subcomponent of the JUNOSe SNMP agent.\n        This version of the DHCP relay subcomponent was supported in JUNOSe 1.3\n        thru 3.x system releases.",
+    "status": "obsolete"
+  },
+  "juniDhcpRelayAgentV2": {
+    "name": "juniDhcpRelayAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.8.1.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 2 of the DHCP relay subcomponent of the JUNOSe SNMP agent.\n        This version of the DHCP relay subcomponent was supported in JUNOSe 4.x\n        system releases.",
+    "status": "obsolete"
+  },
+  "juniDhcpRelayAgentV3": {
+    "name": "juniDhcpRelayAgentV3",
+    "oid": "1.3.6.1.4.1.4874.5.2.8.1.3",
+    "class": "agentcapabilities",
+    "productrelease": "Version 3 of the DHCP relay subcomponent of the JUNOSe SNMP agent.\n        This version of the DHCP relay subcomponent was supported in JUNOSe 5.0\n        system releases.",
+    "status": "obsolete"
+  },
+  "juniDhcpRelayAgentV4": {
+    "name": "juniDhcpRelayAgentV4",
+    "oid": "1.3.6.1.4.1.4874.5.2.8.1.4",
+    "class": "agentcapabilities",
+    "productrelease": "Version 4 of the DHCP relay subcomponent of the JUNOSe SNMP agent.\n        This version of the DHCP relay subcomponent is supported in JUNOSe 5.1\n        and subsequent system releases.",
+    "status": "obsolete"
+  },
+  "juniDhcpRelayAgentV5": {
+    "name": "juniDhcpRelayAgentV5",
+    "oid": "1.3.6.1.4.1.4874.5.2.8.1.5",
+    "class": "agentcapabilities",
+    "productrelease": "Version 5 of the DHCP relay subcomponent of the JUNOSe SNMP agent.\n        This version of the DHCP relay subcomponent is supported in JUNOSe 6.1\n        and subsequent system releases.",
+    "status": "obsolete"
+  },
+  "juniDhcpRelayAgentV6": {
+    "name": "juniDhcpRelayAgentV6",
+    "oid": "1.3.6.1.4.1.4874.5.2.8.1.6",
+    "class": "agentcapabilities",
+    "productrelease": "Version 6 of the DHCP relay subcomponent of the JUNOSe SNMP agent.\n        This version of the DHCP relay subcomponent is supported in JUNOSe 7.0\n        and subsequent system releases.",
+    "status": "obsolete"
+  },
+  "juniDhcpRelayAgentV7": {
+    "name": "juniDhcpRelayAgentV7",
+    "oid": "1.3.6.1.4.1.4874.5.2.8.1.7",
+    "class": "agentcapabilities",
+    "productrelease": "Version 7 of the DHCP relay subcomponent of the JUNOSe SNMP agent.\n        This version of the DHCP relay subcomponent is supported in JUNOSe 7.0\n        and subsequent system releases.",
+    "status": "obsolete"
+  },
+  "juniDhcpRelayAgentV8": {
+    "name": "juniDhcpRelayAgentV8",
+    "oid": "1.3.6.1.4.1.4874.5.2.8.1.8",
+    "class": "agentcapabilities",
+    "productrelease": "Version 8 of the DHCP relay subcomponent of the JUNOSe SNMP agent.\n        This version of the DHCP relay subcomponent is supported in JUNOSe 7.2\n        and subsequent system releases.",
+    "status": "obsolete"
+  },
+  "juniDhcpRelayAgentV9": {
+    "name": "juniDhcpRelayAgentV9",
+    "oid": "1.3.6.1.4.1.4874.5.2.8.1.9",
+    "class": "agentcapabilities",
+    "productrelease": "Version 9 of the DHCP relay subcomponent of the JUNOSe SNMP agent.\n        This version of the DHCP relay subcomponent is supported in JUNOSe 8.0\n        and subsequent system releases.",
+    "status": "current"
+  },
+  "juniDhcpProxyAgent": {
+    "name": "juniDhcpProxyAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.8.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "juniDhcpProxyAgentV1": {
+    "name": "juniDhcpProxyAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.8.2.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the DHCP proxy subcomponent of the JUNOSe SNMP agent.\n        This version of the DHCP proxy subcomponent is supported in JUNOSe 1.3\n        and subsequent system releases.",
+    "status": "current"
+  },
+  "juniDhcpLocalServerAgent": {
+    "name": "juniDhcpLocalServerAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.8.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "juniDhcpLocalServerAgentV1": {
+    "name": "juniDhcpLocalServerAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.8.3.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the DHCP local server subcomponent of JUNOSe SNMP agent.\n        This version of the DHCP local server subcomponent was supported in\n        JUNOSe 3.1 and subsequent 3.x system releases.",
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerAgentV2": {
+    "name": "juniDhcpLocalServerAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.8.3.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 2 of the DHCP local server subcomponent of JUNOSe SNMP agent.\n        This version of the DHCP local server subcomponent was supported in\n        JUNOSe 4.0 through 5.1 system releases.",
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerAgentV3": {
+    "name": "juniDhcpLocalServerAgentV3",
+    "oid": "1.3.6.1.4.1.4874.5.2.8.3.3",
+    "class": "agentcapabilities",
+    "productrelease": "Version 3 of the DHCP local server subcomponent of JUNOSe SNMP agent.\n        This version of the DHCP local server subcomponent is supported in\n        JUNOSe 5.2 and subsequent system releases.",
+    "status": "current"
+  },
+  "juniDhcpLocalServerAgentV5": {
+    "name": "juniDhcpLocalServerAgentV5",
+    "oid": "1.3.6.1.4.1.4874.5.2.8.3.5",
+    "class": "agentcapabilities",
+    "productrelease": "Version 5 of the DHCP local server subcomponent of JUNOSe SNMP agent.\n        This version of the DHCP local server subcomponent is supported in\n        JUNOSe 6.2 and subsequent system releases.",
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerAgentV6": {
+    "name": "juniDhcpLocalServerAgentV6",
+    "oid": "1.3.6.1.4.1.4874.5.2.8.3.6",
+    "class": "agentcapabilities",
+    "productrelease": "Version 6 of the DHCP local server subcomponent of JUNOSe SNMP agent.\n        This version of the DHCP local server subcomponent is supported in\n        JUNOSe 7.1 and subsequent system releases.",
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerAgentV7": {
+    "name": "juniDhcpLocalServerAgentV7",
+    "oid": "1.3.6.1.4.1.4874.5.2.8.3.7",
+    "class": "agentcapabilities",
+    "productrelease": "Version 7 of the DHCP local server subcomponent of JUNOSe SNMP agent.\n        This version of the DHCP local server subcomponent is supported in\n        JUNOSe 8.0 and subsequent system releases.",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-DHCP-CONF",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-DHCP-CONF"
+  }
+}

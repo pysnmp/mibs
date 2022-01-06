@@ -1,0 +1,4018 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNA-SDLC-MIB": [
+      "sdlcLSAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "InstancePointer",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoDlswMIB": {
+    "name": "ciscoDlswMIB",
+    "oid": "1.3.6.1.4.1.9.10.9",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1995-12-05 00:00",
+        "description": "Correct minor syntax errors."
+      }
+    ]
+  },
+  "ciscoDlswMIBObjects": {
+    "name": "ciscoDlswMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.9.1",
+    "class": "objectidentity"
+  },
+  "ciscoDlswDomains": {
+    "name": "ciscoDlswDomains",
+    "oid": "1.3.6.1.4.1.9.10.9.2",
+    "class": "objectidentity"
+  },
+  "NBName": {
+    "name": "NBName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "MacAddress": {
+    "name": "MacAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "displayhint": "1x:",
+    "status": "current"
+  },
+  "TAddress": {
+    "name": "TAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "DlswTimeStamp": {
+    "name": "DlswTimeStamp",
+    "class": "textualconvention",
+    "type": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "EndStationLocation": {
+    "name": "EndStationLocation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "internal": 2,
+          "remote": 3,
+          "local": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DlcType": {
+    "name": "DlcType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "na": 2,
+          "llc": 3,
+          "sdlc": 4,
+          "qllc": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LFSize": {
+    "name": "LFSize",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lfs516": 516,
+          "lfs635": 635,
+          "lfs754": 754,
+          "lfs873": 873,
+          "lfs993": 993,
+          "lfs1112": 1112,
+          "lfs1231": 1231,
+          "lfs1350": 1350,
+          "lfs1470": 1470,
+          "lfs1542": 1542,
+          "lfs1615": 1615,
+          "lfs1688": 1688,
+          "lfs1761": 1761,
+          "lfs1833": 1833,
+          "lfs1906": 1906,
+          "lfs1979": 1979,
+          "lfs2052": 2052,
+          "lfs2345": 2345,
+          "lfs2638": 2638,
+          "lfs2932": 2932,
+          "lfs3225": 3225,
+          "lfs3518": 3518,
+          "lfs3812": 3812,
+          "lfs4105": 4105,
+          "lfs4399": 4399,
+          "lfs4865": 4865,
+          "lfs5331": 5331,
+          "lfs5798": 5798,
+          "lfs6264": 6264,
+          "lfs6730": 6730,
+          "lfs7197": 7197,
+          "lfs7663": 7663,
+          "lfs8130": 8130,
+          "lfs8539": 8539,
+          "lfs8949": 8949,
+          "lfs9358": 9358,
+          "lfs9768": 9768,
+          "lfs10178": 10178,
+          "lfs10587": 10587,
+          "lfs10997": 10997,
+          "lfs11407": 11407,
+          "lfs12199": 12199,
+          "lfs12992": 12992,
+          "lfs13785": 13785,
+          "lfs14578": 14578,
+          "lfs15370": 15370,
+          "lfs16163": 16163,
+          "lfs16956": 16956,
+          "lfs17749": 17749,
+          "lfs20730": 20730,
+          "lfs23711": 23711,
+          "lfs26693": 26693,
+          "lfs29674": 29674,
+          "lfs32655": 32655,
+          "lfs38618": 38618,
+          "lfs41600": 41600,
+          "lfs44591": 44591,
+          "lfs47583": 47583,
+          "lfs50575": 50575,
+          "lfs53567": 53567,
+          "lfs56559": 56559,
+          "lfs59551": 59551,
+          "lfs65535": 65535
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoDlswTCPDomain": {
+    "name": "ciscoDlswTCPDomain",
+    "oid": "1.3.6.1.4.1.9.10.9.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoDlswNode": {
+    "name": "ciscoDlswNode",
+    "oid": "1.3.6.1.4.1.9.10.9.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoDlswTConn": {
+    "name": "ciscoDlswTConn",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoDlswInterface": {
+    "name": "ciscoDlswInterface",
+    "oid": "1.3.6.1.4.1.9.10.9.1.3",
+    "class": "objectidentity"
+  },
+  "ciscoDlswDirectory": {
+    "name": "ciscoDlswDirectory",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4",
+    "class": "objectidentity"
+  },
+  "ciscoDlswCircuit": {
+    "name": "ciscoDlswCircuit",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5",
+    "class": "objectidentity"
+  },
+  "ciscoDlswSdlc": {
+    "name": "ciscoDlswSdlc",
+    "oid": "1.3.6.1.4.1.9.10.9.1.6",
+    "class": "objectidentity"
+  },
+  "ciscoDlswVersion": {
+    "name": "ciscoDlswVersion",
+    "oid": "1.3.6.1.4.1.9.10.9.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswVendorID": {
+    "name": "ciscoDlswVendorID",
+    "oid": "1.3.6.1.4.1.9.10.9.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswVersionString": {
+    "name": "ciscoDlswVersionString",
+    "oid": "1.3.6.1.4.1.9.10.9.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswStdPacingSupport": {
+    "name": "ciscoDlswStdPacingSupport",
+    "oid": "1.3.6.1.4.1.9.10.9.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "adaptiveRcvWindow": 2,
+          "fixedRcvWindow": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswStatus": {
+    "name": "ciscoDlswStatus",
+    "oid": "1.3.6.1.4.1.9.10.9.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswUpTime": {
+    "name": "ciscoDlswUpTime",
+    "oid": "1.3.6.1.4.1.9.10.9.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswVirtualSegmentLFSize": {
+    "name": "ciscoDlswVirtualSegmentLFSize",
+    "oid": "1.3.6.1.4.1.9.10.9.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LFSize",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "lfs17749",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswResourceNBExclusivity": {
+    "name": "ciscoDlswResourceNBExclusivity",
+    "oid": "1.3.6.1.4.1.9.10.9.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswResourceMacExclusivity": {
+    "name": "ciscoDlswResourceMacExclusivity",
+    "oid": "1.3.6.1.4.1.9.10.9.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnStat": {
+    "name": "ciscoDlswTConnStat",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoDlswTConnStatActiveConnections": {
+    "name": "ciscoDlswTConnStatActiveConnections",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnStatCloseIdles": {
+    "name": "ciscoDlswTConnStatCloseIdles",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnStatCloseBusys": {
+    "name": "ciscoDlswTConnStatCloseBusys",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnConfigTable": {
+    "name": "ciscoDlswTConnConfigTable",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswTConnConfigEntry": {
+    "name": "ciscoDlswTConnConfigEntry",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswTConnConfigIndex": {
+    "name": "ciscoDlswTConnConfigIndex",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswTConnConfigTDomain": {
+    "name": "ciscoDlswTConnConfigTDomain",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnConfigLocalTAddr": {
+    "name": "ciscoDlswTConnConfigLocalTAddr",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnConfigRemoteTAddr": {
+    "name": "ciscoDlswTConnConfigRemoteTAddr",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnConfigLastModifyTime": {
+    "name": "ciscoDlswTConnConfigLastModifyTime",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlswTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnConfigEntryType": {
+    "name": "ciscoDlswTConnConfigEntryType",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "individual": 1,
+          "global": 2,
+          "group": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnConfigGroupDefinition": {
+    "name": "ciscoDlswTConnConfigGroupDefinition",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InstancePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnConfigSetupType": {
+    "name": "ciscoDlswTConnConfigSetupType",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "activePersistent": 2,
+          "activeOnDemand": 3,
+          "passive": 4,
+          "excluded": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "activePersistent",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnConfigSapList": {
+    "name": "ciscoDlswTConnConfigSapList",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ffffffffffffffffffffffffffffffff",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnConfigAdvertiseMacNB": {
+    "name": "ciscoDlswTConnConfigAdvertiseMacNB",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnConfigInitCirRecvWndw": {
+    "name": "ciscoDlswTConnConfigInitCirRecvWndw",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "SSP messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnConfigOpens": {
+    "name": "ciscoDlswTConnConfigOpens",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnConfigRowStatus": {
+    "name": "ciscoDlswTConnConfigRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperTable": {
+    "name": "ciscoDlswTConnOperTable",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperEntry": {
+    "name": "ciscoDlswTConnOperEntry",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperTDomain",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperRemoteTAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswTConnOperTDomain": {
+    "name": "ciscoDlswTConnOperTDomain",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperLocalTAddr": {
+    "name": "ciscoDlswTConnOperLocalTAddr",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperRemoteTAddr": {
+    "name": "ciscoDlswTConnOperRemoteTAddr",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperEntryTime": {
+    "name": "ciscoDlswTConnOperEntryTime",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlswTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperConnectTime": {
+    "name": "ciscoDlswTConnOperConnectTime",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlswTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperState": {
+    "name": "ciscoDlswTConnOperState",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connecting": 1,
+          "initCapExchange": 2,
+          "connected": 3,
+          "quiescing": 4,
+          "disconnecting": 5,
+          "disconnected": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperConfigIndex": {
+    "name": "ciscoDlswTConnOperConfigIndex",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperFlowCntlMode": {
+    "name": "ciscoDlswTConnOperFlowCntlMode",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undetermined": 1,
+          "pacing": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperPartnerVersion": {
+    "name": "ciscoDlswTConnOperPartnerVersion",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperPartnerVendorID": {
+    "name": "ciscoDlswTConnOperPartnerVendorID",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperPartnerVersionStr": {
+    "name": "ciscoDlswTConnOperPartnerVersionStr",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperPartnerInitPacingWndw": {
+    "name": "ciscoDlswTConnOperPartnerInitPacingWndw",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperPartnerSapList": {
+    "name": "ciscoDlswTConnOperPartnerSapList",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperPartnerNBExcl": {
+    "name": "ciscoDlswTConnOperPartnerNBExcl",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperPartnerMacExcl": {
+    "name": "ciscoDlswTConnOperPartnerMacExcl",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperPartnerNBInfo": {
+    "name": "ciscoDlswTConnOperPartnerNBInfo",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "partial": 2,
+          "complete": 3,
+          "notApplicable": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperPartnerMacInfo": {
+    "name": "ciscoDlswTConnOperPartnerMacInfo",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "partial": 2,
+          "complete": 3,
+          "notApplicable": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperDiscTime": {
+    "name": "ciscoDlswTConnOperDiscTime",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlswTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperDiscReason": {
+    "name": "ciscoDlswTConnOperDiscReason",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "capExFailed": 2,
+          "transportLayerDisc": 3,
+          "operatorCommand": 4,
+          "lastCircuitDiscd": 5,
+          "protocolError": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperDiscActiveCir": {
+    "name": "ciscoDlswTConnOperDiscActiveCir",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperInDataPkts": {
+    "name": "ciscoDlswTConnOperInDataPkts",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SSP messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperOutDataPkts": {
+    "name": "ciscoDlswTConnOperOutDataPkts",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SSP messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperInDataOctets": {
+    "name": "ciscoDlswTConnOperInDataOctets",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperOutDataOctets": {
+    "name": "ciscoDlswTConnOperOutDataOctets",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperInCntlPkts": {
+    "name": "ciscoDlswTConnOperInCntlPkts",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SSP messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperOutCntlPkts": {
+    "name": "ciscoDlswTConnOperOutCntlPkts",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SSP messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperCURexSents": {
+    "name": "ciscoDlswTConnOperCURexSents",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperICRexRcvds": {
+    "name": "ciscoDlswTConnOperICRexRcvds",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperCURexRcvds": {
+    "name": "ciscoDlswTConnOperCURexRcvds",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperICRexSents": {
+    "name": "ciscoDlswTConnOperICRexSents",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperNQexSents": {
+    "name": "ciscoDlswTConnOperNQexSents",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperNRexRcvds": {
+    "name": "ciscoDlswTConnOperNRexRcvds",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperNQexRcvds": {
+    "name": "ciscoDlswTConnOperNQexRcvds",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperNRexSents": {
+    "name": "ciscoDlswTConnOperNRexSents",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperCirCreates": {
+    "name": "ciscoDlswTConnOperCirCreates",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnOperCircuits": {
+    "name": "ciscoDlswTConnOperCircuits",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.3.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnSpecific": {
+    "name": "ciscoDlswTConnSpecific",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.4",
+    "class": "objectidentity"
+  },
+  "ciscoDlswTConnTcp": {
+    "name": "ciscoDlswTConnTcp",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.4.1",
+    "class": "objectidentity"
+  },
+  "ciscoDlswTConnTcpConfigTable": {
+    "name": "ciscoDlswTConnTcpConfigTable",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswTConnTcpConfigEntry": {
+    "name": "ciscoDlswTConnTcpConfigEntry",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswTConnTcpConfigKeepAliveInt": {
+    "name": "ciscoDlswTConnTcpConfigKeepAliveInt",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnTcpConfigTcpConnections": {
+    "name": "ciscoDlswTConnTcpConfigTcpConnections",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnTcpConfigMaxSegmentSize": {
+    "name": "ciscoDlswTConnTcpConfigMaxSegmentSize",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4096,
+        "format": "decimal"
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnTcpOperTable": {
+    "name": "ciscoDlswTConnTcpOperTable",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.4.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswTConnTcpOperEntry": {
+    "name": "ciscoDlswTConnTcpOperEntry",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.4.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperTDomain",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperRemoteTAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswTConnTcpOperKeepAliveInt": {
+    "name": "ciscoDlswTConnTcpOperKeepAliveInt",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.4.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnTcpOperPrefTcpConnections": {
+    "name": "ciscoDlswTConnTcpOperPrefTcpConnections",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.4.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTConnTcpOperTcpConnections": {
+    "name": "ciscoDlswTConnTcpOperTcpConnections",
+    "oid": "1.3.6.1.4.1.9.10.9.1.2.4.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswIfTable": {
+    "name": "ciscoDlswIfTable",
+    "oid": "1.3.6.1.4.1.9.10.9.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswIfEntry": {
+    "name": "ciscoDlswIfEntry",
+    "oid": "1.3.6.1.4.1.9.10.9.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswIfRowStatus": {
+    "name": "ciscoDlswIfRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.9.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswIfVirtualSegment": {
+    "name": "ciscoDlswIfVirtualSegment",
+    "oid": "1.3.6.1.4.1.9.10.9.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswIfSapList": {
+    "name": "ciscoDlswIfSapList",
+    "oid": "1.3.6.1.4.1.9.10.9.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ffffffffffffffffffffffffffffffff",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirStat": {
+    "name": "ciscoDlswDirStat",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.1",
+    "class": "objectidentity"
+  },
+  "ciscoDlswDirMacEntries": {
+    "name": "ciscoDlswDirMacEntries",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirMacCacheHits": {
+    "name": "ciscoDlswDirMacCacheHits",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirMacCacheMisses": {
+    "name": "ciscoDlswDirMacCacheMisses",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirNBEntries": {
+    "name": "ciscoDlswDirNBEntries",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirNBCacheHits": {
+    "name": "ciscoDlswDirNBCacheHits",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirNBCacheMisses": {
+    "name": "ciscoDlswDirNBCacheMisses",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirCache": {
+    "name": "ciscoDlswDirCache",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.2",
+    "class": "objectidentity"
+  },
+  "ciscoDlswDirMacTable": {
+    "name": "ciscoDlswDirMacTable",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswDirMacEntry": {
+    "name": "ciscoDlswDirMacEntry",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirMacIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswDirMacIndex": {
+    "name": "ciscoDlswDirMacIndex",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswDirMacMac": {
+    "name": "ciscoDlswDirMacMac",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirMacMask": {
+    "name": "ciscoDlswDirMacMask",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ffffffffffff",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirMacEntryType": {
+    "name": "ciscoDlswDirMacEntryType",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "userConfiguredPublic": 2,
+          "userConfiguredPrivate": 3,
+          "partnerCapExMsg": 4,
+          "dynamic": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "userConfiguredPublic",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirMacLocationType": {
+    "name": "ciscoDlswDirMacLocationType",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "local": 2,
+          "remote": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "local",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirMacLocation": {
+    "name": "ciscoDlswDirMacLocation",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InstancePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirMacStatus": {
+    "name": "ciscoDlswDirMacStatus",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "reachable": 2,
+          "notReachable": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirMacLFSize": {
+    "name": "ciscoDlswDirMacLFSize",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LFSize",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "lfs65535",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirMacRowStatus": {
+    "name": "ciscoDlswDirMacRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirNBTable": {
+    "name": "ciscoDlswDirNBTable",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswDirNBEntry": {
+    "name": "ciscoDlswDirNBEntry",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirNBIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswDirNBIndex": {
+    "name": "ciscoDlswDirNBIndex",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswDirNBName": {
+    "name": "ciscoDlswDirNBName",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NBName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirNBNameType": {
+    "name": "ciscoDlswDirNBNameType",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "individual": 2,
+          "group": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirNBEntryType": {
+    "name": "ciscoDlswDirNBEntryType",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "userConfiguredPublic": 2,
+          "userConfiguredPrivate": 3,
+          "partnerCapExMsg": 4,
+          "dynamic": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "userConfiguredPublic",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirNBLocationType": {
+    "name": "ciscoDlswDirNBLocationType",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "local": 2,
+          "remote": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "local",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirNBLocation": {
+    "name": "ciscoDlswDirNBLocation",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InstancePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirNBStatus": {
+    "name": "ciscoDlswDirNBStatus",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "reachable": 2,
+          "notReachable": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirNBLFSize": {
+    "name": "ciscoDlswDirNBLFSize",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LFSize",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "lfs65535",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirNBRowStatus": {
+    "name": "ciscoDlswDirNBRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirLocate": {
+    "name": "ciscoDlswDirLocate",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.3",
+    "class": "objectidentity"
+  },
+  "ciscoDlswDirLocateMacTable": {
+    "name": "ciscoDlswDirLocateMacTable",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswDirLocateMacEntry": {
+    "name": "ciscoDlswDirLocateMacEntry",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirLocateMacMac",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirLocateMacMatch",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswDirLocateMacMac": {
+    "name": "ciscoDlswDirLocateMacMac",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswDirLocateMacMatch": {
+    "name": "ciscoDlswDirLocateMacMatch",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswDirLocateMacLocation": {
+    "name": "ciscoDlswDirLocateMacLocation",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InstancePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswDirLocateNBTable": {
+    "name": "ciscoDlswDirLocateNBTable",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswDirLocateNBEntry": {
+    "name": "ciscoDlswDirLocateNBEntry",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirLocateNBName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirLocateNBMatch",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswDirLocateNBName": {
+    "name": "ciscoDlswDirLocateNBName",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NBName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswDirLocateNBMatch": {
+    "name": "ciscoDlswDirLocateNBMatch",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswDirLocateNBLocation": {
+    "name": "ciscoDlswDirLocateNBLocation",
+    "oid": "1.3.6.1.4.1.9.10.9.1.4.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InstancePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitStat": {
+    "name": "ciscoDlswCircuitStat",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.1",
+    "class": "objectidentity"
+  },
+  "ciscoDlswActiveCircuits": {
+    "name": "ciscoDlswActiveCircuits",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitCreates": {
+    "name": "ciscoDlswCircuitCreates",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitTable": {
+    "name": "ciscoDlswCircuitTable",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswCircuitEntry": {
+    "name": "ciscoDlswCircuitEntry",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitS1Mac",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitS1Sap",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitS2Mac",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitS2Sap",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswCircuitS1Mac": {
+    "name": "ciscoDlswCircuitS1Mac",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswCircuitS1Sap": {
+    "name": "ciscoDlswCircuitS1Sap",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswCircuitS1IfIndex": {
+    "name": "ciscoDlswCircuitS1IfIndex",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitS1DlcType": {
+    "name": "ciscoDlswCircuitS1DlcType",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlcType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitS1RouteInfo": {
+    "name": "ciscoDlswCircuitS1RouteInfo",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitS1CircuitId": {
+    "name": "ciscoDlswCircuitS1CircuitId",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitS1Dlc": {
+    "name": "ciscoDlswCircuitS1Dlc",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InstancePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitS2Mac": {
+    "name": "ciscoDlswCircuitS2Mac",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswCircuitS2Sap": {
+    "name": "ciscoDlswCircuitS2Sap",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswCircuitS2Location": {
+    "name": "ciscoDlswCircuitS2Location",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EndStationLocation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitS2TDomain": {
+    "name": "ciscoDlswCircuitS2TDomain",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitS2TAddress": {
+    "name": "ciscoDlswCircuitS2TAddress",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitS2CircuitId": {
+    "name": "ciscoDlswCircuitS2CircuitId",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitOrigin": {
+    "name": "ciscoDlswCircuitOrigin",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "s1": 1,
+          "s2": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitEntryTime": {
+    "name": "ciscoDlswCircuitEntryTime",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlswTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitStateTime": {
+    "name": "ciscoDlswCircuitStateTime",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlswTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitState": {
+    "name": "ciscoDlswCircuitState",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnected": 1,
+          "circuitStart": 2,
+          "resolvePending": 3,
+          "circuitPending": 4,
+          "circuitEstablished": 5,
+          "connectPending": 6,
+          "contactPending": 7,
+          "connected": 8,
+          "disconnectPending": 9,
+          "haltPending": 10,
+          "haltPendingNoack": 11,
+          "circuitRestart": 12,
+          "restartPending": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitPriority": {
+    "name": "ciscoDlswCircuitPriority",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unsupported": 0,
+          "low": 1,
+          "medium": 2,
+          "high": 3,
+          "highest": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitFCSendGrantedUnits": {
+    "name": "ciscoDlswCircuitFCSendGrantedUnits",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitFCSendCurrentWndw": {
+    "name": "ciscoDlswCircuitFCSendCurrentWndw",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitFCRecvGrantedUnits": {
+    "name": "ciscoDlswCircuitFCRecvGrantedUnits",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitFCRecvCurrentWndw": {
+    "name": "ciscoDlswCircuitFCRecvCurrentWndw",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitFCLargestRecvGranted": {
+    "name": "ciscoDlswCircuitFCLargestRecvGranted",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitFCLargestSendGranted": {
+    "name": "ciscoDlswCircuitFCLargestSendGranted",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitFCHalveWndwSents": {
+    "name": "ciscoDlswCircuitFCHalveWndwSents",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitFCResetOpSents": {
+    "name": "ciscoDlswCircuitFCResetOpSents",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitFCHalveWndwRcvds": {
+    "name": "ciscoDlswCircuitFCHalveWndwRcvds",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitFCResetOpRcvds": {
+    "name": "ciscoDlswCircuitFCResetOpRcvds",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitDiscReasonLocal": {
+    "name": "ciscoDlswCircuitDiscReasonLocal",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "endStationDiscRcvd": 1,
+          "endStationDlcError": 2,
+          "protocolError": 3,
+          "operatorCommand": 4,
+          "haltDlRcvd": 5,
+          "haltDlNoAckRcvd": 6,
+          "transportConnClosed": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitDiscReasonRemote": {
+    "name": "ciscoDlswCircuitDiscReasonRemote",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "endStationDiscRcvd": 1,
+          "endStationDlcError": 2,
+          "protocolError": 3,
+          "operatorCommand": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswCircuitDiscReasonRemoteData": {
+    "name": "ciscoDlswCircuitDiscReasonRemoteData",
+    "oid": "1.3.6.1.4.1.9.10.9.1.5.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswSdlcLsEntries": {
+    "name": "ciscoDlswSdlcLsEntries",
+    "oid": "1.3.6.1.4.1.9.10.9.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswSdlcLsTable": {
+    "name": "ciscoDlswSdlcLsTable",
+    "oid": "1.3.6.1.4.1.9.10.9.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDlswSdlcLsEntry": {
+    "name": "ciscoDlswSdlcLsEntry",
+    "oid": "1.3.6.1.4.1.9.10.9.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswSdlcLsLocalMac": {
+    "name": "ciscoDlswSdlcLsLocalMac",
+    "oid": "1.3.6.1.4.1.9.10.9.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswSdlcLsLocalSap": {
+    "name": "ciscoDlswSdlcLsLocalSap",
+    "oid": "1.3.6.1.4.1.9.10.9.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswSdlcLsLocalBlockNum": {
+    "name": "ciscoDlswSdlcLsLocalBlockNum",
+    "oid": "1.3.6.1.4.1.9.10.9.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswSdlcLsLocalIdNum": {
+    "name": "ciscoDlswSdlcLsLocalIdNum",
+    "oid": "1.3.6.1.4.1.9.10.9.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswSdlcLsRemoteMac": {
+    "name": "ciscoDlswSdlcLsRemoteMac",
+    "oid": "1.3.6.1.4.1.9.10.9.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswSdlcLsRemoteSap": {
+    "name": "ciscoDlswSdlcLsRemoteSap",
+    "oid": "1.3.6.1.4.1.9.10.9.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswSdlcLsRowStatus": {
+    "name": "ciscoDlswSdlcLsRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.9.1.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTrapControl": {
+    "name": "ciscoDlswTrapControl",
+    "oid": "1.3.6.1.4.1.9.10.9.1.1.10",
+    "class": "objectidentity"
+  },
+  "ciscoDlswTrapCntlTConnPartnerReject": {
+    "name": "ciscoDlswTrapCntlTConnPartnerReject",
+    "oid": "1.3.6.1.4.1.9.10.9.1.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "partial": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTrapCntlTConnProtViolation": {
+    "name": "ciscoDlswTrapCntlTConnProtViolation",
+    "oid": "1.3.6.1.4.1.9.10.9.1.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTrapCntlTConn": {
+    "name": "ciscoDlswTrapCntlTConn",
+    "oid": "1.3.6.1.4.1.9.10.9.1.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "partial": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTrapCntlCircuit": {
+    "name": "ciscoDlswTrapCntlCircuit",
+    "oid": "1.3.6.1.4.1.9.10.9.1.1.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "partial": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDlswTraps": {
+    "name": "ciscoDlswTraps",
+    "oid": "1.3.6.1.4.1.9.10.9.1.7",
+    "class": "objectidentity"
+  },
+  "ciscoDlswTrapTConnPartnerReject": {
+    "name": "ciscoDlswTrapTConnPartnerReject",
+    "oid": "1.3.6.1.4.1.9.10.9.1.7.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperTDomain"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperRemoteTAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswTrapTConnProtViolation": {
+    "name": "ciscoDlswTrapTConnProtViolation",
+    "oid": "1.3.6.1.4.1.9.10.9.1.7.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperTDomain"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperRemoteTAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswTrapTConnUp": {
+    "name": "ciscoDlswTrapTConnUp",
+    "oid": "1.3.6.1.4.1.9.10.9.1.7.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperTDomain"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperRemoteTAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswTrapTConnDown": {
+    "name": "ciscoDlswTrapTConnDown",
+    "oid": "1.3.6.1.4.1.9.10.9.1.7.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperTDomain"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperRemoteTAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswTrapCircuitUp": {
+    "name": "ciscoDlswTrapCircuitUp",
+    "oid": "1.3.6.1.4.1.9.10.9.1.7.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitS1Mac"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitS1Sap"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitS2Mac"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitS2Sap"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswTrapCircuitDown": {
+    "name": "ciscoDlswTrapCircuitDown",
+    "oid": "1.3.6.1.4.1.9.10.9.1.7.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitS1Mac"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitS1Sap"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitS2Mac"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitS2Sap"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswConformance": {
+    "name": "ciscoDlswConformance",
+    "oid": "1.3.6.1.4.1.9.10.9.3",
+    "class": "objectidentity"
+  },
+  "ciscoDlswCompliances": {
+    "name": "ciscoDlswCompliances",
+    "oid": "1.3.6.1.4.1.9.10.9.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoDlswGroups": {
+    "name": "ciscoDlswGroups",
+    "oid": "1.3.6.1.4.1.9.10.9.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoDlswCoreCompliance": {
+    "name": "ciscoDlswCoreCompliance",
+    "oid": "1.3.6.1.4.1.9.10.9.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDlswNodeGroup",
+        "module": "CISCO-DLSW-MIB"
+      },
+      {
+        "object": "ciscoDlswTConnStatGroup",
+        "module": "CISCO-DLSW-MIB"
+      },
+      {
+        "object": "ciscoDlswTConnConfigGroup",
+        "module": "CISCO-DLSW-MIB"
+      },
+      {
+        "object": "ciscoDlswTConnOperGroup",
+        "module": "CISCO-DLSW-MIB"
+      },
+      {
+        "object": "ciscoDlswTConnTcpConfigGroup",
+        "module": "CISCO-DLSW-MIB"
+      },
+      {
+        "object": "ciscoDlswTConnTcpOperGroup",
+        "module": "CISCO-DLSW-MIB"
+      },
+      {
+        "object": "ciscoDlswInterfaceGroup",
+        "module": "CISCO-DLSW-MIB"
+      },
+      {
+        "object": "ciscoDlswCircuitStatGroup",
+        "module": "CISCO-DLSW-MIB"
+      },
+      {
+        "object": "ciscoDlswCircuitGroup",
+        "module": "CISCO-DLSW-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoDlswCoreComplianceV11R01": {
+    "name": "ciscoDlswCoreComplianceV11R01",
+    "oid": "1.3.6.1.4.1.9.10.9.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDlswNodeGroup",
+        "module": "CISCO-DLSW-MIB"
+      },
+      {
+        "object": "ciscoDlswTConnStatGroup",
+        "module": "CISCO-DLSW-MIB"
+      },
+      {
+        "object": "ciscoDlswTConnConfigGroup",
+        "module": "CISCO-DLSW-MIB"
+      },
+      {
+        "object": "ciscoDlswTConnOperGroup",
+        "module": "CISCO-DLSW-MIB"
+      },
+      {
+        "object": "ciscoDlswTConnTcpConfigGroup",
+        "module": "CISCO-DLSW-MIB"
+      },
+      {
+        "object": "ciscoDlswTConnTcpOperGroup",
+        "module": "CISCO-DLSW-MIB"
+      },
+      {
+        "object": "ciscoDlswInterfaceGroup",
+        "module": "CISCO-DLSW-MIB"
+      },
+      {
+        "object": "ciscoDlswCircuitStatGroup",
+        "module": "CISCO-DLSW-MIB"
+      },
+      {
+        "object": "ciscoDlswCircuitGroup",
+        "module": "CISCO-DLSW-MIB"
+      },
+      {
+        "object": "ciscoDlswNodeNBGroup",
+        "module": "CISCO-DLSW-MIB"
+      },
+      {
+        "object": "ciscoDlswTConnNBGroup",
+        "module": "CISCO-DLSW-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswDirCompliance": {
+    "name": "ciscoDlswDirCompliance",
+    "oid": "1.3.6.1.4.1.9.10.9.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDlswDirGroup",
+        "module": "CISCO-DLSW-MIB"
+      },
+      {
+        "object": "ciscoDlswDirNBGroup",
+        "module": "CISCO-DLSW-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoDlswDirComplianceV11R01": {
+    "name": "ciscoDlswDirComplianceV11R01",
+    "oid": "1.3.6.1.4.1.9.10.9.3.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDlswDirGroup",
+        "module": "CISCO-DLSW-MIB"
+      },
+      {
+        "object": "ciscoDlswDirNBGroup",
+        "module": "CISCO-DLSW-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswDirLocateCompliance": {
+    "name": "ciscoDlswDirLocateCompliance",
+    "oid": "1.3.6.1.4.1.9.10.9.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDlswDirLocateGroup",
+        "module": "CISCO-DLSW-MIB"
+      },
+      {
+        "object": "ciscoDlswDirLocateNBGroup",
+        "module": "CISCO-DLSW-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswSdlcCompliance": {
+    "name": "ciscoDlswSdlcCompliance",
+    "oid": "1.3.6.1.4.1.9.10.9.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDlswSdlcGroup",
+        "module": "CISCO-DLSW-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoDlswSdlcComplianceV11R01": {
+    "name": "ciscoDlswSdlcComplianceV11R01",
+    "oid": "1.3.6.1.4.1.9.10.9.3.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDlswSdlcGroup",
+        "module": "CISCO-DLSW-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswNodeGroup": {
+    "name": "ciscoDlswNodeGroup",
+    "oid": "1.3.6.1.4.1.9.10.9.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswVersion"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswVendorID"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswVersionString"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswStdPacingSupport"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswStatus"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswUpTime"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswVirtualSegmentLFSize"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswResourceMacExclusivity"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTrapCntlTConnPartnerReject"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTrapCntlTConnProtViolation"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTrapCntlTConn"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTrapCntlCircuit"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswNodeNBGroup": {
+    "name": "ciscoDlswNodeNBGroup",
+    "oid": "1.3.6.1.4.1.9.10.9.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswResourceNBExclusivity"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswTConnStatGroup": {
+    "name": "ciscoDlswTConnStatGroup",
+    "oid": "1.3.6.1.4.1.9.10.9.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnStatActiveConnections"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnStatCloseIdles"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnStatCloseBusys"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswTConnConfigGroup": {
+    "name": "ciscoDlswTConnConfigGroup",
+    "oid": "1.3.6.1.4.1.9.10.9.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnConfigTDomain"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnConfigLocalTAddr"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnConfigRemoteTAddr"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnConfigLastModifyTime"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnConfigEntryType"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnConfigGroupDefinition"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnConfigSetupType"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnConfigSapList"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnConfigAdvertiseMacNB"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnConfigInitCirRecvWndw"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnConfigOpens"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnConfigRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswTConnOperGroup": {
+    "name": "ciscoDlswTConnOperGroup",
+    "oid": "1.3.6.1.4.1.9.10.9.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperLocalTAddr"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperEntryTime"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperConnectTime"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperState"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperConfigIndex"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperFlowCntlMode"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperPartnerVersion"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperPartnerVendorID"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperPartnerVersionStr"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperPartnerInitPacingWndw"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperPartnerSapList"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperPartnerMacExcl"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperPartnerMacInfo"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperDiscTime"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperDiscReason"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperDiscActiveCir"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperInDataPkts"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperOutDataPkts"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperInDataOctets"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperOutDataOctets"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperInCntlPkts"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperOutCntlPkts"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperCURexSents"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperICRexRcvds"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperCURexRcvds"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperICRexSents"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperCirCreates"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperCircuits"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswTConnNBGroup": {
+    "name": "ciscoDlswTConnNBGroup",
+    "oid": "1.3.6.1.4.1.9.10.9.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperPartnerNBInfo"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperPartnerNBExcl"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperNQexSents"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperNRexRcvds"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperNQexRcvds"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnOperNRexSents"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswInterfaceGroup": {
+    "name": "ciscoDlswInterfaceGroup",
+    "oid": "1.3.6.1.4.1.9.10.9.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswIfRowStatus"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswIfVirtualSegment"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswIfSapList"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswDirGroup": {
+    "name": "ciscoDlswDirGroup",
+    "oid": "1.3.6.1.4.1.9.10.9.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirMacEntries"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirMacCacheHits"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirMacCacheMisses"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirMacMac"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirMacMask"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirMacEntryType"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirMacLocationType"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirMacLocation"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirMacStatus"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirMacLFSize"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirMacRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswDirNBGroup": {
+    "name": "ciscoDlswDirNBGroup",
+    "oid": "1.3.6.1.4.1.9.10.9.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirNBEntries"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirNBCacheHits"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirNBCacheMisses"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirNBName"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirNBNameType"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirNBEntryType"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirNBLocationType"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirNBLocation"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirNBStatus"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirNBLFSize"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirNBRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswDirLocateGroup": {
+    "name": "ciscoDlswDirLocateGroup",
+    "oid": "1.3.6.1.4.1.9.10.9.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirLocateMacLocation"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswDirLocateNBGroup": {
+    "name": "ciscoDlswDirLocateNBGroup",
+    "oid": "1.3.6.1.4.1.9.10.9.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswDirLocateNBLocation"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswCircuitGroup": {
+    "name": "ciscoDlswCircuitGroup",
+    "oid": "1.3.6.1.4.1.9.10.9.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitS1IfIndex"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitS1DlcType"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitS1RouteInfo"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitS1CircuitId"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitS1Dlc"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitS2Location"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitS2TDomain"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitS2TAddress"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitS2CircuitId"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitOrigin"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitEntryTime"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitStateTime"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitState"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitPriority"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitFCSendGrantedUnits"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitFCSendCurrentWndw"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitFCRecvGrantedUnits"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitFCRecvCurrentWndw"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitFCLargestRecvGranted"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitFCLargestSendGranted"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitFCHalveWndwSents"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitFCResetOpSents"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitFCHalveWndwRcvds"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitFCResetOpRcvds"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitDiscReasonLocal"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitDiscReasonRemote"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitDiscReasonRemoteData"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswSdlcGroup": {
+    "name": "ciscoDlswSdlcGroup",
+    "oid": "1.3.6.1.4.1.9.10.9.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswSdlcLsEntries"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswSdlcLsLocalMac"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswSdlcLsLocalSap"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswSdlcLsLocalBlockNum"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswSdlcLsLocalIdNum"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswSdlcLsRemoteMac"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswSdlcLsRemoteSap"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswSdlcLsRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswTConnTcpConfigGroup": {
+    "name": "ciscoDlswTConnTcpConfigGroup",
+    "oid": "1.3.6.1.4.1.9.10.9.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnTcpConfigKeepAliveInt"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnTcpConfigTcpConnections"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnTcpConfigMaxSegmentSize"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswTConnTcpOperGroup": {
+    "name": "ciscoDlswTConnTcpOperGroup",
+    "oid": "1.3.6.1.4.1.9.10.9.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnTcpOperKeepAliveInt"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnTcpOperPrefTcpConnections"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswTConnTcpOperTcpConnections"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDlswCircuitStatGroup": {
+    "name": "ciscoDlswCircuitStatGroup",
+    "oid": "1.3.6.1.4.1.9.10.9.3.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswActiveCircuits"
+      },
+      {
+        "module": "CISCO-DLSW-MIB",
+        "object": "ciscoDlswCircuitCreates"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DLSW-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DLSW-MIB"
+  }
+}

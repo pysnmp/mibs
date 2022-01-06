@@ -1,0 +1,823 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysUpTime"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniRedundancyMIB": {
+    "name": "juniRedundancyMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.74",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-12-12 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "JuniRedundancyState": {
+    "name": "JuniRedundancyState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notKnown": 1,
+          "fileSystemSyncing": 2,
+          "disabled": 3,
+          "initializing": 4,
+          "pending": 5,
+          "active": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JuniRedundancyMode": {
+    "name": "JuniRedundancyMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fileSystemSynchronization": 1,
+          "highAvailability": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JuniRedundancyResetReason": {
+    "name": "JuniRedundancyResetReason",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "notKnown": 2,
+          "userInitiated": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JuniRedundancySystemActivationType": {
+    "name": "JuniRedundancySystemActivationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reload": 1,
+          "coldSwitch": 2,
+          "warmSwitch": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JuniRedundancyResetType": {
+    "name": "JuniRedundancyResetType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notKnown": 1,
+          "srpReload": 2,
+          "srpSwitchover": 3,
+          "linecardReload": 4,
+          "linecardSwitchover": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JuniRedundancyHistoryCommand": {
+    "name": "JuniRedundancyHistoryCommand",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "keep": 1,
+          "clear": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "juniRedundancyNotifications": {
+    "name": "juniRedundancyNotifications",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.0",
+    "class": "objectidentity"
+  },
+  "juniRedundancyObjects": {
+    "name": "juniRedundancyObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1",
+    "class": "objectidentity"
+  },
+  "juniRedundancyMIBConformance": {
+    "name": "juniRedundancyMIBConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.2",
+    "class": "objectidentity"
+  },
+  "juniRedundancyStatus": {
+    "name": "juniRedundancyStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.1",
+    "class": "objectidentity"
+  },
+  "juniRedundancyCfg": {
+    "name": "juniRedundancyCfg",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.2",
+    "class": "objectidentity"
+  },
+  "juniRedundancyHistory": {
+    "name": "juniRedundancyHistory",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.3",
+    "class": "objectidentity"
+  },
+  "juniRedundancyActiveSlot": {
+    "name": "juniRedundancyActiveSlot",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRedundancyActiveSlotState": {
+    "name": "juniRedundancyActiveSlotState",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniRedundancyState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRedundancyStandbySlot": {
+    "name": "juniRedundancyStandbySlot",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRedundancyStandbySlotState": {
+    "name": "juniRedundancyStandbySlotState",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniRedundancyState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRedundancyLastResetReason": {
+    "name": "juniRedundancyLastResetReason",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniRedundancyResetReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRedundancyLastSystemActivationTime": {
+    "name": "juniRedundancyLastSystemActivationTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRedundancyLastSystemActivationType": {
+    "name": "juniRedundancyLastSystemActivationType",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniRedundancySystemActivationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRedundancyHaActiveTime": {
+    "name": "juniRedundancyHaActiveTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRedundancyNotifsEnabled": {
+    "name": "juniRedundancyNotifsEnabled",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniRedundancyCfgRedundancyMode": {
+    "name": "juniRedundancyCfgRedundancyMode",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniRedundancyMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "fileSystemSynchronization",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniRedundancySystemActivationHistoryTableMaxLength": {
+    "name": "juniRedundancySystemActivationHistoryTableMaxLength",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniRedundancySystemActivationHistoryCommand": {
+    "name": "juniRedundancySystemActivationHistoryCommand",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniRedundancyHistoryCommand",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "keep",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniRedundancySystemActivationHistoryTable": {
+    "name": "juniRedundancySystemActivationHistoryTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniRedundancySystemActivationHistoryEntry": {
+    "name": "juniRedundancySystemActivationHistoryEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancySystemActivationHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniRedundancySystemActivationHistoryIndex": {
+    "name": "juniRedundancySystemActivationHistoryIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniRedundancyHistoryResetType": {
+    "name": "juniRedundancyHistoryResetType",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniRedundancyResetType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRedundancyHistoryActivationType": {
+    "name": "juniRedundancyHistoryActivationType",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniRedundancySystemActivationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRedundancyHistoryPrevActiveSlot": {
+    "name": "juniRedundancyHistoryPrevActiveSlot",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRedundancyHistoryPrevActiveRelease": {
+    "name": "juniRedundancyHistoryPrevActiveRelease",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRedundancyHistoryCurrActiveSlot": {
+    "name": "juniRedundancyHistoryCurrActiveSlot",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRedundancyHistoryCurrActiveRelease": {
+    "name": "juniRedundancyHistoryCurrActiveRelease",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRedundancyHistoryResetReason": {
+    "name": "juniRedundancyHistoryResetReason",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniRedundancyResetReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRedundancyHistoryActivationTime": {
+    "name": "juniRedundancyHistoryActivationTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRedundancyHistoryReloads": {
+    "name": "juniRedundancyHistoryReloads",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRedundancyHistoryColdSwitchovers": {
+    "name": "juniRedundancyHistoryColdSwitchovers",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRedundancyHistoryWarmSwitchovers": {
+    "name": "juniRedundancyHistoryWarmSwitchovers",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRedundancyColdSwitchoverNotification": {
+    "name": "juniRedundancyColdSwitchoverNotification",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyActiveSlot"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyLastResetReason"
+      }
+    ],
+    "status": "current"
+  },
+  "juniRedundancyWarmSwitchoverNotification": {
+    "name": "juniRedundancyWarmSwitchoverNotification",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyActiveSlot"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyLastResetReason"
+      }
+    ],
+    "status": "current"
+  },
+  "juniRedundancyStateEnabledNotification": {
+    "name": "juniRedundancyStateEnabledNotification",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyActiveSlot"
+      }
+    ],
+    "status": "current"
+  },
+  "juniRedundancyStateDisabledNotification": {
+    "name": "juniRedundancyStateDisabledNotification",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyActiveSlot"
+      }
+    ],
+    "status": "current"
+  },
+  "juniRedundancyStatePendingNotification": {
+    "name": "juniRedundancyStatePendingNotification",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyActiveSlot"
+      }
+    ],
+    "status": "current"
+  },
+  "juniRedundancyModeNotification": {
+    "name": "juniRedundancyModeNotification",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyActiveSlot"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyCfgRedundancyMode"
+      }
+    ],
+    "status": "current"
+  },
+  "juniRedundancyMIBCompliances": {
+    "name": "juniRedundancyMIBCompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.2.1",
+    "class": "objectidentity"
+  },
+  "juniRedundancyMIBGroups": {
+    "name": "juniRedundancyMIBGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.2.2",
+    "class": "objectidentity"
+  },
+  "juniRedundancyMIBCompliance": {
+    "name": "juniRedundancyMIBCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniRedundancyStatusGroup",
+        "module": "Juniper-REDUNDANCY-MIB"
+      },
+      {
+        "object": "juniRedundancyCfgGroup",
+        "module": "Juniper-REDUNDANCY-MIB"
+      },
+      {
+        "object": "juniRedundancyHistoryGroup",
+        "module": "Juniper-REDUNDANCY-MIB"
+      },
+      {
+        "object": "juniRedundancyNotificationGroup",
+        "module": "Juniper-REDUNDANCY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniRedundancyStatusGroup": {
+    "name": "juniRedundancyStatusGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyActiveSlot"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyActiveSlotState"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyStandbySlot"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyStandbySlotState"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyLastResetReason"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyLastSystemActivationTime"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyLastSystemActivationType"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyHaActiveTime"
+      }
+    ],
+    "status": "current"
+  },
+  "juniRedundancyCfgGroup": {
+    "name": "juniRedundancyCfgGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyNotifsEnabled"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyCfgRedundancyMode"
+      }
+    ],
+    "status": "current"
+  },
+  "juniRedundancyHistoryGroup": {
+    "name": "juniRedundancyHistoryGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancySystemActivationHistoryTableMaxLength"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancySystemActivationHistoryCommand"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyHistoryResetType"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyHistoryActivationType"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyHistoryPrevActiveSlot"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyHistoryPrevActiveRelease"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyHistoryCurrActiveSlot"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyHistoryCurrActiveRelease"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyHistoryResetReason"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyHistoryActivationTime"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyHistoryReloads"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyHistoryColdSwitchovers"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyHistoryWarmSwitchovers"
+      }
+    ],
+    "status": "current"
+  },
+  "juniRedundancyNotificationGroup": {
+    "name": "juniRedundancyNotificationGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.74.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyColdSwitchoverNotification"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyWarmSwitchoverNotification"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyStateEnabledNotification"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyStateDisabledNotification"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyStatePendingNotification"
+      },
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "object": "juniRedundancyModeNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-REDUNDANCY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-REDUNDANCY-MIB"
+  }
+}

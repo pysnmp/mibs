@@ -1,0 +1,358 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoLptsMIB": {
+    "name": "ciscoLptsMIB",
+    "oid": "1.3.6.1.4.1.9.9.812",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-09-03 00:00",
+        "description": "Latest version of this MIB module."
+      }
+    ]
+  },
+  "ClFlowType": {
+    "name": "ClFlowType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "global": 2,
+          "local": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoLptsMIBNotifs": {
+    "name": "ciscoLptsMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.812.0",
+    "class": "objectidentity"
+  },
+  "ciscoLptsMIBObjects": {
+    "name": "ciscoLptsMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.812.1",
+    "class": "objectidentity"
+  },
+  "ciscoLptsMIBConform": {
+    "name": "ciscoLptsMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.812.2",
+    "class": "objectidentity"
+  },
+  "clGlobalFlowTable": {
+    "name": "clGlobalFlowTable",
+    "oid": "1.3.6.1.4.1.9.9.812.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clGlobalFlowEntry": {
+    "name": "clGlobalFlowEntry",
+    "oid": "1.3.6.1.4.1.9.9.812.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LPTS-MIB",
+        "object": "clGlobalFlowIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clGlobalFlowIndex": {
+    "name": "clGlobalFlowIndex",
+    "oid": "1.3.6.1.4.1.9.9.812.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clGlobalFlowType": {
+    "name": "clGlobalFlowType",
+    "oid": "1.3.6.1.4.1.9.9.812.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clGlobalType": {
+    "name": "clGlobalType",
+    "oid": "1.3.6.1.4.1.9.9.812.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClFlowType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clGlobalCurrentRate": {
+    "name": "clGlobalCurrentRate",
+    "oid": "1.3.6.1.4.1.9.9.812.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "PPS",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clLocalFlowTable": {
+    "name": "clLocalFlowTable",
+    "oid": "1.3.6.1.4.1.9.9.812.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clLocalFlowEntry": {
+    "name": "clLocalFlowEntry",
+    "oid": "1.3.6.1.4.1.9.9.812.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LPTS-MIB",
+        "object": "clGlobalFlowIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LPTS-MIB",
+        "object": "clLocalNodeID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clLocalNodeID": {
+    "name": "clLocalNodeID",
+    "oid": "1.3.6.1.4.1.9.9.812.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clLocalType": {
+    "name": "clLocalType",
+    "oid": "1.3.6.1.4.1.9.9.812.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClFlowType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clLocalCurrentRate": {
+    "name": "clLocalCurrentRate",
+    "oid": "1.3.6.1.4.1.9.9.812.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "PPS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clLocalAccepted": {
+    "name": "clLocalAccepted",
+    "oid": "1.3.6.1.4.1.9.9.812.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clLocalDropped": {
+    "name": "clLocalDropped",
+    "oid": "1.3.6.1.4.1.9.9.812.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clLocalTosValue": {
+    "name": "clLocalTosValue",
+    "oid": "1.3.6.1.4.1.9.9.812.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoLptsMIBCompliances": {
+    "name": "ciscoLptsMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.812.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLptsMIBGroups": {
+    "name": "ciscoLptsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.812.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLptsMIBCompliance": {
+    "name": "ciscoLptsMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.812.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "clLocalFlowGroup",
+        "module": "CISCO-LPTS-MIB"
+      },
+      {
+        "object": "clGlobalFlowGroup",
+        "module": "CISCO-LPTS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "clGlobalFlowGroup": {
+    "name": "clGlobalFlowGroup",
+    "oid": "1.3.6.1.4.1.9.9.812.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LPTS-MIB",
+        "object": "clGlobalFlowType"
+      },
+      {
+        "module": "CISCO-LPTS-MIB",
+        "object": "clGlobalCurrentRate"
+      },
+      {
+        "module": "CISCO-LPTS-MIB",
+        "object": "clGlobalType"
+      }
+    ],
+    "status": "current"
+  },
+  "clLocalFlowGroup": {
+    "name": "clLocalFlowGroup",
+    "oid": "1.3.6.1.4.1.9.9.812.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LPTS-MIB",
+        "object": "clLocalCurrentRate"
+      },
+      {
+        "module": "CISCO-LPTS-MIB",
+        "object": "clLocalAccepted"
+      },
+      {
+        "module": "CISCO-LPTS-MIB",
+        "object": "clLocalDropped"
+      },
+      {
+        "module": "CISCO-LPTS-MIB",
+        "object": "clLocalType"
+      },
+      {
+        "module": "CISCO-LPTS-MIB",
+        "object": "clLocalTosValue"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LPTS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LPTS-MIB"
+  }
+}

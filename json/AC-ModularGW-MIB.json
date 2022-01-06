@@ -1,0 +1,365 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TAddress"
+    ]
+  },
+  "audioCodes": {
+    "name": "audioCodes",
+    "oid": "1.3.6.1.4.1.5003",
+    "class": "objectidentity"
+  },
+  "acRegistrations": {
+    "name": "acRegistrations",
+    "oid": "1.3.6.1.4.1.5003.7",
+    "class": "objectidentity"
+  },
+  "acGeneric": {
+    "name": "acGeneric",
+    "oid": "1.3.6.1.4.1.5003.8",
+    "class": "objectidentity"
+  },
+  "acProducts": {
+    "name": "acProducts",
+    "oid": "1.3.6.1.4.1.5003.9",
+    "class": "objectidentity"
+  },
+  "acBoardMibs": {
+    "name": "acBoardMibs",
+    "oid": "1.3.6.1.4.1.5003.9.10",
+    "class": "objectidentity"
+  },
+  "acModularGateway": {
+    "name": "acModularGateway",
+    "oid": "1.3.6.1.4.1.5003.9.10.11",
+    "class": "moduleidentity"
+  },
+  "acModularGatewayConfiguration": {
+    "name": "acModularGatewayConfiguration",
+    "oid": "1.3.6.1.4.1.5003.9.10.11.1",
+    "class": "objectidentity"
+  },
+  "acModularGatewayStatus": {
+    "name": "acModularGatewayStatus",
+    "oid": "1.3.6.1.4.1.5003.9.10.11.2",
+    "class": "objectidentity"
+  },
+  "acModularGWModules": {
+    "name": "acModularGWModules",
+    "oid": "1.3.6.1.4.1.5003.9.10.11.2.1",
+    "class": "objectidentity"
+  },
+  "acModularGWModuleTable": {
+    "name": "acModularGWModuleTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.11.2.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acModularGWModuleEntry": {
+    "name": "acModularGWModuleEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.11.2.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-ModularGW-MIB",
+        "object": "acModularGWModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acModularGWModuleIndex": {
+    "name": "acModularGWModuleIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.11.2.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "acModularGWModuleType": {
+    "name": "acModularGWModuleType",
+    "oid": "1.3.6.1.4.1.5003.9.10.11.2.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "e1-t1-QUAD": 0,
+          "fxs": 1,
+          "fxo": 2,
+          "e1-t1-FALC56": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acModularGWModuleNumOfPorts": {
+    "name": "acModularGWModuleNumOfPorts",
+    "oid": "1.3.6.1.4.1.5003.9.10.11.2.1.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acModularGWModuleFirstPortNum": {
+    "name": "acModularGWModuleFirstPortNum",
+    "oid": "1.3.6.1.4.1.5003.9.10.11.2.1.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acModularGWCrossReference": {
+    "name": "acModularGWCrossReference",
+    "oid": "1.3.6.1.4.1.5003.9.10.11.2.2",
+    "class": "objectidentity"
+  },
+  "acModularGWTrunkTable": {
+    "name": "acModularGWTrunkTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.11.2.2.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acModularGWTrunkEntry": {
+    "name": "acModularGWTrunkEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.11.2.2.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-ModularGW-MIB",
+        "object": "acModularGWTrunkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acModularGWTrunkIndex": {
+    "name": "acModularGWTrunkIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.11.2.2.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "acModularGWTrunkOnModuleNum": {
+    "name": "acModularGWTrunkOnModuleNum",
+    "oid": "1.3.6.1.4.1.5003.9.10.11.2.2.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acModularGWTrunkOnPortNum": {
+    "name": "acModularGWTrunkOnPortNum",
+    "oid": "1.3.6.1.4.1.5003.9.10.11.2.2.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acModularGWAnalogPortTable": {
+    "name": "acModularGWAnalogPortTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.11.2.2.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acModularGWAnalogPortEntry": {
+    "name": "acModularGWAnalogPortEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.11.2.2.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-ModularGW-MIB",
+        "object": "acModularGWAnalogPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acModularGWAnalogPortIndex": {
+    "name": "acModularGWAnalogPortIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.11.2.2.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "acModularGWAnalogPortOnModuleNum": {
+    "name": "acModularGWAnalogPortOnModuleNum",
+    "oid": "1.3.6.1.4.1.5003.9.10.11.2.2.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acModularGWAnalogPortOnPortNum": {
+    "name": "acModularGWAnalogPortOnPortNum",
+    "oid": "1.3.6.1.4.1.5003.9.10.11.2.2.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acModularGatewayAction": {
+    "name": "acModularGatewayAction",
+    "oid": "1.3.6.1.4.1.5003.9.10.11.3",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/audiocodes/AC-MODULARGATEWAY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:49 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AC-ModularGW-MIB"
+  }
+}

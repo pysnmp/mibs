@@ -1,0 +1,2115 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoTelepresenceMIB": {
+    "name": "ciscoTelepresenceMIB",
+    "oid": "1.3.6.1.4.1.9.9.643",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-07-18 00:00",
+        "description": "Added ctpDPPeripheralStatusTable Table and added auxHDMIInputDevice(19) and bringYourOwnDevice(20) enum value in CtpPeripheralDeviceCategoryCode"
+      },
+      {
+        "revision": "2012-07-17 00:00",
+        "description": "Added detectionDisabled in CtpPeripheralStatusCode"
+      },
+      {
+        "revision": "2012-03-23 00:00",
+        "description": "Added ctpVlanId, ctpDefaultGateway and ctpDefaultGatewayAddrType in ctpObjects"
+      },
+      {
+        "revision": "2011-08-23 00:00",
+        "description": "Added uiDevice in CtpPeripheralDeviceCategoryCode"
+      },
+      {
+        "revision": "2010-07-23 00:00",
+        "description": "Added ctpUSBPeripheralStatusTable and ctpWIFIPeripheralStatusTable in ctpPeripheralStatusEntry. ciscoTelepresenceComplianceR02 has been deprecated by ciscoTelepresenceComplianceR03. ciscoTpPeripheralStatusGroupR01 has been deprecated by ciscoTpPeripheralStatusGroupR02"
+      },
+      {
+        "revision": "2010-07-13 00:00",
+        "description": "Added ctpPeriStatusChangeNotifyEnable."
+      },
+      {
+        "revision": "2009-07-12 00:00",
+        "description": "Added ctpPeripheralDeviceCategory and ctpPeripheralDeviceNumber in ctpPeripheralStatusEntry. Added commError in CtpPeripheralStatusCode. Updated the description of ctpPeripheralErrorHistoryTable."
+      },
+      {
+        "revision": "2008-02-13 00:00",
+        "description": "Added serial peripheral status and peripheral attribute table."
+      },
+      {
+        "revision": "2007-12-11 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "CtpSystemResetMode": {
+    "name": "CtpSystemResetMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noRestart": 1,
+          "restartPending": 2,
+          "resetPending": 3,
+          "forceReset": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CtpPeripheralCableCode": {
+    "name": "CtpPeripheralCableCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "plugged": 1,
+          "loose": 2,
+          "unplugged": 3,
+          "unknown": 4,
+          "internalError": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CtpPeripheralPowerCode": {
+    "name": "CtpPeripheralPowerCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "standby": 2,
+          "off": 3,
+          "unknown": 4,
+          "internalError": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CtpPeripheralStatusCode": {
+    "name": "CtpPeripheralStatusCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 0,
+          "other": 1,
+          "cableError": 2,
+          "powerError": 3,
+          "mgmtSysConfigError": 4,
+          "systemError": 5,
+          "deviceError": 6,
+          "linkError": 7,
+          "commError": 8,
+          "detectionDisabled": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CtpSystemAccessProtocol": {
+    "name": "CtpSystemAccessProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "http": 1,
+          "snmp": 2,
+          "ssh": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CtpPeripheralDeviceCategoryCode": {
+    "name": "CtpPeripheralDeviceCategoryCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "other": 1,
+          "uplinkDevice": 2,
+          "ipPhone": 3,
+          "camera": 4,
+          "display": 5,
+          "secCodec": 6,
+          "docCamera": 7,
+          "projector": 8,
+          "dviDevice": 9,
+          "presentationCodec": 10,
+          "auxiliaryControlUnit": 11,
+          "audioExpansionUnit": 12,
+          "microphone": 13,
+          "headset": 14,
+          "positionMic": 15,
+          "digitialMediaSystem": 16,
+          "auxHDMIOutputDevice": 17,
+          "uiDevice": 18,
+          "auxHDMIInputDevice": 19,
+          "bringYourOwnDevice": 20
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoTelepresenceMIBNotifs": {
+    "name": "ciscoTelepresenceMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.643.0",
+    "class": "objectidentity"
+  },
+  "ciscoTelepresenceMIBObjects": {
+    "name": "ciscoTelepresenceMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.643.1",
+    "class": "objectidentity"
+  },
+  "ciscoTelepresenceMIBConform": {
+    "name": "ciscoTelepresenceMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.643.2",
+    "class": "objectidentity"
+  },
+  "ctpObjects": {
+    "name": "ctpObjects",
+    "oid": "1.3.6.1.4.1.9.9.643.1.1",
+    "class": "objectidentity"
+  },
+  "ctpPeripheralStatusObjects": {
+    "name": "ctpPeripheralStatusObjects",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2",
+    "class": "objectidentity"
+  },
+  "ctpEventHistory": {
+    "name": "ctpEventHistory",
+    "oid": "1.3.6.1.4.1.9.9.643.1.3",
+    "class": "objectidentity"
+  },
+  "ctpPeripheralErrorNotifyEnable": {
+    "name": "ctpPeripheralErrorNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.643.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ctpSysUserAuthFailNotifyEnable": {
+    "name": "ctpSysUserAuthFailNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.643.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctpSystemReset": {
+    "name": "ctpSystemReset",
+    "oid": "1.3.6.1.4.1.9.9.643.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpSystemResetMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "noRestart",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctpPeriStatusChangeNotifyEnable": {
+    "name": "ctpPeriStatusChangeNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.643.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctpVlanId": {
+    "name": "ctpVlanId",
+    "oid": "1.3.6.1.4.1.9.9.643.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctpDefaultGatewayAddrType": {
+    "name": "ctpDefaultGatewayAddrType",
+    "oid": "1.3.6.1.4.1.9.9.643.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctpDefaultGateway": {
+    "name": "ctpDefaultGateway",
+    "oid": "1.3.6.1.4.1.9.9.643.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctpPeripheralStatusTable": {
+    "name": "ctpPeripheralStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpPeripheralStatusEntry": {
+    "name": "ctpPeripheralStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctpPeripheralIndex": {
+    "name": "ctpPeripheralIndex",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpPeripheralDescription": {
+    "name": "ctpPeripheralDescription",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpPeripheralStatus": {
+    "name": "ctpPeripheralStatus",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpPeripheralStatusCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpPeripheralDeviceCategory": {
+    "name": "ctpPeripheralDeviceCategory",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpPeripheralDeviceCategoryCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpPeripheralDeviceNumber": {
+    "name": "ctpPeripheralDeviceNumber",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpEtherPeripheralStatusTable": {
+    "name": "ctpEtherPeripheralStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpEtherPeripheralStatusEntry": {
+    "name": "ctpEtherPeripheralStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpEtherPeripheralIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctpEtherPeripheralIndex": {
+    "name": "ctpEtherPeripheralIndex",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpEtherPeripheralIfIndex": {
+    "name": "ctpEtherPeripheralIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpEtherPeripheralAddrType": {
+    "name": "ctpEtherPeripheralAddrType",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpEtherPeripheralAddr": {
+    "name": "ctpEtherPeripheralAddr",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpEtherPeripheralStatus": {
+    "name": "ctpEtherPeripheralStatus",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpPeripheralStatusCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpHDMIPeripheralStatusTable": {
+    "name": "ctpHDMIPeripheralStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpHDMIPeripheralStatusEntry": {
+    "name": "ctpHDMIPeripheralStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpHDMIPeripheralIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctpHDMIPeripheralIndex": {
+    "name": "ctpHDMIPeripheralIndex",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpHDMIPeripheralCableStatus": {
+    "name": "ctpHDMIPeripheralCableStatus",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpPeripheralCableCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpHDMIPeripheralPowerStatus": {
+    "name": "ctpHDMIPeripheralPowerStatus",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpPeripheralPowerCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpDVIPeripheralStatusTable": {
+    "name": "ctpDVIPeripheralStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpDVIPeripheralStatusEntry": {
+    "name": "ctpDVIPeripheralStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpDVIPeripheralIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctpDVIPeripheralIndex": {
+    "name": "ctpDVIPeripheralIndex",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpDVIPeripheralCableStatus": {
+    "name": "ctpDVIPeripheralCableStatus",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpPeripheralCableCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpRS232PeripheralStatusTable": {
+    "name": "ctpRS232PeripheralStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpRS232PeripheralStatusEntry": {
+    "name": "ctpRS232PeripheralStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpRS232PeripheralIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctpRS232PeripheralIndex": {
+    "name": "ctpRS232PeripheralIndex",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpRS232PortIndex": {
+    "name": "ctpRS232PortIndex",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpRS232PeripheralConnStatus": {
+    "name": "ctpRS232PeripheralConnStatus",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connected": 1,
+          "unknown": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpPeripheralAttributeTable": {
+    "name": "ctpPeripheralAttributeTable",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpPeripheralAttributeEntry": {
+    "name": "ctpPeripheralAttributeEntry",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralAttributeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctpPeripheralAttributeIndex": {
+    "name": "ctpPeripheralAttributeIndex",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpPeripheralAttributeDescr": {
+    "name": "ctpPeripheralAttributeDescr",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lampOperTime": 1,
+          "lampState": 2,
+          "powerSwitchState": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpPeripheralAttributeValue": {
+    "name": "ctpPeripheralAttributeValue",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpUSBPeripheralStatusTable": {
+    "name": "ctpUSBPeripheralStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpUSBPeripheralStatusEntry": {
+    "name": "ctpUSBPeripheralStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpUSBPeripheralIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctpUSBPeripheralIndex": {
+    "name": "ctpUSBPeripheralIndex",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpUSBPeripheralCableStatus": {
+    "name": "ctpUSBPeripheralCableStatus",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpPeripheralCableCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpUSBPeripheralPowerStatus": {
+    "name": "ctpUSBPeripheralPowerStatus",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "self": 2,
+          "bus": 3,
+          "both": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpUSBPeripheralPortType": {
+    "name": "ctpUSBPeripheralPortType",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "host": 1,
+          "device": 2,
+          "hub": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpUSBPeripheralPortRate": {
+    "name": "ctpUSBPeripheralPortRate",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "full": 2,
+          "high": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctp802dot11PeripheralStatusTable": {
+    "name": "ctp802dot11PeripheralStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctp802dot11PeripheralStatusEntry": {
+    "name": "ctp802dot11PeripheralStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctp802dot11PeripheralIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctp802dot11PeripheralIndex": {
+    "name": "ctp802dot11PeripheralIndex",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctp802dot11PeripheralIfIndex": {
+    "name": "ctp802dot11PeripheralIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctp802dot11PeripheralAddrType": {
+    "name": "ctp802dot11PeripheralAddrType",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctp802dot11PeripheralAddr": {
+    "name": "ctp802dot11PeripheralAddr",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctp802dot11PeripheralLinkStrength": {
+    "name": "ctp802dot11PeripheralLinkStrength",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctp802dot11PeripheralLinkStatus": {
+    "name": "ctp802dot11PeripheralLinkStatus",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpPeripheralCableCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpDPPeripheralStatusTable": {
+    "name": "ctpDPPeripheralStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpDPPeripheralStatusEntry": {
+    "name": "ctpDPPeripheralStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpDPPeripheralIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctpDPPeripheralIndex": {
+    "name": "ctpDPPeripheralIndex",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpDPPeripheralCableStatus": {
+    "name": "ctpDPPeripheralCableStatus",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpPeripheralCableCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpDPPeripheralPowerStatus": {
+    "name": "ctpDPPeripheralPowerStatus",
+    "oid": "1.3.6.1.4.1.9.9.643.1.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpPeripheralPowerCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpPeripheralErrorHistTableSize": {
+    "name": "ctpPeripheralErrorHistTableSize",
+    "oid": "1.3.6.1.4.1.9.9.643.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctpPeripheralErrorHistLastIndex": {
+    "name": "ctpPeripheralErrorHistLastIndex",
+    "oid": "1.3.6.1.4.1.9.9.643.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpPeripheralErrorHistoryTable": {
+    "name": "ctpPeripheralErrorHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.643.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpPeripheralErrorHistoryEntry": {
+    "name": "ctpPeripheralErrorHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.643.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralErrorHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctpPeripheralErrorHistoryIndex": {
+    "name": "ctpPeripheralErrorHistoryIndex",
+    "oid": "1.3.6.1.4.1.9.9.643.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpPeripheralErrorIndex": {
+    "name": "ctpPeripheralErrorIndex",
+    "oid": "1.3.6.1.4.1.9.9.643.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpPeripheralErrorStatus": {
+    "name": "ctpPeripheralErrorStatus",
+    "oid": "1.3.6.1.4.1.9.9.643.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpPeripheralStatusCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpPeripheralErrorTimeStamp": {
+    "name": "ctpPeripheralErrorTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.643.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpPeripheralErrorDeviceCategory": {
+    "name": "ctpPeripheralErrorDeviceCategory",
+    "oid": "1.3.6.1.4.1.9.9.643.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpPeripheralDeviceCategoryCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpPeripheralErrorDeviceNumber": {
+    "name": "ctpPeripheralErrorDeviceNumber",
+    "oid": "1.3.6.1.4.1.9.9.643.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpSysUserAuthFailHistTableSize": {
+    "name": "ctpSysUserAuthFailHistTableSize",
+    "oid": "1.3.6.1.4.1.9.9.643.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctpSysUserAuthFailHistLastIndex": {
+    "name": "ctpSysUserAuthFailHistLastIndex",
+    "oid": "1.3.6.1.4.1.9.9.643.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpSysUserAuthFailHistoryTable": {
+    "name": "ctpSysUserAuthFailHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.643.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpSysUserAuthFailHistoryEntry": {
+    "name": "ctpSysUserAuthFailHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.643.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctpSysUserAuthFailHistoryIndex": {
+    "name": "ctpSysUserAuthFailHistoryIndex",
+    "oid": "1.3.6.1.4.1.9.9.643.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpSysUserAuthFailSourceAddrType": {
+    "name": "ctpSysUserAuthFailSourceAddrType",
+    "oid": "1.3.6.1.4.1.9.9.643.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpSysUserAuthFailSourceAddr": {
+    "name": "ctpSysUserAuthFailSourceAddr",
+    "oid": "1.3.6.1.4.1.9.9.643.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpSysUserAuthFailSourcePort": {
+    "name": "ctpSysUserAuthFailSourcePort",
+    "oid": "1.3.6.1.4.1.9.9.643.1.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpSysUserAuthFailUserName": {
+    "name": "ctpSysUserAuthFailUserName",
+    "oid": "1.3.6.1.4.1.9.9.643.1.3.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpSysUserAuthFailAccessProtocol": {
+    "name": "ctpSysUserAuthFailAccessProtocol",
+    "oid": "1.3.6.1.4.1.9.9.643.1.3.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpSystemAccessProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpSysUserAuthFailTimeStamp": {
+    "name": "ctpSysUserAuthFailTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.643.1.3.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpPeripheralErrorNotification": {
+    "name": "ctpPeripheralErrorNotification",
+    "oid": "1.3.6.1.4.1.9.9.643.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralErrorIndex"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralErrorStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ctpSysUserAuthFailNotification": {
+    "name": "ctpSysUserAuthFailNotification",
+    "oid": "1.3.6.1.4.1.9.9.643.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailSourceAddrType"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailSourceAddr"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailSourcePort"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailUserName"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailAccessProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "ctpPeriStatusChangeNotification": {
+    "name": "ctpPeriStatusChangeNotification",
+    "oid": "1.3.6.1.4.1.9.9.643.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralErrorIndex"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralErrorDeviceCategory"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralErrorDeviceNumber"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralErrorStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTelepresenceCompliances": {
+    "name": "ciscoTelepresenceCompliances",
+    "oid": "1.3.6.1.4.1.9.9.643.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoTelepresenceMIBGroups": {
+    "name": "ciscoTelepresenceMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.643.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoTelepresenceCompliance": {
+    "name": "ciscoTelepresenceCompliance",
+    "oid": "1.3.6.1.4.1.9.9.643.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoTpConfigurationGroup",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpPeripheralStatusGroup",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpEventHistoryGroup",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpNotificationGroup",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTelepresenceComplianceR01": {
+    "name": "ciscoTelepresenceComplianceR01",
+    "oid": "1.3.6.1.4.1.9.9.643.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoTpConfigurationGroup",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpPeripheralStatusGroup",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpEventHistoryGroup",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpNotificationGroup",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpRS232PeripheralStatusGroup",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpPeripheralAttributeGroup",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTelepresenceComplianceR02": {
+    "name": "ciscoTelepresenceComplianceR02",
+    "oid": "1.3.6.1.4.1.9.9.643.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoTpConfigurationGroupR01",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpPeripheralStatusGroupR01",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpEventHistoryGroupR01",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpNotificationGroupR01",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpRS232PeripheralStatusGroup",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpPeripheralAttributeGroup",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTelepresenceComplianceR03": {
+    "name": "ciscoTelepresenceComplianceR03",
+    "oid": "1.3.6.1.4.1.9.9.643.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoTpConfigurationGroupR01",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpPeripheralStatusGroupR02",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpEventHistoryGroupR01",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpNotificationGroupR01",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpRS232PeripheralStatusGroup",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpPeripheralAttributeGroup",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTelepresenceComplianceR04": {
+    "name": "ciscoTelepresenceComplianceR04",
+    "oid": "1.3.6.1.4.1.9.9.643.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoTpConfigurationGroupR01",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpConfigurationGroupR02",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpPeripheralStatusGroupR02",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpEventHistoryGroupR01",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpNotificationGroupR01",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpRS232PeripheralStatusGroup",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpPeripheralAttributeGroup",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTelepresenceComplianceR05": {
+    "name": "ciscoTelepresenceComplianceR05",
+    "oid": "1.3.6.1.4.1.9.9.643.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoTpConfigurationGroupR01",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpConfigurationGroupR02",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpPeripheralStatusGroupR02",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpEventHistoryGroupR01",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpNotificationGroupR01",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpDPPeripheralStatusGroup",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpRS232PeripheralStatusGroup",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      },
+      {
+        "object": "ciscoTpPeripheralAttributeGroup",
+        "module": "CISCO-TELEPRESENCE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTpConfigurationGroup": {
+    "name": "ciscoTpConfigurationGroup",
+    "oid": "1.3.6.1.4.1.9.9.643.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralErrorNotifyEnable"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailNotifyEnable"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSystemReset"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTpPeripheralStatusGroup": {
+    "name": "ciscoTpPeripheralStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.643.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralDescription"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralStatus"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpEtherPeripheralIfIndex"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpEtherPeripheralAddrType"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpEtherPeripheralAddr"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpEtherPeripheralStatus"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpHDMIPeripheralCableStatus"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpHDMIPeripheralPowerStatus"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpDVIPeripheralCableStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTpEventHistoryGroup": {
+    "name": "ciscoTpEventHistoryGroup",
+    "oid": "1.3.6.1.4.1.9.9.643.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralErrorHistTableSize"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralErrorHistLastIndex"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralErrorIndex"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralErrorStatus"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralErrorTimeStamp"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailHistTableSize"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailHistLastIndex"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailSourceAddrType"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailSourceAddr"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailSourcePort"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailUserName"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailAccessProtocol"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailTimeStamp"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTpNotificationGroup": {
+    "name": "ciscoTpNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.643.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralErrorNotification"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailNotification"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTpRS232PeripheralStatusGroup": {
+    "name": "ciscoTpRS232PeripheralStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.643.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpRS232PortIndex"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpRS232PeripheralConnStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTpPeripheralAttributeGroup": {
+    "name": "ciscoTpPeripheralAttributeGroup",
+    "oid": "1.3.6.1.4.1.9.9.643.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralAttributeDescr"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralAttributeValue"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTpPeripheralStatusGroupR01": {
+    "name": "ciscoTpPeripheralStatusGroupR01",
+    "oid": "1.3.6.1.4.1.9.9.643.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralDescription"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralStatus"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralDeviceCategory"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralDeviceNumber"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpEtherPeripheralIfIndex"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpEtherPeripheralAddrType"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpEtherPeripheralAddr"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpEtherPeripheralStatus"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpHDMIPeripheralCableStatus"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpHDMIPeripheralPowerStatus"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpDVIPeripheralCableStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTpEventHistoryGroupR01": {
+    "name": "ciscoTpEventHistoryGroupR01",
+    "oid": "1.3.6.1.4.1.9.9.643.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralErrorHistTableSize"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralErrorHistLastIndex"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralErrorIndex"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralErrorStatus"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralErrorTimeStamp"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralErrorDeviceCategory"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralErrorDeviceNumber"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailHistTableSize"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailHistLastIndex"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailSourceAddrType"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailSourceAddr"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailSourcePort"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailUserName"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailAccessProtocol"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTpNotificationGroupR01": {
+    "name": "ciscoTpNotificationGroupR01",
+    "oid": "1.3.6.1.4.1.9.9.643.2.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeriStatusChangeNotification"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTpConfigurationGroupR01": {
+    "name": "ciscoTpConfigurationGroupR01",
+    "oid": "1.3.6.1.4.1.9.9.643.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSysUserAuthFailNotifyEnable"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpSystemReset"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeriStatusChangeNotifyEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTpPeripheralStatusGroupR02": {
+    "name": "ciscoTpPeripheralStatusGroupR02",
+    "oid": "1.3.6.1.4.1.9.9.643.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralDescription"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralStatus"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralDeviceCategory"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpPeripheralDeviceNumber"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpEtherPeripheralIfIndex"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpEtherPeripheralAddrType"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpEtherPeripheralAddr"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpEtherPeripheralStatus"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpHDMIPeripheralCableStatus"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpHDMIPeripheralPowerStatus"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpDVIPeripheralCableStatus"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpUSBPeripheralCableStatus"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpUSBPeripheralPowerStatus"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpUSBPeripheralPortType"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpUSBPeripheralPortRate"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctp802dot11PeripheralIfIndex"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctp802dot11PeripheralAddrType"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctp802dot11PeripheralAddr"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctp802dot11PeripheralLinkStrength"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctp802dot11PeripheralLinkStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTpConfigurationGroupR02": {
+    "name": "ciscoTpConfigurationGroupR02",
+    "oid": "1.3.6.1.4.1.9.9.643.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpVlanId"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpDefaultGateway"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpDefaultGatewayAddrType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTpDPPeripheralStatusGroup": {
+    "name": "ciscoTpDPPeripheralStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.643.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpDPPeripheralCableStatus"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "object": "ctpDPPeripheralPowerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-TELEPRESENCE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-TELEPRESENCE-MIB"
+  }
+}

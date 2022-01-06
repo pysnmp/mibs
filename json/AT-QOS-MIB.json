@@ -1,0 +1,997 @@
+{
+  "imports": {
+    "class": "imports",
+    "AT-SMI-MIB": [
+      "modules"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter64",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Bits",
+      "iso",
+      "Unsigned32",
+      "Integer32",
+      "MibIdentifier",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "qos": {
+    "name": "qos",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-12-01 15:25",
+        "description": "Initial Revision"
+      }
+    ]
+  },
+  "qosSwitch": {
+    "name": "qosSwitch",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1",
+    "class": "objectidentity"
+  },
+  "qosSwitchPortTable": {
+    "name": "qosSwitchPortTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosSwitchPortEntry": {
+    "name": "qosSwitchPortEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-QOS-MIB",
+        "object": "qosSwitchPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosSwitchPortIndex": {
+    "name": "qosSwitchPortIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosSwitchPortPolicyIndex": {
+    "name": "qosSwitchPortPolicyIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitchPolicyTable": {
+    "name": "qosSwitchPolicyTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosSwitchPolicyEntry": {
+    "name": "qosSwitchPolicyEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-QOS-MIB",
+        "object": "qosSwitchPolicyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosSwitchPolicyIndex": {
+    "name": "qosSwitchPolicyIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosSwitchPolicyDescription": {
+    "name": "qosSwitchPolicyDescription",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitchPolicyDefaultTCDropBWClass3": {
+    "name": "qosSwitchPolicyDefaultTCDropBWClass3",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitchPolicyDefaultTCIgnoreBWClass": {
+    "name": "qosSwitchPolicyDefaultTCIgnoreBWClass",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitchPolicyDefaultTCMarkValue": {
+    "name": "qosSwitchPolicyDefaultTCMarkValue",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          },
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitchPolicyDefaultTCMaxBandwidth": {
+    "name": "qosSwitchPolicyDefaultTCMaxBandwidth",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16000000
+          },
+          {
+            "min": 2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitchPolicyDefaultTCMaxBurstSize": {
+    "name": "qosSwitchPolicyDefaultTCMaxBurstSize",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16000000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitchPolicyDefaultTCMinBandwidth": {
+    "name": "qosSwitchPolicyDefaultTCMinBandwidth",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16000000
+          },
+          {
+            "min": 2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitchPolicyDefaultTCMinBurstSize": {
+    "name": "qosSwitchPolicyDefaultTCMinBurstSize",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16000000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitchPolicyDefaultTCPremarking": {
+    "name": "qosSwitchPolicyDefaultTCPremarking",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "usemarkvalue": 1,
+          "usedscp": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitchPolicyDefaultTCRemarking": {
+    "name": "qosSwitchPolicyDefaultTCRemarking",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "usedscpmap": 1,
+          "bwclass": 2,
+          "priority": 3,
+          "bwclass_priority": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitchTrafficClassTable": {
+    "name": "qosSwitchTrafficClassTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosSwitchTrafficClassEntry": {
+    "name": "qosSwitchTrafficClassEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-QOS-MIB",
+        "object": "qosSwitchTrafficClassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosSwitchTrafficClassIndex": {
+    "name": "qosSwitchTrafficClassIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosSwitchTrafficClassPolicyNumber": {
+    "name": "qosSwitchTrafficClassPolicyNumber",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitchTrafficClassDescription": {
+    "name": "qosSwitchTrafficClassDescription",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitchTrafficClassDropBWClass3": {
+    "name": "qosSwitchTrafficClassDropBWClass3",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitchTrafficClassIgnoreBWClass": {
+    "name": "qosSwitchTrafficClassIgnoreBWClass",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitchTrafficClassMarkValue": {
+    "name": "qosSwitchTrafficClassMarkValue",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          },
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitchTrafficClassMaxBandwidth": {
+    "name": "qosSwitchTrafficClassMaxBandwidth",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16000000
+          },
+          {
+            "min": 2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitchTrafficClassMaxBurstSize": {
+    "name": "qosSwitchTrafficClassMaxBurstSize",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16000000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitchTrafficClassMinBandwidth": {
+    "name": "qosSwitchTrafficClassMinBandwidth",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16000000
+          },
+          {
+            "min": 2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitchTrafficClassMinBurstSize": {
+    "name": "qosSwitchTrafficClassMinBurstSize",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16000000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitchTrafficClassPremarking": {
+    "name": "qosSwitchTrafficClassPremarking",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "usemarkvalue": 1,
+          "usedscp": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitchTrafficClassRemarking": {
+    "name": "qosSwitchTrafficClassRemarking",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "usedscpmap": 1,
+          "bwclass": 2,
+          "priority": 3,
+          "bwclass_priority": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitch8948": {
+    "name": "qosSwitch8948",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4",
+    "class": "objectidentity"
+  },
+  "qosSwitch8948PortTable": {
+    "name": "qosSwitch8948PortTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosSwitch8948PortEntry": {
+    "name": "qosSwitch8948PortEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "qosSwitch8948PortEntry",
+      "module": "AT-QOS-MIB",
+      "object": "qosSwitchPortEntry"
+    },
+    "status": "current"
+  },
+  "qosSwitch8948PortDefaultTCCountersAggregateBytes": {
+    "name": "qosSwitch8948PortDefaultTCCountersAggregateBytes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitch8948PortDefaultTCCountersBwConformanceClass1Bytes": {
+    "name": "qosSwitch8948PortDefaultTCCountersBwConformanceClass1Bytes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitch8948PortDefaultTCCountersBwConformanceClass2Bytes": {
+    "name": "qosSwitch8948PortDefaultTCCountersBwConformanceClass2Bytes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitch8948PortDefaultTCCountersBwConformanceClass3Bytes": {
+    "name": "qosSwitch8948PortDefaultTCCountersBwConformanceClass3Bytes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitch8948PortDefaultTCCountersDroppedBytes": {
+    "name": "qosSwitch8948PortDefaultTCCountersDroppedBytes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitch8948PortQueueLength": {
+    "name": "qosSwitch8948PortQueueLength",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitch8948PortQueue0Length": {
+    "name": "qosSwitch8948PortQueue0Length",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitch8948PortQueue1Length": {
+    "name": "qosSwitch8948PortQueue1Length",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitch8948PortQueue2Length": {
+    "name": "qosSwitch8948PortQueue2Length",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitch8948PortQueue3Length": {
+    "name": "qosSwitch8948PortQueue3Length",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitch8948PortQueue4Length": {
+    "name": "qosSwitch8948PortQueue4Length",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitch8948PortQueue5Length": {
+    "name": "qosSwitch8948PortQueue5Length",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitch8948PortQueue6Length": {
+    "name": "qosSwitch8948PortQueue6Length",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitch8948PortQueue7Length": {
+    "name": "qosSwitch8948PortQueue7Length",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitch8948TrafficClassCountersTable": {
+    "name": "qosSwitch8948TrafficClassCountersTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosSwitch8948TrafficClassCountersEntry": {
+    "name": "qosSwitch8948TrafficClassCountersEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-QOS-MIB",
+        "object": "qosSwitch8948TCCountersPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-QOS-MIB",
+        "object": "qosSwitch8948TCCountersPolicyIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-QOS-MIB",
+        "object": "qosSwitch8948TCCountersTrafficClassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosSwitch8948TCCountersPortIndex": {
+    "name": "qosSwitch8948TCCountersPortIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosSwitch8948TCCountersPolicyIndex": {
+    "name": "qosSwitch8948TCCountersPolicyIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosSwitch8948TCCountersTrafficClassIndex": {
+    "name": "qosSwitch8948TCCountersTrafficClassIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosSwitch8948TCCountersAggregateBytes": {
+    "name": "qosSwitch8948TCCountersAggregateBytes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitch8948TCCountersBwConformanceClass1Bytes": {
+    "name": "qosSwitch8948TCCountersBwConformanceClass1Bytes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitch8948TCCountersBwConformanceClass2Bytes": {
+    "name": "qosSwitch8948TCCountersBwConformanceClass2Bytes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitch8948TCCountersBwConformanceClass3Bytes": {
+    "name": "qosSwitch8948TCCountersBwConformanceClass3Bytes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosSwitch8948TCCountersDroppedBytes": {
+    "name": "qosSwitch8948TCCountersDroppedBytes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.99.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-QOS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:17:09 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AT-QOS-MIB"
+  }
+}

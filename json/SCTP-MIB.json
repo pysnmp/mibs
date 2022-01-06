@@ -1,0 +1,1454 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetPortNumber",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "mib-2",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "sctpMIB": {
+    "name": "sctpMIB",
+    "oid": "1.3.6.1.2.1.104",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-09-02 00:00",
+        "description": " Initial version, published as RFC 3873"
+      }
+    ]
+  },
+  "sctpObjects": {
+    "name": "sctpObjects",
+    "oid": "1.3.6.1.2.1.104.1",
+    "class": "objectidentity"
+  },
+  "sctpStats": {
+    "name": "sctpStats",
+    "oid": "1.3.6.1.2.1.104.1.1",
+    "class": "objectidentity"
+  },
+  "sctpParams": {
+    "name": "sctpParams",
+    "oid": "1.3.6.1.2.1.104.1.2",
+    "class": "objectidentity"
+  },
+  "sctpCurrEstab": {
+    "name": "sctpCurrEstab",
+    "oid": "1.3.6.1.2.1.104.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpActiveEstabs": {
+    "name": "sctpActiveEstabs",
+    "oid": "1.3.6.1.2.1.104.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpPassiveEstabs": {
+    "name": "sctpPassiveEstabs",
+    "oid": "1.3.6.1.2.1.104.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpAborteds": {
+    "name": "sctpAborteds",
+    "oid": "1.3.6.1.2.1.104.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpShutdowns": {
+    "name": "sctpShutdowns",
+    "oid": "1.3.6.1.2.1.104.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpOutOfBlues": {
+    "name": "sctpOutOfBlues",
+    "oid": "1.3.6.1.2.1.104.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpChecksumErrors": {
+    "name": "sctpChecksumErrors",
+    "oid": "1.3.6.1.2.1.104.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpOutCtrlChunks": {
+    "name": "sctpOutCtrlChunks",
+    "oid": "1.3.6.1.2.1.104.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpOutOrderChunks": {
+    "name": "sctpOutOrderChunks",
+    "oid": "1.3.6.1.2.1.104.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpOutUnorderChunks": {
+    "name": "sctpOutUnorderChunks",
+    "oid": "1.3.6.1.2.1.104.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpInCtrlChunks": {
+    "name": "sctpInCtrlChunks",
+    "oid": "1.3.6.1.2.1.104.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpInOrderChunks": {
+    "name": "sctpInOrderChunks",
+    "oid": "1.3.6.1.2.1.104.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpInUnorderChunks": {
+    "name": "sctpInUnorderChunks",
+    "oid": "1.3.6.1.2.1.104.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpFragUsrMsgs": {
+    "name": "sctpFragUsrMsgs",
+    "oid": "1.3.6.1.2.1.104.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpReasmUsrMsgs": {
+    "name": "sctpReasmUsrMsgs",
+    "oid": "1.3.6.1.2.1.104.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpOutSCTPPacks": {
+    "name": "sctpOutSCTPPacks",
+    "oid": "1.3.6.1.2.1.104.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpInSCTPPacks": {
+    "name": "sctpInSCTPPacks",
+    "oid": "1.3.6.1.2.1.104.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpDiscontinuityTime": {
+    "name": "sctpDiscontinuityTime",
+    "oid": "1.3.6.1.2.1.104.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpRtoAlgorithm": {
+    "name": "sctpRtoAlgorithm",
+    "oid": "1.3.6.1.2.1.104.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "vanj": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "vanj",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpRtoMin": {
+    "name": "sctpRtoMin",
+    "oid": "1.3.6.1.2.1.104.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpRtoMax": {
+    "name": "sctpRtoMax",
+    "oid": "1.3.6.1.2.1.104.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpRtoInitial": {
+    "name": "sctpRtoInitial",
+    "oid": "1.3.6.1.2.1.104.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpMaxAssocs": {
+    "name": "sctpMaxAssocs",
+    "oid": "1.3.6.1.2.1.104.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpValCookieLife": {
+    "name": "sctpValCookieLife",
+    "oid": "1.3.6.1.2.1.104.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpMaxInitRetr": {
+    "name": "sctpMaxInitRetr",
+    "oid": "1.3.6.1.2.1.104.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpAssocTable": {
+    "name": "sctpAssocTable",
+    "oid": "1.3.6.1.2.1.104.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sctpAssocEntry": {
+    "name": "sctpAssocEntry",
+    "oid": "1.3.6.1.2.1.104.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sctpAssocId": {
+    "name": "sctpAssocId",
+    "oid": "1.3.6.1.2.1.104.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sctpAssocRemHostName": {
+    "name": "sctpAssocRemHostName",
+    "oid": "1.3.6.1.2.1.104.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpAssocLocalPort": {
+    "name": "sctpAssocLocalPort",
+    "oid": "1.3.6.1.2.1.104.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpAssocRemPort": {
+    "name": "sctpAssocRemPort",
+    "oid": "1.3.6.1.2.1.104.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpAssocRemPrimAddrType": {
+    "name": "sctpAssocRemPrimAddrType",
+    "oid": "1.3.6.1.2.1.104.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpAssocRemPrimAddr": {
+    "name": "sctpAssocRemPrimAddr",
+    "oid": "1.3.6.1.2.1.104.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpAssocHeartBeatInterval": {
+    "name": "sctpAssocHeartBeatInterval",
+    "oid": "1.3.6.1.2.1.104.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 30000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpAssocState": {
+    "name": "sctpAssocState",
+    "oid": "1.3.6.1.2.1.104.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "closed": 1,
+          "cookieWait": 2,
+          "cookieEchoed": 3,
+          "established": 4,
+          "shutdownPending": 5,
+          "shutdownSent": 6,
+          "shutdownReceived": 7,
+          "shutdownAckSent": 8,
+          "deleteTCB": 9
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sctpAssocInStreams": {
+    "name": "sctpAssocInStreams",
+    "oid": "1.3.6.1.2.1.104.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpAssocOutStreams": {
+    "name": "sctpAssocOutStreams",
+    "oid": "1.3.6.1.2.1.104.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpAssocMaxRetr": {
+    "name": "sctpAssocMaxRetr",
+    "oid": "1.3.6.1.2.1.104.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpAssocPrimProcess": {
+    "name": "sctpAssocPrimProcess",
+    "oid": "1.3.6.1.2.1.104.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpAssocT1expireds": {
+    "name": "sctpAssocT1expireds",
+    "oid": "1.3.6.1.2.1.104.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpAssocT2expireds": {
+    "name": "sctpAssocT2expireds",
+    "oid": "1.3.6.1.2.1.104.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpAssocRtxChunks": {
+    "name": "sctpAssocRtxChunks",
+    "oid": "1.3.6.1.2.1.104.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpAssocStartTime": {
+    "name": "sctpAssocStartTime",
+    "oid": "1.3.6.1.2.1.104.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpAssocDiscontinuityTime": {
+    "name": "sctpAssocDiscontinuityTime",
+    "oid": "1.3.6.1.2.1.104.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpAssocLocalAddrTable": {
+    "name": "sctpAssocLocalAddrTable",
+    "oid": "1.3.6.1.2.1.104.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sctpAssocLocalAddrEntry": {
+    "name": "sctpAssocLocalAddrEntry",
+    "oid": "1.3.6.1.2.1.104.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocId",
+        "implied": 0
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocLocalAddrType",
+        "implied": 0
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocLocalAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sctpAssocLocalAddrType": {
+    "name": "sctpAssocLocalAddrType",
+    "oid": "1.3.6.1.2.1.104.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sctpAssocLocalAddr": {
+    "name": "sctpAssocLocalAddr",
+    "oid": "1.3.6.1.2.1.104.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sctpAssocLocalAddrStartTime": {
+    "name": "sctpAssocLocalAddrStartTime",
+    "oid": "1.3.6.1.2.1.104.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpAssocRemAddrTable": {
+    "name": "sctpAssocRemAddrTable",
+    "oid": "1.3.6.1.2.1.104.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sctpAssocRemAddrEntry": {
+    "name": "sctpAssocRemAddrEntry",
+    "oid": "1.3.6.1.2.1.104.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocId",
+        "implied": 0
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocRemAddrType",
+        "implied": 0
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocRemAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sctpAssocRemAddrType": {
+    "name": "sctpAssocRemAddrType",
+    "oid": "1.3.6.1.2.1.104.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sctpAssocRemAddr": {
+    "name": "sctpAssocRemAddr",
+    "oid": "1.3.6.1.2.1.104.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sctpAssocRemAddrActive": {
+    "name": "sctpAssocRemAddrActive",
+    "oid": "1.3.6.1.2.1.104.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpAssocRemAddrHBActive": {
+    "name": "sctpAssocRemAddrHBActive",
+    "oid": "1.3.6.1.2.1.104.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpAssocRemAddrRTO": {
+    "name": "sctpAssocRemAddrRTO",
+    "oid": "1.3.6.1.2.1.104.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpAssocRemAddrMaxPathRtx": {
+    "name": "sctpAssocRemAddrMaxPathRtx",
+    "oid": "1.3.6.1.2.1.104.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpAssocRemAddrRtx": {
+    "name": "sctpAssocRemAddrRtx",
+    "oid": "1.3.6.1.2.1.104.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpAssocRemAddrStartTime": {
+    "name": "sctpAssocRemAddrStartTime",
+    "oid": "1.3.6.1.2.1.104.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpLookupLocalPortTable": {
+    "name": "sctpLookupLocalPortTable",
+    "oid": "1.3.6.1.2.1.104.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sctpLookupLocalPortEntry": {
+    "name": "sctpLookupLocalPortEntry",
+    "oid": "1.3.6.1.2.1.104.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocLocalPort",
+        "implied": 0
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sctpLookupLocalPortStartTime": {
+    "name": "sctpLookupLocalPortStartTime",
+    "oid": "1.3.6.1.2.1.104.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpLookupRemPortTable": {
+    "name": "sctpLookupRemPortTable",
+    "oid": "1.3.6.1.2.1.104.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sctpLookupRemPortEntry": {
+    "name": "sctpLookupRemPortEntry",
+    "oid": "1.3.6.1.2.1.104.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocRemPort",
+        "implied": 0
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sctpLookupRemPortStartTime": {
+    "name": "sctpLookupRemPortStartTime",
+    "oid": "1.3.6.1.2.1.104.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpLookupRemHostNameTable": {
+    "name": "sctpLookupRemHostNameTable",
+    "oid": "1.3.6.1.2.1.104.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sctpLookupRemHostNameEntry": {
+    "name": "sctpLookupRemHostNameEntry",
+    "oid": "1.3.6.1.2.1.104.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocRemHostName",
+        "implied": 0
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sctpLookupRemHostNameStartTime": {
+    "name": "sctpLookupRemHostNameStartTime",
+    "oid": "1.3.6.1.2.1.104.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpLookupRemPrimIPAddrTable": {
+    "name": "sctpLookupRemPrimIPAddrTable",
+    "oid": "1.3.6.1.2.1.104.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sctpLookupRemPrimIPAddrEntry": {
+    "name": "sctpLookupRemPrimIPAddrEntry",
+    "oid": "1.3.6.1.2.1.104.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocRemPrimAddrType",
+        "implied": 0
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocRemPrimAddr",
+        "implied": 0
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sctpLookupRemPrimIPAddrStartTime": {
+    "name": "sctpLookupRemPrimIPAddrStartTime",
+    "oid": "1.3.6.1.2.1.104.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpLookupRemIPAddrTable": {
+    "name": "sctpLookupRemIPAddrTable",
+    "oid": "1.3.6.1.2.1.104.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sctpLookupRemIPAddrEntry": {
+    "name": "sctpLookupRemIPAddrEntry",
+    "oid": "1.3.6.1.2.1.104.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocRemAddrType",
+        "implied": 0
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocRemAddr",
+        "implied": 0
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sctpLookupRemIPAddrStartTime": {
+    "name": "sctpLookupRemIPAddrStartTime",
+    "oid": "1.3.6.1.2.1.104.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctpMibConformance": {
+    "name": "sctpMibConformance",
+    "oid": "1.3.6.1.2.1.104.2",
+    "class": "objectidentity"
+  },
+  "sctpMibCompliances": {
+    "name": "sctpMibCompliances",
+    "oid": "1.3.6.1.2.1.104.2.1",
+    "class": "objectidentity"
+  },
+  "sctpMibGroups": {
+    "name": "sctpMibGroups",
+    "oid": "1.3.6.1.2.1.104.2.2",
+    "class": "objectidentity"
+  },
+  "sctpLayerParamsGroup": {
+    "name": "sctpLayerParamsGroup",
+    "oid": "1.3.6.1.2.1.104.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpRtoAlgorithm"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpRtoMin"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpRtoMax"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpRtoInitial"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpMaxAssocs"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpValCookieLife"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpMaxInitRetr"
+      }
+    ],
+    "status": "current"
+  },
+  "sctpStatsGroup": {
+    "name": "sctpStatsGroup",
+    "oid": "1.3.6.1.2.1.104.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpCurrEstab"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpActiveEstabs"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpPassiveEstabs"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAborteds"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpShutdowns"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpOutOfBlues"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpChecksumErrors"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpOutCtrlChunks"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpOutOrderChunks"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpOutUnorderChunks"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpInCtrlChunks"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpInOrderChunks"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpInUnorderChunks"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpFragUsrMsgs"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpReasmUsrMsgs"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpOutSCTPPacks"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpInSCTPPacks"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpDiscontinuityTime"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocT1expireds"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocT2expireds"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocRtxChunks"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocRemAddrRtx"
+      }
+    ],
+    "status": "current"
+  },
+  "sctpPerAssocParamsGroup": {
+    "name": "sctpPerAssocParamsGroup",
+    "oid": "1.3.6.1.2.1.104.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocRemHostName"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocLocalPort"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocRemPort"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocRemPrimAddrType"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocRemPrimAddr"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocHeartBeatInterval"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocState"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocInStreams"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocOutStreams"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocMaxRetr"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocPrimProcess"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocStartTime"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocDiscontinuityTime"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocLocalAddrStartTime"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocRemAddrActive"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocRemAddrHBActive"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocRemAddrRTO"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocRemAddrMaxPathRtx"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocRemAddrStartTime"
+      }
+    ],
+    "status": "current"
+  },
+  "sctpPerAssocStatsGroup": {
+    "name": "sctpPerAssocStatsGroup",
+    "oid": "1.3.6.1.2.1.104.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocT1expireds"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocT2expireds"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocRtxChunks"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpAssocRemAddrRtx"
+      }
+    ],
+    "status": "current"
+  },
+  "sctpInverseGroup": {
+    "name": "sctpInverseGroup",
+    "oid": "1.3.6.1.2.1.104.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpLookupLocalPortStartTime"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpLookupRemPortStartTime"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpLookupRemHostNameStartTime"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpLookupRemPrimIPAddrStartTime"
+      },
+      {
+        "module": "SCTP-MIB",
+        "object": "sctpLookupRemIPAddrStartTime"
+      }
+    ],
+    "status": "current"
+  },
+  "sctpMibCompliance": {
+    "name": "sctpMibCompliance",
+    "oid": "1.3.6.1.2.1.104.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "sctpLayerParamsGroup",
+        "module": "SCTP-MIB"
+      },
+      {
+        "object": "sctpPerAssocParamsGroup",
+        "module": "SCTP-MIB"
+      },
+      {
+        "object": "sctpStatsGroup",
+        "module": "SCTP-MIB"
+      },
+      {
+        "object": "sctpPerAssocStatsGroup",
+        "module": "SCTP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/SCTP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SCTP-MIB"
+  }
+}

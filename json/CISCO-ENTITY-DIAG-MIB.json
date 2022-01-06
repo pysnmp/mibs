@@ -1,0 +1,2121 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-ENTITY-DIAG-TC-MIB": [
+      "CeDiagDiagnosticLevel",
+      "CeDiagTestIdentifier",
+      "CeDiagErrorIdentifier",
+      "CeDiagPortList",
+      "CeDiagJobIdentifier",
+      "CeDiagJobSuite",
+      "CeDiagErrorIdentifierOrZero",
+      "CeDiagTestList",
+      "CeDiagDiagnosticMethod"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "EntPhysicalIndexOrZero"
+    ],
+    "ENTITY-MIB": [
+      "PhysicalIndex",
+      "entPhysicalDescr",
+      "entPhysicalIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoEntityDiagMIB": {
+    "name": "ciscoEntityDiagMIB",
+    "oid": "1.3.6.1.4.1.9.9.350",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-05-26 00:00",
+        "description": "Added ceDiagHMTestThreshWindowGroup."
+      },
+      {
+        "revision": "2009-06-30 00:00",
+        "description": "Added ceDiagTestPerfLastTestMethodGroup. Updated Description of ceDiagTestPerfLastErrorID object."
+      },
+      {
+        "revision": "2008-03-12 00:00",
+        "description": "Added ceDiagNotifControlGroup, ceDiagNotifErrorMsgGroup and ceDiagNotificationGroup."
+      },
+      {
+        "revision": "2007-01-09 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "ciscoEntityDiagMIBNotifs": {
+    "name": "ciscoEntityDiagMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.350.0",
+    "class": "objectidentity"
+  },
+  "ciscoEntityDiagMIBObjects": {
+    "name": "ciscoEntityDiagMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.350.1",
+    "class": "objectidentity"
+  },
+  "ciscoEntityDiagMIBConform": {
+    "name": "ciscoEntityDiagMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.350.2",
+    "class": "objectidentity"
+  },
+  "ceDiagDescriptions": {
+    "name": "ceDiagDescriptions",
+    "oid": "1.3.6.1.4.1.9.9.350.1.1",
+    "class": "objectidentity"
+  },
+  "ceDiagGlobalConfig": {
+    "name": "ceDiagGlobalConfig",
+    "oid": "1.3.6.1.4.1.9.9.350.1.2",
+    "class": "objectidentity"
+  },
+  "ceDiagEntity": {
+    "name": "ceDiagEntity",
+    "oid": "1.3.6.1.4.1.9.9.350.1.3",
+    "class": "objectidentity"
+  },
+  "ceDiagOnDemand": {
+    "name": "ceDiagOnDemand",
+    "oid": "1.3.6.1.4.1.9.9.350.1.4",
+    "class": "objectidentity"
+  },
+  "ceDiagScheduled": {
+    "name": "ceDiagScheduled",
+    "oid": "1.3.6.1.4.1.9.9.350.1.5",
+    "class": "objectidentity"
+  },
+  "ceDiagTest": {
+    "name": "ceDiagTest",
+    "oid": "1.3.6.1.4.1.9.9.350.1.6",
+    "class": "objectidentity"
+  },
+  "ceDiagHealthMonitor": {
+    "name": "ceDiagHealthMonitor",
+    "oid": "1.3.6.1.4.1.9.9.350.1.7",
+    "class": "objectidentity"
+  },
+  "ceDiagEvents": {
+    "name": "ceDiagEvents",
+    "oid": "1.3.6.1.4.1.9.9.350.1.8",
+    "class": "objectidentity"
+  },
+  "ceDiagNotificationControl": {
+    "name": "ceDiagNotificationControl",
+    "oid": "1.3.6.1.4.1.9.9.350.1.9",
+    "class": "objectidentity"
+  },
+  "ceDiagTestInfoTable": {
+    "name": "ceDiagTestInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.350.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceDiagTestInfoEntry": {
+    "name": "ceDiagTestInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.350.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagTestId": {
+    "name": "ceDiagTestId",
+    "oid": "1.3.6.1.4.1.9.9.350.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CeDiagTestIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceDiagTestText": {
+    "name": "ceDiagTestText",
+    "oid": "1.3.6.1.4.1.9.9.350.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagTestAttributes": {
+    "name": "ceDiagTestAttributes",
+    "oid": "1.3.6.1.4.1.9.9.350.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "minimal": 0,
+        "complete": 1,
+        "perPort": 2,
+        "fatal": 3,
+        "basicOnDemand": 4,
+        "standby": 5,
+        "parallel": 6,
+        "nonDisruptive": 7,
+        "hmAlwaysEnable": 8,
+        "hmFixedInterval": 9,
+        "nonHM": 10,
+        "proxy": 11,
+        "activeToStandby": 12,
+        "offline": 13,
+        "perDevice": 14
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagTestCustomAttributeTable": {
+    "name": "ceDiagTestCustomAttributeTable",
+    "oid": "1.3.6.1.4.1.9.9.350.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceDiagTestCustomAttributeEntry": {
+    "name": "ceDiagTestCustomAttributeEntry",
+    "oid": "1.3.6.1.4.1.9.9.350.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestCustomAttributeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagTestCustomAttributeIndex": {
+    "name": "ceDiagTestCustomAttributeIndex",
+    "oid": "1.3.6.1.4.1.9.9.350.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceDiagTestCustomAttributeDesc": {
+    "name": "ceDiagTestCustomAttributeDesc",
+    "oid": "1.3.6.1.4.1.9.9.350.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagErrorInfoTable": {
+    "name": "ceDiagErrorInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.350.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceDiagErrorInfoEntry": {
+    "name": "ceDiagErrorInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.350.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagErrorId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagErrorId": {
+    "name": "ceDiagErrorId",
+    "oid": "1.3.6.1.4.1.9.9.350.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CeDiagErrorIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceDiagErrorText": {
+    "name": "ceDiagErrorText",
+    "oid": "1.3.6.1.4.1.9.9.350.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagBootupLevel": {
+    "name": "ceDiagBootupLevel",
+    "oid": "1.3.6.1.4.1.9.9.350.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CeDiagDiagnosticLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "minimal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceDiagEntityTable": {
+    "name": "ceDiagEntityTable",
+    "oid": "1.3.6.1.4.1.9.9.350.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceDiagEntityEntry": {
+    "name": "ceDiagEntityEntry",
+    "oid": "1.3.6.1.4.1.9.9.350.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagEntityBootLevel": {
+    "name": "ceDiagEntityBootLevel",
+    "oid": "1.3.6.1.4.1.9.9.350.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CeDiagDiagnosticLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagEntityImageAdminStatus": {
+    "name": "ceDiagEntityImageAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.350.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "operational": 1,
+          "fieldDiagnostic": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "operational",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceDiagEntityImageOperStatus": {
+    "name": "ceDiagEntityImageOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.350.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "operational": 1,
+          "fieldDiagnostic": 2,
+          "booting": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagEntityFieldDiagnosticUrl": {
+    "name": "ceDiagEntityFieldDiagnosticUrl",
+    "oid": "1.3.6.1.4.1.9.9.350.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceDiagEntityCurrentTestTable": {
+    "name": "ceDiagEntityCurrentTestTable",
+    "oid": "1.3.6.1.4.1.9.9.350.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceDiagEntityCurrentTestEntry": {
+    "name": "ceDiagEntityCurrentTestEntry",
+    "oid": "1.3.6.1.4.1.9.9.350.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagEntityCurrentTestMethod": {
+    "name": "ceDiagEntityCurrentTestMethod",
+    "oid": "1.3.6.1.4.1.9.9.350.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CeDiagDiagnosticMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagOnDemandErrorAllowed": {
+    "name": "ceDiagOnDemandErrorAllowed",
+    "oid": "1.3.6.1.4.1.9.9.350.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceDiagOnDemandErrorAction": {
+    "name": "ceDiagOnDemandErrorAction",
+    "oid": "1.3.6.1.4.1.9.9.350.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "continue": 1,
+          "stop": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceDiagOnDemandIterations": {
+    "name": "ceDiagOnDemandIterations",
+    "oid": "1.3.6.1.4.1.9.9.350.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceDiagOnDemandJobTable": {
+    "name": "ceDiagOnDemandJobTable",
+    "oid": "1.3.6.1.4.1.9.9.350.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceDiagOnDemandJobEntry": {
+    "name": "ceDiagOnDemandJobEntry",
+    "oid": "1.3.6.1.4.1.9.9.350.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagOnDemandJobSuite": {
+    "name": "ceDiagOnDemandJobSuite",
+    "oid": "1.3.6.1.4.1.9.9.350.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CeDiagJobSuite",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceDiagOnDemandJobTestList": {
+    "name": "ceDiagOnDemandJobTestList",
+    "oid": "1.3.6.1.4.1.9.9.350.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CeDiagTestList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceDiagOnDemandJobPortList": {
+    "name": "ceDiagOnDemandJobPortList",
+    "oid": "1.3.6.1.4.1.9.9.350.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CeDiagPortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceDiagOnDemandJobRowStatus": {
+    "name": "ceDiagOnDemandJobRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.350.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceDiagScheduledJobTable": {
+    "name": "ceDiagScheduledJobTable",
+    "oid": "1.3.6.1.4.1.9.9.350.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceDiagScheduledJobEntry": {
+    "name": "ceDiagScheduledJobEntry",
+    "oid": "1.3.6.1.4.1.9.9.350.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagScheduledJobIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagScheduledJobIndex": {
+    "name": "ceDiagScheduledJobIndex",
+    "oid": "1.3.6.1.4.1.9.9.350.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CeDiagJobIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceDiagScheduledJobType": {
+    "name": "ceDiagScheduledJobType",
+    "oid": "1.3.6.1.4.1.9.9.350.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "scheduledOneShot": 1,
+          "scheduledPeriodicDaily": 2,
+          "scheduledPeriodicWeekly": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceDiagScheduledJobStart": {
+    "name": "ceDiagScheduledJobStart",
+    "oid": "1.3.6.1.4.1.9.9.350.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceDiagScheduledJobDayOfWeek": {
+    "name": "ceDiagScheduledJobDayOfWeek",
+    "oid": "1.3.6.1.4.1.9.9.350.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sunday": 1,
+          "monday": 2,
+          "tuesday": 3,
+          "wednesday": 4,
+          "thursday": 5,
+          "friday": 6,
+          "saturday": 7,
+          "notApplicable": 8
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceDiagScheduledJobTestList": {
+    "name": "ceDiagScheduledJobTestList",
+    "oid": "1.3.6.1.4.1.9.9.350.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CeDiagTestList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceDiagScheduledJobPortList": {
+    "name": "ceDiagScheduledJobPortList",
+    "oid": "1.3.6.1.4.1.9.9.350.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CeDiagPortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceDiagScheduledJobRowStatus": {
+    "name": "ceDiagScheduledJobRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.350.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceDiagScheduledJobSuite": {
+    "name": "ceDiagScheduledJobSuite",
+    "oid": "1.3.6.1.4.1.9.9.350.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CeDiagJobSuite",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceDiagTestPerfTable": {
+    "name": "ceDiagTestPerfTable",
+    "oid": "1.3.6.1.4.1.9.9.350.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceDiagTestPerfEntry": {
+    "name": "ceDiagTestPerfEntry",
+    "oid": "1.3.6.1.4.1.9.9.350.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagTestPerfLastResult": {
+    "name": "ceDiagTestPerfLastResult",
+    "oid": "1.3.6.1.4.1.9.9.350.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "fail": 2,
+          "pass": 3,
+          "skipped": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagTestPerfLastErrorID": {
+    "name": "ceDiagTestPerfLastErrorID",
+    "oid": "1.3.6.1.4.1.9.9.350.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CeDiagErrorIdentifierOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagTestPerfLastRun": {
+    "name": "ceDiagTestPerfLastRun",
+    "oid": "1.3.6.1.4.1.9.9.350.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagTestPerfFirstFail": {
+    "name": "ceDiagTestPerfFirstFail",
+    "oid": "1.3.6.1.4.1.9.9.350.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagTestPerfLastSuccess": {
+    "name": "ceDiagTestPerfLastSuccess",
+    "oid": "1.3.6.1.4.1.9.9.350.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagTestPeffLastFail": {
+    "name": "ceDiagTestPeffLastFail",
+    "oid": "1.3.6.1.4.1.9.9.350.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagTestPerfTotalRuns": {
+    "name": "ceDiagTestPerfTotalRuns",
+    "oid": "1.3.6.1.4.1.9.9.350.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagTestPerfTotalFails": {
+    "name": "ceDiagTestPerfTotalFails",
+    "oid": "1.3.6.1.4.1.9.9.350.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagTestPerfConsecutiveFails": {
+    "name": "ceDiagTestPerfConsecutiveFails",
+    "oid": "1.3.6.1.4.1.9.9.350.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagTestPerfLastTestMethod": {
+    "name": "ceDiagTestPerfLastTestMethod",
+    "oid": "1.3.6.1.4.1.9.9.350.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CeDiagDiagnosticMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagHMSyslogEnabled": {
+    "name": "ceDiagHMSyslogEnabled",
+    "oid": "1.3.6.1.4.1.9.9.350.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceDiagHMTestTable": {
+    "name": "ceDiagHMTestTable",
+    "oid": "1.3.6.1.4.1.9.9.350.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceDiagHMTestEntry": {
+    "name": "ceDiagHMTestEntry",
+    "oid": "1.3.6.1.4.1.9.9.350.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagHMTestEnabled": {
+    "name": "ceDiagHMTestEnabled",
+    "oid": "1.3.6.1.4.1.9.9.350.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceDiagHMTestIntervalMin": {
+    "name": "ceDiagHMTestIntervalMin",
+    "oid": "1.3.6.1.4.1.9.9.350.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagHMTestIntervalDefault": {
+    "name": "ceDiagHMTestIntervalDefault",
+    "oid": "1.3.6.1.4.1.9.9.350.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagHMTestInterval": {
+    "name": "ceDiagHMTestInterval",
+    "oid": "1.3.6.1.4.1.9.9.350.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceDiagHMTestThresholdDefault": {
+    "name": "ceDiagHMTestThresholdDefault",
+    "oid": "1.3.6.1.4.1.9.9.350.1.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagHMTestThreshold": {
+    "name": "ceDiagHMTestThreshold",
+    "oid": "1.3.6.1.4.1.9.9.350.1.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceDiagHMTestThreshWindowSuite": {
+    "name": "ceDiagHMTestThreshWindowSuite",
+    "oid": "1.3.6.1.4.1.9.9.350.1.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "milliseconds": 2,
+          "seconds": 3,
+          "minutes": 4,
+          "hours": 5,
+          "days": 6,
+          "runs": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceDiagHMTestThreshWindowSize": {
+    "name": "ceDiagHMTestThreshWindowSize",
+    "oid": "1.3.6.1.4.1.9.9.350.1.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceDiagEventLogSize": {
+    "name": "ceDiagEventLogSize",
+    "oid": "1.3.6.1.4.1.9.9.350.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceDiagEventCount": {
+    "name": "ceDiagEventCount",
+    "oid": "1.3.6.1.4.1.9.9.350.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagEventMaxQueries": {
+    "name": "ceDiagEventMaxQueries",
+    "oid": "1.3.6.1.4.1.9.9.350.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagEventQueryTable": {
+    "name": "ceDiagEventQueryTable",
+    "oid": "1.3.6.1.4.1.9.9.350.1.8.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceDiagEventQueryEntry": {
+    "name": "ceDiagEventQueryEntry",
+    "oid": "1.3.6.1.4.1.9.9.350.1.8.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEventQueryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagEventQueryIndex": {
+    "name": "ceDiagEventQueryIndex",
+    "oid": "1.3.6.1.4.1.9.9.350.1.8.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceDiagEventQueryPhysicalIndex": {
+    "name": "ceDiagEventQueryPhysicalIndex",
+    "oid": "1.3.6.1.4.1.9.9.350.1.8.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceDiagEventQuerySeverity": {
+    "name": "ceDiagEventQuerySeverity",
+    "oid": "1.3.6.1.4.1.9.9.350.1.8.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 0,
+          "info": 1,
+          "warning": 2,
+          "error": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceDiagEventQueryOwner": {
+    "name": "ceDiagEventQueryOwner",
+    "oid": "1.3.6.1.4.1.9.9.350.1.8.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceDiagEventQueryResultingRows": {
+    "name": "ceDiagEventQueryResultingRows",
+    "oid": "1.3.6.1.4.1.9.9.350.1.8.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagEventQueryStatus": {
+    "name": "ceDiagEventQueryStatus",
+    "oid": "1.3.6.1.4.1.9.9.350.1.8.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceDiagEventResultTable": {
+    "name": "ceDiagEventResultTable",
+    "oid": "1.3.6.1.4.1.9.9.350.1.8.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceDiagEventResultEntry": {
+    "name": "ceDiagEventResultEntry",
+    "oid": "1.3.6.1.4.1.9.9.350.1.8.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEventQueryIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEventResultIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagEventResultIndex": {
+    "name": "ceDiagEventResultIndex",
+    "oid": "1.3.6.1.4.1.9.9.350.1.8.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceDiagEventResultPhysicalIndex": {
+    "name": "ceDiagEventResultPhysicalIndex",
+    "oid": "1.3.6.1.4.1.9.9.350.1.8.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagEventResultPhysicalDescr": {
+    "name": "ceDiagEventResultPhysicalDescr",
+    "oid": "1.3.6.1.4.1.9.9.350.1.8.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagEventResultTime": {
+    "name": "ceDiagEventResultTime",
+    "oid": "1.3.6.1.4.1.9.9.350.1.8.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagEventResultSeverity": {
+    "name": "ceDiagEventResultSeverity",
+    "oid": "1.3.6.1.4.1.9.9.350.1.8.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "info": 1,
+          "warning": 2,
+          "error": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagEventResultLogText": {
+    "name": "ceDiagEventResultLogText",
+    "oid": "1.3.6.1.4.1.9.9.350.1.8.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceDiagEventErrorMsg": {
+    "name": "ceDiagEventErrorMsg",
+    "oid": "1.3.6.1.4.1.9.9.350.1.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ceDiagEnableBootUpFailedNotif": {
+    "name": "ceDiagEnableBootUpFailedNotif",
+    "oid": "1.3.6.1.4.1.9.9.350.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceDiagEnableHMThreshReachedNotif": {
+    "name": "ceDiagEnableHMThreshReachedNotif",
+    "oid": "1.3.6.1.4.1.9.9.350.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceDiagEnableHMTestRecoverNotif": {
+    "name": "ceDiagEnableHMTestRecoverNotif",
+    "oid": "1.3.6.1.4.1.9.9.350.1.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceDiagEnableSchedTestFailedNotif": {
+    "name": "ceDiagEnableSchedTestFailedNotif",
+    "oid": "1.3.6.1.4.1.9.9.350.1.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceDiagBootUpFailedNotif": {
+    "name": "ceDiagBootUpFailedNotif",
+    "oid": "1.3.6.1.4.1.9.9.350.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEntityBootLevel"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEventErrorMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagHMThresholdReachedNotif": {
+    "name": "ceDiagHMThresholdReachedNotif",
+    "oid": "1.3.6.1.4.1.9.9.350.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagHMTestThreshold"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestText"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestAttributes"
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagHMTestRecoverNotif": {
+    "name": "ceDiagHMTestRecoverNotif",
+    "oid": "1.3.6.1.4.1.9.9.350.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestText"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestAttributes"
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagScheduledTestFailedNotif": {
+    "name": "ceDiagScheduledTestFailedNotif",
+    "oid": "1.3.6.1.4.1.9.9.350.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestText"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEventErrorMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEntityDiagMIBCompliances": {
+    "name": "ciscoEntityDiagMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.350.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoEntityDiagMIBGroups": {
+    "name": "ciscoEntityDiagMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.350.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoEntityDiagMIBComplianceRev1": {
+    "name": "ciscoEntityDiagMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.350.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ceDiagDescrGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagGlobalConfigGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagEntityGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagOnDemandGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagScheduledGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagTestPerfGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagEventGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagEntityImageGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagHealthMonitorGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagScheduledJobSuiteGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoEntityDiagMIBComplianceRev2": {
+    "name": "ciscoEntityDiagMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.350.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ceDiagDescrGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagGlobalConfigGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagEntityGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagOnDemandGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagScheduledGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagTestPerfGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagEventGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagEntityImageGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagHealthMonitorGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagScheduledJobSuiteGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagNotifControlGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagNotifErrorMsgGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagNotificationGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoEntityDiagMIBComplianceRev3": {
+    "name": "ciscoEntityDiagMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.350.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ceDiagDescrGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagGlobalConfigGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagEntityGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagOnDemandGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagScheduledGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagTestPerfGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagEventGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagEntityImageGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagHealthMonitorGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagScheduledJobSuiteGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagNotifControlGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagNotifErrorMsgGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagNotificationGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagTestPerfLastTestMethodGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoEntityDiagMIBComplianceRev4": {
+    "name": "ciscoEntityDiagMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.350.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ceDiagDescrGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagGlobalConfigGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagEntityGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagOnDemandGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagScheduledGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagTestPerfGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagEventGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagEntityImageGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagHealthMonitorGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagScheduledJobSuiteGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagNotifControlGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagNotifErrorMsgGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagNotificationGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagTestPerfLastTestMethodGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      },
+      {
+        "object": "ceDiagHMTestThreshWindowGroup",
+        "module": "CISCO-ENTITY-DIAG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagDescrGroup": {
+    "name": "ceDiagDescrGroup",
+    "oid": "1.3.6.1.4.1.9.9.350.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestText"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestAttributes"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestCustomAttributeDesc"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagErrorText"
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagGlobalConfigGroup": {
+    "name": "ceDiagGlobalConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.350.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagBootupLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagEntityGroup": {
+    "name": "ceDiagEntityGroup",
+    "oid": "1.3.6.1.4.1.9.9.350.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEntityBootLevel"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEntityCurrentTestMethod"
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagEntityImageGroup": {
+    "name": "ceDiagEntityImageGroup",
+    "oid": "1.3.6.1.4.1.9.9.350.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEntityImageAdminStatus"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEntityImageOperStatus"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEntityFieldDiagnosticUrl"
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagOnDemandGroup": {
+    "name": "ceDiagOnDemandGroup",
+    "oid": "1.3.6.1.4.1.9.9.350.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagOnDemandErrorAllowed"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagOnDemandErrorAction"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagOnDemandIterations"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagOnDemandJobSuite"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagOnDemandJobTestList"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagOnDemandJobPortList"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagOnDemandJobRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagScheduledGroup": {
+    "name": "ceDiagScheduledGroup",
+    "oid": "1.3.6.1.4.1.9.9.350.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagScheduledJobType"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagScheduledJobStart"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagScheduledJobDayOfWeek"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagScheduledJobTestList"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagScheduledJobPortList"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagScheduledJobRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagTestPerfGroup": {
+    "name": "ceDiagTestPerfGroup",
+    "oid": "1.3.6.1.4.1.9.9.350.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestPerfLastResult"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestPerfLastErrorID"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestPerfLastRun"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestPerfFirstFail"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestPerfLastSuccess"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestPeffLastFail"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestPerfTotalRuns"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestPerfTotalFails"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestPerfConsecutiveFails"
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagHealthMonitorGroup": {
+    "name": "ceDiagHealthMonitorGroup",
+    "oid": "1.3.6.1.4.1.9.9.350.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagHMSyslogEnabled"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagHMTestEnabled"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagHMTestIntervalMin"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagHMTestInterval"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagHMTestIntervalDefault"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagHMTestThresholdDefault"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagHMTestThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagEventGroup": {
+    "name": "ceDiagEventGroup",
+    "oid": "1.3.6.1.4.1.9.9.350.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEventLogSize"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEventCount"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEventMaxQueries"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEventQueryPhysicalIndex"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEventQuerySeverity"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEventQueryOwner"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEventQueryResultingRows"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEventQueryStatus"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEventResultPhysicalIndex"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEventResultPhysicalDescr"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEventResultTime"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEventResultSeverity"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEventResultLogText"
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagScheduledJobSuiteGroup": {
+    "name": "ceDiagScheduledJobSuiteGroup",
+    "oid": "1.3.6.1.4.1.9.9.350.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagScheduledJobSuite"
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagNotifControlGroup": {
+    "name": "ceDiagNotifControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.350.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEnableBootUpFailedNotif"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEnableHMThreshReachedNotif"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEnableHMTestRecoverNotif"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEnableSchedTestFailedNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagNotifErrorMsgGroup": {
+    "name": "ceDiagNotifErrorMsgGroup",
+    "oid": "1.3.6.1.4.1.9.9.350.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagEventErrorMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagNotificationGroup": {
+    "name": "ceDiagNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.350.2.2.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagBootUpFailedNotif"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagHMThresholdReachedNotif"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagHMTestRecoverNotif"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagScheduledTestFailedNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagTestPerfLastTestMethodGroup": {
+    "name": "ceDiagTestPerfLastTestMethodGroup",
+    "oid": "1.3.6.1.4.1.9.9.350.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagTestPerfLastTestMethod"
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagHMTestThreshWindowGroup": {
+    "name": "ceDiagHMTestThreshWindowGroup",
+    "oid": "1.3.6.1.4.1.9.9.350.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagHMTestThreshWindowSuite"
+      },
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "object": "ceDiagHMTestThreshWindowSize"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENTITY-DIAG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ENTITY-DIAG-MIB"
+  }
+}

@@ -1,0 +1,897 @@
+{
+  "imports": {
+    "class": "imports",
+    "DWI-HARMONY-PRIVATE-MIB": [
+      "mwr"
+    ],
+    "EQUIPMENT-COMMON-MIB": [
+      "equipmentOutTrapsCounter",
+      "equipmentAlarmActiveConditionId",
+      "EnableType",
+      "equipmentTrapInfo"
+    ],
+    "MWR-ETHERNET-MIB": [
+      "RadioInstanceType",
+      "mwrEventConfigSeverity"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Gauge32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "mwrRadioMcModIdentity": {
+    "name": "mwrRadioMcModIdentity",
+    "oid": "1.3.6.1.4.1.7262.4.5.1003",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-06-23 11:09",
+        "description": "First release of the Dragonwave Harmony radio Enhanced-multicarrier MIB."
+      },
+      {
+        "revision": "2014-09-23 17:22",
+        "description": "Updated some OIDs Descriptions."
+      }
+    ]
+  },
+  "mwrRadio": {
+    "name": "mwrRadio",
+    "oid": "1.3.6.1.4.1.7262.4.5.12",
+    "class": "objectidentity"
+  },
+  "mwrEmcRadioConfigurations": {
+    "name": "mwrEmcRadioConfigurations",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.201",
+    "class": "objectidentity"
+  },
+  "mwrEmcRadioStatus": {
+    "name": "mwrEmcRadioStatus",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.202",
+    "class": "objectidentity"
+  },
+  "mwrEmcRadioPerformance": {
+    "name": "mwrEmcRadioPerformance",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.203",
+    "class": "objectidentity"
+  },
+  "mwrEmcRadioNotifications": {
+    "name": "mwrEmcRadioNotifications",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.204",
+    "class": "objectidentity"
+  },
+  "mwrEmcRadioConfigurationsTable": {
+    "name": "mwrEmcRadioConfigurationsTable",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.201.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwrEmcRadioConfigurationsEntry": {
+    "name": "mwrEmcRadioConfigurationsEntry",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.201.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWR-RADIO-MC-MIB",
+        "object": "mwrEmcRadioConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwrEmcRadioConfigIndex": {
+    "name": "mwrEmcRadioConfigIndex",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.201.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RadioInstanceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwrEmcRadioTxState": {
+    "name": "mwrEmcRadioTxState",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.201.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwrEmcRadioTxPower": {
+    "name": "mwrEmcRadioTxPower",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.201.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwrEmcRadioTxDownTime": {
+    "name": "mwrEmcRadioTxDownTime",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.201.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwrEmcRadioRxFrequency": {
+    "name": "mwrEmcRadioRxFrequency",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.201.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwrEmcRadioTxFrequency": {
+    "name": "mwrEmcRadioTxFrequency",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.201.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwrEmcRadioProfileTable": {
+    "name": "mwrEmcRadioProfileTable",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.201.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwrEmcRadioProfileEntry": {
+    "name": "mwrEmcRadioProfileEntry",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.201.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWR-RADIO-MC-MIB",
+        "object": "mwrEmcRadioStandardMode",
+        "implied": 0
+      },
+      {
+        "module": "MWR-RADIO-MC-MIB",
+        "object": "mwrEmcRadioChannelBw",
+        "implied": 0
+      },
+      {
+        "module": "MWR-RADIO-MC-MIB",
+        "object": "mwrEmcRadioStaticTxProfile",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwrEmcRadioStandardMode": {
+    "name": "mwrEmcRadioStandardMode",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.201.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwrEmcRadioChannelBw": {
+    "name": "mwrEmcRadioChannelBw",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.201.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "units": "MHz",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwrEmcRadioStaticTxProfile": {
+    "name": "mwrEmcRadioStaticTxProfile",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.201.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwrEmcRadioProgrammedProfile": {
+    "name": "mwrEmcRadioProgrammedProfile",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.201.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwrEmcRadioThresholdAlarmTable": {
+    "name": "mwrEmcRadioThresholdAlarmTable",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.201.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwrEmcRadioThresholdAlarmEntry": {
+    "name": "mwrEmcRadioThresholdAlarmEntry",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.201.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWR-RADIO-MC-MIB",
+        "object": "mwrEmcRadioThresholdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwrEmcRadioThresholdIndex": {
+    "name": "mwrEmcRadioThresholdIndex",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.201.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RadioInstanceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwrEmcRadioRslBelowThresholdParams": {
+    "name": "mwrEmcRadioRslBelowThresholdParams",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.201.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwrEmcRadioTxAboveThresholdParams": {
+    "name": "mwrEmcRadioTxAboveThresholdParams",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.201.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwrEmcRadioChCfgSynchEnable": {
+    "name": "mwrEmcRadioChCfgSynchEnable",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.201.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwrEmcRadioStatusTable": {
+    "name": "mwrEmcRadioStatusTable",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.202.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwrEmcRadioStatusEntry": {
+    "name": "mwrEmcRadioStatusEntry",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.202.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWR-RADIO-MC-MIB",
+        "object": "mwrEmcRadioStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwrEmcRadioStatusIndex": {
+    "name": "mwrEmcRadioStatusIndex",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.202.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RadioInstanceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwrEmcRadioOperStatus": {
+    "name": "mwrEmcRadioOperStatus",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.202.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwrEmcRadioTRSpacing": {
+    "name": "mwrEmcRadioTRSpacing",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.202.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwrEmcRadioActualTxStatus": {
+    "name": "mwrEmcRadioActualTxStatus",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.202.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwrEmcRadioRxFreqMin": {
+    "name": "mwrEmcRadioRxFreqMin",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.202.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwrEmcRadioRxFreqMax": {
+    "name": "mwrEmcRadioRxFreqMax",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.202.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwrEmcRadioTxFreqMin": {
+    "name": "mwrEmcRadioTxFreqMin",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.202.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwrEmcRadioTxFreqMax": {
+    "name": "mwrEmcRadioTxFreqMax",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.202.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwrEmcRadioTxPowerMin": {
+    "name": "mwrEmcRadioTxPowerMin",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.202.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwrEmcRadioTxPowerMax": {
+    "name": "mwrEmcRadioTxPowerMax",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.202.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwrEmcRadioLinkStatus": {
+    "name": "mwrEmcRadioLinkStatus",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.202.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwrEmcRadioPerfStatsTable": {
+    "name": "mwrEmcRadioPerfStatsTable",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.203.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwrEmcRadioPerfStatsEntry": {
+    "name": "mwrEmcRadioPerfStatsEntry",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.203.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWR-RADIO-MC-MIB",
+        "object": "mwrEmcRadioStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwrEmcRadioStatsIndex": {
+    "name": "mwrEmcRadioStatsIndex",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.203.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RadioInstanceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwrEmcRadioTxFrames": {
+    "name": "mwrEmcRadioTxFrames",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.203.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwrEmcRadioRxGoodFrames": {
+    "name": "mwrEmcRadioRxGoodFrames",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.203.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwrEmcRadioRxErrsFrames": {
+    "name": "mwrEmcRadioRxErrsFrames",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.203.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwrEmcRadioRSL": {
+    "name": "mwrEmcRadioRSL",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.203.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwrEmcRadioEqualizerStress": {
+    "name": "mwrEmcRadioEqualizerStress",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.203.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwrEmcRadioSNR": {
+    "name": "mwrEmcRadioSNR",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.203.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwrEmcRadioLinkAvailability": {
+    "name": "mwrEmcRadioLinkAvailability",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.203.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwrEmcRadioActualTxPower": {
+    "name": "mwrEmcRadioActualTxPower",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.203.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwrEmcRadioActualTxProfile": {
+    "name": "mwrEmcRadioActualTxProfile",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.203.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwrEmcRadioPerfStats32BitTable": {
+    "name": "mwrEmcRadioPerfStats32BitTable",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.203.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwrEmcRadioPerfStats32BitEntry": {
+    "name": "mwrEmcRadioPerfStats32BitEntry",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.203.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWR-RADIO-MC-MIB",
+        "object": "mwrEmcRadioStats32BitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwrEmcRadioStats32BitIndex": {
+    "name": "mwrEmcRadioStats32BitIndex",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.203.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RadioInstanceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwrEmcRadioTxFrames32Bit": {
+    "name": "mwrEmcRadioTxFrames32Bit",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.203.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwrEmcRadioRxGoodFrames32Bit": {
+    "name": "mwrEmcRadioRxGoodFrames32Bit",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.203.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwrEmcRadioRxErrsFrames32Bit": {
+    "name": "mwrEmcRadioRxErrsFrames32Bit",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.203.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwrEmcRadioRxLossOfSync": {
+    "name": "mwrEmcRadioRxLossOfSync",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.204.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MWR-ETHERNET-MIB",
+        "object": "mwrEventConfigSeverity"
+      },
+      {
+        "module": "MWR-RADIO-MC-MIB",
+        "object": "mwrEmcRadioStatusIndex"
+      },
+      {
+        "module": "EQUIPMENT-COMMON-MIB",
+        "object": "equipmentAlarmActiveConditionId"
+      },
+      {
+        "module": "EQUIPMENT-COMMON-MIB",
+        "object": "equipmentTrapInfo"
+      },
+      {
+        "module": "EQUIPMENT-COMMON-MIB",
+        "object": "equipmentOutTrapsCounter"
+      }
+    ],
+    "status": "current"
+  },
+  "mwrEmcRadioFailure": {
+    "name": "mwrEmcRadioFailure",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.204.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MWR-ETHERNET-MIB",
+        "object": "mwrEventConfigSeverity"
+      },
+      {
+        "module": "MWR-RADIO-MC-MIB",
+        "object": "mwrEmcRadioStatusIndex"
+      },
+      {
+        "module": "EQUIPMENT-COMMON-MIB",
+        "object": "equipmentAlarmActiveConditionId"
+      },
+      {
+        "module": "EQUIPMENT-COMMON-MIB",
+        "object": "equipmentTrapInfo"
+      },
+      {
+        "module": "EQUIPMENT-COMMON-MIB",
+        "object": "equipmentOutTrapsCounter"
+      }
+    ],
+    "status": "current"
+  },
+  "mwrEmcRadioCalUnavailable": {
+    "name": "mwrEmcRadioCalUnavailable",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.204.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MWR-ETHERNET-MIB",
+        "object": "mwrEventConfigSeverity"
+      },
+      {
+        "module": "EQUIPMENT-COMMON-MIB",
+        "object": "equipmentAlarmActiveConditionId"
+      },
+      {
+        "module": "EQUIPMENT-COMMON-MIB",
+        "object": "equipmentTrapInfo"
+      },
+      {
+        "module": "EQUIPMENT-COMMON-MIB",
+        "object": "equipmentOutTrapsCounter"
+      }
+    ],
+    "status": "current"
+  },
+  "mwrEmcRadioRslBelowThreshold": {
+    "name": "mwrEmcRadioRslBelowThreshold",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.204.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MWR-ETHERNET-MIB",
+        "object": "mwrEventConfigSeverity"
+      },
+      {
+        "module": "MWR-RADIO-MC-MIB",
+        "object": "mwrEmcRadioStatusIndex"
+      },
+      {
+        "module": "EQUIPMENT-COMMON-MIB",
+        "object": "equipmentAlarmActiveConditionId"
+      },
+      {
+        "module": "EQUIPMENT-COMMON-MIB",
+        "object": "equipmentTrapInfo"
+      },
+      {
+        "module": "EQUIPMENT-COMMON-MIB",
+        "object": "equipmentOutTrapsCounter"
+      }
+    ],
+    "status": "current"
+  },
+  "mwrEmcRadioTxlAboveThreshold": {
+    "name": "mwrEmcRadioTxlAboveThreshold",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.204.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MWR-ETHERNET-MIB",
+        "object": "mwrEventConfigSeverity"
+      },
+      {
+        "module": "MWR-RADIO-MC-MIB",
+        "object": "mwrEmcRadioStatusIndex"
+      },
+      {
+        "module": "EQUIPMENT-COMMON-MIB",
+        "object": "equipmentAlarmActiveConditionId"
+      },
+      {
+        "module": "EQUIPMENT-COMMON-MIB",
+        "object": "equipmentTrapInfo"
+      },
+      {
+        "module": "EQUIPMENT-COMMON-MIB",
+        "object": "equipmentOutTrapsCounter"
+      }
+    ],
+    "status": "current"
+  },
+  "mwrEmcRadioConfigMismatch": {
+    "name": "mwrEmcRadioConfigMismatch",
+    "oid": "1.3.6.1.4.1.7262.4.5.12.204.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MWR-ETHERNET-MIB",
+        "object": "mwrEventConfigSeverity"
+      },
+      {
+        "module": "MWR-RADIO-MC-MIB",
+        "object": "mwrEmcRadioStatusIndex"
+      },
+      {
+        "module": "EQUIPMENT-COMMON-MIB",
+        "object": "equipmentAlarmActiveConditionId"
+      },
+      {
+        "module": "EQUIPMENT-COMMON-MIB",
+        "object": "equipmentTrapInfo"
+      },
+      {
+        "module": "EQUIPMENT-COMMON-MIB",
+        "object": "equipmentOutTrapsCounter"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dragonwave/MWR-RADIO-MC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:48 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MWR-RADIO-MC-MIB"
+  }
+}

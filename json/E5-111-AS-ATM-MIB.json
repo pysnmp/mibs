@@ -1,0 +1,691 @@
+{
+  "imports": {
+    "class": "imports",
+    "E5-111-MIB": [
+      "accessSwitchCommonATM"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex",
+      "PortList"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "IpAddress",
+      "Gauge32",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "asMaxNumOfChannels": {
+    "name": "asMaxNumOfChannels",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asChannelTable": {
+    "name": "asChannelTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asChannelEntry": {
+    "name": "asChannelEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "E5-111-AS-ATM-MIB",
+        "object": "asChannelVpi",
+        "implied": 0
+      },
+      {
+        "module": "E5-111-AS-ATM-MIB",
+        "object": "asChannelVci",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "asChannelVpi": {
+    "name": "asChannelVpi",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asChannelVci": {
+    "name": "asChannelVci",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asChannelPvid": {
+    "name": "asChannelPvid",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "asChannelPriority": {
+    "name": "asChannelPriority",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "asChannelProfile": {
+    "name": "asChannelProfile",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "asChannelRowStatus": {
+    "name": "asChannelRowStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "asMaxNumOfChannelProfiles": {
+    "name": "asMaxNumOfChannelProfiles",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asChannelProfileTable": {
+    "name": "asChannelProfileTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asChannelProfileEntry": {
+    "name": "asChannelProfileEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "E5-111-AS-ATM-MIB",
+        "object": "asChannelProfileName",
+        "implied": 1
+      }
+    ],
+    "status": "mandatory"
+  },
+  "asChannelProfileName": {
+    "name": "asChannelProfileName",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asChannelProfileEncap": {
+    "name": "asChannelProfileEncap",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "llc": 1,
+          "vc": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "asChannelProfileAAL": {
+    "name": "asChannelProfileAAL",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "asChannelProfileClass": {
+    "name": "asChannelProfileClass",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cbr": 1,
+          "rt-vbr": 2,
+          "nrt-vbr": 3,
+          "ubr": 4,
+          "abr": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "asChannelProfilePcr": {
+    "name": "asChannelProfilePcr",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "asChannelProfileCdvt": {
+    "name": "asChannelProfileCdvt",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "asChannelProfileScrMcr": {
+    "name": "asChannelProfileScrMcr",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "asChannelProfileBt": {
+    "name": "asChannelProfileBt",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "asChannelProfileRowStatus": {
+    "name": "asChannelProfileRowStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "asChannelStatusTable": {
+    "name": "asChannelStatusTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asChannelStatusEntry": {
+    "name": "asChannelStatusEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "E5-111-AS-ATM-MIB",
+        "object": "asChannelVpi",
+        "implied": 0
+      },
+      {
+        "module": "E5-111-AS-ATM-MIB",
+        "object": "asChannelVci",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "asChannelTxPackets": {
+    "name": "asChannelTxPackets",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asChannelRxPackets": {
+    "name": "asChannelRxPackets",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asChannelTxCells": {
+    "name": "asChannelTxCells",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asChannelRxCells": {
+    "name": "asChannelRxCells",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asMaxNumOfIpqosProfiles": {
+    "name": "asMaxNumOfIpqosProfiles",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asIpqosProfileTable": {
+    "name": "asIpqosProfileTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asIpqosProfileEntry": {
+    "name": "asIpqosProfileEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "E5-111-AS-ATM-MIB",
+        "object": "asIpqosProfileName",
+        "implied": 1
+      }
+    ],
+    "status": "mandatory"
+  },
+  "asIpqosProfileName": {
+    "name": "asIpqosProfileName",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asIpqosProfileEncap": {
+    "name": "asIpqosProfileEncap",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "llc": 1,
+          "vc": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asIpqosProfileQueueNumber": {
+    "name": "asIpqosProfileQueueNumber",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "one": 1,
+          "two": 2,
+          "four": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asIpqosProfileRowStatus": {
+    "name": "asIpqosProfileRowStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "asIpqosProfileQueueTable": {
+    "name": "asIpqosProfileQueueTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asIpqosProfileQueueEntry": {
+    "name": "asIpqosProfileQueueEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "E5-111-AS-ATM-MIB",
+        "object": "asIpqosProfileName",
+        "implied": 0
+      },
+      {
+        "module": "E5-111-AS-ATM-MIB",
+        "object": "asIpqosProfileQueueIndex",
+        "implied": 1
+      }
+    ],
+    "status": "mandatory"
+  },
+  "asIpqosProfileQueueIndex": {
+    "name": "asIpqosProfileQueueIndex",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asIpqosProfileAAL": {
+    "name": "asIpqosProfileAAL",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asIpqosProfileLevel": {
+    "name": "asIpqosProfileLevel",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ubr": 0,
+          "nrt-vbr": 1,
+          "rt-vbr": 2,
+          "cbr": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asIpqosProfileRate": {
+    "name": "asIpqosProfileRate",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asShapingMode": {
+    "name": "asShapingMode",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.99.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atm": 1,
+          "packet": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/E5-111-AS-ATM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:20:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "E5-111-AS-ATM-MIB"
+  }
+}

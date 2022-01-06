@@ -1,0 +1,524 @@
+{
+  "imports": {
+    "class": "imports",
+    "IANAifType-MIB": [
+      "IANAifType"
+    ],
+    "IPV6-TC": [
+      "Ipv6Address"
+    ],
+    "RUCKUS-ROOT-MIB": [
+      "ruckusSZWLANModule"
+    ],
+    "RUCKUS-TC-MIB": [
+      "RuckusRateLimiting",
+      "RuckusAdminStatus",
+      "RuckusRadioMode",
+      "RuckusSSID",
+      "RuckusdB"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ruckusSZConfigWLANMIB": {
+    "name": "ruckusSZConfigWLANMIB",
+    "oid": "1.3.6.1.4.1.25053.1.4.2.2",
+    "class": "moduleidentity"
+  },
+  "ruckusSZConfigWLANObjects": {
+    "name": "ruckusSZConfigWLANObjects",
+    "oid": "1.3.6.1.4.1.25053.1.4.2.2.1",
+    "class": "objectidentity"
+  },
+  "ruckusSZConfigWLAN": {
+    "name": "ruckusSZConfigWLAN",
+    "oid": "1.3.6.1.4.1.25053.1.4.2.2.1.1",
+    "class": "objectidentity"
+  },
+  "ruckusSZConfigWLANTable": {
+    "name": "ruckusSZConfigWLANTable",
+    "oid": "1.3.6.1.4.1.25053.1.4.2.2.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ruckusSZConfigWLANEntry": {
+    "name": "ruckusSZConfigWLANEntry",
+    "oid": "1.3.6.1.4.1.25053.1.4.2.2.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RUCKUS-SZ-CONFIG-WLAN-MIB",
+        "object": "ruckusSZConfigWLANID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusSZConfigWLANID": {
+    "name": "ruckusSZConfigWLANID",
+    "oid": "1.3.6.1.4.1.25053.1.4.2.2.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusSZConfigWLANSSID": {
+    "name": "ruckusSZConfigWLANSSID",
+    "oid": "1.3.6.1.4.1.25053.1.4.2.2.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusSZConfigWLANDescription": {
+    "name": "ruckusSZConfigWLANDescription",
+    "oid": "1.3.6.1.4.1.25053.1.4.2.2.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusSZConfigWLANName": {
+    "name": "ruckusSZConfigWLANName",
+    "oid": "1.3.6.1.4.1.25053.1.4.2.2.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusSZConfigWLANWLANServiceType": {
+    "name": "ruckusSZConfigWLANWLANServiceType",
+    "oid": "1.3.6.1.4.1.25053.1.4.2.2.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standardUsage": 1,
+          "hotspot": 2,
+          "guest": 3,
+          "webauth": 4,
+          "hotspot20": 5,
+          "hotspot20-osen": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "standardUsage",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusSZConfigWLANAuthentication": {
+    "name": "ruckusSZConfigWLANAuthentication",
+    "oid": "1.3.6.1.4.1.25053.1.4.2.2.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "eap": 2,
+          "mac-address": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "open",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusSZConfigWLANEncryption": {
+    "name": "ruckusSZConfigWLANEncryption",
+    "oid": "1.3.6.1.4.1.25053.1.4.2.2.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wpa2": 1,
+          "wpa-Mixed": 2,
+          "wep-64": 3,
+          "wep-128": 4,
+          "none-enc": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none-enc",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusSZConfigWLANWEPKeyIndex": {
+    "name": "ruckusSZConfigWLANWEPKeyIndex",
+    "oid": "1.3.6.1.4.1.25053.1.4.2.2.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusSZConfigWLANWEPKey": {
+    "name": "ruckusSZConfigWLANWEPKey",
+    "oid": "1.3.6.1.4.1.25053.1.4.2.2.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 10,
+            "max": 10
+          },
+          {
+            "min": 26,
+            "max": 26
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusSZConfigWLANWPACipherType": {
+    "name": "ruckusSZConfigWLANWPACipherType",
+    "oid": "1.3.6.1.4.1.25053.1.4.2.2.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aes": 1,
+          "tkipaes": 2,
+          "null": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "aes",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusSZConfigWLANWPAKey": {
+    "name": "ruckusSZConfigWLANWPAKey",
+    "oid": "1.3.6.1.4.1.25053.1.4.2.2.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 63
+          },
+          {
+            "min": 64,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusSZConfigWLANWirelessClientIsolation": {
+    "name": "ruckusSZConfigWLANWirelessClientIsolation",
+    "oid": "1.3.6.1.4.1.25053.1.4.2.2.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusSZConfigWLANZeroITActivation": {
+    "name": "ruckusSZConfigWLANZeroITActivation",
+    "oid": "1.3.6.1.4.1.25053.1.4.2.2.1.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusSZConfigWLANServicePriority": {
+    "name": "ruckusSZConfigWLANServicePriority",
+    "oid": "1.3.6.1.4.1.25053.1.4.2.2.1.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "high": 1,
+          "low": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "high",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusSZConfigWLANAccountingUpdateInterval": {
+    "name": "ruckusSZConfigWLANAccountingUpdateInterval",
+    "oid": "1.3.6.1.4.1.25053.1.4.2.2.1.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusSZConfigWLANVlanID": {
+    "name": "ruckusSZConfigWLANVlanID",
+    "oid": "1.3.6.1.4.1.25053.1.4.2.2.1.1.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusSZConfigWLANHideSSID": {
+    "name": "ruckusSZConfigWLANHideSSID",
+    "oid": "1.3.6.1.4.1.25053.1.4.2.2.1.1.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusSZConfigWLANMaxClientsPerAP": {
+    "name": "ruckusSZConfigWLANMaxClientsPerAP",
+    "oid": "1.3.6.1.4.1.25053.1.4.2.2.1.1.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-SZ-CONFIG-WLAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RUCKUS-SZ-CONFIG-WLAN-MIB"
+  }
+}

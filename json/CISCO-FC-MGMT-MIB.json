@@ -1,0 +1,2770 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoFcMgmtMIB": {
+    "name": "ciscoFcMgmtMIB",
+    "oid": "1.3.6.1.4.1.9.10.999999",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-12 00:00",
+        "description": "Initial version of Cisco Fibre Channel Management MIB module."
+      }
+    ]
+  },
+  "cfcmgmtObjects": {
+    "name": "cfcmgmtObjects",
+    "oid": "1.3.6.1.4.1.9.10.999999.1",
+    "class": "objectidentity"
+  },
+  "cfcmgmtNotifications": {
+    "name": "cfcmgmtNotifications",
+    "oid": "1.3.6.1.4.1.9.10.999999.2",
+    "class": "objectidentity"
+  },
+  "cfcmgmtNotifPrefix": {
+    "name": "cfcmgmtNotifPrefix",
+    "oid": "1.3.6.1.4.1.9.10.999999.2.0",
+    "class": "objectidentity"
+  },
+  "cfcmgmtConformance": {
+    "name": "cfcmgmtConformance",
+    "oid": "1.3.6.1.4.1.9.10.999999.3",
+    "class": "objectidentity"
+  },
+  "CfcmFcNameIdOrZero": {
+    "name": "CfcmFcNameIdOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CfcmFcAddressId": {
+    "name": "CfcmFcAddressId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CfcmDomainIdOrZero": {
+    "name": "CfcmDomainIdOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 239
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CfcmFcPortType": {
+    "name": "CfcmFcPortType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "other": 2,
+          "dynamic": 3,
+          "nPort": 4,
+          "nlPort": 5,
+          "fPort": 6,
+          "flPort": 7,
+          "ePort": 8,
+          "bPort": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CfcmFcClasses": {
+    "name": "CfcmFcClasses",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "classF": 0,
+        "class1": 1,
+        "class2": 2,
+        "class3": 3,
+        "class4": 4,
+        "class5": 5,
+        "class6": 6
+      }
+    },
+    "status": "current"
+  },
+  "CfcmFcBbCredit": {
+    "name": "CfcmFcBbCredit",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CfcmFcBbCreditModel": {
+    "name": "CfcmFcBbCreditModel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "regular": 1,
+          "alternate": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CfcmFcDataFieldSize": {
+    "name": "CfcmFcDataFieldSize",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 128,
+            "max": 2112
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CfcmFcUnitFunctions": {
+    "name": "CfcmFcUnitFunctions",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "other": 0,
+        "hub": 1,
+        "switch": 2,
+        "bridge": 3,
+        "gateway": 4,
+        "host": 5,
+        "storageSubsys": 6,
+        "storageAccessDev": 7,
+        "nas": 8,
+        "wdmux": 9
+      }
+    },
+    "status": "current"
+  },
+  "CfcmPhysicalIndexOrZero": {
+    "name": "CfcmPhysicalIndexOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CfcmHrSWInstalledIndexOrZero": {
+    "name": "CfcmHrSWInstalledIndexOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CfcmMilliSeconds": {
+    "name": "CfcmMilliSeconds",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "CfcmMicroSeconds": {
+    "name": "CfcmMicroSeconds",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "cfcmInstanceTable": {
+    "name": "cfcmInstanceTable",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcmInstanceEntry": {
+    "name": "cfcmInstanceEntry",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcmInstanceIndex": {
+    "name": "cfcmInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcmInstanceWwn": {
+    "name": "cfcmInstanceWwn",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmInstanceFunctions": {
+    "name": "cfcmInstanceFunctions",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcUnitFunctions",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmInstancePhysicalIndex": {
+    "name": "cfcmInstancePhysicalIndex",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmInstanceSoftwareIndex": {
+    "name": "cfcmInstanceSoftwareIndex",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmHrSWInstalledIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmInstanceStatus": {
+    "name": "cfcmInstanceStatus",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ok": 2,
+          "warning": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmInstanceTextName": {
+    "name": "cfcmInstanceTextName",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 79
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfcmInstanceDescr": {
+    "name": "cfcmInstanceDescr",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfcmInstanceFabricId": {
+    "name": "cfcmInstanceFabricId",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmSwitchTable": {
+    "name": "cfcmSwitchTable",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcmSwitchEntry": {
+    "name": "cfcmSwitchEntry",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmSwitchIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcmSwitchIndex": {
+    "name": "cfcmSwitchIndex",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcmSwitchDomainId": {
+    "name": "cfcmSwitchDomainId",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmDomainIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfcmSwitchPrincipal": {
+    "name": "cfcmSwitchPrincipal",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortTable": {
+    "name": "cfcmPortTable",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcmPortEntry": {
+    "name": "cfcmPortEntry",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcmPortInstanceIndex": {
+    "name": "cfcmPortInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortWwn": {
+    "name": "cfcmPortWwn",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortNodeWwn": {
+    "name": "cfcmPortNodeWwn",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortAdminType": {
+    "name": "cfcmPortAdminType",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcPortType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfcmPortOperType": {
+    "name": "cfcmPortOperType",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcPortType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortFcCapClass": {
+    "name": "cfcmPortFcCapClass",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcClasses",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortFcOperClass": {
+    "name": "cfcmPortFcOperClass",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcClasses",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortTransmitterType": {
+    "name": "cfcmPortTransmitterType",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "other": 2,
+          "shortwave850nm": 3,
+          "longwave1550nm": 4,
+          "longwave1310nm": 5,
+          "electrical": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortConnectorType": {
+    "name": "cfcmPortConnectorType",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "other": 2,
+          "gbic": 3,
+          "embedded": 4,
+          "glm": 5,
+          "gbicSerialId": 6,
+          "gbicNoSerialId": 7,
+          "sfpSerialId": 8,
+          "sfpNoSerialId": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortSerialNumber": {
+    "name": "cfcmPortSerialNumber",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortPhysicalNumber": {
+    "name": "cfcmPortPhysicalNumber",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortAdminSpeed": {
+    "name": "cfcmPortAdminSpeed",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "eighthGbs": 2,
+          "quarterGbs": 3,
+          "halfGbs": 4,
+          "oneGbs": 5,
+          "twoGbs": 6,
+          "fourGbs": 7,
+          "tenGbs": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfcmPortCapProtocols": {
+    "name": "cfcmPortCapProtocols",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "unknown": 0,
+        "loop": 1,
+        "fabric": 2,
+        "scsi": 3,
+        "tcpIp": 4,
+        "vi": 5,
+        "ficon": 6
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortOperProtocols": {
+    "name": "cfcmPortOperProtocols",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "unknown": 0,
+        "loop": 1,
+        "fabric": 2,
+        "scsi": 3,
+        "tcpIp": 4,
+        "vi": 5,
+        "ficon": 6
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortStatsTable": {
+    "name": "cfcmPortStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcmPortStatsEntry": {
+    "name": "cfcmPortStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cfcmPortStatsEntry",
+      "module": "CISCO-FC-MGMT-MIB",
+      "object": "cfcmPortEntry"
+    },
+    "status": "current"
+  },
+  "cfcmPortBBCreditZeros": {
+    "name": "cfcmPortBBCreditZeros",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortFullInputBuffers": {
+    "name": "cfcmPortFullInputBuffers",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortClass2RxFrames": {
+    "name": "cfcmPortClass2RxFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortClass2RxOctets": {
+    "name": "cfcmPortClass2RxOctets",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortClass2TxFrames": {
+    "name": "cfcmPortClass2TxFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortClass2TxOctets": {
+    "name": "cfcmPortClass2TxOctets",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortClass2Discards": {
+    "name": "cfcmPortClass2Discards",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortClass2RxFbsyFrames": {
+    "name": "cfcmPortClass2RxFbsyFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortClass2RxPbsyFrames": {
+    "name": "cfcmPortClass2RxPbsyFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortClass2RxFrjtFrames": {
+    "name": "cfcmPortClass2RxFrjtFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortClass2RxPrjtFrames": {
+    "name": "cfcmPortClass2RxPrjtFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortClass2TxFbsyFrames": {
+    "name": "cfcmPortClass2TxFbsyFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortClass2TxPbsyFrames": {
+    "name": "cfcmPortClass2TxPbsyFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortClass2TxFrjtFrames": {
+    "name": "cfcmPortClass2TxFrjtFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortClass2TxPrjtFrames": {
+    "name": "cfcmPortClass2TxPrjtFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortClass3RxFrames": {
+    "name": "cfcmPortClass3RxFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortClass3RxOctets": {
+    "name": "cfcmPortClass3RxOctets",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortClass3TxFrames": {
+    "name": "cfcmPortClass3TxFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortClass3TxOctets": {
+    "name": "cfcmPortClass3TxOctets",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortClass3Discards": {
+    "name": "cfcmPortClass3Discards",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortClassFRxFrames": {
+    "name": "cfcmPortClassFRxFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortClassFRxOctets": {
+    "name": "cfcmPortClassFRxOctets",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortClassFTxFrames": {
+    "name": "cfcmPortClassFTxFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortClassFTxOctets": {
+    "name": "cfcmPortClassFTxOctets",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortClassFDiscards": {
+    "name": "cfcmPortClassFDiscards",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLcStatsTable": {
+    "name": "cfcmPortLcStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcmPortLcStatsEntry": {
+    "name": "cfcmPortLcStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cfcmPortLcStatsEntry",
+      "module": "CISCO-FC-MGMT-MIB",
+      "object": "cfcmPortEntry"
+    },
+    "status": "current"
+  },
+  "cfcmPortLcBBCreditZeros": {
+    "name": "cfcmPortLcBBCreditZeros",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLcFullInputBuffers": {
+    "name": "cfcmPortLcFullInputBuffers",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLcClass2RxFrames": {
+    "name": "cfcmPortLcClass2RxFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLcClass2RxOctets": {
+    "name": "cfcmPortLcClass2RxOctets",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLcClass2TxFrames": {
+    "name": "cfcmPortLcClass2TxFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLcClass2TxOctets": {
+    "name": "cfcmPortLcClass2TxOctets",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLcClass2Discards": {
+    "name": "cfcmPortLcClass2Discards",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLcClass2RxFbsyFrames": {
+    "name": "cfcmPortLcClass2RxFbsyFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLcClass2RxPbsyFrames": {
+    "name": "cfcmPortLcClass2RxPbsyFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLcClass2RxFrjtFrames": {
+    "name": "cfcmPortLcClass2RxFrjtFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLcClass2RxPrjtFrames": {
+    "name": "cfcmPortLcClass2RxPrjtFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLcClass2TxFbsyFrames": {
+    "name": "cfcmPortLcClass2TxFbsyFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLcClass2TxPbsyFrames": {
+    "name": "cfcmPortLcClass2TxPbsyFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLcClass2TxFrjtFrames": {
+    "name": "cfcmPortLcClass2TxFrjtFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLcClass2TxPrjtFrames": {
+    "name": "cfcmPortLcClass2TxPrjtFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLcClass3RxFrames": {
+    "name": "cfcmPortLcClass3RxFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLcClass3RxOctets": {
+    "name": "cfcmPortLcClass3RxOctets",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLcClass3TxFrames": {
+    "name": "cfcmPortLcClass3TxFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLcClass3TxOctets": {
+    "name": "cfcmPortLcClass3TxOctets",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLcClass3Discards": {
+    "name": "cfcmPortLcClass3Discards",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortErrorsTable": {
+    "name": "cfcmPortErrorsTable",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcmPortErrorsEntry": {
+    "name": "cfcmPortErrorsEntry",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cfcmPortErrorsEntry",
+      "module": "CISCO-FC-MGMT-MIB",
+      "object": "cfcmPortEntry"
+    },
+    "status": "current"
+  },
+  "cfcmPortRxLinkResets": {
+    "name": "cfcmPortRxLinkResets",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortTxLinkResets": {
+    "name": "cfcmPortTxLinkResets",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLinkResets": {
+    "name": "cfcmPortLinkResets",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortRxOfflineSequences": {
+    "name": "cfcmPortRxOfflineSequences",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortTxOfflineSequences": {
+    "name": "cfcmPortTxOfflineSequences",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLinkFailures": {
+    "name": "cfcmPortLinkFailures",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLossofSynchs": {
+    "name": "cfcmPortLossofSynchs",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortLossofSignals": {
+    "name": "cfcmPortLossofSignals",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortPrimSeqProtocolErrors": {
+    "name": "cfcmPortPrimSeqProtocolErrors",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortInvalidTxWords": {
+    "name": "cfcmPortInvalidTxWords",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortInvalidCRCs": {
+    "name": "cfcmPortInvalidCRCs",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortInvalidOrderedSets": {
+    "name": "cfcmPortInvalidOrderedSets",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortFrameTooLongs": {
+    "name": "cfcmPortFrameTooLongs",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortTruncatedFrames": {
+    "name": "cfcmPortTruncatedFrames",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortAddressErrors": {
+    "name": "cfcmPortAddressErrors",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortDelimiterErrors": {
+    "name": "cfcmPortDelimiterErrors",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortEncodingDisparityErrors": {
+    "name": "cfcmPortEncodingDisparityErrors",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmPortOtherErrors": {
+    "name": "cfcmPortOtherErrors",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmFxPortTable": {
+    "name": "cfcmFxPortTable",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcmFxPortEntry": {
+    "name": "cfcmFxPortEntry",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcmFxPortRatov": {
+    "name": "cfcmFxPortRatov",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmMilliSeconds",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmFxPortEdtov": {
+    "name": "cfcmFxPortEdtov",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmMilliSeconds",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmFxPortRttov": {
+    "name": "cfcmFxPortRttov",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmMilliSeconds",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmFxPortHoldTime": {
+    "name": "cfcmFxPortHoldTime",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmMicroSeconds",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmFxPortCapBbCreditMax": {
+    "name": "cfcmFxPortCapBbCreditMax",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcBbCredit",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmFxPortCapBbCreditMin": {
+    "name": "cfcmFxPortCapBbCreditMin",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcBbCredit",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmFxPortCapDataFieldSizeMax": {
+    "name": "cfcmFxPortCapDataFieldSizeMax",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcDataFieldSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmFxPortCapDataFieldSizeMin": {
+    "name": "cfcmFxPortCapDataFieldSizeMin",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcDataFieldSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmFxPortCapClass2SeqDeliv": {
+    "name": "cfcmFxPortCapClass2SeqDeliv",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmFxPortCapClass3SeqDeliv": {
+    "name": "cfcmFxPortCapClass3SeqDeliv",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmFxPortCapHoldTimeMax": {
+    "name": "cfcmFxPortCapHoldTimeMax",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmMicroSeconds",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmFxPortCapHoldTimeMin": {
+    "name": "cfcmFxPortCapHoldTimeMin",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmMicroSeconds",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmISPortTable": {
+    "name": "cfcmISPortTable",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcmISPortEntry": {
+    "name": "cfcmISPortEntry",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcmISPortClassFCredit": {
+    "name": "cfcmISPortClassFCredit",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcBbCredit",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfcmISPortClassFDataFieldSize": {
+    "name": "cfcmISPortClassFDataFieldSize",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcDataFieldSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmFLoginTable": {
+    "name": "cfcmFLoginTable",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcmFLoginEntry": {
+    "name": "cfcmFLoginEntry",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmFLoginNxPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcmFLoginNxPortIndex": {
+    "name": "cfcmFLoginNxPortIndex",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcmFLoginPortWwn": {
+    "name": "cfcmFLoginPortWwn",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmFLoginNodeWwn": {
+    "name": "cfcmFLoginNodeWwn",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmFLoginBbCreditModel": {
+    "name": "cfcmFLoginBbCreditModel",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcBbCreditModel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmFLoginBbCredit": {
+    "name": "cfcmFLoginBbCredit",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcBbCredit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmFLoginClassesAgreed": {
+    "name": "cfcmFLoginClassesAgreed",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcClasses",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmFLoginClass2SeqDelivAgreed": {
+    "name": "cfcmFLoginClass2SeqDelivAgreed",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmFLoginClass2DataFieldSize": {
+    "name": "cfcmFLoginClass2DataFieldSize",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcDataFieldSize",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmFLoginClass3SeqDelivAgreed": {
+    "name": "cfcmFLoginClass3SeqDelivAgreed",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmFLoginClass3DataFieldSize": {
+    "name": "cfcmFLoginClass3DataFieldSize",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcDataFieldSize",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmLinkTable": {
+    "name": "cfcmLinkTable",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcmLinkEntry": {
+    "name": "cfcmLinkEntry",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmLinkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcmLinkIndex": {
+    "name": "cfcmLinkIndex",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcmLinkEnd1NodeWwn": {
+    "name": "cfcmLinkEnd1NodeWwn",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmLinkEnd1PhysPortNumber": {
+    "name": "cfcmLinkEnd1PhysPortNumber",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmLinkEnd1PortWwn": {
+    "name": "cfcmLinkEnd1PortWwn",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmLinkEnd2NodeWwn": {
+    "name": "cfcmLinkEnd2NodeWwn",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmLinkEnd2PhysPortNumber": {
+    "name": "cfcmLinkEnd2PhysPortNumber",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmLinkEnd2PortWwn": {
+    "name": "cfcmLinkEnd2PortWwn",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmLinkEnd2AgentAddress": {
+    "name": "cfcmLinkEnd2AgentAddress",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmLinkEnd2PortType": {
+    "name": "cfcmLinkEnd2PortType",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcPortType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmLinkEnd2UnitType": {
+    "name": "cfcmLinkEnd2UnitType",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcUnitFunctions",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmLinkEnd2FcAddressId": {
+    "name": "cfcmLinkEnd2FcAddressId",
+    "oid": "1.3.6.1.4.1.9.10.999999.1.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcmFcAddressId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcmgmtCompliances": {
+    "name": "cfcmgmtCompliances",
+    "oid": "1.3.6.1.4.1.9.10.999999.3.1",
+    "class": "objectidentity"
+  },
+  "cfcmgmtGroups": {
+    "name": "cfcmgmtGroups",
+    "oid": "1.3.6.1.4.1.9.10.999999.3.2",
+    "class": "objectidentity"
+  },
+  "cfcmgmtCompliance": {
+    "name": "cfcmgmtCompliance",
+    "oid": "1.3.6.1.4.1.9.10.999999.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cfcmInstanceBasicGroup",
+        "module": "CISCO-FC-MGMT-MIB"
+      },
+      {
+        "object": "cfcmPortBasicGroup",
+        "module": "CISCO-FC-MGMT-MIB"
+      },
+      {
+        "object": "cfcmPortStatsGroup",
+        "module": "CISCO-FC-MGMT-MIB"
+      },
+      {
+        "object": "cfcmPortErrorsGroup",
+        "module": "CISCO-FC-MGMT-MIB"
+      },
+      {
+        "object": "cfcmPortClass23StatsGroup",
+        "module": "CISCO-FC-MGMT-MIB"
+      },
+      {
+        "object": "cfcmPortClassFStatsGroup",
+        "module": "CISCO-FC-MGMT-MIB"
+      },
+      {
+        "object": "cfcmPortLcStatsGroup",
+        "module": "CISCO-FC-MGMT-MIB"
+      },
+      {
+        "object": "cfcmSwitchBasicGroup",
+        "module": "CISCO-FC-MGMT-MIB"
+      },
+      {
+        "object": "cfcmSwitchPortGroup",
+        "module": "CISCO-FC-MGMT-MIB"
+      },
+      {
+        "object": "cfcmSwitchLoginGroup",
+        "module": "CISCO-FC-MGMT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cfcmInstanceBasicGroup": {
+    "name": "cfcmInstanceBasicGroup",
+    "oid": "1.3.6.1.4.1.9.10.999999.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmInstanceWwn"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmInstanceFunctions"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmInstancePhysicalIndex"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmInstanceSoftwareIndex"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmInstanceStatus"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmInstanceTextName"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmInstanceDescr"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmInstanceFabricId"
+      }
+    ],
+    "status": "current"
+  },
+  "cfcmSwitchBasicGroup": {
+    "name": "cfcmSwitchBasicGroup",
+    "oid": "1.3.6.1.4.1.9.10.999999.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmSwitchDomainId"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmSwitchPrincipal"
+      }
+    ],
+    "status": "current"
+  },
+  "cfcmPortBasicGroup": {
+    "name": "cfcmPortBasicGroup",
+    "oid": "1.3.6.1.4.1.9.10.999999.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortInstanceIndex"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortWwn"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortNodeWwn"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortAdminType"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortOperType"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortFcCapClass"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortFcOperClass"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortTransmitterType"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortConnectorType"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortSerialNumber"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortPhysicalNumber"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortAdminSpeed"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortCapProtocols"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortOperProtocols"
+      }
+    ],
+    "status": "current"
+  },
+  "cfcmPortStatsGroup": {
+    "name": "cfcmPortStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.999999.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortBBCreditZeros"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortFullInputBuffers"
+      }
+    ],
+    "status": "current"
+  },
+  "cfcmPortClass23StatsGroup": {
+    "name": "cfcmPortClass23StatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.999999.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortClass2RxFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortClass2RxOctets"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortClass2TxFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortClass2TxOctets"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortClass2Discards"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortClass2RxFbsyFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortClass2RxPbsyFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortClass2RxFrjtFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortClass2RxPrjtFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortClass2TxFbsyFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortClass2TxPbsyFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortClass2TxFrjtFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortClass2TxPrjtFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortClass3RxFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortClass3RxOctets"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortClass3TxFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortClass3TxOctets"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortClass3Discards"
+      }
+    ],
+    "status": "current"
+  },
+  "cfcmPortClassFStatsGroup": {
+    "name": "cfcmPortClassFStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.999999.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortClassFRxFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortClassFRxOctets"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortClassFTxFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortClassFTxOctets"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortClassFDiscards"
+      }
+    ],
+    "status": "current"
+  },
+  "cfcmPortLcStatsGroup": {
+    "name": "cfcmPortLcStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.999999.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLcBBCreditZeros"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLcFullInputBuffers"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLcClass2RxFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLcClass2RxOctets"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLcClass2TxFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLcClass2TxOctets"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLcClass2Discards"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLcClass3Discards"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLcClass3RxFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLcClass3RxOctets"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLcClass3TxFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLcClass3TxOctets"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLcClass2RxFbsyFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLcClass2RxPbsyFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLcClass2RxFrjtFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLcClass2RxPrjtFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLcClass2TxFbsyFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLcClass2TxPbsyFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLcClass2TxFrjtFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLcClass2TxPrjtFrames"
+      }
+    ],
+    "status": "current"
+  },
+  "cfcmPortErrorsGroup": {
+    "name": "cfcmPortErrorsGroup",
+    "oid": "1.3.6.1.4.1.9.10.999999.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortRxLinkResets"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortTxLinkResets"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLinkResets"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortRxOfflineSequences"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortTxOfflineSequences"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLinkFailures"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLossofSynchs"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortLossofSignals"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortPrimSeqProtocolErrors"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortInvalidTxWords"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortInvalidCRCs"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortInvalidOrderedSets"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortFrameTooLongs"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortTruncatedFrames"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortAddressErrors"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortDelimiterErrors"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortEncodingDisparityErrors"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmPortOtherErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "cfcmSwitchPortGroup": {
+    "name": "cfcmSwitchPortGroup",
+    "oid": "1.3.6.1.4.1.9.10.999999.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmFxPortRatov"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmFxPortEdtov"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmFxPortRttov"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmFxPortHoldTime"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmFxPortCapBbCreditMax"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmFxPortCapBbCreditMin"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmFxPortCapDataFieldSizeMax"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmFxPortCapDataFieldSizeMin"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmFxPortCapClass2SeqDeliv"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmFxPortCapClass3SeqDeliv"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmFxPortCapHoldTimeMax"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmFxPortCapHoldTimeMin"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmISPortClassFCredit"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmISPortClassFDataFieldSize"
+      }
+    ],
+    "status": "current"
+  },
+  "cfcmSwitchLoginGroup": {
+    "name": "cfcmSwitchLoginGroup",
+    "oid": "1.3.6.1.4.1.9.10.999999.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmFLoginPortWwn"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmFLoginNodeWwn"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmFLoginBbCreditModel"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmFLoginBbCredit"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmFLoginClassesAgreed"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmFLoginClass2SeqDelivAgreed"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmFLoginClass2DataFieldSize"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmFLoginClass3SeqDelivAgreed"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmFLoginClass3DataFieldSize"
+      }
+    ],
+    "status": "current"
+  },
+  "cfcmLinkBasicGroup": {
+    "name": "cfcmLinkBasicGroup",
+    "oid": "1.3.6.1.4.1.9.10.999999.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmLinkEnd1NodeWwn"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmLinkEnd1PhysPortNumber"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmLinkEnd1PortWwn"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmLinkEnd2NodeWwn"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmLinkEnd2PhysPortNumber"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmLinkEnd2PortWwn"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmLinkEnd2AgentAddress"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmLinkEnd2PortType"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmLinkEnd2UnitType"
+      },
+      {
+        "module": "CISCO-FC-MGMT-MIB",
+        "object": "cfcmLinkEnd2FcAddressId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FC-MGMT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-FC-MGMT-MIB"
+  }
+}

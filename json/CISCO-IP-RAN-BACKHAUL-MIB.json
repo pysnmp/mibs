@@ -1,0 +1,4146 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndexOrZero",
+      "ifDescr",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfIntervalCount",
+      "PerfCurrentCount"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "AutonomousType",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIpRanBackHaulMIB": {
+    "name": "ciscoIpRanBackHaulMIB",
+    "oid": "1.3.6.1.4.1.9.9.483",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-03-24 00:00",
+        "description": "The following tables are now obsolete and the information provided in them can be calculated using the objects in the cirbhShortHaulBulkTable. cirbhShortHaulHistoryTable cirbhBackHaulTable cirbhBackHaulShortHaulTable cirbhBackHaulHistoryTable cirbhBackHaulStatsTable cirbhBackHaulStatsHistoryTable The following scalars are no longer used in implementation of MIB. cirbhBackHaulStatsInterval cirbhBackHaulStatsEntries cirbhBackHaulAcceptableThreshold cirbhBackHaulWarningThreshold cirbhBackHaulOverloadedThreshold cirbhBackHaulUtilInterval cirbhUtilNotifEnabled The following notifications are now obsolete and not supported. ciscoIpRanBackHaulRcvdUtil ciscoIpRanBackHaulSentUtil Changes to Compliance and Conformance Statements Changed status to obsolete ciscoIpRanBackHaulMIBCompliance ciscoIpRanBackHaulMIBComplianceRev1 ciscoIpRanBackHaulMIBComplianceRev2 ciscoIpRanBackHaulShortHaulGroup ciscoIpRanBackHaulHistoryGroup ciscoIpRanBackHaulNotifGroup ciscoIpRanBackHaulHistoryGroupRev2 Added following as active ciscoIpRanBackHaulMIBComplianceRev3 ciscoIpRanBackHaulHistoryGroupRev3"
+      },
+      {
+        "revision": "2007-05-30 00:00",
+        "description": "Added the cirbhInfoOptimizeTraffic object to the cirbhInfoTable. Added OBJECT-GROUP ciscoIpRanBackHaulConfigGroupSup3 and MODULE-COMPLIANCE ciscoIpRanBackHaulMIBComplianceRev2."
+      },
+      {
+        "revision": "2006-08-25 00:00",
+        "description": "The following tables, objects and notifications have been deprecated. Scalars cirbhBackHaulStatsInterval cirbhBackHaulStatsEntries cirbhBackHaulAcceptableThreshold cirbhBackHaulWarningThreshold cirbhBackHaulOverloadedThreshold cirbhBackHaulUtilInterval cirbhUtilNotifEnabled cirbhErrorsTable cirbhBackHaulTable cirbhBackHaulShortHaulTable cirbhBackHaulHistoryTable cirbhBackHaulStatsTable cirbhBackHaulStatsHistoryTable The following tables and objects have been added. cirbhInfoTable cirbhInfoAdjectSerialNum cirbhInfoAdjectVendorType cirbhInfoBackhaulRxIfIndex cirbhInfoBackhaulTxIfIndex cirbhInfoShBulkLastIndex cirbhGsmErrorsTable cirbhUmtsErrorsTable cirbhCongestionTable cirbhShortHaulBulkTable"
+      },
+      {
+        "revision": "2005-10-18 00:00",
+        "description": "Added cirbhUmtsConnectionRootIfIndex object and cirbhBackHaulShortHaulTable."
+      },
+      {
+        "revision": "2005-09-13 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoIpRanBackHaulMIBNotifs": {
+    "name": "ciscoIpRanBackHaulMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.483.0",
+    "class": "objectidentity"
+  },
+  "ciscoIpRanBackHaulMIBObjects": {
+    "name": "ciscoIpRanBackHaulMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.483.1",
+    "class": "objectidentity"
+  },
+  "ciscoIpRanBackHaulMIBConform": {
+    "name": "ciscoIpRanBackHaulMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.483.2",
+    "class": "objectidentity"
+  },
+  "cirbhScalars": {
+    "name": "cirbhScalars",
+    "oid": "1.3.6.1.4.1.9.9.483.1.1",
+    "class": "objectidentity"
+  },
+  "cirbhObjects": {
+    "name": "cirbhObjects",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2",
+    "class": "objectidentity"
+  },
+  "cirbhNotifEnables": {
+    "name": "cirbhNotifEnables",
+    "oid": "1.3.6.1.4.1.9.9.483.1.3",
+    "class": "objectidentity"
+  },
+  "cirbhShortHaul": {
+    "name": "cirbhShortHaul",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1",
+    "class": "objectidentity"
+  },
+  "cirbhShortHaulInfo": {
+    "name": "cirbhShortHaulInfo",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.1",
+    "class": "objectidentity"
+  },
+  "cirbhShortHaulAlarmInfo": {
+    "name": "cirbhShortHaulAlarmInfo",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.2",
+    "class": "objectidentity"
+  },
+  "cirbhShortHaulStats": {
+    "name": "cirbhShortHaulStats",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3",
+    "class": "objectidentity"
+  },
+  "cirbhBackHaul": {
+    "name": "cirbhBackHaul",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2",
+    "class": "objectidentity"
+  },
+  "cirbhBackHaulInfo": {
+    "name": "cirbhBackHaulInfo",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.1",
+    "class": "objectidentity"
+  },
+  "cirbhBackHaulStats": {
+    "name": "cirbhBackHaulStats",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2",
+    "class": "objectidentity"
+  },
+  "CirbhAlarmState": {
+    "name": "CirbhAlarmState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blue": 1,
+          "green": 2,
+          "red": 3,
+          "yellow": 4,
+          "unavailable": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CirbhBackHaulUtilization": {
+    "name": "CirbhBackHaulUtilization",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "CirbhBackHaulUtilizationState": {
+    "name": "CirbhBackHaulUtilizationState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acceptable": 1,
+          "warning": 2,
+          "overloaded": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CirbhCommpressInterfaceRate": {
+    "name": "CirbhCommpressInterfaceRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "CirbhConnectGsmState": {
+    "name": "CirbhConnectGsmState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connected": 1,
+          "disconnected": 2,
+          "sendConnect": 3,
+          "recConnect": 4,
+          "connectedRej": 5,
+          "ackConnect": 6,
+          "connectedCheck": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CirbhConnectUmtsState": {
+    "name": "CirbhConnectUmtsState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 1,
+          "starting": 2,
+          "closed": 3,
+          "stopped": 4,
+          "closing": 5,
+          "stopping": 6,
+          "connectSent": 7,
+          "ackReceived": 8,
+          "ackSent": 9,
+          "open": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CirbhHistoryIndex": {
+    "name": "CirbhHistoryIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "CirbhProtocol": {
+    "name": "CirbhProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "gsmAbis": 2,
+          "umtsIub": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CirbhRawInterfaceRate": {
+    "name": "CirbhRawInterfaceRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "CirbhRedundancyState": {
+    "name": "CirbhRedundancyState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "standby": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CirbhShortHaulUtilization": {
+    "name": "CirbhShortHaulUtilization",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "CirbhTrafficDirection": {
+    "name": "CirbhTrafficDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "receive": 1,
+          "transmit": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CirbhTrafficType": {
+    "name": "CirbhTrafficType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "gsm": 2,
+          "umts": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cirbhSnmpTrafficMode": {
+    "name": "cirbhSnmpTrafficMode",
+    "oid": "1.3.6.1.4.1.9.9.483.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "inBand": 2,
+          "outOfBand": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cirbhLocation": {
+    "name": "cirbhLocation",
+    "oid": "1.3.6.1.4.1.9.9.483.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "aggSite": 2,
+          "cellSite": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cirbhBackHaulStatsInterval": {
+    "name": "cirbhBackHaulStatsInterval",
+    "oid": "1.3.6.1.4.1.9.9.483.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 900,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cirbhBackHaulStatsEntries": {
+    "name": "cirbhBackHaulStatsEntries",
+    "oid": "1.3.6.1.4.1.9.9.483.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "entries",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cirbhBackHaulAcceptableThreshold": {
+    "name": "cirbhBackHaulAcceptableThreshold",
+    "oid": "1.3.6.1.4.1.9.9.483.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cirbhBackHaulWarningThreshold": {
+    "name": "cirbhBackHaulWarningThreshold",
+    "oid": "1.3.6.1.4.1.9.9.483.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 70,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cirbhBackHaulOverloadedThreshold": {
+    "name": "cirbhBackHaulOverloadedThreshold",
+    "oid": "1.3.6.1.4.1.9.9.483.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 40,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 80,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cirbhBackHaulUtilInterval": {
+    "name": "cirbhBackHaulUtilInterval",
+    "oid": "1.3.6.1.4.1.9.9.483.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 60,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cirbhInfoTable": {
+    "name": "cirbhInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cirbhInfoTableEntry": {
+    "name": "cirbhInfoTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cirbhInfoProtocol": {
+    "name": "cirbhInfoProtocol",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhInfoLocalAddrType": {
+    "name": "cirbhInfoLocalAddrType",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhInfoLocalAddr": {
+    "name": "cirbhInfoLocalAddr",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhInfoLocalPortNumber": {
+    "name": "cirbhInfoLocalPortNumber",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhInfoRemoteAddrType": {
+    "name": "cirbhInfoRemoteAddrType",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhInfoRemoteAddr": {
+    "name": "cirbhInfoRemoteAddr",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhInfoRemotePortNumber": {
+    "name": "cirbhInfoRemotePortNumber",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhInfoAdjectSerialNum": {
+    "name": "cirbhInfoAdjectSerialNum",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhInfoAdjectVendorType": {
+    "name": "cirbhInfoAdjectVendorType",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhInfoBackhaulRxIfIndex": {
+    "name": "cirbhInfoBackhaulRxIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhInfoBackhaulTxIfIndex": {
+    "name": "cirbhInfoBackhaulTxIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhInfoShBulkLastIndex": {
+    "name": "cirbhInfoShBulkLastIndex",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhHistoryIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhInfoOptimizeTraffic": {
+    "name": "cirbhInfoOptimizeTraffic",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmAlarmTable": {
+    "name": "cirbhGsmAlarmTable",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cirbhGsmAlarmTableEntry": {
+    "name": "cirbhGsmAlarmTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cirbhGsmAlarmConnectState": {
+    "name": "cirbhGsmAlarmConnectState",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhConnectGsmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmAlarmLocalState": {
+    "name": "cirbhGsmAlarmLocalState",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmAlarmRemoteState": {
+    "name": "cirbhGsmAlarmRemoteState",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmAlarmRedundancyState": {
+    "name": "cirbhGsmAlarmRedundancyState",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhRedundancyState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhUmtsConnectionTable": {
+    "name": "cirbhUmtsConnectionTable",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cirbhUmtsConnectionTableEntry": {
+    "name": "cirbhUmtsConnectionTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cirbhUmtsConnectionState": {
+    "name": "cirbhUmtsConnectionState",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhConnectUmtsState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhUmtsConnectionRedundState": {
+    "name": "cirbhUmtsConnectionRedundState",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhRedundancyState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhUmtsConnectionRootIfIndex": {
+    "name": "cirbhUmtsConnectionRootIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhUmtsAlarmTable": {
+    "name": "cirbhUmtsAlarmTable",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cirbhUmtsAlarmTableEntry": {
+    "name": "cirbhUmtsAlarmTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cirbhUmtsAlarmRxLocalState": {
+    "name": "cirbhUmtsAlarmRxLocalState",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhUmtsAlarmRxRemoteState": {
+    "name": "cirbhUmtsAlarmRxRemoteState",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhUmtsAlarmTxLocalState": {
+    "name": "cirbhUmtsAlarmTxLocalState",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhUmtsAlarmTxRemoteState": {
+    "name": "cirbhUmtsAlarmTxRemoteState",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhStatsTable": {
+    "name": "cirbhStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cirbhStatsTableEntry": {
+    "name": "cirbhStatsTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cirbhStatsRcvdSamples": {
+    "name": "cirbhStatsRcvdSamples",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhStatsSentSamples": {
+    "name": "cirbhStatsSentSamples",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhStatsRcvdBackHaulPackets": {
+    "name": "cirbhStatsRcvdBackHaulPackets",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhStatsSentBackHaulPackets": {
+    "name": "cirbhStatsSentBackHaulPackets",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhStatsRcvdBackHaulBytes": {
+    "name": "cirbhStatsRcvdBackHaulBytes",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhStatsSentBackHaulBytes": {
+    "name": "cirbhStatsSentBackHaulBytes",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhErrorsTable": {
+    "name": "cirbhErrorsTable",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cirbhErrorsTableEntry": {
+    "name": "cirbhErrorsTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cirbhErrorsBhPeerNotReadyDrops": {
+    "name": "cirbhErrorsBhPeerNotReadyDrops",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cirbhErrorsBhPeerNotActiveDrops": {
+    "name": "cirbhErrorsBhPeerNotActiveDrops",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cirbhErrorsBhInvalidPackets": {
+    "name": "cirbhErrorsBhInvalidPackets",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cirbhErrorsBhLostRcvdPackets": {
+    "name": "cirbhErrorsBhLostRcvdPackets",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cirbhErrorsBhLostSentPackets": {
+    "name": "cirbhErrorsBhLostSentPackets",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cirbhErrorsBhMissedPackets": {
+    "name": "cirbhErrorsBhMissedPackets",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cirbhErrorsBhMissedLatePackets": {
+    "name": "cirbhErrorsBhMissedLatePackets",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cirbhErrorsBhMissedLostPackets": {
+    "name": "cirbhErrorsBhMissedLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cirbhErrorsBhMissedNoMemPackets": {
+    "name": "cirbhErrorsBhMissedNoMemPackets",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cirbhErrorsBhMissedResetPackets": {
+    "name": "cirbhErrorsBhMissedResetPackets",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cirbhErrorsDecompFailures": {
+    "name": "cirbhErrorsDecompFailures",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cirbhErrorsCompFailures": {
+    "name": "cirbhErrorsCompFailures",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cirbhErrorsCompNoPacketFailures": {
+    "name": "cirbhErrorsCompNoPacketFailures",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cirbhErrorsCompNoIntFailures": {
+    "name": "cirbhErrorsCompNoIntFailures",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cirbhErrorsCompIntDownFailures": {
+    "name": "cirbhErrorsCompIntDownFailures",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cirbhErrorsCompEncapFailures": {
+    "name": "cirbhErrorsCompEncapFailures",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cirbhErrorsCompQosDrops": {
+    "name": "cirbhErrorsCompQosDrops",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "drops",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cirbhShortHaulHistoryTable": {
+    "name": "cirbhShortHaulHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cirbhShortHaulHistoryTableEntry": {
+    "name": "cirbhShortHaulHistoryTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhShortHaulHistory",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cirbhShortHaulHistory": {
+    "name": "cirbhShortHaulHistory",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhHistoryIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cirbhShortHaulRcvdRate": {
+    "name": "cirbhShortHaulRcvdRate",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhRawInterfaceRate",
+      "class": "type"
+    },
+    "units": "bytes/second",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhShortHaulSentRate": {
+    "name": "cirbhShortHaulSentRate",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhRawInterfaceRate",
+      "class": "type"
+    },
+    "units": "bytes/second",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhShortHaulRcvdCompressRate": {
+    "name": "cirbhShortHaulRcvdCompressRate",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhCommpressInterfaceRate",
+      "class": "type"
+    },
+    "units": "bytes/second",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhShortHaulSentCompressRate": {
+    "name": "cirbhShortHaulSentCompressRate",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhCommpressInterfaceRate",
+      "class": "type"
+    },
+    "units": "bytes/second",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhShortHaulTimeStamp": {
+    "name": "cirbhShortHaulTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhShortHaulRcvdUtilization": {
+    "name": "cirbhShortHaulRcvdUtilization",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhShortHaulUtilization",
+      "class": "type"
+    },
+    "units": "percent of DS load",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhShortHaulSentUtilization": {
+    "name": "cirbhShortHaulSentUtilization",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhShortHaulUtilization",
+      "class": "type"
+    },
+    "units": "percent of DS load",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhCongestionTable": {
+    "name": "cirbhCongestionTable",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cirbhCongestionTableEntry": {
+    "name": "cirbhCongestionTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cirbhCongestionEnabled": {
+    "name": "cirbhCongestionEnabled",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhCongestionDrops": {
+    "name": "cirbhCongestionDrops",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhCongestionDroppedBytes": {
+    "name": "cirbhCongestionDroppedBytes",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhCongestionEvents": {
+    "name": "cirbhCongestionEvents",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhCongestionActive": {
+    "name": "cirbhCongestionActive",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhCongestionDuration": {
+    "name": "cirbhCongestionDuration",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsTable": {
+    "name": "cirbhGsmErrorsTable",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cirbhGsmErrorsTableEntry": {
+    "name": "cirbhGsmErrorsTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cirbhGsmErrorsPeerNotReadyDrops": {
+    "name": "cirbhGsmErrorsPeerNotReadyDrops",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsPeerNotActiveDrops": {
+    "name": "cirbhGsmErrorsPeerNotActiveDrops",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsInvalidPackets": {
+    "name": "cirbhGsmErrorsInvalidPackets",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsLostRcvdPackets": {
+    "name": "cirbhGsmErrorsLostRcvdPackets",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsLostSentPackets": {
+    "name": "cirbhGsmErrorsLostSentPackets",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsMissedPackets": {
+    "name": "cirbhGsmErrorsMissedPackets",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsMissedLatePackets": {
+    "name": "cirbhGsmErrorsMissedLatePackets",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsMissedLostPackets": {
+    "name": "cirbhGsmErrorsMissedLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsMissedNoMemPackets": {
+    "name": "cirbhGsmErrorsMissedNoMemPackets",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsMissedResetPackets": {
+    "name": "cirbhGsmErrorsMissedResetPackets",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsDecompFailures": {
+    "name": "cirbhGsmErrorsDecompFailures",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsCompFailures": {
+    "name": "cirbhGsmErrorsCompFailures",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsCompNoPacketFailures": {
+    "name": "cirbhGsmErrorsCompNoPacketFailures",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsCompNoIntFailures": {
+    "name": "cirbhGsmErrorsCompNoIntFailures",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsCompIntDownFailures": {
+    "name": "cirbhGsmErrorsCompIntDownFailures",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsCompEncapFailures": {
+    "name": "cirbhGsmErrorsCompEncapFailures",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsCompQosDrops": {
+    "name": "cirbhGsmErrorsCompQosDrops",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "drops",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsFastSendFailures": {
+    "name": "cirbhGsmErrorsFastSendFailures",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsTxPacketFailures": {
+    "name": "cirbhGsmErrorsTxPacketFailures",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsTxNoBuffers": {
+    "name": "cirbhGsmErrorsTxNoBuffers",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsTxResets": {
+    "name": "cirbhGsmErrorsTxResets",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsOverruns": {
+    "name": "cirbhGsmErrorsOverruns",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsInterruptFailures": {
+    "name": "cirbhGsmErrorsInterruptFailures",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsLateArrivals": {
+    "name": "cirbhGsmErrorsLateArrivals",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhGsmErrorsEarlyArrivals": {
+    "name": "cirbhGsmErrorsEarlyArrivals",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhUmtsErrorsTable": {
+    "name": "cirbhUmtsErrorsTable",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cirbhUmtsErrorsTableEntry": {
+    "name": "cirbhUmtsErrorsTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cirbhUmtsErrorsPeerNotReadyDrops": {
+    "name": "cirbhUmtsErrorsPeerNotReadyDrops",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhUmtsErrorsInvalidPackets": {
+    "name": "cirbhUmtsErrorsInvalidPackets",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhUmtsErrorsDecompFailures": {
+    "name": "cirbhUmtsErrorsDecompFailures",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhUmtsErrorsCompFailures": {
+    "name": "cirbhUmtsErrorsCompFailures",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhUmtsErrorsCompNoPacketFailures": {
+    "name": "cirbhUmtsErrorsCompNoPacketFailures",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhUmtsErrorsCompNoIntFailures": {
+    "name": "cirbhUmtsErrorsCompNoIntFailures",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhUmtsErrorsCompIntDownFailures": {
+    "name": "cirbhUmtsErrorsCompIntDownFailures",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhUmtsErrorsCompEncapFailures": {
+    "name": "cirbhUmtsErrorsCompEncapFailures",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhUmtsErrorsCompQosDrops": {
+    "name": "cirbhUmtsErrorsCompQosDrops",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "drops",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhUmtsErrorsShorthaulPakFailures": {
+    "name": "cirbhUmtsErrorsShorthaulPakFailures",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhUmtsErrorsUmtsEncapFailures": {
+    "name": "cirbhUmtsErrorsUmtsEncapFailures",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhUmtsErrorsLocalPvcDrops": {
+    "name": "cirbhUmtsErrorsLocalPvcDrops",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhUmtsErrorsRemotePvcDrops": {
+    "name": "cirbhUmtsErrorsRemotePvcDrops",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhUmtsErrorsBackhaulDrops": {
+    "name": "cirbhUmtsErrorsBackhaulDrops",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhShortHaulBulkTable": {
+    "name": "cirbhShortHaulBulkTable",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cirbhShortHaulBulkTableEntry": {
+    "name": "cirbhShortHaulBulkTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhShortHaulBulkHistory",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cirbhShortHaulBulkHistory": {
+    "name": "cirbhShortHaulBulkHistory",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhHistoryIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cirbhShortHaulBulkTimeStamp": {
+    "name": "cirbhShortHaulBulkTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhShortHaulBulkBaseUnit": {
+    "name": "cirbhShortHaulBulkBaseUnit",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 256,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhShortHaulBulkUtil": {
+    "name": "cirbhShortHaulBulkUtil",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.1.3.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "units": "Bytes/Second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cirbhBackHaulTable": {
+    "name": "cirbhBackHaulTable",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cirbhBackHaulEntry": {
+    "name": "cirbhBackHaulEntry",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cirbhBackHaulAdjectSerialNum": {
+    "name": "cirbhBackHaulAdjectSerialNum",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhBackHaulAdjectVendorType": {
+    "name": "cirbhBackHaulAdjectVendorType",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhBackHaulRcvdUtilState": {
+    "name": "cirbhBackHaulRcvdUtilState",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhBackHaulUtilizationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhBackHaulSentUtilState": {
+    "name": "cirbhBackHaulSentUtilState",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhBackHaulUtilizationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhBackHaulRcvdUtil": {
+    "name": "cirbhBackHaulRcvdUtil",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhBackHaulUtilization",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhBackHaulSentUtil": {
+    "name": "cirbhBackHaulSentUtil",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhBackHaulUtilization",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhBackHaulShortHaulTable": {
+    "name": "cirbhBackHaulShortHaulTable",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cirbhBackHaulShortHaulEntry": {
+    "name": "cirbhBackHaulShortHaulEntry",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulShortHaulBhIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulShortHaulShIndex",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cirbhBackHaulShortHaulBhIndex": {
+    "name": "cirbhBackHaulShortHaulBhIndex",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cirbhBackHaulShortHaulShIndex": {
+    "name": "cirbhBackHaulShortHaulShIndex",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cirbhBackHaulShortHaulTimestamp": {
+    "name": "cirbhBackHaulShortHaulTimestamp",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhBackHaulHistoryTable": {
+    "name": "cirbhBackHaulHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cirbhBackHaulHistoryEntry": {
+    "name": "cirbhBackHaulHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cirbhBackHaulHistoryIndex": {
+    "name": "cirbhBackHaulHistoryIndex",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhHistoryIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cirbhBackHaulHistoryRcvdUtil": {
+    "name": "cirbhBackHaulHistoryRcvdUtil",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhBackHaulUtilization",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhBackHaulHistorySentUtil": {
+    "name": "cirbhBackHaulHistorySentUtil",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhBackHaulUtilization",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhBackHaulHistoryRcvdAbisUtil": {
+    "name": "cirbhBackHaulHistoryRcvdAbisUtil",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhBackHaulUtilization",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhBackHaulHistorySentAbisUtil": {
+    "name": "cirbhBackHaulHistorySentAbisUtil",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhBackHaulUtilization",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhBackHaulHistoryRcvdUmtsUtil": {
+    "name": "cirbhBackHaulHistoryRcvdUmtsUtil",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhBackHaulUtilization",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhBackHaulHistorySentUmtsUtil": {
+    "name": "cirbhBackHaulHistorySentUmtsUtil",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhBackHaulUtilization",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhBackHaulHistoryTimeStamp": {
+    "name": "cirbhBackHaulHistoryTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhBackHaulStatsTable": {
+    "name": "cirbhBackHaulStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cirbhBackHaulStatsEntry": {
+    "name": "cirbhBackHaulStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsDirection",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsTrafficType",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cirbhStatsDirection": {
+    "name": "cirbhStatsDirection",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhTrafficDirection",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cirbhStatsTrafficType": {
+    "name": "cirbhStatsTrafficType",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhTrafficType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cirbhStats000to009Seconds": {
+    "name": "cirbhStats000to009Seconds",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStats010to019Seconds": {
+    "name": "cirbhStats010to019Seconds",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStats020to029Seconds": {
+    "name": "cirbhStats020to029Seconds",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStats030to039Seconds": {
+    "name": "cirbhStats030to039Seconds",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStats040to049Seconds": {
+    "name": "cirbhStats040to049Seconds",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStats050to059Seconds": {
+    "name": "cirbhStats050to059Seconds",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStats060to069Seconds": {
+    "name": "cirbhStats060to069Seconds",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStats070to079Seconds": {
+    "name": "cirbhStats070to079Seconds",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStats080to089Seconds": {
+    "name": "cirbhStats080to089Seconds",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStats090to100Seconds": {
+    "name": "cirbhStats090to100Seconds",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStatsTimeStamp": {
+    "name": "cirbhStatsTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStatsMaxUtilization": {
+    "name": "cirbhStatsMaxUtilization",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhBackHaulUtilization",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStatsMaxTimeStamp": {
+    "name": "cirbhStatsMaxTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.2.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhBackHaulStatsHistoryTable": {
+    "name": "cirbhBackHaulStatsHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cirbhBackHaulStatsHistoryEntry": {
+    "name": "cirbhBackHaulStatsHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsHistoryIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsHistoryDirection",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsHistoryTrafficType",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cirbhStatsHistoryIndex": {
+    "name": "cirbhStatsHistoryIndex",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhHistoryIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cirbhStatsHistoryDirection": {
+    "name": "cirbhStatsHistoryDirection",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhTrafficDirection",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cirbhStatsHistoryTrafficType": {
+    "name": "cirbhStatsHistoryTrafficType",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhTrafficType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cirbhStatsHistory000to009Seconds": {
+    "name": "cirbhStatsHistory000to009Seconds",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStatsHistory010to019Seconds": {
+    "name": "cirbhStatsHistory010to019Seconds",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStatsHistory020to029Seconds": {
+    "name": "cirbhStatsHistory020to029Seconds",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStatsHistory030to039Seconds": {
+    "name": "cirbhStatsHistory030to039Seconds",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStatsHistory040to049Seconds": {
+    "name": "cirbhStatsHistory040to049Seconds",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStatsHistory050to059Seconds": {
+    "name": "cirbhStatsHistory050to059Seconds",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStatsHistory060to069Seconds": {
+    "name": "cirbhStatsHistory060to069Seconds",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStatsHistory070to079Seconds": {
+    "name": "cirbhStatsHistory070to079Seconds",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStatsHistory080to089Seconds": {
+    "name": "cirbhStatsHistory080to089Seconds",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStatsHistory090to100Seconds": {
+    "name": "cirbhStatsHistory090to100Seconds",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStatsHistoryTimeStamp": {
+    "name": "cirbhStatsHistoryTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.12.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStatsHistoryMaxUtilization": {
+    "name": "cirbhStatsHistoryMaxUtilization",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.12.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhBackHaulUtilization",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStatsHistoryMaxTimeStamp": {
+    "name": "cirbhStatsHistoryMaxTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.12.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhStatsHistoryAverage": {
+    "name": "cirbhStatsHistoryAverage",
+    "oid": "1.3.6.1.4.1.9.9.483.1.2.12.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CirbhBackHaulUtilization",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cirbhGsmAlarmNotifEnabled": {
+    "name": "cirbhGsmAlarmNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.483.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cirbhUmtsAlarmNotifEnabled": {
+    "name": "cirbhUmtsAlarmNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.483.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cirbhUtilNotifEnabled": {
+    "name": "cirbhUtilNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.483.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ciscoIpRanBackHaulGsmAlarm": {
+    "name": "ciscoIpRanBackHaulGsmAlarm",
+    "oid": "1.3.6.1.4.1.9.9.483.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmAlarmConnectState"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmAlarmLocalState"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmAlarmRemoteState"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmAlarmRedundancyState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpRanBackHaulUmtsAlarm": {
+    "name": "ciscoIpRanBackHaulUmtsAlarm",
+    "oid": "1.3.6.1.4.1.9.9.483.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsConnectionState"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsAlarmRxLocalState"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsAlarmRxRemoteState"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsAlarmTxLocalState"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsAlarmTxRemoteState"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsConnectionRedundState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpRanBackHaulRcvdUtil": {
+    "name": "ciscoIpRanBackHaulRcvdUtil",
+    "oid": "1.3.6.1.4.1.9.9.483.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulRcvdUtilState"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulRcvdUtil"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoIpRanBackHaulSentUtil": {
+    "name": "ciscoIpRanBackHaulSentUtil",
+    "oid": "1.3.6.1.4.1.9.9.483.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulSentUtilState"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulSentUtil"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoIpRanBackHaulMIBCompliances": {
+    "name": "ciscoIpRanBackHaulMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.483.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoIpRanBackHaulMIBGroups": {
+    "name": "ciscoIpRanBackHaulMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.483.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoIpRanBackHaulMIBCompliance": {
+    "name": "ciscoIpRanBackHaulMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.483.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIpRanBackHaulScalarsGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulConfigGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulStatsGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulAlarmGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulErrorsGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulHistoryGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulNotifGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoIpRanBackHaulMIBComplianceRev1": {
+    "name": "ciscoIpRanBackHaulMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.483.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIpRanBackHaulScalarsGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulConfigGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulStatsGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulAlarmGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulErrorsGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulHistoryGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulNotifGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulShortHaulGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulAlarmGroupSup1",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoIpRanBackHaulMIBComplianceRev2": {
+    "name": "ciscoIpRanBackHaulMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.483.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIpRanBackHaulScalarsGroupRev2",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulConfigGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulConfigGroupSup2",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulConfigGroupSup3",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulStatsGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulAlarmGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulHistoryGroupRev2",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulNotifGroupRev2",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulAlarmGroupSup1",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulCongestionGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulGsmErrorsGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulUmtsErrorsGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoIpRanBackHaulMIBComplianceRev3": {
+    "name": "ciscoIpRanBackHaulMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.483.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIpRanBackHaulScalarsGroupRev2",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulConfigGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulConfigGroupSup2",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulConfigGroupSup3",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulStatsGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulAlarmGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulHistoryGroupRev3",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulNotifGroupRev2",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulAlarmGroupSup1",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulCongestionGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulGsmErrorsGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      },
+      {
+        "object": "ciscoIpRanBackHaulUmtsErrorsGroup",
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpRanBackHaulScalarsGroup": {
+    "name": "ciscoIpRanBackHaulScalarsGroup",
+    "oid": "1.3.6.1.4.1.9.9.483.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhSnmpTrafficMode"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhLocation"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulStatsInterval"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulStatsEntries"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulAcceptableThreshold"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulWarningThreshold"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulOverloadedThreshold"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulUtilInterval"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmAlarmNotifEnabled"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsAlarmNotifEnabled"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUtilNotifEnabled"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoIpRanBackHaulConfigGroup": {
+    "name": "ciscoIpRanBackHaulConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.483.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhInfoProtocol"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhInfoLocalAddrType"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhInfoLocalAddr"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhInfoLocalPortNumber"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhInfoRemoteAddrType"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhInfoRemoteAddr"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhInfoRemotePortNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpRanBackHaulStatsGroup": {
+    "name": "ciscoIpRanBackHaulStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.483.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsRcvdSamples"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsSentSamples"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsRcvdBackHaulPackets"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsSentBackHaulPackets"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsRcvdBackHaulBytes"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsSentBackHaulBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpRanBackHaulAlarmGroup": {
+    "name": "ciscoIpRanBackHaulAlarmGroup",
+    "oid": "1.3.6.1.4.1.9.9.483.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmAlarmConnectState"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmAlarmLocalState"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmAlarmRemoteState"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmAlarmRedundancyState"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsConnectionState"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsConnectionRedundState"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsAlarmRxLocalState"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsAlarmRxRemoteState"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsAlarmTxLocalState"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsAlarmTxRemoteState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpRanBackHaulErrorsGroup": {
+    "name": "ciscoIpRanBackHaulErrorsGroup",
+    "oid": "1.3.6.1.4.1.9.9.483.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhErrorsBhPeerNotReadyDrops"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhErrorsBhPeerNotActiveDrops"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhErrorsBhInvalidPackets"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhErrorsBhLostRcvdPackets"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhErrorsBhLostSentPackets"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhErrorsBhMissedPackets"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhErrorsBhMissedLatePackets"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhErrorsBhMissedLostPackets"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhErrorsBhMissedNoMemPackets"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhErrorsBhMissedResetPackets"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhErrorsDecompFailures"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhErrorsCompFailures"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhErrorsCompNoPacketFailures"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhErrorsCompNoIntFailures"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhErrorsCompIntDownFailures"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhErrorsCompEncapFailures"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhErrorsCompQosDrops"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoIpRanBackHaulHistoryGroup": {
+    "name": "ciscoIpRanBackHaulHistoryGroup",
+    "oid": "1.3.6.1.4.1.9.9.483.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhShortHaulRcvdRate"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhShortHaulSentRate"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhShortHaulRcvdCompressRate"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhShortHaulSentCompressRate"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhShortHaulTimeStamp"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhShortHaulRcvdUtilization"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhShortHaulSentUtilization"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulRcvdUtilState"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulSentUtilState"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulRcvdUtil"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulSentUtil"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulAdjectSerialNum"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulAdjectVendorType"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulHistoryRcvdUtil"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulHistorySentUtil"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulHistoryRcvdAbisUtil"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulHistorySentAbisUtil"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulHistoryRcvdUmtsUtil"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulHistorySentUmtsUtil"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulHistoryTimeStamp"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStats000to009Seconds"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStats010to019Seconds"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStats020to029Seconds"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStats030to039Seconds"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStats040to049Seconds"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStats050to059Seconds"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStats060to069Seconds"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStats070to079Seconds"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStats080to089Seconds"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStats090to100Seconds"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsTimeStamp"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsMaxUtilization"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsMaxTimeStamp"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsHistory000to009Seconds"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsHistory010to019Seconds"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsHistory020to029Seconds"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsHistory030to039Seconds"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsHistory040to049Seconds"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsHistory050to059Seconds"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsHistory060to069Seconds"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsHistory070to079Seconds"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsHistory080to089Seconds"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsHistory090to100Seconds"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsHistoryTimeStamp"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsHistoryMaxUtilization"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsHistoryMaxTimeStamp"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhStatsHistoryAverage"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoIpRanBackHaulNotifGroup": {
+    "name": "ciscoIpRanBackHaulNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.483.2.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "ciscoIpRanBackHaulGsmAlarm"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "ciscoIpRanBackHaulUmtsAlarm"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "ciscoIpRanBackHaulRcvdUtil"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "ciscoIpRanBackHaulSentUtil"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoIpRanBackHaulShortHaulGroup": {
+    "name": "ciscoIpRanBackHaulShortHaulGroup",
+    "oid": "1.3.6.1.4.1.9.9.483.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhBackHaulShortHaulTimestamp"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoIpRanBackHaulAlarmGroupSup1": {
+    "name": "ciscoIpRanBackHaulAlarmGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.483.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsConnectionRootIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpRanBackHaulScalarsGroupRev2": {
+    "name": "ciscoIpRanBackHaulScalarsGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.483.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhSnmpTrafficMode"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhLocation"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmAlarmNotifEnabled"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsAlarmNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpRanBackHaulConfigGroupSup2": {
+    "name": "ciscoIpRanBackHaulConfigGroupSup2",
+    "oid": "1.3.6.1.4.1.9.9.483.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhInfoAdjectSerialNum"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhInfoAdjectVendorType"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhInfoBackhaulRxIfIndex"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhInfoBackhaulTxIfIndex"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhInfoShBulkLastIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpRanBackHaulHistoryGroupRev2": {
+    "name": "ciscoIpRanBackHaulHistoryGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.483.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhShortHaulRcvdRate"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhShortHaulSentRate"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhShortHaulRcvdCompressRate"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhShortHaulSentCompressRate"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhShortHaulTimeStamp"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhShortHaulRcvdUtilization"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhShortHaulSentUtilization"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhShortHaulBulkTimeStamp"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhShortHaulBulkBaseUnit"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhShortHaulBulkUtil"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoIpRanBackHaulNotifGroupRev2": {
+    "name": "ciscoIpRanBackHaulNotifGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.483.2.2.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "ciscoIpRanBackHaulGsmAlarm"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "ciscoIpRanBackHaulUmtsAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpRanBackHaulCongestionGroup": {
+    "name": "ciscoIpRanBackHaulCongestionGroup",
+    "oid": "1.3.6.1.4.1.9.9.483.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhCongestionEnabled"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhCongestionDrops"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhCongestionDroppedBytes"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhCongestionEvents"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhCongestionActive"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhCongestionDuration"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpRanBackHaulGsmErrorsGroup": {
+    "name": "ciscoIpRanBackHaulGsmErrorsGroup",
+    "oid": "1.3.6.1.4.1.9.9.483.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsPeerNotReadyDrops"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsPeerNotActiveDrops"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsInvalidPackets"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsLostRcvdPackets"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsLostSentPackets"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsMissedPackets"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsMissedLatePackets"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsMissedLostPackets"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsMissedNoMemPackets"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsMissedResetPackets"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsDecompFailures"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsCompFailures"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsCompNoPacketFailures"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsCompNoIntFailures"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsCompIntDownFailures"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsCompEncapFailures"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsCompQosDrops"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsFastSendFailures"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsTxPacketFailures"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsTxNoBuffers"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsTxResets"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsOverruns"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsInterruptFailures"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsLateArrivals"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhGsmErrorsEarlyArrivals"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpRanBackHaulUmtsErrorsGroup": {
+    "name": "ciscoIpRanBackHaulUmtsErrorsGroup",
+    "oid": "1.3.6.1.4.1.9.9.483.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsErrorsPeerNotReadyDrops"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsErrorsInvalidPackets"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsErrorsDecompFailures"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsErrorsCompFailures"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsErrorsCompNoPacketFailures"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsErrorsCompNoIntFailures"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsErrorsCompIntDownFailures"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsErrorsCompEncapFailures"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsErrorsCompQosDrops"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsErrorsShorthaulPakFailures"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsErrorsUmtsEncapFailures"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsErrorsLocalPvcDrops"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsErrorsRemotePvcDrops"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhUmtsErrorsBackhaulDrops"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpRanBackHaulConfigGroupSup3": {
+    "name": "ciscoIpRanBackHaulConfigGroupSup3",
+    "oid": "1.3.6.1.4.1.9.9.483.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhInfoOptimizeTraffic"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpRanBackHaulHistoryGroupRev3": {
+    "name": "ciscoIpRanBackHaulHistoryGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.483.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhShortHaulBulkTimeStamp"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhShortHaulBulkBaseUnit"
+      },
+      {
+        "module": "CISCO-IP-RAN-BACKHAUL-MIB",
+        "object": "cirbhShortHaulBulkUtil"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IP-RAN-BACKHAUL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IP-RAN-BACKHAUL-MIB"
+  }
+}

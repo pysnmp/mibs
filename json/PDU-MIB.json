@@ -1,0 +1,2344 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Opaque",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "enterprises",
+      "iso",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "eaton": {
+    "name": "eaton",
+    "oid": "1.3.6.1.4.1.534",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-03-14 00:00",
+        "description": "Modified MIB in effort to better support HP Openview and other SNMP managers."
+      },
+      {
+        "revision": "2007-02-14 00:00",
+        "description": "Updated version for remote access to pdu."
+      }
+    ]
+  },
+  "product": {
+    "name": "product",
+    "oid": "1.3.6.1.4.1.534.6",
+    "class": "objectidentity"
+  },
+  "pduagent": {
+    "name": "pduagent",
+    "oid": "1.3.6.1.4.1.534.6.6",
+    "class": "objectidentity"
+  },
+  "pdu": {
+    "name": "pdu",
+    "oid": "1.3.6.1.4.1.534.6.6.6",
+    "class": "objectidentity"
+  },
+  "traps": {
+    "name": "traps",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0",
+    "class": "objectidentity"
+  },
+  "board": {
+    "name": "board",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1",
+    "class": "objectidentity"
+  },
+  "environmental": {
+    "name": "environmental",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2",
+    "class": "objectidentity"
+  },
+  "conformance": {
+    "name": "conformance",
+    "oid": "1.3.6.1.4.1.534.6.6.6.9",
+    "class": "objectidentity"
+  },
+  "info": {
+    "name": "info",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.1",
+    "class": "objectidentity"
+  },
+  "outlets": {
+    "name": "outlets",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.2",
+    "class": "objectidentity"
+  },
+  "unit": {
+    "name": "unit",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.3",
+    "class": "objectidentity"
+  },
+  "unitReadings": {
+    "name": "unitReadings",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1",
+    "class": "objectidentity"
+  },
+  "compliances": {
+    "name": "compliances",
+    "oid": "1.3.6.1.4.1.534.6.6.6.9.1",
+    "class": "objectidentity"
+  },
+  "groups": {
+    "name": "groups",
+    "oid": "1.3.6.1.4.1.534.6.6.6.9.2",
+    "class": "objectidentity"
+  },
+  "compliance": {
+    "name": "compliance",
+    "oid": "1.3.6.1.4.1.534.6.6.6.9.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "infoGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "outletsGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "unitSensorsGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "externalTemperatureGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "externalHumidityGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "trapsGroup",
+        "module": "PDU-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "infoGroup": {
+    "name": "infoGroup",
+    "oid": "1.3.6.1.4.1.534.6.6.6.9.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "firmwareVersion"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "serialNumber"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipAddress"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "netmask"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "gateway"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "mac"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "hardwareRev"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "targetUser"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "groupName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "imageVersion"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "sensorDescr"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "thresholdDescr"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "thresholdSeverity"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "thresholdEventType"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "status"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "slaveIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "outletsGroup": {
+    "name": "outletsGroup",
+    "oid": "1.3.6.1.4.1.534.6.6.6.9.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "outletCount"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "outletLabel"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "outletOperationalState"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "outletCurrent"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "outletMaxCurrent"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "outletVoltage"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "outletActivePower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "outletApparentPower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "outletPowerFactor"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "outletCurrentUpperWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "outletCurrentUpperCritical"
+      }
+    ],
+    "status": "current"
+  },
+  "unitSensorsGroup": {
+    "name": "unitSensorsGroup",
+    "oid": "1.3.6.1.4.1.534.6.6.6.9.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "unitCurrent"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitVoltage"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitActivePower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitApparentPower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitCpuTemp"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitCircuitBreak0State"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitCircuitBreak1State"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitCircuitBreak2State"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitCircuitBreak0Current"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitCircuitBreak1Current"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitCircuitBreak2Current"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitVoltageLowerWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitVoltageUpperWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitVoltageLowerCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitVoltageUpperCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitCurrentUpperWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitCurrentUpperCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitTempLowerWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitTempUpperWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitTempLowerCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitTempUpperCritical"
+      }
+    ],
+    "status": "current"
+  },
+  "externalTemperatureGroup": {
+    "name": "externalTemperatureGroup",
+    "oid": "1.3.6.1.4.1.534.6.6.6.9.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "tempSensorCount"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "tempSensorLabel"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "temperature"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "tempLowerWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "tempUpperWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "tempLowerCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "tempUpperCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "tempLowerWarningReset"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "tempUpperWarningReset"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "tempLowerCriticalReset"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "tempUpperCriticalReset"
+      }
+    ],
+    "status": "current"
+  },
+  "externalHumidityGroup": {
+    "name": "externalHumidityGroup",
+    "oid": "1.3.6.1.4.1.534.6.6.6.9.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "humiditySensorCount"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "humiditySensorLabel"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "humidity"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "humidityLowerWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "humidityUpperWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "humidityLowerCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "humidityUpperCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "humidityLowerWarningReset"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "humidityUpperWarningReset"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "humidityLowerCriticalReset"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "humidityUpperCriticalReset"
+      }
+    ],
+    "status": "current"
+  },
+  "trapsGroup": {
+    "name": "trapsGroup",
+    "oid": "1.3.6.1.4.1.534.6.6.6.9.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "rebootStarted"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "rebootCompleted"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userLogin"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userLogout"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userAuthenticationFailure"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userSessionTimeout"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userAdded"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userModified"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userDeleted"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "groupAdded"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "groupModified"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "groupDeleted"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "deviceUpdateStarted"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userBlocked"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "powerControl"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userPasswordChanged"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "passwordSettingsChanged"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "firmwareFileDiscarded"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "firmwareValidationFailed"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "securityViolation"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "logFileCleared"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "thresholdAlarm"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "outletGroupingConnectivityLost"
+      }
+    ],
+    "status": "current"
+  },
+  "MilliAmps": {
+    "name": "MilliAmps",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "MilliVolts": {
+    "name": "MilliVolts",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "Watts": {
+    "name": "Watts",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "VoltAmps": {
+    "name": "VoltAmps",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "DegreesCelsius": {
+    "name": "DegreesCelsius",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "Hertz": {
+    "name": "Hertz",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "RelativeHumidity": {
+    "name": "RelativeHumidity",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "PowerFactorPercentage": {
+    "name": "PowerFactorPercentage",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SensorTypeEnumeration": {
+    "name": "SensorTypeEnumeration",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "outletCurrent": 0,
+          "outletMaxCurrent": 1,
+          "outletVoltage": 2,
+          "outletActivePower": 3,
+          "outletApparentPower": 4,
+          "outletMaxActivePower": 5,
+          "outletAverageActivePower": 6,
+          "outletPowerFactor": 7,
+          "powerBranchVoltage": 200,
+          "powerBranchFrequency": 201,
+          "powerBranchTemperature": 202,
+          "powerBranchCurrent": 203,
+          "environmentalTemp1": 300,
+          "environmentalTemp2": 301,
+          "environmentalTemp3": 302,
+          "environmentalTemp4": 303,
+          "environmentalTemp5": 304,
+          "environmentalTemp6": 305,
+          "environmentalTemp7": 306,
+          "environmentalTemp8": 307,
+          "environmentalHumidity1": 400,
+          "environmentalHumidity2": 401,
+          "environmentalHumidity3": 402,
+          "environmentalHumidity4": 403,
+          "environmentalHumidity5": 404,
+          "environmentalHumidity6": 405,
+          "environmentalHumidity7": 406,
+          "environmentalHumidity8": 407,
+          "unitRmsCurrent": 500,
+          "unitMaxRmsCurrent": 501,
+          "unitVoltage": 502,
+          "unitCpuTemp": 503,
+          "unitActivePower": 504,
+          "unitApparentPower": 505,
+          "unitCircuitBreak0State": 550,
+          "unitCircuitBreak1State": 551,
+          "unitCircuitBreak2State": 552,
+          "unitCircuitBreak0Current": 600,
+          "unitCircuitBreak1Current": 601,
+          "unitCircuitBreak2Current": 602
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SensorStateEnumeration": {
+    "name": "SensorStateEnumeration",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unavailable": -1,
+          "ok": 0,
+          "belowLowerWarning": 1,
+          "aboveUpperWarning": 2,
+          "belowLowerCritical": 3,
+          "aboveUpperCritical": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "firmwareVersion": {
+    "name": "firmwareVersion",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serialNumber": {
+    "name": "serialNumber",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipAddress": {
+    "name": "ipAddress",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "netmask": {
+    "name": "netmask",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gateway": {
+    "name": "gateway",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mac": {
+    "name": "mac",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hardwareRev": {
+    "name": "hardwareRev",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "userName": {
+    "name": "userName",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "objectName": {
+    "name": "objectName",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "objectInstance": {
+    "name": "objectInstance",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "targetUser": {
+    "name": "targetUser",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "groupName": {
+    "name": "groupName",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "imageVersion": {
+    "name": "imageVersion",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "sensorDescr": {
+    "name": "sensorDescr",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "thresholdDescr": {
+    "name": "thresholdDescr",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "thresholdSeverity": {
+    "name": "thresholdSeverity",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "thresholdEventType": {
+    "name": "thresholdEventType",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "status": {
+    "name": "status",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "slaveIpAddress": {
+    "name": "slaveIpAddress",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletCount": {
+    "name": "outletCount",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletTable": {
+    "name": "outletTable",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "outletEntry": {
+    "name": "outletEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PDU-MIB",
+        "object": "outletIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "outletIndex": {
+    "name": "outletIndex",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletLabel": {
+    "name": "outletLabel",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletOperationalState": {
+    "name": "outletOperationalState",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": -1,
+          "off": 0,
+          "on": 1,
+          "cycling": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletCurrent": {
+    "name": "outletCurrent",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletMaxCurrent": {
+    "name": "outletMaxCurrent",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletVoltage": {
+    "name": "outletVoltage",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletActivePower": {
+    "name": "outletActivePower",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Watts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletApparentPower": {
+    "name": "outletApparentPower",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VoltAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletPowerFactor": {
+    "name": "outletPowerFactor",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PowerFactorPercentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletCurrentUpperWarning": {
+    "name": "outletCurrentUpperWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletCurrentUpperCritical": {
+    "name": "outletCurrentUpperCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "unitCurrent": {
+    "name": "unitCurrent",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "unitVoltage": {
+    "name": "unitVoltage",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "unitActivePower": {
+    "name": "unitActivePower",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Watts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "unitApparentPower": {
+    "name": "unitApparentPower",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Watts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "unitCpuTemp": {
+    "name": "unitCpuTemp",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DegreesCelsius",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "unitCircuitBreak0State": {
+    "name": "unitCircuitBreak0State",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unavailable": -1,
+          "ok": 0,
+          "tripped": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "unitCircuitBreak1State": {
+    "name": "unitCircuitBreak1State",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unavailable": -1,
+          "ok": 0,
+          "tripped": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "unitCircuitBreak2State": {
+    "name": "unitCircuitBreak2State",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unavailable": -1,
+          "ok": 0,
+          "tripped": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "unitCircuitBreak0Current": {
+    "name": "unitCircuitBreak0Current",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "unitCircuitBreak1Current": {
+    "name": "unitCircuitBreak1Current",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "unitCircuitBreak2Current": {
+    "name": "unitCircuitBreak2Current",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "unitVoltageLowerWarning": {
+    "name": "unitVoltageLowerWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "unitVoltageLowerCritical": {
+    "name": "unitVoltageLowerCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.61",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "unitVoltageUpperWarning": {
+    "name": "unitVoltageUpperWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.62",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "unitVoltageUpperCritical": {
+    "name": "unitVoltageUpperCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.63",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "unitCurrentUpperWarning": {
+    "name": "unitCurrentUpperWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.70",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "unitCurrentUpperCritical": {
+    "name": "unitCurrentUpperCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.71",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "unitTempLowerWarning": {
+    "name": "unitTempLowerWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.80",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DegreesCelsius",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "unitTempLowerCritical": {
+    "name": "unitTempLowerCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.81",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DegreesCelsius",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "unitTempUpperWarning": {
+    "name": "unitTempUpperWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.82",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DegreesCelsius",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "unitTempUpperCritical": {
+    "name": "unitTempUpperCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.83",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DegreesCelsius",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tempSensorCount": {
+    "name": "tempSensorCount",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempSensorTable": {
+    "name": "tempSensorTable",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tempSensorEntry": {
+    "name": "tempSensorEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PDU-MIB",
+        "object": "tempSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tempSensorIndex": {
+    "name": "tempSensorIndex",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempSensorLabel": {
+    "name": "tempSensorLabel",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "temperature": {
+    "name": "temperature",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DegreesCelsius",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempLowerWarning": {
+    "name": "tempLowerWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DegreesCelsius",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tempUpperWarning": {
+    "name": "tempUpperWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DegreesCelsius",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tempLowerCritical": {
+    "name": "tempLowerCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DegreesCelsius",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tempUpperCritical": {
+    "name": "tempUpperCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DegreesCelsius",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tempLowerWarningReset": {
+    "name": "tempLowerWarningReset",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DegreesCelsius",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tempUpperWarningReset": {
+    "name": "tempUpperWarningReset",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DegreesCelsius",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tempLowerCriticalReset": {
+    "name": "tempLowerCriticalReset",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DegreesCelsius",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tempUpperCriticalReset": {
+    "name": "tempUpperCriticalReset",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DegreesCelsius",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humiditySensorCount": {
+    "name": "humiditySensorCount",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "humiditySensorTable": {
+    "name": "humiditySensorTable",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "humiditySensorEntry": {
+    "name": "humiditySensorEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PDU-MIB",
+        "object": "humiditySensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "humiditySensorIndex": {
+    "name": "humiditySensorIndex",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "humiditySensorLabel": {
+    "name": "humiditySensorLabel",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidity": {
+    "name": "humidity",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RelativeHumidity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "humidityLowerWarning": {
+    "name": "humidityLowerWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RelativeHumidity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidityUpperWarning": {
+    "name": "humidityUpperWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RelativeHumidity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidityLowerCritical": {
+    "name": "humidityLowerCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RelativeHumidity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidityUpperCritical": {
+    "name": "humidityUpperCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RelativeHumidity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidityLowerWarningReset": {
+    "name": "humidityLowerWarningReset",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RelativeHumidity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidityUpperWarningReset": {
+    "name": "humidityUpperWarningReset",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RelativeHumidity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidityLowerCriticalReset": {
+    "name": "humidityLowerCriticalReset",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RelativeHumidity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidityUpperCriticalReset": {
+    "name": "humidityUpperCriticalReset",
+    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RelativeHumidity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rebootStarted": {
+    "name": "rebootStarted",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      }
+    ],
+    "status": "current"
+  },
+  "rebootCompleted": {
+    "name": "rebootCompleted",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      }
+    ],
+    "status": "current"
+  },
+  "userLogin": {
+    "name": "userLogin",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "userLogout": {
+    "name": "userLogout",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "userAuthenticationFailure": {
+    "name": "userAuthenticationFailure",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "userSessionTimeout": {
+    "name": "userSessionTimeout",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "userAdded": {
+    "name": "userAdded",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "targetUser"
+      }
+    ],
+    "status": "current"
+  },
+  "userModified": {
+    "name": "userModified",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "targetUser"
+      }
+    ],
+    "status": "current"
+  },
+  "userDeleted": {
+    "name": "userDeleted",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "targetUser"
+      }
+    ],
+    "status": "current"
+  },
+  "groupAdded": {
+    "name": "groupAdded",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "groupName"
+      }
+    ],
+    "status": "current"
+  },
+  "groupModified": {
+    "name": "groupModified",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "groupName"
+      }
+    ],
+    "status": "current"
+  },
+  "groupDeleted": {
+    "name": "groupDeleted",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "groupName"
+      }
+    ],
+    "status": "current"
+  },
+  "deviceUpdateStarted": {
+    "name": "deviceUpdateStarted",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipAddress"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "imageVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "userBlocked": {
+    "name": "userBlocked",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "powerControl": {
+    "name": "powerControl",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipAddress"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "outletLabel"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "outletOperationalState"
+      }
+    ],
+    "status": "current"
+  },
+  "userPasswordChanged": {
+    "name": "userPasswordChanged",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "targetUser"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "passwordSettingsChanged": {
+    "name": "passwordSettingsChanged",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "status"
+      }
+    ],
+    "status": "current"
+  },
+  "firmwareFileDiscarded": {
+    "name": "firmwareFileDiscarded",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      }
+    ],
+    "status": "current"
+  },
+  "firmwareValidationFailed": {
+    "name": "firmwareValidationFailed",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      }
+    ],
+    "status": "current"
+  },
+  "securityViolation": {
+    "name": "securityViolation",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "logFileCleared": {
+    "name": "logFileCleared",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      }
+    ],
+    "status": "current"
+  },
+  "thresholdAlarm": {
+    "name": "thresholdAlarm",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipAddress"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "sensorDescr"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "thresholdDescr"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "thresholdSeverity"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "thresholdEventType"
+      }
+    ],
+    "status": "current"
+  },
+  "outletGroupingConnectivityLost": {
+    "name": "outletGroupingConnectivityLost",
+    "oid": "1.3.6.1.4.1.534.6.6.6.0.50",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipAddress"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "slaveIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/PDU-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:53 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PDU-MIB"
+  }
+}

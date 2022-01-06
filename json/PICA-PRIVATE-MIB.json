@@ -1,0 +1,664 @@
+{
+  "imports": {
+    "class": "imports",
+    "IANAifType-MIB": [
+      "IANAifType"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "snmpTraps"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "snmpModules",
+      "IpAddress",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
+      "Gauge32",
+      "mib-2",
+      "Bits",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "TestAndIncr",
+      "PhysAddress",
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "AutonomousType",
+      "TruthValue"
+    ]
+  },
+  "picaPrivateMib": {
+    "name": "picaPrivateMib",
+    "oid": "1.3.6.1.4.1.35098",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-04-28 00:00",
+        "description": "The Pica8 Private MIB, Initial Version. Author: Robin Wan."
+      }
+    ]
+  },
+  "hostStatusGroup": {
+    "name": "hostStatusGroup",
+    "oid": "1.3.6.1.4.1.35098.1",
+    "class": "objectidentity"
+  },
+  "cpuUsage": {
+    "name": "cpuUsage",
+    "oid": "1.3.6.1.4.1.35098.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totalPhyMemory": {
+    "name": "totalPhyMemory",
+    "oid": "1.3.6.1.4.1.35098.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "usedPhyMemory": {
+    "name": "usedPhyMemory",
+    "oid": "1.3.6.1.4.1.35098.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "freePhyMemory": {
+    "name": "freePhyMemory",
+    "oid": "1.3.6.1.4.1.35098.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "switchTemperature": {
+    "name": "switchTemperature",
+    "oid": "1.3.6.1.4.1.35098.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuTemperature": {
+    "name": "cpuTemperature",
+    "oid": "1.3.6.1.4.1.35098.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "switchChipTemperature": {
+    "name": "switchChipTemperature",
+    "oid": "1.3.6.1.4.1.35098.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "switchFanSpeed": {
+    "name": "switchFanSpeed",
+    "oid": "1.3.6.1.4.1.35098.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "switchPWM": {
+    "name": "switchPWM",
+    "oid": "1.3.6.1.4.1.35098.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpstatusTable": {
+    "name": "sfpstatusTable",
+    "oid": "1.3.6.1.4.1.35098.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sfpstatusEntry": {
+    "name": "sfpstatusEntry",
+    "oid": "1.3.6.1.4.1.35098.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "sfpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sfpIndex": {
+    "name": "sfpIndex",
+    "oid": "1.3.6.1.4.1.35098.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpVendorName": {
+    "name": "sfpVendorName",
+    "oid": "1.3.6.1.4.1.35098.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpSerialNumber": {
+    "name": "sfpSerialNumber",
+    "oid": "1.3.6.1.4.1.35098.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpTemp": {
+    "name": "sfpTemp",
+    "oid": "1.3.6.1.4.1.35098.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpVoltage": {
+    "name": "sfpVoltage",
+    "oid": "1.3.6.1.4.1.35098.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpBias": {
+    "name": "sfpBias",
+    "oid": "1.3.6.1.4.1.35098.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpTxPower": {
+    "name": "sfpTxPower",
+    "oid": "1.3.6.1.4.1.35098.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpRxPower": {
+    "name": "sfpRxPower",
+    "oid": "1.3.6.1.4.1.35098.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpType": {
+    "name": "sfpType",
+    "oid": "1.3.6.1.4.1.35098.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpsustatusTable": {
+    "name": "rpsustatusTable",
+    "oid": "1.3.6.1.4.1.35098.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rpsustatusEntry": {
+    "name": "rpsustatusEntry",
+    "oid": "1.3.6.1.4.1.35098.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "rpsuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rpsuIndex": {
+    "name": "rpsuIndex",
+    "oid": "1.3.6.1.4.1.35098.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serialNumber": {
+    "name": "serialNumber",
+    "oid": "1.3.6.1.4.1.35098.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpsuStatus": {
+    "name": "rpsuStatus",
+    "oid": "1.3.6.1.4.1.35098.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpsuTemprature": {
+    "name": "rpsuTemprature",
+    "oid": "1.3.6.1.4.1.35098.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpsuFanSpeed": {
+    "name": "rpsuFanSpeed",
+    "oid": "1.3.6.1.4.1.35098.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpsuPWM": {
+    "name": "rpsuPWM",
+    "oid": "1.3.6.1.4.1.35098.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "switchConfigGroup": {
+    "name": "switchConfigGroup",
+    "oid": "1.3.6.1.4.1.35098.2",
+    "class": "objectidentity"
+  },
+  "tftpConfigFilePath": {
+    "name": "tftpConfigFilePath",
+    "oid": "1.3.6.1.4.1.35098.2.0",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tftpBatchFilePath": {
+    "name": "tftpBatchFilePath",
+    "oid": "1.3.6.1.4.1.35098.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "picaConformance": {
+    "name": "picaConformance",
+    "oid": "1.3.6.1.4.1.35098.20",
+    "class": "objectidentity"
+  },
+  "picaGroups": {
+    "name": "picaGroups",
+    "oid": "1.3.6.1.4.1.35098.20.1",
+    "class": "objectidentity"
+  },
+  "picaCompliances": {
+    "name": "picaCompliances",
+    "oid": "1.3.6.1.4.1.35098.20.2",
+    "class": "objectidentity"
+  },
+  "picaBasicGroup": {
+    "name": "picaBasicGroup",
+    "oid": "1.3.6.1.4.1.35098.20.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "cpuUsage"
+      },
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "totalPhyMemory"
+      },
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "usedPhyMemory"
+      },
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "freePhyMemory"
+      },
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "switchTemperature"
+      },
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "cpuTemperature"
+      },
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "switchChipTemperature"
+      },
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "switchFanSpeed"
+      },
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "switchPWM"
+      }
+    ],
+    "status": "current"
+  },
+  "picasfpGroup": {
+    "name": "picasfpGroup",
+    "oid": "1.3.6.1.4.1.35098.20.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "sfpIndex"
+      },
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "sfpVendorName"
+      },
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "sfpSerialNumber"
+      },
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "sfpTemp"
+      },
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "sfpVoltage"
+      },
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "sfpBias"
+      },
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "sfpTxPower"
+      },
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "sfpRxPower"
+      },
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "sfpType"
+      }
+    ],
+    "status": "current"
+  },
+  "picarpsuGroup": {
+    "name": "picarpsuGroup",
+    "oid": "1.3.6.1.4.1.35098.20.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "rpsuIndex"
+      },
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "serialNumber"
+      },
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "rpsuStatus"
+      },
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "rpsuTemprature"
+      },
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "rpsuFanSpeed"
+      },
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "rpsuPWM"
+      }
+    ],
+    "status": "current"
+  },
+  "picaConfigGroup": {
+    "name": "picaConfigGroup",
+    "oid": "1.3.6.1.4.1.35098.20.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "tftpConfigFilePath"
+      },
+      {
+        "module": "PICA-PRIVATE-MIB",
+        "object": "tftpBatchFilePath"
+      }
+    ],
+    "status": "current"
+  },
+  "picaCompliance": {
+    "name": "picaCompliance",
+    "oid": "1.3.6.1.4.1.35098.20.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "picaBasicGroup",
+        "module": "PICA-PRIVATE-MIB"
+      },
+      {
+        "object": "picasfpGroup",
+        "module": "PICA-PRIVATE-MIB"
+      },
+      {
+        "object": "picarpsuGroup",
+        "module": "PICA-PRIVATE-MIB"
+      },
+      {
+        "object": "picaConfigGroup",
+        "module": "PICA-PRIVATE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/picos/PICA-PRIVATE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:46:45 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PICA-PRIVATE-MIB"
+  }
+}

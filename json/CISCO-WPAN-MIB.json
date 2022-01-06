@@ -1,0 +1,441 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifName"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoWpanMIB": {
+    "name": "ciscoWpanMIB",
+    "oid": "1.3.6.1.4.1.9.9.819",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-11-19 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoWpanMIBNotifs": {
+    "name": "ciscoWpanMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.819.0",
+    "class": "objectidentity"
+  },
+  "ciscoWpanMIBObjects": {
+    "name": "ciscoWpanMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.819.1",
+    "class": "objectidentity"
+  },
+  "ciscoWpanMIBConform": {
+    "name": "ciscoWpanMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.819.2",
+    "class": "objectidentity"
+  },
+  "ciscoWpanConfig": {
+    "name": "ciscoWpanConfig",
+    "oid": "1.3.6.1.4.1.9.9.819.1.1",
+    "class": "objectidentity"
+  },
+  "cwpanInterfaceTable": {
+    "name": "cwpanInterfaceTable",
+    "oid": "1.3.6.1.4.1.9.9.819.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwpanInterfaceEntry": {
+    "name": "cwpanInterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.9.819.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwpanIfServiceStatus": {
+    "name": "cwpanIfServiceStatus",
+    "oid": "1.3.6.1.4.1.9.9.819.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "stop": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwpanIfServiceStatusReason": {
+    "name": "cwpanIfServiceStatusReason",
+    "oid": "1.3.6.1.4.1.9.9.819.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "powerDown": 2,
+          "powerUp": 3,
+          "moduleRemove": 4,
+          "moduleReload": 5,
+          "driverStop": 6,
+          "driverStart": 7,
+          "firmwareUpgrade": 8,
+          "firmwareReset": 9,
+          "watchDog": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwpanIfRplTableResetReason": {
+    "name": "cwpanIfRplTableResetReason",
+    "oid": "1.3.6.1.4.1.9.9.819.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "manuallyClear": 2,
+          "configChange": 3,
+          "interfaceDown": 4,
+          "timeout": 5,
+          "serviceStop": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwpanIfRplTableNodes": {
+    "name": "cwpanIfRplTableNodes",
+    "oid": "1.3.6.1.4.1.9.9.819.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwpanIfRplTableMajorThreshNodes": {
+    "name": "cwpanIfRplTableMajorThreshNodes",
+    "oid": "1.3.6.1.4.1.9.9.819.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwpanIfRplTableMinorThreshNodes": {
+    "name": "cwpanIfRplTableMinorThreshNodes",
+    "oid": "1.3.6.1.4.1.9.9.819.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwpanNotificationEnable": {
+    "name": "cwpanNotificationEnable",
+    "oid": "1.3.6.1.4.1.9.9.819.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwpanServiceStatusChangeNotif": {
+    "name": "cwpanServiceStatusChangeNotif",
+    "oid": "1.3.6.1.4.1.9.9.819.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfServiceStatusReason"
+      }
+    ],
+    "status": "current"
+  },
+  "cwpanRplTableResetNotif": {
+    "name": "cwpanRplTableResetNotif",
+    "oid": "1.3.6.1.4.1.9.9.819.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfRplTableResetReason"
+      }
+    ],
+    "status": "current"
+  },
+  "cwpanRisingIfRplTblMinorThreshNodesNotif": {
+    "name": "cwpanRisingIfRplTblMinorThreshNodesNotif",
+    "oid": "1.3.6.1.4.1.9.9.819.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfRplTableNodes"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfRplTableMinorThreshNodes"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfRplTableMajorThreshNodes"
+      }
+    ],
+    "status": "current"
+  },
+  "cwpanFallingIfRplTblMinorThreshNodesNotif": {
+    "name": "cwpanFallingIfRplTblMinorThreshNodesNotif",
+    "oid": "1.3.6.1.4.1.9.9.819.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfRplTableNodes"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfRplTableMinorThreshNodes"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfRplTableMajorThreshNodes"
+      }
+    ],
+    "status": "current"
+  },
+  "cwpanRisingIfRplTblMajorThreshNodesNotif": {
+    "name": "cwpanRisingIfRplTblMajorThreshNodesNotif",
+    "oid": "1.3.6.1.4.1.9.9.819.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfRplTableNodes"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfRplTableMajorThreshNodes"
+      }
+    ],
+    "status": "current"
+  },
+  "cwpanFallingIfRplTblMajorThreshNodesNotif": {
+    "name": "cwpanFallingIfRplTblMajorThreshNodesNotif",
+    "oid": "1.3.6.1.4.1.9.9.819.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfRplTableNodes"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfRplTableMajorThreshNodes"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWpanMIBCompliances": {
+    "name": "ciscoWpanMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.819.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoWpanMIBGroups": {
+    "name": "ciscoWpanMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.819.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoWpanMIBModuleCompliance": {
+    "name": "ciscoWpanMIBModuleCompliance",
+    "oid": "1.3.6.1.4.1.9.9.819.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cwpanInterfaceInfoGroup",
+        "module": "CISCO-WPAN-MIB"
+      },
+      {
+        "object": "cwpanNotificationControlGroup",
+        "module": "CISCO-WPAN-MIB"
+      },
+      {
+        "object": "cwpanNotificationGroup",
+        "module": "CISCO-WPAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cwpanInterfaceInfoGroup": {
+    "name": "cwpanInterfaceInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.819.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfServiceStatus"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfServiceStatusReason"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfRplTableResetReason"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfRplTableNodes"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfRplTableMajorThreshNodes"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfRplTableMinorThreshNodes"
+      }
+    ],
+    "status": "current"
+  },
+  "cwpanNotificationControlGroup": {
+    "name": "cwpanNotificationControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.819.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanNotificationEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cwpanNotificationGroup": {
+    "name": "cwpanNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.819.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanServiceStatusChangeNotif"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanRplTableResetNotif"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanRisingIfRplTblMinorThreshNodesNotif"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanFallingIfRplTblMinorThreshNodesNotif"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanRisingIfRplTblMajorThreshNodesNotif"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanFallingIfRplTblMajorThreshNodesNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WPAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-WPAN-MIB"
+  }
+}

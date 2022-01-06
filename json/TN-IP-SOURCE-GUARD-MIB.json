@@ -1,0 +1,467 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressPrefixLength",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TRANSITION-SMI": [
+      "tnProducts"
+    ]
+  },
+  "tnIPSourceGuardMIB": {
+    "name": "tnIPSourceGuardMIB",
+    "oid": "1.3.6.1.4.1.868.2.5.31",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-09-26 00:00",
+        "description": "Initial Revision of this module"
+      }
+    ]
+  },
+  "tnIPSourceGuardMIBObjects": {
+    "name": "tnIPSourceGuardMIBObjects",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1",
+    "class": "objectidentity"
+  },
+  "tnIPSourceGuardMIBNotifications": {
+    "name": "tnIPSourceGuardMIBNotifications",
+    "oid": "1.3.6.1.4.1.868.2.5.31.2",
+    "class": "objectidentity"
+  },
+  "tnIPSourceGuardMgmt": {
+    "name": "tnIPSourceGuardMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1",
+    "class": "objectidentity"
+  },
+  "tnIPSourceGuardTable": {
+    "name": "tnIPSourceGuardTable",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIPSourceGuardEntry": {
+    "name": "tnIPSourceGuardEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnIPSourceGuardGlobalMode": {
+    "name": "tnIPSourceGuardGlobalMode",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIPSourceGuardDynamicToStatic": {
+    "name": "tnIPSourceGuardDynamicToStatic",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIPSourceGuardIfTable": {
+    "name": "tnIPSourceGuardIfTable",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIPSourceGuardIfEntry": {
+    "name": "tnIPSourceGuardIfEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnIPSourceGuardIfMode": {
+    "name": "tnIPSourceGuardIfMode",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIPSourceGuardIfMaxDynamicClients": {
+    "name": "tnIPSourceGuardIfMaxDynamicClients",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "zero": 0,
+          "one": 1,
+          "two": 2,
+          "unlimited": 65535
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unlimited",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIPSourceGuardStaticTable": {
+    "name": "tnIPSourceGuardStaticTable",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIPSourceGuardStaticEntry": {
+    "name": "tnIPSourceGuardStaticEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-IP-SOURCE-GUARD-MIB",
+        "object": "tnIPSourceGuardStaticPort",
+        "implied": 0
+      },
+      {
+        "module": "TN-IP-SOURCE-GUARD-MIB",
+        "object": "tnIPSourceGuardStaticVlanID",
+        "implied": 0
+      },
+      {
+        "module": "TN-IP-SOURCE-GUARD-MIB",
+        "object": "tnIPSourceGuardStaticAddrType",
+        "implied": 0
+      },
+      {
+        "module": "TN-IP-SOURCE-GUARD-MIB",
+        "object": "tnIPSourceGuardStaticAddr",
+        "implied": 0
+      },
+      {
+        "module": "TN-IP-SOURCE-GUARD-MIB",
+        "object": "tnIPSourceGuardStaticMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnIPSourceGuardStaticPort": {
+    "name": "tnIPSourceGuardStaticPort",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIPSourceGuardStaticVlanID": {
+    "name": "tnIPSourceGuardStaticVlanID",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIPSourceGuardStaticAddrType": {
+    "name": "tnIPSourceGuardStaticAddrType",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIPSourceGuardStaticAddr": {
+    "name": "tnIPSourceGuardStaticAddr",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIPSourceGuardStaticMask": {
+    "name": "tnIPSourceGuardStaticMask",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIPSourceGuardStaticMacAddress": {
+    "name": "tnIPSourceGuardStaticMacAddress",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnIPSourceGuardStaticRowStatus": {
+    "name": "tnIPSourceGuardStaticRowStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnIPSourceGuardDynamicTable": {
+    "name": "tnIPSourceGuardDynamicTable",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIPSourceGuardDynamicEntry": {
+    "name": "tnIPSourceGuardDynamicEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-IP-SOURCE-GUARD-MIB",
+        "object": "tnIPSourceGuardDynamicPort",
+        "implied": 0
+      },
+      {
+        "module": "TN-IP-SOURCE-GUARD-MIB",
+        "object": "tnIPSourceGuardDynamicVlanID",
+        "implied": 0
+      },
+      {
+        "module": "TN-IP-SOURCE-GUARD-MIB",
+        "object": "tnIPSourceGuardDynamicAddrType",
+        "implied": 0
+      },
+      {
+        "module": "TN-IP-SOURCE-GUARD-MIB",
+        "object": "tnIPSourceGuardDynamicAddr",
+        "implied": 0
+      },
+      {
+        "module": "TN-IP-SOURCE-GUARD-MIB",
+        "object": "tnIPSourceGuardDynamicMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnIPSourceGuardDynamicPort": {
+    "name": "tnIPSourceGuardDynamicPort",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIPSourceGuardDynamicVlanID": {
+    "name": "tnIPSourceGuardDynamicVlanID",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIPSourceGuardDynamicAddrType": {
+    "name": "tnIPSourceGuardDynamicAddrType",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIPSourceGuardDynamicAddr": {
+    "name": "tnIPSourceGuardDynamicAddr",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIPSourceGuardDynamicMask": {
+    "name": "tnIPSourceGuardDynamicMask",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIPSourceGuardDynamicMacAddress": {
+    "name": "tnIPSourceGuardDynamicMacAddress",
+    "oid": "1.3.6.1.4.1.868.2.5.31.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-IP-SOURCE-GUARD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-IP-SOURCE-GUARD-MIB"
+  }
+}

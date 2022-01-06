@@ -1,0 +1,1962 @@
+{
+  "imports": {
+    "class": "imports",
+    "COLUBRIS-DEVICE-MIB": [
+      "coDevDisIndex"
+    ],
+    "COLUBRIS-SMI": [
+      "colubrisMgmtV2"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Counter32",
+      "Integer32",
+      "iso",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "colubrisDeviceWdsMIB": {
+    "name": "colubrisDeviceWdsMIB",
+    "oid": "1.3.6.1.4.1.8744.5.34",
+    "class": "moduleidentity"
+  },
+  "colubrisDeviceWdsMIBObjects": {
+    "name": "colubrisDeviceWdsMIBObjects",
+    "oid": "1.3.6.1.4.1.8744.5.34.1",
+    "class": "objectidentity"
+  },
+  "coDeviceWDSInfoGroup": {
+    "name": "coDeviceWDSInfoGroup",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.2",
+    "class": "objectidentity"
+  },
+  "coDeviceWDSRadioGroup": {
+    "name": "coDeviceWDSRadioGroup",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.3",
+    "class": "objectidentity"
+  },
+  "coDeviceWDSGroupGroup": {
+    "name": "coDeviceWDSGroupGroup",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.4",
+    "class": "objectidentity"
+  },
+  "coDeviceWDSLinkGroup": {
+    "name": "coDeviceWDSLinkGroup",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5",
+    "class": "objectidentity"
+  },
+  "coDeviceWDSNetworkScanGroup": {
+    "name": "coDeviceWDSNetworkScanGroup",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.6",
+    "class": "objectidentity"
+  },
+  "coDeviceWdsInfoTable": {
+    "name": "coDeviceWdsInfoTable",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDeviceWdsInfoEntry": {
+    "name": "coDeviceWdsInfoEntry",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COLUBRIS-DEVICE-MIB",
+        "object": "coDevDisIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coDevWDSInfoMaxNumberOfGroup": {
+    "name": "coDevWDSInfoMaxNumberOfGroup",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDeviceWDSRadioTable": {
+    "name": "coDeviceWDSRadioTable",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDeviceWDSRadioEntry": {
+    "name": "coDeviceWDSRadioEntry",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COLUBRIS-DEVICE-MIB",
+        "object": "coDevDisIndex",
+        "implied": 0
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSRadioIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coDevWDSRadioIndex": {
+    "name": "coDevWDSRadioIndex",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDevWDSRadioAckDistance": {
+    "name": "coDevWDSRadioAckDistance",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "km",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSRadioQoS": {
+    "name": "coDevWDSRadioQoS",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "vlan": 2,
+          "veryHigh": 3,
+          "high": 4,
+          "normal": 5,
+          "low": 6,
+          "diffSrv": 7,
+          "tos": 8,
+          "ipQos": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDeviceWDSGroupTable": {
+    "name": "coDeviceWDSGroupTable",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDeviceWDSGroupEntry": {
+    "name": "coDeviceWDSGroupEntry",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COLUBRIS-DEVICE-MIB",
+        "object": "coDevDisIndex",
+        "implied": 0
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coDevWDSGroupIndex": {
+    "name": "coDevWDSGroupIndex",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDevWDSGroupName": {
+    "name": "coDevWDSGroupName",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSGroupState": {
+    "name": "coDevWDSGroupState",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discovery": 1,
+          "negotiation": 2,
+          "acquisition": 3,
+          "locked": 4,
+          "shutdown": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSGroupSecurity": {
+    "name": "coDevWDSGroupSecurity",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "wep": 2,
+          "tkip": 3,
+          "aes": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSGroupDynamicMode": {
+    "name": "coDevWDSGroupDynamicMode",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2,
+          "alternateMaster": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSGroupDynamicGroupId": {
+    "name": "coDevWDSGroupDynamicGroupId",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDeviceWDSLinkStatusTable": {
+    "name": "coDeviceWDSLinkStatusTable",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDeviceWDSLinkStatusEntry": {
+    "name": "coDeviceWDSLinkStatusEntry",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COLUBRIS-DEVICE-MIB",
+        "object": "coDevDisIndex",
+        "implied": 0
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStaIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coDevWDSLinkStaIndex": {
+    "name": "coDevWDSLinkStaIndex",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDevWDSLinkStaState": {
+    "name": "coDevWDSLinkStaState",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "acquiring": 2,
+          "inactive": 3,
+          "active": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStaRadio": {
+    "name": "coDevWDSLinkStaRadio",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStaPeerMacAddress": {
+    "name": "coDevWDSLinkStaPeerMacAddress",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStaMaster": {
+    "name": "coDevWDSLinkStaMaster",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStaAuthorized": {
+    "name": "coDevWDSLinkStaAuthorized",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStaEncryption": {
+    "name": "coDevWDSLinkStaEncryption",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "wep": 2,
+          "tkip": 3,
+          "aes": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStaIdleTime": {
+    "name": "coDevWDSLinkStaIdleTime",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStaSNR": {
+    "name": "coDevWDSLinkStaSNR",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 92
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStaTxRate": {
+    "name": "coDevWDSLinkStaTxRate",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "500Kb/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStaRxRate": {
+    "name": "coDevWDSLinkStaRxRate",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "500Kb/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStaIfIndex": {
+    "name": "coDevWDSLinkStaIfIndex",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStaHT": {
+    "name": "coDevWDSLinkStaHT",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStaTxMCS": {
+    "name": "coDevWDSLinkStaTxMCS",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStaRxMCS": {
+    "name": "coDevWDSLinkStaRxMCS",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStaSignal": {
+    "name": "coDevWDSLinkStaSignal",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStaNoise": {
+    "name": "coDevWDSLinkStaNoise",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDeviceWDSLinkStatsRatesTable": {
+    "name": "coDeviceWDSLinkStatsRatesTable",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDeviceWDSLinkStatsRatesEntry": {
+    "name": "coDeviceWDSLinkStatsRatesEntry",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "coDeviceWDSLinkStatsRatesEntry",
+      "module": "COLUBRIS-DEVICE-WDS-MIB",
+      "object": "coDeviceWDSLinkStatusEntry"
+    },
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxRate1": {
+    "name": "coDevWDSLinkStsPktsTxRate1",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxRate2": {
+    "name": "coDevWDSLinkStsPktsTxRate2",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxRate5dot5": {
+    "name": "coDevWDSLinkStsPktsTxRate5dot5",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxRate11": {
+    "name": "coDevWDSLinkStsPktsTxRate11",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxRate6": {
+    "name": "coDevWDSLinkStsPktsTxRate6",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxRate9": {
+    "name": "coDevWDSLinkStsPktsTxRate9",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxRate12": {
+    "name": "coDevWDSLinkStsPktsTxRate12",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxRate18": {
+    "name": "coDevWDSLinkStsPktsTxRate18",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxRate24": {
+    "name": "coDevWDSLinkStsPktsTxRate24",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxRate36": {
+    "name": "coDevWDSLinkStsPktsTxRate36",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxRate48": {
+    "name": "coDevWDSLinkStsPktsTxRate48",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxRate54": {
+    "name": "coDevWDSLinkStsPktsTxRate54",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxRate1": {
+    "name": "coDevWDSLinkStsPktsRxRate1",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxRate2": {
+    "name": "coDevWDSLinkStsPktsRxRate2",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxRate5dot5": {
+    "name": "coDevWDSLinkStsPktsRxRate5dot5",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxRate11": {
+    "name": "coDevWDSLinkStsPktsRxRate11",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxRate6": {
+    "name": "coDevWDSLinkStsPktsRxRate6",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxRate9": {
+    "name": "coDevWDSLinkStsPktsRxRate9",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxRate12": {
+    "name": "coDevWDSLinkStsPktsRxRate12",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxRate18": {
+    "name": "coDevWDSLinkStsPktsRxRate18",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxRate24": {
+    "name": "coDevWDSLinkStsPktsRxRate24",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxRate36": {
+    "name": "coDevWDSLinkStsPktsRxRate36",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxRate48": {
+    "name": "coDevWDSLinkStsPktsRxRate48",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxRate54": {
+    "name": "coDevWDSLinkStsPktsRxRate54",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDeviceWDSLinkStatsHTRatesTable": {
+    "name": "coDeviceWDSLinkStatsHTRatesTable",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDeviceWDSLinkStatsHTRatesEntry": {
+    "name": "coDeviceWDSLinkStatsHTRatesEntry",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "coDeviceWDSLinkStatsHTRatesEntry",
+      "module": "COLUBRIS-DEVICE-WDS-MIB",
+      "object": "coDeviceWDSLinkStatusEntry"
+    },
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxMCS0": {
+    "name": "coDevWDSLinkStsPktsTxMCS0",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxMCS1": {
+    "name": "coDevWDSLinkStsPktsTxMCS1",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxMCS2": {
+    "name": "coDevWDSLinkStsPktsTxMCS2",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxMCS3": {
+    "name": "coDevWDSLinkStsPktsTxMCS3",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxMCS4": {
+    "name": "coDevWDSLinkStsPktsTxMCS4",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxMCS5": {
+    "name": "coDevWDSLinkStsPktsTxMCS5",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxMCS6": {
+    "name": "coDevWDSLinkStsPktsTxMCS6",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxMCS7": {
+    "name": "coDevWDSLinkStsPktsTxMCS7",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxMCS8": {
+    "name": "coDevWDSLinkStsPktsTxMCS8",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxMCS9": {
+    "name": "coDevWDSLinkStsPktsTxMCS9",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxMCS10": {
+    "name": "coDevWDSLinkStsPktsTxMCS10",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxMCS11": {
+    "name": "coDevWDSLinkStsPktsTxMCS11",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxMCS12": {
+    "name": "coDevWDSLinkStsPktsTxMCS12",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxMCS13": {
+    "name": "coDevWDSLinkStsPktsTxMCS13",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxMCS14": {
+    "name": "coDevWDSLinkStsPktsTxMCS14",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsTxMCS15": {
+    "name": "coDevWDSLinkStsPktsTxMCS15",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxMCS0": {
+    "name": "coDevWDSLinkStsPktsRxMCS0",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxMCS1": {
+    "name": "coDevWDSLinkStsPktsRxMCS1",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxMCS2": {
+    "name": "coDevWDSLinkStsPktsRxMCS2",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxMCS3": {
+    "name": "coDevWDSLinkStsPktsRxMCS3",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxMCS4": {
+    "name": "coDevWDSLinkStsPktsRxMCS4",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxMCS5": {
+    "name": "coDevWDSLinkStsPktsRxMCS5",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxMCS6": {
+    "name": "coDevWDSLinkStsPktsRxMCS6",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxMCS7": {
+    "name": "coDevWDSLinkStsPktsRxMCS7",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxMCS8": {
+    "name": "coDevWDSLinkStsPktsRxMCS8",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxMCS9": {
+    "name": "coDevWDSLinkStsPktsRxMCS9",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxMCS10": {
+    "name": "coDevWDSLinkStsPktsRxMCS10",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxMCS11": {
+    "name": "coDevWDSLinkStsPktsRxMCS11",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxMCS12": {
+    "name": "coDevWDSLinkStsPktsRxMCS12",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxMCS13": {
+    "name": "coDevWDSLinkStsPktsRxMCS13",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxMCS14": {
+    "name": "coDevWDSLinkStsPktsRxMCS14",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSLinkStsPktsRxMCS15": {
+    "name": "coDevWDSLinkStsPktsRxMCS15",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.5.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDeviceWDSNetworkScanTable": {
+    "name": "coDeviceWDSNetworkScanTable",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDeviceWDSNetworkScanEntry": {
+    "name": "coDeviceWDSNetworkScanEntry",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COLUBRIS-DEVICE-MIB",
+        "object": "coDevDisIndex",
+        "implied": 0
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSScanRadioIndex",
+        "implied": 0
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSScanPeerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coDevWDSScanRadioIndex": {
+    "name": "coDevWDSScanRadioIndex",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDevWDSScanPeerIndex": {
+    "name": "coDevWDSScanPeerIndex",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDevWDSScanGroupId": {
+    "name": "coDevWDSScanGroupId",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSScanPeerMacAddress": {
+    "name": "coDevWDSScanPeerMacAddress",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSScanChannel": {
+    "name": "coDevWDSScanChannel",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 199
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSScanSNR": {
+    "name": "coDevWDSScanSNR",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 92
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSScanMode": {
+    "name": "coDevWDSScanMode",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2,
+          "alternateMaster": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWDSScanAvailable": {
+    "name": "coDevWDSScanAvailable",
+    "oid": "1.3.6.1.4.1.8744.5.34.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisDeviceWdsMIBNotificationPrefix": {
+    "name": "colubrisDeviceWdsMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.8744.5.34.2",
+    "class": "objectidentity"
+  },
+  "colubrisDeviceWdsMIBNotifications": {
+    "name": "colubrisDeviceWdsMIBNotifications",
+    "oid": "1.3.6.1.4.1.8744.5.34.2.0",
+    "class": "objectidentity"
+  },
+  "colubrisDeviceWdsMIBConformance": {
+    "name": "colubrisDeviceWdsMIBConformance",
+    "oid": "1.3.6.1.4.1.8744.5.34.3",
+    "class": "objectidentity"
+  },
+  "colubrisDeviceWdsMIBCompliances": {
+    "name": "colubrisDeviceWdsMIBCompliances",
+    "oid": "1.3.6.1.4.1.8744.5.34.3.1",
+    "class": "objectidentity"
+  },
+  "colubrisDeviceWdsMIBGroups": {
+    "name": "colubrisDeviceWdsMIBGroups",
+    "oid": "1.3.6.1.4.1.8744.5.34.3.2",
+    "class": "objectidentity"
+  },
+  "colubrisDeviceWdsMIBCompliance": {
+    "name": "colubrisDeviceWdsMIBCompliance",
+    "oid": "1.3.6.1.4.1.8744.5.34.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "colubrisDeviceWdsInfoMIBGroup",
+        "module": "COLUBRIS-DEVICE-WDS-MIB"
+      },
+      {
+        "object": "colubrisDeviceWdsRadioMIBGroup",
+        "module": "COLUBRIS-DEVICE-WDS-MIB"
+      },
+      {
+        "object": "colubrisDeviceWdsGroupMIBGroup",
+        "module": "COLUBRIS-DEVICE-WDS-MIB"
+      },
+      {
+        "object": "colubrisDeviceWdsLinkMIBGroup",
+        "module": "COLUBRIS-DEVICE-WDS-MIB"
+      },
+      {
+        "object": "colubrisDeviceWdsNetworkScanMIBGroup",
+        "module": "COLUBRIS-DEVICE-WDS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisDeviceWdsInfoMIBGroup": {
+    "name": "colubrisDeviceWdsInfoMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.34.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSInfoMaxNumberOfGroup"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisDeviceWdsRadioMIBGroup": {
+    "name": "colubrisDeviceWdsRadioMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.34.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSRadioAckDistance"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSRadioQoS"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisDeviceWdsGroupMIBGroup": {
+    "name": "colubrisDeviceWdsGroupMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.34.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSGroupName"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSGroupState"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSGroupSecurity"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSGroupDynamicMode"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSGroupDynamicGroupId"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisDeviceWdsLinkMIBGroup": {
+    "name": "colubrisDeviceWdsLinkMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.34.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStaState"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStaRadio"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStaPeerMacAddress"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStaMaster"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStaAuthorized"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStaEncryption"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStaIdleTime"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStaSNR"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStaTxRate"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStaRxRate"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStaIfIndex"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStaHT"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStaTxMCS"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStaRxMCS"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStaSignal"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStaNoise"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxRate1"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxRate2"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxRate5dot5"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxRate11"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxRate6"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxRate9"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxRate12"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxRate18"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxRate24"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxRate36"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxRate48"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxRate54"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxRate1"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxRate2"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxRate5dot5"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxRate11"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxRate6"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxRate9"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxRate12"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxRate18"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxRate24"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxRate36"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxRate48"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxRate54"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxMCS0"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxMCS1"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxMCS2"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxMCS3"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxMCS4"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxMCS5"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxMCS6"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxMCS7"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxMCS8"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxMCS9"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxMCS10"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxMCS11"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxMCS12"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxMCS13"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxMCS14"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsTxMCS15"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxMCS0"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxMCS1"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxMCS2"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxMCS3"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxMCS4"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxMCS5"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxMCS6"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxMCS7"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxMCS8"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxMCS9"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxMCS10"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxMCS11"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxMCS12"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxMCS13"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxMCS14"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSLinkStsPktsRxMCS15"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisDeviceWdsNetworkScanMIBGroup": {
+    "name": "colubrisDeviceWdsNetworkScanMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.34.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSScanGroupId"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSScanPeerMacAddress"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSScanChannel"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSScanSNR"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSScanMode"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WDS-MIB",
+        "object": "coDevWDSScanAvailable"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-DEVICE-WDS-MIB.my",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:36:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "COLUBRIS-DEVICE-WDS-MIB"
+  }
+}

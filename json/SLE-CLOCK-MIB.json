@@ -1,0 +1,1686 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-SMI": [
+      "sleMgmt"
+    ],
+    "SLE-TC-MIB": [
+      "SleControlStatusType",
+      "SleControlRequestResultType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sleClock": {
+    "name": "sleClock",
+    "oid": "1.3.6.1.4.1.6296.101.92",
+    "class": "moduleidentity"
+  },
+  "ClockSourceAll": {
+    "name": "ClockSourceAll",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bitsa": 1,
+          "bitsb": 2,
+          "synce": 3,
+          "ieee1588": 7,
+          "gps10m": 11,
+          "int": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ClockQualityLevel": {
+    "name": "ClockQualityLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "prc": 1,
+          "ssua": 2,
+          "ssub": 3,
+          "sec": 4,
+          "dnu": 5,
+          "stu": 7,
+          "st2": 8,
+          "tnc": 9,
+          "st3e": 10,
+          "st3": 11,
+          "smc": 12,
+          "prov": 13,
+          "dus": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ClockSourceSystem": {
+    "name": "ClockSourceSystem",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bitsa": 1,
+          "bitsb": 2,
+          "synce": 3,
+          "ieee1588": 7,
+          "gps10m": 11,
+          "int": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ClockQualityLevelValid": {
+    "name": "ClockQualityLevelValid",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "prc": 1,
+          "ssua": 2,
+          "ssub": 3,
+          "sec": 4,
+          "dnu": 5,
+          "stu": 7,
+          "st2": 8,
+          "tnc": 9,
+          "st3e": 10,
+          "st3": 11,
+          "smc": 12,
+          "prov": 13,
+          "dus": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "sleClockBaseMode": {
+    "name": "sleClockBaseMode",
+    "oid": "1.3.6.1.4.1.6296.101.92.1",
+    "class": "objectidentity"
+  },
+  "sleClockBaseModeInfo": {
+    "name": "sleClockBaseModeInfo",
+    "oid": "1.3.6.1.4.1.6296.101.92.1.1",
+    "class": "objectidentity"
+  },
+  "sleClockSyncOption": {
+    "name": "sleClockSyncOption",
+    "oid": "1.3.6.1.4.1.6296.101.92.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "option1": 1,
+          "option2gen1": 2,
+          "option2gen2": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockSelectionMode": {
+    "name": "sleClockSelectionMode",
+    "oid": "1.3.6.1.4.1.6296.101.92.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qlEnable": 1,
+          "qlDisable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockBaseModeControl": {
+    "name": "sleClockBaseModeControl",
+    "oid": "1.3.6.1.4.1.6296.101.92.1.2",
+    "class": "objectidentity"
+  },
+  "sleClockModeControlRequest": {
+    "name": "sleClockModeControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.92.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setSyncOption": 1,
+          "setSelectionMode": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleClockModeControlStatus": {
+    "name": "sleClockModeControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.92.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockModeControlTimer": {
+    "name": "sleClockModeControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.92.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleClockModeControlTimeStamp": {
+    "name": "sleClockModeControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.92.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockModeControlReqResult": {
+    "name": "sleClockModeControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.92.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockModeControlSyncOption": {
+    "name": "sleClockModeControlSyncOption",
+    "oid": "1.3.6.1.4.1.6296.101.92.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "option1": 1,
+          "option2gen1": 2,
+          "option2gen2": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleClockModeControlSelectionMode": {
+    "name": "sleClockModeControlSelectionMode",
+    "oid": "1.3.6.1.4.1.6296.101.92.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qlEnable": 1,
+          "qlDisable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleClockBaseModeNotification": {
+    "name": "sleClockBaseModeNotification",
+    "oid": "1.3.6.1.4.1.6296.101.92.1.3",
+    "class": "objectidentity"
+  },
+  "sleClockSyncOptionChanged": {
+    "name": "sleClockSyncOptionChanged",
+    "oid": "1.3.6.1.4.1.6296.101.92.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockModeControlRequest"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockModeControlStatus"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockModeControlTimeStamp"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockModeControlReqResult"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockModeControlSyncOption"
+      }
+    ],
+    "status": "current"
+  },
+  "sleClockSelectionModeChanged": {
+    "name": "sleClockSelectionModeChanged",
+    "oid": "1.3.6.1.4.1.6296.101.92.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockModeControlRequest"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockModeControlStatus"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockModeControlTimeStamp"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockModeControlReqResult"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockModeControlSelectionMode"
+      }
+    ],
+    "status": "current"
+  },
+  "sleClockBits": {
+    "name": "sleClockBits",
+    "oid": "1.3.6.1.4.1.6296.101.92.2",
+    "class": "objectidentity"
+  },
+  "sleClockBitsInfo": {
+    "name": "sleClockBitsInfo",
+    "oid": "1.3.6.1.4.1.6296.101.92.2.1",
+    "class": "objectidentity"
+  },
+  "sleClockBitsType": {
+    "name": "sleClockBitsType",
+    "oid": "1.3.6.1.4.1.6296.101.92.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "t1": 1,
+          "e1": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockBitsFrameMode": {
+    "name": "sleClockBitsFrameMode",
+    "oid": "1.3.6.1.4.1.6296.101.92.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sf": 1,
+          "esf": 2,
+          "g704": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockBitsLineEncoding": {
+    "name": "sleClockBitsLineEncoding",
+    "oid": "1.3.6.1.4.1.6296.101.92.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "b8zs": 1,
+          "ami": 2,
+          "hdb3": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockBitsControl": {
+    "name": "sleClockBitsControl",
+    "oid": "1.3.6.1.4.1.6296.101.92.2.2",
+    "class": "objectidentity"
+  },
+  "sleClockBitsControlRequest": {
+    "name": "sleClockBitsControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.92.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setBitsMode": 1,
+          "setBitsLineEncoding": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleClockBitsControlStatus": {
+    "name": "sleClockBitsControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.92.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockBitsControlTimer": {
+    "name": "sleClockBitsControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.92.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleClockBitsControlTimeStamp": {
+    "name": "sleClockBitsControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.92.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockBitsControlReqResult": {
+    "name": "sleClockBitsControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.92.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockBitsControlType": {
+    "name": "sleClockBitsControlType",
+    "oid": "1.3.6.1.4.1.6296.101.92.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "t1": 1,
+          "e1": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleClockBitsControlFrameMode": {
+    "name": "sleClockBitsControlFrameMode",
+    "oid": "1.3.6.1.4.1.6296.101.92.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sf": 1,
+          "esf": 2,
+          "g704": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleClockBitsControlLineEncoding": {
+    "name": "sleClockBitsControlLineEncoding",
+    "oid": "1.3.6.1.4.1.6296.101.92.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "b8zs": 1,
+          "ami": 2,
+          "hdb3": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleClockBitsNotification": {
+    "name": "sleClockBitsNotification",
+    "oid": "1.3.6.1.4.1.6296.101.92.2.3",
+    "class": "objectidentity"
+  },
+  "sleClockBitsTypeChanged": {
+    "name": "sleClockBitsTypeChanged",
+    "oid": "1.3.6.1.4.1.6296.101.92.2.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsControlRequest"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsControlStatus"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsControlTimeStamp"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsControlReqResult"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsControlType"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsControlFrameMode"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsControlLineEncoding"
+      }
+    ],
+    "status": "current"
+  },
+  "sleClockBitsLineEncodingChanged": {
+    "name": "sleClockBitsLineEncodingChanged",
+    "oid": "1.3.6.1.4.1.6296.101.92.2.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsControlRequest"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsControlStatus"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsControlTimeStamp"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsControlReqResult"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsControlLineEncoding"
+      }
+    ],
+    "status": "current"
+  },
+  "sleClockQlSet": {
+    "name": "sleClockQlSet",
+    "oid": "1.3.6.1.4.1.6296.101.92.3",
+    "class": "objectidentity"
+  },
+  "sleClockQlSetTable": {
+    "name": "sleClockQlSetTable",
+    "oid": "1.3.6.1.4.1.6296.101.92.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleClockQlSetEntry": {
+    "name": "sleClockQlSetEntry",
+    "oid": "1.3.6.1.4.1.6296.101.92.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockQlSetSource",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleClockQlSetSource": {
+    "name": "sleClockQlSetSource",
+    "oid": "1.3.6.1.4.1.6296.101.92.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockSourceAll",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockQlSetQulatyLevel": {
+    "name": "sleClockQlSetQulatyLevel",
+    "oid": "1.3.6.1.4.1.6296.101.92.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockQlSetControl": {
+    "name": "sleClockQlSetControl",
+    "oid": "1.3.6.1.4.1.6296.101.92.3.2",
+    "class": "objectidentity"
+  },
+  "sleClockQlSetControlRequest": {
+    "name": "sleClockQlSetControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.92.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setQualityLevel": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleClockQlSetControlStatus": {
+    "name": "sleClockQlSetControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.92.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockQlSetControlTimer": {
+    "name": "sleClockQlSetControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.92.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleClockQlSetControlTimeStamp": {
+    "name": "sleClockQlSetControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.92.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockQlSetControlReqResult": {
+    "name": "sleClockQlSetControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.92.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockQlSetControlSoruce": {
+    "name": "sleClockQlSetControlSoruce",
+    "oid": "1.3.6.1.4.1.6296.101.92.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockSourceAll",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleClockQlSetControlQualityLevel": {
+    "name": "sleClockQlSetControlQualityLevel",
+    "oid": "1.3.6.1.4.1.6296.101.92.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleClockQlNotification": {
+    "name": "sleClockQlNotification",
+    "oid": "1.3.6.1.4.1.6296.101.92.3.3",
+    "class": "objectidentity"
+  },
+  "sleClockQlSetQualityLevelChanged": {
+    "name": "sleClockQlSetQualityLevelChanged",
+    "oid": "1.3.6.1.4.1.6296.101.92.3.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockQlSetControlRequest"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockQlSetControlStatus"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockQlSetControlTimeStamp"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockQlSetControlReqResult"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockQlSetControlSoruce"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockQlSetControlQualityLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "sleClockSelected": {
+    "name": "sleClockSelected",
+    "oid": "1.3.6.1.4.1.6296.101.92.4",
+    "class": "objectidentity"
+  },
+  "sleClockSelectedInfo": {
+    "name": "sleClockSelectedInfo",
+    "oid": "1.3.6.1.4.1.6296.101.92.4.1",
+    "class": "objectidentity"
+  },
+  "sleClockSelectedSource": {
+    "name": "sleClockSelectedSource",
+    "oid": "1.3.6.1.4.1.6296.101.92.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockSourceSystem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockSelectedState": {
+    "name": "sleClockSelectedState",
+    "oid": "1.3.6.1.4.1.6296.101.92.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "freerun": 1,
+          "holdover": 2,
+          "locked": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockSelectedQualityLevel": {
+    "name": "sleClockSelectedQualityLevel",
+    "oid": "1.3.6.1.4.1.6296.101.92.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockSelectedSwitchType": {
+    "name": "sleClockSelectedSwitchType",
+    "oid": "1.3.6.1.4.1.6296.101.92.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 0,
+          "force": 1,
+          "man": 2,
+          "auto": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockSelectedControl": {
+    "name": "sleClockSelectedControl",
+    "oid": "1.3.6.1.4.1.6296.101.92.4.2",
+    "class": "objectidentity"
+  },
+  "sleClockSelectedControlRequest": {
+    "name": "sleClockSelectedControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.92.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setSwitchClear": 1,
+          "setSwitchMan": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleClockSelectedControlStatus": {
+    "name": "sleClockSelectedControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.92.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockSelectedControlTimer": {
+    "name": "sleClockSelectedControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.92.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleClockSelectedControlTimeStamp": {
+    "name": "sleClockSelectedControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.92.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockSelectedControlReqResult": {
+    "name": "sleClockSelectedControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.92.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockSelectedControlDestSource": {
+    "name": "sleClockSelectedControlDestSource",
+    "oid": "1.3.6.1.4.1.6296.101.92.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockSourceSystem",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleClockSelectedNotification": {
+    "name": "sleClockSelectedNotification",
+    "oid": "1.3.6.1.4.1.6296.101.92.4.3",
+    "class": "objectidentity"
+  },
+  "sleClockSwitchManChanged": {
+    "name": "sleClockSwitchManChanged",
+    "oid": "1.3.6.1.4.1.6296.101.92.4.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSelectedControlRequest"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSelectedControlStatus"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSelectedControlTimeStamp"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSelectedControlReqResult"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSelectedControlDestSource"
+      }
+    ],
+    "status": "current"
+  },
+  "sleClockSwitchClearChanged": {
+    "name": "sleClockSwitchClearChanged",
+    "oid": "1.3.6.1.4.1.6296.101.92.4.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSelectedControlRequest"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSelectedControlStatus"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSelectedControlTimeStamp"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSelectedControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleClockInputSource": {
+    "name": "sleClockInputSource",
+    "oid": "1.3.6.1.4.1.6296.101.92.5",
+    "class": "objectidentity"
+  },
+  "sleClockInputSourceTable": {
+    "name": "sleClockInputSourceTable",
+    "oid": "1.3.6.1.4.1.6296.101.92.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleClockInputSourceEntry": {
+    "name": "sleClockInputSourceEntry",
+    "oid": "1.3.6.1.4.1.6296.101.92.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceSource",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleClockInputSourceSource": {
+    "name": "sleClockInputSourceSource",
+    "oid": "1.3.6.1.4.1.6296.101.92.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockSourceSystem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockInputSourceUse": {
+    "name": "sleClockInputSourceUse",
+    "oid": "1.3.6.1.4.1.6296.101.92.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockInputSourcePriority": {
+    "name": "sleClockInputSourcePriority",
+    "oid": "1.3.6.1.4.1.6296.101.92.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockInputSourceIfName": {
+    "name": "sleClockInputSourceIfName",
+    "oid": "1.3.6.1.4.1.6296.101.92.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockInputSourceConfQulatyLevel": {
+    "name": "sleClockInputSourceConfQulatyLevel",
+    "oid": "1.3.6.1.4.1.6296.101.92.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockInputSourceRecvQulatyLevel": {
+    "name": "sleClockInputSourceRecvQulatyLevel",
+    "oid": "1.3.6.1.4.1.6296.101.92.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockInputSourceValid": {
+    "name": "sleClockInputSourceValid",
+    "oid": "1.3.6.1.4.1.6296.101.92.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "valid": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockInputSourceControl": {
+    "name": "sleClockInputSourceControl",
+    "oid": "1.3.6.1.4.1.6296.101.92.5.2",
+    "class": "objectidentity"
+  },
+  "sleClockInputSourceControlRequest": {
+    "name": "sleClockInputSourceControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.92.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setUseOn": 1,
+          "setUseOff": 2,
+          "setPriority": 3,
+          "setIfName": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleClockInputSourceControlStatus": {
+    "name": "sleClockInputSourceControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.92.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockInputSourceControlTimer": {
+    "name": "sleClockInputSourceControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.92.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleClockInputSourceControlTimeStamp": {
+    "name": "sleClockInputSourceControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.92.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockInputSourceControlReqResult": {
+    "name": "sleClockInputSourceControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.92.5.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleClockInputSourceControlSource": {
+    "name": "sleClockInputSourceControlSource",
+    "oid": "1.3.6.1.4.1.6296.101.92.5.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockSourceSystem",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleClockInputSourceControlPriority": {
+    "name": "sleClockInputSourceControlPriority",
+    "oid": "1.3.6.1.4.1.6296.101.92.5.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleClockInputSourceControlIfName": {
+    "name": "sleClockInputSourceControlIfName",
+    "oid": "1.3.6.1.4.1.6296.101.92.5.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleClockInputSourceNotification": {
+    "name": "sleClockInputSourceNotification",
+    "oid": "1.3.6.1.4.1.6296.101.92.5.3",
+    "class": "objectidentity"
+  },
+  "sleClockInputSourceUseOnChanged": {
+    "name": "sleClockInputSourceUseOnChanged",
+    "oid": "1.3.6.1.4.1.6296.101.92.5.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlRequest"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlStatus"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlTimeStamp"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlReqResult"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlSource"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "sleClockInputSourceUseOffChanged": {
+    "name": "sleClockInputSourceUseOffChanged",
+    "oid": "1.3.6.1.4.1.6296.101.92.5.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlRequest"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlStatus"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlTimeStamp"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlReqResult"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlSource"
+      }
+    ],
+    "status": "current"
+  },
+  "sleClockInputSourcePriorityChanged": {
+    "name": "sleClockInputSourcePriorityChanged",
+    "oid": "1.3.6.1.4.1.6296.101.92.5.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlRequest"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlStatus"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlTimeStamp"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlReqResult"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlSource"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "sleClockInputSourceIfNameChanged": {
+    "name": "sleClockInputSourceIfNameChanged",
+    "oid": "1.3.6.1.4.1.6296.101.92.5.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlRequest"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlStatus"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlTimeStamp"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlReqResult"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlSource"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleClockObjectGroup": {
+    "name": "sleClockObjectGroup",
+    "oid": "1.3.6.1.4.1.6296.101.92.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSyncOption"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSelectionMode"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockModeControlRequest"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockModeControlStatus"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockModeControlTimer"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockModeControlTimeStamp"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockModeControlReqResult"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockModeControlSyncOption"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockModeControlSelectionMode"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsType"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsFrameMode"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsLineEncoding"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsControlRequest"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsControlStatus"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsControlTimer"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsControlTimeStamp"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsControlReqResult"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsControlType"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsControlFrameMode"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsControlLineEncoding"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockQlSetSource"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockQlSetQulatyLevel"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockQlSetControlRequest"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockQlSetControlStatus"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockQlSetControlTimer"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockQlSetControlTimeStamp"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockQlSetControlReqResult"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockQlSetControlSoruce"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockQlSetControlQualityLevel"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSelectedSource"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSelectedState"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSelectedControlRequest"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSelectedControlStatus"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSelectedControlTimer"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSelectedControlTimeStamp"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSelectedControlReqResult"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSelectedControlDestSource"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceSource"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceUse"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourcePriority"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceIfName"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceConfQulatyLevel"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceRecvQulatyLevel"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceValid"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlRequest"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlStatus"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlTimer"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlTimeStamp"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlReqResult"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlSource"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlPriority"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceControlIfName"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSelectedQualityLevel"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSelectedSwitchType"
+      }
+    ],
+    "status": "current"
+  },
+  "sleClockNotificationGroup": {
+    "name": "sleClockNotificationGroup",
+    "oid": "1.3.6.1.4.1.6296.101.92.30",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSyncOptionChanged"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSelectionModeChanged"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsTypeChanged"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockBitsLineEncodingChanged"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockQlSetQualityLevelChanged"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSwitchManChanged"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourcePriorityChanged"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceIfNameChanged"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceUseOnChanged"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockInputSourceUseOffChanged"
+      },
+      {
+        "module": "SLE-CLOCK-MIB",
+        "object": "sleClockSwitchClearChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-CLOCK-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:15 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SLE-CLOCK-MIB"
+  }
+}

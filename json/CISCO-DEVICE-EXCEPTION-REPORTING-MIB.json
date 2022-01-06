@@ -1,0 +1,426 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoDevExcepReportMIB": {
+    "name": "ciscoDevExcepReportMIB",
+    "oid": "1.3.6.1.4.1.9.9.224",
+    "class": "moduleidentity"
+  },
+  "ciscoDevExcepReportMIBObjects": {
+    "name": "ciscoDevExcepReportMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.224.1",
+    "class": "objectidentity"
+  },
+  "cderExceptionData": {
+    "name": "cderExceptionData",
+    "oid": "1.3.6.1.4.1.9.9.224.1.1",
+    "class": "objectidentity"
+  },
+  "cderMaxExceptionRecords": {
+    "name": "cderMaxExceptionRecords",
+    "oid": "1.3.6.1.4.1.9.9.224.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cderNotificationEnabled": {
+    "name": "cderNotificationEnabled",
+    "oid": "1.3.6.1.4.1.9.9.224.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cderNotificationsSent": {
+    "name": "cderNotificationsSent",
+    "oid": "1.3.6.1.4.1.9.9.224.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cderNotificationsDropped": {
+    "name": "cderNotificationsDropped",
+    "oid": "1.3.6.1.4.1.9.9.224.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cderExceptionTable": {
+    "name": "cderExceptionTable",
+    "oid": "1.3.6.1.4.1.9.9.224.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cderExceptionEntry": {
+    "name": "cderExceptionEntry",
+    "oid": "1.3.6.1.4.1.9.9.224.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DEVICE-EXCEPTION-REPORTING-MIB",
+        "object": "cderExcepTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cderExcepTableIndex": {
+    "name": "cderExcepTableIndex",
+    "oid": "1.3.6.1.4.1.9.9.224.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cderExcepId": {
+    "name": "cderExcepId",
+    "oid": "1.3.6.1.4.1.9.9.224.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cderExcepHostAddressType": {
+    "name": "cderExcepHostAddressType",
+    "oid": "1.3.6.1.4.1.9.9.224.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cderExcepHostAddress": {
+    "name": "cderExcepHostAddress",
+    "oid": "1.3.6.1.4.1.9.9.224.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cderExcepPriorityDescription": {
+    "name": "cderExcepPriorityDescription",
+    "oid": "1.3.6.1.4.1.9.9.224.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cderExcepTime": {
+    "name": "cderExcepTime",
+    "oid": "1.3.6.1.4.1.9.9.224.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cderExcepData": {
+    "name": "cderExcepData",
+    "oid": "1.3.6.1.4.1.9.9.224.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cderExcepReportedBy": {
+    "name": "cderExcepReportedBy",
+    "oid": "1.3.6.1.4.1.9.9.224.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cderMIBNotifPrefix": {
+    "name": "cderMIBNotifPrefix",
+    "oid": "1.3.6.1.4.1.9.9.224.2",
+    "class": "objectidentity"
+  },
+  "cderMIBNotifications": {
+    "name": "cderMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.224.2.0",
+    "class": "objectidentity"
+  },
+  "cderMonitoredExceptionEvent": {
+    "name": "cderMonitoredExceptionEvent",
+    "oid": "1.3.6.1.4.1.9.9.224.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DEVICE-EXCEPTION-REPORTING-MIB",
+        "object": "cderExcepId"
+      },
+      {
+        "module": "CISCO-DEVICE-EXCEPTION-REPORTING-MIB",
+        "object": "cderExcepHostAddressType"
+      },
+      {
+        "module": "CISCO-DEVICE-EXCEPTION-REPORTING-MIB",
+        "object": "cderExcepHostAddress"
+      },
+      {
+        "module": "CISCO-DEVICE-EXCEPTION-REPORTING-MIB",
+        "object": "cderExcepPriorityDescription"
+      },
+      {
+        "module": "CISCO-DEVICE-EXCEPTION-REPORTING-MIB",
+        "object": "cderExcepTime"
+      },
+      {
+        "module": "CISCO-DEVICE-EXCEPTION-REPORTING-MIB",
+        "object": "cderExcepData"
+      },
+      {
+        "module": "CISCO-DEVICE-EXCEPTION-REPORTING-MIB",
+        "object": "cderExcepReportedBy"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDEReportMIBConformance": {
+    "name": "ciscoDEReportMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.224.3",
+    "class": "objectidentity"
+  },
+  "ciscoDEReportMIBCompliances": {
+    "name": "ciscoDEReportMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.224.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoDEReportMIBGroups": {
+    "name": "ciscoDEReportMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.224.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoDEReportMIBCompliance": {
+    "name": "ciscoDEReportMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.224.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDERExceptionDataGroup",
+        "module": "CISCO-DEVICE-EXCEPTION-REPORTING-MIB"
+      },
+      {
+        "object": "ciscoDERExceptionGroup",
+        "module": "CISCO-DEVICE-EXCEPTION-REPORTING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDERExceptionDataGroup": {
+    "name": "ciscoDERExceptionDataGroup",
+    "oid": "1.3.6.1.4.1.9.9.224.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DEVICE-EXCEPTION-REPORTING-MIB",
+        "object": "cderMaxExceptionRecords"
+      },
+      {
+        "module": "CISCO-DEVICE-EXCEPTION-REPORTING-MIB",
+        "object": "cderNotificationEnabled"
+      },
+      {
+        "module": "CISCO-DEVICE-EXCEPTION-REPORTING-MIB",
+        "object": "cderNotificationsSent"
+      },
+      {
+        "module": "CISCO-DEVICE-EXCEPTION-REPORTING-MIB",
+        "object": "cderNotificationsDropped"
+      },
+      {
+        "module": "CISCO-DEVICE-EXCEPTION-REPORTING-MIB",
+        "object": "cderExcepId"
+      },
+      {
+        "module": "CISCO-DEVICE-EXCEPTION-REPORTING-MIB",
+        "object": "cderExcepHostAddressType"
+      },
+      {
+        "module": "CISCO-DEVICE-EXCEPTION-REPORTING-MIB",
+        "object": "cderExcepHostAddress"
+      },
+      {
+        "module": "CISCO-DEVICE-EXCEPTION-REPORTING-MIB",
+        "object": "cderExcepPriorityDescription"
+      },
+      {
+        "module": "CISCO-DEVICE-EXCEPTION-REPORTING-MIB",
+        "object": "cderExcepTime"
+      },
+      {
+        "module": "CISCO-DEVICE-EXCEPTION-REPORTING-MIB",
+        "object": "cderExcepData"
+      },
+      {
+        "module": "CISCO-DEVICE-EXCEPTION-REPORTING-MIB",
+        "object": "cderExcepReportedBy"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDERExceptionGroup": {
+    "name": "ciscoDERExceptionGroup",
+    "oid": "1.3.6.1.4.1.9.9.224.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-DEVICE-EXCEPTION-REPORTING-MIB",
+        "object": "cderMonitoredExceptionEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DEVICE-EXCEPTION-REPORTING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DEVICE-EXCEPTION-REPORTING-MIB"
+  }
+}

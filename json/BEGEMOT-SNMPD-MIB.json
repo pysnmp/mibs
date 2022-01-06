@@ -1,0 +1,775 @@
+{
+  "imports": {
+    "class": "imports",
+    "BEGEMOT-MIB": [
+      "begemot"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "iso",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "begemotSnmpd": {
+    "name": "begemotSnmpd",
+    "oid": "1.3.6.1.4.1.12325.1.1",
+    "class": "moduleidentity"
+  },
+  "begemotSnmpdObjects": {
+    "name": "begemotSnmpdObjects",
+    "oid": "1.3.6.1.4.1.12325.1.1.1",
+    "class": "objectidentity"
+  },
+  "begemotSnmpdDefs": {
+    "name": "begemotSnmpdDefs",
+    "oid": "1.3.6.1.4.1.12325.1.1.2",
+    "class": "objectidentity"
+  },
+  "SectionName": {
+    "name": "SectionName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "displayhint": "14a",
+    "status": "current"
+  },
+  "begemotSnmpdAgent": {
+    "name": "begemotSnmpdAgent",
+    "oid": "1.3.6.1.4.1.12325.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "begemotSnmpdAgentFreeBSD": {
+    "name": "begemotSnmpdAgentFreeBSD",
+    "oid": "1.3.6.1.4.1.12325.1.1.2.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "begemotSnmpdConfig": {
+    "name": "begemotSnmpdConfig",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "begemotSnmpdTransmitBuffer": {
+    "name": "begemotSnmpdTransmitBuffer",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 484,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2048,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotSnmpdReceiveBuffer": {
+    "name": "begemotSnmpdReceiveBuffer",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 484,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2048,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotSnmpdCommunityDisable": {
+    "name": "begemotSnmpdCommunityDisable",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotSnmpdTrap1Addr": {
+    "name": "begemotSnmpdTrap1Addr",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotSnmpdVersionEnable": {
+    "name": "begemotSnmpdVersionEnable",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotTrapSinkTable": {
+    "name": "begemotTrapSinkTable",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BEGEMOT-SNMPD-MIB",
+        "object": "begemotTrapSinkAddr",
+        "implied": 0
+      },
+      {
+        "module": "BEGEMOT-SNMPD-MIB",
+        "object": "begemotTrapSinkPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "begemotTrapSinkEntry": {
+    "name": "begemotTrapSinkEntry",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BEGEMOT-SNMPD-MIB",
+        "object": "begemotTrapSinkAddr",
+        "implied": 0
+      },
+      {
+        "module": "BEGEMOT-SNMPD-MIB",
+        "object": "begemotTrapSinkPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "begemotTrapSinkAddr": {
+    "name": "begemotTrapSinkAddr",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotTrapSinkPort": {
+    "name": "begemotTrapSinkPort",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotTrapSinkStatus": {
+    "name": "begemotTrapSinkStatus",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "begemotSnmpdPortTable": {
+    "name": "begemotSnmpdPortTable",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotSnmpdPortEntry": {
+    "name": "begemotSnmpdPortEntry",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BEGEMOT-SNMPD-MIB",
+        "object": "begemotSnmpdPortAddress",
+        "implied": 0
+      },
+      {
+        "module": "BEGEMOT-SNMPD-MIB",
+        "object": "begemotSnmpdPortPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "begemotSnmpdPortAddress": {
+    "name": "begemotSnmpdPortAddress",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotSnmpdPortPort": {
+    "name": "begemotSnmpdPortPort",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotSnmpdPortStatus": {
+    "name": "begemotSnmpdPortStatus",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "begemotSnmpdCommunityTable": {
+    "name": "begemotSnmpdCommunityTable",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotSnmpdCommunityEntry": {
+    "name": "begemotSnmpdCommunityEntry",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BEGEMOT-SNMPD-MIB",
+        "object": "begemotSnmpdCommunityModule",
+        "implied": 0
+      },
+      {
+        "module": "BEGEMOT-SNMPD-MIB",
+        "object": "begemotSnmpdCommunityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "begemotSnmpdCommunityModule": {
+    "name": "begemotSnmpdCommunityModule",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SectionName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotSnmpdCommunityIndex": {
+    "name": "begemotSnmpdCommunityIndex",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotSnmpdCommunityString": {
+    "name": "begemotSnmpdCommunityString",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotSnmpdCommunityDescr": {
+    "name": "begemotSnmpdCommunityDescr",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotSnmpdModuleTable": {
+    "name": "begemotSnmpdModuleTable",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotSnmpdModuleEntry": {
+    "name": "begemotSnmpdModuleEntry",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BEGEMOT-SNMPD-MIB",
+        "object": "begemotSnmpdModuleSection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "begemotSnmpdModuleSection": {
+    "name": "begemotSnmpdModuleSection",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SectionName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotSnmpdModulePath": {
+    "name": "begemotSnmpdModulePath",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "begemotSnmpdModuleComment": {
+    "name": "begemotSnmpdModuleComment",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotSnmpdStats": {
+    "name": "begemotSnmpdStats",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.7",
+    "class": "objectidentity"
+  },
+  "begemotSnmpdStatsNoRxBufs": {
+    "name": "begemotSnmpdStatsNoRxBufs",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotSnmpdStatsNoTxBufs": {
+    "name": "begemotSnmpdStatsNoTxBufs",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotSnmpdStatsInTooLongPkts": {
+    "name": "begemotSnmpdStatsInTooLongPkts",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotSnmpdStatsInBadPduTypes": {
+    "name": "begemotSnmpdStatsInBadPduTypes",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotSnmpdDebug": {
+    "name": "begemotSnmpdDebug",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.8",
+    "class": "objectidentity"
+  },
+  "begemotSnmpdDebugDumpPdus": {
+    "name": "begemotSnmpdDebugDumpPdus",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotSnmpdDebugSnmpTrace": {
+    "name": "begemotSnmpdDebugSnmpTrace",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotSnmpdDebugSyslogPri": {
+    "name": "begemotSnmpdDebugSyslogPri",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotSnmpdLocalPortTable": {
+    "name": "begemotSnmpdLocalPortTable",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotSnmpdLocalPortEntry": {
+    "name": "begemotSnmpdLocalPortEntry",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BEGEMOT-SNMPD-MIB",
+        "object": "begemotSnmpdLocalPortPath",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "begemotSnmpdLocalPortPath": {
+    "name": "begemotSnmpdLocalPortPath",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 104
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotSnmpdLocalPortStatus": {
+    "name": "begemotSnmpdLocalPortStatus",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "begemotSnmpdLocalPortType": {
+    "name": "begemotSnmpdLocalPortType",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dgram-unpriv": 1,
+          "dgram-priv": 2,
+          "stream-unpriv": 3,
+          "stream-priv": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "begemotSnmpdTransportMappings": {
+    "name": "begemotSnmpdTransportMappings",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.10",
+    "class": "objectidentity"
+  },
+  "begemotSnmpdTransportTable": {
+    "name": "begemotSnmpdTransportTable",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotSnmpdTransportEntry": {
+    "name": "begemotSnmpdTransportEntry",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BEGEMOT-SNMPD-MIB",
+        "object": "begemotSnmpdTransportName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "begemotSnmpdTransportName": {
+    "name": "begemotSnmpdTransportName",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotSnmpdTransportStatus": {
+    "name": "begemotSnmpdTransportStatus",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotSnmpdTransportOid": {
+    "name": "begemotSnmpdTransportOid",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotSnmpdTransUdp": {
+    "name": "begemotSnmpdTransUdp",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.10.2",
+    "class": "objectidentity"
+  },
+  "begemotSnmpdTransLsock": {
+    "name": "begemotSnmpdTransLsock",
+    "oid": "1.3.6.1.4.1.12325.1.1.1.10.3",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pfsense/BEGEMOT-SNMPD",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:46:42 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BEGEMOT-SNMPD-MIB"
+  }
+}

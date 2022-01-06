@@ -1,0 +1,772 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv4",
+      "InetAddressType",
+      "InetAddressIPv6",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "dlinkSwSFlowMIB": {
+    "name": "dlinkSwSFlowMIB",
+    "oid": "1.3.6.1.4.1.171.14.36",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-04-10 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "dSFlowMIBNotifications": {
+    "name": "dSFlowMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.36.0",
+    "class": "objectidentity"
+  },
+  "dSFlowMIBObjects": {
+    "name": "dSFlowMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.36.1",
+    "class": "objectidentity"
+  },
+  "dSFlowMIBConformance": {
+    "name": "dSFlowMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.36.2",
+    "class": "objectidentity"
+  },
+  "DSFlowDataSource": {
+    "name": "DSFlowDataSource",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "DSFlowInstance": {
+    "name": "DSFlowInstance",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "DSFlowReceiver": {
+    "name": "DSFlowReceiver",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "dSFlowVersion": {
+    "name": "dSFlowVersion",
+    "oid": "1.3.6.1.4.1.171.14.36.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "1.3;;",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dSFlowAgentAddressIPv4": {
+    "name": "dSFlowAgentAddressIPv4",
+    "oid": "1.3.6.1.4.1.171.14.36.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dSFlowAgentAddressIPv6": {
+    "name": "dSFlowAgentAddressIPv6",
+    "oid": "1.3.6.1.4.1.171.14.36.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dSFlowRcvrTable": {
+    "name": "dSFlowRcvrTable",
+    "oid": "1.3.6.1.4.1.171.14.36.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dSFlowRcvrEntry": {
+    "name": "dSFlowRcvrEntry",
+    "oid": "1.3.6.1.4.1.171.14.36.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowRcvrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dSFlowRcvrIndex": {
+    "name": "dSFlowRcvrIndex",
+    "oid": "1.3.6.1.4.1.171.14.36.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dSFlowRcvrOwner": {
+    "name": "dSFlowRcvrOwner",
+    "oid": "1.3.6.1.4.1.171.14.36.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dSFlowRcvrAdminTimeout": {
+    "name": "dSFlowRcvrAdminTimeout",
+    "oid": "1.3.6.1.4.1.171.14.36.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dSFlowRcvrCurrentTimeout": {
+    "name": "dSFlowRcvrCurrentTimeout",
+    "oid": "1.3.6.1.4.1.171.14.36.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dSFlowRcvrMaximumDatagramSize": {
+    "name": "dSFlowRcvrMaximumDatagramSize",
+    "oid": "1.3.6.1.4.1.171.14.36.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 700,
+            "max": 1400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1400,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dSFlowRcvrAddressType": {
+    "name": "dSFlowRcvrAddressType",
+    "oid": "1.3.6.1.4.1.171.14.36.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dSFlowRcvrAddress": {
+    "name": "dSFlowRcvrAddress",
+    "oid": "1.3.6.1.4.1.171.14.36.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dSFlowRcvrVrfName": {
+    "name": "dSFlowRcvrVrfName",
+    "oid": "1.3.6.1.4.1.171.14.36.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dSFlowRcvrPort": {
+    "name": "dSFlowRcvrPort",
+    "oid": "1.3.6.1.4.1.171.14.36.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6343,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dSFlowRcvrDatagramVersion": {
+    "name": "dSFlowRcvrDatagramVersion",
+    "oid": "1.3.6.1.4.1.171.14.36.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dSFlowRcvrReset": {
+    "name": "dSFlowRcvrReset",
+    "oid": "1.3.6.1.4.1.171.14.36.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noOp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dSFlowFsTable": {
+    "name": "dSFlowFsTable",
+    "oid": "1.3.6.1.4.1.171.14.36.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dSFlowFsEntry": {
+    "name": "dSFlowFsEntry",
+    "oid": "1.3.6.1.4.1.171.14.36.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowFsDataSource",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowFsInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dSFlowFsDataSource": {
+    "name": "dSFlowFsDataSource",
+    "oid": "1.3.6.1.4.1.171.14.36.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DSFlowDataSource",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dSFlowFsInstance": {
+    "name": "dSFlowFsInstance",
+    "oid": "1.3.6.1.4.1.171.14.36.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DSFlowInstance",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dSFlowFsReceiver": {
+    "name": "dSFlowFsReceiver",
+    "oid": "1.3.6.1.4.1.171.14.36.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DSFlowReceiver",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dSFlowFsDirection": {
+    "name": "dSFlowFsDirection",
+    "oid": "1.3.6.1.4.1.171.14.36.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "inbound",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dSFlowFsAdminSamplingRate": {
+    "name": "dSFlowFsAdminSamplingRate",
+    "oid": "1.3.6.1.4.1.171.14.36.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dSFlowFsActiveSamplingRate": {
+    "name": "dSFlowFsActiveSamplingRate",
+    "oid": "1.3.6.1.4.1.171.14.36.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dSFlowFsMaximumHeaderSize": {
+    "name": "dSFlowFsMaximumHeaderSize",
+    "oid": "1.3.6.1.4.1.171.14.36.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 18,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 128,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dSFlowFsRowStatus": {
+    "name": "dSFlowFsRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.36.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dSFlowCpTable": {
+    "name": "dSFlowCpTable",
+    "oid": "1.3.6.1.4.1.171.14.36.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dSFlowCpEntry": {
+    "name": "dSFlowCpEntry",
+    "oid": "1.3.6.1.4.1.171.14.36.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowCpDataSource",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowCpInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dSFlowCpDataSource": {
+    "name": "dSFlowCpDataSource",
+    "oid": "1.3.6.1.4.1.171.14.36.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DSFlowDataSource",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dSFlowCpInstance": {
+    "name": "dSFlowCpInstance",
+    "oid": "1.3.6.1.4.1.171.14.36.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DSFlowInstance",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dSFlowCpReceiver": {
+    "name": "dSFlowCpReceiver",
+    "oid": "1.3.6.1.4.1.171.14.36.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DSFlowReceiver",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dSFlowCpInterval": {
+    "name": "dSFlowCpInterval",
+    "oid": "1.3.6.1.4.1.171.14.36.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dSFlowCpRowStatus": {
+    "name": "dSFlowCpRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.36.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dSFlowMIBCompliances": {
+    "name": "dSFlowMIBCompliances",
+    "oid": "1.3.6.1.4.1.171.14.36.2.1",
+    "class": "objectidentity"
+  },
+  "dSFlowMIBGroups": {
+    "name": "dSFlowMIBGroups",
+    "oid": "1.3.6.1.4.1.171.14.36.2.2",
+    "class": "objectidentity"
+  },
+  "dSFlowCompliance": {
+    "name": "dSFlowCompliance",
+    "oid": "1.3.6.1.4.1.171.14.36.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dSFlowAgentGroup",
+        "module": "DLINKSW-SFLOW-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dSFlowAgentGroup": {
+    "name": "dSFlowAgentGroup",
+    "oid": "1.3.6.1.4.1.171.14.36.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowVersion"
+      },
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowAgentAddressIPv4"
+      },
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowAgentAddressIPv6"
+      },
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowRcvrOwner"
+      },
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowRcvrAdminTimeout"
+      },
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowRcvrCurrentTimeout"
+      },
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowRcvrMaximumDatagramSize"
+      },
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowRcvrAddressType"
+      },
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowRcvrAddress"
+      },
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowRcvrPort"
+      },
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowRcvrVrfName"
+      },
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowRcvrDatagramVersion"
+      },
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowRcvrReset"
+      },
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowFsReceiver"
+      },
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowFsDirection"
+      },
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowFsAdminSamplingRate"
+      },
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowFsActiveSamplingRate"
+      },
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowFsMaximumHeaderSize"
+      },
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowFsRowStatus"
+      },
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowCpReceiver"
+      },
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowCpInterval"
+      },
+      {
+        "module": "DLINKSW-SFLOW-MIB",
+        "object": "dSFlowCpRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-SFLOW-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-SFLOW-MIB"
+  }
+}

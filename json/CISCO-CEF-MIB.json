@@ -1,0 +1,2971 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-CEF-TC": [
+      "CefCCAction",
+      "CefAdjacencySource",
+      "CefIpVersion",
+      "CefMplsLabelList",
+      "CefFailureReason",
+      "CefCCType",
+      "CefPrefixSearchState",
+      "CefAdminStatus",
+      "CefPathType",
+      "CefCCStatus",
+      "CefForwardingElementSpecialType",
+      "CefOperStatus",
+      "CefAdjLinkType"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "EntPhysicalIndexOrZero"
+    ],
+    "ENTITY-MIB": [
+      "PhysicalIndex",
+      "entPhysicalIndex"
+    ],
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress",
+      "InetAddressPrefixLength"
+    ],
+    "MPLS-VPN-MIB": [
+      "MplsVpnId"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TestAndIncr",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoCefMIB": {
+    "name": "ciscoCefMIB",
+    "oid": "1.3.6.1.4.1.9.9.492",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-01-30 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoCefMIBNotifs": {
+    "name": "ciscoCefMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.492.0",
+    "class": "objectidentity"
+  },
+  "ciscoCefMIBObjects": {
+    "name": "ciscoCefMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.492.1",
+    "class": "objectidentity"
+  },
+  "ciscoCefMIBConform": {
+    "name": "ciscoCefMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.492.2",
+    "class": "objectidentity"
+  },
+  "cefFIB": {
+    "name": "cefFIB",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1",
+    "class": "objectidentity"
+  },
+  "cefAdj": {
+    "name": "cefAdj",
+    "oid": "1.3.6.1.4.1.9.9.492.1.2",
+    "class": "objectidentity"
+  },
+  "cefFE": {
+    "name": "cefFE",
+    "oid": "1.3.6.1.4.1.9.9.492.1.3",
+    "class": "objectidentity"
+  },
+  "cefGlobal": {
+    "name": "cefGlobal",
+    "oid": "1.3.6.1.4.1.9.9.492.1.4",
+    "class": "objectidentity"
+  },
+  "cefInterface": {
+    "name": "cefInterface",
+    "oid": "1.3.6.1.4.1.9.9.492.1.5",
+    "class": "objectidentity"
+  },
+  "cefPeer": {
+    "name": "cefPeer",
+    "oid": "1.3.6.1.4.1.9.9.492.1.6",
+    "class": "objectidentity"
+  },
+  "cefCC": {
+    "name": "cefCC",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7",
+    "class": "objectidentity"
+  },
+  "cefStats": {
+    "name": "cefStats",
+    "oid": "1.3.6.1.4.1.9.9.492.1.8",
+    "class": "objectidentity"
+  },
+  "cefNotifCntl": {
+    "name": "cefNotifCntl",
+    "oid": "1.3.6.1.4.1.9.9.492.1.9",
+    "class": "objectidentity"
+  },
+  "cefFIBSummary": {
+    "name": "cefFIBSummary",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.1",
+    "class": "objectidentity"
+  },
+  "cefFIBSummaryTable": {
+    "name": "cefFIBSummaryTable",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefFIBSummaryEntry": {
+    "name": "cefFIBSummaryEntry",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefFIBIpVersion",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefFIBIpVersion": {
+    "name": "cefFIBIpVersion",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CefIpVersion",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefFIBSummaryFwdPrefixes": {
+    "name": "cefFIBSummaryFwdPrefixes",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefPrefixTable": {
+    "name": "cefPrefixTable",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefPrefixEntry": {
+    "name": "cefPrefixEntry",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPrefixType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPrefixAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPrefixLen",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefPrefixType": {
+    "name": "cefPrefixType",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefPrefixAddr": {
+    "name": "cefPrefixAddr",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefPrefixLen": {
+    "name": "cefPrefixLen",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefPrefixForwardingInfo": {
+    "name": "cefPrefixForwardingInfo",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefPrefixPkts": {
+    "name": "cefPrefixPkts",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefPrefixHCPkts": {
+    "name": "cefPrefixHCPkts",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefPrefixBytes": {
+    "name": "cefPrefixBytes",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefPrefixHCBytes": {
+    "name": "cefPrefixHCBytes",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefPrefixInternalNRPkts": {
+    "name": "cefPrefixInternalNRPkts",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefPrefixInternalNRHCPkts": {
+    "name": "cefPrefixInternalNRHCPkts",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefPrefixInternalNRBytes": {
+    "name": "cefPrefixInternalNRBytes",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefPrefixInternalNRHCBytes": {
+    "name": "cefPrefixInternalNRHCBytes",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefPrefixExternalNRPkts": {
+    "name": "cefPrefixExternalNRPkts",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefPrefixExternalNRHCPkts": {
+    "name": "cefPrefixExternalNRHCPkts",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefPrefixExternalNRBytes": {
+    "name": "cefPrefixExternalNRBytes",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefPrefixExternalNRHCBytes": {
+    "name": "cefPrefixExternalNRHCBytes",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefLMPrefixSpinLock": {
+    "name": "cefLMPrefixSpinLock",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefLMPrefixTable": {
+    "name": "cefLMPrefixTable",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefLMPrefixEntry": {
+    "name": "cefLMPrefixEntry",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefLMPrefixDestAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefLMPrefixDestAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefLMPrefixDestAddrType": {
+    "name": "cefLMPrefixDestAddrType",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefLMPrefixDestAddr": {
+    "name": "cefLMPrefixDestAddr",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefLMPrefixState": {
+    "name": "cefLMPrefixState",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CefPrefixSearchState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefLMPrefixAddr": {
+    "name": "cefLMPrefixAddr",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefLMPrefixLen": {
+    "name": "cefLMPrefixLen",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefLMPrefixRowStatus": {
+    "name": "cefLMPrefixRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cefPathTable": {
+    "name": "cefPathTable",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefPathEntry": {
+    "name": "cefPathEntry",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPrefixType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPrefixAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPrefixLen",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPathId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefPathId": {
+    "name": "cefPathId",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefPathType": {
+    "name": "cefPathType",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CefPathType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefPathInterface": {
+    "name": "cefPathInterface",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefPathNextHopAddr": {
+    "name": "cefPathNextHopAddr",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefPathRecurseVrfName": {
+    "name": "cefPathRecurseVrfName",
+    "oid": "1.3.6.1.4.1.9.9.492.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsVpnId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefAdjSummary": {
+    "name": "cefAdjSummary",
+    "oid": "1.3.6.1.4.1.9.9.492.1.2.1",
+    "class": "objectidentity"
+  },
+  "cefAdjSummaryTable": {
+    "name": "cefAdjSummaryTable",
+    "oid": "1.3.6.1.4.1.9.9.492.1.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefAdjSummaryEntry": {
+    "name": "cefAdjSummaryEntry",
+    "oid": "1.3.6.1.4.1.9.9.492.1.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefAdjSummaryLinkType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefAdjSummaryLinkType": {
+    "name": "cefAdjSummaryLinkType",
+    "oid": "1.3.6.1.4.1.9.9.492.1.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CefAdjLinkType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefAdjSummaryComplete": {
+    "name": "cefAdjSummaryComplete",
+    "oid": "1.3.6.1.4.1.9.9.492.1.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefAdjSummaryIncomplete": {
+    "name": "cefAdjSummaryIncomplete",
+    "oid": "1.3.6.1.4.1.9.9.492.1.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefAdjSummaryFixup": {
+    "name": "cefAdjSummaryFixup",
+    "oid": "1.3.6.1.4.1.9.9.492.1.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefAdjSummaryRedirect": {
+    "name": "cefAdjSummaryRedirect",
+    "oid": "1.3.6.1.4.1.9.9.492.1.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefAdjTable": {
+    "name": "cefAdjTable",
+    "oid": "1.3.6.1.4.1.9.9.492.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefAdjEntry": {
+    "name": "cefAdjEntry",
+    "oid": "1.3.6.1.4.1.9.9.492.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefAdjNextHopAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefAdjNextHopAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefAdjConnId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefAdjSummaryLinkType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefAdjNextHopAddrType": {
+    "name": "cefAdjNextHopAddrType",
+    "oid": "1.3.6.1.4.1.9.9.492.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefAdjNextHopAddr": {
+    "name": "cefAdjNextHopAddr",
+    "oid": "1.3.6.1.4.1.9.9.492.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefAdjConnId": {
+    "name": "cefAdjConnId",
+    "oid": "1.3.6.1.4.1.9.9.492.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefAdjSource": {
+    "name": "cefAdjSource",
+    "oid": "1.3.6.1.4.1.9.9.492.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CefAdjacencySource",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefAdjEncap": {
+    "name": "cefAdjEncap",
+    "oid": "1.3.6.1.4.1.9.9.492.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefAdjFixup": {
+    "name": "cefAdjFixup",
+    "oid": "1.3.6.1.4.1.9.9.492.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefAdjMTU": {
+    "name": "cefAdjMTU",
+    "oid": "1.3.6.1.4.1.9.9.492.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefAdjForwardingInfo": {
+    "name": "cefAdjForwardingInfo",
+    "oid": "1.3.6.1.4.1.9.9.492.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefAdjPkts": {
+    "name": "cefAdjPkts",
+    "oid": "1.3.6.1.4.1.9.9.492.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefAdjHCPkts": {
+    "name": "cefAdjHCPkts",
+    "oid": "1.3.6.1.4.1.9.9.492.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefAdjBytes": {
+    "name": "cefAdjBytes",
+    "oid": "1.3.6.1.4.1.9.9.492.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefAdjHCBytes": {
+    "name": "cefAdjHCBytes",
+    "oid": "1.3.6.1.4.1.9.9.492.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefFESelectionTable": {
+    "name": "cefFESelectionTable",
+    "oid": "1.3.6.1.4.1.9.9.492.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefFESelectionEntry": {
+    "name": "cefFESelectionEntry",
+    "oid": "1.3.6.1.4.1.9.9.492.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefFESelectionName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefFESelectionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefFESelectionName": {
+    "name": "cefFESelectionName",
+    "oid": "1.3.6.1.4.1.9.9.492.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefFESelectionId": {
+    "name": "cefFESelectionId",
+    "oid": "1.3.6.1.4.1.9.9.492.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefFESelectionSpecial": {
+    "name": "cefFESelectionSpecial",
+    "oid": "1.3.6.1.4.1.9.9.492.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CefForwardingElementSpecialType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefFESelectionLabels": {
+    "name": "cefFESelectionLabels",
+    "oid": "1.3.6.1.4.1.9.9.492.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CefMplsLabelList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefFESelectionAdjLinkType": {
+    "name": "cefFESelectionAdjLinkType",
+    "oid": "1.3.6.1.4.1.9.9.492.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CefAdjLinkType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefFESelectionAdjInterface": {
+    "name": "cefFESelectionAdjInterface",
+    "oid": "1.3.6.1.4.1.9.9.492.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefFESelectionAdjNextHopAddrType": {
+    "name": "cefFESelectionAdjNextHopAddrType",
+    "oid": "1.3.6.1.4.1.9.9.492.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefFESelectionAdjNextHopAddr": {
+    "name": "cefFESelectionAdjNextHopAddr",
+    "oid": "1.3.6.1.4.1.9.9.492.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefFESelectionAdjConnId": {
+    "name": "cefFESelectionAdjConnId",
+    "oid": "1.3.6.1.4.1.9.9.492.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefFESelectionVrfName": {
+    "name": "cefFESelectionVrfName",
+    "oid": "1.3.6.1.4.1.9.9.492.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsVpnId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefFESelectionWeight": {
+    "name": "cefFESelectionWeight",
+    "oid": "1.3.6.1.4.1.9.9.492.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefCfgTable": {
+    "name": "cefCfgTable",
+    "oid": "1.3.6.1.4.1.9.9.492.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefCfgEntry": {
+    "name": "cefCfgEntry",
+    "oid": "1.3.6.1.4.1.9.9.492.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefFIBIpVersion",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefCfgAdminState": {
+    "name": "cefCfgAdminState",
+    "oid": "1.3.6.1.4.1.9.9.492.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CefAdminStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefCfgOperState": {
+    "name": "cefCfgOperState",
+    "oid": "1.3.6.1.4.1.9.9.492.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CefOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefCfgDistributionAdminState": {
+    "name": "cefCfgDistributionAdminState",
+    "oid": "1.3.6.1.4.1.9.9.492.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CefAdminStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefCfgDistributionOperState": {
+    "name": "cefCfgDistributionOperState",
+    "oid": "1.3.6.1.4.1.9.9.492.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CefOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefCfgAccountingMap": {
+    "name": "cefCfgAccountingMap",
+    "oid": "1.3.6.1.4.1.9.9.492.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "nonRecursive": 0,
+        "perPrefix": 1,
+        "prefixLength": 2
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefCfgLoadSharingAlgorithm": {
+    "name": "cefCfgLoadSharingAlgorithm",
+    "oid": "1.3.6.1.4.1.9.9.492.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "original": 2,
+          "tunnel": 3,
+          "universal": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefCfgLoadSharingID": {
+    "name": "cefCfgLoadSharingID",
+    "oid": "1.3.6.1.4.1.9.9.492.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefCfgTrafficStatsLoadInterval": {
+    "name": "cefCfgTrafficStatsLoadInterval",
+    "oid": "1.3.6.1.4.1.9.9.492.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefCfgTrafficStatsUpdateRate": {
+    "name": "cefCfgTrafficStatsUpdateRate",
+    "oid": "1.3.6.1.4.1.9.9.492.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefResourceTable": {
+    "name": "cefResourceTable",
+    "oid": "1.3.6.1.4.1.9.9.492.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefResourceEntry": {
+    "name": "cefResourceEntry",
+    "oid": "1.3.6.1.4.1.9.9.492.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefResourceMemoryUsed": {
+    "name": "cefResourceMemoryUsed",
+    "oid": "1.3.6.1.4.1.9.9.492.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefResourceFailureReason": {
+    "name": "cefResourceFailureReason",
+    "oid": "1.3.6.1.4.1.9.9.492.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CefFailureReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefIntTable": {
+    "name": "cefIntTable",
+    "oid": "1.3.6.1.4.1.9.9.492.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefIntEntry": {
+    "name": "cefIntEntry",
+    "oid": "1.3.6.1.4.1.9.9.492.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefFIBIpVersion",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefIntSwitchingState": {
+    "name": "cefIntSwitchingState",
+    "oid": "1.3.6.1.4.1.9.9.492.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cefEnabled": 1,
+          "distCefEnabled": 2,
+          "cefDisabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefIntLoadSharing": {
+    "name": "cefIntLoadSharing",
+    "oid": "1.3.6.1.4.1.9.9.492.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "perPacket": 1,
+          "perDestination": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefIntNonrecursiveAccouting": {
+    "name": "cefIntNonrecursiveAccouting",
+    "oid": "1.3.6.1.4.1.9.9.492.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1,
+          "external": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefPeerTable": {
+    "name": "cefPeerTable",
+    "oid": "1.3.6.1.4.1.9.9.492.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefPeerEntry": {
+    "name": "cefPeerEntry",
+    "oid": "1.3.6.1.4.1.9.9.492.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "entPeerPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "entPeerPhysicalIndex": {
+    "name": "entPeerPhysicalIndex",
+    "oid": "1.3.6.1.4.1.9.9.492.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefPeerOperState": {
+    "name": "cefPeerOperState",
+    "oid": "1.3.6.1.4.1.9.9.492.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "peerDisabled": 1,
+          "peerUp": 2,
+          "peerHold": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefPeerNumberOfResets": {
+    "name": "cefPeerNumberOfResets",
+    "oid": "1.3.6.1.4.1.9.9.492.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefPeerFIBTable": {
+    "name": "cefPeerFIBTable",
+    "oid": "1.3.6.1.4.1.9.9.492.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefPeerFIBEntry": {
+    "name": "cefPeerFIBEntry",
+    "oid": "1.3.6.1.4.1.9.9.492.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "entPeerPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefFIBIpVersion",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefPeerFIBOperState": {
+    "name": "cefPeerFIBOperState",
+    "oid": "1.3.6.1.4.1.9.9.492.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "peerFIBDown": 1,
+          "peerFIBUp": 2,
+          "peerFIBReloadRequest": 3,
+          "peerFIBReloading": 4,
+          "peerFIBSynced": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefStatsPrefixLenTable": {
+    "name": "cefStatsPrefixLenTable",
+    "oid": "1.3.6.1.4.1.9.9.492.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefStatsPrefixLenEntry": {
+    "name": "cefStatsPrefixLenEntry",
+    "oid": "1.3.6.1.4.1.9.9.492.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefFIBIpVersion",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefStatsPrefixLen",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefStatsPrefixLen": {
+    "name": "cefStatsPrefixLen",
+    "oid": "1.3.6.1.4.1.9.9.492.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefStatsPrefixQueries": {
+    "name": "cefStatsPrefixQueries",
+    "oid": "1.3.6.1.4.1.9.9.492.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefStatsPrefixHCQueries": {
+    "name": "cefStatsPrefixHCQueries",
+    "oid": "1.3.6.1.4.1.9.9.492.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefStatsPrefixInserts": {
+    "name": "cefStatsPrefixInserts",
+    "oid": "1.3.6.1.4.1.9.9.492.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefStatsPrefixHCInserts": {
+    "name": "cefStatsPrefixHCInserts",
+    "oid": "1.3.6.1.4.1.9.9.492.1.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefStatsPrefixDeletes": {
+    "name": "cefStatsPrefixDeletes",
+    "oid": "1.3.6.1.4.1.9.9.492.1.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefStatsPrefixHCDeletes": {
+    "name": "cefStatsPrefixHCDeletes",
+    "oid": "1.3.6.1.4.1.9.9.492.1.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefStatsPrefixElements": {
+    "name": "cefStatsPrefixElements",
+    "oid": "1.3.6.1.4.1.9.9.492.1.8.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefStatsPrefixHCElements": {
+    "name": "cefStatsPrefixHCElements",
+    "oid": "1.3.6.1.4.1.9.9.492.1.8.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefSwitchingStatsTable": {
+    "name": "cefSwitchingStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.492.1.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefSwitchingStatsEntry": {
+    "name": "cefSwitchingStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.492.1.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefFIBIpVersion",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefSwitchingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefSwitchingIndex": {
+    "name": "cefSwitchingIndex",
+    "oid": "1.3.6.1.4.1.9.9.492.1.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefSwitchingPath": {
+    "name": "cefSwitchingPath",
+    "oid": "1.3.6.1.4.1.9.9.492.1.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefSwitchingDrop": {
+    "name": "cefSwitchingDrop",
+    "oid": "1.3.6.1.4.1.9.9.492.1.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefSwitchingHCDrop": {
+    "name": "cefSwitchingHCDrop",
+    "oid": "1.3.6.1.4.1.9.9.492.1.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefSwitchingPunt": {
+    "name": "cefSwitchingPunt",
+    "oid": "1.3.6.1.4.1.9.9.492.1.8.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefSwitchingHCPunt": {
+    "name": "cefSwitchingHCPunt",
+    "oid": "1.3.6.1.4.1.9.9.492.1.8.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefSwitchingPunt2Host": {
+    "name": "cefSwitchingPunt2Host",
+    "oid": "1.3.6.1.4.1.9.9.492.1.8.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefSwitchingHCPunt2Host": {
+    "name": "cefSwitchingHCPunt2Host",
+    "oid": "1.3.6.1.4.1.9.9.492.1.8.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefCCGlobalTable": {
+    "name": "cefCCGlobalTable",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefCCGlobalEntry": {
+    "name": "cefCCGlobalEntry",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefFIBIpVersion",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefCCGlobalAutoRepairEnabled": {
+    "name": "cefCCGlobalAutoRepairEnabled",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefCCGlobalAutoRepairDelay": {
+    "name": "cefCCGlobalAutoRepairDelay",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefCCGlobalAutoRepairHoldDown": {
+    "name": "cefCCGlobalAutoRepairHoldDown",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefCCGlobalErrorMsgEnabled": {
+    "name": "cefCCGlobalErrorMsgEnabled",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefCCGlobalFullScanAction": {
+    "name": "cefCCGlobalFullScanAction",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CefCCAction",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ccActionNone",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefCCGlobalFullScanStatus": {
+    "name": "cefCCGlobalFullScanStatus",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CefCCStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefCCTypeTable": {
+    "name": "cefCCTypeTable",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefCCTypeEntry": {
+    "name": "cefCCTypeEntry",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefFIBIpVersion",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefCCType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefCCType": {
+    "name": "cefCCType",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CefCCType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefCCEnabled": {
+    "name": "cefCCEnabled",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefCCCount": {
+    "name": "cefCCCount",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefCCPeriod": {
+    "name": "cefCCPeriod",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefCCQueriesSent": {
+    "name": "cefCCQueriesSent",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefCCQueriesIgnored": {
+    "name": "cefCCQueriesIgnored",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefCCQueriesChecked": {
+    "name": "cefCCQueriesChecked",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefCCQueriesIterated": {
+    "name": "cefCCQueriesIterated",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefInconsistencyRecordTable": {
+    "name": "cefInconsistencyRecordTable",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefInconsistencyRecordEntry": {
+    "name": "cefInconsistencyRecordEntry",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefFIBIpVersion",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefInconsistencyRecId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefInconsistencyRecId": {
+    "name": "cefInconsistencyRecId",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefInconsistencyPrefixType": {
+    "name": "cefInconsistencyPrefixType",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefInconsistencyPrefixAddr": {
+    "name": "cefInconsistencyPrefixAddr",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefInconsistencyPrefixLen": {
+    "name": "cefInconsistencyPrefixLen",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefInconsistencyVrfName": {
+    "name": "cefInconsistencyVrfName",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsVpnId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefInconsistencyCCType": {
+    "name": "cefInconsistencyCCType",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CefCCType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefInconsistencyEntity": {
+    "name": "cefInconsistencyEntity",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefInconsistencyReason": {
+    "name": "cefInconsistencyReason",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "missing": 1,
+          "checksumErr": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entLastInconsistencyDetectTime": {
+    "name": "entLastInconsistencyDetectTime",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefInconsistencyReset": {
+    "name": "cefInconsistencyReset",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CefCCAction",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ccActionNone",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefInconsistencyResetStatus": {
+    "name": "cefInconsistencyResetStatus",
+    "oid": "1.3.6.1.4.1.9.9.492.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CefCCStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefResourceFailureNotifEnable": {
+    "name": "cefResourceFailureNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.492.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefPeerStateChangeNotifEnable": {
+    "name": "cefPeerStateChangeNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.492.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefPeerFIBStateChangeNotifEnable": {
+    "name": "cefPeerFIBStateChangeNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.492.1.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefNotifThrottlingInterval": {
+    "name": "cefNotifThrottlingInterval",
+    "oid": "1.3.6.1.4.1.9.9.492.1.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefInconsistencyNotifEnable": {
+    "name": "cefInconsistencyNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.492.1.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefResourceFailure": {
+    "name": "cefResourceFailure",
+    "oid": "1.3.6.1.4.1.9.9.492.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefResourceFailureReason"
+      }
+    ],
+    "status": "current"
+  },
+  "cefPeerStateChange": {
+    "name": "cefPeerStateChange",
+    "oid": "1.3.6.1.4.1.9.9.492.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPeerOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "cefPeerFIBStateChange": {
+    "name": "cefPeerFIBStateChange",
+    "oid": "1.3.6.1.4.1.9.9.492.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPeerFIBOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "cefInconsistencyDetection": {
+    "name": "cefInconsistencyDetection",
+    "oid": "1.3.6.1.4.1.9.9.492.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "entLastInconsistencyDetectTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cefMIBGroups": {
+    "name": "cefMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.492.2.1",
+    "class": "objectidentity"
+  },
+  "cefMIBCompliances": {
+    "name": "cefMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.492.2.2",
+    "class": "objectidentity"
+  },
+  "cefMIBCompliance": {
+    "name": "cefMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.492.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cefGroup",
+        "module": "CISCO-CEF-MIB"
+      },
+      {
+        "object": "cefNotifCntlGroup",
+        "module": "CISCO-CEF-MIB"
+      },
+      {
+        "object": "cefNotificationGroup",
+        "module": "CISCO-CEF-MIB"
+      },
+      {
+        "object": "cefDistributedGroup",
+        "module": "CISCO-CEF-MIB"
+      },
+      {
+        "object": "cefHCStatsGroup",
+        "module": "CISCO-CEF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cefGroup": {
+    "name": "cefGroup",
+    "oid": "1.3.6.1.4.1.9.9.492.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefFIBSummaryFwdPrefixes"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPrefixForwardingInfo"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPrefixPkts"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPrefixBytes"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPrefixInternalNRPkts"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPrefixInternalNRBytes"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPrefixExternalNRPkts"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPrefixExternalNRBytes"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefLMPrefixSpinLock"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefLMPrefixState"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefLMPrefixAddr"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefLMPrefixLen"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefLMPrefixRowStatus"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPathType"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPathInterface"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPathNextHopAddr"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPathRecurseVrfName"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefAdjSummaryComplete"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefAdjSummaryIncomplete"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefAdjSummaryFixup"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefAdjSummaryRedirect"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefAdjSource"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefAdjEncap"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefAdjFixup"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefAdjMTU"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefAdjForwardingInfo"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefAdjPkts"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefAdjBytes"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefFESelectionSpecial"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefFESelectionLabels"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefFESelectionAdjLinkType"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefFESelectionAdjInterface"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefFESelectionAdjNextHopAddrType"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefFESelectionAdjNextHopAddr"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefFESelectionAdjConnId"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefFESelectionVrfName"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefFESelectionWeight"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefCfgAdminState"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefCfgOperState"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefCfgAccountingMap"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefCfgLoadSharingAlgorithm"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefCfgLoadSharingID"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefCfgTrafficStatsLoadInterval"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefCfgTrafficStatsUpdateRate"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefResourceMemoryUsed"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefResourceFailureReason"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefIntSwitchingState"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefIntLoadSharing"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefIntNonrecursiveAccouting"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefStatsPrefixQueries"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefStatsPrefixInserts"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefStatsPrefixDeletes"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefStatsPrefixElements"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefSwitchingPath"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefSwitchingDrop"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefSwitchingPunt"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefSwitchingPunt2Host"
+      }
+    ],
+    "status": "current"
+  },
+  "cefDistributedGroup": {
+    "name": "cefDistributedGroup",
+    "oid": "1.3.6.1.4.1.9.9.492.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefCfgDistributionAdminState"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefCfgDistributionOperState"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPeerOperState"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPeerNumberOfResets"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPeerFIBOperState"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefCCGlobalAutoRepairEnabled"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefCCGlobalAutoRepairDelay"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefCCGlobalAutoRepairHoldDown"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefCCGlobalErrorMsgEnabled"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefCCGlobalFullScanStatus"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefCCGlobalFullScanAction"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefCCEnabled"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefCCCount"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefCCPeriod"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefCCQueriesSent"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefCCQueriesIgnored"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefCCQueriesChecked"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefCCQueriesIterated"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "entLastInconsistencyDetectTime"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefInconsistencyPrefixType"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefInconsistencyPrefixAddr"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefInconsistencyPrefixLen"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefInconsistencyVrfName"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefInconsistencyCCType"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefInconsistencyEntity"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefInconsistencyReason"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefInconsistencyReset"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefInconsistencyResetStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cefHCStatsGroup": {
+    "name": "cefHCStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.492.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPrefixHCPkts"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPrefixHCBytes"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPrefixInternalNRHCPkts"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPrefixInternalNRHCBytes"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPrefixExternalNRHCPkts"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPrefixExternalNRHCBytes"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefAdjHCPkts"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefAdjHCBytes"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefStatsPrefixHCQueries"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefStatsPrefixHCInserts"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefStatsPrefixHCDeletes"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefStatsPrefixHCElements"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefSwitchingHCDrop"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefSwitchingHCPunt"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefSwitchingHCPunt2Host"
+      }
+    ],
+    "status": "current"
+  },
+  "cefNotifCntlGroup": {
+    "name": "cefNotifCntlGroup",
+    "oid": "1.3.6.1.4.1.9.9.492.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefResourceFailureNotifEnable"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPeerStateChangeNotifEnable"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPeerFIBStateChangeNotifEnable"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefNotifThrottlingInterval"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefInconsistencyNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cefNotificationGroup": {
+    "name": "cefNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.492.2.1.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefResourceFailure"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPeerStateChange"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefPeerFIBStateChange"
+      },
+      {
+        "module": "CISCO-CEF-MIB",
+        "object": "cefInconsistencyDetection"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CEF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CEF-MIB"
+  }
+}

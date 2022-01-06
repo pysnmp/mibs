@@ -1,0 +1,1680 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARUBA-MIB": [
+      "wlsxEnterpriseMibModules"
+    ],
+    "ARUBA-TC": [
+      "ArubaSwitchRole",
+      "ArubaCardType",
+      "ArubaActiveState"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "snmpModules",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "IpAddress",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter32",
+      "TimeTicks",
+      "Integer32",
+      "iso",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "RowStatus",
+      "StorageType",
+      "TestAndIncr",
+      "TruthValue",
+      "MacAddress",
+      "TDomain",
+      "DisplayString",
+      "TAddress",
+      "PhysAddress"
+    ]
+  },
+  "wlsxSystemExtMIB": {
+    "name": "wlsxSystemExtMIB",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-08-14 17:45",
+        "description": "The initial revision."
+      }
+    ]
+  },
+  "wlsxSystemExtGroup": {
+    "name": "wlsxSystemExtGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1",
+    "class": "objectidentity"
+  },
+  "wlsxSystemExtTableGenNumberGroup": {
+    "name": "wlsxSystemExtTableGenNumberGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.2",
+    "class": "objectidentity"
+  },
+  "wlsxSysExtSwitchIp": {
+    "name": "wlsxSysExtSwitchIp",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtHostname": {
+    "name": "wlsxSysExtHostname",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtModelName": {
+    "name": "wlsxSysExtModelName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtSwitchRole": {
+    "name": "wlsxSysExtSwitchRole",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaSwitchRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtSwitchMasterIp": {
+    "name": "wlsxSysExtSwitchMasterIp",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtSwitchDate": {
+    "name": "wlsxSysExtSwitchDate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wlsxSysExtSwitchBaseMacaddress": {
+    "name": "wlsxSysExtSwitchBaseMacaddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtFanTrayAssemblyNumber": {
+    "name": "wlsxSysExtFanTrayAssemblyNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtFanTraySerialNumber": {
+    "name": "wlsxSysExtFanTraySerialNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtInternalTemparature": {
+    "name": "wlsxSysExtInternalTemparature",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtLicenseSerialNumber": {
+    "name": "wlsxSysExtLicenseSerialNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtSwitchLicenseCount": {
+    "name": "wlsxSysExtSwitchLicenseCount",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtProcessorTable": {
+    "name": "wlsxSysExtProcessorTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxSysExtProcessorEntry": {
+    "name": "wlsxSysExtProcessorEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-SYSTEMEXT-MIB",
+        "object": "sysExtProcessorID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysExtProcessorID": {
+    "name": "sysExtProcessorID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysExtProcessorDescr": {
+    "name": "sysExtProcessorDescr",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtProcessorLoad": {
+    "name": "sysExtProcessorLoad",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtStorageTable": {
+    "name": "wlsxSysExtStorageTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxSysExtStorageEntry": {
+    "name": "wlsxSysExtStorageEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-SYSTEMEXT-MIB",
+        "object": "sysExtStorageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysExtStorageIndex": {
+    "name": "sysExtStorageIndex",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysExtStorageType": {
+    "name": "sysExtStorageType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ram": 1,
+          "flashMemory": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtStorageSize": {
+    "name": "sysExtStorageSize",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtStorageUsed": {
+    "name": "sysExtStorageUsed",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtStorageName": {
+    "name": "sysExtStorageName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtMemoryTable": {
+    "name": "wlsxSysExtMemoryTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxSysExtMemoryEntry": {
+    "name": "wlsxSysExtMemoryEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-SYSTEMEXT-MIB",
+        "object": "sysExtMemoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysExtMemoryIndex": {
+    "name": "sysExtMemoryIndex",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysExtMemorySize": {
+    "name": "sysExtMemorySize",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtMemoryUsed": {
+    "name": "sysExtMemoryUsed",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtMemoryFree": {
+    "name": "sysExtMemoryFree",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtCardTable": {
+    "name": "wlsxSysExtCardTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxSysExtCardEntry": {
+    "name": "wlsxSysExtCardEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-SYSTEMEXT-MIB",
+        "object": "sysExtCardSlot",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysExtCardSlot": {
+    "name": "sysExtCardSlot",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysExtCardType": {
+    "name": "sysExtCardType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaCardType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtCardNumOfPorts": {
+    "name": "sysExtCardNumOfPorts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtCardNumOfFastethernetPorts": {
+    "name": "sysExtCardNumOfFastethernetPorts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtCardNumOfGigPorts": {
+    "name": "sysExtCardNumOfGigPorts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtCardSerialNo": {
+    "name": "sysExtCardSerialNo",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtCardAssemblyNo": {
+    "name": "sysExtCardAssemblyNo",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtCardManufacturingDate": {
+    "name": "sysExtCardManufacturingDate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtCardHwRevision": {
+    "name": "sysExtCardHwRevision",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.16.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtCardFpgaRevision": {
+    "name": "sysExtCardFpgaRevision",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.16.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtCardSwitchChip": {
+    "name": "sysExtCardSwitchChip",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.16.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtCardStatus": {
+    "name": "sysExtCardStatus",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.16.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaActiveState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtCardUserSlot": {
+    "name": "sysExtCardUserSlot",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.16.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtCardServiceTag": {
+    "name": "sysExtCardServiceTag",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.16.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtCardPartNumber": {
+    "name": "sysExtCardPartNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.16.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtFanTable": {
+    "name": "wlsxSysExtFanTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxSysExtFanEntry": {
+    "name": "wlsxSysExtFanEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-SYSTEMEXT-MIB",
+        "object": "sysExtFanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysExtFanIndex": {
+    "name": "sysExtFanIndex",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysExtFanStatus": {
+    "name": "sysExtFanStatus",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaActiveState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtPowerSupplyTable": {
+    "name": "wlsxSysExtPowerSupplyTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxSysExtPowerSupplyEntry": {
+    "name": "wlsxSysExtPowerSupplyEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-SYSTEMEXT-MIB",
+        "object": "sysExtPowerSupplyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysExtPowerSupplyIndex": {
+    "name": "sysExtPowerSupplyIndex",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysExtPowerSupplyStatus": {
+    "name": "sysExtPowerSupplyStatus",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaActiveState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtSwitchListTable": {
+    "name": "wlsxSysExtSwitchListTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxSysExtSwitchListEntry": {
+    "name": "wlsxSysExtSwitchListEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-SYSTEMEXT-MIB",
+        "object": "sysExtSwitchIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysExtSwitchIPAddress": {
+    "name": "sysExtSwitchIPAddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysExtSwitchRole": {
+    "name": "sysExtSwitchRole",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaSwitchRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtSwitchLocation": {
+    "name": "sysExtSwitchLocation",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtSwitchSWVersion": {
+    "name": "sysExtSwitchSWVersion",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtSwitchStatus": {
+    "name": "sysExtSwitchStatus",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaActiveState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtSwitchName": {
+    "name": "sysExtSwitchName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.19.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtSwitchSerNo": {
+    "name": "sysExtSwitchSerNo",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.19.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtSwitchLicenseTable": {
+    "name": "wlsxSysExtSwitchLicenseTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxSysExtLicenseEntry": {
+    "name": "wlsxSysExtLicenseEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-SYSTEMEXT-MIB",
+        "object": "sysExtLicenseIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysExtLicenseIndex": {
+    "name": "sysExtLicenseIndex",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysExtLicenseKey": {
+    "name": "sysExtLicenseKey",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtLicenseInstalled": {
+    "name": "sysExtLicenseInstalled",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtLicenseExpires": {
+    "name": "sysExtLicenseExpires",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtLicenseFlags": {
+    "name": "sysExtLicenseFlags",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtLicenseService": {
+    "name": "sysExtLicenseService",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtMMSCompatLevel": {
+    "name": "wlsxSysExtMMSCompatLevel",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtMMSConfigID": {
+    "name": "wlsxSysExtMMSConfigID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtControllerConfigID": {
+    "name": "wlsxSysExtControllerConfigID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtIsMMSConfigUpdateEnabled": {
+    "name": "wlsxSysExtIsMMSConfigUpdateEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wlsxSysExtSwitchLastReload": {
+    "name": "wlsxSysExtSwitchLastReload",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtLastStatsReset": {
+    "name": "wlsxSysExtLastStatsReset",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtHwVersion": {
+    "name": "wlsxSysExtHwVersion",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtSwVersion": {
+    "name": "wlsxSysExtSwVersion",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtSerialNumber": {
+    "name": "wlsxSysExtSerialNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtCpuUsedPercent": {
+    "name": "wlsxSysExtCpuUsedPercent",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtMemoryUsedPercent": {
+    "name": "wlsxSysExtMemoryUsedPercent",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtPacketLossPercent": {
+    "name": "wlsxSysExtPacketLossPercent",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtUserTableGenNumber": {
+    "name": "wlsxSysExtUserTableGenNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "wlsxSysExtAPBssidTableGenNumber": {
+    "name": "wlsxSysExtAPBssidTableGenNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "wlsxSysExtAPRadioTableGenNumber": {
+    "name": "wlsxSysExtAPRadioTableGenNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "wlsxSysExtAPTableGenNumber": {
+    "name": "wlsxSysExtAPTableGenNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "wlsxSysExtSwitchListTableGenNumber": {
+    "name": "wlsxSysExtSwitchListTableGenNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "wlsxSysExtPortTableGenNumber": {
+    "name": "wlsxSysExtPortTableGenNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "wlsxSysExtVlanTableGenNumber": {
+    "name": "wlsxSysExtVlanTableGenNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "wlsxSysExtVlanInterfaceTableGenNumber": {
+    "name": "wlsxSysExtVlanInterfaceTableGenNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "wlsxSysExtLicenseTableGenNumber": {
+    "name": "wlsxSysExtLicenseTableGenNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "wlsxSysExtMonAPTableGenNumber": {
+    "name": "wlsxSysExtMonAPTableGenNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "wlsxSysExtMonStationTableGenNumber": {
+    "name": "wlsxSysExtMonStationTableGenNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "wlsxSysExtPoweredViaPoe": {
+    "name": "wlsxSysExtPoweredViaPoe",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysVMHostType": {
+    "name": "wlsxSysVMHostType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtProcessorModel": {
+    "name": "wlsxSysExtProcessorModel",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtTotalCpu": {
+    "name": "wlsxSysExtTotalCpu",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtTotalSocket": {
+    "name": "wlsxSysExtTotalSocket",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxAuthFailIp": {
+    "name": "wlsxAuthFailIp",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysExtDiskSize": {
+    "name": "wlsxSysExtDiskSize",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxNSysExtSwitchListTable": {
+    "name": "wlsxNSysExtSwitchListTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.40",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxNSysExtSwitchListEntry": {
+    "name": "wlsxNSysExtSwitchListEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.40.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-SYSTEMEXT-MIB",
+        "object": "sysExtNSwitchIPAddressType",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-SYSTEMEXT-MIB",
+        "object": "sysExtNSwitchIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysExtNSwitchIPAddressType": {
+    "name": "sysExtNSwitchIPAddressType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.40.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysExtNSwitchIPAddress": {
+    "name": "sysExtNSwitchIPAddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.40.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 45
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysExtNSwitchRole": {
+    "name": "sysExtNSwitchRole",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.40.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaSwitchRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtNSwitchLocation": {
+    "name": "sysExtNSwitchLocation",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.40.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtNSwitchSWVersion": {
+    "name": "sysExtNSwitchSWVersion",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.40.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtNSwitchStatus": {
+    "name": "sysExtNSwitchStatus",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.40.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaActiveState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtNSwitchName": {
+    "name": "sysExtNSwitchName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.40.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysExtNSwitchSerNo": {
+    "name": "sysExtNSwitchSerNo",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.2.1.40.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-SYSTEMEXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:25 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "WLSX-SYSTEMEXT-MIB"
+  }
+}

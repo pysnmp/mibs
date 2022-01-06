@@ -1,0 +1,1671 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressPrefixLength",
+      "InetAddressIPv4"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "ciscoIetfDhcpSrvMIB": {
+    "name": "ciscoIetfDhcpSrvMIB",
+    "oid": "1.3.6.1.4.1.9.10.102",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-03-27 00:00",
+        "description": "Added cDhcpv4ServerSharedNetObjects, cDhcpv4ServerSubnetObjects, cDhcpv4ServerRangeObjects, cDhcpv4ServerClientObjects, cDhcpv4ServerNotifyObjects and cDhcpv4ServerNotificationsGroup. The data types of the OIDs below are modified so they can be retrieved. cDhcpv4ServerSharedNetFreeAddrLowThreshold (read-write) cDhcpv4ServerSharedNetFreeAddrHighThreshold (read-write) cDhcpv4ServerSharedNetFreeAddresses (read-only) cDhcpv4ServerSharedNetReservedAddresses (read-only) cDhcpv4ServerSharedNetTotalAddresses (read-only) cDhcpv4ServerSubnetFreeAddrLowThreshold (read-write) cDhcpv4ServerSubnetFreeAddrHighThreshold (read-write) cDhcpv4ServerSubnetFreeAddresses (read-only) Added cDhcpv4SrvComplianceRev1 MODULE-COMPLIANCE"
+      },
+      {
+        "revision": "2007-02-14 12:00",
+        "description": "Add BOOTP/DHCP high capacity counter."
+      },
+      {
+        "revision": "2004-03-01 12:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoIetfDhcpv4SrvMIBNotifs": {
+    "name": "ciscoIetfDhcpv4SrvMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.10.102.0",
+    "class": "objectidentity"
+  },
+  "ciscoIetfDhcpv4SrvMIBObjects": {
+    "name": "ciscoIetfDhcpv4SrvMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.102.1",
+    "class": "objectidentity"
+  },
+  "ciscoIetfDhcpv4SrvMIBConform": {
+    "name": "ciscoIetfDhcpv4SrvMIBConform",
+    "oid": "1.3.6.1.4.1.9.10.102.2",
+    "class": "objectidentity"
+  },
+  "CDhcpv4PhysicalAddress": {
+    "name": "CDhcpv4PhysicalAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 18,
+            "max": 18
+          }
+        ]
+      }
+    },
+    "displayhint": "1d,1d,1x:1x:1x:1x:1x:1x",
+    "status": "current"
+  },
+  "cDhcpv4SrvSystem": {
+    "name": "cDhcpv4SrvSystem",
+    "oid": "1.3.6.1.4.1.9.10.102.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cBootpCounters": {
+    "name": "cBootpCounters",
+    "oid": "1.3.6.1.4.1.9.10.102.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cDhcpv4Counters": {
+    "name": "cDhcpv4Counters",
+    "oid": "1.3.6.1.4.1.9.10.102.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cDhcpv4SrvConfiguration": {
+    "name": "cDhcpv4SrvConfiguration",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cDhcpv4ServerNotifyObjects": {
+    "name": "cDhcpv4ServerNotifyObjects",
+    "oid": "1.3.6.1.4.1.9.10.102.1.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cBootpHCCounters": {
+    "name": "cBootpHCCounters",
+    "oid": "1.3.6.1.4.1.9.10.102.1.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cDhcpv4HCCounters": {
+    "name": "cDhcpv4HCCounters",
+    "oid": "1.3.6.1.4.1.9.10.102.1.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cDhcpv4SrvSystemDescr": {
+    "name": "cDhcpv4SrvSystemDescr",
+    "oid": "1.3.6.1.4.1.9.10.102.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4SrvSystemObjectID": {
+    "name": "cDhcpv4SrvSystemObjectID",
+    "oid": "1.3.6.1.4.1.9.10.102.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cBootpCountRequests": {
+    "name": "cBootpCountRequests",
+    "oid": "1.3.6.1.4.1.9.10.102.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cBootpCountInvalids": {
+    "name": "cBootpCountInvalids",
+    "oid": "1.3.6.1.4.1.9.10.102.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cBootpCountReplies": {
+    "name": "cBootpCountReplies",
+    "oid": "1.3.6.1.4.1.9.10.102.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cBootpCountDropUnknownClients": {
+    "name": "cBootpCountDropUnknownClients",
+    "oid": "1.3.6.1.4.1.9.10.102.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cBootpCountDropNotServingSubnet": {
+    "name": "cBootpCountDropNotServingSubnet",
+    "oid": "1.3.6.1.4.1.9.10.102.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4CountDiscovers": {
+    "name": "cDhcpv4CountDiscovers",
+    "oid": "1.3.6.1.4.1.9.10.102.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4CountOffers": {
+    "name": "cDhcpv4CountOffers",
+    "oid": "1.3.6.1.4.1.9.10.102.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4CountRequests": {
+    "name": "cDhcpv4CountRequests",
+    "oid": "1.3.6.1.4.1.9.10.102.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4CountDeclines": {
+    "name": "cDhcpv4CountDeclines",
+    "oid": "1.3.6.1.4.1.9.10.102.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4CountAcks": {
+    "name": "cDhcpv4CountAcks",
+    "oid": "1.3.6.1.4.1.9.10.102.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4CountNaks": {
+    "name": "cDhcpv4CountNaks",
+    "oid": "1.3.6.1.4.1.9.10.102.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4CountReleases": {
+    "name": "cDhcpv4CountReleases",
+    "oid": "1.3.6.1.4.1.9.10.102.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4CountInforms": {
+    "name": "cDhcpv4CountInforms",
+    "oid": "1.3.6.1.4.1.9.10.102.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4CountInvalids": {
+    "name": "cDhcpv4CountInvalids",
+    "oid": "1.3.6.1.4.1.9.10.102.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4CountDropUnknownClient": {
+    "name": "cDhcpv4CountDropUnknownClient",
+    "oid": "1.3.6.1.4.1.9.10.102.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4CountDropNotServingSubnet": {
+    "name": "cDhcpv4CountDropNotServingSubnet",
+    "oid": "1.3.6.1.4.1.9.10.102.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cBootpHCCountRequests": {
+    "name": "cBootpHCCountRequests",
+    "oid": "1.3.6.1.4.1.9.10.102.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cBootpHCCountInvalids": {
+    "name": "cBootpHCCountInvalids",
+    "oid": "1.3.6.1.4.1.9.10.102.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cBootpHCCountReplies": {
+    "name": "cBootpHCCountReplies",
+    "oid": "1.3.6.1.4.1.9.10.102.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cBootpHCCountDropUnknownClients": {
+    "name": "cBootpHCCountDropUnknownClients",
+    "oid": "1.3.6.1.4.1.9.10.102.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cBootpHCCountDropNotServingSubnet": {
+    "name": "cBootpHCCountDropNotServingSubnet",
+    "oid": "1.3.6.1.4.1.9.10.102.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4HCCountDiscovers": {
+    "name": "cDhcpv4HCCountDiscovers",
+    "oid": "1.3.6.1.4.1.9.10.102.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4HCCountOffers": {
+    "name": "cDhcpv4HCCountOffers",
+    "oid": "1.3.6.1.4.1.9.10.102.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4HCCountRequests": {
+    "name": "cDhcpv4HCCountRequests",
+    "oid": "1.3.6.1.4.1.9.10.102.1.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4HCCountDeclines": {
+    "name": "cDhcpv4HCCountDeclines",
+    "oid": "1.3.6.1.4.1.9.10.102.1.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4HCCountAcks": {
+    "name": "cDhcpv4HCCountAcks",
+    "oid": "1.3.6.1.4.1.9.10.102.1.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4HCCountNaks": {
+    "name": "cDhcpv4HCCountNaks",
+    "oid": "1.3.6.1.4.1.9.10.102.1.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4HCCountReleases": {
+    "name": "cDhcpv4HCCountReleases",
+    "oid": "1.3.6.1.4.1.9.10.102.1.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4HCCountInforms": {
+    "name": "cDhcpv4HCCountInforms",
+    "oid": "1.3.6.1.4.1.9.10.102.1.9.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4HCCountForcedRenews": {
+    "name": "cDhcpv4HCCountForcedRenews",
+    "oid": "1.3.6.1.4.1.9.10.102.1.9.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4HCCountInvalids": {
+    "name": "cDhcpv4HCCountInvalids",
+    "oid": "1.3.6.1.4.1.9.10.102.1.9.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4HCCountDropUnknownClient": {
+    "name": "cDhcpv4HCCountDropUnknownClient",
+    "oid": "1.3.6.1.4.1.9.10.102.1.9.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4HCCountDropNotServingSubnet": {
+    "name": "cDhcpv4HCCountDropNotServingSubnet",
+    "oid": "1.3.6.1.4.1.9.10.102.1.9.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4ServerSharedNetTable": {
+    "name": "cDhcpv4ServerSharedNetTable",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cDhcpv4ServerSharedNetEntry": {
+    "name": "cDhcpv4ServerSharedNetEntry",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerSharedNetName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cDhcpv4ServerSharedNetName": {
+    "name": "cDhcpv4ServerSharedNetName",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cDhcpv4ServerSharedNetFreeAddrLowThreshold": {
+    "name": "cDhcpv4ServerSharedNetFreeAddrLowThreshold",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cDhcpv4ServerSharedNetFreeAddrHighThreshold": {
+    "name": "cDhcpv4ServerSharedNetFreeAddrHighThreshold",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cDhcpv4ServerSharedNetFreeAddresses": {
+    "name": "cDhcpv4ServerSharedNetFreeAddresses",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4ServerSharedNetReservedAddresses": {
+    "name": "cDhcpv4ServerSharedNetReservedAddresses",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4ServerSharedNetTotalAddresses": {
+    "name": "cDhcpv4ServerSharedNetTotalAddresses",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4ServerSubnetTable": {
+    "name": "cDhcpv4ServerSubnetTable",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cDhcpv4ServerSubnetEntry": {
+    "name": "cDhcpv4ServerSubnetEntry",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerSubnetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cDhcpv4ServerSubnetAddress": {
+    "name": "cDhcpv4ServerSubnetAddress",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cDhcpv4ServerSubnetMask": {
+    "name": "cDhcpv4ServerSubnetMask",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4ServerSubnetSharedNetworkName": {
+    "name": "cDhcpv4ServerSubnetSharedNetworkName",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4ServerSubnetFreeAddrLowThreshold": {
+    "name": "cDhcpv4ServerSubnetFreeAddrLowThreshold",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cDhcpv4ServerSubnetFreeAddrHighThreshold": {
+    "name": "cDhcpv4ServerSubnetFreeAddrHighThreshold",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cDhcpv4ServerSubnetFreeAddresses": {
+    "name": "cDhcpv4ServerSubnetFreeAddresses",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4ServerRangeTable": {
+    "name": "cDhcpv4ServerRangeTable",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cDhcpv4ServerRangeEntry": {
+    "name": "cDhcpv4ServerRangeEntry",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerRangeStartAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerRangeEndAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cDhcpv4ServerRangeStartAddress": {
+    "name": "cDhcpv4ServerRangeStartAddress",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cDhcpv4ServerRangeEndAddress": {
+    "name": "cDhcpv4ServerRangeEndAddress",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cDhcpv4ServerRangeSubnetMask": {
+    "name": "cDhcpv4ServerRangeSubnetMask",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4ServerRangeInUse": {
+    "name": "cDhcpv4ServerRangeInUse",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4ServerRangeOutstandingOffers": {
+    "name": "cDhcpv4ServerRangeOutstandingOffers",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4ServerClientTable": {
+    "name": "cDhcpv4ServerClientTable",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cDhcpv4ServerClientEntry": {
+    "name": "cDhcpv4ServerClientEntry",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerClient",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cDhcpv4ServerClient": {
+    "name": "cDhcpv4ServerClient",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cDhcpv4ServerClientSubnetMask": {
+    "name": "cDhcpv4ServerClientSubnetMask",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4ServerClientRange": {
+    "name": "cDhcpv4ServerClientRange",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4ServerClientLeaseType": {
+    "name": "cDhcpv4ServerClientLeaseType",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2,
+          "expired": 3,
+          "configurationReserved": 4,
+          "serverReserved": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4ServerClientTimeRemaining": {
+    "name": "cDhcpv4ServerClientTimeRemaining",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4ServerClientAllowedProtocol": {
+    "name": "cDhcpv4ServerClientAllowedProtocol",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "bootp": 2,
+          "dhcp": 3,
+          "bootpOrDhcp": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4ServerClientServedProtocol": {
+    "name": "cDhcpv4ServerClientServedProtocol",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "bootp": 2,
+          "dhcp": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4ServerClientPhysicalAddress": {
+    "name": "cDhcpv4ServerClientPhysicalAddress",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDhcpv4PhysicalAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4ServerClientClientId": {
+    "name": "cDhcpv4ServerClientClientId",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4ServerClientHostName": {
+    "name": "cDhcpv4ServerClientHostName",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4ServerClientDomainName": {
+    "name": "cDhcpv4ServerClientDomainName",
+    "oid": "1.3.6.1.4.1.9.10.102.1.4.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDhcpv4ServerNotifyDuplicateIpAddr": {
+    "name": "cDhcpv4ServerNotifyDuplicateIpAddr",
+    "oid": "1.3.6.1.4.1.9.10.102.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cDhcpv4ServerNotifyDuplicateMac": {
+    "name": "cDhcpv4ServerNotifyDuplicateMac",
+    "oid": "1.3.6.1.4.1.9.10.102.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDhcpv4PhysicalAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cDhcpv4ServerNotifyClientOrServerDetected": {
+    "name": "cDhcpv4ServerNotifyClientOrServerDetected",
+    "oid": "1.3.6.1.4.1.9.10.102.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "client": 1,
+          "server": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cDhcpv4ServerNotifyServerStart": {
+    "name": "cDhcpv4ServerNotifyServerStart",
+    "oid": "1.3.6.1.4.1.9.10.102.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cDhcpv4ServerNotifyServerStop": {
+    "name": "cDhcpv4ServerNotifyServerStop",
+    "oid": "1.3.6.1.4.1.9.10.102.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cDhcpv4ServerNotificationPrefix": {
+    "name": "cDhcpv4ServerNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.10.102.0.2",
+    "class": "objectidentity"
+  },
+  "cDhcpv4ServerNotifications": {
+    "name": "cDhcpv4ServerNotifications",
+    "oid": "1.3.6.1.4.1.9.10.102.0.2.0",
+    "class": "objectidentity"
+  },
+  "cDhcpv4ServerFreeAddressLow": {
+    "name": "cDhcpv4ServerFreeAddressLow",
+    "oid": "1.3.6.1.4.1.9.10.102.0.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerSharedNetFreeAddrLowThreshold"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerSharedNetFreeAddresses"
+      }
+    ],
+    "status": "current"
+  },
+  "cDhcpv4ServerFreeAddressHigh": {
+    "name": "cDhcpv4ServerFreeAddressHigh",
+    "oid": "1.3.6.1.4.1.9.10.102.0.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerSharedNetFreeAddrHighThreshold"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerSharedNetFreeAddresses"
+      }
+    ],
+    "status": "current"
+  },
+  "cDhcpv4ServerStartTime": {
+    "name": "cDhcpv4ServerStartTime",
+    "oid": "1.3.6.1.4.1.9.10.102.0.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerNotifyServerStart"
+      }
+    ],
+    "status": "current"
+  },
+  "cDhcpv4ServerStopTime": {
+    "name": "cDhcpv4ServerStopTime",
+    "oid": "1.3.6.1.4.1.9.10.102.0.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerNotifyServerStop"
+      }
+    ],
+    "status": "current"
+  },
+  "cDhcpv4ServerDuplicateAddress": {
+    "name": "cDhcpv4ServerDuplicateAddress",
+    "oid": "1.3.6.1.4.1.9.10.102.0.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerNotifyDuplicateIpAddr"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerNotifyDuplicateMac"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerNotifyClientOrServerDetected"
+      }
+    ],
+    "status": "current"
+  },
+  "cDhcpv4SrvCompliances": {
+    "name": "cDhcpv4SrvCompliances",
+    "oid": "1.3.6.1.4.1.9.10.102.2.1",
+    "class": "objectidentity"
+  },
+  "cDhcpv4SrvGroups": {
+    "name": "cDhcpv4SrvGroups",
+    "oid": "1.3.6.1.4.1.9.10.102.2.2",
+    "class": "objectidentity"
+  },
+  "cDhcpv4SrvCompliance": {
+    "name": "cDhcpv4SrvCompliance",
+    "oid": "1.3.6.1.4.1.9.10.102.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cDhcpv4SrvSystemObjects",
+        "module": "CISCO-IETF-DHCP-SERVER-MIB"
+      },
+      {
+        "object": "cBootpCountersGroup",
+        "module": "CISCO-IETF-DHCP-SERVER-MIB"
+      },
+      {
+        "object": "cDhcpv4CounterObjects",
+        "module": "CISCO-IETF-DHCP-SERVER-MIB"
+      },
+      {
+        "object": "cBootpHCCountersGroup",
+        "module": "CISCO-IETF-DHCP-SERVER-MIB"
+      },
+      {
+        "object": "cDhcpv4HCCounterObjects",
+        "module": "CISCO-IETF-DHCP-SERVER-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cDhcpv4SrvComplianceRev1": {
+    "name": "cDhcpv4SrvComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.10.102.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cDhcpv4SrvSystemObjects",
+        "module": "CISCO-IETF-DHCP-SERVER-MIB"
+      },
+      {
+        "object": "cBootpCountersGroup",
+        "module": "CISCO-IETF-DHCP-SERVER-MIB"
+      },
+      {
+        "object": "cDhcpv4CounterObjects",
+        "module": "CISCO-IETF-DHCP-SERVER-MIB"
+      },
+      {
+        "object": "cBootpHCCountersGroup",
+        "module": "CISCO-IETF-DHCP-SERVER-MIB"
+      },
+      {
+        "object": "cDhcpv4HCCounterObjects",
+        "module": "CISCO-IETF-DHCP-SERVER-MIB"
+      },
+      {
+        "object": "cDhcpv4ServerSharedNetObjects",
+        "module": "CISCO-IETF-DHCP-SERVER-MIB"
+      },
+      {
+        "object": "cDhcpv4ServerSubnetObjects",
+        "module": "CISCO-IETF-DHCP-SERVER-MIB"
+      },
+      {
+        "object": "cDhcpv4ServerRangeObjects",
+        "module": "CISCO-IETF-DHCP-SERVER-MIB"
+      },
+      {
+        "object": "cDhcpv4ServerClientObjects",
+        "module": "CISCO-IETF-DHCP-SERVER-MIB"
+      },
+      {
+        "object": "cDhcpv4ServerNotifyObjectsGroup",
+        "module": "CISCO-IETF-DHCP-SERVER-MIB"
+      },
+      {
+        "object": "cDhcpv4ServerNotificationsGroup",
+        "module": "CISCO-IETF-DHCP-SERVER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cDhcpv4SrvSystemObjects": {
+    "name": "cDhcpv4SrvSystemObjects",
+    "oid": "1.3.6.1.4.1.9.10.102.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4SrvSystemDescr"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4SrvSystemObjectID"
+      }
+    ],
+    "status": "current"
+  },
+  "cBootpCountersGroup": {
+    "name": "cBootpCountersGroup",
+    "oid": "1.3.6.1.4.1.9.10.102.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cBootpCountRequests"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cBootpCountInvalids"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cBootpCountReplies"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cBootpCountDropUnknownClients"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cBootpCountDropNotServingSubnet"
+      }
+    ],
+    "status": "current"
+  },
+  "cDhcpv4CounterObjects": {
+    "name": "cDhcpv4CounterObjects",
+    "oid": "1.3.6.1.4.1.9.10.102.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4CountDiscovers"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4CountOffers"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4CountRequests"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4CountDeclines"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4CountAcks"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4CountNaks"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4CountReleases"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4CountInforms"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4CountInvalids"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4CountDropUnknownClient"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4CountDropNotServingSubnet"
+      }
+    ],
+    "status": "current"
+  },
+  "cBootpHCCountersGroup": {
+    "name": "cBootpHCCountersGroup",
+    "oid": "1.3.6.1.4.1.9.10.102.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cBootpHCCountRequests"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cBootpHCCountInvalids"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cBootpHCCountReplies"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cBootpHCCountDropUnknownClients"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cBootpHCCountDropNotServingSubnet"
+      }
+    ],
+    "status": "current"
+  },
+  "cDhcpv4HCCounterObjects": {
+    "name": "cDhcpv4HCCounterObjects",
+    "oid": "1.3.6.1.4.1.9.10.102.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4HCCountDiscovers"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4HCCountOffers"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4HCCountRequests"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4HCCountDeclines"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4HCCountAcks"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4HCCountNaks"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4HCCountReleases"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4HCCountInforms"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4HCCountForcedRenews"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4HCCountInvalids"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4HCCountDropUnknownClient"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4HCCountDropNotServingSubnet"
+      }
+    ],
+    "status": "current"
+  },
+  "cDhcpv4ServerSharedNetObjects": {
+    "name": "cDhcpv4ServerSharedNetObjects",
+    "oid": "1.3.6.1.4.1.9.10.102.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerSharedNetFreeAddrLowThreshold"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerSharedNetFreeAddrHighThreshold"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerSharedNetFreeAddresses"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerSharedNetReservedAddresses"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerSharedNetTotalAddresses"
+      }
+    ],
+    "status": "current"
+  },
+  "cDhcpv4ServerSubnetObjects": {
+    "name": "cDhcpv4ServerSubnetObjects",
+    "oid": "1.3.6.1.4.1.9.10.102.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerSubnetMask"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerSubnetSharedNetworkName"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerSubnetFreeAddrLowThreshold"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerSubnetFreeAddrHighThreshold"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerSubnetFreeAddresses"
+      }
+    ],
+    "status": "current"
+  },
+  "cDhcpv4ServerRangeObjects": {
+    "name": "cDhcpv4ServerRangeObjects",
+    "oid": "1.3.6.1.4.1.9.10.102.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerRangeSubnetMask"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerRangeInUse"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerRangeOutstandingOffers"
+      }
+    ],
+    "status": "current"
+  },
+  "cDhcpv4ServerClientObjects": {
+    "name": "cDhcpv4ServerClientObjects",
+    "oid": "1.3.6.1.4.1.9.10.102.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerClientSubnetMask"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerClientRange"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerClientLeaseType"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerClientTimeRemaining"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerClientAllowedProtocol"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerClientServedProtocol"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerClientPhysicalAddress"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerClientClientId"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerClientHostName"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerClientDomainName"
+      }
+    ],
+    "status": "current"
+  },
+  "cDhcpv4ServerNotifyObjectsGroup": {
+    "name": "cDhcpv4ServerNotifyObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.10.102.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerNotifyDuplicateIpAddr"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerNotifyDuplicateMac"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerNotifyClientOrServerDetected"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerNotifyServerStart"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerNotifyServerStop"
+      }
+    ],
+    "status": "current"
+  },
+  "cDhcpv4ServerNotificationsGroup": {
+    "name": "cDhcpv4ServerNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.10.102.2.2.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerFreeAddressLow"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerFreeAddressHigh"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerStartTime"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerStopTime"
+      },
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "object": "cDhcpv4ServerDuplicateAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-DHCP-SERVER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IETF-DHCP-SERVER-MIB"
+  }
+}

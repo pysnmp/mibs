@@ -1,0 +1,315 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-DOT11-REF-MIB": [
+      "hpnicfDot11",
+      "HpnicfDot11QosAcType",
+      "HpnicfDot11ObjectIDType",
+      "HpnicfDot11RadioScopeType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfDot11WLANEXT": {
+    "name": "hpnicfDot11WLANEXT",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-06-08 20:00",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hpnicfDot11RFGroup": {
+    "name": "hpnicfDot11RFGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.7.1",
+    "class": "objectidentity"
+  },
+  "hpnicfDot11QosGroup": {
+    "name": "hpnicfDot11QosGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.7.2",
+    "class": "objectidentity"
+  },
+  "hpnicfDot11RFSignalStatisTable": {
+    "name": "hpnicfDot11RFSignalStatisTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.7.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11RFSignalStatisEntry": {
+    "name": "hpnicfDot11RFSignalStatisEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.7.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-WLANEXT-MIB",
+        "object": "hpnicfDot11RFAPID",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-DOT11-WLANEXT-MIB",
+        "object": "hpnicfDot11RFRadioID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11RFAPID": {
+    "name": "hpnicfDot11RFAPID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.7.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11ObjectIDType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11RFRadioID": {
+    "name": "hpnicfDot11RFRadioID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.7.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11RadioScopeType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11RFSignalStatisInterv": {
+    "name": "hpnicfDot11RFSignalStatisInterv",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.7.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RFAverageSignalStrength": {
+    "name": "hpnicfDot11RFAverageSignalStrength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.7.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RFMaxSignalStrength": {
+    "name": "hpnicfDot11RFMaxSignalStrength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.7.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RFMinSignalStrength": {
+    "name": "hpnicfDot11RFMinSignalStrength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.7.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11QosStatisTable": {
+    "name": "hpnicfDot11QosStatisTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.7.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11QosStatisEntry": {
+    "name": "hpnicfDot11QosStatisEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.7.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-WLANEXT-MIB",
+        "object": "hpnicfDot11QosAPID",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-DOT11-WLANEXT-MIB",
+        "object": "hpnicfDot11QosRadioID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11QosAPID": {
+    "name": "hpnicfDot11QosAPID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.7.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11ObjectIDType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11QosRadioID": {
+    "name": "hpnicfDot11QosRadioID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.7.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11RadioScopeType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11QosAverageQueLen": {
+    "name": "hpnicfDot11QosAverageQueLen",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.7.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11QosDropFrameRatio": {
+    "name": "hpnicfDot11QosDropFrameRatio",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.7.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11QosAverageDataRate": {
+    "name": "hpnicfDot11QosAverageDataRate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.7.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11QosAcStatisTable": {
+    "name": "hpnicfDot11QosAcStatisTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.7.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11QosAcStatisEntry": {
+    "name": "hpnicfDot11QosAcStatisEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.7.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-WLANEXT-MIB",
+        "object": "hpnicfDot11QosAPID",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-DOT11-WLANEXT-MIB",
+        "object": "hpnicfDot11QosRadioID",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-DOT11-WLANEXT-MIB",
+        "object": "hpnicfDot11QosAcType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11QosAcType": {
+    "name": "hpnicfDot11QosAcType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.7.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11QosAcType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11AcDropFrameCnt": {
+    "name": "hpnicfDot11AcDropFrameCnt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.7.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11-WLANEXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-DOT11-WLANEXT-MIB"
+  }
+}

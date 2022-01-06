@@ -1,0 +1,653 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPOV-NNM-MIB": [
+      "openViewSeverity"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "Gauge32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "Counter32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "alcatel": {
+    "name": "alcatel",
+    "oid": "1.3.6.1.4.1.637",
+    "class": "objectidentity"
+  },
+  "abs": {
+    "name": "abs",
+    "oid": "1.3.6.1.4.1.637.64",
+    "class": "objectidentity"
+  },
+  "nmc4755": {
+    "name": "nmc4755",
+    "oid": "1.3.6.1.4.1.637.64.0",
+    "class": "objectidentity"
+  },
+  "notification": {
+    "name": "notification",
+    "oid": "1.3.6.1.4.1.637.64.0.10",
+    "class": "objectidentity"
+  },
+  "nmcProxyAgent": {
+    "name": "nmcProxyAgent",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1",
+    "class": "objectidentity"
+  },
+  "nmcProxyTraps": {
+    "name": "nmcProxyTraps",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.2",
+    "class": "objectidentity"
+  },
+  "cmipEventArg": {
+    "name": "cmipEventArg",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1",
+    "class": "objectidentity"
+  },
+  "objectClass": {
+    "name": "objectClass",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.1",
+    "class": "objectidentity"
+  },
+  "objectInstance": {
+    "name": "objectInstance",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2",
+    "class": "objectidentity"
+  },
+  "topClass": {
+    "name": "topClass",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "baseClass": {
+    "name": "baseClass",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "containmentTree": {
+    "name": "containmentTree",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "a4400": {
+    "name": "a4400",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.1.89",
+    "class": "objectidentity"
+  },
+  "shelf": {
+    "name": "shelf",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.1.89.29",
+    "class": "objectidentity"
+  },
+  "board": {
+    "name": "board",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.1.89.29.23",
+    "class": "objectidentity"
+  },
+  "actOrSuEvents": {
+    "name": "actOrSuEvents",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.1.89.29.23.175",
+    "class": "objectidentity"
+  },
+  "terminal": {
+    "name": "terminal",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.1.89.29.23.175.82",
+    "class": "objectidentity"
+  },
+  "logicalLinks": {
+    "name": "logicalLinks",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.1.89.101",
+    "class": "objectidentity"
+  },
+  "dect": {
+    "name": "dect",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.1.89.201",
+    "class": "objectidentity"
+  },
+  "rdnDepth": {
+    "name": "rdnDepth",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rdnValues": {
+    "name": "rdnValues",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.3",
+    "class": "objectidentity"
+  },
+  "rdn1": {
+    "name": "rdn1",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.3.1",
+    "class": "objectidentity"
+  },
+  "classId1": {
+    "name": "classId1",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rdnValue1": {
+    "name": "rdnValue1",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rdn2": {
+    "name": "rdn2",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.3.2",
+    "class": "objectidentity"
+  },
+  "classId2": {
+    "name": "classId2",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rdnValue2": {
+    "name": "rdnValue2",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rdn3": {
+    "name": "rdn3",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.3.3",
+    "class": "objectidentity"
+  },
+  "classId3": {
+    "name": "classId3",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rdnValue3": {
+    "name": "rdnValue3",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rdn4": {
+    "name": "rdn4",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.3.4",
+    "class": "objectidentity"
+  },
+  "classId4": {
+    "name": "classId4",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rdnValue4": {
+    "name": "rdnValue4",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rdn5": {
+    "name": "rdn5",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.3.5",
+    "class": "objectidentity"
+  },
+  "classId5": {
+    "name": "classId5",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.3.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rdnValue5": {
+    "name": "rdnValue5",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.3.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eventTime": {
+    "name": "eventTime",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eventType": {
+    "name": "eventType",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "communicationAlarm": 2,
+          "environmentalAlarm": 3,
+          "equipmentAlarm": 4,
+          "processingErrorAlarm": 10,
+          "qualityOfServiceAlarm": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "severity": {
+    "name": "severity",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "indeterminate": 1,
+          "critical": 2,
+          "major": 3,
+          "minor": 4,
+          "warning": 5,
+          "clear": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "probableCause": {
+    "name": "probableCause",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "Unknown": 0,
+          "AdapterError": 1,
+          "ApplicationSubsystemFailure": 2,
+          "BandWidthReduced": 3,
+          "CallEstablishmentError": 4,
+          "CommunicationsProtocolError": 5,
+          "CommunicationsSubsystemFailure": 6,
+          "ConfigurationOrCustomizationError": 7,
+          "Congestion": 8,
+          "CorruptData": 9,
+          "CpuCyclesLimitExceeded": 10,
+          "DataSetOrModemError": 11,
+          "DegradedSignal": 12,
+          "DteDceInterfaceError": 13,
+          "EnclosureDoorOpen": 14,
+          "EquipmentMalFunction": 15,
+          "ExcessiveVibration": 16,
+          "FileError": 17,
+          "FireDetected": 18,
+          "FloodDetected": 19,
+          "FramingError": 20,
+          "HeatingVentilationCoolingSystemProblem": 21,
+          "HumidityUnacceptable": 22,
+          "InputOutputDeviceError": 23,
+          "InputDeviceError": 24,
+          "LANError": 25,
+          "LeakDetected": 26,
+          "LocalNodeTransmissionError": 27,
+          "LossOfFrame": 28,
+          "LossOfSignal": 29,
+          "MaterialSupplyExhausted": 30,
+          "MultiplexerProblem": 31,
+          "OutOfMemory": 32,
+          "OutputDeviceError": 33,
+          "PerformanceDegraded": 34,
+          "PowerProblem": 35,
+          "PressureUnacceptable": 36,
+          "ProcessorProblem": 37,
+          "PumpFailure": 38,
+          "QueueSizeExceeded": 39,
+          "ReceiveFailure": 40,
+          "ReceiverFailure": 41,
+          "RemoteNodeTransmissionFailure": 42,
+          "ResourceAtOrNearingCapacity": 43,
+          "ResponseTimeExcessive": 44,
+          "RetransmissionRateExcessive": 45,
+          "SoftwareError": 46,
+          "SoftwareProgramAbnormallyTerminated": 47,
+          "SoftwareProgramError": 48,
+          "StorageCapacityProblem": 49,
+          "TemperatureUnacceptable": 50,
+          "ThresholdCrossed": 51,
+          "TimingProblem": 52,
+          "ToxicLeakDetected": 53,
+          "TransmitFailure": 54,
+          "TransmitterFailure": 55,
+          "UnderlyingResourceUnavailable": 56,
+          "VersionMismatch": 57
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "voiceIds": {
+    "name": "voiceIds",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.4",
+    "class": "objectidentity"
+  },
+  "objectNumber": {
+    "name": "objectNumber",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "parentNumber": {
+    "name": "parentNumber",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "packedForm": {
+    "name": "packedForm",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "notificationId": {
+    "name": "notificationId",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "addText": {
+    "name": "addText",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "packedCmipTrap": {
+    "name": "packedCmipTrap",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.20.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPOV-NNM-MIB",
+        "object": "openViewSeverity"
+      },
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "packedForm"
+      }
+    ]
+  },
+  "startOfResyncTrap": {
+    "name": "startOfResyncTrap",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.20.2",
+    "class": "notificationtype"
+  },
+  "cmipTrap": {
+    "name": "cmipTrap",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.20.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "topClass"
+      },
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "baseClass"
+      },
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "rdnDepth"
+      },
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "classId1"
+      },
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "rdnValue1"
+      },
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "classId2"
+      },
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "rdnValue2"
+      },
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "classId3"
+      },
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "rdnValue3"
+      },
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "classId4"
+      },
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "rdnValue4"
+      },
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "classId5"
+      },
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "rdnValue5"
+      },
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "eventType"
+      },
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "severity"
+      },
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "notificationId"
+      },
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "addText"
+      }
+    ]
+  },
+  "startProxyTrap": {
+    "name": "startProxyTrap",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.20.4",
+    "class": "notificationtype"
+  },
+  "stopProxyTrap": {
+    "name": "stopProxyTrap",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.20.5",
+    "class": "notificationtype"
+  },
+  "eventLostTrap": {
+    "name": "eventLostTrap",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.20.6",
+    "class": "notificationtype"
+  },
+  "topClassStateTrap": {
+    "name": "topClassStateTrap",
+    "oid": "1.3.6.1.4.1.637.64.0.10.1.20.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "classId1"
+      },
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "rdnValue1"
+      },
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "severity"
+      },
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "objectNumber"
+      },
+      {
+        "module": "ALCATEL-NMC-PROXY-AGENT-MIB",
+        "object": "parentNumber"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alcatel/ALCATEL-NMC-PROXY-AGENT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:56 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-NMC-PROXY-AGENT-MIB"
+  }
+}

@@ -1,0 +1,383 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "JUNIPER-EX-SMI": [
+      "jnxExSecureAccessPort"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxExSecureAccessPortMIB": {
+    "name": "jnxExSecureAccessPortMIB",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1",
+    "class": "moduleidentity"
+  },
+  "jnxSecAccessPortMIBNotifications": {
+    "name": "jnxSecAccessPortMIBNotifications",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.0",
+    "class": "objectidentity"
+  },
+  "jnxSecAccessPortMIBObjects": {
+    "name": "jnxSecAccessPortMIBObjects",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.1",
+    "class": "objectidentity"
+  },
+  "JnxMacLimitExceededAction": {
+    "name": "JnxMacLimitExceededAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "drop": 2,
+          "alarm": 3,
+          "shutdown": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "jnxSecAccessPortVlanTable": {
+    "name": "jnxSecAccessPortVlanTable",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSecAccessPortVlanEntry": {
+    "name": "jnxSecAccessPortVlanEntry",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-SECURE-ACCESS-PORT-MIB",
+        "object": "jnxSecAccessVlanName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSecAccessVlanName": {
+    "name": "jnxSecAccessVlanName",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSecAccessVlanDhcpSnoopStatus": {
+    "name": "jnxSecAccessVlanDhcpSnoopStatus",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSecAccessVlanDAIStatus": {
+    "name": "jnxSecAccessVlanDAIStatus",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSecAccessPortIfTable": {
+    "name": "jnxSecAccessPortIfTable",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSecAccessPortIfEntry": {
+    "name": "jnxSecAccessPortIfEntry",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSecAccessdsIfTrustState": {
+    "name": "jnxSecAccessdsIfTrustState",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSecAccessdsIfRateLimit": {
+    "name": "jnxSecAccessdsIfRateLimit",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSecAccessIfMacLimit": {
+    "name": "jnxSecAccessIfMacLimit",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSecAccessIfMacLimitExceed": {
+    "name": "jnxSecAccessIfMacLimitExceed",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxMacLimitExceededAction",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSecAccessIfIpSrcGuardStatus": {
+    "name": "jnxSecAccessIfIpSrcGuardStatus",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSecAccessIfMacSrcGuardStatus": {
+    "name": "jnxSecAccessIfMacSrcGuardStatus",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxStormCtlTable": {
+    "name": "jnxStormCtlTable",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxStormCtlEntry": {
+    "name": "jnxStormCtlEntry",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SECURE-ACCESS-PORT-MIB",
+        "object": "jnxStormCtlIfTrafficType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxStormCtlIfTrafficType": {
+    "name": "jnxStormCtlIfTrafficType",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "broadcast": 1,
+          "multicast": 2,
+          "unicast": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxStormCtlRisingThreshold": {
+    "name": "jnxStormCtlRisingThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxStormCtlFallingThreshold": {
+    "name": "jnxStormCtlFallingThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxStormCtlAction": {
+    "name": "jnxStormCtlAction",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "shutdown": 1,
+          "filter": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSecAccessdsRateLimitCrossed": {
+    "name": "jnxSecAccessdsRateLimitCrossed",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-SECURE-ACCESS-PORT-MIB",
+        "object": "jnxSecAccessdsIfRateLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSecAccessIfMacLimitExceeded": {
+    "name": "jnxSecAccessIfMacLimitExceeded",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-SECURE-ACCESS-PORT-MIB",
+        "object": "jnxSecAccessIfMacLimit"
+      },
+      {
+        "module": "JUNIPER-SECURE-ACCESS-PORT-MIB",
+        "object": "jnxSecAccessIfMacLimitExceed"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxStormEventNotification": {
+    "name": "jnxStormEventNotification",
+    "oid": "1.3.6.1.4.1.2636.3.40.1.2.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-SECURE-ACCESS-PORT-MIB",
+        "object": "jnxStormCtlRisingThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-SECURE-ACCESS-PORT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-SECURE-ACCESS-PORT-MIB"
+  }
+}

@@ -1,0 +1,555 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-ST-TC": [
+      "FcNameId"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "TestAndIncr"
+    ]
+  },
+  "ciscoIpNetworkDiscoveryMIB": {
+    "name": "ciscoIpNetworkDiscoveryMIB",
+    "oid": "1.3.6.1.4.1.9.9.434",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-10-03 00:00",
+        "description": "Updated with correct ciscoMgmt number for MODULE-IDENTITY."
+      },
+      {
+        "revision": "2005-08-09 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cIpNetworkDiscoveryMIBNotifs": {
+    "name": "cIpNetworkDiscoveryMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.434.0",
+    "class": "objectidentity"
+  },
+  "cIpNetworkDiscoveryMIBObjs": {
+    "name": "cIpNetworkDiscoveryMIBObjs",
+    "oid": "1.3.6.1.4.1.9.9.434.1",
+    "class": "objectidentity"
+  },
+  "cIpNetworkDiscoveryConform": {
+    "name": "cIpNetworkDiscoveryConform",
+    "oid": "1.3.6.1.4.1.9.9.434.2",
+    "class": "objectidentity"
+  },
+  "cIpNetworkDiscoveryConfig": {
+    "name": "cIpNetworkDiscoveryConfig",
+    "oid": "1.3.6.1.4.1.9.9.434.1.1",
+    "class": "objectidentity"
+  },
+  "cIpNetworkDiscoveryInfo": {
+    "name": "cIpNetworkDiscoveryInfo",
+    "oid": "1.3.6.1.4.1.9.9.434.1.2",
+    "class": "objectidentity"
+  },
+  "cIpNetworkAutomaticDiscovery": {
+    "name": "cIpNetworkAutomaticDiscovery",
+    "oid": "1.3.6.1.4.1.9.9.434.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIpNetworkDiscoveryDelay": {
+    "name": "cIpNetworkDiscoveryDelay",
+    "oid": "1.3.6.1.4.1.9.9.434.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5184000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpNetworkDiscoveryTypeSpinLock": {
+    "name": "cIpNetworkDiscoveryTypeSpinLock",
+    "oid": "1.3.6.1.4.1.9.9.434.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIpNetworkDiscoveryType": {
+    "name": "cIpNetworkDiscoveryType",
+    "oid": "1.3.6.1.4.1.9.9.434.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "icmp": 1,
+          "tcp": 2,
+          "udp": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "icmp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIpNetworkDiscoveryPort": {
+    "name": "cIpNetworkDiscoveryPort",
+    "oid": "1.3.6.1.4.1.9.9.434.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIpNetworkDiscoverySpinLock": {
+    "name": "cIpNetworkDiscoverySpinLock",
+    "oid": "1.3.6.1.4.1.9.9.434.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIpNetworkGigEIfIndexToDiscover": {
+    "name": "cIpNetworkGigEIfIndexToDiscover",
+    "oid": "1.3.6.1.4.1.9.9.434.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIpNetworkInetAddrTypeToDiscover": {
+    "name": "cIpNetworkInetAddrTypeToDiscover",
+    "oid": "1.3.6.1.4.1.9.9.434.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIpNetworkGigEInetAddrToDiscover": {
+    "name": "cIpNetworkGigEInetAddrToDiscover",
+    "oid": "1.3.6.1.4.1.9.9.434.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIpNetworkDiscoveryCommand": {
+    "name": "cIpNetworkDiscoveryCommand",
+    "oid": "1.3.6.1.4.1.9.9.434.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "noOp": 2,
+          "interfaceSpecific": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noOp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIpNetworkDiscoveryCmdStatus": {
+    "name": "cIpNetworkDiscoveryCmdStatus",
+    "oid": "1.3.6.1.4.1.9.9.434.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "none": 2,
+          "inProgress": 3,
+          "noGigEInterfaceIndexSpecified": 4,
+          "noGigEInetAddrSpecified": 5,
+          "noGigESwitchWWNSpecified": 6,
+          "invalidGigEInterfaceIndex": 7,
+          "invalidGigEInetAddrType": 8,
+          "invalidGigEInetAddr": 9,
+          "generalFailure": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpNetworkTable": {
+    "name": "cIpNetworkTable",
+    "oid": "1.3.6.1.4.1.9.9.434.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpNetworkEntry": {
+    "name": "cIpNetworkEntry",
+    "oid": "1.3.6.1.4.1.9.9.434.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IP-NW-DISCOVERY-MIB",
+        "object": "cIpNetworkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIpNetworkIndex": {
+    "name": "cIpNetworkIndex",
+    "oid": "1.3.6.1.4.1.9.9.434.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpNetworkSwitchWWN": {
+    "name": "cIpNetworkSwitchWWN",
+    "oid": "1.3.6.1.4.1.9.9.434.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpNetworkInterfaceTable": {
+    "name": "cIpNetworkInterfaceTable",
+    "oid": "1.3.6.1.4.1.9.9.434.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpNetworkInterfaceEntry": {
+    "name": "cIpNetworkInterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.9.434.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IP-NW-DISCOVERY-MIB",
+        "object": "cIpNetworkIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-NW-DISCOVERY-MIB",
+        "object": "cIpNetworkGigEPortSwitchWWN",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-NW-DISCOVERY-MIB",
+        "object": "cIpNetworkGigEPortIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-NW-DISCOVERY-MIB",
+        "object": "cIpNetworkGigEPortInetAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-NW-DISCOVERY-MIB",
+        "object": "cIpNetworkGigEPortInetAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIpNetworkGigEPortSwitchWWN": {
+    "name": "cIpNetworkGigEPortSwitchWWN",
+    "oid": "1.3.6.1.4.1.9.9.434.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpNetworkGigEPortIfIndex": {
+    "name": "cIpNetworkGigEPortIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.434.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpNetworkGigEPortInetAddrType": {
+    "name": "cIpNetworkGigEPortInetAddrType",
+    "oid": "1.3.6.1.4.1.9.9.434.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpNetworkGigEPortInetAddr": {
+    "name": "cIpNetworkGigEPortInetAddr",
+    "oid": "1.3.6.1.4.1.9.9.434.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpNetworkDiscoverCompliance": {
+    "name": "cIpNetworkDiscoverCompliance",
+    "oid": "1.3.6.1.4.1.9.9.434.2.1",
+    "class": "objectidentity"
+  },
+  "cIpNetworkDiscoveryMIBComp": {
+    "name": "cIpNetworkDiscoveryMIBComp",
+    "oid": "1.3.6.1.4.1.9.9.434.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cIpNetworkDiscoveryInfoGroup",
+        "module": "CISCO-IP-NW-DISCOVERY-MIB"
+      },
+      {
+        "object": "cIpNetworkDiscoveryCfgGroup",
+        "module": "CISCO-IP-NW-DISCOVERY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cIpNetworkDiscoveryMIBGroups": {
+    "name": "cIpNetworkDiscoveryMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.434.2.2",
+    "class": "objectidentity"
+  },
+  "cIpNetworkDiscoveryInfoGroup": {
+    "name": "cIpNetworkDiscoveryInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.434.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-NW-DISCOVERY-MIB",
+        "object": "cIpNetworkSwitchWWN"
+      },
+      {
+        "module": "CISCO-IP-NW-DISCOVERY-MIB",
+        "object": "cIpNetworkGigEPortInetAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "cIpNetworkDiscoveryCfgGroup": {
+    "name": "cIpNetworkDiscoveryCfgGroup",
+    "oid": "1.3.6.1.4.1.9.9.434.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-NW-DISCOVERY-MIB",
+        "object": "cIpNetworkAutomaticDiscovery"
+      },
+      {
+        "module": "CISCO-IP-NW-DISCOVERY-MIB",
+        "object": "cIpNetworkDiscoveryDelay"
+      },
+      {
+        "module": "CISCO-IP-NW-DISCOVERY-MIB",
+        "object": "cIpNetworkDiscoveryTypeSpinLock"
+      },
+      {
+        "module": "CISCO-IP-NW-DISCOVERY-MIB",
+        "object": "cIpNetworkDiscoveryType"
+      },
+      {
+        "module": "CISCO-IP-NW-DISCOVERY-MIB",
+        "object": "cIpNetworkDiscoveryPort"
+      },
+      {
+        "module": "CISCO-IP-NW-DISCOVERY-MIB",
+        "object": "cIpNetworkDiscoverySpinLock"
+      },
+      {
+        "module": "CISCO-IP-NW-DISCOVERY-MIB",
+        "object": "cIpNetworkGigEIfIndexToDiscover"
+      },
+      {
+        "module": "CISCO-IP-NW-DISCOVERY-MIB",
+        "object": "cIpNetworkInetAddrTypeToDiscover"
+      },
+      {
+        "module": "CISCO-IP-NW-DISCOVERY-MIB",
+        "object": "cIpNetworkGigEInetAddrToDiscover"
+      },
+      {
+        "module": "CISCO-IP-NW-DISCOVERY-MIB",
+        "object": "cIpNetworkDiscoveryCommand"
+      },
+      {
+        "module": "CISCO-IP-NW-DISCOVERY-MIB",
+        "object": "cIpNetworkDiscoveryCmdStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IP-NW-DISCOVERY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IP-NW-DISCOVERY-MIB"
+  }
+}

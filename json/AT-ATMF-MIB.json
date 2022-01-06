@@ -1,0 +1,938 @@
+{
+  "imports": {
+    "class": "imports",
+    "AT-SMI-MIB": [
+      "DisplayStringUnsized",
+      "modules"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "Bits",
+      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "iso",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "atmf": {
+    "name": "atmf",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-10-07 12:00",
+        "description": "This MIB file is enhanced to incorporate the new controller module trap - atAtmfControllerAreaRemoteBackupStatusTrap."
+      },
+      {
+        "revision": "2014-07-04 12:00",
+        "description": "This MIB file is updated to incorporate the definitions of managed objects for the ATMF controller module."
+      },
+      {
+        "revision": "2014-05-07 12:00",
+        "description": "Enhance the atAtmfRemoteBackupStatusTrap to include the atAtmfTrapRemoteBackupServerId field."
+      },
+      {
+        "revision": "2013-07-15 12:00",
+        "description": "Add atAtmfTrapRemoteServersAvailable. Add trap and trap variable definitions."
+      },
+      {
+        "revision": "2013-05-27 12:00",
+        "description": "Initial Revision"
+      }
+    ]
+  },
+  "atAtmfTraps": {
+    "name": "atAtmfTraps",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.0",
+    "class": "objectidentity"
+  },
+  "atAtmfBackupStatusTrap": {
+    "name": "atAtmfBackupStatusTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapNodeName"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapMasterNodeName"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapBackupStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "atAtmfNodeStatusChangeTrap": {
+    "name": "atAtmfNodeStatusChangeTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapNodeName"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapNodeStatusChange"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapNetworkName"
+      }
+    ],
+    "status": "current"
+  },
+  "atAtmfNodeRecoveryTrap": {
+    "name": "atAtmfNodeRecoveryTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapNodeName"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapMasterNodeName"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapNodeRecoveryStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "atAtmfInterfaceStatusChangeTrap": {
+    "name": "atAtmfInterfaceStatusChangeTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapNodeName"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapInterfaceName"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapInterfaceStatusChange"
+      }
+    ],
+    "status": "current"
+  },
+  "atAtmfExternalMediaLowMemoryTrap": {
+    "name": "atAtmfExternalMediaLowMemoryTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapMasterNodeName"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapMediaType"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapMediaTotal"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapMediaFree"
+      }
+    ],
+    "status": "current"
+  },
+  "atAtmfRollingRebootCompleteTrap": {
+    "name": "atAtmfRollingRebootCompleteTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapNodeName"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapRollingRebootStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "atAtmfRollingRebootReleaseCompleteTrap": {
+    "name": "atAtmfRollingRebootReleaseCompleteTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapNodeName"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapRollingRebootStatus"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapRollingRebootReleaseName"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapRollingRebootReleaseStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "atAtmfRemoteBackupStatusTrap": {
+    "name": "atAtmfRemoteBackupStatusTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapNodeName"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapRemoteBackupServerId"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapRemoteBackupServerName"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapRemoteServerStatus"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapRemoteServersAvailable"
+      }
+    ],
+    "status": "current"
+  },
+  "atAtmfControllerAreaStatusChangeTrap": {
+    "name": "atAtmfControllerAreaStatusChangeTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapNodeName"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfControllerAreaName"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfControllerAreaStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "atAtmfControllerAreaRemoteBackupStatusTrap": {
+    "name": "atAtmfControllerAreaRemoteBackupStatusTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapNodeName"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfControllerAreaName"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapMasterNodeName"
+      },
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfTrapBackupStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "atAtmfTrapVariable": {
+    "name": "atAtmfTrapVariable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.1",
+    "class": "objectidentity"
+  },
+  "atAtmfTrapNodeName": {
+    "name": "atAtmfTrapNodeName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfTrapMasterNodeName": {
+    "name": "atAtmfTrapMasterNodeName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfTrapNetworkName": {
+    "name": "atAtmfTrapNetworkName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfTrapInterfaceName": {
+    "name": "atAtmfTrapInterfaceName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfTrapBackupStatus": {
+    "name": "atAtmfTrapBackupStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 1,
+          "passed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfTrapNodeStatusChange": {
+    "name": "atAtmfTrapNodeStatusChange",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "left": 1,
+          "joined": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfTrapInterfaceStatusChange": {
+    "name": "atAtmfTrapInterfaceStatusChange",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blocking": 1,
+          "forwarding": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfTrapNodeRecoveryStatus": {
+    "name": "atAtmfTrapNodeRecoveryStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 1,
+          "passed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfTrapMediaType": {
+    "name": "atAtmfTrapMediaType",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfTrapMediaTotal": {
+    "name": "atAtmfTrapMediaTotal",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfTrapMediaFree": {
+    "name": "atAtmfTrapMediaFree",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfTrapRollingRebootStatus": {
+    "name": "atAtmfTrapRollingRebootStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 1,
+          "passed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfTrapRollingRebootReleaseName": {
+    "name": "atAtmfTrapRollingRebootReleaseName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfTrapRollingRebootReleaseStatus": {
+    "name": "atAtmfTrapRollingRebootReleaseStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 1,
+          "passed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfTrapRemoteBackupServerId": {
+    "name": "atAtmfTrapRemoteBackupServerId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfTrapRemoteBackupServerName": {
+    "name": "atAtmfTrapRemoteBackupServerName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfTrapRemoteServerStatus": {
+    "name": "atAtmfTrapRemoteServerStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unavailable": 1,
+          "available": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfTrapRemoteServersAvailable": {
+    "name": "atAtmfTrapRemoteServersAvailable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfSummary": {
+    "name": "atAtmfSummary",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.2",
+    "class": "objectidentity"
+  },
+  "atAtmfSummaryNodeName": {
+    "name": "atAtmfSummaryNodeName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfSummaryStatus": {
+    "name": "atAtmfSummaryStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfSummaryRole": {
+    "name": "atAtmfSummaryRole",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "member": 1,
+          "master": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfSummaryNetworkName": {
+    "name": "atAtmfSummaryNetworkName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfSummaryParentName": {
+    "name": "atAtmfSummaryParentName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfSummaryCoreDistance": {
+    "name": "atAtmfSummaryCoreDistance",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfSummaryDomainId": {
+    "name": "atAtmfSummaryDomainId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfSummaryRestrictedLogin": {
+    "name": "atAtmfSummaryRestrictedLogin",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfSummaryNodes": {
+    "name": "atAtmfSummaryNodes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfSummaryAreaName": {
+    "name": "atAtmfSummaryAreaName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfSummaryControllerRole": {
+    "name": "atAtmfSummaryControllerRole",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "non-controller": 1,
+          "controller": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfNodeTable": {
+    "name": "atAtmfNodeTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atAtmfNodeEntry": {
+    "name": "atAtmfNodeEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfNodeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atAtmfNodeName": {
+    "name": "atAtmfNodeName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfControllerAreaTable": {
+    "name": "atAtmfControllerAreaTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atAtmfControllerAreaEntry": {
+    "name": "atAtmfControllerAreaEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-ATMF-MIB",
+        "object": "atAtmfControllerAreaId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atAtmfControllerAreaId": {
+    "name": "atAtmfControllerAreaId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 126
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfControllerAreaName": {
+    "name": "atAtmfControllerAreaName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfControllerAreaStatus": {
+    "name": "atAtmfControllerAreaStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unreachable": 1,
+          "reachable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAtmfControllerAreaMemberCount": {
+    "name": "atAtmfControllerAreaMemberCount",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.603.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/awplus/AT-ATMF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AT-ATMF-MIB"
+  }
+}

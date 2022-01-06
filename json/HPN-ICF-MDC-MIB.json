@@ -1,0 +1,808 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfMDC": {
+    "name": "hpnicfMDC",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-03-05 14:48",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "HpnicfMdcActionValue": {
+    "name": "HpnicfMdcActionValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "stop": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfMdcRunStatus": {
+    "name": "HpnicfMdcRunStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "starting": 2,
+          "active": 3,
+          "stopping": 4,
+          "updating": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hpnicfMDCScalarObjects": {
+    "name": "hpnicfMDCScalarObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.1",
+    "class": "objectidentity"
+  },
+  "hpnicfMDCMaxMDCNum": {
+    "name": "hpnicfMDCMaxMDCNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMDCCurrentMDCNum": {
+    "name": "hpnicfMDCCurrentMDCNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMDCTables": {
+    "name": "hpnicfMDCTables",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2",
+    "class": "objectidentity"
+  },
+  "hpnicfMDCControl": {
+    "name": "hpnicfMDCControl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.1",
+    "class": "objectidentity"
+  },
+  "hpnicfMDCControlTable": {
+    "name": "hpnicfMDCControlTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMDCControlEntry": {
+    "name": "hpnicfMDCControlEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-MDC-MIB",
+        "object": "hpnicfMDCIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMDCIndex": {
+    "name": "hpnicfMDCIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfMDCName": {
+    "name": "hpnicfMDCName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMDCAction": {
+    "name": "hpnicfMDCAction",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfMdcActionValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "stop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMDCStatus": {
+    "name": "hpnicfMDCStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfMdcRunStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMDCRowStatus": {
+    "name": "hpnicfMDCRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMDCResource": {
+    "name": "hpnicfMDCResource",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.2",
+    "class": "objectidentity"
+  },
+  "hpnicfMDCDISKResourceTable": {
+    "name": "hpnicfMDCDISKResourceTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMDCDISKResourceEntry": {
+    "name": "hpnicfMDCDISKResourceEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MDC-MIB",
+        "object": "hpnicfMDCIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MDC-MIB",
+        "object": "hpnicfMDCDISKResourceInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMDCDISKResourceInstance": {
+    "name": "hpnicfMDCDISKResourceInstance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMDCDISKResourceInstanceName": {
+    "name": "hpnicfMDCDISKResourceInstanceName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMDCDISKResourceMinLimit": {
+    "name": "hpnicfMDCDISKResourceMinLimit",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMDCDISKResourceMaxLimit": {
+    "name": "hpnicfMDCDISKResourceMaxLimit",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMDCDISKResourceReserve": {
+    "name": "hpnicfMDCDISKResourceReserve",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMDCDISKResourceQuota": {
+    "name": "hpnicfMDCDISKResourceQuota",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMDCDISKResourceUsage": {
+    "name": "hpnicfMDCDISKResourceUsage",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMDCDISKResourceAvailable": {
+    "name": "hpnicfMDCDISKResourceAvailable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMDCMemoryResourceTable": {
+    "name": "hpnicfMDCMemoryResourceTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMDCMemoryResourceEntry": {
+    "name": "hpnicfMDCMemoryResourceEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MDC-MIB",
+        "object": "hpnicfMDCIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMDCMemoryResourceMinLimit": {
+    "name": "hpnicfMDCMemoryResourceMinLimit",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMDCMemoryResourceMaxLimit": {
+    "name": "hpnicfMDCMemoryResourceMaxLimit",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMDCMemoryResourceReserve": {
+    "name": "hpnicfMDCMemoryResourceReserve",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMDCMemoryResourceQuota": {
+    "name": "hpnicfMDCMemoryResourceQuota",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMDCMemoryResourceUsage": {
+    "name": "hpnicfMDCMemoryResourceUsage",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMDCMemoryResourceAvailable": {
+    "name": "hpnicfMDCMemoryResourceAvailable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMDCCPUResourceTable": {
+    "name": "hpnicfMDCCPUResourceTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMDCCPUResourceEntry": {
+    "name": "hpnicfMDCCPUResourceEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MDC-MIB",
+        "object": "hpnicfMDCIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMDCCPUResourceLimit": {
+    "name": "hpnicfMDCCPUResourceLimit",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "weight",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMDCCPUResourceUsage": {
+    "name": "hpnicfMDCCPUResourceUsage",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMDCLocation": {
+    "name": "hpnicfMDCLocation",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.3",
+    "class": "objectidentity"
+  },
+  "hpnicfMDCLocationTable": {
+    "name": "hpnicfMDCLocationTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMDCLocationEntry": {
+    "name": "hpnicfMDCLocationEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MDC-MIB",
+        "object": "hpnicfMDCIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMDCLocationStatus": {
+    "name": "hpnicfMDCLocationStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMDCAllocate": {
+    "name": "hpnicfMDCAllocate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.4",
+    "class": "objectidentity"
+  },
+  "hpnicfMDCGroupIfTable": {
+    "name": "hpnicfMDCGroupIfTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMDCGroupIfEntry": {
+    "name": "hpnicfMDCGroupIfEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMDCGroupIdentity": {
+    "name": "hpnicfMDCGroupIdentity",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMDCAllocateTable": {
+    "name": "hpnicfMDCAllocateTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMDCAllocateEntry": {
+    "name": "hpnicfMDCAllocateEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-MDC-MIB",
+        "object": "hpnicfMDCAllocateGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMDCAllocateGroupIndex": {
+    "name": "hpnicfMDCAllocateGroupIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMDCAllocateGroupDescription": {
+    "name": "hpnicfMDCAllocateGroupDescription",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMDCAllocateMDCId": {
+    "name": "hpnicfMDCAllocateMDCId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.2.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMDCNotification": {
+    "name": "hpnicfMDCNotification",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.3",
+    "class": "objectidentity"
+  },
+  "hpnicfMDCNotificationObjects": {
+    "name": "hpnicfMDCNotificationObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.3.0",
+    "class": "objectidentity"
+  },
+  "hpnicfMDCStateChangeToActive": {
+    "name": "hpnicfMDCStateChangeToActive",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-MDC-MIB",
+        "object": "hpnicfMDCIndex"
+      },
+      {
+        "module": "HPN-ICF-MDC-MIB",
+        "object": "hpnicfMDCName"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMDCStateChangeToInactive": {
+    "name": "hpnicfMDCStateChangeToInactive",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.136.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-MDC-MIB",
+        "object": "hpnicfMDCIndex"
+      },
+      {
+        "module": "HPN-ICF-MDC-MIB",
+        "object": "hpnicfMDCName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-MDC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-MDC-MIB"
+  }
+}

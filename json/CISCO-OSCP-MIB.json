@@ -1,0 +1,783 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoOscpMIB": {
+    "name": "ciscoOscpMIB",
+    "oid": "1.3.6.1.4.1.9.9.202",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-05-18 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoOscpMIBObjects": {
+    "name": "ciscoOscpMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.202.1",
+    "class": "objectidentity"
+  },
+  "CoscpSwitchId": {
+    "name": "CoscpSwitchId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CoscpPortId": {
+    "name": "CoscpPortId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "CoscpBundleId": {
+    "name": "CoscpBundleId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CoscpVersion": {
+    "name": "CoscpVersion",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "version1": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoOscpBaseGroup": {
+    "name": "ciscoOscpBaseGroup",
+    "oid": "1.3.6.1.4.1.9.9.202.1.1",
+    "class": "objectidentity"
+  },
+  "coscpHighestVersion": {
+    "name": "coscpHighestVersion",
+    "oid": "1.3.6.1.4.1.9.9.202.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoscpVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coscpLowestVersion": {
+    "name": "coscpLowestVersion",
+    "oid": "1.3.6.1.4.1.9.9.202.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoscpVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coscpSwitchId": {
+    "name": "coscpSwitchId",
+    "oid": "1.3.6.1.4.1.9.9.202.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoscpSwitchId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coscpPriorityChangeMode": {
+    "name": "coscpPriorityChangeMode",
+    "oid": "1.3.6.1.4.1.9.9.202.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "immediate": 1,
+          "delayed": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "immediate",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coscpHelloHoldDown": {
+    "name": "coscpHelloHoldDown",
+    "oid": "1.3.6.1.4.1.9.9.202.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coscpHelloInterval": {
+    "name": "coscpHelloInterval",
+    "oid": "1.3.6.1.4.1.9.9.202.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 150,
+            "max": 30000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coscpHelloInactivityFactor": {
+    "name": "coscpHelloInactivityFactor",
+    "oid": "1.3.6.1.4.1.9.9.202.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coscpNotifiesEnabled": {
+    "name": "coscpNotifiesEnabled",
+    "oid": "1.3.6.1.4.1.9.9.202.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coscpLinkTable": {
+    "name": "coscpLinkTable",
+    "oid": "1.3.6.1.4.1.9.9.202.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coscpLinkEntry": {
+    "name": "coscpLinkEntry",
+    "oid": "1.3.6.1.4.1.9.9.202.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpLinkPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coscpLinkPortId": {
+    "name": "coscpLinkPortId",
+    "oid": "1.3.6.1.4.1.9.9.202.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoscpPortId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coscpLinkType": {
+    "name": "coscpLinkType",
+    "oid": "1.3.6.1.4.1.9.9.202.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "dedicatedWavelength": 2,
+          "inBand": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coscpLinkVersion": {
+    "name": "coscpLinkVersion",
+    "oid": "1.3.6.1.4.1.9.9.202.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoscpVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coscpLinkHelloState": {
+    "name": "coscpLinkHelloState",
+    "oid": "1.3.6.1.4.1.9.9.202.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "attempt": 2,
+          "oneWay": 3,
+          "twoWay": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coscpLinkRemoteSwitchId": {
+    "name": "coscpLinkRemoteSwitchId",
+    "oid": "1.3.6.1.4.1.9.9.202.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoscpSwitchId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coscpLinkRemotePortId": {
+    "name": "coscpLinkRemotePortId",
+    "oid": "1.3.6.1.4.1.9.9.202.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoscpPortId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coscpLinkDerivedBundleId": {
+    "name": "coscpLinkDerivedBundleId",
+    "oid": "1.3.6.1.4.1.9.9.202.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoscpBundleId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coscpLinkConfigBundleId": {
+    "name": "coscpLinkConfigBundleId",
+    "oid": "1.3.6.1.4.1.9.9.202.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoscpBundleId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coscpLinkIfIndex": {
+    "name": "coscpLinkIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.202.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coscpLinkSelPriority": {
+    "name": "coscpLinkSelPriority",
+    "oid": "1.3.6.1.4.1.9.9.202.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coscpLinkInHellos": {
+    "name": "coscpLinkInHellos",
+    "oid": "1.3.6.1.4.1.9.9.202.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coscpLinkInDiscardedHellos": {
+    "name": "coscpLinkInDiscardedHellos",
+    "oid": "1.3.6.1.4.1.9.9.202.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coscpLinkOutHellos": {
+    "name": "coscpLinkOutHellos",
+    "oid": "1.3.6.1.4.1.9.9.202.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coscpLinkTransDown": {
+    "name": "coscpLinkTransDown",
+    "oid": "1.3.6.1.4.1.9.9.202.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coscpBundleTable": {
+    "name": "coscpBundleTable",
+    "oid": "1.3.6.1.4.1.9.9.202.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coscpBundleEntry": {
+    "name": "coscpBundleEntry",
+    "oid": "1.3.6.1.4.1.9.9.202.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpBundleRemoteSwitchId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpBundleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coscpBundleRemoteSwitchId": {
+    "name": "coscpBundleRemoteSwitchId",
+    "oid": "1.3.6.1.4.1.9.9.202.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoscpSwitchId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coscpBundleId": {
+    "name": "coscpBundleId",
+    "oid": "1.3.6.1.4.1.9.9.202.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoscpBundleId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coscpBundleActivePortId": {
+    "name": "coscpBundleActivePortId",
+    "oid": "1.3.6.1.4.1.9.9.202.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoscpPortId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coscpBundleIfIndex": {
+    "name": "coscpBundleIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.202.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coscpBundlePortCount": {
+    "name": "coscpBundlePortCount",
+    "oid": "1.3.6.1.4.1.9.9.202.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coscpBundleRowStatus": {
+    "name": "coscpBundleRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.202.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoOscpMIBNotifications": {
+    "name": "ciscoOscpMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.202.2",
+    "class": "objectidentity"
+  },
+  "ciscoOscpNotificationsPrefix": {
+    "name": "ciscoOscpNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.9.9.202.2.0",
+    "class": "objectidentity"
+  },
+  "coscpNotifyTransDown": {
+    "name": "coscpNotifyTransDown",
+    "oid": "1.3.6.1.4.1.9.9.202.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpLinkTransDown"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoOscpMIBConformance": {
+    "name": "ciscoOscpMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.202.3",
+    "class": "objectidentity"
+  },
+  "ciscoOscpMIBCompliances": {
+    "name": "ciscoOscpMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.202.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoOscpMIBGroups": {
+    "name": "ciscoOscpMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.202.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoOscpMIBCompliance": {
+    "name": "ciscoOscpMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.202.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoOscpBasicGroup",
+        "module": "CISCO-OSCP-MIB"
+      },
+      {
+        "object": "ciscoOscpNotificationsGroup",
+        "module": "CISCO-OSCP-MIB"
+      },
+      {
+        "object": "ciscoOscpBundleGroup",
+        "module": "CISCO-OSCP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoOscpBasicGroup": {
+    "name": "ciscoOscpBasicGroup",
+    "oid": "1.3.6.1.4.1.9.9.202.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpHighestVersion"
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpLowestVersion"
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpSwitchId"
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpHelloHoldDown"
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpHelloInterval"
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpHelloInactivityFactor"
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpNotifiesEnabled"
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpLinkType"
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpLinkVersion"
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpLinkHelloState"
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpLinkRemoteSwitchId"
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpLinkRemotePortId"
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpLinkIfIndex"
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpLinkInHellos"
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpLinkInDiscardedHellos"
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpLinkOutHellos"
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpLinkTransDown"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoOscpBundleGroup": {
+    "name": "ciscoOscpBundleGroup",
+    "oid": "1.3.6.1.4.1.9.9.202.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpPriorityChangeMode"
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpLinkDerivedBundleId"
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpLinkConfigBundleId"
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpLinkSelPriority"
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpBundleActivePortId"
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpBundleIfIndex"
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpBundlePortCount"
+      },
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpBundleRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoOscpNotificationsGroup": {
+    "name": "ciscoOscpNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.202.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-OSCP-MIB",
+        "object": "coscpNotifyTransDown"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-OSCP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-OSCP-MIB"
+  }
+}

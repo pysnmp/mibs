@@ -1,0 +1,6386 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoNetworkProtocol",
+      "CiscoPort"
+    ],
+    "CISCO-VTP-MIB": [
+      "VlanIndex"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "IF-MIB": [
+      "OwnerString",
+      "ifIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "MPLS-VPN-MIB": [
+      "MplsVpnId"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeInterval",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoSwitchEngineMIB": {
+    "name": "ciscoSwitchEngineMIB",
+    "oid": "1.3.6.1.4.1.9.9.97",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-02-13 00:00",
+        "description": "Add enumerated value 37 - 85 to cseTcamResourceType."
+      },
+      {
+        "revision": "2012-03-12 00:00",
+        "description": "Add cseStatisticsFlowGroup1."
+      },
+      {
+        "revision": "2010-12-17 00:00",
+        "description": "Add the following new enumerations to cseTcamResourceType: dgtSgtRegion(31), anyAnyRegion(32), tcamALabel(33), tcamBLabel(34), destInfoIn(35) and destInfoOut(36)."
+      },
+      {
+        "revision": "2008-11-11 00:00",
+        "description": "Add new enumerations to cseTcamResourceType."
+      },
+      {
+        "revision": "2008-01-29 00:00",
+        "description": "Add cseL3SwitchedPktsPerSecGroup. Add cseCacheStatisticsGroup. Add new enumerations to cseTcamResourceType. Add new enumerations to cseFlowIPFlowMask object."
+      },
+      {
+        "revision": "2005-09-16 00:00",
+        "description": "Add cseFlowMcastMgmtGroup2. Deprecate the objects: cseFlowMcastQuerySrc, cseFlowMcastQueryGrp, cseFlowMcastResultGrp, cseFlowMcastResultSrc. Add new enumerations to cseFlowMcastQueryMask."
+      },
+      {
+        "revision": "2005-04-12 00:00",
+        "description": "Add new enumerations to cseFlowIPFlowMask object. Add ingressInterfaceMapping and egressInterfaceMapping enumerations to cseTcamResourceType object."
+      },
+      {
+        "revision": "2004-11-15 00:00",
+        "description": "Add cseMetUsageGroup."
+      },
+      {
+        "revision": "2004-06-09 00:00",
+        "description": "Add the following Groups: cseNetflowASInfoExportGroup cseNetflowPerVlanIfGroup"
+      },
+      {
+        "revision": "2003-11-07 00:00",
+        "description": "Add cseErrorStatsLCTable."
+      },
+      {
+        "revision": "2003-08-20 00:00",
+        "description": "Add the following tables to support forwarding information base: cseCefFibTable, cseCefAdjacencyTable. Add the following table to support TCAM (Ternary Content Addressable Memory) resource usage: cseTcamUsageTable. Add default value for the following objects: cseFlowQuerySource, cseFlowQuerySourceMask, cseFlowQueryDestination, cseFlowQueryDestinationMask, cseFlowQueryOwner."
+      },
+      {
+        "revision": "2003-06-10 00:00",
+        "description": "Deprecated the objects: cseNetflowLSExportHost, cseNetflowLSExportTransportNumber"
+      },
+      {
+        "revision": "2003-05-06 00:00",
+        "description": "Added the object cseFlowQuerySkipNFlows"
+      },
+      {
+        "revision": "2003-02-21 00:00",
+        "description": "Added the following objects and table: cseFlowLongAgingTime, cseNetFlowIfIndexEnable, cseFlowStatsTable, cseFlowExcludeTable. Modified the description of the following objects: cseL2IpPkts, cseL2IpxPkts, cseL2AssignedProtoPkts, cseL2OtherProtoPkts, cseL2HCIpPkts, cseL2HCIpxPkts, cseL2HCAssignedProtoPkts, cseL2HCOtherProtoPkts."
+      },
+      {
+        "revision": "2002-08-05 00:00",
+        "description": "Added the following objects: cseFlowIPFlowMask, cseFlowIPXFlowMask, cseProtocolFilterEnable."
+      },
+      {
+        "revision": "2002-02-07 00:00",
+        "description": "Added the objects in cseBridgedFlowStatsCtrlTable and cseErrorStatsTable. Added the following objects: cseL3VlanInUnicastPkts cseL3VlanInUnicastOctets cseL3VlanOutUnicastPkts cseL3VlanOutUnicastOctets."
+      },
+      {
+        "revision": "2001-10-26 00:00",
+        "description": "Added the object cseFlowQueryTotalFlows"
+      },
+      {
+        "revision": "2001-09-13 00:00",
+        "description": "Added the follwowing objects o cseNetflowLSFilterSupport o cseNetflowLSFilterTable. Also created the new groups o cseNDEMandatoryGroup o cseNDESingleFilterGroup o cseNDEMultipleFiltersGroup"
+      },
+      {
+        "revision": "2001-05-16 00:00",
+        "description": "Added 4k Vlan support"
+      },
+      {
+        "revision": "2001-03-09 00:00",
+        "description": "Update the range of cseFlowEstablishedAgingTime, cseFlowIPXEstablishedAgingTime, cseFlowOperEstablishedAgingTime, cseFlowOperIPXAgingTime. Replace cseFlowQueryResult with cseFlowQueryResultingRows."
+      },
+      {
+        "revision": "2000-06-23 00:00",
+        "description": "Added the following objects: o cseFlowOperEstablishedAgingTime. o cseFlowOperFastAgingTime. o cseFlowOperFastAgePktThreshold. o cseFlowOperIPXAgingTime."
+      },
+      {
+        "revision": "2000-01-31 11:30",
+        "description": "Added one High Capacity L2 Statistics table, an extension of cseL2StatsTable and new objects in NetflowLS group for new netflow export features. Also added a new enum type of cseRouterFlowMask to support L3 multicast."
+      },
+      {
+        "revision": "1999-12-09 11:30",
+        "description": "Added MIB objects to manage Switch Engine (SE) portion of Multicast MLS control protocol."
+      },
+      {
+        "revision": "1998-06-24 11:30",
+        "description": "Added 2 groups, for the purging (clearing) of layer 3 unicast and multicast flow entries stored in the cache. Also added new objects for layer 3 flow statistics."
+      },
+      {
+        "revision": "1998-05-28 11:30",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cseMIBObjects": {
+    "name": "cseMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.97.1",
+    "class": "objectidentity"
+  },
+  "cseL2Objects": {
+    "name": "cseL2Objects",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1",
+    "class": "objectidentity"
+  },
+  "cseFlow": {
+    "name": "cseFlow",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2",
+    "class": "objectidentity"
+  },
+  "cseNetflowLS": {
+    "name": "cseNetflowLS",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3",
+    "class": "objectidentity"
+  },
+  "cseL3Objects": {
+    "name": "cseL3Objects",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4",
+    "class": "objectidentity"
+  },
+  "cseProtocolFilter": {
+    "name": "cseProtocolFilter",
+    "oid": "1.3.6.1.4.1.9.9.97.1.5",
+    "class": "objectidentity"
+  },
+  "cseUcastCache": {
+    "name": "cseUcastCache",
+    "oid": "1.3.6.1.4.1.9.9.97.1.6",
+    "class": "objectidentity"
+  },
+  "cseMcastCache": {
+    "name": "cseMcastCache",
+    "oid": "1.3.6.1.4.1.9.9.97.1.7",
+    "class": "objectidentity"
+  },
+  "cseCef": {
+    "name": "cseCef",
+    "oid": "1.3.6.1.4.1.9.9.97.1.8",
+    "class": "objectidentity"
+  },
+  "cseTcamUsage": {
+    "name": "cseTcamUsage",
+    "oid": "1.3.6.1.4.1.9.9.97.1.9",
+    "class": "objectidentity"
+  },
+  "cseMet": {
+    "name": "cseMet",
+    "oid": "1.3.6.1.4.1.9.9.97.1.10",
+    "class": "objectidentity"
+  },
+  "CiscoGauge64": {
+    "name": "CiscoGauge64",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "ControlStatus": {
+    "name": "ControlStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "McastGroupIp": {
+    "name": "McastGroupIp",
+    "class": "textualconvention",
+    "type": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "displayhint": "1d.1d.1d.1d",
+    "status": "current"
+  },
+  "FlowAddressComponent": {
+    "name": "FlowAddressComponent",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          },
+          {
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "displayhint": "1x:",
+    "status": "current"
+  },
+  "cseL2StatsTable": {
+    "name": "cseL2StatsTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseL2StatsEntry": {
+    "name": "cseL2StatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseL2ForwardedLocalPkts": {
+    "name": "cseL2ForwardedLocalPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL2ForwardedLocalOctets": {
+    "name": "cseL2ForwardedLocalOctets",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL2ForwardedTotalPkts": {
+    "name": "cseL2ForwardedTotalPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL2NewAddressLearns": {
+    "name": "cseL2NewAddressLearns",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL2AddrLearnFailures": {
+    "name": "cseL2AddrLearnFailures",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL2DstAddrLookupMisses": {
+    "name": "cseL2DstAddrLookupMisses",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL2IpPkts": {
+    "name": "cseL2IpPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL2IpxPkts": {
+    "name": "cseL2IpxPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL2AssignedProtoPkts": {
+    "name": "cseL2AssignedProtoPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL2OtherProtoPkts": {
+    "name": "cseL2OtherProtoPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL2StatsHCTable": {
+    "name": "cseL2StatsHCTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseL2StatsHCEntry": {
+    "name": "cseL2StatsHCEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseL2HCOverflowForwardedLocalPkts": {
+    "name": "cseL2HCOverflowForwardedLocalPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL2HCForwardedLocalPkts": {
+    "name": "cseL2HCForwardedLocalPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL2HCOverflowForwardedTotalPkts": {
+    "name": "cseL2HCOverflowForwardedTotalPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL2HCForwardedTotalPkts": {
+    "name": "cseL2HCForwardedTotalPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL2HCOverflowIpPkts": {
+    "name": "cseL2HCOverflowIpPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL2HCIpPkts": {
+    "name": "cseL2HCIpPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL2HCOverflowIpxPkts": {
+    "name": "cseL2HCOverflowIpxPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL2HCIpxPkts": {
+    "name": "cseL2HCIpxPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL2HCOverflowAssignedProtoPkts": {
+    "name": "cseL2HCOverflowAssignedProtoPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL2HCAssignedProtoPkts": {
+    "name": "cseL2HCAssignedProtoPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL2HCOverflowOtherProtoPkts": {
+    "name": "cseL2HCOverflowOtherProtoPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL2HCOtherProtoPkts": {
+    "name": "cseL2HCOtherProtoPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowEstablishedAgingTime": {
+    "name": "cseFlowEstablishedAgingTime",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseFlowFastAgingTime": {
+    "name": "cseFlowFastAgingTime",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseFlowFastAgePktThreshold": {
+    "name": "cseFlowFastAgePktThreshold",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseRouterTable": {
+    "name": "cseRouterTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseRouterEntry": {
+    "name": "cseRouterEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseRouterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseRouterIndex": {
+    "name": "cseRouterIndex",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseRouterFlowMask": {
+    "name": "cseRouterFlowMask",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dstOnly": 1,
+          "srcDst": 2,
+          "fullFlow": 3,
+          "notApplicable": 4,
+          "srcDstVlan": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseRouterName": {
+    "name": "cseRouterName",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseRouterStatic": {
+    "name": "cseRouterStatic",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseRouterIpxFlowMask": {
+    "name": "cseRouterIpxFlowMask",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dstOnly": 1,
+          "srcDst": 2,
+          "fullFlow": 3,
+          "notApplicable": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseStaticExtRouterTable": {
+    "name": "cseStaticExtRouterTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseStaticExtRouterEntry": {
+    "name": "cseStaticExtRouterEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseRouterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseStaticRouterName": {
+    "name": "cseStaticRouterName",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseStaticRouterOwner": {
+    "name": "cseStaticRouterOwner",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseStaticRouterStatus": {
+    "name": "cseStaticRouterStatus",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseStaticRouterType": {
+    "name": "cseStaticRouterType",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "unicast": 0,
+        "multicast": 1
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "unicast": 0
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseRouterVlanTable": {
+    "name": "cseRouterVlanTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseRouterVlanEntry": {
+    "name": "cseRouterVlanEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseRouterIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseRouterMac",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseRouterVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseRouterMac": {
+    "name": "cseRouterMac",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseRouterVlan": {
+    "name": "cseRouterVlan",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseRouterProtocol": {
+    "name": "cseRouterProtocol",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ip": 0,
+        "ipx": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowMaxQueries": {
+    "name": "cseFlowMaxQueries",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowQueryTable": {
+    "name": "cseFlowQueryTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseFlowQueryEntry": {
+    "name": "cseFlowQueryEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseFlowQueryIndex": {
+    "name": "cseFlowQueryIndex",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseFlowQueryMask": {
+    "name": "cseFlowQueryMask",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dstOnly": 1,
+          "srcOrDst": 2,
+          "srcAndDst": 3,
+          "fullFlow": 4,
+          "ipxDstOnly": 5,
+          "ipxSrcAndDst": 6,
+          "any": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "any",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseFlowQueryTransport": {
+    "name": "cseFlowQueryTransport",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "udp": 0,
+        "tcp": 1
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "udp": 0,
+          "tcp": 1
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseFlowQuerySource": {
+    "name": "cseFlowQuerySource",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowAddressComponent",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseFlowQuerySourceMask": {
+    "name": "cseFlowQuerySourceMask",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowAddressComponent",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "FFFFFFFFFFFF",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseFlowQueryDestination": {
+    "name": "cseFlowQueryDestination",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowAddressComponent",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseFlowQueryDestinationMask": {
+    "name": "cseFlowQueryDestinationMask",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowAddressComponent",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "FFFFFFFFFFFF",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseFlowQueryRouterIndex": {
+    "name": "cseFlowQueryRouterIndex",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseFlowQueryOwner": {
+    "name": "cseFlowQueryOwner",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseFlowQueryResultingRows": {
+    "name": "cseFlowQueryResultingRows",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowQueryResultTotalPkts": {
+    "name": "cseFlowQueryResultTotalPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowQueryResultTotalOctets": {
+    "name": "cseFlowQueryResultTotalOctets",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowQueryResultAvgDuration": {
+    "name": "cseFlowQueryResultAvgDuration",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowQueryResultAvgIdle": {
+    "name": "cseFlowQueryResultAvgIdle",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowQueryStatus": {
+    "name": "cseFlowQueryStatus",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseFlowQueryCreateTime": {
+    "name": "cseFlowQueryCreateTime",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.8.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowQueryTotalFlows": {
+    "name": "cseFlowQueryTotalFlows",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.8.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowQuerySkipNFlows": {
+    "name": "cseFlowQuerySkipNFlows",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.8.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseFlowDataTable": {
+    "name": "cseFlowDataTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseFlowDataEntry": {
+    "name": "cseFlowDataEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseFlowDataIndex": {
+    "name": "cseFlowDataIndex",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseFlowDataSrcMac": {
+    "name": "cseFlowDataSrcMac",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowDataDstMac": {
+    "name": "cseFlowDataDstMac",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowDataStaticFlow": {
+    "name": "cseFlowDataStaticFlow",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowDataEncapType": {
+    "name": "cseFlowDataEncapType",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipArpa": 1,
+          "ipxEthernet": 2,
+          "ipx802raw": 3,
+          "ipx802sap": 4,
+          "ipx802snap": 5,
+          "other": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowDataSource": {
+    "name": "cseFlowDataSource",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowAddressComponent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowDataDestination": {
+    "name": "cseFlowDataDestination",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowAddressComponent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowDataDestVlan": {
+    "name": "cseFlowDataDestVlan",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowDataIpQOS": {
+    "name": "cseFlowDataIpQOS",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowDataIpQOSPolicy": {
+    "name": "cseFlowDataIpQOSPolicy",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowDataWhenCreated": {
+    "name": "cseFlowDataWhenCreated",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowDataLastUsed": {
+    "name": "cseFlowDataLastUsed",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowDataPkts": {
+    "name": "cseFlowDataPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowDataOctets": {
+    "name": "cseFlowDataOctets",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowSwitchControlTable": {
+    "name": "cseFlowSwitchControlTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseFlowSwitchControlEntry": {
+    "name": "cseFlowSwitchControlEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowSwitchProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseFlowSwitchProtocol": {
+    "name": "cseFlowSwitchProtocol",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetworkProtocol",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseFlowSwitchStatus": {
+    "name": "cseFlowSwitchStatus",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ControlStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseFlowMcastMaxQueries": {
+    "name": "cseFlowMcastMaxQueries",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowMcastQueryTable": {
+    "name": "cseFlowMcastQueryTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseFlowMcastQueryEntry": {
+    "name": "cseFlowMcastQueryEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQueryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseFlowMcastQueryIndex": {
+    "name": "cseFlowMcastQueryIndex",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseFlowMcastQueryMask": {
+    "name": "cseFlowMcastQueryMask",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "source": 0,
+        "group": 1,
+        "vlan": 2,
+        "router": 3,
+        "mvrf": 4,
+        "sourceip": 5,
+        "groupip": 6
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseFlowMcastQuerySrc": {
+    "name": "cseFlowMcastQuerySrc",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cseFlowMcastQueryGrp": {
+    "name": "cseFlowMcastQueryGrp",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "McastGroupIp",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cseFlowMcastQuerySrcVlan": {
+    "name": "cseFlowMcastQuerySrcVlan",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseFlowMcastQueryRtrIndex": {
+    "name": "cseFlowMcastQueryRtrIndex",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseFlowMcastQuerySkipNFlows": {
+    "name": "cseFlowMcastQuerySkipNFlows",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseFlowMcastQueryOwner": {
+    "name": "cseFlowMcastQueryOwner",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseFlowMcastQueryTotalFlows": {
+    "name": "cseFlowMcastQueryTotalFlows",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowMcastQueryRows": {
+    "name": "cseFlowMcastQueryRows",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowMcastQueryStatus": {
+    "name": "cseFlowMcastQueryStatus",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseFlowMcastQueryCreateTime": {
+    "name": "cseFlowMcastQueryCreateTime",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowMcastQueryMvrf": {
+    "name": "cseFlowMcastQueryMvrf",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsVpnId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseFlowMcastQueryAddrType": {
+    "name": "cseFlowMcastQueryAddrType",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.12.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseFlowMcastQuerySource": {
+    "name": "cseFlowMcastQuerySource",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.12.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseFlowMcastQueryGroup": {
+    "name": "cseFlowMcastQueryGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.12.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseFlowMcastResultTable": {
+    "name": "cseFlowMcastResultTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseFlowMcastResultEntry": {
+    "name": "cseFlowMcastResultEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQueryIndex",
+        "implied": 0
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseFlowMcastResultIndex": {
+    "name": "cseFlowMcastResultIndex",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseFlowMcastResultGrp": {
+    "name": "cseFlowMcastResultGrp",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "McastGroupIp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cseFlowMcastResultSrc": {
+    "name": "cseFlowMcastResultSrc",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cseFlowMcastResultSrcVlan": {
+    "name": "cseFlowMcastResultSrcVlan",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowMcastResultRtrIp": {
+    "name": "cseFlowMcastResultRtrIp",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowMcastResultRtrMac": {
+    "name": "cseFlowMcastResultRtrMac",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowMcastResultCreatedTS": {
+    "name": "cseFlowMcastResultCreatedTS",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowMcastResultLastUsedTS": {
+    "name": "cseFlowMcastResultLastUsedTS",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowMcastResultPkts": {
+    "name": "cseFlowMcastResultPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowMcastResultOctets": {
+    "name": "cseFlowMcastResultOctets",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowMcastResultDstVlans": {
+    "name": "cseFlowMcastResultDstVlans",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowMcastResultDstVlans2k": {
+    "name": "cseFlowMcastResultDstVlans2k",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowMcastResultDstVlans3k": {
+    "name": "cseFlowMcastResultDstVlans3k",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.13.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowMcastResultDstVlans4k": {
+    "name": "cseFlowMcastResultDstVlans4k",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.13.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowMcastResultMvrf": {
+    "name": "cseFlowMcastResultMvrf",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.13.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsVpnId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowMcastResultAddrType": {
+    "name": "cseFlowMcastResultAddrType",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.13.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowMcastResultGroup": {
+    "name": "cseFlowMcastResultGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.13.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowMcastResultSource": {
+    "name": "cseFlowMcastResultSource",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.13.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowMcastResultFlowType": {
+    "name": "cseFlowMcastResultFlowType",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.13.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "rpfMfd": 2,
+          "partialSC": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowMcastResultHFlag1k2k": {
+    "name": "cseFlowMcastResultHFlag1k2k",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.13.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowMcastResultHFlag3k4k": {
+    "name": "cseFlowMcastResultHFlag3k4k",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.13.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowMcastSwitchStatus": {
+    "name": "cseFlowMcastSwitchStatus",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ControlStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseFlowIPXEstablishedAgingTime": {
+    "name": "cseFlowIPXEstablishedAgingTime",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseStaticIpxExtRouterTable": {
+    "name": "cseStaticIpxExtRouterTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseStaticIpxExtRouterEntry": {
+    "name": "cseStaticIpxExtRouterEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseRouterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseStaticIpxRouterName": {
+    "name": "cseStaticIpxRouterName",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseStaticIpxRouterOwner": {
+    "name": "cseStaticIpxRouterOwner",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseStaticIpxRouterStatus": {
+    "name": "cseStaticIpxRouterStatus",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseFlowOperEstablishedAgingTime": {
+    "name": "cseFlowOperEstablishedAgingTime",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowOperFastAgingTime": {
+    "name": "cseFlowOperFastAgingTime",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowOperFastAgePktThreshold": {
+    "name": "cseFlowOperFastAgePktThreshold",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowOperIPXAgingTime": {
+    "name": "cseFlowOperIPXAgingTime",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseBridgedFlowStatsCtrlTable": {
+    "name": "cseBridgedFlowStatsCtrlTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseBridgedFlowStatsCtrlEntry": {
+    "name": "cseBridgedFlowStatsCtrlEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseBridgedFlowVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseBridgedFlowVlan": {
+    "name": "cseBridgedFlowVlan",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseFlowBridgedFlowStatsEnable": {
+    "name": "cseFlowBridgedFlowStatsEnable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseFlowIPFlowMask": {
+    "name": "cseFlowIPFlowMask",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dstOnly": 1,
+          "srcDst": 2,
+          "fullFlow": 3,
+          "srcOnly": 4,
+          "intDstSrc": 5,
+          "intFull": 6,
+          "null": 7,
+          "intDstOnly": 8,
+          "intSrcOnly": 9
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseFlowIPXFlowMask": {
+    "name": "cseFlowIPXFlowMask",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dstOnly": 1,
+          "srcDst": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowLongAgingTime": {
+    "name": "cseFlowLongAgingTime",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseFlowExcludeTable": {
+    "name": "cseFlowExcludeTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseFlowExcludeEntry": {
+    "name": "cseFlowExcludeEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowExcludePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseFlowExcludePort": {
+    "name": "cseFlowExcludePort",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseFlowExcludeProtocol": {
+    "name": "cseFlowExcludeProtocol",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "udp": 1,
+          "tcp": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseFlowExcludeStatus": {
+    "name": "cseFlowExcludeStatus",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.25.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseFlowStatsTable": {
+    "name": "cseFlowStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.26",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseFlowStatsEntry": {
+    "name": "cseFlowStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.26.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseFlowTotalFlows": {
+    "name": "cseFlowTotalFlows",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.26.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseFlowTotalIpv4Flows": {
+    "name": "cseFlowTotalIpv4Flows",
+    "oid": "1.3.6.1.4.1.9.9.97.1.2.26.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseNetflowLSExportStatus": {
+    "name": "cseNetflowLSExportStatus",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ControlStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseNetflowLSExportHost": {
+    "name": "cseNetflowLSExportHost",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cseNetflowLSExportTransportNumber": {
+    "name": "cseNetflowLSExportTransportNumber",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cseNetflowLSExportDataSource": {
+    "name": "cseNetflowLSExportDataSource",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowAddressComponent",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseNetflowLSExportDataSourceMask": {
+    "name": "cseNetflowLSExportDataSourceMask",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowAddressComponent",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseNetflowLSExportDataDest": {
+    "name": "cseNetflowLSExportDataDest",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowAddressComponent",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseNetflowLSExportDataDestMask": {
+    "name": "cseNetflowLSExportDataDestMask",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowAddressComponent",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseNetflowLSExportDataProtocol": {
+    "name": "cseNetflowLSExportDataProtocol",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseNetflowLSExportDataFilterSelection": {
+    "name": "cseNetflowLSExportDataFilterSelection",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "included": 1,
+          "excluded": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseNetflowLSExportNDEVersionNumber": {
+    "name": "cseNetflowLSExportNDEVersionNumber",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseNetflowLSFilterSupport": {
+    "name": "cseNetflowLSFilterSupport",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "single": 1,
+          "multiple": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseNetflowLSFilterTable": {
+    "name": "cseNetflowLSFilterTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseNetflowLSFilterEntry": {
+    "name": "cseNetflowLSFilterEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSFilterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseNetflowLSFilterIndex": {
+    "name": "cseNetflowLSFilterIndex",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseNetflowLSFilterDataSource": {
+    "name": "cseNetflowLSFilterDataSource",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowAddressComponent",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseNetflowLSFilterDataSourceMask": {
+    "name": "cseNetflowLSFilterDataSourceMask",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowAddressComponent",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseNetflowLSFilterDataDest": {
+    "name": "cseNetflowLSFilterDataDest",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowAddressComponent",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseNetflowLSFilterDataDestMask": {
+    "name": "cseNetflowLSFilterDataDestMask",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowAddressComponent",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseNetflowLSFilterDataProtocol": {
+    "name": "cseNetflowLSFilterDataProtocol",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseNetflowLSFilterSelection": {
+    "name": "cseNetflowLSFilterSelection",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "included": 1,
+          "excluded": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseNetflowLSFilterStatus": {
+    "name": "cseNetflowLSFilterStatus",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseNetFlowIfIndexEnable": {
+    "name": "cseNetFlowIfIndexEnable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "destIfIndex": 0,
+        "srcIfIndex": 1
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseNetflowASInfoExportCtrl": {
+    "name": "cseNetflowASInfoExportCtrl",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "originate": 2,
+          "peer": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseNetflowPerVlanIfGlobalEnable": {
+    "name": "cseNetflowPerVlanIfGlobalEnable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseNetflowPerVlanIfCtrlTable": {
+    "name": "cseNetflowPerVlanIfCtrlTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseNetflowPerVlanIfCtrlEntry": {
+    "name": "cseNetflowPerVlanIfCtrlEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowPerVlanIfCtrlVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseNetflowPerVlanIfCtrlVlan": {
+    "name": "cseNetflowPerVlanIfCtrlVlan",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseNetflowPerVlanIfEnable": {
+    "name": "cseNetflowPerVlanIfEnable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.3.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseL3StatsTable": {
+    "name": "cseL3StatsTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseL3StatsEntry": {
+    "name": "cseL3StatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseL3SwitchedTotalPkts": {
+    "name": "cseL3SwitchedTotalPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL3SwitchedTotalOctets": {
+    "name": "cseL3SwitchedTotalOctets",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL3CandidateFlowHits": {
+    "name": "cseL3CandidateFlowHits",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL3EstablishedFlowHits": {
+    "name": "cseL3EstablishedFlowHits",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL3ActiveFlows": {
+    "name": "cseL3ActiveFlows",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL3FlowLearnFailures": {
+    "name": "cseL3FlowLearnFailures",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL3IntFlowInvalids": {
+    "name": "cseL3IntFlowInvalids",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL3ExtFlowInvalids": {
+    "name": "cseL3ExtFlowInvalids",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL3SwitchedPktsPerSec": {
+    "name": "cseL3SwitchedPktsPerSec",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL3VlanStatsTable": {
+    "name": "cseL3VlanStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseL3VlanStatsEntry": {
+    "name": "cseL3VlanStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL3VlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseL3VlanIndex": {
+    "name": "cseL3VlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseL3VlanInPkts": {
+    "name": "cseL3VlanInPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL3VlanInOctets": {
+    "name": "cseL3VlanInOctets",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL3VlanOutPkts": {
+    "name": "cseL3VlanOutPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL3VlanOutOctets": {
+    "name": "cseL3VlanOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL3VlanInUnicastPkts": {
+    "name": "cseL3VlanInUnicastPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL3VlanInUnicastOctets": {
+    "name": "cseL3VlanInUnicastOctets",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL3VlanOutUnicastPkts": {
+    "name": "cseL3VlanOutUnicastPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL3VlanOutUnicastOctets": {
+    "name": "cseL3VlanOutUnicastOctets",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseStatsFlowTable": {
+    "name": "cseStatsFlowTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseStatsFlowEntry": {
+    "name": "cseStatsFlowEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cseStatsFlowEntry",
+      "module": "CISCO-SWITCH-ENGINE-MIB",
+      "object": "cseL3StatsEntry"
+    },
+    "status": "current"
+  },
+  "cseStatsFlowAged": {
+    "name": "cseStatsFlowAged",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseStatsFlowPurged": {
+    "name": "cseStatsFlowPurged",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseStatsFlowParityFail": {
+    "name": "cseStatsFlowParityFail",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseCacheUtilTable": {
+    "name": "cseCacheUtilTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseCacheUtilEntry": {
+    "name": "cseCacheUtilEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseCacheUtilization": {
+    "name": "cseCacheUtilization",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseCacheEntriesCreated": {
+    "name": "cseCacheEntriesCreated",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseCacheEntriesFailed": {
+    "name": "cseCacheEntriesFailed",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseErrorStatsTable": {
+    "name": "cseErrorStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseErrorStatsEntry": {
+    "name": "cseErrorStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseIpPlenErrors": {
+    "name": "cseIpPlenErrors",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseIpTooShortErrors": {
+    "name": "cseIpTooShortErrors",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseIpCheckSumErrors": {
+    "name": "cseIpCheckSumErrors",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseIpxPlenErrors": {
+    "name": "cseIpxPlenErrors",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseIpxTooShortErrors": {
+    "name": "cseIpxTooShortErrors",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseErrorStatsLCTable": {
+    "name": "cseErrorStatsLCTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseErrorStatsLCEntry": {
+    "name": "cseErrorStatsLCEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseLCIpPlenErrors": {
+    "name": "cseLCIpPlenErrors",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseLCIpTooShortErrors": {
+    "name": "cseLCIpTooShortErrors",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseLCIpCheckSumErrors": {
+    "name": "cseLCIpCheckSumErrors",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseLCIpxPlenErrors": {
+    "name": "cseLCIpxPlenErrors",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseLCIpxTooShortErrors": {
+    "name": "cseLCIpxTooShortErrors",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseL3SwitchedAggrPktsPerSec": {
+    "name": "cseL3SwitchedAggrPktsPerSec",
+    "oid": "1.3.6.1.4.1.9.9.97.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseProtocolFilterEnable": {
+    "name": "cseProtocolFilterEnable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseProtocolFilterPortTable": {
+    "name": "cseProtocolFilterPortTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseProtocolFilterPortEntry": {
+    "name": "cseProtocolFilterPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseProtocolFilterPortProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseProtocolFilterPortProtocol": {
+    "name": "cseProtocolFilterPortProtocol",
+    "oid": "1.3.6.1.4.1.9.9.97.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "ipx": 2,
+          "grpProtocols": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseProtocolFilterPortAdminStatus": {
+    "name": "cseProtocolFilterPortAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.97.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "auto": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseProtocolFilterPortOperStatus": {
+    "name": "cseProtocolFilterPortOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.97.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "notSupported": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseUcastCacheTable": {
+    "name": "cseUcastCacheTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseUcastCacheEntry": {
+    "name": "cseUcastCacheEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseUcastCacheIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseUcastCacheIndex": {
+    "name": "cseUcastCacheIndex",
+    "oid": "1.3.6.1.4.1.9.9.97.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseUcastCacheFlowType": {
+    "name": "cseUcastCacheFlowType",
+    "oid": "1.3.6.1.4.1.9.9.97.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "any": 1,
+          "dstOnly": 2,
+          "srcOrDst": 3,
+          "srcAndDst": 4,
+          "fullFlow": 5,
+          "ipxDstOnly": 6,
+          "ipxSrcAndDst": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "any",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseUcastCacheTransport": {
+    "name": "cseUcastCacheTransport",
+    "oid": "1.3.6.1.4.1.9.9.97.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "udp": 1,
+          "tcp": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseUcastCacheDest": {
+    "name": "cseUcastCacheDest",
+    "oid": "1.3.6.1.4.1.9.9.97.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowAddressComponent",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseUcastCacheDestMask": {
+    "name": "cseUcastCacheDestMask",
+    "oid": "1.3.6.1.4.1.9.9.97.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowAddressComponent",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseUcastCacheSource": {
+    "name": "cseUcastCacheSource",
+    "oid": "1.3.6.1.4.1.9.9.97.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowAddressComponent",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseUcastCacheSrcMask": {
+    "name": "cseUcastCacheSrcMask",
+    "oid": "1.3.6.1.4.1.9.9.97.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowAddressComponent",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseUcastCacheRtrIp": {
+    "name": "cseUcastCacheRtrIp",
+    "oid": "1.3.6.1.4.1.9.9.97.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseUcastCacheOwner": {
+    "name": "cseUcastCacheOwner",
+    "oid": "1.3.6.1.4.1.9.9.97.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseUcastCacheResult": {
+    "name": "cseUcastCacheResult",
+    "oid": "1.3.6.1.4.1.9.9.97.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "purging": 1,
+          "notPurging": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notPurging",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseUcastCacheStatus": {
+    "name": "cseUcastCacheStatus",
+    "oid": "1.3.6.1.4.1.9.9.97.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseMcastCacheTable": {
+    "name": "cseMcastCacheTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseMcastCacheEntry": {
+    "name": "cseMcastCacheEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseMcastCacheIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseMcastCacheIndex": {
+    "name": "cseMcastCacheIndex",
+    "oid": "1.3.6.1.4.1.9.9.97.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseMcastCacheFlowType": {
+    "name": "cseMcastCacheFlowType",
+    "oid": "1.3.6.1.4.1.9.9.97.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "any": 1,
+          "group": 2,
+          "grpAndSrc": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "any",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseMcastCacheGrp": {
+    "name": "cseMcastCacheGrp",
+    "oid": "1.3.6.1.4.1.9.9.97.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "McastGroupIp",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseMcastCacheSrc": {
+    "name": "cseMcastCacheSrc",
+    "oid": "1.3.6.1.4.1.9.9.97.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseMcastCacheRtrIp": {
+    "name": "cseMcastCacheRtrIp",
+    "oid": "1.3.6.1.4.1.9.9.97.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseMcastCacheOwner": {
+    "name": "cseMcastCacheOwner",
+    "oid": "1.3.6.1.4.1.9.9.97.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseMcastCacheResult": {
+    "name": "cseMcastCacheResult",
+    "oid": "1.3.6.1.4.1.9.9.97.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "purging": 1,
+          "notPurging": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notPurging",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseMcastCacheStatus": {
+    "name": "cseMcastCacheStatus",
+    "oid": "1.3.6.1.4.1.9.9.97.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cseCefFibTable": {
+    "name": "cseCefFibTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseCefFibEntry": {
+    "name": "cseCefFibEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseCefFibIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseCefFibIndex": {
+    "name": "cseCefFibIndex",
+    "oid": "1.3.6.1.4.1.9.9.97.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseCefFibAddrType": {
+    "name": "cseCefFibAddrType",
+    "oid": "1.3.6.1.4.1.9.9.97.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseCefFibDestIp": {
+    "name": "cseCefFibDestIp",
+    "oid": "1.3.6.1.4.1.9.9.97.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseCefFibDestIpMask": {
+    "name": "cseCefFibDestIpMask",
+    "oid": "1.3.6.1.4.1.9.9.97.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseCefFibType": {
+    "name": "cseCefFibType",
+    "oid": "1.3.6.1.4.1.9.9.97.1.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "resolved": 2,
+          "bridge": 3,
+          "drop": 4,
+          "connected": 5,
+          "receive": 6,
+          "wildcard": 7,
+          "tunnel": 8,
+          "default": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseCefAdjacencyTable": {
+    "name": "cseCefAdjacencyTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseCefAdjacencyEntry": {
+    "name": "cseCefAdjacencyEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseCefFibIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseCefAdjacencyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseCefAdjacencyIndex": {
+    "name": "cseCefAdjacencyIndex",
+    "oid": "1.3.6.1.4.1.9.9.97.1.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseCefAdjacencyAddrType": {
+    "name": "cseCefAdjacencyAddrType",
+    "oid": "1.3.6.1.4.1.9.9.97.1.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseCefAdjacencyNextHopIp": {
+    "name": "cseCefAdjacencyNextHopIp",
+    "oid": "1.3.6.1.4.1.9.9.97.1.8.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseCefAdjacencyNextHopMac": {
+    "name": "cseCefAdjacencyNextHopMac",
+    "oid": "1.3.6.1.4.1.9.9.97.1.8.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseCefAdjacencyNextHopIfIndex": {
+    "name": "cseCefAdjacencyNextHopIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.97.1.8.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseCefAdjacencyType": {
+    "name": "cseCefAdjacencyType",
+    "oid": "1.3.6.1.4.1.9.9.97.1.8.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "punt": 2,
+          "glean": 3,
+          "drop": 4,
+          "null": 5,
+          "noRewrite": 6,
+          "forceDrop": 7,
+          "connect": 8,
+          "unresolved": 9,
+          "loopback": 10,
+          "tunnel": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseCefAdjacencyPkts": {
+    "name": "cseCefAdjacencyPkts",
+    "oid": "1.3.6.1.4.1.9.9.97.1.8.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseCefAdjacencyOctets": {
+    "name": "cseCefAdjacencyOctets",
+    "oid": "1.3.6.1.4.1.9.9.97.1.8.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseCefAdjacencyEncap": {
+    "name": "cseCefAdjacencyEncap",
+    "oid": "1.3.6.1.4.1.9.9.97.1.8.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "arpa": 1,
+          "raw": 2,
+          "sap": 3,
+          "snap": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseCefAdjacencyMTU": {
+    "name": "cseCefAdjacencyMTU",
+    "oid": "1.3.6.1.4.1.9.9.97.1.8.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseTcamUsageTable": {
+    "name": "cseTcamUsageTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseTcamUsageEntry": {
+    "name": "cseTcamUsageEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseTcamResourceType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseTcamResourceType": {
+    "name": "cseTcamResourceType",
+    "oid": "1.3.6.1.4.1.9.9.97.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aclStorageMask": 1,
+          "aclStorageValue": 2,
+          "aclDynamicStorageMask": 3,
+          "aclDynamicStorageValue": 4,
+          "qosStorageMask": 5,
+          "qosStorageValue": 6,
+          "qosDynamicStorageMask": 7,
+          "qosDynamicStorageValue": 8,
+          "l4PortOperator": 9,
+          "interfaceMapping": 10,
+          "ingressInterfaceMapping": 11,
+          "egressInterfaceMapping": 12,
+          "louSource": 13,
+          "louDestination": 14,
+          "andOr": 15,
+          "orAnd": 16,
+          "aclAdjacency": 17,
+          "aclHighStorageMask": 18,
+          "aclHighStorageValue": 19,
+          "aclLowStorageMask": 20,
+          "aclLowStorageValue": 21,
+          "qosHighStorageMask": 22,
+          "qosHighStorageValue": 23,
+          "qosLowStorageMask": 24,
+          "qosLowStorageValue": 25,
+          "sgacl": 26,
+          "accounting": 27,
+          "ipv6Ext": 28,
+          "ethertype": 29,
+          "destInfo": 30,
+          "dgtSgtRegion": 31,
+          "anyAnyRegion": 32,
+          "tcamALabel": 33,
+          "tcamBLabel": 34,
+          "destInfoIn": 35,
+          "destInfoOut": 36,
+          "tcam0Bank0": 37,
+          "tcam0Bank1": 38,
+          "tcam1Bank0": 39,
+          "tcam1Bank1": 40,
+          "tcam0Aggregate": 41,
+          "tcam1Aggregate": 42,
+          "bank0Aggregate": 43,
+          "bank1Aggregate": 44,
+          "lou": 45,
+          "bothLouOperands": 46,
+          "singleLouOperands": 47,
+          "louL4SourcePort": 48,
+          "louL4DstPort": 49,
+          "louL3PacketLength": 50,
+          "louIpTos": 51,
+          "louIpDscp": 52,
+          "louIpPrecedence": 53,
+          "louIpTtl": 54,
+          "tcpFlags": 55,
+          "l4DynamicProtocolCam": 56,
+          "macEtypeOrProtoCam": 57,
+          "nonL4OpLabelsTcam0": 58,
+          "nonL4OpLabelsTcam1": 59,
+          "l4OpLabelTcam0": 60,
+          "l4OpLabelTcam1": 61,
+          "ingressDestInfoTable": 62,
+          "egressDestInfoTable": 63,
+          "ingressTcam": 64,
+          "ingressIpv6Tcam": 65,
+          "ingressLou": 66,
+          "ingressBothLouOperands": 67,
+          "ingressSingleLouOperands": 68,
+          "ingressLouL4SourcePort": 69,
+          "ingressLouL4DstPort": 70,
+          "ingressLouL3PacketLength": 71,
+          "ingressLouL3Ttl": 72,
+          "ingressLouL2Ttl": 73,
+          "ingressTcpFlags": 74,
+          "egressTcam": 75,
+          "egressIpv6Tcam": 76,
+          "egressLou": 77,
+          "egressBothLouOperands": 78,
+          "egressSingleLouOperands": 79,
+          "egressLouL4SourcePort": 80,
+          "egressLouL4DstPort": 81,
+          "egressLouL3PacketLength": 82,
+          "egressLouL3Ttl": 83,
+          "egressLouL2Ttl": 84,
+          "egressTcpFlags": 85
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseTcamResourceDescr": {
+    "name": "cseTcamResourceDescr",
+    "oid": "1.3.6.1.4.1.9.9.97.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseTcamResourceUsed": {
+    "name": "cseTcamResourceUsed",
+    "oid": "1.3.6.1.4.1.9.9.97.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseTcamResourceTotal": {
+    "name": "cseTcamResourceTotal",
+    "oid": "1.3.6.1.4.1.9.9.97.1.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseMetUsageTable": {
+    "name": "cseMetUsageTable",
+    "oid": "1.3.6.1.4.1.9.9.97.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseMetUsageEntry": {
+    "name": "cseMetUsageEntry",
+    "oid": "1.3.6.1.4.1.9.9.97.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseMetIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseMetIndex": {
+    "name": "cseMetIndex",
+    "oid": "1.3.6.1.4.1.9.9.97.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseMetTotalEntries": {
+    "name": "cseMetTotalEntries",
+    "oid": "1.3.6.1.4.1.9.9.97.1.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseMetUnallocatedSpcFreeEntries": {
+    "name": "cseMetUnallocatedSpcFreeEntries",
+    "oid": "1.3.6.1.4.1.9.9.97.1.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseMetAllocatedSpcFreeEntries": {
+    "name": "cseMetAllocatedSpcFreeEntries",
+    "oid": "1.3.6.1.4.1.9.9.97.1.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseMIBNotifications": {
+    "name": "cseMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.97.2",
+    "class": "objectidentity"
+  },
+  "cseMIBConformance": {
+    "name": "cseMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.97.3",
+    "class": "objectidentity"
+  },
+  "cseMIBCompliances": {
+    "name": "cseMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.97.3.1",
+    "class": "objectidentity"
+  },
+  "cseMIBGroups": {
+    "name": "cseMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2",
+    "class": "objectidentity"
+  },
+  "cseMIBCompliance": {
+    "name": "cseMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.97.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cseStatisticsGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseRouterGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseVlanStatisticsGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMgmtGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMcastMgmtGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseUcastCachePurgeGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseMcastCachePurgeGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cseMIBCompliance2": {
+    "name": "cseMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.97.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cseStatisticsGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseRouterGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseVlanStatisticsGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMgmtGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMcastMgmtGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseUcastCachePurgeGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseMcastCachePurgeGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMgmtOperStatusGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cseMIBCompliance3": {
+    "name": "cseMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.97.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cseStatisticsGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseRouterGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseVlanStatisticsGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMgmtGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMcastMgmtGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseUcastCachePurgeGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMgmtOperStatusGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cse4kVlanGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cseMIBCompliance4": {
+    "name": "cseMIBCompliance4",
+    "oid": "1.3.6.1.4.1.9.9.97.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cseStatisticsGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseRouterGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseVlanStatisticsGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMgmtGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMcastMgmtGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseUcastCachePurgeGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseMcastCachePurgeGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMgmtOperStatusGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cse4kVlanGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseNDEMandatoryGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseNDESingleFilterGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseNDEMultipleFiltersGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseProtocolFilterGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseStatisticsGroup2",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cseMIBCompliance5": {
+    "name": "cseMIBCompliance5",
+    "oid": "1.3.6.1.4.1.9.9.97.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cseStatisticsGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseRouterGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseVlanStatisticsGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMgmtGroupRev1",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMcastMgmtGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseUcastCachePurgeGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseMcastCachePurgeGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMgmtOperStatusGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cse4kVlanGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseNDEMandatoryGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseNDESingleFilterGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseNDEMultipleFiltersGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseProtocolFilterGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseStatisticsGroup2",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cseMIBCompliance6": {
+    "name": "cseMIBCompliance6",
+    "oid": "1.3.6.1.4.1.9.9.97.3.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cseStatisticsGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseRouterGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseVlanStatisticsGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMgmtGroupRev1",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMcastMgmtGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseUcastCachePurgeGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseMcastCachePurgeGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMgmtOperStatusGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cse4kVlanGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseNDEMandatoryGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseNDESingleFilterGroupRev1",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseNDEMultipleFiltersGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseProtocolFilterGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseStatisticsGroup2",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMgmtExtGroup2",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cseMIBCompliance7": {
+    "name": "cseMIBCompliance7",
+    "oid": "1.3.6.1.4.1.9.9.97.3.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cseStatisticsGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseRouterGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseVlanStatisticsGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMgmtGroupRev1",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMcastMgmtGroup1",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseUcastCachePurgeGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseMcastCachePurgeGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMgmtOperStatusGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cse4kVlanGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseNDEMandatoryGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseNDESingleFilterGroupRev1",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseNDEMultipleFiltersGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseProtocolFilterGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseStatisticsGroup2",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMgmtExtGroup2",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMcastRtrMgmtGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMcastMgmtGroup2",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cseMIBCompliance8": {
+    "name": "cseMIBCompliance8",
+    "oid": "1.3.6.1.4.1.9.9.97.3.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cseStatisticsGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseRouterGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseVlanStatisticsGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMgmtGroupRev1",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMcastMgmtGroup1",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseUcastCachePurgeGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseMcastCachePurgeGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMgmtOperStatusGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cse4kVlanGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseNDEMandatoryGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseNDESingleFilterGroupRev1",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseNDEMultipleFiltersGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseProtocolFilterGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseStatisticsGroup2",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMgmtExtGroup2",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMcastRtrMgmtGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseFlowMcastMgmtGroup2",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseCacheStatisticsGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseL3SwitchedPktsPerSecGroup",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      },
+      {
+        "object": "cseStatisticsFlowGroup1",
+        "module": "CISCO-SWITCH-ENGINE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cseStatisticsGroup": {
+    "name": "cseStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL2ForwardedLocalPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL2ForwardedLocalOctets"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL2ForwardedTotalPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL2NewAddressLearns"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL2AddrLearnFailures"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL2DstAddrLookupMisses"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL3SwitchedTotalPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL3SwitchedTotalOctets"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL3CandidateFlowHits"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL3EstablishedFlowHits"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL3ActiveFlows"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL3FlowLearnFailures"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL3IntFlowInvalids"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL3ExtFlowInvalids"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL2HCOverflowForwardedLocalPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL2HCForwardedLocalPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL2HCOverflowForwardedTotalPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL2HCForwardedTotalPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL2HCOverflowIpPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL2HCIpPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL2HCOverflowIpxPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL2HCIpxPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL2HCOverflowAssignedProtoPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL2HCAssignedProtoPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL2HCOverflowOtherProtoPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL2HCOtherProtoPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "cseStatisticsGroup2": {
+    "name": "cseStatisticsGroup2",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseStatsFlowAged"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseStatsFlowPurged"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseStatsFlowParityFail"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseCacheUtilization"
+      }
+    ],
+    "status": "current"
+  },
+  "cseVlanStatisticsGroup": {
+    "name": "cseVlanStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL3VlanInPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL3VlanInOctets"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL3VlanOutPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL3VlanOutOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "cseRouterGroup": {
+    "name": "cseRouterGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseRouterFlowMask"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseRouterName"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseRouterStatic"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseStaticRouterOwner"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseStaticRouterName"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseStaticRouterType"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseStaticRouterStatus"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseRouterIpxFlowMask"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseStaticIpxRouterOwner"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseStaticIpxRouterName"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseStaticIpxRouterStatus"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseRouterMac"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseRouterProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "cseFlowMgmtGroup": {
+    "name": "cseFlowMgmtGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowEstablishedAgingTime"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowFastAgingTime"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowFastAgePktThreshold"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowIPXEstablishedAgingTime"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMaxQueries"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryMask"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryTransport"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQuerySource"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQuerySourceMask"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryDestination"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryDestinationMask"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryRouterIndex"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryOwner"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryResultingRows"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryResultTotalPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryResultTotalOctets"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryResultAvgDuration"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryResultAvgIdle"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryStatus"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryCreateTime"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataSrcMac"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataDstMac"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataEncapType"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataSource"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataStaticFlow"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataDestination"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataDestVlan"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataIpQOS"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataIpQOSPolicy"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataWhenCreated"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataLastUsed"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataOctets"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowSwitchStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cseNetflowLSGroup": {
+    "name": "cseNetflowLSGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportHost"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportTransportNumber"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportStatus"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportDataSource"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportDataSourceMask"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportDataDest"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportDataDestMask"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportDataProtocol"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportDataFilterSelection"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportNDEVersionNumber"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cseProtocolFilterGroup": {
+    "name": "cseProtocolFilterGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseProtocolFilterPortAdminStatus"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseProtocolFilterPortOperStatus"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL2IpPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL2IpxPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL2AssignedProtoPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL2OtherProtoPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "cseFlowMcastMgmtGroup": {
+    "name": "cseFlowMcastMgmtGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastMaxQueries"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQueryMask"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQuerySrc"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQueryGrp"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQuerySrcVlan"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQueryRtrIndex"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQuerySkipNFlows"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQueryOwner"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQueryTotalFlows"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQueryRows"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQueryStatus"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQueryCreateTime"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultSrc"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultGrp"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultSrcVlan"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultRtrIp"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultRtrMac"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultCreatedTS"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultLastUsedTS"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultOctets"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultDstVlans"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastSwitchStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cseUcastCachePurgeGroup": {
+    "name": "cseUcastCachePurgeGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseUcastCacheFlowType"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseUcastCacheTransport"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseUcastCacheDest"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseUcastCacheDestMask"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseUcastCacheSource"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseUcastCacheSrcMask"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseUcastCacheRtrIp"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseUcastCacheOwner"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseUcastCacheStatus"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseUcastCacheResult"
+      }
+    ],
+    "status": "current"
+  },
+  "cseMcastCachePurgeGroup": {
+    "name": "cseMcastCachePurgeGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseMcastCacheFlowType"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseMcastCacheGrp"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseMcastCacheSrc"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseMcastCacheRtrIp"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseMcastCacheOwner"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseMcastCacheStatus"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseMcastCacheResult"
+      }
+    ],
+    "status": "current"
+  },
+  "cseFlowMgmtOperStatusGroup": {
+    "name": "cseFlowMgmtOperStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowOperEstablishedAgingTime"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowOperFastAgingTime"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowOperFastAgePktThreshold"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowOperIPXAgingTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cse4kVlanGroup": {
+    "name": "cse4kVlanGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultDstVlans2k"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultDstVlans3k"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultDstVlans4k"
+      }
+    ],
+    "status": "current"
+  },
+  "cseNDEMandatoryGroup": {
+    "name": "cseNDEMandatoryGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSFilterSupport"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportStatus"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportNDEVersionNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "cseNDESingleFilterGroup": {
+    "name": "cseNDESingleFilterGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportHost"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportTransportNumber"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportDataSource"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportDataSourceMask"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportDataDest"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportDataDestMask"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportDataProtocol"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportDataFilterSelection"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cseNDEMultipleFiltersGroup": {
+    "name": "cseNDEMultipleFiltersGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSFilterDataSource"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSFilterDataSourceMask"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSFilterDataDest"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSFilterDataDestMask"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSFilterDataProtocol"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSFilterSelection"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSFilterStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cseFlowMgmtGroupRev1": {
+    "name": "cseFlowMgmtGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowEstablishedAgingTime"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowFastAgingTime"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowFastAgePktThreshold"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowIPXEstablishedAgingTime"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMaxQueries"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryMask"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryTransport"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQuerySource"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQuerySourceMask"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryDestination"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryDestinationMask"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryRouterIndex"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryOwner"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryResultingRows"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryResultTotalPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryResultTotalOctets"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryResultAvgDuration"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryResultAvgIdle"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryStatus"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryCreateTime"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQueryTotalFlows"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataSrcMac"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataDstMac"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataEncapType"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataSource"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataStaticFlow"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataDestination"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataDestVlan"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataIpQOS"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataIpQOSPolicy"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataWhenCreated"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataLastUsed"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowDataOctets"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowSwitchStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cseL3ErrorsGroup": {
+    "name": "cseL3ErrorsGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseIpPlenErrors"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseIpTooShortErrors"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseIpCheckSumErrors"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseIpxPlenErrors"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseIpxTooShortErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "cseBridgedFlowGroup": {
+    "name": "cseBridgedFlowGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowBridgedFlowStatsEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cseVlanStatisticsExtGroup": {
+    "name": "cseVlanStatisticsExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL3VlanInUnicastPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL3VlanInUnicastOctets"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL3VlanOutUnicastPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL3VlanOutUnicastOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "cseProtocolFilterExtGroup": {
+    "name": "cseProtocolFilterExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseProtocolFilterEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cseFlowMgmtExtGroup": {
+    "name": "cseFlowMgmtExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowIPFlowMask"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowIPXFlowMask"
+      }
+    ],
+    "status": "current"
+  },
+  "cseFlowMgmtExtGroup1": {
+    "name": "cseFlowMgmtExtGroup1",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowLongAgingTime"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowExcludeProtocol"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowExcludeStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cseNDEReportGroup": {
+    "name": "cseNDEReportGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetFlowIfIndexEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cseStatisticsFlowGroup": {
+    "name": "cseStatisticsFlowGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowTotalFlows"
+      }
+    ],
+    "status": "current"
+  },
+  "cseFlowMgmtExtGroup2": {
+    "name": "cseFlowMgmtExtGroup2",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowQuerySkipNFlows"
+      }
+    ],
+    "status": "current"
+  },
+  "cseNDESingleFilterGroupRev1": {
+    "name": "cseNDESingleFilterGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportDataSource"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportDataSourceMask"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportDataDest"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportDataDestMask"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportDataProtocol"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowLSExportDataFilterSelection"
+      }
+    ],
+    "status": "current"
+  },
+  "cseCefFibAdjacencyGroup": {
+    "name": "cseCefFibAdjacencyGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseCefFibAddrType"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseCefFibDestIp"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseCefFibDestIpMask"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseCefFibType"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseCefAdjacencyAddrType"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseCefAdjacencyNextHopIp"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseCefAdjacencyNextHopMac"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseCefAdjacencyNextHopIfIndex"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseCefAdjacencyType"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseCefAdjacencyPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseCefAdjacencyOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "cseCefAdjacencyEncapGroup": {
+    "name": "cseCefAdjacencyEncapGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseCefAdjacencyEncap"
+      }
+    ],
+    "status": "current"
+  },
+  "cseCefAdjacencyMTUGroup": {
+    "name": "cseCefAdjacencyMTUGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseCefAdjacencyMTU"
+      }
+    ],
+    "status": "current"
+  },
+  "cseTcamUsageGroup": {
+    "name": "cseTcamUsageGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.30",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseTcamResourceDescr"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseTcamResourceUsed"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseTcamResourceTotal"
+      }
+    ],
+    "status": "current"
+  },
+  "cseL3ErrorsLCGroup": {
+    "name": "cseL3ErrorsLCGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.31",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseLCIpPlenErrors"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseLCIpTooShortErrors"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseLCIpCheckSumErrors"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseLCIpxPlenErrors"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseLCIpxTooShortErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "cseNetflowASInfoExportGroup": {
+    "name": "cseNetflowASInfoExportGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.32",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowASInfoExportCtrl"
+      }
+    ],
+    "status": "current"
+  },
+  "cseNetflowPerVlanIfGroup": {
+    "name": "cseNetflowPerVlanIfGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.33",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowPerVlanIfGlobalEnable"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseNetflowPerVlanIfEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cseMetUsageGroup": {
+    "name": "cseMetUsageGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.34",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseMetTotalEntries"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseMetUnallocatedSpcFreeEntries"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseMetAllocatedSpcFreeEntries"
+      }
+    ],
+    "status": "current"
+  },
+  "cseFlowMcastMgmtGroup1": {
+    "name": "cseFlowMcastMgmtGroup1",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.35",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastMaxQueries"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQueryMask"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQuerySrcVlan"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQuerySkipNFlows"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQueryOwner"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQueryTotalFlows"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQueryRows"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQueryStatus"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQueryCreateTime"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultSrcVlan"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultCreatedTS"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultLastUsedTS"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultPkts"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultOctets"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultDstVlans"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastSwitchStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cseFlowMcastRtrMgmtGroup": {
+    "name": "cseFlowMcastRtrMgmtGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.36",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQueryRtrIndex"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultRtrIp"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultRtrMac"
+      }
+    ],
+    "status": "current"
+  },
+  "cseFlowMcastMgmtGroup2": {
+    "name": "cseFlowMcastMgmtGroup2",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.37",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQueryMvrf"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQueryAddrType"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQuerySource"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastQueryGroup"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultMvrf"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultAddrType"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultGroup"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultSource"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultFlowType"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultHFlag1k2k"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowMcastResultHFlag3k4k"
+      }
+    ],
+    "status": "current"
+  },
+  "cseCacheStatisticsGroup": {
+    "name": "cseCacheStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.38",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseCacheEntriesCreated"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseCacheEntriesFailed"
+      }
+    ],
+    "status": "current"
+  },
+  "cseL3SwitchedPktsPerSecGroup": {
+    "name": "cseL3SwitchedPktsPerSecGroup",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.39",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL3SwitchedPktsPerSec"
+      },
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseL3SwitchedAggrPktsPerSec"
+      }
+    ],
+    "status": "current"
+  },
+  "cseStatisticsFlowGroup1": {
+    "name": "cseStatisticsFlowGroup1",
+    "oid": "1.3.6.1.4.1.9.9.97.3.2.40",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-ENGINE-MIB",
+        "object": "cseFlowTotalIpv4Flows"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SWITCH-ENGINE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SWITCH-ENGINE-MIB"
+  }
+}

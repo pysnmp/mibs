@@ -1,0 +1,4490 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysDescr",
+      "sysLocation",
+      "sysContact",
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "TRAP-TYPE",
+      "MibIdentifier",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "rittal": {
+    "name": "rittal",
+    "oid": "1.3.6.1.4.1.2606",
+    "class": "objectidentity"
+  },
+  "cmcTc": {
+    "name": "cmcTc",
+    "oid": "1.3.6.1.4.1.2606.4",
+    "class": "objectidentity"
+  },
+  "cmcTcMibRev": {
+    "name": "cmcTcMibRev",
+    "oid": "1.3.6.1.4.1.2606.4.1",
+    "class": "objectidentity"
+  },
+  "cmcTcStatus": {
+    "name": "cmcTcStatus",
+    "oid": "1.3.6.1.4.1.2606.4.2",
+    "class": "objectidentity"
+  },
+  "cmcTcStatusSensorUnit1": {
+    "name": "cmcTcStatusSensorUnit1",
+    "oid": "1.3.6.1.4.1.2606.4.2.3",
+    "class": "objectidentity"
+  },
+  "cmcTcStatusUnit1Sensors": {
+    "name": "cmcTcStatusUnit1Sensors",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.5",
+    "class": "objectidentity"
+  },
+  "cmcTcStatusUnit1Outputs": {
+    "name": "cmcTcStatusUnit1Outputs",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.6",
+    "class": "objectidentity"
+  },
+  "cmcTcStatusUnit1Msg": {
+    "name": "cmcTcStatusUnit1Msg",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.7",
+    "class": "objectidentity"
+  },
+  "cmcTcStatusSensorUnit2": {
+    "name": "cmcTcStatusSensorUnit2",
+    "oid": "1.3.6.1.4.1.2606.4.2.4",
+    "class": "objectidentity"
+  },
+  "cmcTcStatusUnit2Sensors": {
+    "name": "cmcTcStatusUnit2Sensors",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.5",
+    "class": "objectidentity"
+  },
+  "cmcTcStatusUnit2Outputs": {
+    "name": "cmcTcStatusUnit2Outputs",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.6",
+    "class": "objectidentity"
+  },
+  "cmcTcStatusUnit2Msg": {
+    "name": "cmcTcStatusUnit2Msg",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.7",
+    "class": "objectidentity"
+  },
+  "cmcTcStatusSensorUnit3": {
+    "name": "cmcTcStatusSensorUnit3",
+    "oid": "1.3.6.1.4.1.2606.4.2.5",
+    "class": "objectidentity"
+  },
+  "cmcTcStatusUnit3Sensors": {
+    "name": "cmcTcStatusUnit3Sensors",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.5",
+    "class": "objectidentity"
+  },
+  "cmcTcStatusUnit3Outputs": {
+    "name": "cmcTcStatusUnit3Outputs",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.6",
+    "class": "objectidentity"
+  },
+  "cmcTcStatusUnit3Msg": {
+    "name": "cmcTcStatusUnit3Msg",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.7",
+    "class": "objectidentity"
+  },
+  "cmcTcStatusSensorUnit4": {
+    "name": "cmcTcStatusSensorUnit4",
+    "oid": "1.3.6.1.4.1.2606.4.2.6",
+    "class": "objectidentity"
+  },
+  "cmcTcStatusUnit4Sensors": {
+    "name": "cmcTcStatusUnit4Sensors",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.5",
+    "class": "objectidentity"
+  },
+  "cmcTcStatusUnit4Outputs": {
+    "name": "cmcTcStatusUnit4Outputs",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.6",
+    "class": "objectidentity"
+  },
+  "cmcTcStatusUnit4Msg": {
+    "name": "cmcTcStatusUnit4Msg",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.7",
+    "class": "objectidentity"
+  },
+  "cmcTcStatusExtUnit": {
+    "name": "cmcTcStatusExtUnit",
+    "oid": "1.3.6.1.4.1.2606.4.2.7",
+    "class": "objectidentity"
+  },
+  "cmcTcSetup": {
+    "name": "cmcTcSetup",
+    "oid": "1.3.6.1.4.1.2606.4.3",
+    "class": "objectidentity"
+  },
+  "cmcTcSetupGeneral": {
+    "name": "cmcTcSetupGeneral",
+    "oid": "1.3.6.1.4.1.2606.4.3.1",
+    "class": "objectidentity"
+  },
+  "cmcTcTimerTable1": {
+    "name": "cmcTcTimerTable1",
+    "oid": "1.3.6.1.4.1.2606.4.3.1.8",
+    "class": "objectidentity"
+  },
+  "cmcTcTrapControl": {
+    "name": "cmcTcTrapControl",
+    "oid": "1.3.6.1.4.1.2606.4.4",
+    "class": "objectidentity"
+  },
+  "cmcTcTraps": {
+    "name": "cmcTcTraps",
+    "oid": "1.3.6.1.4.1.2606.4.4.7",
+    "class": "objectidentity"
+  },
+  "cmcTcControl": {
+    "name": "cmcTcControl",
+    "oid": "1.3.6.1.4.1.2606.4.5",
+    "class": "objectidentity"
+  },
+  "cmcTcMibMajRev": {
+    "name": "cmcTcMibMajRev",
+    "oid": "1.3.6.1.4.1.2606.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcMibMinRev": {
+    "name": "cmcTcMibMinRev",
+    "oid": "1.3.6.1.4.1.2606.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcMibCondition": {
+    "name": "cmcTcMibCondition",
+    "oid": "1.3.6.1.4.1.2606.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4,
+          "configChanged": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcStatusDeviceCMC": {
+    "name": "cmcTcStatusDeviceCMC",
+    "oid": "1.3.6.1.4.1.2606.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 1,
+          "ok": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnitsConnected": {
+    "name": "cmcTcUnitsConnected",
+    "oid": "1.3.6.1.4.1.2606.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit1TypeOfDevice": {
+    "name": "cmcTcUnit1TypeOfDevice",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "unitIO": 2,
+          "unitAccess": 3,
+          "unitClimate": 4,
+          "unitFCS": 5,
+          "unitRTT": 6,
+          "unitRCT": 7,
+          "unitPSM": 8,
+          "unitPSM8": 9,
+          "unitPSMMetered": 10,
+          "unitIOWireless": 11,
+          "unitPSM6Schuko": 12,
+          "unitPSM6C19": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit1Text": {
+    "name": "cmcTcUnit1Text",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcUnit1Serial": {
+    "name": "cmcTcUnit1Serial",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit1Status": {
+    "name": "cmcTcUnit1Status",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "error": 2,
+          "changed": 3,
+          "quit": 4,
+          "timeout": 5,
+          "detected": 6,
+          "notAvail": 7,
+          "lowPower": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit1NumberOfSensors": {
+    "name": "cmcTcUnit1NumberOfSensors",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit1SensorTable": {
+    "name": "cmcTcUnit1SensorTable",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cmcTcUnit1SensorEntry": {
+    "name": "cmcTcUnit1SensorEntry",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit1SensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "unit1SensorIndex": {
+    "name": "unit1SensorIndex",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit1SensorType": {
+    "name": "unit1SensorType",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "failure": 2,
+          "overflow": 3,
+          "access": 4,
+          "vibration": 5,
+          "motion": 6,
+          "smoke": 7,
+          "airFlow": 8,
+          "type6": 9,
+          "temperature": 10,
+          "current4to20": 11,
+          "humidity": 12,
+          "userNO": 13,
+          "userNC": 14,
+          "lock": 15,
+          "unlock": 16,
+          "voltOK": 17,
+          "voltage": 18,
+          "fanOK": 19,
+          "readerKeypad": 20,
+          "dutyPWM": 21,
+          "fanStatus": 22,
+          "leakage": 23,
+          "warningRTT": 24,
+          "alarmRTT": 25,
+          "filterRTT": 26,
+          "heatflowRCT": 27,
+          "alarmRCT": 28,
+          "warningRCT": 29,
+          "currentPSM": 30,
+          "statusPSM": 31,
+          "positionPSM": 32,
+          "airFlap": 33,
+          "acoustic": 34,
+          "detACfault": 35,
+          "detACfirstAlarm": 36,
+          "detACmainAlarm": 37,
+          "rpm11LCP": 40,
+          "rpm12LCP": 41,
+          "rpm21LCP": 42,
+          "rpm22LCP": 43,
+          "rpm31LCP": 44,
+          "rpm32LCP": 45,
+          "rpm41LCP": 46,
+          "rpm42LCP": 47,
+          "airTemp11LCP": 48,
+          "airTemp12LCP": 49,
+          "airTemp21LCP": 50,
+          "airTemp22LCP": 51,
+          "airTemp31LCP": 52,
+          "airTemp32LCP": 53,
+          "airTemp41LCP": 54,
+          "airTemp42LCP": 55,
+          "temp1LCP": 56,
+          "temp2LCP": 57,
+          "waterInTemp": 58,
+          "waterOutTemp": 59,
+          "waterFlow": 60,
+          "fanSpeed": 61,
+          "valve": 62,
+          "statusLCP": 63,
+          "waterDelta": 64,
+          "valveActual": 65,
+          "contrTemp2": 66,
+          "condensateDuration": 67,
+          "condensateCycles": 68,
+          "totalKWhPSM": 72,
+          "totalKWPSM": 73,
+          "frequencyPSM": 74,
+          "voltagePSM": 75,
+          "voltStatusPSM": 76,
+          "amperePSM": 77,
+          "ampStatusPSM": 78,
+          "kWPSM": 79,
+          "kWhPSM": 80,
+          "kWhTempPSM": 81,
+          "temperatureWL": 100,
+          "temperature1WL": 101,
+          "humidityWL": 102,
+          "accessWL": 103,
+          "userNOWL": 104,
+          "userNCWL": 105,
+          "analogWL": 106
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit1SensorText": {
+    "name": "unit1SensorText",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit1SensorStatus": {
+    "name": "unit1SensorStatus",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "lost": 2,
+          "changed": 3,
+          "ok": 4,
+          "off": 5,
+          "on": 6,
+          "warning": 7,
+          "tooLow": 8,
+          "tooHigh": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit1SensorValue": {
+    "name": "unit1SensorValue",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit1SensorSetHigh": {
+    "name": "unit1SensorSetHigh",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit1SensorSetLow": {
+    "name": "unit1SensorSetLow",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit1SensorSetWarn": {
+    "name": "unit1SensorSetWarn",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcUnit1NumberOfOutputs": {
+    "name": "cmcTcUnit1NumberOfOutputs",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit1OutputTable": {
+    "name": "cmcTcUnit1OutputTable",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cmcTcUnit1OutputEntry": {
+    "name": "cmcTcUnit1OutputEntry",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit1OutputIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "unit1OutputIndex": {
+    "name": "unit1OutputIndex",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit1OutputType": {
+    "name": "unit1OutputType",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "failure": 2,
+          "overflow": 3,
+          "doorLock": 4,
+          "univLock1": 5,
+          "univLock2": 6,
+          "fan": 7,
+          "fanSpeedContr": 8,
+          "universalOut": 9,
+          "roomLock": 10,
+          "powerOut": 11,
+          "doorLockMaster": 12,
+          "doorLockFRi": 13,
+          "setpoint": 14,
+          "setpointTimax": 15,
+          "hysteresisRCT": 16,
+          "commandRCT": 17,
+          "relayPSM": 18,
+          "setHighPSM": 19,
+          "setLowPSM": 20,
+          "setpointRTT": 21,
+          "setTimaxRTT": 22,
+          "powerOut1": 23,
+          "controlModeLCP": 30,
+          "minFanSpeedLCP": 31,
+          "minDeltaTLCP": 32,
+          "maxDeltaTLCP": 33,
+          "kPLCP": 34,
+          "kILCP": 35,
+          "kDLCP": 36,
+          "flowRateLCP": 37,
+          "cwValueLCP": 38,
+          "deltaTLCP": 39,
+          "ctrModLCP": 40,
+          "voltHighPSM": 42,
+          "voltLowPSM": 43,
+          "ampHighPSM": 44,
+          "ampLowPSM": 45,
+          "commandPSM": 46
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit1OutputText": {
+    "name": "unit1OutputText",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit1OutputStatus": {
+    "name": "unit1OutputStatus",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "lost": 2,
+          "changed": 3,
+          "ok": 4,
+          "off": 5,
+          "on": 6,
+          "setOff": 7,
+          "setOn": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit1OutputValue": {
+    "name": "unit1OutputValue",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit1OutputSet": {
+    "name": "unit1OutputSet",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "lock": 3,
+          "unlock": 4,
+          "unlockDelay": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit1OutputConfig": {
+    "name": "unit1OutputConfig",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disRemote": 1,
+          "enRemote": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit1OutputDelay": {
+    "name": "unit1OutputDelay",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit1OutputTimeoutAction": {
+    "name": "unit1OutputTimeoutAction",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stay": 1,
+          "off": 2,
+          "on": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcUnit1NumberOfMsgs": {
+    "name": "cmcTcUnit1NumberOfMsgs",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit1MsgTable": {
+    "name": "cmcTcUnit1MsgTable",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cmcTcUnit1MsgEntry": {
+    "name": "cmcTcUnit1MsgEntry",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit1MsgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "unit1MsgIndex": {
+    "name": "unit1MsgIndex",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit1MsgText": {
+    "name": "unit1MsgText",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit1MsgStatus": {
+    "name": "unit1MsgStatus",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "configChanged": 2,
+          "error": 3,
+          "ok": 4,
+          "alarm": 5,
+          "warning": 6,
+          "tooLow": 7,
+          "tooHigh": 8,
+          "setOff": 9,
+          "setOn": 10,
+          "open": 11,
+          "closed": 12,
+          "locked": 13,
+          "unlRemote": 14,
+          "unlReaderKeypad": 15,
+          "unlSNMP": 16,
+          "unlWEB": 17,
+          "unlTimer": 18,
+          "noAccess": 19,
+          "circuit1": 20,
+          "circuit2": 21,
+          "lowBatt": 22
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit1MsgRelay": {
+    "name": "unit1MsgRelay",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit1MsgBeeper": {
+    "name": "unit1MsgBeeper",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit1MsgTrap1": {
+    "name": "unit1MsgTrap1",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit1MsgTrap2": {
+    "name": "unit1MsgTrap2",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit1MsgTrap3": {
+    "name": "unit1MsgTrap3",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit1MsgTrap4": {
+    "name": "unit1MsgTrap4",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.7.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit1MsgQuit": {
+    "name": "unit1MsgQuit",
+    "oid": "1.3.6.1.4.1.2606.4.2.3.7.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcUnit2TypeOfDevice": {
+    "name": "cmcTcUnit2TypeOfDevice",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "unitIO": 2,
+          "unitAccess": 3,
+          "unitClimate": 4,
+          "unitFCS": 5,
+          "unitRTT": 6,
+          "unitRCT": 7,
+          "unitPSM": 8,
+          "unitPSM8": 9,
+          "unitPSMMetered": 10,
+          "unitIOWireless": 11,
+          "unitPSM6Schuko": 12,
+          "unitPSM6C19": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit2Text": {
+    "name": "cmcTcUnit2Text",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcUnit2Serial": {
+    "name": "cmcTcUnit2Serial",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit2Status": {
+    "name": "cmcTcUnit2Status",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "error": 2,
+          "changed": 3,
+          "quit": 4,
+          "timeout": 5,
+          "detected": 6,
+          "notAvail": 7,
+          "lowPower": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit2NumberOfSensors": {
+    "name": "cmcTcUnit2NumberOfSensors",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit2SensorTable": {
+    "name": "cmcTcUnit2SensorTable",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cmcTcUnit2SensorEntry": {
+    "name": "cmcTcUnit2SensorEntry",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit2SensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "unit2SensorIndex": {
+    "name": "unit2SensorIndex",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit2SensorType": {
+    "name": "unit2SensorType",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "failure": 2,
+          "overflow": 3,
+          "access": 4,
+          "vibration": 5,
+          "motion": 6,
+          "smoke": 7,
+          "airFlow": 8,
+          "type6": 9,
+          "temperature": 10,
+          "current4to20": 11,
+          "humidity": 12,
+          "userNO": 13,
+          "userNC": 14,
+          "lock": 15,
+          "unlock": 16,
+          "voltOK": 17,
+          "voltage": 18,
+          "fanOK": 19,
+          "readerKeypad": 20,
+          "dutyPWM": 21,
+          "fanStatus": 22,
+          "leakage": 23,
+          "warningRTT": 24,
+          "alarmRTT": 25,
+          "filterRTT": 26,
+          "heatflowRCT": 27,
+          "alarmRCT": 28,
+          "warningRCT": 29,
+          "currentPSM": 30,
+          "statusPSM": 31,
+          "positionPSM": 32,
+          "airFlap": 33,
+          "detACfault": 35,
+          "detACfirstAlarm": 36,
+          "detACmainAlarm": 37,
+          "acoustic": 34,
+          "rpm11LCP": 40,
+          "rpm12LCP": 41,
+          "rpm21LCP": 42,
+          "rpm22LCP": 43,
+          "rpm31LCP": 44,
+          "rpm32LCP": 45,
+          "rpm41LCP": 46,
+          "rpm42LCP": 47,
+          "airTemp11LCP": 48,
+          "airTemp12LCP": 49,
+          "airTemp21LCP": 50,
+          "airTemp22LCP": 51,
+          "airTemp31LCP": 52,
+          "airTemp32LCP": 53,
+          "airTemp41LCP": 54,
+          "airTemp42LCP": 55,
+          "temp1LCP": 56,
+          "temp2LCP": 57,
+          "waterInTemp": 58,
+          "waterOutTemp": 59,
+          "waterFlow": 60,
+          "fanSpeed": 61,
+          "valve": 62,
+          "statusLCP": 63,
+          "waterDelta": 64,
+          "valveActual": 65,
+          "contrTemp2": 66,
+          "condensateDuration": 67,
+          "condensateCycles": 68,
+          "totalKWhPSM": 72,
+          "totalKWPSM": 73,
+          "frequencyPSM": 74,
+          "voltagePSM": 75,
+          "voltStatusPSM": 76,
+          "amperePSM": 77,
+          "ampStatusPSM": 78,
+          "kWPSM": 79,
+          "kWhPSM": 80,
+          "kWhTempPSM": 81,
+          "temperatureWL": 100,
+          "temperature1WL": 101,
+          "humidityWL": 102,
+          "accessWL": 103,
+          "userNOWL": 104,
+          "userNCWL": 105,
+          "analogWL": 106
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit2SensorText": {
+    "name": "unit2SensorText",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit2SensorStatus": {
+    "name": "unit2SensorStatus",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "lost": 2,
+          "changed": 3,
+          "ok": 4,
+          "off": 5,
+          "on": 6,
+          "warning": 7,
+          "tooLow": 8,
+          "tooHigh": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit2SensorValue": {
+    "name": "unit2SensorValue",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit2SensorSetHigh": {
+    "name": "unit2SensorSetHigh",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit2SensorSetLow": {
+    "name": "unit2SensorSetLow",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit2SensorSetWarn": {
+    "name": "unit2SensorSetWarn",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcUnit2NumberOfOutputs": {
+    "name": "cmcTcUnit2NumberOfOutputs",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit2OutputTable": {
+    "name": "cmcTcUnit2OutputTable",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cmcTcUnit2OutputEntry": {
+    "name": "cmcTcUnit2OutputEntry",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit2OutputIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "unit2OutputIndex": {
+    "name": "unit2OutputIndex",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit2OutputType": {
+    "name": "unit2OutputType",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "failure": 2,
+          "overflow": 3,
+          "doorLock": 4,
+          "univLock1": 5,
+          "univLock2": 6,
+          "fan": 7,
+          "fanSpeedContr": 8,
+          "universalOut": 9,
+          "roomLock": 10,
+          "powerOut": 11,
+          "doorLockMaster": 12,
+          "doorLockFRi": 13,
+          "setpoint": 14,
+          "setpointTimax": 15,
+          "hysteresisRCT": 16,
+          "commandRCT": 17,
+          "relayPSM": 18,
+          "setHighPSM": 19,
+          "setLowPSM": 20,
+          "setpointRTT": 21,
+          "setTimaxRTT": 22,
+          "powerOut1": 23,
+          "controlModeLCP": 30,
+          "minFanSpeedLCP": 31,
+          "minDeltaTLCP": 32,
+          "maxDeltaTLCP": 33,
+          "kPLCP": 34,
+          "kILCP": 35,
+          "kDLCP": 36,
+          "flowRateLCP": 37,
+          "cwValueLCP": 38,
+          "deltaTLCP": 39,
+          "ctrModLCP": 40,
+          "voltHighPSM": 42,
+          "voltLowPSM": 43,
+          "ampHighPSM": 44,
+          "ampLowPSM": 45,
+          "commandPSM": 46
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit2OutputText": {
+    "name": "unit2OutputText",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit2OutputStatus": {
+    "name": "unit2OutputStatus",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "lost": 2,
+          "changed": 3,
+          "ok": 4,
+          "off": 5,
+          "on": 6,
+          "setOff": 7,
+          "setOn": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit2OutputValue": {
+    "name": "unit2OutputValue",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit2OutputSet": {
+    "name": "unit2OutputSet",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "lock": 3,
+          "unlock": 4,
+          "unlockDelay": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit2OutputConfig": {
+    "name": "unit2OutputConfig",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disRemote": 1,
+          "enRemote": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit2OutputDelay": {
+    "name": "unit2OutputDelay",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit2OutputTimeoutAction": {
+    "name": "unit2OutputTimeoutAction",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stay": 1,
+          "off": 2,
+          "on": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcUnit2NumberOfMsgs": {
+    "name": "cmcTcUnit2NumberOfMsgs",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit2MsgTable": {
+    "name": "cmcTcUnit2MsgTable",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cmcTcUnit2MsgEntry": {
+    "name": "cmcTcUnit2MsgEntry",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit2MsgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "unit2MsgIndex": {
+    "name": "unit2MsgIndex",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit2MsgText": {
+    "name": "unit2MsgText",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit2MsgStatus": {
+    "name": "unit2MsgStatus",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "configChanged": 2,
+          "error": 3,
+          "ok": 4,
+          "alarm": 5,
+          "warning": 6,
+          "tooLow": 7,
+          "tooHigh": 8,
+          "setOff": 9,
+          "setOn": 10,
+          "open": 11,
+          "closed": 12,
+          "locked": 13,
+          "unlRemote": 14,
+          "unlReaderKeypad": 15,
+          "unlSNMP": 16,
+          "unlWEB": 17,
+          "unlTimer": 18,
+          "noAccess": 19,
+          "circuit1": 20,
+          "circuit2": 21,
+          "lowBatt": 22
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit2MsgRelay": {
+    "name": "unit2MsgRelay",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit2MsgBeeper": {
+    "name": "unit2MsgBeeper",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit2MsgTrap1": {
+    "name": "unit2MsgTrap1",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit2MsgTrap2": {
+    "name": "unit2MsgTrap2",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit2MsgTrap3": {
+    "name": "unit2MsgTrap3",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit2MsgTrap4": {
+    "name": "unit2MsgTrap4",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.7.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit2MsgQuit": {
+    "name": "unit2MsgQuit",
+    "oid": "1.3.6.1.4.1.2606.4.2.4.7.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcUnit3TypeOfDevice": {
+    "name": "cmcTcUnit3TypeOfDevice",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "unitIO": 2,
+          "unitAccess": 3,
+          "unitClimate": 4,
+          "unitFCS": 5,
+          "unitRTT": 6,
+          "unitRCT": 7,
+          "unitPSM": 8,
+          "unitPSM8": 9,
+          "unitPSMMetered": 10,
+          "unitIOWireless": 11,
+          "unitPSM6Schuko": 12,
+          "unitPSM6C19": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit3Text": {
+    "name": "cmcTcUnit3Text",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcUnit3Serial": {
+    "name": "cmcTcUnit3Serial",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit3Status": {
+    "name": "cmcTcUnit3Status",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "error": 2,
+          "changed": 3,
+          "quit": 4,
+          "timeout": 5,
+          "detected": 6,
+          "notAvail": 7,
+          "lowPower": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit3NumberOfSensors": {
+    "name": "cmcTcUnit3NumberOfSensors",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit3SensorTable": {
+    "name": "cmcTcUnit3SensorTable",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cmcTcUnit3SensorEntry": {
+    "name": "cmcTcUnit3SensorEntry",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit3SensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "unit3SensorIndex": {
+    "name": "unit3SensorIndex",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit3SensorType": {
+    "name": "unit3SensorType",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "failure": 2,
+          "overflow": 3,
+          "access": 4,
+          "vibration": 5,
+          "motion": 6,
+          "smoke": 7,
+          "airFlow": 8,
+          "type6": 9,
+          "temperature": 10,
+          "current4to20": 11,
+          "humidity": 12,
+          "userNO": 13,
+          "userNC": 14,
+          "lock": 15,
+          "unlock": 16,
+          "voltOK": 17,
+          "voltage": 18,
+          "fanOK": 19,
+          "readerKeypad": 20,
+          "dutyPWM": 21,
+          "fanStatus": 22,
+          "leakage": 23,
+          "warningRTT": 24,
+          "alarmRTT": 25,
+          "filterRTT": 26,
+          "heatflowRCT": 27,
+          "alarmRCT": 28,
+          "warningRCT": 29,
+          "currentPSM": 30,
+          "statusPSM": 31,
+          "positionPSM": 32,
+          "airFlap": 33,
+          "acoustic": 34,
+          "detACfault": 35,
+          "detACfirstAlarm": 36,
+          "detACmainAlarm": 37,
+          "rpm11LCP": 40,
+          "rpm12LCP": 41,
+          "rpm21LCP": 42,
+          "rpm22LCP": 43,
+          "rpm31LCP": 44,
+          "rpm32LCP": 45,
+          "rpm41LCP": 46,
+          "rpm42LCP": 47,
+          "airTemp11LCP": 48,
+          "airTemp12LCP": 49,
+          "airTemp21LCP": 50,
+          "airTemp22LCP": 51,
+          "airTemp31LCP": 52,
+          "airTemp32LCP": 53,
+          "airTemp41LCP": 54,
+          "airTemp42LCP": 55,
+          "temp1LCP": 56,
+          "temp2LCP": 57,
+          "waterInTemp": 58,
+          "waterOutTemp": 59,
+          "waterFlow": 60,
+          "fanSpeed": 61,
+          "valve": 62,
+          "statusLCP": 63,
+          "waterDelta": 64,
+          "valveActual": 65,
+          "contrTemp2": 66,
+          "condensateDuration": 67,
+          "condensateCycles": 68,
+          "totalKWhPSM": 72,
+          "totalKWPSM": 73,
+          "frequencyPSM": 74,
+          "voltagePSM": 75,
+          "voltStatusPSM": 76,
+          "amperePSM": 77,
+          "ampStatusPSM": 78,
+          "kWPSM": 79,
+          "kWhPSM": 80,
+          "kWhTempPSM": 81,
+          "temperatureWL": 100,
+          "temperature1WL": 101,
+          "humidityWL": 102,
+          "accessWL": 103,
+          "userNOWL": 104,
+          "userNCWL": 105,
+          "analogWL": 106
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit3SensorText": {
+    "name": "unit3SensorText",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit3SensorStatus": {
+    "name": "unit3SensorStatus",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "lost": 2,
+          "changed": 3,
+          "ok": 4,
+          "off": 5,
+          "on": 6,
+          "warning": 7,
+          "tooLow": 8,
+          "tooHigh": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit3SensorValue": {
+    "name": "unit3SensorValue",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit3SensorSetHigh": {
+    "name": "unit3SensorSetHigh",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit3SensorSetLow": {
+    "name": "unit3SensorSetLow",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit3SensorSetWarn": {
+    "name": "unit3SensorSetWarn",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcUnit3NumberOfOutputs": {
+    "name": "cmcTcUnit3NumberOfOutputs",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit3OutputTable": {
+    "name": "cmcTcUnit3OutputTable",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cmcTcUnit3OutputEntry": {
+    "name": "cmcTcUnit3OutputEntry",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit3OutputIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "unit3OutputIndex": {
+    "name": "unit3OutputIndex",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit3OutputType": {
+    "name": "unit3OutputType",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "failure": 2,
+          "overflow": 3,
+          "doorLock": 4,
+          "univLock1": 5,
+          "univLock2": 6,
+          "fan": 7,
+          "fanSpeedContr": 8,
+          "universalOut": 9,
+          "roomLock": 10,
+          "powerOut": 11,
+          "doorLockMaster": 12,
+          "doorLockFRi": 13,
+          "setpoint": 14,
+          "setpointTimax": 15,
+          "hysteresisRCT": 16,
+          "commandRCT": 17,
+          "relayPSM": 18,
+          "setHighPSM": 19,
+          "setLowPSM": 20,
+          "setpointRTT": 21,
+          "setTimaxRTT": 22,
+          "powerOut1": 23,
+          "controlModeLCP": 30,
+          "minFanSpeedLCP": 31,
+          "minDeltaTLCP": 32,
+          "maxDeltaTLCP": 33,
+          "kPLCP": 34,
+          "kILCP": 35,
+          "kDLCP": 36,
+          "flowRateLCP": 37,
+          "cwValueLCP": 38,
+          "deltaTLCP": 39,
+          "ctrModLCP": 40,
+          "voltHighPSM": 42,
+          "voltLowPSM": 43,
+          "ampHighPSM": 44,
+          "ampLowPSM": 45,
+          "commandPSM": 46
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit3OutputText": {
+    "name": "unit3OutputText",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit3OutputStatus": {
+    "name": "unit3OutputStatus",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "lost": 2,
+          "changed": 3,
+          "ok": 4,
+          "off": 5,
+          "on": 6,
+          "setOff": 7,
+          "setOn": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit3OutputValue": {
+    "name": "unit3OutputValue",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit3OutputSet": {
+    "name": "unit3OutputSet",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "lock": 3,
+          "unlock": 4,
+          "unlockDelay": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit3OutputConfig": {
+    "name": "unit3OutputConfig",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disRemote": 1,
+          "enRemote": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit3OutputDelay": {
+    "name": "unit3OutputDelay",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit3OutputTimeoutAction": {
+    "name": "unit3OutputTimeoutAction",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stay": 1,
+          "off": 2,
+          "on": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcUnit3NumberOfMsgs": {
+    "name": "cmcTcUnit3NumberOfMsgs",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit3MsgTable": {
+    "name": "cmcTcUnit3MsgTable",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cmcTcUnit3MsgEntry": {
+    "name": "cmcTcUnit3MsgEntry",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit3MsgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "unit3MsgIndex": {
+    "name": "unit3MsgIndex",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit3MsgText": {
+    "name": "unit3MsgText",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit3MsgStatus": {
+    "name": "unit3MsgStatus",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "configChanged": 2,
+          "error": 3,
+          "ok": 4,
+          "alarm": 5,
+          "warning": 6,
+          "tooLow": 7,
+          "tooHigh": 8,
+          "setOff": 9,
+          "setOn": 10,
+          "open": 11,
+          "closed": 12,
+          "locked": 13,
+          "unlRemote": 14,
+          "unlReaderKeypad": 15,
+          "unlSNMP": 16,
+          "unlWEB": 17,
+          "unlTimer": 18,
+          "noAccess": 19,
+          "circuit1": 20,
+          "circuit2": 21,
+          "lowBatt": 22
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit3MsgRelay": {
+    "name": "unit3MsgRelay",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit3MsgBeeper": {
+    "name": "unit3MsgBeeper",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit3MsgTrap1": {
+    "name": "unit3MsgTrap1",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit3MsgTrap2": {
+    "name": "unit3MsgTrap2",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit3MsgTrap3": {
+    "name": "unit3MsgTrap3",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit3MsgTrap4": {
+    "name": "unit3MsgTrap4",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.7.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit3MsgQuit": {
+    "name": "unit3MsgQuit",
+    "oid": "1.3.6.1.4.1.2606.4.2.5.7.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcUnit4TypeOfDevice": {
+    "name": "cmcTcUnit4TypeOfDevice",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "unitIO": 2,
+          "unitAccess": 3,
+          "unitClimate": 4,
+          "unitFCS": 5,
+          "unitRTT": 6,
+          "unitRCT": 7,
+          "unitPSM": 8,
+          "unitPSM8": 9,
+          "unitPSMMetered": 10,
+          "unitIOWireless": 11,
+          "unitPSM6Schuko": 12,
+          "unitPSM6C19": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit4Text": {
+    "name": "cmcTcUnit4Text",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcUnit4Serial": {
+    "name": "cmcTcUnit4Serial",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit4Status": {
+    "name": "cmcTcUnit4Status",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "error": 2,
+          "changed": 3,
+          "quit": 4,
+          "timeout": 5,
+          "detected": 6,
+          "notAvail": 7,
+          "lowPower": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit4NumberOfSensors": {
+    "name": "cmcTcUnit4NumberOfSensors",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit4SensorTable": {
+    "name": "cmcTcUnit4SensorTable",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cmcTcUnit4SensorEntry": {
+    "name": "cmcTcUnit4SensorEntry",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit4SensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "unit4SensorIndex": {
+    "name": "unit4SensorIndex",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit4SensorType": {
+    "name": "unit4SensorType",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "failure": 2,
+          "overflow": 3,
+          "access": 4,
+          "vibration": 5,
+          "motion": 6,
+          "smoke": 7,
+          "airFlow": 8,
+          "type6": 9,
+          "temperature": 10,
+          "current4to20": 11,
+          "humidity": 12,
+          "userNO": 13,
+          "userNC": 14,
+          "lock": 15,
+          "unlock": 16,
+          "voltOK": 17,
+          "voltage": 18,
+          "fanOK": 19,
+          "readerKeypad": 20,
+          "dutyPWM": 21,
+          "fanStatus": 22,
+          "leakage": 23,
+          "warningRTT": 24,
+          "alarmRTT": 25,
+          "filterRTT": 26,
+          "heatflowRCT": 27,
+          "alarmRCT": 28,
+          "warningRCT": 29,
+          "currentPSM": 30,
+          "statusPSM": 31,
+          "positionPSM": 32,
+          "airFlap": 33,
+          "acoustic": 34,
+          "detACfault": 35,
+          "detACfirstAlarm": 36,
+          "detACmainAlarm": 37,
+          "rpm11LCP": 40,
+          "rpm12LCP": 41,
+          "rpm21LCP": 42,
+          "rpm22LCP": 43,
+          "rpm31LCP": 44,
+          "rpm32LCP": 45,
+          "rpm41LCP": 46,
+          "rpm42LCP": 47,
+          "airTemp11LCP": 48,
+          "airTemp12LCP": 49,
+          "airTemp21LCP": 50,
+          "airTemp22LCP": 51,
+          "airTemp31LCP": 52,
+          "airTemp32LCP": 53,
+          "airTemp41LCP": 54,
+          "airTemp42LCP": 55,
+          "temp1LCP": 56,
+          "temp2LCP": 57,
+          "waterInTemp": 58,
+          "waterOutTemp": 59,
+          "waterFlow": 60,
+          "fanSpeed": 61,
+          "valve": 62,
+          "statusLCP": 63,
+          "waterDelta": 64,
+          "valveActual": 65,
+          "contrTemp2": 66,
+          "condensateDuration": 67,
+          "condensateCycles": 68,
+          "totalKWhPSM": 72,
+          "totalKWPSM": 73,
+          "frequencyPSM": 74,
+          "voltagePSM": 75,
+          "voltStatusPSM": 76,
+          "amperePSM": 77,
+          "ampStatusPSM": 78,
+          "kWPSM": 79,
+          "kWhPSM": 80,
+          "kWhTempPSM": 81,
+          "temperatureWL": 100,
+          "temperature1WL": 101,
+          "humidityWL": 102,
+          "accessWL": 103,
+          "userNOWL": 104,
+          "userNCWL": 105,
+          "analogWL": 106
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit4SensorText": {
+    "name": "unit4SensorText",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit4SensorStatus": {
+    "name": "unit4SensorStatus",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "lost": 2,
+          "changed": 3,
+          "ok": 4,
+          "off": 5,
+          "on": 6,
+          "warning": 7,
+          "tooLow": 8,
+          "tooHigh": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit4SensorValue": {
+    "name": "unit4SensorValue",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit4SensorSetHigh": {
+    "name": "unit4SensorSetHigh",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit4SensorSetLow": {
+    "name": "unit4SensorSetLow",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit4SensorSetWarn": {
+    "name": "unit4SensorSetWarn",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcUnit4NumberOfOutputs": {
+    "name": "cmcTcUnit4NumberOfOutputs",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit4OutputTable": {
+    "name": "cmcTcUnit4OutputTable",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cmcTcUnit4OutputEntry": {
+    "name": "cmcTcUnit4OutputEntry",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit4OutputIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "unit4OutputIndex": {
+    "name": "unit4OutputIndex",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit4OutputType": {
+    "name": "unit4OutputType",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "failure": 2,
+          "overflow": 3,
+          "doorLock": 4,
+          "univLock1": 5,
+          "univLock2": 6,
+          "fan": 7,
+          "fanSpeedContr": 8,
+          "universalOut": 9,
+          "roomLock": 10,
+          "powerOut": 11,
+          "doorLockMaster": 12,
+          "doorLockFRi": 13,
+          "setpoint": 14,
+          "setpointTimax": 15,
+          "hysteresisRCT": 16,
+          "commandRCT": 17,
+          "relayPSM": 18,
+          "setHighPSM": 19,
+          "setLowPSM": 20,
+          "setpointRTT": 21,
+          "setTimaxRTT": 22,
+          "powerOut1": 23,
+          "controlModeLCP": 30,
+          "minFanSpeedLCP": 31,
+          "minDeltaTLCP": 32,
+          "maxDeltaTLCP": 33,
+          "kPLCP": 34,
+          "kILCP": 35,
+          "kDLCP": 36,
+          "flowRateLCP": 37,
+          "cwValueLCP": 38,
+          "deltaTLCP": 39,
+          "ctrModLCP": 40,
+          "voltHighPSM": 42,
+          "voltLowPSM": 43,
+          "ampHighPSM": 44,
+          "ampLowPSM": 45,
+          "commandPSM": 46
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit4OutputText": {
+    "name": "unit4OutputText",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit4OutputStatus": {
+    "name": "unit4OutputStatus",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "lost": 2,
+          "changed": 3,
+          "ok": 4,
+          "off": 5,
+          "on": 6,
+          "setOff": 7,
+          "setOn": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit4OutputValue": {
+    "name": "unit4OutputValue",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit4OutputSet": {
+    "name": "unit4OutputSet",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "lock": 3,
+          "unlock": 4,
+          "unlockDelay": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit4OutputConfig": {
+    "name": "unit4OutputConfig",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disRemote": 1,
+          "enRemote": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit4OutputDelay": {
+    "name": "unit4OutputDelay",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit4OutputTimeoutAction": {
+    "name": "unit4OutputTimeoutAction",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stay": 1,
+          "off": 2,
+          "on": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcUnit4NumberOfMsgs": {
+    "name": "cmcTcUnit4NumberOfMsgs",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcUnit4MsgTable": {
+    "name": "cmcTcUnit4MsgTable",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cmcTcUnit4MsgEntry": {
+    "name": "cmcTcUnit4MsgEntry",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit4MsgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "unit4MsgIndex": {
+    "name": "unit4MsgIndex",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit4MsgText": {
+    "name": "unit4MsgText",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit4MsgStatus": {
+    "name": "unit4MsgStatus",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "configChanged": 2,
+          "error": 3,
+          "ok": 4,
+          "alarm": 5,
+          "warning": 6,
+          "tooLow": 7,
+          "tooHigh": 8,
+          "setOff": 9,
+          "setOn": 10,
+          "open": 11,
+          "closed": 12,
+          "locked": 13,
+          "unlRemote": 14,
+          "unlReaderKeypad": 15,
+          "unlSNMP": 16,
+          "unlWEB": 17,
+          "unlTimer": 18,
+          "noAccess": 19,
+          "circuit1": 20,
+          "circuit2": 21,
+          "lowBatt": 22
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unit4MsgRelay": {
+    "name": "unit4MsgRelay",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit4MsgBeeper": {
+    "name": "unit4MsgBeeper",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit4MsgTrap1": {
+    "name": "unit4MsgTrap1",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit4MsgTrap2": {
+    "name": "unit4MsgTrap2",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit4MsgTrap3": {
+    "name": "unit4MsgTrap3",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit4MsgTrap4": {
+    "name": "unit4MsgTrap4",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.7.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "unit4MsgQuit": {
+    "name": "unit4MsgQuit",
+    "oid": "1.3.6.1.4.1.2606.4.2.6.7.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcValuesRelay": {
+    "name": "cmcTcValuesRelay",
+    "oid": "1.3.6.1.4.1.2606.4.2.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcValuesBeeper": {
+    "name": "cmcTcValuesBeeper",
+    "oid": "1.3.6.1.4.1.2606.4.2.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcValuesTrap1": {
+    "name": "cmcTcValuesTrap1",
+    "oid": "1.3.6.1.4.1.2606.4.2.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcValuesTrap2": {
+    "name": "cmcTcValuesTrap2",
+    "oid": "1.3.6.1.4.1.2606.4.2.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcValuesTrap3": {
+    "name": "cmcTcValuesTrap3",
+    "oid": "1.3.6.1.4.1.2606.4.2.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcValuesTrap4": {
+    "name": "cmcTcValuesTrap4",
+    "oid": "1.3.6.1.4.1.2606.4.2.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcNumberOfValues": {
+    "name": "cmcTcNumberOfValues",
+    "oid": "1.3.6.1.4.1.2606.4.2.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcValuesTable": {
+    "name": "cmcTcValuesTable",
+    "oid": "1.3.6.1.4.1.2606.4.2.7.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cmcTcValuesEntry": {
+    "name": "cmcTcValuesEntry",
+    "oid": "1.3.6.1.4.1.2606.4.2.7.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "valuesIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "valuesIndex": {
+    "name": "valuesIndex",
+    "oid": "1.3.6.1.4.1.2606.4.2.7.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "valuesText": {
+    "name": "valuesText",
+    "oid": "1.3.6.1.4.1.2606.4.2.7.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "valuesStatus": {
+    "name": "valuesStatus",
+    "oid": "1.3.6.1.4.1.2606.4.2.7.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvail": 1,
+          "lost": 2,
+          "changed": 3,
+          "ok": 4,
+          "tooLow": 5,
+          "tooHigh": 6,
+          "error": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "valuesValue": {
+    "name": "valuesValue",
+    "oid": "1.3.6.1.4.1.2606.4.2.7.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "valuesSetHigh": {
+    "name": "valuesSetHigh",
+    "oid": "1.3.6.1.4.1.2606.4.2.7.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "valuesSetLow": {
+    "name": "valuesSetLow",
+    "oid": "1.3.6.1.4.1.2606.4.2.7.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcSetTempUnit": {
+    "name": "cmcTcSetTempUnit",
+    "oid": "1.3.6.1.4.1.2606.4.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "celsius": 1,
+          "fahrenheit": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcSetBeeper": {
+    "name": "cmcTcSetBeeper",
+    "oid": "1.3.6.1.4.1.2606.4.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcQuitRelay": {
+    "name": "cmcTcQuitRelay",
+    "oid": "1.3.6.1.4.1.2606.4.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcLogicRelay": {
+    "name": "cmcTcLogicRelay",
+    "oid": "1.3.6.1.4.1.2606.4.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "closeAtAlarm": 1,
+          "openAtAlarm": 2,
+          "off": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcWebAccess": {
+    "name": "cmcTcWebAccess",
+    "oid": "1.3.6.1.4.1.2606.4.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "viewOnly": 1,
+          "fullAccess": 2,
+          "off": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcSetupDate": {
+    "name": "cmcTcSetupDate",
+    "oid": "1.3.6.1.4.1.2606.4.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcSetupTime": {
+    "name": "cmcTcSetupTime",
+    "oid": "1.3.6.1.4.1.2606.4.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcTimerNumber": {
+    "name": "cmcTcTimerNumber",
+    "oid": "1.3.6.1.4.1.2606.4.3.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcTimerTable": {
+    "name": "cmcTcTimerTable",
+    "oid": "1.3.6.1.4.1.2606.4.3.1.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cmcTcTimerEntry": {
+    "name": "cmcTcTimerEntry",
+    "oid": "1.3.6.1.4.1.2606.4.3.1.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "cmcTcTimerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cmcTcTimerIndex": {
+    "name": "cmcTcTimerIndex",
+    "oid": "1.3.6.1.4.1.2606.4.3.1.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcTimerStatus": {
+    "name": "cmcTcTimerStatus",
+    "oid": "1.3.6.1.4.1.2606.4.3.1.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switchedOff": 1,
+          "switchedOn": 2,
+          "noTime": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcTimerDayOfWeek": {
+    "name": "cmcTcTimerDayOfWeek",
+    "oid": "1.3.6.1.4.1.2606.4.3.1.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sun": 1,
+          "mon": 2,
+          "tue": 3,
+          "wed": 4,
+          "thu": 5,
+          "fri": 6,
+          "sat": 7,
+          "sat-sun": 8,
+          "mon-fri": 9,
+          "mon-sun": 10
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcTimeOn": {
+    "name": "cmcTcTimeOn",
+    "oid": "1.3.6.1.4.1.2606.4.3.1.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcTimeOff": {
+    "name": "cmcTcTimeOff",
+    "oid": "1.3.6.1.4.1.2606.4.3.1.8.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcTimeControl": {
+    "name": "cmcTcTimeControl",
+    "oid": "1.3.6.1.4.1.2606.4.3.1.8.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcTimerFunction": {
+    "name": "cmcTcTimerFunction",
+    "oid": "1.3.6.1.4.1.2606.4.3.1.8.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disKeypad1-1": 1,
+          "disKeypad2-1": 2,
+          "disKeypad1-2": 3,
+          "disKeypad2-2": 4,
+          "disKeypad1-3": 5,
+          "disKeypad2-3": 6,
+          "disKeypad1-4": 7,
+          "disKeypad2-4": 8,
+          "unlDoor1-1": 9,
+          "unlDoor2-1": 10,
+          "unlDoor1-2": 11,
+          "unlDoor2-2": 12,
+          "unlDoor1-3": 13,
+          "unlDoor2-3": 14,
+          "unlDoor1-4": 15,
+          "unlDoor2-5": 16,
+          "disTrapRec1": 17,
+          "disTrapRec2": 18,
+          "disTrapRec3": 19,
+          "disTrapRec4": 20,
+          "disSMS": 21,
+          "schedule1": 22,
+          "schedule2": 23,
+          "schedule3": 24,
+          "schedule4": 25,
+          "disSMS1": 26,
+          "disSMS2": 27,
+          "disSMS3": 28,
+          "disSMS4": 29
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcTraptableNumber": {
+    "name": "cmcTcTraptableNumber",
+    "oid": "1.3.6.1.4.1.2606.4.4.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmcTcTrapTableTable": {
+    "name": "cmcTcTrapTableTable",
+    "oid": "1.3.6.1.4.1.2606.4.4.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cmcTcTrapTableEntry": {
+    "name": "cmcTcTrapTableEntry",
+    "oid": "1.3.6.1.4.1.2606.4.4.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "trapIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "trapIndex": {
+    "name": "trapIndex",
+    "oid": "1.3.6.1.4.1.2606.4.4.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trapStatus": {
+    "name": "trapStatus",
+    "oid": "1.3.6.1.4.1.2606.4.4.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "trapIPaddress": {
+    "name": "trapIPaddress",
+    "oid": "1.3.6.1.4.1.2606.4.4.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cmcTcQuitUnit": {
+    "name": "cmcTcQuitUnit",
+    "oid": "1.3.6.1.4.1.2606.4.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noQuit": 1,
+          "quit": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "alarmSensorUnit1": {
+    "name": "alarmSensorUnit1",
+    "oid": "1.3.6.1.4.1.2606.40.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit1MsgIndex"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit1MsgText"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit1MsgStatus"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit1SensorValue"
+      }
+    ]
+  },
+  "alarmSensorUnit2": {
+    "name": "alarmSensorUnit2",
+    "oid": "1.3.6.1.4.1.2606.40.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit2MsgIndex"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit2MsgText"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit2MsgStatus"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit2SensorValue"
+      }
+    ]
+  },
+  "alarmSensorUnit3": {
+    "name": "alarmSensorUnit3",
+    "oid": "1.3.6.1.4.1.2606.40.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit3MsgIndex"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit3MsgText"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit3MsgStatus"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit3SensorValue"
+      }
+    ]
+  },
+  "alarmSensorUnit4": {
+    "name": "alarmSensorUnit4",
+    "oid": "1.3.6.1.4.1.2606.40.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit4MsgIndex"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit4MsgText"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit4MsgStatus"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "unit4SensorValue"
+      }
+    ]
+  },
+  "alarmUnit1": {
+    "name": "alarmUnit1",
+    "oid": "1.3.6.1.4.1.2606.40.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "cmcTcUnit1Text"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "cmcTcUnit1Status"
+      }
+    ]
+  },
+  "alarmUnit2": {
+    "name": "alarmUnit2",
+    "oid": "1.3.6.1.4.1.2606.40.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "cmcTcUnit2Text"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "cmcTcUnit2Status"
+      }
+    ]
+  },
+  "alarmUnit3": {
+    "name": "alarmUnit3",
+    "oid": "1.3.6.1.4.1.2606.40.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "cmcTcUnit3Text"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "cmcTcUnit3Status"
+      }
+    ]
+  },
+  "alarmUnit4": {
+    "name": "alarmUnit4",
+    "oid": "1.3.6.1.4.1.2606.40.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "cmcTcUnit4Text"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "cmcTcUnit4Status"
+      }
+    ]
+  },
+  "alarmValues": {
+    "name": "alarmValues",
+    "oid": "1.3.6.1.4.1.2606.40.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "valuesIndex"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "valuesText"
+      },
+      {
+        "module": "RITTAL-CMC-TC-MIB",
+        "object": "valuesStatus"
+      }
+    ]
+  },
+  "configChanged": {
+    "name": "configChanged",
+    "oid": "1.3.6.1.4.1.2606.40.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rittal/RITTAL-CMC-TC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RITTAL-CMC-TC-MIB"
+  }
+}

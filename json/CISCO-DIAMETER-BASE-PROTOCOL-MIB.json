@@ -1,0 +1,3152 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoDiameterBasePMIB": {
+    "name": "ciscoDiameterBasePMIB",
+    "oid": "1.3.6.1.4.1.9.10.133",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-08-24 00:01",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoDiameterBasePMIBNotifs": {
+    "name": "ciscoDiameterBasePMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.10.133.0",
+    "class": "objectidentity"
+  },
+  "ciscoDiameterBasePMIBObjects": {
+    "name": "ciscoDiameterBasePMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.133.1",
+    "class": "objectidentity"
+  },
+  "ciscoDiameterBasePMIBConform": {
+    "name": "ciscoDiameterBasePMIBConform",
+    "oid": "1.3.6.1.4.1.9.10.133.2",
+    "class": "objectidentity"
+  },
+  "cdbpLocalCfgs": {
+    "name": "cdbpLocalCfgs",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1",
+    "class": "objectidentity"
+  },
+  "cdbpLocalStats": {
+    "name": "cdbpLocalStats",
+    "oid": "1.3.6.1.4.1.9.10.133.1.2",
+    "class": "objectidentity"
+  },
+  "cdbpPeerCfgs": {
+    "name": "cdbpPeerCfgs",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3",
+    "class": "objectidentity"
+  },
+  "cdbpPeerStats": {
+    "name": "cdbpPeerStats",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4",
+    "class": "objectidentity"
+  },
+  "cdbpRealmCfgs": {
+    "name": "cdbpRealmCfgs",
+    "oid": "1.3.6.1.4.1.9.10.133.1.5",
+    "class": "objectidentity"
+  },
+  "cdbpRealmStats": {
+    "name": "cdbpRealmStats",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6",
+    "class": "objectidentity"
+  },
+  "cdbpTrapCfgs": {
+    "name": "cdbpTrapCfgs",
+    "oid": "1.3.6.1.4.1.9.10.133.1.7",
+    "class": "objectidentity"
+  },
+  "ciscoDiaBaseProtEnableProtocolErrorNotif": {
+    "name": "ciscoDiaBaseProtEnableProtocolErrorNotif",
+    "oid": "1.3.6.1.4.1.9.10.133.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoDiaBaseProtProtocolErrorNotif": {
+    "name": "ciscoDiaBaseProtProtocolErrorNotif",
+    "oid": "1.3.6.1.4.1.9.10.133.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerId"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsProtocolErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDiaBaseProtEnableTransientFailureNotif": {
+    "name": "ciscoDiaBaseProtEnableTransientFailureNotif",
+    "oid": "1.3.6.1.4.1.9.10.133.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoDiaBaseProtTransientFailureNotif": {
+    "name": "ciscoDiaBaseProtTransientFailureNotif",
+    "oid": "1.3.6.1.4.1.9.10.133.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerId"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsTransientFailures"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDiaBaseProtEnablePermanentFailureNotif": {
+    "name": "ciscoDiaBaseProtEnablePermanentFailureNotif",
+    "oid": "1.3.6.1.4.1.9.10.133.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoDiaBaseProtPermanentFailureNotif": {
+    "name": "ciscoDiaBaseProtPermanentFailureNotif",
+    "oid": "1.3.6.1.4.1.9.10.133.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerId"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsPermanentFailures"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDiaBaseProtEnablePeerConnectionDownNotif": {
+    "name": "ciscoDiaBaseProtEnablePeerConnectionDownNotif",
+    "oid": "1.3.6.1.4.1.9.10.133.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoDiaBaseProtPeerConnectionDownNotif": {
+    "name": "ciscoDiaBaseProtPeerConnectionDownNotif",
+    "oid": "1.3.6.1.4.1.9.10.133.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalId"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerId"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDiaBaseProtEnablePeerConnectionUpNotif": {
+    "name": "ciscoDiaBaseProtEnablePeerConnectionUpNotif",
+    "oid": "1.3.6.1.4.1.9.10.133.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoDiaBaseProtPeerConnectionUpNotif": {
+    "name": "ciscoDiaBaseProtPeerConnectionUpNotif",
+    "oid": "1.3.6.1.4.1.9.10.133.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalId"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerId"
+      }
+    ],
+    "status": "current"
+  },
+  "cdbpLocalId": {
+    "name": "cdbpLocalId",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpLocalIpAddrTable": {
+    "name": "cdbpLocalIpAddrTable",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdbpLocalIpAddrEntry": {
+    "name": "cdbpLocalIpAddrEntry",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalIpAddrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdbpLocalIpAddrIndex": {
+    "name": "cdbpLocalIpAddrIndex",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdbpLocalIpAddrType": {
+    "name": "cdbpLocalIpAddrType",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpLocalIpAddress": {
+    "name": "cdbpLocalIpAddress",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpLocalTcpListenPort": {
+    "name": "cdbpLocalTcpListenPort",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpLocalSctpListenPort": {
+    "name": "cdbpLocalSctpListenPort",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpLocalOriginHost": {
+    "name": "cdbpLocalOriginHost",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdbpLocalRealm": {
+    "name": "cdbpLocalRealm",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRedundancyEnabled": {
+    "name": "cdbpRedundancyEnabled",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdbpRedundancyInfraState": {
+    "name": "cdbpRedundancyInfraState",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rfUnknown": 0,
+          "rfDisabled": 1,
+          "rfInitialization": 2,
+          "rfNegotiation": 3,
+          "rfStandbyCold": 4,
+          "rfStandbyConfig": 5,
+          "rfStandbyFileSys": 6,
+          "rfStandbyBulk": 7,
+          "rfStandbyHot": 8,
+          "rfActiveFast": 9,
+          "rfActiveDrain": 10,
+          "rfActivePreconfig": 11,
+          "rfActivePostconfig": 12,
+          "rfActive": 13,
+          "rfActiveExtraload": 14
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRedundancyLastSwitchover": {
+    "name": "cdbpRedundancyLastSwitchover",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpLocalApplTable": {
+    "name": "cdbpLocalApplTable",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdbpLocalApplEntry": {
+    "name": "cdbpLocalApplEntry",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalApplIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdbpLocalApplIndex": {
+    "name": "cdbpLocalApplIndex",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdbpLocalApplStorageType": {
+    "name": "cdbpLocalApplStorageType",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdbpLocalApplRowStatus": {
+    "name": "cdbpLocalApplRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdbpLocalVendorTable": {
+    "name": "cdbpLocalVendorTable",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdbpLocalVendorEntry": {
+    "name": "cdbpLocalVendorEntry",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalVendorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdbpLocalVendorIndex": {
+    "name": "cdbpLocalVendorIndex",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdbpLocalVendorId": {
+    "name": "cdbpLocalVendorId",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "diameterVendorIetf": 0,
+          "diameterVendorCisco": 9,
+          "diameterVendor3gpp": 10415,
+          "diameterVendorVodafone": 12645
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "diameterVendorIetf",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdbpLocalVendorStorageType": {
+    "name": "cdbpLocalVendorStorageType",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdbpLocalVendorRowStatus": {
+    "name": "cdbpLocalVendorRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdbpAppAdvToPeerTable": {
+    "name": "cdbpAppAdvToPeerTable",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdbpAppAdvToPeerEntry": {
+    "name": "cdbpAppAdvToPeerEntry",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpAppAdvToPeerVendorId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpAppAdvToPeerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdbpAppAdvToPeerVendorId": {
+    "name": "cdbpAppAdvToPeerVendorId",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdbpAppAdvToPeerIndex": {
+    "name": "cdbpAppAdvToPeerIndex",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdbpAppAdvToPeerServices": {
+    "name": "cdbpAppAdvToPeerServices",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acct": 1,
+          "auth": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpAppAdvToPeerStorageType": {
+    "name": "cdbpAppAdvToPeerStorageType",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdbpAppAdvToPeerRowStatus": {
+    "name": "cdbpAppAdvToPeerRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.133.1.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdbpLocalStatsTotalPacketsIn": {
+    "name": "cdbpLocalStatsTotalPacketsIn",
+    "oid": "1.3.6.1.4.1.9.10.133.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpLocalStatsTotalPacketsOut": {
+    "name": "cdbpLocalStatsTotalPacketsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpLocalStatsTotalUpTime": {
+    "name": "cdbpLocalStatsTotalUpTime",
+    "oid": "1.3.6.1.4.1.9.10.133.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpLocalResetTime": {
+    "name": "cdbpLocalResetTime",
+    "oid": "1.3.6.1.4.1.9.10.133.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpLocalConfigReset": {
+    "name": "cdbpLocalConfigReset",
+    "oid": "1.3.6.1.4.1.9.10.133.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reset": 2,
+          "initializing": 3,
+          "running": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdbpPeerTable": {
+    "name": "cdbpPeerTable",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdbpPeerEntry": {
+    "name": "cdbpPeerEntry",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdbpPeerIndex": {
+    "name": "cdbpPeerIndex",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdbpPeerId": {
+    "name": "cdbpPeerId",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdbpPeerPortConnect": {
+    "name": "cdbpPeerPortConnect",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerPortListen": {
+    "name": "cdbpPeerPortListen",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3868,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdbpPeerProtocol": {
+    "name": "cdbpPeerProtocol",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcp": 1,
+          "sctp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "tcp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerSecurity": {
+    "name": "cdbpPeerSecurity",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "tls": 2,
+          "ipsec": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerFirmwareRevision": {
+    "name": "cdbpPeerFirmwareRevision",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStorageType": {
+    "name": "cdbpPeerStorageType",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdbpPeerRowStatus": {
+    "name": "cdbpPeerRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdbpPeerIpAddrTable": {
+    "name": "cdbpPeerIpAddrTable",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdbpPeerIpAddrEntry": {
+    "name": "cdbpPeerIpAddrEntry",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerIpAddressIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdbpPeerIpAddressIndex": {
+    "name": "cdbpPeerIpAddressIndex",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdbpPeerIpAddressType": {
+    "name": "cdbpPeerIpAddressType",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerIpAddress": {
+    "name": "cdbpPeerIpAddress",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdbpAppAdvFromPeerTable": {
+    "name": "cdbpAppAdvFromPeerTable",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdbpAppAdvFromPeerEntry": {
+    "name": "cdbpAppAdvFromPeerEntry",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpAppAdvFromPeerVendorId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpAppAdvFromPeerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdbpAppAdvFromPeerVendorId": {
+    "name": "cdbpAppAdvFromPeerVendorId",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdbpAppAdvFromPeerIndex": {
+    "name": "cdbpAppAdvFromPeerIndex",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdbpAppAdvFromPeerType": {
+    "name": "cdbpAppAdvFromPeerType",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acct": 1,
+          "auth": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerVendorTable": {
+    "name": "cdbpPeerVendorTable",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdbpPeerVendorEntry": {
+    "name": "cdbpPeerVendorEntry",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerVendorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdbpPeerVendorIndex": {
+    "name": "cdbpPeerVendorIndex",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdbpPeerVendorId": {
+    "name": "cdbpPeerVendorId",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "diameterVendorIetf": 0,
+          "diameterVendorCisco": 9,
+          "diameterVendor3gpp": 10415,
+          "diameterVendorVodafone": 12645
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "diameterVendorIetf",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdbpPeerVendorStorageType": {
+    "name": "cdbpPeerVendorStorageType",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdbpPeerVendorRowStatus": {
+    "name": "cdbpPeerVendorRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.133.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdbpPeerStatsTable": {
+    "name": "cdbpPeerStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdbpPeerStatsEntry": {
+    "name": "cdbpPeerStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdbpPeerStatsState": {
+    "name": "cdbpPeerStatsState",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "closed": 1,
+          "waitConnAck": 2,
+          "waitICEA": 3,
+          "elect": 4,
+          "waitReturns": 5,
+          "rOpen": 6,
+          "iOpen": 7,
+          "closing": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsStateDuration": {
+    "name": "cdbpPeerStatsStateDuration",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsLastDiscCause": {
+    "name": "cdbpPeerStatsLastDiscCause",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rebooting": 1,
+          "busy": 2,
+          "doNotWantToTalk": 3,
+          "election": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsWhoInitDisconnect": {
+    "name": "cdbpPeerStatsWhoInitDisconnect",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "host": 1,
+          "peer": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsDWCurrentStatus": {
+    "name": "cdbpPeerStatsDWCurrentStatus",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "okay": 1,
+          "suspect": 2,
+          "down": 3,
+          "reopen": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsTimeoutConnAtmpts": {
+    "name": "cdbpPeerStatsTimeoutConnAtmpts",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "attempts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsASRsIn": {
+    "name": "cdbpPeerStatsASRsIn",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsASRsOut": {
+    "name": "cdbpPeerStatsASRsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsASAsIn": {
+    "name": "cdbpPeerStatsASAsIn",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsASAsOut": {
+    "name": "cdbpPeerStatsASAsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsACRsIn": {
+    "name": "cdbpPeerStatsACRsIn",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsACRsOut": {
+    "name": "cdbpPeerStatsACRsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsACAsIn": {
+    "name": "cdbpPeerStatsACAsIn",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsACAsOut": {
+    "name": "cdbpPeerStatsACAsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsCERsIn": {
+    "name": "cdbpPeerStatsCERsIn",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsCERsOut": {
+    "name": "cdbpPeerStatsCERsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsCEAsIn": {
+    "name": "cdbpPeerStatsCEAsIn",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsCEAsOut": {
+    "name": "cdbpPeerStatsCEAsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsDWRsIn": {
+    "name": "cdbpPeerStatsDWRsIn",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsDWRsOut": {
+    "name": "cdbpPeerStatsDWRsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsDWAsIn": {
+    "name": "cdbpPeerStatsDWAsIn",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsDWAsOut": {
+    "name": "cdbpPeerStatsDWAsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsDPRsIn": {
+    "name": "cdbpPeerStatsDPRsIn",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsDPRsOut": {
+    "name": "cdbpPeerStatsDPRsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsDPAsIn": {
+    "name": "cdbpPeerStatsDPAsIn",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsDPAsOut": {
+    "name": "cdbpPeerStatsDPAsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsRARsIn": {
+    "name": "cdbpPeerStatsRARsIn",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsRARsOut": {
+    "name": "cdbpPeerStatsRARsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsRAAsIn": {
+    "name": "cdbpPeerStatsRAAsIn",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsRAAsOut": {
+    "name": "cdbpPeerStatsRAAsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsSTRsIn": {
+    "name": "cdbpPeerStatsSTRsIn",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsSTRsOut": {
+    "name": "cdbpPeerStatsSTRsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsSTAsIn": {
+    "name": "cdbpPeerStatsSTAsIn",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsSTAsOut": {
+    "name": "cdbpPeerStatsSTAsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsDWReqTimer": {
+    "name": "cdbpPeerStatsDWReqTimer",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsRedirectEvents": {
+    "name": "cdbpPeerStatsRedirectEvents",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsAccDupRequests": {
+    "name": "cdbpPeerStatsAccDupRequests",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsMalformedReqsts": {
+    "name": "cdbpPeerStatsMalformedReqsts",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsAccsNotRecorded": {
+    "name": "cdbpPeerStatsAccsNotRecorded",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsAccRetrans": {
+    "name": "cdbpPeerStatsAccRetrans",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsTotalRetrans": {
+    "name": "cdbpPeerStatsTotalRetrans",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsAccPendReqstsOut": {
+    "name": "cdbpPeerStatsAccPendReqstsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsAccReqstsDropped": {
+    "name": "cdbpPeerStatsAccReqstsDropped",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsHByHDropMessages": {
+    "name": "cdbpPeerStatsHByHDropMessages",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsEToEDupMessages": {
+    "name": "cdbpPeerStatsEToEDupMessages",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsUnknownTypes": {
+    "name": "cdbpPeerStatsUnknownTypes",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsProtocolErrors": {
+    "name": "cdbpPeerStatsProtocolErrors",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsTransientFailures": {
+    "name": "cdbpPeerStatsTransientFailures",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsPermanentFailures": {
+    "name": "cdbpPeerStatsPermanentFailures",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpPeerStatsTransportDown": {
+    "name": "cdbpPeerStatsTransportDown",
+    "oid": "1.3.6.1.4.1.9.10.133.1.4.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmKnownPeersTable": {
+    "name": "cdbpRealmKnownPeersTable",
+    "oid": "1.3.6.1.4.1.9.10.133.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdbpRealmKnownPeersEntry": {
+    "name": "cdbpRealmKnownPeersEntry",
+    "oid": "1.3.6.1.4.1.9.10.133.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmKnownPeersIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdbpRealmKnownPeersIndex": {
+    "name": "cdbpRealmKnownPeersIndex",
+    "oid": "1.3.6.1.4.1.9.10.133.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdbpRealmKnownPeers": {
+    "name": "cdbpRealmKnownPeers",
+    "oid": "1.3.6.1.4.1.9.10.133.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmKnownPeersChosen": {
+    "name": "cdbpRealmKnownPeersChosen",
+    "oid": "1.3.6.1.4.1.9.10.133.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "roundRobin": 1,
+          "loadBalance": 2,
+          "firstPreferred": 3,
+          "mostRecentFirst": 4,
+          "other": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteTable": {
+    "name": "cdbpRealmMessageRouteTable",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteEntry": {
+    "name": "cdbpRealmMessageRouteEntry",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteIndex": {
+    "name": "cdbpRealmMessageRouteIndex",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteRealm": {
+    "name": "cdbpRealmMessageRouteRealm",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteApp": {
+    "name": "cdbpRealmMessageRouteApp",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteType": {
+    "name": "cdbpRealmMessageRouteType",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acct": 1,
+          "auth": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteAction": {
+    "name": "cdbpRealmMessageRouteAction",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "relay": 2,
+          "proxy": 3,
+          "redirect": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteACRsIn": {
+    "name": "cdbpRealmMessageRouteACRsIn",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteACRsOut": {
+    "name": "cdbpRealmMessageRouteACRsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteACAsIn": {
+    "name": "cdbpRealmMessageRouteACAsIn",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteACAsOut": {
+    "name": "cdbpRealmMessageRouteACAsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteRARsIn": {
+    "name": "cdbpRealmMessageRouteRARsIn",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteRARsOut": {
+    "name": "cdbpRealmMessageRouteRARsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteRAAsIn": {
+    "name": "cdbpRealmMessageRouteRAAsIn",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteRAAsOut": {
+    "name": "cdbpRealmMessageRouteRAAsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteSTRsIn": {
+    "name": "cdbpRealmMessageRouteSTRsIn",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteSTRsOut": {
+    "name": "cdbpRealmMessageRouteSTRsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteSTAsIn": {
+    "name": "cdbpRealmMessageRouteSTAsIn",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteSTAsOut": {
+    "name": "cdbpRealmMessageRouteSTAsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteASRsIn": {
+    "name": "cdbpRealmMessageRouteASRsIn",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteASRsOut": {
+    "name": "cdbpRealmMessageRouteASRsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteASAsIn": {
+    "name": "cdbpRealmMessageRouteASAsIn",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteASAsOut": {
+    "name": "cdbpRealmMessageRouteASAsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteAccRetrans": {
+    "name": "cdbpRealmMessageRouteAccRetrans",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteAccDupReqsts": {
+    "name": "cdbpRealmMessageRouteAccDupReqsts",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRoutePendReqstsOut": {
+    "name": "cdbpRealmMessageRoutePendReqstsOut",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdbpRealmMessageRouteReqstsDrop": {
+    "name": "cdbpRealmMessageRouteReqstsDrop",
+    "oid": "1.3.6.1.4.1.9.10.133.1.6.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDiameterBasePMIBCompliances": {
+    "name": "ciscoDiameterBasePMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.133.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoDiameterBasePMIBGroups": {
+    "name": "ciscoDiameterBasePMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.133.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoDiameterBasePMIBCompliance": {
+    "name": "ciscoDiameterBasePMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.133.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDiameterBasePMIBLocalCfgGroup",
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB"
+      },
+      {
+        "object": "ciscoDiameterBasePMIBPeerCfgGroup",
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB"
+      },
+      {
+        "object": "ciscoDiameterBasePMIBPeerStatsGroup",
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB"
+      },
+      {
+        "object": "ciscoDiameterBasePMIBNotificationsGroup",
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB"
+      },
+      {
+        "object": "ciscoDiameterBasePMIBTrapCfgGroup",
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB"
+      },
+      {
+        "object": "ciscoDiameterBasePMIBLocalCfgSkippedGroup",
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB"
+      },
+      {
+        "object": "ciscoDiameterBasePMIBLocalStatsSkippedGroup",
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB"
+      },
+      {
+        "object": "ciscoDiameterBasePMIBPeerCfgSkippedGroup",
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB"
+      },
+      {
+        "object": "ciscoDiameterBasePMIBPeerStatsSkippedGroup",
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB"
+      },
+      {
+        "object": "ciscoDiameterBasePMIBRealmCfgSkippedGroup",
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB"
+      },
+      {
+        "object": "ciscoDiameterBasePMIBRealmStatsSkippedGroup",
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDiameterBasePMIBLocalCfgGroup": {
+    "name": "ciscoDiameterBasePMIBLocalCfgGroup",
+    "oid": "1.3.6.1.4.1.9.10.133.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalRealm"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRedundancyEnabled"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRedundancyInfraState"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRedundancyLastSwitchover"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalOriginHost"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalVendorId"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalVendorStorageType"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalVendorRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDiameterBasePMIBPeerCfgGroup": {
+    "name": "ciscoDiameterBasePMIBPeerCfgGroup",
+    "oid": "1.3.6.1.4.1.9.10.133.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerId"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerPortConnect"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerPortListen"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerProtocol"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerSecurity"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerFirmwareRevision"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStorageType"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerRowStatus"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerIpAddressType"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerIpAddress"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerVendorId"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerVendorStorageType"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerVendorRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDiameterBasePMIBPeerStatsGroup": {
+    "name": "ciscoDiameterBasePMIBPeerStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.133.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsState"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsStateDuration"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsLastDiscCause"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsWhoInitDisconnect"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsDWCurrentStatus"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsTimeoutConnAtmpts"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsASRsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsASRsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsASAsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsASAsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsACRsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsACRsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsACAsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsACAsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsCERsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsCERsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsCEAsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsCEAsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsDWRsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsDWRsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsDWAsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsDWAsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsDPRsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsDPRsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsDPAsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsDPAsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsRARsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsRARsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsRAAsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsRAAsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsSTRsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsSTRsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsSTAsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsSTAsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsDWReqTimer"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsRedirectEvents"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsAccDupRequests"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsMalformedReqsts"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsAccsNotRecorded"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsAccRetrans"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsTotalRetrans"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsAccPendReqstsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsAccReqstsDropped"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsHByHDropMessages"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsEToEDupMessages"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsUnknownTypes"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsProtocolErrors"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsTransientFailures"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsPermanentFailures"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsTransportDown"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDiameterBasePMIBNotificationsGroup": {
+    "name": "ciscoDiameterBasePMIBNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.10.133.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "ciscoDiaBaseProtProtocolErrorNotif"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "ciscoDiaBaseProtTransientFailureNotif"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "ciscoDiaBaseProtPermanentFailureNotif"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "ciscoDiaBaseProtPeerConnectionDownNotif"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "ciscoDiaBaseProtPeerConnectionUpNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDiameterBasePMIBTrapCfgGroup": {
+    "name": "ciscoDiameterBasePMIBTrapCfgGroup",
+    "oid": "1.3.6.1.4.1.9.10.133.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "ciscoDiaBaseProtEnableProtocolErrorNotif"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "ciscoDiaBaseProtEnableTransientFailureNotif"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "ciscoDiaBaseProtEnablePermanentFailureNotif"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "ciscoDiaBaseProtEnablePeerConnectionDownNotif"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "ciscoDiaBaseProtEnablePeerConnectionUpNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDiameterBasePMIBLocalCfgSkippedGroup": {
+    "name": "ciscoDiameterBasePMIBLocalCfgSkippedGroup",
+    "oid": "1.3.6.1.4.1.9.10.133.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalId"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalIpAddrType"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalIpAddress"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalTcpListenPort"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalSctpListenPort"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalStatsTotalPacketsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalStatsTotalPacketsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalStatsTotalUpTime"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalResetTime"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalConfigReset"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalApplStorageType"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalApplRowStatus"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpAppAdvToPeerServices"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpAppAdvToPeerStorageType"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpAppAdvToPeerRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDiameterBasePMIBLocalStatsSkippedGroup": {
+    "name": "ciscoDiameterBasePMIBLocalStatsSkippedGroup",
+    "oid": "1.3.6.1.4.1.9.10.133.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalStatsTotalPacketsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalStatsTotalPacketsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalStatsTotalUpTime"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalResetTime"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpLocalConfigReset"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDiameterBasePMIBPeerCfgSkippedGroup": {
+    "name": "ciscoDiameterBasePMIBPeerCfgSkippedGroup",
+    "oid": "1.3.6.1.4.1.9.10.133.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpAppAdvFromPeerType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDiameterBasePMIBPeerStatsSkippedGroup": {
+    "name": "ciscoDiameterBasePMIBPeerStatsSkippedGroup",
+    "oid": "1.3.6.1.4.1.9.10.133.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsDWCurrentStatus"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsDWReqTimer"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsRedirectEvents"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsAccDupRequests"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpPeerStatsEToEDupMessages"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDiameterBasePMIBRealmCfgSkippedGroup": {
+    "name": "ciscoDiameterBasePMIBRealmCfgSkippedGroup",
+    "oid": "1.3.6.1.4.1.9.10.133.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmKnownPeers"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmKnownPeersChosen"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDiameterBasePMIBRealmStatsSkippedGroup": {
+    "name": "ciscoDiameterBasePMIBRealmStatsSkippedGroup",
+    "oid": "1.3.6.1.4.1.9.10.133.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteRealm"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteApp"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteType"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteAction"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteACRsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteACRsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteACAsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteACAsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteRARsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteRARsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteRAAsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteRAAsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteSTRsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteSTRsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteSTAsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteSTAsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteASRsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteASRsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteASAsIn"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteASAsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteAccRetrans"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteAccDupReqsts"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRoutePendReqstsOut"
+      },
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "object": "cdbpRealmMessageRouteReqstsDrop"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB"
+  }
+}

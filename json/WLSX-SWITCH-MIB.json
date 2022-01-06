@@ -1,0 +1,3117 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARUBA-MIB": [
+      "wlsxEnterpriseMibModules"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "snmpModules",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "IpAddress",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter32",
+      "TimeTicks",
+      "Integer32",
+      "iso",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "RowStatus",
+      "StorageType",
+      "TestAndIncr",
+      "TruthValue",
+      "MacAddress",
+      "TDomain",
+      "DisplayString",
+      "TAddress",
+      "PhysAddress"
+    ]
+  },
+  "wlsxSwitchMIB": {
+    "name": "wlsxSwitchMIB",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-08-14 17:45",
+        "description": "The initial revision."
+      }
+    ]
+  },
+  "wlsxSystemXGroup": {
+    "name": "wlsxSystemXGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1",
+    "class": "objectidentity"
+  },
+  "wlsxUserInfoGroup": {
+    "name": "wlsxUserInfoGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2",
+    "class": "objectidentity"
+  },
+  "wlsxAccessPointInfoGroup": {
+    "name": "wlsxAccessPointInfoGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3",
+    "class": "objectidentity"
+  },
+  "wlsxInstantAccessPointInfoGroup": {
+    "name": "wlsxInstantAccessPointInfoGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.5",
+    "class": "objectidentity"
+  },
+  "wlsxSwitchTraps": {
+    "name": "wlsxSwitchTraps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100",
+    "class": "objectidentity"
+  },
+  "wlsxHostname": {
+    "name": "wlsxHostname",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxModelName": {
+    "name": "wlsxModelName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSwitchIp": {
+    "name": "wlsxSwitchIp",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSwitchRole": {
+    "name": "wlsxSwitchRole",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "local": 2,
+          "standbymaster": 3,
+          "branch": 4,
+          "md": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSwitchMasterIp": {
+    "name": "wlsxSwitchMasterIp",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSwitchListTable": {
+    "name": "wlsxSwitchListTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxSwitchListEntry": {
+    "name": "wlsxSwitchListEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "switchListSwitchIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "switchListSwitchIPAddress": {
+    "name": "switchListSwitchIPAddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "switchListSwitchRole": {
+    "name": "switchListSwitchRole",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "local": 2,
+          "standbymaster": 3,
+          "branch": 4,
+          "md": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSwitchLicenseCount": {
+    "name": "wlsxSwitchLicenseCount",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSwitchLicenseTable": {
+    "name": "wlsxSwitchLicenseTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxLicenseEntry": {
+    "name": "wlsxLicenseEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "licenseIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "licenseIndex": {
+    "name": "licenseIndex",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "licenseKey": {
+    "name": "licenseKey",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenseInstalled": {
+    "name": "licenseInstalled",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenseExpires": {
+    "name": "licenseExpires",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenseFlags": {
+    "name": "licenseFlags",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenseService": {
+    "name": "licenseService",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysXProcessorTable": {
+    "name": "wlsxSysXProcessorTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxSysXProcessorEntry": {
+    "name": "wlsxSysXProcessorEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "sysXProcessorID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysXProcessorID": {
+    "name": "sysXProcessorID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysXProcessorDescr": {
+    "name": "sysXProcessorDescr",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysXProcessorLoad": {
+    "name": "sysXProcessorLoad",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysXStorageTable": {
+    "name": "wlsxSysXStorageTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxSysXStorageEntry": {
+    "name": "wlsxSysXStorageEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "sysXStorageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysXStorageIndex": {
+    "name": "sysXStorageIndex",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysXStorageType": {
+    "name": "sysXStorageType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ram": 1,
+          "flashMemory": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysXStorageSize": {
+    "name": "sysXStorageSize",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysXStorageUsed": {
+    "name": "sysXStorageUsed",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysXStorageName": {
+    "name": "sysXStorageName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSysXMemoryTable": {
+    "name": "wlsxSysXMemoryTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxSysXMemoryEntry": {
+    "name": "wlsxSysXMemoryEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "sysXMemoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysXMemoryIndex": {
+    "name": "sysXMemoryIndex",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysXMemorySize": {
+    "name": "sysXMemorySize",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysXMemoryUsed": {
+    "name": "sysXMemoryUsed",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysXMemoryFree": {
+    "name": "sysXMemoryFree",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSwitchLicenseSerialNumber": {
+    "name": "wlsxSwitchLicenseSerialNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSwitchIpv6": {
+    "name": "wlsxSwitchIpv6",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSwitchMasterIpv6": {
+    "name": "wlsxSwitchMasterIpv6",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 45
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSwitchUserTable": {
+    "name": "wlsxSwitchUserTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxSwitchUserEntry": {
+    "name": "wlsxSwitchUserEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "userIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "userIpAddress": {
+    "name": "userIpAddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "userPhyAddress": {
+    "name": "userPhyAddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "userName": {
+    "name": "userName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "userRole": {
+    "name": "userRole",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "userUpTime": {
+    "name": "userUpTime",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "userAuthenticationMethod": {
+    "name": "userAuthenticationMethod",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "web": 3,
+          "dot1x": 4,
+          "vpn": 5,
+          "mac": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "userLocation": {
+    "name": "userLocation",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "userServerName": {
+    "name": "userServerName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "userConnectedVlan": {
+    "name": "userConnectedVlan",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "userConnectedSlot": {
+    "name": "userConnectedSlot",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "userConnectedPort": {
+    "name": "userConnectedPort",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "userBWContractName": {
+    "name": "userBWContractName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "userBWContractUsage": {
+    "name": "userBWContractUsage",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "user": 1,
+          "shared": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "userConnectedModule": {
+    "name": "userConnectedModule",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSwitchStationMgmtTable": {
+    "name": "wlsxSwitchStationMgmtTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxSwitchStationMgmtEntry": {
+    "name": "wlsxSwitchStationMgmtEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "staPhyAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "staAccessPointBSSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "staPhyAddress": {
+    "name": "staPhyAddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "staAccessPointBSSID": {
+    "name": "staAccessPointBSSID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "staUserName": {
+    "name": "staUserName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "staUserRole": {
+    "name": "staUserRole",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "staAssociationID": {
+    "name": "staAssociationID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "staAccessPointESSID": {
+    "name": "staAccessPointESSID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "staSignalToNoiseRatio": {
+    "name": "staSignalToNoiseRatio",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "staTransmitRate": {
+    "name": "staTransmitRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rate1Mbps": 1,
+          "rate2Mbps": 2,
+          "rate5point5Mbps": 3,
+          "rate6Mbps": 4,
+          "rate9Mbps": 5,
+          "rate11Mbps": 6,
+          "rate12Mbps": 7,
+          "rate18Mbps": 8,
+          "rate24Mbps": 9,
+          "rate36Mbps": 10,
+          "rate48Mbps": 11,
+          "rate54Mbps": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "staReceiveRate": {
+    "name": "staReceiveRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rate1Mbps": 1,
+          "rate2Mbps": 2,
+          "rate5point5Mbps": 3,
+          "rate6Mbps": 4,
+          "rate9Mbps": 5,
+          "rate11Mbps": 6,
+          "rate12Mbps": 7,
+          "rate18Mbps": 8,
+          "rate24Mbps": 9,
+          "rate36Mbps": 10,
+          "rate48Mbps": 11,
+          "rate54Mbps": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSwitchStationStatsTable": {
+    "name": "wlsxSwitchStationStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxSwitchStationStatsEntry": {
+    "name": "wlsxSwitchStationStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "staPhyAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "staAccessPointBSSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "staTxPackets": {
+    "name": "staTxPackets",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "staTxBytes": {
+    "name": "staTxBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "staRxPackets": {
+    "name": "staRxPackets",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "staRxBytes": {
+    "name": "staRxBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "staBwRate": {
+    "name": "staBwRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "staFrameRetryRate": {
+    "name": "staFrameRetryRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "staFrameLowSpeedRate": {
+    "name": "staFrameLowSpeedRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "staFrameNonUnicastRate": {
+    "name": "staFrameNonUnicastRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "staFrameFragmentationRate": {
+    "name": "staFrameFragmentationRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "staFrameReceiveErrorRate": {
+    "name": "staFrameReceiveErrorRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSwitchTotalNumAccessPoints": {
+    "name": "wlsxSwitchTotalNumAccessPoints",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSwitchTotalNumStationsAssociated": {
+    "name": "wlsxSwitchTotalNumStationsAssociated",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSwitchAccessPointTable": {
+    "name": "wlsxSwitchAccessPointTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxSwitchAccessPointEntry": {
+    "name": "wlsxSwitchAccessPointEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "apBSSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apBSSID": {
+    "name": "apBSSID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apESSID": {
+    "name": "apESSID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSlot": {
+    "name": "apSlot",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apPort": {
+    "name": "apPort",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apIpAddress": {
+    "name": "apIpAddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apPhyType": {
+    "name": "apPhyType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot11a": 1,
+          "dot11b": 2,
+          "dot11g": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apType": {
+    "name": "apType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ap": 1,
+          "am": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCurrentChannel": {
+    "name": "apCurrentChannel",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 165
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLocation": {
+    "name": "apLocation",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apTotalTime": {
+    "name": "apTotalTime",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apInactiveTime": {
+    "name": "apInactiveTime",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLoadBalancing": {
+    "name": "apLoadBalancing",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apChannelNoise": {
+    "name": "apChannelNoise",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSignalToNoiseRatio": {
+    "name": "apSignalToNoiseRatio",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apTransmitRate": {
+    "name": "apTransmitRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rate1Mbps": 1,
+          "rate2Mbps": 2,
+          "rate5point5Mbps": 3,
+          "rate6Mbps": 4,
+          "rate9Mbps": 5,
+          "rate11Mbps": 6,
+          "rate12Mbps": 7,
+          "rate18Mbps": 8,
+          "rate24Mbps": 9,
+          "rate36Mbps": 10,
+          "rate48Mbps": 11,
+          "rate54Mbps": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apReceiveRate": {
+    "name": "apReceiveRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rate1Mbps": 1,
+          "rate2Mbps": 2,
+          "rate5point5Mbps": 3,
+          "rate6Mbps": 4,
+          "rate9Mbps": 5,
+          "rate11Mbps": 6,
+          "rate12Mbps": 7,
+          "rate18Mbps": 8,
+          "rate24Mbps": 9,
+          "rate36Mbps": 10,
+          "rate48Mbps": 11,
+          "rate54Mbps": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSwitchGlobalAPTable": {
+    "name": "wlsxSwitchGlobalAPTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "wlsxSwitchGlobalAPEntry": {
+    "name": "wlsxSwitchGlobalAPEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "globalAPLocation",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "globalAPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "globalAPLocation": {
+    "name": "globalAPLocation",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "globalAPAddress": {
+    "name": "globalAPAddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "globalAPLocalSwitch": {
+    "name": "globalAPLocalSwitch",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "globalAPdot11aPhyAddr": {
+    "name": "globalAPdot11aPhyAddr",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "globalAPdot11bPhyAddr": {
+    "name": "globalAPdot11bPhyAddr",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "globalAPState": {
+    "name": "globalAPState",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "globalAPdot11gPhyAddr": {
+    "name": "globalAPdot11gPhyAddr",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "wlsxSwitchAccessPointStatsTable": {
+    "name": "wlsxSwitchAccessPointStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxSwitchAccessPointStatsEntry": {
+    "name": "wlsxSwitchAccessPointStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "apBSSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apStatsChannel": {
+    "name": "apStatsChannel",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 165
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apChannelBwRate": {
+    "name": "apChannelBwRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apChannelFrameRetryRate": {
+    "name": "apChannelFrameRetryRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apChannelFrameLowSpeedRate": {
+    "name": "apChannelFrameLowSpeedRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apChannelFrameNonUnicastRate": {
+    "name": "apChannelFrameNonUnicastRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apChannelFrameFragmentationRate": {
+    "name": "apChannelFrameFragmentationRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apChannelFrameReceiveErrorRate": {
+    "name": "apChannelFrameReceiveErrorRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apBSSTxPackets": {
+    "name": "apBSSTxPackets",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apBSSTxBytes": {
+    "name": "apBSSTxBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apBSSRxPackets": {
+    "name": "apBSSRxPackets",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apBSSRxBytes": {
+    "name": "apBSSRxBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apBSSBwRate": {
+    "name": "apBSSBwRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apBSSFrameRetryRate": {
+    "name": "apBSSFrameRetryRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apBSSFrameLowSpeedRate": {
+    "name": "apBSSFrameLowSpeedRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apBSSFrameNonUnicastRate": {
+    "name": "apBSSFrameNonUnicastRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apBSSFrameFragmentationRate": {
+    "name": "apBSSFrameFragmentationRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apBSSFrameReceiveErrorRate": {
+    "name": "apBSSFrameReceiveErrorRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.3.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxIapTotalNumBranches": {
+    "name": "wlsxIapTotalNumBranches",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxIapTotalNumBranchesUp": {
+    "name": "wlsxIapTotalNumBranchesUp",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxIapTotalNumBranchesDown": {
+    "name": "wlsxIapTotalNumBranchesDown",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxIapBranchTable": {
+    "name": "wlsxIapBranchTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxIapBranchEntry": {
+    "name": "wlsxIapBranchEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "iapBranchKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iapBranchKey": {
+    "name": "iapBranchKey",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 65,
+            "max": 65
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iapBranchName": {
+    "name": "iapBranchName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 129
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iapBranchVcMacAddress": {
+    "name": "iapBranchVcMacAddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iapBranchStatus": {
+    "name": "iapBranchStatus",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iapBranchInnerIpAddressType": {
+    "name": "iapBranchInnerIpAddressType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iapBranchInnerIpAddress": {
+    "name": "iapBranchInnerIpAddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.5.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 45
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iapBranchAssignedSubnet": {
+    "name": "iapBranchAssignedSubnet",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.5.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iapBranchAssignedVlan": {
+    "name": "iapBranchAssignedVlan",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.5.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSwitchTrapObjectsGroup": {
+    "name": "wlsxSwitchTrapObjectsGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100",
+    "class": "objectidentity"
+  },
+  "wlsxAuthServerName": {
+    "name": "wlsxAuthServerName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxAuthServerTimeout": {
+    "name": "wlsxAuthServerTimeout",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxFanNumber": {
+    "name": "wlsxFanNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxLineCardNumber": {
+    "name": "wlsxLineCardNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxVoltageType": {
+    "name": "wlsxVoltageType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxVoltageValue": {
+    "name": "wlsxVoltageValue",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxTemperatureValue": {
+    "name": "wlsxTemperatureValue",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxProcessName": {
+    "name": "wlsxProcessName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxStationMacAddress": {
+    "name": "wlsxStationMacAddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxStationBlackListReason": {
+    "name": "wlsxStationBlackListReason",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "userDefined": 1,
+          "mitmAttack": 2,
+          "authFailure": 3,
+          "pingFlood": 4,
+          "sessionFlood": 5,
+          "synFlood": 6,
+          "sessionBlacklist": 7,
+          "ipSpoofing": 8,
+          "other": 100
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSpoofedIpAddress": {
+    "name": "wlsxSpoofedIpAddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSpoofedOldPhyAddress": {
+    "name": "wlsxSpoofedOldPhyAddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSpoofedNewPhyAddress": {
+    "name": "wlsxSpoofedNewPhyAddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxDBName": {
+    "name": "wlsxDBName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxDBUserName": {
+    "name": "wlsxDBUserName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxDBIpAddress": {
+    "name": "wlsxDBIpAddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxDBType": {
+    "name": "wlsxDBType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mssql": 1,
+          "mysql": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxVrID": {
+    "name": "wlsxVrID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxVrMasterIp": {
+    "name": "wlsxVrMasterIp",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxVrrpOperState": {
+    "name": "wlsxVrrpOperState",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initialize": 1,
+          "backup": 2,
+          "master": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxApTxPower": {
+    "name": "wlsxApTxPower",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxESIServerGrpName": {
+    "name": "wlsxESIServerGrpName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxESIServerName": {
+    "name": "wlsxESIServerName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxESIServerIpaddress": {
+    "name": "wlsxESIServerIpaddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxLicenseDaysRemaining": {
+    "name": "wlsxLicenseDaysRemaining",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxSlotNumber": {
+    "name": "wlsxSlotNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxStationBlackListReasonStr": {
+    "name": "wlsxStationBlackListReasonStr",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.100.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "wlsxSwitchIPChanged": {
+    "name": "wlsxSwitchIPChanged",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1001",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxSwitchIp"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxSwitchRoleChange": {
+    "name": "wlsxSwitchRoleChange",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1002",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxSwitchRole"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxUserEntryCreated": {
+    "name": "wlsxUserEntryCreated",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1003",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "userPhyAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxUserEntryDeleted": {
+    "name": "wlsxUserEntryDeleted",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1004",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "userPhyAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxUserEntryAuthenticated": {
+    "name": "wlsxUserEntryAuthenticated",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1005",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "userPhyAddress"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "userAuthenticationMethod"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "userRole"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxUserEntryDeAuthenticated": {
+    "name": "wlsxUserEntryDeAuthenticated",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1006",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "userPhyAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxUserAuthenticationFailed": {
+    "name": "wlsxUserAuthenticationFailed",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1007",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "userPhyAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxAuthServerReqTimedOut": {
+    "name": "wlsxAuthServerReqTimedOut",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1008",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxAuthServerName"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxAuthServerTimedOut": {
+    "name": "wlsxAuthServerTimedOut",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1009",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxAuthServerName"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxAuthServerTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxAuthServerIsUp": {
+    "name": "wlsxAuthServerIsUp",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1010",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxAuthServerName"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxAuthMaxUserEntries": {
+    "name": "wlsxAuthMaxUserEntries",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1011",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "wlsxAuthMaxAclEntries": {
+    "name": "wlsxAuthMaxAclEntries",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1012",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "wlsxAuthMaxBWContracts": {
+    "name": "wlsxAuthMaxBWContracts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1013",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "wlsxPowerSupplyFailure": {
+    "name": "wlsxPowerSupplyFailure",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1014",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "wlsxFanFailure": {
+    "name": "wlsxFanFailure",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1015",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxFanNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxOutOfRangeVoltage": {
+    "name": "wlsxOutOfRangeVoltage",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1016",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxVoltageType"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxVoltageValue"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxOutOfRangeTemperature": {
+    "name": "wlsxOutOfRangeTemperature",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1017",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxTemperatureValue"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxLCInserted": {
+    "name": "wlsxLCInserted",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1018",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxLineCardNumber"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxSlotNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxSCInserted": {
+    "name": "wlsxSCInserted",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1019",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "wlsxGBICInserted": {
+    "name": "wlsxGBICInserted",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1020",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "wlsxProcessDied": {
+    "name": "wlsxProcessDied",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1021",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxProcessName"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxProcessExceedsMemoryLimits": {
+    "name": "wlsxProcessExceedsMemoryLimits",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1022",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxProcessName"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxLowOnFlashSpace": {
+    "name": "wlsxLowOnFlashSpace",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1023",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "wlsxLowMemory": {
+    "name": "wlsxLowMemory",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1024",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "wlsxFanTrayRemoved": {
+    "name": "wlsxFanTrayRemoved",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1025",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "wlsxFanTrayInserted": {
+    "name": "wlsxFanTrayInserted",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1026",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "wlsxLCRemoved": {
+    "name": "wlsxLCRemoved",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1027",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxLineCardNumber"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxSlotNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxSCRemoved": {
+    "name": "wlsxSCRemoved",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1028",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "wlsxPowerSupplyMissing": {
+    "name": "wlsxPowerSupplyMissing",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1029",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "wlsxAccessPointIsUp": {
+    "name": "wlsxAccessPointIsUp",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1030",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "apLocation"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "apIpAddress"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "wlsxAccessPointIsDown": {
+    "name": "wlsxAccessPointIsDown",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1031",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "apLocation"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "apIpAddress"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "wlsxCoverageHoleDetected": {
+    "name": "wlsxCoverageHoleDetected",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1032",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "apLocation"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "apIpAddress"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxStationMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxChannelChanged": {
+    "name": "wlsxChannelChanged",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1033",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "apLocation"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "apIpAddress"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "apCurrentChannel"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "wlsxStationAddedToBlackList": {
+    "name": "wlsxStationAddedToBlackList",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1034",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxStationMacAddress"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxStationBlackListReason"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxStationBlackListReasonStr"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxStationRemovedFromBlackList": {
+    "name": "wlsxStationRemovedFromBlackList",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1035",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxStationMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxIpSpoofingDetected": {
+    "name": "wlsxIpSpoofingDetected",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1036",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxSpoofedIpAddress"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxSpoofedOldPhyAddress"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxSpoofedNewPhyAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxDBCommunicationFailure": {
+    "name": "wlsxDBCommunicationFailure",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1037",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxDBName"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxDBUserName"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxDBIpAddress"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxDBType"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxVrrpStateChange": {
+    "name": "wlsxVrrpStateChange",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1038",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxVrID"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxVrMasterIp"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxVrrpOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxAPRadioAttributesChanged": {
+    "name": "wlsxAPRadioAttributesChanged",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1039",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "apLocation"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "apIpAddress"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "apCurrentChannel"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxApTxPower"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxESIServerUp": {
+    "name": "wlsxESIServerUp",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1040",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxESIServerGrpName"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxESIServerName"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxESIServerIpaddress"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxESIServerDown": {
+    "name": "wlsxESIServerDown",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1041",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxESIServerGrpName"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxESIServerName"
+      },
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxESIServerIpaddress"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxLicenseExpiry": {
+    "name": "wlsxLicenseExpiry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1042",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxLicenseDaysRemaining"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxAceUsageThreshold": {
+    "name": "wlsxAceUsageThreshold",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1043",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "wlsxFanAbsent": {
+    "name": "wlsxFanAbsent",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1044",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxFanNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxWebCCLicenseEnforcement": {
+    "name": "wlsxWebCCLicenseEnforcement",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1045",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "wlsxLowOnFlash1Space": {
+    "name": "wlsxLowOnFlash1Space",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1046",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "wlsxSwitchIPv6Changed": {
+    "name": "wlsxSwitchIPv6Changed",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1047",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-SWITCH-MIB",
+        "object": "wlsxSwitchIpv6"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxDot1xThresholdLimitHit": {
+    "name": "wlsxDot1xThresholdLimitHit",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1048",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "wlsxDot1xTotalLimitHit": {
+    "name": "wlsxDot1xTotalLimitHit",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.1.100.1049",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-SWITCH-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:25 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "WLSX-SWITCH-MIB"
+  }
+}

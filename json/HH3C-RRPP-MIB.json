@@ -1,0 +1,868 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cRrpp": {
+    "name": "hh3cRrpp",
+    "oid": "1.3.6.1.4.1.25506.2.45",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-01-26 00:00",
+        "description": "Modified the range of hh3cRrppDomainID in hh3cRrppDomainTable Modified the range of hh3cRrppRingID in hh3cRrppRingTable"
+      }
+    ]
+  },
+  "EnabledStatus": {
+    "name": "EnabledStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cRrppScalarGroup": {
+    "name": "hh3cRrppScalarGroup",
+    "oid": "1.3.6.1.4.1.25506.2.45.1",
+    "class": "objectidentity"
+  },
+  "hh3cRrppEnableStatus": {
+    "name": "hh3cRrppEnableStatus",
+    "oid": "1.3.6.1.4.1.25506.2.45.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cRrppPassword": {
+    "name": "hh3cRrppPassword",
+    "oid": "1.3.6.1.4.1.25506.2.45.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "303030464532303346443735",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cRrppPasswordType": {
+    "name": "hh3cRrppPasswordType",
+    "oid": "1.3.6.1.4.1.25506.2.45.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "simple": 1,
+          "cipher": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cRrppProtectVlanConfigMode": {
+    "name": "hh3cRrppProtectVlanConfigMode",
+    "oid": "1.3.6.1.4.1.25506.2.45.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vlan": 1,
+          "instance": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRrppTable": {
+    "name": "hh3cRrppTable",
+    "oid": "1.3.6.1.4.1.25506.2.45.2",
+    "class": "objectidentity"
+  },
+  "hh3cRrppDomainTable": {
+    "name": "hh3cRrppDomainTable",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRrppDomainEntry": {
+    "name": "hh3cRrppDomainEntry",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-RRPP-MIB",
+        "object": "hh3cRrppDomainID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRrppDomainID": {
+    "name": "hh3cRrppDomainID",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cRrppDomainControlVlanID": {
+    "name": "hh3cRrppDomainControlVlanID",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 4094
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cRrppDomainHelloTime": {
+    "name": "hh3cRrppDomainHelloTime",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cRrppDomainFailTime": {
+    "name": "hh3cRrppDomainFailTime",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cRrppDomainRowStatus": {
+    "name": "hh3cRrppDomainRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cRrppDomainInstanceListLow": {
+    "name": "hh3cRrppDomainInstanceListLow",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cRrppDomainInstanceListHigh": {
+    "name": "hh3cRrppDomainInstanceListHigh",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cRrppDomainProtectVlanListLow": {
+    "name": "hh3cRrppDomainProtectVlanListLow",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cRrppDomainProtectVlanListHigh": {
+    "name": "hh3cRrppDomainProtectVlanListHigh",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cRrppRingTable": {
+    "name": "hh3cRrppRingTable",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRrppRingEntry": {
+    "name": "hh3cRrppRingEntry",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-RRPP-MIB",
+        "object": "hh3cRrppDomainID",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-RRPP-MIB",
+        "object": "hh3cRrppRingID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRrppRingID": {
+    "name": "hh3cRrppRingID",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cRrppRingEnableStatus": {
+    "name": "hh3cRrppRingEnableStatus",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cRrppRingActive": {
+    "name": "hh3cRrppRingActive",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRrppRingState": {
+    "name": "hh3cRrppRingState",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "health": 2,
+          "fault": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRrppRingNodeMode": {
+    "name": "hh3cRrppRingNodeMode",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "transit": 2,
+          "edge": 3,
+          "assistantEdge": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cRrppRingPrimaryPort": {
+    "name": "hh3cRrppRingPrimaryPort",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cRrppRingSecondaryPort": {
+    "name": "hh3cRrppRingSecondaryPort",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cRrppRingLevel": {
+    "name": "hh3cRrppRingLevel",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "majorRing": 1,
+          "subRing": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cRrppRingRowStatus": {
+    "name": "hh3cRrppRingRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cRrppPortTable": {
+    "name": "hh3cRrppPortTable",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRrppPortEntry": {
+    "name": "hh3cRrppPortEntry",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-RRPP-MIB",
+        "object": "hh3cRrppDomainID",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-RRPP-MIB",
+        "object": "hh3cRrppRingID",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-RRPP-MIB",
+        "object": "hh3cRrppPortID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRrppPortID": {
+    "name": "hh3cRrppPortID",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRrppPortRole": {
+    "name": "hh3cRrppPortRole",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2,
+          "common": 3,
+          "edge": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRrppPortState": {
+    "name": "hh3cRrppPortState",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "unblocked": 2,
+          "blocked": 3,
+          "down": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRrppPortRXError": {
+    "name": "hh3cRrppPortRXError",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRrppPortRXHello": {
+    "name": "hh3cRrppPortRXHello",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRrppPortRXLinkUp": {
+    "name": "hh3cRrppPortRXLinkUp",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRrppPortRXLinkDown": {
+    "name": "hh3cRrppPortRXLinkDown",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRrppPortRXCommonFlush": {
+    "name": "hh3cRrppPortRXCommonFlush",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRrppPortRXCompleteFlush": {
+    "name": "hh3cRrppPortRXCompleteFlush",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRrppPortTXHello": {
+    "name": "hh3cRrppPortTXHello",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRrppPortTXLinkUp": {
+    "name": "hh3cRrppPortTXLinkUp",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRrppPortTXLinkDown": {
+    "name": "hh3cRrppPortTXLinkDown",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRrppPortTXCommonFlush": {
+    "name": "hh3cRrppPortTXCommonFlush",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRrppPortTXCompleteFlush": {
+    "name": "hh3cRrppPortTXCompleteFlush",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRrppPortRXEdgeHello": {
+    "name": "hh3cRrppPortRXEdgeHello",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRrppPortRXMajorFault": {
+    "name": "hh3cRrppPortRXMajorFault",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRrppPortTXEdgeHello": {
+    "name": "hh3cRrppPortTXEdgeHello",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRrppPortTXMajorFault": {
+    "name": "hh3cRrppPortTXMajorFault",
+    "oid": "1.3.6.1.4.1.25506.2.45.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRrppNotifications": {
+    "name": "hh3cRrppNotifications",
+    "oid": "1.3.6.1.4.1.25506.2.45.3",
+    "class": "objectidentity"
+  },
+  "hh3cRrppRingRecover": {
+    "name": "hh3cRrppRingRecover",
+    "oid": "1.3.6.1.4.1.25506.2.45.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RRPP-MIB",
+        "object": "hh3cRrppDomainID"
+      },
+      {
+        "module": "HH3C-RRPP-MIB",
+        "object": "hh3cRrppRingID"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRrppRingFail": {
+    "name": "hh3cRrppRingFail",
+    "oid": "1.3.6.1.4.1.25506.2.45.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RRPP-MIB",
+        "object": "hh3cRrppDomainID"
+      },
+      {
+        "module": "HH3C-RRPP-MIB",
+        "object": "hh3cRrppRingID"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRrppMultiMaster": {
+    "name": "hh3cRrppMultiMaster",
+    "oid": "1.3.6.1.4.1.25506.2.45.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RRPP-MIB",
+        "object": "hh3cRrppDomainID"
+      },
+      {
+        "module": "HH3C-RRPP-MIB",
+        "object": "hh3cRrppRingID"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRrppMajorFault": {
+    "name": "hh3cRrppMajorFault",
+    "oid": "1.3.6.1.4.1.25506.2.45.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RRPP-MIB",
+        "object": "hh3cRrppDomainID"
+      },
+      {
+        "module": "HH3C-RRPP-MIB",
+        "object": "hh3cRrppRingID"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-RRPP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-RRPP-MIB"
+  }
+}

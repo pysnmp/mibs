@@ -1,0 +1,417 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSwitchRateLimiterMIB": {
+    "name": "ciscoSwitchRateLimiterMIB",
+    "oid": "1.3.6.1.4.1.9.9.773",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-05-16 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSwitchRateLimiterMIBNotifs": {
+    "name": "ciscoSwitchRateLimiterMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.773.0",
+    "class": "objectidentity"
+  },
+  "ciscoSwitchRateLimiterMIBObjects": {
+    "name": "ciscoSwitchRateLimiterMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.773.1",
+    "class": "objectidentity"
+  },
+  "ciscoSwitchRateLimiterMIBConform": {
+    "name": "ciscoSwitchRateLimiterMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.773.2",
+    "class": "objectidentity"
+  },
+  "csrlRateLimiterInfo": {
+    "name": "csrlRateLimiterInfo",
+    "oid": "1.3.6.1.4.1.9.9.773.1.1",
+    "class": "objectidentity"
+  },
+  "csrlGlobalRateLimiter": {
+    "name": "csrlGlobalRateLimiter",
+    "oid": "1.3.6.1.4.1.9.9.773.1.2",
+    "class": "objectidentity"
+  },
+  "csrlLocalRateLimiter": {
+    "name": "csrlLocalRateLimiter",
+    "oid": "1.3.6.1.4.1.9.9.773.1.3",
+    "class": "objectidentity"
+  },
+  "csrlRateLimiterClassTable": {
+    "name": "csrlRateLimiterClassTable",
+    "oid": "1.3.6.1.4.1.9.9.773.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csrlRateLimiterClassEntry": {
+    "name": "csrlRateLimiterClassEntry",
+    "oid": "1.3.6.1.4.1.9.9.773.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SWITCH-RATE-LIMITER-MIB",
+        "object": "csrlRateLimiterClassId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csrlRateLimiterClassId": {
+    "name": "csrlRateLimiterClassId",
+    "oid": "1.3.6.1.4.1.9.9.773.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csrlRateLimiterClassDescr": {
+    "name": "csrlRateLimiterClassDescr",
+    "oid": "1.3.6.1.4.1.9.9.773.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrlGlobalRateLimiterTable": {
+    "name": "csrlGlobalRateLimiterTable",
+    "oid": "1.3.6.1.4.1.9.9.773.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csrlGlobalRateLimiterEntry": {
+    "name": "csrlGlobalRateLimiterEntry",
+    "oid": "1.3.6.1.4.1.9.9.773.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SWITCH-RATE-LIMITER-MIB",
+        "object": "csrlRateLimiterClassId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csrlGlobalRateLimiterConfigured": {
+    "name": "csrlGlobalRateLimiterConfigured",
+    "oid": "1.3.6.1.4.1.9.9.773.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "packets per second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csrlGlobalRateLimiterAllowed": {
+    "name": "csrlGlobalRateLimiterAllowed",
+    "oid": "1.3.6.1.4.1.9.9.773.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrlGlobalRateLimiterDropped": {
+    "name": "csrlGlobalRateLimiterDropped",
+    "oid": "1.3.6.1.4.1.9.9.773.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrlGlobalRateLimiterTotal": {
+    "name": "csrlGlobalRateLimiterTotal",
+    "oid": "1.3.6.1.4.1.9.9.773.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrlLocalRateLimiterTable": {
+    "name": "csrlLocalRateLimiterTable",
+    "oid": "1.3.6.1.4.1.9.9.773.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csrlLocalRateLimiterEntry": {
+    "name": "csrlLocalRateLimiterEntry",
+    "oid": "1.3.6.1.4.1.9.9.773.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SWITCH-RATE-LIMITER-MIB",
+        "object": "csrlRateLimiterClassId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csrlLocalRateLimiterConfigured": {
+    "name": "csrlLocalRateLimiterConfigured",
+    "oid": "1.3.6.1.4.1.9.9.773.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2,
+            "max": -2
+          },
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "packets per second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csrlLocalRateLimiterAllowed": {
+    "name": "csrlLocalRateLimiterAllowed",
+    "oid": "1.3.6.1.4.1.9.9.773.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrlLocalRateLimiterDropped": {
+    "name": "csrlLocalRateLimiterDropped",
+    "oid": "1.3.6.1.4.1.9.9.773.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrlLocalRateLimiterTotal": {
+    "name": "csrlLocalRateLimiterTotal",
+    "oid": "1.3.6.1.4.1.9.9.773.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrlMIBCompliances": {
+    "name": "csrlMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.773.2.1",
+    "class": "objectidentity"
+  },
+  "csrlMIBGroups": {
+    "name": "csrlMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.773.2.2",
+    "class": "objectidentity"
+  },
+  "csrlMIBCompliance": {
+    "name": "csrlMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.773.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "csrlRateLimiterClassGroup",
+        "module": "CISCO-SWITCH-RATE-LIMITER-MIB"
+      },
+      {
+        "object": "csrlGlobalRateLimiterGroup",
+        "module": "CISCO-SWITCH-RATE-LIMITER-MIB"
+      },
+      {
+        "object": "csrlLocalRateLimiterGroup",
+        "module": "CISCO-SWITCH-RATE-LIMITER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "csrlRateLimiterClassGroup": {
+    "name": "csrlRateLimiterClassGroup",
+    "oid": "1.3.6.1.4.1.9.9.773.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-RATE-LIMITER-MIB",
+        "object": "csrlRateLimiterClassDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "csrlGlobalRateLimiterGroup": {
+    "name": "csrlGlobalRateLimiterGroup",
+    "oid": "1.3.6.1.4.1.9.9.773.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-RATE-LIMITER-MIB",
+        "object": "csrlGlobalRateLimiterConfigured"
+      },
+      {
+        "module": "CISCO-SWITCH-RATE-LIMITER-MIB",
+        "object": "csrlGlobalRateLimiterAllowed"
+      },
+      {
+        "module": "CISCO-SWITCH-RATE-LIMITER-MIB",
+        "object": "csrlGlobalRateLimiterDropped"
+      },
+      {
+        "module": "CISCO-SWITCH-RATE-LIMITER-MIB",
+        "object": "csrlGlobalRateLimiterTotal"
+      }
+    ],
+    "status": "current"
+  },
+  "csrlLocalRateLimiterGroup": {
+    "name": "csrlLocalRateLimiterGroup",
+    "oid": "1.3.6.1.4.1.9.9.773.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-RATE-LIMITER-MIB",
+        "object": "csrlLocalRateLimiterConfigured"
+      },
+      {
+        "module": "CISCO-SWITCH-RATE-LIMITER-MIB",
+        "object": "csrlLocalRateLimiterAllowed"
+      },
+      {
+        "module": "CISCO-SWITCH-RATE-LIMITER-MIB",
+        "object": "csrlLocalRateLimiterDropped"
+      },
+      {
+        "module": "CISCO-SWITCH-RATE-LIMITER-MIB",
+        "object": "csrlLocalRateLimiterTotal"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SWITCH-RATE-LIMITER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SWITCH-RATE-LIMITER-MIB"
+  }
+}

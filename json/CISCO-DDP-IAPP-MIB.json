@@ -1,0 +1,277 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoPort"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoDdpIappMIB": {
+    "name": "ciscoDdpIappMIB",
+    "oid": "1.3.6.1.4.1.9.9.277",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-07-31 00:00",
+        "description": "Correct DEFVAL for cDdpIappMcastIpAddr."
+      },
+      {
+        "revision": "2002-07-17 00:00",
+        "description": "Removed cDdpIappP802dot1XVersion, added cDdpIappLastRogueApMacAddr, cDdpIappLastRogueApNotif, and cDdpIappRogueApNotifEnabled objects. Changed cDdpIappPort object to read-only access."
+      },
+      {
+        "revision": "2002-03-19 00:00",
+        "description": "Changing the description for cDdpIappPort to be a UDP port and Email contact address."
+      },
+      {
+        "revision": "2002-03-07 00:00",
+        "description": "Changing DEFVALs for cDdpIappMcastIpAddr and cDdpIappPort."
+      },
+      {
+        "revision": "2001-09-28 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoDdpIappMIBNotifications": {
+    "name": "ciscoDdpIappMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.277.0",
+    "class": "objectidentity"
+  },
+  "ciscoDdpIappMIBObjects": {
+    "name": "ciscoDdpIappMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.277.1",
+    "class": "objectidentity"
+  },
+  "ciscoDdpIappMIBConformance": {
+    "name": "ciscoDdpIappMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.277.2",
+    "class": "objectidentity"
+  },
+  "cDdpIappGlobalConfig": {
+    "name": "cDdpIappGlobalConfig",
+    "oid": "1.3.6.1.4.1.9.9.277.1.1",
+    "class": "objectidentity"
+  },
+  "cDdpIappRogueApInfo": {
+    "name": "cDdpIappRogueApInfo",
+    "oid": "1.3.6.1.4.1.9.9.277.1.2",
+    "class": "objectidentity"
+  },
+  "cDdpIappMcastIpAddrType": {
+    "name": "cDdpIappMcastIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.277.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cDdpIappMcastIpAddr": {
+    "name": "cDdpIappMcastIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.277.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "e0000128",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cDdpIappPort": {
+    "name": "cDdpIappPort",
+    "oid": "1.3.6.1.4.1.9.9.277.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2887,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDdpIappRogueApNotifEnabled": {
+    "name": "cDdpIappRogueApNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.277.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cDdpIappLastRogueApMacAddr": {
+    "name": "cDdpIappLastRogueApMacAddr",
+    "oid": "1.3.6.1.4.1.9.9.277.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDdpIappLastRogueApNotif": {
+    "name": "cDdpIappLastRogueApNotif",
+    "oid": "1.3.6.1.4.1.9.9.277.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DDP-IAPP-MIB",
+        "object": "cDdpIappLastRogueApMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDdpIappMIBCompliances": {
+    "name": "ciscoDdpIappMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.277.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoDdpIappMIBGroups": {
+    "name": "ciscoDdpIappMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.277.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoDdpIappCompliance": {
+    "name": "ciscoDdpIappCompliance",
+    "oid": "1.3.6.1.4.1.9.9.277.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDdpIappConfigGroup",
+        "module": "CISCO-DDP-IAPP-MIB"
+      },
+      {
+        "object": "ciscoDdpIappRogueApInfoGroup",
+        "module": "CISCO-DDP-IAPP-MIB"
+      },
+      {
+        "object": "ciscoDdpIappNotificationGroup",
+        "module": "CISCO-DDP-IAPP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDdpIappConfigGroup": {
+    "name": "ciscoDdpIappConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.277.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DDP-IAPP-MIB",
+        "object": "cDdpIappMcastIpAddrType"
+      },
+      {
+        "module": "CISCO-DDP-IAPP-MIB",
+        "object": "cDdpIappMcastIpAddr"
+      },
+      {
+        "module": "CISCO-DDP-IAPP-MIB",
+        "object": "cDdpIappPort"
+      },
+      {
+        "module": "CISCO-DDP-IAPP-MIB",
+        "object": "cDdpIappRogueApNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDdpIappRogueApInfoGroup": {
+    "name": "ciscoDdpIappRogueApInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.277.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DDP-IAPP-MIB",
+        "object": "cDdpIappLastRogueApMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDdpIappNotificationGroup": {
+    "name": "ciscoDdpIappNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.277.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-DDP-IAPP-MIB",
+        "object": "cDdpIappLastRogueApNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DDP-IAPP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DDP-IAPP-MIB"
+  }
+}

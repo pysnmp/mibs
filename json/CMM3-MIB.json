@@ -1,0 +1,3610 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "Bits",
+      "Counter32",
+      "iso",
+      "Gauge32",
+      "Integer32",
+      "Unsigned32",
+      "MibIdentifier"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "WHISP-GLOBAL-REG-MIB": [
+      "whispBox",
+      "whispModules",
+      "whispCMM"
+    ],
+    "WHISP-TCV2-MIB": [
+      "WhispMACAddress",
+      "EventString",
+      "WhispLUID"
+    ]
+  },
+  "cmmIIIMibModule": {
+    "name": "cmmIIIMibModule",
+    "oid": "1.3.6.1.4.1.161.19.1.1.15",
+    "class": "moduleidentity"
+  },
+  "cmmGroups": {
+    "name": "cmmGroups",
+    "oid": "1.3.6.1.4.1.161.19.3.4.1",
+    "class": "objectidentity"
+  },
+  "cmmSwitch": {
+    "name": "cmmSwitch",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2",
+    "class": "objectidentity"
+  },
+  "cmmConfig": {
+    "name": "cmmConfig",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3",
+    "class": "objectidentity"
+  },
+  "cmmStatus": {
+    "name": "cmmStatus",
+    "oid": "1.3.6.1.4.1.161.19.3.4.4",
+    "class": "objectidentity"
+  },
+  "cmmGps": {
+    "name": "cmmGps",
+    "oid": "1.3.6.1.4.1.161.19.3.4.5",
+    "class": "objectidentity"
+  },
+  "cmmEventLog": {
+    "name": "cmmEventLog",
+    "oid": "1.3.6.1.4.1.161.19.3.4.6",
+    "class": "objectidentity"
+  },
+  "cmmControls": {
+    "name": "cmmControls",
+    "oid": "1.3.6.1.4.1.161.19.3.4.7",
+    "class": "objectidentity"
+  },
+  "cmmSwitchGroup": {
+    "name": "cmmSwitchGroup",
+    "oid": "1.3.6.1.4.1.161.19.3.4.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CMM3-MIB",
+        "object": "portNumber"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "rxDropPkts"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "rxOctets"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "rxBroadcastPkts"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "rxMulticastPkts"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "rxSAChanges"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "rxUndersizePkts"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "rxOversizePkts"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "rxFragments"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "rxJabbers"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "rxUnicastPkts"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "rxAlignmentErrors"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "rxFCSErrors"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "rxGoodOctets"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "rxExcessSizeDisc"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "rxPausePkts"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "rxSymbolErrors"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "txDropPkts"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "txOctets"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "txBroadcastPkts"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "txMulticastPkts"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "txCollisions"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "txUnicastPkts"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "txSingleCollision"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "txMultipleCollision"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "txDeferredTransmit"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "txLateCollision"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "txExcessiveCollision"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "txPausePkts"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "txFrameInDisc"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "pkts64Octets"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "pkts65to127Octets"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "pkts128to255Octets"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "pkts256to511Octets"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "pkts512to1023Octets"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "pkts1024to1522Octets"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "mirSrcPortNumber"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "mirSrcRxEnable"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "mirSrcTxEnable"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "portMirrorEnable"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "mirrorCapturePort"
+      }
+    ],
+    "status": "current"
+  },
+  "cmmConfigGroup": {
+    "name": "cmmConfigGroup",
+    "oid": "1.3.6.1.4.1.161.19.3.4.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CMM3-MIB",
+        "object": "gpsTimingPulse"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "lan1Ip"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "lan1SubnetMask"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "defaultGateway"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port1PowerCtr"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port2PowerCtr"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port3PowerCtr"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port4PowerCtr"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port5PowerCtr"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port6PowerCtr"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port7PowerCtr"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port8PowerCtr"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "displayOnlyAccess"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "fullAccess"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "displayOnlyStatus"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "fullAccessStatus"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "webAutoUpdate"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port1Config"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port2Config"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port3Config"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port4Config"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port5Config"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port6Config"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port7Config"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port8Config"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port1Description"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port2Description"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port3Description"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port4Description"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port5Description"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port6Description"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port7Description"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port8Description"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "snmpTrap1"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "snmpTrap2"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "snmpTrap3"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "snmpTrap4"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "snmpTrap5"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "snmpTrap6"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "snmpTrap7"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "snmpTrap8"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "snmpTrap9"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "snmpTrap10"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "vlanTagEnable"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "vlanTagId"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port1Uplink"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port2Uplink"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port3Uplink"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port4Uplink"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port5Uplink"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port6Uplink"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port7Uplink"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port8Uplink"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port1Management"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port2Management"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port3Management"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port4Management"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port5Management"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port6Management"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port7Management"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port8Management"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "rebootIfRequired"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port1VlanConf"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port2VlanConf"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port3VlanConf"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port4VlanConf"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port5VlanConf"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port6VlanConf"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port7VlanConf"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port8VlanConf"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port1PwrReset"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port2PwrReset"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port3PwrReset"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port4PwrReset"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port5PwrReset"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port6PwrReset"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port7PwrReset"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "port8PwrReset"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "snmpReadOnly"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "snmpCommunityString"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "snmpAccessSubnet"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "snmpAccessSubnet2"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "snmpAccessSubnet3"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "snmpAccessSubnet4"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "snmpAccessSubnet5"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "snmpAccessSubnet6"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "snmpAccessSubnet7"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "snmpAccessSubnet8"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "snmpAccessSubnet9"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "snmpAccessSubnet10"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "sessionTimeout"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "ipAccessFilterEnable"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "allowedIPAccess1"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "allowedIPAccess2"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "allowedIPAccess3"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "cmm3SnmpGPSSyncTrapEnable"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "siteInfoViewable"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "verifyGPSChecksum"
+      }
+    ],
+    "status": "current"
+  },
+  "cmmStatusGroup": {
+    "name": "cmmStatusGroup",
+    "oid": "1.3.6.1.4.1.161.19.3.4.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CMM3-MIB",
+        "object": "portIndex"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "linkStatus"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "linkSpeed"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "duplexStatus"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "powerStatus"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "uplinkStatus"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "managementStatus"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "deviceType"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "pldVersion"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "softwareVersion"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "systemTime"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "upTime"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "satellitesVisible"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "satellitesTracked"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "latitude"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "longitude"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "height"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "trackingMode"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "syncStatus"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "macAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cmmGPSGroup": {
+    "name": "cmmGPSGroup",
+    "oid": "1.3.6.1.4.1.161.19.3.4.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CMM3-MIB",
+        "object": "gpsTrackingMode"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "gpsTime"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "gpsDate"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "gpsSatellitesVisible"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "gpsSatellitesTracked"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "gpsHeight"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "gpsAntennaConnection"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "gpsLatitude"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "gpsLongitude"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "gpsInvalidMsg"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "gpsRestartCount"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "gpsReceiverInfo"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "gpsReInitCount"
+      }
+    ],
+    "status": "current"
+  },
+  "cmmUserTableGroup": {
+    "name": "cmmUserTableGroup",
+    "oid": "1.3.6.1.4.1.161.19.3.4.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CMM3-MIB",
+        "object": "entryIndex"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "userLoginName"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "userPswd"
+      },
+      {
+        "module": "CMM3-MIB",
+        "object": "accessLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "portMirrorEnable": {
+    "name": "portMirrorEnable",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mirrorCapturePort": {
+    "name": "mirrorCapturePort",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "port1": 1,
+          "port2": 2,
+          "port3": 3,
+          "port4": 4,
+          "port5": 5,
+          "port6": 6,
+          "port7": 7,
+          "port8": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmmSwitchTable": {
+    "name": "cmmSwitchTable",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmmSwitchEntry": {
+    "name": "cmmSwitchEntry",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CMM3-MIB",
+        "object": "mirSrcPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portNumber": {
+    "name": "portNumber",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxDropPkts": {
+    "name": "rxDropPkts",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxOctets": {
+    "name": "rxOctets",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxBroadcastPkts": {
+    "name": "rxBroadcastPkts",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxMulticastPkts": {
+    "name": "rxMulticastPkts",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxSAChanges": {
+    "name": "rxSAChanges",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxUndersizePkts": {
+    "name": "rxUndersizePkts",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxOversizePkts": {
+    "name": "rxOversizePkts",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxFragments": {
+    "name": "rxFragments",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxJabbers": {
+    "name": "rxJabbers",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxUnicastPkts": {
+    "name": "rxUnicastPkts",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxAlignmentErrors": {
+    "name": "rxAlignmentErrors",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxFCSErrors": {
+    "name": "rxFCSErrors",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxGoodOctets": {
+    "name": "rxGoodOctets",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxExcessSizeDisc": {
+    "name": "rxExcessSizeDisc",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxPausePkts": {
+    "name": "rxPausePkts",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxSymbolErrors": {
+    "name": "rxSymbolErrors",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txDropPkts": {
+    "name": "txDropPkts",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txOctets": {
+    "name": "txOctets",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txBroadcastPkts": {
+    "name": "txBroadcastPkts",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txMulticastPkts": {
+    "name": "txMulticastPkts",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txCollisions": {
+    "name": "txCollisions",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txUnicastPkts": {
+    "name": "txUnicastPkts",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txSingleCollision": {
+    "name": "txSingleCollision",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txMultipleCollision": {
+    "name": "txMultipleCollision",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txDeferredTransmit": {
+    "name": "txDeferredTransmit",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txLateCollision": {
+    "name": "txLateCollision",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txExcessiveCollision": {
+    "name": "txExcessiveCollision",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txPausePkts": {
+    "name": "txPausePkts",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txFrameInDisc": {
+    "name": "txFrameInDisc",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pkts64Octets": {
+    "name": "pkts64Octets",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pkts65to127Octets": {
+    "name": "pkts65to127Octets",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pkts128to255Octets": {
+    "name": "pkts128to255Octets",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pkts256to511Octets": {
+    "name": "pkts256to511Octets",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pkts512to1023Octets": {
+    "name": "pkts512to1023Octets",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pkts1024to1522Octets": {
+    "name": "pkts1024to1522Octets",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmSwitchMirrorSrcPortsTable": {
+    "name": "cmmSwitchMirrorSrcPortsTable",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmmSwitchMirrorSrcPortsEntry": {
+    "name": "cmmSwitchMirrorSrcPortsEntry",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CMM3-MIB",
+        "object": "mirSrcPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mirSrcPortNumber": {
+    "name": "mirSrcPortNumber",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mirSrcRxEnable": {
+    "name": "mirSrcRxEnable",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mirSrcTxEnable": {
+    "name": "mirSrcTxEnable",
+    "oid": "1.3.6.1.4.1.161.19.3.4.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gpsTimingPulse": {
+    "name": "gpsTimingPulse",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lan1Ip": {
+    "name": "lan1Ip",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lan1SubnetMask": {
+    "name": "lan1SubnetMask",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "defaultGateway": {
+    "name": "defaultGateway",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port1PowerCtr": {
+    "name": "port1PowerCtr",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port2PowerCtr": {
+    "name": "port2PowerCtr",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port3PowerCtr": {
+    "name": "port3PowerCtr",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port4PowerCtr": {
+    "name": "port4PowerCtr",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port5PowerCtr": {
+    "name": "port5PowerCtr",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port6PowerCtr": {
+    "name": "port6PowerCtr",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port7PowerCtr": {
+    "name": "port7PowerCtr",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port8PowerCtr": {
+    "name": "port8PowerCtr",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "displayOnlyAccess": {
+    "name": "displayOnlyAccess",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "fullAccess": {
+    "name": "fullAccess",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "displayOnlyStatus": {
+    "name": "displayOnlyStatus",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "fullAccessStatus": {
+    "name": "fullAccessStatus",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "webAutoUpdate": {
+    "name": "webAutoUpdate",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port1Config": {
+    "name": "port1Config",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "hundredFDX": 2,
+          "hundredHDX": 3,
+          "tenFDX": 4,
+          "tenHDX": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port2Config": {
+    "name": "port2Config",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "hundredFDX": 2,
+          "hundredHDX": 3,
+          "tenFDX": 4,
+          "tenHDX": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port3Config": {
+    "name": "port3Config",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "hundredFDX": 2,
+          "hundredHDX": 3,
+          "tenFDX": 4,
+          "tenHDX": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port4Config": {
+    "name": "port4Config",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "hundredFDX": 2,
+          "hundredHDX": 3,
+          "tenFDX": 4,
+          "tenHDX": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port5Config": {
+    "name": "port5Config",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "hundredFDX": 2,
+          "hundredHDX": 3,
+          "tenFDX": 4,
+          "tenHDX": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port6Config": {
+    "name": "port6Config",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "hundredFDX": 2,
+          "hundredHDX": 3,
+          "tenFDX": 4,
+          "tenHDX": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port7Config": {
+    "name": "port7Config",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "hundredFDX": 2,
+          "hundredHDX": 3,
+          "tenFDX": 4,
+          "tenHDX": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port8Config": {
+    "name": "port8Config",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "hundredFDX": 2,
+          "hundredHDX": 3,
+          "tenFDX": 4,
+          "tenHDX": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port1Description": {
+    "name": "port1Description",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port2Description": {
+    "name": "port2Description",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port3Description": {
+    "name": "port3Description",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port4Description": {
+    "name": "port4Description",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port5Description": {
+    "name": "port5Description",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port6Description": {
+    "name": "port6Description",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port7Description": {
+    "name": "port7Description",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port8Description": {
+    "name": "port8Description",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpTrap1": {
+    "name": "snmpTrap1",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpTrap2": {
+    "name": "snmpTrap2",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpTrap3": {
+    "name": "snmpTrap3",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpTrap4": {
+    "name": "snmpTrap4",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpTrap5": {
+    "name": "snmpTrap5",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpTrap6": {
+    "name": "snmpTrap6",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpTrap7": {
+    "name": "snmpTrap7",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpTrap8": {
+    "name": "snmpTrap8",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpTrap9": {
+    "name": "snmpTrap9",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpTrap10": {
+    "name": "snmpTrap10",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanTagEnable": {
+    "name": "vlanTagEnable",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanTagId": {
+    "name": "vlanTagId",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port1Uplink": {
+    "name": "port1Uplink",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port2Uplink": {
+    "name": "port2Uplink",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port3Uplink": {
+    "name": "port3Uplink",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port4Uplink": {
+    "name": "port4Uplink",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port5Uplink": {
+    "name": "port5Uplink",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port6Uplink": {
+    "name": "port6Uplink",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port7Uplink": {
+    "name": "port7Uplink",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port8Uplink": {
+    "name": "port8Uplink",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rebootIfRequired": {
+    "name": "rebootIfRequired",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port1VlanConf": {
+    "name": "port1VlanConf",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port2VlanConf": {
+    "name": "port2VlanConf",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port3VlanConf": {
+    "name": "port3VlanConf",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port4VlanConf": {
+    "name": "port4VlanConf",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port5VlanConf": {
+    "name": "port5VlanConf",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port6VlanConf": {
+    "name": "port6VlanConf",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port7VlanConf": {
+    "name": "port7VlanConf",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.61",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port8VlanConf": {
+    "name": "port8VlanConf",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.62",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port1PwrReset": {
+    "name": "port1PwrReset",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.63",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port2PwrReset": {
+    "name": "port2PwrReset",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.64",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port3PwrReset": {
+    "name": "port3PwrReset",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.65",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port4PwrReset": {
+    "name": "port4PwrReset",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.66",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port5PwrReset": {
+    "name": "port5PwrReset",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.67",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port6PwrReset": {
+    "name": "port6PwrReset",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.68",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port7PwrReset": {
+    "name": "port7PwrReset",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.69",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port8PwrReset": {
+    "name": "port8PwrReset",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.70",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpReadOnly": {
+    "name": "snmpReadOnly",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.71",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "readOnlyPermissions": 1,
+          "readWritePermissions": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpCommunityString": {
+    "name": "snmpCommunityString",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.72",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpAccessSubnet": {
+    "name": "snmpAccessSubnet",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.73",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpAccessSubnet2": {
+    "name": "snmpAccessSubnet2",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.74",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpAccessSubnet3": {
+    "name": "snmpAccessSubnet3",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.75",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpAccessSubnet4": {
+    "name": "snmpAccessSubnet4",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.76",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpAccessSubnet5": {
+    "name": "snmpAccessSubnet5",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.77",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpAccessSubnet6": {
+    "name": "snmpAccessSubnet6",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.78",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpAccessSubnet7": {
+    "name": "snmpAccessSubnet7",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.79",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpAccessSubnet8": {
+    "name": "snmpAccessSubnet8",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.80",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpAccessSubnet9": {
+    "name": "snmpAccessSubnet9",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.81",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpAccessSubnet10": {
+    "name": "snmpAccessSubnet10",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.82",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port1Management": {
+    "name": "port1Management",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.83",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port2Management": {
+    "name": "port2Management",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.84",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port3Management": {
+    "name": "port3Management",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.85",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port4Management": {
+    "name": "port4Management",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.86",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port5Management": {
+    "name": "port5Management",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.87",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port6Management": {
+    "name": "port6Management",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.88",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port7Management": {
+    "name": "port7Management",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.89",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port8Management": {
+    "name": "port8Management",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.90",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sessionTimeout": {
+    "name": "sessionTimeout",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.91",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "siteInfoViewable": {
+    "name": "siteInfoViewable",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.92",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipAccessFilterEnable": {
+    "name": "ipAccessFilterEnable",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.93",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "allowedIPAccess1": {
+    "name": "allowedIPAccess1",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.94",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "allowedIPAccess2": {
+    "name": "allowedIPAccess2",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.95",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "allowedIPAccess3": {
+    "name": "allowedIPAccess3",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.96",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "verifyGPSChecksum": {
+    "name": "verifyGPSChecksum",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.97",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "doNotVerifyGPSMessageChecksum": 0,
+          "verifyGPSMessageChecksum": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmm3SnmpGPSSyncTrapEnable": {
+    "name": "cmm3SnmpGPSSyncTrapEnable",
+    "oid": "1.3.6.1.4.1.161.19.3.4.3.98",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "deviceType": {
+    "name": "deviceType",
+    "oid": "1.3.6.1.4.1.161.19.3.4.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pldVersion": {
+    "name": "pldVersion",
+    "oid": "1.3.6.1.4.1.161.19.3.4.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareVersion": {
+    "name": "softwareVersion",
+    "oid": "1.3.6.1.4.1.161.19.3.4.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemTime": {
+    "name": "systemTime",
+    "oid": "1.3.6.1.4.1.161.19.3.4.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upTime": {
+    "name": "upTime",
+    "oid": "1.3.6.1.4.1.161.19.3.4.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satellitesVisible": {
+    "name": "satellitesVisible",
+    "oid": "1.3.6.1.4.1.161.19.3.4.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satellitesTracked": {
+    "name": "satellitesTracked",
+    "oid": "1.3.6.1.4.1.161.19.3.4.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "latitude": {
+    "name": "latitude",
+    "oid": "1.3.6.1.4.1.161.19.3.4.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "longitude": {
+    "name": "longitude",
+    "oid": "1.3.6.1.4.1.161.19.3.4.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "height": {
+    "name": "height",
+    "oid": "1.3.6.1.4.1.161.19.3.4.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trackingMode": {
+    "name": "trackingMode",
+    "oid": "1.3.6.1.4.1.161.19.3.4.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syncStatus": {
+    "name": "syncStatus",
+    "oid": "1.3.6.1.4.1.161.19.3.4.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "macAddress": {
+    "name": "macAddress",
+    "oid": "1.3.6.1.4.1.161.19.3.4.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmPortTable": {
+    "name": "cmmPortTable",
+    "oid": "1.3.6.1.4.1.161.19.3.4.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmmPortEntry": {
+    "name": "cmmPortEntry",
+    "oid": "1.3.6.1.4.1.161.19.3.4.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CMM3-MIB",
+        "object": "portIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portIndex": {
+    "name": "portIndex",
+    "oid": "1.3.6.1.4.1.161.19.3.4.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkStatus": {
+    "name": "linkStatus",
+    "oid": "1.3.6.1.4.1.161.19.3.4.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkSpeed": {
+    "name": "linkSpeed",
+    "oid": "1.3.6.1.4.1.161.19.3.4.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hundredBaseT": 1,
+          "tenBaseT": 0
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "duplexStatus": {
+    "name": "duplexStatus",
+    "oid": "1.3.6.1.4.1.161.19.3.4.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fullDuplex": 1,
+          "halfDuplex": 0
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerStatus": {
+    "name": "powerStatus",
+    "oid": "1.3.6.1.4.1.161.19.3.4.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "uplinkStatus": {
+    "name": "uplinkStatus",
+    "oid": "1.3.6.1.4.1.161.19.3.4.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "managementStatus": {
+    "name": "managementStatus",
+    "oid": "1.3.6.1.4.1.161.19.3.4.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsTrackingMode": {
+    "name": "gpsTrackingMode",
+    "oid": "1.3.6.1.4.1.161.19.3.4.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsTime": {
+    "name": "gpsTime",
+    "oid": "1.3.6.1.4.1.161.19.3.4.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsDate": {
+    "name": "gpsDate",
+    "oid": "1.3.6.1.4.1.161.19.3.4.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsSatellitesVisible": {
+    "name": "gpsSatellitesVisible",
+    "oid": "1.3.6.1.4.1.161.19.3.4.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsSatellitesTracked": {
+    "name": "gpsSatellitesTracked",
+    "oid": "1.3.6.1.4.1.161.19.3.4.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsHeight": {
+    "name": "gpsHeight",
+    "oid": "1.3.6.1.4.1.161.19.3.4.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsAntennaConnection": {
+    "name": "gpsAntennaConnection",
+    "oid": "1.3.6.1.4.1.161.19.3.4.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsLatitude": {
+    "name": "gpsLatitude",
+    "oid": "1.3.6.1.4.1.161.19.3.4.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsLongitude": {
+    "name": "gpsLongitude",
+    "oid": "1.3.6.1.4.1.161.19.3.4.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsInvalidMsg": {
+    "name": "gpsInvalidMsg",
+    "oid": "1.3.6.1.4.1.161.19.3.4.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsRestartCount": {
+    "name": "gpsRestartCount",
+    "oid": "1.3.6.1.4.1.161.19.3.4.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsReceiverInfo": {
+    "name": "gpsReceiverInfo",
+    "oid": "1.3.6.1.4.1.161.19.3.4.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsReInitCount": {
+    "name": "gpsReInitCount",
+    "oid": "1.3.6.1.4.1.161.19.3.4.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventLog": {
+    "name": "eventLog",
+    "oid": "1.3.6.1.4.1.161.19.3.4.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EventString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpLog": {
+    "name": "ntpLog",
+    "oid": "1.3.6.1.4.1.161.19.3.4.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EventString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reboot": {
+    "name": "reboot",
+    "oid": "1.3.6.1.4.1.161.19.3.4.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reboot": 1,
+          "finishedReboot": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clearEventLog": {
+    "name": "clearEventLog",
+    "oid": "1.3.6.1.4.1.161.19.3.4.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "notClear": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmmUserTable": {
+    "name": "cmmUserTable",
+    "oid": "1.3.6.1.4.1.161.19.3.4.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmmUserEntry": {
+    "name": "cmmUserEntry",
+    "oid": "1.3.6.1.4.1.161.19.3.4.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CMM3-MIB",
+        "object": "entryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "entryIndex": {
+    "name": "entryIndex",
+    "oid": "1.3.6.1.4.1.161.19.3.4.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "userLoginName": {
+    "name": "userLoginName",
+    "oid": "1.3.6.1.4.1.161.19.3.4.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "userPswd": {
+    "name": "userPswd",
+    "oid": "1.3.6.1.4.1.161.19.3.4.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "accessLevel": {
+    "name": "accessLevel",
+    "oid": "1.3.6.1.4.1.161.19.3.4.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAdmin": 0,
+          "guest": 1,
+          "installer": 2,
+          "administrator": 3,
+          "technician": 4,
+          "engineering": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cambium/CMM3-MIB.txt",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:20:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CMM3-MIB"
+  }
+}

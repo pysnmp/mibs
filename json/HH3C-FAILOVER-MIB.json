@@ -1,0 +1,455 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cFailover": {
+    "name": "hh3cFailover",
+    "oid": "1.3.6.1.4.1.25506.2.164",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-10-27 10:40",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hh3cFailoverScalarObjects": {
+    "name": "hh3cFailoverScalarObjects",
+    "oid": "1.3.6.1.4.1.25506.2.164.1",
+    "class": "objectidentity"
+  },
+  "hh3cFailoverMaxNum": {
+    "name": "hh3cFailoverMaxNum",
+    "oid": "1.3.6.1.4.1.25506.2.164.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFailoverCurrentNum": {
+    "name": "hh3cFailoverCurrentNum",
+    "oid": "1.3.6.1.4.1.25506.2.164.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFailoverTables": {
+    "name": "hh3cFailoverTables",
+    "oid": "1.3.6.1.4.1.25506.2.164.2",
+    "class": "objectidentity"
+  },
+  "hh3cFailoverCfgTable": {
+    "name": "hh3cFailoverCfgTable",
+    "oid": "1.3.6.1.4.1.25506.2.164.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFailoverCfgEntry": {
+    "name": "hh3cFailoverCfgEntry",
+    "oid": "1.3.6.1.4.1.25506.2.164.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFailoverIndex": {
+    "name": "hh3cFailoverIndex",
+    "oid": "1.3.6.1.4.1.25506.2.164.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cFailoverName": {
+    "name": "hh3cFailoverName",
+    "oid": "1.3.6.1.4.1.25506.2.164.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFailoverPrimaryChassisID": {
+    "name": "hh3cFailoverPrimaryChassisID",
+    "oid": "1.3.6.1.4.1.25506.2.164.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFailoverPrimarySlotID": {
+    "name": "hh3cFailoverPrimarySlotID",
+    "oid": "1.3.6.1.4.1.25506.2.164.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFailoverPrimaryCpuID": {
+    "name": "hh3cFailoverPrimaryCpuID",
+    "oid": "1.3.6.1.4.1.25506.2.164.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFailoverSecondaryChassisID": {
+    "name": "hh3cFailoverSecondaryChassisID",
+    "oid": "1.3.6.1.4.1.25506.2.164.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFailoverSecondarySlotID": {
+    "name": "hh3cFailoverSecondarySlotID",
+    "oid": "1.3.6.1.4.1.25506.2.164.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFailoverSecondaryCpuID": {
+    "name": "hh3cFailoverSecondaryCpuID",
+    "oid": "1.3.6.1.4.1.25506.2.164.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFailoverState": {
+    "name": "hh3cFailoverState",
+    "oid": "1.3.6.1.4.1.25506.2.164.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initial": 1,
+          "normal": 2,
+          "fault": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFailoverRowStatus": {
+    "name": "hh3cFailoverRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.164.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFailoverNotification": {
+    "name": "hh3cFailoverNotification",
+    "oid": "1.3.6.1.4.1.25506.2.164.3",
+    "class": "objectidentity"
+  },
+  "hh3cFailoverTrap": {
+    "name": "hh3cFailoverTrap",
+    "oid": "1.3.6.1.4.1.25506.2.164.3.0",
+    "class": "objectidentity"
+  },
+  "hh3cFailoverCreate": {
+    "name": "hh3cFailoverCreate",
+    "oid": "1.3.6.1.4.1.25506.2.164.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverIndex"
+      },
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFailoverDelete": {
+    "name": "hh3cFailoverDelete",
+    "oid": "1.3.6.1.4.1.25506.2.164.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverIndex"
+      },
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFailoverPrimaryNodeAdd": {
+    "name": "hh3cFailoverPrimaryNodeAdd",
+    "oid": "1.3.6.1.4.1.25506.2.164.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverIndex"
+      },
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverName"
+      },
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverPrimaryChassisID"
+      },
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverPrimarySlotID"
+      },
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverPrimaryCpuID"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFailoverPrimaryNodeRemove": {
+    "name": "hh3cFailoverPrimaryNodeRemove",
+    "oid": "1.3.6.1.4.1.25506.2.164.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverIndex"
+      },
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverName"
+      },
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverPrimaryChassisID"
+      },
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverPrimarySlotID"
+      },
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverPrimaryCpuID"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFailoverSecondaryNodeAdd": {
+    "name": "hh3cFailoverSecondaryNodeAdd",
+    "oid": "1.3.6.1.4.1.25506.2.164.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverIndex"
+      },
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverName"
+      },
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverSecondaryChassisID"
+      },
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverSecondarySlotID"
+      },
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverSecondaryCpuID"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFailoverSecondaryNodeRemove": {
+    "name": "hh3cFailoverSecondaryNodeRemove",
+    "oid": "1.3.6.1.4.1.25506.2.164.3.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverIndex"
+      },
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverName"
+      },
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverSecondaryChassisID"
+      },
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverSecondarySlotID"
+      },
+      {
+        "module": "HH3C-FAILOVER-MIB",
+        "object": "hh3cFailoverSecondaryCpuID"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-FAILOVER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-FAILOVER-MIB"
+  }
+}

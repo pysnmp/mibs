@@ -1,0 +1,1444 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-ENTITY-FRU-CONTROL-MIB": [
+      "ModuleOperType"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "EntPhysicalIndexOrZero"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoCryptoAcceleratorMIB": {
+    "name": "ciscoCryptoAcceleratorMIB",
+    "oid": "1.3.6.1.4.1.9.9.467",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-03-08 00:00",
+        "description": "Initial version of this module."
+      }
+    ]
+  },
+  "CAModuleType": {
+    "name": "CAModuleType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "software": 2,
+          "integrated": 3,
+          "sep": 4,
+          "sepe": 5,
+          "a1700VpnModule": 6,
+          "aimVpnIBp": 7,
+          "aimVpnIEp": 8,
+          "aimVpnIIBp": 9,
+          "aimVpnIIEp": 10,
+          "aimVpnIIHp": 11,
+          "isa": 12,
+          "vam": 13,
+          "vam2": 14,
+          "vam2plus": 15,
+          "vpnsm": 16,
+          "caviumNitrox": 17,
+          "caviumNitroxII": 18,
+          "caviumNitroxLite": 19
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CAModuleCount": {
+    "name": "CAModuleCount",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "CAProtocolType": {
+    "name": "CAProtocolType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ikev1": 2,
+          "ikev2": 3,
+          "ipsec": 4,
+          "ssl": 5,
+          "ssh": 6,
+          "srtp": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoCryAcceleratorMIBNotifs": {
+    "name": "ciscoCryAcceleratorMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.467.0",
+    "class": "objectidentity"
+  },
+  "ciscoCryAcceleratorMIBObjects": {
+    "name": "ciscoCryAcceleratorMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.467.1",
+    "class": "objectidentity"
+  },
+  "ciscoCryAccleratorMIBConform": {
+    "name": "ciscoCryAccleratorMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.467.2",
+    "class": "objectidentity"
+  },
+  "ccaCapability": {
+    "name": "ccaCapability",
+    "oid": "1.3.6.1.4.1.9.9.467.1.1",
+    "class": "objectidentity"
+  },
+  "ccaActivity": {
+    "name": "ccaActivity",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2",
+    "class": "objectidentity"
+  },
+  "ccaGlobalStats": {
+    "name": "ccaGlobalStats",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.1",
+    "class": "objectidentity"
+  },
+  "ccaProtocolActivity": {
+    "name": "ccaProtocolActivity",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.3",
+    "class": "objectidentity"
+  },
+  "ccaAcNotifCntl": {
+    "name": "ccaAcNotifCntl",
+    "oid": "1.3.6.1.4.1.9.9.467.1.3",
+    "class": "objectidentity"
+  },
+  "ccaSupportsHwCrypto": {
+    "name": "ccaSupportsHwCrypto",
+    "oid": "1.3.6.1.4.1.9.9.467.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaSupportsModularHwCrypto": {
+    "name": "ccaSupportsModularHwCrypto",
+    "oid": "1.3.6.1.4.1.9.9.467.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaMaxAccelerators": {
+    "name": "ccaMaxAccelerators",
+    "oid": "1.3.6.1.4.1.9.9.467.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaMaxCryptoThroughput": {
+    "name": "ccaMaxCryptoThroughput",
+    "oid": "1.3.6.1.4.1.9.9.467.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "megabits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaMaxCryptoConnections": {
+    "name": "ccaMaxCryptoConnections",
+    "oid": "1.3.6.1.4.1.9.9.467.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaGlobalNumActiveAccelerators": {
+    "name": "ccaGlobalNumActiveAccelerators",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CAModuleCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaGlobalNumNonOperAccelerators": {
+    "name": "ccaGlobalNumNonOperAccelerators",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CAModuleCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaGlobalInOctets": {
+    "name": "ccaGlobalInOctets",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaGlobalOutOctets": {
+    "name": "ccaGlobalOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaGlobalInPkts": {
+    "name": "ccaGlobalInPkts",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaGlobalOutPkts": {
+    "name": "ccaGlobalOutPkts",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaGlobalOutErrPkts": {
+    "name": "ccaGlobalOutErrPkts",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcceleratorTable": {
+    "name": "ccaAcceleratorTable",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccaAcceleratorEntry": {
+    "name": "ccaAcceleratorEntry",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccaAcclIndex": {
+    "name": "ccaAcclIndex",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccaAcclEntPhysicalIndex": {
+    "name": "ccaAcclEntPhysicalIndex",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclStatus": {
+    "name": "ccaAcclStatus",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleOperType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclType": {
+    "name": "ccaAcclType",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CAModuleType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclVersion": {
+    "name": "ccaAcclVersion",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclSlot": {
+    "name": "ccaAcclSlot",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclActiveTime": {
+    "name": "ccaAcclActiveTime",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclInPkts": {
+    "name": "ccaAcclInPkts",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclOutPkts": {
+    "name": "ccaAcclOutPkts",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclOutBadPkts": {
+    "name": "ccaAcclOutBadPkts",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclInOctets": {
+    "name": "ccaAcclInOctets",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclOutOctets": {
+    "name": "ccaAcclOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclHashOutboundPkts": {
+    "name": "ccaAcclHashOutboundPkts",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclHashOutboundOctets": {
+    "name": "ccaAcclHashOutboundOctets",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclHashInboundPkts": {
+    "name": "ccaAcclHashInboundPkts",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclHashInboundOctets": {
+    "name": "ccaAcclHashInboundOctets",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclEncryptPkts": {
+    "name": "ccaAcclEncryptPkts",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclEncryptOctets": {
+    "name": "ccaAcclEncryptOctets",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclDecryptPkts": {
+    "name": "ccaAcclDecryptPkts",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclDecryptOctets": {
+    "name": "ccaAcclDecryptOctets",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclTransformsTotal": {
+    "name": "ccaAcclTransformsTotal",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclDropsPkts": {
+    "name": "ccaAcclDropsPkts",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclRandRequests": {
+    "name": "ccaAcclRandRequests",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclRandReqFails": {
+    "name": "ccaAcclRandReqFails",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclDHKeysGenerated": {
+    "name": "ccaAcclDHKeysGenerated",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclDHDerivedSecretKeys": {
+    "name": "ccaAcclDHDerivedSecretKeys",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclRSAKeysGenerated": {
+    "name": "ccaAcclRSAKeysGenerated",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclRSASignings": {
+    "name": "ccaAcclRSASignings",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclRSAVerifications": {
+    "name": "ccaAcclRSAVerifications",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclRSAEncryptPkts": {
+    "name": "ccaAcclRSAEncryptPkts",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclRSAEncryptOctets": {
+    "name": "ccaAcclRSAEncryptOctets",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclRSADecryptPkts": {
+    "name": "ccaAcclRSADecryptPkts",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclRSADecryptOctets": {
+    "name": "ccaAcclRSADecryptOctets",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclDSAKeysGenerated": {
+    "name": "ccaAcclDSAKeysGenerated",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclDSASignings": {
+    "name": "ccaAcclDSASignings",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclDSAVerifications": {
+    "name": "ccaAcclDSAVerifications",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclOutboundSSLRecords": {
+    "name": "ccaAcclOutboundSSLRecords",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaAcclInboundSSLRecords": {
+    "name": "ccaAcclInboundSSLRecords",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaProtocolStatsTable": {
+    "name": "ccaProtocolStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccaProtocolStatsEntry": {
+    "name": "ccaProtocolStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaProtId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccaProtId": {
+    "name": "ccaProtId",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CAProtocolType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccaProtPktEncryptsReqs": {
+    "name": "ccaProtPktEncryptsReqs",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaProtPktDecryptsReqs": {
+    "name": "ccaProtPktDecryptsReqs",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaProtHmacCalcReqs": {
+    "name": "ccaProtHmacCalcReqs",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaProtSaCreateReqs": {
+    "name": "ccaProtSaCreateReqs",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaProtSaRekeyReqs": {
+    "name": "ccaProtSaRekeyReqs",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaProtSaDeleteReqs": {
+    "name": "ccaProtSaDeleteReqs",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaProtPktEncapReqs": {
+    "name": "ccaProtPktEncapReqs",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaProtPktDecapReqs": {
+    "name": "ccaProtPktDecapReqs",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaProtNextPhaseKeyAllocReqs": {
+    "name": "ccaProtNextPhaseKeyAllocReqs",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaProtRndGenReqs": {
+    "name": "ccaProtRndGenReqs",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaProtFailedReqs": {
+    "name": "ccaProtFailedReqs",
+    "oid": "1.3.6.1.4.1.9.9.467.1.2.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccaNotifCntlAcclInserted": {
+    "name": "ccaNotifCntlAcclInserted",
+    "oid": "1.3.6.1.4.1.9.9.467.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccaNotifCntlAcclRemoved": {
+    "name": "ccaNotifCntlAcclRemoved",
+    "oid": "1.3.6.1.4.1.9.9.467.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccaNotifCntlAcclOperational": {
+    "name": "ccaNotifCntlAcclOperational",
+    "oid": "1.3.6.1.4.1.9.9.467.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccaNotifCntlAcclDisabled": {
+    "name": "ccaNotifCntlAcclDisabled",
+    "oid": "1.3.6.1.4.1.9.9.467.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoCryAccelInserted": {
+    "name": "ciscoCryAccelInserted",
+    "oid": "1.3.6.1.4.1.9.9.467.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclSlot"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCryAccelRemoved": {
+    "name": "ciscoCryAccelRemoved",
+    "oid": "1.3.6.1.4.1.9.9.467.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclSlot"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCryAccelOperational": {
+    "name": "ciscoCryAccelOperational",
+    "oid": "1.3.6.1.4.1.9.9.467.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclSlot"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCryAccelDisabled": {
+    "name": "ciscoCryAccelDisabled",
+    "oid": "1.3.6.1.4.1.9.9.467.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclSlot"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclStatus"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclActiveTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCryAccelMIBCompliances": {
+    "name": "ciscoCryAccelMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.467.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoCryAccelMIBGroups": {
+    "name": "ciscoCryAccelMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.467.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoCryAccelMIBCompliance": {
+    "name": "ciscoCryAccelMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.467.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCryAccCapacityGroup",
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB"
+      },
+      {
+        "object": "ciscoCryAccSummaryActivityGroup",
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB"
+      },
+      {
+        "object": "ciscoCryAccModuleActivityGroup",
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB"
+      },
+      {
+        "object": "ciscoCryAccProtocolActivityGroup",
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB"
+      },
+      {
+        "object": "ciscoCryAccNotifsGroup",
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB"
+      },
+      {
+        "object": "ciscoCryAccNotifsCntlGroup",
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCryAccCapacityGroup": {
+    "name": "ciscoCryAccCapacityGroup",
+    "oid": "1.3.6.1.4.1.9.9.467.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaSupportsHwCrypto"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaSupportsModularHwCrypto"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaMaxAccelerators"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaMaxCryptoThroughput"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaMaxCryptoConnections"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCryAccSummaryActivityGroup": {
+    "name": "ciscoCryAccSummaryActivityGroup",
+    "oid": "1.3.6.1.4.1.9.9.467.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaGlobalNumActiveAccelerators"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaGlobalNumNonOperAccelerators"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaGlobalInOctets"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaGlobalOutOctets"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaGlobalInPkts"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaGlobalOutPkts"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaGlobalOutErrPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCryAccModuleActivityGroup": {
+    "name": "ciscoCryAccModuleActivityGroup",
+    "oid": "1.3.6.1.4.1.9.9.467.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclEntPhysicalIndex"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclStatus"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclType"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclVersion"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclSlot"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclActiveTime"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclInPkts"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclOutPkts"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclOutBadPkts"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclInOctets"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclOutOctets"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclHashOutboundPkts"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclHashOutboundOctets"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclHashInboundPkts"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclHashInboundOctets"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclEncryptPkts"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclEncryptOctets"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclDecryptPkts"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclDecryptOctets"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclTransformsTotal"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclDropsPkts"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclRandRequests"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclRandReqFails"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclDHKeysGenerated"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclDHDerivedSecretKeys"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclRSAKeysGenerated"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclRSASignings"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclRSAVerifications"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclRSAEncryptPkts"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclRSAEncryptOctets"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclRSADecryptPkts"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclRSADecryptOctets"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclDSAKeysGenerated"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclDSASignings"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclDSAVerifications"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclOutboundSSLRecords"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaAcclInboundSSLRecords"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCryAccProtocolActivityGroup": {
+    "name": "ciscoCryAccProtocolActivityGroup",
+    "oid": "1.3.6.1.4.1.9.9.467.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaProtPktEncryptsReqs"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaProtPktDecryptsReqs"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaProtHmacCalcReqs"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaProtSaCreateReqs"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaProtSaRekeyReqs"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaProtSaDeleteReqs"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaProtPktEncapReqs"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaProtPktDecapReqs"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaProtNextPhaseKeyAllocReqs"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaProtRndGenReqs"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaProtFailedReqs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCryAccNotifsCntlGroup": {
+    "name": "ciscoCryAccNotifsCntlGroup",
+    "oid": "1.3.6.1.4.1.9.9.467.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaNotifCntlAcclInserted"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaNotifCntlAcclRemoved"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaNotifCntlAcclOperational"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ccaNotifCntlAcclDisabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCryAccNotifsGroup": {
+    "name": "ciscoCryAccNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.467.2.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ciscoCryAccelInserted"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ciscoCryAccelRemoved"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ciscoCryAccelOperational"
+      },
+      {
+        "module": "CISCO-CRYPTO-ACCELERATOR-MIB",
+        "object": "ciscoCryAccelDisabled"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CRYPTO-ACCELERATOR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CRYPTO-ACCELERATOR-MIB"
+  }
+}

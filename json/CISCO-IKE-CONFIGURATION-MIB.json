@@ -1,0 +1,1338 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-IPSEC-TC": [
+      "CIPsecPhase1PeerIdentityType",
+      "CIPsecIkeAuthMethod",
+      "CIKEIsakmpDoi",
+      "CIPsecControlProtocol",
+      "CIPsecDiffHellmanGrp",
+      "CIPsecIkePRFAlgorithm",
+      "CIKELifetime",
+      "CIPsecIkeHashAlgorithm",
+      "CIKELifesize",
+      "CIPsecEncryptAlgorithm"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress",
+      "InetAddressPrefixLength"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoIkeConfigMIB": {
+    "name": "ciscoIkeConfigMIB",
+    "oid": "1.3.6.1.4.1.9.9.423",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-09-16 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cicIkeConfigMIBNotifs": {
+    "name": "cicIkeConfigMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.423.0",
+    "class": "objectidentity"
+  },
+  "cicIkeConfigMIBObjects": {
+    "name": "cicIkeConfigMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.423.1",
+    "class": "objectidentity"
+  },
+  "cicIkeConfigMIBConform": {
+    "name": "cicIkeConfigMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.423.2",
+    "class": "objectidentity"
+  },
+  "cicIkeCfgOperations": {
+    "name": "cicIkeCfgOperations",
+    "oid": "1.3.6.1.4.1.9.9.423.1.1",
+    "class": "objectidentity"
+  },
+  "cicIkeCfgIdentities": {
+    "name": "cicIkeCfgIdentities",
+    "oid": "1.3.6.1.4.1.9.9.423.1.2",
+    "class": "objectidentity"
+  },
+  "cicIkeCfgFailureRecovery": {
+    "name": "cicIkeCfgFailureRecovery",
+    "oid": "1.3.6.1.4.1.9.9.423.1.3",
+    "class": "objectidentity"
+  },
+  "cicIkeCfgPeerAuth": {
+    "name": "cicIkeCfgPeerAuth",
+    "oid": "1.3.6.1.4.1.9.9.423.1.4",
+    "class": "objectidentity"
+  },
+  "cicIkeCfgPskAuthConfig": {
+    "name": "cicIkeCfgPskAuthConfig",
+    "oid": "1.3.6.1.4.1.9.9.423.1.4.1",
+    "class": "objectidentity"
+  },
+  "cicIkeCfgNonceAuthConfig": {
+    "name": "cicIkeCfgNonceAuthConfig",
+    "oid": "1.3.6.1.4.1.9.9.423.1.4.2",
+    "class": "objectidentity"
+  },
+  "cicIkeCfgPkiAuthConfig": {
+    "name": "cicIkeCfgPkiAuthConfig",
+    "oid": "1.3.6.1.4.1.9.9.423.1.4.3",
+    "class": "objectidentity"
+  },
+  "cicIkeCfgPolicies": {
+    "name": "cicIkeCfgPolicies",
+    "oid": "1.3.6.1.4.1.9.9.423.1.5",
+    "class": "objectidentity"
+  },
+  "cicIkeCfgServiceControl": {
+    "name": "cicIkeCfgServiceControl",
+    "oid": "1.3.6.1.4.1.9.9.423.1.6",
+    "class": "objectidentity"
+  },
+  "cicIkeCfgCallAdmssionnCtrl": {
+    "name": "cicIkeCfgCallAdmssionnCtrl",
+    "oid": "1.3.6.1.4.1.9.9.423.1.6.1",
+    "class": "objectidentity"
+  },
+  "cicIkeCfgQoSControl": {
+    "name": "cicIkeCfgQoSControl",
+    "oid": "1.3.6.1.4.1.9.9.423.1.6.2",
+    "class": "objectidentity"
+  },
+  "cicIkeConfigMibNotifCntl": {
+    "name": "cicIkeConfigMibNotifCntl",
+    "oid": "1.3.6.1.4.1.9.9.423.1.7",
+    "class": "objectidentity"
+  },
+  "CicIkeConfigPskIndex": {
+    "name": "CicIkeConfigPskIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CicIkeConfigInitiatorIndex": {
+    "name": "CicIkeConfigInitiatorIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cicIkeEnabled": {
+    "name": "cicIkeEnabled",
+    "oid": "1.3.6.1.4.1.9.9.423.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cicIkeAggressModeEnabled": {
+    "name": "cicIkeAggressModeEnabled",
+    "oid": "1.3.6.1.4.1.9.9.423.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cicIkeCfgIdentityTable": {
+    "name": "cicIkeCfgIdentityTable",
+    "oid": "1.3.6.1.4.1.9.9.423.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cicIkeCfgIdentityEntry": {
+    "name": "cicIkeCfgIdentityEntry",
+    "oid": "1.3.6.1.4.1.9.9.423.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgIdentityDoi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cicIkeCfgIdentityDoi": {
+    "name": "cicIkeCfgIdentityDoi",
+    "oid": "1.3.6.1.4.1.9.9.423.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIKEIsakmpDoi",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cicIkeCfgIdentityType": {
+    "name": "cicIkeCfgIdentityType",
+    "oid": "1.3.6.1.4.1.9.9.423.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIPsecPhase1PeerIdentityType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cicIkeCfgInitiatorNextAvailTable": {
+    "name": "cicIkeCfgInitiatorNextAvailTable",
+    "oid": "1.3.6.1.4.1.9.9.423.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cicIkeCfgInitiatorNextAvailEntry": {
+    "name": "cicIkeCfgInitiatorNextAvailEntry",
+    "oid": "1.3.6.1.4.1.9.9.423.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cicIkeCfgInitiatorNextAvailEntry",
+      "module": "CISCO-IKE-CONFIGURATION-MIB",
+      "object": "cicIkeCfgIdentityEntry"
+    },
+    "status": "current"
+  },
+  "cicIkeCfgInitiatorNextAvailIndex": {
+    "name": "cicIkeCfgInitiatorNextAvailIndex",
+    "oid": "1.3.6.1.4.1.9.9.423.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CicIkeConfigInitiatorIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cicIkeCfgInitiatorTable": {
+    "name": "cicIkeCfgInitiatorTable",
+    "oid": "1.3.6.1.4.1.9.9.423.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cicIkeCfgInitiatorEntry": {
+    "name": "cicIkeCfgInitiatorEntry",
+    "oid": "1.3.6.1.4.1.9.9.423.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgIdentityDoi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgInitiatorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cicIkeCfgInitiatorIndex": {
+    "name": "cicIkeCfgInitiatorIndex",
+    "oid": "1.3.6.1.4.1.9.9.423.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CicIkeConfigInitiatorIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cicIkeCfgInitiatorPAddrType": {
+    "name": "cicIkeCfgInitiatorPAddrType",
+    "oid": "1.3.6.1.4.1.9.9.423.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIPsecPhase1PeerIdentityType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cicIkeCfgInitiatorPAddr": {
+    "name": "cicIkeCfgInitiatorPAddr",
+    "oid": "1.3.6.1.4.1.9.9.423.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cicIkeCfgInitiatorVer": {
+    "name": "cicIkeCfgInitiatorVer",
+    "oid": "1.3.6.1.4.1.9.9.423.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIPsecControlProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cicIkeCfgInitiatorStatus": {
+    "name": "cicIkeCfgInitiatorStatus",
+    "oid": "1.3.6.1.4.1.9.9.423.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cicIkeCfgFailureRecovConfigTable": {
+    "name": "cicIkeCfgFailureRecovConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.423.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cicIkeCfgFailureRecovConfigEntry": {
+    "name": "cicIkeCfgFailureRecovConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.423.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cicIkeCfgFailureRecovConfigEntry",
+      "module": "CISCO-IKE-CONFIGURATION-MIB",
+      "object": "cicIkeCfgIdentityEntry"
+    },
+    "status": "current"
+  },
+  "cicIkeKeepAliveEnabled": {
+    "name": "cicIkeKeepAliveEnabled",
+    "oid": "1.3.6.1.4.1.9.9.423.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cicIkeKeepAliveType": {
+    "name": "cicIkeKeepAliveType",
+    "oid": "1.3.6.1.4.1.9.9.423.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "periodic": 2,
+          "ondemand": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cicIkeKeepAliveInterval": {
+    "name": "cicIkeKeepAliveInterval",
+    "oid": "1.3.6.1.4.1.9.9.423.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cicIkeKeepAliveRetryInterval": {
+    "name": "cicIkeKeepAliveRetryInterval",
+    "oid": "1.3.6.1.4.1.9.9.423.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cicIkeInvalidSpiNotify": {
+    "name": "cicIkeInvalidSpiNotify",
+    "oid": "1.3.6.1.4.1.9.9.423.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cicIkeCfgPskNextAvailTable": {
+    "name": "cicIkeCfgPskNextAvailTable",
+    "oid": "1.3.6.1.4.1.9.9.423.1.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cicIkeCfgPskNextAvailEntry": {
+    "name": "cicIkeCfgPskNextAvailEntry",
+    "oid": "1.3.6.1.4.1.9.9.423.1.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cicIkeCfgPskNextAvailEntry",
+      "module": "CISCO-IKE-CONFIGURATION-MIB",
+      "object": "cicIkeCfgIdentityEntry"
+    },
+    "status": "current"
+  },
+  "cicIkeCfgPskNextAvailIndex": {
+    "name": "cicIkeCfgPskNextAvailIndex",
+    "oid": "1.3.6.1.4.1.9.9.423.1.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CicIkeConfigPskIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cicIkeCfgPskTable": {
+    "name": "cicIkeCfgPskTable",
+    "oid": "1.3.6.1.4.1.9.9.423.1.4.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cicIkeCfgPskEntry": {
+    "name": "cicIkeCfgPskEntry",
+    "oid": "1.3.6.1.4.1.9.9.423.1.4.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgIdentityDoi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPskIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cicIkeCfgPskIndex": {
+    "name": "cicIkeCfgPskIndex",
+    "oid": "1.3.6.1.4.1.9.9.423.1.4.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CicIkeConfigPskIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cicIkeCfgPskKey": {
+    "name": "cicIkeCfgPskKey",
+    "oid": "1.3.6.1.4.1.9.9.423.1.4.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cicIkeCfgPskRemIdentType": {
+    "name": "cicIkeCfgPskRemIdentType",
+    "oid": "1.3.6.1.4.1.9.9.423.1.4.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIPsecPhase1PeerIdentityType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cicIkeCfgPskRemIdentTypeStand": {
+    "name": "cicIkeCfgPskRemIdentTypeStand",
+    "oid": "1.3.6.1.4.1.9.9.423.1.4.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cicIkeCfgPskRemIdentity": {
+    "name": "cicIkeCfgPskRemIdentity",
+    "oid": "1.3.6.1.4.1.9.9.423.1.4.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cicIkeCfgPskRemIdAddrOrRg1OrSn": {
+    "name": "cicIkeCfgPskRemIdAddrOrRg1OrSn",
+    "oid": "1.3.6.1.4.1.9.9.423.1.4.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cicIkeCfgPskRemIdAddrRange2": {
+    "name": "cicIkeCfgPskRemIdAddrRange2",
+    "oid": "1.3.6.1.4.1.9.9.423.1.4.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cicIkeCfgPskRemIdSubnetMask": {
+    "name": "cicIkeCfgPskRemIdSubnetMask",
+    "oid": "1.3.6.1.4.1.9.9.423.1.4.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cicIkeCfgPskStatus": {
+    "name": "cicIkeCfgPskStatus",
+    "oid": "1.3.6.1.4.1.9.9.423.1.4.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cicIkeCfgPolicyTable": {
+    "name": "cicIkeCfgPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.423.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cicIkeCfgPolicyEntry": {
+    "name": "cicIkeCfgPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.423.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgIdentityDoi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPolicyPriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cicIkeCfgPolicyPriority": {
+    "name": "cicIkeCfgPolicyPriority",
+    "oid": "1.3.6.1.4.1.9.9.423.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cicIkeCfgPolicyEncr": {
+    "name": "cicIkeCfgPolicyEncr",
+    "oid": "1.3.6.1.4.1.9.9.423.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIPsecEncryptAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "esp3des",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cicIkeCfgPolicyHash": {
+    "name": "cicIkeCfgPolicyHash",
+    "oid": "1.3.6.1.4.1.9.9.423.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIPsecIkeHashAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "sha",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cicIkeCfgPolicyPRF": {
+    "name": "cicIkeCfgPolicyPRF",
+    "oid": "1.3.6.1.4.1.9.9.423.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIPsecIkePRFAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "prfHmacSha1",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cicIkeCfgPolicyAuth": {
+    "name": "cicIkeCfgPolicyAuth",
+    "oid": "1.3.6.1.4.1.9.9.423.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIPsecIkeAuthMethod",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "preSharedKey",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cicIkeCfgPolicyDHGroup": {
+    "name": "cicIkeCfgPolicyDHGroup",
+    "oid": "1.3.6.1.4.1.9.9.423.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIPsecDiffHellmanGrp",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "modp1024",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cicIkeCfgPolicyLifetime": {
+    "name": "cicIkeCfgPolicyLifetime",
+    "oid": "1.3.6.1.4.1.9.9.423.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIKELifetime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 86400,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cicIkeCfgPolicyLifesize": {
+    "name": "cicIkeCfgPolicyLifesize",
+    "oid": "1.3.6.1.4.1.9.9.423.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIKELifesize",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2560,
+        "format": "decimal"
+      }
+    },
+    "units": "kbytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cicIkeCfgPolicyStatus": {
+    "name": "cicIkeCfgPolicyStatus",
+    "oid": "1.3.6.1.4.1.9.9.423.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cicNotifCntlIkeAllNotifs": {
+    "name": "cicNotifCntlIkeAllNotifs",
+    "oid": "1.3.6.1.4.1.9.9.423.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cicNotifCntlIkeOperStateChanged": {
+    "name": "cicNotifCntlIkeOperStateChanged",
+    "oid": "1.3.6.1.4.1.9.9.423.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cicNotifCntlIkePskAdded": {
+    "name": "cicNotifCntlIkePskAdded",
+    "oid": "1.3.6.1.4.1.9.9.423.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cicNotifCntlIkePskDeleted": {
+    "name": "cicNotifCntlIkePskDeleted",
+    "oid": "1.3.6.1.4.1.9.9.423.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cicNotifCntlIkePolicyAdded": {
+    "name": "cicNotifCntlIkePolicyAdded",
+    "oid": "1.3.6.1.4.1.9.9.423.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cicNotifCntlIkePolicyDeleted": {
+    "name": "cicNotifCntlIkePolicyDeleted",
+    "oid": "1.3.6.1.4.1.9.9.423.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoIkeConfigOperStateChanged": {
+    "name": "ciscoIkeConfigOperStateChanged",
+    "oid": "1.3.6.1.4.1.9.9.423.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIkeConfigPskAdded": {
+    "name": "ciscoIkeConfigPskAdded",
+    "oid": "1.3.6.1.4.1.9.9.423.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPskRemIdentType"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPskRemIdentity"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIkeConfigPskDeleted": {
+    "name": "ciscoIkeConfigPskDeleted",
+    "oid": "1.3.6.1.4.1.9.9.423.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPskRemIdentType"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPskRemIdentity"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIkeConfigPolicyAdded": {
+    "name": "ciscoIkeConfigPolicyAdded",
+    "oid": "1.3.6.1.4.1.9.9.423.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPolicyEncr"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPolicyHash"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPolicyAuth"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPolicyDHGroup"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIkeConfigPolicyDeleted": {
+    "name": "ciscoIkeConfigPolicyDeleted",
+    "oid": "1.3.6.1.4.1.9.9.423.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPolicyEncr"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPolicyHash"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPolicyAuth"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPolicyDHGroup"
+      }
+    ],
+    "status": "current"
+  },
+  "cicIkeCfgMIBGroups": {
+    "name": "cicIkeCfgMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.423.2.1",
+    "class": "objectidentity"
+  },
+  "cicIkeCfgMIBCompliances": {
+    "name": "cicIkeCfgMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.423.2.2",
+    "class": "objectidentity"
+  },
+  "cicIkeCfgMIBCompliance": {
+    "name": "cicIkeCfgMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.423.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cicIkeCfgOperGroup",
+        "module": "CISCO-IKE-CONFIGURATION-MIB"
+      },
+      {
+        "object": "cicIkeCfgIdentitiesGroup",
+        "module": "CISCO-IKE-CONFIGURATION-MIB"
+      },
+      {
+        "object": "cicIkeCfgPskAuthGroup",
+        "module": "CISCO-IKE-CONFIGURATION-MIB"
+      },
+      {
+        "object": "cicIkeCfgPolicyGroup",
+        "module": "CISCO-IKE-CONFIGURATION-MIB"
+      },
+      {
+        "object": "cicIkeCfgOptionalPolicyGroup",
+        "module": "CISCO-IKE-CONFIGURATION-MIB"
+      },
+      {
+        "object": "cicIkeCfgFailureRecoveryGroup",
+        "module": "CISCO-IKE-CONFIGURATION-MIB"
+      },
+      {
+        "object": "cicIkeCfgNotificationGroup",
+        "module": "CISCO-IKE-CONFIGURATION-MIB"
+      },
+      {
+        "object": "cicIkeCfgNotifCntlGroup",
+        "module": "CISCO-IKE-CONFIGURATION-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cicIkeCfgOperGroup": {
+    "name": "cicIkeCfgOperGroup",
+    "oid": "1.3.6.1.4.1.9.9.423.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeEnabled"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeAggressModeEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cicIkeCfgIdentitiesGroup": {
+    "name": "cicIkeCfgIdentitiesGroup",
+    "oid": "1.3.6.1.4.1.9.9.423.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgIdentityType"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgInitiatorNextAvailIndex"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgInitiatorPAddrType"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgInitiatorPAddr"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgInitiatorVer"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgInitiatorStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cicIkeCfgFailureRecoveryGroup": {
+    "name": "cicIkeCfgFailureRecoveryGroup",
+    "oid": "1.3.6.1.4.1.9.9.423.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeKeepAliveEnabled"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeKeepAliveType"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeKeepAliveInterval"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeKeepAliveRetryInterval"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeInvalidSpiNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "cicIkeCfgPskAuthGroup": {
+    "name": "cicIkeCfgPskAuthGroup",
+    "oid": "1.3.6.1.4.1.9.9.423.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPskNextAvailIndex"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPskKey"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPskRemIdentType"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPskRemIdentTypeStand"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPskRemIdentity"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPskRemIdAddrOrRg1OrSn"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPskRemIdAddrRange2"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPskRemIdSubnetMask"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPskStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cicIkeCfgPolicyGroup": {
+    "name": "cicIkeCfgPolicyGroup",
+    "oid": "1.3.6.1.4.1.9.9.423.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPolicyEncr"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPolicyHash"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPolicyPRF"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPolicyAuth"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPolicyDHGroup"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPolicyLifetime"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPolicyStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cicIkeCfgOptionalPolicyGroup": {
+    "name": "cicIkeCfgOptionalPolicyGroup",
+    "oid": "1.3.6.1.4.1.9.9.423.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicIkeCfgPolicyLifesize"
+      }
+    ],
+    "status": "current"
+  },
+  "cicIkeCfgNotifCntlGroup": {
+    "name": "cicIkeCfgNotifCntlGroup",
+    "oid": "1.3.6.1.4.1.9.9.423.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicNotifCntlIkeAllNotifs"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicNotifCntlIkeOperStateChanged"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicNotifCntlIkePskAdded"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicNotifCntlIkePskDeleted"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicNotifCntlIkePolicyAdded"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "cicNotifCntlIkePolicyDeleted"
+      }
+    ],
+    "status": "current"
+  },
+  "cicIkeCfgNotificationGroup": {
+    "name": "cicIkeCfgNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.423.2.1.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "ciscoIkeConfigOperStateChanged"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "ciscoIkeConfigPskAdded"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "ciscoIkeConfigPskDeleted"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "ciscoIkeConfigPolicyAdded"
+      },
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "object": "ciscoIkeConfigPolicyDeleted"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IKE-CONFIGURATION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IKE-CONFIGURATION-MIB"
+  }
+}

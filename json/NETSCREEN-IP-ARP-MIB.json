@@ -1,0 +1,252 @@
+{
+  "imports": {
+    "class": "imports",
+    "NETSCREEN-SMI": [
+      "netscreenIp"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "PhysAddress"
+    ]
+  },
+  "nsIpArp": {
+    "name": "nsIpArp",
+    "oid": "1.3.6.1.4.1.3224.17.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-05-03 00:00",
+        "description": "Modified copyright and contact information"
+      },
+      {
+        "revision": "2004-03-03 00:00",
+        "description": "Converted to SMIv2 by Longview Software"
+      },
+      {
+        "revision": "2003-11-10 00:00",
+        "description": "Correct spelling mistake"
+      },
+      {
+        "revision": "2001-09-28 00:00",
+        "description": "No Comment"
+      },
+      {
+        "revision": "2001-05-02 00:00",
+        "description": "Creation Date"
+      }
+    ]
+  },
+  "nsIpArpAOD": {
+    "name": "nsIpArpAOD",
+    "oid": "1.3.6.1.4.1.3224.17.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsIpArpCachUpdate": {
+    "name": "nsIpArpCachUpdate",
+    "oid": "1.3.6.1.4.1.3224.17.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsIpArpTable": {
+    "name": "nsIpArpTable",
+    "oid": "1.3.6.1.4.1.3224.17.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsIpArpEntry": {
+    "name": "nsIpArpEntry",
+    "oid": "1.3.6.1.4.1.3224.17.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-IP-ARP-MIB",
+        "object": "nsIpArpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsIpArpIndex": {
+    "name": "nsIpArpIndex",
+    "oid": "1.3.6.1.4.1.3224.17.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsIpArpIp": {
+    "name": "nsIpArpIp",
+    "oid": "1.3.6.1.4.1.3224.17.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsIpArpMac": {
+    "name": "nsIpArpMac",
+    "oid": "1.3.6.1.4.1.3224.17.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsIpArpVsys": {
+    "name": "nsIpArpVsys",
+    "oid": "1.3.6.1.4.1.3224.17.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsIpArpIfIdx": {
+    "name": "nsIpArpIfIdx",
+    "oid": "1.3.6.1.4.1.3224.17.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsIpArpState": {
+    "name": "nsIpArpState",
+    "oid": "1.3.6.1.4.1.3224.17.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pending": 1,
+          "valid": 2,
+          "delete": 3,
+          "static": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsIpArpAge": {
+    "name": "nsIpArpAge",
+    "oid": "1.3.6.1.4.1.3224.17.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsIpArpRetry": {
+    "name": "nsIpArpRetry",
+    "oid": "1.3.6.1.4.1.3224.17.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsIpArpPakQue": {
+    "name": "nsIpArpPakQue",
+    "oid": "1.3.6.1.4.1.3224.17.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-IP-ARP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NETSCREEN-IP-ARP-MIB"
+  }
+}

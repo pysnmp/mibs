@@ -1,0 +1,2188 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "cisco6200MIB": {
+    "name": "cisco6200MIB",
+    "oid": "1.3.6.1.4.1.9.10.26",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1998-02-26 00:00",
+        "description": "The initial release of this MIB only supported CAP line cards."
+      }
+    ]
+  },
+  "cisco6200MibObjects": {
+    "name": "cisco6200MibObjects",
+    "oid": "1.3.6.1.4.1.9.10.26.1",
+    "class": "objectidentity"
+  },
+  "c62System": {
+    "name": "c62System",
+    "oid": "1.3.6.1.4.1.9.10.26.1.1",
+    "class": "objectidentity"
+  },
+  "c62Slot": {
+    "name": "c62Slot",
+    "oid": "1.3.6.1.4.1.9.10.26.1.2",
+    "class": "objectidentity"
+  },
+  "c62OCInterface": {
+    "name": "c62OCInterface",
+    "oid": "1.3.6.1.4.1.9.10.26.1.3",
+    "class": "objectidentity"
+  },
+  "c62LineInterface": {
+    "name": "c62LineInterface",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4",
+    "class": "objectidentity"
+  },
+  "c62Subscriber": {
+    "name": "c62Subscriber",
+    "oid": "1.3.6.1.4.1.9.10.26.1.5",
+    "class": "objectidentity"
+  },
+  "C6200CardType": {
+    "name": "C6200CardType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oc3si": 1,
+          "ctl": 2,
+          "cap8": 3,
+          "cap16": 4,
+          "oc3ss": 5,
+          "oc3mm": 6,
+          "stm1si": 7,
+          "stm1mm": 8,
+          "dmt8": 9,
+          "none": -1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CommandValue": {
+    "name": "CommandValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "execute": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlarmLevel": {
+    "name": "AlarmLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "minor": 2,
+          "major": 3,
+          "critical": 4,
+          "unknown": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "InterfaceStatus": {
+    "name": "InterfaceStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TestStatus": {
+    "name": "TestStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2,
+          "pass": 3,
+          "fail": 4,
+          "aborted": 5,
+          "waiting": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TestType": {
+    "name": "TestType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "lineQuality": 1,
+          "capHardware": 2,
+          "dmtLocalTest": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "systemType": {
+    "name": "systemType",
+    "oid": "1.3.6.1.4.1.9.10.26.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "c62OC3": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemAlarmLevel": {
+    "name": "systemAlarmLevel",
+    "oid": "1.3.6.1.4.1.9.10.26.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemAlarmLevelChngCounter": {
+    "name": "systemAlarmLevelChngCounter",
+    "oid": "1.3.6.1.4.1.9.10.26.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemReset": {
+    "name": "systemReset",
+    "oid": "1.3.6.1.4.1.9.10.26.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CommandValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemSaveCnfg": {
+    "name": "systemSaveCnfg",
+    "oid": "1.3.6.1.4.1.9.10.26.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CommandValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemProvChngCounter": {
+    "name": "systemProvChngCounter",
+    "oid": "1.3.6.1.4.1.9.10.26.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemHClockAlarmLevel": {
+    "name": "systemHClockAlarmLevel",
+    "oid": "1.3.6.1.4.1.9.10.26.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemFanAlarmLevel": {
+    "name": "systemFanAlarmLevel",
+    "oid": "1.3.6.1.4.1.9.10.26.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemTemperatureAlarmLevel": {
+    "name": "systemTemperatureAlarmLevel",
+    "oid": "1.3.6.1.4.1.9.10.26.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemACO": {
+    "name": "systemACO",
+    "oid": "1.3.6.1.4.1.9.10.26.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CommandValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slotTable": {
+    "name": "slotTable",
+    "oid": "1.3.6.1.4.1.9.10.26.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slotEntry": {
+    "name": "slotEntry",
+    "oid": "1.3.6.1.4.1.9.10.26.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "slotID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slotID": {
+    "name": "slotID",
+    "oid": "1.3.6.1.4.1.9.10.26.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slotType": {
+    "name": "slotType",
+    "oid": "1.3.6.1.4.1.9.10.26.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C6200CardType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotStatus": {
+    "name": "slotStatus",
+    "oid": "1.3.6.1.4.1.9.10.26.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "empty": 1,
+          "notProvisioned": 2,
+          "missing": 3,
+          "mismatch": 4,
+          "match": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSwVersion": {
+    "name": "slotSwVersion",
+    "oid": "1.3.6.1.4.1.9.10.26.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotAlarmLevelChngCounter": {
+    "name": "slotAlarmLevelChngCounter",
+    "oid": "1.3.6.1.4.1.9.10.26.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotCnfType": {
+    "name": "slotCnfType",
+    "oid": "1.3.6.1.4.1.9.10.26.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C6200CardType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slotSubscriberChngCounter": {
+    "name": "slotSubscriberChngCounter",
+    "oid": "1.3.6.1.4.1.9.10.26.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotAlarmLevel": {
+    "name": "slotAlarmLevel",
+    "oid": "1.3.6.1.4.1.9.10.26.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portID": {
+    "name": "portID",
+    "oid": "1.3.6.1.4.1.9.10.26.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "oCInterfaceTable": {
+    "name": "oCInterfaceTable",
+    "oid": "1.3.6.1.4.1.9.10.26.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "oCInterfaceEntry": {
+    "name": "oCInterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.10.26.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "slotID",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "portID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "oCIAlarmLevel": {
+    "name": "oCIAlarmLevel",
+    "oid": "1.3.6.1.4.1.9.10.26.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oCIEQF": {
+    "name": "oCIEQF",
+    "oid": "1.3.6.1.4.1.9.10.26.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oCILOS": {
+    "name": "oCILOS",
+    "oid": "1.3.6.1.4.1.9.10.26.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oCILOF": {
+    "name": "oCILOF",
+    "oid": "1.3.6.1.4.1.9.10.26.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oCILAIS": {
+    "name": "oCILAIS",
+    "oid": "1.3.6.1.4.1.9.10.26.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oCILOP": {
+    "name": "oCILOP",
+    "oid": "1.3.6.1.4.1.9.10.26.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oCIPAIS": {
+    "name": "oCIPAIS",
+    "oid": "1.3.6.1.4.1.9.10.26.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oCISLM": {
+    "name": "oCISLM",
+    "oid": "1.3.6.1.4.1.9.10.26.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oCILRFI": {
+    "name": "oCILRFI",
+    "oid": "1.3.6.1.4.1.9.10.26.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oCIPRFI": {
+    "name": "oCIPRFI",
+    "oid": "1.3.6.1.4.1.9.10.26.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oCILOST": {
+    "name": "oCILOST",
+    "oid": "1.3.6.1.4.1.9.10.26.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oCILOCD": {
+    "name": "oCILOCD",
+    "oid": "1.3.6.1.4.1.9.10.26.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oCILoopMode": {
+    "name": "oCILoopMode",
+    "oid": "1.3.6.1.4.1.9.10.26.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "oCPerfTable": {
+    "name": "oCPerfTable",
+    "oid": "1.3.6.1.4.1.9.10.26.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "oCPerfEntry": {
+    "name": "oCPerfEntry",
+    "oid": "1.3.6.1.4.1.9.10.26.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "slotID",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "portID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "oCPTxCellCount": {
+    "name": "oCPTxCellCount",
+    "oid": "1.3.6.1.4.1.9.10.26.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oCPRxCellCount": {
+    "name": "oCPRxCellCount",
+    "oid": "1.3.6.1.4.1.9.10.26.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oCPHecErrCount": {
+    "name": "oCPHecErrCount",
+    "oid": "1.3.6.1.4.1.9.10.26.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineInterfaceTable": {
+    "name": "lineInterfaceTable",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lineInterfaceEntry": {
+    "name": "lineInterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "slotID",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "portID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lineAlarmLevel": {
+    "name": "lineAlarmLevel",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineDwnSNRMargin": {
+    "name": "lineDwnSNRMargin",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineDwnLOCD": {
+    "name": "lineDwnLOCD",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lineDwnErrSecs": {
+    "name": "lineDwnErrSecs",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineDwnLineRate": {
+    "name": "lineDwnLineRate",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineUpSNRMargin": {
+    "name": "lineUpSNRMargin",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineUpLOCD": {
+    "name": "lineUpLOCD",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineUpErrSecs": {
+    "name": "lineUpErrSecs",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineUpLineRate": {
+    "name": "lineUpLineRate",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineRateAlarm": {
+    "name": "lineRateAlarm",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "down": 2,
+          "up": 3,
+          "downAndUp": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineMode": {
+    "name": "lineMode",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "testing": 1,
+          "training": 2,
+          "active": 3,
+          "down": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineDMTDwnAttenuation": {
+    "name": "lineDMTDwnAttenuation",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineDMTUpAttenuation": {
+    "name": "lineDMTUpAttenuation",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineDMTDwnLPR": {
+    "name": "lineDMTDwnLPR",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineDMTUpLOS": {
+    "name": "lineDMTUpLOS",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineDMTUpLOF": {
+    "name": "lineDMTUpLOF",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineDMTLoopback": {
+    "name": "lineDMTLoopback",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "dslline": 2,
+          "local": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linePerfTable": {
+    "name": "linePerfTable",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "linePerfEntry": {
+    "name": "linePerfEntry",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "slotID",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "portID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lineTxCellCount": {
+    "name": "lineTxCellCount",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineRxCellCount": {
+    "name": "lineRxCellCount",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineHecErrCount": {
+    "name": "lineHecErrCount",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineDMTDwnFECCount": {
+    "name": "lineDMTDwnFECCount",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineDMTUpFECCount": {
+    "name": "lineDMTUpFECCount",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineDMTDwnCRCCount": {
+    "name": "lineDMTDwnCRCCount",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineDMTUpCRCCount": {
+    "name": "lineDMTUpCRCCount",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineDMTDwnLOSCount": {
+    "name": "lineDMTDwnLOSCount",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineDMTUpLOSCount": {
+    "name": "lineDMTUpLOSCount",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineDMTDwnSEFCount": {
+    "name": "lineDMTDwnSEFCount",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineDMTUpRDICount": {
+    "name": "lineDMTUpRDICount",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineTestTable": {
+    "name": "lineTestTable",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lineTestEntry": {
+    "name": "lineTestEntry",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "slotID",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "portID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lineTestTrigger": {
+    "name": "lineTestTrigger",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stop": 1,
+          "start": 2,
+          "clear": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lineTestType": {
+    "name": "lineTestType",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lineTestTimeIntvl": {
+    "name": "lineTestTimeIntvl",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lineTestStatus": {
+    "name": "lineTestStatus",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineTestDwnBitErrRate": {
+    "name": "lineTestDwnBitErrRate",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineTestUpBitErrRate": {
+    "name": "lineTestUpBitErrRate",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineTestStartTime": {
+    "name": "lineTestStartTime",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineTestCmplTime": {
+    "name": "lineTestCmplTime",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineTestBitErrRateLimit": {
+    "name": "lineTestBitErrRateLimit",
+    "oid": "1.3.6.1.4.1.9.10.26.1.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "subscriberTable": {
+    "name": "subscriberTable",
+    "oid": "1.3.6.1.4.1.9.10.26.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "subscriberEntry": {
+    "name": "subscriberEntry",
+    "oid": "1.3.6.1.4.1.9.10.26.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "slotID",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "portID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "subscriberName": {
+    "name": "subscriberName",
+    "oid": "1.3.6.1.4.1.9.10.26.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "DSL<slotID>/<portID>",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "subscriberUpLineRate": {
+    "name": "subscriberUpLineRate",
+    "oid": "1.3.6.1.4.1.9.10.26.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "subscriberDwnLineRate": {
+    "name": "subscriberDwnLineRate",
+    "oid": "1.3.6.1.4.1.9.10.26.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "subscriberLineState": {
+    "name": "subscriberLineState",
+    "oid": "1.3.6.1.4.1.9.10.26.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "subscriberDMTLOSConfig": {
+    "name": "subscriberDMTLOSConfig",
+    "oid": "1.3.6.1.4.1.9.10.26.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoC6200MIBConformance": {
+    "name": "ciscoC6200MIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.26.2",
+    "class": "objectidentity"
+  },
+  "ciscoC6200MIBCompliances": {
+    "name": "ciscoC6200MIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.26.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoC6200MIBGroups": {
+    "name": "ciscoC6200MIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.26.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoC6200MIBCompliance": {
+    "name": "ciscoC6200MIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.26.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoC6200SystemGroup",
+        "module": "CISCO-6200-MIB"
+      },
+      {
+        "object": "ciscoC6200SlotGroup",
+        "module": "CISCO-6200-MIB"
+      },
+      {
+        "object": "ciscoC6200oCIGroup",
+        "module": "CISCO-6200-MIB"
+      },
+      {
+        "object": "ciscoC6200oCIPerfGroup",
+        "module": "CISCO-6200-MIB"
+      },
+      {
+        "object": "ciscoC6200lineGroup",
+        "module": "CISCO-6200-MIB"
+      },
+      {
+        "object": "ciscoC6200lineTestGroup",
+        "module": "CISCO-6200-MIB"
+      },
+      {
+        "object": "ciscoC6200linePerfGroup",
+        "module": "CISCO-6200-MIB"
+      },
+      {
+        "object": "ciscoC6200subscriberGroup",
+        "module": "CISCO-6200-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoC6200MIBCompliance2": {
+    "name": "ciscoC6200MIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.10.26.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoC6200SystemGroup2",
+        "module": "CISCO-6200-MIB"
+      },
+      {
+        "object": "ciscoC6200SlotGroup2",
+        "module": "CISCO-6200-MIB"
+      },
+      {
+        "object": "ciscoC6200oCIGroup2",
+        "module": "CISCO-6200-MIB"
+      },
+      {
+        "object": "ciscoC6200oCIPerfGroup2",
+        "module": "CISCO-6200-MIB"
+      },
+      {
+        "object": "ciscoC6200lineGroup2",
+        "module": "CISCO-6200-MIB"
+      },
+      {
+        "object": "ciscoC6200lineTestGroup2",
+        "module": "CISCO-6200-MIB"
+      },
+      {
+        "object": "ciscoC6200linePerfGroup2",
+        "module": "CISCO-6200-MIB"
+      },
+      {
+        "object": "ciscoC6200subscriberGroup2",
+        "module": "CISCO-6200-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoC6200SystemGroup": {
+    "name": "ciscoC6200SystemGroup",
+    "oid": "1.3.6.1.4.1.9.10.26.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "systemType"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "systemAlarmLevel"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "systemAlarmLevelChngCounter"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "systemReset"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "systemSaveCnfg"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "systemProvChngCounter"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "systemHClockAlarmLevel"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "systemFanAlarmLevel"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "systemTemperatureAlarmLevel"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "systemACO"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoC6200SlotGroup": {
+    "name": "ciscoC6200SlotGroup",
+    "oid": "1.3.6.1.4.1.9.10.26.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "slotType"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "slotStatus"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "slotSwVersion"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "slotAlarmLevelChngCounter"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "slotCnfType"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "slotSubscriberChngCounter"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "slotAlarmLevel"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoC6200oCIGroup": {
+    "name": "ciscoC6200oCIGroup",
+    "oid": "1.3.6.1.4.1.9.10.26.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCIAlarmLevel"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCIEQF"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCILOS"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCILOF"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCILAIS"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCILOP"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCIPAIS"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCISLM"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCILRFI"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCIPRFI"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCILOST"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCILOCD"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCILoopMode"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoC6200oCIPerfGroup": {
+    "name": "ciscoC6200oCIPerfGroup",
+    "oid": "1.3.6.1.4.1.9.10.26.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCPTxCellCount"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCPRxCellCount"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCPHecErrCount"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoC6200lineGroup": {
+    "name": "ciscoC6200lineGroup",
+    "oid": "1.3.6.1.4.1.9.10.26.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineAlarmLevel"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineDwnSNRMargin"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineDwnLOCD"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineDwnErrSecs"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineDwnLineRate"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineUpSNRMargin"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineUpLOCD"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineUpErrSecs"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineUpLineRate"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineRateAlarm"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineMode"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoC6200linePerfGroup": {
+    "name": "ciscoC6200linePerfGroup",
+    "oid": "1.3.6.1.4.1.9.10.26.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineTxCellCount"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineRxCellCount"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineHecErrCount"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoC6200lineTestGroup": {
+    "name": "ciscoC6200lineTestGroup",
+    "oid": "1.3.6.1.4.1.9.10.26.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineTestTrigger"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineTestType"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineTestTimeIntvl"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineTestStatus"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineTestDwnBitErrRate"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineTestUpBitErrRate"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineTestStartTime"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineTestCmplTime"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineTestBitErrRateLimit"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoC6200subscriberGroup": {
+    "name": "ciscoC6200subscriberGroup",
+    "oid": "1.3.6.1.4.1.9.10.26.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "subscriberName"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "subscriberUpLineRate"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "subscriberDwnLineRate"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "subscriberLineState"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoC6200SystemGroup2": {
+    "name": "ciscoC6200SystemGroup2",
+    "oid": "1.3.6.1.4.1.9.10.26.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "systemType"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "systemAlarmLevel"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "systemAlarmLevelChngCounter"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "systemReset"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "systemSaveCnfg"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "systemProvChngCounter"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "systemHClockAlarmLevel"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "systemFanAlarmLevel"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "systemTemperatureAlarmLevel"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "systemACO"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoC6200SlotGroup2": {
+    "name": "ciscoC6200SlotGroup2",
+    "oid": "1.3.6.1.4.1.9.10.26.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "slotType"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "slotStatus"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "slotSwVersion"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "slotAlarmLevelChngCounter"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "slotCnfType"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "slotSubscriberChngCounter"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "slotAlarmLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoC6200oCIGroup2": {
+    "name": "ciscoC6200oCIGroup2",
+    "oid": "1.3.6.1.4.1.9.10.26.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCIAlarmLevel"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCIEQF"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCILOS"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCILOF"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCILAIS"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCILOP"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCIPAIS"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCISLM"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCILRFI"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCIPRFI"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCILOST"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCILOCD"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCILoopMode"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoC6200oCIPerfGroup2": {
+    "name": "ciscoC6200oCIPerfGroup2",
+    "oid": "1.3.6.1.4.1.9.10.26.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCPTxCellCount"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCPRxCellCount"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "oCPHecErrCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoC6200lineGroup2": {
+    "name": "ciscoC6200lineGroup2",
+    "oid": "1.3.6.1.4.1.9.10.26.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineAlarmLevel"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineDwnSNRMargin"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineDwnErrSecs"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineDwnLineRate"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineUpSNRMargin"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineUpLOCD"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineUpErrSecs"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineUpLineRate"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineRateAlarm"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineMode"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineDMTDwnAttenuation"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineDMTUpAttenuation"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineDMTDwnLPR"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineDMTUpLOS"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineDMTUpLOF"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineDMTLoopback"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoC6200linePerfGroup2": {
+    "name": "ciscoC6200linePerfGroup2",
+    "oid": "1.3.6.1.4.1.9.10.26.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineTxCellCount"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineRxCellCount"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineHecErrCount"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineDMTDwnFECCount"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineDMTUpFECCount"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineDMTDwnCRCCount"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineDMTUpCRCCount"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineDMTDwnLOSCount"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineDMTUpLOSCount"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineDMTDwnSEFCount"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineDMTUpRDICount"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoC6200lineTestGroup2": {
+    "name": "ciscoC6200lineTestGroup2",
+    "oid": "1.3.6.1.4.1.9.10.26.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineTestTrigger"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineTestType"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineTestTimeIntvl"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineTestStatus"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineTestDwnBitErrRate"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineTestUpBitErrRate"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineTestStartTime"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineTestCmplTime"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "lineTestBitErrRateLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoC6200subscriberGroup2": {
+    "name": "ciscoC6200subscriberGroup2",
+    "oid": "1.3.6.1.4.1.9.10.26.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "subscriberName"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "subscriberUpLineRate"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "subscriberDwnLineRate"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "subscriberLineState"
+      },
+      {
+        "module": "CISCO-6200-MIB",
+        "object": "subscriberDMTLOSConfig"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-6200-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-6200-MIB"
+  }
+}

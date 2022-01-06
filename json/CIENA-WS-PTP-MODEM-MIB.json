@@ -1,0 +1,3045 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-WS-MIB": [
+      "cienaWsConfig"
+    ],
+    "CIENA-WS-PTP-MIB": [
+      "cwsPtpTransmitterEntry",
+      "cwsPtpDiagnosticsEntry"
+    ],
+    "CIENA-WS-TYPEDEFS-MIB": [
+      "TxPowerLvl",
+      "WlSpacing",
+      "LineSysEnum",
+      "Decimal1Dig",
+      "ModemChannel",
+      "StringMaxl32",
+      "OnOffEnum",
+      "Decimal2Dig",
+      "PtpId",
+      "StringSci",
+      "ModemFrequency",
+      "EnabledDisabledEnum",
+      "RecoverLinkDispersionType",
+      "ChannelsNumber"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaWsPtpModemMIB": {
+    "name": "cienaWsPtpModemMIB",
+    "oid": "1.3.6.1.4.1.1271.3.4.9",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-03-02 00:00",
+        "description": "Waveserver Release 1.4 Aligned MIB files to respect YANG read/write status."
+      },
+      {
+        "revision": "2016-12-12 00:00",
+        "description": "Waveserver Rel 1.3 revised. New container 'fast-rx-recovery' created with new leafs, Container 'performance-statistics/pre-fec-signal-degrade', container 'performance-statistics/pre-fec-signal-fail', and all sub-nodes have been changed to obsolete. New 'performance-statistics/alarms' container created. following leafs have been changed to obsolete: 'fast-receiver-recovery-state', 'q-factor average', 'pre-fec-ber/min', 'pre-fec-ber/average', 'post-fec-ber/min', 'post-fec-ber/max', 'post-fec-ber/average' 'laser-centering-range' leaf added. 'colourless-channel-power' renamed to 'colourless-rx-channel. Added 'power' sub-container for 'colourless-rx-channel. 'power-actual' leaf removed. New container 'colourless-tx-channel' created with new leafs. New advanced ptp statistics leafs added to 'performance-statistics' container. New leaf 'frequency/actual' added."
+      },
+      {
+        "revision": "2016-06-14 00:00",
+        "description": "Waveserver Rel 1.2 revised. Major restructuring of this YANG module."
+      },
+      {
+        "revision": "2016-02-01 00:00",
+        "description": "Waveserver Rel 1.1 revised. Augmented 'ptp-adv-channel-status' container for when the XCVR type is WaveLogic 3 Extreme. Added new leafs to the augmented container. Added new pre-FEC related leafs to 'adv-config' augment container. The tx and rx compensation dispersion related leafs have been re-named to reduce confusion."
+      },
+      {
+        "revision": "2015-04-29 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "cwsPtpAugPtpModemTransmitterTable": {
+    "name": "cwsPtpAugPtpModemTransmitterTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpAugPtpModemTransmitterEntry": {
+    "name": "cwsPtpAugPtpModemTransmitterEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cwsPtpAugPtpModemTransmitterEntry",
+      "module": "CIENA-WS-PTP-MODEM-MIB",
+      "object": "cwsPtpTransmitterEntry"
+    },
+    "status": "current"
+  },
+  "cwsPtpModemTransmitterLineSystemChannelNumber": {
+    "name": "cwsPtpModemTransmitterLineSystemChannelNumber",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModemChannel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemFrequencyTable": {
+    "name": "cwsPtpModemFrequencyTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemFrequencyEntry": {
+    "name": "cwsPtpModemFrequencyEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemFrequencyTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPtpModemFrequencyTableSnmpKey": {
+    "name": "cwsPtpModemFrequencyTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemFrequencyValue": {
+    "name": "cwsPtpModemFrequencyValue",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModemFrequency",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemFrequencyMinValue": {
+    "name": "cwsPtpModemFrequencyMinValue",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal1Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemFrequencyMaxValue": {
+    "name": "cwsPtpModemFrequencyMaxValue",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal1Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemFrequencyActual": {
+    "name": "cwsPtpModemFrequencyActual",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal1Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemPowerTable": {
+    "name": "cwsPtpModemPowerTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemPowerEntry": {
+    "name": "cwsPtpModemPowerEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemPowerTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPtpModemPowerTableSnmpKey": {
+    "name": "cwsPtpModemPowerTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemPowerValue": {
+    "name": "cwsPtpModemPowerValue",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TxPowerLvl",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemPowerMinValue": {
+    "name": "cwsPtpModemPowerMinValue",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal1Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemPowerMaxValue": {
+    "name": "cwsPtpModemPowerMaxValue",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal1Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemLineSystemTable": {
+    "name": "cwsPtpModemLineSystemTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemLineSystemEntry": {
+    "name": "cwsPtpModemLineSystemEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemLineSystemTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPtpModemLineSystemTableSnmpKey": {
+    "name": "cwsPtpModemLineSystemTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemLineSystemType": {
+    "name": "cwsPtpModemLineSystemType",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LineSysEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemLineSystemWavelengthSpacing": {
+    "name": "cwsPtpModemLineSystemWavelengthSpacing",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WlSpacing",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemCmdTable": {
+    "name": "cwsPtpModemCmdTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemCmdEntry": {
+    "name": "cwsPtpModemCmdEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemCmdTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPtpModemCmdTableSnmpKey": {
+    "name": "cwsPtpModemCmdTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemCmdSlot": {
+    "name": "cwsPtpModemCmdSlot",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemCmdPortIn": {
+    "name": "cwsPtpModemCmdPortIn",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemCmdPortOut": {
+    "name": "cwsPtpModemCmdPortOut",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemModemTable": {
+    "name": "cwsPtpModemModemTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemModemEntry": {
+    "name": "cwsPtpModemModemEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPtpModemModemTableSnmpKey": {
+    "name": "cwsPtpModemModemTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemModemChannelContentionDetectionAvoidance": {
+    "name": "cwsPtpModemModemChannelContentionDetectionAvoidance",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OnOffEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemModemPerformanceOptimizationMode": {
+    "name": "cwsPtpModemModemPerformanceOptimizationMode",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reach": 0,
+          "latency": 1,
+          "fasttracking": 2,
+          "improvedtracking": 3,
+          "mode5": 4,
+          "mode6": 5,
+          "mode7": 6,
+          "mode8": 7,
+          "mode9": 8,
+          "mode10": 9,
+          "mode11": 10,
+          "mode12": 11,
+          "mode13": 12,
+          "mode14": 13
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemModemCarrierCenteringMode": {
+    "name": "cwsPtpModemModemCarrierCenteringMode",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mode1": 0,
+          "mode2": 1,
+          "mode3": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemModemInterleaverMode": {
+    "name": "cwsPtpModemModemInterleaverMode",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "standard": 1,
+          "enhanced": 2,
+          "auto": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemModemRotation": {
+    "name": "cwsPtpModemModemRotation",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OnOffEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemModemSpectralOccupancyMode": {
+    "name": "cwsPtpModemModemSpectralOccupancyMode",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "narrow": 0,
+          "wide": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemModemTxPowerReductionState": {
+    "name": "cwsPtpModemModemTxPowerReductionState",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemModemTxReductionMode": {
+    "name": "cwsPtpModemModemTxReductionMode",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "positive": 0,
+          "negative": 1,
+          "auto": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemModemTxTuningMode": {
+    "name": "cwsPtpModemModemTxTuningMode",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "performanceoptimized": 0,
+          "accelerated": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemModemDifferentialEncoding": {
+    "name": "cwsPtpModemModemDifferentialEncoding",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "hard": 1,
+          "soft": 2,
+          "xd": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemModemTxCompensationDispersionMode": {
+    "name": "cwsPtpModemModemTxCompensationDispersionMode",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 0,
+          "automatic": 1,
+          "custom1": 2,
+          "off": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemModemTxCompensationDispersionValue": {
+    "name": "cwsPtpModemModemTxCompensationDispersionValue",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal1Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemModemFastReceiverRecoveryState": {
+    "name": "cwsPtpModemModemFastReceiverRecoveryState",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cwsPtpModemModemLaserCenteringRange": {
+    "name": "cwsPtpModemModemLaserCenteringRange",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal1Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemPerformanceStatisticsTable": {
+    "name": "cwsPtpModemPerformanceStatisticsTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemPerformanceStatisticsEntry": {
+    "name": "cwsPtpModemPerformanceStatisticsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemPerformanceStatisticsTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPtpModemPerformanceStatisticsTableSnmpKey": {
+    "name": "cwsPtpModemPerformanceStatisticsTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemPerformanceStatisticsSecondsSinceLastClear": {
+    "name": "cwsPtpModemPerformanceStatisticsSecondsSinceLastClear",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemPerformanceStatisticsFecUncorrectedBlockCount": {
+    "name": "cwsPtpModemPerformanceStatisticsFecUncorrectedBlockCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemPerformanceStatisticsHighCorrectionCountSeconds": {
+    "name": "cwsPtpModemPerformanceStatisticsHighCorrectionCountSeconds",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemPreFecBerTable": {
+    "name": "cwsPtpModemPreFecBerTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemPreFecBerEntry": {
+    "name": "cwsPtpModemPreFecBerEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemPreFecBerTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPtpModemPreFecBerTableSnmpKey": {
+    "name": "cwsPtpModemPreFecBerTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemPreFecBerActual": {
+    "name": "cwsPtpModemPreFecBerActual",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringSci",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemPreFecBerMax": {
+    "name": "cwsPtpModemPreFecBerMax",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringSci",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemPreFecBerMin": {
+    "name": "cwsPtpModemPreFecBerMin",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringSci",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cwsPtpModemPreFecBerAverage": {
+    "name": "cwsPtpModemPreFecBerAverage",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringSci",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cwsPtpModemPostFecBerTable": {
+    "name": "cwsPtpModemPostFecBerTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemPostFecBerEntry": {
+    "name": "cwsPtpModemPostFecBerEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemPostFecBerTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPtpModemPostFecBerTableSnmpKey": {
+    "name": "cwsPtpModemPostFecBerTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemPostFecBerActual": {
+    "name": "cwsPtpModemPostFecBerActual",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringSci",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemPostFecBerMax": {
+    "name": "cwsPtpModemPostFecBerMax",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringSci",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cwsPtpModemPostFecBerMin": {
+    "name": "cwsPtpModemPostFecBerMin",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringSci",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cwsPtpModemPostFecBerAverage": {
+    "name": "cwsPtpModemPostFecBerAverage",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringSci",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cwsPtpModemQFactorTable": {
+    "name": "cwsPtpModemQFactorTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemQFactorEntry": {
+    "name": "cwsPtpModemQFactorEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemQFactorTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPtpModemQFactorTableSnmpKey": {
+    "name": "cwsPtpModemQFactorTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemQFactorActual": {
+    "name": "cwsPtpModemQFactorActual",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal2Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemQFactorMax": {
+    "name": "cwsPtpModemQFactorMax",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal2Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemQFactorMin": {
+    "name": "cwsPtpModemQFactorMin",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal2Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemQFactorAverage": {
+    "name": "cwsPtpModemQFactorAverage",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal2Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cwsPtpModemFecFrameErrorCountTable": {
+    "name": "cwsPtpModemFecFrameErrorCountTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemFecFrameErrorCountEntry": {
+    "name": "cwsPtpModemFecFrameErrorCountEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemFecFrameErrorCountTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPtpModemFecFrameErrorCountTableSnmpKey": {
+    "name": "cwsPtpModemFecFrameErrorCountTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemFecFrameErrorCountValue": {
+    "name": "cwsPtpModemFecFrameErrorCountValue",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemFecFrameErrorCountSeconds": {
+    "name": "cwsPtpModemFecFrameErrorCountSeconds",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemModemprefecsignalfailalarmTable": {
+    "name": "cwsPtpModemModemprefecsignalfailalarmTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemModemprefecsignalfailalarmEntry": {
+    "name": "cwsPtpModemModemprefecsignalfailalarmEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemprefecsignalfailalarmTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPtpModemModemprefecsignalfailalarmTableSnmpKey": {
+    "name": "cwsPtpModemModemprefecsignalfailalarmTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemModemprefecsignalfailalarmActive": {
+    "name": "cwsPtpModemModemprefecsignalfailalarmActive",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemModemprefecsignalfailalarmthresholdTable": {
+    "name": "cwsPtpModemModemprefecsignalfailalarmthresholdTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemModemprefecsignalfailalarmthresholdEntry": {
+    "name": "cwsPtpModemModemprefecsignalfailalarmthresholdEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemprefecsignalfailalarmthresholdTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPtpModemModemprefecsignalfailalarmthresholdTableSnmpKey": {
+    "name": "cwsPtpModemModemprefecsignalfailalarmthresholdTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemModemprefecsignalfailalarmthresholdDbq": {
+    "name": "cwsPtpModemModemprefecsignalfailalarmthresholdDbq",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal2Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemModemprefecsignaldegradealarmTable": {
+    "name": "cwsPtpModemModemprefecsignaldegradealarmTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemModemprefecsignaldegradealarmEntry": {
+    "name": "cwsPtpModemModemprefecsignaldegradealarmEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemprefecsignaldegradealarmTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPtpModemModemprefecsignaldegradealarmTableSnmpKey": {
+    "name": "cwsPtpModemModemprefecsignaldegradealarmTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemModemprefecsignaldegradealarmActive": {
+    "name": "cwsPtpModemModemprefecsignaldegradealarmActive",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemModemprefecsignaldegradealarmthresholdTable": {
+    "name": "cwsPtpModemModemprefecsignaldegradealarmthresholdTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemModemprefecsignaldegradealarmthresholdEntry": {
+    "name": "cwsPtpModemModemprefecsignaldegradealarmthresholdEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemprefecsignaldegradealarmthresholdTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPtpModemModemprefecsignaldegradealarmthresholdTableSnmpKey": {
+    "name": "cwsPtpModemModemprefecsignaldegradealarmthresholdTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemModemprefecsignaldegradealarmthresholdDbq": {
+    "name": "cwsPtpModemModemprefecsignaldegradealarmthresholdDbq",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal2Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemPreFecSignalFailTable": {
+    "name": "cwsPtpModemPreFecSignalFailTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cwsPtpModemPreFecSignalFailEntry": {
+    "name": "cwsPtpModemPreFecSignalFailEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemPreFecSignalFailTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cwsPtpModemPreFecSignalFailTableSnmpKey": {
+    "name": "cwsPtpModemPreFecSignalFailTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemPreFecSignalFailFailStatus": {
+    "name": "cwsPtpModemPreFecSignalFailFailStatus",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cwsPtpModemModemprefecsignalfailthresholdTable": {
+    "name": "cwsPtpModemModemprefecsignalfailthresholdTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cwsPtpModemModemprefecsignalfailthresholdEntry": {
+    "name": "cwsPtpModemModemprefecsignalfailthresholdEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemprefecsignalfailthresholdTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cwsPtpModemModemprefecsignalfailthresholdTableSnmpKey": {
+    "name": "cwsPtpModemModemprefecsignalfailthresholdTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemModemprefecsignalfailthresholdDbq": {
+    "name": "cwsPtpModemModemprefecsignalfailthresholdDbq",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal2Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "cwsPtpModemModemprefecsignalfailthresholdBer": {
+    "name": "cwsPtpModemModemprefecsignalfailthresholdBer",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringSci",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "cwsPtpModemPreFecSignalDegradeTable": {
+    "name": "cwsPtpModemPreFecSignalDegradeTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cwsPtpModemPreFecSignalDegradeEntry": {
+    "name": "cwsPtpModemPreFecSignalDegradeEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemPreFecSignalDegradeTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cwsPtpModemPreFecSignalDegradeTableSnmpKey": {
+    "name": "cwsPtpModemPreFecSignalDegradeTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemPreFecSignalDegradeDegradeStatus": {
+    "name": "cwsPtpModemPreFecSignalDegradeDegradeStatus",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cwsPtpModemModemprefecsignaldegradethresholdTable": {
+    "name": "cwsPtpModemModemprefecsignaldegradethresholdTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cwsPtpModemModemprefecsignaldegradethresholdEntry": {
+    "name": "cwsPtpModemModemprefecsignaldegradethresholdEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemprefecsignaldegradethresholdTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cwsPtpModemModemprefecsignaldegradethresholdTableSnmpKey": {
+    "name": "cwsPtpModemModemprefecsignaldegradethresholdTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemModemprefecsignaldegradethresholdDbq": {
+    "name": "cwsPtpModemModemprefecsignaldegradethresholdDbq",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal2Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "cwsPtpModemModemprefecsignaldegradethresholdBer": {
+    "name": "cwsPtpModemModemprefecsignaldegradethresholdBer",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringSci",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "cwsPtpModemRxlinkdispersionTable": {
+    "name": "cwsPtpModemRxlinkdispersionTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemRxlinkdispersionEntry": {
+    "name": "cwsPtpModemRxlinkdispersionEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemRxlinkdispersionTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPtpModemRxlinkdispersionTableSnmpKey": {
+    "name": "cwsPtpModemRxlinkdispersionTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemRxlinkdispersionTotal": {
+    "name": "cwsPtpModemRxlinkdispersionTotal",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemRxlinkdispersionCompensation": {
+    "name": "cwsPtpModemRxlinkdispersionCompensation",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemTxlinkdispersionTable": {
+    "name": "cwsPtpModemTxlinkdispersionTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemTxlinkdispersionEntry": {
+    "name": "cwsPtpModemTxlinkdispersionEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemTxlinkdispersionTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPtpModemTxlinkdispersionTableSnmpKey": {
+    "name": "cwsPtpModemTxlinkdispersionTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemTxlinkdispersionTotal": {
+    "name": "cwsPtpModemTxlinkdispersionTotal",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemTxlinkdispersionActual": {
+    "name": "cwsPtpModemTxlinkdispersionActual",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemDifferentialGroupDelayTable": {
+    "name": "cwsPtpModemDifferentialGroupDelayTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemDifferentialGroupDelayEntry": {
+    "name": "cwsPtpModemDifferentialGroupDelayEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemDifferentialGroupDelayTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPtpModemDifferentialGroupDelayTableSnmpKey": {
+    "name": "cwsPtpModemDifferentialGroupDelayTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemDifferentialGroupDelayMeanSupported": {
+    "name": "cwsPtpModemDifferentialGroupDelayMeanSupported",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemDifferentialGroupDelayEstimatedInstance": {
+    "name": "cwsPtpModemDifferentialGroupDelayEstimatedInstance",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.24.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemFastRxRecoveryTable": {
+    "name": "cwsPtpModemFastRxRecoveryTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemFastRxRecoveryEntry": {
+    "name": "cwsPtpModemFastRxRecoveryEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemFastRxRecoveryTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPtpModemFastRxRecoveryTableSnmpKey": {
+    "name": "cwsPtpModemFastRxRecoveryTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemFastRxRecoveryState": {
+    "name": "cwsPtpModemFastRxRecoveryState",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemFastRxRecoveryNetworkConfiguration": {
+    "name": "cwsPtpModemFastRxRecoveryNetworkConfiguration",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.25.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "matched": 0,
+          "diverse": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemFastRxRecoveryPath1Dispersion": {
+    "name": "cwsPtpModemFastRxRecoveryPath1Dispersion",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.25.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RecoverLinkDispersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemFastRxRecoveryPath2Dispersion": {
+    "name": "cwsPtpModemFastRxRecoveryPath2Dispersion",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.25.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RecoverLinkDispersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPtpModemColourlessRxChannelPowerTable": {
+    "name": "cwsPtpModemColourlessRxChannelPowerTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.26",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemColourlessRxChannelPowerEntry": {
+    "name": "cwsPtpModemColourlessRxChannelPowerEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.26.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpChannelChannelNumber",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemColourlessRxChannelPowerTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPtpModemColourlessRxChannelPowerTableSnmpKey": {
+    "name": "cwsPtpModemColourlessRxChannelPowerTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.26.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrColourlessRxChannelPowerActual": {
+    "name": "cwsXcvrColourlessRxChannelPowerActual",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.26.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal1Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrColourlessRxChannelPowerMaximum": {
+    "name": "cwsXcvrColourlessRxChannelPowerMaximum",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.26.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal1Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrColourlessRxChannelPowerMinimum": {
+    "name": "cwsXcvrColourlessRxChannelPowerMinimum",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.26.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal1Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrColourlessRxChannelPowerMaximumRecordedTime": {
+    "name": "cwsXcvrColourlessRxChannelPowerMaximumRecordedTime",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.26.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrColourlessRxChannelPowerMinimumRecordedTime": {
+    "name": "cwsXcvrColourlessRxChannelPowerMinimumRecordedTime",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.26.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemColourlessRxChannelStatusTable": {
+    "name": "cwsPtpModemColourlessRxChannelStatusTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.27",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemColourlessRxChannelStatusEntry": {
+    "name": "cwsPtpModemColourlessRxChannelStatusEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.27.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpChannelChannelNumber",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemColourlessRxChannelStatusTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPtpModemColourlessRxChannelStatusTableSnmpKey": {
+    "name": "cwsPtpModemColourlessRxChannelStatusTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.27.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemColourlessRxChannelStatusLossOfSignal": {
+    "name": "cwsPtpModemColourlessRxChannelStatusLossOfSignal",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.27.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemColourlessRxChannelStatusHighAlarmStatus": {
+    "name": "cwsPtpModemColourlessRxChannelStatusHighAlarmStatus",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.27.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemColourlessRxChannelStatusLowAlarmStatus": {
+    "name": "cwsPtpModemColourlessRxChannelStatusLowAlarmStatus",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.27.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemColourlessTxChannelPowerTable": {
+    "name": "cwsPtpModemColourlessTxChannelPowerTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.28",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemColourlessTxChannelPowerEntry": {
+    "name": "cwsPtpModemColourlessTxChannelPowerEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.28.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpChannelChannelNumber",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemColourlessTxChannelPowerTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPtpModemColourlessTxChannelPowerTableSnmpKey": {
+    "name": "cwsPtpModemColourlessTxChannelPowerTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.28.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrColourlessTxChannelPowerActual": {
+    "name": "cwsXcvrColourlessTxChannelPowerActual",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.28.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal1Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrColourlessTxChannelPowerMaximum": {
+    "name": "cwsXcvrColourlessTxChannelPowerMaximum",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.28.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal1Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrColourlessTxChannelPowerMinimum": {
+    "name": "cwsXcvrColourlessTxChannelPowerMinimum",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.28.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal1Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrColourlessTxChannelPowerMaximumRecordedTime": {
+    "name": "cwsXcvrColourlessTxChannelPowerMaximumRecordedTime",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.28.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrColourlessTxChannelPowerMinimumRecordedTime": {
+    "name": "cwsXcvrColourlessTxChannelPowerMinimumRecordedTime",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.28.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpAugPtpModemDiagnosticsTable": {
+    "name": "cwsPtpAugPtpModemDiagnosticsTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.29",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpAugPtpModemDiagnosticsEntry": {
+    "name": "cwsPtpAugPtpModemDiagnosticsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.29.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cwsPtpAugPtpModemDiagnosticsEntry",
+      "module": "CIENA-WS-PTP-MODEM-MIB",
+      "object": "cwsPtpDiagnosticsEntry"
+    },
+    "status": "current"
+  },
+  "cwsPtpModemDiagnosticsNumberOfOdu": {
+    "name": "cwsPtpModemDiagnosticsNumberOfOdu",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.29.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemOtu4Table": {
+    "name": "cwsPtpModemOtu4Table",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.30",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemOtu4Entry": {
+    "name": "cwsPtpModemOtu4Entry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.30.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemOtu4TableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPtpModemOtu4TableSnmpKey": {
+    "name": "cwsPtpModemOtu4TableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.30.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemOtu4LossOfClock": {
+    "name": "cwsPtpModemOtu4LossOfClock",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.30.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemOtu4FrequencyOutOfRange": {
+    "name": "cwsPtpModemOtu4FrequencyOutOfRange",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.30.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemOtu4LossOfFrame": {
+    "name": "cwsPtpModemOtu4LossOfFrame",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.30.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemOtu4LossOfMultiFrame": {
+    "name": "cwsPtpModemOtu4LossOfMultiFrame",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.30.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemOtu4BackwardDefectIndication": {
+    "name": "cwsPtpModemOtu4BackwardDefectIndication",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.30.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemOtu4TrailTraceIdMismatch": {
+    "name": "cwsPtpModemOtu4TrailTraceIdMismatch",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.30.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemOdu4Table": {
+    "name": "cwsPtpModemOdu4Table",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.31",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemOdu4Entry": {
+    "name": "cwsPtpModemOdu4Entry",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.31.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpPtpsPtpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemOdu4OduId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPtpModemOdu4OduId": {
+    "name": "cwsPtpModemOdu4OduId",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.31.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPtpModemOdu4OpenConnectionIndication": {
+    "name": "cwsPtpModemOdu4OpenConnectionIndication",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.31.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemOdu4AlarmIndicationSignal": {
+    "name": "cwsPtpModemOdu4AlarmIndicationSignal",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.31.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemOdu4Locked": {
+    "name": "cwsPtpModemOdu4Locked",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.31.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemOdu4SignalFail": {
+    "name": "cwsPtpModemOdu4SignalFail",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.31.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemOdu4SignalDegrade": {
+    "name": "cwsPtpModemOdu4SignalDegrade",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.31.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemOdu4TrailTraceIdMismatch": {
+    "name": "cwsPtpModemOdu4TrailTraceIdMismatch",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.31.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemOdu4BackwardDefectIndication": {
+    "name": "cwsPtpModemOdu4BackwardDefectIndication",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.31.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemOdu4PayloadLabelMismatch": {
+    "name": "cwsPtpModemOdu4PayloadLabelMismatch",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.31.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPtpModemOdu4ClientSignalFailure": {
+    "name": "cwsPtpModemOdu4ClientSignalFailure",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.31.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaWsPtpModemObjects": {
+    "name": "cienaWsPtpModemObjects",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.1",
+    "class": "objectidentity"
+  },
+  "cienaWsPtpModemConformance": {
+    "name": "cienaWsPtpModemConformance",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.2",
+    "class": "objectidentity"
+  },
+  "cienaWsPtpModemGroups": {
+    "name": "cienaWsPtpModemGroups",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.2.1",
+    "class": "objectidentity"
+  },
+  "cienaWsPtpModemGroup": {
+    "name": "cienaWsPtpModemGroup",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemTransmitterLineSystemChannelNumber"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemFrequencyValue"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemFrequencyMinValue"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemFrequencyMaxValue"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemFrequencyActual"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemPowerValue"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemPowerMinValue"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemPowerMaxValue"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemLineSystemType"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemLineSystemWavelengthSpacing"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemCmdSlot"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemCmdPortIn"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemCmdPortOut"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemChannelContentionDetectionAvoidance"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemPerformanceOptimizationMode"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemCarrierCenteringMode"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemInterleaverMode"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemRotation"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemSpectralOccupancyMode"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemTxPowerReductionState"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemTxReductionMode"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemTxTuningMode"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemDifferentialEncoding"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemTxCompensationDispersionMode"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemTxCompensationDispersionValue"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemFastReceiverRecoveryState"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemLaserCenteringRange"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemPerformanceStatisticsSecondsSinceLastClear"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemPerformanceStatisticsFecUncorrectedBlockCount"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemPerformanceStatisticsHighCorrectionCountSeconds"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemPreFecBerActual"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemPreFecBerMax"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemPreFecBerMin"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemPreFecBerAverage"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemPostFecBerActual"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemPostFecBerMax"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemPostFecBerMin"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemPostFecBerAverage"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemQFactorActual"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemQFactorMax"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemQFactorMin"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemQFactorAverage"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemFecFrameErrorCountValue"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemFecFrameErrorCountSeconds"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemprefecsignalfailalarmActive"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemprefecsignalfailalarmthresholdDbq"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemprefecsignaldegradealarmActive"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemprefecsignaldegradealarmthresholdDbq"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemPreFecSignalFailFailStatus"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemprefecsignalfailthresholdDbq"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemprefecsignalfailthresholdBer"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemPreFecSignalDegradeDegradeStatus"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemprefecsignaldegradethresholdDbq"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemModemprefecsignaldegradethresholdBer"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemRxlinkdispersionTotal"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemRxlinkdispersionCompensation"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemTxlinkdispersionTotal"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemTxlinkdispersionActual"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemDifferentialGroupDelayMeanSupported"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemDifferentialGroupDelayEstimatedInstance"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemFastRxRecoveryState"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemFastRxRecoveryNetworkConfiguration"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemFastRxRecoveryPath1Dispersion"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemFastRxRecoveryPath2Dispersion"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsXcvrColourlessRxChannelPowerActual"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsXcvrColourlessRxChannelPowerMaximum"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsXcvrColourlessRxChannelPowerMinimum"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsXcvrColourlessRxChannelPowerMaximumRecordedTime"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsXcvrColourlessRxChannelPowerMinimumRecordedTime"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemColourlessRxChannelStatusLossOfSignal"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemColourlessRxChannelStatusHighAlarmStatus"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemColourlessRxChannelStatusLowAlarmStatus"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsXcvrColourlessTxChannelPowerActual"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsXcvrColourlessTxChannelPowerMaximum"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsXcvrColourlessTxChannelPowerMinimum"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsXcvrColourlessTxChannelPowerMaximumRecordedTime"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsXcvrColourlessTxChannelPowerMinimumRecordedTime"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemDiagnosticsNumberOfOdu"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemOtu4LossOfClock"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemOtu4FrequencyOutOfRange"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemOtu4LossOfFrame"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemOtu4LossOfMultiFrame"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemOtu4BackwardDefectIndication"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemOtu4TrailTraceIdMismatch"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemOdu4OpenConnectionIndication"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemOdu4AlarmIndicationSignal"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemOdu4Locked"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemOdu4SignalFail"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemOdu4SignalDegrade"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemOdu4TrailTraceIdMismatch"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemOdu4BackwardDefectIndication"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemOdu4PayloadLabelMismatch"
+      },
+      {
+        "module": "CIENA-WS-PTP-MODEM-MIB",
+        "object": "cwsPtpModemOdu4ClientSignalFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaWsPtpModemCompliances": {
+    "name": "cienaWsPtpModemCompliances",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.2.2",
+    "class": "objectidentity"
+  },
+  "cienaWsPtpModemCompliance": {
+    "name": "cienaWsPtpModemCompliance",
+    "oid": "1.3.6.1.4.1.1271.3.4.9.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cienaWsPtpModemGroup",
+        "module": "CIENA-WS-PTP-MODEM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-PTP-MODEM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-WS-PTP-MODEM-MIB"
+  }
+}

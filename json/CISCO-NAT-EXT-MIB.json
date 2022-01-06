@@ -1,0 +1,192 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoNATExtMIB": {
+    "name": "ciscoNATExtMIB",
+    "oid": "1.3.6.1.4.1.9.9.532",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-06-05 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "ciscoNatExtMIBNotifs": {
+    "name": "ciscoNatExtMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.532.0",
+    "class": "objectidentity"
+  },
+  "ciscoNatExtMIBObjects": {
+    "name": "ciscoNatExtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.532.1",
+    "class": "objectidentity"
+  },
+  "ciscoNatExtMIBConformance": {
+    "name": "ciscoNatExtMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.532.2",
+    "class": "objectidentity"
+  },
+  "cneAddrTranslationStatsTable": {
+    "name": "cneAddrTranslationStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.532.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cneAddrTranslationStatsEntry": {
+    "name": "cneAddrTranslationStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.532.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cneAddrTranslationNumActive": {
+    "name": "cneAddrTranslationNumActive",
+    "oid": "1.3.6.1.4.1.9.9.532.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Number of address translation entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cneAddrTranslationNumPeak": {
+    "name": "cneAddrTranslationNumPeak",
+    "oid": "1.3.6.1.4.1.9.9.532.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Number of address translation entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cneAddrTranslation1min": {
+    "name": "cneAddrTranslation1min",
+    "oid": "1.3.6.1.4.1.9.9.532.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Address translation entries per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cneAddrTranslation5min": {
+    "name": "cneAddrTranslation5min",
+    "oid": "1.3.6.1.4.1.9.9.532.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Address translation entries per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoNatExtMIBCompliances": {
+    "name": "ciscoNatExtMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.532.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoNatExtMIBGroups": {
+    "name": "ciscoNatExtMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.532.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoNatExtMIBCompliance": {
+    "name": "ciscoNatExtMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.532.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoNatExtAddrTransStatsGroup",
+        "module": "CISCO-NAT-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNatExtAddrTransStatsGroup": {
+    "name": "ciscoNatExtAddrTransStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.532.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NAT-EXT-MIB",
+        "object": "cneAddrTranslationNumActive"
+      },
+      {
+        "module": "CISCO-NAT-EXT-MIB",
+        "object": "cneAddrTranslationNumPeak"
+      },
+      {
+        "module": "CISCO-NAT-EXT-MIB",
+        "object": "cneAddrTranslation1min"
+      },
+      {
+        "module": "CISCO-NAT-EXT-MIB",
+        "object": "cneAddrTranslation5min"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-NAT-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-NAT-EXT-MIB"
+  }
+}

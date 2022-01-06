@@ -1,0 +1,1516 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-LWAPP-AP-MIB": [
+      "cLApName"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "StorageType",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoLwappRogueMIB": {
+    "name": "ciscoLwappRogueMIB",
+    "oid": "1.3.6.1.4.1.9.9.610",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-07-14 00:00",
+        "description": "Added new object group - ciscoLwappRogueConfigSup4Group Added new compliance - ciscoLwappRogueMIBComplianceRev4."
+      },
+      {
+        "revision": "2011-09-07 00:00",
+        "description": "Added following objects: cLRogueReportInterval cLRogueMinimumRssi cLRogueTransientInterval. Deprecated ciscoLwappRogueMIBComplianceRev2 and added ciscoLwappRogueMIBComplianceRev3."
+      },
+      {
+        "revision": "2011-03-11 00:00",
+        "description": "Added following objects: cLRldpAutoContainLevel cLRldpAutoContainOnlyforMonitorModeAps. Deprecated ciscoLwappRogueMIBComplianceRev1 and added ciscoLwappRogueMIBComplianceRev2."
+      },
+      {
+        "revision": "2010-07-17 00:00",
+        "description": "Added following tables: cLRogueIgnoreListTable cLRuleConfigTable cLConditionConfigTable cLConditionSsidConfigTable Added following objects: cLRldpAutoContainFeatureOnWiredNetwork cLRldpAutoContainRoguesAdvertisingSsid cLRldpAutoContainAdhocNetworks cLRldpAutoContainTrustedClientsOnRogueAps Deprecated ciscoLwappRogueMIBCompliance and added ciscoLwappRogueMIBComplianceRev1."
+      },
+      {
+        "revision": "2007-02-06 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappRogueMIBNotifs": {
+    "name": "ciscoLwappRogueMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.610.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappRogueMIBObjects": {
+    "name": "ciscoLwappRogueMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.610.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappRogueMIBConform": {
+    "name": "ciscoLwappRogueMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.610.2",
+    "class": "objectidentity"
+  },
+  "cLRogueConfig": {
+    "name": "cLRogueConfig",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1",
+    "class": "objectidentity"
+  },
+  "cLRoguePolicyConfig": {
+    "name": "cLRoguePolicyConfig",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.1",
+    "class": "objectidentity"
+  },
+  "cLRogueRuleConfig": {
+    "name": "cLRogueRuleConfig",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3",
+    "class": "objectidentity"
+  },
+  "cLRogueIgnoreListConfig": {
+    "name": "cLRogueIgnoreListConfig",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.4",
+    "class": "objectidentity"
+  },
+  "cLRldpAutoContainConfig": {
+    "name": "cLRldpAutoContainConfig",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.5",
+    "class": "objectidentity"
+  },
+  "cLRogueApConfig": {
+    "name": "cLRogueApConfig",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.6",
+    "class": "objectidentity"
+  },
+  "CLAutoContainActions": {
+    "name": "CLAutoContainActions",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarmOnly": 1,
+          "contain": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cLRogueAdhocRogueReportEnable": {
+    "name": "cLRogueAdhocRogueReportEnable",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRogueReportInterval": {
+    "name": "cLRogueReportInterval",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRogueMinimumRssi": {
+    "name": "cLRogueMinimumRssi",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": -70
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRogueTransientInterval": {
+    "name": "cLRogueTransientInterval",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 120,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRogueClientNumThreshold": {
+    "name": "cLRogueClientNumThreshold",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRogueDetectionSecurityLevel": {
+    "name": "cLRogueDetectionSecurityLevel",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "high": 2,
+          "critical": 3,
+          "custom": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRogueValidateRogueClientsAgainstMse": {
+    "name": "cLRogueValidateRogueClientsAgainstMse",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRogueAdhocRogueNotifEnabled": {
+    "name": "cLRogueAdhocRogueNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRogueAdhocRogueDetected": {
+    "name": "cLRogueAdhocRogueDetected",
+    "oid": "1.3.6.1.4.1.9.9.610.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApName"
+      }
+    ],
+    "status": "current"
+  },
+  "cLRuleConfigTable": {
+    "name": "cLRuleConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRuleConfigEntry": {
+    "name": "cLRuleConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRuleName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLRuleName": {
+    "name": "cLRuleName",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRuleRogueType": {
+    "name": "cLRuleRogueType",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "friendly": 1,
+          "malicious": 2,
+          "unclassified": 3,
+          "custom": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "custom",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRuleConditionsMatch": {
+    "name": "cLRuleConditionsMatch",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "any": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRulePriority": {
+    "name": "cLRulePriority",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRuleEnable": {
+    "name": "cLRuleEnable",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRuleStorageType": {
+    "name": "cLRuleStorageType",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRuleRowStatus": {
+    "name": "cLRuleRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLConditionConfigTable": {
+    "name": "cLConditionConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLConditionConfigEntry": {
+    "name": "cLConditionConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRuleName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLConditionName": {
+    "name": "cLConditionName",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLConditionType": {
+    "name": "cLConditionType",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "managedSsid": 1,
+          "rssi": 2,
+          "duration": 3,
+          "clientCount": 4,
+          "noEncryption": 5,
+          "userConfigSsid": 6
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLConditionValue": {
+    "name": "cLConditionValue",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLConditionEnable": {
+    "name": "cLConditionEnable",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLConditionStorageType": {
+    "name": "cLConditionStorageType",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLConditionRowStatus": {
+    "name": "cLConditionRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLConditionRssi": {
+    "name": "cLConditionRssi",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLConditionClientCount": {
+    "name": "cLConditionClientCount",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLConditionNoEncryptionEnabled": {
+    "name": "cLConditionNoEncryptionEnabled",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLConditionManagedSsidEnabled": {
+    "name": "cLConditionManagedSsidEnabled",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLConditionDuration": {
+    "name": "cLConditionDuration",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLConditionSsidConfigTable": {
+    "name": "cLConditionSsidConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLConditionSsidConfigEntry": {
+    "name": "cLConditionSsidConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRuleName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionSsidValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLConditionSsidValue": {
+    "name": "cLConditionSsidValue",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLConditionSsidStorageType": {
+    "name": "cLConditionSsidStorageType",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLConditionSsidRowStatus": {
+    "name": "cLConditionSsidRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRogueIgnoreListTable": {
+    "name": "cLRogueIgnoreListTable",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRogueIgnoreListEntry": {
+    "name": "cLRogueIgnoreListEntry",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRogueIgnoreListMACAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLRogueIgnoreListMACAddress": {
+    "name": "cLRogueIgnoreListMACAddress",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRogueIgnoreListStorageType": {
+    "name": "cLRogueIgnoreListStorageType",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRogueIgnoreListRowStatus": {
+    "name": "cLRogueIgnoreListRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRldpAutoContainFeatureOnWiredNetwork": {
+    "name": "cLRldpAutoContainFeatureOnWiredNetwork",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRldpAutoContainRoguesAdvertisingSsid": {
+    "name": "cLRldpAutoContainRoguesAdvertisingSsid",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CLAutoContainActions",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "alarmOnly",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRldpAutoContainAdhocNetworks": {
+    "name": "cLRldpAutoContainAdhocNetworks",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CLAutoContainActions",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "alarmOnly",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRldpAutoContainTrustedClientsOnRogueAps": {
+    "name": "cLRldpAutoContainTrustedClientsOnRogueAps",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CLAutoContainActions",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "alarmOnly",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRldpAutoContainLevel": {
+    "name": "cLRldpAutoContainLevel",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRldpAutoContainOnlyforMonitorModeAps": {
+    "name": "cLRldpAutoContainOnlyforMonitorModeAps",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRogueApTable": {
+    "name": "cLRogueApTable",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRogueApEntry": {
+    "name": "cLRogueApEntry",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRogueApMACAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLRogueApMACAddress": {
+    "name": "cLRogueApMACAddress",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRogueApClassType": {
+    "name": "cLRogueApClassType",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "friendly": 1,
+          "malicious": 2,
+          "unclassified": 3,
+          "custom": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "custom",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRogueApState": {
+    "name": "cLRogueApState",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pending": 1,
+          "alert": 2,
+          "detectedLrad": 3,
+          "known": 4,
+          "acknowledge": 5,
+          "contained": 6,
+          "threat": 7,
+          "containedPending": 8,
+          "knownContained": 9,
+          "trustedMissing": 10,
+          "initializing": 11
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "alert",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRogueApStorageType": {
+    "name": "cLRogueApStorageType",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRogueApRowStatus": {
+    "name": "cLRogueApRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.610.1.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoLwappRogueMIBCompliances": {
+    "name": "ciscoLwappRogueMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.610.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappRogueMIBGroups": {
+    "name": "ciscoLwappRogueMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.610.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappRogueMIBCompliance": {
+    "name": "ciscoLwappRogueMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.610.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappRogueConfigGroup",
+        "module": "CISCO-LWAPP-ROGUE-MIB"
+      },
+      {
+        "object": "ciscoLwappRogueNotifsGroup",
+        "module": "CISCO-LWAPP-ROGUE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappRogueMIBComplianceRev1": {
+    "name": "ciscoLwappRogueMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.610.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappRogueConfigGroup",
+        "module": "CISCO-LWAPP-ROGUE-MIB"
+      },
+      {
+        "object": "ciscoLwappRogueNotifsGroup",
+        "module": "CISCO-LWAPP-ROGUE-MIB"
+      },
+      {
+        "object": "ciscoLwappRogueConfigSup1Group",
+        "module": "CISCO-LWAPP-ROGUE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappRogueMIBComplianceRev2": {
+    "name": "ciscoLwappRogueMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.610.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappRogueConfigGroup",
+        "module": "CISCO-LWAPP-ROGUE-MIB"
+      },
+      {
+        "object": "ciscoLwappRogueNotifsGroup",
+        "module": "CISCO-LWAPP-ROGUE-MIB"
+      },
+      {
+        "object": "ciscoLwappRogueConfigSup2Group",
+        "module": "CISCO-LWAPP-ROGUE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappRogueMIBComplianceRev3": {
+    "name": "ciscoLwappRogueMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.610.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappRogueConfigGroup",
+        "module": "CISCO-LWAPP-ROGUE-MIB"
+      },
+      {
+        "object": "ciscoLwappRogueNotifsGroup",
+        "module": "CISCO-LWAPP-ROGUE-MIB"
+      },
+      {
+        "object": "ciscoLwappRogueConfigSup3Group",
+        "module": "CISCO-LWAPP-ROGUE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappRogueMIBComplianceRev4": {
+    "name": "ciscoLwappRogueMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.610.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappRogueConfigGroup",
+        "module": "CISCO-LWAPP-ROGUE-MIB"
+      },
+      {
+        "object": "ciscoLwappRogueNotifsGroup",
+        "module": "CISCO-LWAPP-ROGUE-MIB"
+      },
+      {
+        "object": "ciscoLwappRogueConfigSup3Group",
+        "module": "CISCO-LWAPP-ROGUE-MIB"
+      },
+      {
+        "object": "ciscoLwappRogueConfigSup4Group",
+        "module": "CISCO-LWAPP-ROGUE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRogueConfigGroup": {
+    "name": "ciscoLwappRogueConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.610.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRogueAdhocRogueReportEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRogueAdhocRogueNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRogueNotifsGroup": {
+    "name": "ciscoLwappRogueNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.610.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRogueAdhocRogueDetected"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRogueConfigSup1Group": {
+    "name": "ciscoLwappRogueConfigSup1Group",
+    "oid": "1.3.6.1.4.1.9.9.610.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRogueIgnoreListStorageType"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRogueIgnoreListRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRuleRogueType"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRuleConditionsMatch"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRulePriority"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRuleEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRuleStorageType"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRuleRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionType"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionValue"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionStorageType"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionSsidStorageType"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionSsidRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRldpAutoContainFeatureOnWiredNetwork"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRldpAutoContainRoguesAdvertisingSsid"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRldpAutoContainAdhocNetworks"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRldpAutoContainTrustedClientsOnRogueAps"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappRogueConfigSup2Group": {
+    "name": "ciscoLwappRogueConfigSup2Group",
+    "oid": "1.3.6.1.4.1.9.9.610.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRogueIgnoreListStorageType"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRogueIgnoreListRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRuleRogueType"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRuleConditionsMatch"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRulePriority"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRuleEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRuleStorageType"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRuleRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionType"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionValue"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionStorageType"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionSsidStorageType"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionSsidRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRldpAutoContainFeatureOnWiredNetwork"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRldpAutoContainRoguesAdvertisingSsid"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRldpAutoContainAdhocNetworks"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRldpAutoContainTrustedClientsOnRogueAps"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRldpAutoContainLevel"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRldpAutoContainOnlyforMonitorModeAps"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappRogueConfigSup3Group": {
+    "name": "ciscoLwappRogueConfigSup3Group",
+    "oid": "1.3.6.1.4.1.9.9.610.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRogueIgnoreListStorageType"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRogueIgnoreListRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRuleRogueType"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRuleConditionsMatch"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRulePriority"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRuleEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRuleStorageType"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRuleRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionType"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionValue"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionStorageType"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionSsidStorageType"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionSsidRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRldpAutoContainFeatureOnWiredNetwork"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRldpAutoContainRoguesAdvertisingSsid"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRldpAutoContainAdhocNetworks"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRldpAutoContainTrustedClientsOnRogueAps"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRldpAutoContainLevel"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRldpAutoContainOnlyforMonitorModeAps"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRogueReportInterval"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRogueMinimumRssi"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRogueTransientInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRogueConfigSup4Group": {
+    "name": "ciscoLwappRogueConfigSup4Group",
+    "oid": "1.3.6.1.4.1.9.9.610.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRogueApClassType"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRogueApState"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRogueApStorageType"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRogueApRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRogueClientNumThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRogueDetectionSecurityLevel"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLRogueValidateRogueClientsAgainstMse"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionRssi"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionClientCount"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionNoEncryptionEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionManagedSsidEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-ROGUE-MIB",
+        "object": "cLConditionDuration"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-ROGUE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-ROGUE-MIB"
+  }
+}

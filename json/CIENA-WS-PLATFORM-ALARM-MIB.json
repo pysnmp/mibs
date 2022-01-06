@@ -1,0 +1,850 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-WS-MIB": [
+      "cienaWsPlatformConfig"
+    ],
+    "CIENA-WS-PLATFORM-TYPEDEFS-MIB": [
+      "StringMaxl32",
+      "StringMaxl44",
+      "StringMaxl16"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaWsPlatformAlarmMIB": {
+    "name": "cienaWsPlatformAlarmMIB",
+    "oid": "1.3.6.1.4.1.1271.3.5.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-09-20 00:00",
+        "description": "Changed the name of the MIB to include Platform in the name. Added intermittent to alarmReason typedef."
+      },
+      {
+        "revision": "2018-08-14 00:00",
+        "description": "Added MIB definition."
+      }
+    ]
+  },
+  "AlarmReason": {
+    "name": "AlarmReason",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "set": 2,
+          "acknowledge": 5,
+          "clear": 6,
+          "delete": 7,
+          "config": 9,
+          "intermittent": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlarmSeverity": {
+    "name": "AlarmSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "critical": 3,
+          "major": 4,
+          "minor": 5,
+          "warning": 6,
+          "info": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "activeAlarmTable": {
+    "name": "activeAlarmTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "activeAlarmEntry": {
+    "name": "activeAlarmEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "activeAlarmInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "activeAlarmInstanceId": {
+    "name": "activeAlarmInstanceId",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "activeAlarmAcknowledged": {
+    "name": "activeAlarmAcknowledged",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeAlarmTableId": {
+    "name": "activeAlarmTableId",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeAlarmSeverity": {
+    "name": "activeAlarmSeverity",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeAlarmLocalDateTime": {
+    "name": "activeAlarmLocalDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeAlarmInstance": {
+    "name": "activeAlarmInstance",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeAlarmDescription": {
+    "name": "activeAlarmDescription",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl44",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeAlarmIntermittent": {
+    "name": "activeAlarmIntermittent",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeAlarmSiteIdentifier": {
+    "name": "activeAlarmSiteIdentifier",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeAlarmGroupIdentifier": {
+    "name": "activeAlarmGroupIdentifier",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeAlarmMemberIdentifier": {
+    "name": "activeAlarmMemberIdentifier",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyAlarmTable": {
+    "name": "historyAlarmTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "historyAlarmEntry": {
+    "name": "historyAlarmEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "historyAlarmId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "historyAlarmId": {
+    "name": "historyAlarmId",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "historyAlarmReason": {
+    "name": "historyAlarmReason",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyAlarmInstanceId": {
+    "name": "historyAlarmInstanceId",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyAlarmTableId": {
+    "name": "historyAlarmTableId",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyAlarmSeverity": {
+    "name": "historyAlarmSeverity",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyAlarmLocalDateTime": {
+    "name": "historyAlarmLocalDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyAlarmInstance": {
+    "name": "historyAlarmInstance",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyAlarmDescription": {
+    "name": "historyAlarmDescription",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl44",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyAlarmSiteIdentifier": {
+    "name": "historyAlarmSiteIdentifier",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyAlarmGroupIdentifier": {
+    "name": "historyAlarmGroupIdentifier",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyAlarmMemberIdentifier": {
+    "name": "historyAlarmMemberIdentifier",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "definedAlarmTable": {
+    "name": "definedAlarmTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "definedAlarmEntry": {
+    "name": "definedAlarmEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "definedAlarmId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "definedAlarmId": {
+    "name": "definedAlarmId",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "definedAlarmTableId": {
+    "name": "definedAlarmTableId",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "definedAlarmEnabled": {
+    "name": "definedAlarmEnabled",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "definedAlarmActive": {
+    "name": "definedAlarmActive",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "definedAlarmThreshold": {
+    "name": "definedAlarmThreshold",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "definedAlarmCap": {
+    "name": "definedAlarmCap",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "definedAlarmSeverity": {
+    "name": "definedAlarmSeverity",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "definedAlarmInstance": {
+    "name": "definedAlarmInstance",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl16",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "definedAlarmDescription": {
+    "name": "definedAlarmDescription",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl44",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmStatisticsTable": {
+    "name": "alarmStatisticsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmStatisticsEntry": {
+    "name": "alarmStatisticsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "alarmStatisticsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alarmStatisticsIndex": {
+    "name": "alarmStatisticsIndex",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmStatisticsActive": {
+    "name": "alarmStatisticsActive",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmStatisticsDisabled": {
+    "name": "alarmStatisticsDisabled",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmStatisticsCount": {
+    "name": "alarmStatisticsCount",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmStatisticsCumulative": {
+    "name": "alarmStatisticsCumulative",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmStatisticsType": {
+    "name": "alarmStatisticsType",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaWsPlatformAlarmObjects": {
+    "name": "cienaWsPlatformAlarmObjects",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.1",
+    "class": "objectidentity"
+  },
+  "cienaWsPlatformAlarmConformance": {
+    "name": "cienaWsPlatformAlarmConformance",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.2",
+    "class": "objectidentity"
+  },
+  "cienaWsPlatformAlarmGroups": {
+    "name": "cienaWsPlatformAlarmGroups",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.2.1",
+    "class": "objectidentity"
+  },
+  "cienaWsPlatformAlarmGroup": {
+    "name": "cienaWsPlatformAlarmGroup",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "activeAlarmAcknowledged"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "activeAlarmTableId"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "activeAlarmSeverity"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "activeAlarmLocalDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "activeAlarmInstance"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "activeAlarmDescription"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "activeAlarmIntermittent"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "activeAlarmSiteIdentifier"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "activeAlarmGroupIdentifier"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "activeAlarmMemberIdentifier"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "historyAlarmReason"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "historyAlarmInstanceId"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "historyAlarmTableId"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "historyAlarmSeverity"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "historyAlarmLocalDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "historyAlarmInstance"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "historyAlarmDescription"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "historyAlarmSiteIdentifier"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "historyAlarmGroupIdentifier"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "historyAlarmMemberIdentifier"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "definedAlarmTableId"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "definedAlarmEnabled"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "definedAlarmActive"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "definedAlarmThreshold"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "definedAlarmCap"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "definedAlarmSeverity"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "definedAlarmInstance"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "definedAlarmDescription"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "alarmStatisticsActive"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "alarmStatisticsDisabled"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "alarmStatisticsCount"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "alarmStatisticsCumulative"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB",
+        "object": "alarmStatisticsType"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaWsPlatformAlarmCompliances": {
+    "name": "cienaWsPlatformAlarmCompliances",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.2.2",
+    "class": "objectidentity"
+  },
+  "cienaWsPlatformAlarmCompliance": {
+    "name": "cienaWsPlatformAlarmCompliance",
+    "oid": "1.3.6.1.4.1.1271.3.5.4.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cienaWsPlatformAlarmGroup",
+        "module": "CIENA-WS-PLATFORM-ALARM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-PLATFORM-ALARM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-WS-PLATFORM-ALARM-MIB"
+  }
+}

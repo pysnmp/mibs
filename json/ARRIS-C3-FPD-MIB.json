@@ -1,0 +1,685 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARRIS-MIB": [
+      "cmtsC3"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "iso",
+      "MibIdentifier",
+      "Counter64",
+      "Unsigned32",
+      "Counter32",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cmtsC3FPDMIB": {
+    "name": "cmtsC3FPDMIB",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3",
+    "class": "moduleidentity"
+  },
+  "dcxFPDObjects": {
+    "name": "dcxFPDObjects",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1",
+    "class": "objectidentity"
+  },
+  "dcxFPDMsgTable": {
+    "name": "dcxFPDMsgTable",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcxFPDMsgEntry": {
+    "name": "dcxFPDMsgEntry",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARRIS-C3-FPD-MIB",
+        "object": "dcxFPDMsgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dcxFPDMsgIndex": {
+    "name": "dcxFPDMsgIndex",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcxFPDMsgString": {
+    "name": "dcxFPDMsgString",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcxFPDControlGroup": {
+    "name": "dcxFPDControlGroup",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.2",
+    "class": "objectidentity"
+  },
+  "dcxFPDAttachedStatus": {
+    "name": "dcxFPDAttachedStatus",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "attached": 1,
+          "detached": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxFPDPowerStatus1": {
+    "name": "dcxFPDPowerStatus1",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxFPDPowerStatus2": {
+    "name": "dcxFPDPowerStatus2",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxFPDTemp1Status": {
+    "name": "dcxFPDTemp1Status",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxFPDTemp2Status": {
+    "name": "dcxFPDTemp2Status",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxFPDTemp3Status": {
+    "name": "dcxFPDTemp3Status",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxFPDTemp4Status": {
+    "name": "dcxFPDTemp4Status",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxFPDFan1Status": {
+    "name": "dcxFPDFan1Status",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rotating": 1,
+          "badRotating": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxFPDFan2Status": {
+    "name": "dcxFPDFan2Status",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rotating": 1,
+          "badRotating": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxFPDFan3Status": {
+    "name": "dcxFPDFan3Status",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rotating": 1,
+          "badRotating": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxFPDFan4Status": {
+    "name": "dcxFPDFan4Status",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rotating": 1,
+          "badRotating": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxFPDFan5Status": {
+    "name": "dcxFPDFan5Status",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rotating": 1,
+          "badRotating": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxFPDFan6Status": {
+    "name": "dcxFPDFan6Status",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rotating": 1,
+          "badRotating": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxFPDFanUpperLimit": {
+    "name": "dcxFPDFanUpperLimit",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcxFPDFanLowerLimit": {
+    "name": "dcxFPDFanLowerLimit",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcxFPDLCDContrast": {
+    "name": "dcxFPDLCDContrast",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcxFPDLedSetStatus": {
+    "name": "dcxFPDLedSetStatus",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcxFPDHwRevision": {
+    "name": "dcxFPDHwRevision",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxFPDSwRevision": {
+    "name": "dcxFPDSwRevision",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxFPDTrapGroup": {
+    "name": "dcxFPDTrapGroup",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.3",
+    "class": "objectidentity"
+  },
+  "dcxFPDAttached": {
+    "name": "dcxFPDAttached",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.3.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dcxFPDDetached": {
+    "name": "dcxFPDDetached",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.3.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dcxFPDFan1Fail": {
+    "name": "dcxFPDFan1Fail",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.3.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dcxFPDFan1FailClr": {
+    "name": "dcxFPDFan1FailClr",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.3.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dcxFPDFan2Fail": {
+    "name": "dcxFPDFan2Fail",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.3.5",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dcxFPDFan2FailClr": {
+    "name": "dcxFPDFan2FailClr",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.3.6",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dcxFPDFan3Fail": {
+    "name": "dcxFPDFan3Fail",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.3.7",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dcxFPDFan3FailClr": {
+    "name": "dcxFPDFan3FailClr",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.3.8",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dcxFPDFan4Fail": {
+    "name": "dcxFPDFan4Fail",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.3.9",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dcxFPDFan4FailClr": {
+    "name": "dcxFPDFan4FailClr",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.3.10",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dcxFPDFan5Fail": {
+    "name": "dcxFPDFan5Fail",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.3.11",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dcxFPDFan5FailClr": {
+    "name": "dcxFPDFan5FailClr",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.3.12",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dcxFPDFan6Fail": {
+    "name": "dcxFPDFan6Fail",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.3.13",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dcxFPDFan6FailClr": {
+    "name": "dcxFPDFan6FailClr",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.3.14",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dcxFPDPwr1Fail": {
+    "name": "dcxFPDPwr1Fail",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.3.15",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dcxFPDPwr1FailClr": {
+    "name": "dcxFPDPwr1FailClr",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.3.16",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dcxFPDPwr2Fail": {
+    "name": "dcxFPDPwr2Fail",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.3.17",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dcxFPDPwr2FailClr": {
+    "name": "dcxFPDPwr2FailClr",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.3.18",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dcxFPDTempOkay": {
+    "name": "dcxFPDTempOkay",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.3.19",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dcxFPDTempBad": {
+    "name": "dcxFPDTempBad",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.3.20",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dcxFPDTempCritical": {
+    "name": "dcxFPDTempCritical",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.3.21",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dcxFPDConformance": {
+    "name": "dcxFPDConformance",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.4",
+    "class": "objectidentity"
+  },
+  "dcxFPDCompliances": {
+    "name": "dcxFPDCompliances",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.4.1",
+    "class": "objectidentity"
+  },
+  "dcxFPDGroups": {
+    "name": "dcxFPDGroups",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.4.2",
+    "class": "objectidentity"
+  },
+  "dcxFPDCompliance": {
+    "name": "dcxFPDCompliance",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dcxFPDMsgGroup",
+        "module": "ARRIS-C3-FPD-MIB"
+      },
+      {
+        "object": "dcxFPDControlConfGroup",
+        "module": "ARRIS-C3-FPD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dcxFPDMsgGroup": {
+    "name": "dcxFPDMsgGroup",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARRIS-C3-FPD-MIB",
+        "object": "dcxFPDMsgString"
+      }
+    ],
+    "status": "current"
+  },
+  "dcxFPDControlConfGroup": {
+    "name": "dcxFPDControlConfGroup",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.3.1.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARRIS-C3-FPD-MIB",
+        "object": "dcxFPDAttachedStatus"
+      },
+      {
+        "module": "ARRIS-C3-FPD-MIB",
+        "object": "dcxFPDPowerStatus1"
+      },
+      {
+        "module": "ARRIS-C3-FPD-MIB",
+        "object": "dcxFPDPowerStatus2"
+      },
+      {
+        "module": "ARRIS-C3-FPD-MIB",
+        "object": "dcxFPDTemp1Status"
+      },
+      {
+        "module": "ARRIS-C3-FPD-MIB",
+        "object": "dcxFPDTemp2Status"
+      },
+      {
+        "module": "ARRIS-C3-FPD-MIB",
+        "object": "dcxFPDTemp3Status"
+      },
+      {
+        "module": "ARRIS-C3-FPD-MIB",
+        "object": "dcxFPDTemp4Status"
+      },
+      {
+        "module": "ARRIS-C3-FPD-MIB",
+        "object": "dcxFPDFan1Status"
+      },
+      {
+        "module": "ARRIS-C3-FPD-MIB",
+        "object": "dcxFPDFan2Status"
+      },
+      {
+        "module": "ARRIS-C3-FPD-MIB",
+        "object": "dcxFPDFan3Status"
+      },
+      {
+        "module": "ARRIS-C3-FPD-MIB",
+        "object": "dcxFPDFan4Status"
+      },
+      {
+        "module": "ARRIS-C3-FPD-MIB",
+        "object": "dcxFPDFan5Status"
+      },
+      {
+        "module": "ARRIS-C3-FPD-MIB",
+        "object": "dcxFPDFan6Status"
+      },
+      {
+        "module": "ARRIS-C3-FPD-MIB",
+        "object": "dcxFPDFanUpperLimit"
+      },
+      {
+        "module": "ARRIS-C3-FPD-MIB",
+        "object": "dcxFPDFanLowerLimit"
+      },
+      {
+        "module": "ARRIS-C3-FPD-MIB",
+        "object": "dcxFPDLCDContrast"
+      },
+      {
+        "module": "ARRIS-C3-FPD-MIB",
+        "object": "dcxFPDLedSetStatus"
+      },
+      {
+        "module": "ARRIS-C3-FPD-MIB",
+        "object": "dcxFPDHwRevision"
+      },
+      {
+        "module": "ARRIS-C3-FPD-MIB",
+        "object": "dcxFPDSwRevision"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/ARRIS-C3-FPD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:05 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ARRIS-C3-FPD-MIB"
+  }
+}

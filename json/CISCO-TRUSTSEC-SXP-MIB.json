@@ -1,0 +1,2298 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoVrfName"
+    ],
+    "CISCO-TRUSTSEC-TC-MIB": [
+      "CtsPassword",
+      "CtsPasswordEncryptionType",
+      "CtsSecurityGroupTag"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress",
+      "InetAddressPrefixLength"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoTrustSecSxpMIB": {
+    "name": "ciscoTrustSecSxpMIB",
+    "oid": "1.3.6.1.4.1.9.9.720",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-04-17 00:00",
+        "description": "Added following OBJECT-GROUP - ctsxSxpBindingLogGroup - ctsxSxpBindingNotifInfoGroup - ctsxSxpNotifErrMsgGroup - ctsxSxpNodeIdInfoGroup - ctsxSxpSgtMapGroup - ctsxNotifsControlGroup - ctsxNotifsGroup - ctsxSxpGlobalHoldTimeGroup - ctsxSxpConnHoldTimeGroup - ctsxSxpConnCapbilityGroup - ctsxSxpVersionSupportGroup - ctsxSgtMapPeerSeqGroup Added new compliance - ciscoTrustSecSxpMIBCompliance3. Added enumerations three(4) and four(5) for the object ctsxSxpConnVersion."
+      },
+      {
+        "revision": "2010-11-24 00:00",
+        "description": "Added ctsxSxpVersionGroup."
+      },
+      {
+        "revision": "2010-02-03 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoTrustSecSxpMIBNotifs": {
+    "name": "ciscoTrustSecSxpMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.720.0",
+    "class": "objectidentity"
+  },
+  "ciscoTrustSecSxpMIBObjects": {
+    "name": "ciscoTrustSecSxpMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.720.1",
+    "class": "objectidentity"
+  },
+  "ciscoTrustSecSxpMIBConform": {
+    "name": "ciscoTrustSecSxpMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.720.2",
+    "class": "objectidentity"
+  },
+  "ctsxSxpGlobalObjects": {
+    "name": "ctsxSxpGlobalObjects",
+    "oid": "1.3.6.1.4.1.9.9.720.1.1",
+    "class": "objectidentity"
+  },
+  "ctsxSxpConnectionObjects": {
+    "name": "ctsxSxpConnectionObjects",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2",
+    "class": "objectidentity"
+  },
+  "ctsxSxpSgtObjects": {
+    "name": "ctsxSxpSgtObjects",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3",
+    "class": "objectidentity"
+  },
+  "ciscoTrustSecSxpMIBNotifsControl": {
+    "name": "ciscoTrustSecSxpMIBNotifsControl",
+    "oid": "1.3.6.1.4.1.9.9.720.1.4",
+    "class": "objectidentity"
+  },
+  "ciscoTrustSecSxpMIBNotifsOnlyInfo": {
+    "name": "ciscoTrustSecSxpMIBNotifsOnlyInfo",
+    "oid": "1.3.6.1.4.1.9.9.720.1.5",
+    "class": "objectidentity"
+  },
+  "ctsxSxpEnable": {
+    "name": "ctsxSxpEnable",
+    "oid": "1.3.6.1.4.1.9.9.720.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSxpConfigDefaultPasswordType": {
+    "name": "ctsxSxpConfigDefaultPasswordType",
+    "oid": "1.3.6.1.4.1.9.9.720.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsPasswordEncryptionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSxpConfigDefaultPassword": {
+    "name": "ctsxSxpConfigDefaultPassword",
+    "oid": "1.3.6.1.4.1.9.9.720.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsPassword",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSxpViewDefaultPasswordType": {
+    "name": "ctsxSxpViewDefaultPasswordType",
+    "oid": "1.3.6.1.4.1.9.9.720.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsPasswordEncryptionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxSxpViewDefaultPassword": {
+    "name": "ctsxSxpViewDefaultPassword",
+    "oid": "1.3.6.1.4.1.9.9.720.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsPassword",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxSxpDefaultSourceAddrType": {
+    "name": "ctsxSxpDefaultSourceAddrType",
+    "oid": "1.3.6.1.4.1.9.9.720.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSxpDefaultSourceAddr": {
+    "name": "ctsxSxpDefaultSourceAddr",
+    "oid": "1.3.6.1.4.1.9.9.720.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSxpRetryPeriod": {
+    "name": "ctsxSxpRetryPeriod",
+    "oid": "1.3.6.1.4.1.9.9.720.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSxpReconPeriod": {
+    "name": "ctsxSxpReconPeriod",
+    "oid": "1.3.6.1.4.1.9.9.720.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSxpBindingChangesLogEnable": {
+    "name": "ctsxSxpBindingChangesLogEnable",
+    "oid": "1.3.6.1.4.1.9.9.720.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSgtMapExpansionLimit": {
+    "name": "ctsxSgtMapExpansionLimit",
+    "oid": "1.3.6.1.4.1.9.9.720.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSgtMapExpansionCount": {
+    "name": "ctsxSgtMapExpansionCount",
+    "oid": "1.3.6.1.4.1.9.9.720.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxSxpAdminNodeId": {
+    "name": "ctsxSxpAdminNodeId",
+    "oid": "1.3.6.1.4.1.9.9.720.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSxpNodeIdInterface": {
+    "name": "ctsxSxpNodeIdInterface",
+    "oid": "1.3.6.1.4.1.9.9.720.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSxpNodeIdIpAddrType": {
+    "name": "ctsxSxpNodeIdIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.720.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSxpNodeIdIpAddr": {
+    "name": "ctsxSxpNodeIdIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.720.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSxpOperNodeId": {
+    "name": "ctsxSxpOperNodeId",
+    "oid": "1.3.6.1.4.1.9.9.720.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxSxpSpeakerMinHoldTime": {
+    "name": "ctsxSxpSpeakerMinHoldTime",
+    "oid": "1.3.6.1.4.1.9.9.720.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSxpListenerMinHoldTime": {
+    "name": "ctsxSxpListenerMinHoldTime",
+    "oid": "1.3.6.1.4.1.9.9.720.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSxpListenerMaxHoldTime": {
+    "name": "ctsxSxpListenerMaxHoldTime",
+    "oid": "1.3.6.1.4.1.9.9.720.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSxpVersionSupport": {
+    "name": "ctsxSxpVersionSupport",
+    "oid": "1.3.6.1.4.1.9.9.720.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "one": 2,
+          "two": 3,
+          "three": 4,
+          "four": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxSxpConnectionTable": {
+    "name": "ctsxSxpConnectionTable",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsxSxpConnectionEntry": {
+    "name": "ctsxSxpConnectionEntry",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnPeerAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnPeerAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxSxpConnVrfName": {
+    "name": "ctsxSxpConnVrfName",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoVrfName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsxSxpConnPeerAddrType": {
+    "name": "ctsxSxpConnPeerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsxSxpConnPeerAddr": {
+    "name": "ctsxSxpConnPeerAddr",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsxSxpConnSourceAddrType": {
+    "name": "ctsxSxpConnSourceAddrType",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsxSxpConnSourceAddr": {
+    "name": "ctsxSxpConnSourceAddr",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsxSxpConnOperSourceAddrType": {
+    "name": "ctsxSxpConnOperSourceAddrType",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxSxpConnOperSourceAddr": {
+    "name": "ctsxSxpConnOperSourceAddr",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxSxpConnPasswordUsed": {
+    "name": "ctsxSxpConnPasswordUsed",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "default": 2,
+          "connectionSpecific": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsxSxpConnConfigPasswordType": {
+    "name": "ctsxSxpConnConfigPasswordType",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsPasswordEncryptionType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsxSxpConnConfigPassword": {
+    "name": "ctsxSxpConnConfigPassword",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsPassword",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsxSxpConnViewPasswordType": {
+    "name": "ctsxSxpConnViewPasswordType",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsPasswordEncryptionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxSxpConnViewPassword": {
+    "name": "ctsxSxpConnViewPassword",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsPassword",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxSxpConnModeLocation": {
+    "name": "ctsxSxpConnModeLocation",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "peer": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "local",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsxSxpConnMode": {
+    "name": "ctsxSxpConnMode",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "speaker": 1,
+          "listener": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "speaker",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsxSxpConnInstance": {
+    "name": "ctsxSxpConnInstance",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxSxpConnStatusLastChange": {
+    "name": "ctsxSxpConnStatusLastChange",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxSxpConnStatus": {
+    "name": "ctsxSxpConnStatus",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "off": 2,
+          "on": 3,
+          "pendingOn": 4,
+          "deleteHoldDown": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxSxpVrfId": {
+    "name": "ctsxSxpVrfId",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxSxpConnStorageType": {
+    "name": "ctsxSxpConnStorageType",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsxSxpConnRowStatus": {
+    "name": "ctsxSxpConnRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsxSxpConnVersion": {
+    "name": "ctsxSxpConnVersion",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "one": 2,
+          "two": 3,
+          "three": 4,
+          "four": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxSxpConnSpeakerMinHoldTime": {
+    "name": "ctsxSxpConnSpeakerMinHoldTime",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 65534
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsxSxpConnListenerMinHoldTime": {
+    "name": "ctsxSxpConnListenerMinHoldTime",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 65534
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsxSxpConnListenerMaxHoldTime": {
+    "name": "ctsxSxpConnListenerMaxHoldTime",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 65534
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsxSxpConnHoldTime": {
+    "name": "ctsxSxpConnHoldTime",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxSxpConnCapability": {
+    "name": "ctsxSxpConnCapability",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ipv4": 0,
+        "ipv6": 1,
+        "subnet": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxIpSgtMappingTable": {
+    "name": "ctsxIpSgtMappingTable",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsxIpSgtMappingEntry": {
+    "name": "ctsxIpSgtMappingEntry",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxIpSgtMappingVrfId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxIpSgtMappingAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxIpSgtMappingAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxIpSgtMappingPeerAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxIpSgtMappingPeerAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxIpSgtMappingVrfId": {
+    "name": "ctsxIpSgtMappingVrfId",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsxIpSgtMappingAddrType": {
+    "name": "ctsxIpSgtMappingAddrType",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsxIpSgtMappingAddr": {
+    "name": "ctsxIpSgtMappingAddr",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsxIpSgtMappingPeerAddrType": {
+    "name": "ctsxIpSgtMappingPeerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsxIpSgtMappingPeerAddr": {
+    "name": "ctsxIpSgtMappingPeerAddr",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsxIpSgtMappingSgt": {
+    "name": "ctsxIpSgtMappingSgt",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxIpSgtMappingInstance": {
+    "name": "ctsxIpSgtMappingInstance",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxIpSgtMappingVrfName": {
+    "name": "ctsxIpSgtMappingVrfName",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoVrfName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxIpSgtMappingStatus": {
+    "name": "ctsxIpSgtMappingStatus",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxSxpSgtMapTable": {
+    "name": "ctsxSxpSgtMapTable",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsxSxpSgtMapEntry": {
+    "name": "ctsxSxpSgtMapEntry",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpSgtMapVrfId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpSgtMapAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpSgtMapAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpSgtMapAddrPrefixLength",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpSgtMapPeerAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpSgtMapPeerAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxSxpSgtMapVrfId": {
+    "name": "ctsxSxpSgtMapVrfId",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsxSxpSgtMapAddrType": {
+    "name": "ctsxSxpSgtMapAddrType",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsxSxpSgtMapAddr": {
+    "name": "ctsxSxpSgtMapAddr",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsxSxpSgtMapAddrPrefixLength": {
+    "name": "ctsxSxpSgtMapAddrPrefixLength",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsxSxpSgtMapPeerAddrType": {
+    "name": "ctsxSxpSgtMapPeerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsxSxpSgtMapPeerAddr": {
+    "name": "ctsxSxpSgtMapPeerAddr",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsxSxpSgtMapSgt": {
+    "name": "ctsxSxpSgtMapSgt",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxSxpSgtMapInstance": {
+    "name": "ctsxSxpSgtMapInstance",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxSxpSgtMapVrfName": {
+    "name": "ctsxSxpSgtMapVrfName",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoVrfName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxSxpSgtMapPeerSeq": {
+    "name": "ctsxSxpSgtMapPeerSeq",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxSxpSgtMapStatus": {
+    "name": "ctsxSxpSgtMapStatus",
+    "oid": "1.3.6.1.4.1.9.9.720.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxSxpConnSourceAddrErrNotifEnable": {
+    "name": "ctsxSxpConnSourceAddrErrNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.720.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSxpMsgParseErrNotifEnable": {
+    "name": "ctsxSxpMsgParseErrNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.720.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSxpConnConfigErrNotifEnable": {
+    "name": "ctsxSxpConnConfigErrNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.720.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSxpBindingErrNotifEnable": {
+    "name": "ctsxSxpBindingErrNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.720.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSxpConnUpNotifEnable": {
+    "name": "ctsxSxpConnUpNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.720.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSxpConnDownNotifEnable": {
+    "name": "ctsxSxpConnDownNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.720.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSxpExpansionFailNotifEnable": {
+    "name": "ctsxSxpExpansionFailNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.720.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSxpOperNodeIdChangeNotifEnable": {
+    "name": "ctsxSxpOperNodeIdChangeNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.720.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSxpBindingConflictNotifEnable": {
+    "name": "ctsxSxpBindingConflictNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.720.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsxSgtMapExpansionVrf": {
+    "name": "ctsxSgtMapExpansionVrf",
+    "oid": "1.3.6.1.4.1.9.9.720.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoVrfName",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ctsxSgtMapExpansionAddrType": {
+    "name": "ctsxSgtMapExpansionAddrType",
+    "oid": "1.3.6.1.4.1.9.9.720.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ctsxSgtMapExpansionAddr": {
+    "name": "ctsxSgtMapExpansionAddr",
+    "oid": "1.3.6.1.4.1.9.9.720.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ctsxSgtMapExpansionAddrPrefixLength": {
+    "name": "ctsxSgtMapExpansionAddrPrefixLength",
+    "oid": "1.3.6.1.4.1.9.9.720.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ctsxSxpNotifErrMsg": {
+    "name": "ctsxSxpNotifErrMsg",
+    "oid": "1.3.6.1.4.1.9.9.720.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ctsxSgtMapConflictingVrfName": {
+    "name": "ctsxSgtMapConflictingVrfName",
+    "oid": "1.3.6.1.4.1.9.9.720.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoVrfName",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ctsxSgtMapConflictingAddrType": {
+    "name": "ctsxSgtMapConflictingAddrType",
+    "oid": "1.3.6.1.4.1.9.9.720.1.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ctsxSgtMapConflictingAddr": {
+    "name": "ctsxSgtMapConflictingAddr",
+    "oid": "1.3.6.1.4.1.9.9.720.1.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ctsxSgtMapConflictingOldSgt": {
+    "name": "ctsxSgtMapConflictingOldSgt",
+    "oid": "1.3.6.1.4.1.9.9.720.1.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ctsxSgtMapConflictingNewSgt": {
+    "name": "ctsxSgtMapConflictingNewSgt",
+    "oid": "1.3.6.1.4.1.9.9.720.1.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ctsxSxpOldOperNodeId": {
+    "name": "ctsxSxpOldOperNodeId",
+    "oid": "1.3.6.1.4.1.9.9.720.1.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ctsxSxpConnSourceAddrErrNotif": {
+    "name": "ctsxSxpConnSourceAddrErrNotif",
+    "oid": "1.3.6.1.4.1.9.9.720.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnOperSourceAddrType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnOperSourceAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxSxpMsgParseErrNotif": {
+    "name": "ctsxSxpMsgParseErrNotif",
+    "oid": "1.3.6.1.4.1.9.9.720.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnOperSourceAddrType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnOperSourceAddr"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpNotifErrMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxSxpConnConfigErrNotif": {
+    "name": "ctsxSxpConnConfigErrNotif",
+    "oid": "1.3.6.1.4.1.9.9.720.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnOperSourceAddrType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnOperSourceAddr"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpNotifErrMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxSxpBindingErrNotif": {
+    "name": "ctsxSxpBindingErrNotif",
+    "oid": "1.3.6.1.4.1.9.9.720.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpSgtMapSgt"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpSgtMapInstance"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpSgtMapVrfName"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpNotifErrMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxSxpConnUpNotif": {
+    "name": "ctsxSxpConnUpNotif",
+    "oid": "1.3.6.1.4.1.9.9.720.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnOperSourceAddrType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnOperSourceAddr"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnInstance"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxSxpConnDownNotif": {
+    "name": "ctsxSxpConnDownNotif",
+    "oid": "1.3.6.1.4.1.9.9.720.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnOperSourceAddrType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnOperSourceAddr"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnInstance"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxSxpExpansionFailNotif": {
+    "name": "ctsxSxpExpansionFailNotif",
+    "oid": "1.3.6.1.4.1.9.9.720.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSgtMapExpansionLimit"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSgtMapExpansionCount"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSgtMapExpansionVrf"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSgtMapExpansionAddrType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSgtMapExpansionAddr"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSgtMapExpansionAddrPrefixLength"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxSxpOperNodeIdChangeNotif": {
+    "name": "ctsxSxpOperNodeIdChangeNotif",
+    "oid": "1.3.6.1.4.1.9.9.720.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpOldOperNodeId"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpOperNodeId"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxSxpBindingConflictNotif": {
+    "name": "ctsxSxpBindingConflictNotif",
+    "oid": "1.3.6.1.4.1.9.9.720.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSgtMapConflictingVrfName"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSgtMapConflictingAddrType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSgtMapConflictingAddr"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSgtMapConflictingOldSgt"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSgtMapConflictingNewSgt"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecSxpMIBCompliances": {
+    "name": "ciscoTrustSecSxpMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.720.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoTrustSecSxpMIBGroups": {
+    "name": "ciscoTrustSecSxpMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.720.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoTrustSecSxpMIBCompliance": {
+    "name": "ciscoTrustSecSxpMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.720.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ctsxSxpGlobalGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpConnectionGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxIpSgtMappingGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTrustSecSxpMIBCompliance2": {
+    "name": "ciscoTrustSecSxpMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.720.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ctsxSxpGlobalGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpConnectionGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxIpSgtMappingGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpVersionGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTrustSecSxpMIBCompliance3": {
+    "name": "ciscoTrustSecSxpMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.720.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ctsxSxpGlobalGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpConnectionGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpVersionGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpBindingLogGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpBindingNotifInfoGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpNodeIdInfoGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxIpSgtMappingGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpSgtMapGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxNotifsControlGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxNotifsGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpNotifErrMsgGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpGlobalHoldTimeGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpConnHoldTimeGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpConnCapbilityGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpVersionSupportGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSgtMapPeerSeqGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxSxpGlobalGroup": {
+    "name": "ctsxSxpGlobalGroup",
+    "oid": "1.3.6.1.4.1.9.9.720.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpEnable"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConfigDefaultPasswordType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConfigDefaultPassword"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpViewDefaultPasswordType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpViewDefaultPassword"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpDefaultSourceAddrType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpDefaultSourceAddr"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpRetryPeriod"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpReconPeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxSxpConnectionGroup": {
+    "name": "ctsxSxpConnectionGroup",
+    "oid": "1.3.6.1.4.1.9.9.720.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnSourceAddrType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnSourceAddr"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnOperSourceAddrType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnOperSourceAddr"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnPasswordUsed"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnConfigPasswordType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnConfigPassword"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnViewPasswordType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnViewPassword"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnModeLocation"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnMode"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnInstance"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnStatusLastChange"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnStatus"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpVrfId"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnStorageType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxIpSgtMappingGroup": {
+    "name": "ctsxIpSgtMappingGroup",
+    "oid": "1.3.6.1.4.1.9.9.720.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxIpSgtMappingSgt"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxIpSgtMappingInstance"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxIpSgtMappingVrfName"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxIpSgtMappingStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxSxpVersionGroup": {
+    "name": "ctsxSxpVersionGroup",
+    "oid": "1.3.6.1.4.1.9.9.720.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxSxpBindingLogGroup": {
+    "name": "ctsxSxpBindingLogGroup",
+    "oid": "1.3.6.1.4.1.9.9.720.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpBindingChangesLogEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxSxpBindingNotifInfoGroup": {
+    "name": "ctsxSxpBindingNotifInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.720.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSgtMapExpansionVrf"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSgtMapExpansionAddrType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSgtMapExpansionAddr"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSgtMapExpansionAddrPrefixLength"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSgtMapConflictingVrfName"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSgtMapConflictingAddrType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSgtMapConflictingAddr"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSgtMapConflictingOldSgt"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSgtMapConflictingNewSgt"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpOldOperNodeId"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxSxpNotifErrMsgGroup": {
+    "name": "ctsxSxpNotifErrMsgGroup",
+    "oid": "1.3.6.1.4.1.9.9.720.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpNotifErrMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxSxpNodeIdInfoGroup": {
+    "name": "ctsxSxpNodeIdInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.720.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpAdminNodeId"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpNodeIdInterface"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpNodeIdIpAddrType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpNodeIdIpAddr"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpOperNodeId"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxSxpSgtMapGroup": {
+    "name": "ctsxSxpSgtMapGroup",
+    "oid": "1.3.6.1.4.1.9.9.720.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpSgtMapSgt"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpSgtMapInstance"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpSgtMapVrfName"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpSgtMapStatus"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSgtMapExpansionLimit"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSgtMapExpansionCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxNotifsControlGroup": {
+    "name": "ctsxNotifsControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.720.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnSourceAddrErrNotifEnable"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpMsgParseErrNotifEnable"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnConfigErrNotifEnable"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpBindingErrNotifEnable"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnUpNotifEnable"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnDownNotifEnable"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpExpansionFailNotifEnable"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpOperNodeIdChangeNotifEnable"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpBindingConflictNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxNotifsGroup": {
+    "name": "ctsxNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.720.2.2.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnSourceAddrErrNotif"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpMsgParseErrNotif"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnConfigErrNotif"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpBindingErrNotif"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnUpNotif"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnDownNotif"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpExpansionFailNotif"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpOperNodeIdChangeNotif"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpBindingConflictNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxSxpGlobalHoldTimeGroup": {
+    "name": "ctsxSxpGlobalHoldTimeGroup",
+    "oid": "1.3.6.1.4.1.9.9.720.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpSpeakerMinHoldTime"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpListenerMinHoldTime"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpListenerMaxHoldTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxSxpConnHoldTimeGroup": {
+    "name": "ctsxSxpConnHoldTimeGroup",
+    "oid": "1.3.6.1.4.1.9.9.720.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnSpeakerMinHoldTime"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnListenerMinHoldTime"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnListenerMaxHoldTime"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnHoldTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxSxpConnCapbilityGroup": {
+    "name": "ctsxSxpConnCapbilityGroup",
+    "oid": "1.3.6.1.4.1.9.9.720.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnCapability"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxSxpVersionSupportGroup": {
+    "name": "ctsxSxpVersionSupportGroup",
+    "oid": "1.3.6.1.4.1.9.9.720.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpVersionSupport"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsxSgtMapPeerSeqGroup": {
+    "name": "ctsxSgtMapPeerSeqGroup",
+    "oid": "1.3.6.1.4.1.9.9.720.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpSgtMapPeerSeq"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-TRUSTSEC-SXP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-TRUSTSEC-SXP-MIB"
+  }
+}

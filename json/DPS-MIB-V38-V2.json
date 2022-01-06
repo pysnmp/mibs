@@ -1,0 +1,1676 @@
+{
+  "imports": {
+    "class": "imports",
+    "DPS-MIB-V38": [
+      "dpsAlarmControl",
+      "tmonXM"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Gauge32",
+      "Unsigned32",
+      "Counter32",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "tmonV2XM": {
+    "name": "tmonV2XM",
+    "oid": "1.3.6.1.4.1.2682.1.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-08-08 12:00",
+        "description": "Modified for proper smi/asn.1 formatting and structure (CBH)"
+      }
+    ]
+  },
+  "tmonV2Ident": {
+    "name": "tmonV2Ident",
+    "oid": "1.3.6.1.4.1.2682.1.3.1",
+    "class": "objectidentity"
+  },
+  "tmonV2IdentManufacturer": {
+    "name": "tmonV2IdentManufacturer",
+    "oid": "1.3.6.1.4.1.2682.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmonV2IdentModel": {
+    "name": "tmonV2IdentModel",
+    "oid": "1.3.6.1.4.1.2682.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmonV2IdentSoftwareVersion": {
+    "name": "tmonV2IdentSoftwareVersion",
+    "oid": "1.3.6.1.4.1.2682.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmonV2AlarmTable": {
+    "name": "tmonV2AlarmTable",
+    "oid": "1.3.6.1.4.1.2682.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmonV2AlarmEntry": {
+    "name": "tmonV2AlarmEntry",
+    "oid": "1.3.6.1.4.1.2682.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tmonV2AIndex": {
+    "name": "tmonV2AIndex",
+    "oid": "1.3.6.1.4.1.2682.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmonV2ASite": {
+    "name": "tmonV2ASite",
+    "oid": "1.3.6.1.4.1.2682.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmonV2ADesc": {
+    "name": "tmonV2ADesc",
+    "oid": "1.3.6.1.4.1.2682.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmonV2AState": {
+    "name": "tmonV2AState",
+    "oid": "1.3.6.1.4.1.2682.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmonV2ASeverity": {
+    "name": "tmonV2ASeverity",
+    "oid": "1.3.6.1.4.1.2682.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmonV2AChgDate": {
+    "name": "tmonV2AChgDate",
+    "oid": "1.3.6.1.4.1.2682.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmonV2AChgTime": {
+    "name": "tmonV2AChgTime",
+    "oid": "1.3.6.1.4.1.2682.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmonV2AAuxDesc": {
+    "name": "tmonV2AAuxDesc",
+    "oid": "1.3.6.1.4.1.2682.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmonV2ADispDesc": {
+    "name": "tmonV2ADispDesc",
+    "oid": "1.3.6.1.4.1.2682.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmonV2APntType": {
+    "name": "tmonV2APntType",
+    "oid": "1.3.6.1.4.1.2682.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmonV2APort": {
+    "name": "tmonV2APort",
+    "oid": "1.3.6.1.4.1.2682.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmonV2AAddress": {
+    "name": "tmonV2AAddress",
+    "oid": "1.3.6.1.4.1.2682.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmonV2ADisplay": {
+    "name": "tmonV2ADisplay",
+    "oid": "1.3.6.1.4.1.2682.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmonV2APoint": {
+    "name": "tmonV2APoint",
+    "oid": "1.3.6.1.4.1.2682.1.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmonV2AEvent": {
+    "name": "tmonV2AEvent",
+    "oid": "1.3.6.1.4.1.2682.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmonV2AIPAddr": {
+    "name": "tmonV2AIPAddr",
+    "oid": "1.3.6.1.4.1.2682.1.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmonV2ADevDesc": {
+    "name": "tmonV2ADevDesc",
+    "oid": "1.3.6.1.4.1.2682.1.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmonV2CommandGrid": {
+    "name": "tmonV2CommandGrid",
+    "oid": "1.3.6.1.4.1.2682.1.3.3",
+    "class": "objectidentity"
+  },
+  "tmonV2CPType": {
+    "name": "tmonV2CPType",
+    "oid": "1.3.6.1.4.1.2682.1.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmonV2CPort": {
+    "name": "tmonV2CPort",
+    "oid": "1.3.6.1.4.1.2682.1.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmonV2CAddress": {
+    "name": "tmonV2CAddress",
+    "oid": "1.3.6.1.4.1.2682.1.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmonV2CDisplay": {
+    "name": "tmonV2CDisplay",
+    "oid": "1.3.6.1.4.1.2682.1.3.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmonV2CPoint": {
+    "name": "tmonV2CPoint",
+    "oid": "1.3.6.1.4.1.2682.1.3.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmonV2CEvent": {
+    "name": "tmonV2CEvent",
+    "oid": "1.3.6.1.4.1.2682.1.3.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmonV2CAction": {
+    "name": "tmonV2CAction",
+    "oid": "1.3.6.1.4.1.2682.1.3.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "latch": 1,
+          "release": 2,
+          "momentary": 3,
+          "ack": 17,
+          "tag": 18,
+          "untag": 19
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmonV2CAuxText": {
+    "name": "tmonV2CAuxText",
+    "oid": "1.3.6.1.4.1.2682.1.3.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmonV2CResult": {
+    "name": "tmonV2CResult",
+    "oid": "1.3.6.1.4.1.2682.1.3.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "failure": 2,
+          "pending": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dpsRTUv2": {
+    "name": "dpsRTUv2",
+    "oid": "1.3.6.1.4.1.2682.1.4",
+    "class": "objectidentity"
+  },
+  "dpsRTUv2Ident": {
+    "name": "dpsRTUv2Ident",
+    "oid": "1.3.6.1.4.1.2682.1.4.1",
+    "class": "objectidentity"
+  },
+  "dpsRTUv2Manufacturer": {
+    "name": "dpsRTUv2Manufacturer",
+    "oid": "1.3.6.1.4.1.2682.1.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dpsRTUv2Model": {
+    "name": "dpsRTUv2Model",
+    "oid": "1.3.6.1.4.1.2682.1.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dpsRTUv2FirmwareVersion": {
+    "name": "dpsRTUv2FirmwareVersion",
+    "oid": "1.3.6.1.4.1.2682.1.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dpsRTUv2DateTime": {
+    "name": "dpsRTUv2DateTime",
+    "oid": "1.3.6.1.4.1.2682.1.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dpsRTUv2SyncReq": {
+    "name": "dpsRTUv2SyncReq",
+    "oid": "1.3.6.1.4.1.2682.1.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sync": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dpsRTUv2DisplayGrid": {
+    "name": "dpsRTUv2DisplayGrid",
+    "oid": "1.3.6.1.4.1.2682.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dpsRTUv2DisplayEntry": {
+    "name": "dpsRTUv2DisplayEntry",
+    "oid": "1.3.6.1.4.1.2682.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "dpsRTUv2Port",
+        "implied": 0
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "dpsRTUv2Address",
+        "implied": 0
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "dpsRTUv2Display",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dpsRTUv2Port": {
+    "name": "dpsRTUv2Port",
+    "oid": "1.3.6.1.4.1.2682.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dpsRTUv2Address": {
+    "name": "dpsRTUv2Address",
+    "oid": "1.3.6.1.4.1.2682.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dpsRTUv2Display": {
+    "name": "dpsRTUv2Display",
+    "oid": "1.3.6.1.4.1.2682.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dpsRTUv2DispDesc": {
+    "name": "dpsRTUv2DispDesc",
+    "oid": "1.3.6.1.4.1.2682.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dpsRTUv2PntMap": {
+    "name": "dpsRTUv2PntMap",
+    "oid": "1.3.6.1.4.1.2682.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dpsRTUv2ControlGrid": {
+    "name": "dpsRTUv2ControlGrid",
+    "oid": "1.3.6.1.4.1.2682.1.4.3",
+    "class": "objectidentity"
+  },
+  "dpsRTUv2CPort": {
+    "name": "dpsRTUv2CPort",
+    "oid": "1.3.6.1.4.1.2682.1.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dpsRTUv2CAddress": {
+    "name": "dpsRTUv2CAddress",
+    "oid": "1.3.6.1.4.1.2682.1.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dpsRTUv2CDisplay": {
+    "name": "dpsRTUv2CDisplay",
+    "oid": "1.3.6.1.4.1.2682.1.4.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dpsRTUv2CPoint": {
+    "name": "dpsRTUv2CPoint",
+    "oid": "1.3.6.1.4.1.2682.1.4.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dpsRTUv2CAction": {
+    "name": "dpsRTUv2CAction",
+    "oid": "1.3.6.1.4.1.2682.1.4.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "latch": 1,
+          "release": 2,
+          "momentary": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dpsRTUv2AlarmGrid": {
+    "name": "dpsRTUv2AlarmGrid",
+    "oid": "1.3.6.1.4.1.2682.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dpsRTUv2AlarmEntry": {
+    "name": "dpsRTUv2AlarmEntry",
+    "oid": "1.3.6.1.4.1.2682.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "dpsRTUv2APort",
+        "implied": 0
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "dpsRTUv2AAddress",
+        "implied": 0
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "dpsRTUv2ADisplay",
+        "implied": 0
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "dpsRTUv2APoint",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dpsRTUv2APort": {
+    "name": "dpsRTUv2APort",
+    "oid": "1.3.6.1.4.1.2682.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dpsRTUv2AAddress": {
+    "name": "dpsRTUv2AAddress",
+    "oid": "1.3.6.1.4.1.2682.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dpsRTUv2ADisplay": {
+    "name": "dpsRTUv2ADisplay",
+    "oid": "1.3.6.1.4.1.2682.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dpsRTUv2APoint": {
+    "name": "dpsRTUv2APoint",
+    "oid": "1.3.6.1.4.1.2682.1.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dpsRTUv2APntDesc": {
+    "name": "dpsRTUv2APntDesc",
+    "oid": "1.3.6.1.4.1.2682.1.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dpsRTUv2AState": {
+    "name": "dpsRTUv2AState",
+    "oid": "1.3.6.1.4.1.2682.1.4.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "analogChannelsv2": {
+    "name": "analogChannelsv2",
+    "oid": "1.3.6.1.4.1.2682.1.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelEntryv2": {
+    "name": "channelEntryv2",
+    "oid": "1.3.6.1.4.1.2682.1.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "channelNumberv2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "channelNumberv2": {
+    "name": "channelNumberv2",
+    "oid": "1.3.6.1.4.1.2682.1.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "enabledv2": {
+    "name": "enabledv2",
+    "oid": "1.3.6.1.4.1.2682.1.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "descriptionv2": {
+    "name": "descriptionv2",
+    "oid": "1.3.6.1.4.1.2682.1.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "valuev2": {
+    "name": "valuev2",
+    "oid": "1.3.6.1.4.1.2682.1.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "thresholdsv2": {
+    "name": "thresholdsv2",
+    "oid": "1.3.6.1.4.1.2682.1.4.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAlarms": 0,
+          "minorUnder": 1,
+          "minorOver": 2,
+          "majorUnder": 3,
+          "majorOver": 4,
+          "notDetected": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmonV2CRalarmSet": {
+    "name": "tmonV2CRalarmSet",
+    "oid": "1.3.6.1.4.1.2682.1.1.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ASite"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AState"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ASeverity"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AChgDate"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AChgTime"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AAuxDesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADispDesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APntType"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APort"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AAddress"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADisplay"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APoint"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2CEvent"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AIPAddr"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADevDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "tmonV2CRalarmClr": {
+    "name": "tmonV2CRalarmClr",
+    "oid": "1.3.6.1.4.1.2682.1.1.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ASite"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AState"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ASeverity"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AChgDate"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AChgTime"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AAuxDesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADispDesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APntType"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APort"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AAddress"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADisplay"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APoint"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2CEvent"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AIPAddr"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADevDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "tmonV2MJalarmSet": {
+    "name": "tmonV2MJalarmSet",
+    "oid": "1.3.6.1.4.1.2682.1.1.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ASite"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AState"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ASeverity"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AChgDate"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AChgTime"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AAuxDesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADispDesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APntType"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APort"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AAddress"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADisplay"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APoint"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2CEvent"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AIPAddr"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADevDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "tmonV2MJalarmClr": {
+    "name": "tmonV2MJalarmClr",
+    "oid": "1.3.6.1.4.1.2682.1.1.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ASite"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AState"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ASeverity"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AChgDate"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AChgTime"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AAuxDesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADispDesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APntType"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APort"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AAddress"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADisplay"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APoint"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2CEvent"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AIPAddr"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADevDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "tmonV2MNalarmSet": {
+    "name": "tmonV2MNalarmSet",
+    "oid": "1.3.6.1.4.1.2682.1.1.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ASite"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AState"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ASeverity"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AChgDate"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AChgTime"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AAuxDesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADispDesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APntType"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APort"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AAddress"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADisplay"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APoint"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2CEvent"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AIPAddr"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADevDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "tmonV2MNalarmClr": {
+    "name": "tmonV2MNalarmClr",
+    "oid": "1.3.6.1.4.1.2682.1.1.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ASite"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AState"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ASeverity"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AChgDate"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AChgTime"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AAuxDesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADispDesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APntType"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APort"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AAddress"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADisplay"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APoint"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2CEvent"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AIPAddr"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADevDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "tmonV2STalarmSet": {
+    "name": "tmonV2STalarmSet",
+    "oid": "1.3.6.1.4.1.2682.1.1.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ASite"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AState"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ASeverity"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AChgDate"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AChgTime"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AAuxDesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADispDesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APntType"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APort"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AAddress"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADisplay"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APoint"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2CEvent"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AIPAddr"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADevDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "tmonV2STalarmClr": {
+    "name": "tmonV2STalarmClr",
+    "oid": "1.3.6.1.4.1.2682.1.1.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ASite"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AState"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ASeverity"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AChgDate"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AChgTime"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AAuxDesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADispDesc"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APntType"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APort"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AAddress"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADisplay"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2APoint"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2CEvent"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2AIPAddr"
+      },
+      {
+        "module": "DPS-MIB-V38-V2",
+        "object": "tmonV2ADevDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dpstelecom/DPS-MIB-V38-V2",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DPS-MIB-V38-V2"
+  }
+}

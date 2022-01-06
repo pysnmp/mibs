@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module IRT-COMMONVARBINDS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/IRT-COMMONVARBINDS-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:15:21 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:49:39 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
+ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
 common, = mibBuilder.importSymbols("IRT-TRANSMITTER-SMI-MIB", "common")
 ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, iso, NotificationType, Unsigned32, Gauge32, ObjectIdentity, MibIdentifier, IpAddress, Bits, TimeTicks, Counter32, Integer32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "iso", "NotificationType", "Unsigned32", "Gauge32", "ObjectIdentity", "MibIdentifier", "IpAddress", "Bits", "TimeTicks", "Counter32", "Integer32", "Counter64")
+MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Unsigned32, IpAddress, Bits, Integer32, Gauge32, ObjectIdentity, Counter64, NotificationType, TimeTicks, Counter32, ModuleIdentity, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Unsigned32", "IpAddress", "Bits", "Integer32", "Gauge32", "ObjectIdentity", "Counter64", "NotificationType", "TimeTicks", "Counter32", "ModuleIdentity", "MibIdentifier")
 DateAndTime, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "DisplayString", "TextualConvention")
 commonVarbinds = ModuleIdentity((1, 3, 6, 1, 4, 1, 19831, 1, 1, 7, 1))
 commonVarbinds.setRevisions(('2007-05-04 14:00', '2006-12-20 14:00', '2006-09-21 14:00', '2006-09-19 14:00', '2006-09-07 14:00',))
@@ -31,4 +31,4 @@ commonVarbindsCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 19831, 1, 1, 7, 1
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     commonVarbindsCompliance = commonVarbindsCompliance.setStatus('current')
-mibBuilder.exportSymbols("IRT-COMMONVARBINDS-MIB", objectGroup=objectGroup, eventPriority=eventPriority, mibRelease=mibRelease, PYSNMP_MODULE_ID=commonVarbinds, eventCounter=eventCounter, commonVarbindsCompliance=commonVarbindsCompliance, eventTimeStamp=eventTimeStamp, commonVarbinds=commonVarbinds)
+mibBuilder.exportSymbols("IRT-COMMONVARBINDS-MIB", mibRelease=mibRelease, eventPriority=eventPriority, objectGroup=objectGroup, PYSNMP_MODULE_ID=commonVarbinds, commonVarbindsCompliance=commonVarbindsCompliance, eventTimeStamp=eventTimeStamp, commonVarbinds=commonVarbinds, eventCounter=eventCounter)

@@ -1,0 +1,1793 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "EntPhysicalIndexOrZero",
+      "TimeIntervalSec"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "ciscoSystemExtMIB": {
+    "name": "ciscoSystemExtMIB",
+    "oid": "1.3.6.1.4.1.9.9.305",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-07-19 00:00",
+        "description": "Added support for ciscoSysReloadGroup."
+      },
+      {
+        "revision": "2016-06-07 00:00",
+        "description": "Added cseMaintModeState object. Added new notifications cseNormalModeChangeNotify and cseMaintModeChangeNotify. Added new group ciscoSystemMaintModeGroup. Added new objects ciscoSystemNormalModeNotifEnable and ciscoSystemMaintModeNotifEnable. Added new group ciscoSystemMaintModeNotifControl. Added compilance ciscoSystemExtMIBComplianceRev10 to replace ciscoSystemExtMIBComplianceRev9. Added object group ciscoSystemMaintModeObjectsGroup and notification group ciscoSystemMaintModeNotificationGroup."
+      },
+      {
+        "revision": "2015-08-19 00:00",
+        "description": "Added support for ciscoSystemSwitchingModeObjectsGroup."
+      },
+      {
+        "revision": "2007-08-06 00:00",
+        "description": "-Added a scalar object 'cseSysUpTime' -Added an Object Group ciscoSystemExtInfoGroupRev3 and a MODULE-COMPLIANCE ciscoSystemExtMIBComplianceRev8 to include the new object."
+      },
+      {
+        "revision": "2006-11-29 00:00",
+        "description": "Added ciscoSystemExtInfoFIPSGroup. Added a new object cseSysFIPSModeActivation."
+      },
+      {
+        "revision": "2006-09-25 00:00",
+        "description": "-Added cseSwCoresFileName in cseSwCoresTable. -Added new notification cseFailSwCoreNotifyExtended. -Added new group ciscoSystemExtSwFailureGroup3. -Added new group ciscoSystemExtNotificationGroupSup2. -Added compliance ciscoSystemExtMIBComplianceRev6 to replace ciscoSystemExtMIBComplianceRev5. -Added new group ciscoSystemExtSwFailureControlGroup. -Added new ciscoSwFailureNotifEnable object."
+      },
+      {
+        "revision": "2005-11-09 00:00",
+        "description": "Added a new group ciscoSystemExtInfoTelnetGroup. Added a new object cseSysTelnetServiceActivation."
+      },
+      {
+        "revision": "2005-06-14 00:00",
+        "description": "Updated CseHaRestartReason Added a new table cseSwCoresTable. Added notifications - cseFailSwCoreNotify - cseShutDownNotify Added a new group ciscoSystemExtSwFailureGroup2. Added a new group ciscoSystemExtNotificationGroup1. Added a new object cseSysConsolePortStatus. Added a new group ciscoSystemExtInfoGroupRev2. Added a new compliance group ciscoSystemExtMIBComplianceRev4."
+      },
+      {
+        "revision": "2004-04-19 00:00",
+        "description": "Added a new object cseSwCorePath."
+      },
+      {
+        "revision": "2003-05-02 00:00",
+        "description": "Added a new object cseWriteErase. Added a new group ciscoSystemExtInfoGroupOptional. A new compliance ciscoSystemExtMIBComplianceRev2 added to replace ciscoSystemExtMIBComplianceRev1."
+      },
+      {
+        "revision": "2003-03-02 00:00",
+        "description": "Added cseSysAutoSync and cseSysAutoSyncState."
+      },
+      {
+        "revision": "2002-11-19 00:00",
+        "description": "Added cseSysConfLastChange."
+      },
+      {
+        "revision": "2002-10-04 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSystemExtMIBNotifsPrefix": {
+    "name": "ciscoSystemExtMIBNotifsPrefix",
+    "oid": "1.3.6.1.4.1.9.9.305.0",
+    "class": "objectidentity"
+  },
+  "ciscoSystemExtMIBObjects": {
+    "name": "ciscoSystemExtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.305.1",
+    "class": "objectidentity"
+  },
+  "ciscoSystemExtMIBConformance": {
+    "name": "ciscoSystemExtMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.305.2",
+    "class": "objectidentity"
+  },
+  "ciscoSysInfoGroup": {
+    "name": "ciscoSysInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.305.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoSysErrorGroup": {
+    "name": "ciscoSysErrorGroup",
+    "oid": "1.3.6.1.4.1.9.9.305.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoHaGroup": {
+    "name": "ciscoHaGroup",
+    "oid": "1.3.6.1.4.1.9.9.305.1.3",
+    "class": "objectidentity"
+  },
+  "ciscoSwFailureGroup": {
+    "name": "ciscoSwFailureGroup",
+    "oid": "1.3.6.1.4.1.9.9.305.1.4",
+    "class": "objectidentity"
+  },
+  "ciscoSwFailureNotifControl": {
+    "name": "ciscoSwFailureNotifControl",
+    "oid": "1.3.6.1.4.1.9.9.305.1.5",
+    "class": "objectidentity"
+  },
+  "ciscoSystemSwitchingModeGroup": {
+    "name": "ciscoSystemSwitchingModeGroup",
+    "oid": "1.3.6.1.4.1.9.9.305.1.6",
+    "class": "objectidentity"
+  },
+  "ciscoSystemMaintModeGroup": {
+    "name": "ciscoSystemMaintModeGroup",
+    "oid": "1.3.6.1.4.1.9.9.305.1.7",
+    "class": "objectidentity"
+  },
+  "ciscoSystemMaintModeNotifControl": {
+    "name": "ciscoSystemMaintModeNotifControl",
+    "oid": "1.3.6.1.4.1.9.9.305.1.8",
+    "class": "objectidentity"
+  },
+  "ciscoSystemReloadGroup": {
+    "name": "ciscoSystemReloadGroup",
+    "oid": "1.3.6.1.4.1.9.9.305.1.9",
+    "class": "objectidentity"
+  },
+  "CseHaRestartReason": {
+    "name": "CseHaRestartReason",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ungracefulExit": 2,
+          "otherSignal": 3,
+          "sigterm": 4,
+          "softwareUpgrade": 5,
+          "configUpdate": 6,
+          "configRemove": 7,
+          "shutdown": 8,
+          "aborted": 9,
+          "heartbeatFailure": 10,
+          "userTerminate": 11,
+          "gracefulExit": 12,
+          "noCallHomeFailure": 13,
+          "serviceTimeout": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoMaintModeState": {
+    "name": "CiscoMaintModeState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "maintenance": 2,
+          "unplannedMaint": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cseSysCPUUtilization": {
+    "name": "cseSysCPUUtilization",
+    "oid": "1.3.6.1.4.1.9.9.305.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseSysMemoryUtilization": {
+    "name": "cseSysMemoryUtilization",
+    "oid": "1.3.6.1.4.1.9.9.305.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseSysConfLastChange": {
+    "name": "cseSysConfLastChange",
+    "oid": "1.3.6.1.4.1.9.9.305.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseSysAutoSync": {
+    "name": "cseSysAutoSync",
+    "oid": "1.3.6.1.4.1.9.9.305.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sync": 1,
+          "noSync": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noSync",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseSysAutoSyncState": {
+    "name": "cseSysAutoSyncState",
+    "oid": "1.3.6.1.4.1.9.9.305.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inProgress": 1,
+          "succeeded": 2,
+          "failed": 3,
+          "notStarted": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseWriteErase": {
+    "name": "cseWriteErase",
+    "oid": "1.3.6.1.4.1.9.9.305.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOp": 1,
+          "eraseAll": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseSysConsolePortStatus": {
+    "name": "cseSysConsolePortStatus",
+    "oid": "1.3.6.1.4.1.9.9.305.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connected": 1,
+          "notConnected": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseSysTelnetServiceActivation": {
+    "name": "cseSysTelnetServiceActivation",
+    "oid": "1.3.6.1.4.1.9.9.305.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseSysFIPSModeActivation": {
+    "name": "cseSysFIPSModeActivation",
+    "oid": "1.3.6.1.4.1.9.9.305.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseSysUpTime": {
+    "name": "cseSysUpTime",
+    "oid": "1.3.6.1.4.1.9.9.305.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalSec",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseSnmpErrorTable": {
+    "name": "cseSnmpErrorTable",
+    "oid": "1.3.6.1.4.1.9.9.305.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseSnmpErrorEntry": {
+    "name": "cseSnmpErrorEntry",
+    "oid": "1.3.6.1.4.1.9.9.305.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSnmpErrorAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSnmpErrorAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSnmpErrorRequestId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseSnmpErrorAddressType": {
+    "name": "cseSnmpErrorAddressType",
+    "oid": "1.3.6.1.4.1.9.9.305.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseSnmpErrorAddress": {
+    "name": "cseSnmpErrorAddress",
+    "oid": "1.3.6.1.4.1.9.9.305.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseSnmpErrorRequestId": {
+    "name": "cseSnmpErrorRequestId",
+    "oid": "1.3.6.1.4.1.9.9.305.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseSnmpErrorCode": {
+    "name": "cseSnmpErrorCode",
+    "oid": "1.3.6.1.4.1.9.9.305.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseSnmpErrorDescription": {
+    "name": "cseSnmpErrorDescription",
+    "oid": "1.3.6.1.4.1.9.9.305.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseHaRestartReason": {
+    "name": "cseHaRestartReason",
+    "oid": "1.3.6.1.4.1.9.9.305.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CseHaRestartReason",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cseHaRestartStateless": {
+    "name": "cseHaRestartStateless",
+    "oid": "1.3.6.1.4.1.9.9.305.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cseHaRestartService": {
+    "name": "cseHaRestartService",
+    "oid": "1.3.6.1.4.1.9.9.305.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cseHaShutDownReason": {
+    "name": "cseHaShutDownReason",
+    "oid": "1.3.6.1.4.1.9.9.305.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cseSwCorePath": {
+    "name": "cseSwCorePath",
+    "oid": "1.3.6.1.4.1.9.9.305.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseSwCoresTable": {
+    "name": "cseSwCoresTable",
+    "oid": "1.3.6.1.4.1.9.9.305.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseSwCoresEntry": {
+    "name": "cseSwCoresEntry",
+    "oid": "1.3.6.1.4.1.9.9.305.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSwCoresModule",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSwCoresProcName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSwCoresInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cseSwCoresModule": {
+    "name": "cseSwCoresModule",
+    "oid": "1.3.6.1.4.1.9.9.305.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseSwCoresProcName": {
+    "name": "cseSwCoresProcName",
+    "oid": "1.3.6.1.4.1.9.9.305.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseSwCoresInstance": {
+    "name": "cseSwCoresInstance",
+    "oid": "1.3.6.1.4.1.9.9.305.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cseSwCoresPID": {
+    "name": "cseSwCoresPID",
+    "oid": "1.3.6.1.4.1.9.9.305.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseSwCoresTimeCreated": {
+    "name": "cseSwCoresTimeCreated",
+    "oid": "1.3.6.1.4.1.9.9.305.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseSwCoresSlotNum": {
+    "name": "cseSwCoresSlotNum",
+    "oid": "1.3.6.1.4.1.9.9.305.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseSwCoresFileName": {
+    "name": "cseSwCoresFileName",
+    "oid": "1.3.6.1.4.1.9.9.305.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSystemSwitchingModeAdmin": {
+    "name": "ciscoSystemSwitchingModeAdmin",
+    "oid": "1.3.6.1.4.1.9.9.305.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "notApplicable": 2,
+          "nexus3000": 3,
+          "nexus9000": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoSystemSwitchingModeOper": {
+    "name": "ciscoSystemSwitchingModeOper",
+    "oid": "1.3.6.1.4.1.9.9.305.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "notApplicable": 2,
+          "nexus3000": 3,
+          "nexus9000": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseMaintModeState": {
+    "name": "cseMaintModeState",
+    "oid": "1.3.6.1.4.1.9.9.305.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMaintModeState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cseSystemReloadPending": {
+    "name": "cseSystemReloadPending",
+    "oid": "1.3.6.1.4.1.9.9.305.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSwFailureNotifEnable": {
+    "name": "ciscoSwFailureNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.305.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoSystemNormalModeNotifEnable": {
+    "name": "ciscoSystemNormalModeNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.305.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoSystemMaintModeNotifEnable": {
+    "name": "ciscoSystemMaintModeNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.305.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cseHaNotification": {
+    "name": "cseHaNotification",
+    "oid": "1.3.6.1.4.1.9.9.305.1.3.5",
+    "class": "objectidentity"
+  },
+  "cseHaNotificationPrefix": {
+    "name": "cseHaNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.305.1.3.5.0",
+    "class": "objectidentity"
+  },
+  "cseHaRestartNotify": {
+    "name": "cseHaRestartNotify",
+    "oid": "1.3.6.1.4.1.9.9.305.1.3.5.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseHaRestartReason"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseHaRestartService"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseHaRestartStateless"
+      }
+    ],
+    "status": "current"
+  },
+  "cseShutDownNotify": {
+    "name": "cseShutDownNotify",
+    "oid": "1.3.6.1.4.1.9.9.305.1.3.5.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseHaShutDownReason"
+      }
+    ],
+    "status": "current"
+  },
+  "cseFailNotification": {
+    "name": "cseFailNotification",
+    "oid": "1.3.6.1.4.1.9.9.305.1.4.3",
+    "class": "objectidentity"
+  },
+  "cseFailNotificationPrefix": {
+    "name": "cseFailNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.305.1.4.3.0",
+    "class": "objectidentity"
+  },
+  "cseFailSwCoreNotify": {
+    "name": "cseFailSwCoreNotify",
+    "oid": "1.3.6.1.4.1.9.9.305.1.4.3.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cseFailSwCoreNotifyExtended": {
+    "name": "cseFailSwCoreNotifyExtended",
+    "oid": "1.3.6.1.4.1.9.9.305.1.4.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSwCoresFileName"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSwCorePath"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSwCoresPID"
+      }
+    ],
+    "status": "current"
+  },
+  "cseMaintModeNotification": {
+    "name": "cseMaintModeNotification",
+    "oid": "1.3.6.1.4.1.9.9.305.1.7.2",
+    "class": "objectidentity"
+  },
+  "cseMaintModeNotificationPrefix": {
+    "name": "cseMaintModeNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.305.1.7.2.0",
+    "class": "objectidentity"
+  },
+  "cseNormalModeChangeNotify": {
+    "name": "cseNormalModeChangeNotify",
+    "oid": "1.3.6.1.4.1.9.9.305.1.7.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseMaintModeState"
+      }
+    ],
+    "status": "current"
+  },
+  "cseMaintModeChangeNotify": {
+    "name": "cseMaintModeChangeNotify",
+    "oid": "1.3.6.1.4.1.9.9.305.1.7.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseMaintModeState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemExtMIBCompliances": {
+    "name": "ciscoSystemExtMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.305.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoSystemExtMIBGroups": {
+    "name": "ciscoSystemExtMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.305.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoSystemExtMIBCompliance": {
+    "name": "ciscoSystemExtMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.305.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSystemExtInfoGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtErrorGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtHaGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtNotificationGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSystemExtMIBComplianceRev1": {
+    "name": "ciscoSystemExtMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.305.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSystemExtInfoGroupRev1",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtErrorGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtHaGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtNotificationGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSystemExtMIBComplianceRev2": {
+    "name": "ciscoSystemExtMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.305.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSystemExtInfoGroupRev1",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtErrorGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtHaGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtNotificationGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoGroupOptional",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSystemExtMIBComplianceRev3": {
+    "name": "ciscoSystemExtMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.305.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSystemExtInfoGroupRev1",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtErrorGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtHaGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtNotificationGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoGroupOptional",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtSwFailureGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSystemExtMIBComplianceRev4": {
+    "name": "ciscoSystemExtMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.305.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSystemExtInfoGroupRev1",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoGroupRev2",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtErrorGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtHaGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtNotificationGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtNotificationGroupSup1",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtHaGroupRev1",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoGroupOptional",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtSwFailureGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSystemExtMIBComplianceRev5": {
+    "name": "ciscoSystemExtMIBComplianceRev5",
+    "oid": "1.3.6.1.4.1.9.9.305.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSystemExtInfoGroupRev1",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoGroupRev2",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtErrorGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtHaGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtNotificationGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtNotificationGroupSup1",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtHaGroupRev1",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoGroupOptional",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtSwFailureGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtSwFailureGroup2",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoTelnetGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSystemExtMIBComplianceRev6": {
+    "name": "ciscoSystemExtMIBComplianceRev6",
+    "oid": "1.3.6.1.4.1.9.9.305.2.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSystemExtInfoGroupRev1",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoGroupRev2",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtErrorGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtHaGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtNotificationGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtHaGroupRev1",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoGroupOptional",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtSwFailureGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtSwFailureGroup2",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoTelnetGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtSwFailureGroup3",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtNotificationGroupSup2",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtNotificationGroupSup1",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtSwFailureControlGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSystemExtMIBComplianceRev7": {
+    "name": "ciscoSystemExtMIBComplianceRev7",
+    "oid": "1.3.6.1.4.1.9.9.305.2.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSystemExtInfoGroupRev1",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoGroupRev2",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtErrorGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtHaGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtNotificationGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtNotificationGroupSup1",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtHaGroupRev1",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoGroupOptional",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtSwFailureGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtSwFailureGroup2",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoTelnetGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoFIPSGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSystemExtMIBComplianceRev8": {
+    "name": "ciscoSystemExtMIBComplianceRev8",
+    "oid": "1.3.6.1.4.1.9.9.305.2.1.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSystemExtInfoGroupRev3",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoGroupRev2",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtErrorGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtHaGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtNotificationGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtNotificationGroupSup1",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtHaGroupRev1",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoGroupOptional",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtSwFailureGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtSwFailureGroup2",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoTelnetGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoFIPSGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSystemExtMIBComplianceRev9": {
+    "name": "ciscoSystemExtMIBComplianceRev9",
+    "oid": "1.3.6.1.4.1.9.9.305.2.1.11",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSystemExtInfoGroupRev3",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoGroupRev2",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtErrorGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtHaGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtNotificationGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtNotificationGroupSup1",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtHaGroupRev1",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoGroupOptional",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtSwFailureGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtSwFailureGroup2",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoTelnetGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoFIPSGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemSwitchingModeObjectsGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSystemExtMIBComplianceRev10": {
+    "name": "ciscoSystemExtMIBComplianceRev10",
+    "oid": "1.3.6.1.4.1.9.9.305.2.1.12",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSystemExtInfoGroupRev3",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoGroupRev2",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtErrorGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtHaGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtNotificationGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtNotificationGroupSup1",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtHaGroupRev1",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoGroupOptional",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtSwFailureGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtSwFailureGroup2",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoTelnetGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemExtInfoFIPSGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemSwitchingModeObjectsGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemMaintModeObjectsGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      },
+      {
+        "object": "ciscoSystemMaintModeNotificationGroup",
+        "module": "CISCO-SYSTEM-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemExtInfoGroup": {
+    "name": "ciscoSystemExtInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.305.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSysCPUUtilization"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSysMemoryUtilization"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSysConfLastChange"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSystemExtErrorGroup": {
+    "name": "ciscoSystemExtErrorGroup",
+    "oid": "1.3.6.1.4.1.9.9.305.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSnmpErrorCode"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSnmpErrorDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemExtHaGroup": {
+    "name": "ciscoSystemExtHaGroup",
+    "oid": "1.3.6.1.4.1.9.9.305.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseHaRestartReason"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseHaRestartService"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseHaRestartStateless"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemExtNotificationGroup": {
+    "name": "ciscoSystemExtNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.305.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseHaRestartNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemExtInfoGroupRev1": {
+    "name": "ciscoSystemExtInfoGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.305.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSysCPUUtilization"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSysMemoryUtilization"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSysConfLastChange"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSysAutoSync"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSysAutoSyncState"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSystemExtInfoGroupOptional": {
+    "name": "ciscoSystemExtInfoGroupOptional",
+    "oid": "1.3.6.1.4.1.9.9.305.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseWriteErase"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemExtSwFailureGroup": {
+    "name": "ciscoSystemExtSwFailureGroup",
+    "oid": "1.3.6.1.4.1.9.9.305.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSwCorePath"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemExtInfoGroupRev2": {
+    "name": "ciscoSystemExtInfoGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.305.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSysConsolePortStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemExtSwFailureGroup2": {
+    "name": "ciscoSystemExtSwFailureGroup2",
+    "oid": "1.3.6.1.4.1.9.9.305.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSwCoresPID"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSwCoresTimeCreated"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSwCoresSlotNum"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemExtNotificationGroupSup1": {
+    "name": "ciscoSystemExtNotificationGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.305.2.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseShutDownNotify"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseFailSwCoreNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemExtHaGroupRev1": {
+    "name": "ciscoSystemExtHaGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.305.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseHaShutDownReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemExtInfoTelnetGroup": {
+    "name": "ciscoSystemExtInfoTelnetGroup",
+    "oid": "1.3.6.1.4.1.9.9.305.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSysTelnetServiceActivation"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemExtNotificationGroupSup2": {
+    "name": "ciscoSystemExtNotificationGroupSup2",
+    "oid": "1.3.6.1.4.1.9.9.305.2.2.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseFailSwCoreNotifyExtended"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemExtSwFailureGroup3": {
+    "name": "ciscoSystemExtSwFailureGroup3",
+    "oid": "1.3.6.1.4.1.9.9.305.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSwCoresFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemExtSwFailureControlGroup": {
+    "name": "ciscoSystemExtSwFailureControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.305.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "ciscoSwFailureNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemExtInfoFIPSGroup": {
+    "name": "ciscoSystemExtInfoFIPSGroup",
+    "oid": "1.3.6.1.4.1.9.9.305.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSysFIPSModeActivation"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemExtInfoGroupRev3": {
+    "name": "ciscoSystemExtInfoGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.305.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSysCPUUtilization"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSysMemoryUtilization"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSysConfLastChange"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSysAutoSync"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSysAutoSyncState"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSysUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemSwitchingModeObjectsGroup": {
+    "name": "ciscoSystemSwitchingModeObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.9.305.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "ciscoSystemSwitchingModeAdmin"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "ciscoSystemSwitchingModeOper"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemMaintModeObjectsGroup": {
+    "name": "ciscoSystemMaintModeObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.9.305.2.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseMaintModeState"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "ciscoSystemNormalModeNotifEnable"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "ciscoSystemMaintModeNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemMaintModeNotificationGroup": {
+    "name": "ciscoSystemMaintModeNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.305.2.2.20",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseNormalModeChangeNotify"
+      },
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseMaintModeChangeNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemReloadObjectsGroup": {
+    "name": "ciscoSystemReloadObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.9.305.2.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-EXT-MIB",
+        "object": "cseSystemReloadPending"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SYSTEM-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SYSTEM-EXT-MIB"
+  }
+}

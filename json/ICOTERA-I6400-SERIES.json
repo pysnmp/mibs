@@ -1,0 +1,1493 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "TimeTicks",
+      "Bits",
+      "Unsigned32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "enterprises",
+      "OBJECT-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "icotera": {
+    "name": "icotera",
+    "oid": "1.3.6.1.4.1.29865",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-03-01 16:46",
+        "description": "MIBs were adjusted to match all i64xx-series CPE product family."
+      },
+      {
+        "revision": "2017-02-09 14:27",
+        "description": "Minor correction of object values"
+      },
+      {
+        "revision": "2017-01-16 10:32",
+        "description": "Added support for Multicast Analyser"
+      },
+      {
+        "revision": "2016-08-26 09:24",
+        "description": "Minor correction of object names, unnecessary commentary removed"
+      },
+      {
+        "revision": "2016-08-24 09:04",
+        "description": "Missing descriptions added, Some MODULE_IDENTITY was changed to correct OBJECT_IDENTITY, CATV Filter packages fixed, Fixed mib name from 4k to 1k, Minor cosmetic corrections, Added support for DDM"
+      },
+      {
+        "revision": "2015-04-01 13:57",
+        "description": "Created from ICOTERA-MIB.mib"
+      }
+    ]
+  },
+  "ictIGW1k": {
+    "name": "ictIGW1k",
+    "oid": "1.3.6.1.4.1.29865.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ictMgmt": {
+    "name": "ictMgmt",
+    "oid": "1.3.6.1.4.1.29865.11.2",
+    "class": "objectidentity"
+  },
+  "ictServices": {
+    "name": "ictServices",
+    "oid": "1.3.6.1.4.1.29865.11.3",
+    "class": "objectidentity"
+  },
+  "ictReset": {
+    "name": "ictReset",
+    "oid": "1.3.6.1.4.1.29865.11.5",
+    "class": "objectidentity"
+  },
+  "ictMcastAnalyzer": {
+    "name": "ictMcastAnalyzer",
+    "oid": "1.3.6.1.4.1.29865.11.7",
+    "class": "objectidentity"
+  },
+  "ictServicesMibs": {
+    "name": "ictServicesMibs",
+    "oid": "1.3.6.1.4.1.29865.11.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ictCatv": {
+    "name": "ictCatv",
+    "oid": "1.3.6.1.4.1.29865.11.3.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "catvModuleAdminStatus": {
+    "name": "catvModuleAdminStatus",
+    "oid": "1.3.6.1.4.1.29865.11.3.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catvModuleFilter": {
+    "name": "catvModuleFilter",
+    "oid": "1.3.6.1.4.1.29865.11.3.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "pkg1": 1,
+          "pkg2": 2,
+          "pkg3": 3,
+          "pkg4": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catvModuleRflevel": {
+    "name": "catvModuleRflevel",
+    "oid": "1.3.6.1.4.1.29865.11.3.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 0,
+          "low": 1,
+          "medium": 2,
+          "high": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catvModuleLowSignal": {
+    "name": "catvModuleLowSignal",
+    "oid": "1.3.6.1.4.1.29865.11.3.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catvModuleSignalDetected": {
+    "name": "catvModuleSignalDetected",
+    "oid": "1.3.6.1.4.1.29865.11.3.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catvModulePowerLevel": {
+    "name": "catvModulePowerLevel",
+    "oid": "1.3.6.1.4.1.29865.11.3.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ictTransceiver": {
+    "name": "ictTransceiver",
+    "oid": "1.3.6.1.4.1.29865.11.3.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "transceiverDdmTemperature": {
+    "name": "transceiverDdmTemperature",
+    "oid": "1.3.6.1.4.1.29865.11.3.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "transceiverDdmTxPower": {
+    "name": "transceiverDdmTxPower",
+    "oid": "1.3.6.1.4.1.29865.11.3.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "transceiverDdmRxPower": {
+    "name": "transceiverDdmRxPower",
+    "oid": "1.3.6.1.4.1.29865.11.3.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "transceiverDdmVoltage": {
+    "name": "transceiverDdmVoltage",
+    "oid": "1.3.6.1.4.1.29865.11.3.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "transceiverDdmTxBiasCurrent": {
+    "name": "transceiverDdmTxBiasCurrent",
+    "oid": "1.3.6.1.4.1.29865.11.3.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "transceiverTransceiverType": {
+    "name": "transceiverTransceiverType",
+    "oid": "1.3.6.1.4.1.29865.11.3.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "gbic": 1,
+          "moduleSolderedToMotherboard": 2,
+          "sfp": 3,
+          "type300pinXbi": 4,
+          "xenpak": 5,
+          "xfp": 6,
+          "xff": 7,
+          "xfpE": 8,
+          "xPak": 9,
+          "x2": 10,
+          "dWdmSfp": 11,
+          "qSfp": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "transceiverLaserWavelength": {
+    "name": "transceiverLaserWavelength",
+    "oid": "1.3.6.1.4.1.29865.11.3.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "transceiverConnectorType": {
+    "name": "transceiverConnectorType",
+    "oid": "1.3.6.1.4.1.29865.11.3.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "sc": 1,
+          "fibreChannelStyle1CopperConnector": 2,
+          "fibreChannelStyle2CopperConnector": 3,
+          "bncTnc": 4,
+          "fibreChannelCoaxialHeaders": 5,
+          "fiberJack": 6,
+          "lc": 7,
+          "mtRj": 8,
+          "mu": 9,
+          "sg": 10,
+          "opticalPigtail": 11,
+          "mpoParallelOptic": 12,
+          "hssdcII": 32,
+          "copperPigtail": 33,
+          "rj45": 34
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "transceiverEthernetCompliance": {
+    "name": "transceiverEthernetCompliance",
+    "oid": "1.3.6.1.4.1.29865.11.3.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "transceiverLinkLength": {
+    "name": "transceiverLinkLength",
+    "oid": "1.3.6.1.4.1.29865.11.3.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "transceiverDiagCapable": {
+    "name": "transceiverDiagCapable",
+    "oid": "1.3.6.1.4.1.29865.11.3.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ictFacRst": {
+    "name": "ictFacRst",
+    "oid": "1.3.6.1.4.1.29865.11.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ictFacRstMib": {
+    "name": "ictFacRstMib",
+    "oid": "1.3.6.1.4.1.29865.11.5.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "performFactoryReset": {
+    "name": "performFactoryReset",
+    "oid": "1.3.6.1.4.1.29865.11.5.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noActionRequested": 0,
+          "makeFactoryreset": 1,
+          "someErrorOccured": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ictMgmtMib": {
+    "name": "ictMgmtMib",
+    "oid": "1.3.6.1.4.1.29865.11.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ictFwUpg": {
+    "name": "ictFwUpg",
+    "oid": "1.3.6.1.4.1.29865.11.2.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ictCfgUpdate": {
+    "name": "ictCfgUpdate",
+    "oid": "1.3.6.1.4.1.29865.11.2.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ictReboot": {
+    "name": "ictReboot",
+    "oid": "1.3.6.1.4.1.29865.11.2.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upgUrl": {
+    "name": "upgUrl",
+    "oid": "1.3.6.1.4.1.29865.11.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upgExecute": {
+    "name": "upgExecute",
+    "oid": "1.3.6.1.4.1.29865.11.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notUpgrading": 0,
+          "startUpgrade": 1,
+          "validatingUpgrade-CheckErrorCodeIfFailed": 2,
+          "someErrorOccured": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upgStatus": {
+    "name": "upgStatus",
+    "oid": "1.3.6.1.4.1.29865.11.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfgTftpPath": {
+    "name": "cfgTftpPath",
+    "oid": "1.3.6.1.4.1.29865.11.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfgExecute": {
+    "name": "cfgExecute",
+    "oid": "1.3.6.1.4.1.29865.11.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notUpdating": 0,
+          "startUpdate": 1,
+          "inProgress": 2,
+          "someErrorOccured": 3,
+          "resultOK": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfgStatus": {
+    "name": "cfgStatus",
+    "oid": "1.3.6.1.4.1.29865.11.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "performCpeReboot": {
+    "name": "performCpeReboot",
+    "oid": "1.3.6.1.4.1.29865.11.2.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noActionRequested": 0,
+          "makeReboot": 1,
+          "someErrorOccured": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "IctTimeStamp": {
+    "name": "IctTimeStamp",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "IctPortList": {
+    "name": "IctPortList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "IctJitter": {
+    "name": "IctJitter",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "displayhint": "d-2",
+    "status": "current"
+  },
+  "IctDelta": {
+    "name": "IctDelta",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "displayhint": "d-2",
+    "status": "current"
+  },
+  "ictMcastAnalyzerCurrent": {
+    "name": "ictMcastAnalyzerCurrent",
+    "oid": "1.3.6.1.4.1.29865.11.7.1",
+    "class": "objectidentity"
+  },
+  "ictMcastAnalyzerHistory": {
+    "name": "ictMcastAnalyzerHistory",
+    "oid": "1.3.6.1.4.1.29865.11.7.2",
+    "class": "objectidentity"
+  },
+  "ictMcastAnalyzerCurrentList": {
+    "name": "ictMcastAnalyzerCurrentList",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "currentListEntry": {
+    "name": "currentListEntry",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ICOTERA-I6400-SERIES",
+        "object": "curGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "curGroupIndex": {
+    "name": "curGroupIndex",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curGroupAddr": {
+    "name": "curGroupAddr",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ictMcastAnalyzerCurrentMetrics": {
+    "name": "ictMcastAnalyzerCurrentMetrics",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "currentMetricsEntry": {
+    "name": "currentMetricsEntry",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ICOTERA-I6400-SERIES",
+        "object": "curMetrGroupAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "curMetrGroupAddr": {
+    "name": "curMetrGroupAddr",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrSourceAddr": {
+    "name": "curMetrSourceAddr",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrDstPort": {
+    "name": "curMetrDstPort",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrSrcPort": {
+    "name": "curMetrSrcPort",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrTotalBytes": {
+    "name": "curMetrTotalBytes",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrTotalPackets": {
+    "name": "curMetrTotalPackets",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrKbps": {
+    "name": "curMetrKbps",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrPps": {
+    "name": "curMetrPps",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrAvgKbps": {
+    "name": "curMetrAvgKbps",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrAvgPps": {
+    "name": "curMetrAvgPps",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrMaxDelta": {
+    "name": "curMetrMaxDelta",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IctDelta",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrAvgDelta": {
+    "name": "curMetrAvgDelta",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IctDelta",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrTotalMaxDelta": {
+    "name": "curMetrTotalMaxDelta",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IctDelta",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrTotalAvgDelta": {
+    "name": "curMetrTotalAvgDelta",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IctDelta",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrStartTimestamp": {
+    "name": "curMetrStartTimestamp",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IctTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrStopTimestamp": {
+    "name": "curMetrStopTimestamp",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IctTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrMemberPorts": {
+    "name": "curMetrMemberPorts",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IctPortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrStreamType": {
+    "name": "curMetrStreamType",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrSkips": {
+    "name": "curMetrSkips",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrDiscontinuities": {
+    "name": "curMetrDiscontinuities",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrLost": {
+    "name": "curMetrLost",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrReordered": {
+    "name": "curMetrReordered",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrTotalSkips": {
+    "name": "curMetrTotalSkips",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrTotalDiscontinuities": {
+    "name": "curMetrTotalDiscontinuities",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrTotalLost": {
+    "name": "curMetrTotalLost",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrTotalReordered": {
+    "name": "curMetrTotalReordered",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrAvgLostPps": {
+    "name": "curMetrAvgLostPps",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curMetrJitter": {
+    "name": "curMetrJitter",
+    "oid": "1.3.6.1.4.1.29865.11.7.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IctJitter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ictMcastAnalyzerHistoryList": {
+    "name": "ictMcastAnalyzerHistoryList",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "historyListEntry": {
+    "name": "historyListEntry",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ICOTERA-I6400-SERIES",
+        "object": "histGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "histGroupIndex": {
+    "name": "histGroupIndex",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histGroupAddr": {
+    "name": "histGroupAddr",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ictMcastAnalyzerHistoryMetrics": {
+    "name": "ictMcastAnalyzerHistoryMetrics",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "historyMetricsEntry": {
+    "name": "historyMetricsEntry",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ICOTERA-I6400-SERIES",
+        "object": "histMetrGroupAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "histMetrGroupAddr": {
+    "name": "histMetrGroupAddr",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrSourceAddr": {
+    "name": "histMetrSourceAddr",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrDstPort": {
+    "name": "histMetrDstPort",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrSrcPort": {
+    "name": "histMetrSrcPort",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrTotalBytes": {
+    "name": "histMetrTotalBytes",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrTotalPackets": {
+    "name": "histMetrTotalPackets",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrKbps": {
+    "name": "histMetrKbps",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrPps": {
+    "name": "histMetrPps",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrAvgKbps": {
+    "name": "histMetrAvgKbps",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrAvgPps": {
+    "name": "histMetrAvgPps",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrMaxDelta": {
+    "name": "histMetrMaxDelta",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IctDelta",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrAvgDelta": {
+    "name": "histMetrAvgDelta",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IctDelta",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrTotalMaxDelta": {
+    "name": "histMetrTotalMaxDelta",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IctDelta",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrTotalAvgDelta": {
+    "name": "histMetrTotalAvgDelta",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IctDelta",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrStartTimestamp": {
+    "name": "histMetrStartTimestamp",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IctTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrStopTimestamp": {
+    "name": "histMetrStopTimestamp",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IctTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrMemberPorts": {
+    "name": "histMetrMemberPorts",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IctPortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrStreamType": {
+    "name": "histMetrStreamType",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrSkips": {
+    "name": "histMetrSkips",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrDiscontinuities": {
+    "name": "histMetrDiscontinuities",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrLost": {
+    "name": "histMetrLost",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrReordered": {
+    "name": "histMetrReordered",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrTotalSkips": {
+    "name": "histMetrTotalSkips",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrTotalDiscontinuities": {
+    "name": "histMetrTotalDiscontinuities",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrTotalLost": {
+    "name": "histMetrTotalLost",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrTotalReordered": {
+    "name": "histMetrTotalReordered",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrAvgLostPps": {
+    "name": "histMetrAvgLostPps",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "histMetrJitter": {
+    "name": "histMetrJitter",
+    "oid": "1.3.6.1.4.1.29865.11.7.2.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IctJitter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/icotera/ICOTERA-I6400-SERIES-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:38:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ICOTERA-I6400-SERIES"
+  }
+}

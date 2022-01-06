@@ -1,0 +1,3175 @@
+{
+  "imports": {
+    "class": "imports",
+    "DOT3-OAM-MIB": [
+      "dot3OamLoopbackStatus"
+    ],
+    "FOUNDRY-SN-AGENT-MIB": [
+      "snChasFanDescription",
+      "snChasFanIndex",
+      "snAgentBrdModuleStatus",
+      "snChasUnitIndex",
+      "fdryLicenseType",
+      "snChasPwrSupplyDescription",
+      "snAgGblTrapMessage",
+      "snChasPwrSupplyStatus",
+      "snAgentBrdIndex",
+      "snChasPwrSupplyIndex"
+    ],
+    "FOUNDRY-SN-OSPF-GROUP-MIB": [
+      "snOspfNbrRtrId",
+      "snOspfLsdbRouterId",
+      "snOspfNbrIpAddr",
+      "snOspfRouterId",
+      "snOspfLsdbType",
+      "snOspfVirtNbrArea",
+      "snOspfLsdbAreaId",
+      "snOspfConfigErrorType",
+      "snOspfVirtIfStatusAreaID",
+      "snOspfVirtNbrState",
+      "snOspfIfStatusState",
+      "snOspfVirtNbrRtrId",
+      "snOspfVirtIfStatusNeighbor",
+      "snOspfPacketType",
+      "snOspfNbrState",
+      "snOspfIfStatusIpAddress",
+      "snOspfExtLsdbLimit",
+      "snOspfLsdbLsId",
+      "snOspfPacketSrc",
+      "snOspfVirtIfStatusState"
+    ],
+    "FOUNDRY-SN-ROOT-MIB": [
+      "foundry"
+    ],
+    "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB": [
+      "snL4MaxSessionLimit",
+      "snL4TrapLinkName",
+      "snL4TrapRealServerPort",
+      "snL4TrapRealServerName",
+      "snL4LinkVirtualInterface",
+      "snL4TcpSynLimit",
+      "snL4TrapRealServerCurConnections",
+      "snL4TrapRealServerIP"
+    ],
+    "FOUNDRY-SN-SWITCH-GROUP-MIB": [
+      "snSwViolatorPortNumber",
+      "snSwViolatorMacAddress",
+      "snVLanByPortCfgVLanId"
+    ],
+    "FOUNDRY-SN-WIRELESS-GROUP-MIB": [
+      "wgPnPStatus"
+    ],
+    "IEEE8021-CFM-MIB": [
+      "dot1agCfmMaNetName",
+      "dot1agCfmMepDbRMepState",
+      "dot1agCfmMdName"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Bits",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "iso",
+      "Counter32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "snTraps": {
+    "name": "snTraps",
+    "oid": "1.3.6.1.4.1.1991.0",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-06-02 00:00",
+        "description": "Changed the ORGANIZATION, CONTACT-INFO and DESCRIPTION fields."
+      },
+      {
+        "revision": "2009-09-30 00:00",
+        "description": "convert from SMIv1 to SMIv2"
+      }
+    ]
+  },
+  "snTrapChasPwrSupply": {
+    "name": "snTrapChasPwrSupply",
+    "oid": "1.3.6.1.4.1.1991.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasPwrSupplyStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapLockedAddressViolation": {
+    "name": "snTrapLockedAddressViolation",
+    "oid": "1.3.6.1.4.1.1991.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-SWITCH-GROUP-MIB",
+        "object": "snSwViolatorPortNumber"
+      },
+      {
+        "module": "FOUNDRY-SN-SWITCH-GROUP-MIB",
+        "object": "snSwViolatorMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapOspfIfStateChange": {
+    "name": "snTrapOspfIfStateChange",
+    "oid": "1.3.6.1.4.1.1991.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfIfStatusIpAddress"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfIfStatusState"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapOspfVirtIfStateChange": {
+    "name": "snTrapOspfVirtIfStateChange",
+    "oid": "1.3.6.1.4.1.1991.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusAreaID"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusNeighbor"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusState"
+      }
+    ],
+    "status": "current"
+  },
+  "snOspfNbrStateChange": {
+    "name": "snOspfNbrStateChange",
+    "oid": "1.3.6.1.4.1.1991.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfNbrIpAddr"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfNbrRtrId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfNbrState"
+      }
+    ],
+    "status": "current"
+  },
+  "snOspfVirtNbrStateChange": {
+    "name": "snOspfVirtNbrStateChange",
+    "oid": "1.3.6.1.4.1.1991.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtNbrArea"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtNbrRtrId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtNbrState"
+      }
+    ],
+    "status": "current"
+  },
+  "snOspfIfConfigError": {
+    "name": "snOspfIfConfigError",
+    "oid": "1.3.6.1.4.1.1991.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfIfStatusIpAddress"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketSrc"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfConfigErrorType"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      }
+    ],
+    "status": "current"
+  },
+  "snOspfVirtIfConfigError": {
+    "name": "snOspfVirtIfConfigError",
+    "oid": "1.3.6.1.4.1.1991.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusAreaID"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusNeighbor"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfConfigErrorType"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      }
+    ],
+    "status": "current"
+  },
+  "snOspfIfAuthFailure": {
+    "name": "snOspfIfAuthFailure",
+    "oid": "1.3.6.1.4.1.1991.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfIfStatusIpAddress"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketSrc"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfConfigErrorType"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      }
+    ],
+    "status": "current"
+  },
+  "snOspfVirtIfAuthFailure": {
+    "name": "snOspfVirtIfAuthFailure",
+    "oid": "1.3.6.1.4.1.1991.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusAreaID"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusNeighbor"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfConfigErrorType"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      }
+    ],
+    "status": "current"
+  },
+  "snOspfIfRxBadPacket": {
+    "name": "snOspfIfRxBadPacket",
+    "oid": "1.3.6.1.4.1.1991.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfIfStatusIpAddress"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketSrc"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      }
+    ],
+    "status": "current"
+  },
+  "snOspfVirtIfRxBadPacket": {
+    "name": "snOspfVirtIfRxBadPacket",
+    "oid": "1.3.6.1.4.1.1991.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusAreaID"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusNeighbor"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      }
+    ],
+    "status": "current"
+  },
+  "snOspfTxRetransmit": {
+    "name": "snOspfTxRetransmit",
+    "oid": "1.3.6.1.4.1.1991.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfIfStatusIpAddress"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfNbrRtrId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbType"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbLsId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbRouterId"
+      }
+    ],
+    "status": "current"
+  },
+  "ospfVirtIfTxRetransmit": {
+    "name": "ospfVirtIfTxRetransmit",
+    "oid": "1.3.6.1.4.1.1991.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusAreaID"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusNeighbor"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbType"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbLsId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbRouterId"
+      }
+    ],
+    "status": "current"
+  },
+  "snOspfOriginateLsa": {
+    "name": "snOspfOriginateLsa",
+    "oid": "1.3.6.1.4.1.1991.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbAreaId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbType"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbLsId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbRouterId"
+      }
+    ],
+    "status": "current"
+  },
+  "snOspfMaxAgeLsa": {
+    "name": "snOspfMaxAgeLsa",
+    "oid": "1.3.6.1.4.1.1991.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbAreaId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbType"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbLsId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbRouterId"
+      }
+    ],
+    "status": "current"
+  },
+  "snOspfLsdbOverflow": {
+    "name": "snOspfLsdbOverflow",
+    "oid": "1.3.6.1.4.1.1991.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfExtLsdbLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "snOspfLsdbApproachingOverflow": {
+    "name": "snOspfLsdbApproachingOverflow",
+    "oid": "1.3.6.1.4.1.1991.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfExtLsdbLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4MaxSessionLimitReached": {
+    "name": "snTrapL4MaxSessionLimitReached",
+    "oid": "1.3.6.1.4.1.1991.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4MaxSessionLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4TcpSynLimitReached": {
+    "name": "snTrapL4TcpSynLimitReached",
+    "oid": "1.3.6.1.4.1.1991.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TcpSynLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4RealServerUp": {
+    "name": "snTrapL4RealServerUp",
+    "oid": "1.3.6.1.4.1.1991.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerIP"
+      },
+      {
+        "module": "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerName"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4RealServerDown": {
+    "name": "snTrapL4RealServerDown",
+    "oid": "1.3.6.1.4.1.1991.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerIP"
+      },
+      {
+        "module": "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerName"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4RealServerPortUp": {
+    "name": "snTrapL4RealServerPortUp",
+    "oid": "1.3.6.1.4.1.1991.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerIP"
+      },
+      {
+        "module": "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerName"
+      },
+      {
+        "module": "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerPort"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4RealServerPortDown": {
+    "name": "snTrapL4RealServerPortDown",
+    "oid": "1.3.6.1.4.1.1991.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerIP"
+      },
+      {
+        "module": "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerName"
+      },
+      {
+        "module": "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerPort"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4RealServerMaxConnectionLimitReached": {
+    "name": "snTrapL4RealServerMaxConnectionLimitReached",
+    "oid": "1.3.6.1.4.1.1991.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerIP"
+      },
+      {
+        "module": "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerName"
+      },
+      {
+        "module": "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerCurConnections"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4BecomeStandby": {
+    "name": "snTrapL4BecomeStandby",
+    "oid": "1.3.6.1.4.1.1991.0.26",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "snTrapL4BecomeActive": {
+    "name": "snTrapL4BecomeActive",
+    "oid": "1.3.6.1.4.1.1991.0.27",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "snTrapModuleInserted": {
+    "name": "snTrapModuleInserted",
+    "oid": "1.3.6.1.4.1.1991.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgentBrdIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapModuleRemoved": {
+    "name": "snTrapModuleRemoved",
+    "oid": "1.3.6.1.4.1.1991.0.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgentBrdIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapChasPwrSupplyFailed": {
+    "name": "snTrapChasPwrSupplyFailed",
+    "oid": "1.3.6.1.4.1.1991.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasPwrSupplyIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasPwrSupplyDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapChasFanFailed": {
+    "name": "snTrapChasFanFailed",
+    "oid": "1.3.6.1.4.1.1991.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasFanIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasFanDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapLockedAddressViolation2": {
+    "name": "snTrapLockedAddressViolation2",
+    "oid": "1.3.6.1.4.1.1991.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapFsrpIfStateChange": {
+    "name": "snTrapFsrpIfStateChange",
+    "oid": "1.3.6.1.4.1.1991.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapVrrpIfStateChange": {
+    "name": "snTrapVrrpIfStateChange",
+    "oid": "1.3.6.1.4.1.1991.0.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapMgmtModuleRedunStateChange": {
+    "name": "snTrapMgmtModuleRedunStateChange",
+    "oid": "1.3.6.1.4.1.1991.0.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapTemperatureWarning": {
+    "name": "snTrapTemperatureWarning",
+    "oid": "1.3.6.1.4.1.1991.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapAccessListDeny": {
+    "name": "snTrapAccessListDeny",
+    "oid": "1.3.6.1.4.1.1991.0.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapMacFilterDeny": {
+    "name": "snTrapMacFilterDeny",
+    "oid": "1.3.6.1.4.1.1991.0.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4GslbRemoteUp": {
+    "name": "snTrapL4GslbRemoteUp",
+    "oid": "1.3.6.1.4.1.1991.0.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4GslbRemoteDown": {
+    "name": "snTrapL4GslbRemoteDown",
+    "oid": "1.3.6.1.4.1.1991.0.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4GslbRemoteControllerUp": {
+    "name": "snTrapL4GslbRemoteControllerUp",
+    "oid": "1.3.6.1.4.1.1991.0.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4GslbRemoteControllerDown": {
+    "name": "snTrapL4GslbRemoteControllerDown",
+    "oid": "1.3.6.1.4.1.1991.0.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4GslbHealthCheckIpUp": {
+    "name": "snTrapL4GslbHealthCheckIpUp",
+    "oid": "1.3.6.1.4.1.1991.0.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4GslbHealthCheckIpDown": {
+    "name": "snTrapL4GslbHealthCheckIpDown",
+    "oid": "1.3.6.1.4.1.1991.0.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4GslbHealthCheckIpPortUp": {
+    "name": "snTrapL4GslbHealthCheckIpPortUp",
+    "oid": "1.3.6.1.4.1.1991.0.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4GslbHealthCheckIpPortDown": {
+    "name": "snTrapL4GslbHealthCheckIpPortDown",
+    "oid": "1.3.6.1.4.1.1991.0.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4FirewallBecomeStandby": {
+    "name": "snTrapL4FirewallBecomeStandby",
+    "oid": "1.3.6.1.4.1.1991.0.47",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "snTrapL4FirewallBecomeActive": {
+    "name": "snTrapL4FirewallBecomeActive",
+    "oid": "1.3.6.1.4.1.1991.0.48",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "snTrapL4FirewallPathUp": {
+    "name": "snTrapL4FirewallPathUp",
+    "oid": "1.3.6.1.4.1.1991.0.49",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "snTrapL4FirewallPathDown": {
+    "name": "snTrapL4FirewallPathDown",
+    "oid": "1.3.6.1.4.1.1991.0.50",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "snTrapIcmpLocalExceedBurst": {
+    "name": "snTrapIcmpLocalExceedBurst",
+    "oid": "1.3.6.1.4.1.1991.0.51",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapIcmpTransitExceedBurst": {
+    "name": "snTrapIcmpTransitExceedBurst",
+    "oid": "1.3.6.1.4.1.1991.0.52",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapTcpLocalExceedBurst": {
+    "name": "snTrapTcpLocalExceedBurst",
+    "oid": "1.3.6.1.4.1.1991.0.53",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapTcpTransitExceedBurst": {
+    "name": "snTrapTcpTransitExceedBurst",
+    "oid": "1.3.6.1.4.1.1991.0.54",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4ContentVerification": {
+    "name": "snTrapL4ContentVerification",
+    "oid": "1.3.6.1.4.1.1991.0.55",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "snTrapDuplicateIp": {
+    "name": "snTrapDuplicateIp",
+    "oid": "1.3.6.1.4.1.1991.0.56",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapMplsProblem": {
+    "name": "snTrapMplsProblem",
+    "oid": "1.3.6.1.4.1.1991.0.57",
+    "class": "notificationtype",
+    "status": "obsolete"
+  },
+  "snTrapMplsException": {
+    "name": "snTrapMplsException",
+    "oid": "1.3.6.1.4.1.1991.0.58",
+    "class": "notificationtype",
+    "status": "obsolete"
+  },
+  "snTrapMplsAudit": {
+    "name": "snTrapMplsAudit",
+    "oid": "1.3.6.1.4.1.1991.0.59",
+    "class": "notificationtype",
+    "status": "obsolete"
+  },
+  "snTrapMplsDeveloper": {
+    "name": "snTrapMplsDeveloper",
+    "oid": "1.3.6.1.4.1.1991.0.60",
+    "class": "notificationtype",
+    "status": "obsolete"
+  },
+  "snTrapNoBmFreeQueue": {
+    "name": "snTrapNoBmFreeQueue",
+    "oid": "1.3.6.1.4.1.1991.0.61",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapSmcDmaDrop": {
+    "name": "snTrapSmcDmaDrop",
+    "oid": "1.3.6.1.4.1.1991.0.62",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapSmcBpDrop": {
+    "name": "snTrapSmcBpDrop",
+    "oid": "1.3.6.1.4.1.1991.0.63",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapBmWriteSeqDrop": {
+    "name": "snTrapBmWriteSeqDrop",
+    "oid": "1.3.6.1.4.1.1991.0.64",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapBgpPeerUp": {
+    "name": "snTrapBgpPeerUp",
+    "oid": "1.3.6.1.4.1.1991.0.65",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapBgpPeerDown": {
+    "name": "snTrapBgpPeerDown",
+    "oid": "1.3.6.1.4.1.1991.0.66",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4RealServerResponseTimeLowerLimit": {
+    "name": "snTrapL4RealServerResponseTimeLowerLimit",
+    "oid": "1.3.6.1.4.1.1991.0.67",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4RealServerResponseTimeUpperLimit": {
+    "name": "snTrapL4RealServerResponseTimeUpperLimit",
+    "oid": "1.3.6.1.4.1.1991.0.68",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4TcpAttackRateExceedMax": {
+    "name": "snTrapL4TcpAttackRateExceedMax",
+    "oid": "1.3.6.1.4.1.1991.0.69",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4TcpAttackRateExceedThreshold": {
+    "name": "snTrapL4TcpAttackRateExceedThreshold",
+    "oid": "1.3.6.1.4.1.1991.0.70",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4ConnectionRateExceedMax": {
+    "name": "snTrapL4ConnectionRateExceedMax",
+    "oid": "1.3.6.1.4.1.1991.0.71",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4ConnectionRateExceedThreshold": {
+    "name": "snTrapL4ConnectionRateExceedThreshold",
+    "oid": "1.3.6.1.4.1.1991.0.72",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapRunningConfigChanged": {
+    "name": "snTrapRunningConfigChanged",
+    "oid": "1.3.6.1.4.1.1991.0.73",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapStartupConfigChanged": {
+    "name": "snTrapStartupConfigChanged",
+    "oid": "1.3.6.1.4.1.1991.0.74",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapUserLogin": {
+    "name": "snTrapUserLogin",
+    "oid": "1.3.6.1.4.1.1991.0.75",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapUserLogout": {
+    "name": "snTrapUserLogout",
+    "oid": "1.3.6.1.4.1.1991.0.76",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapPortSecurityViolation": {
+    "name": "snTrapPortSecurityViolation",
+    "oid": "1.3.6.1.4.1.1991.0.77",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapPortSecurityShutdown": {
+    "name": "snTrapPortSecurityShutdown",
+    "oid": "1.3.6.1.4.1.1991.0.78",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapMrpStateChange": {
+    "name": "snTrapMrpStateChange",
+    "oid": "1.3.6.1.4.1.1991.0.79",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapMrpCamError": {
+    "name": "snTrapMrpCamError",
+    "oid": "1.3.6.1.4.1.1991.0.80",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapChasPwrSupplyOK": {
+    "name": "snTrapChasPwrSupplyOK",
+    "oid": "1.3.6.1.4.1.1991.0.81",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasPwrSupplyIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasPwrSupplyDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapVrrpeIfStateChange": {
+    "name": "snTrapVrrpeIfStateChange",
+    "oid": "1.3.6.1.4.1.1991.0.82",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapVsrpIfStateChange": {
+    "name": "snTrapVsrpIfStateChange",
+    "oid": "1.3.6.1.4.1.1991.0.83",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapSrcIpAddressViolation": {
+    "name": "snTrapSrcIpAddressViolation",
+    "oid": "1.3.6.1.4.1.1991.0.84",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapMacAuthEnable": {
+    "name": "snTrapMacAuthEnable",
+    "oid": "1.3.6.1.4.1.1991.0.85",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapMacAuthDisable": {
+    "name": "snTrapMacAuthDisable",
+    "oid": "1.3.6.1.4.1.1991.0.86",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapMacAuthMACAccepted": {
+    "name": "snTrapMacAuthMACAccepted",
+    "oid": "1.3.6.1.4.1.1991.0.87",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapMacAuthMACRejected": {
+    "name": "snTrapMacAuthMACRejected",
+    "oid": "1.3.6.1.4.1.1991.0.88",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapMacAuthPortDisabled": {
+    "name": "snTrapMacAuthPortDisabled",
+    "oid": "1.3.6.1.4.1.1991.0.89",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapClientLoginReject": {
+    "name": "snTrapClientLoginReject",
+    "oid": "1.3.6.1.4.1.1991.0.110",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapLocalUserConfigChange": {
+    "name": "snTrapLocalUserConfigChange",
+    "oid": "1.3.6.1.4.1.1991.0.111",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapVlanConfigChange": {
+    "name": "snTrapVlanConfigChange",
+    "oid": "1.3.6.1.4.1.1991.0.112",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapAclConfigChange": {
+    "name": "snTrapAclConfigChange",
+    "oid": "1.3.6.1.4.1.1991.0.113",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapMacFilterConfigChange": {
+    "name": "snTrapMacFilterConfigChange",
+    "oid": "1.3.6.1.4.1.1991.0.114",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapSNMPConfigChange": {
+    "name": "snTrapSNMPConfigChange",
+    "oid": "1.3.6.1.4.1.1991.0.115",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapSyslogConfigChange": {
+    "name": "snTrapSyslogConfigChange",
+    "oid": "1.3.6.1.4.1.1991.0.116",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapPasswordConfigChange": {
+    "name": "snTrapPasswordConfigChange",
+    "oid": "1.3.6.1.4.1.1991.0.117",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapServerStatusChange": {
+    "name": "snTrapServerStatusChange",
+    "oid": "1.3.6.1.4.1.1991.0.118",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4RealServerPortMaxConnectionLimitReached": {
+    "name": "snTrapL4RealServerPortMaxConnectionLimitReached",
+    "oid": "1.3.6.1.4.1.1991.0.119",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4LinkDown": {
+    "name": "snTrapL4LinkDown",
+    "oid": "1.3.6.1.4.1.1991.0.120",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapLinkName"
+      },
+      {
+        "module": "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4LinkVirtualInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapL4LinkUp": {
+    "name": "snTrapL4LinkUp",
+    "oid": "1.3.6.1.4.1.1991.0.121",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapLinkName"
+      },
+      {
+        "module": "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4LinkVirtualInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapPortPriorityChange": {
+    "name": "snTrapPortPriorityChange",
+    "oid": "1.3.6.1.4.1.1991.0.122",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapAutoPortDisableTrigger": {
+    "name": "snTrapAutoPortDisableTrigger",
+    "oid": "1.3.6.1.4.1.1991.0.123",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapAutoPortDisableRelease": {
+    "name": "snTrapAutoPortDisableRelease",
+    "oid": "1.3.6.1.4.1.1991.0.124",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapPnPStatusChange": {
+    "name": "snTrapPnPStatusChange",
+    "oid": "1.3.6.1.4.1.1991.0.125",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-WIRELESS-GROUP-MIB",
+        "object": "wgPnPStatus"
+      },
+      {
+        "module": "FOUNDRY-SN-WIRELESS-GROUP-MIB",
+        "object": "wgPnPStatus"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapWirelessIsrpPeerStateChange": {
+    "name": "snTrapWirelessIsrpPeerStateChange",
+    "oid": "1.3.6.1.4.1.1991.0.126",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapWirelessStationStateChange": {
+    "name": "snTrapWirelessStationStateChange",
+    "oid": "1.3.6.1.4.1.1991.0.127",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapWirelessStationRoamingEventTriggered": {
+    "name": "snTrapWirelessStationRoamingEventTriggered",
+    "oid": "1.3.6.1.4.1.1991.0.128",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapWirelessSappStateChange": {
+    "name": "snTrapWirelessSappStateChange",
+    "oid": "1.3.6.1.4.1.1991.0.129",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapExternalPowerConnectionStatus": {
+    "name": "snTrapExternalPowerConnectionStatus",
+    "oid": "1.3.6.1.4.1.1991.0.130",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapDot1xSecurityViolation": {
+    "name": "snTrapDot1xSecurityViolation",
+    "oid": "1.3.6.1.4.1.1991.0.131",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapDot1xPortLinkChange": {
+    "name": "snTrapDot1xPortLinkChange",
+    "oid": "1.3.6.1.4.1.1991.0.132",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapDot1xPortControlChange": {
+    "name": "snTrapDot1xPortControlChange",
+    "oid": "1.3.6.1.4.1.1991.0.133",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapDot1xVlanIdChange": {
+    "name": "snTrapDot1xVlanIdChange",
+    "oid": "1.3.6.1.4.1.1991.0.134",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapDot1xFilterSetupFailure": {
+    "name": "snTrapDot1xFilterSetupFailure",
+    "oid": "1.3.6.1.4.1.1991.0.135",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapDot1xError": {
+    "name": "snTrapDot1xError",
+    "oid": "1.3.6.1.4.1.1991.0.136",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapPortConfigChange": {
+    "name": "snTrapPortConfigChange",
+    "oid": "1.3.6.1.4.1.1991.0.137",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapMacAuthVlanIdChange": {
+    "name": "snTrapMacAuthVlanIdChange",
+    "oid": "1.3.6.1.4.1.1991.0.138",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapWebAuthEnabled": {
+    "name": "snTrapWebAuthEnabled",
+    "oid": "1.3.6.1.4.1.1991.0.139",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapWebAuthDisabled": {
+    "name": "snTrapWebAuthDisabled",
+    "oid": "1.3.6.1.4.1.1991.0.140",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapIpConfigChange": {
+    "name": "snTrapIpConfigChange",
+    "oid": "1.3.6.1.4.1.1991.0.141",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapIpv6ConfigChange": {
+    "name": "snTrapIpv6ConfigChange",
+    "oid": "1.3.6.1.4.1.1991.0.142",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapMacAuthRadiusTimeout": {
+    "name": "snTrapMacAuthRadiusTimeout",
+    "oid": "1.3.6.1.4.1.1991.0.143",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapDot1xRadiusTimeout": {
+    "name": "snTrapDot1xRadiusTimeout",
+    "oid": "1.3.6.1.4.1.1991.0.144",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapUDLDLinkDown": {
+    "name": "snTrapUDLDLinkDown",
+    "oid": "1.3.6.1.4.1.1991.0.145",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapUDLDLinkUp": {
+    "name": "snTrapUDLDLinkUp",
+    "oid": "1.3.6.1.4.1.1991.0.146",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapMacBasedVlanEnabled": {
+    "name": "snTrapMacBasedVlanEnabled",
+    "oid": "1.3.6.1.4.1.1991.0.147",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapMacBasedVlanDisabled": {
+    "name": "snTrapMacBasedVlanDisabled",
+    "oid": "1.3.6.1.4.1.1991.0.148",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapChasFanNormal": {
+    "name": "snTrapChasFanNormal",
+    "oid": "1.3.6.1.4.1.1991.0.149",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasFanIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasFanDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapStpRootGuardDetect": {
+    "name": "snTrapStpRootGuardDetect",
+    "oid": "1.3.6.1.4.1.1991.0.150",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-SWITCH-GROUP-MIB",
+        "object": "snVLanByPortCfgVLanId"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapStpRootGuardExpire": {
+    "name": "snTrapStpRootGuardExpire",
+    "oid": "1.3.6.1.4.1.1991.0.151",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-SWITCH-GROUP-MIB",
+        "object": "snVLanByPortCfgVLanId"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapStpBPDUGuardDetect": {
+    "name": "snTrapStpBPDUGuardDetect",
+    "oid": "1.3.6.1.4.1.1991.0.152",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-SWITCH-GROUP-MIB",
+        "object": "snVLanByPortCfgVLanId"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapMstpBPDUGuardDetect": {
+    "name": "snTrapMstpBPDUGuardDetect",
+    "oid": "1.3.6.1.4.1.1991.0.153",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapErrorDisableAction": {
+    "name": "snTrapErrorDisableAction",
+    "oid": "1.3.6.1.4.1.1991.0.154",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapLACPLinkStateChange": {
+    "name": "snTrapLACPLinkStateChange",
+    "oid": "1.3.6.1.4.1.1991.0.155",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapOpticalMonitoringNotFoundryOptics": {
+    "name": "snTrapOpticalMonitoringNotFoundryOptics",
+    "oid": "1.3.6.1.4.1.1991.0.156",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapOpticalMonitoringFoundryOpticsNotCapable": {
+    "name": "snTrapOpticalMonitoringFoundryOpticsNotCapable",
+    "oid": "1.3.6.1.4.1.1991.0.157",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapStaticMulticastMacConfigAdd": {
+    "name": "snTrapStaticMulticastMacConfigAdd",
+    "oid": "1.3.6.1.4.1.1991.0.158",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapStaticMulticastMacConfigRemove": {
+    "name": "snTrapStaticMulticastMacConfigRemove",
+    "oid": "1.3.6.1.4.1.1991.0.159",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapSTPBPDUGuardExpire": {
+    "name": "snTrapSTPBPDUGuardExpire",
+    "oid": "1.3.6.1.4.1.1991.0.160",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-SWITCH-GROUP-MIB",
+        "object": "snVLanByPortCfgVLanId"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapPortLoopDetection": {
+    "name": "snTrapPortLoopDetection",
+    "oid": "1.3.6.1.4.1.1991.0.161",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-SWITCH-GROUP-MIB",
+        "object": "snVLanByPortCfgVLanId"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapNoFreeTcamEntry": {
+    "name": "snTrapNoFreeTcamEntry",
+    "oid": "1.3.6.1.4.1.1991.0.162",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapStackingMasterElected": {
+    "name": "snTrapStackingMasterElected",
+    "oid": "1.3.6.1.4.1.1991.0.163",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasUnitIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapStackingUnitAdded": {
+    "name": "snTrapStackingUnitAdded",
+    "oid": "1.3.6.1.4.1.1991.0.164",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasUnitIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapStackingUnitDeleted": {
+    "name": "snTrapStackingUnitDeleted",
+    "oid": "1.3.6.1.4.1.1991.0.165",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasUnitIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapStackingChasPwrSupplyOK": {
+    "name": "snTrapStackingChasPwrSupplyOK",
+    "oid": "1.3.6.1.4.1.1991.0.166",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasUnitIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasPwrSupplyIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapStackingChasPwrSupplyFailed": {
+    "name": "snTrapStackingChasPwrSupplyFailed",
+    "oid": "1.3.6.1.4.1.1991.0.167",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasUnitIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasPwrSupplyIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapStackingChasFanNormal": {
+    "name": "snTrapStackingChasFanNormal",
+    "oid": "1.3.6.1.4.1.1991.0.168",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasUnitIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasFanIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasFanDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapStackingChasFanFailed": {
+    "name": "snTrapStackingChasFanFailed",
+    "oid": "1.3.6.1.4.1.1991.0.169",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasUnitIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasFanIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasFanDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapStackingManagementMACChanged": {
+    "name": "snTrapStackingManagementMACChanged",
+    "oid": "1.3.6.1.4.1.1991.0.170",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapStackingTemperatureWarning": {
+    "name": "snTrapStackingTemperatureWarning",
+    "oid": "1.3.6.1.4.1.1991.0.171",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasUnitIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapIfIndexAssignmentChanged": {
+    "name": "snTrapIfIndexAssignmentChanged",
+    "oid": "1.3.6.1.4.1.1991.0.172",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapPBRConfigChanged": {
+    "name": "snTrapPBRConfigChanged",
+    "oid": "1.3.6.1.4.1.1991.0.173",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapChasPwrSupplyRPSAdd": {
+    "name": "snTrapChasPwrSupplyRPSAdd",
+    "oid": "1.3.6.1.4.1.1991.0.174",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasPwrSupplyIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasPwrSupplyDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapChasPwrSupplyRPSRemove": {
+    "name": "snTrapChasPwrSupplyRPSRemove",
+    "oid": "1.3.6.1.4.1.1991.0.175",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasPwrSupplyIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasPwrSupplyDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapModuleStatusChange": {
+    "name": "snTrapModuleStatusChange",
+    "oid": "1.3.6.1.4.1.1991.0.176",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasUnitIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgentBrdIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgentBrdModuleStatus"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapChasHighSpeedFansNeeded": {
+    "name": "snTrapChasHighSpeedFansNeeded",
+    "oid": "1.3.6.1.4.1.1991.0.177",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapSysmaxReverted": {
+    "name": "snTrapSysmaxReverted",
+    "oid": "1.3.6.1.4.1.1991.0.178",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapSysmaxLeftLowMem": {
+    "name": "snTrapSysmaxLeftLowMem",
+    "oid": "1.3.6.1.4.1.1991.0.179",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapSysMemoryLowThreshold": {
+    "name": "snTrapSysMemoryLowThreshold",
+    "oid": "1.3.6.1.4.1.1991.0.180",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapSysMemoryOutThreshold": {
+    "name": "snTrapSysMemoryOutThreshold",
+    "oid": "1.3.6.1.4.1.1991.0.181",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapLinkOAMLinkDown": {
+    "name": "snTrapLinkOAMLinkDown",
+    "oid": "1.3.6.1.4.1.1991.0.182",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapLinkOAMLinkUp": {
+    "name": "snTrapLinkOAMLinkUp",
+    "oid": "1.3.6.1.4.1.1991.0.183",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapI2CAccessLog": {
+    "name": "snTrapI2CAccessLog",
+    "oid": "1.3.6.1.4.1.1991.0.184",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapLinkOAMLoopbackEntered": {
+    "name": "snTrapLinkOAMLoopbackEntered",
+    "oid": "1.3.6.1.4.1.1991.0.185",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "DOT3-OAM-MIB",
+        "object": "dot3OamLoopbackStatus"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapLinkOAMLoopbackCleared": {
+    "name": "snTrapLinkOAMLoopbackCleared",
+    "oid": "1.3.6.1.4.1.1991.0.186",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "DOT3-OAM-MIB",
+        "object": "dot3OamLoopbackStatus"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapLicenseAdded": {
+    "name": "snTrapLicenseAdded",
+    "oid": "1.3.6.1.4.1.1991.0.187",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "fdryLicenseType"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapLicenseRemoved": {
+    "name": "snTrapLicenseRemoved",
+    "oid": "1.3.6.1.4.1.1991.0.188",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "fdryLicenseType"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapLicenseExpires": {
+    "name": "snTrapLicenseExpires",
+    "oid": "1.3.6.1.4.1.1991.0.189",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "fdryLicenseType"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapLicenseExpired": {
+    "name": "snTrapLicenseExpired",
+    "oid": "1.3.6.1.4.1.1991.0.190",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "fdryLicenseType"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapUDLDCrcFailureDetected": {
+    "name": "snTrapUDLDCrcFailureDetected",
+    "oid": "1.3.6.1.4.1.1991.0.191",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapDot1agCfmRemoteMEPAgeOut": {
+    "name": "snTrapDot1agCfmRemoteMEPAgeOut",
+    "oid": "1.3.6.1.4.1.1991.0.192",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdName"
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaNetName"
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepDbRMepState"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapDot1agCfmRemoteMEPUp": {
+    "name": "snTrapDot1agCfmRemoteMEPUp",
+    "oid": "1.3.6.1.4.1.1991.0.193",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdName"
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaNetName"
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepDbRMepState"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapDot1agCfmDomainCrossConnection": {
+    "name": "snTrapDot1agCfmDomainCrossConnection",
+    "oid": "1.3.6.1.4.1.1991.0.194",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdName"
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaNetName"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapDot1agCfmDuplicateMEPId": {
+    "name": "snTrapDot1agCfmDuplicateMEPId",
+    "oid": "1.3.6.1.4.1.1991.0.195",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdName"
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaNetName"
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepDbRMepState"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapStackingStandbyElected": {
+    "name": "snTrapStackingStandbyElected",
+    "oid": "1.3.6.1.4.1.1991.0.196",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasUnitIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapMacMoveThresholdRate": {
+    "name": "snTrapMacMoveThresholdRate",
+    "oid": "1.3.6.1.4.1.1991.0.197",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapMacMoveIntervalHistory": {
+    "name": "snTrapMacMoveIntervalHistory",
+    "oid": "1.3.6.1.4.1.1991.0.198",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapChasFanOK": {
+    "name": "snTrapChasFanOK",
+    "oid": "1.3.6.1.4.1.1991.0.1000",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasFanIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snChasFanDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapTemperatureOK": {
+    "name": "snTrapTemperatureOK",
+    "oid": "1.3.6.1.4.1.1991.0.1001",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapCAMOverflow": {
+    "name": "snTrapCAMOverflow",
+    "oid": "1.3.6.1.4.1.1991.0.1002",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapOpticalMonitoringWarning": {
+    "name": "snTrapOpticalMonitoringWarning",
+    "oid": "1.3.6.1.4.1.1991.0.1003",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapOpticalMonitoringAlarm": {
+    "name": "snTrapOpticalMonitoringAlarm",
+    "oid": "1.3.6.1.4.1.1991.0.1004",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapOpticalMonitoringError": {
+    "name": "snTrapOpticalMonitoringError",
+    "oid": "1.3.6.1.4.1.1991.0.1005",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapPosMonitoringWarning": {
+    "name": "snTrapPosMonitoringWarning",
+    "oid": "1.3.6.1.4.1.1991.0.1006",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapPosMonitoringAlarm": {
+    "name": "snTrapPosMonitoringAlarm",
+    "oid": "1.3.6.1.4.1.1991.0.1007",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapPosMonitoringError": {
+    "name": "snTrapPosMonitoringError",
+    "oid": "1.3.6.1.4.1.1991.0.1008",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapXfpSfpIncompatibleOptics": {
+    "name": "snTrapXfpSfpIncompatibleOptics",
+    "oid": "1.3.6.1.4.1.1991.0.1009",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapTMLoggingStart": {
+    "name": "snTrapTMLoggingStart",
+    "oid": "1.3.6.1.4.1.1991.0.1015",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapTMLoggingStop": {
+    "name": "snTrapTMLoggingStop",
+    "oid": "1.3.6.1.4.1.1991.0.1016",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapTMLoggingRestart": {
+    "name": "snTrapTMLoggingRestart",
+    "oid": "1.3.6.1.4.1.1991.0.1017",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapXfpSfpNotFoundryOptics": {
+    "name": "snTrapXfpSfpNotFoundryOptics",
+    "oid": "1.3.6.1.4.1.1991.0.1018",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapTMRecoverySlotReset": {
+    "name": "snTrapTMRecoverySlotReset",
+    "oid": "1.3.6.1.4.1.1991.0.1019",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapTMEgressDataError": {
+    "name": "snTrapTMEgressDataError",
+    "oid": "1.3.6.1.4.1.1991.0.1020",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapSFMLinkDown": {
+    "name": "snTrapSFMLinkDown",
+    "oid": "1.3.6.1.4.1.1991.0.1100",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapSFMLinkUp": {
+    "name": "snTrapSFMLinkUp",
+    "oid": "1.3.6.1.4.1.1991.0.1101",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapSFMAccessError": {
+    "name": "snTrapSFMAccessError",
+    "oid": "1.3.6.1.4.1.1991.0.1102",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapSFMStatusChange": {
+    "name": "snTrapSFMStatusChange",
+    "oid": "1.3.6.1.4.1.1991.0.1103",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgentBrdIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgentBrdModuleStatus"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapLPFabricStatusChange": {
+    "name": "snTrapLPFabricStatusChange",
+    "oid": "1.3.6.1.4.1.1991.0.1104",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgentBrdIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgentBrdModuleStatus"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapChassisFanSpeedLow": {
+    "name": "snTrapChassisFanSpeedLow",
+    "oid": "1.3.6.1.4.1.1991.0.1200",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapChassisFanSpeedMedium": {
+    "name": "snTrapChassisFanSpeedMedium",
+    "oid": "1.3.6.1.4.1.1991.0.1201",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapChassisFanSpeedMedHigh": {
+    "name": "snTrapChassisFanSpeedMedHigh",
+    "oid": "1.3.6.1.4.1.1991.0.1202",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapChassisFanSpeedHigh": {
+    "name": "snTrapChassisFanSpeedHigh",
+    "oid": "1.3.6.1.4.1.1991.0.1203",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapFIPSModeEnable": {
+    "name": "snTrapFIPSModeEnable",
+    "oid": "1.3.6.1.4.1.1991.0.1207",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapFIPSModeDisable": {
+    "name": "snTrapFIPSModeDisable",
+    "oid": "1.3.6.1.4.1.1991.0.1208",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapFIPSHostZeroized": {
+    "name": "snTrapFIPSHostZeroized",
+    "oid": "1.3.6.1.4.1.1991.0.1209",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapFIPSSharedSecretZeroized": {
+    "name": "snTrapFIPSSharedSecretZeroized",
+    "oid": "1.3.6.1.4.1.1991.0.1210",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapFIPSPOSTStatus": {
+    "name": "snTrapFIPSPOSTStatus",
+    "oid": "1.3.6.1.4.1.1991.0.1211",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapFIPSCryptoModuleFailure": {
+    "name": "snTrapFIPSCryptoModuleFailure",
+    "oid": "1.3.6.1.4.1.1991.0.1212",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapLicense2PortNotSupported": {
+    "name": "snTrapLicense2PortNotSupported",
+    "oid": "1.3.6.1.4.1.1991.0.1213",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapOpticalMonitoringOK": {
+    "name": "snTrapOpticalMonitoringOK",
+    "oid": "1.3.6.1.4.1.1991.0.1214",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapSFMAccessOK": {
+    "name": "snTrapSFMAccessOK",
+    "oid": "1.3.6.1.4.1.1991.0.1215",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapUpgradeSingleCmdStart": {
+    "name": "snTrapUpgradeSingleCmdStart",
+    "oid": "1.3.6.1.4.1.1991.0.1216",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "snTrapUpgradeSingleCmdDone": {
+    "name": "snTrapUpgradeSingleCmdDone",
+    "oid": "1.3.6.1.4.1.1991.0.1217",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapAutoUpgradeStart": {
+    "name": "snTrapAutoUpgradeStart",
+    "oid": "1.3.6.1.4.1.1991.0.1218",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgentBrdIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "snTrapAutoUpgradeDone": {
+    "name": "snTrapAutoUpgradeDone",
+    "oid": "1.3.6.1.4.1.1991.0.1219",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgentBrdIndex"
+      },
+      {
+        "module": "FOUNDRY-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/brocade/FOUNDRY-SN-NOTIFICATION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:54 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "FOUNDRY-SN-NOTIFICATION-MIB"
+  }
+}

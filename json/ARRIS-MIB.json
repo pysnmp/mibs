@@ -1,0 +1,156 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "enterprises",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "Counter32",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "arris": {
+    "name": "arris",
+    "oid": "1.3.6.1.4.1.4115",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1904-02-02 00:00",
+        "description": "Added Product Identifier 'cmtsCommon' for common CMTS products."
+      },
+      {
+        "revision": "1902-06-24 00:00",
+        "description": "Added a ProductID OID for the 'tcm' product. Added the Global Access product line rooted at arrisProdIdGlobalAccess."
+      },
+      {
+        "revision": "1901-10-04 00:00",
+        "description": "Added a Product Identifier OID for the CM (Cable Modem) product line. Added Product Identifier OIDs for the 'ttm' and 'ttp' products."
+      },
+      {
+        "revision": "1901-01-24 00:00",
+        "description": "Added a Product Identifier OID for the MRC (Modular Redundant Chassis) product line. Added a Product Identifier OID for the MRC Controller"
+      },
+      {
+        "revision": "1900-10-17 00:00",
+        "description": "Added a Product Identifier OID for the CMTS product line. Added a Product Identifier OID for the MSAS (MultiService Access System) CMTS product."
+      }
+    ]
+  },
+  "arrisProducts": {
+    "name": "arrisProducts",
+    "oid": "1.3.6.1.4.1.4115.1",
+    "class": "objectidentity"
+  },
+  "packetport": {
+    "name": "packetport",
+    "oid": "1.3.6.1.4.1.4115.1.1",
+    "class": "objectidentity"
+  },
+  "cm110": {
+    "name": "cm110",
+    "oid": "1.3.6.1.4.1.4115.1.2",
+    "class": "objectidentity"
+  },
+  "arrisProdIdCM": {
+    "name": "arrisProdIdCM",
+    "oid": "1.3.6.1.4.1.4115.1.3",
+    "class": "objectidentity"
+  },
+  "arrisProdIdCMTS": {
+    "name": "arrisProdIdCMTS",
+    "oid": "1.3.6.1.4.1.4115.1.4",
+    "class": "objectidentity"
+  },
+  "arrisProdIdMRC": {
+    "name": "arrisProdIdMRC",
+    "oid": "1.3.6.1.4.1.4115.1.5",
+    "class": "objectidentity"
+  },
+  "arrisProdIdGlobalAccess": {
+    "name": "arrisProdIdGlobalAccess",
+    "oid": "1.3.6.1.4.1.4115.1.6",
+    "class": "objectidentity"
+  },
+  "tcm": {
+    "name": "tcm",
+    "oid": "1.3.6.1.4.1.4115.1.3.8",
+    "class": "objectidentity"
+  },
+  "ttm": {
+    "name": "ttm",
+    "oid": "1.3.6.1.4.1.4115.1.3.9",
+    "class": "objectidentity"
+  },
+  "ttp": {
+    "name": "ttp",
+    "oid": "1.3.6.1.4.1.4115.1.3.10",
+    "class": "objectidentity"
+  },
+  "cmtsMSAS": {
+    "name": "cmtsMSAS",
+    "oid": "1.3.6.1.4.1.4115.1.4.1",
+    "class": "objectidentity"
+  },
+  "cmts1500": {
+    "name": "cmts1500",
+    "oid": "1.3.6.1.4.1.4115.1.4.2",
+    "class": "objectidentity"
+  },
+  "cmtsC3": {
+    "name": "cmtsC3",
+    "oid": "1.3.6.1.4.1.4115.1.4.3",
+    "class": "objectidentity"
+  },
+  "cmtsC4": {
+    "name": "cmtsC4",
+    "oid": "1.3.6.1.4.1.4115.1.4.4",
+    "class": "objectidentity"
+  },
+  "cmtsCommon": {
+    "name": "cmtsCommon",
+    "oid": "1.3.6.1.4.1.4115.1.4.5",
+    "class": "objectidentity"
+  },
+  "mrcController": {
+    "name": "mrcController",
+    "oid": "1.3.6.1.4.1.4115.1.5.1",
+    "class": "objectidentity"
+  },
+  "arrisGlobalAccessMib": {
+    "name": "arrisGlobalAccessMib",
+    "oid": "1.3.6.1.4.1.4115.1.6.1",
+    "class": "objectidentity"
+  },
+  "arrisGlobalAccessProductUas": {
+    "name": "arrisGlobalAccessProductUas",
+    "oid": "1.3.6.1.4.1.4115.1.6.2",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/ARRIS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:05 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ARRIS-MIB"
+  }
+}

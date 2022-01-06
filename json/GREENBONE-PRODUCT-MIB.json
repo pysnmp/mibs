@@ -1,0 +1,263 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
+      "enterprises",
+      "iso",
+      "Bits",
+      "Counter64",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "greenboneProduct": {
+    "name": "greenboneProduct",
+    "oid": "1.3.6.1.4.1.35847.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-05-15 00:01",
+        "description": "Updated CONTACT-INFO"
+      },
+      {
+        "revision": "2015-01-06 00:01",
+        "description": "Updated CONTACT-INFO"
+      },
+      {
+        "revision": "2014-12-31 00:01",
+        "description": "Adjustments to IMPORTS and MODULE-IDENTITY"
+      },
+      {
+        "revision": "2012-03-26 00:01",
+        "description": "First Draft"
+      }
+    ]
+  },
+  "productName": {
+    "name": "productName",
+    "oid": "1.3.6.1.4.1.35847.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "productHardware": {
+    "name": "productHardware",
+    "oid": "1.3.6.1.4.1.35847.1.2",
+    "class": "objectidentity"
+  },
+  "productSoftware": {
+    "name": "productSoftware",
+    "oid": "1.3.6.1.4.1.35847.1.3",
+    "class": "objectidentity"
+  },
+  "productGroups": {
+    "name": "productGroups",
+    "oid": "1.3.6.1.4.1.35847.1.4",
+    "class": "objectidentity"
+  },
+  "hwName": {
+    "name": "hwName",
+    "oid": "1.3.6.1.4.1.35847.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swName": {
+    "name": "swName",
+    "oid": "1.3.6.1.4.1.35847.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swVersion": {
+    "name": "swVersion",
+    "oid": "1.3.6.1.4.1.35847.1.3.2",
+    "class": "objectidentity"
+  },
+  "swVersionString": {
+    "name": "swVersionString",
+    "oid": "1.3.6.1.4.1.35847.1.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swVersionMajor": {
+    "name": "swVersionMajor",
+    "oid": "1.3.6.1.4.1.35847.1.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swVersionMinor": {
+    "name": "swVersionMinor",
+    "oid": "1.3.6.1.4.1.35847.1.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swVersionPatch": {
+    "name": "swVersionPatch",
+    "oid": "1.3.6.1.4.1.35847.1.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swVersionRevision": {
+    "name": "swVersionRevision",
+    "oid": "1.3.6.1.4.1.35847.1.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "greenboneProductGroup": {
+    "name": "greenboneProductGroup",
+    "oid": "1.3.6.1.4.1.35847.1.4.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GREENBONE-PRODUCT-MIB",
+        "object": "productName"
+      },
+      {
+        "module": "GREENBONE-PRODUCT-MIB",
+        "object": "hwName"
+      },
+      {
+        "module": "GREENBONE-PRODUCT-MIB",
+        "object": "swName"
+      },
+      {
+        "module": "GREENBONE-PRODUCT-MIB",
+        "object": "swVersionString"
+      },
+      {
+        "module": "GREENBONE-PRODUCT-MIB",
+        "object": "swVersionMajor"
+      },
+      {
+        "module": "GREENBONE-PRODUCT-MIB",
+        "object": "swVersionMinor"
+      },
+      {
+        "module": "GREENBONE-PRODUCT-MIB",
+        "object": "swVersionPatch"
+      },
+      {
+        "module": "GREENBONE-PRODUCT-MIB",
+        "object": "swVersionRevision"
+      }
+    ],
+    "status": "current"
+  },
+  "greenboneProductHWGroup": {
+    "name": "greenboneProductHWGroup",
+    "oid": "1.3.6.1.4.1.35847.1.4.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GREENBONE-PRODUCT-MIB",
+        "object": "hwName"
+      }
+    ],
+    "status": "current"
+  },
+  "greenboneProductSWGroup": {
+    "name": "greenboneProductSWGroup",
+    "oid": "1.3.6.1.4.1.35847.1.4.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GREENBONE-PRODUCT-MIB",
+        "object": "swName"
+      },
+      {
+        "module": "GREENBONE-PRODUCT-MIB",
+        "object": "swVersionString"
+      },
+      {
+        "module": "GREENBONE-PRODUCT-MIB",
+        "object": "swVersionMajor"
+      },
+      {
+        "module": "GREENBONE-PRODUCT-MIB",
+        "object": "swVersionMinor"
+      },
+      {
+        "module": "GREENBONE-PRODUCT-MIB",
+        "object": "swVersionPatch"
+      },
+      {
+        "module": "GREENBONE-PRODUCT-MIB",
+        "object": "swVersionRevision"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/greenbone/GREENBONE-PRODUCT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:32:14 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "GREENBONE-PRODUCT-MIB"
+  }
+}

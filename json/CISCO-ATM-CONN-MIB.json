@@ -1,0 +1,3836 @@
+{
+  "imports": {
+    "class": "imports",
+    "ATM-MIB": [
+      "atmVclVci",
+      "AtmTrafficDescrParamIndex",
+      "atmVplVpi",
+      "atmVclVpi"
+    ],
+    "CISCO-ATM-IF-MIB": [
+      "NsapAtmAddr"
+    ],
+    "CISCO-ATM-RM-MIB": [
+      "LsPerVcqThresholdGroup"
+    ],
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoAtmConnMIB": {
+    "name": "ciscoAtmConnMIB",
+    "oid": "1.3.6.1.4.1.9.10.13",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-07-12 00:00",
+        "description": "Added a new enumeration 'useTrafficDescr' to the syntax of ciscoAtmVclEpdEnable."
+      },
+      {
+        "revision": "2001-10-30 00:00",
+        "description": "Added ciscoAtmVplConnType and ciscoAtmVclConnType objects to the VPL and VCL tables."
+      },
+      {
+        "revision": "2001-10-10 00:00",
+        "description": "Added ciscoAtmVplConnName and ciscoAtmVclConnName objects to the VPL and VCL tables."
+      },
+      {
+        "revision": "2001-08-06 00:00",
+        "description": "Added a enumeration for ConfigType to enable configuration of Passive Half leg for 2-ended Soft PVC/PVP"
+      },
+      {
+        "revision": "2001-01-29 00:00",
+        "description": "Added objects that provide per-connection Transmit statistics for the switch fabric."
+      },
+      {
+        "revision": "1998-10-02 00:00",
+        "description": "Added objects for reporting negotiated traffic parameters."
+      },
+      {
+        "revision": "1997-05-26 00:00",
+        "description": "Added objects for management of new features made possible on the LS1010 by the Feature Card Plus. This includes support for: - per-VC queueing hardware structures, - enhanced UPC, - per-connection snooping, - enhanced per-connection statistics."
+      },
+      {
+        "revision": "1996-11-01 00:00",
+        "description": "Added - VPL/VCL violation counter, - SVC frame discard using AAL5IE, - default VPL/VCL tolerance objects."
+      },
+      {
+        "revision": "1998-07-26 00:00",
+        "description": "Added - object to configure a VP leg as a hierarchical VP."
+      }
+    ]
+  },
+  "ciscoAtmConnMIBObjects": {
+    "name": "ciscoAtmConnMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.13.1",
+    "class": "objectidentity"
+  },
+  "CastType": {
+    "name": "CastType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pointToPoint": 1,
+          "pointToMultiPointRoot": 2,
+          "pointToMultiPointLeaf": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ConfigType": {
+    "name": "ConfigType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "permanent": 2,
+          "switch": 3,
+          "soft": 4,
+          "softPassive": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SpanType": {
+    "name": "SpanType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "transit": 2,
+          "terminate": 3,
+          "both": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EnableStatus": {
+    "name": "EnableStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "UpcStatus": {
+    "name": "UpcStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "passing": 1,
+          "tagging": 2,
+          "dropping": 3,
+          "localShaping": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ConnState": {
+    "name": "ConnState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setup": 1,
+          "release": 2,
+          "notInstalled": 3,
+          "down": 4,
+          "up": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Location": {
+    "name": "Location",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "calling": 2,
+          "called": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Direction": {
+    "name": "Direction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "p2pCallingSide": 2,
+          "p2pCalledSide": 3,
+          "p2mpRoot": 4,
+          "p2mpLeaf": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SnoopDirType": {
+    "name": "SnoopDirType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transmit": 1,
+          "receive": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoAtmVpl": {
+    "name": "ciscoAtmVpl",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoAtmVplTable": {
+    "name": "ciscoAtmVplTable",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoAtmVplEntry": {
+    "name": "ciscoAtmVplEntry",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVplVpi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmVplCastType": {
+    "name": "ciscoAtmVplCastType",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CastType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "pointToPoint",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVplSpanType": {
+    "name": "ciscoAtmVplSpanType",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SpanType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "transit",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplConfigType": {
+    "name": "ciscoAtmVplConfigType",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "permanent",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVplRxUpcMode": {
+    "name": "ciscoAtmVplRxUpcMode",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UpcStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "passing",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVplConnState": {
+    "name": "ciscoAtmVplConnState",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConnState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVplOamLoopbkTxInterval": {
+    "name": "ciscoAtmVplOamLoopbkTxInterval",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVplOamSegmentLoopback": {
+    "name": "ciscoAtmVplOamSegmentLoopback",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVplOamEndLoopback": {
+    "name": "ciscoAtmVplOamEndLoopback",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVplOamAisEnable": {
+    "name": "ciscoAtmVplOamAisEnable",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVplOamRdiEnable": {
+    "name": "ciscoAtmVplOamRdiEnable",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVplInstallTime": {
+    "name": "ciscoAtmVplInstallTime",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplInCells": {
+    "name": "ciscoAtmVplInCells",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplOutCells": {
+    "name": "ciscoAtmVplOutCells",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplCrossIfIndex": {
+    "name": "ciscoAtmVplCrossIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVplCrossVpi": {
+    "name": "ciscoAtmVplCrossVpi",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVplNextLeafIfIndex": {
+    "name": "ciscoAtmVplNextLeafIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplNextLeafVpi": {
+    "name": "ciscoAtmVplNextLeafVpi",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplRemoteAddr": {
+    "name": "ciscoAtmVplRemoteAddr",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NsapAtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVplRemoteVpi": {
+    "name": "ciscoAtmVplRemoteVpi",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVplLocation": {
+    "name": "ciscoAtmVplLocation",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Location",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplSlowRetryIntv": {
+    "name": "ciscoAtmVplSlowRetryIntv",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVplNumAttempts": {
+    "name": "ciscoAtmVplNumAttempts",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplLastReleaseCause": {
+    "name": "ciscoAtmVplLastReleaseCause",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplLogicalPortDef": {
+    "name": "ciscoAtmVplLogicalPortDef",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notLogicalIf": 1,
+          "isLogicalIf": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notLogicalIf",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVplLogicalPortIndex": {
+    "name": "ciscoAtmVplLogicalPortIndex",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplUpcViolations": {
+    "name": "ciscoAtmVplUpcViolations",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplEpdTpdCellDrops": {
+    "name": "ciscoAtmVplEpdTpdCellDrops",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ciscoAtmVplEpdTpdPacketDrops": {
+    "name": "ciscoAtmVplEpdTpdPacketDrops",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ciscoAtmVplEpdTpdPacketsIn": {
+    "name": "ciscoAtmVplEpdTpdPacketsIn",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ciscoAtmVplClp1Drops": {
+    "name": "ciscoAtmVplClp1Drops",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ciscoAtmVplDefaultRxUpcTolerance": {
+    "name": "ciscoAtmVplDefaultRxUpcTolerance",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplDefaultRxUpcVbrCdvt": {
+    "name": "ciscoAtmVplDefaultRxUpcVbrCdvt",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplLsPerVcqWrrWeight": {
+    "name": "ciscoAtmVplLsPerVcqWrrWeight",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVplLsPerVcqTunnelIsShaped": {
+    "name": "ciscoAtmVplLsPerVcqTunnelIsShaped",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVplLsPerVcqXmtQueuedCells": {
+    "name": "ciscoAtmVplLsPerVcqXmtQueuedCells",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplLsPerVcQThreshGrp": {
+    "name": "ciscoAtmVplLsPerVcQThreshGrp",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LsPerVcqThresholdGroup",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplInClp0Cells": {
+    "name": "ciscoAtmVplInClp0Cells",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplInClp1Cells": {
+    "name": "ciscoAtmVplInClp1Cells",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplOutClp0Cells": {
+    "name": "ciscoAtmVplOutClp0Cells",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplOutClp1Cells": {
+    "name": "ciscoAtmVplOutClp1Cells",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplCellDrops": {
+    "name": "ciscoAtmVplCellDrops",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplClp0VcqFullCellDrops": {
+    "name": "ciscoAtmVplClp0VcqFullCellDrops",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplVcqClpThreshCellDrops": {
+    "name": "ciscoAtmVplVcqClpThreshCellDrops",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplLsPerVcqTunnelIsHierarchical": {
+    "name": "ciscoAtmVplLsPerVcqTunnelIsHierarchical",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVplRxNegTraffDescrIndex": {
+    "name": "ciscoAtmVplRxNegTraffDescrIndex",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmTrafficDescrParamIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplTxNegTraffDescrIndex": {
+    "name": "ciscoAtmVplTxNegTraffDescrIndex",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmTrafficDescrParamIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplSwFabOutCells": {
+    "name": "ciscoAtmVplSwFabOutCells",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplSwFabOutClp0Cells": {
+    "name": "ciscoAtmVplSwFabOutClp0Cells",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplSwFabOutClp1Cells": {
+    "name": "ciscoAtmVplSwFabOutClp1Cells",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVplConnName": {
+    "name": "ciscoAtmVplConnName",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVplConnType": {
+    "name": "ciscoAtmVplConnType",
+    "oid": "1.3.6.1.4.1.9.10.13.1.1.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "endToEnd": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVcl": {
+    "name": "ciscoAtmVcl",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoAtmVclTable": {
+    "name": "ciscoAtmVclTable",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoAtmVclEntry": {
+    "name": "ciscoAtmVclEntry",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmVclCastType": {
+    "name": "ciscoAtmVclCastType",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CastType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "pointToPoint",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVclSpanType": {
+    "name": "ciscoAtmVclSpanType",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SpanType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "transit",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclConfigType": {
+    "name": "ciscoAtmVclConfigType",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "permanent",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVclRxUpcMode": {
+    "name": "ciscoAtmVclRxUpcMode",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UpcStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "passing",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVclEpdEnable": {
+    "name": "ciscoAtmVclEpdEnable",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "useTrafficDescr": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "useTrafficDescr",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVclConnState": {
+    "name": "ciscoAtmVclConnState",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConnState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVclOamLoopbkTxInterval": {
+    "name": "ciscoAtmVclOamLoopbkTxInterval",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVclOamSegmentLoopback": {
+    "name": "ciscoAtmVclOamSegmentLoopback",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVclOamEndLoopback": {
+    "name": "ciscoAtmVclOamEndLoopback",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVclOamAisEnable": {
+    "name": "ciscoAtmVclOamAisEnable",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVclOamRdiEnable": {
+    "name": "ciscoAtmVclOamRdiEnable",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVclInstallTime": {
+    "name": "ciscoAtmVclInstallTime",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclInCells": {
+    "name": "ciscoAtmVclInCells",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclOutCells": {
+    "name": "ciscoAtmVclOutCells",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclCrossIfIndex": {
+    "name": "ciscoAtmVclCrossIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVclCrossVpi": {
+    "name": "ciscoAtmVclCrossVpi",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVclCrossVci": {
+    "name": "ciscoAtmVclCrossVci",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVclNextLeafIfIndex": {
+    "name": "ciscoAtmVclNextLeafIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclNextLeafVpi": {
+    "name": "ciscoAtmVclNextLeafVpi",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclNextLeafVci": {
+    "name": "ciscoAtmVclNextLeafVci",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclAalEncapFlag": {
+    "name": "ciscoAtmVclAalEncapFlag",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "aal5Snap": 2,
+          "aal5Nlpid": 3,
+          "aal5FrNlpid": 4,
+          "aal5Mux": 5,
+          "aal34Smds": 6,
+          "aalQsAal": 7,
+          "aal5Ilmi": 8,
+          "aal5Lane": 9,
+          "aal5Pnni": 10
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVclAalEncapProtocol": {
+    "name": "ciscoAtmVclAalEncapProtocol",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ip": 2,
+          "xns": 3,
+          "appletalk": 4,
+          "clns": 5,
+          "decnet": 6,
+          "novell": 7,
+          "apollo": 8,
+          "vines": 9
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVclAalUserVcType": {
+    "name": "ciscoAtmVclAalUserVcType",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "boxConfigure": 2,
+          "busForward": 3,
+          "busSend": 4,
+          "clientConfigure": 5,
+          "clientData": 6,
+          "clientDirect": 7,
+          "clientDistribute": 8,
+          "clientForward": 9,
+          "clientSend": 10,
+          "configure": 11,
+          "serverConfigure": 12,
+          "serverDirect": 13,
+          "serverDistribute": 14
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVclAtmInArpInterval": {
+    "name": "ciscoAtmVclAtmInArpInterval",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVclRemoteAddr": {
+    "name": "ciscoAtmVclRemoteAddr",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NsapAtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVclRemoteVpi": {
+    "name": "ciscoAtmVclRemoteVpi",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVclRemoteVci": {
+    "name": "ciscoAtmVclRemoteVci",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVclLocation": {
+    "name": "ciscoAtmVclLocation",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Location",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclSlowRetryIntv": {
+    "name": "ciscoAtmVclSlowRetryIntv",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVclNumAttempts": {
+    "name": "ciscoAtmVclNumAttempts",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclLastReleaseCause": {
+    "name": "ciscoAtmVclLastReleaseCause",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclUpcViolations": {
+    "name": "ciscoAtmVclUpcViolations",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclEpdTpdCellDrops": {
+    "name": "ciscoAtmVclEpdTpdCellDrops",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ciscoAtmVclEpdTpdPacketDrops": {
+    "name": "ciscoAtmVclEpdTpdPacketDrops",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclEpdTpdPacketsIn": {
+    "name": "ciscoAtmVclEpdTpdPacketsIn",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclClp1Drops": {
+    "name": "ciscoAtmVclClp1Drops",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ciscoAtmVclDefaultRxUpcTolerance": {
+    "name": "ciscoAtmVclDefaultRxUpcTolerance",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclDefaultRxUpcVbrCdvt": {
+    "name": "ciscoAtmVclDefaultRxUpcVbrCdvt",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclLsPerVcqWrrWeight": {
+    "name": "ciscoAtmVclLsPerVcqWrrWeight",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVclLsPerVcqXmtQueuedCells": {
+    "name": "ciscoAtmVclLsPerVcqXmtQueuedCells",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclLsPerVcQThreshGrp": {
+    "name": "ciscoAtmVclLsPerVcQThreshGrp",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LsPerVcqThresholdGroup",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclInClp0Cells": {
+    "name": "ciscoAtmVclInClp0Cells",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclInClp1Cells": {
+    "name": "ciscoAtmVclInClp1Cells",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclOutClp0Cells": {
+    "name": "ciscoAtmVclOutClp0Cells",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclOutClp1Cells": {
+    "name": "ciscoAtmVclOutClp1Cells",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclCellDrops": {
+    "name": "ciscoAtmVclCellDrops",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclClp0VcqFullCellDrops": {
+    "name": "ciscoAtmVclClp0VcqFullCellDrops",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclVcqClpThreshCellDrops": {
+    "name": "ciscoAtmVclVcqClpThreshCellDrops",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclRxNegTraffDescrIndex": {
+    "name": "ciscoAtmVclRxNegTraffDescrIndex",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmTrafficDescrParamIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclTxNegTraffDescrIndex": {
+    "name": "ciscoAtmVclTxNegTraffDescrIndex",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmTrafficDescrParamIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclSwFabOutCells": {
+    "name": "ciscoAtmVclSwFabOutCells",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclSwFabOutClp0Cells": {
+    "name": "ciscoAtmVclSwFabOutClp0Cells",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclSwFabOutClp1Cells": {
+    "name": "ciscoAtmVclSwFabOutClp1Cells",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmVclConnName": {
+    "name": "ciscoAtmVclConnName",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmVclConnType": {
+    "name": "ciscoAtmVclConnType",
+    "oid": "1.3.6.1.4.1.9.10.13.1.2.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "endToEnd": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmSvp": {
+    "name": "ciscoAtmSvp",
+    "oid": "1.3.6.1.4.1.9.10.13.1.3",
+    "class": "objectidentity"
+  },
+  "ciscoAtmSvpAddrTable": {
+    "name": "ciscoAtmSvpAddrTable",
+    "oid": "1.3.6.1.4.1.9.10.13.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoAtmSvpAddrEntry": {
+    "name": "ciscoAtmSvpAddrEntry",
+    "oid": "1.3.6.1.4.1.9.10.13.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSvpAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSvpVpi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmSvpAddr": {
+    "name": "ciscoAtmSvpAddr",
+    "oid": "1.3.6.1.4.1.9.10.13.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoAtmSvpVpi": {
+    "name": "ciscoAtmSvpVpi",
+    "oid": "1.3.6.1.4.1.9.10.13.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoAtmSvpDirection": {
+    "name": "ciscoAtmSvpDirection",
+    "oid": "1.3.6.1.4.1.9.10.13.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Direction",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmSvc": {
+    "name": "ciscoAtmSvc",
+    "oid": "1.3.6.1.4.1.9.10.13.1.4",
+    "class": "objectidentity"
+  },
+  "ciscoAtmSvcAddrTable": {
+    "name": "ciscoAtmSvcAddrTable",
+    "oid": "1.3.6.1.4.1.9.10.13.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoAtmSvcAddrEntry": {
+    "name": "ciscoAtmSvcAddrEntry",
+    "oid": "1.3.6.1.4.1.9.10.13.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSvcAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSvcVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSvcVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmSvcAddr": {
+    "name": "ciscoAtmSvcAddr",
+    "oid": "1.3.6.1.4.1.9.10.13.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoAtmSvcVpi": {
+    "name": "ciscoAtmSvcVpi",
+    "oid": "1.3.6.1.4.1.9.10.13.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoAtmSvcVci": {
+    "name": "ciscoAtmSvcVci",
+    "oid": "1.3.6.1.4.1.9.10.13.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoAtmSvcDirection": {
+    "name": "ciscoAtmSvcDirection",
+    "oid": "1.3.6.1.4.1.9.10.13.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Direction",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmSnoopVc": {
+    "name": "ciscoAtmSnoopVc",
+    "oid": "1.3.6.1.4.1.9.10.13.1.5",
+    "class": "objectidentity"
+  },
+  "ciscoAtmSnoopVcTable": {
+    "name": "ciscoAtmSnoopVcTable",
+    "oid": "1.3.6.1.4.1.9.10.13.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoAtmSnoopVcEntry": {
+    "name": "ciscoAtmSnoopVcEntry",
+    "oid": "1.3.6.1.4.1.9.10.13.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmSnoopVcSnoopedIfIndex": {
+    "name": "ciscoAtmSnoopVcSnoopedIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.13.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoAtmSnoopVcSnoopedVpi": {
+    "name": "ciscoAtmSnoopVcSnoopedVpi",
+    "oid": "1.3.6.1.4.1.9.10.13.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoAtmSnoopVcSnoopedVci": {
+    "name": "ciscoAtmSnoopVcSnoopedVci",
+    "oid": "1.3.6.1.4.1.9.10.13.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoAtmSnoopVcDir": {
+    "name": "ciscoAtmSnoopVcDir",
+    "oid": "1.3.6.1.4.1.9.10.13.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnoopDirType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "receive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoAtmSnoopVcState": {
+    "name": "ciscoAtmSnoopVcState",
+    "oid": "1.3.6.1.4.1.9.10.13.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConnState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmSnoopVcRowStatus": {
+    "name": "ciscoAtmSnoopVcRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.13.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "active",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoAtmSnoopVp": {
+    "name": "ciscoAtmSnoopVp",
+    "oid": "1.3.6.1.4.1.9.10.13.1.6",
+    "class": "objectidentity"
+  },
+  "ciscoAtmSnoopVpTable": {
+    "name": "ciscoAtmSnoopVpTable",
+    "oid": "1.3.6.1.4.1.9.10.13.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoAtmSnoopVpEntry": {
+    "name": "ciscoAtmSnoopVpEntry",
+    "oid": "1.3.6.1.4.1.9.10.13.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVplVpi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmSnoopVpSnoopedIfIndex": {
+    "name": "ciscoAtmSnoopVpSnoopedIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.13.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoAtmSnoopVpSnoopedVpi": {
+    "name": "ciscoAtmSnoopVpSnoopedVpi",
+    "oid": "1.3.6.1.4.1.9.10.13.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoAtmSnoopVpDir": {
+    "name": "ciscoAtmSnoopVpDir",
+    "oid": "1.3.6.1.4.1.9.10.13.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnoopDirType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "receive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoAtmSnoopVpState": {
+    "name": "ciscoAtmSnoopVpState",
+    "oid": "1.3.6.1.4.1.9.10.13.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConnState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmSnoopVpRowStatus": {
+    "name": "ciscoAtmSnoopVpRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.13.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "active",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoAtmSvcFrameDiscardUsesAal5Ie": {
+    "name": "ciscoAtmSvcFrameDiscardUsesAal5Ie",
+    "oid": "1.3.6.1.4.1.9.10.13.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoAtmConnMIBConformance": {
+    "name": "ciscoAtmConnMIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.13.3",
+    "class": "objectidentity"
+  },
+  "ciscoAtmConnMIBCompliances": {
+    "name": "ciscoAtmConnMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.13.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoAtmConnMIBGroups": {
+    "name": "ciscoAtmConnMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.13.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoAtmConnMIBCompliance": {
+    "name": "ciscoAtmConnMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.13.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoAtmConnMIBGroup",
+        "module": "CISCO-ATM-CONN-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoAtmConnMIBCompliance2": {
+    "name": "ciscoAtmConnMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.10.13.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoAtmConnMIBGroup",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnMIBGroup2",
+        "module": "CISCO-ATM-CONN-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoAtmConnMIBCompliance3": {
+    "name": "ciscoAtmConnMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.10.13.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoAtmConnMIBGroup",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnMIBGroup3",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnMIBlsPerVcqGroup",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnMIBlsFcPfqGroup",
+        "module": "CISCO-ATM-CONN-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoAtmConnMIBCompliance4": {
+    "name": "ciscoAtmConnMIBCompliance4",
+    "oid": "1.3.6.1.4.1.9.10.13.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoAtmConnMIBGroup",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnMIBGroup3",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnMIBlsPerVcqGroup2",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnMIBlsFcPfqGroup",
+        "module": "CISCO-ATM-CONN-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoAtmConnMIBCompliance5": {
+    "name": "ciscoAtmConnMIBCompliance5",
+    "oid": "1.3.6.1.4.1.9.10.13.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoAtmConnMIBGroup",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnMIBGroup3",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnMIBlsPerVcqGroup2",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnMIBlsFcPfqGroup",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnMIBNegTraffGroup",
+        "module": "CISCO-ATM-CONN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoAtmConnMIBCompliance6": {
+    "name": "ciscoAtmConnMIBCompliance6",
+    "oid": "1.3.6.1.4.1.9.10.13.3.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoAtmConnMIBGroup",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnMIBGroup3",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnMIBlsPerVcqGroup2",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnMIBlsFcPfqGroup1",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnMIBNegTraffGroup",
+        "module": "CISCO-ATM-CONN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoAtmConnMIBCompliance7": {
+    "name": "ciscoAtmConnMIBCompliance7",
+    "oid": "1.3.6.1.4.1.9.10.13.3.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoAtmConnMIBGroup1",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnMIBGroup3",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnMIBlsPerVcqGroup2",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnMIBlsFcPfqGroup1",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnMIBNegTraffGroup",
+        "module": "CISCO-ATM-CONN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoAtmConnMIBCompliance8": {
+    "name": "ciscoAtmConnMIBCompliance8",
+    "oid": "1.3.6.1.4.1.9.10.13.3.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoAtmConnMIBGroup4",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnMIBGroup3",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnMIBlsPerVcqGroup2",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnMIBlsFcPfqGroup1",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnMIBNegTraffGroup",
+        "module": "CISCO-ATM-CONN-MIB"
+      },
+      {
+        "object": "ciscoAtmConnNmsGroup",
+        "module": "CISCO-ATM-CONN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmConnMIBGroup": {
+    "name": "ciscoAtmConnMIBGroup",
+    "oid": "1.3.6.1.4.1.9.10.13.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplCastType"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplSpanType"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplConfigType"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplRxUpcMode"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplConnState"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplOamLoopbkTxInterval"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplOamSegmentLoopback"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplOamEndLoopback"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplOamAisEnable"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplOamRdiEnable"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplInstallTime"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplInCells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplOutCells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplCrossIfIndex"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplCrossVpi"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplNextLeafIfIndex"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplNextLeafVpi"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplRemoteAddr"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplRemoteVpi"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplLocation"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplSlowRetryIntv"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplNumAttempts"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplLastReleaseCause"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplLogicalPortDef"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplLogicalPortIndex"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclCastType"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclSpanType"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclConfigType"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclRxUpcMode"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclEpdEnable"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclConnState"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclOamLoopbkTxInterval"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclOamSegmentLoopback"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclOamEndLoopback"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclOamAisEnable"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclOamRdiEnable"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclInstallTime"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclInCells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclOutCells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclCrossIfIndex"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclCrossVpi"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclCrossVci"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclNextLeafIfIndex"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclNextLeafVpi"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclNextLeafVci"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclAalEncapFlag"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclAalEncapProtocol"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclAalUserVcType"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclAtmInArpInterval"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclRemoteAddr"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclRemoteVpi"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclRemoteVci"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclLocation"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclSlowRetryIntv"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclNumAttempts"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclLastReleaseCause"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSvpDirection"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSvcDirection"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoAtmConnMIBGroup2": {
+    "name": "ciscoAtmConnMIBGroup2",
+    "oid": "1.3.6.1.4.1.9.10.13.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplUpcViolations"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplEpdTpdCellDrops"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplEpdTpdPacketDrops"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplEpdTpdPacketsIn"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplClp1Drops"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclUpcViolations"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclEpdTpdCellDrops"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclEpdTpdPacketDrops"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclEpdTpdPacketsIn"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclClp1Drops"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSvcFrameDiscardUsesAal5Ie"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoAtmConnMIBGroup3": {
+    "name": "ciscoAtmConnMIBGroup3",
+    "oid": "1.3.6.1.4.1.9.10.13.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplDefaultRxUpcVbrCdvt"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclDefaultRxUpcVbrCdvt"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSvcFrameDiscardUsesAal5Ie"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmConnMIBlsPerVcqGroup": {
+    "name": "ciscoAtmConnMIBlsPerVcqGroup",
+    "oid": "1.3.6.1.4.1.9.10.13.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplLsPerVcqWrrWeight"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplLsPerVcqTunnelIsShaped"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplLsPerVcqXmtQueuedCells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplLsPerVcQThreshGrp"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclLsPerVcqWrrWeight"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclLsPerVcqXmtQueuedCells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclLsPerVcQThreshGrp"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSnoopVcSnoopedIfIndex"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSnoopVcSnoopedVpi"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSnoopVcSnoopedVci"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSnoopVcDir"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSnoopVcState"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSnoopVcRowStatus"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSnoopVpSnoopedIfIndex"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSnoopVpSnoopedVpi"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSnoopVpDir"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSnoopVpState"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSnoopVpRowStatus"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoAtmConnMIBlsFcPfqGroup": {
+    "name": "ciscoAtmConnMIBlsFcPfqGroup",
+    "oid": "1.3.6.1.4.1.9.10.13.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplUpcViolations"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclUpcViolations"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclEpdTpdPacketDrops"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclEpdTpdPacketsIn"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplInClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplInClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplOutClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplOutClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplCellDrops"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplClp0VcqFullCellDrops"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplVcqClpThreshCellDrops"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclInClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclInClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclOutClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclOutClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclCellDrops"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclClp0VcqFullCellDrops"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclVcqClpThreshCellDrops"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoAtmConnMIBlsPerVcqGroup2": {
+    "name": "ciscoAtmConnMIBlsPerVcqGroup2",
+    "oid": "1.3.6.1.4.1.9.10.13.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplLsPerVcqWrrWeight"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplLsPerVcqTunnelIsShaped"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplLsPerVcqTunnelIsHierarchical"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplLsPerVcqXmtQueuedCells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplLsPerVcQThreshGrp"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclLsPerVcqWrrWeight"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclLsPerVcqXmtQueuedCells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclLsPerVcQThreshGrp"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSnoopVcSnoopedIfIndex"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSnoopVcSnoopedVpi"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSnoopVcSnoopedVci"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSnoopVcDir"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSnoopVcState"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSnoopVcRowStatus"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSnoopVpSnoopedIfIndex"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSnoopVpSnoopedVpi"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSnoopVpDir"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSnoopVpState"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSnoopVpRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmConnMIBNegTraffGroup": {
+    "name": "ciscoAtmConnMIBNegTraffGroup",
+    "oid": "1.3.6.1.4.1.9.10.13.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplRxNegTraffDescrIndex"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplTxNegTraffDescrIndex"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclRxNegTraffDescrIndex"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclTxNegTraffDescrIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmConnMIBlsFcPfqGroup1": {
+    "name": "ciscoAtmConnMIBlsFcPfqGroup1",
+    "oid": "1.3.6.1.4.1.9.10.13.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplUpcViolations"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclUpcViolations"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclEpdTpdPacketDrops"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclEpdTpdPacketsIn"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplInClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplInClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplOutClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplOutClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplCellDrops"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplClp0VcqFullCellDrops"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplVcqClpThreshCellDrops"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplSwFabOutCells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplSwFabOutClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplSwFabOutClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclInClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclInClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclOutClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclOutClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclCellDrops"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclClp0VcqFullCellDrops"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclVcqClpThreshCellDrops"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclSwFabOutCells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclSwFabOutClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclSwFabOutClp1Cells"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmConnMIBGroup1": {
+    "name": "ciscoAtmConnMIBGroup1",
+    "oid": "1.3.6.1.4.1.9.10.13.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplCastType"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplSpanType"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplConfigType"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplRxUpcMode"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplConnState"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplOamLoopbkTxInterval"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplOamSegmentLoopback"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplOamEndLoopback"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplOamAisEnable"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplOamRdiEnable"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplInstallTime"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplInCells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplOutCells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplCrossIfIndex"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplCrossVpi"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplNextLeafIfIndex"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplNextLeafVpi"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplRemoteAddr"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplRemoteVpi"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplLocation"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplSlowRetryIntv"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplNumAttempts"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplLastReleaseCause"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplLogicalPortDef"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplLogicalPortIndex"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplConnName"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclCastType"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclSpanType"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclConfigType"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclRxUpcMode"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclEpdEnable"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclConnState"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclOamLoopbkTxInterval"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclOamSegmentLoopback"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclOamEndLoopback"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclOamAisEnable"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclOamRdiEnable"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclInstallTime"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclInCells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclOutCells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclCrossIfIndex"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclCrossVpi"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclCrossVci"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclNextLeafIfIndex"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclNextLeafVpi"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclNextLeafVci"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclAalEncapFlag"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclAalEncapProtocol"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclAalUserVcType"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclAtmInArpInterval"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclRemoteAddr"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclRemoteVpi"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclRemoteVci"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclLocation"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclSlowRetryIntv"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclNumAttempts"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclLastReleaseCause"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclConnName"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSvpDirection"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSvcDirection"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoAtmConnMIBGroup4": {
+    "name": "ciscoAtmConnMIBGroup4",
+    "oid": "1.3.6.1.4.1.9.10.13.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplCastType"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplSpanType"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplConfigType"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplRxUpcMode"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplConnState"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplOamLoopbkTxInterval"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplOamSegmentLoopback"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplOamEndLoopback"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplOamAisEnable"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplOamRdiEnable"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplInstallTime"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplInCells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplOutCells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplCrossIfIndex"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplCrossVpi"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplNextLeafIfIndex"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplNextLeafVpi"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplRemoteAddr"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplRemoteVpi"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplLocation"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplSlowRetryIntv"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplNumAttempts"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplLastReleaseCause"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplLogicalPortDef"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplLogicalPortIndex"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclCastType"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclSpanType"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclConfigType"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclRxUpcMode"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclEpdEnable"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclConnState"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclOamLoopbkTxInterval"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclOamSegmentLoopback"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclOamEndLoopback"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclOamAisEnable"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclOamRdiEnable"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclInstallTime"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclInCells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclOutCells"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclCrossIfIndex"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclCrossVpi"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclCrossVci"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclNextLeafIfIndex"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclNextLeafVpi"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclNextLeafVci"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclAalEncapFlag"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclAalEncapProtocol"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclAalUserVcType"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclAtmInArpInterval"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclRemoteAddr"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclRemoteVpi"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclRemoteVci"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclLocation"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclSlowRetryIntv"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclNumAttempts"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclLastReleaseCause"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSvpDirection"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmSvcDirection"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmConnNmsGroup": {
+    "name": "ciscoAtmConnNmsGroup",
+    "oid": "1.3.6.1.4.1.9.10.13.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplConnName"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVplConnType"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclConnName"
+      },
+      {
+        "module": "CISCO-ATM-CONN-MIB",
+        "object": "ciscoAtmVclConnType"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ATM-CONN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ATM-CONN-MIB"
+  }
+}

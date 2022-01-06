@@ -1,0 +1,909 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "BridgeId",
+      "Timeout",
+      "dot1dBridge"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "mstpMib": {
+    "name": "mstpMib",
+    "oid": "1.3.6.1.2.1.17.8",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1904-12-05 00:00",
+        "description": "Draft 1"
+      }
+    ]
+  },
+  "mstpMIBObjects": {
+    "name": "mstpMIBObjects",
+    "oid": "1.3.6.1.2.1.17.8.1",
+    "class": "objectidentity"
+  },
+  "dot1sStp": {
+    "name": "dot1sStp",
+    "oid": "1.3.6.1.2.1.17.8.1.1",
+    "class": "objectidentity"
+  },
+  "dot1sStpName": {
+    "name": "dot1sStpName",
+    "oid": "1.3.6.1.2.1.17.8.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1sStpRevision": {
+    "name": "dot1sStpRevision",
+    "oid": "1.3.6.1.2.1.17.8.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1sStpEnable": {
+    "name": "dot1sStpEnable",
+    "oid": "1.3.6.1.2.1.17.8.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1sStpBridgeMaxAge": {
+    "name": "dot1sStpBridgeMaxAge",
+    "oid": "1.3.6.1.2.1.17.8.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 6,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1sStpBridgeHelloTime": {
+    "name": "dot1sStpBridgeHelloTime",
+    "oid": "1.3.6.1.2.1.17.8.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1sStpBridgeForwardDelay": {
+    "name": "dot1sStpBridgeForwardDelay",
+    "oid": "1.3.6.1.2.1.17.8.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1sStpBridgeMaxHops": {
+    "name": "dot1sStpBridgeMaxHops",
+    "oid": "1.3.6.1.2.1.17.8.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1sStpTxHoldCount": {
+    "name": "dot1sStpTxHoldCount",
+    "oid": "1.3.6.1.2.1.17.8.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1sStpProtocolSpecification": {
+    "name": "dot1sStpProtocolSpecification",
+    "oid": "1.3.6.1.2.1.17.8.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "decLb100": 2,
+          "ieee8021d": 3,
+          "ieee8021w": 4,
+          "ieee8021s": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1sStpInstTable": {
+    "name": "dot1sStpInstTable",
+    "oid": "1.3.6.1.2.1.17.8.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1sStpInstEntry": {
+    "name": "dot1sStpInstEntry",
+    "oid": "1.3.6.1.2.1.17.8.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MSTP-MIB",
+        "object": "dot1sStpInstId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1sStpInstId": {
+    "name": "dot1sStpInstId",
+    "oid": "1.3.6.1.2.1.17.8.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1sStpPriority": {
+    "name": "dot1sStpPriority",
+    "oid": "1.3.6.1.2.1.17.8.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 61440
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32768,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1sStpInstTimeSinceTopologyChange": {
+    "name": "dot1sStpInstTimeSinceTopologyChange",
+    "oid": "1.3.6.1.2.1.17.8.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1sStpInstTopChanges": {
+    "name": "dot1sStpInstTopChanges",
+    "oid": "1.3.6.1.2.1.17.8.1.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1sStpInstDesignatedRoot": {
+    "name": "dot1sStpInstDesignatedRoot",
+    "oid": "1.3.6.1.2.1.17.8.1.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1sStpInstRootCost": {
+    "name": "dot1sStpInstRootCost",
+    "oid": "1.3.6.1.2.1.17.8.1.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1sStpInstRootPort": {
+    "name": "dot1sStpInstRootPort",
+    "oid": "1.3.6.1.2.1.17.8.1.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1sStpInstMaxAge": {
+    "name": "dot1sStpInstMaxAge",
+    "oid": "1.3.6.1.2.1.17.8.1.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1sStpInstHelloTime": {
+    "name": "dot1sStpInstHelloTime",
+    "oid": "1.3.6.1.2.1.17.8.1.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1sStpInstForwardDelay": {
+    "name": "dot1sStpInstForwardDelay",
+    "oid": "1.3.6.1.2.1.17.8.1.1.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1sStpInstAdminEnable": {
+    "name": "dot1sStpInstAdminEnable",
+    "oid": "1.3.6.1.2.1.17.8.1.1.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1sStpInstOperEnable": {
+    "name": "dot1sStpInstOperEnable",
+    "oid": "1.3.6.1.2.1.17.8.1.1.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1sStpPortTable": {
+    "name": "dot1sStpPortTable",
+    "oid": "1.3.6.1.2.1.17.8.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1sStpPortEntry": {
+    "name": "dot1sStpPortEntry",
+    "oid": "1.3.6.1.2.1.17.8.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MSTP-MIB",
+        "object": "dot1sStpPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1sStpPort": {
+    "name": "dot1sStpPort",
+    "oid": "1.3.6.1.2.1.17.8.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1sStpPortAdminEdgePort": {
+    "name": "dot1sStpPortAdminEdgePort",
+    "oid": "1.3.6.1.2.1.17.8.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1sStpPortAdminPointToPoint": {
+    "name": "dot1sStpPortAdminPointToPoint",
+    "oid": "1.3.6.1.2.1.17.8.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forceTrue": 1,
+          "forceFalse": 2,
+          "auto": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1sStpPortOperEdgePort": {
+    "name": "dot1sStpPortOperEdgePort",
+    "oid": "1.3.6.1.2.1.17.8.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1sStpPortOperPointToPoint": {
+    "name": "dot1sStpPortOperPointToPoint",
+    "oid": "1.3.6.1.2.1.17.8.1.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1sStpPortExterPathCost": {
+    "name": "dot1sStpPortExterPathCost",
+    "oid": "1.3.6.1.2.1.17.8.1.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1sStpVersion": {
+    "name": "dot1sStpVersion",
+    "oid": "1.3.6.1.2.1.17.8.1.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stpCompatible": 0,
+          "rstp-mstp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "rstp-mstp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1sStpInstPortTable": {
+    "name": "dot1sStpInstPortTable",
+    "oid": "1.3.6.1.2.1.17.8.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1sStpInstPortEntry": {
+    "name": "dot1sStpInstPortEntry",
+    "oid": "1.3.6.1.2.1.17.8.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MSTP-MIB",
+        "object": "dot1sStpInstId",
+        "implied": 0
+      },
+      {
+        "module": "MSTP-MIB",
+        "object": "dot1sStpPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1sStpInstPortPriority": {
+    "name": "dot1sStpInstPortPriority",
+    "oid": "1.3.6.1.2.1.17.8.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1sStpInstPortState": {
+    "name": "dot1sStpInstPortState",
+    "oid": "1.3.6.1.2.1.17.8.1.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "discarding": 2,
+          "learning": 3,
+          "forwarding": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1sStpInstPortPathCost": {
+    "name": "dot1sStpInstPortPathCost",
+    "oid": "1.3.6.1.2.1.17.8.1.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1sStpInstPortDesignatedRoot": {
+    "name": "dot1sStpInstPortDesignatedRoot",
+    "oid": "1.3.6.1.2.1.17.8.1.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1sStpInstPortDesignatedCost": {
+    "name": "dot1sStpInstPortDesignatedCost",
+    "oid": "1.3.6.1.2.1.17.8.1.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1sStpInstPortDesignatedBridge": {
+    "name": "dot1sStpInstPortDesignatedBridge",
+    "oid": "1.3.6.1.2.1.17.8.1.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1sStpInstPortDesignatedPort": {
+    "name": "dot1sStpInstPortDesignatedPort",
+    "oid": "1.3.6.1.2.1.17.8.1.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1sStpInstPortForwardTransitions": {
+    "name": "dot1sStpInstPortForwardTransitions",
+    "oid": "1.3.6.1.2.1.17.8.1.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1sStpInstPortRole": {
+    "name": "dot1sStpInstPortRole",
+    "oid": "1.3.6.1.2.1.17.8.1.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 0,
+          "alternate-backup": 1,
+          "root": 2,
+          "designated": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1sStpVlanTable": {
+    "name": "dot1sStpVlanTable",
+    "oid": "1.3.6.1.2.1.17.8.1.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1sStpVlanEntry": {
+    "name": "dot1sStpVlanEntry",
+    "oid": "1.3.6.1.2.1.17.8.1.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MSTP-MIB",
+        "object": "dot1sStpVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1sStpVlanIndex": {
+    "name": "dot1sStpVlanIndex",
+    "oid": "1.3.6.1.2.1.17.8.1.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1sStpVlanInstId": {
+    "name": "dot1sStpVlanInstId",
+    "oid": "1.3.6.1.2.1.17.8.1.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1sStpPortSnoopingEnable": {
+    "name": "dot1sStpPortSnoopingEnable",
+    "oid": "1.3.6.1.2.1.17.8.1.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1sStpTrapTable": {
+    "name": "dot1sStpTrapTable",
+    "oid": "1.3.6.1.2.1.17.8.1.1.14",
+    "class": "objectidentity"
+  },
+  "dot1sStpTrapEntry": {
+    "name": "dot1sStpTrapEntry",
+    "oid": "1.3.6.1.2.1.17.8.1.1.14.1",
+    "class": "objectidentity"
+  },
+  "dot1sStpInstNewRoot": {
+    "name": "dot1sStpInstNewRoot",
+    "oid": "1.3.6.1.2.1.17.8.1.1.14.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MSTP-MIB",
+        "object": "dot1sStpInstDesignatedRoot"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1sStpInstPortForwarding": {
+    "name": "dot1sStpInstPortForwarding",
+    "oid": "1.3.6.1.2.1.17.8.1.1.14.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MSTP-MIB",
+        "object": "dot1sStpPort"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/MSTP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MSTP-MIB"
+  }
+}

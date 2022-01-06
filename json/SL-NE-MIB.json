@@ -1,0 +1,229 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "enterprises",
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "packetlight": {
+    "name": "packetlight",
+    "oid": "1.3.6.1.4.1.4515",
+    "class": "moduleidentity"
+  },
+  "sitelight": {
+    "name": "sitelight",
+    "oid": "1.3.6.1.4.1.4515.1",
+    "class": "objectidentity"
+  },
+  "plproduct": {
+    "name": "plproduct",
+    "oid": "1.3.6.1.4.1.4515.100",
+    "class": "objectidentity"
+  },
+  "plne": {
+    "name": "plne",
+    "oid": "1.3.6.1.4.1.4515.100.1",
+    "class": "objectidentity"
+  },
+  "pl10": {
+    "name": "pl10",
+    "oid": "1.3.6.1.4.1.4515.100.1.10",
+    "class": "objectidentity"
+  },
+  "pl10H": {
+    "name": "pl10H",
+    "oid": "1.3.6.1.4.1.4515.100.1.10.1",
+    "class": "objectidentity"
+  },
+  "pl10F": {
+    "name": "pl10F",
+    "oid": "1.3.6.1.4.1.4515.100.1.10.2",
+    "class": "objectidentity"
+  },
+  "pl20": {
+    "name": "pl20",
+    "oid": "1.3.6.1.4.1.4515.100.1.20",
+    "class": "objectidentity"
+  },
+  "pl20H": {
+    "name": "pl20H",
+    "oid": "1.3.6.1.4.1.4515.100.1.20.1",
+    "class": "objectidentity"
+  },
+  "pl20F": {
+    "name": "pl20F",
+    "oid": "1.3.6.1.4.1.4515.100.1.20.2",
+    "class": "objectidentity"
+  },
+  "pl100": {
+    "name": "pl100",
+    "oid": "1.3.6.1.4.1.4515.100.1.100",
+    "class": "objectidentity"
+  },
+  "pl100E": {
+    "name": "pl100E",
+    "oid": "1.3.6.1.4.1.4515.100.1.100.1",
+    "class": "objectidentity"
+  },
+  "pl100F": {
+    "name": "pl100F",
+    "oid": "1.3.6.1.4.1.4515.100.1.100.2",
+    "class": "objectidentity"
+  },
+  "pl100FG": {
+    "name": "pl100FG",
+    "oid": "1.3.6.1.4.1.4515.100.1.100.3",
+    "class": "objectidentity"
+  },
+  "pl100EF": {
+    "name": "pl100EF",
+    "oid": "1.3.6.1.4.1.4515.100.1.100.4",
+    "class": "objectidentity"
+  },
+  "pl100EFG": {
+    "name": "pl100EFG",
+    "oid": "1.3.6.1.4.1.4515.100.1.100.5",
+    "class": "objectidentity"
+  },
+  "pl100FT": {
+    "name": "pl100FT",
+    "oid": "1.3.6.1.4.1.4515.100.1.100.12",
+    "class": "objectidentity"
+  },
+  "plopto": {
+    "name": "plopto",
+    "oid": "1.3.6.1.4.1.4515.100.1.150",
+    "class": "objectidentity"
+  },
+  "ploptoXB": {
+    "name": "ploptoXB",
+    "oid": "1.3.6.1.4.1.4515.100.1.150.1",
+    "class": "objectidentity"
+  },
+  "ploptoI": {
+    "name": "ploptoI",
+    "oid": "1.3.6.1.4.1.4515.100.1.150.2",
+    "class": "objectidentity"
+  },
+  "ploptoX": {
+    "name": "ploptoX",
+    "oid": "1.3.6.1.4.1.4515.100.1.150.3",
+    "class": "objectidentity"
+  },
+  "pl200": {
+    "name": "pl200",
+    "oid": "1.3.6.1.4.1.4515.100.1.200",
+    "class": "objectidentity"
+  },
+  "pl400r": {
+    "name": "pl400r",
+    "oid": "1.3.6.1.4.1.4515.100.1.400",
+    "class": "objectidentity"
+  },
+  "pl400": {
+    "name": "pl400",
+    "oid": "1.3.6.1.4.1.4515.100.1.400.1",
+    "class": "objectidentity"
+  },
+  "pl404r": {
+    "name": "pl404r",
+    "oid": "1.3.6.1.4.1.4515.100.1.404",
+    "class": "objectidentity"
+  },
+  "pl400e": {
+    "name": "pl400e",
+    "oid": "1.3.6.1.4.1.4515.100.1.404.1",
+    "class": "objectidentity"
+  },
+  "pl408r": {
+    "name": "pl408r",
+    "oid": "1.3.6.1.4.1.4515.100.1.408",
+    "class": "objectidentity"
+  },
+  "pl400x": {
+    "name": "pl400x",
+    "oid": "1.3.6.1.4.1.4515.100.1.408.1",
+    "class": "objectidentity"
+  },
+  "pl1000r": {
+    "name": "pl1000r",
+    "oid": "1.3.6.1.4.1.4515.100.1.1000",
+    "class": "objectidentity"
+  },
+  "pl1000": {
+    "name": "pl1000",
+    "oid": "1.3.6.1.4.1.4515.100.1.1000.1",
+    "class": "objectidentity"
+  },
+  "pl1000e": {
+    "name": "pl1000e",
+    "oid": "1.3.6.1.4.1.4515.100.1.1000.2",
+    "class": "objectidentity"
+  },
+  "pl1000em": {
+    "name": "pl1000em",
+    "oid": "1.3.6.1.4.1.4515.100.1.1000.3",
+    "class": "objectidentity"
+  },
+  "pl1000ro": {
+    "name": "pl1000ro",
+    "oid": "1.3.6.1.4.1.4515.100.1.1000.4",
+    "class": "objectidentity"
+  },
+  "pl1000tn": {
+    "name": "pl1000tn",
+    "oid": "1.3.6.1.4.1.4515.100.1.1000.5",
+    "class": "objectidentity"
+  },
+  "pl2000r": {
+    "name": "pl2000r",
+    "oid": "1.3.6.1.4.1.4515.100.1.2000",
+    "class": "objectidentity"
+  },
+  "pl2000": {
+    "name": "pl2000",
+    "oid": "1.3.6.1.4.1.4515.100.1.2000.1",
+    "class": "objectidentity"
+  },
+  "slService": {
+    "name": "slService",
+    "oid": "1.3.6.1.4.1.4515.1.1",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-NE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:54 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SL-NE-MIB"
+  }
+}

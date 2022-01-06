@@ -1,0 +1,2021 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType",
+      "InetAddressIPv4"
+    ],
+    "JUNIPER-SMI": [
+      "jnxTLBNotifications",
+      "jnxTLBMIBRoot"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-MIB": [
+      "sysLocation",
+      "sysContact",
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxTLBMIB": {
+    "name": "jnxTLBMIB",
+    "oid": "1.3.6.1.4.1.2636.3.91.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-02-12 20:22",
+        "description": "Creation date"
+      },
+      {
+        "revision": "2019-12-18 20:22",
+        "description": "Changes to integrate with native junos insted of SDK"
+      },
+      {
+        "revision": "2020-03-25 20:22",
+        "description": "Changes to integrate traps with junos native instead of SDK"
+      }
+    ]
+  },
+  "jnxTLBrealServer": {
+    "name": "jnxTLBrealServer",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.1",
+    "class": "objectidentity"
+  },
+  "jnxTLBvirtualService": {
+    "name": "jnxTLBvirtualService",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2",
+    "class": "objectidentity"
+  },
+  "jnxTLBserverGroup": {
+    "name": "jnxTLBserverGroup",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.3",
+    "class": "objectidentity"
+  },
+  "jnxTLBNetworkMonitorProfile": {
+    "name": "jnxTLBNetworkMonitorProfile",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.4",
+    "class": "objectidentity"
+  },
+  "jnxTLBRealServerTable": {
+    "name": "jnxTLBRealServerTable",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTLBRealServerEntry": {
+    "name": "jnxTLBRealServerEntry",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "jnxTLBRealServerNameKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxTLBRealServerNameKey": {
+    "name": "jnxTLBRealServerNameKey",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTLBRealServerName": {
+    "name": "jnxTLBRealServerName",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBRealServerInstance": {
+    "name": "jnxTLBRealServerInstance",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBRealServerIPVersion": {
+    "name": "jnxTLBRealServerIPVersion",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBRealServerIP": {
+    "name": "jnxTLBRealServerIP",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBRealServerOperStatus": {
+    "name": "jnxTLBRealServerOperStatus",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBRealServerAdminStatus": {
+    "name": "jnxTLBRealServerAdminStatus",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBRealServerSubUnitNo": {
+    "name": "jnxTLBRealServerSubUnitNo",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBRealServerFailures": {
+    "name": "jnxTLBRealServerFailures",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBRSClientPacketForwardCount": {
+    "name": "jnxTLBRSClientPacketForwardCount",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBRSClientByteForwardCount": {
+    "name": "jnxTLBRSClientByteForwardCount",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBRSClientPacketReverseCount": {
+    "name": "jnxTLBRSClientPacketReverseCount",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBRSClientByteReverseCount": {
+    "name": "jnxTLBRSClientByteReverseCount",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBRSTotalUpCount": {
+    "name": "jnxTLBRSTotalUpCount",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBRSTotalDownCount": {
+    "name": "jnxTLBRSTotalDownCount",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBRSTotalRejoinCount": {
+    "name": "jnxTLBRSTotalRejoinCount",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBRSTotalProbeSent": {
+    "name": "jnxTLBRSTotalProbeSent",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBRSTotalProbeSuccess": {
+    "name": "jnxTLBRSTotalProbeSuccess",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBRSTotalProbeFail": {
+    "name": "jnxTLBRSTotalProbeFail",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBRSTotalProbeSentFail": {
+    "name": "jnxTLBRSTotalProbeSentFail",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceTable": {
+    "name": "jnxTLBVirtualServiceTable",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceEntry": {
+    "name": "jnxTLBVirtualServiceEntry",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "jnxTLBVirtualServiceNameKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceNameKey": {
+    "name": "jnxTLBVirtualServiceNameKey",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceName": {
+    "name": "jnxTLBVirtualServiceName",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceTranslationMode": {
+    "name": "jnxTLBVirtualServiceTranslationMode",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceInstance": {
+    "name": "jnxTLBVirtualServiceInstance",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceIPVersion": {
+    "name": "jnxTLBVirtualServiceIPVersion",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceIP": {
+    "name": "jnxTLBVirtualServiceIP",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceOperStatus": {
+    "name": "jnxTLBVirtualServiceOperStatus",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceAdminStatus": {
+    "name": "jnxTLBVirtualServiceAdminStatus",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceSubUnitNo": {
+    "name": "jnxTLBVirtualServiceSubUnitNo",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceFailures": {
+    "name": "jnxTLBVirtualServiceFailures",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVSClientPacketForwardCount": {
+    "name": "jnxTLBVSClientPacketForwardCount",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVSClientByteForwardCount": {
+    "name": "jnxTLBVSClientByteForwardCount",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVSClientPacketReverseCount": {
+    "name": "jnxTLBVSClientPacketReverseCount",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVSClientByteReverseCount": {
+    "name": "jnxTLBVSClientByteReverseCount",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVSTotalUpCount": {
+    "name": "jnxTLBVSTotalUpCount",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVSTotalDownCount": {
+    "name": "jnxTLBVSTotalDownCount",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVSTotalRealServerCount": {
+    "name": "jnxTLBVSTotalRealServerCount",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVSServiceUpTime": {
+    "name": "jnxTLBVSServiceUpTime",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVSActiveRealServerCount": {
+    "name": "jnxTLBVSActiveRealServerCount",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVSNetworkMonitorProfileCount": {
+    "name": "jnxTLBVSNetworkMonitorProfileCount",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceVirtualPort": {
+    "name": "jnxTLBVirtualServiceVirtualPort",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceRealPort": {
+    "name": "jnxTLBVirtualServiceRealPort",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceNextHopIndex": {
+    "name": "jnxTLBVirtualServiceNextHopIndex",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceProtocol": {
+    "name": "jnxTLBVirtualServiceProtocol",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceDemuxNextHopIndex": {
+    "name": "jnxTLBVirtualServiceDemuxNextHopIndex",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceInterface": {
+    "name": "jnxTLBVirtualServiceInterface",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceRoutingInstance": {
+    "name": "jnxTLBVirtualServiceRoutingInstance",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceHashMethod": {
+    "name": "jnxTLBVirtualServiceHashMethod",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceRouteMetric": {
+    "name": "jnxTLBVirtualServiceRouteMetric",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceAutoRejoin": {
+    "name": "jnxTLBVirtualServiceAutoRejoin",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 0,
+          "false": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceRouteHoldTimer": {
+    "name": "jnxTLBVirtualServiceRouteHoldTimer",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBVirtualServiceWarmUpTime": {
+    "name": "jnxTLBVirtualServiceWarmUpTime",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.2.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBServerGroupTable": {
+    "name": "jnxTLBServerGroupTable",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTLBServerGroupEntry": {
+    "name": "jnxTLBServerGroupEntry",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "jnxTLBServerGroupNameKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxTLBServerGroupNameKey": {
+    "name": "jnxTLBServerGroupNameKey",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTLBServerGroupName": {
+    "name": "jnxTLBServerGroupName",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBServerGroupInstance": {
+    "name": "jnxTLBServerGroupInstance",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBServerGroupIPVersion": {
+    "name": "jnxTLBServerGroupIPVersion",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBServerGroupOperStatus": {
+    "name": "jnxTLBServerGroupOperStatus",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBServerGroupAdminStatus": {
+    "name": "jnxTLBServerGroupAdminStatus",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBServerGroupFailures": {
+    "name": "jnxTLBServerGroupFailures",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBServerGroupLastTimeUp": {
+    "name": "jnxTLBServerGroupLastTimeUp",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBServerGroupLastTimeDown": {
+    "name": "jnxTLBServerGroupLastTimeDown",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBServerGroupTotalUpCount": {
+    "name": "jnxTLBServerGroupTotalUpCount",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBServerGroupTotalDownCount": {
+    "name": "jnxTLBServerGroupTotalDownCount",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBNetworkMonitorProfileTable": {
+    "name": "jnxTLBNetworkMonitorProfileTable",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTLBNetworkMonitorProfileEntry": {
+    "name": "jnxTLBNetworkMonitorProfileEntry",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "jnxTLBNetworkMonitorProfileNameKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxTLBNetworkMonitorProfileNameKey": {
+    "name": "jnxTLBNetworkMonitorProfileNameKey",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTLBNetworkMonitorProfileVirtualServiceName": {
+    "name": "jnxTLBNetworkMonitorProfileVirtualServiceName",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTLBNetworkMonitorProfileRealServerName": {
+    "name": "jnxTLBNetworkMonitorProfileRealServerName",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTLBNetworkMonitorProfileIndex": {
+    "name": "jnxTLBNetworkMonitorProfileIndex",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTLBNetworkMonitorProfileName": {
+    "name": "jnxTLBNetworkMonitorProfileName",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBNetworkMonitorProfileType": {
+    "name": "jnxTLBNetworkMonitorProfileType",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBNetworkMonitorProfileProbeInterval": {
+    "name": "jnxTLBNetworkMonitorProfileProbeInterval",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBNetworkMonitorProfileFailureRetry": {
+    "name": "jnxTLBNetworkMonitorProfileFailureRetry",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBNetworkMonitorProfileRecoverRetry": {
+    "name": "jnxTLBNetworkMonitorProfileRecoverRetry",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBNetworkMonitorProfilePortNumber": {
+    "name": "jnxTLBNetworkMonitorProfilePortNumber",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBNetworkMonitorProfileProbeState": {
+    "name": "jnxTLBNetworkMonitorProfileProbeState",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "probeStateUp": 1,
+          "probeStateDown": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBNetworkMonitorProfileProbeSent": {
+    "name": "jnxTLBNetworkMonitorProfileProbeSent",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBNetworkMonitorProfileProbeSuccess": {
+    "name": "jnxTLBNetworkMonitorProfileProbeSuccess",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBNetworkMonitorProfileProbeFail": {
+    "name": "jnxTLBNetworkMonitorProfileProbeFail",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBNetworkMonitorProfileProbeConsecutiveSuccess": {
+    "name": "jnxTLBNetworkMonitorProfileProbeConsecutiveSuccess",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTLBNetworkMonitorProfileProbeConsecutiveFail": {
+    "name": "jnxTLBNetworkMonitorProfileProbeConsecutiveFail",
+    "oid": "1.3.6.1.4.1.2636.3.91.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlbTrapMib": {
+    "name": "tlbTrapMib",
+    "oid": "1.3.6.1.4.1.2636.4.32.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlbNotificationObjMib": {
+    "name": "tlbNotificationObjMib",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.1",
+    "class": "objectidentity"
+  },
+  "tlbNotificationMib": {
+    "name": "tlbNotificationMib",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.2",
+    "class": "objectidentity"
+  },
+  "tlbInstanceName": {
+    "name": "tlbInstanceName",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.1.1001",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlbRealServerName": {
+    "name": "tlbRealServerName",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.1.1002",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlbRealServerGroupName": {
+    "name": "tlbRealServerGroupName",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.1.1003",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlbRealServerIpAddress": {
+    "name": "tlbRealServerIpAddress",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.1.1004",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlbVirtualServiceName": {
+    "name": "tlbVirtualServiceName",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.1.1005",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlbVirtualServiceIpAddr": {
+    "name": "tlbVirtualServiceIpAddr",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.1.1006",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlbVirtualServicePort": {
+    "name": "tlbVirtualServicePort",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.1.1007",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlbVirtualServiceProtocol": {
+    "name": "tlbVirtualServiceProtocol",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.1.1008",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlbProfileName": {
+    "name": "tlbProfileName",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.1.1009",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlbMultiserviceInterface": {
+    "name": "tlbMultiserviceInterface",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.1.1010",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlbMultiServicePIC": {
+    "name": "tlbMultiServicePIC",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.1.1011",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlbNetmonCpuUsage": {
+    "name": "tlbNetmonCpuUsage",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.1.1012",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlbRealServerServicePort": {
+    "name": "tlbRealServerServicePort",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.1.1013",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlbRealServerServiceProtocol": {
+    "name": "tlbRealServerServiceProtocol",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.1.1014",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlbMonitorMode": {
+    "name": "tlbMonitorMode",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.1.1099",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlbRealServerUp": {
+    "name": "tlbRealServerUp",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbInstanceName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerIpAddress"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerGroupName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerServicePort"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerServiceProtocol"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbMonitorMode"
+      }
+    ],
+    "status": "current"
+  },
+  "tlbRealServerDown": {
+    "name": "tlbRealServerDown",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbInstanceName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerIpAddress"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerGroupName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerServicePort"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerServiceProtocol"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbMonitorMode"
+      }
+    ],
+    "status": "current"
+  },
+  "tlbRealServerRejoined": {
+    "name": "tlbRealServerRejoined",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbInstanceName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbVirtualServiceName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerIpAddress"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerGroupName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerServicePort"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerServiceProtocol"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbMonitorMode"
+      }
+    ],
+    "status": "current"
+  },
+  "tlbVirtualServiceUp": {
+    "name": "tlbVirtualServiceUp",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbInstanceName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbVirtualServiceName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbVirtualServiceIpAddr"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerGroupName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbVirtualServicePort"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbVirtualServiceProtocol"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbMonitorMode"
+      }
+    ],
+    "status": "current"
+  },
+  "tlbVirtualServiceDown": {
+    "name": "tlbVirtualServiceDown",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbInstanceName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbVirtualServiceName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbVirtualServiceIpAddr"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerGroupName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbVirtualServicePort"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbVirtualServiceProtocol"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbMonitorMode"
+      }
+    ],
+    "status": "current"
+  },
+  "tlbRealServerServiceUp": {
+    "name": "tlbRealServerServiceUp",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbInstanceName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerIpAddress"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerGroupName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerServicePort"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerServiceProtocol"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbMonitorMode"
+      }
+    ],
+    "status": "current"
+  },
+  "tlbRealServerServiceDown": {
+    "name": "tlbRealServerServiceDown",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbInstanceName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerIpAddress"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerGroupName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerServicePort"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerServiceProtocol"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbMonitorMode"
+      }
+    ],
+    "status": "current"
+  },
+  "tlbVirtualServerServiceUp": {
+    "name": "tlbVirtualServerServiceUp",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.2.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbInstanceName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbVirtualServiceName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbVirtualServiceIpAddr"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerGroupName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbVirtualServicePort"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbVirtualServiceProtocol"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbMonitorMode"
+      }
+    ],
+    "status": "current"
+  },
+  "tlbVirtualServerServiceDown": {
+    "name": "tlbVirtualServerServiceDown",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.2.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbInstanceName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbVirtualServiceName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbVirtualServiceIpAddr"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbRealServerGroupName"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbVirtualServicePort"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbVirtualServiceProtocol"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbMonitorMode"
+      }
+    ],
+    "status": "current"
+  },
+  "tlbUp": {
+    "name": "tlbUp",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.2.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbMonitorMode"
+      }
+    ],
+    "status": "current"
+  },
+  "tlbShutdown": {
+    "name": "tlbShutdown",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.2.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbMonitorMode"
+      }
+    ],
+    "status": "current"
+  },
+  "tlbPicConnected": {
+    "name": "tlbPicConnected",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.2.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbMonitorMode"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbMultiserviceInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "tlbPicDisconnected": {
+    "name": "tlbPicDisconnected",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.2.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbMonitorMode"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbMultiserviceInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "tlbCpuHigh": {
+    "name": "tlbCpuHigh",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.2.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbMonitorMode"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbNetmonCpuUsage"
+      }
+    ],
+    "status": "current"
+  },
+  "tlbCpuNormal": {
+    "name": "tlbCpuNormal",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.2.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbMonitorMode"
+      },
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbNetmonCpuUsage"
+      }
+    ],
+    "status": "current"
+  },
+  "tlbUnlicensedPic": {
+    "name": "tlbUnlicensedPic",
+    "oid": "1.3.6.1.4.1.2636.4.32.0.2.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-TLB-MIB",
+        "object": "tlbMonitorMode"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-TLB-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-TLB-MIB"
+  }
+}

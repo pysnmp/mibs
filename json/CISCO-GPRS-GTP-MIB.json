@@ -1,0 +1,1278 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoGprsGtpMIB": {
+    "name": "ciscoGprsGtpMIB",
+    "oid": "1.3.6.1.4.1.9.10.48",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-09-19 00:00",
+        "description": "This MIB is now obsolete."
+      },
+      {
+        "revision": "2001-07-30 00:00",
+        "description": "The information regarding the deprecation of this MIB has been changed."
+      },
+      {
+        "revision": "2001-03-08 00:00",
+        "description": "This MIB is being deprecated. All the objects defined in this MIB have been replaced with objects defined in CISCO-GTP-MIB.my, CISCO-GGSN-MIB.my, CISCO-GPRS-CHARGING-MIB.my and CISCO-GPRS-ACC-PT-MIB.my "
+      },
+      {
+        "revision": "1999-07-12 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoGprsGtpMIBObjects": {
+    "name": "ciscoGprsGtpMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.48.1",
+    "class": "objectidentity"
+  },
+  "ciscoGprsGtpConfig": {
+    "name": "ciscoGprsGtpConfig",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoGprsGtpStats": {
+    "name": "ciscoGprsGtpStats",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2",
+    "class": "objectidentity"
+  },
+  "cgprsGtpGeneralConfig": {
+    "name": "cgprsGtpGeneralConfig",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.1",
+    "class": "objectidentity"
+  },
+  "cgprsGtpGgsnConfig": {
+    "name": "cgprsGtpGgsnConfig",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.2",
+    "class": "objectidentity"
+  },
+  "cgprsGtpGeneralStats": {
+    "name": "cgprsGtpGeneralStats",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.1",
+    "class": "objectidentity"
+  },
+  "cgprsGtpGgsnStats": {
+    "name": "cgprsGtpGgsnStats",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.2",
+    "class": "objectidentity"
+  },
+  "cgprsGtpGgsnStatus": {
+    "name": "cgprsGtpGgsnStatus",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.3",
+    "class": "objectidentity"
+  },
+  "cgprsGtpT3TunnelTimer": {
+    "name": "cgprsGtpT3TunnelTimer",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 180
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "cgprsGtpT3ResponseTimer": {
+    "name": "cgprsGtpT3ResponseTimer",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "cgprsGtpN3Request": {
+    "name": "cgprsGtpN3Request",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "messages",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "cgprsGtpN3BufferSize": {
+    "name": "cgprsGtpN3BufferSize",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8192,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "cgprsGtpEchoRequestTimer": {
+    "name": "cgprsGtpEchoRequestTimer",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "cgprsGtpGSNTotalBandwidthResrc": {
+    "name": "cgprsGtpGSNTotalBandwidthResrc",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3000
+          }
+        ]
+      }
+    },
+    "units": "bits/sec",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "cgprsGtpMaxNumPDPCxts": {
+    "name": "cgprsGtpMaxNumPDPCxts",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 45000,
+        "format": "decimal"
+      }
+    },
+    "units": "PDP contexts",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "cgprsGtpDroppedPktsMonTime": {
+    "name": "cgprsGtpDroppedPktsMonTime",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "cgprsGtpNoRespToEchoNotifEnable": {
+    "name": "cgprsGtpNoRespToEchoNotifEnable",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "cgprsGtpPDPCxtActRejNotifEnable": {
+    "name": "cgprsGtpPDPCxtActRejNotifEnable",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "cgprsGtpAPNAddrAllocMethodGlobDef": {
+    "name": "cgprsGtpAPNAddrAllocMethodGlobDef",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "radius": 1,
+          "dhcp": 2,
+          "disable": 3,
+          "notconfig": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "cgprsGtpChargingGWTable": {
+    "name": "cgprsGtpChargingGWTable",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cgprsGtpChargingGWEntry": {
+    "name": "cgprsGtpChargingGWEntry",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpChargingGWid",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cgprsGtpChargingGWid": {
+    "name": "cgprsGtpChargingGWid",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cgprsGtpChargingGWName": {
+    "name": "cgprsGtpChargingGWName",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "cgprsGtpChargingGWType": {
+    "name": "cgprsGtpChargingGWType",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "backup": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "primary",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "cgprsGtpChargingGWOperState": {
+    "name": "cgprsGtpChargingGWOperState",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cgprsGtpChargingGWNotifEnable": {
+    "name": "cgprsGtpChargingGWNotifEnable",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "cgprsGtpChargingGWRowStatus": {
+    "name": "cgprsGtpChargingGWRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "cgprsGtpAPNTable": {
+    "name": "cgprsGtpAPNTable",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cgprsGtpAPNEntry": {
+    "name": "cgprsGtpAPNEntry",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpAPNId",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cgprsGtpAPNId": {
+    "name": "cgprsGtpAPNId",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cgprsGtpAPNName": {
+    "name": "cgprsGtpAPNName",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "cgprsGtpAPNAddrAllocMethod": {
+    "name": "cgprsGtpAPNAddrAllocMethod",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "radius": 1,
+          "dhcp": 2,
+          "disable": 3,
+          "notconfig": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "cgprsGtpAPNRowStatus": {
+    "name": "cgprsGtpAPNRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.48.1.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "cgprsGtpCurRxPacketQueueSize": {
+    "name": "cgprsGtpCurRxPacketQueueSize",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cgprsGtpCurActivatedPDPCxtsCnt": {
+    "name": "cgprsGtpCurActivatedPDPCxtsCnt",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "PDP contexts",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cgprsGtpCurUnexpRxGpduCnt": {
+    "name": "cgprsGtpCurUnexpRxGpduCnt",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "PDUs",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cgprsGtpCurRejPDPCxtActivationCnt": {
+    "name": "cgprsGtpCurRejPDPCxtActivationCnt",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "PDP contexts",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cgprsGtpTotalPktsDropped": {
+    "name": "cgprsGtpTotalPktsDropped",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cgprsGtpDroppedPktsTimeFrame": {
+    "name": "cgprsGtpDroppedPktsTimeFrame",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cgprsGtpDroppedPktsCnt": {
+    "name": "cgprsGtpDroppedPktsCnt",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cgprsGtpCurMTForPremiumQos": {
+    "name": "cgprsGtpCurMTForPremiumQos",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bits/sec",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cgprsGtpCurMTForNormalQos": {
+    "name": "cgprsGtpCurMTForNormalQos",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bits/sec",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cgprsGtpCurMTForBestEffortQos": {
+    "name": "cgprsGtpCurMTForBestEffortQos",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bits/sec",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cgprsGtpCurGSNBandwidthResrcUsed": {
+    "name": "cgprsGtpCurGSNBandwidthResrcUsed",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bits/sec",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cgprsGtpGSNTable": {
+    "name": "cgprsGtpGSNTable",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cgprsGtpGSNEntry": {
+    "name": "cgprsGtpGSNEntry",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpGSNid",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cgprsGtpGSNid": {
+    "name": "cgprsGtpGSNid",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cgprsGtpGSNEchoFailedNotifCnt": {
+    "name": "cgprsGtpGSNEchoFailedNotifCnt",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cgprsGtpTotalNumAllocIpAddr": {
+    "name": "cgprsGtpTotalNumAllocIpAddr",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "allocated dynamic addreses",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cgprsGtpChargingMsgCnt": {
+    "name": "cgprsGtpChargingMsgCnt",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cgprsGtpNumAllocIpAddrTable": {
+    "name": "cgprsGtpNumAllocIpAddrTable",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cgprsGtpNumAllocIpAddrEntry": {
+    "name": "cgprsGtpNumAllocIpAddrEntry",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpAPNId",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cgprsGtpNumAllocIpAddr": {
+    "name": "cgprsGtpNumAllocIpAddr",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cgprsGtpVersion": {
+    "name": "cgprsGtpVersion",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cgprsGtpLastGSNidNoRespToEcho": {
+    "name": "cgprsGtpLastGSNidNoRespToEcho",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cgprsGtpLastGSNidRecovered": {
+    "name": "cgprsGtpLastGSNidRecovered",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cgprsGtpGSNidOfLastUnexpPDPCxt": {
+    "name": "cgprsGtpGSNidOfLastUnexpPDPCxt",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cgprsGtpTIDOfLastUnexpPDPCxt": {
+    "name": "cgprsGtpTIDOfLastUnexpPDPCxt",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cgprsGtpRejReasonOfLastUnexpPDPCxt": {
+    "name": "cgprsGtpRejReasonOfLastUnexpPDPCxt",
+    "oid": "1.3.6.1.4.1.9.10.48.1.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ciscoGprsGtpNotifPrefix": {
+    "name": "ciscoGprsGtpNotifPrefix",
+    "oid": "1.3.6.1.4.1.9.10.48.2",
+    "class": "objectidentity"
+  },
+  "ciscoGprsGtpNotifs": {
+    "name": "ciscoGprsGtpNotifs",
+    "oid": "1.3.6.1.4.1.9.10.48.2.0",
+    "class": "objectidentity"
+  },
+  "cgprsGtpGSNPathFailedNotif": {
+    "name": "cgprsGtpGSNPathFailedNotif",
+    "oid": "1.3.6.1.4.1.9.10.48.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpLastGSNidNoRespToEcho"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cgprsGtpGSNPathRecoveredNotif": {
+    "name": "cgprsGtpGSNPathRecoveredNotif",
+    "oid": "1.3.6.1.4.1.9.10.48.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpLastGSNidRecovered"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cgprsGtpPDPCxtActivationRejNotif": {
+    "name": "cgprsGtpPDPCxtActivationRejNotif",
+    "oid": "1.3.6.1.4.1.9.10.48.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpGSNidOfLastUnexpPDPCxt"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpTIDOfLastUnexpPDPCxt"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpRejReasonOfLastUnexpPDPCxt"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cgprsGtpPrimaryChargingGWUpNotif": {
+    "name": "cgprsGtpPrimaryChargingGWUpNotif",
+    "oid": "1.3.6.1.4.1.9.10.48.2.0.4",
+    "class": "notificationtype",
+    "status": "obsolete"
+  },
+  "cgprsGtpPrimaryChargingGWDownNotif": {
+    "name": "cgprsGtpPrimaryChargingGWDownNotif",
+    "oid": "1.3.6.1.4.1.9.10.48.2.0.5",
+    "class": "notificationtype",
+    "status": "obsolete"
+  },
+  "cgprsGtpSecondaryChargingGWUpNotif": {
+    "name": "cgprsGtpSecondaryChargingGWUpNotif",
+    "oid": "1.3.6.1.4.1.9.10.48.2.0.6",
+    "class": "notificationtype",
+    "status": "obsolete"
+  },
+  "cgprsGtpSecondaryChargingGWDownNotif": {
+    "name": "cgprsGtpSecondaryChargingGWDownNotif",
+    "oid": "1.3.6.1.4.1.9.10.48.2.0.7",
+    "class": "notificationtype",
+    "status": "obsolete"
+  },
+  "ciscoGprsGtpConformances": {
+    "name": "ciscoGprsGtpConformances",
+    "oid": "1.3.6.1.4.1.9.10.48.3",
+    "class": "objectidentity"
+  },
+  "cgprsGtpCompliances": {
+    "name": "cgprsGtpCompliances",
+    "oid": "1.3.6.1.4.1.9.10.48.3.1",
+    "class": "objectidentity"
+  },
+  "cgprsGtpGroups": {
+    "name": "cgprsGtpGroups",
+    "oid": "1.3.6.1.4.1.9.10.48.3.2",
+    "class": "objectidentity"
+  },
+  "cgprsGtpCompliance": {
+    "name": "cgprsGtpCompliance",
+    "oid": "1.3.6.1.4.1.9.10.48.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cgprsGtpGeneralConfigGroup",
+        "module": "CISCO-GPRS-GTP-MIB"
+      },
+      {
+        "object": "cgprsGtpGeneralStatsGroup",
+        "module": "CISCO-GPRS-GTP-MIB"
+      },
+      {
+        "object": "cgprsGtpGgsnConfigGroup",
+        "module": "CISCO-GPRS-GTP-MIB"
+      },
+      {
+        "object": "cgprsGtpGgsnStatsGroup",
+        "module": "CISCO-GPRS-GTP-MIB"
+      },
+      {
+        "object": "cgprsGtpGgsnStatusGroup",
+        "module": "CISCO-GPRS-GTP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cgprsGtpGeneralConfigGroup": {
+    "name": "cgprsGtpGeneralConfigGroup",
+    "oid": "1.3.6.1.4.1.9.10.48.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpT3TunnelTimer"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpT3ResponseTimer"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpN3Request"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpN3BufferSize"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpEchoRequestTimer"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpGSNTotalBandwidthResrc"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpMaxNumPDPCxts"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpDroppedPktsMonTime"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpNoRespToEchoNotifEnable"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpPDPCxtActRejNotifEnable"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cgprsGtpGgsnConfigGroup": {
+    "name": "cgprsGtpGgsnConfigGroup",
+    "oid": "1.3.6.1.4.1.9.10.48.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpAPNAddrAllocMethodGlobDef"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpChargingGWName"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpChargingGWType"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpChargingGWOperState"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpChargingGWNotifEnable"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpChargingGWRowStatus"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpAPNName"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpAPNAddrAllocMethod"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpAPNRowStatus"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cgprsGtpGeneralStatsGroup": {
+    "name": "cgprsGtpGeneralStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.48.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpCurRxPacketQueueSize"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpCurActivatedPDPCxtsCnt"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpCurUnexpRxGpduCnt"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpCurRejPDPCxtActivationCnt"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpTotalPktsDropped"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpDroppedPktsTimeFrame"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpDroppedPktsCnt"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpCurMTForPremiumQos"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpCurMTForNormalQos"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpCurMTForBestEffortQos"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpCurGSNBandwidthResrcUsed"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpGSNEchoFailedNotifCnt"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cgprsGtpGgsnStatsGroup": {
+    "name": "cgprsGtpGgsnStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.48.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpTotalNumAllocIpAddr"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpChargingMsgCnt"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cgprsGtpGgsnStatusGroup": {
+    "name": "cgprsGtpGgsnStatusGroup",
+    "oid": "1.3.6.1.4.1.9.10.48.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpVersion"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpLastGSNidNoRespToEcho"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpLastGSNidRecovered"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpGSNidOfLastUnexpPDPCxt"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpTIDOfLastUnexpPDPCxt"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpRejReasonOfLastUnexpPDPCxt"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpNumAllocIpAddr"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cgprsGtpGgsnNotifGroup": {
+    "name": "cgprsGtpGgsnNotifGroup",
+    "oid": "1.3.6.1.4.1.9.10.48.3.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpGSNPathFailedNotif"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpGSNPathRecoveredNotif"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpPDPCxtActivationRejNotif"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpPrimaryChargingGWUpNotif"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpPrimaryChargingGWDownNotif"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpSecondaryChargingGWUpNotif"
+      },
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "object": "cgprsGtpSecondaryChargingGWDownNotif"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-GPRS-GTP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-GPRS-GTP-MIB"
+  }
+}

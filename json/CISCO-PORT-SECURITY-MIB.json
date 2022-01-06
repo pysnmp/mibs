@@ -1,0 +1,1551 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-VTP-MIB": [
+      "vtpVlanName"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifName"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoPortSecurityMIB": {
+    "name": "ciscoPortSecurityMIB",
+    "oid": "1.3.6.1.4.1.9.9.315",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-05-08 00:00",
+        "description": "Update description of cpsIfMaxSecureMacAddr object."
+      },
+      {
+        "revision": "2005-05-04 00:00",
+        "description": "Obsolete cpsIfVlanTable and replace it with cpsIfMultiVlanTable. Add cpsExtInterfaceGroup1 and cpsIfVlanSecureNotificationGroup."
+      },
+      {
+        "revision": "2005-03-12 00:00",
+        "description": "Change description in cpsIfSecureLastMacAddress."
+      },
+      {
+        "revision": "2004-08-07 00:00",
+        "description": "Added cpsTrunkSecureMacAddrViolation. Expanded on the description of cpsSecureMacAddrViolation. Created the NOTIFICATION-GROUP cpsTrunkSecureNotificationGroup."
+      },
+      {
+        "revision": "2004-03-08 00:00",
+        "description": "Adding cpsGlobalClearSecureMacAddresses, cpsIfClearSecureMacAddresses, cpsIfInvalidSrcRateLimitEnable, cpsIfInvalidSrcRateLimitValue cpsIfStickyEnable, cpsIfVlanTable, cpsInterfaceGroup2, ciscoPortSecurityMIBCompliance2 and cpsInterfaceGroup2. Deprecating cpsIfClearSecureAddresses, ciscoPortSecurityMIBCompliance1 and cpsInterfaceGroup1."
+      },
+      {
+        "revision": "2004-02-10 00:00",
+        "description": "Deprecated cpsSecureMacAddressTable. Adding cpsIfVlanSecureMacAddrTable."
+      },
+      {
+        "revision": "2003-07-01 00:00",
+        "description": "Deprecated the ciscoPortSecurityMIBCompliance. Adding ciscoPortSecurityMIBCompliance1. Adding cpsUnicastFloodingInterfaceGroup and cpsShutdownTimeoutInterfaceGroup."
+      },
+      {
+        "revision": "2003-02-24 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoPortSecurityMIBNotifs": {
+    "name": "ciscoPortSecurityMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.315.0",
+    "class": "objectidentity"
+  },
+  "ciscoPortSecurityMIBObjects": {
+    "name": "ciscoPortSecurityMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.315.1",
+    "class": "objectidentity"
+  },
+  "ciscoPortSecurityMIBConform": {
+    "name": "ciscoPortSecurityMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.315.2",
+    "class": "objectidentity"
+  },
+  "cpsGlobalObjects": {
+    "name": "cpsGlobalObjects",
+    "oid": "1.3.6.1.4.1.9.9.315.1.1",
+    "class": "objectidentity"
+  },
+  "cpsInterfaceObjects": {
+    "name": "cpsInterfaceObjects",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2",
+    "class": "objectidentity"
+  },
+  "ClearSecureMacAddrType": {
+    "name": "ClearSecureMacAddrType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "done": 0,
+          "dynamic": 1,
+          "static": 2,
+          "sticky": 3,
+          "all": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cpsGlobalMaxSecureAddress": {
+    "name": "cpsGlobalMaxSecureAddress",
+    "oid": "1.3.6.1.4.1.9.9.315.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsGlobalTotalSecureAddress": {
+    "name": "cpsGlobalTotalSecureAddress",
+    "oid": "1.3.6.1.4.1.9.9.315.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsGlobalPortSecurityEnable": {
+    "name": "cpsGlobalPortSecurityEnable",
+    "oid": "1.3.6.1.4.1.9.9.315.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsGlobalSNMPNotifRate": {
+    "name": "cpsGlobalSNMPNotifRate",
+    "oid": "1.3.6.1.4.1.9.9.315.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "notifs per second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsGlobalSNMPNotifControl": {
+    "name": "cpsGlobalSNMPNotifControl",
+    "oid": "1.3.6.1.4.1.9.9.315.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsGlobalClearSecureMacAddresses": {
+    "name": "cpsGlobalClearSecureMacAddresses",
+    "oid": "1.3.6.1.4.1.9.9.315.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClearSecureMacAddrType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsIfConfigTable": {
+    "name": "cpsIfConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsIfConfigEntry": {
+    "name": "cpsIfConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsIfPortSecurityEnable": {
+    "name": "cpsIfPortSecurityEnable",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsIfPortSecurityStatus": {
+    "name": "cpsIfPortSecurityStatus",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "secureup": 1,
+          "securedown": 2,
+          "shutdown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsIfMaxSecureMacAddr": {
+    "name": "cpsIfMaxSecureMacAddr",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsIfCurrentSecureMacAddrCount": {
+    "name": "cpsIfCurrentSecureMacAddrCount",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsIfSecureMacAddrAgingTime": {
+    "name": "cpsIfSecureMacAddrAgingTime",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsIfSecureMacAddrAgingType": {
+    "name": "cpsIfSecureMacAddrAgingType",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absolute": 1,
+          "inactivity": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsIfStaticMacAddrAgingEnable": {
+    "name": "cpsIfStaticMacAddrAgingEnable",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsIfViolationAction": {
+    "name": "cpsIfViolationAction",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "shutdown": 1,
+          "dropNotify": 2,
+          "drop": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsIfViolationCount": {
+    "name": "cpsIfViolationCount",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsIfSecureLastMacAddress": {
+    "name": "cpsIfSecureLastMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsIfClearSecureAddresses": {
+    "name": "cpsIfClearSecureAddresses",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cpsIfUnicastFloodingEnable": {
+    "name": "cpsIfUnicastFloodingEnable",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsIfShutdownTimeout": {
+    "name": "cpsIfShutdownTimeout",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsIfClearSecureMacAddresses": {
+    "name": "cpsIfClearSecureMacAddresses",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClearSecureMacAddrType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsIfStickyEnable": {
+    "name": "cpsIfStickyEnable",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsIfInvalidSrcRateLimitEnable": {
+    "name": "cpsIfInvalidSrcRateLimitEnable",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsIfInvalidSrcRateLimitValue": {
+    "name": "cpsIfInvalidSrcRateLimitValue",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "Packets per second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsIfSecureLastMacAddrVlanId": {
+    "name": "cpsIfSecureLastMacAddrVlanId",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsSecureMacAddressTable": {
+    "name": "cpsSecureMacAddressTable",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cpsSecureMacAddressEntry": {
+    "name": "cpsSecureMacAddressEntry",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsSecureMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpsSecureMacAddress": {
+    "name": "cpsSecureMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cpsSecureMacAddrType": {
+    "name": "cpsSecureMacAddrType",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpsSecureMacAddrRemainingAge": {
+    "name": "cpsSecureMacAddrRemainingAge",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpsSecureMacAddrRowStatus": {
+    "name": "cpsSecureMacAddrRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cpsIfVlanSecureMacAddrTable": {
+    "name": "cpsIfVlanSecureMacAddrTable",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsIfVlanSecureMacAddrEntry": {
+    "name": "cpsIfVlanSecureMacAddrEntry",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfVlanSecureMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfVlanSecureVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsIfVlanSecureMacAddress": {
+    "name": "cpsIfVlanSecureMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsIfVlanSecureVlanIndex": {
+    "name": "cpsIfVlanSecureVlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsIfVlanSecureMacAddrType": {
+    "name": "cpsIfVlanSecureMacAddrType",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2,
+          "sticky": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsIfVlanSecureMacAddrRemainAge": {
+    "name": "cpsIfVlanSecureMacAddrRemainAge",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsIfVlanSecureMacAddrRowStatus": {
+    "name": "cpsIfVlanSecureMacAddrRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpsIfVlanTable": {
+    "name": "cpsIfVlanTable",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cpsIfVlanEntry": {
+    "name": "cpsIfVlanEntry",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cpsIfVlanIndex": {
+    "name": "cpsIfVlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cpsIfVlanMaxSecureMacAddr": {
+    "name": "cpsIfVlanMaxSecureMacAddr",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "cpsIfVlanCurSecureMacAddrCount": {
+    "name": "cpsIfVlanCurSecureMacAddrCount",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cpsIfMultiVlanTable": {
+    "name": "cpsIfMultiVlanTable",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsIfMultiVlanEntry": {
+    "name": "cpsIfMultiVlanEntry",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfMultiVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsIfMultiVlanIndex": {
+    "name": "cpsIfMultiVlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsIfMultiVlanMaxSecureMacAddr": {
+    "name": "cpsIfMultiVlanMaxSecureMacAddr",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpsIfMultiVlanSecureMacAddrCount": {
+    "name": "cpsIfMultiVlanSecureMacAddrCount",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsIfMultiVlanClearSecureMacAddr": {
+    "name": "cpsIfMultiVlanClearSecureMacAddr",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClearSecureMacAddrType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "done",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpsIfMultiVlanRowStatus": {
+    "name": "cpsIfMultiVlanRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.315.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpsInterfaceNotifs": {
+    "name": "cpsInterfaceNotifs",
+    "oid": "1.3.6.1.4.1.9.9.315.0.0",
+    "class": "objectidentity"
+  },
+  "cpsSecureMacAddrViolation": {
+    "name": "cpsSecureMacAddrViolation",
+    "oid": "1.3.6.1.4.1.9.9.315.0.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfSecureLastMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cpsTrunkSecureMacAddrViolation": {
+    "name": "cpsTrunkSecureMacAddrViolation",
+    "oid": "1.3.6.1.4.1.9.9.315.0.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanName"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfSecureLastMacAddress"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpsIfVlanSecureMacAddrViolation": {
+    "name": "cpsIfVlanSecureMacAddrViolation",
+    "oid": "1.3.6.1.4.1.9.9.315.0.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfSecureLastMacAddrVlanId"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfSecureLastMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPortSecurityMIBCompliances": {
+    "name": "ciscoPortSecurityMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.315.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoPortSecurityMIBGroups": {
+    "name": "ciscoPortSecurityMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.315.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoPortSecurityMIBCompliance": {
+    "name": "ciscoPortSecurityMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.315.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpsGlobalGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsInterfaceGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsExtInterfaceGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsNotificationGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsExtConfigInterfaceGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoPortSecurityMIBCompliance1": {
+    "name": "ciscoPortSecurityMIBCompliance1",
+    "oid": "1.3.6.1.4.1.9.9.315.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpsGlobalGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsInterfaceGroup1",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsIfVlanSecureMacAddrGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsExtInterfaceGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsNotificationGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsUnicastFloodingInterfaceGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsShutdownTimeoutInterfaceGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoPortSecurityMIBCompliance2": {
+    "name": "ciscoPortSecurityMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.315.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpsGlobalGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsInterfaceGroup2",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsIfVlanSecureMacAddrGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsExtInterfaceGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsNotificationGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsUnicastFloodingInterfaceGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsShutdownTimeoutInterfaceGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsIfVlanGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsGlobalClearAddressGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoPortSecurityMIBCompliance3": {
+    "name": "ciscoPortSecurityMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.315.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpsGlobalGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsInterfaceGroup2",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsIfVlanSecureMacAddrGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsExtInterfaceGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsNotificationGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsUnicastFloodingInterfaceGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsShutdownTimeoutInterfaceGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsIfVlanGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsGlobalClearAddressGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsTrunkSecureNotificationGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoPortSecurityMIBCompliance4": {
+    "name": "ciscoPortSecurityMIBCompliance4",
+    "oid": "1.3.6.1.4.1.9.9.315.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpsGlobalGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsInterfaceGroup2",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsIfVlanSecureMacAddrGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsExtInterfaceGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsNotificationGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsUnicastFloodingInterfaceGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsShutdownTimeoutInterfaceGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsIfMultiVlanGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsGlobalClearAddressGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsIfVlanSecureNotificationGroup",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "cpsExtInterfaceGroup1",
+        "module": "CISCO-PORT-SECURITY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cpsGlobalGroup": {
+    "name": "cpsGlobalGroup",
+    "oid": "1.3.6.1.4.1.9.9.315.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsGlobalMaxSecureAddress"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsGlobalTotalSecureAddress"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsGlobalPortSecurityEnable"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsGlobalSNMPNotifRate"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsGlobalSNMPNotifControl"
+      }
+    ],
+    "status": "current"
+  },
+  "cpsInterfaceGroup": {
+    "name": "cpsInterfaceGroup",
+    "oid": "1.3.6.1.4.1.9.9.315.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfPortSecurityEnable"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfPortSecurityStatus"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfMaxSecureMacAddr"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfCurrentSecureMacAddrCount"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfSecureMacAddrAgingType"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfSecureMacAddrAgingTime"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfStaticMacAddrAgingEnable"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfViolationAction"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfViolationCount"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfClearSecureAddresses"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsSecureMacAddrType"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsSecureMacAddrRemainingAge"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsSecureMacAddrRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpsExtInterfaceGroup": {
+    "name": "cpsExtInterfaceGroup",
+    "oid": "1.3.6.1.4.1.9.9.315.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfSecureLastMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cpsNotificationGroup": {
+    "name": "cpsNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.315.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsSecureMacAddrViolation"
+      }
+    ],
+    "status": "current"
+  },
+  "cpsUnicastFloodingInterfaceGroup": {
+    "name": "cpsUnicastFloodingInterfaceGroup",
+    "oid": "1.3.6.1.4.1.9.9.315.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfUnicastFloodingEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cpsShutdownTimeoutInterfaceGroup": {
+    "name": "cpsShutdownTimeoutInterfaceGroup",
+    "oid": "1.3.6.1.4.1.9.9.315.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfShutdownTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "cpsIfVlanSecureMacAddrGroup": {
+    "name": "cpsIfVlanSecureMacAddrGroup",
+    "oid": "1.3.6.1.4.1.9.9.315.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfVlanSecureMacAddrType"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfVlanSecureMacAddrRemainAge"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfVlanSecureMacAddrRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cpsInterfaceGroup1": {
+    "name": "cpsInterfaceGroup1",
+    "oid": "1.3.6.1.4.1.9.9.315.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfPortSecurityEnable"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfPortSecurityStatus"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfMaxSecureMacAddr"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfCurrentSecureMacAddrCount"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfSecureMacAddrAgingType"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfSecureMacAddrAgingTime"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfStaticMacAddrAgingEnable"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfViolationAction"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfViolationCount"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfClearSecureAddresses"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpsExtConfigInterfaceGroup": {
+    "name": "cpsExtConfigInterfaceGroup",
+    "oid": "1.3.6.1.4.1.9.9.315.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfShutdownTimeout"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfUnicastFloodingEnable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpsIfVlanGroup": {
+    "name": "cpsIfVlanGroup",
+    "oid": "1.3.6.1.4.1.9.9.315.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfVlanMaxSecureMacAddr"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfVlanCurSecureMacAddrCount"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cpsGlobalClearAddressGroup": {
+    "name": "cpsGlobalClearAddressGroup",
+    "oid": "1.3.6.1.4.1.9.9.315.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsGlobalClearSecureMacAddresses"
+      }
+    ],
+    "status": "current"
+  },
+  "cpsInterfaceGroup2": {
+    "name": "cpsInterfaceGroup2",
+    "oid": "1.3.6.1.4.1.9.9.315.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfPortSecurityEnable"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfPortSecurityStatus"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfMaxSecureMacAddr"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfCurrentSecureMacAddrCount"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfSecureMacAddrAgingType"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfSecureMacAddrAgingTime"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfStaticMacAddrAgingEnable"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfViolationAction"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfViolationCount"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfClearSecureMacAddresses"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfInvalidSrcRateLimitEnable"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfInvalidSrcRateLimitValue"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfStickyEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cpsTrunkSecureNotificationGroup": {
+    "name": "cpsTrunkSecureNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.315.2.2.14",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsTrunkSecureMacAddrViolation"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpsIfMultiVlanGroup": {
+    "name": "cpsIfMultiVlanGroup",
+    "oid": "1.3.6.1.4.1.9.9.315.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfMultiVlanMaxSecureMacAddr"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfMultiVlanSecureMacAddrCount"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfMultiVlanClearSecureMacAddr"
+      },
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfMultiVlanRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cpsIfVlanSecureNotificationGroup": {
+    "name": "cpsIfVlanSecureNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.315.2.2.16",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfVlanSecureMacAddrViolation"
+      }
+    ],
+    "status": "current"
+  },
+  "cpsExtInterfaceGroup1": {
+    "name": "cpsExtInterfaceGroup1",
+    "oid": "1.3.6.1.4.1.9.9.315.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "object": "cpsIfSecureLastMacAddrVlanId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-PORT-SECURITY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-PORT-SECURITY-MIB"
+  }
+}

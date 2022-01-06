@@ -1,0 +1,591 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "TRAP-TYPE",
+      "IpAddress",
+      "iso",
+      "MibIdentifier",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Bits",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "lastmilegear": {
+    "name": "lastmilegear",
+    "oid": "1.3.6.1.4.1.25868",
+    "class": "objectidentity"
+  },
+  "mibObjects": {
+    "name": "mibObjects",
+    "oid": "1.3.6.1.4.1.25868.1",
+    "class": "objectidentity"
+  },
+  "version": {
+    "name": "version",
+    "oid": "1.3.6.1.4.1.25868.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "site": {
+    "name": "site",
+    "oid": "1.3.6.1.4.1.25868.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lastIP": {
+    "name": "lastIP",
+    "oid": "1.3.6.1.4.1.25868.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lastTime": {
+    "name": "lastTime",
+    "oid": "1.3.6.1.4.1.25868.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nSats": {
+    "name": "nSats",
+    "oid": "1.3.6.1.4.1.25868.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pwrP": {
+    "name": "pwrP",
+    "oid": "1.3.6.1.4.1.25868.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pwrS": {
+    "name": "pwrS",
+    "oid": "1.3.6.1.4.1.25868.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cbTrip": {
+    "name": "cbTrip",
+    "oid": "1.3.6.1.4.1.25868.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tempC": {
+    "name": "tempC",
+    "oid": "1.3.6.1.4.1.25868.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "voltsM1": {
+    "name": "voltsM1",
+    "oid": "1.3.6.1.4.1.25868.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "voltsM2": {
+    "name": "voltsM2",
+    "oid": "1.3.6.1.4.1.25868.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portOnM": {
+    "name": "portOnM",
+    "oid": "1.3.6.1.4.1.25868.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portSyncM": {
+    "name": "portSyncM",
+    "oid": "1.3.6.1.4.1.25868.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portPwrM1": {
+    "name": "portPwrM1",
+    "oid": "1.3.6.1.4.1.25868.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portPwrM2": {
+    "name": "portPwrM2",
+    "oid": "1.3.6.1.4.1.25868.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portPwrM3": {
+    "name": "portPwrM3",
+    "oid": "1.3.6.1.4.1.25868.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portPwrM4": {
+    "name": "portPwrM4",
+    "oid": "1.3.6.1.4.1.25868.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portPwrM5": {
+    "name": "portPwrM5",
+    "oid": "1.3.6.1.4.1.25868.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portPwrM6": {
+    "name": "portPwrM6",
+    "oid": "1.3.6.1.4.1.25868.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portPwrM7": {
+    "name": "portPwrM7",
+    "oid": "1.3.6.1.4.1.25868.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portPwrM8": {
+    "name": "portPwrM8",
+    "oid": "1.3.6.1.4.1.25868.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "modeReqM": {
+    "name": "modeReqM",
+    "oid": "1.3.6.1.4.1.25868.1.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trpCntGM1": {
+    "name": "trpCntGM1",
+    "oid": "1.3.6.1.4.1.25868.1.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trpCntGM2": {
+    "name": "trpCntGM2",
+    "oid": "1.3.6.1.4.1.25868.1.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trpCntGM3": {
+    "name": "trpCntGM3",
+    "oid": "1.3.6.1.4.1.25868.1.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trpCntGM4": {
+    "name": "trpCntGM4",
+    "oid": "1.3.6.1.4.1.25868.1.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trpCntGM5": {
+    "name": "trpCntGM5",
+    "oid": "1.3.6.1.4.1.25868.1.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trpCntGM6": {
+    "name": "trpCntGM6",
+    "oid": "1.3.6.1.4.1.25868.1.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trpCntGM7": {
+    "name": "trpCntGM7",
+    "oid": "1.3.6.1.4.1.25868.1.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trpCntGM8": {
+    "name": "trpCntGM8",
+    "oid": "1.3.6.1.4.1.25868.1.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trpCntBM1": {
+    "name": "trpCntBM1",
+    "oid": "1.3.6.1.4.1.25868.1.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trpCntBM2": {
+    "name": "trpCntBM2",
+    "oid": "1.3.6.1.4.1.25868.1.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trpCntBM3": {
+    "name": "trpCntBM3",
+    "oid": "1.3.6.1.4.1.25868.1.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trpCntBM4": {
+    "name": "trpCntBM4",
+    "oid": "1.3.6.1.4.1.25868.1.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trpCntBM5": {
+    "name": "trpCntBM5",
+    "oid": "1.3.6.1.4.1.25868.1.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trpCntBM6": {
+    "name": "trpCntBM6",
+    "oid": "1.3.6.1.4.1.25868.1.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trpCntBM7": {
+    "name": "trpCntBM7",
+    "oid": "1.3.6.1.4.1.25868.1.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trpCntBM8": {
+    "name": "trpCntBM8",
+    "oid": "1.3.6.1.4.1.25868.1.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lostEthernetConnection": {
+    "name": "lostEthernetConnection",
+    "oid": "1.3.6.1.4.1.25868.10.0",
+    "class": "notificationtype"
+  },
+  "masterPrimayPowerLost": {
+    "name": "masterPrimayPowerLost",
+    "oid": "1.3.6.1.4.1.25868.10.1",
+    "class": "notificationtype"
+  },
+  "masterSecondaryPowerLost": {
+    "name": "masterSecondaryPowerLost",
+    "oid": "1.3.6.1.4.1.25868.10.2",
+    "class": "notificationtype"
+  },
+  "gpsSignalLost": {
+    "name": "gpsSignalLost",
+    "oid": "1.3.6.1.4.1.25868.10.3",
+    "class": "notificationtype"
+  },
+  "masterTempatureError": {
+    "name": "masterTempatureError",
+    "oid": "1.3.6.1.4.1.25868.10.4",
+    "class": "notificationtype"
+  },
+  "masterCircuitBreakerTripCode": {
+    "name": "masterCircuitBreakerTripCode",
+    "oid": "1.3.6.1.4.1.25868.10.5",
+    "class": "notificationtype"
+  },
+  "loginFailedAttempt": {
+    "name": "loginFailedAttempt",
+    "oid": "1.3.6.1.4.1.25868.10.6",
+    "class": "notificationtype"
+  },
+  "settingsChanged": {
+    "name": "settingsChanged",
+    "oid": "1.3.6.1.4.1.25868.10.7",
+    "class": "notificationtype"
+  },
+  "masterPrimaryPowerOK": {
+    "name": "masterPrimaryPowerOK",
+    "oid": "1.3.6.1.4.1.25868.10.10",
+    "class": "notificationtype"
+  },
+  "masterSecondaryPowerOK": {
+    "name": "masterSecondaryPowerOK",
+    "oid": "1.3.6.1.4.1.25868.10.20",
+    "class": "notificationtype"
+  },
+  "gpsSignalOK": {
+    "name": "gpsSignalOK",
+    "oid": "1.3.6.1.4.1.25868.10.30",
+    "class": "notificationtype"
+  },
+  "tempatureOK": {
+    "name": "tempatureOK",
+    "oid": "1.3.6.1.4.1.25868.10.40",
+    "class": "notificationtype"
+  },
+  "circuitBreakersOK": {
+    "name": "circuitBreakersOK",
+    "oid": "1.3.6.1.4.1.25868.10.50",
+    "class": "notificationtype"
+  },
+  "masterAutoRestartCBCompletedOK": {
+    "name": "masterAutoRestartCBCompletedOK",
+    "oid": "1.3.6.1.4.1.25868.10.52",
+    "class": "notificationtype"
+  },
+  "loginOK": {
+    "name": "loginOK",
+    "oid": "1.3.6.1.4.1.25868.10.60",
+    "class": "notificationtype"
+  },
+  "resetComplete": {
+    "name": "resetComplete",
+    "oid": "1.3.6.1.4.1.25868.10.80",
+    "class": "notificationtype"
+  },
+  "ethernetConnectionRestored": {
+    "name": "ethernetConnectionRestored",
+    "oid": "1.3.6.1.4.1.25868.10.99",
+    "class": "notificationtype"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ctm/CTMMIBV2",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:12 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CTMMIB"
+  }
+}

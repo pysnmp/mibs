@@ -1,0 +1,513 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalDescr",
+      "entPhysicalIndex"
+    ],
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cPex": {
+    "name": "hh3cPex",
+    "oid": "1.3.6.1.4.1.25506.2.129",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-10-15 11:29",
+        "description": "Added hh3cPexDeviceInfoTable and hh3cPexTopoTable."
+      },
+      {
+        "revision": "2012-11-12 11:29",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "hh3cPexSpecInfo": {
+    "name": "hh3cPexSpecInfo",
+    "oid": "1.3.6.1.4.1.25506.2.129.1",
+    "class": "objectidentity"
+  },
+  "hh3cPexPortMinId": {
+    "name": "hh3cPexPortMinId",
+    "oid": "1.3.6.1.4.1.25506.2.129.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPexPortMaxId": {
+    "name": "hh3cPexPortMaxId",
+    "oid": "1.3.6.1.4.1.25506.2.129.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPexMinAssociateId": {
+    "name": "hh3cPexMinAssociateId",
+    "oid": "1.3.6.1.4.1.25506.2.129.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPexMaxAssociateId": {
+    "name": "hh3cPexMaxAssociateId",
+    "oid": "1.3.6.1.4.1.25506.2.129.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPexMaxPortPerPexPort": {
+    "name": "hh3cPexMaxPortPerPexPort",
+    "oid": "1.3.6.1.4.1.25506.2.129.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPexTable": {
+    "name": "hh3cPexTable",
+    "oid": "1.3.6.1.4.1.25506.2.129.2",
+    "class": "objectidentity"
+  },
+  "hh3cPexPortTable": {
+    "name": "hh3cPexPortTable",
+    "oid": "1.3.6.1.4.1.25506.2.129.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPexPortEntry": {
+    "name": "hh3cPexPortEntry",
+    "oid": "1.3.6.1.4.1.25506.2.129.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-PEX-MIB",
+        "object": "hh3cPexPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPexPortId": {
+    "name": "hh3cPexPortId",
+    "oid": "1.3.6.1.4.1.25506.2.129.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cPexPortAssociateId": {
+    "name": "hh3cPexPortAssociateId",
+    "oid": "1.3.6.1.4.1.25506.2.129.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPexPortEntPhysicalIndex": {
+    "name": "hh3cPexPortEntPhysicalIndex",
+    "oid": "1.3.6.1.4.1.25506.2.129.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPexPortDescr": {
+    "name": "hh3cPexPortDescr",
+    "oid": "1.3.6.1.4.1.25506.2.129.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 79
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPexPortStatus": {
+    "name": "hh3cPexPortStatus",
+    "oid": "1.3.6.1.4.1.25506.2.129.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": 1,
+          "loading": 2,
+          "online": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "offline",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPexPortRowStatus": {
+    "name": "hh3cPexPortRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.129.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPexPhyPortTable": {
+    "name": "hh3cPexPhyPortTable",
+    "oid": "1.3.6.1.4.1.25506.2.129.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPexPhyPortEntry": {
+    "name": "hh3cPexPhyPortEntry",
+    "oid": "1.3.6.1.4.1.25506.2.129.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPexPhyPortStatus": {
+    "name": "hh3cPexPhyPortStatus",
+    "oid": "1.3.6.1.4.1.25506.2.129.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "down": 2,
+          "blocked": 3,
+          "forwarding": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPexPhyPortBelongToPexPort": {
+    "name": "hh3cPexPhyPortBelongToPexPort",
+    "oid": "1.3.6.1.4.1.25506.2.129.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPexPhyPortNeighborEntIndex": {
+    "name": "hh3cPexPhyPortNeighborEntIndex",
+    "oid": "1.3.6.1.4.1.25506.2.129.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPexDeviceInfoTable": {
+    "name": "hh3cPexDeviceInfoTable",
+    "oid": "1.3.6.1.4.1.25506.2.129.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPexDeviceInfoEntry": {
+    "name": "hh3cPexDeviceInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.2.129.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPexDeviceStatus": {
+    "name": "hh3cPexDeviceStatus",
+    "oid": "1.3.6.1.4.1.25506.2.129.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "faulty": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPexDeviceAssociateId": {
+    "name": "hh3cPexDeviceAssociateId",
+    "oid": "1.3.6.1.4.1.25506.2.129.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPexTopoTable": {
+    "name": "hh3cPexTopoTable",
+    "oid": "1.3.6.1.4.1.25506.2.129.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPexTopoEntry": {
+    "name": "hh3cPexTopoEntry",
+    "oid": "1.3.6.1.4.1.25506.2.129.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPexNeighborEntIndex": {
+    "name": "hh3cPexNeighborEntIndex",
+    "oid": "1.3.6.1.4.1.25506.2.129.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPexTraps": {
+    "name": "hh3cPexTraps",
+    "oid": "1.3.6.1.4.1.25506.2.129.3",
+    "class": "objectidentity"
+  },
+  "hh3cPexTrapPrefix": {
+    "name": "hh3cPexTrapPrefix",
+    "oid": "1.3.6.1.4.1.25506.2.129.3.0",
+    "class": "objectidentity"
+  },
+  "hh3cPexPortOnline": {
+    "name": "hh3cPexPortOnline",
+    "oid": "1.3.6.1.4.1.25506.2.129.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-PEX-MIB",
+        "object": "hh3cPexPortId"
+      },
+      {
+        "module": "HH3C-PEX-MIB",
+        "object": "hh3cPexPortDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPexPortOffline": {
+    "name": "hh3cPexPortOffline",
+    "oid": "1.3.6.1.4.1.25506.2.129.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-PEX-MIB",
+        "object": "hh3cPexPortId"
+      },
+      {
+        "module": "HH3C-PEX-MIB",
+        "object": "hh3cPexPortDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPexPhyPortForwarding": {
+    "name": "hh3cPexPhyPortForwarding",
+    "oid": "1.3.6.1.4.1.25506.2.129.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-PEX-MIB",
+        "object": "hh3cPexEntPhysicalIndexBind"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPexPhyPortBlocked": {
+    "name": "hh3cPexPhyPortBlocked",
+    "oid": "1.3.6.1.4.1.25506.2.129.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-PEX-MIB",
+        "object": "hh3cPexEntPhysicalIndexBind"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPexTrapObjects": {
+    "name": "hh3cPexTrapObjects",
+    "oid": "1.3.6.1.4.1.25506.2.129.4",
+    "class": "objectidentity"
+  },
+  "hh3cPexEntPhysicalIndexBind": {
+    "name": "hh3cPexEntPhysicalIndexBind",
+    "oid": "1.3.6.1.4.1.25506.2.129.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-PEX-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-PEX-MIB"
+  }
+}

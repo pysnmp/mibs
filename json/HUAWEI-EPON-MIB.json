@@ -1,0 +1,6635 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm",
+      "huaweiUtility"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
+    ]
+  },
+  "hwEponMIB": {
+    "name": "hwEponMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.179",
+    "class": "moduleidentity"
+  },
+  "DisplayString": {
+    "name": "DisplayString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "PortList": {
+    "name": "PortList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "hwEponObjects": {
+    "name": "hwEponObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1",
+    "class": "objectidentity"
+  },
+  "hwEponGlobalObjects": {
+    "name": "hwEponGlobalObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.1",
+    "class": "objectidentity"
+  },
+  "hwEponAutoFindOnuAge": {
+    "name": "hwEponAutoFindOnuAge",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponCtcOuiId": {
+    "name": "hwEponCtcOuiId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 111111,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponChangePasswordAge": {
+    "name": "hwEponChangePasswordAge",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponControlObjects": {
+    "name": "hwEponControlObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2",
+    "class": "objectidentity"
+  },
+  "hwEponOltControlTable": {
+    "name": "hwEponOltControlTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOltControlEntry": {
+    "name": "hwEponOltControlEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOltControlfarthest": {
+    "name": "hwEponOltControlfarthest",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponOltControlAutofindOnuEnable": {
+    "name": "hwEponOltControlAutofindOnuEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponOltControlStatus": {
+    "name": "hwEponOltControlStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltControlUpStreamBandWidth": {
+    "name": "hwEponOltControlUpStreamBandWidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltControlDownStreamBandWidth": {
+    "name": "hwEponOltControlDownStreamBandWidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuConfigTable": {
+    "name": "hwEponOnuConfigTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuConfigEntry": {
+    "name": "hwEponOnuConfigEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuIndex": {
+    "name": "hwEponOnuIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuId": {
+    "name": "hwEponOnuId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuAuthMode": {
+    "name": "hwEponOnuAuthMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sn": 1,
+          "alwaysOn": 3,
+          "onceOn": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponOnuMacAddress": {
+    "name": "hwEponOnuMacAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponOnuPassword": {
+    "name": "hwEponOnuPassword",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponOnuTimeout": {
+    "name": "hwEponOnuTimeout",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 168
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponOnuManagementMode": {
+    "name": "hwEponOnuManagementMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oam": 1,
+          "snmp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponOnuLineProfName": {
+    "name": "hwEponOnuLineProfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponOnuServiceProfName": {
+    "name": "hwEponOnuServiceProfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponOnuSnmpProfName": {
+    "name": "hwEponOnuSnmpProfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponOnuDescription": {
+    "name": "hwEponOnuDescription",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponOnuActiveStatus": {
+    "name": "hwEponOnuActiveStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "deactive": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponOnuRowStatus": {
+    "name": "hwEponOnuRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuVersionTable": {
+    "name": "hwEponOnuVersionTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuVersionEntry": {
+    "name": "hwEponOnuVersionEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuVendorId": {
+    "name": "hwEponOnuVendorId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuModel": {
+    "name": "hwEponOnuModel",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuOnuIdentifier": {
+    "name": "hwEponOnuOnuIdentifier",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuHardwareVersion": {
+    "name": "hwEponOnuHardwareVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuSoftwareVersion": {
+    "name": "hwEponOnuSoftwareVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuChipVenderId": {
+    "name": "hwEponOnuChipVenderId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuChipModel": {
+    "name": "hwEponOnuChipModel",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuChipVersion": {
+    "name": "hwEponOnuChipVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuChipDesignDate": {
+    "name": "hwEponOnuChipDesignDate",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuFirmwareVersion": {
+    "name": "hwEponOnuFirmwareVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuControlTable": {
+    "name": "hwEponOnuControlTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuControlEntry": {
+    "name": "hwEponOnuControlEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuReset": {
+    "name": "hwEponOnuReset",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponOnuReRegister": {
+    "name": "hwEponOnuReRegister",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponOnuReDiscovery": {
+    "name": "hwEponOnuReDiscovery",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponOnuRunStatus": {
+    "name": "hwEponOnuRunStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuDistance": {
+    "name": "hwEponOnuDistance",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuRtt": {
+    "name": "hwEponOnuRtt",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuLastUpTime": {
+    "name": "hwEponOnuLastUpTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuLastDownTime": {
+    "name": "hwEponOnuLastDownTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuLastDownCause": {
+    "name": "hwEponOnuLastDownCause",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          },
+          {
+            "min": 7,
+            "max": 10
+          },
+          {
+            "min": 13,
+            "max": 13
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponAutoFindOnuInfoTable": {
+    "name": "hwEponAutoFindOnuInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponAutoFindOnuInfoEntry": {
+    "name": "hwEponAutoFindOnuInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponAutoFindOnuOrder",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponAutoFindOnuOrder": {
+    "name": "hwEponAutoFindOnuOrder",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponAutoFindOnuInfoMacAddress": {
+    "name": "hwEponAutoFindOnuInfoMacAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponAutoFindOnuInfoPasswordValue": {
+    "name": "hwEponAutoFindOnuInfoPasswordValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuCapabilityInfoTable": {
+    "name": "hwEponOnuCapabilityInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuCapabilityInfoEntry": {
+    "name": "hwEponOnuCapabilityInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuPotsPortNum": {
+    "name": "hwEponOnuPotsPortNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuFePortsNum": {
+    "name": "hwEponOnuFePortsNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuGePortsNum": {
+    "name": "hwEponOnuGePortsNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuTdmPortsNum": {
+    "name": "hwEponOnuTdmPortsNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuFecSupport": {
+    "name": "hwEponOnuFecSupport",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuSupportBackupBattery": {
+    "name": "hwEponOnuSupportBackupBattery",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuUpQueueNum": {
+    "name": "hwEponOnuUpQueueNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuUpQueueNumPerPort": {
+    "name": "hwEponOnuUpQueueNumPerPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuDownQueueNum": {
+    "name": "hwEponOnuDownQueueNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuDownQueueNumPerPort": {
+    "name": "hwEponOnuDownQueueNumPerPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuFePortList": {
+    "name": "hwEponOnuFePortList",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuGePortList": {
+    "name": "hwEponOnuGePortList",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuSupportMulticastQuickLeave": {
+    "name": "hwEponOnuSupportMulticastQuickLeave",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuIpConfigTable": {
+    "name": "hwEponOnuIpConfigTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuIpConfigEntry": {
+    "name": "hwEponOnuIpConfigEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuIpAddress": {
+    "name": "hwEponOnuIpAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuNetMask": {
+    "name": "hwEponOnuNetMask",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuNetGateway": {
+    "name": "hwEponOnuNetGateway",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuIpManageVlan": {
+    "name": "hwEponOnuIpManageVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuIpRowStates": {
+    "name": "hwEponOnuIpRowStates",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.7.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuEthObjectCfgTable": {
+    "name": "hwEponOnuEthObjectCfgTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuEthObjectCfgEntry": {
+    "name": "hwEponOnuEthObjectCfgEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuEthPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuEthPortId": {
+    "name": "hwEponOnuEthPortId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuEthOperateStatus": {
+    "name": "hwEponOnuEthOperateStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undoshutdown": 1,
+          "shutdown": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponOnuEthFlowcontrolSwitch": {
+    "name": "hwEponOnuEthFlowcontrolSwitch",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "close": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponOnuTdmPortCfgTable": {
+    "name": "hwEponOnuTdmPortCfgTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuTdmPortCfgEntry": {
+    "name": "hwEponOnuTdmPortCfgEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuTdmPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuTdmPortId": {
+    "name": "hwEponOnuTdmPortId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuTdmPortOperateStatus": {
+    "name": "hwEponOnuTdmPortOperateStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponOnuPotsPortCfgTable": {
+    "name": "hwEponOnuPotsPortCfgTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuPotsPortCfgEntry": {
+    "name": "hwEponOnuPotsPortCfgEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPotsPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuPotsPortId": {
+    "name": "hwEponOnuPotsPortId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuPotsPortOperateStatus": {
+    "name": "hwEponOnuPotsPortOperateStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponOnuCfgCarTable": {
+    "name": "hwEponOnuCfgCarTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuCfgCarEntry": {
+    "name": "hwEponOnuCfgCarEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuCfgCarDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuCfgCarDirection": {
+    "name": "hwEponOnuCfgCarDirection",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuCarProfileNameIndex": {
+    "name": "hwEponOnuCarProfileNameIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuTrafficPolicyNameIndex": {
+    "name": "hwEponOnuTrafficPolicyNameIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuCfgCarRowStatus": {
+    "name": "hwEponOnuCfgCarRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.11.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOltPortDefaultVlanTable": {
+    "name": "hwEponOltPortDefaultVlanTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOltPortDefaultVlanEntry": {
+    "name": "hwEponOltPortDefaultVlanEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOltPortDefaultVlanId": {
+    "name": "hwEponOltPortDefaultVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOltPortDefaultVlanBatch": {
+    "name": "hwEponOltPortDefaultVlanBatch",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "batch": 1,
+          "notBatch": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOltPortDefaultVlanOnuStartId": {
+    "name": "hwEponOltPortDefaultVlanOnuStartId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOltPortDefaultVlanOnuEndId": {
+    "name": "hwEponOltPortDefaultVlanOnuEndId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOltPortDefaultVlanRowStatus": {
+    "name": "hwEponOltPortDefaultVlanRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.12.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponVlanStackingAndMappingTable": {
+    "name": "hwEponVlanStackingAndMappingTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponVlanStackingAndMappingEntry": {
+    "name": "hwEponVlanStackingAndMappingEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuExtSVlanId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIntSStartVlanId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIntSEndVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuExtSVlanId": {
+    "name": "hwEponOnuExtSVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuIntSStartVlanId": {
+    "name": "hwEponOnuIntSStartVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuIntSEndVlanId": {
+    "name": "hwEponOnuIntSEndVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponVlanStackingOrMapping": {
+    "name": "hwEponVlanStackingOrMapping",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singleMapping": 1,
+          "doubleMapping": 2,
+          "stacking": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponOnuDextVlanId": {
+    "name": "hwEponOnuDextVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuDintVlanId": {
+    "name": "hwEponOnuDintVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuPopExtVlanId": {
+    "name": "hwEponOnuPopExtVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pop": 1,
+          "notPop": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuVlanCopyPri": {
+    "name": "hwEponOnuVlanCopyPri",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copy": 1,
+          "notCopy": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuIntVlanRemarkPri": {
+    "name": "hwEponOnuIntVlanRemarkPri",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "remark": 1,
+          "notRemark": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuExtVlanRemarkPri": {
+    "name": "hwEponOnuExtVlanRemarkPri",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "remark": 1,
+          "notRemark": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuIntVlanPri": {
+    "name": "hwEponOnuIntVlanPri",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuExtVlanPri": {
+    "name": "hwEponOnuExtVlanPri",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponVlanMappingBatch": {
+    "name": "hwEponVlanMappingBatch",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponVlanMappingOnuStartId": {
+    "name": "hwEponVlanMappingOnuStartId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponVlanMappingOnuEndId": {
+    "name": "hwEponVlanMappingOnuEndId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponVlanMappingRowStatus": {
+    "name": "hwEponVlanMappingRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOltPortStaticMacTable": {
+    "name": "hwEponOltPortStaticMacTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOltPortStaticMacEntry": {
+    "name": "hwEponOltPortStaticMacEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUserMacAddressOrder",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuUserMacAddressOrder": {
+    "name": "hwEponOnuUserMacAddressOrder",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuUserMacAddress": {
+    "name": "hwEponOnuUserMacAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOltPortStaticMacRowStatus": {
+    "name": "hwEponOltPortStaticMacRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.14.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOltPortMacLimitTable": {
+    "name": "hwEponOltPortMacLimitTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOltPortMacLimitEntry": {
+    "name": "hwEponOltPortMacLimitEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuUserMacAddressNumber": {
+    "name": "hwEponOnuUserMacAddressNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4094,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuForwardAction": {
+    "name": "hwEponOnuForwardAction",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forward": 1,
+          "discard": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuAlarmAction": {
+    "name": "hwEponOnuAlarmAction",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "warning": 1,
+          "notWarning": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuMacLimitRowStatus": {
+    "name": "hwEponOnuMacLimitRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.15.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponProfileObjects": {
+    "name": "hwEponProfileObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3",
+    "class": "objectidentity"
+  },
+  "hwEponLineProfileInfoTable": {
+    "name": "hwEponLineProfileInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponLineProfileInfoEntry": {
+    "name": "hwEponLineProfileInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponLineProfileNameIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponLineProfileNameIndex": {
+    "name": "hwEponLineProfileNameIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponLineProfileBindNum": {
+    "name": "hwEponLineProfileBindNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponLineProfileDbaProfileName": {
+    "name": "hwEponLineProfileDbaProfileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponLineProfileEncryptMode": {
+    "name": "hwEponLineProfileEncryptMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aes": 1,
+          "tripleChurining": 2,
+          "off": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponLineProfileQueueSetIndex1Threshold": {
+    "name": "hwEponLineProfileQueueSetIndex1Threshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponLineProfileQueueSetIndex2Threshold": {
+    "name": "hwEponLineProfileQueueSetIndex2Threshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponLineProfileQueueSetIndex3Threshold": {
+    "name": "hwEponLineProfileQueueSetIndex3Threshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponLineProfileRowStatus": {
+    "name": "hwEponLineProfileRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuSrvProfileInfoTable": {
+    "name": "hwEponOnuSrvProfileInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuSrvProfileInfoEntry": {
+    "name": "hwEponOnuSrvProfileInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSrvProfNameIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuSrvProfNameIndex": {
+    "name": "hwEponOnuSrvProfNameIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuSrvProfileBindNum": {
+    "name": "hwEponOnuSrvProfileBindNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuSrvProfileRowStatus": {
+    "name": "hwEponOnuSrvProfileRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponSrvProfileOnuCfgTable": {
+    "name": "hwEponSrvProfileOnuCfgTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponSrvProfileOnuCfgEntry": {
+    "name": "hwEponSrvProfileOnuCfgEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSrvProfNameIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponSrvProfileFecMode": {
+    "name": "hwEponSrvProfileFecMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponSrvProfileMulticastMode": {
+    "name": "hwEponSrvProfileMulticastMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ctc": 1,
+          "igmpsnooping": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponSrvProfileMulticastQuickLeaveSwitch": {
+    "name": "hwEponSrvProfileMulticastQuickLeaveSwitch",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortCfgTable": {
+    "name": "hwEponSrvProfOnuPortCfgTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortCfgEntry": {
+    "name": "hwEponSrvProfOnuPortCfgEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSrvProfNameIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortIdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuPortTypeIndex": {
+    "name": "hwEponOnuPortTypeIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eth1": 1,
+          "eth2": 2,
+          "eth3": 3,
+          "eth4": 48
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuPortIdIndex": {
+    "name": "hwEponOnuPortIdIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortCfgMaxMacAddressNum": {
+    "name": "hwEponSrvProfOnuPortCfgMaxMacAddressNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortCfgMulticastStripSwitch": {
+    "name": "hwEponSrvProfOnuPortCfgMulticastStripSwitch",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "strip": 1,
+          "notStrip": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponSrvProfMulticastVlanCfgTable": {
+    "name": "hwEponSrvProfMulticastVlanCfgTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponSrvProfMulticastVlanCfgEntry": {
+    "name": "hwEponSrvProfMulticastVlanCfgEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSrvProfNameIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfMulticastVlanCfgMulticastVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponSrvProfMulticastVlanCfgMulticastVlan": {
+    "name": "hwEponSrvProfMulticastVlanCfgMulticastVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponSrvProfMulticastVlanCfgRowStatus": {
+    "name": "hwEponSrvProfMulticastVlanCfgRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.5.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortVlanCfgTable": {
+    "name": "hwEponSrvProfOnuPortVlanCfgTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortVlanCfgEntry": {
+    "name": "hwEponSrvProfOnuPortVlanCfgEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSrvProfNameIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuPortType": {
+    "name": "hwEponOnuPortType",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eth": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuPortId": {
+    "name": "hwEponOnuPortId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortVlanMode": {
+    "name": "hwEponSrvProfOnuPortVlanMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transparent": 1,
+          "translation": 2,
+          "transmit": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortAddToVlanId": {
+    "name": "hwEponSrvProfOnuPortAddToVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortDefaultVlanId": {
+    "name": "hwEponSrvProfOnuPortDefaultVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortVlanRowStatus": {
+    "name": "hwEponSrvProfOnuPortVlanRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.6.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortVlanTranslationTable": {
+    "name": "hwEponSrvProfOnuPortVlanTranslationTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortVlanTranslationEntry": {
+    "name": "hwEponSrvProfOnuPortVlanTranslationEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSrvProfNameIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortVlanTranslationCvlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortVlanTranslationCvlanId": {
+    "name": "hwEponSrvProfOnuPortVlanTranslationCvlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortVlanTranslationSVlanId": {
+    "name": "hwEponSrvProfOnuPortVlanTranslationSVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortVlanTranslationRowStatus": {
+    "name": "hwEponSrvProfOnuPortVlanTranslationRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.7.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponDbaProfileInfoTable": {
+    "name": "hwEponDbaProfileInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponDbaProfileInfoEntry": {
+    "name": "hwEponDbaProfileInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponDbaProfileInfoNameIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponDbaProfileInfoNameIndex": {
+    "name": "hwEponDbaProfileInfoNameIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponDbaTypeIndex": {
+    "name": "hwEponDbaTypeIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fix": 1,
+          "assure": 2,
+          "assureAndmax": 3,
+          "max": 4,
+          "fixAndassureAndMax": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponDbaProfileFixedRate": {
+    "name": "hwEponDbaProfileFixedRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponDbaProfileAssuredRate": {
+    "name": "hwEponDbaProfileAssuredRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponDbaProfileMaxRate": {
+    "name": "hwEponDbaProfileMaxRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponDbaProfileReferenceNum": {
+    "name": "hwEponDbaProfileReferenceNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponDbaProfileEntryStatus": {
+    "name": "hwEponDbaProfileEntryStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.8.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuSnmpProfileInfoTable": {
+    "name": "hwEponOnuSnmpProfileInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuSnmpProfileInfoEntry": {
+    "name": "hwEponOnuSnmpProfileInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSnmpProfileInfoNameIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuSnmpProfileInfoNameIndex": {
+    "name": "hwEponOnuSnmpProfileInfoNameIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuSnmpProfileVersion": {
+    "name": "hwEponOnuSnmpProfileVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 1,
+          "v2": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuSnmpProfileReadCommunityName": {
+    "name": "hwEponOnuSnmpProfileReadCommunityName",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuSnmpProfileWriteCommunityName": {
+    "name": "hwEponOnuSnmpProfileWriteCommunityName",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuSnmpProfileTrapHostIp": {
+    "name": "hwEponOnuSnmpProfileTrapHostIp",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuSnmpProfileTrapHostSrcUdpPort": {
+    "name": "hwEponOnuSnmpProfileTrapHostSrcUdpPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuSnmpProfileSecurityName": {
+    "name": "hwEponOnuSnmpProfileSecurityName",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuSnmpProfileRowStatus": {
+    "name": "hwEponOnuSnmpProfileRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.9.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortClassTable": {
+    "name": "hwEponSrvProfOnuPortClassTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortClassEntry": {
+    "name": "hwEponSrvProfOnuPortClassEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSrvProfNameIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuClassifEthPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassRuleIndexId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuClassifEthPortIndex": {
+    "name": "hwEponOnuClassifEthPortIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuPortClassRuleIndexId": {
+    "name": "hwEponOnuPortClassRuleIndexId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuPortClassConditionNum": {
+    "name": "hwEponOnuPortClassConditionNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "one": 1,
+          "two": 2,
+          "three": 3,
+          "four": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuPortClassQueueIndexId": {
+    "name": "hwEponOnuPortClassQueueIndexId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuPortClassPriMark": {
+    "name": "hwEponOnuPortClassPriMark",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuPortClassFieldSelect1": {
+    "name": "hwEponOnuPortClassFieldSelect1",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dstMac": 1,
+          "srcMac": 2,
+          "ethPri": 3,
+          "vlanId": 4,
+          "ethType": 5,
+          "dstIp": 6,
+          "srcIp": 7,
+          "ipType": 8,
+          "ipTosDscp": 9,
+          "ipPrecedence": 10,
+          "srcPort": 11,
+          "dstPort": 12
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuPortClassOperator1": {
+    "name": "hwEponOnuPortClassOperator1",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "neverMatch": 1,
+          "equal": 2,
+          "notEqual": 3,
+          "lessOrEqual": 4,
+          "greaterOrEqual": 5,
+          "exists": 6,
+          "notExists": 7,
+          "alwaysMatch": 8
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuPortClassMatchValue1": {
+    "name": "hwEponOnuPortClassMatchValue1",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuPortClassFieldSelect2": {
+    "name": "hwEponOnuPortClassFieldSelect2",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dstMac": 1,
+          "srcMac": 2,
+          "ethPri": 3,
+          "vlanId": 4,
+          "ethType": 5,
+          "dstIp": 6,
+          "srcIp": 7,
+          "ipType": 8,
+          "ipTosDscp": 9,
+          "ipPrecedence": 10,
+          "srcPort": 11,
+          "dstPort": 12
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuPortClassOperator2": {
+    "name": "hwEponOnuPortClassOperator2",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "neverMatch": 1,
+          "equal": 2,
+          "notEqual": 3,
+          "lessOrEqual": 4,
+          "greaterOrEqual": 5,
+          "exists": 6,
+          "notExists": 7,
+          "alwaysMatch": 8
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuPortClassMatchValue2": {
+    "name": "hwEponOnuPortClassMatchValue2",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuPortClassFieldSelect3": {
+    "name": "hwEponOnuPortClassFieldSelect3",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dstMac": 1,
+          "srcMac": 2,
+          "ethPri": 3,
+          "vlanId": 4,
+          "ethType": 5,
+          "dstIp": 6,
+          "srcIp": 7,
+          "ipType": 8,
+          "ipTosDscp": 9,
+          "ipPrecedence": 10,
+          "srcPort": 11,
+          "dstPort": 12
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuPortClassOperator3": {
+    "name": "hwEponOnuPortClassOperator3",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "neverMatch": 1,
+          "equal": 2,
+          "notEqual": 3,
+          "lessOrEqual": 4,
+          "greaterOrEqual": 5,
+          "exists": 6,
+          "notExists": 7,
+          "alwaysMatch": 8
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuPortClassMatchValue3": {
+    "name": "hwEponOnuPortClassMatchValue3",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuPortClassFieldSelect4": {
+    "name": "hwEponOnuPortClassFieldSelect4",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dstMac": 1,
+          "srcMac": 2,
+          "ethPri": 3,
+          "vlanId": 4,
+          "ethType": 5,
+          "dstIp": 6,
+          "srcIp": 7,
+          "ipType": 8,
+          "ipTosDscp": 9,
+          "ipPrecedence": 10,
+          "srcPort": 11,
+          "dstPort": 12
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuPortClassOperator4": {
+    "name": "hwEponOnuPortClassOperator4",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "neverMatch": 1,
+          "equal": 2,
+          "notEqual": 3,
+          "lessOrEqual": 4,
+          "greaterOrEqual": 5,
+          "exists": 6,
+          "notExists": 7,
+          "alwaysMatch": 8
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuPortClassMatchValue4": {
+    "name": "hwEponOnuPortClassMatchValue4",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponOnuPortClassProfileRowStatus": {
+    "name": "hwEponOnuPortClassProfileRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortCfgCarTable": {
+    "name": "hwEponSrvProfOnuPortCfgCarTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortCfgCarEntry": {
+    "name": "hwEponSrvProfOnuPortCfgCarEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSrvProfNameIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortCarCfgDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortCarCfgDirection": {
+    "name": "hwEponSrvProfOnuPortCarCfgDirection",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortCarCfgCir": {
+    "name": "hwEponSrvProfOnuPortCarCfgCir",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 640,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortCarCfgPir": {
+    "name": "hwEponSrvProfOnuPortCarCfgPir",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortCarCfgCbs": {
+    "name": "hwEponSrvProfOnuPortCarCfgCbs",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1568,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortCarCfgEbs": {
+    "name": "hwEponSrvProfOnuPortCarCfgEbs",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortCarCfgRowStatus": {
+    "name": "hwEponSrvProfOnuPortCarCfgRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.11.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEponStatisticObjects": {
+    "name": "hwEponStatisticObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4",
+    "class": "objectidentity"
+  },
+  "hwEponOltStatisticTable": {
+    "name": "hwEponOltStatisticTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOltStatisticEntry": {
+    "name": "hwEponOltStatisticEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOltStatisticRecvDataFrames": {
+    "name": "hwEponOltStatisticRecvDataFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticRecvDataBytes": {
+    "name": "hwEponOltStatisticRecvDataBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticRecvMulticastFrames": {
+    "name": "hwEponOltStatisticRecvMulticastFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticRecvBoardcastFrames": {
+    "name": "hwEponOltStatisticRecvBoardcastFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticRecvErrorFrames": {
+    "name": "hwEponOltStatisticRecvErrorFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticRecvErrorBytes": {
+    "name": "hwEponOltStatisticRecvErrorBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticRecv64ByteFrames": {
+    "name": "hwEponOltStatisticRecv64ByteFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticRecv65To127ByteFrames": {
+    "name": "hwEponOltStatisticRecv65To127ByteFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticRecv128To255ByteFrames": {
+    "name": "hwEponOltStatisticRecv128To255ByteFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticRecv256To511ByteFrames": {
+    "name": "hwEponOltStatisticRecv256To511ByteFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticRecv512To1023ByteFrames": {
+    "name": "hwEponOltStatisticRecv512To1023ByteFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticRecv1024To1518ByteFrames": {
+    "name": "hwEponOltStatisticRecv1024To1518ByteFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticRecvOver1518ByteFrames": {
+    "name": "hwEponOltStatisticRecvOver1518ByteFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticRecvUndersizeFrames": {
+    "name": "hwEponOltStatisticRecvUndersizeFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticRecvOversizeFrames": {
+    "name": "hwEponOltStatisticRecvOversizeFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticRecvFcsErrorFrames": {
+    "name": "hwEponOltStatisticRecvFcsErrorFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticUniCastFrames": {
+    "name": "hwEponOltStatisticUniCastFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticRecvOkFrameCnt": {
+    "name": "hwEponOltStatisticRecvOkFrameCnt",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticRecvOkByteCnt": {
+    "name": "hwEponOltStatisticRecvOkByteCnt",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticTransDataFrames": {
+    "name": "hwEponOltStatisticTransDataFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticTransDataBytes": {
+    "name": "hwEponOltStatisticTransDataBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticTransUnicastFrames": {
+    "name": "hwEponOltStatisticTransUnicastFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticTransMulticastFrames": {
+    "name": "hwEponOltStatisticTransMulticastFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticTransBoardcastFrames": {
+    "name": "hwEponOltStatisticTransBoardcastFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticTrans64ByteFrames": {
+    "name": "hwEponOltStatisticTrans64ByteFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticTrans65To127ByteFrames": {
+    "name": "hwEponOltStatisticTrans65To127ByteFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticTrans128To255ByteFrames": {
+    "name": "hwEponOltStatisticTrans128To255ByteFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticTrans256To511ByteFrames": {
+    "name": "hwEponOltStatisticTrans256To511ByteFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticTrans512To1023ByteFrames": {
+    "name": "hwEponOltStatisticTrans512To1023ByteFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticTrans1024To1518ByteFrames": {
+    "name": "hwEponOltStatisticTrans1024To1518ByteFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticTransOver1518ByteFrames": {
+    "name": "hwEponOltStatisticTransOver1518ByteFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticTransFcsErrorFrames": {
+    "name": "hwEponOltStatisticTransFcsErrorFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltStatisticClear": {
+    "name": "hwEponOltStatisticClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticTable": {
+    "name": "hwEponOnuPonStatisticTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticEntry": {
+    "name": "hwEponOnuPonStatisticEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcv1024To1518byteFrm": {
+    "name": "hwEponOnuPonStatisticRcv1024To1518byteFrm",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcv128To255byteFrm": {
+    "name": "hwEponOnuPonStatisticRcv128To255byteFrm",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcv256To511byteFrm": {
+    "name": "hwEponOnuPonStatisticRcv256To511byteFrm",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcv512To1023byteFrm": {
+    "name": "hwEponOnuPonStatisticRcv512To1023byteFrm",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcv64byteFrm": {
+    "name": "hwEponOnuPonStatisticRcv64byteFrm",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcv65To127byteFrm": {
+    "name": "hwEponOnuPonStatisticRcv65To127byteFrm",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcvBcFrame": {
+    "name": "hwEponOnuPonStatisticRcvBcFrame",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcvByte": {
+    "name": "hwEponOnuPonStatisticRcvByte",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcvCrc8Err": {
+    "name": "hwEponOnuPonStatisticRcvCrc8Err",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcvDelayByte": {
+    "name": "hwEponOnuPonStatisticRcvDelayByte",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcvDelayMax": {
+    "name": "hwEponOnuPonStatisticRcvDelayMax",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcvDelayThreshold": {
+    "name": "hwEponOnuPonStatisticRcvDelayThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcvDropByte": {
+    "name": "hwEponOnuPonStatisticRcvDropByte",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcvDropFrm": {
+    "name": "hwEponOnuPonStatisticRcvDropFrm",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcvErrFrm": {
+    "name": "hwEponOnuPonStatisticRcvErrFrm",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcvErrOntDestinedByte": {
+    "name": "hwEponOnuPonStatisticRcvErrOntDestinedByte",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcvFcsErr": {
+    "name": "hwEponOnuPonStatisticRcvFcsErr",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcvFrame": {
+    "name": "hwEponOnuPonStatisticRcvFrame",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcvGreatThan1518byteFrm": {
+    "name": "hwEponOnuPonStatisticRcvGreatThan1518byteFrm",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcvInvalidSldFrm": {
+    "name": "hwEponOnuPonStatisticRcvInvalidSldFrm",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcvLaserPower": {
+    "name": "hwEponOnuPonStatisticRcvLaserPower",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcvLineCodeErr": {
+    "name": "hwEponOnuPonStatisticRcvLineCodeErr",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcvMcFrame": {
+    "name": "hwEponOnuPonStatisticRcvMcFrame",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcvOntDestinedByte": {
+    "name": "hwEponOnuPonStatisticRcvOntDestinedByte",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcvUcFrame": {
+    "name": "hwEponOnuPonStatisticRcvUcFrame",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcvUndersizeFrm": {
+    "name": "hwEponOnuPonStatisticRcvUndersizeFrm",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticSend1024To1518byteFrm": {
+    "name": "hwEponOnuPonStatisticSend1024To1518byteFrm",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticSend128To255byteFrm": {
+    "name": "hwEponOnuPonStatisticSend128To255byteFrm",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticSend256To511byteFrm": {
+    "name": "hwEponOnuPonStatisticSend256To511byteFrm",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticSend512To1023byteFrm": {
+    "name": "hwEponOnuPonStatisticSend512To1023byteFrm",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticSend64byteFrm": {
+    "name": "hwEponOnuPonStatisticSend64byteFrm",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticSend65To127byteFrm": {
+    "name": "hwEponOnuPonStatisticSend65To127byteFrm",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticSendBcFrame": {
+    "name": "hwEponOnuPonStatisticSendBcFrame",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticSendByte": {
+    "name": "hwEponOnuPonStatisticSendByte",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticSendDelayByte": {
+    "name": "hwEponOnuPonStatisticSendDelayByte",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticSendDelayMax": {
+    "name": "hwEponOnuPonStatisticSendDelayMax",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticSendDelayThreshold": {
+    "name": "hwEponOnuPonStatisticSendDelayThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticSendDropByte": {
+    "name": "hwEponOnuPonStatisticSendDropByte",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticSendDropFrm": {
+    "name": "hwEponOnuPonStatisticSendDropFrm",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticSendFrame": {
+    "name": "hwEponOnuPonStatisticSendFrame",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticSendGreatThan1518byteFrm": {
+    "name": "hwEponOnuPonStatisticSendGreatThan1518byteFrm",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticSendMcFrame": {
+    "name": "hwEponOnuPonStatisticSendMcFrame",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticSendUcFrame": {
+    "name": "hwEponOnuPonStatisticSendUcFrame",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticSendUnusedByte": {
+    "name": "hwEponOnuPonStatisticSendUnusedByte",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticClear": {
+    "name": "hwEponOnuPonStatisticClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponOnuUniStatisticTable": {
+    "name": "hwEponOnuUniStatisticTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuUniStatisticEntry": {
+    "name": "hwEponOnuUniStatisticEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuEthPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuUniStatisticRecvFrames": {
+    "name": "hwEponOnuUniStatisticRecvFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuUniStatisticRecvMulticastFrames": {
+    "name": "hwEponOnuUniStatisticRecvMulticastFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuUniStatisticRecvBroadcastFrames": {
+    "name": "hwEponOnuUniStatisticRecvBroadcastFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuUniStatisticRecv64OctetFrames": {
+    "name": "hwEponOnuUniStatisticRecv64OctetFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuUniStatisticRecv65To127OctetFrames": {
+    "name": "hwEponOnuUniStatisticRecv65To127OctetFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuUniStatisticRecv128To255OctetFrames": {
+    "name": "hwEponOnuUniStatisticRecv128To255OctetFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuUniStatisticRecv256To511OctetFrames": {
+    "name": "hwEponOnuUniStatisticRecv256To511OctetFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuUniStatisticRecv512To1023OctetFrames": {
+    "name": "hwEponOnuUniStatisticRecv512To1023OctetFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuUniStatisticRecv1024To1518OctetFrames": {
+    "name": "hwEponOnuUniStatisticRecv1024To1518OctetFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuUniStatisticRecvUndersizeFrames": {
+    "name": "hwEponOnuUniStatisticRecvUndersizeFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuUniStatisticRecvTooLongFrames": {
+    "name": "hwEponOnuUniStatisticRecvTooLongFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuUniStatisticTransDropFrames": {
+    "name": "hwEponOnuUniStatisticTransDropFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuUniStatisticTransFrames": {
+    "name": "hwEponOnuUniStatisticTransFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuUniStatisticTransMtuExceededDiscardFrames": {
+    "name": "hwEponOnuUniStatisticTransMtuExceededDiscardFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuUniStatisticClear": {
+    "name": "hwEponOnuUniStatisticClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponDisplayAlarmObjects": {
+    "name": "hwEponDisplayAlarmObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5",
+    "class": "objectidentity"
+  },
+  "hwEponOnuAlarmStateTable": {
+    "name": "hwEponOnuAlarmStateTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuAlarmStateEntry": {
+    "name": "hwEponOnuAlarmStateEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuAlarmStateKeyExchangeFail": {
+    "name": "hwEponOnuAlarmStateKeyExchangeFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuAlarmStateDyingGasp": {
+    "name": "hwEponOnuAlarmStateDyingGasp",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuAlarmStateLinkFault": {
+    "name": "hwEponOnuAlarmStateLinkFault",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuFirmWareLoadStateSucc": {
+    "name": "hwEponOnuFirmWareLoadStateSucc",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEponOnuFirmWareLoadStateFault": {
+    "name": "hwEponOnuFirmWareLoadStateFault",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuUniAlarmStateTable": {
+    "name": "hwEponOnuUniAlarmStateTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOnuUniAlarmStateEntry": {
+    "name": "hwEponOnuUniAlarmStateEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuUniAlarmStateTransmitFail": {
+    "name": "hwEponOnuUniAlarmStateTransmitFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOnuUniAlarmStateLos": {
+    "name": "hwEponOnuUniAlarmStateLos",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponOltAlarmStateTable": {
+    "name": "hwEponOltAlarmStateTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEponOltAlarmStateEntry": {
+    "name": "hwEponOltAlarmStateEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOltAlarmStateDegrade": {
+    "name": "hwEponOltAlarmStateDegrade",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEponTrapObjects": {
+    "name": "hwEponTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.6",
+    "class": "objectidentity"
+  },
+  "hwEponSlotIndex": {
+    "name": "hwEponSlotIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEponCardIndex": {
+    "name": "hwEponCardIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEponPortIndex": {
+    "name": "hwEponPortIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEponTrapOnuId": {
+    "name": "hwEponTrapOnuId",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEponTrapMac": {
+    "name": "hwEponTrapMac",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEponTrapPwd": {
+    "name": "hwEponTrapPwd",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEponTrap": {
+    "name": "hwEponTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.7",
+    "class": "objectidentity"
+  },
+  "hwEponOltAlarmLosTrap": {
+    "name": "hwEponOltAlarmLosTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.7.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSlotIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponCardIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponPortIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOltAlarmLosResumeTrap": {
+    "name": "hwEponOltAlarmLosResumeTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.7.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSlotIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponCardIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponPortIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOltAutoFindTrap": {
+    "name": "hwEponOltAutoFindTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.7.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSlotIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponCardIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponPortIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapMac"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapPwd"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOltAlarmTransmitFaultTrap": {
+    "name": "hwEponOltAlarmTransmitFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.7.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSlotIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponCardIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponPortIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuAlarmPwdConlictTrap": {
+    "name": "hwEponOnuAlarmPwdConlictTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.7.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSlotIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponCardIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponPortIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapOnuId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuOnlineTrap": {
+    "name": "hwEponOnuOnlineTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.7.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSlotIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponCardIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponPortIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapOnuId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapMac"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapPwd"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponOnuOfflineTrap": {
+    "name": "hwEponOnuOfflineTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.7.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSlotIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponCardIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponPortIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapOnuId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapMac"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapPwd"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponConformance": {
+    "name": "hwEponConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.8",
+    "class": "objectidentity"
+  },
+  "hwEponCompliances": {
+    "name": "hwEponCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.8.1",
+    "class": "objectidentity"
+  },
+  "hwEponCompliance": {
+    "name": "hwEponCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.8.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwEponGlobalGroup",
+        "module": "HUAWEI-EPON-MIB"
+      },
+      {
+        "object": "hwEponControlGroup",
+        "module": "HUAWEI-EPON-MIB"
+      },
+      {
+        "object": "hwEponProfileGroup",
+        "module": "HUAWEI-EPON-MIB"
+      },
+      {
+        "object": "hwEponStatisticGroup",
+        "module": "HUAWEI-EPON-MIB"
+      },
+      {
+        "object": "hwEponDisplayAlarmObjectsGroup",
+        "module": "HUAWEI-EPON-MIB"
+      },
+      {
+        "object": "hwEponTrapObjectsGroup",
+        "module": "HUAWEI-EPON-MIB"
+      },
+      {
+        "object": "hwEponTrapGroup",
+        "module": "HUAWEI-EPON-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponGroups": {
+    "name": "hwEponGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.8.2",
+    "class": "objectidentity"
+  },
+  "hwEponGlobalGroup": {
+    "name": "hwEponGlobalGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.8.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponAutoFindOnuAge"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponCtcOuiId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponChangePasswordAge"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponControlGroup": {
+    "name": "hwEponControlGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.8.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltControlfarthest"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltControlAutofindOnuEnable"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltControlStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltControlUpStreamBandWidth"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltControlDownStreamBandWidth"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuAuthMode"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuMacAddress"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPassword"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuTimeout"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuManagementMode"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuLineProfName"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuServiceProfName"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuActiveStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuDescription"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuVendorId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuModel"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuOnuIdentifier"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuHardwareVersion"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSoftwareVersion"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuChipVenderId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuChipModel"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuChipVersion"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuChipDesignDate"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuFirmwareVersion"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuReset"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuReRegister"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuReDiscovery"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuRunStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuDistance"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuRtt"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuLastUpTime"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuLastDownTime"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuLastDownCause"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponAutoFindOnuInfoMacAddress"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponAutoFindOnuInfoPasswordValue"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPotsPortNum"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuFePortsNum"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuGePortsNum"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuTdmPortsNum"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuFecSupport"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSupportBackupBattery"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUpQueueNum"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUpQueueNumPerPort"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuDownQueueNum"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuDownQueueNumPerPort"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuFePortList"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuGePortList"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSupportMulticastQuickLeave"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIpAddress"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuNetMask"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuNetGateway"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuEthOperateStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuEthFlowcontrolSwitch"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuTdmPortOperateStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPotsPortOperateStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltPortDefaultVlanId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltPortDefaultVlanBatch"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltPortDefaultVlanOnuStartId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltPortDefaultVlanOnuEndId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuCarProfileNameIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuTrafficPolicyNameIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponVlanStackingOrMapping"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuDextVlanId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuDintVlanId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPopExtVlanId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuVlanCopyPri"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIntVlanRemarkPri"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuExtVlanRemarkPri"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIntVlanPri"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuExtVlanPri"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponVlanMappingBatch"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponVlanMappingOnuStartId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponVlanMappingOnuEndId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUserMacAddress"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUserMacAddressNumber"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuForwardAction"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuAlarmAction"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuCfgCarRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltPortDefaultVlanRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponVlanMappingRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIpRowStates"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltPortStaticMacRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuMacLimitRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIpManageVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponProfileGroup": {
+    "name": "hwEponProfileGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.8.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponLineProfileBindNum"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponLineProfileDbaProfileName"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponLineProfileEncryptMode"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponLineProfileQueueSetIndex1Threshold"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponLineProfileQueueSetIndex2Threshold"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponLineProfileQueueSetIndex3Threshold"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSrvProfileBindNum"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfileMulticastMode"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfileFecMode"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfileMulticastQuickLeaveSwitch"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortCfgMaxMacAddressNum"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortCfgMulticastStripSwitch"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponDbaProfileFixedRate"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponDbaProfileAssuredRate"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponDbaProfileMaxRate"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponDbaProfileReferenceNum"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponDbaProfileEntryStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSnmpProfileVersion"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSnmpProfileReadCommunityName"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSnmpProfileWriteCommunityName"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSnmpProfileTrapHostIp"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSnmpProfileTrapHostSrcUdpPort"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSnmpProfileSecurityName"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassPriMark"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassConditionNum"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassFieldSelect1"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassOperator1"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassMatchValue1"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassFieldSelect2"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassOperator2"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassMatchValue2"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortCarCfgCir"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassFieldSelect3"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassOperator3"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassMatchValue3"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortCarCfgPir"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortCarCfgCbs"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortCarCfgEbs"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassQueueIndexId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponLineProfileRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSrvProfileRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSnmpProfileRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortCarCfgRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassProfileRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfMulticastVlanCfgRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSnmpProfName"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponDbaTypeIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassFieldSelect4"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassOperator4"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassMatchValue4"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortVlanMode"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortVlanTranslationRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortDefaultVlanId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortVlanRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortVlanTranslationSVlanId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortAddToVlanId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponStatisticGroup": {
+    "name": "hwEponStatisticGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.8.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvDataFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvDataBytes"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvMulticastFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvBoardcastFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvErrorFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvErrorBytes"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecv64ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecv65To127ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecv128To255ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecv256To511ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecv512To1023ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecv1024To1518ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvOver1518ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvUndersizeFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvOversizeFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvFcsErrorFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticUniCastFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvOkFrameCnt"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvOkByteCnt"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTransDataFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTransDataBytes"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTransUnicastFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTransMulticastFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTransBoardcastFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTrans64ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTrans65To127ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTrans128To255ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTrans256To511ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTrans512To1023ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTrans1024To1518ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTransOver1518ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTransFcsErrorFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticClear"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcv1024To1518byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcv128To255byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcv256To511byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcv512To1023byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcv64byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcv65To127byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvBcFrame"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvByte"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvCrc8Err"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvDelayByte"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvDelayMax"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvDelayThreshold"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvDropByte"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvDropFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvErrFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvErrOntDestinedByte"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvFcsErr"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvFrame"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvGreatThan1518byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvInvalidSldFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvLaserPower"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvLineCodeErr"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvMcFrame"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvOntDestinedByte"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvUcFrame"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvUndersizeFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSend1024To1518byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSend128To255byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSend256To511byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSend512To1023byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSend64byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSend65To127byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendBcFrame"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendByte"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendDelayByte"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendDelayMax"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendDelayThreshold"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendDropByte"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendDropFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendFrame"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendGreatThan1518byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendMcFrame"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendUcFrame"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendUnusedByte"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticClear"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticRecvFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticRecvMulticastFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticRecvBroadcastFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticRecv64OctetFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticRecv65To127OctetFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticRecv128To255OctetFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticRecv256To511OctetFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticRecv512To1023OctetFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticRecv1024To1518OctetFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticRecvUndersizeFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticRecvTooLongFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticTransDropFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticTransFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticTransMtuExceededDiscardFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticClear"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponDisplayAlarmObjectsGroup": {
+    "name": "hwEponDisplayAlarmObjectsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.8.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuAlarmStateKeyExchangeFail"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuAlarmStateDyingGasp"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuAlarmStateLinkFault"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuFirmWareLoadStateSucc"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuFirmWareLoadStateFault"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltAlarmStateDegrade"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniAlarmStateTransmitFail"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniAlarmStateLos"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponTrapObjectsGroup": {
+    "name": "hwEponTrapObjectsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.8.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSlotIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponCardIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponPortIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapOnuId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapMac"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapPwd"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEponTrapGroup": {
+    "name": "hwEponTrapGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.8.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltAlarmLosTrap"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltAlarmLosResumeTrap"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltAutoFindTrap"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltAlarmTransmitFaultTrap"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuAlarmPwdConlictTrap"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuOnlineTrap"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuOfflineTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-EPON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-EPON-MIB"
+  }
+}

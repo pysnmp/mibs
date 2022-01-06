@@ -1,0 +1,7695 @@
+{
+  "imports": {
+    "class": "imports",
+    "AUDIOCODES-TYPES-MIB": [
+      "audioCodes",
+      "acGeneric",
+      "acPerformance",
+      "acRegistrations",
+      "acProducts",
+      "acBoardMibs"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TAddress"
+    ]
+  },
+  "acPMMedia": {
+    "name": "acPMMedia",
+    "oid": "1.3.6.1.4.1.5003.10.7",
+    "class": "moduleidentity"
+  },
+  "acPMMediaConfiguration": {
+    "name": "acPMMediaConfiguration",
+    "oid": "1.3.6.1.4.1.5003.10.7.1",
+    "class": "objectidentity"
+  },
+  "acPMMediaConfigurationPeriodLength": {
+    "name": "acPMMediaConfigurationPeriodLength",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 894780
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaConfigurationResetTotalCounters": {
+    "name": "acPMMediaConfigurationResetTotalCounters",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "resetCountersDone": 1,
+          "resetTotalCounters": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMDSPAttributes": {
+    "name": "acPMDSPAttributes",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.31",
+    "class": "objectidentity"
+  },
+  "acPMDSPAttributesDSPUtilHighThreshold": {
+    "name": "acPMDSPAttributesDSPUtilHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.31.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMDSPAttributesDSPUtilLowThreshold": {
+    "name": "acPMDSPAttributesDSPUtilLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.31.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMCodersAttributes": {
+    "name": "acPMCodersAttributes",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.32",
+    "class": "objectidentity"
+  },
+  "acPMCodersAttributesChannelsPerCoderHighThreshold": {
+    "name": "acPMCodersAttributesChannelsPerCoderHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.32.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMCodersAttributesChannelsPerCoderLowThreshold": {
+    "name": "acPMCodersAttributesChannelsPerCoderLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.32.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMNetworkingAttributes": {
+    "name": "acPMNetworkingAttributes",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33",
+    "class": "objectidentity"
+  },
+  "acPMNetworkingAttributesPacketDelayHighThreshold": {
+    "name": "acPMNetworkingAttributesPacketDelayHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMNetworkingAttributesPacketDelayLowThreshold": {
+    "name": "acPMNetworkingAttributesPacketDelayLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMNetworkingAttributesPacketJitterHighThreshold": {
+    "name": "acPMNetworkingAttributesPacketJitterHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMNetworkingAttributesPacketJitterLowThreshold": {
+    "name": "acPMNetworkingAttributesPacketJitterLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMNetworkingAttributesRTPBytesTxHighThreshold": {
+    "name": "acPMNetworkingAttributesRTPBytesTxHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMNetworkingAttributesRTPBytesTxLowThreshold": {
+    "name": "acPMNetworkingAttributesRTPBytesTxLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMNetworkingAttributesRTPBytesRxHighThreshold": {
+    "name": "acPMNetworkingAttributesRTPBytesRxHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMNetworkingAttributesRTPBytesRxLowThreshold": {
+    "name": "acPMNetworkingAttributesRTPBytesRxLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMNetworkingAttributesRTPPacketsTxHighThreshold": {
+    "name": "acPMNetworkingAttributesRTPPacketsTxHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMNetworkingAttributesRTPPacketsTxLowThreshold": {
+    "name": "acPMNetworkingAttributesRTPPacketsTxLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMNetworkingAttributesRTPPacketsRxHighThreshold": {
+    "name": "acPMNetworkingAttributesRTPPacketsRxHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMNetworkingAttributesRTPPacketsRxLowThreshold": {
+    "name": "acPMNetworkingAttributesRTPPacketsRxLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMNetworkingAttributesRTPPacketLossRxHighThreshold": {
+    "name": "acPMNetworkingAttributesRTPPacketLossRxHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMNetworkingAttributesRTPPacketLossRxLowThreshold": {
+    "name": "acPMNetworkingAttributesRTPPacketLossRxLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMNetworkingAttributesRTPPacketLossTxHighThreshold": {
+    "name": "acPMNetworkingAttributesRTPPacketLossTxHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMNetworkingAttributesRTPPacketLossTxLowThreshold": {
+    "name": "acPMNetworkingAttributesRTPPacketLossTxLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMNetworkingAttributesModuleRTPPacketLossRxHighThreshold": {
+    "name": "acPMNetworkingAttributesModuleRTPPacketLossRxHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMNetworkingAttributesModuleRTPPacketLossRxLowThreshold": {
+    "name": "acPMNetworkingAttributesModuleRTPPacketLossRxLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMNetworkingAttributesModuleRTPPacketLossTxHighThreshold": {
+    "name": "acPMNetworkingAttributesModuleRTPPacketLossTxHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMNetworkingAttributesModuleRTPPacketLossTxLowThreshold": {
+    "name": "acPMNetworkingAttributesModuleRTPPacketLossTxLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaNetworkingAggregatedAttributes": {
+    "name": "acPMMediaNetworkingAggregatedAttributes",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.21",
+    "class": "objectidentity"
+  },
+  "acPMMediaNetworkingAggregatedAttributesPacketDelayHighThreshold": {
+    "name": "acPMMediaNetworkingAggregatedAttributesPacketDelayHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.21.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaNetworkingAggregatedAttributesPacketDelayLowThreshold": {
+    "name": "acPMMediaNetworkingAggregatedAttributesPacketDelayLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.21.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaNetworkingAggregatedAttributesPacketJitterHighThreshold": {
+    "name": "acPMMediaNetworkingAggregatedAttributesPacketJitterHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.21.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaNetworkingAggregatedAttributesPacketJitterLowThreshold": {
+    "name": "acPMMediaNetworkingAggregatedAttributesPacketJitterLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.21.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaNetworkingAggregatedAttributesRTPBytesTxHighThreshold": {
+    "name": "acPMMediaNetworkingAggregatedAttributesRTPBytesTxHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.21.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaNetworkingAggregatedAttributesRTPBytesTxLowThreshold": {
+    "name": "acPMMediaNetworkingAggregatedAttributesRTPBytesTxLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.21.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaNetworkingAggregatedAttributesRTPBytesRxHighThreshold": {
+    "name": "acPMMediaNetworkingAggregatedAttributesRTPBytesRxHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.21.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaNetworkingAggregatedAttributesRTPBytesRxLowThreshold": {
+    "name": "acPMMediaNetworkingAggregatedAttributesRTPBytesRxLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.21.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaNetworkingAggregatedAttributesRTPPacketsTxHighThreshold": {
+    "name": "acPMMediaNetworkingAggregatedAttributesRTPPacketsTxHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.21.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaNetworkingAggregatedAttributesRTPPacketsTxLowThreshold": {
+    "name": "acPMMediaNetworkingAggregatedAttributesRTPPacketsTxLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.21.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaNetworkingAggregatedAttributesRTPPacketsRxHighThreshold": {
+    "name": "acPMMediaNetworkingAggregatedAttributesRTPPacketsRxHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.21.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaNetworkingAggregatedAttributesRTPPacketsRxLowThreshold": {
+    "name": "acPMMediaNetworkingAggregatedAttributesRTPPacketsRxLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.33.21.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaChannelUtilizationAttr": {
+    "name": "acPMMediaChannelUtilizationAttr",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.34",
+    "class": "objectidentity"
+  },
+  "acPMMediaChannelUtilizationAttrFaxChannelsHighThreshold": {
+    "name": "acPMMediaChannelUtilizationAttrFaxChannelsHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.34.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaChannelUtilizationAttrFaxChannelsLowThreshold": {
+    "name": "acPMMediaChannelUtilizationAttrFaxChannelsLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.34.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaChannelUtilizationAttrModemChannelsHighThreshold": {
+    "name": "acPMMediaChannelUtilizationAttrModemChannelsHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.34.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaChannelUtilizationAttrModemChannelsLowThreshold": {
+    "name": "acPMMediaChannelUtilizationAttrModemChannelsLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.34.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaChannelUtilizationAttrTDM2IPChannelsHighThreshold": {
+    "name": "acPMMediaChannelUtilizationAttrTDM2IPChannelsHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.34.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaChannelUtilizationAttrTDM2IPChannelsLowThreshold": {
+    "name": "acPMMediaChannelUtilizationAttrTDM2IPChannelsLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.34.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaChannelUtilizationAttrRTPStreamsHighThreshold": {
+    "name": "acPMMediaChannelUtilizationAttrRTPStreamsHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.34.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaChannelUtilizationAttrRTPStreamsLowThreshold": {
+    "name": "acPMMediaChannelUtilizationAttrRTPStreamsLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.34.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaChannelUtilizationAttrSRTPStreamsHighThreshold": {
+    "name": "acPMMediaChannelUtilizationAttrSRTPStreamsHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.34.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaChannelUtilizationAttrSRTPStreamsLowThreshold": {
+    "name": "acPMMediaChannelUtilizationAttrSRTPStreamsLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.34.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaChannelUtilizationAttrMulticastRegisChanHighThreshold": {
+    "name": "acPMMediaChannelUtilizationAttrMulticastRegisChanHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.34.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaChannelUtilizationAttrMulticastRegisChanLowThreshold": {
+    "name": "acPMMediaChannelUtilizationAttrMulticastRegisChanLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.34.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaChannelUtilizationAttrModemRelayHighThreshold": {
+    "name": "acPMMediaChannelUtilizationAttrModemRelayHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.34.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaChannelUtilizationAttrModemRelayLowThreshold": {
+    "name": "acPMMediaChannelUtilizationAttrModemRelayLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.1.34.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMMediaData": {
+    "name": "acPMMediaData",
+    "oid": "1.3.6.1.4.1.5003.10.7.2",
+    "class": "objectidentity"
+  },
+  "acPMMediaDataAcPMMediaTimeFromStartOfInterval": {
+    "name": "acPMMediaDataAcPMMediaTimeFromStartOfInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMDSPUtilTable": {
+    "name": "acPMDSPUtilTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMDSPUtilEntry": {
+    "name": "acPMDSPUtilEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMDSPUtilInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMDSPUtilInterval": {
+    "name": "acPMDSPUtilInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMDSPUtilVal": {
+    "name": "acPMDSPUtilVal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMDSPUtilAverage": {
+    "name": "acPMDSPUtilAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMDSPUtilMax": {
+    "name": "acPMDSPUtilMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMDSPUtilMin": {
+    "name": "acPMDSPUtilMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMDSPUtilVolume": {
+    "name": "acPMDSPUtilVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMDSPUtilTimeBelowLowThreshold": {
+    "name": "acPMDSPUtilTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMDSPUtilTimeBetweenThresholds": {
+    "name": "acPMDSPUtilTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.21.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMDSPUtilTimeAboveHighThreshold": {
+    "name": "acPMDSPUtilTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.21.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMDSPUtilFullDayAverage": {
+    "name": "acPMDSPUtilFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.21.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMChannelsPerCoderTable": {
+    "name": "acPMChannelsPerCoderTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMChannelsPerCoderEntry": {
+    "name": "acPMChannelsPerCoderEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMChannelsPerCoderCoders",
+        "implied": 0
+      },
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMChannelsPerCoderInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMChannelsPerCoderCoders": {
+    "name": "acPMChannelsPerCoderCoders",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "g711": 0,
+          "g723": 1,
+          "g728": 2,
+          "g729a": 3,
+          "g729e": 4,
+          "aMR": 5,
+          "g729EV": 6,
+          "eg711": 7,
+          "eVRC": 8,
+          "unknownCoder": 9,
+          "g726": 10,
+          "rTA": 11,
+          "sILK": 12,
+          "amrWB": 13,
+          "g722": 14
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMChannelsPerCoderInterval": {
+    "name": "acPMChannelsPerCoderInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMChannelsPerCoderVal": {
+    "name": "acPMChannelsPerCoderVal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMChannelsPerCoderAverage": {
+    "name": "acPMChannelsPerCoderAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMChannelsPerCoderMax": {
+    "name": "acPMChannelsPerCoderMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMChannelsPerCoderMin": {
+    "name": "acPMChannelsPerCoderMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.22.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMChannelsPerCoderVolume": {
+    "name": "acPMChannelsPerCoderVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.22.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMChannelsPerCoderTimeBelowLowThreshold": {
+    "name": "acPMChannelsPerCoderTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.22.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMChannelsPerCoderTimeBetweenThresholds": {
+    "name": "acPMChannelsPerCoderTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.22.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMChannelsPerCoderTimeAboveHighThreshold": {
+    "name": "acPMChannelsPerCoderTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.22.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMChannelsPerCoderFullDayAverage": {
+    "name": "acPMChannelsPerCoderFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.22.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRobustDiscardTable": {
+    "name": "acPMRobustDiscardTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRobustDiscardEntry": {
+    "name": "acPMRobustDiscardEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMRobustDiscardInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMRobustDiscardInterval": {
+    "name": "acPMRobustDiscardInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRobustDiscardVal": {
+    "name": "acPMRobustDiscardVal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRtcpXrTable": {
+    "name": "acPMRtcpXrTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRtcpXrEntry": {
+    "name": "acPMRtcpXrEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMRtcpXrInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMRtcpXrInterval": {
+    "name": "acPMRtcpXrInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRtcpXrAverage": {
+    "name": "acPMRtcpXrAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRtcpXrVal": {
+    "name": "acPMRtcpXrVal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.24.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRtcpXrMax": {
+    "name": "acPMRtcpXrMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.24.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRtcpXrMin": {
+    "name": "acPMRtcpXrMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.24.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMMediaNetworking": {
+    "name": "acPMMediaNetworking",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31",
+    "class": "objectidentity"
+  },
+  "acPMPacketDelayTable": {
+    "name": "acPMPacketDelayTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMPacketDelayEntry": {
+    "name": "acPMPacketDelayEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMPacketDelayTrunkNum",
+        "implied": 0
+      },
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMPacketDelayInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMPacketDelayTrunkNum": {
+    "name": "acPMPacketDelayTrunkNum",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 83
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMPacketDelayInterval": {
+    "name": "acPMPacketDelayInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMPacketDelayVal": {
+    "name": "acPMPacketDelayVal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMPacketDelayAverage": {
+    "name": "acPMPacketDelayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMPacketDelayMax": {
+    "name": "acPMPacketDelayMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMPacketDelayMin": {
+    "name": "acPMPacketDelayMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMPacketDelayVolume": {
+    "name": "acPMPacketDelayVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMPacketDelayTimeBelowLowThreshold": {
+    "name": "acPMPacketDelayTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMPacketDelayTimeBetweenThresholds": {
+    "name": "acPMPacketDelayTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMPacketDelayTimeAboveHighThreshold": {
+    "name": "acPMPacketDelayTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMPacketDelayFullDayAverage": {
+    "name": "acPMPacketDelayFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMPacketJitterTable": {
+    "name": "acPMPacketJitterTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMPacketJitterEntry": {
+    "name": "acPMPacketJitterEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMPacketJitterTrunkNum",
+        "implied": 0
+      },
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMPacketJitterInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMPacketJitterTrunkNum": {
+    "name": "acPMPacketJitterTrunkNum",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 83
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMPacketJitterInterval": {
+    "name": "acPMPacketJitterInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMPacketJitterVal": {
+    "name": "acPMPacketJitterVal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMPacketJitterAverage": {
+    "name": "acPMPacketJitterAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMPacketJitterMax": {
+    "name": "acPMPacketJitterMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMPacketJitterMin": {
+    "name": "acPMPacketJitterMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMPacketJitterVolume": {
+    "name": "acPMPacketJitterVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMPacketJitterTimeBelowLowThreshold": {
+    "name": "acPMPacketJitterTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMPacketJitterTimeBetweenThresholds": {
+    "name": "acPMPacketJitterTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMPacketJitterTimeAboveHighThreshold": {
+    "name": "acPMPacketJitterTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMPacketJitterFullDayAverage": {
+    "name": "acPMPacketJitterFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPBytesTxTable": {
+    "name": "acPMRTPBytesTxTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRTPBytesTxEntry": {
+    "name": "acPMRTPBytesTxEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMRTPBytesTxTrunkNum",
+        "implied": 0
+      },
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMRTPBytesTxInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMRTPBytesTxTrunkNum": {
+    "name": "acPMRTPBytesTxTrunkNum",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 83
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRTPBytesTxInterval": {
+    "name": "acPMRTPBytesTxInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRTPBytesTxVal": {
+    "name": "acPMRTPBytesTxVal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPBytesTxAverage": {
+    "name": "acPMRTPBytesTxAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPBytesTxMax": {
+    "name": "acPMRTPBytesTxMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPBytesTxMin": {
+    "name": "acPMRTPBytesTxMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPBytesTxVolume": {
+    "name": "acPMRTPBytesTxVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPBytesTxTimeBelowLowThreshold": {
+    "name": "acPMRTPBytesTxTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPBytesTxTimeBetweenThresholds": {
+    "name": "acPMRTPBytesTxTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPBytesTxTimeAboveHighThreshold": {
+    "name": "acPMRTPBytesTxTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPBytesTxFullDayAverage": {
+    "name": "acPMRTPBytesTxFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPBytesRxTable": {
+    "name": "acPMRTPBytesRxTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRTPBytesRxEntry": {
+    "name": "acPMRTPBytesRxEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMRTPBytesRxTrunkNum",
+        "implied": 0
+      },
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMRTPBytesRxInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMRTPBytesRxTrunkNum": {
+    "name": "acPMRTPBytesRxTrunkNum",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 83
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRTPBytesRxInterval": {
+    "name": "acPMRTPBytesRxInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRTPBytesRxVal": {
+    "name": "acPMRTPBytesRxVal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPBytesRxAverage": {
+    "name": "acPMRTPBytesRxAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPBytesRxMax": {
+    "name": "acPMRTPBytesRxMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPBytesRxMin": {
+    "name": "acPMRTPBytesRxMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPBytesRxVolume": {
+    "name": "acPMRTPBytesRxVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPBytesRxTimeBelowLowThreshold": {
+    "name": "acPMRTPBytesRxTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPBytesRxTimeBetweenThresholds": {
+    "name": "acPMRTPBytesRxTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPBytesRxTimeAboveHighThreshold": {
+    "name": "acPMRTPBytesRxTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPBytesRxFullDayAverage": {
+    "name": "acPMRTPBytesRxFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketsTxTable": {
+    "name": "acPMRTPPacketsTxTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRTPPacketsTxEntry": {
+    "name": "acPMRTPPacketsTxEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMRTPPacketsTxTrunkNum",
+        "implied": 0
+      },
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMRTPPacketsTxInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMRTPPacketsTxTrunkNum": {
+    "name": "acPMRTPPacketsTxTrunkNum",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 83
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRTPPacketsTxInterval": {
+    "name": "acPMRTPPacketsTxInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRTPPacketsTxVal": {
+    "name": "acPMRTPPacketsTxVal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketsTxAverage": {
+    "name": "acPMRTPPacketsTxAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketsTxMax": {
+    "name": "acPMRTPPacketsTxMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketsTxMin": {
+    "name": "acPMRTPPacketsTxMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketsTxVolume": {
+    "name": "acPMRTPPacketsTxVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketsTxTimeBelowLowThreshold": {
+    "name": "acPMRTPPacketsTxTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketsTxTimeBetweenThresholds": {
+    "name": "acPMRTPPacketsTxTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketsTxTimeAboveHighThreshold": {
+    "name": "acPMRTPPacketsTxTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketsTxFullDayAverage": {
+    "name": "acPMRTPPacketsTxFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketsTxTotal": {
+    "name": "acPMRTPPacketsTxTotal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketsRxTable": {
+    "name": "acPMRTPPacketsRxTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRTPPacketsRxEntry": {
+    "name": "acPMRTPPacketsRxEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMRTPPacketsRxTrunkNum",
+        "implied": 0
+      },
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMRTPPacketsRxInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMRTPPacketsRxTrunkNum": {
+    "name": "acPMRTPPacketsRxTrunkNum",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 83
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRTPPacketsRxInterval": {
+    "name": "acPMRTPPacketsRxInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRTPPacketsRxVal": {
+    "name": "acPMRTPPacketsRxVal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketsRxAverage": {
+    "name": "acPMRTPPacketsRxAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketsRxMax": {
+    "name": "acPMRTPPacketsRxMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketsRxMin": {
+    "name": "acPMRTPPacketsRxMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketsRxVolume": {
+    "name": "acPMRTPPacketsRxVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketsRxTimeBelowLowThreshold": {
+    "name": "acPMRTPPacketsRxTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketsRxTimeBetweenThresholds": {
+    "name": "acPMRTPPacketsRxTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketsRxTimeAboveHighThreshold": {
+    "name": "acPMRTPPacketsRxTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketsRxFullDayAverage": {
+    "name": "acPMRTPPacketsRxFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketsRxTotal": {
+    "name": "acPMRTPPacketsRxTotal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketLossRxTable": {
+    "name": "acPMRTPPacketLossRxTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRTPPacketLossRxEntry": {
+    "name": "acPMRTPPacketLossRxEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMRTPPacketLossRxTrunkNum",
+        "implied": 0
+      },
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMRTPPacketLossRxInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMRTPPacketLossRxTrunkNum": {
+    "name": "acPMRTPPacketLossRxTrunkNum",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 83
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRTPPacketLossRxInterval": {
+    "name": "acPMRTPPacketLossRxInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRTPPacketLossRxVal": {
+    "name": "acPMRTPPacketLossRxVal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketLossRxAverage": {
+    "name": "acPMRTPPacketLossRxAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketLossRxMax": {
+    "name": "acPMRTPPacketLossRxMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketLossRxMin": {
+    "name": "acPMRTPPacketLossRxMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketLossRxVolume": {
+    "name": "acPMRTPPacketLossRxVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketLossRxTimeBelowLowThreshold": {
+    "name": "acPMRTPPacketLossRxTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketLossRxTimeBetweenThresholds": {
+    "name": "acPMRTPPacketLossRxTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketLossRxTimeAboveHighThreshold": {
+    "name": "acPMRTPPacketLossRxTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketLossRxFullDayAverage": {
+    "name": "acPMRTPPacketLossRxFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketLossTxTable": {
+    "name": "acPMRTPPacketLossTxTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRTPPacketLossTxEntry": {
+    "name": "acPMRTPPacketLossTxEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMRTPPacketLossTxTrunkNum",
+        "implied": 0
+      },
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMRTPPacketLossTxInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMRTPPacketLossTxTrunkNum": {
+    "name": "acPMRTPPacketLossTxTrunkNum",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 83
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRTPPacketLossTxInterval": {
+    "name": "acPMRTPPacketLossTxInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRTPPacketLossTxVal": {
+    "name": "acPMRTPPacketLossTxVal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketLossTxAverage": {
+    "name": "acPMRTPPacketLossTxAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketLossTxMax": {
+    "name": "acPMRTPPacketLossTxMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketLossTxMin": {
+    "name": "acPMRTPPacketLossTxMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketLossTxVolume": {
+    "name": "acPMRTPPacketLossTxVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketLossTxTimeBelowLowThreshold": {
+    "name": "acPMRTPPacketLossTxTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketLossTxTimeBetweenThresholds": {
+    "name": "acPMRTPPacketLossTxTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketLossTxTimeAboveHighThreshold": {
+    "name": "acPMRTPPacketLossTxTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPPacketLossTxFullDayAverage": {
+    "name": "acPMRTPPacketLossTxFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossRxTable": {
+    "name": "acPMModuleRTPPacketLossRxTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossRxEntry": {
+    "name": "acPMModuleRTPPacketLossRxEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMModuleRTPPacketLossRxInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossRxInterval": {
+    "name": "acPMModuleRTPPacketLossRxInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossRxAverage": {
+    "name": "acPMModuleRTPPacketLossRxAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossRxMax": {
+    "name": "acPMModuleRTPPacketLossRxMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossRxMin": {
+    "name": "acPMModuleRTPPacketLossRxMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossRxVolume": {
+    "name": "acPMModuleRTPPacketLossRxVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossRxTimeBelowLowThreshold": {
+    "name": "acPMModuleRTPPacketLossRxTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossRxTimeBetweenThresholds": {
+    "name": "acPMModuleRTPPacketLossRxTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossRxTimeAboveHighThreshold": {
+    "name": "acPMModuleRTPPacketLossRxTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossRxFullDayAverage": {
+    "name": "acPMModuleRTPPacketLossRxFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossRxTotal": {
+    "name": "acPMModuleRTPPacketLossRxTotal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossTxTable": {
+    "name": "acPMModuleRTPPacketLossTxTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossTxEntry": {
+    "name": "acPMModuleRTPPacketLossTxEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMModuleRTPPacketLossTxInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossTxInterval": {
+    "name": "acPMModuleRTPPacketLossTxInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossTxAverage": {
+    "name": "acPMModuleRTPPacketLossTxAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossTxMax": {
+    "name": "acPMModuleRTPPacketLossTxMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossTxMin": {
+    "name": "acPMModuleRTPPacketLossTxMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossTxVolume": {
+    "name": "acPMModuleRTPPacketLossTxVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossTxTimeBelowLowThreshold": {
+    "name": "acPMModuleRTPPacketLossTxTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossTxTimeBetweenThresholds": {
+    "name": "acPMModuleRTPPacketLossTxTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossTxTimeAboveHighThreshold": {
+    "name": "acPMModuleRTPPacketLossTxTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossTxFullDayAverage": {
+    "name": "acPMModuleRTPPacketLossTxFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketLossTxTotal": {
+    "name": "acPMModuleRTPPacketLossTxTotal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMMediaNetworkingAggregated": {
+    "name": "acPMMediaNetworkingAggregated",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21",
+    "class": "objectidentity"
+  },
+  "acPMModulePacketDelayTable": {
+    "name": "acPMModulePacketDelayTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModulePacketDelayEntry": {
+    "name": "acPMModulePacketDelayEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMModulePacketDelayInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMModulePacketDelayInterval": {
+    "name": "acPMModulePacketDelayInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModulePacketDelayVal": {
+    "name": "acPMModulePacketDelayVal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModulePacketDelayAverage": {
+    "name": "acPMModulePacketDelayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModulePacketDelayMax": {
+    "name": "acPMModulePacketDelayMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModulePacketDelayMin": {
+    "name": "acPMModulePacketDelayMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModulePacketDelayTimeBelowLowThreshold": {
+    "name": "acPMModulePacketDelayTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModulePacketDelayTimeBetweenThresholds": {
+    "name": "acPMModulePacketDelayTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModulePacketDelayTimeAboveHighThreshold": {
+    "name": "acPMModulePacketDelayTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModulePacketDelayFullDayAverage": {
+    "name": "acPMModulePacketDelayFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModulePacketDelayVolume": {
+    "name": "acPMModulePacketDelayVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModulePacketJitterTable": {
+    "name": "acPMModulePacketJitterTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModulePacketJitterEntry": {
+    "name": "acPMModulePacketJitterEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMModulePacketJitterInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMModulePacketJitterInterval": {
+    "name": "acPMModulePacketJitterInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModulePacketJitterVal": {
+    "name": "acPMModulePacketJitterVal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModulePacketJitterAverage": {
+    "name": "acPMModulePacketJitterAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModulePacketJitterMax": {
+    "name": "acPMModulePacketJitterMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModulePacketJitterMin": {
+    "name": "acPMModulePacketJitterMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModulePacketJitterTimeBelowLowThreshold": {
+    "name": "acPMModulePacketJitterTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModulePacketJitterTimeBetweenThresholds": {
+    "name": "acPMModulePacketJitterTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModulePacketJitterTimeAboveHighThreshold": {
+    "name": "acPMModulePacketJitterTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModulePacketJitterFullDayAverage": {
+    "name": "acPMModulePacketJitterFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModulePacketJitterVolume": {
+    "name": "acPMModulePacketJitterVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPBytesTxTable": {
+    "name": "acPMModuleRTPBytesTxTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModuleRTPBytesTxEntry": {
+    "name": "acPMModuleRTPBytesTxEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMModuleRTPBytesTxInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMModuleRTPBytesTxInterval": {
+    "name": "acPMModuleRTPBytesTxInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModuleRTPBytesTxAverage": {
+    "name": "acPMModuleRTPBytesTxAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPBytesTxMax": {
+    "name": "acPMModuleRTPBytesTxMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPBytesTxMin": {
+    "name": "acPMModuleRTPBytesTxMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPBytesTxTimeBelowLowThreshold": {
+    "name": "acPMModuleRTPBytesTxTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPBytesTxTimeBetweenThresholds": {
+    "name": "acPMModuleRTPBytesTxTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPBytesTxTimeAboveHighThreshold": {
+    "name": "acPMModuleRTPBytesTxTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPBytesTxFullDayAverage": {
+    "name": "acPMModuleRTPBytesTxFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPBytesTxVolume": {
+    "name": "acPMModuleRTPBytesTxVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPBytesRxTable": {
+    "name": "acPMModuleRTPBytesRxTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModuleRTPBytesRxEntry": {
+    "name": "acPMModuleRTPBytesRxEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMModuleRTPBytesRxInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMModuleRTPBytesRxInterval": {
+    "name": "acPMModuleRTPBytesRxInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModuleRTPBytesRxAverage": {
+    "name": "acPMModuleRTPBytesRxAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPBytesRxMax": {
+    "name": "acPMModuleRTPBytesRxMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPBytesRxMin": {
+    "name": "acPMModuleRTPBytesRxMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPBytesRxTimeBelowLowThreshold": {
+    "name": "acPMModuleRTPBytesRxTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPBytesRxTimeBetweenThresholds": {
+    "name": "acPMModuleRTPBytesRxTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPBytesRxTimeAboveHighThreshold": {
+    "name": "acPMModuleRTPBytesRxTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPBytesRxFullDayAverage": {
+    "name": "acPMModuleRTPBytesRxFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPBytesRxVolume": {
+    "name": "acPMModuleRTPBytesRxVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsTxTable": {
+    "name": "acPMModuleRTPPacketsTxTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsTxEntry": {
+    "name": "acPMModuleRTPPacketsTxEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMModuleRTPPacketsTxInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsTxInterval": {
+    "name": "acPMModuleRTPPacketsTxInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsTxAverage": {
+    "name": "acPMModuleRTPPacketsTxAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsTxMax": {
+    "name": "acPMModuleRTPPacketsTxMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsTxMin": {
+    "name": "acPMModuleRTPPacketsTxMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsTxTimeBelowLowThreshold": {
+    "name": "acPMModuleRTPPacketsTxTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsTxTimeBetweenThresholds": {
+    "name": "acPMModuleRTPPacketsTxTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsTxTimeAboveHighThreshold": {
+    "name": "acPMModuleRTPPacketsTxTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsTxFullDayAverage": {
+    "name": "acPMModuleRTPPacketsTxFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsTxTotal": {
+    "name": "acPMModuleRTPPacketsTxTotal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsTxVolume": {
+    "name": "acPMModuleRTPPacketsTxVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsRxTable": {
+    "name": "acPMModuleRTPPacketsRxTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsRxEntry": {
+    "name": "acPMModuleRTPPacketsRxEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMModuleRTPPacketsRxInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsRxInterval": {
+    "name": "acPMModuleRTPPacketsRxInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsRxAverage": {
+    "name": "acPMModuleRTPPacketsRxAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsRxMax": {
+    "name": "acPMModuleRTPPacketsRxMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsRxMin": {
+    "name": "acPMModuleRTPPacketsRxMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsRxTimeBelowLowThreshold": {
+    "name": "acPMModuleRTPPacketsRxTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsRxTimeBetweenThresholds": {
+    "name": "acPMModuleRTPPacketsRxTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsRxTimeAboveHighThreshold": {
+    "name": "acPMModuleRTPPacketsRxTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsRxFullDayAverage": {
+    "name": "acPMModuleRTPPacketsRxFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsRxTotal": {
+    "name": "acPMModuleRTPPacketsRxTotal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModuleRTPPacketsRxVolume": {
+    "name": "acPMModuleRTPPacketsRxVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.31.21.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMChannelUtilization": {
+    "name": "acPMChannelUtilization",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41",
+    "class": "objectidentity"
+  },
+  "acPMFaxChannelsTable": {
+    "name": "acPMFaxChannelsTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMFaxChannelsEntry": {
+    "name": "acPMFaxChannelsEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMFaxChannelsInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMFaxChannelsInterval": {
+    "name": "acPMFaxChannelsInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMFaxChannelsVal": {
+    "name": "acPMFaxChannelsVal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMFaxChannelsAverage": {
+    "name": "acPMFaxChannelsAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMFaxChannelsMax": {
+    "name": "acPMFaxChannelsMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMFaxChannelsMin": {
+    "name": "acPMFaxChannelsMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMFaxChannelsTimeBelowLowThreshold": {
+    "name": "acPMFaxChannelsTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMFaxChannelsTimeBetweenThresholds": {
+    "name": "acPMFaxChannelsTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMFaxChannelsTimeAboveHighThreshold": {
+    "name": "acPMFaxChannelsTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMFaxChannelsFullDayAverage": {
+    "name": "acPMFaxChannelsFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMFaxChannelsVolume": {
+    "name": "acPMFaxChannelsVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemChannelsTable": {
+    "name": "acPMModemChannelsTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModemChannelsEntry": {
+    "name": "acPMModemChannelsEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMModemChannelsInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMModemChannelsInterval": {
+    "name": "acPMModemChannelsInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModemChannelsVal": {
+    "name": "acPMModemChannelsVal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemChannelsAverage": {
+    "name": "acPMModemChannelsAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemChannelsMax": {
+    "name": "acPMModemChannelsMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemChannelsMin": {
+    "name": "acPMModemChannelsMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemChannelsTimeBelowLowThreshold": {
+    "name": "acPMModemChannelsTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemChannelsTimeBetweenThresholds": {
+    "name": "acPMModemChannelsTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemChannelsTimeAboveHighThreshold": {
+    "name": "acPMModemChannelsTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemChannelsFullDayAverage": {
+    "name": "acPMModemChannelsFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMTdm2IpChannelsTable": {
+    "name": "acPMTdm2IpChannelsTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMTdm2IpChannelsEntry": {
+    "name": "acPMTdm2IpChannelsEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMTdm2IpChannelsInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMTdm2IpChannelsInterval": {
+    "name": "acPMTdm2IpChannelsInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMTdm2IpChannelsVal": {
+    "name": "acPMTdm2IpChannelsVal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMTdm2IpChannelsAverage": {
+    "name": "acPMTdm2IpChannelsAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMTdm2IpChannelsMax": {
+    "name": "acPMTdm2IpChannelsMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMTdm2IpChannelsMin": {
+    "name": "acPMTdm2IpChannelsMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMTdm2IpChannelsVolume": {
+    "name": "acPMTdm2IpChannelsVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMTdm2IpChannelsTimeBelowLowThreshold": {
+    "name": "acPMTdm2IpChannelsTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMTdm2IpChannelsTimeBetweenThresholds": {
+    "name": "acPMTdm2IpChannelsTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMTdm2IpChannelsTimeAboveHighThreshold": {
+    "name": "acPMTdm2IpChannelsTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMTdm2IpChannelsFullDayAverage": {
+    "name": "acPMTdm2IpChannelsFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPStreamsTable": {
+    "name": "acPMRTPStreamsTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRTPStreamsEntry": {
+    "name": "acPMRTPStreamsEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMRTPStreamsInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMRTPStreamsInterval": {
+    "name": "acPMRTPStreamsInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMRTPStreamsVal": {
+    "name": "acPMRTPStreamsVal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPStreamsAverage": {
+    "name": "acPMRTPStreamsAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPStreamsMax": {
+    "name": "acPMRTPStreamsMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPStreamsMin": {
+    "name": "acPMRTPStreamsMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPStreamsVolume": {
+    "name": "acPMRTPStreamsVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPStreamsTimeBelowLowThreshold": {
+    "name": "acPMRTPStreamsTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPStreamsTimeBetweenThresholds": {
+    "name": "acPMRTPStreamsTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPStreamsTimeAboveHighThreshold": {
+    "name": "acPMRTPStreamsTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMRTPStreamsFullDayAverage": {
+    "name": "acPMRTPStreamsFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMSRTPStreamsTable": {
+    "name": "acPMSRTPStreamsTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMSRTPStreamsEntry": {
+    "name": "acPMSRTPStreamsEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMSRTPStreamsInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMSRTPStreamsInterval": {
+    "name": "acPMSRTPStreamsInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMSRTPStreamsVal": {
+    "name": "acPMSRTPStreamsVal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMSRTPStreamsAverage": {
+    "name": "acPMSRTPStreamsAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMSRTPStreamsMax": {
+    "name": "acPMSRTPStreamsMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMSRTPStreamsMin": {
+    "name": "acPMSRTPStreamsMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMSRTPStreamsVolume": {
+    "name": "acPMSRTPStreamsVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMSRTPStreamsTimeBelowLowThreshold": {
+    "name": "acPMSRTPStreamsTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMSRTPStreamsTimeBetweenThresholds": {
+    "name": "acPMSRTPStreamsTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMSRTPStreamsTimeAboveHighThreshold": {
+    "name": "acPMSRTPStreamsTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMSRTPStreamsFullDayAverage": {
+    "name": "acPMSRTPStreamsFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMMulticastRegisteredChannelsTable": {
+    "name": "acPMMulticastRegisteredChannelsTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMMulticastRegisteredChannelsEntry": {
+    "name": "acPMMulticastRegisteredChannelsEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMMulticastRegisteredChannelsInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMMulticastRegisteredChannelsInterval": {
+    "name": "acPMMulticastRegisteredChannelsInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMMulticastRegisteredChannelsVal": {
+    "name": "acPMMulticastRegisteredChannelsVal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMMulticastRegisteredChannelsAverage": {
+    "name": "acPMMulticastRegisteredChannelsAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMMulticastRegisteredChannelsMax": {
+    "name": "acPMMulticastRegisteredChannelsMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMMulticastRegisteredChannelsMin": {
+    "name": "acPMMulticastRegisteredChannelsMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMMulticastRegisteredChannelsVolume": {
+    "name": "acPMMulticastRegisteredChannelsVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMMulticastRegisteredChannelsTimeBelowLowThreshold": {
+    "name": "acPMMulticastRegisteredChannelsTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMMulticastRegisteredChannelsTimeBetweenThresholds": {
+    "name": "acPMMulticastRegisteredChannelsTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMMulticastRegisteredChannelsTimeAboveHighThreshold": {
+    "name": "acPMMulticastRegisteredChannelsTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMMulticastRegisteredChannelsFullDayAverage": {
+    "name": "acPMMulticastRegisteredChannelsFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemRelayActiveChannelsTable": {
+    "name": "acPMModemRelayActiveChannelsTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModemRelayActiveChannelsEntry": {
+    "name": "acPMModemRelayActiveChannelsEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMModemRelayActiveChannelsInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMModemRelayActiveChannelsInterval": {
+    "name": "acPMModemRelayActiveChannelsInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModemRelayActiveChannelsVal": {
+    "name": "acPMModemRelayActiveChannelsVal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemRelayActiveChannelsAverage": {
+    "name": "acPMModemRelayActiveChannelsAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemRelayActiveChannelsMax": {
+    "name": "acPMModemRelayActiveChannelsMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemRelayActiveChannelsMin": {
+    "name": "acPMModemRelayActiveChannelsMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemRelayActiveChannelsVolume": {
+    "name": "acPMModemRelayActiveChannelsVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemRelayActiveChannelsTimeBelowLowThreshold": {
+    "name": "acPMModemRelayActiveChannelsTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemRelayActiveChannelsTimeBetweenThresholds": {
+    "name": "acPMModemRelayActiveChannelsTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemRelayActiveChannelsTimeAboveHighThreshold": {
+    "name": "acPMModemRelayActiveChannelsTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemRelayActiveChannelsFullDayAverage": {
+    "name": "acPMModemRelayActiveChannelsFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.41.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCache": {
+    "name": "acPMStreamingCache",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42",
+    "class": "objectidentity"
+  },
+  "acPMStreamingCacheHitRateTable": {
+    "name": "acPMStreamingCacheHitRateTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMStreamingCacheHitRateEntry": {
+    "name": "acPMStreamingCacheHitRateEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMStreamingCacheHitRateInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMStreamingCacheHitRateInterval": {
+    "name": "acPMStreamingCacheHitRateInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMStreamingCacheHitRateAverage": {
+    "name": "acPMStreamingCacheHitRateAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCacheHitRateMax": {
+    "name": "acPMStreamingCacheHitRateMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCacheHitRateMin": {
+    "name": "acPMStreamingCacheHitRateMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCacheHitRateVolume": {
+    "name": "acPMStreamingCacheHitRateVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCacheHitRateTimeBelowLowThreshold": {
+    "name": "acPMStreamingCacheHitRateTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCacheHitRateTimeBetweenThresholds": {
+    "name": "acPMStreamingCacheHitRateTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCacheHitRateTimeAboveHighThreshold": {
+    "name": "acPMStreamingCacheHitRateTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCacheHitRateFullDayAverage": {
+    "name": "acPMStreamingCacheHitRateFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCacheMissRateTable": {
+    "name": "acPMStreamingCacheMissRateTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMStreamingCacheMissRateEntry": {
+    "name": "acPMStreamingCacheMissRateEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMStreamingCacheMissRateInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMStreamingCacheMissRateInterval": {
+    "name": "acPMStreamingCacheMissRateInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMStreamingCacheMissRateAverage": {
+    "name": "acPMStreamingCacheMissRateAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCacheMissRateMax": {
+    "name": "acPMStreamingCacheMissRateMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCacheMissRateMin": {
+    "name": "acPMStreamingCacheMissRateMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCacheMissRateVolume": {
+    "name": "acPMStreamingCacheMissRateVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCacheMissRateTimeBelowLowThreshold": {
+    "name": "acPMStreamingCacheMissRateTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCacheMissRateTimeBetweenThresholds": {
+    "name": "acPMStreamingCacheMissRateTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCacheMissRateTimeAboveHighThreshold": {
+    "name": "acPMStreamingCacheMissRateTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCacheMissRateFullDayAverage": {
+    "name": "acPMStreamingCacheMissRateFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCacheServerRequestsRateTable": {
+    "name": "acPMStreamingCacheServerRequestsRateTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMStreamingCacheServerRequestsRateEntry": {
+    "name": "acPMStreamingCacheServerRequestsRateEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMStreamingCacheServerRequestsRateInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMStreamingCacheServerRequestsRateInterval": {
+    "name": "acPMStreamingCacheServerRequestsRateInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMStreamingCacheServerRequestsRateAverage": {
+    "name": "acPMStreamingCacheServerRequestsRateAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCacheServerRequestsRateMax": {
+    "name": "acPMStreamingCacheServerRequestsRateMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCacheServerRequestsRateMin": {
+    "name": "acPMStreamingCacheServerRequestsRateMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCacheServerRequestsRateVolume": {
+    "name": "acPMStreamingCacheServerRequestsRateVolume",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCacheServerRequestsRateTimeBelowLowThreshold": {
+    "name": "acPMStreamingCacheServerRequestsRateTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCacheServerRequestsRateTimeBetweenThresholds": {
+    "name": "acPMStreamingCacheServerRequestsRateTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCacheServerRequestsRateTimeAboveHighThreshold": {
+    "name": "acPMStreamingCacheServerRequestsRateTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMStreamingCacheServerRequestsRateFullDayAverage": {
+    "name": "acPMStreamingCacheServerRequestsRateFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.42.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemRelay": {
+    "name": "acPMModemRelay",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.43",
+    "class": "objectidentity"
+  },
+  "acPMModemRelaySessionRequestsTable": {
+    "name": "acPMModemRelaySessionRequestsTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.43.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModemRelaySessionRequestsEntry": {
+    "name": "acPMModemRelaySessionRequestsEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.43.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMModemRelaySessionRequestsInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMModemRelaySessionRequestsInterval": {
+    "name": "acPMModemRelaySessionRequestsInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.43.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModemRelaySessionRequestsAverage": {
+    "name": "acPMModemRelaySessionRequestsAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.43.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemRelaySessionRequestsMax": {
+    "name": "acPMModemRelaySessionRequestsMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.43.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemRelaySessionRequestsMin": {
+    "name": "acPMModemRelaySessionRequestsMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.43.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemRelaySessionRequestsVal": {
+    "name": "acPMModemRelaySessionRequestsVal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.43.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemRelaySessionRequestsFullDayAverage": {
+    "name": "acPMModemRelaySessionRequestsFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.43.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemRelaySessionRejectionsTable": {
+    "name": "acPMModemRelaySessionRejectionsTable",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.43.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModemRelaySessionRejectionsEntry": {
+    "name": "acPMModemRelaySessionRejectionsEntry",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.43.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Media-MIB",
+        "object": "acPMModemRelaySessionRejectionsInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMModemRelaySessionRejectionsInterval": {
+    "name": "acPMModemRelaySessionRejectionsInterval",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.43.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMModemRelaySessionRejectionsAverage": {
+    "name": "acPMModemRelaySessionRejectionsAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.43.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemRelaySessionRejectionsMax": {
+    "name": "acPMModemRelaySessionRejectionsMax",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.43.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemRelaySessionRejectionsMin": {
+    "name": "acPMModemRelaySessionRejectionsMin",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.43.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemRelaySessionRejectionsVal": {
+    "name": "acPMModemRelaySessionRejectionsVal",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.43.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemRelaySessionRejectionsTimeBetweenThresholds": {
+    "name": "acPMModemRelaySessionRejectionsTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.43.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemRelaySessionRejectionsTimeAboveHighThreshold": {
+    "name": "acPMModemRelaySessionRejectionsTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.43.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMModemRelaySessionRejectionsFullDayAverage": {
+    "name": "acPMModemRelaySessionRejectionsFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.7.2.43.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/audiocodes/AC-PMMEDIA-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:49 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AC-PM-Media-MIB"
+  }
+}

@@ -1,0 +1,651 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-COMMON-ROLES-MIB": [
+      "ccrmConfigurationExtGroup"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoCommonRolesExtMIB": {
+    "name": "ciscoCommonRolesExtMIB",
+    "oid": "1.3.6.1.4.1.9.9.651",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-02-15 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoCommonRolesExtNotifications": {
+    "name": "ciscoCommonRolesExtNotifications",
+    "oid": "1.3.6.1.4.1.9.9.651.0",
+    "class": "objectidentity"
+  },
+  "ciscoCommonRolesExtMIBObjects": {
+    "name": "ciscoCommonRolesExtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.651.1",
+    "class": "objectidentity"
+  },
+  "ciscoCommonRolesExtMIBConformance": {
+    "name": "ciscoCommonRolesExtMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.651.2",
+    "class": "objectidentity"
+  },
+  "ccreInfo": {
+    "name": "ccreInfo",
+    "oid": "1.3.6.1.4.1.9.9.651.1.1",
+    "class": "objectidentity"
+  },
+  "ccreRoleConfig": {
+    "name": "ccreRoleConfig",
+    "oid": "1.3.6.1.4.1.9.9.651.1.2",
+    "class": "objectidentity"
+  },
+  "ccreRuleConfig": {
+    "name": "ccreRuleConfig",
+    "oid": "1.3.6.1.4.1.9.9.651.1.3",
+    "class": "objectidentity"
+  },
+  "CcreOperation": {
+    "name": "CcreOperation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "read": 1,
+          "readWrite": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CcreResourceAccess": {
+    "name": "CcreResourceAccess",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "vsan": 0,
+        "vlan": 1,
+        "interface": 2
+      }
+    },
+    "status": "current"
+  },
+  "ccreFeatureElementTable": {
+    "name": "ccreFeatureElementTable",
+    "oid": "1.3.6.1.4.1.9.9.651.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccreFeatureElementEntry": {
+    "name": "ccreFeatureElementEntry",
+    "oid": "1.3.6.1.4.1.9.9.651.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-COMMON-ROLES-EXT-MIB",
+        "object": "ccreFeatureName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-COMMON-ROLES-EXT-MIB",
+        "object": "ccreFeatureElementIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccreFeatureName": {
+    "name": "ccreFeatureName",
+    "oid": "1.3.6.1.4.1.9.9.651.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccreFeatureElementIndex": {
+    "name": "ccreFeatureElementIndex",
+    "oid": "1.3.6.1.4.1.9.9.651.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccreFeatureElementName": {
+    "name": "ccreFeatureElementName",
+    "oid": "1.3.6.1.4.1.9.9.651.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccreFeatureElementType": {
+    "name": "ccreFeatureElementType",
+    "oid": "1.3.6.1.4.1.9.9.651.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "command": 1,
+          "feature": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccreFeatureRowStatus": {
+    "name": "ccreFeatureRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.651.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccreRoleTable": {
+    "name": "ccreRoleTable",
+    "oid": "1.3.6.1.4.1.9.9.651.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccreRoleEntry": {
+    "name": "ccreRoleEntry",
+    "oid": "1.3.6.1.4.1.9.9.651.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-COMMON-ROLES-EXT-MIB",
+        "object": "ccreRoleName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccreRoleName": {
+    "name": "ccreRoleName",
+    "oid": "1.3.6.1.4.1.9.9.651.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccreRoleDescription": {
+    "name": "ccreRoleDescription",
+    "oid": "1.3.6.1.4.1.9.9.651.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccreRoleResourceAccess": {
+    "name": "ccreRoleResourceAccess",
+    "oid": "1.3.6.1.4.1.9.9.651.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcreResourceAccess",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccreRoleRowStatus": {
+    "name": "ccreRoleRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.651.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccreRoleScopeTable": {
+    "name": "ccreRoleScopeTable",
+    "oid": "1.3.6.1.4.1.9.9.651.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccreRoleScopeEntry": {
+    "name": "ccreRoleScopeEntry",
+    "oid": "1.3.6.1.4.1.9.9.651.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-COMMON-ROLES-EXT-MIB",
+        "object": "ccreRoleName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-COMMON-ROLES-EXT-MIB",
+        "object": "ccreRoleScopeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccreRoleScopeIndex": {
+    "name": "ccreRoleScopeIndex",
+    "oid": "1.3.6.1.4.1.9.9.651.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccreRoleScopeRestriction": {
+    "name": "ccreRoleScopeRestriction",
+    "oid": "1.3.6.1.4.1.9.9.651.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vsan": 1,
+          "vlan": 2,
+          "interface": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccreRoleScopeValue": {
+    "name": "ccreRoleScopeValue",
+    "oid": "1.3.6.1.4.1.9.9.651.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccreRoleScopeRowStatus": {
+    "name": "ccreRoleScopeRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.651.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccreRuleTable": {
+    "name": "ccreRuleTable",
+    "oid": "1.3.6.1.4.1.9.9.651.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccreRuleEntry": {
+    "name": "ccreRuleEntry",
+    "oid": "1.3.6.1.4.1.9.9.651.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-COMMON-ROLES-EXT-MIB",
+        "object": "ccreRoleName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-COMMON-ROLES-EXT-MIB",
+        "object": "ccreRuleNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccreRuleNumber": {
+    "name": "ccreRuleNumber",
+    "oid": "1.3.6.1.4.1.9.9.651.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccreRuleFeatureElementName": {
+    "name": "ccreRuleFeatureElementName",
+    "oid": "1.3.6.1.4.1.9.9.651.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccreRuleFeatureElementType": {
+    "name": "ccreRuleFeatureElementType",
+    "oid": "1.3.6.1.4.1.9.9.651.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "command": 1,
+          "feature": 2,
+          "featureGroup": 3,
+          "all": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccreRuleOperation": {
+    "name": "ccreRuleOperation",
+    "oid": "1.3.6.1.4.1.9.9.651.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcreOperation",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccreRuleOperationPermitted": {
+    "name": "ccreRuleOperationPermitted",
+    "oid": "1.3.6.1.4.1.9.9.651.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccreRuleRowStatus": {
+    "name": "ccreRuleRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.651.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccreMIBCompliances": {
+    "name": "ccreMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.651.2.1",
+    "class": "objectidentity"
+  },
+  "ccreMIBGroups": {
+    "name": "ccreMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.651.2.2",
+    "class": "objectidentity"
+  },
+  "ccreMIBCompliance": {
+    "name": "ccreMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.651.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccreConfigurationGroup",
+        "module": "CISCO-COMMON-ROLES-EXT-MIB"
+      },
+      {
+        "object": "ccrmConfigurationExtGroup",
+        "module": "CISCO-COMMON-ROLES-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ccreConfigurationGroup": {
+    "name": "ccreConfigurationGroup",
+    "oid": "1.3.6.1.4.1.9.9.651.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-COMMON-ROLES-EXT-MIB",
+        "object": "ccreFeatureElementName"
+      },
+      {
+        "module": "CISCO-COMMON-ROLES-EXT-MIB",
+        "object": "ccreFeatureElementType"
+      },
+      {
+        "module": "CISCO-COMMON-ROLES-EXT-MIB",
+        "object": "ccreFeatureRowStatus"
+      },
+      {
+        "module": "CISCO-COMMON-ROLES-EXT-MIB",
+        "object": "ccreRoleDescription"
+      },
+      {
+        "module": "CISCO-COMMON-ROLES-EXT-MIB",
+        "object": "ccreRoleResourceAccess"
+      },
+      {
+        "module": "CISCO-COMMON-ROLES-EXT-MIB",
+        "object": "ccreRoleRowStatus"
+      },
+      {
+        "module": "CISCO-COMMON-ROLES-EXT-MIB",
+        "object": "ccreRoleScopeRestriction"
+      },
+      {
+        "module": "CISCO-COMMON-ROLES-EXT-MIB",
+        "object": "ccreRoleScopeValue"
+      },
+      {
+        "module": "CISCO-COMMON-ROLES-EXT-MIB",
+        "object": "ccreRoleScopeRowStatus"
+      },
+      {
+        "module": "CISCO-COMMON-ROLES-EXT-MIB",
+        "object": "ccreRuleFeatureElementName"
+      },
+      {
+        "module": "CISCO-COMMON-ROLES-EXT-MIB",
+        "object": "ccreRuleFeatureElementType"
+      },
+      {
+        "module": "CISCO-COMMON-ROLES-EXT-MIB",
+        "object": "ccreRuleOperation"
+      },
+      {
+        "module": "CISCO-COMMON-ROLES-EXT-MIB",
+        "object": "ccreRuleOperationPermitted"
+      },
+      {
+        "module": "CISCO-COMMON-ROLES-EXT-MIB",
+        "object": "ccreRuleRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-COMMON-ROLES-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-COMMON-ROLES-EXT-MIB"
+  }
+}

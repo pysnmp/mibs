@@ -1,0 +1,944 @@
+{
+  "imports": {
+    "class": "imports",
+    "SIAE-ALARM-MIB": [
+      "AlarmStatus",
+      "AlarmSeverityCode"
+    ],
+    "SIAE-TREE-MIB": [
+      "siaeMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "sfp": {
+    "name": "sfp",
+    "oid": "1.3.6.1.4.1.3373.1103.74",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-12-15 00:00",
+        "description": "MIB version 01.00.02 - Added TEXTUAL-CONVENTION Temperature and PhysicalQuantity - Added sfpAlarmTable, sfpDiagnosticTable, sfpHighAlarmSeverityCode, sfpHighWarningAlarmSeverityCode, sfpLowWarningAlarmSeverityCode and sfpLowWarningAlarmSeverityCode "
+      },
+      {
+        "revision": "2016-09-29 00:00",
+        "description": "MIB version 01.00.01 - Added sfpBasePX, sfpBaseBX10, sfp100BaseFX, sfp100BaseLX to sfpCompliance "
+      },
+      {
+        "revision": "2014-02-03 00:00",
+        "description": "Improved description of sfpMibVersion "
+      },
+      {
+        "revision": "2013-12-05 00:00",
+        "description": "Initial version 01.00.00 "
+      }
+    ]
+  },
+  "Temperature": {
+    "name": "Temperature",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2000,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "PhysicalQuantity": {
+    "name": "PhysicalQuantity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "phyQtTemperature": 1,
+          "phyQtVoltage": 2,
+          "phyQtTxBias": 3,
+          "phyQtTxPower": 4,
+          "phyQtRxPower": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "sfpMibVersion": {
+    "name": "sfpMibVersion",
+    "oid": "1.3.6.1.4.1.3373.1103.74.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpSerialIdTable": {
+    "name": "sfpSerialIdTable",
+    "oid": "1.3.6.1.4.1.3373.1103.74.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sfpSerialIdEntry": {
+    "name": "sfpSerialIdEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.74.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-SFP-MIB",
+        "object": "sfpModuleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sfpModuleId": {
+    "name": "sfpModuleId",
+    "oid": "1.3.6.1.4.1.3373.1103.74.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpSerialIdValid": {
+    "name": "sfpSerialIdValid",
+    "oid": "1.3.6.1.4.1.3373.1103.74.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpVendorName": {
+    "name": "sfpVendorName",
+    "oid": "1.3.6.1.4.1.3373.1103.74.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpVendorPartNumber": {
+    "name": "sfpVendorPartNumber",
+    "oid": "1.3.6.1.4.1.3373.1103.74.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpVendorRev": {
+    "name": "sfpVendorRev",
+    "oid": "1.3.6.1.4.1.3373.1103.74.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpVendorSN": {
+    "name": "sfpVendorSN",
+    "oid": "1.3.6.1.4.1.3373.1103.74.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpVendorDateCode": {
+    "name": "sfpVendorDateCode",
+    "oid": "1.3.6.1.4.1.3373.1103.74.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpDiagMonitorCode": {
+    "name": "sfpDiagMonitorCode",
+    "oid": "1.3.6.1.4.1.3373.1103.74.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "sfpDMCtypeLegacy": 0,
+        "sfpDMCtypeImplemented": 1,
+        "sfpDMCtypeInternalCal": 2,
+        "sfpDMCtypeExternalCal": 3,
+        "sfpDMCtypeRxAvgPwr": 4,
+        "sfpDMCtypeAddrChngReqrd": 5
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpEnhancedOptionsCode": {
+    "name": "sfpEnhancedOptionsCode",
+    "oid": "1.3.6.1.4.1.3373.1103.74.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "sfpEOCalarmsImplemented": 0,
+        "sfpEOCSoftTxDisable": 1,
+        "sfpEOCSoftTxFault": 2,
+        "sfpEOCSoftRxLOS": 3,
+        "sfpEOCSoftRateSelect": 4
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpOptions": {
+    "name": "sfpOptions",
+    "oid": "1.3.6.1.4.1.3373.1103.74.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "sfpOPTRateSelect": 0,
+        "sfpOPTTxDisable": 1,
+        "sfpOPTTxFault": 2,
+        "sfpOPTInvertedLOS": 3,
+        "sfpOPTlos": 4
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpFibreChannelMedia": {
+    "name": "sfpFibreChannelMedia",
+    "oid": "1.3.6.1.4.1.3373.1103.74.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "sfpMultiMode62u5": 0,
+        "sfpMultiMode50u0": 1,
+        "sfpSingleMode": 2,
+        "sfpTwistedAxialPair": 3,
+        "sfpShieldedTwistedPair": 4,
+        "sfpMiniatureCoax": 5,
+        "sfpVideoCoax": 6
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpCompliance": {
+    "name": "sfpCompliance",
+    "oid": "1.3.6.1.4.1.3373.1103.74.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "sfpSonetReachSpecifier1": 0,
+        "sfpSonetReachSpecifier2": 1,
+        "sfpSonetOC48LongReach": 2,
+        "sfpSonetOC48IntermediateReach": 3,
+        "sfpSonetOC48ShortReach": 4,
+        "sfpSonetOC12LongReach": 5,
+        "sfpSonetOC12IntermediateReach": 6,
+        "sfpSonetOC12ShortReach": 7,
+        "sfpSonetOC3LongReach": 8,
+        "sfpSonetOC3IntermediateReach": 9,
+        "sfpSonetOC3ShortReach": 10,
+        "sfp1000BaseT": 11,
+        "sfp1000BaseCX": 12,
+        "sfp1000BaseLX": 13,
+        "sfp1000baseSX": 14,
+        "sfpBasePX": 15,
+        "sfpBaseBX10": 16,
+        "sfp100BaseFX": 17,
+        "sfp100BaseLX": 18
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpWavelength": {
+    "name": "sfpWavelength",
+    "oid": "1.3.6.1.4.1.3373.1103.74.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "nm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpNominalBitRate": {
+    "name": "sfpNominalBitRate",
+    "oid": "1.3.6.1.4.1.3373.1103.74.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpLinkLength9u": {
+    "name": "sfpLinkLength9u",
+    "oid": "1.3.6.1.4.1.3373.1103.74.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "m",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpLinkLength50u": {
+    "name": "sfpLinkLength50u",
+    "oid": "1.3.6.1.4.1.3373.1103.74.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "m",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpLinkLength62u5": {
+    "name": "sfpLinkLength62u5",
+    "oid": "1.3.6.1.4.1.3373.1103.74.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "m",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpLinkLengthCopper": {
+    "name": "sfpLinkLengthCopper",
+    "oid": "1.3.6.1.4.1.3373.1103.74.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "m",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpLabel": {
+    "name": "sfpLabel",
+    "oid": "1.3.6.1.4.1.3373.1103.74.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpFailAlarm": {
+    "name": "sfpFailAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.74.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpFailAlarmSeverityCode": {
+    "name": "sfpFailAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.74.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sfpDiagnosticTable": {
+    "name": "sfpDiagnosticTable",
+    "oid": "1.3.6.1.4.1.3373.1103.74.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sfpDiagnosticEntry": {
+    "name": "sfpDiagnosticEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.74.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-SFP-MIB",
+        "object": "sfpModuleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sfpDiagnosticValid": {
+    "name": "sfpDiagnosticValid",
+    "oid": "1.3.6.1.4.1.3373.1103.74.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpLOSPinOut": {
+    "name": "sfpLOSPinOut",
+    "oid": "1.3.6.1.4.1.3373.1103.74.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpTxFaultPinOut": {
+    "name": "sfpTxFaultPinOut",
+    "oid": "1.3.6.1.4.1.3373.1103.74.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpRateSelectPinIn": {
+    "name": "sfpRateSelectPinIn",
+    "oid": "1.3.6.1.4.1.3373.1103.74.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpTxDisablePinIn": {
+    "name": "sfpTxDisablePinIn",
+    "oid": "1.3.6.1.4.1.3373.1103.74.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpTemperature": {
+    "name": "sfpTemperature",
+    "oid": "1.3.6.1.4.1.3373.1103.74.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Temperature",
+      "class": "type"
+    },
+    "units": "C/10",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpVoltage": {
+    "name": "sfpVoltage",
+    "oid": "1.3.6.1.4.1.3373.1103.74.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "milliVolts (mV)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpTxBias": {
+    "name": "sfpTxBias",
+    "oid": "1.3.6.1.4.1.3373.1103.74.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 131000
+          }
+        ]
+      }
+    },
+    "units": "microAmps (uA)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpTxPower": {
+    "name": "sfpTxPower",
+    "oid": "1.3.6.1.4.1.3373.1103.74.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "microWatts (uW)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpRxPower": {
+    "name": "sfpRxPower",
+    "oid": "1.3.6.1.4.1.3373.1103.74.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "microWatts (uW)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpInternalAlarms": {
+    "name": "sfpInternalAlarms",
+    "oid": "1.3.6.1.4.1.3373.1103.74.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "sfpIntAlarmTempHigh": 0,
+        "sfpIntAlarmTempLow": 1,
+        "sfpIntAlarmVoltageHigh": 2,
+        "sfpIntAlarmVoltageLow": 3,
+        "sfpIntAlarmTxBiasHigh": 4,
+        "sfpIntAlarmTxBiasLow": 5,
+        "sfpIntAlarmTxPowerHigh": 6,
+        "sfpIntAlarmTxPowerLow": 7,
+        "sfpIntAlarmRxPowerHigh": 8,
+        "sfpIntAlarmRxPowerLow": 9
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpInternalWarnings": {
+    "name": "sfpInternalWarnings",
+    "oid": "1.3.6.1.4.1.3373.1103.74.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "sfpIntWarnTempHigh": 0,
+        "sfpIntWarnTempLow": 1,
+        "sfpIntWarnVoltageHigh": 2,
+        "sfpIntWarnVoltageLow": 3,
+        "sfpIntWarnTxBiasHigh": 4,
+        "sfpIntWarnTxBiasLow": 5,
+        "sfpIntWarnTxPowerHigh": 6,
+        "sfpIntWarnTxPowerLow": 7,
+        "sfpIntWarnRxPowerHigh": 8,
+        "sfpIntWarnRxPowerLow": 9
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpAlarmTable": {
+    "name": "sfpAlarmTable",
+    "oid": "1.3.6.1.4.1.3373.1103.74.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sfpAlarmEntry": {
+    "name": "sfpAlarmEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.74.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-SFP-MIB",
+        "object": "sfpModuleId",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-SFP-MIB",
+        "object": "sfpPhysicalQuantity",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sfpPhysicalQuantity": {
+    "name": "sfpPhysicalQuantity",
+    "oid": "1.3.6.1.4.1.3373.1103.74.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalQuantity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpThresholdHighAlarm": {
+    "name": "sfpThresholdHighAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.74.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpThresholdHighWarning": {
+    "name": "sfpThresholdHighWarning",
+    "oid": "1.3.6.1.4.1.3373.1103.74.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpThresholdLowAlarm": {
+    "name": "sfpThresholdLowAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.74.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpThresholdLowWarning": {
+    "name": "sfpThresholdLowWarning",
+    "oid": "1.3.6.1.4.1.3373.1103.74.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpHighAlarm": {
+    "name": "sfpHighAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.74.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpHighWarningAlarm": {
+    "name": "sfpHighWarningAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.74.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpLowAlarm": {
+    "name": "sfpLowAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.74.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpLowWarningAlarm": {
+    "name": "sfpLowWarningAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.74.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpHighAlarmSeverityCode": {
+    "name": "sfpHighAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.74.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sfpHighWarningAlarmSeverityCode": {
+    "name": "sfpHighWarningAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.74.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "warningTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sfpLowAlarmSeverityCode": {
+    "name": "sfpLowAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.74.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sfpLowWarningAlarmSeverityCode": {
+    "name": "sfpLowWarningAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.74.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "warningTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-SFP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SIAE-SFP-MIB"
+  }
+}

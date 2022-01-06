@@ -1,0 +1,1014 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADVA-MIB": [
+      "fsp150cm"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "cmCommonMIB": {
+    "name": "cmCommonMIB",
+    "oid": "1.3.6.1.4.1.2544.1.12.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2021-01-27 00:00",
+        "description": " Notes from release 202005120000Z, (1) Added TEXTUAL-CONVENTION: SfpIdentifierValue. Notes from release 201908140000Z (1) add xg120Proac product Notes from release 201903110000Z (1) add xg118ProacSH product Notes from release 201809240000Z (1) add xg118ProSH product Notes from release 201807260000Z (1) add ge102ProH and ge102ProEFMH product Notes from release 201804190000Z (1) add xg116ProH product Notes from release 201611100000Z (1) add xg116Pro product (2) add xg120Pro subproduct Notes from release 201607110000Z (1) renamed FlowSecureState to FlowSecState since it cannot be moved from fsp150cm-connectguard.mib Notes from release 201607080000Z (1) moved FlowSecureState from fsp150cm-connectguard.mib Notes from release 201502040000Z (1) add xg210c subproduct Notes from release 201412010000Z, (1) Added new Textual Convention: Decimal32 Notes from release 201405210000Z, (1) Added new EthernetMediaType literals: - auto, - none. Notes from release 201311280000Z (1) Added new Secondary State literal - mon-tx Notes from release 201202150000Z (post GE20x R5.2.3CC) (1) Added speed-auto-detect to EthernetPortSpeed Notes from release 201108010000Z (1) Post EG-X merge (R5.1.1) Notes from release 201107080000Z (1)Moved CmPmIntervalType from fsp150cm-perf.mib to this MIB (2)Added interval-5min to TC CmPmIntervalType Notes from release 201002120000Z (1)New Textual Conventions : ClassOfServiceType and SignalDirectionType (2)New product OIDs (used for sysOid) : ge201 and ge201se Notes from release 200803160000Z, (1)EthernetPortSpeed textual convention now has additional literals, speed-auto-1000MB-full-master and speed-auto-1000MB-full-slave (2)Added textual convention SfpMediaType Notes from release 200803030000Z, (1)MIB version ready for release FSP150CM."
+      }
+    ]
+  },
+  "subproducts": {
+    "name": "subproducts",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1",
+    "class": "objectidentity"
+  },
+  "f3Capabilities": {
+    "name": "f3Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2",
+    "class": "objectidentity"
+  },
+  "nemihubshelf": {
+    "name": "nemihubshelf",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.1",
+    "class": "objectidentity"
+  },
+  "ge101": {
+    "name": "ge101",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.2",
+    "class": "objectidentity"
+  },
+  "ge206": {
+    "name": "ge206",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.3",
+    "class": "objectidentity"
+  },
+  "ge201": {
+    "name": "ge201",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.4",
+    "class": "objectidentity"
+  },
+  "ge201se": {
+    "name": "ge201se",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.5",
+    "class": "objectidentity"
+  },
+  "ge206f": {
+    "name": "ge206f",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.6",
+    "class": "objectidentity"
+  },
+  "cmagg": {
+    "name": "cmagg",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.7",
+    "class": "objectidentity"
+  },
+  "ge112": {
+    "name": "ge112",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.8",
+    "class": "objectidentity"
+  },
+  "ge114": {
+    "name": "ge114",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.9",
+    "class": "objectidentity"
+  },
+  "ge206v": {
+    "name": "ge206v",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.10",
+    "class": "objectidentity"
+  },
+  "xg210": {
+    "name": "xg210",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.11",
+    "class": "objectidentity"
+  },
+  "t1804": {
+    "name": "t1804",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.12",
+    "class": "objectidentity"
+  },
+  "t3204": {
+    "name": "t3204",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.13",
+    "class": "objectidentity"
+  },
+  "gesyncprobe": {
+    "name": "gesyncprobe",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.14",
+    "class": "objectidentity"
+  },
+  "ge114H": {
+    "name": "ge114H",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.15",
+    "class": "objectidentity"
+  },
+  "ge114PH": {
+    "name": "ge114PH",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.16",
+    "class": "objectidentity"
+  },
+  "ge114S": {
+    "name": "ge114S",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.17",
+    "class": "objectidentity"
+  },
+  "ge114SH": {
+    "name": "ge114SH",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.18",
+    "class": "objectidentity"
+  },
+  "sh1pcs": {
+    "name": "sh1pcs",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.19",
+    "class": "objectidentity"
+  },
+  "ge112Pro": {
+    "name": "ge112Pro",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.20",
+    "class": "objectidentity"
+  },
+  "ge112ProM": {
+    "name": "ge112ProM",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.21",
+    "class": "objectidentity"
+  },
+  "ge114Pro": {
+    "name": "ge114Pro",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.22",
+    "class": "objectidentity"
+  },
+  "ge114ProC": {
+    "name": "ge114ProC",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.23",
+    "class": "objectidentity"
+  },
+  "ge114ProSH": {
+    "name": "ge114ProSH",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.24",
+    "class": "objectidentity"
+  },
+  "ge114ProCSH": {
+    "name": "ge114ProCSH",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.25",
+    "class": "objectidentity"
+  },
+  "ge114ProHE": {
+    "name": "ge114ProHE",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.26",
+    "class": "objectidentity"
+  },
+  "xg210c": {
+    "name": "xg210c",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.27",
+    "class": "objectidentity"
+  },
+  "ge112ProH": {
+    "name": "ge112ProH",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.28",
+    "class": "objectidentity"
+  },
+  "ge114G": {
+    "name": "ge114G",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.29",
+    "class": "objectidentity"
+  },
+  "ge114ProVMH": {
+    "name": "ge114ProVMH",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.30",
+    "class": "objectidentity"
+  },
+  "ge114ProVMCH": {
+    "name": "ge114ProVMCH",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.31",
+    "class": "objectidentity"
+  },
+  "ge114ProVMCSH": {
+    "name": "ge114ProVMCSH",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.32",
+    "class": "objectidentity"
+  },
+  "ge112ProVM": {
+    "name": "ge112ProVM",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.33",
+    "class": "objectidentity"
+  },
+  "ge101Pro": {
+    "name": "ge101Pro",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.34",
+    "class": "objectidentity"
+  },
+  "go102ProS": {
+    "name": "go102ProS",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.35",
+    "class": "objectidentity"
+  },
+  "go102ProSP": {
+    "name": "go102ProSP",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.36",
+    "class": "objectidentity"
+  },
+  "cx101Pro30A": {
+    "name": "cx101Pro30A",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.37",
+    "class": "objectidentity"
+  },
+  "cx102Pro30A": {
+    "name": "cx102Pro30A",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.38",
+    "class": "objectidentity"
+  },
+  "xg116Pro": {
+    "name": "xg116Pro",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.39",
+    "class": "objectidentity"
+  },
+  "xg120Pro": {
+    "name": "xg120Pro",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.40",
+    "class": "objectidentity"
+  },
+  "xg116ProH": {
+    "name": "xg116ProH",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.41",
+    "class": "objectidentity"
+  },
+  "ge102ProH": {
+    "name": "ge102ProH",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.42",
+    "class": "objectidentity"
+  },
+  "ge102ProEFMH": {
+    "name": "ge102ProEFMH",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.43",
+    "class": "objectidentity"
+  },
+  "go102ProSM": {
+    "name": "go102ProSM",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.44",
+    "class": "objectidentity"
+  },
+  "xg118ProSH": {
+    "name": "xg118ProSH",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.45",
+    "class": "objectidentity"
+  },
+  "xg118ProacSH": {
+    "name": "xg118ProacSH",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.46",
+    "class": "objectidentity"
+  },
+  "ge114ProVMSH": {
+    "name": "ge114ProVMSH",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.47",
+    "class": "objectidentity"
+  },
+  "ge104": {
+    "name": "ge104",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.48",
+    "class": "objectidentity"
+  },
+  "xg120ProSH": {
+    "name": "xg120ProSH",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.1.49",
+    "class": "objectidentity"
+  },
+  "PortType": {
+    "name": "PortType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eth-access": 1,
+          "eth-network": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TrafficDirection": {
+    "name": "TrafficDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "a2n": 1,
+          "n2a": 2,
+          "ingress": 3,
+          "egress": 4,
+          "n2n": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VlanId": {
+    "name": "VlanId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "VlanPriority": {
+    "name": "VlanPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "VlanTagType": {
+    "name": "VlanTagType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inner-vlantag": 1,
+          "outer-vlantag": 2,
+          "n2a-priorityMapping": 3,
+          "mplsLabel": 4,
+          "vcLabel": 5,
+          "encapOuterVlanTag": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AdminState": {
+    "name": "AdminState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in-service": 1,
+          "management": 2,
+          "maintenance": 3,
+          "disabled": 4,
+          "unassigned": 5,
+          "monitored": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OperationalState": {
+    "name": "OperationalState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "outage": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SecondaryState": {
+    "name": "SecondaryState",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "not-applicable": 0,
+        "active": 1,
+        "automaticinservice": 2,
+        "facilityfailure": 3,
+        "fault": 4,
+        "loopback": 5,
+        "maintenance": 6,
+        "mismatchedeqpt": 7,
+        "standbyhot": 8,
+        "supportingentityoutage": 9,
+        "unassigned": 10,
+        "unequipped": 11,
+        "disabled": 12,
+        "forcedoffline": 13,
+        "initializing": 14,
+        "prtcl": 15,
+        "blckd": 16,
+        "mon-tx": 17,
+        "mir-rx": 18,
+        "cema": 19,
+        "lkdo": 20,
+        "nomber": 21
+      }
+    },
+    "status": "current"
+  },
+  "EthernetPortSpeed": {
+    "name": "EthernetPortSpeed",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "speed-unknown": 0,
+          "speed-10MB-full": 1,
+          "speed-10MB-half": 2,
+          "speed-100MB-full": 3,
+          "speed-100MB-half": 4,
+          "speed-1000MB-full": 5,
+          "speed-1000MB-half": 6,
+          "speed-auto": 7,
+          "speed-auto-10MB-full": 8,
+          "speed-auto-10MB-half": 9,
+          "speed-auto-100MB-full": 10,
+          "speed-auto-100MB-half": 11,
+          "speed-auto-1000MB-full": 12,
+          "speed-auto-1000MB-half": 13,
+          "speed-negotiating": 14,
+          "speed-auto-1000MB-full-master": 15,
+          "speed-auto-1000MB-full-slave": 16,
+          "speed-none": 17,
+          "speed-auto-1000MB-full-master-preferred": 18,
+          "speed-auto-1000MB-full-slave-preferred": 19,
+          "speed-10G-full": 20,
+          "speed-auto-detect": 21
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EthernetMediaType": {
+    "name": "EthernetMediaType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "copper": 1,
+          "fiber": 2,
+          "coppersfp": 3,
+          "auto": 4,
+          "none": 5,
+          "xdsl": 6,
+          "vmServerBackplane": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PerfCounter64": {
+    "name": "PerfCounter64",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "PerfCounter32": {
+    "name": "PerfCounter32",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "IpVersion": {
+    "name": "IpVersion",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IpPriorityMapMode": {
+    "name": "IpPriorityMapMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "none": 1,
+          "priomap-tos": 2,
+          "priomap-dscp": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PriorityMapMode": {
+    "name": "PriorityMapMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "priomap-none": 1,
+          "priomap-tos": 2,
+          "priomap-dscp": 3,
+          "priomap-8021p": 4,
+          "priomap-8021p-inner": 5,
+          "priomap-exp": 6,
+          "priomap-exp-inner": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SfpConnectorValue": {
+    "name": "SfpConnectorValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "unknown": 1,
+          "sc": 2,
+          "fcs1cu": 3,
+          "fcs2cu": 4,
+          "bnc-tnc": 5,
+          "fccoaxhdr": 6,
+          "fjack": 7,
+          "lc": 8,
+          "mt-rj": 9,
+          "mu": 10,
+          "sg": 11,
+          "optpigtail": 12,
+          "hssdc": 13,
+          "cupigtail": 14,
+          "vendorspecific": 15,
+          "rj45": 16
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SfpIdentifierValue": {
+    "name": "SfpIdentifierValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "unknown": 1,
+          "gbic": 2,
+          "modsol": 3,
+          "sfp": 4,
+          "xbi300pin": 5,
+          "xenpak": 6,
+          "xfp": 7,
+          "xff": 8,
+          "xfpE": 9,
+          "xpak": 10,
+          "x2": 11,
+          "vendorSpecific": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RestartType": {
+    "name": "RestartType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "warm-start": 1,
+          "cold-start": 2,
+          "boot-maintenance": 3,
+          "boot-normal": 4,
+          "boot-pxe": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SfpMediaType": {
+    "name": "SfpMediaType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "singlemode": 1,
+          "multimode": 2,
+          "multimode62-5": 3,
+          "copper": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ScheduleType": {
+    "name": "ScheduleType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "periodic": 1,
+          "one-shot": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SchedActivityStatus": {
+    "name": "SchedActivityStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initial": 1,
+          "active": 2,
+          "suspended": 3,
+          "completed": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SchedActivityAction": {
+    "name": "SchedActivityAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "suspend": 1,
+          "resume": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MepDestinationType": {
+    "name": "MepDestinationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "mepid": 1,
+          "macaddress": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ClassOfServiceType": {
+    "name": "ClassOfServiceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cos-not-applicable": 0,
+          "cos-zero": 1,
+          "cos-one": 2,
+          "cos-two": 3,
+          "cos-three": 4,
+          "cos-four": 5,
+          "cos-five": 6,
+          "cos-six": 7,
+          "cos-seven": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SignalDirectionType": {
+    "name": "SignalDirectionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "input": 1,
+          "output": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AfpTagControl": {
+    "name": "AfpTagControl",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ctag": 1,
+          "stag": 2,
+          "both": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmP2PFlowType": {
+    "name": "CmP2PFlowType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eline": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmTrafficACLPriorityType": {
+    "name": "CmTrafficACLPriorityType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "acl-tos": 1,
+          "acl-dscp": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmTrafficAclFilterActionType": {
+    "name": "CmTrafficAclFilterActionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 1,
+          "deny": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmTrafficAclFilterType": {
+    "name": "CmTrafficAclFilterType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mac": 1,
+          "ipv4": 2,
+          "ipv6": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmTrafficAclProtocolType": {
+    "name": "CmTrafficAclProtocolType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "tcp": 1,
+          "udp": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VlanEthertype": {
+    "name": "VlanEthertype",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cvlan": 1,
+          "svlan": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmPmBinAction": {
+    "name": "CmPmBinAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "clear": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmPmIntervalType": {
+    "name": "CmPmIntervalType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interval-15min": 1,
+          "interval-1day": 2,
+          "rollover": 3,
+          "interval-5min": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TDMFrequencySourceType": {
+    "name": "TDMFrequencySourceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "loopTiming": 1,
+          "systemTiming": 2,
+          "lineTiming": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "F3DisplayString": {
+    "name": "F3DisplayString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2047
+          }
+        ]
+      }
+    },
+    "displayhint": "2047a",
+    "status": "current"
+  },
+  "Decimal32": {
+    "name": "Decimal32",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "UserInterfaceType": {
+    "name": "UserInterfaceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cli": 1,
+          "gui": 2,
+          "netconf": 3,
+          "snmp": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FlowSecState": {
+    "name": "FlowSecState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "secureNormal": 1,
+          "secureBlocked": 2,
+          "unsecureNormal": 3,
+          "unsecureBlocked": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "UsbOperationalMode": {
+    "name": "UsbOperationalMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cellular-modem": 1,
+          "srv-access": 2,
+          "nte-access": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-COMMON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CM-COMMON-MIB"
+  }
+}

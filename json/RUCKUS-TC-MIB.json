@@ -1,0 +1,768 @@
+{
+  "imports": {
+    "class": "imports",
+    "RUCKUS-ROOT-MIB": [
+      "ruckusCommonTCModule"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "ruckusTCMIB": {
+    "name": "ruckusTCMIB",
+    "oid": "1.3.6.1.4.1.25053.1.1.1.1",
+    "class": "moduleidentity"
+  },
+  "RuckusRadioMode": {
+    "name": "RuckusRadioMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ieee802dot11b": 1,
+          "ieee802dot11g": 2,
+          "ieee802dot11Mixed": 3,
+          "ieee802dot11a": 4,
+          "ieee802dot11ng": 5,
+          "ieee802dot11na": 6,
+          "ieee802dot11ac": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusWEPKey": {
+    "name": "RuckusWEPKey",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 5,
+            "max": 5
+          },
+          {
+            "min": 13,
+            "max": 13
+          },
+          {
+            "min": 10,
+            "max": 10
+          },
+          {
+            "min": 26,
+            "max": 26
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "RuckusAdminStatus": {
+    "name": "RuckusAdminStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusCountryCode": {
+    "name": "RuckusCountryCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "RuckusFequency": {
+    "name": "RuckusFequency",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2412,
+            "max": 5805
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "RuckusWPAPassPhrase": {
+    "name": "RuckusWPAPassPhrase",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 63
+          },
+          {
+            "min": 64,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "RuckusSSID": {
+    "name": "RuckusSSID",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "RuckusRate": {
+    "name": "RuckusRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 126
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "RuckusdB": {
+    "name": "RuckusdB",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "RuckusRateLimiting": {
+    "name": "RuckusRateLimiting",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "rate100Kbps": 1,
+          "rate250Kbps": 2,
+          "rate500Kbps": 3,
+          "rate1Mbps": 4,
+          "rate2Mbps": 5,
+          "rate5Mbps": 6,
+          "rate10Mbps": 7,
+          "rate20Mbps": 8,
+          "rate50Mbps": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusWLANServiceType": {
+    "name": "RuckusWLANServiceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standardUsage": 1,
+          "guestAccess": 2,
+          "hotSpotService": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusAuthenticationType": {
+    "name": "RuckusAuthenticationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "shared": 2,
+          "eap": 3,
+          "mac-address": 4,
+          "eap-mac-mix": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusEncryptionType": {
+    "name": "RuckusEncryptionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wpa": 1,
+          "wpa2": 2,
+          "wpa-Mixed": 3,
+          "wep-64": 4,
+          "wep-128": 5,
+          "none-enc": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusWPACipherType": {
+    "name": "RuckusWPACipherType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tkip": 1,
+          "aes": 2,
+          "auto": 3,
+          "none": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusWLANServicePriority": {
+    "name": "RuckusWLANServicePriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "high": 1,
+          "low": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusSysLogLevel": {
+    "name": "RuckusSysLogLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "more": 1,
+          "warning-and-critical": 2,
+          "critical-only": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusSNMPv3AuthenticationType": {
+    "name": "RuckusSNMPv3AuthenticationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "md5": 1,
+          "sha": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusSNMPv3EncryptionType": {
+    "name": "RuckusSNMPv3EncryptionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "des": 1,
+          "aes": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusSNMPVersionType": {
+    "name": "RuckusSNMPVersionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v2": 1,
+          "v3": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusNameString": {
+    "name": "RuckusNameString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "RuckusPassPhrase": {
+    "name": "RuckusPassPhrase",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "RuckusAAAServiceType": {
+    "name": "RuckusAAAServiceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active-directory": 1,
+          "ldap-directory": 2,
+          "aaa-authentication": 3,
+          "aaa-accounting": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusAPIpAddressSettingMode": {
+    "name": "RuckusAPIpAddressSettingMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "admin-by-zd": 1,
+          "admin-by-dhcp": 2,
+          "admin-by-ap": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusAPRadioType": {
+    "name": "RuckusAPRadioType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ieee80211bg": 1,
+          "ieee80211na": 2,
+          "ieee80211a": 3,
+          "ieee80211n": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusAPRadioType24": {
+    "name": "RuckusAPRadioType24",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ieee80211b": 1,
+          "ieee80211g": 2,
+          "ieee80211bg": 3,
+          "ieee80211ng": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusAPRadioType5": {
+    "name": "RuckusAPRadioType5",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ieee80211a": 1,
+          "ieee80211n": 2,
+          "ieee80211nag": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusAPRadioTxPowerLevel": {
+    "name": "RuckusAPRadioTxPowerLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "full": 2,
+          "half-full": 3,
+          "quarter-full": 4,
+          "one-eighth-full": 5,
+          "one-tenth-full": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusAPWirelessChannel": {
+    "name": "RuckusAPWirelessChannel",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "RuckusAPMeshConfigurationMode": {
+    "name": "RuckusAPMeshConfigurationMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "root-ap": 2,
+          "mesh-ap": 3,
+          "disabled": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusAPUplinkSelectionMode": {
+    "name": "RuckusAPUplinkSelectionMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "smart": 1,
+          "manual": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusAPApproveMode": {
+    "name": "RuckusAPApproveMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "approved": 1,
+          "not-approved": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusZDAPManagementAdminControl": {
+    "name": "RuckusZDAPManagementAdminControl",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delete": 1,
+          "associated": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusSystemNodeStatus": {
+    "name": "RuckusSystemNodeStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "out-of-service": 0,
+          "in-service": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusSystemClusterStatus": {
+    "name": "RuckusSystemClusterStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in-service": 0,
+          "out-of-service": 1,
+          "maintenance": 2,
+          "network-partition-suspected": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusUUID": {
+    "name": "RuckusUUID",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "4x-2x-2x-2x-6x",
+    "status": "current"
+  },
+  "RuckusMeshRoles": {
+    "name": "RuckusMeshRoles",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "rap": 1,
+          "map": 2,
+          "emap": 3,
+          "mesh-is-down": 4,
+          "mesh-role-is-undefined": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusUUIDType": {
+    "name": "RuckusUUIDType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "domain": 1,
+          "zone": 2,
+          "apgroup": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusWLANAuthMethodType": {
+    "name": "RuckusWLANAuthMethodType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "wep-shared": 2,
+          "auto": 3,
+          "wpa-eap-802-1x": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusWLANEncryptionType": {
+    "name": "RuckusWLANEncryptionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "wep": 2,
+          "wpa": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusChannelWidthType": {
+    "name": "RuckusChannelWidthType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cw10": 10,
+          "cw20": 20,
+          "cw2040": 2040,
+          "cw40": 40,
+          "cw80": 80
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuckusAuthStatusType": {
+    "name": "RuckusAuthStatusType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unauthorized": 1,
+          "authorized": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ruckusTCObjects": {
+    "name": "ruckusTCObjects",
+    "oid": "1.3.6.1.4.1.25053.1.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "ruckusTCEvents": {
+    "name": "ruckusTCEvents",
+    "oid": "1.3.6.1.4.1.25053.1.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "ruckusTCConf": {
+    "name": "ruckusTCConf",
+    "oid": "1.3.6.1.4.1.25053.1.1.1.1.3",
+    "class": "objectidentity"
+  },
+  "ruckusTCGroups": {
+    "name": "ruckusTCGroups",
+    "oid": "1.3.6.1.4.1.25053.1.1.1.1.3.1",
+    "class": "objectidentity"
+  },
+  "ruckusTCCompls": {
+    "name": "ruckusTCCompls",
+    "oid": "1.3.6.1.4.1.25053.1.1.1.1.3.2",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-TC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RUCKUS-TC-MIB"
+  }
+}

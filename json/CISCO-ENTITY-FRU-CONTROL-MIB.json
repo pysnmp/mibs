@@ -1,0 +1,2611 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalModelName",
+      "entPhysicalName",
+      "entPhysicalContainedIn",
+      "entPhysicalIndex",
+      "entPhysicalVendorType",
+      "entPhysicalClass"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoEntityFRUControlMIB": {
+    "name": "ciscoEntityFRUControlMIB",
+    "oid": "1.3.6.1.4.1.9.9.117",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-03-18 00:00",
+        "description": "Added FRUCoolingUnit Textual Convention. Added psRedundantSingleInput(7) to Textual Convention PowerRedundancyType. Added the following groups: cefcFRUPowerRealTimeStatusGroup cefcFRUPowerCapabilityGroup cefcFRUCoolingUnitGroup cefcFRUFanCoolingUnitGroup Deprecated cefcCoolingGroup and replaced with cefcCoolingGroup2 and cefcFanCoolingGroup."
+      },
+      {
+        "revision": "2010-12-10 00:00",
+        "description": "Added cefcMIBModuleLocalSwitchingGroup."
+      },
+      {
+        "revision": "2008-10-08 00:00",
+        "description": "Added two new enumeration values upgrading(22) and okButAuthFailed(23) to ModuleOperType Textual Convention."
+      },
+      {
+        "revision": "2007-06-21 00:00",
+        "description": "* Added two new enumeration values : psRedundant(5) and inPwrSrcRedundant(6) to PowerRedundancyType Textual Convention."
+      },
+      {
+        "revision": "2007-03-14 00:00",
+        "description": "* Added cefcTotalDrawnInlineCurrent and cefcMIBInLinePowerCurrentGroup. * Added cefcPowerNonRedundantReason and cefcMIBPowerRedundancyInfoGroup. * Added cefcFanCoolingCapTable and cefcFanCoolingCapGroup. * Added cefcMIBPowerCompliance8."
+      },
+      {
+        "revision": "2006-06-23 00:00",
+        "description": "* Added new value 'onButInlinePowerFail(12)' to PowerOperType."
+      },
+      {
+        "revision": "2005-09-06 00:00",
+        "description": "* Added cefcPowerCapacityGroup, cefcCoolingGroup and cefcConnectorRatingGroup. * Added new enumerator 'powerCycle' to the TC PowerAdminType. * Added two new enumerators 'offCooling' and 'offConnectorRating' to the TC PowerOperType. * Added cefcMIBNotificationEnablesGroup2 and cefcMgmtNotificationsGroup3."
+      },
+      {
+        "revision": "2004-12-09 00:00",
+        "description": "Removed the additional varbind 'entPhysicalDescr' added in 'cefcFRUInserted' & 'cefcFRURemoved' notifications."
+      },
+      {
+        "revision": "2004-10-19 00:00",
+        "description": "* Added the enumeration 'syncInProgress' to ModuleOperType Textual Convention. Added an additional varbind 'entPhysicalDescr' in 'cefcFRUInserted' & 'cefcFRURemoved' notifications."
+      },
+      {
+        "revision": "2003-11-24 00:00",
+        "description": "* Added the enumerations okButPowerOverWarning and okButPowerOverCritical to ModuleOperType Textual Convention."
+      },
+      {
+        "revision": "2003-10-27 00:00",
+        "description": "Added poweredDown,poweredUp, powerDenied,powerCycled to ModuleOperType."
+      },
+      {
+        "revision": "2003-10-23 00:00",
+        "description": "* Added cefcModuleStateChangeReasonDescr and cefcModuleUpTime in the cefcModuleTable. * Added cefcIntelliModuleTable to provide the IP address information for intelligent modules."
+      },
+      {
+        "revision": "2003-07-22 00:00",
+        "description": "* Modified the description for cefcPowerRedudancyMode to indicate that this object reflects the administrative power supply redundancy mode. * Added cefcPowerRedundancyOperMode to reflect the operational status of the power supply redundancy mode. * Deprecated cefcMaxDefaultInLinePower and added cefcMaxDefaultHighInLinePower to replace it. * Modified the DESCRIPTION for cefcFanTrayStatusTable and cefcFanTrayStatusEntry to reflect the right situation."
+      },
+      {
+        "revision": "2002-10-16 00:00",
+        "description": "Added: * Added cefcFanTrayStatusChange notification * Added cefcFanTrayStatusChange to cefcMgmtNotificationsGroup2"
+      },
+      {
+        "revision": "2002-10-03 00:00",
+        "description": "Added: * cefcFanTrayStatus table containing fan tray status information. * added cefcPhysical table containing status information of the physical entity. * added cefcUnrecognizedFRU notification. * added cefcMIBFanTrayStatusGroup. * added cefcMIBPhysicalGroup."
+      },
+      {
+        "revision": "2002-09-15 00:00",
+        "description": "Added: * powerSupplyValue table containing information such as, total and used inline and data power, for variable power supplies. * added following object group cefcMIBPowerFRUValueGroup"
+      },
+      {
+        "revision": "2002-07-12 00:00",
+        "description": "Added: cefcModuleLastClearConfigTime cefcModuleResetReasonDescription cefcModuleGroupRev1 Modified: Added enumerations watchDogTimeoutReset, resourceOverflowReset, missingTaskReset, lowVoltageReset, controllerReset, systemReset, switchoverReset, upgradeReset, downgradeReset, cacheErrorReset, deviceDriverReset, softwareExceptionReset, restoreConfigReset, abortRevReset, burnBootReset, standbyCdHealthierReset, nonNativeConfigClearReset, and memoryProtectionErrorReset to ModuleResetReasonType TC."
+      },
+      {
+        "revision": "2001-05-22 00:00",
+        "description": "Modified the description for cefcTotalAvailableCurrent. Changed 'cefcPowerRedundancy' in the description to 'cefcPowerRedundancyMode' Also made the file conform to the 72 char line limit. Imported NOTIFICATION-GROUP Added cefcMgmtNotificationsGroup."
+      },
+      {
+        "revision": "2000-01-13 00:00",
+        "description": "Following changes are made in this revision * added following enumerations to ModuleOperType TC: dormant, outOfServiceAdmin, outOfServiceEnvTemp * added outOfServiceAdmin to ModuleAdminType TC * added following notifications: cefcMIBNotificationEnables cefcMIBEnableStatusNotification cefcPowerStatusChange cefcFRUInserted cefcFRURemoved * added following object groups: cefcMIBInLinePowerControlGroup cefcMIBNotificationEnablesGroup"
+      },
+      {
+        "revision": "1999-04-05 00:00",
+        "description": "Added module table containing the status information."
+      }
+    ]
+  },
+  "cefcMIBObjects": {
+    "name": "cefcMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.117.1",
+    "class": "objectidentity"
+  },
+  "cefcFRUMIBNotificationPrefix": {
+    "name": "cefcFRUMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.117.2",
+    "class": "objectidentity"
+  },
+  "cefcMIBConformance": {
+    "name": "cefcMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.117.3",
+    "class": "objectidentity"
+  },
+  "PowerRedundancyType": {
+    "name": "PowerRedundancyType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notsupported": 1,
+          "redundant": 2,
+          "combined": 3,
+          "nonRedundant": 4,
+          "psRedundant": 5,
+          "inPwrSrcRedundant": 6,
+          "psRedundantSingleInput": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PowerAdminType": {
+    "name": "PowerAdminType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "inlineAuto": 3,
+          "inlineOn": 4,
+          "powerCycle": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PowerOperType": {
+    "name": "PowerOperType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offEnvOther": 1,
+          "on": 2,
+          "offAdmin": 3,
+          "offDenied": 4,
+          "offEnvPower": 5,
+          "offEnvTemp": 6,
+          "offEnvFan": 7,
+          "failed": 8,
+          "onButFanFail": 9,
+          "offCooling": 10,
+          "offConnectorRating": 11,
+          "onButInlinePowerFail": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FRUCurrentType": {
+    "name": "FRUCurrentType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000000000,
+            "max": 1000000000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ModuleAdminType": {
+    "name": "ModuleAdminType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "reset": 3,
+          "outOfServiceAdmin": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ModuleOperType": {
+    "name": "ModuleOperType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ok": 2,
+          "disabled": 3,
+          "okButDiagFailed": 4,
+          "boot": 5,
+          "selfTest": 6,
+          "failed": 7,
+          "missing": 8,
+          "mismatchWithParent": 9,
+          "mismatchConfig": 10,
+          "diagFailed": 11,
+          "dormant": 12,
+          "outOfServiceAdmin": 13,
+          "outOfServiceEnvTemp": 14,
+          "poweredDown": 15,
+          "poweredUp": 16,
+          "powerDenied": 17,
+          "powerCycled": 18,
+          "okButPowerOverWarning": 19,
+          "okButPowerOverCritical": 20,
+          "syncInProgress": 21,
+          "upgrading": 22,
+          "okButAuthFailed": 23
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ModuleResetReasonType": {
+    "name": "ModuleResetReasonType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "powerUp": 2,
+          "parityError": 3,
+          "clearConfigReset": 4,
+          "manualReset": 5,
+          "watchDogTimeoutReset": 6,
+          "resourceOverflowReset": 7,
+          "missingTaskReset": 8,
+          "lowVoltageReset": 9,
+          "controllerReset": 10,
+          "systemReset": 11,
+          "switchoverReset": 12,
+          "upgradeReset": 13,
+          "downgradeReset": 14,
+          "cacheErrorReset": 15,
+          "deviceDriverReset": 16,
+          "softwareExceptionReset": 17,
+          "restoreConfigReset": 18,
+          "abortRevReset": 19,
+          "burnBootReset": 20,
+          "standbyCdHealthierReset": 21,
+          "nonNativeConfigClearReset": 22,
+          "memoryProtectionErrorReset": 23
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FRUTimeSeconds": {
+    "name": "FRUTimeSeconds",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "FRUCoolingUnit": {
+    "name": "FRUCoolingUnit",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cfm": 1,
+          "watts": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cefcFRUPower": {
+    "name": "cefcFRUPower",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1",
+    "class": "objectidentity"
+  },
+  "cefcModule": {
+    "name": "cefcModule",
+    "oid": "1.3.6.1.4.1.9.9.117.1.2",
+    "class": "objectidentity"
+  },
+  "cefcMIBNotificationEnables": {
+    "name": "cefcMIBNotificationEnables",
+    "oid": "1.3.6.1.4.1.9.9.117.1.3",
+    "class": "objectidentity"
+  },
+  "cefcFRUFan": {
+    "name": "cefcFRUFan",
+    "oid": "1.3.6.1.4.1.9.9.117.1.4",
+    "class": "objectidentity"
+  },
+  "cefcPhysical": {
+    "name": "cefcPhysical",
+    "oid": "1.3.6.1.4.1.9.9.117.1.5",
+    "class": "objectidentity"
+  },
+  "cefcPowerCapacity": {
+    "name": "cefcPowerCapacity",
+    "oid": "1.3.6.1.4.1.9.9.117.1.6",
+    "class": "objectidentity"
+  },
+  "cefcCooling": {
+    "name": "cefcCooling",
+    "oid": "1.3.6.1.4.1.9.9.117.1.7",
+    "class": "objectidentity"
+  },
+  "cefcConnector": {
+    "name": "cefcConnector",
+    "oid": "1.3.6.1.4.1.9.9.117.1.8",
+    "class": "objectidentity"
+  },
+  "cefcFRUPowerSupplyGroupTable": {
+    "name": "cefcFRUPowerSupplyGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefcFRUPowerSupplyGroupEntry": {
+    "name": "cefcFRUPowerSupplyGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefcPowerRedundancyMode": {
+    "name": "cefcPowerRedundancyMode",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PowerRedundancyType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefcPowerUnits": {
+    "name": "cefcPowerUnits",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcTotalAvailableCurrent": {
+    "name": "cefcTotalAvailableCurrent",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FRUCurrentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcTotalDrawnCurrent": {
+    "name": "cefcTotalDrawnCurrent",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FRUCurrentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcPowerRedundancyOperMode": {
+    "name": "cefcPowerRedundancyOperMode",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PowerRedundancyType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcPowerNonRedundantReason": {
+    "name": "cefcPowerNonRedundantReason",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "unknown": 2,
+          "singleSupply": 3,
+          "mismatchedSupplies": 4,
+          "supplyError": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcTotalDrawnInlineCurrent": {
+    "name": "cefcTotalDrawnInlineCurrent",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FRUCurrentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcFRUPowerStatusTable": {
+    "name": "cefcFRUPowerStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefcFRUPowerStatusEntry": {
+    "name": "cefcFRUPowerStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefcFRUPowerAdminStatus": {
+    "name": "cefcFRUPowerAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PowerAdminType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefcFRUPowerOperStatus": {
+    "name": "cefcFRUPowerOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PowerOperType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcFRUCurrent": {
+    "name": "cefcFRUCurrent",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FRUCurrentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcFRUPowerCapability": {
+    "name": "cefcFRUPowerCapability",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "realTimeCurrent": 0
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcFRURealTimeCurrent": {
+    "name": "cefcFRURealTimeCurrent",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FRUCurrentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcMaxDefaultInLinePower": {
+    "name": "cefcMaxDefaultInLinePower",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 12500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 12500,
+        "format": "decimal"
+      }
+    },
+    "units": "miliwatts",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cefcFRUPowerSupplyValueTable": {
+    "name": "cefcFRUPowerSupplyValueTable",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefcFRUPowerSupplyValueEntry": {
+    "name": "cefcFRUPowerSupplyValueEntry",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefcFRUTotalSystemCurrent": {
+    "name": "cefcFRUTotalSystemCurrent",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FRUCurrentType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefcFRUDrawnSystemCurrent": {
+    "name": "cefcFRUDrawnSystemCurrent",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FRUCurrentType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefcFRUTotalInlineCurrent": {
+    "name": "cefcFRUTotalInlineCurrent",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FRUCurrentType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefcFRUDrawnInlineCurrent": {
+    "name": "cefcFRUDrawnInlineCurrent",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FRUCurrentType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefcMaxDefaultHighInLinePower": {
+    "name": "cefcMaxDefaultHighInLinePower",
+    "oid": "1.3.6.1.4.1.9.9.117.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "miliwatts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefcModuleTable": {
+    "name": "cefcModuleTable",
+    "oid": "1.3.6.1.4.1.9.9.117.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefcModuleEntry": {
+    "name": "cefcModuleEntry",
+    "oid": "1.3.6.1.4.1.9.9.117.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefcModuleAdminStatus": {
+    "name": "cefcModuleAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.117.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleAdminType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefcModuleOperStatus": {
+    "name": "cefcModuleOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.117.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleOperType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcModuleResetReason": {
+    "name": "cefcModuleResetReason",
+    "oid": "1.3.6.1.4.1.9.9.117.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleResetReasonType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcModuleStatusLastChangeTime": {
+    "name": "cefcModuleStatusLastChangeTime",
+    "oid": "1.3.6.1.4.1.9.9.117.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcModuleLastClearConfigTime": {
+    "name": "cefcModuleLastClearConfigTime",
+    "oid": "1.3.6.1.4.1.9.9.117.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcModuleResetReasonDescription": {
+    "name": "cefcModuleResetReasonDescription",
+    "oid": "1.3.6.1.4.1.9.9.117.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcModuleStateChangeReasonDescr": {
+    "name": "cefcModuleStateChangeReasonDescr",
+    "oid": "1.3.6.1.4.1.9.9.117.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcModuleUpTime": {
+    "name": "cefcModuleUpTime",
+    "oid": "1.3.6.1.4.1.9.9.117.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FRUTimeSeconds",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcIntelliModuleTable": {
+    "name": "cefcIntelliModuleTable",
+    "oid": "1.3.6.1.4.1.9.9.117.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefcIntelliModuleEntry": {
+    "name": "cefcIntelliModuleEntry",
+    "oid": "1.3.6.1.4.1.9.9.117.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefcIntelliModuleIPAddrType": {
+    "name": "cefcIntelliModuleIPAddrType",
+    "oid": "1.3.6.1.4.1.9.9.117.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcIntelliModuleIPAddr": {
+    "name": "cefcIntelliModuleIPAddr",
+    "oid": "1.3.6.1.4.1.9.9.117.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcModuleLocalSwitchingTable": {
+    "name": "cefcModuleLocalSwitchingTable",
+    "oid": "1.3.6.1.4.1.9.9.117.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefcModuleLocalSwitchingEntry": {
+    "name": "cefcModuleLocalSwitchingEntry",
+    "oid": "1.3.6.1.4.1.9.9.117.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefcModuleLocalSwitchingMode": {
+    "name": "cefcModuleLocalSwitchingMode",
+    "oid": "1.3.6.1.4.1.9.9.117.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefcFanTrayStatusTable": {
+    "name": "cefcFanTrayStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.117.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefcFanTrayStatusEntry": {
+    "name": "cefcFanTrayStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.117.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefcFanTrayOperStatus": {
+    "name": "cefcFanTrayOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.117.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "up": 2,
+          "down": 3,
+          "warning": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcPhysicalTable": {
+    "name": "cefcPhysicalTable",
+    "oid": "1.3.6.1.4.1.9.9.117.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefcPhysicalEntry": {
+    "name": "cefcPhysicalEntry",
+    "oid": "1.3.6.1.4.1.9.9.117.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefcPhysicalStatus": {
+    "name": "cefcPhysicalStatus",
+    "oid": "1.3.6.1.4.1.9.9.117.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "supported": 2,
+          "unsupported": 3,
+          "incompatible": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcPowerSupplyInputTable": {
+    "name": "cefcPowerSupplyInputTable",
+    "oid": "1.3.6.1.4.1.9.9.117.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefcPowerSupplyInputEntry": {
+    "name": "cefcPowerSupplyInputEntry",
+    "oid": "1.3.6.1.4.1.9.9.117.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcPowerSupplyInputIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefcPowerSupplyInputIndex": {
+    "name": "cefcPowerSupplyInputIndex",
+    "oid": "1.3.6.1.4.1.9.9.117.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefcPowerSupplyInputType": {
+    "name": "cefcPowerSupplyInputType",
+    "oid": "1.3.6.1.4.1.9.9.117.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "acLow": 2,
+          "acHigh": 3,
+          "dcLow": 4,
+          "dcHigh": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcPowerSupplyOutputTable": {
+    "name": "cefcPowerSupplyOutputTable",
+    "oid": "1.3.6.1.4.1.9.9.117.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefcPowerSupplyOutputEntry": {
+    "name": "cefcPowerSupplyOutputEntry",
+    "oid": "1.3.6.1.4.1.9.9.117.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcPSOutputModeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefcPSOutputModeIndex": {
+    "name": "cefcPSOutputModeIndex",
+    "oid": "1.3.6.1.4.1.9.9.117.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefcPSOutputModeCurrent": {
+    "name": "cefcPSOutputModeCurrent",
+    "oid": "1.3.6.1.4.1.9.9.117.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FRUCurrentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcPSOutputModeInOperation": {
+    "name": "cefcPSOutputModeInOperation",
+    "oid": "1.3.6.1.4.1.9.9.117.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcChassisCoolingTable": {
+    "name": "cefcChassisCoolingTable",
+    "oid": "1.3.6.1.4.1.9.9.117.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefcChassisCoolingEntry": {
+    "name": "cefcChassisCoolingEntry",
+    "oid": "1.3.6.1.4.1.9.9.117.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefcChassisPerSlotCoolingCap": {
+    "name": "cefcChassisPerSlotCoolingCap",
+    "oid": "1.3.6.1.4.1.9.9.117.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcChassisPerSlotCoolingUnit": {
+    "name": "cefcChassisPerSlotCoolingUnit",
+    "oid": "1.3.6.1.4.1.9.9.117.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FRUCoolingUnit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcFanCoolingTable": {
+    "name": "cefcFanCoolingTable",
+    "oid": "1.3.6.1.4.1.9.9.117.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefcFanCoolingEntry": {
+    "name": "cefcFanCoolingEntry",
+    "oid": "1.3.6.1.4.1.9.9.117.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefcFanCoolingCapacity": {
+    "name": "cefcFanCoolingCapacity",
+    "oid": "1.3.6.1.4.1.9.9.117.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcFanCoolingCapacityUnit": {
+    "name": "cefcFanCoolingCapacityUnit",
+    "oid": "1.3.6.1.4.1.9.9.117.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FRUCoolingUnit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcModuleCoolingTable": {
+    "name": "cefcModuleCoolingTable",
+    "oid": "1.3.6.1.4.1.9.9.117.1.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefcModuleCoolingEntry": {
+    "name": "cefcModuleCoolingEntry",
+    "oid": "1.3.6.1.4.1.9.9.117.1.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefcModuleCooling": {
+    "name": "cefcModuleCooling",
+    "oid": "1.3.6.1.4.1.9.9.117.1.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcModuleCoolingUnit": {
+    "name": "cefcModuleCoolingUnit",
+    "oid": "1.3.6.1.4.1.9.9.117.1.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FRUCoolingUnit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcFanCoolingCapTable": {
+    "name": "cefcFanCoolingCapTable",
+    "oid": "1.3.6.1.4.1.9.9.117.1.7.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefcFanCoolingCapEntry": {
+    "name": "cefcFanCoolingCapEntry",
+    "oid": "1.3.6.1.4.1.9.9.117.1.7.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFanCoolingCapIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefcFanCoolingCapIndex": {
+    "name": "cefcFanCoolingCapIndex",
+    "oid": "1.3.6.1.4.1.9.9.117.1.7.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefcFanCoolingCapModeDescr": {
+    "name": "cefcFanCoolingCapModeDescr",
+    "oid": "1.3.6.1.4.1.9.9.117.1.7.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcFanCoolingCapCapacity": {
+    "name": "cefcFanCoolingCapCapacity",
+    "oid": "1.3.6.1.4.1.9.9.117.1.7.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcFanCoolingCapCurrent": {
+    "name": "cefcFanCoolingCapCurrent",
+    "oid": "1.3.6.1.4.1.9.9.117.1.7.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FRUCurrentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcFanCoolingCapCapacityUnit": {
+    "name": "cefcFanCoolingCapCapacityUnit",
+    "oid": "1.3.6.1.4.1.9.9.117.1.7.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FRUCoolingUnit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcConnectorRatingTable": {
+    "name": "cefcConnectorRatingTable",
+    "oid": "1.3.6.1.4.1.9.9.117.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefcConnectorRatingEntry": {
+    "name": "cefcConnectorRatingEntry",
+    "oid": "1.3.6.1.4.1.9.9.117.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefcConnectorRating": {
+    "name": "cefcConnectorRating",
+    "oid": "1.3.6.1.4.1.9.9.117.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FRUCurrentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcModulePowerConsumptionTable": {
+    "name": "cefcModulePowerConsumptionTable",
+    "oid": "1.3.6.1.4.1.9.9.117.1.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefcModulePowerConsumptionEntry": {
+    "name": "cefcModulePowerConsumptionEntry",
+    "oid": "1.3.6.1.4.1.9.9.117.1.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefcModulePowerConsumption": {
+    "name": "cefcModulePowerConsumption",
+    "oid": "1.3.6.1.4.1.9.9.117.1.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FRUCurrentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefcMIBEnableStatusNotification": {
+    "name": "cefcMIBEnableStatusNotification",
+    "oid": "1.3.6.1.4.1.9.9.117.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefcEnablePSOutputChangeNotif": {
+    "name": "cefcEnablePSOutputChangeNotif",
+    "oid": "1.3.6.1.4.1.9.9.117.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cefcMIBNotifications": {
+    "name": "cefcMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.117.2.0",
+    "class": "objectidentity"
+  },
+  "cefcModuleStatusChange": {
+    "name": "cefcModuleStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.117.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcModuleOperStatus"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcModuleStatusLastChangeTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcPowerStatusChange": {
+    "name": "cefcPowerStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.117.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFRUPowerOperStatus"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFRUPowerAdminStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcFRUInserted": {
+    "name": "cefcFRUInserted",
+    "oid": "1.3.6.1.4.1.9.9.117.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalContainedIn"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcFRURemoved": {
+    "name": "cefcFRURemoved",
+    "oid": "1.3.6.1.4.1.9.9.117.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalContainedIn"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcUnrecognizedFRU": {
+    "name": "cefcUnrecognizedFRU",
+    "oid": "1.3.6.1.4.1.9.9.117.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalClass"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalVendorType"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalModelName"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcPhysicalStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcFanTrayStatusChange": {
+    "name": "cefcFanTrayStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.117.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFanTrayOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcPowerSupplyOutputChange": {
+    "name": "cefcPowerSupplyOutputChange",
+    "oid": "1.3.6.1.4.1.9.9.117.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalModelName"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcPSOutputModeCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcMIBCompliances": {
+    "name": "cefcMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.117.3.1",
+    "class": "objectidentity"
+  },
+  "cefcMIBGroups": {
+    "name": "cefcMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2",
+    "class": "objectidentity"
+  },
+  "cefcMIBPowerCompliance": {
+    "name": "cefcMIBPowerCompliance",
+    "oid": "1.3.6.1.4.1.9.9.117.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cefcMIBPowerModeGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPowerFRUControlGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cefcMIBPowerCompliance2": {
+    "name": "cefcMIBPowerCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.117.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cefcMIBPowerModeGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMgmtNotificationsGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPowerFRUControlGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBModuleGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBInLinePowerControlGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBNotificationEnablesGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cefcMIBPowerCompliance3": {
+    "name": "cefcMIBPowerCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.117.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cefcMIBPowerModeGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMgmtNotificationsGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPowerFRUControlGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBModuleGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBInLinePowerControlGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBNotificationEnablesGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcModuleGroupRev1",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cefcMIBPowerCompliance4": {
+    "name": "cefcMIBPowerCompliance4",
+    "oid": "1.3.6.1.4.1.9.9.117.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cefcMIBPowerModeGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMgmtNotificationsGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPowerFRUControlGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBModuleGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBInLinePowerControlGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBNotificationEnablesGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcModuleGroupRev1",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPowerFRUValueGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cefcMIBPowerCompliance5": {
+    "name": "cefcMIBPowerCompliance5",
+    "oid": "1.3.6.1.4.1.9.9.117.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cefcMIBPowerModeGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMgmtNotificationsGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMgmtNotificationsGroup2",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPowerFRUControlGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBModuleGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBInLinePowerControlGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBNotificationEnablesGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcModuleGroupRev1",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPowerFRUValueGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBFanTrayStatusGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPhysicalGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cefcMIBPowerCompliance6": {
+    "name": "cefcMIBPowerCompliance6",
+    "oid": "1.3.6.1.4.1.9.9.117.3.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cefcMIBPowerModeGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMgmtNotificationsGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPowerFRUControlGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBModuleGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBInLinePowerControlGroupRev1",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBNotificationEnablesGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcModuleGroupRev1",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPowerFRUValueGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBFanTrayStatusGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPhysicalGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMgmtNotificationsGroup2",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPowerOperModeGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcModuleExtGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcIntelliModuleGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcMIBPowerCompliance7": {
+    "name": "cefcMIBPowerCompliance7",
+    "oid": "1.3.6.1.4.1.9.9.117.3.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cefcMIBPowerModeGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMgmtNotificationsGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPowerFRUControlGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBModuleGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBInLinePowerControlGroupRev1",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBNotificationEnablesGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcModuleGroupRev1",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPowerFRUValueGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBFanTrayStatusGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPhysicalGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMgmtNotificationsGroup2",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPowerOperModeGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcModuleExtGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcIntelliModuleGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcPowerCapacityGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcCoolingGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcConnectorRatingGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBNotificationEnablesGroup2",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMgmtNotificationsGroup3",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cefcMIBPowerCompliance8": {
+    "name": "cefcMIBPowerCompliance8",
+    "oid": "1.3.6.1.4.1.9.9.117.3.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cefcMIBPowerModeGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMgmtNotificationsGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPowerFRUControlGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBModuleGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBInLinePowerControlGroupRev1",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBNotificationEnablesGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcModuleGroupRev1",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPowerFRUValueGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBFanTrayStatusGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPhysicalGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMgmtNotificationsGroup2",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPowerOperModeGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcModuleExtGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcIntelliModuleGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcPowerCapacityGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcCoolingGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcConnectorRatingGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBNotificationEnablesGroup2",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMgmtNotificationsGroup3",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBInLinePowerCurrentGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPowerRedundancyInfoGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcFanCoolingCapGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cefcMIBPowerCompliance9": {
+    "name": "cefcMIBPowerCompliance9",
+    "oid": "1.3.6.1.4.1.9.9.117.3.1.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cefcMIBPowerModeGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMgmtNotificationsGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPowerFRUControlGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBModuleGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBInLinePowerControlGroupRev1",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBNotificationEnablesGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcModuleGroupRev1",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPowerFRUValueGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBFanTrayStatusGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPhysicalGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMgmtNotificationsGroup2",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPowerOperModeGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcModuleExtGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcIntelliModuleGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcPowerCapacityGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcConnectorRatingGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBNotificationEnablesGroup2",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMgmtNotificationsGroup3",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBInLinePowerCurrentGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBPowerRedundancyInfoGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcFanCoolingCapGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcMIBModuleLocalSwitchingGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcFRUPowerRealTimeStatusGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcFRUPowerCapabilityGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcFRUCoolingUnitGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcFRUFanCoolingUnitGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcCoolingGroup2",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      },
+      {
+        "object": "cefcFanCoolingGroup",
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcMIBPowerModeGroup": {
+    "name": "cefcMIBPowerModeGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcPowerRedundancyMode"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcPowerUnits"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcTotalAvailableCurrent"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcTotalDrawnCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcMIBPowerFRUControlGroup": {
+    "name": "cefcMIBPowerFRUControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFRUPowerAdminStatus"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFRUPowerOperStatus"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFRUCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcMIBModuleGroup": {
+    "name": "cefcMIBModuleGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcModuleAdminStatus"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcModuleOperStatus"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcModuleResetReason"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcModuleStatusLastChangeTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcMIBInLinePowerControlGroup": {
+    "name": "cefcMIBInLinePowerControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcMaxDefaultInLinePower"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cefcMIBNotificationEnablesGroup": {
+    "name": "cefcMIBNotificationEnablesGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcMIBEnableStatusNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcMgmtNotificationsGroup": {
+    "name": "cefcMgmtNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcModuleStatusChange"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcPowerStatusChange"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFRUInserted"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFRURemoved"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcModuleGroupRev1": {
+    "name": "cefcModuleGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcModuleLastClearConfigTime"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcModuleResetReasonDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcMIBPowerFRUValueGroup": {
+    "name": "cefcMIBPowerFRUValueGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFRUTotalSystemCurrent"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFRUDrawnSystemCurrent"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFRUTotalInlineCurrent"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFRUDrawnInlineCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcMIBFanTrayStatusGroup": {
+    "name": "cefcMIBFanTrayStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFanTrayOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcMIBPhysicalGroup": {
+    "name": "cefcMIBPhysicalGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcPhysicalStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcMgmtNotificationsGroup2": {
+    "name": "cefcMgmtNotificationsGroup2",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcUnrecognizedFRU"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFanTrayStatusChange"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcMIBPowerOperModeGroup": {
+    "name": "cefcMIBPowerOperModeGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcPowerRedundancyOperMode"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcMIBInLinePowerControlGroupRev1": {
+    "name": "cefcMIBInLinePowerControlGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcMaxDefaultHighInLinePower"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcModuleExtGroup": {
+    "name": "cefcModuleExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcModuleStateChangeReasonDescr"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcModuleUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcIntelliModuleGroup": {
+    "name": "cefcIntelliModuleGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcIntelliModuleIPAddrType"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcIntelliModuleIPAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcPowerCapacityGroup": {
+    "name": "cefcPowerCapacityGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcPowerSupplyInputType"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcPSOutputModeCurrent"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcPSOutputModeInOperation"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcCoolingGroup": {
+    "name": "cefcCoolingGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcChassisPerSlotCoolingCap"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFanCoolingCapacity"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcModuleCooling"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cefcConnectorRatingGroup": {
+    "name": "cefcConnectorRatingGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcConnectorRating"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcModulePowerConsumption"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcMIBNotificationEnablesGroup2": {
+    "name": "cefcMIBNotificationEnablesGroup2",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcEnablePSOutputChangeNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcMgmtNotificationsGroup3": {
+    "name": "cefcMgmtNotificationsGroup3",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.20",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcPowerSupplyOutputChange"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcMIBInLinePowerCurrentGroup": {
+    "name": "cefcMIBInLinePowerCurrentGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcTotalDrawnInlineCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcMIBPowerRedundancyInfoGroup": {
+    "name": "cefcMIBPowerRedundancyInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcPowerNonRedundantReason"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcFanCoolingCapGroup": {
+    "name": "cefcFanCoolingCapGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFanCoolingCapModeDescr"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFanCoolingCapCapacity"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFanCoolingCapCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcMIBModuleLocalSwitchingGroup": {
+    "name": "cefcMIBModuleLocalSwitchingGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcModuleLocalSwitchingMode"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcFRUPowerRealTimeStatusGroup": {
+    "name": "cefcFRUPowerRealTimeStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFRURealTimeCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcFRUPowerCapabilityGroup": {
+    "name": "cefcFRUPowerCapabilityGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFRUPowerCapability"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcFRUCoolingUnitGroup": {
+    "name": "cefcFRUCoolingUnitGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcChassisPerSlotCoolingUnit"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcModuleCoolingUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcFRUFanCoolingUnitGroup": {
+    "name": "cefcFRUFanCoolingUnitGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFanCoolingCapacityUnit"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFanCoolingCapCapacityUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcCoolingGroup2": {
+    "name": "cefcCoolingGroup2",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcChassisPerSlotCoolingCap"
+      },
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcModuleCooling"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcFanCoolingGroup": {
+    "name": "cefcFanCoolingGroup",
+    "oid": "1.3.6.1.4.1.9.9.117.3.2.30",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-FRU-CONTROL-MIB",
+        "object": "cefcFanCoolingCapacity"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENTITY-FRU-CONTROL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ENTITY-FRU-CONTROL-MIB"
+  }
+}

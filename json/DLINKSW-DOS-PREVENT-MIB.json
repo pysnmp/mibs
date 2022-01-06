@@ -1,0 +1,526 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dlinkSwDosPrevMIB": {
+    "name": "dlinkSwDosPrevMIB",
+    "oid": "1.3.6.1.4.1.171.14.59",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-05-30 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "DosAttackType": {
+    "name": "DosAttackType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "landAttack": 1,
+          "blatAttack": 2,
+          "smurfAttack": 3,
+          "tcpNullScan": 4,
+          "tcpXmasScan": 5,
+          "tcpSynFin": 6,
+          "tcpSynSrcPortLess1024": 7,
+          "arpMacSaMismatch": 8,
+          "fraggleAttack": 9,
+          "icmpRedirectAttack": 10,
+          "icmpUnreachableAttack": 11,
+          "ipRouteRecordAttack": 12,
+          "ipSourceRouteAttack": 13,
+          "pingDeathAttack": 14,
+          "tcpFlagSynRst": 15,
+          "tcpOverMacMcbc": 16,
+          "tcpSynWithData": 17,
+          "tcpTinyFragAttack": 18,
+          "tcpUdpPortZero": 19,
+          "tracertAttack": 20,
+          "winNukeAttack": 21,
+          "pingFlood": 22,
+          "synFlood": 23,
+          "teardrop": 24,
+          "all": 999
+        }
+      }
+    },
+    "status": "current"
+  },
+  "dDosPrevMIBNotifications": {
+    "name": "dDosPrevMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.59.0",
+    "class": "objectidentity"
+  },
+  "dDosPrevMIBObjects": {
+    "name": "dDosPrevMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.59.1",
+    "class": "objectidentity"
+  },
+  "dDosPrevMIBConformance": {
+    "name": "dDosPrevMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.59.2",
+    "class": "objectidentity"
+  },
+  "dDosPrevGlobalNotifsEnabled": {
+    "name": "dDosPrevGlobalNotifsEnabled",
+    "oid": "1.3.6.1.4.1.171.14.59.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDosPrevNotifyInfo": {
+    "name": "dDosPrevNotifyInfo",
+    "oid": "1.3.6.1.4.1.171.14.59.1.2",
+    "class": "objectidentity"
+  },
+  "dDosPrevNotiInfoDropFramesCount": {
+    "name": "dDosPrevNotiInfoDropFramesCount",
+    "oid": "1.3.6.1.4.1.171.14.59.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dDosPrevNotiInfoDropIpAddr": {
+    "name": "dDosPrevNotiInfoDropIpAddr",
+    "oid": "1.3.6.1.4.1.171.14.59.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dDosPrevNotiInfoDropPortNumber": {
+    "name": "dDosPrevNotiInfoDropPortNumber",
+    "oid": "1.3.6.1.4.1.171.14.59.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dDosPrevCtrlTable": {
+    "name": "dDosPrevCtrlTable",
+    "oid": "1.3.6.1.4.1.171.14.59.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDosPrevCtrlEntry": {
+    "name": "dDosPrevCtrlEntry",
+    "oid": "1.3.6.1.4.1.171.14.59.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DOS-PREVENT-MIB",
+        "object": "dDoSPrevCtrlAttackType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDoSPrevCtrlAttackType": {
+    "name": "dDoSPrevCtrlAttackType",
+    "oid": "1.3.6.1.4.1.171.14.59.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DosAttackType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDoSPrevCtrlEnabled": {
+    "name": "dDoSPrevCtrlEnabled",
+    "oid": "1.3.6.1.4.1.171.14.59.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDoSPrevCtrlActionType": {
+    "name": "dDoSPrevCtrlActionType",
+    "oid": "1.3.6.1.4.1.171.14.59.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 1,
+          "redirect": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "drop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDoSPrevCtrlRedirectPort": {
+    "name": "dDoSPrevCtrlRedirectPort",
+    "oid": "1.3.6.1.4.1.171.14.59.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDoSPrevCtrlRedirectPriority": {
+    "name": "dDoSPrevCtrlRedirectPriority",
+    "oid": "1.3.6.1.4.1.171.14.59.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDoSPrevCtrlRedirectRateLimit": {
+    "name": "dDoSPrevCtrlRedirectRateLimit",
+    "oid": "1.3.6.1.4.1.171.14.59.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDoSPrevCounterTable": {
+    "name": "dDoSPrevCounterTable",
+    "oid": "1.3.6.1.4.1.171.14.59.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDoSPrevCounterEntry": {
+    "name": "dDoSPrevCounterEntry",
+    "oid": "1.3.6.1.4.1.171.14.59.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DOS-PREVENT-MIB",
+        "object": "dDoSPrevCounterAttackType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDoSPrevCounterAttackType": {
+    "name": "dDoSPrevCounterAttackType",
+    "oid": "1.3.6.1.4.1.171.14.59.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DosAttackType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDoSPrevCounterFrameCount": {
+    "name": "dDoSPrevCounterFrameCount",
+    "oid": "1.3.6.1.4.1.171.14.59.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDoSPrevCounterClearCounter": {
+    "name": "dDoSPrevCounterClearCounter",
+    "oid": "1.3.6.1.4.1.171.14.59.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noOp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDosPreveAttackDetected": {
+    "name": "dDosPreveAttackDetected",
+    "oid": "1.3.6.1.4.1.171.14.59.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DLINKSW-DOS-PREVENT-MIB",
+        "object": "dDosPrevNotiInfoDropFramesCount"
+      }
+    ],
+    "status": "current"
+  },
+  "dDosPreveAttackDetectedPacket": {
+    "name": "dDosPreveAttackDetectedPacket",
+    "oid": "1.3.6.1.4.1.171.14.59.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DLINKSW-DOS-PREVENT-MIB",
+        "object": "dDoSPrevCtrlAttackType"
+      },
+      {
+        "module": "DLINKSW-DOS-PREVENT-MIB",
+        "object": "dDosPrevNotiInfoDropIpAddr"
+      },
+      {
+        "module": "DLINKSW-DOS-PREVENT-MIB",
+        "object": "dDosPrevNotiInfoDropPortNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "dDosPrevMIBCompliances": {
+    "name": "dDosPrevMIBCompliances",
+    "oid": "1.3.6.1.4.1.171.14.59.2.1",
+    "class": "objectidentity"
+  },
+  "dDosPrevMIBGroups": {
+    "name": "dDosPrevMIBGroups",
+    "oid": "1.3.6.1.4.1.171.14.59.2.2",
+    "class": "objectidentity"
+  },
+  "dDosPrevMIBCompliance": {
+    "name": "dDosPrevMIBCompliance",
+    "oid": "1.3.6.1.4.1.171.14.59.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dDosPrevBasicGroup",
+        "module": "DLINKSW-DOS-PREVENT-MIB"
+      },
+      {
+        "object": "dDosPrevNotifyObjectGroup",
+        "module": "DLINKSW-DOS-PREVENT-MIB"
+      },
+      {
+        "object": "dDosPrevNotificationsGroup",
+        "module": "DLINKSW-DOS-PREVENT-MIB"
+      },
+      {
+        "object": "dDosPrevActionRedirectCtrlGroup",
+        "module": "DLINKSW-DOS-PREVENT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dDosPrevBasicGroup": {
+    "name": "dDosPrevBasicGroup",
+    "oid": "1.3.6.1.4.1.171.14.59.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DOS-PREVENT-MIB",
+        "object": "dDoSPrevCtrlEnabled"
+      },
+      {
+        "module": "DLINKSW-DOS-PREVENT-MIB",
+        "object": "dDoSPrevCounterFrameCount"
+      },
+      {
+        "module": "DLINKSW-DOS-PREVENT-MIB",
+        "object": "dDoSPrevCounterClearCounter"
+      }
+    ],
+    "status": "current"
+  },
+  "dDosPrevActionRedirectCtrlGroup": {
+    "name": "dDosPrevActionRedirectCtrlGroup",
+    "oid": "1.3.6.1.4.1.171.14.59.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DOS-PREVENT-MIB",
+        "object": "dDoSPrevCtrlActionType"
+      },
+      {
+        "module": "DLINKSW-DOS-PREVENT-MIB",
+        "object": "dDoSPrevCtrlRedirectPort"
+      },
+      {
+        "module": "DLINKSW-DOS-PREVENT-MIB",
+        "object": "dDoSPrevCtrlRedirectPriority"
+      },
+      {
+        "module": "DLINKSW-DOS-PREVENT-MIB",
+        "object": "dDoSPrevCtrlRedirectRateLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "dDosPrevNotifyObjectGroup": {
+    "name": "dDosPrevNotifyObjectGroup",
+    "oid": "1.3.6.1.4.1.171.14.59.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DOS-PREVENT-MIB",
+        "object": "dDosPrevGlobalNotifsEnabled"
+      },
+      {
+        "module": "DLINKSW-DOS-PREVENT-MIB",
+        "object": "dDosPrevNotiInfoDropFramesCount"
+      },
+      {
+        "module": "DLINKSW-DOS-PREVENT-MIB",
+        "object": "dDosPrevNotiInfoDropIpAddr"
+      },
+      {
+        "module": "DLINKSW-DOS-PREVENT-MIB",
+        "object": "dDosPrevNotiInfoDropPortNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "dDosPrevNotificationsGroup": {
+    "name": "dDosPrevNotificationsGroup",
+    "oid": "1.3.6.1.4.1.171.14.59.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DOS-PREVENT-MIB",
+        "object": "dDosPreveAttackDetected"
+      },
+      {
+        "module": "DLINKSW-DOS-PREVENT-MIB",
+        "object": "dDosPreveAttackDetectedPacket"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-DOS-PREVENT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-DOS-PREVENT-MIB"
+  }
+}

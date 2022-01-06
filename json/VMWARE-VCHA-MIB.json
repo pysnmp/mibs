@@ -1,0 +1,733 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "VMWARE-ROOT-MIB": [
+      "vmwVCHA"
+    ]
+  },
+  "vmwVchaMIB": {
+    "name": "vmwVchaMIB",
+    "oid": "1.3.6.1.4.1.6876.53.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-07-19 00:00",
+        "description": "Removed vmwVchaFileReplicationEventQueueOverflowed and cleaned up a few descriptions. Fixed vCenter HA related terminologies and typos."
+      },
+      {
+        "revision": "2016-04-06 00:00",
+        "description": "Aggregate vmwVchaFileWatchFailed, vmwVchaFileReplicationFailed and vmwVchaFileResyncSucceeded into vmwVchaFileReplicationStateChanged notification. Add three more notification for failover failure cases. Combine syncPeerStarted and syncPeerCompleted into a single state: sync."
+      },
+      {
+        "revision": "2016-02-03 00:00",
+        "description": "Add two more notifications vmwVchaFailoverSucceeded and vmwVchaContinueAsActive to indicate whether a failover succeeds. Also add one more parameter to vmwVchaNodeJoined and vmwVchaNodeLeft to distinguish between the role of sender node and target node."
+      },
+      {
+        "revision": "2016-01-27 00:00",
+        "description": "Change the terminology from DB replication mode to DB replication state and add one more state to it. Also use past tense for all notification names."
+      },
+      {
+        "revision": "2016-01-15 00:00",
+        "description": "Add two more notifications vmwVchaClusterStateChange and vmwVchaFileReplicationEventQueueOverflowed."
+      },
+      {
+        "revision": "2016-01-04 00:00",
+        "description": "This is the first version of this MIB module."
+      }
+    ]
+  },
+  "vmwVCHANotifications": {
+    "name": "vmwVCHANotifications",
+    "oid": "1.3.6.1.4.1.6876.53.0",
+    "class": "objectidentity"
+  },
+  "vmwVchaActive": {
+    "name": "vmwVchaActive",
+    "oid": "1.3.6.1.4.1.6876.53.250",
+    "class": "objectidentity"
+  },
+  "vmwVchaPassive": {
+    "name": "vmwVchaPassive",
+    "oid": "1.3.6.1.4.1.6876.53.255",
+    "class": "objectidentity"
+  },
+  "vmwVchaWitness": {
+    "name": "vmwVchaWitness",
+    "oid": "1.3.6.1.4.1.6876.53.260",
+    "class": "objectidentity"
+  },
+  "VmwVchaNodeRoleType": {
+    "name": "VmwVchaNodeRoleType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "passive": 2,
+          "witness": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VmwVchaClusterModeType": {
+    "name": "VmwVchaClusterModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "maintenance": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VmwVchaClusterStateType": {
+    "name": "VmwVchaClusterStateType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "healthy": 1,
+          "degraded": 2,
+          "isolated": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VmwVchaDbReplicationStateType": {
+    "name": "VmwVchaDbReplicationStateType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noReplication": 1,
+          "sync": 3,
+          "async": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VmwVchaFileReplicationProviderType": {
+    "name": "VmwVchaFileReplicationProviderType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "serviceConfig": 1,
+          "serviceState": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "vmwVchaNodeJoined": {
+    "name": "vmwVchaNodeJoined",
+    "oid": "1.3.6.1.4.1.6876.53.0.100",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaInstanceUuid"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaPrivateAddressType"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaPrivateAddressAddr"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaTargetNodeRole"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVchaNodeLeft": {
+    "name": "vmwVchaNodeLeft",
+    "oid": "1.3.6.1.4.1.6876.53.0.105",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaInstanceUuid"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaPrivateAddressType"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaPrivateAddressAddr"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaTargetNodeRole"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVchaNodeIsolated": {
+    "name": "vmwVchaNodeIsolated",
+    "oid": "1.3.6.1.4.1.6876.53.0.110",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaInstanceUuid"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaPrivateAddressType"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaPrivateAddressAddr"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaTargetNodeRole"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVchaClusterStateChanged": {
+    "name": "vmwVchaClusterStateChanged",
+    "oid": "1.3.6.1.4.1.6876.53.0.130",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaInstanceUuid"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaClusterState"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVchaClusterModeChanged": {
+    "name": "vmwVchaClusterModeChanged",
+    "oid": "1.3.6.1.4.1.6876.53.0.150",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaInstanceUuid"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaClusterMode"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVchaPublicIpUp": {
+    "name": "vmwVchaPublicIpUp",
+    "oid": "1.3.6.1.4.1.6876.53.0.205",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaInstanceUuid"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaPublicAddressType"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaPublicAddressAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVchaPublicIpDown": {
+    "name": "vmwVchaPublicIpDown",
+    "oid": "1.3.6.1.4.1.6876.53.0.206",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaInstanceUuid"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaPublicAddressType"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaPublicAddressAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVchaFailoverTriggered": {
+    "name": "vmwVchaFailoverTriggered",
+    "oid": "1.3.6.1.4.1.6876.53.0.210",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaInstanceUuid"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaIsPlannedFailover"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVchaFailoverSucceeded": {
+    "name": "vmwVchaFailoverSucceeded",
+    "oid": "1.3.6.1.4.1.6876.53.0.220",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaInstanceUuid"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVchaFailoverFailedDisabledMode": {
+    "name": "vmwVchaFailoverFailedDisabledMode",
+    "oid": "1.3.6.1.4.1.6876.53.0.225",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaInstanceUuid"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVchaFailoverFailedNodeLost": {
+    "name": "vmwVchaFailoverFailedNodeLost",
+    "oid": "1.3.6.1.4.1.6876.53.0.226",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaInstanceUuid"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVchaFailoverFailedPassiveNotReady": {
+    "name": "vmwVchaFailoverFailedPassiveNotReady",
+    "oid": "1.3.6.1.4.1.6876.53.0.227",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaInstanceUuid"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVchaContinueAsActive": {
+    "name": "vmwVchaContinueAsActive",
+    "oid": "1.3.6.1.4.1.6876.53.0.230",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaInstanceUuid"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVchaDbReplicationStateChanged": {
+    "name": "vmwVchaDbReplicationStateChanged",
+    "oid": "1.3.6.1.4.1.6876.53.0.300",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaInstanceUuid"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaDbReplicationState"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVchaFileReplicationStateChanged": {
+    "name": "vmwVchaFileReplicationStateChanged",
+    "oid": "1.3.6.1.4.1.6876.53.0.350",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaInstanceUuid"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaFileReplicationProvider"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaIsFileProviderInSync"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVchaInstanceUuid": {
+    "name": "vmwVchaInstanceUuid",
+    "oid": "1.3.6.1.4.1.6876.53.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vmwVchaPrivateAddressType": {
+    "name": "vmwVchaPrivateAddressType",
+    "oid": "1.3.6.1.4.1.6876.53.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vmwVchaPublicAddressType": {
+    "name": "vmwVchaPublicAddressType",
+    "oid": "1.3.6.1.4.1.6876.53.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vmwVchaPrivateAddressAddr": {
+    "name": "vmwVchaPrivateAddressAddr",
+    "oid": "1.3.6.1.4.1.6876.53.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vmwVchaPublicAddressAddr": {
+    "name": "vmwVchaPublicAddressAddr",
+    "oid": "1.3.6.1.4.1.6876.53.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vmwVchaTargetNodeRole": {
+    "name": "vmwVchaTargetNodeRole",
+    "oid": "1.3.6.1.4.1.6876.53.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VmwVchaNodeRoleType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vmwVchaClusterState": {
+    "name": "vmwVchaClusterState",
+    "oid": "1.3.6.1.4.1.6876.53.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VmwVchaClusterStateType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vmwVchaClusterMode": {
+    "name": "vmwVchaClusterMode",
+    "oid": "1.3.6.1.4.1.6876.53.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VmwVchaClusterModeType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vmwVchaIsPlannedFailover": {
+    "name": "vmwVchaIsPlannedFailover",
+    "oid": "1.3.6.1.4.1.6876.53.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vmwVchaDbReplicationState": {
+    "name": "vmwVchaDbReplicationState",
+    "oid": "1.3.6.1.4.1.6876.53.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VmwVchaDbReplicationStateType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vmwVchaIsFileProviderInSync": {
+    "name": "vmwVchaIsFileProviderInSync",
+    "oid": "1.3.6.1.4.1.6876.53.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vmwVchaFileReplicationProvider": {
+    "name": "vmwVchaFileReplicationProvider",
+    "oid": "1.3.6.1.4.1.6876.53.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VmwVchaFileReplicationProviderType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vmwVchaMIBConformance": {
+    "name": "vmwVchaMIBConformance",
+    "oid": "1.3.6.1.4.1.6876.53.1.2",
+    "class": "objectidentity"
+  },
+  "vmwVchaMIBCompliances": {
+    "name": "vmwVchaMIBCompliances",
+    "oid": "1.3.6.1.4.1.6876.53.1.2.1",
+    "class": "objectidentity"
+  },
+  "vmwVchaMIBGroups": {
+    "name": "vmwVchaMIBGroups",
+    "oid": "1.3.6.1.4.1.6876.53.1.2.2",
+    "class": "objectidentity"
+  },
+  "vmwVchaMIBBasicComplianceRev2": {
+    "name": "vmwVchaMIBBasicComplianceRev2",
+    "oid": "1.3.6.1.4.1.6876.53.1.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vmwVchaNotificationInfoGroup",
+        "module": "VMWARE-VCHA-MIB"
+      },
+      {
+        "object": "vmwVchaNotificationGroup",
+        "module": "VMWARE-VCHA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVchaNotificationInfoGroup": {
+    "name": "vmwVchaNotificationInfoGroup",
+    "oid": "1.3.6.1.4.1.6876.53.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaInstanceUuid"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaPrivateAddressAddr"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaPrivateAddressType"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaPublicAddressAddr"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaPublicAddressType"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaTargetNodeRole"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaClusterState"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaClusterMode"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaIsPlannedFailover"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaDbReplicationState"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaIsFileProviderInSync"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaFileReplicationProvider"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVchaNotificationGroup": {
+    "name": "vmwVchaNotificationGroup",
+    "oid": "1.3.6.1.4.1.6876.53.1.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaNodeJoined"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaNodeLeft"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaNodeIsolated"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaClusterStateChanged"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaClusterModeChanged"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaPublicIpUp"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaPublicIpDown"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaFailoverTriggered"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaFailoverSucceeded"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaFailoverFailedDisabledMode"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaFailoverFailedNodeLost"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaFailoverFailedPassiveNotReady"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaContinueAsActive"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaDbReplicationStateChanged"
+      },
+      {
+        "module": "VMWARE-VCHA-MIB",
+        "object": "vmwVchaFileReplicationStateChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-VCHA-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "VMWARE-VCHA-MIB"
+  }
+}

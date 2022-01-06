@@ -1,0 +1,832 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TRANSITION-SMI": [
+      "tnProducts"
+    ]
+  },
+  "tnDhcpMIB": {
+    "name": "tnDhcpMIB",
+    "oid": "1.3.6.1.4.1.868.2.5.33",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-10-08 00:00",
+        "description": "Initial Revision of this module"
+      }
+    ]
+  },
+  "tnDhcpMIBObjects": {
+    "name": "tnDhcpMIBObjects",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1",
+    "class": "objectidentity"
+  },
+  "tnDhcpMIBNotifications": {
+    "name": "tnDhcpMIBNotifications",
+    "oid": "1.3.6.1.4.1.868.2.5.33.2",
+    "class": "objectidentity"
+  },
+  "tnDhcpSnoopingMgmt": {
+    "name": "tnDhcpSnoopingMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1",
+    "class": "objectidentity"
+  },
+  "tnDhcpSnoopingTable": {
+    "name": "tnDhcpSnoopingTable",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDhcpSnoopingEntry": {
+    "name": "tnDhcpSnoopingEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnDhcpSnoopingMode": {
+    "name": "tnDhcpSnoopingMode",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDhcpSnoopingIfTable": {
+    "name": "tnDhcpSnoopingIfTable",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDhcpSnoopingIfEntry": {
+    "name": "tnDhcpSnoopingIfEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnDhcpSnoopingIfMode": {
+    "name": "tnDhcpSnoopingIfMode",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trusted": 1,
+          "untrusted": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "untrusted",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsTable": {
+    "name": "tnDhcpSnoopingStatisticsTable",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsEntry": {
+    "name": "tnDhcpSnoopingStatisticsEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsClear": {
+    "name": "tnDhcpSnoopingStatisticsClear",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsRxDiscover": {
+    "name": "tnDhcpSnoopingStatisticsRxDiscover",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsTxDiscover": {
+    "name": "tnDhcpSnoopingStatisticsTxDiscover",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsRxOffer": {
+    "name": "tnDhcpSnoopingStatisticsRxOffer",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsTxOffer": {
+    "name": "tnDhcpSnoopingStatisticsTxOffer",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsRxRequest": {
+    "name": "tnDhcpSnoopingStatisticsRxRequest",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsTxRequest": {
+    "name": "tnDhcpSnoopingStatisticsTxRequest",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsRxDecline": {
+    "name": "tnDhcpSnoopingStatisticsRxDecline",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsTxDecline": {
+    "name": "tnDhcpSnoopingStatisticsTxDecline",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsRxACK": {
+    "name": "tnDhcpSnoopingStatisticsRxACK",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsTxACK": {
+    "name": "tnDhcpSnoopingStatisticsTxACK",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsRxNAK": {
+    "name": "tnDhcpSnoopingStatisticsRxNAK",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsTxNAK": {
+    "name": "tnDhcpSnoopingStatisticsTxNAK",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsRxRelease": {
+    "name": "tnDhcpSnoopingStatisticsRxRelease",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsTxRelease": {
+    "name": "tnDhcpSnoopingStatisticsTxRelease",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsRxInform": {
+    "name": "tnDhcpSnoopingStatisticsRxInform",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsTxInform": {
+    "name": "tnDhcpSnoopingStatisticsTxInform",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsRxLeaseQuery": {
+    "name": "tnDhcpSnoopingStatisticsRxLeaseQuery",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsTxLeaseQuery": {
+    "name": "tnDhcpSnoopingStatisticsTxLeaseQuery",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsRxLeaseUnassigned": {
+    "name": "tnDhcpSnoopingStatisticsRxLeaseUnassigned",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsTxLeaseUnassigned": {
+    "name": "tnDhcpSnoopingStatisticsTxLeaseUnassigned",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsRxLeaseUnknown": {
+    "name": "tnDhcpSnoopingStatisticsRxLeaseUnknown",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsTxLeaseUnknown": {
+    "name": "tnDhcpSnoopingStatisticsTxLeaseUnknown",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsRxLeaseActive": {
+    "name": "tnDhcpSnoopingStatisticsRxLeaseActive",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpSnoopingStatisticsTxLeaseActive": {
+    "name": "tnDhcpSnoopingStatisticsTxLeaseActive",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayMgmt": {
+    "name": "tnDhcpRelayMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2",
+    "class": "objectidentity"
+  },
+  "tnDhcpRelayTable": {
+    "name": "tnDhcpRelayTable",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDhcpRelayEntry": {
+    "name": "tnDhcpRelayEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnDhcpRelayMode": {
+    "name": "tnDhcpRelayMode",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDhcpRelayServerAddrType": {
+    "name": "tnDhcpRelayServerAddrType",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDhcpRelayServerAddr": {
+    "name": "tnDhcpRelayServerAddr",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDhcpRelayInfoMode": {
+    "name": "tnDhcpRelayInfoMode",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDhcpRelayInfoPolicy": {
+    "name": "tnDhcpRelayInfoPolicy",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "replace": 0,
+          "keep": 1,
+          "drop": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "replace",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDhcpRelayStatisticsTable": {
+    "name": "tnDhcpRelayStatisticsTable",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDhcpRelayStatisticsEntry": {
+    "name": "tnDhcpRelayStatisticsEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnDhcpRelayStatisticsClear": {
+    "name": "tnDhcpRelayStatisticsClear",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDhcpRelayStatisticsServerTransmitToServer": {
+    "name": "tnDhcpRelayStatisticsServerTransmitToServer",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatisticsServerTransmitError": {
+    "name": "tnDhcpRelayStatisticsServerTransmitError",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatisticsServerReceiveFromServer": {
+    "name": "tnDhcpRelayStatisticsServerReceiveFromServer",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatisticsServerReceiveMissingAgentOption": {
+    "name": "tnDhcpRelayStatisticsServerReceiveMissingAgentOption",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatisticsServerReceiveMissingCircuitID": {
+    "name": "tnDhcpRelayStatisticsServerReceiveMissingCircuitID",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatisticsServerReceiveMissingRemoteID": {
+    "name": "tnDhcpRelayStatisticsServerReceiveMissingRemoteID",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatisticsServerReceiveBadCircuitID": {
+    "name": "tnDhcpRelayStatisticsServerReceiveBadCircuitID",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatisticsServerReceiveBadRemoteID": {
+    "name": "tnDhcpRelayStatisticsServerReceiveBadRemoteID",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatisticsClientTransmitToClient": {
+    "name": "tnDhcpRelayStatisticsClientTransmitToClient",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatisticsClientTransmitError": {
+    "name": "tnDhcpRelayStatisticsClientTransmitError",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatisticsClientReceiveFromClient": {
+    "name": "tnDhcpRelayStatisticsClientReceiveFromClient",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatisticsClientReceiveAgentOption": {
+    "name": "tnDhcpRelayStatisticsClientReceiveAgentOption",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatisticsClientReplaceAgentOption": {
+    "name": "tnDhcpRelayStatisticsClientReplaceAgentOption",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatisticsClientKeepAgentOption": {
+    "name": "tnDhcpRelayStatisticsClientKeepAgentOption",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDhcpRelayStatisticsClientDropAgentOption": {
+    "name": "tnDhcpRelayStatisticsClientDropAgentOption",
+    "oid": "1.3.6.1.4.1.868.2.5.33.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-DHCP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-DHCP-MIB"
+  }
+}

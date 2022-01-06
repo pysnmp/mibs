@@ -1,0 +1,1209 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "zyxel": {
+    "name": "zyxel",
+    "oid": "1.3.6.1.4.1.890",
+    "class": "objectidentity"
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.890.1",
+    "class": "objectidentity"
+  },
+  "prestige": {
+    "name": "prestige",
+    "oid": "1.3.6.1.4.1.890.1.2",
+    "class": "objectidentity"
+  },
+  "rack": {
+    "name": "rack",
+    "oid": "1.3.6.1.4.1.890.1.3",
+    "class": "objectidentity"
+  },
+  "dslam": {
+    "name": "dslam",
+    "oid": "1.3.6.1.4.1.890.1.4",
+    "class": "objectidentity"
+  },
+  "accessSwitch": {
+    "name": "accessSwitch",
+    "oid": "1.3.6.1.4.1.890.1.5",
+    "class": "objectidentity"
+  },
+  "zywall": {
+    "name": "zywall",
+    "oid": "1.3.6.1.4.1.890.1.6",
+    "class": "objectidentity"
+  },
+  "atmEncryptor": {
+    "name": "atmEncryptor",
+    "oid": "1.3.6.1.4.1.890.1.7",
+    "class": "objectidentity"
+  },
+  "serviceGateway": {
+    "name": "serviceGateway",
+    "oid": "1.3.6.1.4.1.890.1.8",
+    "class": "objectidentity"
+  },
+  "proWireless": {
+    "name": "proWireless",
+    "oid": "1.3.6.1.4.1.890.1.9",
+    "class": "objectidentity"
+  },
+  "wirelessController": {
+    "name": "wirelessController",
+    "oid": "1.3.6.1.4.1.890.1.10",
+    "class": "objectidentity"
+  },
+  "ipav": {
+    "name": "ipav",
+    "oid": "1.3.6.1.4.1.890.1.11",
+    "class": "objectidentity"
+  },
+  "wimax": {
+    "name": "wimax",
+    "oid": "1.3.6.1.4.1.890.1.12",
+    "class": "objectidentity"
+  },
+  "ems": {
+    "name": "ems",
+    "oid": "1.3.6.1.4.1.890.1.13",
+    "class": "objectidentity"
+  },
+  "smallCell": {
+    "name": "smallCell",
+    "oid": "1.3.6.1.4.1.890.1.14",
+    "class": "objectidentity"
+  },
+  "prestigeCommon": {
+    "name": "prestigeCommon",
+    "oid": "1.3.6.1.4.1.890.1.2.1",
+    "class": "objectidentity"
+  },
+  "p200Series": {
+    "name": "p200Series",
+    "oid": "1.3.6.1.4.1.890.1.2.2",
+    "class": "objectidentity"
+  },
+  "p300Series": {
+    "name": "p300Series",
+    "oid": "1.3.6.1.4.1.890.1.2.3",
+    "class": "objectidentity"
+  },
+  "p400Series": {
+    "name": "p400Series",
+    "oid": "1.3.6.1.4.1.890.1.2.4",
+    "class": "objectidentity"
+  },
+  "p500Series": {
+    "name": "p500Series",
+    "oid": "1.3.6.1.4.1.890.1.2.5",
+    "class": "objectidentity"
+  },
+  "p600Series": {
+    "name": "p600Series",
+    "oid": "1.3.6.1.4.1.890.1.2.6",
+    "class": "objectidentity"
+  },
+  "p641": {
+    "name": "p641",
+    "oid": "1.3.6.1.4.1.890.1.2.6.1",
+    "class": "objectidentity"
+  },
+  "p642": {
+    "name": "p642",
+    "oid": "1.3.6.1.4.1.890.1.2.6.2",
+    "class": "objectidentity"
+  },
+  "p643": {
+    "name": "p643",
+    "oid": "1.3.6.1.4.1.890.1.2.6.3",
+    "class": "objectidentity"
+  },
+  "p700Series": {
+    "name": "p700Series",
+    "oid": "1.3.6.1.4.1.890.1.2.7",
+    "class": "objectidentity"
+  },
+  "p794ra": {
+    "name": "p794ra",
+    "oid": "1.3.6.1.4.1.890.1.2.7.1",
+    "class": "objectidentity"
+  },
+  "p794rb": {
+    "name": "p794rb",
+    "oid": "1.3.6.1.4.1.890.1.2.7.2",
+    "class": "objectidentity"
+  },
+  "p800Series": {
+    "name": "p800Series",
+    "oid": "1.3.6.1.4.1.890.1.2.8",
+    "class": "objectidentity"
+  },
+  "p900Series": {
+    "name": "p900Series",
+    "oid": "1.3.6.1.4.1.890.1.2.9",
+    "class": "objectidentity"
+  },
+  "accessSwitchCommon": {
+    "name": "accessSwitchCommon",
+    "oid": "1.3.6.1.4.1.890.1.5.1",
+    "class": "objectidentity"
+  },
+  "aes100": {
+    "name": "aes100",
+    "oid": "1.3.6.1.4.1.890.1.5.2",
+    "class": "objectidentity"
+  },
+  "pes100": {
+    "name": "pes100",
+    "oid": "1.3.6.1.4.1.890.1.5.3",
+    "class": "objectidentity"
+  },
+  "ves1012": {
+    "name": "ves1012",
+    "oid": "1.3.6.1.4.1.890.1.5.4",
+    "class": "objectidentity"
+  },
+  "sesSeries": {
+    "name": "sesSeries",
+    "oid": "1.3.6.1.4.1.890.1.5.5",
+    "class": "objectidentity"
+  },
+  "p1600": {
+    "name": "p1600",
+    "oid": "1.3.6.1.4.1.890.1.5.6",
+    "class": "objectidentity"
+  },
+  "p1400": {
+    "name": "p1400",
+    "oid": "1.3.6.1.4.1.890.1.5.7",
+    "class": "objectidentity"
+  },
+  "esSeries": {
+    "name": "esSeries",
+    "oid": "1.3.6.1.4.1.890.1.5.8",
+    "class": "objectidentity"
+  },
+  "aes100_1": {
+    "name": "aes100_1",
+    "oid": "1.3.6.1.4.1.890.1.5.9",
+    "class": "objectidentity"
+  },
+  "pes1014": {
+    "name": "pes1014",
+    "oid": "1.3.6.1.4.1.890.1.5.10",
+    "class": "objectidentity"
+  },
+  "aesSeries": {
+    "name": "aesSeries",
+    "oid": "1.3.6.1.4.1.890.1.5.11",
+    "class": "objectidentity"
+  },
+  "vesSeries": {
+    "name": "vesSeries",
+    "oid": "1.3.6.1.4.1.890.1.5.12",
+    "class": "objectidentity"
+  },
+  "iesSeries": {
+    "name": "iesSeries",
+    "oid": "1.3.6.1.4.1.890.1.5.13",
+    "class": "objectidentity"
+  },
+  "accessSwitchCommonATM": {
+    "name": "accessSwitchCommonATM",
+    "oid": "1.3.6.1.4.1.890.1.5.14",
+    "class": "objectidentity"
+  },
+  "ponSeries": {
+    "name": "ponSeries",
+    "oid": "1.3.6.1.4.1.890.1.5.15",
+    "class": "objectidentity"
+  },
+  "vopSeries": {
+    "name": "vopSeries",
+    "oid": "1.3.6.1.4.1.890.1.5.16",
+    "class": "objectidentity"
+  },
+  "gponSeries": {
+    "name": "gponSeries",
+    "oid": "1.3.6.1.4.1.890.1.5.17",
+    "class": "objectidentity"
+  },
+  "gesSeries": {
+    "name": "gesSeries",
+    "oid": "1.3.6.1.4.1.890.1.5.18",
+    "class": "objectidentity"
+  },
+  "sesSeriesCommon": {
+    "name": "sesSeriesCommon",
+    "oid": "1.3.6.1.4.1.890.1.5.5.1",
+    "class": "objectidentity"
+  },
+  "sam1008": {
+    "name": "sam1008",
+    "oid": "1.3.6.1.4.1.890.1.5.5.2",
+    "class": "objectidentity"
+  },
+  "ses1024": {
+    "name": "ses1024",
+    "oid": "1.3.6.1.4.1.890.1.5.5.3",
+    "class": "objectidentity"
+  },
+  "slc1024": {
+    "name": "slc1024",
+    "oid": "1.3.6.1.4.1.890.1.5.5.4",
+    "class": "objectidentity"
+  },
+  "slc1224_22": {
+    "name": "slc1224_22",
+    "oid": "1.3.6.1.4.1.890.1.5.5.5",
+    "class": "objectidentity"
+  },
+  "sam1216_22": {
+    "name": "sam1216_22",
+    "oid": "1.3.6.1.4.1.890.1.5.5.6",
+    "class": "objectidentity"
+  },
+  "ies708_22a_stuc": {
+    "name": "ies708_22a_stuc",
+    "oid": "1.3.6.1.4.1.890.1.5.5.7",
+    "class": "objectidentity"
+  },
+  "ies708_22a_stur": {
+    "name": "ies708_22a_stur",
+    "oid": "1.3.6.1.4.1.890.1.5.5.8",
+    "class": "objectidentity"
+  },
+  "esSeriesCommon": {
+    "name": "esSeriesCommon",
+    "oid": "1.3.6.1.4.1.890.1.5.8.1",
+    "class": "objectidentity"
+  },
+  "ees1024af": {
+    "name": "ees1024af",
+    "oid": "1.3.6.1.4.1.890.1.5.8.2",
+    "class": "objectidentity"
+  },
+  "es2008": {
+    "name": "es2008",
+    "oid": "1.3.6.1.4.1.890.1.5.8.3",
+    "class": "objectidentity"
+  },
+  "es2008_gtp": {
+    "name": "es2008_gtp",
+    "oid": "1.3.6.1.4.1.890.1.5.8.4",
+    "class": "objectidentity"
+  },
+  "es2008_sc": {
+    "name": "es2008_sc",
+    "oid": "1.3.6.1.4.1.890.1.5.8.5",
+    "class": "objectidentity"
+  },
+  "es2008_sc30": {
+    "name": "es2008_sc30",
+    "oid": "1.3.6.1.4.1.890.1.5.8.6",
+    "class": "objectidentity"
+  },
+  "es3024": {
+    "name": "es3024",
+    "oid": "1.3.6.1.4.1.890.1.5.8.7",
+    "class": "objectidentity"
+  },
+  "es4024": {
+    "name": "es4024",
+    "oid": "1.3.6.1.4.1.890.1.5.8.8",
+    "class": "objectidentity"
+  },
+  "es2024": {
+    "name": "es2024",
+    "oid": "1.3.6.1.4.1.890.1.5.8.9",
+    "class": "objectidentity"
+  },
+  "gs3012": {
+    "name": "gs3012",
+    "oid": "1.3.6.1.4.1.890.1.5.8.10",
+    "class": "objectidentity"
+  },
+  "gs3012f": {
+    "name": "gs3012f",
+    "oid": "1.3.6.1.4.1.890.1.5.8.11",
+    "class": "objectidentity"
+  },
+  "es3124": {
+    "name": "es3124",
+    "oid": "1.3.6.1.4.1.890.1.5.8.12",
+    "class": "objectidentity"
+  },
+  "gs4024": {
+    "name": "gs4024",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13",
+    "class": "objectidentity"
+  },
+  "es3124pwr": {
+    "name": "es3124pwr",
+    "oid": "1.3.6.1.4.1.890.1.5.8.14",
+    "class": "objectidentity"
+  },
+  "gs2024": {
+    "name": "gs2024",
+    "oid": "1.3.6.1.4.1.890.1.5.8.15",
+    "class": "objectidentity"
+  },
+  "es2024a": {
+    "name": "es2024a",
+    "oid": "1.3.6.1.4.1.890.1.5.8.16",
+    "class": "objectidentity"
+  },
+  "es3148": {
+    "name": "es3148",
+    "oid": "1.3.6.1.4.1.890.1.5.8.17",
+    "class": "objectidentity"
+  },
+  "es2108": {
+    "name": "es2108",
+    "oid": "1.3.6.1.4.1.890.1.5.8.18",
+    "class": "objectidentity"
+  },
+  "es2108g": {
+    "name": "es2108g",
+    "oid": "1.3.6.1.4.1.890.1.5.8.19",
+    "class": "objectidentity"
+  },
+  "gs4012f": {
+    "name": "gs4012f",
+    "oid": "1.3.6.1.4.1.890.1.5.8.20",
+    "class": "objectidentity"
+  },
+  "es2108pwr": {
+    "name": "es2108pwr",
+    "oid": "1.3.6.1.4.1.890.1.5.8.21",
+    "class": "objectidentity"
+  },
+  "es2108lc": {
+    "name": "es2108lc",
+    "oid": "1.3.6.1.4.1.890.1.5.8.22",
+    "class": "objectidentity"
+  },
+  "es2048": {
+    "name": "es2048",
+    "oid": "1.3.6.1.4.1.890.1.5.8.23",
+    "class": "objectidentity"
+  },
+  "es4124": {
+    "name": "es4124",
+    "oid": "1.3.6.1.4.1.890.1.5.8.24",
+    "class": "objectidentity"
+  },
+  "es3124_4f": {
+    "name": "es3124_4f",
+    "oid": "1.3.6.1.4.1.890.1.5.8.26",
+    "class": "objectidentity"
+  },
+  "es2024pwr": {
+    "name": "es2024pwr",
+    "oid": "1.3.6.1.4.1.890.1.5.8.27",
+    "class": "objectidentity"
+  },
+  "es3724": {
+    "name": "es3724",
+    "oid": "1.3.6.1.4.1.890.1.5.8.28",
+    "class": "objectidentity"
+  },
+  "es2108f": {
+    "name": "es2108f",
+    "oid": "1.3.6.1.4.1.890.1.5.8.29",
+    "class": "objectidentity"
+  },
+  "es2226": {
+    "name": "es2226",
+    "oid": "1.3.6.1.4.1.890.1.5.8.30",
+    "class": "objectidentity"
+  },
+  "es3124f": {
+    "name": "es3124f",
+    "oid": "1.3.6.1.4.1.890.1.5.8.31",
+    "class": "objectidentity"
+  },
+  "es1528": {
+    "name": "es1528",
+    "oid": "1.3.6.1.4.1.890.1.5.8.32",
+    "class": "objectidentity"
+  },
+  "es1552": {
+    "name": "es1552",
+    "oid": "1.3.6.1.4.1.890.1.5.8.33",
+    "class": "objectidentity"
+  },
+  "ms7206": {
+    "name": "ms7206",
+    "oid": "1.3.6.1.4.1.890.1.5.8.34",
+    "class": "objectidentity"
+  },
+  "gs2724": {
+    "name": "gs2724",
+    "oid": "1.3.6.1.4.1.890.1.5.8.35",
+    "class": "objectidentity"
+  },
+  "gs1524": {
+    "name": "gs1524",
+    "oid": "1.3.6.1.4.1.890.1.5.8.36",
+    "class": "objectidentity"
+  },
+  "gs1548": {
+    "name": "gs1548",
+    "oid": "1.3.6.1.4.1.890.1.5.8.37",
+    "class": "objectidentity"
+  },
+  "es305": {
+    "name": "es305",
+    "oid": "1.3.6.1.4.1.890.1.5.8.38",
+    "class": "objectidentity"
+  },
+  "xsg4528f": {
+    "name": "xsg4528f",
+    "oid": "1.3.6.1.4.1.890.1.5.8.39",
+    "class": "objectidentity"
+  },
+  "es3528": {
+    "name": "es3528",
+    "oid": "1.3.6.1.4.1.890.1.5.8.40",
+    "class": "objectidentity"
+  },
+  "es315": {
+    "name": "es315",
+    "oid": "1.3.6.1.4.1.890.1.5.8.41",
+    "class": "objectidentity"
+  },
+  "es315f": {
+    "name": "es315f",
+    "oid": "1.3.6.1.4.1.890.1.5.8.42",
+    "class": "objectidentity"
+  },
+  "gs2726": {
+    "name": "gs2726",
+    "oid": "1.3.6.1.4.1.890.1.5.8.43",
+    "class": "objectidentity"
+  },
+  "gs2750": {
+    "name": "gs2750",
+    "oid": "1.3.6.1.4.1.890.1.5.8.44",
+    "class": "objectidentity"
+  },
+  "mes3728": {
+    "name": "mes3728",
+    "oid": "1.3.6.1.4.1.890.1.5.8.45",
+    "class": "objectidentity"
+  },
+  "xgs4728f": {
+    "name": "xgs4728f",
+    "oid": "1.3.6.1.4.1.890.1.5.8.46",
+    "class": "objectidentity"
+  },
+  "mgs3712": {
+    "name": "mgs3712",
+    "oid": "1.3.6.1.4.1.890.1.5.8.47",
+    "class": "objectidentity"
+  },
+  "mgs3712f": {
+    "name": "mgs3712f",
+    "oid": "1.3.6.1.4.1.890.1.5.8.48",
+    "class": "objectidentity"
+  },
+  "es2105": {
+    "name": "es2105",
+    "oid": "1.3.6.1.4.1.890.1.5.8.49",
+    "class": "objectidentity"
+  },
+  "gs4012f_ncic": {
+    "name": "gs4012f_ncic",
+    "oid": "1.3.6.1.4.1.890.1.5.8.50",
+    "class": "objectidentity"
+  },
+  "mes3528": {
+    "name": "mes3528",
+    "oid": "1.3.6.1.4.1.890.1.5.8.51",
+    "class": "objectidentity"
+  },
+  "xgs2726": {
+    "name": "xgs2726",
+    "oid": "1.3.6.1.4.1.890.1.5.8.52",
+    "class": "objectidentity"
+  },
+  "gs2200_48": {
+    "name": "gs2200_48",
+    "oid": "1.3.6.1.4.1.890.1.5.8.53",
+    "class": "objectidentity"
+  },
+  "aesSeriesCommon": {
+    "name": "aesSeriesCommon",
+    "oid": "1.3.6.1.4.1.890.1.5.11.1",
+    "class": "objectidentity"
+  },
+  "aes1024": {
+    "name": "aes1024",
+    "oid": "1.3.6.1.4.1.890.1.5.11.2",
+    "class": "objectidentity"
+  },
+  "alc1024_61": {
+    "name": "alc1024_61",
+    "oid": "1.3.6.1.4.1.890.1.5.11.3",
+    "class": "objectidentity"
+  },
+  "aam1008_63": {
+    "name": "aam1008_63",
+    "oid": "1.3.6.1.4.1.890.1.5.11.4",
+    "class": "objectidentity"
+  },
+  "alc1024_63": {
+    "name": "alc1024_63",
+    "oid": "1.3.6.1.4.1.890.1.5.11.5",
+    "class": "objectidentity"
+  },
+  "aam1008_61": {
+    "name": "aam1008_61",
+    "oid": "1.3.6.1.4.1.890.1.5.11.6",
+    "class": "objectidentity"
+  },
+  "alc1224_71": {
+    "name": "alc1224_71",
+    "oid": "1.3.6.1.4.1.890.1.5.11.7",
+    "class": "objectidentity"
+  },
+  "ies1248_71": {
+    "name": "ies1248_71",
+    "oid": "1.3.6.1.4.1.890.1.5.11.9",
+    "class": "objectidentity"
+  },
+  "ies1248_73": {
+    "name": "ies1248_73",
+    "oid": "1.3.6.1.4.1.890.1.5.11.10",
+    "class": "objectidentity"
+  },
+  "aam1212_51": {
+    "name": "aam1212_51",
+    "oid": "1.3.6.1.4.1.890.1.5.11.11",
+    "class": "objectidentity"
+  },
+  "aam1212_53": {
+    "name": "aam1212_53",
+    "oid": "1.3.6.1.4.1.890.1.5.11.12",
+    "class": "objectidentity"
+  },
+  "ies1248_51": {
+    "name": "ies1248_51",
+    "oid": "1.3.6.1.4.1.890.1.5.11.13",
+    "class": "objectidentity"
+  },
+  "ies1248_53": {
+    "name": "ies1248_53",
+    "oid": "1.3.6.1.4.1.890.1.5.11.14",
+    "class": "objectidentity"
+  },
+  "alc1224_51": {
+    "name": "alc1224_51",
+    "oid": "1.3.6.1.4.1.890.1.5.11.15",
+    "class": "objectidentity"
+  },
+  "alc1224_53": {
+    "name": "alc1224_53",
+    "oid": "1.3.6.1.4.1.890.1.5.11.16",
+    "class": "objectidentity"
+  },
+  "ies1248_51v": {
+    "name": "ies1248_51v",
+    "oid": "1.3.6.1.4.1.890.1.5.11.17",
+    "class": "objectidentity"
+  },
+  "vesSeriesCommon": {
+    "name": "vesSeriesCommon",
+    "oid": "1.3.6.1.4.1.890.1.5.12.1",
+    "class": "objectidentity"
+  },
+  "ves1008": {
+    "name": "ves1008",
+    "oid": "1.3.6.1.4.1.890.1.5.12.2",
+    "class": "objectidentity"
+  },
+  "ves1024": {
+    "name": "ves1024",
+    "oid": "1.3.6.1.4.1.890.1.5.12.4",
+    "class": "objectidentity"
+  },
+  "vlc1012": {
+    "name": "vlc1012",
+    "oid": "1.3.6.1.4.1.890.1.5.12.5",
+    "class": "objectidentity"
+  },
+  "ves1316": {
+    "name": "ves1316",
+    "oid": "1.3.6.1.4.1.890.1.5.12.6",
+    "class": "objectidentity"
+  },
+  "ves1416": {
+    "name": "ves1416",
+    "oid": "1.3.6.1.4.1.890.1.5.12.7",
+    "class": "objectidentity"
+  },
+  "vlc1124": {
+    "name": "vlc1124",
+    "oid": "1.3.6.1.4.1.890.1.5.12.8",
+    "class": "objectidentity"
+  },
+  "ves1124": {
+    "name": "ves1124",
+    "oid": "1.3.6.1.4.1.890.1.5.12.9",
+    "class": "objectidentity"
+  },
+  "ves1616f34": {
+    "name": "ves1616f34",
+    "oid": "1.3.6.1.4.1.890.1.5.12.10",
+    "class": "objectidentity"
+  },
+  "ves1616f44": {
+    "name": "ves1616f44",
+    "oid": "1.3.6.1.4.1.890.1.5.12.11",
+    "class": "objectidentity"
+  },
+  "ves1624f44": {
+    "name": "ves1624f44",
+    "oid": "1.3.6.1.4.1.890.1.5.12.12",
+    "class": "objectidentity"
+  },
+  "ves1624fa44": {
+    "name": "ves1624fa44",
+    "oid": "1.3.6.1.4.1.890.1.5.12.13",
+    "class": "objectidentity"
+  },
+  "ves1616fa44": {
+    "name": "ves1616fa44",
+    "oid": "1.3.6.1.4.1.890.1.5.12.14",
+    "class": "objectidentity"
+  },
+  "ves1616fa34_co4": {
+    "name": "ves1616fa34_co4",
+    "oid": "1.3.6.1.4.1.890.1.5.12.15",
+    "class": "objectidentity"
+  },
+  "ves1616fa35_co4": {
+    "name": "ves1616fa35_co4",
+    "oid": "1.3.6.1.4.1.890.1.5.12.16",
+    "class": "objectidentity"
+  },
+  "ves1608fa34": {
+    "name": "ves1608fa34",
+    "oid": "1.3.6.1.4.1.890.1.5.12.17",
+    "class": "objectidentity"
+  },
+  "ves1608fa35": {
+    "name": "ves1608fa35",
+    "oid": "1.3.6.1.4.1.890.1.5.12.18",
+    "class": "objectidentity"
+  },
+  "ves1616fa54": {
+    "name": "ves1616fa54",
+    "oid": "1.3.6.1.4.1.890.1.5.12.19",
+    "class": "objectidentity"
+  },
+  "ves1624fa54": {
+    "name": "ves1624fa54",
+    "oid": "1.3.6.1.4.1.890.1.5.12.20",
+    "class": "objectidentity"
+  },
+  "ves1616fa55": {
+    "name": "ves1616fa55",
+    "oid": "1.3.6.1.4.1.890.1.5.12.21",
+    "class": "objectidentity"
+  },
+  "ves1624fa55": {
+    "name": "ves1624fa55",
+    "oid": "1.3.6.1.4.1.890.1.5.12.22",
+    "class": "objectidentity"
+  },
+  "ves1624ft": {
+    "name": "ves1624ft",
+    "oid": "1.3.6.1.4.1.890.1.5.12.23",
+    "class": "objectidentity"
+  },
+  "ves1624fa34": {
+    "name": "ves1624fa34",
+    "oid": "1.3.6.1.4.1.890.1.5.12.24",
+    "class": "objectidentity"
+  },
+  "ves1608fc54": {
+    "name": "ves1608fc54",
+    "oid": "1.3.6.1.4.1.890.1.5.12.25",
+    "class": "objectidentity"
+  },
+  "ves1616fc54": {
+    "name": "ves1616fc54",
+    "oid": "1.3.6.1.4.1.890.1.5.12.26",
+    "class": "objectidentity"
+  },
+  "ves1624ft54": {
+    "name": "ves1624ft54",
+    "oid": "1.3.6.1.4.1.890.1.5.12.27",
+    "class": "objectidentity"
+  },
+  "ves1624ftv54": {
+    "name": "ves1624ftv54",
+    "oid": "1.3.6.1.4.1.890.1.5.12.28",
+    "class": "objectidentity"
+  },
+  "ves1616cta54": {
+    "name": "ves1616cta54",
+    "oid": "1.3.6.1.4.1.890.1.5.12.29",
+    "class": "objectidentity"
+  },
+  "ves1624cta54": {
+    "name": "ves1624cta54",
+    "oid": "1.3.6.1.4.1.890.1.5.12.30",
+    "class": "objectidentity"
+  },
+  "ves1608cea54": {
+    "name": "ves1608cea54",
+    "oid": "1.3.6.1.4.1.890.1.5.12.31",
+    "class": "objectidentity"
+  },
+  "ves1616cea54": {
+    "name": "ves1616cea54",
+    "oid": "1.3.6.1.4.1.890.1.5.12.32",
+    "class": "objectidentity"
+  },
+  "ves1616fe55a": {
+    "name": "ves1616fe55a",
+    "oid": "1.3.6.1.4.1.890.1.5.12.33",
+    "class": "objectidentity"
+  },
+  "ves1624ft55a": {
+    "name": "ves1624ft55a",
+    "oid": "1.3.6.1.4.1.890.1.5.12.34",
+    "class": "objectidentity"
+  },
+  "ves1616fb35": {
+    "name": "ves1616fb35",
+    "oid": "1.3.6.1.4.1.890.1.5.12.35",
+    "class": "objectidentity"
+  },
+  "ves1608pe35": {
+    "name": "ves1608pe35",
+    "oid": "1.3.6.1.4.1.890.1.5.12.36",
+    "class": "objectidentity"
+  },
+  "ves1616fe53a": {
+    "name": "ves1616fe53a",
+    "oid": "1.3.6.1.4.1.890.1.5.12.37",
+    "class": "objectidentity"
+  },
+  "ves1616ft54": {
+    "name": "ves1616ft54",
+    "oid": "1.3.6.1.4.1.890.1.5.12.38",
+    "class": "objectidentity"
+  },
+  "ves1616ctb54": {
+    "name": "ves1616ctb54",
+    "oid": "1.3.6.1.4.1.890.1.5.12.39",
+    "class": "objectidentity"
+  },
+  "ves1624ctb54": {
+    "name": "ves1624ctb54",
+    "oid": "1.3.6.1.4.1.890.1.5.12.40",
+    "class": "objectidentity"
+  },
+  "ves1624ftv55a": {
+    "name": "ves1624ftv55a",
+    "oid": "1.3.6.1.4.1.890.1.5.12.41",
+    "class": "objectidentity"
+  },
+  "ves1608fe53a": {
+    "name": "ves1608fe53a",
+    "oid": "1.3.6.1.4.1.890.1.5.12.42",
+    "class": "objectidentity"
+  },
+  "ves1608fe57": {
+    "name": "ves1608fe57",
+    "oid": "1.3.6.1.4.1.890.1.5.12.43",
+    "class": "objectidentity"
+  },
+  "ves1602fe57": {
+    "name": "ves1602fe57",
+    "oid": "1.3.6.1.4.1.890.1.5.12.44",
+    "class": "objectidentity"
+  },
+  "ves1724_58b": {
+    "name": "ves1724_58b",
+    "oid": "1.3.6.1.4.1.890.1.5.12.45",
+    "class": "objectidentity"
+  },
+  "ves1724_56": {
+    "name": "ves1724_56",
+    "oid": "1.3.6.1.4.1.890.1.5.12.46",
+    "class": "objectidentity"
+  },
+  "ves1724_56fanless": {
+    "name": "ves1724_56fanless",
+    "oid": "1.3.6.1.4.1.890.1.5.12.47",
+    "class": "objectidentity"
+  },
+  "ves1724_55C": {
+    "name": "ves1724_55C",
+    "oid": "1.3.6.1.4.1.890.1.5.12.48",
+    "class": "objectidentity"
+  },
+  "ves1724_58V": {
+    "name": "ves1724_58V",
+    "oid": "1.3.6.1.4.1.890.1.5.12.49",
+    "class": "objectidentity"
+  },
+  "iesSeriesCommon": {
+    "name": "iesSeriesCommon",
+    "oid": "1.3.6.1.4.1.890.1.5.13.1",
+    "class": "objectidentity"
+  },
+  "ies2000": {
+    "name": "ies2000",
+    "oid": "1.3.6.1.4.1.890.1.5.13.2",
+    "class": "objectidentity"
+  },
+  "ies3000": {
+    "name": "ies3000",
+    "oid": "1.3.6.1.4.1.890.1.5.13.3",
+    "class": "objectidentity"
+  },
+  "ies5000": {
+    "name": "ies5000",
+    "oid": "1.3.6.1.4.1.890.1.5.13.5",
+    "class": "objectidentity"
+  },
+  "ies5005": {
+    "name": "ies5005",
+    "oid": "1.3.6.1.4.1.890.1.5.13.7",
+    "class": "objectidentity"
+  },
+  "ies6000": {
+    "name": "ies6000",
+    "oid": "1.3.6.1.4.1.890.1.5.13.8",
+    "class": "objectidentity"
+  },
+  "ies5006": {
+    "name": "ies5006",
+    "oid": "1.3.6.1.4.1.890.1.5.13.9",
+    "class": "objectidentity"
+  },
+  "ies5106": {
+    "name": "ies5106",
+    "oid": "1.3.6.1.4.1.890.1.5.13.10",
+    "class": "objectidentity"
+  },
+  "ies5112": {
+    "name": "ies5112",
+    "oid": "1.3.6.1.4.1.890.1.5.13.11",
+    "class": "objectidentity"
+  },
+  "ies4005": {
+    "name": "ies4005",
+    "oid": "1.3.6.1.4.1.890.1.5.13.12",
+    "class": "objectidentity"
+  },
+  "ies5206": {
+    "name": "ies5206",
+    "oid": "1.3.6.1.4.1.890.1.5.13.13",
+    "class": "objectidentity"
+  },
+  "ies6100": {
+    "name": "ies6100",
+    "oid": "1.3.6.1.4.1.890.1.5.13.14",
+    "class": "objectidentity"
+  },
+  "ies4204": {
+    "name": "ies4204",
+    "oid": "1.3.6.1.4.1.890.1.5.13.15",
+    "class": "objectidentity"
+  },
+  "ies5212": {
+    "name": "ies5212",
+    "oid": "1.3.6.1.4.1.890.1.5.13.16",
+    "class": "objectidentity"
+  },
+  "ies4105": {
+    "name": "ies4105",
+    "oid": "1.3.6.1.4.1.890.1.5.13.17",
+    "class": "objectidentity"
+  },
+  "ies6217": {
+    "name": "ies6217",
+    "oid": "1.3.6.1.4.1.890.1.5.13.18",
+    "class": "objectidentity"
+  },
+  "olt1308": {
+    "name": "olt1308",
+    "oid": "1.3.6.1.4.1.890.1.5.15.1",
+    "class": "objectidentity"
+  },
+  "lt20h": {
+    "name": "lt20h",
+    "oid": "1.3.6.1.4.1.890.1.5.15.2",
+    "class": "objectidentity"
+  },
+  "olt2300_12": {
+    "name": "olt2300_12",
+    "oid": "1.3.6.1.4.1.890.1.5.15.3",
+    "class": "objectidentity"
+  },
+  "olt1308s22": {
+    "name": "olt1308s22",
+    "oid": "1.3.6.1.4.1.890.1.5.15.4",
+    "class": "objectidentity"
+  },
+  "olt2300v3": {
+    "name": "olt2300v3",
+    "oid": "1.3.6.1.4.1.890.1.5.15.5",
+    "class": "objectidentity"
+  },
+  "eonu24240": {
+    "name": "eonu24240",
+    "oid": "1.3.6.1.4.1.890.1.5.15.6",
+    "class": "objectidentity"
+  },
+  "eonu16160": {
+    "name": "eonu16160",
+    "oid": "1.3.6.1.4.1.890.1.5.15.7",
+    "class": "objectidentity"
+  },
+  "eonu2400": {
+    "name": "eonu2400",
+    "oid": "1.3.6.1.4.1.890.1.5.15.8",
+    "class": "objectidentity"
+  },
+  "eonu1600": {
+    "name": "eonu1600",
+    "oid": "1.3.6.1.4.1.890.1.5.15.9",
+    "class": "objectidentity"
+  },
+  "vopSeriesCommon": {
+    "name": "vopSeriesCommon",
+    "oid": "1.3.6.1.4.1.890.1.5.16.1",
+    "class": "objectidentity"
+  },
+  "vop1224_61": {
+    "name": "vop1224_61",
+    "oid": "1.3.6.1.4.1.890.1.5.16.2",
+    "class": "objectidentity"
+  },
+  "gponSeriesCommon": {
+    "name": "gponSeriesCommon",
+    "oid": "1.3.6.1.4.1.890.1.5.17.1",
+    "class": "objectidentity"
+  },
+  "o_00240v_p": {
+    "name": "o_00240v_p",
+    "oid": "1.3.6.1.4.1.890.1.5.17.2",
+    "class": "objectidentity"
+  },
+  "olt2412": {
+    "name": "olt2412",
+    "oid": "1.3.6.1.4.1.890.1.5.17.3",
+    "class": "objectidentity"
+  },
+  "gesSeriesCommon": {
+    "name": "gesSeriesCommon",
+    "oid": "1.3.6.1.4.1.890.1.5.18.1",
+    "class": "objectidentity"
+  },
+  "ges2104": {
+    "name": "ges2104",
+    "oid": "1.3.6.1.4.1.890.1.5.18.2",
+    "class": "objectidentity"
+  },
+  "ges1116": {
+    "name": "ges1116",
+    "oid": "1.3.6.1.4.1.890.1.5.18.3",
+    "class": "objectidentity"
+  },
+  "dslamCommon": {
+    "name": "dslamCommon",
+    "oid": "1.3.6.1.4.1.890.1.4.1",
+    "class": "objectidentity"
+  },
+  "zywallCommon": {
+    "name": "zywallCommon",
+    "oid": "1.3.6.1.4.1.890.1.6.1",
+    "class": "objectidentity"
+  },
+  "zywall1": {
+    "name": "zywall1",
+    "oid": "1.3.6.1.4.1.890.1.6.2",
+    "class": "objectidentity"
+  },
+  "zywall2": {
+    "name": "zywall2",
+    "oid": "1.3.6.1.4.1.890.1.6.3",
+    "class": "objectidentity"
+  },
+  "zywall2w": {
+    "name": "zywall2w",
+    "oid": "1.3.6.1.4.1.890.1.6.4",
+    "class": "objectidentity"
+  },
+  "zywall10": {
+    "name": "zywall10",
+    "oid": "1.3.6.1.4.1.890.1.6.5",
+    "class": "objectidentity"
+  },
+  "zywall10ii": {
+    "name": "zywall10ii",
+    "oid": "1.3.6.1.4.1.890.1.6.6",
+    "class": "objectidentity"
+  },
+  "zywall10w": {
+    "name": "zywall10w",
+    "oid": "1.3.6.1.4.1.890.1.6.7",
+    "class": "objectidentity"
+  },
+  "zywall50": {
+    "name": "zywall50",
+    "oid": "1.3.6.1.4.1.890.1.6.8",
+    "class": "objectidentity"
+  },
+  "zywall100": {
+    "name": "zywall100",
+    "oid": "1.3.6.1.4.1.890.1.6.9",
+    "class": "objectidentity"
+  },
+  "zywall200": {
+    "name": "zywall200",
+    "oid": "1.3.6.1.4.1.890.1.6.10",
+    "class": "objectidentity"
+  },
+  "zywallidp10": {
+    "name": "zywallidp10",
+    "oid": "1.3.6.1.4.1.890.1.6.11",
+    "class": "objectidentity"
+  },
+  "zywall5": {
+    "name": "zywall5",
+    "oid": "1.3.6.1.4.1.890.1.6.12",
+    "class": "objectidentity"
+  },
+  "zywall30w": {
+    "name": "zywall30w",
+    "oid": "1.3.6.1.4.1.890.1.6.13",
+    "class": "objectidentity"
+  },
+  "zywall35": {
+    "name": "zywall35",
+    "oid": "1.3.6.1.4.1.890.1.6.14",
+    "class": "objectidentity"
+  },
+  "zywall70": {
+    "name": "zywall70",
+    "oid": "1.3.6.1.4.1.890.1.6.15",
+    "class": "objectidentity"
+  },
+  "zywall1000": {
+    "name": "zywall1000",
+    "oid": "1.3.6.1.4.1.890.1.6.16",
+    "class": "objectidentity"
+  },
+  "zywallCHT1": {
+    "name": "zywallCHT1",
+    "oid": "1.3.6.1.4.1.890.1.6.17",
+    "class": "objectidentity"
+  },
+  "zywallM70": {
+    "name": "zywallM70",
+    "oid": "1.3.6.1.4.1.890.1.6.18",
+    "class": "objectidentity"
+  },
+  "zywallP1": {
+    "name": "zywallP1",
+    "oid": "1.3.6.1.4.1.890.1.6.19",
+    "class": "objectidentity"
+  },
+  "zywallP2": {
+    "name": "zywallP2",
+    "oid": "1.3.6.1.4.1.890.1.6.20",
+    "class": "objectidentity"
+  },
+  "zywallM110": {
+    "name": "zywallM110",
+    "oid": "1.3.6.1.4.1.890.1.6.21",
+    "class": "objectidentity"
+  },
+  "zywallZLDCommon": {
+    "name": "zywallZLDCommon",
+    "oid": "1.3.6.1.4.1.890.1.6.22",
+    "class": "objectidentity"
+  },
+  "serviceGWCommon": {
+    "name": "serviceGWCommon",
+    "oid": "1.3.6.1.4.1.890.1.8.1",
+    "class": "objectidentity"
+  },
+  "vsg1000": {
+    "name": "vsg1000",
+    "oid": "1.3.6.1.4.1.890.1.8.2",
+    "class": "objectidentity"
+  },
+  "vsg1200": {
+    "name": "vsg1200",
+    "oid": "1.3.6.1.4.1.890.1.8.3",
+    "class": "objectidentity"
+  },
+  "vsg1200v2": {
+    "name": "vsg1200v2",
+    "oid": "1.3.6.1.4.1.890.1.8.4",
+    "class": "objectidentity"
+  },
+  "netAtlasEMS": {
+    "name": "netAtlasEMS",
+    "oid": "1.3.6.1.4.1.890.1.13.1",
+    "class": "objectidentity"
+  },
+  "smallCellCommon": {
+    "name": "smallCellCommon",
+    "oid": "1.3.6.1.4.1.890.1.14.1",
+    "class": "objectidentity"
+  },
+  "LMT3313": {
+    "name": "LMT3313",
+    "oid": "1.3.6.1.4.1.890.1.14.2",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/zyxel/ZYXEL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:29 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ZYXEL-MIB"
+  }
+}

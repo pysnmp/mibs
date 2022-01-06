@@ -1,0 +1,1283 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOSB-MIB": [
+      "switch001"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-COMMUNITY-MIB": [
+      "snmpTargetAddrExtEntry"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString",
+      "SnmpEngineID"
+    ],
+    "SNMP-USER-BASED-SM-MIB": [
+      "usmNoAuthProtocol",
+      "usmUserEntry",
+      "usmNoPrivProtocol"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "AutonomousType",
+      "DisplayString",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "rlSNMP": {
+    "name": "rlSNMP",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-02-11 00:00",
+        "description": "Added support in usmUserTable augment for authentication and privacy passwords saving."
+      },
+      {
+        "revision": "2010-02-15 00:00",
+        "description": "1. Changed SYNTAX of rlSnmpEngineID from OCTET STRING (SIZE(5..32))to SnmpEngineID. 2. Added rlInet2EngineIdTable."
+      },
+      {
+        "revision": "2007-09-10 00:00",
+        "description": "Added rlEvents MIB."
+      },
+      {
+        "revision": "2006-06-06 00:00",
+        "description": "Added rlSNMPenable object."
+      },
+      {
+        "revision": "1904-10-20 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "rlSNMPv3": {
+    "name": "rlSNMPv3",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.1",
+    "class": "objectidentity"
+  },
+  "rlTargetParamsTestingLevel": {
+    "name": "rlTargetParamsTestingLevel",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "high": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlNotifyFilterTestingLevel": {
+    "name": "rlNotifyFilterTestingLevel",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "high": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSnmpEngineID": {
+    "name": "rlSnmpEngineID",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpEngineID",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000001",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSNMPv3IpAddrToIndexTable": {
+    "name": "rlSNMPv3IpAddrToIndexTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSNMPv3IpAddrToIndexEntry": {
+    "name": "rlSNMPv3IpAddrToIndexEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-SNMP-MIB",
+        "object": "rlSNMPv3IpAddrToIndexAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-SNMP-MIB",
+        "object": "rlSNMPv3IpAddrToIndexAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSNMPv3IpAddrToIndexAddrType": {
+    "name": "rlSNMPv3IpAddrToIndexAddrType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSNMPv3IpAddrToIndexAddr": {
+    "name": "rlSNMPv3IpAddrToIndexAddr",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSNMPv3IpAddrToIndexMappedIndex": {
+    "name": "rlSNMPv3IpAddrToIndexMappedIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlTargetAddrExtTable": {
+    "name": "rlTargetAddrExtTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlTargetAddrExtEntry": {
+    "name": "rlTargetAddrExtEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "rlTargetAddrExtEntry",
+      "module": "CISCOSB-SNMP-MIB",
+      "object": "snmpTargetAddrExtEntry"
+    },
+    "status": "current"
+  },
+  "rlTargetAddrMagicUsedInIndex": {
+    "name": "rlTargetAddrMagicUsedInIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlInet2EngineIdTable": {
+    "name": "rlInet2EngineIdTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInet2EngineIdEntry": {
+    "name": "rlInet2EngineIdEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-SNMP-MIB",
+        "object": "rlInet2EngineIdAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-SNMP-MIB",
+        "object": "rlInet2EngineIdAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlInet2EngineIdAddressType": {
+    "name": "rlInet2EngineIdAddressType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInet2EngineIdAddress": {
+    "name": "rlInet2EngineIdAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInet2EngineIdEngineId": {
+    "name": "rlInet2EngineIdEngineId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpEngineID",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlInet2EngineIdStatus": {
+    "name": "rlInet2EngineIdStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "createAndGo",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlSNMPDomains": {
+    "name": "rlSNMPDomains",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.2",
+    "class": "objectidentity"
+  },
+  "rlSnmpUDPMridDomain": {
+    "name": "rlSnmpUDPMridDomain",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "RlSnmpUDPMridAddress": {
+    "name": "RlSnmpUDPMridAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "1d.1d.1d.1d/2d/2d",
+    "status": "current"
+  },
+  "rlSnmpUdpIpv6MridDomain": {
+    "name": "rlSnmpUdpIpv6MridDomain",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "RlSnmpUDPIpv6MridAddress": {
+    "name": "RlSnmpUDPIpv6MridAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "displayhint": "0a[2x:2x:2x:2x:2x:2x:2x:2x]0a:2d:2d",
+    "status": "current"
+  },
+  "rlSnmpUdpIpv6zMridDomain": {
+    "name": "rlSnmpUdpIpv6zMridDomain",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "RlSnmpUDPIpv6zMridAddress": {
+    "name": "RlSnmpUDPIpv6zMridAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 24,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "displayhint": "0a[2x:2x:2x:2x:2x:2x:2x:2x%4d]0a:2d",
+    "status": "current"
+  },
+  "rlSnmpRequestMridTable": {
+    "name": "rlSnmpRequestMridTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSnmpRequestMridEntry": {
+    "name": "rlSnmpRequestMridEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-SNMP-MIB",
+        "object": "rlSnmpRequestManagedMrid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSnmpRequestManagedMrid": {
+    "name": "rlSnmpRequestManagedMrid",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSnmpRequestMridStatus": {
+    "name": "rlSnmpRequestMridStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSNMPenable": {
+    "name": "rlSNMPenable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndCommunityInetTable": {
+    "name": "rndCommunityInetTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rndCommunityInetEntry": {
+    "name": "rndCommunityInetEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-SNMP-MIB",
+        "object": "rndCommunityInetMngStationAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-SNMP-MIB",
+        "object": "rndCommunityInetMngStationAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-SNMP-MIB",
+        "object": "rndCommunityInetString",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "rndCommunityInetMngStationAddrType": {
+    "name": "rndCommunityInetMngStationAddrType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rndCommunityInetMngStationAddr": {
+    "name": "rndCommunityInetMngStationAddr",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rndCommunityInetString": {
+    "name": "rndCommunityInetString",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rndCommunityInetAccess": {
+    "name": "rndCommunityInetAccess",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "readOnly": 1,
+          "readWrite": 2,
+          "super": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rndCommunityInetTrapsEnable": {
+    "name": "rndCommunityInetTrapsEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "snmpV1": 1,
+          "snmpV2": 2,
+          "snmpV3": 3,
+          "trapsDisable": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rndCommunityInetStatus": {
+    "name": "rndCommunityInetStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rndCommunityInetPortSecurity": {
+    "name": "rndCommunityInetPortSecurity",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rndCommunityInetOwner": {
+    "name": "rndCommunityInetOwner",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rndCommunityInetTrapDestPort": {
+    "name": "rndCommunityInetTrapDestPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 162,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rndCommunityInetAltAddrType": {
+    "name": "rndCommunityInetAltAddrType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rndCommunityInetAltAddr": {
+    "name": "rndCommunityInetAltAddr",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlMridInetTable": {
+    "name": "rlMridInetTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlMridInetEntry": {
+    "name": "rlMridInetEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-SNMP-MIB",
+        "object": "rndCommunityInetMngStationAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-SNMP-MIB",
+        "object": "rndCommunityInetMngStationAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-SNMP-MIB",
+        "object": "rndCommunityInetString",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "rlMridInetConnection": {
+    "name": "rlMridInetConnection",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlInetManagedMrid": {
+    "name": "rlInetManagedMrid",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEvents": {
+    "name": "rlEvents",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.7",
+    "class": "objectidentity"
+  },
+  "rlEventsPollerId": {
+    "name": "rlEventsPollerId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlEventsDefaultPollingInterval": {
+    "name": "rlEventsDefaultPollingInterval",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEventsDeleteEvents": {
+    "name": "rlEventsDeleteEvents",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEventsMaskTable": {
+    "name": "rlEventsMaskTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.7.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlEventsMaskEntry": {
+    "name": "rlEventsMaskEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.7.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-SNMP-MIB",
+        "object": "rlEventsMaskPollerId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlEventsMaskPollerId": {
+    "name": "rlEventsMaskPollerId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.7.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlEventsMaskMask": {
+    "name": "rlEventsMaskMask",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.7.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlEventsTable": {
+    "name": "rlEventsTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.7.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlEventsEntry": {
+    "name": "rlEventsEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.7.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-SNMP-MIB",
+        "object": "rlEventsPoller",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-SNMP-MIB",
+        "object": "rlEventId",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "rlEventsPoller": {
+    "name": "rlEventsPoller",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.7.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlEventId": {
+    "name": "rlEventId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.7.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlEventIndexInMask": {
+    "name": "rlEventIndexInMask",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.7.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlEventsStatus": {
+    "name": "rlEventsStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.7.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlEventsPollingControlTable": {
+    "name": "rlEventsPollingControlTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.7.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlEventsPollingControlEntry": {
+    "name": "rlEventsPollingControlEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.7.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-SNMP-MIB",
+        "object": "rlEventsPollingControlPollerId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlEventsPollingControlPollerId": {
+    "name": "rlEventsPollingControlPollerId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.7.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlEventsPollingControlPollingInterval": {
+    "name": "rlEventsPollingControlPollingInterval",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.7.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlUsmUserExtTable": {
+    "name": "rlUsmUserExtTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlUsmUserExtEntry": {
+    "name": "rlUsmUserExtEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "rlUsmUserExtEntry",
+      "module": "CISCOSB-SNMP-MIB",
+      "object": "usmUserEntry"
+    },
+    "status": "current"
+  },
+  "rlUsmUserAuthPassword": {
+    "name": "rlUsmUserAuthPassword",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlUsmUserPrivPassword": {
+    "name": "rlUsmUserPrivPassword",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlSnmpClient": {
+    "name": "rlSnmpClient",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.8",
+    "class": "objectidentity"
+  },
+  "rlSnmpClientAgentsTable": {
+    "name": "rlSnmpClientAgentsTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSnmpClientAgentsEntry": {
+    "name": "rlSnmpClientAgentsEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-SNMP-MIB",
+        "object": "rlSnmpClientAgentsAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-SNMP-MIB",
+        "object": "rlSnmpClientAgentsAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSnmpClientAgentsAddressType": {
+    "name": "rlSnmpClientAgentsAddressType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSnmpClientAgentsAddress": {
+    "name": "rlSnmpClientAgentsAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSnmpClientAgentsCommunity": {
+    "name": "rlSnmpClientAgentsCommunity",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlSnmpClientAgentsUsername": {
+    "name": "rlSnmpClientAgentsUsername",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlSnmpClientAgentsAuthProtocol": {
+    "name": "rlSnmpClientAgentsAuthProtocol",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(1, 3, 6, 1, 6, 3, 10, 1, 1, 1)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlSnmpClientAgentsPrivProtocol": {
+    "name": "rlSnmpClientAgentsPrivProtocol",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(1, 3, 6, 1, 6, 3, 10, 1, 2, 1)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlSnmpClientAgentsAuthKey": {
+    "name": "rlSnmpClientAgentsAuthKey",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlSnmpClientAgentsPrivKey": {
+    "name": "rlSnmpClientAgentsPrivKey",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.8.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlSnmpClientAgentsTimeout": {
+    "name": "rlSnmpClientAgentsTimeout",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.8.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlSnmpClientAgentsRetries": {
+    "name": "rlSnmpClientAgentsRetries",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.8.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlSnmpClientAgentsStatus": {
+    "name": "rlSnmpClientAgentsStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.98.8.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "createAndGo",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-SNMP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCOSB-SNMP-MIB"
+  }
+}

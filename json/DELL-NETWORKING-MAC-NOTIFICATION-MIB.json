@@ -1,0 +1,261 @@
+{
+  "imports": {
+    "class": "imports",
+    "DELL-NETWORKING-SMI": [
+      "dellNetMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
+    ]
+  },
+  "dellNetMacNotifMib": {
+    "name": "dellNetMacNotifMib",
+    "oid": "1.3.6.1.4.1.6027.3.28",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-01-01 12:00",
+        "description": "Initial draft version of mac notification mib."
+      }
+    ]
+  },
+  "dellNetMacNotificationObjects": {
+    "name": "dellNetMacNotificationObjects",
+    "oid": "1.3.6.1.4.1.6027.3.28.1",
+    "class": "objectidentity"
+  },
+  "dellNetMacNotificationTraps": {
+    "name": "dellNetMacNotificationTraps",
+    "oid": "1.3.6.1.4.1.6027.3.28.1.1",
+    "class": "objectidentity"
+  },
+  "macAddress": {
+    "name": "macAddress",
+    "oid": "1.3.6.1.4.1.6027.3.28.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vlanId": {
+    "name": "vlanId",
+    "oid": "1.3.6.1.4.1.6027.3.28.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "portId": {
+    "name": "portId",
+    "oid": "1.3.6.1.4.1.6027.3.28.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "newPortId": {
+    "name": "newPortId",
+    "oid": "1.3.6.1.4.1.6027.3.28.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "timeStamp": {
+    "name": "timeStamp",
+    "oid": "1.3.6.1.4.1.6027.3.28.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "message": {
+    "name": "message",
+    "oid": "1.3.6.1.4.1.6027.3.28.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "macLearnNotification": {
+    "name": "macLearnNotification",
+    "oid": "1.3.6.1.4.1.6027.3.28.1.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-MAC-NOTIFICATION-MIB",
+        "object": "macAddress"
+      },
+      {
+        "module": "DELL-NETWORKING-MAC-NOTIFICATION-MIB",
+        "object": "vlanId"
+      },
+      {
+        "module": "DELL-NETWORKING-MAC-NOTIFICATION-MIB",
+        "object": "portId"
+      },
+      {
+        "module": "DELL-NETWORKING-MAC-NOTIFICATION-MIB",
+        "object": "timeStamp"
+      },
+      {
+        "module": "DELL-NETWORKING-MAC-NOTIFICATION-MIB",
+        "object": "message"
+      }
+    ],
+    "status": "current"
+  },
+  "macMoveNotification": {
+    "name": "macMoveNotification",
+    "oid": "1.3.6.1.4.1.6027.3.28.1.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-MAC-NOTIFICATION-MIB",
+        "object": "macAddress"
+      },
+      {
+        "module": "DELL-NETWORKING-MAC-NOTIFICATION-MIB",
+        "object": "vlanId"
+      },
+      {
+        "module": "DELL-NETWORKING-MAC-NOTIFICATION-MIB",
+        "object": "portId"
+      },
+      {
+        "module": "DELL-NETWORKING-MAC-NOTIFICATION-MIB",
+        "object": "newPortId"
+      },
+      {
+        "module": "DELL-NETWORKING-MAC-NOTIFICATION-MIB",
+        "object": "timeStamp"
+      },
+      {
+        "module": "DELL-NETWORKING-MAC-NOTIFICATION-MIB",
+        "object": "message"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetMacMibConformance": {
+    "name": "dellNetMacMibConformance",
+    "oid": "1.3.6.1.4.1.6027.3.28.2",
+    "class": "objectidentity"
+  },
+  "dellNetMacMibCompliances": {
+    "name": "dellNetMacMibCompliances",
+    "oid": "1.3.6.1.4.1.6027.3.28.2.1",
+    "class": "objectidentity"
+  },
+  "dellNetMacMibGroups": {
+    "name": "dellNetMacMibGroups",
+    "oid": "1.3.6.1.4.1.6027.3.28.2.2",
+    "class": "objectidentity"
+  },
+  "dellNetMacMibCompliance": {
+    "name": "dellNetMacMibCompliance",
+    "oid": "1.3.6.1.4.1.6027.3.28.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dellNetMacNotificationGroup",
+        "module": "DELL-NETWORKING-MAC-NOTIFICATION-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetMacNotificationGroup": {
+    "name": "dellNetMacNotificationGroup",
+    "oid": "1.3.6.1.4.1.6027.3.28.2.2.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-MAC-NOTIFICATION-MIB",
+        "object": "macLearnNotification"
+      },
+      {
+        "module": "DELL-NETWORKING-MAC-NOTIFICATION-MIB",
+        "object": "macMoveNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-MAC-NOTIFICATION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:14 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DELL-NETWORKING-MAC-NOTIFICATION-MIB"
+  }
+}

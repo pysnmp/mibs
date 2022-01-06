@@ -1,0 +1,1014 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-MIB-NAMES": [
+      "ctronMib2"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "commonDev": {
+    "name": "commonDev",
+    "oid": "1.3.6.1.4.1.52.4.3.3.1",
+    "class": "objectidentity"
+  },
+  "ctIf": {
+    "name": "ctIf",
+    "oid": "1.3.6.1.4.1.52.4.3.3.2",
+    "class": "objectidentity"
+  },
+  "ctIfPort": {
+    "name": "ctIfPort",
+    "oid": "1.3.6.1.4.1.52.4.3.3.3",
+    "class": "objectidentity"
+  },
+  "ctIfCp": {
+    "name": "ctIfCp",
+    "oid": "1.3.6.1.4.1.52.4.3.3.4",
+    "class": "objectidentity"
+  },
+  "ctSNMP": {
+    "name": "ctSNMP",
+    "oid": "1.3.6.1.4.1.52.4.3.3.5",
+    "class": "objectidentity"
+  },
+  "ctSonet": {
+    "name": "ctSonet",
+    "oid": "1.3.6.1.4.1.52.4.3.3.6",
+    "class": "objectidentity"
+  },
+  "ctVirtual": {
+    "name": "ctVirtual",
+    "oid": "1.3.6.1.4.1.52.4.3.3.7",
+    "class": "objectidentity"
+  },
+  "ctStats": {
+    "name": "ctStats",
+    "oid": "1.3.6.1.4.1.52.4.3.3.8",
+    "class": "objectidentity"
+  },
+  "ctFramerConfig": {
+    "name": "ctFramerConfig",
+    "oid": "1.3.6.1.4.1.52.4.3.3.9",
+    "class": "objectidentity"
+  },
+  "ctIfHC": {
+    "name": "ctIfHC",
+    "oid": "1.3.6.1.4.1.52.4.3.3.10",
+    "class": "objectidentity"
+  },
+  "comDeviceTime": {
+    "name": "comDeviceTime",
+    "oid": "1.3.6.1.4.1.52.4.3.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "comDeviceDate": {
+    "name": "comDeviceDate",
+    "oid": "1.3.6.1.4.1.52.4.3.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "comDeviceBoardMap": {
+    "name": "comDeviceBoardMap",
+    "oid": "1.3.6.1.4.1.52.4.3.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfTable": {
+    "name": "ctIfTable",
+    "oid": "1.3.6.1.4.1.52.4.3.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctIfEntry": {
+    "name": "ctIfEntry",
+    "oid": "1.3.6.1.4.1.52.4.3.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTIF-EXT-MIB",
+        "object": "ctIfNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctIfNumber": {
+    "name": "ctIfNumber",
+    "oid": "1.3.6.1.4.1.52.4.3.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfPortCnt": {
+    "name": "ctIfPortCnt",
+    "oid": "1.3.6.1.4.1.52.4.3.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfConnectionType": {
+    "name": "ctIfConnectionType",
+    "oid": "1.3.6.1.4.1.52.4.3.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfLAA": {
+    "name": "ctIfLAA",
+    "oid": "1.3.6.1.4.1.52.4.3.3.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctIfDuplex": {
+    "name": "ctIfDuplex",
+    "oid": "1.3.6.1.4.1.52.4.3.3.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "standard": 2,
+          "full": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctIfCapability": {
+    "name": "ctIfCapability",
+    "oid": "1.3.6.1.4.1.52.4.3.3.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "standard": 2,
+          "fullDuplex": 3,
+          "fastEthernet": 4,
+          "ethernetBased": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfRedundancy": {
+    "name": "ctIfRedundancy",
+    "oid": "1.3.6.1.4.1.52.4.3.3.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "redundant": 1,
+          "not-redundant": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfPortTable": {
+    "name": "ctIfPortTable",
+    "oid": "1.3.6.1.4.1.52.4.3.3.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctIfPortEntry": {
+    "name": "ctIfPortEntry",
+    "oid": "1.3.6.1.4.1.52.4.3.3.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTIF-EXT-MIB",
+        "object": "ctIfPortIfNumber",
+        "implied": 0
+      },
+      {
+        "module": "CTIF-EXT-MIB",
+        "object": "ctIfPortPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctIfPortPortNumber": {
+    "name": "ctIfPortPortNumber",
+    "oid": "1.3.6.1.4.1.52.4.3.3.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfPortIfNumber": {
+    "name": "ctIfPortIfNumber",
+    "oid": "1.3.6.1.4.1.52.4.3.3.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfPortType": {
+    "name": "ctIfPortType",
+    "oid": "1.3.6.1.4.1.52.4.3.3.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfPortLinkStatus": {
+    "name": "ctIfPortLinkStatus",
+    "oid": "1.3.6.1.4.1.52.4.3.3.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notLinked": 1,
+          "linked": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfPortTrapStatus": {
+    "name": "ctIfPortTrapStatus",
+    "oid": "1.3.6.1.4.1.52.4.3.3.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctCpTable": {
+    "name": "ctCpTable",
+    "oid": "1.3.6.1.4.1.52.4.3.3.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctCpEntry": {
+    "name": "ctCpEntry",
+    "oid": "1.3.6.1.4.1.52.4.3.3.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTIF-EXT-MIB",
+        "object": "ctComPort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctComPort": {
+    "name": "ctComPort",
+    "oid": "1.3.6.1.4.1.52.4.3.3.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctCpFunction": {
+    "name": "ctCpFunction",
+    "oid": "1.3.6.1.4.1.52.4.3.3.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lm": 1,
+          "ups": 2,
+          "slip": 3,
+          "ppp": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctIfNum": {
+    "name": "ctIfNum",
+    "oid": "1.3.6.1.4.1.52.4.3.3.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctCpAdminStatus": {
+    "name": "ctCpAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.3.3.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "enableSNMPv1": {
+    "name": "enableSNMPv1",
+    "oid": "1.3.6.1.4.1.52.4.3.3.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "enableSNMPv2": {
+    "name": "enableSNMPv2",
+    "oid": "1.3.6.1.4.1.52.4.3.3.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "enableSNMPv1Counter64": {
+    "name": "enableSNMPv1Counter64",
+    "oid": "1.3.6.1.4.1.52.4.3.3.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctSonetTable": {
+    "name": "ctSonetTable",
+    "oid": "1.3.6.1.4.1.52.4.3.3.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "ctSonetEntry": {
+    "name": "ctSonetEntry",
+    "oid": "1.3.6.1.4.1.52.4.3.3.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTIF-EXT-MIB",
+        "object": "ctSonetIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ctSonetIfIndex": {
+    "name": "ctSonetIfIndex",
+    "oid": "1.3.6.1.4.1.52.4.3.3.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ctSonetMediumType": {
+    "name": "ctSonetMediumType",
+    "oid": "1.3.6.1.4.1.52.4.3.3.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sonet": 1,
+          "sdh": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ctVirtualIfTable": {
+    "name": "ctVirtualIfTable",
+    "oid": "1.3.6.1.4.1.52.4.3.3.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctVirtualIfEntry": {
+    "name": "ctVirtualIfEntry",
+    "oid": "1.3.6.1.4.1.52.4.3.3.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTIF-EXT-MIB",
+        "object": "ctVirtualIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctVirtualIfIndex": {
+    "name": "ctVirtualIfIndex",
+    "oid": "1.3.6.1.4.1.52.4.3.3.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVirtualIfPhysicalInterface": {
+    "name": "ctVirtualIfPhysicalInterface",
+    "oid": "1.3.6.1.4.1.52.4.3.3.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVirtualIfType": {
+    "name": "ctVirtualIfType",
+    "oid": "1.3.6.1.4.1.52.4.3.3.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVirtualIfNumPorts": {
+    "name": "ctVirtualIfNumPorts",
+    "oid": "1.3.6.1.4.1.52.4.3.3.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVirtualIfPortTable": {
+    "name": "ctVirtualIfPortTable",
+    "oid": "1.3.6.1.4.1.52.4.3.3.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctVirtualIfPortEntry": {
+    "name": "ctVirtualIfPortEntry",
+    "oid": "1.3.6.1.4.1.52.4.3.3.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTIF-EXT-MIB",
+        "object": "ctVirtualIfPortIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CTIF-EXT-MIB",
+        "object": "ctVirtualIfPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctVirtualIfPortIfIndex": {
+    "name": "ctVirtualIfPortIfIndex",
+    "oid": "1.3.6.1.4.1.52.4.3.3.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVirtualIfPortNumber": {
+    "name": "ctVirtualIfPortNumber",
+    "oid": "1.3.6.1.4.1.52.4.3.3.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVirtualIfPortType": {
+    "name": "ctVirtualIfPortType",
+    "oid": "1.3.6.1.4.1.52.4.3.3.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "portVirtualTypeSvc": 1,
+          "portVirtualTypePvcLlc": 2,
+          "portVirtualTypePvcVcmux": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVirtualIfPortVPI": {
+    "name": "ctVirtualIfPortVPI",
+    "oid": "1.3.6.1.4.1.52.4.3.3.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVirtualIfPortVCI": {
+    "name": "ctVirtualIfPortVCI",
+    "oid": "1.3.6.1.4.1.52.4.3.3.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctStatsTable": {
+    "name": "ctStatsTable",
+    "oid": "1.3.6.1.4.1.52.4.3.3.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctStatsEntry": {
+    "name": "ctStatsEntry",
+    "oid": "1.3.6.1.4.1.52.4.3.3.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTIF-EXT-MIB",
+        "object": "ctStatsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctStatsIfIndex": {
+    "name": "ctStatsIfIndex",
+    "oid": "1.3.6.1.4.1.52.4.3.3.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctStatsIfEnable": {
+    "name": "ctStatsIfEnable",
+    "oid": "1.3.6.1.4.1.52.4.3.3.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctIfHCStatsTable": {
+    "name": "ctIfHCStatsTable",
+    "oid": "1.3.6.1.4.1.52.4.3.3.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctIfHCStatsEntry": {
+    "name": "ctIfHCStatsEntry",
+    "oid": "1.3.6.1.4.1.52.4.3.3.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctIfInOctets": {
+    "name": "ctIfInOctets",
+    "oid": "1.3.6.1.4.1.52.4.3.3.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfInOctetsOverflows": {
+    "name": "ctIfInOctetsOverflows",
+    "oid": "1.3.6.1.4.1.52.4.3.3.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfInUcastPkts": {
+    "name": "ctIfInUcastPkts",
+    "oid": "1.3.6.1.4.1.52.4.3.3.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfInUcastPktsOverflows": {
+    "name": "ctIfInUcastPktsOverflows",
+    "oid": "1.3.6.1.4.1.52.4.3.3.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfInMulticastPkts": {
+    "name": "ctIfInMulticastPkts",
+    "oid": "1.3.6.1.4.1.52.4.3.3.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfInMulticastPktsOverflows": {
+    "name": "ctIfInMulticastPktsOverflows",
+    "oid": "1.3.6.1.4.1.52.4.3.3.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfInBroadcastPkts": {
+    "name": "ctIfInBroadcastPkts",
+    "oid": "1.3.6.1.4.1.52.4.3.3.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfInBroadcastPktsOverflows": {
+    "name": "ctIfInBroadcastPktsOverflows",
+    "oid": "1.3.6.1.4.1.52.4.3.3.10.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfOutOctets": {
+    "name": "ctIfOutOctets",
+    "oid": "1.3.6.1.4.1.52.4.3.3.10.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfOutOctetsOverflows": {
+    "name": "ctIfOutOctetsOverflows",
+    "oid": "1.3.6.1.4.1.52.4.3.3.10.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfOutUcastPkts": {
+    "name": "ctIfOutUcastPkts",
+    "oid": "1.3.6.1.4.1.52.4.3.3.10.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfOutUcastPktsOverflows": {
+    "name": "ctIfOutUcastPktsOverflows",
+    "oid": "1.3.6.1.4.1.52.4.3.3.10.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfOutMulticastPkts": {
+    "name": "ctIfOutMulticastPkts",
+    "oid": "1.3.6.1.4.1.52.4.3.3.10.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfOutMulticastPktsOverflows": {
+    "name": "ctIfOutMulticastPktsOverflows",
+    "oid": "1.3.6.1.4.1.52.4.3.3.10.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfOutBroadcastPkts": {
+    "name": "ctIfOutBroadcastPkts",
+    "oid": "1.3.6.1.4.1.52.4.3.3.10.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctIfOutBroadcastPktsOverflows": {
+    "name": "ctIfOutBroadcastPktsOverflows",
+    "oid": "1.3.6.1.4.1.52.4.3.3.10.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTIF-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CTIF-EXT-MIB"
+  }
+}

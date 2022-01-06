@@ -1,0 +1,1139 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-FILTER-GROUP-MIB": [
+      "CfgFilterGroupName"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-SYSLOG-MIB": [
+      "SyslogSeverity"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoIpProtocolMIB": {
+    "name": "ciscoIpProtocolMIB",
+    "oid": "1.3.6.1.4.1.9.9.278",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-04-20 00:00",
+        "description": "- Added 'extendedIPv6' enumeration in cippfIpProfileType. - Added following enumerations in cippfIfIpProfileDirection. inboundIPv6 (3) outboundIPv6 (4). - Added following objects in cippfIpFilterTable: cippfIpFilterSrcIPGroupName cippfIpFilterDstIPGroupName cippfIpFilterProtocolGroupName cippfIpFilterSrcServiceGroupName cippfIpFilterDstServiceGroupName cippfIpFilterICMPGroupName. - Added following tables cippfIpFilterExtTable. cippfIpFilterStatsTable."
+      },
+      {
+        "revision": "2003-06-16 00:00",
+        "description": "Added following objects to cippfIpFilterTable: cippfIpFilterICMPType,cippfIpFilterEstablished, cippfIpFilterFragments,cippfIpFilterICMPCode. Updated the conformance statement."
+      },
+      {
+        "revision": "2002-07-11 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoIpProtocolFilterMIBNotifs": {
+    "name": "ciscoIpProtocolFilterMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.278.0",
+    "class": "objectidentity"
+  },
+  "ciscoIpProtocolFilterMIBObjects": {
+    "name": "ciscoIpProtocolFilterMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.278.1",
+    "class": "objectidentity"
+  },
+  "ciscoIpProtocolFilterMIBConform": {
+    "name": "ciscoIpProtocolFilterMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.278.2",
+    "class": "objectidentity"
+  },
+  "cippfIpFilterConfig": {
+    "name": "cippfIpFilterConfig",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1",
+    "class": "objectidentity"
+  },
+  "cippfIpFilterStats": {
+    "name": "cippfIpFilterStats",
+    "oid": "1.3.6.1.4.1.9.9.278.1.2",
+    "class": "objectidentity"
+  },
+  "CippfIpFilterProfileName": {
+    "name": "CippfIpFilterProfileName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cippfIpProfileTable": {
+    "name": "cippfIpProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cippfIpProfileEntry": {
+    "name": "cippfIpProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cippfIpProfileName": {
+    "name": "cippfIpProfileName",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CippfIpFilterProfileName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cippfIpProfileType": {
+    "name": "cippfIpProfileType",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "simple": 1,
+          "extended": 2,
+          "extendedIPv6": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "extended",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpProfileLastFilterIndex": {
+    "name": "cippfIpProfileLastFilterIndex",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cippfIpProfileStatus": {
+    "name": "cippfIpProfileStatus",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIfIpProfileTable": {
+    "name": "cippfIfIpProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cippfIfIpProfileEntry": {
+    "name": "cippfIfIpProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIfIpProfileDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cippfIfIpProfileDirection": {
+    "name": "cippfIfIpProfileDirection",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2,
+          "inboundIPv6": 3,
+          "outboundIPv6": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cippfIfIpProfileName": {
+    "name": "cippfIfIpProfileName",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CippfIpFilterProfileName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIfIpProfileStatus": {
+    "name": "cippfIfIpProfileStatus",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterTable": {
+    "name": "cippfIpFilterTable",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cippfIpFilterEntry": {
+    "name": "cippfIpFilterEntry",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpProfileName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cippfIpFilterIndex": {
+    "name": "cippfIpFilterIndex",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cippfIpFilterOrderPosition": {
+    "name": "cippfIpFilterOrderPosition",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterAction": {
+    "name": "cippfIpFilterAction",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 1,
+          "permit": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "deny",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterAddressType": {
+    "name": "cippfIpFilterAddressType",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterSrcAddress": {
+    "name": "cippfIpFilterSrcAddress",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterSrcMask": {
+    "name": "cippfIpFilterSrcMask",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ffffffff",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterDestAddress": {
+    "name": "cippfIpFilterDestAddress",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterDestMask": {
+    "name": "cippfIpFilterDestMask",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ffffffff",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterProtocol": {
+    "name": "cippfIpFilterProtocol",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterSrcPortLow": {
+    "name": "cippfIpFilterSrcPortLow",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterSrcPortHigh": {
+    "name": "cippfIpFilterSrcPortHigh",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterDestPortLow": {
+    "name": "cippfIpFilterDestPortLow",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterDestPortHigh": {
+    "name": "cippfIpFilterDestPortHigh",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterPrecedence": {
+    "name": "cippfIpFilterPrecedence",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "any": -1,
+          "routine": 0,
+          "priority": 1,
+          "immediate": 2,
+          "flash": 3,
+          "flashOverride": 4,
+          "critical": 5,
+          "internet": 6,
+          "network": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "any",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterTos": {
+    "name": "cippfIpFilterTos",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterLogEnabled": {
+    "name": "cippfIpFilterLogEnabled",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterStatus": {
+    "name": "cippfIpFilterStatus",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterICMPType": {
+    "name": "cippfIpFilterICMPType",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterTCPEstablished": {
+    "name": "cippfIpFilterTCPEstablished",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterFragments": {
+    "name": "cippfIpFilterFragments",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterICMPCode": {
+    "name": "cippfIpFilterICMPCode",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterSrcIPGroupName": {
+    "name": "cippfIpFilterSrcIPGroupName",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfgFilterGroupName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterDstIPGroupName": {
+    "name": "cippfIpFilterDstIPGroupName",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfgFilterGroupName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterProtocolGroupName": {
+    "name": "cippfIpFilterProtocolGroupName",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfgFilterGroupName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterSrcServiceGroupName": {
+    "name": "cippfIpFilterSrcServiceGroupName",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfgFilterGroupName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterDstServiceGroupName": {
+    "name": "cippfIpFilterDstServiceGroupName",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfgFilterGroupName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterICMPGroupName": {
+    "name": "cippfIpFilterICMPGroupName",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfgFilterGroupName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterExtTable": {
+    "name": "cippfIpFilterExtTable",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cippfIpFilterExtEntry": {
+    "name": "cippfIpFilterExtEntry",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cippfIpFilterExtEntry",
+      "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+      "object": "cippfIpFilterEntry"
+    },
+    "status": "current"
+  },
+  "cippfIpFilterExtDescription": {
+    "name": "cippfIpFilterExtDescription",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterExtLogLevel": {
+    "name": "cippfIpFilterExtLogLevel",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyslogSeverity",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "info",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterExtLogInterval": {
+    "name": "cippfIpFilterExtLogInterval",
+    "oid": "1.3.6.1.4.1.9.9.278.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cippfIpFilterStatsTable": {
+    "name": "cippfIpFilterStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.278.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cippfIpFilterStatsEntry": {
+    "name": "cippfIpFilterStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.278.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpProfileName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cippfIpFilterHits": {
+    "name": "cippfIpFilterHits",
+    "oid": "1.3.6.1.4.1.9.9.278.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpProtocolFilterMIBCompl": {
+    "name": "ciscoIpProtocolFilterMIBCompl",
+    "oid": "1.3.6.1.4.1.9.9.278.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoIpProtocolFilterMIBGroups": {
+    "name": "ciscoIpProtocolFilterMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.278.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoIpProtocolMIBCompliance": {
+    "name": "ciscoIpProtocolMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.278.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIpProtocolFilteringGroup",
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoIpProtocolMIBComplianceRev1": {
+    "name": "ciscoIpProtocolMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.278.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIpProtocolFilteringGroup",
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB"
+      },
+      {
+        "object": "ciscoIpProtocolFilterGroup2",
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoIpProtocolMIBComplianceRev2": {
+    "name": "ciscoIpProtocolMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.278.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIpProtocolFilteringGroup",
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB"
+      },
+      {
+        "object": "ciscoIpProtocolFilterStatsGroup",
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpProtocolFilteringGroup": {
+    "name": "ciscoIpProtocolFilteringGroup",
+    "oid": "1.3.6.1.4.1.9.9.278.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpProfileType"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpProfileLastFilterIndex"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpProfileStatus"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIfIpProfileName"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIfIpProfileStatus"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterOrderPosition"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterAction"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterAddressType"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterSrcAddress"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterSrcMask"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterDestAddress"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterDestMask"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterProtocol"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterSrcPortLow"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterSrcPortHigh"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterDestPortLow"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterDestPortHigh"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterPrecedence"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterTos"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterLogEnabled"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpProtocolFilterGroup2": {
+    "name": "ciscoIpProtocolFilterGroup2",
+    "oid": "1.3.6.1.4.1.9.9.278.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterICMPType"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterTCPEstablished"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterFragments"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterICMPCode"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpProtocolFilterExtGroup": {
+    "name": "ciscoIpProtocolFilterExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.278.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterExtDescription"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterExtLogLevel"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterExtLogInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpProtocolFilterObjectGroup": {
+    "name": "ciscoIpProtocolFilterObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.278.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterSrcIPGroupName"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterDstIPGroupName"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterProtocolGroupName"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterSrcServiceGroupName"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterDstServiceGroupName"
+      },
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterICMPGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpProtocolFilterStatsGroup": {
+    "name": "ciscoIpProtocolFilterStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.278.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "object": "cippfIpFilterHits"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IP-PROTOCOL-FILTER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IP-PROTOCOL-FILTER-MIB"
+  }
+}

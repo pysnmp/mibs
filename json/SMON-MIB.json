@@ -1,0 +1,1255 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "RMON-MIB": [
+      "OwnerString",
+      "rmon"
+    ],
+    "RMON2-MIB": [
+      "probeConfig",
+      "DataSource",
+      "rmonConformance",
+      "LastCreateTime"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "switchRMON": {
+    "name": "switchRMON",
+    "oid": "1.3.6.1.2.1.16.22",
+    "class": "moduleidentity"
+  },
+  "smonMIBObjects": {
+    "name": "smonMIBObjects",
+    "oid": "1.3.6.1.2.1.16.22.1",
+    "class": "objectidentity"
+  },
+  "dataSourceCaps": {
+    "name": "dataSourceCaps",
+    "oid": "1.3.6.1.2.1.16.22.1.1",
+    "class": "objectidentity"
+  },
+  "smonStats": {
+    "name": "smonStats",
+    "oid": "1.3.6.1.2.1.16.22.1.2",
+    "class": "objectidentity"
+  },
+  "portCopyConfig": {
+    "name": "portCopyConfig",
+    "oid": "1.3.6.1.2.1.16.22.1.3",
+    "class": "objectidentity"
+  },
+  "smonRegistrationPoints": {
+    "name": "smonRegistrationPoints",
+    "oid": "1.3.6.1.2.1.16.22.1.4",
+    "class": "objectidentity"
+  },
+  "SmonDataSource": {
+    "name": "SmonDataSource",
+    "class": "textualconvention",
+    "type": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "smonCapabilities": {
+    "name": "smonCapabilities",
+    "oid": "1.3.6.1.2.1.16.19.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "smonVlanStats": 0,
+        "smonPrioStats": 1,
+        "dataSource": 2,
+        "smonUnusedBit": 3,
+        "portCopy": 4
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataSourceCapsTable": {
+    "name": "dataSourceCapsTable",
+    "oid": "1.3.6.1.2.1.16.22.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataSourceCapsEntry": {
+    "name": "dataSourceCapsEntry",
+    "oid": "1.3.6.1.2.1.16.22.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SMON-MIB",
+        "object": "dataSourceCapsObject",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "dataSourceCapsObject": {
+    "name": "dataSourceCapsObject",
+    "oid": "1.3.6.1.2.1.16.22.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SmonDataSource",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataSourceRmonCaps": {
+    "name": "dataSourceRmonCaps",
+    "oid": "1.3.6.1.2.1.16.22.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "countErrFrames": 0,
+        "countAllGoodFrames": 1,
+        "countAnyRmonTables": 2,
+        "babyGiantsCountAsGood": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataSourceCopyCaps": {
+    "name": "dataSourceCopyCaps",
+    "oid": "1.3.6.1.2.1.16.22.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "copySourcePort": 0,
+        "copyDestPort": 1,
+        "copySrcTxTraffic": 2,
+        "copySrcRxTraffic": 3,
+        "countDestDropEvents": 4,
+        "copyErrFrames": 5,
+        "copyUnalteredFrames": 6,
+        "copyAllGoodFrames": 7
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataSourceCapsIfIndex": {
+    "name": "dataSourceCapsIfIndex",
+    "oid": "1.3.6.1.2.1.16.22.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smonVlanStatsControlTable": {
+    "name": "smonVlanStatsControlTable",
+    "oid": "1.3.6.1.2.1.16.22.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "smonVlanStatsControlEntry": {
+    "name": "smonVlanStatsControlEntry",
+    "oid": "1.3.6.1.2.1.16.22.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanStatsControlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "smonVlanStatsControlIndex": {
+    "name": "smonVlanStatsControlIndex",
+    "oid": "1.3.6.1.2.1.16.22.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "smonVlanStatsControlDataSource": {
+    "name": "smonVlanStatsControlDataSource",
+    "oid": "1.3.6.1.2.1.16.22.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DataSource",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "smonVlanStatsControlCreateTime": {
+    "name": "smonVlanStatsControlCreateTime",
+    "oid": "1.3.6.1.2.1.16.22.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LastCreateTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smonVlanStatsControlOwner": {
+    "name": "smonVlanStatsControlOwner",
+    "oid": "1.3.6.1.2.1.16.22.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "smonVlanStatsControlStatus": {
+    "name": "smonVlanStatsControlStatus",
+    "oid": "1.3.6.1.2.1.16.22.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "smonVlanIdStatsTable": {
+    "name": "smonVlanIdStatsTable",
+    "oid": "1.3.6.1.2.1.16.22.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "smonVlanIdStatsEntry": {
+    "name": "smonVlanIdStatsEntry",
+    "oid": "1.3.6.1.2.1.16.22.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanStatsControlIndex",
+        "implied": 0
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "smonVlanIdStatsId": {
+    "name": "smonVlanIdStatsId",
+    "oid": "1.3.6.1.2.1.16.22.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "smonVlanIdStatsTotalPkts": {
+    "name": "smonVlanIdStatsTotalPkts",
+    "oid": "1.3.6.1.2.1.16.22.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smonVlanIdStatsTotalOverflowPkts": {
+    "name": "smonVlanIdStatsTotalOverflowPkts",
+    "oid": "1.3.6.1.2.1.16.22.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smonVlanIdStatsTotalHCPkts": {
+    "name": "smonVlanIdStatsTotalHCPkts",
+    "oid": "1.3.6.1.2.1.16.22.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smonVlanIdStatsTotalOctets": {
+    "name": "smonVlanIdStatsTotalOctets",
+    "oid": "1.3.6.1.2.1.16.22.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smonVlanIdStatsTotalOverflowOctets": {
+    "name": "smonVlanIdStatsTotalOverflowOctets",
+    "oid": "1.3.6.1.2.1.16.22.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smonVlanIdStatsTotalHCOctets": {
+    "name": "smonVlanIdStatsTotalHCOctets",
+    "oid": "1.3.6.1.2.1.16.22.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smonVlanIdStatsNUcastPkts": {
+    "name": "smonVlanIdStatsNUcastPkts",
+    "oid": "1.3.6.1.2.1.16.22.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smonVlanIdStatsNUcastOverflowPkts": {
+    "name": "smonVlanIdStatsNUcastOverflowPkts",
+    "oid": "1.3.6.1.2.1.16.22.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smonVlanIdStatsNUcastHCPkts": {
+    "name": "smonVlanIdStatsNUcastHCPkts",
+    "oid": "1.3.6.1.2.1.16.22.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smonVlanIdStatsNUcastOctets": {
+    "name": "smonVlanIdStatsNUcastOctets",
+    "oid": "1.3.6.1.2.1.16.22.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smonVlanIdStatsNUcastOverflowOctets": {
+    "name": "smonVlanIdStatsNUcastOverflowOctets",
+    "oid": "1.3.6.1.2.1.16.22.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smonVlanIdStatsNUcastHCOctets": {
+    "name": "smonVlanIdStatsNUcastHCOctets",
+    "oid": "1.3.6.1.2.1.16.22.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smonVlanIdStatsCreateTime": {
+    "name": "smonVlanIdStatsCreateTime",
+    "oid": "1.3.6.1.2.1.16.22.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LastCreateTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smonPrioStatsControlTable": {
+    "name": "smonPrioStatsControlTable",
+    "oid": "1.3.6.1.2.1.16.22.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "smonPrioStatsControlEntry": {
+    "name": "smonPrioStatsControlEntry",
+    "oid": "1.3.6.1.2.1.16.22.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SMON-MIB",
+        "object": "smonPrioStatsControlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "smonPrioStatsControlIndex": {
+    "name": "smonPrioStatsControlIndex",
+    "oid": "1.3.6.1.2.1.16.22.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "smonPrioStatsControlDataSource": {
+    "name": "smonPrioStatsControlDataSource",
+    "oid": "1.3.6.1.2.1.16.22.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DataSource",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "smonPrioStatsControlCreateTime": {
+    "name": "smonPrioStatsControlCreateTime",
+    "oid": "1.3.6.1.2.1.16.22.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LastCreateTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smonPrioStatsControlOwner": {
+    "name": "smonPrioStatsControlOwner",
+    "oid": "1.3.6.1.2.1.16.22.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "smonPrioStatsControlStatus": {
+    "name": "smonPrioStatsControlStatus",
+    "oid": "1.3.6.1.2.1.16.22.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "smonPrioStatsTable": {
+    "name": "smonPrioStatsTable",
+    "oid": "1.3.6.1.2.1.16.22.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "smonPrioStatsEntry": {
+    "name": "smonPrioStatsEntry",
+    "oid": "1.3.6.1.2.1.16.22.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SMON-MIB",
+        "object": "smonPrioStatsControlIndex",
+        "implied": 0
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonPrioStatsId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "smonPrioStatsId": {
+    "name": "smonPrioStatsId",
+    "oid": "1.3.6.1.2.1.16.22.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "smonPrioStatsPkts": {
+    "name": "smonPrioStatsPkts",
+    "oid": "1.3.6.1.2.1.16.22.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smonPrioStatsOverflowPkts": {
+    "name": "smonPrioStatsOverflowPkts",
+    "oid": "1.3.6.1.2.1.16.22.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smonPrioStatsHCPkts": {
+    "name": "smonPrioStatsHCPkts",
+    "oid": "1.3.6.1.2.1.16.22.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smonPrioStatsOctets": {
+    "name": "smonPrioStatsOctets",
+    "oid": "1.3.6.1.2.1.16.22.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smonPrioStatsOverflowOctets": {
+    "name": "smonPrioStatsOverflowOctets",
+    "oid": "1.3.6.1.2.1.16.22.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smonPrioStatsHCOctets": {
+    "name": "smonPrioStatsHCOctets",
+    "oid": "1.3.6.1.2.1.16.22.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portCopyTable": {
+    "name": "portCopyTable",
+    "oid": "1.3.6.1.2.1.16.22.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portCopyEntry": {
+    "name": "portCopyEntry",
+    "oid": "1.3.6.1.2.1.16.22.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SMON-MIB",
+        "object": "portCopySource",
+        "implied": 0
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "portCopyDest",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portCopySource": {
+    "name": "portCopySource",
+    "oid": "1.3.6.1.2.1.16.22.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portCopyDest": {
+    "name": "portCopyDest",
+    "oid": "1.3.6.1.2.1.16.22.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portCopyDestDropEvents": {
+    "name": "portCopyDestDropEvents",
+    "oid": "1.3.6.1.2.1.16.22.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portCopyDirection": {
+    "name": "portCopyDirection",
+    "oid": "1.3.6.1.2.1.16.22.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copyRxOnly": 1,
+          "copyTxOnly": 2,
+          "copyBoth": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "copyBoth",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "portCopyStatus": {
+    "name": "portCopyStatus",
+    "oid": "1.3.6.1.2.1.16.22.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "smonVlanDataSource": {
+    "name": "smonVlanDataSource",
+    "oid": "1.3.6.1.2.1.16.22.1.4.1",
+    "class": "objectidentity"
+  },
+  "smonMIBCompliances": {
+    "name": "smonMIBCompliances",
+    "oid": "1.3.6.1.2.1.16.20.3",
+    "class": "objectidentity"
+  },
+  "smonMIBGroups": {
+    "name": "smonMIBGroups",
+    "oid": "1.3.6.1.2.1.16.20.4",
+    "class": "objectidentity"
+  },
+  "smonMIBCompliance": {
+    "name": "smonMIBCompliance",
+    "oid": "1.3.6.1.2.1.16.20.3.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dataSourceCapsGroup",
+        "module": "SMON-MIB"
+      },
+      {
+        "object": "smonVlanStatsGroup",
+        "module": "SMON-MIB"
+      },
+      {
+        "object": "smonPrioStatsGroup",
+        "module": "SMON-MIB"
+      },
+      {
+        "object": "portCopyConfigGroup",
+        "module": "SMON-MIB"
+      },
+      {
+        "object": "smonInformationGroup",
+        "module": "SMON-MIB"
+      },
+      {
+        "object": "smonHcTo100mbGroup",
+        "module": "SMON-MIB"
+      },
+      {
+        "object": "smonHc100mbPlusGroup",
+        "module": "SMON-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "smonMIBVlanStatsCompliance": {
+    "name": "smonMIBVlanStatsCompliance",
+    "oid": "1.3.6.1.2.1.16.20.3.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dataSourceCapsGroup",
+        "module": "SMON-MIB"
+      },
+      {
+        "object": "smonVlanStatsGroup",
+        "module": "SMON-MIB"
+      },
+      {
+        "object": "smonInformationGroup",
+        "module": "SMON-MIB"
+      },
+      {
+        "object": "hcVlanTo100mbGroup",
+        "module": "SMON-MIB"
+      },
+      {
+        "object": "hcVlan100mbPlusGroup",
+        "module": "SMON-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "smonMIBPrioStatsCompliance": {
+    "name": "smonMIBPrioStatsCompliance",
+    "oid": "1.3.6.1.2.1.16.20.3.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dataSourceCapsGroup",
+        "module": "SMON-MIB"
+      },
+      {
+        "object": "smonPrioStatsGroup",
+        "module": "SMON-MIB"
+      },
+      {
+        "object": "smonInformationGroup",
+        "module": "SMON-MIB"
+      },
+      {
+        "object": "hcPrioTo100mbGroup",
+        "module": "SMON-MIB"
+      },
+      {
+        "object": "hcPrio100mbPlusGroup",
+        "module": "SMON-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "portCopyCompliance": {
+    "name": "portCopyCompliance",
+    "oid": "1.3.6.1.2.1.16.20.3.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dataSourceCapsGroup",
+        "module": "SMON-MIB"
+      },
+      {
+        "object": "portCopyConfigGroup",
+        "module": "SMON-MIB"
+      },
+      {
+        "object": "smonInformationGroup",
+        "module": "SMON-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dataSourceCapsGroup": {
+    "name": "dataSourceCapsGroup",
+    "oid": "1.3.6.1.2.1.16.20.4.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SMON-MIB",
+        "object": "dataSourceRmonCaps"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "dataSourceCopyCaps"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "dataSourceCapsIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "smonVlanStatsGroup": {
+    "name": "smonVlanStatsGroup",
+    "oid": "1.3.6.1.2.1.16.20.4.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanStatsControlDataSource"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanStatsControlCreateTime"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanStatsControlOwner"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanStatsControlStatus"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsTotalPkts"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsTotalOctets"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsNUcastPkts"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsCreateTime"
+      }
+    ],
+    "status": "current"
+  },
+  "smonPrioStatsGroup": {
+    "name": "smonPrioStatsGroup",
+    "oid": "1.3.6.1.2.1.16.20.4.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SMON-MIB",
+        "object": "smonPrioStatsControlDataSource"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonPrioStatsControlCreateTime"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonPrioStatsControlOwner"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonPrioStatsControlStatus"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonPrioStatsPkts"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonPrioStatsOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "smonHcTo100mbGroup": {
+    "name": "smonHcTo100mbGroup",
+    "oid": "1.3.6.1.2.1.16.20.4.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsTotalOverflowOctets"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsTotalHCOctets"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonPrioStatsOverflowOctets"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonPrioStatsHCOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "smonHc100mbPlusGroup": {
+    "name": "smonHc100mbPlusGroup",
+    "oid": "1.3.6.1.2.1.16.20.4.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsTotalOverflowPkts"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsTotalHCPkts"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsTotalOverflowOctets"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsTotalHCOctets"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsNUcastOverflowPkts"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsNUcastHCPkts"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonPrioStatsOverflowPkts"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonPrioStatsHCPkts"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonPrioStatsOverflowOctets"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonPrioStatsHCOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "hcVlanTo100mbGroup": {
+    "name": "hcVlanTo100mbGroup",
+    "oid": "1.3.6.1.2.1.16.20.4.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsTotalOverflowOctets"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsTotalHCOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "hcVlan100mbPlusGroup": {
+    "name": "hcVlan100mbPlusGroup",
+    "oid": "1.3.6.1.2.1.16.20.4.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsTotalOverflowPkts"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsTotalHCPkts"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsTotalOverflowOctets"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsTotalHCOctets"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsNUcastOverflowPkts"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsNUcastHCPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "hcPrioTo100mbGroup": {
+    "name": "hcPrioTo100mbGroup",
+    "oid": "1.3.6.1.2.1.16.20.4.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SMON-MIB",
+        "object": "smonPrioStatsOverflowOctets"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonPrioStatsHCOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "hcPrio100mbPlusGroup": {
+    "name": "hcPrio100mbPlusGroup",
+    "oid": "1.3.6.1.2.1.16.20.4.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SMON-MIB",
+        "object": "smonPrioStatsOverflowPkts"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonPrioStatsHCPkts"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonPrioStatsOverflowOctets"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonPrioStatsHCOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "smonVlanStatsExtGroup": {
+    "name": "smonVlanStatsExtGroup",
+    "oid": "1.3.6.1.2.1.16.20.4.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsNUcastOctets"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsNUcastOverflowOctets"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "smonVlanIdStatsNUcastHCOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "smonInformationGroup": {
+    "name": "smonInformationGroup",
+    "oid": "1.3.6.1.2.1.16.20.4.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SMON-MIB",
+        "object": "smonCapabilities"
+      }
+    ],
+    "status": "current"
+  },
+  "portCopyConfigGroup": {
+    "name": "portCopyConfigGroup",
+    "oid": "1.3.6.1.2.1.16.20.4.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SMON-MIB",
+        "object": "portCopyDestDropEvents"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "portCopyDirection"
+      },
+      {
+        "module": "SMON-MIB",
+        "object": "portCopyStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/SMON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SMON-MIB"
+  }
+}

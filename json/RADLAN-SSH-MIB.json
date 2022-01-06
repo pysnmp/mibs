@@ -1,0 +1,740 @@
+{
+  "imports": {
+    "class": "imports",
+    "RADLAN-MIB": [
+      "rnd"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ]
+  },
+  "rlSsh": {
+    "name": "rlSsh",
+    "oid": "1.3.6.1.4.1.89.78",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-01-03 00:24",
+        "description": "The second revision"
+      },
+      {
+        "revision": "2003-09-21 00:24",
+        "description": "Editorial changes."
+      }
+    ]
+  },
+  "RlSshPublicKeyAlgorithm": {
+    "name": "RlSshPublicKeyAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rsa1": 0,
+          "rsa": 1,
+          "dsa": 2,
+          "none": 999
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlSshPublicKeyDigestFormat": {
+    "name": "RlSshPublicKeyDigestFormat",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hex": 0,
+          "bubbleBabble": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlSshMibVersion": {
+    "name": "rlSshMibVersion",
+    "oid": "1.3.6.1.4.1.89.78.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSshServer": {
+    "name": "rlSshServer",
+    "oid": "1.3.6.1.4.1.89.78.2",
+    "class": "objectidentity"
+  },
+  "rlSshServerHostPublicKeyTable": {
+    "name": "rlSshServerHostPublicKeyTable",
+    "oid": "1.3.6.1.4.1.89.78.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSshServerHostPublicKeyTableEntry": {
+    "name": "rlSshServerHostPublicKeyTableEntry",
+    "oid": "1.3.6.1.4.1.89.78.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-SSH-MIB",
+        "object": "rlSshServerHostPublicKeyAlgorithm",
+        "implied": 0
+      },
+      {
+        "module": "RADLAN-SSH-MIB",
+        "object": "rlSshServerHostPublicKeyFragmentId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSshServerHostPublicKeyAlgorithm": {
+    "name": "rlSshServerHostPublicKeyAlgorithm",
+    "oid": "1.3.6.1.4.1.89.78.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSshPublicKeyAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSshServerHostPublicKeyFragmentId": {
+    "name": "rlSshServerHostPublicKeyFragmentId",
+    "oid": "1.3.6.1.4.1.89.78.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSshServerHostPublicKeyFragmentText": {
+    "name": "rlSshServerHostPublicKeyFragmentText",
+    "oid": "1.3.6.1.4.1.89.78.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSshServerHostPublicKeyFingerprintTable": {
+    "name": "rlSshServerHostPublicKeyFingerprintTable",
+    "oid": "1.3.6.1.4.1.89.78.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSshServerHostPublicKeyFingerprintTableEntry": {
+    "name": "rlSshServerHostPublicKeyFingerprintTableEntry",
+    "oid": "1.3.6.1.4.1.89.78.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-SSH-MIB",
+        "object": "rlSshServerHostPublicKeyFingerprintAlgorithm",
+        "implied": 0
+      },
+      {
+        "module": "RADLAN-SSH-MIB",
+        "object": "rlSshServerHostPublicKeyFingerprintDigestFormat",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSshServerHostPublicKeyFingerprintAlgorithm": {
+    "name": "rlSshServerHostPublicKeyFingerprintAlgorithm",
+    "oid": "1.3.6.1.4.1.89.78.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSshPublicKeyAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSshServerHostPublicKeyFingerprintDigestFormat": {
+    "name": "rlSshServerHostPublicKeyFingerprintDigestFormat",
+    "oid": "1.3.6.1.4.1.89.78.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSshPublicKeyDigestFormat",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSshServerHostPublicKeyFingerprint": {
+    "name": "rlSshServerHostPublicKeyFingerprint",
+    "oid": "1.3.6.1.4.1.89.78.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSshServerAuthorizedUsersPublicKeyTable": {
+    "name": "rlSshServerAuthorizedUsersPublicKeyTable",
+    "oid": "1.3.6.1.4.1.89.78.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSshServerAuthorizedUsersPublicKeyTableEntry": {
+    "name": "rlSshServerAuthorizedUsersPublicKeyTableEntry",
+    "oid": "1.3.6.1.4.1.89.78.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-SSH-MIB",
+        "object": "rlSshServerAuthorizedUserName",
+        "implied": 0
+      },
+      {
+        "module": "RADLAN-SSH-MIB",
+        "object": "rlSshServerAuthorizedUserPublicKeyFragmentId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSshServerAuthorizedUserName": {
+    "name": "rlSshServerAuthorizedUserName",
+    "oid": "1.3.6.1.4.1.89.78.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSshServerAuthorizedUserPublicKeyFragmentId": {
+    "name": "rlSshServerAuthorizedUserPublicKeyFragmentId",
+    "oid": "1.3.6.1.4.1.89.78.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSshServerAuthorizedUserPublicKeyFragmentText": {
+    "name": "rlSshServerAuthorizedUserPublicKeyFragmentText",
+    "oid": "1.3.6.1.4.1.89.78.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSshServerAuthorizedUserPublicKeyFragmentStatus": {
+    "name": "rlSshServerAuthorizedUserPublicKeyFragmentStatus",
+    "oid": "1.3.6.1.4.1.89.78.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSshServerAuthorizedUsersPublicKeyFingerprintTable": {
+    "name": "rlSshServerAuthorizedUsersPublicKeyFingerprintTable",
+    "oid": "1.3.6.1.4.1.89.78.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSshServerAuthorizedUsersPublicKeyFingerprintTableEntry": {
+    "name": "rlSshServerAuthorizedUsersPublicKeyFingerprintTableEntry",
+    "oid": "1.3.6.1.4.1.89.78.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-SSH-MIB",
+        "object": "rlSshServerAuthorizedUserFingerprintName",
+        "implied": 0
+      },
+      {
+        "module": "RADLAN-SSH-MIB",
+        "object": "rlSshServerAuthorizedUserPublicKeyFingerprintDigestFormat",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSshServerAuthorizedUserFingerprintName": {
+    "name": "rlSshServerAuthorizedUserFingerprintName",
+    "oid": "1.3.6.1.4.1.89.78.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSshServerAuthorizedUserPublicKeyFingerprintAlgorithm": {
+    "name": "rlSshServerAuthorizedUserPublicKeyFingerprintAlgorithm",
+    "oid": "1.3.6.1.4.1.89.78.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSshPublicKeyAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSshServerAuthorizedUserPublicKeyFingerprintDigestFormat": {
+    "name": "rlSshServerAuthorizedUserPublicKeyFingerprintDigestFormat",
+    "oid": "1.3.6.1.4.1.89.78.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSshPublicKeyDigestFormat",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSshServerAuthorizedUserPublicKeyFingerprint": {
+    "name": "rlSshServerAuthorizedUserPublicKeyFingerprint",
+    "oid": "1.3.6.1.4.1.89.78.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSshServerSessionTable": {
+    "name": "rlSshServerSessionTable",
+    "oid": "1.3.6.1.4.1.89.78.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSshServerSessionTableEntry": {
+    "name": "rlSshServerSessionTableEntry",
+    "oid": "1.3.6.1.4.1.89.78.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-SSH-MIB",
+        "object": "rlSshServerSessionIdentifier",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSshServerSessionIdentifier": {
+    "name": "rlSshServerSessionIdentifier",
+    "oid": "1.3.6.1.4.1.89.78.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSshServerSessionPeerAddress": {
+    "name": "rlSshServerSessionPeerAddress",
+    "oid": "1.3.6.1.4.1.89.78.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSshServerSessionPeerPort": {
+    "name": "rlSshServerSessionPeerPort",
+    "oid": "1.3.6.1.4.1.89.78.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSshServerSessionPeerVersion": {
+    "name": "rlSshServerSessionPeerVersion",
+    "oid": "1.3.6.1.4.1.89.78.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSshServerSessionUsername": {
+    "name": "rlSshServerSessionUsername",
+    "oid": "1.3.6.1.4.1.89.78.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSshServerSessionCipher": {
+    "name": "rlSshServerSessionCipher",
+    "oid": "1.3.6.1.4.1.89.78.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSshServerSessionHMAC": {
+    "name": "rlSshServerSessionHMAC",
+    "oid": "1.3.6.1.4.1.89.78.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSshServerPort": {
+    "name": "rlSshServerPort",
+    "oid": "1.3.6.1.4.1.89.78.2.101",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 22,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSshServerEnable": {
+    "name": "rlSshServerEnable",
+    "oid": "1.3.6.1.4.1.89.78.2.102",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSshServerEnablePublicKeyAuthentication": {
+    "name": "rlSshServerEnablePublicKeyAuthentication",
+    "oid": "1.3.6.1.4.1.89.78.2.103",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSshServerRegenerateHostKey": {
+    "name": "rlSshServerRegenerateHostKey",
+    "oid": "1.3.6.1.4.1.89.78.2.104",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSshPublicKeyAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSshClient": {
+    "name": "rlSshClient",
+    "oid": "1.3.6.1.4.1.89.78.3",
+    "class": "objectidentity"
+  },
+  "rlSshClientUserName": {
+    "name": "rlSshClientUserName",
+    "oid": "1.3.6.1.4.1.89.78.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSshClientRegenerateSelfKey": {
+    "name": "rlSshClientRegenerateSelfKey",
+    "oid": "1.3.6.1.4.1.89.78.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSshPublicKeyAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSshClientSelfPublicKeyTable": {
+    "name": "rlSshClientSelfPublicKeyTable",
+    "oid": "1.3.6.1.4.1.89.78.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSshClientSelfPublicKeyTableEntry": {
+    "name": "rlSshClientSelfPublicKeyTableEntry",
+    "oid": "1.3.6.1.4.1.89.78.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-SSH-MIB",
+        "object": "rlSshClientSelfPublicKeyAlgorithm",
+        "implied": 0
+      },
+      {
+        "module": "RADLAN-SSH-MIB",
+        "object": "rlSshClientSelfPublicKeyFragmentId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSshClientSelfPublicKeyFragmentId": {
+    "name": "rlSshClientSelfPublicKeyFragmentId",
+    "oid": "1.3.6.1.4.1.89.78.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSshClientSelfPublicKeyAlgorithm": {
+    "name": "rlSshClientSelfPublicKeyAlgorithm",
+    "oid": "1.3.6.1.4.1.89.78.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSshPublicKeyAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSshClientSelfPublicKeyFragmentText": {
+    "name": "rlSshClientSelfPublicKeyFragmentText",
+    "oid": "1.3.6.1.4.1.89.78.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSshClientSelfPublicKeyFingerprintTable": {
+    "name": "rlSshClientSelfPublicKeyFingerprintTable",
+    "oid": "1.3.6.1.4.1.89.78.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSshClientSelfPublicKeyFingerprintTableEntry": {
+    "name": "rlSshClientSelfPublicKeyFingerprintTableEntry",
+    "oid": "1.3.6.1.4.1.89.78.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-SSH-MIB",
+        "object": "rlSshClientSelfPublicKeyFingerprintAlgorithm",
+        "implied": 0
+      },
+      {
+        "module": "RADLAN-SSH-MIB",
+        "object": "rlSshClientSelfPublicKeyFingerprintDigestFormat",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSshClientSelfPublicKeyFingerprintAlgorithm": {
+    "name": "rlSshClientSelfPublicKeyFingerprintAlgorithm",
+    "oid": "1.3.6.1.4.1.89.78.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSshPublicKeyAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSshClientSelfPublicKeyFingerprintDigestFormat": {
+    "name": "rlSshClientSelfPublicKeyFingerprintDigestFormat",
+    "oid": "1.3.6.1.4.1.89.78.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSshPublicKeyDigestFormat",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSshClientSelfPublicKeyFingerprint": {
+    "name": "rlSshClientSelfPublicKeyFingerprint",
+    "oid": "1.3.6.1.4.1.89.78.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-SSH-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RADLAN-SSH-MIB"
+  }
+}

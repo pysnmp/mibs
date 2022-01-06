@@ -1,0 +1,2521 @@
+{
+  "imports": {
+    "class": "imports",
+    "DELIBERANT-MIB": [
+      "dlbMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
+      "MibIdentifier",
+      "Bits",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "DisplayString"
+    ]
+  },
+  "dlbAthDrvStatsMIB": {
+    "name": "dlbAthDrvStatsMIB",
+    "oid": "1.3.6.1.4.1.32761.3.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-12-12 00:00",
+        "description": "First revision."
+      }
+    ]
+  },
+  "dlbAthDrvStatsMIBObjects": {
+    "name": "dlbAthDrvStatsMIBObjects",
+    "oid": "1.3.6.1.4.1.32761.3.7.1",
+    "class": "objectidentity"
+  },
+  "dlbAthStatsTable": {
+    "name": "dlbAthStatsTable",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dlbAthStatsEntry": {
+    "name": "dlbAthStatsEntry",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dlbAthWatchdogTimeouts": {
+    "name": "dlbAthWatchdogTimeouts",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthHardwareErrorInterrupts": {
+    "name": "dlbAthHardwareErrorInterrupts",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthBeaconMissInterrupts": {
+    "name": "dlbAthBeaconMissInterrupts",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthRecvOverrunInterrupts": {
+    "name": "dlbAthRecvOverrunInterrupts",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthRecvEolInterrupts": {
+    "name": "dlbAthRecvEolInterrupts",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthTxmitUnderrunInterrupts": {
+    "name": "dlbAthTxmitUnderrunInterrupts",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthTxManagementFrames": {
+    "name": "dlbAthTxManagementFrames",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthTxFramesDiscQueueDepth": {
+    "name": "dlbAthTxFramesDiscQueueDepth",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthTxFramesDiscDeviceGone": {
+    "name": "dlbAthTxFramesDiscDeviceGone",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthTxQueueFull": {
+    "name": "dlbAthTxQueueFull",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthTxEncapsulationFailed": {
+    "name": "dlbAthTxEncapsulationFailed",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthTxFailedNoNode": {
+    "name": "dlbAthTxFailedNoNode",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthTxFailedNoDataTxBuffer": {
+    "name": "dlbAthTxFailedNoDataTxBuffer",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthTxFailedNoMgtTxBuffer": {
+    "name": "dlbAthTxFailedNoMgtTxBuffer",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthTxFailedTooManyRetries": {
+    "name": "dlbAthTxFailedTooManyRetries",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthTxFailedFifoUnderrun": {
+    "name": "dlbAthTxFailedFifoUnderrun",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthTxFailedXmitFiltered": {
+    "name": "dlbAthTxFailedXmitFiltered",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthShortOnchipTxRetries": {
+    "name": "dlbAthShortOnchipTxRetries",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthLongOnchipTxRetries": {
+    "name": "dlbAthLongOnchipTxRetries",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthTxFailedBogusXmitRate": {
+    "name": "dlbAthTxFailedBogusXmitRate",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthTxFramesNoAckMarked": {
+    "name": "dlbAthTxFramesNoAckMarked",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthTxFramesRtsEnabled": {
+    "name": "dlbAthTxFramesRtsEnabled",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthTxFramesCtsEnabled": {
+    "name": "dlbAthTxFramesCtsEnabled",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthTxFramesShortPreamble": {
+    "name": "dlbAthTxFramesShortPreamble",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthTxFramesAlternateRate": {
+    "name": "dlbAthTxFramesAlternateRate",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthTxFrames11gProtection": {
+    "name": "dlbAthTxFrames11gProtection",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthRxFailedDescOverrun": {
+    "name": "dlbAthRxFailedDescOverrun",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthRxFailedBadCrc": {
+    "name": "dlbAthRxFailedBadCrc",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthRxFailedFifoOverrun": {
+    "name": "dlbAthRxFailedFifoOverrun",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthRxFailedDecryptErrors": {
+    "name": "dlbAthRxFailedDecryptErrors",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthRxFailedMicFailure": {
+    "name": "dlbAthRxFailedMicFailure",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthRxFailedFrameTooShort": {
+    "name": "dlbAthRxFailedFrameTooShort",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthRxSetupFailedNoSkbuff": {
+    "name": "dlbAthRxSetupFailedNoSkbuff",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthRxManagementFrames": {
+    "name": "dlbAthRxManagementFrames",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthRxControlFrames": {
+    "name": "dlbAthRxControlFrames",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthNoSkbuffForBeacon": {
+    "name": "dlbAthNoSkbuffForBeacon",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthBeaconsTransmitted": {
+    "name": "dlbAthBeaconsTransmitted",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeriodicCalibrations": {
+    "name": "dlbAthPeriodicCalibrations",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeriodicCalibrFailures": {
+    "name": "dlbAthPeriodicCalibrFailures",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthRfgainValueChange": {
+    "name": "dlbAthRfgainValueChange",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthRateControlChecks": {
+    "name": "dlbAthRateControlChecks",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthRateCtrlRaisedXmitRate": {
+    "name": "dlbAthRateCtrlRaisedXmitRate",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthRateCtrlDroppedXmitRate": {
+    "name": "dlbAthRateCtrlDroppedXmitRate",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthRssiOfLastAck": {
+    "name": "dlbAthRssiOfLastAck",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthRssiOfLastRcv": {
+    "name": "dlbAthRssiOfLastRcv",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPhyErrorsTable": {
+    "name": "dlbAthPhyErrorsTable",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dlbAthPhyErrorsEntry": {
+    "name": "dlbAthPhyErrorsEntry",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dlbAthPhyTransmitUnderrun": {
+    "name": "dlbAthPhyTransmitUnderrun",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPhyTimingError": {
+    "name": "dlbAthPhyTimingError",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPhyIllegalParity": {
+    "name": "dlbAthPhyIllegalParity",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPhyIllegalRate": {
+    "name": "dlbAthPhyIllegalRate",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPhyIllegalLength": {
+    "name": "dlbAthPhyIllegalLength",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPhyRadarDetect": {
+    "name": "dlbAthPhyRadarDetect",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPhyIllegalService": {
+    "name": "dlbAthPhyIllegalService",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPhyTxmitOverrideRecv": {
+    "name": "dlbAthPhyTxmitOverrideRecv",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPhyOfdmTiming": {
+    "name": "dlbAthPhyOfdmTiming",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPhyOfdmIllegalParity": {
+    "name": "dlbAthPhyOfdmIllegalParity",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPhyOfdmIllegalRate": {
+    "name": "dlbAthPhyOfdmIllegalRate",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPhyOfdmIllegalLength": {
+    "name": "dlbAthPhyOfdmIllegalLength",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPhyOfdmPowerDrop": {
+    "name": "dlbAthPhyOfdmPowerDrop",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPhyOfdmIllegalService": {
+    "name": "dlbAthPhyOfdmIllegalService",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPhyOfdmRestart": {
+    "name": "dlbAthPhyOfdmRestart",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPhyCckTiming": {
+    "name": "dlbAthPhyCckTiming",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPhyCckHeaderCrc": {
+    "name": "dlbAthPhyCckHeaderCrc",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPhyCckIllegalRate": {
+    "name": "dlbAthPhyCckIllegalRate",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPhyCckIllegalService": {
+    "name": "dlbAthPhyCckIllegalService",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPhyCckRestart": {
+    "name": "dlbAthPhyCckRestart",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthAntennaStatsTable": {
+    "name": "dlbAthAntennaStatsTable",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dlbAthAntennaStatsEntry": {
+    "name": "dlbAthAntennaStatsEntry",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dlbAthSwitchedDefaultRxAntenna": {
+    "name": "dlbAthSwitchedDefaultRxAntenna",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthTxUsedAlternateAntenna": {
+    "name": "dlbAthTxUsedAlternateAntenna",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthTxFramesAntenna1": {
+    "name": "dlbAthTxFramesAntenna1",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthRxFramesAntenna1": {
+    "name": "dlbAthRxFramesAntenna1",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthTxFramesAntenna2": {
+    "name": "dlbAthTxFramesAntenna2",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthRxFramesAntenna2": {
+    "name": "dlbAthRxFramesAntenna2",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthTxFramesAntenna3": {
+    "name": "dlbAthTxFramesAntenna3",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthRxFramesAntenna3": {
+    "name": "dlbAthRxFramesAntenna3",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11StatsTable": {
+    "name": "dlbAthDot11StatsTable",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dlbAthDot11StatsEntry": {
+    "name": "dlbAthDot11StatsEntry",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dlbAthDot11RxBadVersion": {
+    "name": "dlbAthDot11RxBadVersion",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxTooShort": {
+    "name": "dlbAthDot11RxTooShort",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxWrongBssid": {
+    "name": "dlbAthDot11RxWrongBssid",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxDup": {
+    "name": "dlbAthDot11RxDup",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxWrongDirection": {
+    "name": "dlbAthDot11RxWrongDirection",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxMcastEcho": {
+    "name": "dlbAthDot11RxMcastEcho",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxNotAssoc": {
+    "name": "dlbAthDot11RxNotAssoc",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxNoPrivacy": {
+    "name": "dlbAthDot11RxNoPrivacy",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxUnencrypted": {
+    "name": "dlbAthDot11RxUnencrypted",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxWepFail": {
+    "name": "dlbAthDot11RxWepFail",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxDecapFail": {
+    "name": "dlbAthDot11RxDecapFail",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxDiscardMgt": {
+    "name": "dlbAthDot11RxDiscardMgt",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxDiscardCtrl": {
+    "name": "dlbAthDot11RxDiscardCtrl",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxBeaconFrames": {
+    "name": "dlbAthDot11RxBeaconFrames",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxRateSetTrunc": {
+    "name": "dlbAthDot11RxRateSetTrunc",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxReqElemMissing": {
+    "name": "dlbAthDot11RxReqElemMissing",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxElementTooBig": {
+    "name": "dlbAthDot11RxElementTooBig",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxElementTooSmall": {
+    "name": "dlbAthDot11RxElementTooSmall",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxElementUnknown": {
+    "name": "dlbAthDot11RxElementUnknown",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxInvalidChannel": {
+    "name": "dlbAthDot11RxInvalidChannel",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxChannelMismatch": {
+    "name": "dlbAthDot11RxChannelMismatch",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxNodesAllocated": {
+    "name": "dlbAthDot11RxNodesAllocated",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxSsidMismatch": {
+    "name": "dlbAthDot11RxSsidMismatch",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxUnsupportedAuthAlg": {
+    "name": "dlbAthDot11RxUnsupportedAuthAlg",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxAuthFail": {
+    "name": "dlbAthDot11RxAuthFail",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxTkipCtrm": {
+    "name": "dlbAthDot11RxTkipCtrm",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxAssocWrongBssid": {
+    "name": "dlbAthDot11RxAssocWrongBssid",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxAssocNotAuth": {
+    "name": "dlbAthDot11RxAssocNotAuth",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxAssocCapMismatch": {
+    "name": "dlbAthDot11RxAssocCapMismatch",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxAssocNoRateMatch": {
+    "name": "dlbAthDot11RxAssocNoRateMatch",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxAssocBadWpaIe": {
+    "name": "dlbAthDot11RxAssocBadWpaIe",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxDeauth": {
+    "name": "dlbAthDot11RxDeauth",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxDisassoc": {
+    "name": "dlbAthDot11RxDisassoc",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxUnknownSubtype": {
+    "name": "dlbAthDot11RxUnknownSubtype",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxNoBuffer": {
+    "name": "dlbAthDot11RxNoBuffer",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxDecryptCrcError": {
+    "name": "dlbAthDot11RxDecryptCrcError",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxMgmtInAhdocDemo": {
+    "name": "dlbAthDot11RxMgmtInAhdocDemo",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxBadAuthRequest": {
+    "name": "dlbAthDot11RxBadAuthRequest",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxPortUnauth": {
+    "name": "dlbAthDot11RxPortUnauth",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxBadKeyId": {
+    "name": "dlbAthDot11RxBadKeyId",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxCcmpBadSeqNum": {
+    "name": "dlbAthDot11RxCcmpBadSeqNum",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxCcmpBadFormat": {
+    "name": "dlbAthDot11RxCcmpBadFormat",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxCcmpMicCheck": {
+    "name": "dlbAthDot11RxCcmpMicCheck",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxTkipBadSeqNum": {
+    "name": "dlbAthDot11RxTkipBadSeqNum",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxTkipBadFormat": {
+    "name": "dlbAthDot11RxTkipBadFormat",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxTkipMicCheck": {
+    "name": "dlbAthDot11RxTkipMicCheck",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxTkipIcvCheck": {
+    "name": "dlbAthDot11RxTkipIcvCheck",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxBadCipherKeyType": {
+    "name": "dlbAthDot11RxBadCipherKeyType",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxCipherKeyNotSet": {
+    "name": "dlbAthDot11RxCipherKeyNotSet",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxAclPolicy": {
+    "name": "dlbAthDot11RxAclPolicy",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxFastFrames": {
+    "name": "dlbAthDot11RxFastFrames",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11RxFfBadTunnelHdr": {
+    "name": "dlbAthDot11RxFfBadTunnelHdr",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11TxNoBuffer": {
+    "name": "dlbAthDot11TxNoBuffer",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11TxNoNode": {
+    "name": "dlbAthDot11TxNoNode",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11TxBadMgtFrames": {
+    "name": "dlbAthDot11TxBadMgtFrames",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11TxBadCipherKeyType": {
+    "name": "dlbAthDot11TxBadCipherKeyType",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11TxNoDefKey": {
+    "name": "dlbAthDot11TxNoDefKey",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11TxNoCryptoHeadroom": {
+    "name": "dlbAthDot11TxNoCryptoHeadroom",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11TxGoodFastFrames": {
+    "name": "dlbAthDot11TxGoodFastFrames",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11TxBadFastFrames": {
+    "name": "dlbAthDot11TxBadFastFrames",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11ActiveScans": {
+    "name": "dlbAthDot11ActiveScans",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11PassiveScans": {
+    "name": "dlbAthDot11PassiveScans",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11NodesTimeout": {
+    "name": "dlbAthDot11NodesTimeout",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11CryptoCipherMalloc": {
+    "name": "dlbAthDot11CryptoCipherMalloc",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11CryptoSwTkip": {
+    "name": "dlbAthDot11CryptoSwTkip",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11CryptoTkipSwMicEnc": {
+    "name": "dlbAthDot11CryptoTkipSwMicEnc",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11CryptoTkipSwMicDec": {
+    "name": "dlbAthDot11CryptoTkipSwMicDec",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11CryptoTkipCtrm": {
+    "name": "dlbAthDot11CryptoTkipCtrm",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11CryptoSwCcmp": {
+    "name": "dlbAthDot11CryptoSwCcmp",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11CryptoSwWep": {
+    "name": "dlbAthDot11CryptoSwWep",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11CryptoCipherRej": {
+    "name": "dlbAthDot11CryptoCipherRej",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11CryptoNoKey": {
+    "name": "dlbAthDot11CryptoNoKey",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11CryptoDelKey": {
+    "name": "dlbAthDot11CryptoDelKey",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11CryptoBadCipher": {
+    "name": "dlbAthDot11CryptoBadCipher",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11CryptoNoCipher": {
+    "name": "dlbAthDot11CryptoNoCipher",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11CryptoAttachFail": {
+    "name": "dlbAthDot11CryptoAttachFail",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11CryptoSwFallback": {
+    "name": "dlbAthDot11CryptoSwFallback",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11CryptoKeyFail": {
+    "name": "dlbAthDot11CryptoKeyFail",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11SnoopMcastPass": {
+    "name": "dlbAthDot11SnoopMcastPass",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.79",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthDot11SnoopMcastDrop": {
+    "name": "dlbAthDot11SnoopMcastDrop",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.4.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerStatsTable": {
+    "name": "dlbAthPeerStatsTable",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dlbAthPeerStatsEntry": {
+    "name": "dlbAthPeerStatsEntry",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLB-ATHDRV-STATS-MIB",
+        "object": "dlbAthPeerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dlbAthPeerIndex": {
+    "name": "dlbAthPeerIndex",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dlbAthPeerMacAddr": {
+    "name": "dlbAthPeerMacAddr",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerRxData": {
+    "name": "dlbAthPeerRxData",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerRxMgmt": {
+    "name": "dlbAthPeerRxMgmt",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerRxCtrl": {
+    "name": "dlbAthPeerRxCtrl",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerRxBeacons": {
+    "name": "dlbAthPeerRxBeacons",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerRxProbeResponse": {
+    "name": "dlbAthPeerRxProbeResponse",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerRxUcast": {
+    "name": "dlbAthPeerRxUcast",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerRxMcast": {
+    "name": "dlbAthPeerRxMcast",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerRxBytes": {
+    "name": "dlbAthPeerRxBytes",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerRxDup": {
+    "name": "dlbAthPeerRxDup",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerRxNoPrivacy": {
+    "name": "dlbAthPeerRxNoPrivacy",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerRxWepFail": {
+    "name": "dlbAthPeerRxWepFail",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerRxDemicFail": {
+    "name": "dlbAthPeerRxDemicFail",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerRxDecapFail": {
+    "name": "dlbAthPeerRxDecapFail",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerRxDefragFail": {
+    "name": "dlbAthPeerRxDefragFail",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerRxDissasoc": {
+    "name": "dlbAthPeerRxDissasoc",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerRxDeauth": {
+    "name": "dlbAthPeerRxDeauth",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerRxDecryptCrc": {
+    "name": "dlbAthPeerRxDecryptCrc",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerRxUnauth": {
+    "name": "dlbAthPeerRxUnauth",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerRxUnencrypted": {
+    "name": "dlbAthPeerRxUnencrypted",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerTxData": {
+    "name": "dlbAthPeerTxData",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerTxMgmt": {
+    "name": "dlbAthPeerTxMgmt",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerTxProbeReq": {
+    "name": "dlbAthPeerTxProbeReq",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerTxUcast": {
+    "name": "dlbAthPeerTxUcast",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerTxMcast": {
+    "name": "dlbAthPeerTxMcast",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerTxBytes": {
+    "name": "dlbAthPeerTxBytes",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerTxNoVlanTag": {
+    "name": "dlbAthPeerTxNoVlanTag",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerTxVlanMismatch": {
+    "name": "dlbAthPeerTxVlanMismatch",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerTxUapsd": {
+    "name": "dlbAthPeerTxUapsd",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerUapsdTriggers": {
+    "name": "dlbAthPeerUapsdTriggers",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerTxEospLost": {
+    "name": "dlbAthPeerTxEospLost",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerTxAssoc": {
+    "name": "dlbAthPeerTxAssoc",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerTxAssocFail": {
+    "name": "dlbAthPeerTxAssocFail",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerTxAuth": {
+    "name": "dlbAthPeerTxAuth",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerTxAuthFail": {
+    "name": "dlbAthPeerTxAuthFail",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerTxDeauth": {
+    "name": "dlbAthPeerTxDeauth",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerTxDeauthCode": {
+    "name": "dlbAthPeerTxDeauthCode",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerTxDisassoc": {
+    "name": "dlbAthPeerTxDisassoc",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerTxDisassocCode": {
+    "name": "dlbAthPeerTxDisassocCode",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerPsqDrops": {
+    "name": "dlbAthPeerPsqDrops",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlbAthPeerMcastSnoop": {
+    "name": "dlbAthPeerMcastSnoop",
+    "oid": "1.3.6.1.4.1.32761.3.7.1.5.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/deliberant/DLB-ATHDRV-STATS-MIB.mib",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:47 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLB-ATHDRV-STATS-MIB"
+  }
+}

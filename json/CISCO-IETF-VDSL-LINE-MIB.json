@@ -1,0 +1,1722 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoIetfVdslMIB": {
+    "name": "ciscoIetfVdslMIB",
+    "oid": "1.3.6.1.4.1.9.10.87",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-04-18 00:00",
+        "description": "This is a cisco version of the Internet draft"
+      }
+    ]
+  },
+  "cvdslLineMib": {
+    "name": "cvdslLineMib",
+    "oid": "1.3.6.1.4.1.9.10.87.1",
+    "class": "objectidentity"
+  },
+  "cvdslMibObjects": {
+    "name": "cvdslMibObjects",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1",
+    "class": "objectidentity"
+  },
+  "CVdslLineCodingType": {
+    "name": "CVdslLineCodingType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "mcm": 2,
+          "scm": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CVdslLineEntity": {
+    "name": "CVdslLineEntity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vtuc": 1,
+          "vtur": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cvdslLineTable": {
+    "name": "cvdslLineTable",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvdslLineEntry": {
+    "name": "cvdslLineEntry",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvdslLineCoding": {
+    "name": "cvdslLineCoding",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CVdslLineCodingType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvdslLineType": {
+    "name": "cvdslLineType",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noChannel": 1,
+          "fastOnly": 2,
+          "slowOnly": 3,
+          "either": 4,
+          "both": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvdslLineConfProfile": {
+    "name": "cvdslLineConfProfile",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvdslLineAlarmConfProfile": {
+    "name": "cvdslLineAlarmConfProfile",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvdslPhysTable": {
+    "name": "cvdslPhysTable",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvdslPhysEntry": {
+    "name": "cvdslPhysEntry",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslPhysSide",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvdslPhysSide": {
+    "name": "cvdslPhysSide",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CVdslLineEntity",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvdslInvSerialNumber": {
+    "name": "cvdslInvSerialNumber",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvdslInvVendorID": {
+    "name": "cvdslInvVendorID",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvdslInvVersionNumber": {
+    "name": "cvdslInvVersionNumber",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvdslCurrSnrMgn": {
+    "name": "cvdslCurrSnrMgn",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -640,
+            "max": 640
+          }
+        ]
+      }
+    },
+    "units": "tenth dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvdslCurrAtn": {
+    "name": "cvdslCurrAtn",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 630
+          }
+        ]
+      }
+    },
+    "units": "tenth dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvdslCurrStatus": {
+    "name": "cvdslCurrStatus",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "noDefect": 0,
+        "lossOfFraming": 1,
+        "lossOfSignal": 2,
+        "lossOfPower": 3,
+        "lossOfSignalQuality": 4,
+        "lossOfLink": 5,
+        "dataInitFailure": 6,
+        "configInitFailure": 7,
+        "protocolInitFailure": 8,
+        "noPeerVtuPresent": 9
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvdslCurrOutputPwr": {
+    "name": "cvdslCurrOutputPwr",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -310,
+            "max": 310
+          }
+        ]
+      }
+    },
+    "units": "tenth dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvdslCurrAttainableRate": {
+    "name": "cvdslCurrAttainableRate",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvdslChanTable": {
+    "name": "cvdslChanTable",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvdslChanEntry": {
+    "name": "cvdslChanEntry",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslPhysSide",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvdslChanInterleaveDelay": {
+    "name": "cvdslChanInterleaveDelay",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milli-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvdslChanCrcBlockLength": {
+    "name": "cvdslChanCrcBlockLength",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "byte",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvdslLineConfProfileTable": {
+    "name": "cvdslLineConfProfileTable",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvdslLineConfProfileEntry": {
+    "name": "cvdslLineConfProfileEntry",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslPhysSide",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslLineConfProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvdslLineConfProfileIndex": {
+    "name": "cvdslLineConfProfileIndex",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvdslLineConfProfileName": {
+    "name": "cvdslLineConfProfileName",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslLineConfTargetSnrMgn": {
+    "name": "cvdslLineConfTargetSnrMgn",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 310
+          }
+        ]
+      }
+    },
+    "units": "tenth dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslLineConfTxSpeed": {
+    "name": "cvdslLineConfTxSpeed",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "bits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslLineConfRxSpeed": {
+    "name": "cvdslLineConfRxSpeed",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "bits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslLineConfProfileRowStatus": {
+    "name": "cvdslLineConfProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslLineMCMConfProfileTable": {
+    "name": "cvdslLineMCMConfProfileTable",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvdslLineMCMConfProfileEntry": {
+    "name": "cvdslLineMCMConfProfileEntry",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslPhysSide",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslLineConfProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvdslMCMConfProfileTxWindowLength": {
+    "name": "cvdslMCMConfProfileTxWindowLength",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "samples",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslMCMConfProfileRowStatus": {
+    "name": "cvdslMCMConfProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslLineMCMConfProfileTxBandTable": {
+    "name": "cvdslLineMCMConfProfileTxBandTable",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvdslLineMCMConfProfileTxBandEntry": {
+    "name": "cvdslLineMCMConfProfileTxBandEntry",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslPhysSide",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslLineConfProfileIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslMCMConfProfileTxBandNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvdslMCMConfProfileTxBandNumber": {
+    "name": "cvdslMCMConfProfileTxBandNumber",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvdslMCMConfProfileTxBandStart": {
+    "name": "cvdslMCMConfProfileTxBandStart",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslMCMConfProfileTxBandStop": {
+    "name": "cvdslMCMConfProfileTxBandStop",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslMCMConfProfileTxBandRowStatus": {
+    "name": "cvdslMCMConfProfileTxBandRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslLineMCMConfProfileRxBandTable": {
+    "name": "cvdslLineMCMConfProfileRxBandTable",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvdslLineMCMConfProfileRxBandEntry": {
+    "name": "cvdslLineMCMConfProfileRxBandEntry",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslPhysSide",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslLineConfProfileIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslMCMConfProfileRxBandNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvdslMCMConfProfileRxBandNumber": {
+    "name": "cvdslMCMConfProfileRxBandNumber",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvdslMCMConfProfileRxBandStart": {
+    "name": "cvdslMCMConfProfileRxBandStart",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslMCMConfProfileRxBandStop": {
+    "name": "cvdslMCMConfProfileRxBandStop",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslMCMConfProfileRxBandRowStatus": {
+    "name": "cvdslMCMConfProfileRxBandRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslLineMCMConfProfileTxPSDTable": {
+    "name": "cvdslLineMCMConfProfileTxPSDTable",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvdslLineMCMConfProfileTxPSDEntry": {
+    "name": "cvdslLineMCMConfProfileTxPSDEntry",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslPhysSide",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslLineConfProfileIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslMCMConfProfileTxPSDNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvdslMCMConfProfileTxPSDNumber": {
+    "name": "cvdslMCMConfProfileTxPSDNumber",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvdslMCMConfProfileTxPSDTone": {
+    "name": "cvdslMCMConfProfileTxPSDTone",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslMCMConfProfileTxPSDPSD": {
+    "name": "cvdslMCMConfProfileTxPSDPSD",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "0.5dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslMCMConfProfileTxPSDRowStatus": {
+    "name": "cvdslMCMConfProfileTxPSDRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslLineMCMConfProfileMaxTxPSDTable": {
+    "name": "cvdslLineMCMConfProfileMaxTxPSDTable",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvdslLineMCMConfProfileMaxTxPSDEntry": {
+    "name": "cvdslLineMCMConfProfileMaxTxPSDEntry",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslPhysSide",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslLineConfProfileIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslMCMConfProfileMaxTxPSDNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvdslMCMConfProfileMaxTxPSDNumber": {
+    "name": "cvdslMCMConfProfileMaxTxPSDNumber",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvdslMCMConfProfileMaxTxPSDTone": {
+    "name": "cvdslMCMConfProfileMaxTxPSDTone",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslMCMConfProfileMaxTxPSDPSD": {
+    "name": "cvdslMCMConfProfileMaxTxPSDPSD",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "0.5dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslMCMConfProfileMaxTxPSDRowStatus": {
+    "name": "cvdslMCMConfProfileMaxTxPSDRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslLineMCMConfProfileMaxRxPSDTable": {
+    "name": "cvdslLineMCMConfProfileMaxRxPSDTable",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvdslLineMCMConfProfileMaxRxPSDEntry": {
+    "name": "cvdslLineMCMConfProfileMaxRxPSDEntry",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslPhysSide",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslLineConfProfileIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslMCMConfProfileMaxRxPSDNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvdslMCMConfProfileMaxRxPSDNumber": {
+    "name": "cvdslMCMConfProfileMaxRxPSDNumber",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvdslMCMConfProfileMaxRxPSDTone": {
+    "name": "cvdslMCMConfProfileMaxRxPSDTone",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslMCMConfProfileMaxRxPSDPSD": {
+    "name": "cvdslMCMConfProfileMaxRxPSDPSD",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "0.5dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslMCMConfProfileMaxRxPSDRowStatus": {
+    "name": "cvdslMCMConfProfileMaxRxPSDRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslLineSCMConfProfileTable": {
+    "name": "cvdslLineSCMConfProfileTable",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvdslLineSCMConfProfileEntry": {
+    "name": "cvdslLineSCMConfProfileEntry",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslPhysSide",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslLineConfProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvdslSCMConfProfileInterleaveDepth": {
+    "name": "cvdslSCMConfProfileInterleaveDepth",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslSCMConfProfileFastCodewordSize": {
+    "name": "cvdslSCMConfProfileFastCodewordSize",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 180
+          }
+        ]
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslSCMConfProfileTransmitPSDMask": {
+    "name": "cvdslSCMConfProfileTransmitPSDMask",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "vendorNotch1": 0,
+        "vendorNotch2": 1,
+        "amateurBand30m": 2,
+        "amateurBand40m": 3,
+        "amateurBand80m": 4,
+        "amateurBand160m": 5
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslSCMConfProfileTransmitPSDLevel": {
+    "name": "cvdslSCMConfProfileTransmitPSDLevel",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "dBm/Hz",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslSCMConfProfileSymbolRateProfile": {
+    "name": "cvdslSCMConfProfileSymbolRateProfile",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "kbaud",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslSCMConfProfileConstellationSize": {
+    "name": "cvdslSCMConfProfileConstellationSize",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "units": "log2",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslSCMConfProfileCenterFrequency": {
+    "name": "cvdslSCMConfProfileCenterFrequency",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 511
+          }
+        ]
+      }
+    },
+    "units": "kHz",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslSCMConfProfileRowStatus": {
+    "name": "cvdslSCMConfProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslLineAlarmConfProfileTable": {
+    "name": "cvdslLineAlarmConfProfileTable",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvdslLineAlarmConfProfileEntry": {
+    "name": "cvdslLineAlarmConfProfileEntry",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslPhysSide",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslLineAlarmConfProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvdslLineAlarmConfProfileIndex": {
+    "name": "cvdslLineAlarmConfProfileIndex",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvdslLineAlarmConfProfileName": {
+    "name": "cvdslLineAlarmConfProfileName",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslInitFailureNotificationEnable": {
+    "name": "cvdslInitFailureNotificationEnable",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslLineAlarmConfProfileRowStatus": {
+    "name": "cvdslLineAlarmConfProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.87.1.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvdslNotifications": {
+    "name": "cvdslNotifications",
+    "oid": "1.3.6.1.4.1.9.10.87.1.0",
+    "class": "objectidentity"
+  },
+  "cvdslInitFailureNotification": {
+    "name": "cvdslInitFailureNotification",
+    "oid": "1.3.6.1.4.1.9.10.87.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslCurrStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cvdslConformance": {
+    "name": "cvdslConformance",
+    "oid": "1.3.6.1.4.1.9.10.87.1.3",
+    "class": "objectidentity"
+  },
+  "cvdslGroups": {
+    "name": "cvdslGroups",
+    "oid": "1.3.6.1.4.1.9.10.87.1.3.1",
+    "class": "objectidentity"
+  },
+  "cvdslCompliances": {
+    "name": "cvdslCompliances",
+    "oid": "1.3.6.1.4.1.9.10.87.1.3.2",
+    "class": "objectidentity"
+  },
+  "cvdslLineMibCompliance": {
+    "name": "cvdslLineMibCompliance",
+    "oid": "1.3.6.1.4.1.9.10.87.1.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cvdslGroup",
+        "module": "CISCO-IETF-VDSL-LINE-MIB"
+      },
+      {
+        "object": "cvdslMCMGroup",
+        "module": "CISCO-IETF-VDSL-LINE-MIB"
+      },
+      {
+        "object": "cvdslSCMGroup",
+        "module": "CISCO-IETF-VDSL-LINE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cvdslGroup": {
+    "name": "cvdslGroup",
+    "oid": "1.3.6.1.4.1.9.10.87.1.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslLineCoding"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslLineType"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslLineConfProfile"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslLineAlarmConfProfile"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslInvSerialNumber"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslInvVendorID"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslInvVersionNumber"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslCurrSnrMgn"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslCurrAtn"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslCurrStatus"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslCurrOutputPwr"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslCurrAttainableRate"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslChanInterleaveDelay"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslChanCrcBlockLength"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslLineConfProfileName"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslLineConfTargetSnrMgn"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslLineConfTxSpeed"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslLineConfRxSpeed"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslLineConfProfileRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslLineAlarmConfProfileName"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslInitFailureNotificationEnable"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslLineAlarmConfProfileRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cvdslMCMGroup": {
+    "name": "cvdslMCMGroup",
+    "oid": "1.3.6.1.4.1.9.10.87.1.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslMCMConfProfileTxWindowLength"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslMCMConfProfileRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslMCMConfProfileTxBandStart"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslMCMConfProfileTxBandStop"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslMCMConfProfileTxBandRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslMCMConfProfileRxBandStart"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslMCMConfProfileRxBandStop"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslMCMConfProfileRxBandRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslMCMConfProfileTxPSDTone"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslMCMConfProfileTxPSDPSD"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslMCMConfProfileTxPSDRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslMCMConfProfileMaxTxPSDTone"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslMCMConfProfileMaxTxPSDPSD"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslMCMConfProfileMaxTxPSDRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslMCMConfProfileMaxRxPSDTone"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslMCMConfProfileMaxRxPSDPSD"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslMCMConfProfileMaxRxPSDRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cvdslSCMGroup": {
+    "name": "cvdslSCMGroup",
+    "oid": "1.3.6.1.4.1.9.10.87.1.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslSCMConfProfileInterleaveDepth"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslSCMConfProfileFastCodewordSize"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslSCMConfProfileTransmitPSDMask"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslSCMConfProfileTransmitPSDLevel"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslSCMConfProfileSymbolRateProfile"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslSCMConfProfileConstellationSize"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslSCMConfProfileCenterFrequency"
+      },
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslSCMConfProfileRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cvdslNotificationGroup": {
+    "name": "cvdslNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.10.87.1.3.1.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-VDSL-LINE-MIB",
+        "object": "cvdslInitFailureNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-VDSL-LINE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IETF-VDSL-LINE-MIB"
+  }
+}

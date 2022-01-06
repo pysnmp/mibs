@@ -1,0 +1,1093 @@
+{
+  "imports": {
+    "class": "imports",
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "JUNIPER-MBG-SMI": [
+      "jnxMobileGatewaySgw"
+    ],
+    "JUNIPER-MOBILE-GATEWAYS": [
+      "jnxMbgGwIndex",
+      "jnxMbgGwName"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxMbgSgwSMMib": {
+    "name": "jnxMbgSgwSMMib",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-10-03 12:00",
+        "description": "Initial version"
+      },
+      {
+        "revision": "2012-03-22 12:00",
+        "description": "Updated jnxMbgSgwSMStatsTable. Deprecated unsupported objects. Added objects to jnxMbgSgwSMStatsTable"
+      },
+      {
+        "revision": "2012-10-12 12:00",
+        "description": "Added new trap jnxMbgSgwGatewayMMStateChange . Added table jnxMbgSgwSMClRateStatsTable "
+      }
+    ]
+  },
+  "jnxMbgSgwSMNotifications": {
+    "name": "jnxMbgSgwSMNotifications",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.0",
+    "class": "objectidentity"
+  },
+  "jnxMbgSgwSMObjects": {
+    "name": "jnxMbgSgwSMObjects",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1",
+    "class": "objectidentity"
+  },
+  "jnxMbgSgwSMStatsTable": {
+    "name": "jnxMbgSgwSMStatsTable",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMbgSgwSMStatsEntry": {
+    "name": "jnxMbgSgwSMStatsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAYS",
+        "object": "jnxMbgGwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgSgwSessnEstAttmpts": {
+    "name": "jnxMbgSgwSessnEstAttmpts",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwSuccSessnEst": {
+    "name": "jnxMbgSgwSuccSessnEst",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwPeerInitDeactv": {
+    "name": "jnxMbgSgwPeerInitDeactv",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgSgwPeerInitSuccDeactv": {
+    "name": "jnxMbgSgwPeerInitSuccDeactv",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgSgwGwInitDeactv": {
+    "name": "jnxMbgSgwGwInitDeactv",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgSgwGwInitSuccDeactv": {
+    "name": "jnxMbgSgwGwInitSuccDeactv",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgSgwGtpStatsGnS5S8InpPkt": {
+    "name": "jnxMbgSgwGtpStatsGnS5S8InpPkt",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwGtpStatsGnS5S8InpByt": {
+    "name": "jnxMbgSgwGtpStatsGnS5S8InpByt",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwGtpStatsGnS5S8OutPkt": {
+    "name": "jnxMbgSgwGtpStatsGnS5S8OutPkt",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwGtpStatsGnS5S8OutByt": {
+    "name": "jnxMbgSgwGtpStatsGnS5S8OutByt",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwGtpStatsS1uInpPkt": {
+    "name": "jnxMbgSgwGtpStatsS1uInpPkt",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwGtpStatsS1uInpByt": {
+    "name": "jnxMbgSgwGtpStatsS1uInpByt",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwGtpStatsS1uOutPkt": {
+    "name": "jnxMbgSgwGtpStatsS1uOutPkt",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwGtpStatsS1uOutByt": {
+    "name": "jnxMbgSgwGtpStatsS1uOutByt",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwDedBrCrtAttmpts": {
+    "name": "jnxMbgSgwDedBrCrtAttmpts",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwSuccDedBrCrt": {
+    "name": "jnxMbgSgwSuccDedBrCrt",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwSessnDeActvAttmpts": {
+    "name": "jnxMbgSgwSessnDeActvAttmpts",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwSuccSessnDeActv": {
+    "name": "jnxMbgSgwSuccSessnDeActv",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwDedBrDeActvAttmpts": {
+    "name": "jnxMbgSgwDedBrDeActvAttmpts",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwSuccDedBrDeActv": {
+    "name": "jnxMbgSgwSuccDedBrDeActv",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwIntrRatHoAttmpts": {
+    "name": "jnxMbgSgwIntrRatHoAttmpts",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwSuccIntrRatHo": {
+    "name": "jnxMbgSgwSuccIntrRatHo",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwX2HoAttmpts": {
+    "name": "jnxMbgSgwX2HoAttmpts",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwSuccX2Ho": {
+    "name": "jnxMbgSgwSuccX2Ho",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwS1HoAttmpts": {
+    "name": "jnxMbgSgwS1HoAttmpts",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwSuccS1Ho": {
+    "name": "jnxMbgSgwSuccS1Ho",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwIdlMdTauRauAttmpts": {
+    "name": "jnxMbgSgwIdlMdTauRauAttmpts",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwSuccIdlMdTauRau": {
+    "name": "jnxMbgSgwSuccIdlMdTauRau",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwServReqAttmempts": {
+    "name": "jnxMbgSgwServReqAttmempts",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwSuccServReq": {
+    "name": "jnxMbgSgwSuccServReq",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwSMStatusTable": {
+    "name": "jnxMbgSgwSMStatusTable",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMbgSgwSMStatusEntry": {
+    "name": "jnxMbgSgwSMStatusEntry",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAYS",
+        "object": "jnxMbgGwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgSgwActvSubscribers": {
+    "name": "jnxMbgSgwActvSubscribers",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwActvSessions": {
+    "name": "jnxMbgSgwActvSessions",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwActvBearers": {
+    "name": "jnxMbgSgwActvBearers",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwIdleSubscribers": {
+    "name": "jnxMbgSgwIdleSubscribers",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwIdleSessions": {
+    "name": "jnxMbgSgwIdleSessions",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwIdleBearers": {
+    "name": "jnxMbgSgwIdleBearers",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwSuspSubscribers": {
+    "name": "jnxMbgSgwSuspSubscribers",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwSuspSessions": {
+    "name": "jnxMbgSgwSuspSessions",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwSuspBearers": {
+    "name": "jnxMbgSgwSuspBearers",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwCPUUtil": {
+    "name": "jnxMbgSgwCPUUtil",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwMemoryUtil": {
+    "name": "jnxMbgSgwMemoryUtil",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwSMClRateStatsTable": {
+    "name": "jnxMbgSgwSMClRateStatsTable",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMbgSgwSMClRateStatsEntry": {
+    "name": "jnxMbgSgwSMClRateStatsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAYS",
+        "object": "jnxMbgGwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgSgwClRateIntervalMin": {
+    "name": "jnxMbgSgwClRateIntervalMin",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwClRateSuccSessnEst": {
+    "name": "jnxMbgSgwClRateSuccSessnEst",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwClRateSuccSessnDel": {
+    "name": "jnxMbgSgwClRateSuccSessnDel",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwClRateStatsGnInpPkt": {
+    "name": "jnxMbgSgwClRateStatsGnInpPkt",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwClRateStatsGnOutPkt": {
+    "name": "jnxMbgSgwClRateStatsGnOutPkt",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwClRateStatsGnInpByt": {
+    "name": "jnxMbgSgwClRateStatsGnInpByt",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwClRateStatsGnOutByt": {
+    "name": "jnxMbgSgwClRateStatsGnOutByt",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgSgwSMNotificationVars": {
+    "name": "jnxMbgSgwSMNotificationVars",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.3",
+    "class": "objectidentity"
+  },
+  "jnxMbgGwSpicName": {
+    "name": "jnxMbgGwSpicName",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxMbgSgwTrapGwIndex": {
+    "name": "jnxMbgSgwTrapGwIndex",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxMbgSgwTrapGwName": {
+    "name": "jnxMbgSgwTrapGwName",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxMbgSgwSMInterfaceName": {
+    "name": "jnxMbgSgwSMInterfaceName",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxMbgSgwPrevMMState": {
+    "name": "jnxMbgSgwPrevMMState",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mmdefault": 0,
+          "mmnormalphase": 1,
+          "mminphase": 2,
+          "mmactivephase": 3,
+          "mmoutphase": 4
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxMbgSgwNewMMState": {
+    "name": "jnxMbgSgwNewMMState",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mmdefault": 0,
+          "mmnormalphase": 1,
+          "mminphase": 2,
+          "mmactivephase": 3,
+          "mmoutphase": 4
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxMbgSgwCpuThrStatusHi": {
+    "name": "jnxMbgSgwCpuThrStatusHi",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwIndex"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgSgwCpuThrStatusLow": {
+    "name": "jnxMbgSgwCpuThrStatusLow",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwIndex"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgSgwCpuThrStatusClear": {
+    "name": "jnxMbgSgwCpuThrStatusClear",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwIndex"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgSgwMemThrStatusHi": {
+    "name": "jnxMbgSgwMemThrStatusHi",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwIndex"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgSgwMemThrStatusLow": {
+    "name": "jnxMbgSgwMemThrStatusLow",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwIndex"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgSgwMemThrStatusClear": {
+    "name": "jnxMbgSgwMemThrStatusClear",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwIndex"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgSgwPFEMMStateChange": {
+    "name": "jnxMbgSgwPFEMMStateChange",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwIndex"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwSMInterfaceName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwPrevMMState"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwNewMMState"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgSgwMSMMStateChange": {
+    "name": "jnxMbgSgwMSMMStateChange",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwIndex"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwSMInterfaceName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwPrevMMState"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwNewMMState"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgSgwAPFEMMStateChange": {
+    "name": "jnxMbgSgwAPFEMMStateChange",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwIndex"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwSMInterfaceName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwPrevMMState"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwNewMMState"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgSgwAMSMMStateChange": {
+    "name": "jnxMbgSgwAMSMMStateChange",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwIndex"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwSMInterfaceName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwPrevMMState"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwNewMMState"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgSgwQosBearerThrStatusHi": {
+    "name": "jnxMbgSgwQosBearerThrStatusHi",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwIndex"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgSgwQosBearerThrStatusLow": {
+    "name": "jnxMbgSgwQosBearerThrStatusLow",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwIndex"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgSgwQosBearerThrStatusClear": {
+    "name": "jnxMbgSgwQosBearerThrStatusClear",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwIndex"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgSgwGatewayMMStateChange": {
+    "name": "jnxMbgSgwGatewayMMStateChange",
+    "oid": "1.3.6.1.4.1.2636.3.66.2.4.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwTrapGwName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwPrevMMState"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+        "object": "jnxMbgSgwNewMMState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-MOBILE-GATEWAY-SGW-SM-MIB"
+  }
+}

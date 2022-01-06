@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module Juniper-UNI-SMI (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-UNI-SMI
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:35:49 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:39:42 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
 ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, NotificationType, ModuleIdentity, Unsigned32, IpAddress, MibIdentifier, Counter64, iso, Integer32, Counter32, Bits, Gauge32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "NotificationType", "ModuleIdentity", "Unsigned32", "IpAddress", "MibIdentifier", "Counter64", "iso", "Integer32", "Counter32", "Bits", "Gauge32", "TimeTicks")
+ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, MibIdentifier, NotificationType, Integer32, iso, ObjectIdentity, Counter64, ModuleIdentity, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, enterprises, IpAddress, TimeTicks, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "MibIdentifier", "NotificationType", "Integer32", "iso", "ObjectIdentity", "Counter64", "ModuleIdentity", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "enterprises", "IpAddress", "TimeTicks", "Unsigned32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 juniperUni = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874))
 juniperUni.setRevisions(('2003-07-30 19:03', '2002-11-13 20:14', '2001-06-01 21:46', '2000-06-01 14:30', '2000-05-24 04:00', '1999-12-13 19:36', '1999-11-08 00:00',))
@@ -45,4 +45,4 @@ juniNetMgmtProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 4874, 6))
 if mibBuilder.loadTexts: juniNetMgmtProducts.setStatus('current')
 if mibBuilder.loadTexts: juniNetMgmtProducts.setDescription("This provides a root object identifier for the definition of nodes\n        pertaining to Juniper Networks' network management products.  Examples\n        include:\n            SDX - Service Deployment System\n            NMC - Network Management Center\n            NMC-RX - E-series element manager ")
 juniSdxMibs = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 6, 1))
-mibBuilder.exportSymbols("Juniper-UNI-SMI", juniProducts=juniProducts, usVoiceAdmin=usVoiceAdmin, juniperUniMibs=juniperUniMibs, juniAgents=juniAgents, juniSdxMibs=juniSdxMibs, juniMibs=juniMibs, usVoiceMibs=usVoiceMibs, juniperUni=juniperUni, usVoiceExperiment=usVoiceExperiment, juniperUniAdmin=juniperUniAdmin, juniExperiment=juniExperiment, juniperUniExperiment=juniperUniExperiment, juniAgentCapability=juniAgentCapability, juniNetMgmtProducts=juniNetMgmtProducts, juniAdmin=juniAdmin, PYSNMP_MODULE_ID=juniperUni, usVoiceAgents=usVoiceAgents)
+mibBuilder.exportSymbols("Juniper-UNI-SMI", juniMibs=juniMibs, juniAgents=juniAgents, juniProducts=juniProducts, usVoiceMibs=usVoiceMibs, juniperUni=juniperUni, usVoiceAgents=usVoiceAgents, juniperUniAdmin=juniperUniAdmin, juniSdxMibs=juniSdxMibs, juniperUniMibs=juniperUniMibs, usVoiceExperiment=usVoiceExperiment, juniExperiment=juniExperiment, juniAgentCapability=juniAgentCapability, usVoiceAdmin=usVoiceAdmin, PYSNMP_MODULE_ID=juniperUni, juniperUniExperiment=juniperUniExperiment, juniAdmin=juniAdmin, juniNetMgmtProducts=juniNetMgmtProducts)

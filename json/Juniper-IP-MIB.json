@@ -1,0 +1,5780 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "IP-FORWARD-MIB": [
+      "ipCidrRouteEntry",
+      "ipCidrRouteNumber"
+    ],
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "Juniper-TC": [
+      "JuniIpAddrLessIf",
+      "JuniNextIfIndex",
+      "JuniEnable"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "juniIpMIB": {
+    "name": "juniIpMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.12",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-01-17 23:02",
+        "description": "Added warm-restart replay initial sequence preference for an IP interface by adding juniIpIfInitSeqPrefOper and juniIpIfInitSeqPrefAdmin."
+      },
+      {
+        "revision": "2005-03-30 13:49",
+        "description": "Added IP Route Summary support for Unicast and Multicast Routes."
+      },
+      {
+        "revision": "2005-04-29 20:37",
+        "description": "Added RLI-1925 Source Address Validation Failure Traps support."
+      },
+      {
+        "revision": "2004-09-20 13:49",
+        "description": "Added RLI-1684 Route Table Maximum Route support."
+      },
+      {
+        "revision": "2004-09-10 15:26",
+        "description": "Obsoleted the following objects: juniIpVpnIdOui juniIpVpnIdIndex"
+      },
+      {
+        "revision": "2003-11-03 15:26",
+        "description": "Added support to juniIpIfEntry for TCP MSS configuration."
+      },
+      {
+        "revision": "2003-06-25 19:48",
+        "description": "Added IP interface summary statistics support - juniIpIfSummary. Added support for Interface Mirroring by adding juniIpIfAnalyzerMode. Added support to juniIpIfEntry for IP interface auto configure."
+      },
+      {
+        "revision": "2003-02-11 19:05",
+        "description": "Replaced Unisphere names with Juniper names. In juniIpInterfaceGroup, added juniIpIfRouterIndex In juniIpIfTable, to support unnumbered interfaces referencing numbered interfaces in addition to loopback interfaces, the following objects were deprecated: juniIpIfLoopback juniIpIfLoopbackUid and the following objects were added: juniIpIfInheritNum juniIpIfInheritNumUid In juniIpAddrTable, to support unnumbered interfaces referencing numbered interfaces in addition to loopback interfaces, the following object was deprecated: juniIpAdEntUnnumLoopbackIfIndex and the following object was added: juniIpAdEntUnnumInheritNumIfIndex Added new types to juniIpIfType."
+      },
+      {
+        "revision": "2002-10-23 18:53",
+        "description": "Added the following scalar objects: juniIpBgpCommunityNewFormat juniIpBgpAsConfedSetNewFormat Obsoleted the following objects: juniIpArpTimeout juniIpRouteLimit "
+      },
+      {
+        "revision": "2002-04-03 22:06",
+        "description": "Obsoleted the following objects with the introduction of QoS: juniIpIfStatsInForwardedPackets juniIpIfStatsInForwardedOctets juniIpIfStatsOutRequestedPackets juniIpIfStatsOutRequesteOctets juniIpIfStatsGreenOutSchedDropPackets juniIpIfStatsYellowOutSchedDropPackets juniIpIfStatsRedOutSchedDropOctets juniIpIfStatsGreenOutSchedDropOctets juniIpIfStatsYellowOutSchedDropOctets juniIpIfStatsRedOutSchedDropOctet "
+      },
+      {
+        "revision": "2001-07-05 14:00",
+        "description": "Added the juniIpIfAssocTable."
+      },
+      {
+        "revision": "2001-06-18 19:11",
+        "description": "o In juniIpIfTable, added the following: juniIpIfSAValidation juniIpIfCreationType juniIpIfProfileId juniIpIfAlwaysUp juniIpIfLoopback juniIpIfLoopbackUid juniIpIfDebounceTime juniIpIfForwarding juniIpIfForceFragmentation juniIpIfSharesLowerUid juniIpIfFilterOptions juniIpIfName juniIpIfArpTimeout juniIpIfAdminSpeed juniIpIfMultipathMode juniIpIfSharedNhAddr juniIpIfSharedNhRouterId juniIpIfPrimaryIpAddress juniIpIfPrimaryIpMask juniIpIfOperDebounceTime o In juniIpAddrTable, added juniIpAdEntIsSecondary o In juniIpAddrTable, deprecated juniIpAdEntIgmpEnable o Added following scalars: juniIpDebounceTime juniIpRouterId juniIpSourceRoutingAdminStatus juniIpVpnIdOui juniIpVpnIdIndex o In juniIpIfStatsTable, added: juniIpIfStatsGreenOutSchedDropPackets juniIpIfStatsYellowOutSchedDropPackets juniIpIfStatsRedOutSchedDropPackets juniIpIfStatsGreenOutSchedDropOctets juniIpIfStatsYellowOutSchedDropOctets juniIpIfStatsRedOutSchedDropOctets o Changed the type of juniIpRouteStaticNextHop to JuniIpAddrLessIf to support setting static routes next hop values to unnumbered IP interfaces. This type is a Juniper TC, which can transparently support the original IpAddress type, so existing clients are not negatively affected by this change."
+      },
+      {
+        "revision": "2000-07-31 00:00",
+        "description": "o Added extended IP interface statistics."
+      },
+      {
+        "revision": "1999-11-09 00:00",
+        "description": "o In juniIpIfTable, added null(5) enumeration value for juniIpIfType. o Added juniIpIfTypeId object."
+      },
+      {
+        "revision": "1999-09-16 00:00",
+        "description": "o In juniIpAddrTable, added juniIpAdEntUnnumLoopbackIfIndex, juniIpAdEntIrdpEnable, juniIpAdEntAccessRouteEnable, juniIpAdEntAccessRouteHost. o In juniIpRouteStaticTable, changed Tos to Preference, and added Tag. o Added juniIpCidrRouteTable (proprietary extensions to standard ipCidrRouteTable)."
+      },
+      {
+        "revision": "1998-11-19 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "juniIpObjects": {
+    "name": "juniIpObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1",
+    "class": "objectidentity"
+  },
+  "juniIpInterface": {
+    "name": "juniIpInterface",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1",
+    "class": "objectidentity"
+  },
+  "juniIpAddress": {
+    "name": "juniIpAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2",
+    "class": "objectidentity"
+  },
+  "juniIpRoute": {
+    "name": "juniIpRoute",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3",
+    "class": "objectidentity"
+  },
+  "juniIpGlobals": {
+    "name": "juniIpGlobals",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.4",
+    "class": "objectidentity"
+  },
+  "juniIpIfSummary": {
+    "name": "juniIpIfSummary",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.5",
+    "class": "objectidentity"
+  },
+  "juniIpRouteSummary": {
+    "name": "juniIpRouteSummary",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6",
+    "class": "objectidentity"
+  },
+  "juniIpDebounceTime": {
+    "name": "juniIpDebounceTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniIpRouterId": {
+    "name": "juniIpRouterId",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniIpSourceRoutingAdminStatus": {
+    "name": "juniIpSourceRoutingAdminStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniIpVpnIdOui": {
+    "name": "juniIpVpnIdOui",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "juniIpVpnIdIndex": {
+    "name": "juniIpVpnIdIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "juniIpBgpCommunityNewFormat": {
+    "name": "juniIpBgpCommunityNewFormat",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniIpBgpAsConfedSetNewFormat": {
+    "name": "juniIpBgpAsConfedSetNewFormat",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniIpIfSummaryTotalIntf": {
+    "name": "juniIpIfSummaryTotalIntf",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfSummaryTotalIntfUp": {
+    "name": "juniIpIfSummaryTotalIntfUp",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfSummaryTotalIntfDown": {
+    "name": "juniIpIfSummaryTotalIntfDown",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfSummaryTotalIntfProtUp": {
+    "name": "juniIpIfSummaryTotalIntfProtUp",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfSummaryTotalIntfProtDown": {
+    "name": "juniIpIfSummaryTotalIntfProtDown",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfSummaryTotalIntfProtNotPresent": {
+    "name": "juniIpIfSummaryTotalIntfProtNotPresent",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteUnicastSummary": {
+    "name": "juniIpRouteUnicastSummary",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.1",
+    "class": "objectidentity"
+  },
+  "juniIpRouteMulticastSummary": {
+    "name": "juniIpRouteMulticastSummary",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.2",
+    "class": "objectidentity"
+  },
+  "juniIpRouteSummaryUnicastTotalRoutes": {
+    "name": "juniIpRouteSummaryUnicastTotalRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryUnicastTotalBytes": {
+    "name": "juniIpRouteSummaryUnicastTotalBytes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryUnicastIsisRoutes": {
+    "name": "juniIpRouteSummaryUnicastIsisRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryUnicastIsisLevel1Routes": {
+    "name": "juniIpRouteSummaryUnicastIsisLevel1Routes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryUnicastIsisLevel2Routes": {
+    "name": "juniIpRouteSummaryUnicastIsisLevel2Routes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryUnicastRipRoutes": {
+    "name": "juniIpRouteSummaryUnicastRipRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryUnicastStaticRoutes": {
+    "name": "juniIpRouteSummaryUnicastStaticRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryUnicastConnectedRoutes": {
+    "name": "juniIpRouteSummaryUnicastConnectedRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryUnicastBgpRoutes": {
+    "name": "juniIpRouteSummaryUnicastBgpRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryUnicastOspfRoutes": {
+    "name": "juniIpRouteSummaryUnicastOspfRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryUnicastIntraAreaOspfRoutes": {
+    "name": "juniIpRouteSummaryUnicastIntraAreaOspfRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryUnicastInterAreaOspfRoutes": {
+    "name": "juniIpRouteSummaryUnicastInterAreaOspfRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryUnicastExternalOspfRoutes": {
+    "name": "juniIpRouteSummaryUnicastExternalOspfRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryUnicastOtherInternalRoutes": {
+    "name": "juniIpRouteSummaryUnicastOtherInternalRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryUnicastAccessRoutes": {
+    "name": "juniIpRouteSummaryUnicastAccessRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryUnicastIntCreatedAccessHostRoutes": {
+    "name": "juniIpRouteSummaryUnicastIntCreatedAccessHostRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryUnicastIntDialoutRoutes": {
+    "name": "juniIpRouteSummaryUnicastIntDialoutRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryUnicastRouteMemoryActive": {
+    "name": "juniIpRouteSummaryUnicastRouteMemoryActive",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryUnicastLastRouteAddedOrDeletedIP": {
+    "name": "juniIpRouteSummaryUnicastLastRouteAddedOrDeletedIP",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryUnicastLastRouteAddedOrDeletedMask": {
+    "name": "juniIpRouteSummaryUnicastLastRouteAddedOrDeletedMask",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryUnicastLastRouteAddedOrDeletedClient": {
+    "name": "juniIpRouteSummaryUnicastLastRouteAddedOrDeletedClient",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inValid": 0,
+          "isis": 1,
+          "rip": 2,
+          "ospf": 3,
+          "static": 4,
+          "local": 5,
+          "bgp": 6,
+          "mbgp": 7,
+          "staticLow": 8,
+          "ospfInternal": 9,
+          "ospfExternal": 10,
+          "dvmrp": 11,
+          "dvmrpAggregate": 12,
+          "hidden": 13,
+          "access": 14,
+          "accessInternal": 15,
+          "dialOut": 16,
+          "default": 17
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryUnicastLastRouteAddedOrDeletedDate": {
+    "name": "juniIpRouteSummaryUnicastLastRouteAddedOrDeletedDate",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryMulticastTotalRoutes": {
+    "name": "juniIpRouteSummaryMulticastTotalRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryMulticastTotalBytes": {
+    "name": "juniIpRouteSummaryMulticastTotalBytes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryMulticastIsisRoutes": {
+    "name": "juniIpRouteSummaryMulticastIsisRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryMulticastLevel1IsisRoutes": {
+    "name": "juniIpRouteSummaryMulticastLevel1IsisRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryMulticastLevel2IsisRoutes": {
+    "name": "juniIpRouteSummaryMulticastLevel2IsisRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryMulticastRipRoutes": {
+    "name": "juniIpRouteSummaryMulticastRipRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryMulticastStaticRoutes": {
+    "name": "juniIpRouteSummaryMulticastStaticRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryMulticastConnectedRoutes": {
+    "name": "juniIpRouteSummaryMulticastConnectedRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryMulticastBgpRoutes": {
+    "name": "juniIpRouteSummaryMulticastBgpRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryMulticastOspfRoutes": {
+    "name": "juniIpRouteSummaryMulticastOspfRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryMulticastIntraAreaOspfRoutes": {
+    "name": "juniIpRouteSummaryMulticastIntraAreaOspfRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryMulticastInterAreaOspfRoutes": {
+    "name": "juniIpRouteSummaryMulticastInterAreaOspfRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryMulticastExternalOspfRoutes": {
+    "name": "juniIpRouteSummaryMulticastExternalOspfRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryMulticastOtherInternalRoutes": {
+    "name": "juniIpRouteSummaryMulticastOtherInternalRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryMulticastAccessRoutes": {
+    "name": "juniIpRouteSummaryMulticastAccessRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryMulticastIntCreatedAccessHostRoutes": {
+    "name": "juniIpRouteSummaryMulticastIntCreatedAccessHostRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryMultiastIntDialoutRoutes": {
+    "name": "juniIpRouteSummaryMultiastIntDialoutRoutes",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryMulticastRouteMemoryActive": {
+    "name": "juniIpRouteSummaryMulticastRouteMemoryActive",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryMulticastLastRouteAddedOrDeletedIP": {
+    "name": "juniIpRouteSummaryMulticastLastRouteAddedOrDeletedIP",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryMulticastLastRouteAddedOrDeletedMask": {
+    "name": "juniIpRouteSummaryMulticastLastRouteAddedOrDeletedMask",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryMulticastLastRouteAddedOrDeletedClient": {
+    "name": "juniIpRouteSummaryMulticastLastRouteAddedOrDeletedClient",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inValid": 0,
+          "isis": 1,
+          "rip": 2,
+          "ospf": 3,
+          "static": 4,
+          "local": 5,
+          "bgp": 6,
+          "mbgp": 7,
+          "staticLow": 8,
+          "ospfInternal": 9,
+          "ospfExternal": 10,
+          "dvmrp": 11,
+          "dvmrpAggregate": 12,
+          "hidden": 13,
+          "access": 14,
+          "accessInternal": 15,
+          "dialOut": 16,
+          "default": 17
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteSummaryMulticastLastRouteAddedOrDeletedDate": {
+    "name": "juniIpRouteSummaryMulticastLastRouteAddedOrDeletedDate",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.6.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpNextIfIndex": {
+    "name": "juniIpNextIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNextIfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfTable": {
+    "name": "juniIpIfTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniIpIfEntry": {
+    "name": "juniIpIfEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniIpIfIndex": {
+    "name": "juniIpIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniIpIfRowStatus": {
+    "name": "juniIpIfRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpIfLowerIfIndex": {
+    "name": "juniIpIfLowerIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpIfType": {
+    "name": "juniIpIfType",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "broadcast": 1,
+          "pointToPoint": 2,
+          "nbma": 3,
+          "loopback": 4,
+          "null": 5,
+          "bgpMplsVpn": 6,
+          "vrfInternal": 7,
+          "dialout": 8
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "pointToPoint",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpIfTypeId": {
+    "name": "juniIpIfTypeId",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpIfSAValidationEnable": {
+    "name": "juniIpIfSAValidationEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpIfCreationType": {
+    "name": "juniIpIfCreationType",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfProfileId": {
+    "name": "juniIpIfProfileId",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfAlwaysUp": {
+    "name": "juniIpIfAlwaysUp",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpIfLoopback": {
+    "name": "juniIpIfLoopback",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniIpIfLoopbackUid": {
+    "name": "juniIpIfLoopbackUid",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniIpIfDebounceTime": {
+    "name": "juniIpIfDebounceTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpIfForwarding": {
+    "name": "juniIpIfForwarding",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpIfForceFragmentation": {
+    "name": "juniIpIfForceFragmentation",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpIfSharesLowerUid": {
+    "name": "juniIpIfSharesLowerUid",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfFilterOptions": {
+    "name": "juniIpIfFilterOptions",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpIfName": {
+    "name": "juniIpIfName",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpIfArpTimeout": {
+    "name": "juniIpIfArpTimeout",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 21600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpIfAdminSpeed": {
+    "name": "juniIpIfAdminSpeed",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpIfMultipathMode": {
+    "name": "juniIpIfMultipathMode",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hashed": 1,
+          "roundRobin": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "hashed",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpIfSharedNhAddr": {
+    "name": "juniIpIfSharedNhAddr",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpIfSharedNhRouterId": {
+    "name": "juniIpIfSharedNhRouterId",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpIfPrimaryIpAddress": {
+    "name": "juniIpIfPrimaryIpAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfPrimaryIpMask": {
+    "name": "juniIpIfPrimaryIpMask",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfOperDebounceTime": {
+    "name": "juniIpIfOperDebounceTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfRouterIndex": {
+    "name": "juniIpIfRouterIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfInheritNum": {
+    "name": "juniIpIfInheritNum",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfInheritNumUid": {
+    "name": "juniIpIfInheritNumUid",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpIfAnalyzerMode": {
+    "name": "juniIpIfAnalyzerMode",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1,
+          "default": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpIfAutoConfigure": {
+    "name": "juniIpIfAutoConfigure",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpIfTcpMss": {
+    "name": "juniIpIfTcpMss",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 160,
+            "max": 10240
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpIfInitSeqPrefOper": {
+    "name": "juniIpIfInitSeqPrefOper",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfInitSeqPrefAdmin": {
+    "name": "juniIpIfInitSeqPrefAdmin",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpIfArpSpoofCheck": {
+    "name": "juniIpIfArpSpoofCheck",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpIfStatsTable": {
+    "name": "juniIpIfStatsTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniIpIfStatsEntry": {
+    "name": "juniIpIfStatsEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniIpIfStatsIndex": {
+    "name": "juniIpIfStatsIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniIpIfStatsInPackets": {
+    "name": "juniIpIfStatsInPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfStatsInOctets": {
+    "name": "juniIpIfStatsInOctets",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfStatsInPoliciedPackets": {
+    "name": "juniIpIfStatsInPoliciedPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfStatsInPoliciedOctets": {
+    "name": "juniIpIfStatsInPoliciedOctets",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfStatsInErrorPackets": {
+    "name": "juniIpIfStatsInErrorPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfStatsInSpoofedPackets": {
+    "name": "juniIpIfStatsInSpoofedPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfStatsInForwardedPackets": {
+    "name": "juniIpIfStatsInForwardedPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniIpIfStatsInForwardedOctets": {
+    "name": "juniIpIfStatsInForwardedOctets",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniIpIfStatsOutForwardedPackets": {
+    "name": "juniIpIfStatsOutForwardedPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfStatsOutForwardedOctets": {
+    "name": "juniIpIfStatsOutForwardedOctets",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfStatsOutSchedDropPackets": {
+    "name": "juniIpIfStatsOutSchedDropPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfStatsOutSchedDropOctets": {
+    "name": "juniIpIfStatsOutSchedDropOctets",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfStatsOutRequestedPackets": {
+    "name": "juniIpIfStatsOutRequestedPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniIpIfStatsOutRequestedOctets": {
+    "name": "juniIpIfStatsOutRequestedOctets",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniIpIfStatsOutPoliciedPackets": {
+    "name": "juniIpIfStatsOutPoliciedPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfStatsOutPoliciedOctets": {
+    "name": "juniIpIfStatsOutPoliciedOctets",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpIfStatsGreenOutSchedDropPackets": {
+    "name": "juniIpIfStatsGreenOutSchedDropPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniIpIfStatsYellowOutSchedDropPackets": {
+    "name": "juniIpIfStatsYellowOutSchedDropPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniIpIfStatsRedOutSchedDropPackets": {
+    "name": "juniIpIfStatsRedOutSchedDropPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniIpIfStatsGreenOutSchedDropOctets": {
+    "name": "juniIpIfStatsGreenOutSchedDropOctets",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniIpIfStatsYellowOutSchedDropOctets": {
+    "name": "juniIpIfStatsYellowOutSchedDropOctets",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniIpIfStatsRedOutSchedDropOctets": {
+    "name": "juniIpIfStatsRedOutSchedDropOctets",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniIpIfAssocTable": {
+    "name": "juniIpIfAssocTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniIpIfAssocEntry": {
+    "name": "juniIpIfAssocEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAssocLowerIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniIpIfAssocLowerIfIndex": {
+    "name": "juniIpIfAssocLowerIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniIpIfAssocIpIfIndex": {
+    "name": "juniIpIfAssocIpIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpAddrGlobals": {
+    "name": "juniIpAddrGlobals",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.1",
+    "class": "objectidentity"
+  },
+  "juniIpArpTimeout": {
+    "name": "juniIpArpTimeout",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "juniIpAddrTable": {
+    "name": "juniIpAddrTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniIpAddrEntry": {
+    "name": "juniIpAddrEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniIpAdEntAddr": {
+    "name": "juniIpAdEntAddr",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniIpAddrLessIf",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniIpAdEntIfIndex": {
+    "name": "juniIpAdEntIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpAdEntNetMask": {
+    "name": "juniIpAdEntNetMask",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ffffffff",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpAdEntBcastAddr": {
+    "name": "juniIpAdEntBcastAddr",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpAdEntReasmMaxSize": {
+    "name": "juniIpAdEntReasmMaxSize",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpAdEntRowStatus": {
+    "name": "juniIpAdEntRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpAdEntAdminStatus": {
+    "name": "juniIpAdEntAdminStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpAdEntArpRspEnable": {
+    "name": "juniIpAdEntArpRspEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpAdEntProxyArpRspEnable": {
+    "name": "juniIpAdEntProxyArpRspEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpAdEntIgmpEnable": {
+    "name": "juniIpAdEntIgmpEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniIpAdEntDirectedBcastEnable": {
+    "name": "juniIpAdEntDirectedBcastEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpAdEntIcmpRedirectEnable": {
+    "name": "juniIpAdEntIcmpRedirectEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpAdEntIcmpMaskReplyEnable": {
+    "name": "juniIpAdEntIcmpMaskReplyEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpAdEntIcmpUnreachEnable": {
+    "name": "juniIpAdEntIcmpUnreachEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpAdEntMtu": {
+    "name": "juniIpAdEntMtu",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpAdEntUnnumLoopbackIfIndex": {
+    "name": "juniIpAdEntUnnumLoopbackIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniIpAdEntIrdpEnable": {
+    "name": "juniIpAdEntIrdpEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpAdEntAccessRouteEnable": {
+    "name": "juniIpAdEntAccessRouteEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpAdEntAccessRouteHost": {
+    "name": "juniIpAdEntAccessRouteHost",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpAdEntIsSecondary": {
+    "name": "juniIpAdEntIsSecondary",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpAdEntUnnumInheritNumIfIndex": {
+    "name": "juniIpAdEntUnnumInheritNumIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpRouteGlobals": {
+    "name": "juniIpRouteGlobals",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.1",
+    "class": "objectidentity"
+  },
+  "juniIpRouteLimit": {
+    "name": "juniIpRouteLimit",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "juniIpRouteTableLimit": {
+    "name": "juniIpRouteTableLimit",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniIpRouteTableWarnPercent": {
+    "name": "juniIpRouteTableWarnPercent",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniIpRouteTableWarnOnly": {
+    "name": "juniIpRouteTableWarnOnly",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniIpRouteTableWarnThreshold": {
+    "name": "juniIpRouteTableWarnThreshold",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteStaticTable": {
+    "name": "juniIpRouteStaticTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniIpRouteStaticEntry": {
+    "name": "juniIpRouteStaticEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticDest",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticMask",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticPref",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticNextHop",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniIpRouteStaticDest": {
+    "name": "juniIpRouteStaticDest",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteStaticMask": {
+    "name": "juniIpRouteStaticMask",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteStaticPref": {
+    "name": "juniIpRouteStaticPref",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteStaticNextHop": {
+    "name": "juniIpRouteStaticNextHop",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniIpAddrLessIf",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteStaticRowStatus": {
+    "name": "juniIpRouteStaticRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpRouteStaticIfIndex": {
+    "name": "juniIpRouteStaticIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpRouteStaticStatus": {
+    "name": "juniIpRouteStaticStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 0,
+          "inactive": 1,
+          "incomplete": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteStaticNextHopAS": {
+    "name": "juniIpRouteStaticNextHopAS",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpRouteStaticMetric": {
+    "name": "juniIpRouteStaticMetric",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpRouteStaticTag": {
+    "name": "juniIpRouteStaticTag",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpCidrRouteTable": {
+    "name": "juniIpCidrRouteTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniIpCidrRouteEntry": {
+    "name": "juniIpCidrRouteEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "juniIpCidrRouteEntry",
+      "module": "Juniper-IP-MIB",
+      "object": "ipCidrRouteEntry"
+    },
+    "status": "current"
+  },
+  "juniIpCidrRoutePref": {
+    "name": "juniIpCidrRoutePref",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpCidrRouteArea": {
+    "name": "juniIpCidrRouteArea",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpCidrRouteTag": {
+    "name": "juniIpCidrRouteTag",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIpRouteStaticBFDTable": {
+    "name": "juniIpRouteStaticBFDTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniIpRouteStaticBFDEntry": {
+    "name": "juniIpRouteStaticBFDEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "juniIpRouteStaticBFDEntry",
+      "module": "Juniper-IP-MIB",
+      "object": "juniIpRouteStaticEntry"
+    },
+    "status": "current"
+  },
+  "juniIpRouteStaticBfdEnable": {
+    "name": "juniIpRouteStaticBfdEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpRouteStaticBfdMinRxInterval": {
+    "name": "juniIpRouteStaticBfdMinRxInterval",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpRouteStaticBfdMinTxInterval": {
+    "name": "juniIpRouteStaticBfdMinTxInterval",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpRouteStaticBfdMultiplier": {
+    "name": "juniIpRouteStaticBfdMultiplier",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIpTrapEnables": {
+    "name": "juniIpTrapEnables",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.2",
+    "class": "objectidentity"
+  },
+  "juniIpTraps": {
+    "name": "juniIpTraps",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.3",
+    "class": "objectidentity"
+  },
+  "juniIpTrapPrefix": {
+    "name": "juniIpTrapPrefix",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.3.0",
+    "class": "objectidentity"
+  },
+  "juniIpSaValidateTrapEnable": {
+    "name": "juniIpSaValidateTrapEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniIpRouteTableTrapRouteLimitExceeded": {
+    "name": "juniIpRouteTableTrapRouteLimitExceeded",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteTableLimit"
+      },
+      {
+        "module": "IP-FORWARD-MIB",
+        "object": "ipCidrRouteNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "juniIpRouteTableTrapRouteLimitRemove": {
+    "name": "juniIpRouteTableTrapRouteLimitRemove",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteTableLimit"
+      },
+      {
+        "module": "IP-FORWARD-MIB",
+        "object": "ipCidrRouteNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "juniIpRouteTableTrapWarnThresholdExceeded": {
+    "name": "juniIpRouteTableTrapWarnThresholdExceeded",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteTableLimit"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteTableWarnThreshold"
+      },
+      {
+        "module": "IP-FORWARD-MIB",
+        "object": "ipCidrRouteNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "juniIpTrapSaValidationFailure": {
+    "name": "juniIpTrapSaValidationFailure",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSaValFailSrcIpAddr"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSaValFailDestIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "juniIpMIBNotificationObjects": {
+    "name": "juniIpMIBNotificationObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.3.1",
+    "class": "objectidentity"
+  },
+  "juniIpIfSaValFailSrcIpAddr": {
+    "name": "juniIpIfSaValFailSrcIpAddr",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniIpIfSaValFailDestIpAddr": {
+    "name": "juniIpIfSaValFailDestIpAddr",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniIpConformance": {
+    "name": "juniIpConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4",
+    "class": "objectidentity"
+  },
+  "juniIpCompliances": {
+    "name": "juniIpCompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.1",
+    "class": "objectidentity"
+  },
+  "juniIpGroups": {
+    "name": "juniIpGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2",
+    "class": "objectidentity"
+  },
+  "juniIpCompliance": {
+    "name": "juniIpCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniIpInterfaceGroup",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpAddressGroup",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpRouteGroup",
+        "module": "Juniper-IP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpCompliance2": {
+    "name": "juniIpCompliance2",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniIpInterfaceGroup2",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpAddressGroup2",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpRouteGroup",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpGlobalGroup",
+        "module": "Juniper-IP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpCompliance3": {
+    "name": "juniIpCompliance3",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniIpInterfaceGroup3",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpAddressGroup2",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpRouteGroup",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpGlobalGroup",
+        "module": "Juniper-IP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpCompliance4": {
+    "name": "juniIpCompliance4",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniIpInterfaceGroup4",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpAddressGroup2",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpRouteGroup",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpGlobalGroup",
+        "module": "Juniper-IP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpCompliance5": {
+    "name": "juniIpCompliance5",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniIpInterfaceGroup4",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpAddressGroup3",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpRouteGroup2",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpGlobalGroup2",
+        "module": "Juniper-IP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpCompliance6": {
+    "name": "juniIpCompliance6",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniIpInterfaceGroup5",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpAddressGroup4",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpRouteGroup2",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpGlobalGroup2",
+        "module": "Juniper-IP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpCompliance7": {
+    "name": "juniIpCompliance7",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniIpInterfaceGroup6",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpAddressGroup4",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpRouteGroup2",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpGlobalGroup2",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpIfSummaryGroup",
+        "module": "Juniper-IP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpCompliance8": {
+    "name": "juniIpCompliance8",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniIpInterfaceGroup7",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpAddressGroup4",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpRouteGroup2",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpGlobalGroup2",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpIfSummaryGroup",
+        "module": "Juniper-IP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpCompliance9": {
+    "name": "juniIpCompliance9",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.1.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniIpInterfaceGroup7",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpAddressGroup4",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpRouteGroup2",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpGlobalGroup3",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpIfSummaryGroup",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpNotificationsGroup",
+        "module": "Juniper-IP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpCompliance10": {
+    "name": "juniIpCompliance10",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.1.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniIpInterfaceGroup7",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpAddressGroup4",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpRouteGroup3",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpGlobalGroup3",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpIfSummaryGroup",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpNotificationsGroup",
+        "module": "Juniper-IP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpCompliance11": {
+    "name": "juniIpCompliance11",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.1.11",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniIpInterfaceGroup7",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpAddressGroup4",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpRouteGroup3",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpGlobalGroup3",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpIfSummaryGroup",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpNotificationGroup1",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpMIBNotificationObjectsGroup",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpRouteSummaryGroup",
+        "module": "Juniper-IP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpCompliance12": {
+    "name": "juniIpCompliance12",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.1.12",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniIpInterfaceGroup7",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpAddressGroup4",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpRouteGroup3",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpGlobalGroup3",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpIfSummaryGroup",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpNotificationGroup1",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpMIBNotificationObjectsGroup",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpRouteSummaryGroup",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpRouteStaticBFDGroup",
+        "module": "Juniper-IP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpCompliance13": {
+    "name": "juniIpCompliance13",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.1.13",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniIpInterfaceGroup8",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpAddressGroup4",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpRouteGroup3",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpGlobalGroup3",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpIfSummaryGroup",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpNotificationGroup1",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpMIBNotificationObjectsGroup",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpRouteSummaryGroup",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpRouteStaticBFDGroup",
+        "module": "Juniper-IP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpCompliance14": {
+    "name": "juniIpCompliance14",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.1.14",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniIpInterfaceGroup9",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpAddressGroup4",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpRouteGroup3",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpGlobalGroup3",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpIfSummaryGroup",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpNotificationGroup1",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpMIBNotificationObjectsGroup",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpRouteSummaryGroup",
+        "module": "Juniper-IP-MIB"
+      },
+      {
+        "object": "juniIpRouteStaticBFDGroup",
+        "module": "Juniper-IP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniIpInterfaceGroup": {
+    "name": "juniIpInterfaceGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpNextIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfRowStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfType"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfTypeId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPoliciedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPoliciedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInErrorPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInSpoofedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInForwardedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInForwardedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutForwardedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutForwardedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutSchedDropPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutSchedDropOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutRequestedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutRequestedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutPoliciedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutPoliciedOctets"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpAddressGroup": {
+    "name": "juniIpAddressGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpArpTimeout"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntRowStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntNetMask"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntAdminStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntArpRspEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntProxyArpRspEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIgmpEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntDirectedBcastEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIcmpRedirectEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIcmpMaskReplyEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIcmpUnreachEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntMtu"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntUnnumLoopbackIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIrdpEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntAccessRouteEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntAccessRouteHost"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpRouteGroup": {
+    "name": "juniIpRouteGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteLimit"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticDest"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticMask"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticPref"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticNextHop"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticRowStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticNextHopAS"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticMetric"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticTag"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpCidrRoutePref"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpCidrRouteArea"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpCidrRouteTag"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpGlobalGroup": {
+    "name": "juniIpGlobalGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpDebounceTime"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouterId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpSourceRoutingAdminStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpVpnIdOui"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpVpnIdIndex"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpInterfaceGroup2": {
+    "name": "juniIpInterfaceGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpNextIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfRowStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfType"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfTypeId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSAValidationEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfCreationType"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfProfileId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAlwaysUp"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfLoopback"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfLoopbackUid"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfDebounceTime"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfForwarding"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfForceFragmentation"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharesLowerUid"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfFilterOptions"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfName"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfArpTimeout"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAdminSpeed"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfMultipathMode"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharedNhAddr"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharedNhRouterId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfPrimaryIpAddress"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfPrimaryIpMask"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfOperDebounceTime"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPoliciedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPoliciedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInErrorPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInSpoofedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInForwardedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInForwardedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutForwardedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutForwardedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutSchedDropPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutSchedDropOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutRequestedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutRequestedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutPoliciedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutPoliciedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsGreenOutSchedDropPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsYellowOutSchedDropPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsRedOutSchedDropPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsGreenOutSchedDropOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsYellowOutSchedDropOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsRedOutSchedDropOctets"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpAddressGroup2": {
+    "name": "juniIpAddressGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpArpTimeout"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntRowStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntNetMask"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntBcastAddr"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntReasmMaxSize"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntAdminStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntArpRspEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntProxyArpRspEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntDirectedBcastEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIcmpRedirectEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIcmpMaskReplyEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIcmpUnreachEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntMtu"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntUnnumLoopbackIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIrdpEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntAccessRouteEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntAccessRouteHost"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIsSecondary"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpInterfaceGroup3": {
+    "name": "juniIpInterfaceGroup3",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpNextIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfRowStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfType"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfTypeId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSAValidationEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfCreationType"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfProfileId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAlwaysUp"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfLoopback"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfLoopbackUid"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfDebounceTime"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfForwarding"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfForceFragmentation"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharesLowerUid"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfFilterOptions"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfName"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfArpTimeout"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAdminSpeed"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfMultipathMode"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharedNhAddr"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharedNhRouterId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfPrimaryIpAddress"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfPrimaryIpMask"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfOperDebounceTime"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPoliciedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPoliciedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInErrorPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInSpoofedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInForwardedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInForwardedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutForwardedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutForwardedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutSchedDropPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutSchedDropOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutRequestedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutRequestedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutPoliciedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutPoliciedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsGreenOutSchedDropPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsYellowOutSchedDropPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsRedOutSchedDropPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsGreenOutSchedDropOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsYellowOutSchedDropOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsRedOutSchedDropOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAssocIpIfIndex"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpInterfaceGroup4": {
+    "name": "juniIpInterfaceGroup4",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpNextIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfRowStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfType"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfTypeId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSAValidationEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfCreationType"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfProfileId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAlwaysUp"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfLoopback"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfLoopbackUid"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfDebounceTime"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfForwarding"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfForceFragmentation"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharesLowerUid"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfFilterOptions"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfName"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfArpTimeout"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAdminSpeed"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfMultipathMode"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharedNhAddr"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharedNhRouterId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfPrimaryIpAddress"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfPrimaryIpMask"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfOperDebounceTime"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPoliciedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPoliciedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInErrorPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInSpoofedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutForwardedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutForwardedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutSchedDropPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutSchedDropOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutPoliciedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutPoliciedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAssocIpIfIndex"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpAddressGroup3": {
+    "name": "juniIpAddressGroup3",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntRowStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntNetMask"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntBcastAddr"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntReasmMaxSize"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntAdminStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntArpRspEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntProxyArpRspEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntDirectedBcastEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIcmpRedirectEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIcmpMaskReplyEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIcmpUnreachEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntMtu"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntUnnumLoopbackIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIrdpEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntAccessRouteEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntAccessRouteHost"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIsSecondary"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpRouteGroup2": {
+    "name": "juniIpRouteGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticDest"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticMask"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticPref"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticNextHop"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticRowStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticNextHopAS"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticMetric"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticTag"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpCidrRoutePref"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpCidrRouteArea"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpCidrRouteTag"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpGlobalGroup2": {
+    "name": "juniIpGlobalGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpDebounceTime"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouterId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpSourceRoutingAdminStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpVpnIdOui"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpVpnIdIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpBgpCommunityNewFormat"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpBgpAsConfedSetNewFormat"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpInterfaceGroup5": {
+    "name": "juniIpInterfaceGroup5",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpNextIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfRowStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfType"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfTypeId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSAValidationEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfCreationType"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfProfileId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAlwaysUp"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfDebounceTime"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfForwarding"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfForceFragmentation"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharesLowerUid"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfFilterOptions"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfName"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfArpTimeout"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAdminSpeed"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfMultipathMode"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharedNhAddr"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharedNhRouterId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfPrimaryIpAddress"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfPrimaryIpMask"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfOperDebounceTime"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfRouterIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfInheritNum"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfInheritNumUid"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPoliciedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPoliciedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInErrorPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInSpoofedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutForwardedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutForwardedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutSchedDropPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutSchedDropOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutPoliciedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutPoliciedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAssocIpIfIndex"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpAddressGroup4": {
+    "name": "juniIpAddressGroup4",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntRowStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntNetMask"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntBcastAddr"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntReasmMaxSize"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntAdminStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntArpRspEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntProxyArpRspEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntDirectedBcastEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIcmpRedirectEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIcmpMaskReplyEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIcmpUnreachEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntMtu"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIrdpEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntAccessRouteEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntAccessRouteHost"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIsSecondary"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntUnnumInheritNumIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "juniIpInterfaceDeprecatedGroup": {
+    "name": "juniIpInterfaceDeprecatedGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfLoopback"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfLoopbackUid"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniIpAddressDeprecatedGroup": {
+    "name": "juniIpAddressDeprecatedGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntIgmpEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpAdEntUnnumLoopbackIfIndex"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniIpInterfaceGroup6": {
+    "name": "juniIpInterfaceGroup6",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpNextIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfRowStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfType"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfTypeId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSAValidationEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfCreationType"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfProfileId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAlwaysUp"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfDebounceTime"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfForwarding"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfForceFragmentation"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharesLowerUid"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfFilterOptions"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfName"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfArpTimeout"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAdminSpeed"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfMultipathMode"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharedNhAddr"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharedNhRouterId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfPrimaryIpAddress"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfPrimaryIpMask"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfOperDebounceTime"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfRouterIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfInheritNum"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfInheritNumUid"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAnalyzerMode"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAutoConfigure"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPoliciedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPoliciedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInErrorPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInSpoofedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutForwardedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutForwardedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutSchedDropPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutSchedDropOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutPoliciedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutPoliciedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAssocIpIfIndex"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpIfSummaryGroup": {
+    "name": "juniIpIfSummaryGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSummaryTotalIntf"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSummaryTotalIntfUp"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSummaryTotalIntfDown"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSummaryTotalIntfProtUp"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSummaryTotalIntfProtDown"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSummaryTotalIntfProtNotPresent"
+      }
+    ],
+    "status": "current"
+  },
+  "juniIpInterfaceGroup7": {
+    "name": "juniIpInterfaceGroup7",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpNextIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfRowStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfType"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfTypeId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSAValidationEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfCreationType"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfProfileId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAlwaysUp"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfDebounceTime"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfForwarding"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfForceFragmentation"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharesLowerUid"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfFilterOptions"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfName"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfArpTimeout"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAdminSpeed"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfMultipathMode"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharedNhAddr"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharedNhRouterId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfPrimaryIpAddress"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfPrimaryIpMask"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfOperDebounceTime"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfRouterIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfInheritNum"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfInheritNumUid"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAnalyzerMode"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAutoConfigure"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfTcpMss"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPoliciedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPoliciedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInErrorPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInSpoofedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutForwardedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutForwardedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutSchedDropPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutSchedDropOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutPoliciedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutPoliciedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAssocIpIfIndex"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpGlobalGroup3": {
+    "name": "juniIpGlobalGroup3",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpDebounceTime"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouterId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpSourceRoutingAdminStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpBgpCommunityNewFormat"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpBgpAsConfedSetNewFormat"
+      }
+    ],
+    "status": "current"
+  },
+  "juniIpRouteGroup3": {
+    "name": "juniIpRouteGroup3",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteTableLimit"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteTableWarnPercent"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteTableWarnOnly"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteTableWarnThreshold"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticDest"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticMask"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticPref"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticNextHop"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticRowStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticNextHopAS"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticMetric"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticTag"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpCidrRoutePref"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpCidrRouteArea"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpCidrRouteTag"
+      }
+    ],
+    "status": "current"
+  },
+  "juniIpNotificationGroup": {
+    "name": "juniIpNotificationGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.21",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteTableTrapRouteLimitExceeded"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteTableTrapRouteLimitRemove"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteTableTrapWarnThresholdExceeded"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpNotificationGroup1": {
+    "name": "juniIpNotificationGroup1",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.22",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteTableTrapRouteLimitExceeded"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteTableTrapRouteLimitRemove"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteTableTrapWarnThresholdExceeded"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpTrapSaValidationFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "juniIpMIBNotificationObjectsGroup": {
+    "name": "juniIpMIBNotificationObjectsGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSaValFailSrcIpAddr"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSaValFailDestIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "juniIpRouteSummaryGroup": {
+    "name": "juniIpRouteSummaryGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryUnicastTotalRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryUnicastTotalBytes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryUnicastIsisRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryUnicastIsisLevel1Routes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryUnicastIsisLevel2Routes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryUnicastRipRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryUnicastStaticRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryUnicastConnectedRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryUnicastBgpRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryUnicastOspfRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryUnicastIntraAreaOspfRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryUnicastOtherInternalRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryUnicastExternalOspfRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryUnicastInterAreaOspfRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryUnicastAccessRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryUnicastIntCreatedAccessHostRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryUnicastIntDialoutRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryUnicastRouteMemoryActive"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryUnicastLastRouteAddedOrDeletedIP"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryUnicastLastRouteAddedOrDeletedMask"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryUnicastLastRouteAddedOrDeletedClient"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryUnicastLastRouteAddedOrDeletedDate"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryMulticastTotalRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryMulticastTotalBytes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryMulticastIsisRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryMulticastLevel1IsisRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryMulticastLevel2IsisRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryMulticastRipRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryMulticastStaticRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryMulticastConnectedRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryMulticastBgpRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryMulticastOspfRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryMulticastIntraAreaOspfRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryMulticastInterAreaOspfRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryMulticastExternalOspfRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryMulticastOtherInternalRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryMulticastAccessRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryMulticastIntCreatedAccessHostRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryMultiastIntDialoutRoutes"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryMulticastRouteMemoryActive"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryMulticastLastRouteAddedOrDeletedIP"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryMulticastLastRouteAddedOrDeletedMask"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryMulticastLastRouteAddedOrDeletedClient"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteSummaryMulticastLastRouteAddedOrDeletedDate"
+      }
+    ],
+    "status": "current"
+  },
+  "juniIpRouteStaticBFDGroup": {
+    "name": "juniIpRouteStaticBFDGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticBfdEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticBfdMinRxInterval"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticBfdMinTxInterval"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpRouteStaticBfdMultiplier"
+      }
+    ],
+    "status": "current"
+  },
+  "juniIpInterfaceGroup8": {
+    "name": "juniIpInterfaceGroup8",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpNextIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfRowStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfType"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfTypeId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSAValidationEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfCreationType"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfProfileId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAlwaysUp"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfDebounceTime"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfForwarding"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfForceFragmentation"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharesLowerUid"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfFilterOptions"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfName"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfArpTimeout"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAdminSpeed"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfMultipathMode"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharedNhAddr"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharedNhRouterId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfPrimaryIpAddress"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfPrimaryIpMask"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfOperDebounceTime"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfRouterIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfInheritNum"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfInheritNumUid"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAnalyzerMode"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAutoConfigure"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfTcpMss"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfInitSeqPrefOper"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfInitSeqPrefAdmin"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPoliciedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPoliciedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInErrorPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInSpoofedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutForwardedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutForwardedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutSchedDropPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutSchedDropOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutPoliciedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutPoliciedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAssocIpIfIndex"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpInterfaceGroup9": {
+    "name": "juniIpInterfaceGroup9",
+    "oid": "1.3.6.1.4.1.4874.2.2.12.4.2.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpNextIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfRowStatus"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfType"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfTypeId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSAValidationEnable"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfCreationType"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfProfileId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAlwaysUp"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfDebounceTime"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfForwarding"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfForceFragmentation"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharesLowerUid"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfFilterOptions"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfName"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfArpTimeout"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAdminSpeed"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfMultipathMode"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharedNhAddr"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfSharedNhRouterId"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfPrimaryIpAddress"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfPrimaryIpMask"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfOperDebounceTime"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfRouterIndex"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfInheritNum"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfInheritNumUid"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAnalyzerMode"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAutoConfigure"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfTcpMss"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfInitSeqPrefOper"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfInitSeqPrefAdmin"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfArpSpoofCheck"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPoliciedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInPoliciedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInErrorPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsInSpoofedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutForwardedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutForwardedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutSchedDropPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutSchedDropOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutPoliciedPackets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfStatsOutPoliciedOctets"
+      },
+      {
+        "module": "Juniper-IP-MIB",
+        "object": "juniIpIfAssocIpIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/broken/Juniper-IP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-IP-MIB"
+  }
+}

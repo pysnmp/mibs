@@ -1,0 +1,852 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CountryCode"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoDeviceLocationMIB": {
+    "name": "ciscoDeviceLocationMIB",
+    "oid": "1.3.6.1.4.1.9.9.732",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-10-28 00:00",
+        "description": "-Added following tables: cdlCustomLocationTable cdlGeoLocationTable cdlLocationPreferWeightTable -Added 'custom' bit to cdlLocationSubTypeCapability -Deprecated cdlMIBCompliance MODULE-COMPLIANCE statement -Added the following OBJECT-GROUP's cdlCustomLocationGroup cdlGeoLocationGroup cdlLocationPreferWeightGroup -Added cdlMIBComplianceRev1"
+      },
+      {
+        "revision": "2010-04-26 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cdlMIBNotifications": {
+    "name": "cdlMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.732.0",
+    "class": "objectidentity"
+  },
+  "cdlMIBObjects": {
+    "name": "cdlMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.732.1",
+    "class": "objectidentity"
+  },
+  "cdlMIBConform": {
+    "name": "cdlMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.732.2",
+    "class": "objectidentity"
+  },
+  "cdlMIBScalars": {
+    "name": "cdlMIBScalars",
+    "oid": "1.3.6.1.4.1.9.9.732.1.1",
+    "class": "objectidentity"
+  },
+  "cdlKey": {
+    "name": "cdlKey",
+    "oid": "1.3.6.1.4.1.9.9.732.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdlLocationTable": {
+    "name": "cdlLocationTable",
+    "oid": "1.3.6.1.4.1.9.9.732.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdlLocationEntry": {
+    "name": "cdlLocationEntry",
+    "oid": "1.3.6.1.4.1.9.9.732.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlLocationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdlLocationIndex": {
+    "name": "cdlLocationIndex",
+    "oid": "1.3.6.1.4.1.9.9.732.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdlLocationSubTypeCapability": {
+    "name": "cdlLocationSubTypeCapability",
+    "oid": "1.3.6.1.4.1.9.9.732.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "noSubtypesConfigured": 0,
+        "geoLocation": 1,
+        "civic": 2,
+        "elin": 3,
+        "custom": 4
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdlLocationCountryCode": {
+    "name": "cdlLocationCountryCode",
+    "oid": "1.3.6.1.4.1.9.9.732.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CountryCode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdlLocationTargetType": {
+    "name": "cdlLocationTargetType",
+    "oid": "1.3.6.1.4.1.9.9.732.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interface": 1,
+          "ipv4Addr": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdlLocationTargetIdentifier": {
+    "name": "cdlLocationTargetIdentifier",
+    "oid": "1.3.6.1.4.1.9.9.732.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdlCivicAddrLocationTable": {
+    "name": "cdlCivicAddrLocationTable",
+    "oid": "1.3.6.1.4.1.9.9.732.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdlCivicAddrLocationEntry": {
+    "name": "cdlCivicAddrLocationEntry",
+    "oid": "1.3.6.1.4.1.9.9.732.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlLocationIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlCivicAddrLocationType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdlCivicAddrLocationType": {
+    "name": "cdlCivicAddrLocationType",
+    "oid": "1.3.6.1.4.1.9.9.732.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "state": 1,
+          "county": 2,
+          "city": 3,
+          "cityDivision": 4,
+          "neighborhood": 5,
+          "streetGroup": 6,
+          "leadingStreetDirection": 16,
+          "trailingStreetDirection": 17,
+          "streetSuffix": 18,
+          "house": 19,
+          "streetNumber": 20,
+          "landmark": 21,
+          "additionalLoc": 22,
+          "name": 23,
+          "zipcode": 24,
+          "building": 25,
+          "unit": 26,
+          "floor": 27,
+          "room": 28,
+          "place": 29,
+          "postalCommunityName": 30,
+          "postOffiiceBox": 31,
+          "additionalCode": 32,
+          "seat": 33,
+          "primaryRoad": 34,
+          "roadSection": 35,
+          "roadBranch": 36,
+          "roadSubBranch": 37,
+          "streetNamePreMod": 38,
+          "streetNamePostMod": 39
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdlCivicAddrLocationValue": {
+    "name": "cdlCivicAddrLocationValue",
+    "oid": "1.3.6.1.4.1.9.9.732.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdlCivicAddrLocationStorageType": {
+    "name": "cdlCivicAddrLocationStorageType",
+    "oid": "1.3.6.1.4.1.9.9.732.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdlCivicAddrLocationStatus": {
+    "name": "cdlCivicAddrLocationStatus",
+    "oid": "1.3.6.1.4.1.9.9.732.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdlCustomLocationTable": {
+    "name": "cdlCustomLocationTable",
+    "oid": "1.3.6.1.4.1.9.9.732.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdlCustomLocationEntry": {
+    "name": "cdlCustomLocationEntry",
+    "oid": "1.3.6.1.4.1.9.9.732.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlLocationIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlCustomLocationName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "cdlCustomLocationName": {
+    "name": "cdlCustomLocationName",
+    "oid": "1.3.6.1.4.1.9.9.732.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdlCustomLocationValue": {
+    "name": "cdlCustomLocationValue",
+    "oid": "1.3.6.1.4.1.9.9.732.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdlCustomLocationStorageType": {
+    "name": "cdlCustomLocationStorageType",
+    "oid": "1.3.6.1.4.1.9.9.732.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdlCustomLocationStatus": {
+    "name": "cdlCustomLocationStatus",
+    "oid": "1.3.6.1.4.1.9.9.732.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdlGeoLocationTable": {
+    "name": "cdlGeoLocationTable",
+    "oid": "1.3.6.1.4.1.9.9.732.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdlGeoLocationEntry": {
+    "name": "cdlGeoLocationEntry",
+    "oid": "1.3.6.1.4.1.9.9.732.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlLocationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdlGeoLatitude": {
+    "name": "cdlGeoLatitude",
+    "oid": "1.3.6.1.4.1.9.9.732.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdlGeoLatitudeResolution": {
+    "name": "cdlGeoLatitudeResolution",
+    "oid": "1.3.6.1.4.1.9.9.732.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdlGeoLongitude": {
+    "name": "cdlGeoLongitude",
+    "oid": "1.3.6.1.4.1.9.9.732.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdlGeoLongitudeResolution": {
+    "name": "cdlGeoLongitudeResolution",
+    "oid": "1.3.6.1.4.1.9.9.732.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdlGeoAltitude": {
+    "name": "cdlGeoAltitude",
+    "oid": "1.3.6.1.4.1.9.9.732.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdlGeoAltitudeType": {
+    "name": "cdlGeoAltitudeType",
+    "oid": "1.3.6.1.4.1.9.9.732.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "meters": 1,
+          "floors": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "meters",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdlGeoAltitudeResolution": {
+    "name": "cdlGeoAltitudeResolution",
+    "oid": "1.3.6.1.4.1.9.9.732.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "10",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdlGeoResolution": {
+    "name": "cdlGeoResolution",
+    "oid": "1.3.6.1.4.1.9.9.732.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "10",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdlGeoStorageType": {
+    "name": "cdlGeoStorageType",
+    "oid": "1.3.6.1.4.1.9.9.732.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdlGeoStatus": {
+    "name": "cdlGeoStatus",
+    "oid": "1.3.6.1.4.1.9.9.732.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdlLocationPreferWeightTable": {
+    "name": "cdlLocationPreferWeightTable",
+    "oid": "1.3.6.1.4.1.9.9.732.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdlLocationPreferWeightEntry": {
+    "name": "cdlLocationPreferWeightEntry",
+    "oid": "1.3.6.1.4.1.9.9.732.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlLocationPreferWeightType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdlLocationPreferWeightType": {
+    "name": "cdlLocationPreferWeightType",
+    "oid": "1.3.6.1.4.1.9.9.732.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "locp": 2,
+          "dhcp": 3,
+          "lldp": 4,
+          "cdp": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdlLocationPreferWeightValue": {
+    "name": "cdlLocationPreferWeightValue",
+    "oid": "1.3.6.1.4.1.9.9.732.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdlMIBCompliances": {
+    "name": "cdlMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.732.2.1",
+    "class": "objectidentity"
+  },
+  "cdlMIBGroups": {
+    "name": "cdlMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.732.2.2",
+    "class": "objectidentity"
+  },
+  "cdlMIBCompliance": {
+    "name": "cdlMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.732.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdlLocationGroup",
+        "module": "CISCO-DEVICE-LOCATION-MIB"
+      },
+      {
+        "object": "cdlCivicAddrLocationGroup",
+        "module": "CISCO-DEVICE-LOCATION-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdlMIBComplianceRev1": {
+    "name": "cdlMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.732.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdlLocationGroup",
+        "module": "CISCO-DEVICE-LOCATION-MIB"
+      },
+      {
+        "object": "cdlCivicAddrLocationGroup",
+        "module": "CISCO-DEVICE-LOCATION-MIB"
+      },
+      {
+        "object": "cdlCustomLocationGroup",
+        "module": "CISCO-DEVICE-LOCATION-MIB"
+      },
+      {
+        "object": "cdlGeoLocationGroup",
+        "module": "CISCO-DEVICE-LOCATION-MIB"
+      },
+      {
+        "object": "cdlLocationPreferWeightGroup",
+        "module": "CISCO-DEVICE-LOCATION-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cdlLocationGroup": {
+    "name": "cdlLocationGroup",
+    "oid": "1.3.6.1.4.1.9.9.732.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlLocationSubTypeCapability"
+      },
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlLocationCountryCode"
+      },
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlLocationTargetType"
+      },
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlLocationTargetIdentifier"
+      },
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlKey"
+      }
+    ],
+    "status": "current"
+  },
+  "cdlCivicAddrLocationGroup": {
+    "name": "cdlCivicAddrLocationGroup",
+    "oid": "1.3.6.1.4.1.9.9.732.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlCivicAddrLocationValue"
+      },
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlCivicAddrLocationStatus"
+      },
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlCivicAddrLocationStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "cdlCustomLocationGroup": {
+    "name": "cdlCustomLocationGroup",
+    "oid": "1.3.6.1.4.1.9.9.732.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlCustomLocationValue"
+      },
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlCustomLocationStatus"
+      },
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlCustomLocationStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "cdlGeoLocationGroup": {
+    "name": "cdlGeoLocationGroup",
+    "oid": "1.3.6.1.4.1.9.9.732.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlGeoLatitude"
+      },
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlGeoLatitudeResolution"
+      },
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlGeoLongitude"
+      },
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlGeoLongitudeResolution"
+      },
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlGeoAltitude"
+      },
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlGeoAltitudeType"
+      },
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlGeoAltitudeResolution"
+      },
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlGeoResolution"
+      },
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlGeoStatus"
+      },
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlGeoStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "cdlLocationPreferWeightGroup": {
+    "name": "cdlLocationPreferWeightGroup",
+    "oid": "1.3.6.1.4.1.9.9.732.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DEVICE-LOCATION-MIB",
+        "object": "cdlLocationPreferWeightValue"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DEVICE-LOCATION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DEVICE-LOCATION-MIB"
+  }
+}

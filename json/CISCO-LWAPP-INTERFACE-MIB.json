@@ -1,0 +1,398 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoLwappInterfaceMIB": {
+    "name": "ciscoLwappInterfaceMIB",
+    "oid": "1.3.6.1.4.1.9.9.686",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-05-30 00:00",
+        "description": "Added clInterfaceDhcpOpt82Enabled object. Added ciscoLwappInterfaceMIBComplianceRev02 module compliance. Added ciscoLwappInterfaceConfigGroupSup1 conformance group. Deprecated ciscoLwappInterfaceMIBComplianceRev01 module compliance."
+      },
+      {
+        "revision": "2010-08-22 00:00",
+        "description": "Added the clInterfaceGroupsConfigTable table. Added the clInterfaceGroupsMappingTable table. Replaced ciscoLwappInterfaceMIBCompliance with ciscoLwappInterfaceMIBComplianceRev01. Added ciscoLwappInterfaceGroupConfigSup1 Group."
+      },
+      {
+        "revision": "2009-01-09 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappInterfaceMIBNotifs": {
+    "name": "ciscoLwappInterfaceMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.686.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappInterfaceMIBObjects": {
+    "name": "ciscoLwappInterfaceMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.686.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappInterfaceMIBConform": {
+    "name": "ciscoLwappInterfaceMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.686.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappInterfaceConfig": {
+    "name": "ciscoLwappInterfaceConfig",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1",
+    "class": "objectidentity"
+  },
+  "clInterfaceConfigTable": {
+    "name": "clInterfaceConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clInterfaceConfigEntry": {
+    "name": "clInterfaceConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clInterfaceName": {
+    "name": "clInterfaceName",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clInterfaceWired": {
+    "name": "clInterfaceWired",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clInterfaceQuarantineVlanId": {
+    "name": "clInterfaceQuarantineVlanId",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clInterfaceDhcpOpt82Enabled": {
+    "name": "clInterfaceDhcpOpt82Enabled",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clInterfaceGroupsConfigTable": {
+    "name": "clInterfaceGroupsConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clInterfaceGroupsConfigEntry": {
+    "name": "clInterfaceGroupsConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clInterfaceGroupName": {
+    "name": "clInterfaceGroupName",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clInterfaceGroupDescr": {
+    "name": "clInterfaceGroupDescr",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clInterfaceGroupIsQuarantine": {
+    "name": "clInterfaceGroupIsQuarantine",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clInterfaceGroupRowStatus": {
+    "name": "clInterfaceGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clInterfaceGroupsMappingTable": {
+    "name": "clInterfaceGroupsMappingTable",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clInterfaceGroupsMappingEntry": {
+    "name": "clInterfaceGroupsMappingEntry",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceGroupName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clInterfaceGroupMappingRowStatus": {
+    "name": "clInterfaceGroupMappingRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoLwappInterfaceMIBCompliances": {
+    "name": "ciscoLwappInterfaceMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.686.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappInterfaceMIBGroups": {
+    "name": "ciscoLwappInterfaceMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.686.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappInterfaceMIBCompliance": {
+    "name": "ciscoLwappInterfaceMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.686.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappInterfaceConfigGroup",
+        "module": "CISCO-LWAPP-INTERFACE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappInterfaceMIBComplianceRev01": {
+    "name": "ciscoLwappInterfaceMIBComplianceRev01",
+    "oid": "1.3.6.1.4.1.9.9.686.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappInterfaceConfigGroup",
+        "module": "CISCO-LWAPP-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoLwappInterfaceGroupConfigSup1",
+        "module": "CISCO-LWAPP-INTERFACE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappInterfaceMIBComplianceRev02": {
+    "name": "ciscoLwappInterfaceMIBComplianceRev02",
+    "oid": "1.3.6.1.4.1.9.9.686.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappInterfaceConfigGroup",
+        "module": "CISCO-LWAPP-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoLwappInterfaceGroupConfigSup1",
+        "module": "CISCO-LWAPP-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoLwappInterfaceConfigGroupSup1",
+        "module": "CISCO-LWAPP-INTERFACE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappInterfaceConfigGroup": {
+    "name": "ciscoLwappInterfaceConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.686.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceWired"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceQuarantineVlanId"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappInterfaceGroupConfigSup1": {
+    "name": "ciscoLwappInterfaceGroupConfigSup1",
+    "oid": "1.3.6.1.4.1.9.9.686.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceGroupDescr"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceGroupIsQuarantine"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceGroupRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceGroupMappingRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappInterfaceConfigGroupSup1": {
+    "name": "ciscoLwappInterfaceConfigGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.686.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceDhcpOpt82Enabled"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-INTERFACE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-INTERFACE-MIB"
+  }
+}

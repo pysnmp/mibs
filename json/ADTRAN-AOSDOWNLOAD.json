@@ -1,0 +1,701 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADTRAN-AOS": [
+      "adGenAOSCommon",
+      "adGenAOSConformance"
+    ],
+    "ADTRAN-MIB": [
+      "adIdentity"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Counter32",
+      "Gauge32",
+      "Bits",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TDomain",
+      "DisplayString",
+      "RowStatus",
+      "TAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "adAOSDownloadMib": {
+    "name": "adAOSDownloadMib",
+    "oid": "1.3.6.1.4.1.664.6.10000.53.1.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-09-21 22:16",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "adAOSDownload": {
+    "name": "adAOSDownload",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3",
+    "class": "objectidentity"
+  },
+  "adAOSDownloadTable": {
+    "name": "adAOSDownloadTable",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adAOSDownloadEntry": {
+    "name": "adAOSDownloadEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDownloadIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adAOSDownloadIndex": {
+    "name": "adAOSDownloadIndex",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dlInstance": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSDownloadOwnerAddress": {
+    "name": "adAOSDownloadOwnerAddress",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSDownloadOwnerDomain": {
+    "name": "adAOSDownloadOwnerDomain",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TDomain",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSDownloadTAddress": {
+    "name": "adAOSDownloadTAddress",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adAOSDownloadTDomain": {
+    "name": "adAOSDownloadTDomain",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TDomain",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adAOSDownloadFilename": {
+    "name": "adAOSDownloadFilename",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adAOSDownloadResetType": {
+    "name": "adAOSDownloadResetType",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noReset": 1,
+          "warmReset": 2,
+          "factoryReset": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adAOSDownloadErrorStatus": {
+    "name": "adAOSDownloadErrorStatus",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fileNotFound": 1,
+          "accessViolation": 2,
+          "diskFull": 3,
+          "illegalOperation": 4,
+          "unknownTID": 5,
+          "fileExists": 6,
+          "noSuchUser": 7,
+          "notDefined": 8,
+          "corruptFile": 9,
+          "noServer": 10,
+          "tftpTimeout": 11,
+          "hardwareError": 12,
+          "success": 13,
+          "aborted": 14,
+          "inProgress": 15,
+          "idle": 16,
+          "erasingEeprom": 17,
+          "incompleteFirmware": 18,
+          "requirePowerCycle": 19,
+          "cannotUpgrade": 20,
+          "cannotDowngrade": 21
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSDownloadErrorText": {
+    "name": "adAOSDownloadErrorText",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSDownloadStatus": {
+    "name": "adAOSDownloadStatus",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adAOSDownloadPassesLeft": {
+    "name": "adAOSDownloadPassesLeft",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSDownloadOctetCount": {
+    "name": "adAOSDownloadOctetCount",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSDownloadDestination": {
+    "name": "adAOSDownloadDestination",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "/os/primary",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "adAOSDownloadDestinationType": {
+    "name": "adAOSDownloadDestinationType",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2,
+          "config": 3,
+          "remote": 4,
+          "other": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adAOSDownloadLogMaxSize": {
+    "name": "adAOSDownloadLogMaxSize",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSDownloadLogSize": {
+    "name": "adAOSDownloadLogSize",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSDownloadLogTable": {
+    "name": "adAOSDownloadLogTable",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adAOSDownloadLogEntry": {
+    "name": "adAOSDownloadLogEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDlLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adAOSDlLogIndex": {
+    "name": "adAOSDlLogIndex",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSDlLogOwnerAddress": {
+    "name": "adAOSDlLogOwnerAddress",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSDlLogOwnerDomain": {
+    "name": "adAOSDlLogOwnerDomain",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TDomain",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSDlLogTAddress": {
+    "name": "adAOSDlLogTAddress",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSDlLogTDomain": {
+    "name": "adAOSDlLogTDomain",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TDomain",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSDlLogFilename": {
+    "name": "adAOSDlLogFilename",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSDlLogResetType": {
+    "name": "adAOSDlLogResetType",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noReset": 1,
+          "warmReset": 2,
+          "factoryReset": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSDlLogErrorStatus": {
+    "name": "adAOSDlLogErrorStatus",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fileNotFound": 1,
+          "accessViolation": 2,
+          "diskFull": 3,
+          "illegalOperation": 4,
+          "unknownTID": 5,
+          "fileExists": 6,
+          "noSuchUser": 7,
+          "notDefined": 8,
+          "corruptFile": 9,
+          "noServer": 10,
+          "tftpTimeout": 11,
+          "hardwareError": 12,
+          "success": 13,
+          "aborted": 14
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSDlLogErrorText": {
+    "name": "adAOSDlLogErrorText",
+    "oid": "1.3.6.1.4.1.664.5.53.1.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSDownloadConformance": {
+    "name": "adAOSDownloadConformance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.3",
+    "class": "objectidentity"
+  },
+  "adAOSDownloadCompliances": {
+    "name": "adAOSDownloadCompliances",
+    "oid": "1.3.6.1.4.1.664.5.53.99.3.1",
+    "class": "objectidentity"
+  },
+  "adAOSDownloadGroups": {
+    "name": "adAOSDownloadGroups",
+    "oid": "1.3.6.1.4.1.664.5.53.99.3.2",
+    "class": "objectidentity"
+  },
+  "adAOSDownloadConfigCompliance": {
+    "name": "adAOSDownloadConfigCompliance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "adAOSDownloadConfigGroup",
+        "module": "ADTRAN-AOSDOWNLOAD"
+      },
+      {
+        "object": "adAOSDownloadLogGroup",
+        "module": "ADTRAN-AOSDOWNLOAD"
+      }
+    ],
+    "status": "current"
+  },
+  "adAOSDownloadLogGroup": {
+    "name": "adAOSDownloadLogGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDlLogIndex"
+      },
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDlLogOwnerAddress"
+      },
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDlLogOwnerDomain"
+      },
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDlLogTAddress"
+      },
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDlLogTDomain"
+      },
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDlLogFilename"
+      },
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDlLogResetType"
+      },
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDlLogErrorStatus"
+      },
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDlLogErrorText"
+      }
+    ],
+    "status": "current"
+  },
+  "adAOSDownloadConfigGroup": {
+    "name": "adAOSDownloadConfigGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDownloadIndex"
+      },
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDownloadOwnerAddress"
+      },
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDownloadOwnerDomain"
+      },
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDownloadTAddress"
+      },
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDownloadTDomain"
+      },
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDownloadFilename"
+      },
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDownloadResetType"
+      },
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDownloadErrorStatus"
+      },
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDownloadErrorText"
+      },
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDownloadStatus"
+      },
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDownloadPassesLeft"
+      },
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDownloadOctetCount"
+      },
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDownloadDestination"
+      },
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDownloadLogMaxSize"
+      },
+      {
+        "module": "ADTRAN-AOSDOWNLOAD",
+        "object": "adAOSDownloadLogSize"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOSDOWNLOAD",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:08 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ADTRAN-AOSDOWNLOAD"
+  }
+}

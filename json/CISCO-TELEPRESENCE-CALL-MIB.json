@@ -1,0 +1,3137 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-QOS-PIB-MIB": [
+      "QosLayer2Cos"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "Unsigned64"
+    ],
+    "DIFFSERV-DSCP-TC": [
+      "Dscp"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "VariablePointer",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoTelepresenceCallMIB": {
+    "name": "ciscoTelepresenceCallMIB",
+    "oid": "1.3.6.1.4.1.9.9.644",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-07-24 00:00",
+        "description": "Updated CtpcCallTerminationCode, CtpcCodecType, CtpcStreamSourceType TEXTUAL CONVENTION. Obsoleted ciscoTpCallNotificationGroup Group."
+      },
+      {
+        "revision": "2012-11-08 00:00",
+        "description": "Added ctpcExtNumberMask to ctpcLocalDirNumTable."
+      },
+      {
+        "revision": "2012-04-20 00:00",
+        "description": "Added ctpcTxDscpTelepresenceConfigured, and ctpcTxDscpAudioConfigured to ctpcInfoObjects. Added ctpcRxDscpCurrent, ctpcRxDscpPrevious, ctpcRxCoSCurrent, ctpcRxCoSPrevious, to ctpcStatStreamTypeTable. Added ctpcTxCallBitRate, ctpcTxPeriodBitRate, ctpcRxCallBitRate, ctpcRxPeriodBitRate, ctpcRxMaxPeriodLostPackets, ctpcRxMaxCallLostPackets, ctpcRxMaxCallLostPacketsRecTime to ctpcStatStreamSourceTable."
+      },
+      {
+        "revision": "2012-01-11 00:00",
+        "description": "Added 'content' enum to CtpcStreamMediaType to support BFCP protocol or other standard protocols in the future."
+      },
+      {
+        "revision": "2011-05-16 00:00",
+        "description": "Updated CtpcCallTerminationCode."
+      },
+      {
+        "revision": "2011-02-04 00:00",
+        "description": "Updated CtpcStateCode."
+      },
+      {
+        "revision": "2011-01-31 00:00",
+        "description": "Added ctpcCalLTermReason, ctpcRxVideoHorzPixels, ctpcRxVideoVertPixels, ctpcTxVideoHorzPixels, ctpcTxVideoVertPixels, ctpcMediaSrcPort, ctpcMediaDestPort. Clarified the definition of ctpcAvgPeriodJitter, ctpcRxMaxPeriodJitter, ctpcRxMaxCallJitter. Enhanced CtpcStateCode and CtpcCodecType."
+      },
+      {
+        "revision": "2009-10-21 00:00",
+        "description": "Added ctpcAttributes, ctpcRemoteDeviceType, ctpcTxCodec, ctpcTxFrameRate, ctpcRxCodec, ctpcRxFrameRate, ctpcMgmtSysConnStatus, ctpcMgmtSysSIPRespCode and ctpcMgmtSysConnEventHistoryTable. Enhanced CtpcStateCode and CtpcStreamSourceType."
+      },
+      {
+        "revision": "2008-09-17 00:00",
+        "description": "Updated the description on default value setting for the objects ctpcStatRisingThreshold and ctpcStatFallingThreshold. Added new enumeration 'unknown' to ctpcType and ctpcDirection. Updated the unit of ctpcTxTotalBytes and ctpcTxTotalPackets."
+      },
+      {
+        "revision": "2008-01-23 00:00",
+        "description": "Updated the description on CtpcEntry."
+      },
+      {
+        "revision": "2007-12-28 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "CtpcE164Address": {
+    "name": "CtpcE164Address",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "32t",
+    "status": "current"
+  },
+  "CtpcStreamMediaType": {
+    "name": "CtpcStreamMediaType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "video": 1,
+          "audio": 2,
+          "content": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CtpcStreamSourceType": {
+    "name": "CtpcStreamSourceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "secCodec1": 1,
+          "priCodec": 2,
+          "secCodec2": 3,
+          "auxiliary1": 4,
+          "secLegacy1": 5,
+          "priLegacy": 6,
+          "secLegacy2": 7,
+          "auxiliary2": 8,
+          "center": 9,
+          "left": 10,
+          "right": 11,
+          "legacyCtr": 12,
+          "legacyLeft": 13,
+          "legacyRight": 14,
+          "auxiliary3": 15,
+          "auxiliary4": 16,
+          "other": 17
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CtpcStateCode": {
+    "name": "CtpcStateCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "other": 2,
+          "noMgmtSysConn": 3,
+          "noDialTone": 4,
+          "invalidNumber": 5,
+          "ringing": 6,
+          "noAnswer": 7,
+          "inProgress": 8,
+          "remoteHold": 9,
+          "shareLineActive": 10,
+          "inLocalConference": 11,
+          "terminatedbyError": 12,
+          "localHold": 13,
+          "terminatedNormally": 14,
+          "answer": 15,
+          "resume": 16,
+          "busy": 17,
+          "pause": 18,
+          "playback": 19,
+          "recording": 20
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CtpcStatMonitoredAttribute": {
+    "name": "CtpcStatMonitoredAttribute",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "latency": 1,
+          "jitter": 2,
+          "packetLoss": 3,
+          "authFailurePacket": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CtpcStatMonitoredAttributeUnit": {
+    "name": "CtpcStatMonitoredAttributeUnit",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "milliseconds": 1,
+          "micropercent": 2,
+          "packets": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CtpcStatAlarmMode": {
+    "name": "CtpcStatAlarmMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "risingAlarm": 1,
+          "fallingAlarm": 2,
+          "risingOrFallingAlarm": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CtpcStatThreshCrossedType": {
+    "name": "CtpcStatThreshCrossedType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "risingThreshold": 1,
+          "fallingThreshold": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CtpcAttributes": {
+    "name": "CtpcAttributes",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "interop": 0,
+        "highDefinitionInterop": 1,
+        "webEx": 2,
+        "schedule": 3,
+        "satellite": 4,
+        "t1": 5,
+        "liveDesk": 6
+      }
+    },
+    "status": "current"
+  },
+  "CtpcRemoteDeviceType": {
+    "name": "CtpcRemoteDeviceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "other": 2,
+          "audioDevice": 3,
+          "videoLegacyDevice": 4,
+          "highDefinitionLegacyDevice": 5,
+          "singleTelepresence": 6,
+          "tripleTelepresence": 7,
+          "telepresenceMultipointSwitch": 8,
+          "telepresenceRecordingServer": 9,
+          "telepresenceTranscodingDevice": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CtpcCodecType": {
+    "name": "CtpcCodecType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "other": 2,
+          "aaclc": 3,
+          "aacld": 4,
+          "g711A": 5,
+          "g711U": 6,
+          "g722": 7,
+          "g7221": 8,
+          "g728": 9,
+          "g729": 10,
+          "h263": 11,
+          "h264": 12,
+          "aacldLatm": 13,
+          "h265": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CtpcMgmtSysConnStatusCode": {
+    "name": "CtpcMgmtSysConnStatusCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "other": 2,
+          "internalError": 3,
+          "notRegister": 4,
+          "registered": 5,
+          "registraionFailure": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CtpcCallTerminationCode": {
+    "name": "CtpcCallTerminationCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "other": 2,
+          "internalError": 3,
+          "localDisconnected": 4,
+          "remoteDisconnected": 5,
+          "networkCongestion": 6,
+          "mediaNegotiationFailure": 7,
+          "securityConfigMismatched": 8,
+          "incompatibleRemoteEndPt": 9,
+          "serviceUnavailable": 10,
+          "remoteTerminatedWithError": 11,
+          "incall": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoTelepresenceCallMIBNotifs": {
+    "name": "ciscoTelepresenceCallMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.644.0",
+    "class": "objectidentity"
+  },
+  "ciscoTelepresenceCallMIBObjects": {
+    "name": "ciscoTelepresenceCallMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.644.1",
+    "class": "objectidentity"
+  },
+  "ciscoTelepresenceCallMIBConform": {
+    "name": "ciscoTelepresenceCallMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.644.2",
+    "class": "objectidentity"
+  },
+  "ctpcObjects": {
+    "name": "ctpcObjects",
+    "oid": "1.3.6.1.4.1.9.9.644.1.1",
+    "class": "objectidentity"
+  },
+  "ctpcInfoObjects": {
+    "name": "ctpcInfoObjects",
+    "oid": "1.3.6.1.4.1.9.9.644.1.2",
+    "class": "objectidentity"
+  },
+  "ctpcStatMonitorObjects": {
+    "name": "ctpcStatMonitorObjects",
+    "oid": "1.3.6.1.4.1.9.9.644.1.3",
+    "class": "objectidentity"
+  },
+  "ctpcStatObjects": {
+    "name": "ctpcStatObjects",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4",
+    "class": "objectidentity"
+  },
+  "ctpcStatEventHistory": {
+    "name": "ctpcStatEventHistory",
+    "oid": "1.3.6.1.4.1.9.9.644.1.5",
+    "class": "objectidentity"
+  },
+  "ctpcMgmtSysConnEventHistory": {
+    "name": "ctpcMgmtSysConnEventHistory",
+    "oid": "1.3.6.1.4.1.9.9.644.1.6",
+    "class": "objectidentity"
+  },
+  "ctpcStatNotifyEnable": {
+    "name": "ctpcStatNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.644.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctpcMgmtSysConnNotifyEnable": {
+    "name": "ctpcMgmtSysConnNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.644.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctpcLocalAddrType": {
+    "name": "ctpcLocalAddrType",
+    "oid": "1.3.6.1.4.1.9.9.644.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcLocalAddr": {
+    "name": "ctpcLocalAddr",
+    "oid": "1.3.6.1.4.1.9.9.644.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcLocalDirNumTable": {
+    "name": "ctpcLocalDirNumTable",
+    "oid": "1.3.6.1.4.1.9.9.644.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpcLocalDirNumEntry": {
+    "name": "ctpcLocalDirNumEntry",
+    "oid": "1.3.6.1.4.1.9.9.644.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcLocalDirNumIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctpcLocalDirNumIndex": {
+    "name": "ctpcLocalDirNumIndex",
+    "oid": "1.3.6.1.4.1.9.9.644.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpcLocalDirNum": {
+    "name": "ctpcLocalDirNum",
+    "oid": "1.3.6.1.4.1.9.9.644.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpcE164Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcExtNumberMask": {
+    "name": "ctpcExtNumberMask",
+    "oid": "1.3.6.1.4.1.9.9.644.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcMode": {
+    "name": "ctpcMode",
+    "oid": "1.3.6.1.4.1.9.9.644.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noMgmtSys": 1,
+          "mgmtSys": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcActiveMgmtSysIndex": {
+    "name": "ctpcActiveMgmtSysIndex",
+    "oid": "1.3.6.1.4.1.9.9.644.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcMgmtSysTable": {
+    "name": "ctpcMgmtSysTable",
+    "oid": "1.3.6.1.4.1.9.9.644.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpcMgmtSysEntry": {
+    "name": "ctpcMgmtSysEntry",
+    "oid": "1.3.6.1.4.1.9.9.644.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMgmtSysIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctpcMgmtSysIndex": {
+    "name": "ctpcMgmtSysIndex",
+    "oid": "1.3.6.1.4.1.9.9.644.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpcMgmtSysAddrType": {
+    "name": "ctpcMgmtSysAddrType",
+    "oid": "1.3.6.1.4.1.9.9.644.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcMgmtSysAddr": {
+    "name": "ctpcMgmtSysAddr",
+    "oid": "1.3.6.1.4.1.9.9.644.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcMgmtSysConnStatus": {
+    "name": "ctpcMgmtSysConnStatus",
+    "oid": "1.3.6.1.4.1.9.9.644.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpcMgmtSysConnStatusCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcMgmtSysSIPRespCode": {
+    "name": "ctpcMgmtSysSIPRespCode",
+    "oid": "1.3.6.1.4.1.9.9.644.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcTxDscpTelepresenceConfigured": {
+    "name": "ctpcTxDscpTelepresenceConfigured",
+    "oid": "1.3.6.1.4.1.9.9.644.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcTxDscpAudioConfigured": {
+    "name": "ctpcTxDscpAudioConfigured",
+    "oid": "1.3.6.1.4.1.9.9.644.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcStatMonitoredTable": {
+    "name": "ctpcStatMonitoredTable",
+    "oid": "1.3.6.1.4.1.9.9.644.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpcStatMonitoredEntry": {
+    "name": "ctpcStatMonitoredEntry",
+    "oid": "1.3.6.1.4.1.9.9.644.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatMonitoredType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatMonitoredStreamType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctpcStatMonitoredType": {
+    "name": "ctpcStatMonitoredType",
+    "oid": "1.3.6.1.4.1.9.9.644.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpcStatMonitoredAttribute",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpcStatMonitoredStreamType": {
+    "name": "ctpcStatMonitoredStreamType",
+    "oid": "1.3.6.1.4.1.9.9.644.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 0,
+          "video": 1,
+          "audio": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpcStatMonitoredUnit": {
+    "name": "ctpcStatMonitoredUnit",
+    "oid": "1.3.6.1.4.1.9.9.644.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpcStatMonitoredAttributeUnit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcStatRisingThreshold": {
+    "name": "ctpcStatRisingThreshold",
+    "oid": "1.3.6.1.4.1.9.9.644.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctpcStatFallingThreshold": {
+    "name": "ctpcStatFallingThreshold",
+    "oid": "1.3.6.1.4.1.9.9.644.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctpcStatStartupAlarm": {
+    "name": "ctpcStatStartupAlarm",
+    "oid": "1.3.6.1.4.1.9.9.644.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpcStatAlarmMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "risingOrFallingAlarm",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctpcStatMonitoredStatus": {
+    "name": "ctpcStatMonitoredStatus",
+    "oid": "1.3.6.1.4.1.9.9.644.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctpcStatOverallCalls": {
+    "name": "ctpcStatOverallCalls",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcStatOverallCallTime": {
+    "name": "ctpcStatOverallCallTime",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcStatTotalCalls": {
+    "name": "ctpcStatTotalCalls",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcStatTotalCallTime": {
+    "name": "ctpcStatTotalCallTime",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcSamplePeriod": {
+    "name": "ctpcSamplePeriod",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctpcTableSize": {
+    "name": "ctpcTableSize",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctpcTableLastIndex": {
+    "name": "ctpcTableLastIndex",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcTable": {
+    "name": "ctpcTable",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpcEntry": {
+    "name": "ctpcEntry",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctpcIndex": {
+    "name": "ctpcIndex",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpcRemoteDirNum": {
+    "name": "ctpcRemoteDirNum",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpcE164Address",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctpcLocalSIPCallId": {
+    "name": "ctpcLocalSIPCallId",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcTxDestAddrType": {
+    "name": "ctpcTxDestAddrType",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcTxDestAddr": {
+    "name": "ctpcTxDestAddr",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcStartDateAndTime": {
+    "name": "ctpcStartDateAndTime",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcDuration": {
+    "name": "ctpcDuration",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcType": {
+    "name": "ctpcType",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "audioVideo": 1,
+          "audioOnly": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctpcSecurity": {
+    "name": "ctpcSecurity",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonSecured": 1,
+          "authenticated": 2,
+          "secured": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctpcDirection": {
+    "name": "ctpcDirection",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "incoming": 1,
+          "outgoing": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcState": {
+    "name": "ctpcState",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpcStateCode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctpcInitialBitRate": {
+    "name": "ctpcInitialBitRate",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctpcLatestBitRate": {
+    "name": "ctpcLatestBitRate",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRowStatus": {
+    "name": "ctpcRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctpcAttributes": {
+    "name": "ctpcAttributes",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpcAttributes",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRemoteDevice": {
+    "name": "ctpcRemoteDevice",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.8.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpcRemoteDeviceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcCallTermReason": {
+    "name": "ctpcCallTermReason",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.8.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpcCallTerminationCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcStatStreamTypeTable": {
+    "name": "ctpcStatStreamTypeTable",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpcStatStreamTypeEntry": {
+    "name": "ctpcStatStreamTypeEntry",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStreamType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctpcStreamType": {
+    "name": "ctpcStreamType",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpcStreamMediaType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpcAvgPeriodLatency": {
+    "name": "ctpcAvgPeriodLatency",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcAvgCallLatency": {
+    "name": "ctpcAvgCallLatency",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcMaxPeriodLatency": {
+    "name": "ctpcMaxPeriodLatency",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcMaxCallLatency": {
+    "name": "ctpcMaxCallLatency",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcMaxCallLatencyRecTime": {
+    "name": "ctpcMaxCallLatencyRecTime",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcMediaSrcPort": {
+    "name": "ctpcMediaSrcPort",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcMediaDestPort": {
+    "name": "ctpcMediaDestPort",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxDscpCurrent": {
+    "name": "ctpcRxDscpCurrent",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxDscpPrevious": {
+    "name": "ctpcRxDscpPrevious",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxCoSCurrent": {
+    "name": "ctpcRxCoSCurrent",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosLayer2Cos",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxCoSPrevious": {
+    "name": "ctpcRxCoSPrevious",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosLayer2Cos",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcStatStreamSourceTable": {
+    "name": "ctpcStatStreamSourceTable",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpcStatStreamSourceEntry": {
+    "name": "ctpcStatStreamSourceEntry",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStreamType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStreamSource",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctpcStreamSource": {
+    "name": "ctpcStreamSource",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpcStreamSourceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpcTxActive": {
+    "name": "ctpcTxActive",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcTxTotalBytes": {
+    "name": "ctpcTxTotalBytes",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcTxTotalPackets": {
+    "name": "ctpcTxTotalPackets",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcTxLostPackets": {
+    "name": "ctpcTxLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcTxPeriodLostPackets": {
+    "name": "ctpcTxPeriodLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "units": "micropercent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcTxCallLostPackets": {
+    "name": "ctpcTxCallLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "units": "micropercent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcTxIDRPackets": {
+    "name": "ctpcTxIDRPackets",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcTxShapingWindow": {
+    "name": "ctpcTxShapingWindow",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxActive": {
+    "name": "ctpcRxActive",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxTotalBytes": {
+    "name": "ctpcRxTotalBytes",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxTotalPackets": {
+    "name": "ctpcRxTotalPackets",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxLostPackets": {
+    "name": "ctpcRxLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxPeriodLostPackets": {
+    "name": "ctpcRxPeriodLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "units": "micropercent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxCallLostPackets": {
+    "name": "ctpcRxCallLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "units": "micropercent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxOutOfOrderPackets": {
+    "name": "ctpcRxOutOfOrderPackets",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxDuplicatePackets": {
+    "name": "ctpcRxDuplicatePackets",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxLatePackets": {
+    "name": "ctpcRxLatePackets",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxIDRPackets": {
+    "name": "ctpcRxIDRPackets",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxShapingWindow": {
+    "name": "ctpcRxShapingWindow",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxCallAuthFailure": {
+    "name": "ctpcRxCallAuthFailure",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcAvgPeriodJitter": {
+    "name": "ctpcAvgPeriodJitter",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcAvgCallJitter": {
+    "name": "ctpcAvgCallJitter",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcMaxPeriodJitter": {
+    "name": "ctpcMaxPeriodJitter",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcMaxCallJitter": {
+    "name": "ctpcMaxCallJitter",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcMaxCallJitterRecTime": {
+    "name": "ctpcMaxCallJitterRecTime",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcTxCodec": {
+    "name": "ctpcTxCodec",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpcCodecType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcTxFrameRate": {
+    "name": "ctpcTxFrameRate",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "millifps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxCodec": {
+    "name": "ctpcRxCodec",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpcCodecType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxFrameRate": {
+    "name": "ctpcRxFrameRate",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "millifps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcTxVideoHorzPixels": {
+    "name": "ctpcTxVideoHorzPixels",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "pixels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcTxVideoVertPixels": {
+    "name": "ctpcTxVideoVertPixels",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "pixels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxVideoHorzPixels": {
+    "name": "ctpcRxVideoHorzPixels",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "pixels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxVideoVertPixels": {
+    "name": "ctpcRxVideoVertPixels",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "pixels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcTxCallBitRate": {
+    "name": "ctpcTxCallBitRate",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcTxPeriodBitRate": {
+    "name": "ctpcTxPeriodBitRate",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxCallBitRate": {
+    "name": "ctpcRxCallBitRate",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxPeriodBitRate": {
+    "name": "ctpcRxPeriodBitRate",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxMaxPeriodLostPackets": {
+    "name": "ctpcRxMaxPeriodLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "units": "micropercent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxMaxCallLostPackets": {
+    "name": "ctpcRxMaxCallLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "units": "micropercent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcRxMaxCallLostPacketsRecTime": {
+    "name": "ctpcRxMaxCallLostPacketsRecTime",
+    "oid": "1.3.6.1.4.1.9.9.644.1.4.10.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcStatEventHistTableSize": {
+    "name": "ctpcStatEventHistTableSize",
+    "oid": "1.3.6.1.4.1.9.9.644.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctpcStatEventHistLastIndex": {
+    "name": "ctpcStatEventHistLastIndex",
+    "oid": "1.3.6.1.4.1.9.9.644.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcStatEventHistoryTable": {
+    "name": "ctpcStatEventHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.644.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpcStatEventHistoryEntry": {
+    "name": "ctpcStatEventHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.644.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatEventHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctpcStatEventHistoryIndex": {
+    "name": "ctpcStatEventHistoryIndex",
+    "oid": "1.3.6.1.4.1.9.9.644.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpcStatEventMonObjectInst": {
+    "name": "ctpcStatEventMonObjectInst",
+    "oid": "1.3.6.1.4.1.9.9.644.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcStatEventCrossedValue": {
+    "name": "ctpcStatEventCrossedValue",
+    "oid": "1.3.6.1.4.1.9.9.644.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcStatEventCrossedType": {
+    "name": "ctpcStatEventCrossedType",
+    "oid": "1.3.6.1.4.1.9.9.644.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpcStatThreshCrossedType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcStatEventTimeStamp": {
+    "name": "ctpcStatEventTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.644.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcMgmtSysConnEventHistTableSize": {
+    "name": "ctpcMgmtSysConnEventHistTableSize",
+    "oid": "1.3.6.1.4.1.9.9.644.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctpcMgmtSysConnEventHistLastIndex": {
+    "name": "ctpcMgmtSysConnEventHistLastIndex",
+    "oid": "1.3.6.1.4.1.9.9.644.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcMgmtSysConnEventHistoryTable": {
+    "name": "ctpcMgmtSysConnEventHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.644.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpcMgmtSysConnEventHistoryEntry": {
+    "name": "ctpcMgmtSysConnEventHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.644.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMgmtSysConnEventHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctpcMgmtSysConnEventHistoryIndex": {
+    "name": "ctpcMgmtSysConnEventHistoryIndex",
+    "oid": "1.3.6.1.4.1.9.9.644.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctpcMgmtSysConnEventStatus": {
+    "name": "ctpcMgmtSysConnEventStatus",
+    "oid": "1.3.6.1.4.1.9.9.644.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtpcMgmtSysConnStatusCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcMgmtSysConnEventSIPRespCode": {
+    "name": "ctpcMgmtSysConnEventSIPRespCode",
+    "oid": "1.3.6.1.4.1.9.9.644.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcMgmtSysConnEventTimeStamp": {
+    "name": "ctpcMgmtSysConnEventTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.644.1.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctpcMgmtSysConnFailNotification": {
+    "name": "ctpcMgmtSysConnFailNotification",
+    "oid": "1.3.6.1.4.1.9.9.644.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMgmtSysAddrType"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMgmtSysAddr"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ctpcStatNotificaion": {
+    "name": "ctpcStatNotificaion",
+    "oid": "1.3.6.1.4.1.9.9.644.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatEventMonObjectInst"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatEventCrossedValue"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatEventCrossedType"
+      }
+    ],
+    "status": "current"
+  },
+  "ctpcMgmtSysConnEventNotification": {
+    "name": "ctpcMgmtSysConnEventNotification",
+    "oid": "1.3.6.1.4.1.9.9.644.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMgmtSysAddrType"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMgmtSysAddr"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMgmtSysConnStatus"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMgmtSysSIPRespCode"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTpCallMIBCompliances": {
+    "name": "ciscoTpCallMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.644.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoTpCallMIBGroups": {
+    "name": "ciscoTpCallMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.644.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoTpCallMIBCompliance": {
+    "name": "ciscoTpCallMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.644.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoTpCallInformationGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallStatisticsGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallConfigurationGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallEventHistoryGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTpCallMIBComplianceRev1": {
+    "name": "ciscoTpCallMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.644.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoTpCallInformationGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallInformationGroupSup1",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallStatisticsGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallStatisticsGroupSup1",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallConfigurationGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallEventHistoryGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallMgmtSysConnEventHistGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTpCallMIBComplianceRev2": {
+    "name": "ciscoTpCallMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.644.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoTpCallInformationGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallInformationGroupSup1",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallStatisticsGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallStatisticsGroupSup1",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallStatisticsGroupSup2",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallConfigurationGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallEventHistoryGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallMgmtSysConnEventHistGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallNotificationGroupRev1",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTpCallMIBComplianceRev3": {
+    "name": "ciscoTpCallMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.644.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoTpCallInformationGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallInformationGroupSup1",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallStatisticsGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallStatisticsGroupSup1",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallStatisticsGroupSup2",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallStatisticsGroupSup3",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallConfigurationGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallEventHistoryGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallMgmtSysConnEventHistGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTpCallMIBComplianceRev4": {
+    "name": "ciscoTpCallMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.644.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoTpCallInformationGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallInformationGroupSup1",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallInformationGroupSup2",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallStatisticsGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallStatisticsGroupSup1",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallStatisticsGroupSup2",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallStatisticsGroupSup3",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallConfigurationGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallEventHistoryGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallMgmtSysConnEventHistGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTpCallMIBComplianceRev5": {
+    "name": "ciscoTpCallMIBComplianceRev5",
+    "oid": "1.3.6.1.4.1.9.9.644.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoTpCallInformationGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallInformationGroupSup1",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallInformationGroupSup2",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallStatisticsGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallStatisticsGroupSup1",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallStatisticsGroupSup2",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallStatisticsGroupSup3",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallNotificationGroupRev1",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallConfigurationGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallEventHistoryGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      },
+      {
+        "object": "ciscoTpCallMgmtSysConnEventHistGroup",
+        "module": "CISCO-TELEPRESENCE-CALL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTpCallConfigurationGroup": {
+    "name": "ciscoTpCallConfigurationGroup",
+    "oid": "1.3.6.1.4.1.9.9.644.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatNotifyEnable"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMgmtSysConnNotifyEnable"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatMonitoredUnit"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatRisingThreshold"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatFallingThreshold"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatStartupAlarm"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatMonitoredStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTpCallInformationGroup": {
+    "name": "ciscoTpCallInformationGroup",
+    "oid": "1.3.6.1.4.1.9.9.644.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcLocalDirNum"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcLocalAddrType"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcLocalAddr"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcActiveMgmtSysIndex"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMode"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMgmtSysAddrType"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMgmtSysAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTpCallStatisticsGroup": {
+    "name": "ciscoTpCallStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.644.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatOverallCalls"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatOverallCallTime"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatTotalCalls"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatTotalCallTime"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcSamplePeriod"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcTableSize"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcTableLastIndex"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRemoteDirNum"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcLocalSIPCallId"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcTxDestAddrType"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcTxDestAddr"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStartDateAndTime"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcDuration"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcType"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcSecurity"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcDirection"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcState"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcInitialBitRate"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcLatestBitRate"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRowStatus"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcAvgPeriodLatency"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcAvgCallLatency"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMaxPeriodLatency"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMaxCallLatency"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMaxCallLatencyRecTime"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcTxActive"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcTxTotalBytes"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcTxTotalPackets"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcTxLostPackets"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcTxPeriodLostPackets"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcTxCallLostPackets"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcTxIDRPackets"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcTxShapingWindow"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxActive"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxTotalBytes"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxTotalPackets"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxLostPackets"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxPeriodLostPackets"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxCallLostPackets"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxOutOfOrderPackets"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxDuplicatePackets"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxLatePackets"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxIDRPackets"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxShapingWindow"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxCallAuthFailure"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcAvgPeriodJitter"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcAvgCallJitter"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMaxPeriodJitter"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMaxCallJitter"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMaxCallJitterRecTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTpCallEventHistoryGroup": {
+    "name": "ciscoTpCallEventHistoryGroup",
+    "oid": "1.3.6.1.4.1.9.9.644.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatEventHistTableSize"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatEventHistLastIndex"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatEventMonObjectInst"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatEventCrossedValue"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatEventCrossedType"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatEventTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTpCallNotificationGroup": {
+    "name": "ciscoTpCallNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.644.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMgmtSysConnFailNotification"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatNotificaion"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoTpCallMgmtSysConnEventHistGroup": {
+    "name": "ciscoTpCallMgmtSysConnEventHistGroup",
+    "oid": "1.3.6.1.4.1.9.9.644.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMgmtSysConnEventHistTableSize"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMgmtSysConnEventHistLastIndex"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMgmtSysConnEventStatus"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMgmtSysConnEventSIPRespCode"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMgmtSysConnEventTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTpCallInformationGroupSup1": {
+    "name": "ciscoTpCallInformationGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.644.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMgmtSysConnStatus"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMgmtSysSIPRespCode"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTpCallStatisticsGroupSup1": {
+    "name": "ciscoTpCallStatisticsGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.644.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcAttributes"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRemoteDevice"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcTxCodec"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcTxFrameRate"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxCodec"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxFrameRate"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTpCallNotificationGroupRev1": {
+    "name": "ciscoTpCallNotificationGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.644.2.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMgmtSysConnEventNotification"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcStatNotificaion"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTpCallStatisticsGroupSup2": {
+    "name": "ciscoTpCallStatisticsGroupSup2",
+    "oid": "1.3.6.1.4.1.9.9.644.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcCallTermReason"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMediaSrcPort"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcMediaDestPort"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxVideoHorzPixels"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxVideoVertPixels"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcTxVideoHorzPixels"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcTxVideoVertPixels"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTpCallStatisticsGroupSup3": {
+    "name": "ciscoTpCallStatisticsGroupSup3",
+    "oid": "1.3.6.1.4.1.9.9.644.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcTxCallBitRate"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcTxPeriodBitRate"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxCallBitRate"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxPeriodBitRate"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxMaxPeriodLostPackets"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxMaxCallLostPackets"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxMaxCallLostPacketsRecTime"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcTxDscpTelepresenceConfigured"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcTxDscpAudioConfigured"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxDscpCurrent"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxDscpPrevious"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxCoSCurrent"
+      },
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcRxCoSPrevious"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTpCallInformationGroupSup2": {
+    "name": "ciscoTpCallInformationGroupSup2",
+    "oid": "1.3.6.1.4.1.9.9.644.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "object": "ctpcExtNumberMask"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-TELEPRESENCE-CALL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-TELEPRESENCE-CALL-MIB"
+  }
+}

@@ -1,0 +1,777 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoCableMeteringMIB": {
+    "name": "ciscoCableMeteringMIB",
+    "oid": "1.3.6.1.4.1.9.9.424",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-10-13 00:00",
+        "description": "Added a new enum type ipdr to ccmtrCollectionType."
+      },
+      {
+        "revision": "2009-05-18 00:00",
+        "description": "Deprecated ccmtrCollectionInterval. Deprecated ciscoCableMeteringCompliance and added ciscoCableMeteringComplianceRev1 to replace it. Deprecated ccmtrMeteringObjGroup. Added the following new objects: ccmtrCollectionSrcIfIndex ccmtrCollectionRevInterval ccmtrCollectionDataPerSession ccmtrCollectionDataTimer Added the following new OBJECT-GROUP: ccmtrMeteringObjGroupRev1 ccmtrMeteringSrcIntfObjGroup ccmtrMeteringRateCtrlObjGroup"
+      },
+      {
+        "revision": "2004-03-30 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "CcmtrStatus": {
+    "name": "CcmtrStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "success": 2,
+          "deviceFull": 3,
+          "writeError": 4,
+          "fileNotExist": 5,
+          "connectionTimeout": 6,
+          "dataIncomplete": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CcmtrCollectionServer": {
+    "name": "CcmtrCollectionServer",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoCableMeteringMIBNotifs": {
+    "name": "ciscoCableMeteringMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.424.0",
+    "class": "objectidentity"
+  },
+  "ciscoCableMeteringMIBObjects": {
+    "name": "ciscoCableMeteringMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.424.1",
+    "class": "objectidentity"
+  },
+  "ccmtrMeteringConfig": {
+    "name": "ccmtrMeteringConfig",
+    "oid": "1.3.6.1.4.1.9.9.424.1.1",
+    "class": "objectidentity"
+  },
+  "ccmtrMetering": {
+    "name": "ccmtrMetering",
+    "oid": "1.3.6.1.4.1.9.9.424.1.2",
+    "class": "objectidentity"
+  },
+  "ccmtrCollectionType": {
+    "name": "ccmtrCollectionType",
+    "oid": "1.3.6.1.4.1.9.9.424.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "local": 2,
+          "stream": 3,
+          "ipdr": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmtrCollectionFilesystem": {
+    "name": "ccmtrCollectionFilesystem",
+    "oid": "1.3.6.1.4.1.9.9.424.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmtrCollectionTable": {
+    "name": "ccmtrCollectionTable",
+    "oid": "1.3.6.1.4.1.9.9.424.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmtrCollectionEntry": {
+    "name": "ccmtrCollectionEntry",
+    "oid": "1.3.6.1.4.1.9.9.424.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmtrCollectionID": {
+    "name": "ccmtrCollectionID",
+    "oid": "1.3.6.1.4.1.9.9.424.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcmtrCollectionServer",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmtrCollectionIpAddrType": {
+    "name": "ccmtrCollectionIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.424.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccmtrCollectionIpAddress": {
+    "name": "ccmtrCollectionIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.424.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccmtrCollectionPort": {
+    "name": "ccmtrCollectionPort",
+    "oid": "1.3.6.1.4.1.9.9.424.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccmtrCollectionRowStatus": {
+    "name": "ccmtrCollectionRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.424.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccmtrCollectionInterval": {
+    "name": "ccmtrCollectionInterval",
+    "oid": "1.3.6.1.4.1.9.9.424.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 15,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ccmtrCollectionRetries": {
+    "name": "ccmtrCollectionRetries",
+    "oid": "1.3.6.1.4.1.9.9.424.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmtrCollectionSecure": {
+    "name": "ccmtrCollectionSecure",
+    "oid": "1.3.6.1.4.1.9.9.424.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmtrCollectionCpeList": {
+    "name": "ccmtrCollectionCpeList",
+    "oid": "1.3.6.1.4.1.9.9.424.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmtrCollectionAggregate": {
+    "name": "ccmtrCollectionAggregate",
+    "oid": "1.3.6.1.4.1.9.9.424.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmtrCollectionSrcIfIndex": {
+    "name": "ccmtrCollectionSrcIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.424.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmtrCollectionRevInterval": {
+    "name": "ccmtrCollectionRevInterval",
+    "oid": "1.3.6.1.4.1.9.9.424.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmtrCollectionDataPerSession": {
+    "name": "ccmtrCollectionDataPerSession",
+    "oid": "1.3.6.1.4.1.9.9.424.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmtrCollectionDataTimer": {
+    "name": "ccmtrCollectionDataTimer",
+    "oid": "1.3.6.1.4.1.9.9.424.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmtrCollectionStatus": {
+    "name": "ccmtrCollectionStatus",
+    "oid": "1.3.6.1.4.1.9.9.424.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcmtrStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmtrCollectionDestination": {
+    "name": "ccmtrCollectionDestination",
+    "oid": "1.3.6.1.4.1.9.9.424.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmtrCollectionTimestamp": {
+    "name": "ccmtrCollectionTimestamp",
+    "oid": "1.3.6.1.4.1.9.9.424.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmtrMeteringNotifEnable": {
+    "name": "ccmtrMeteringNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.424.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmtrCollectionNotification": {
+    "name": "ccmtrCollectionNotification",
+    "oid": "1.3.6.1.4.1.9.9.424.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionStatus"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionDestination"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCableMeteringMIBConformance": {
+    "name": "ciscoCableMeteringMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.424.3",
+    "class": "objectidentity"
+  },
+  "ciscoCableMeteringMIBCompliances": {
+    "name": "ciscoCableMeteringMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.424.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoCableMeteringMIBGroups": {
+    "name": "ciscoCableMeteringMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.424.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoCableMeteringCompliance": {
+    "name": "ciscoCableMeteringCompliance",
+    "oid": "1.3.6.1.4.1.9.9.424.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccmtrMeteringObjGroup",
+        "module": "CISCO-CABLE-METERING-MIB"
+      },
+      {
+        "object": "ccmtrMeteringNotifCtrlGroup",
+        "module": "CISCO-CABLE-METERING-MIB"
+      },
+      {
+        "object": "ccmtrMeteringNotifGroup",
+        "module": "CISCO-CABLE-METERING-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCableMeteringComplianceRev1": {
+    "name": "ciscoCableMeteringComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.424.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccmtrMeteringNotifCtrlGroup",
+        "module": "CISCO-CABLE-METERING-MIB"
+      },
+      {
+        "object": "ccmtrMeteringNotifGroup",
+        "module": "CISCO-CABLE-METERING-MIB"
+      },
+      {
+        "object": "ccmtrMeteringObjGroupRev1",
+        "module": "CISCO-CABLE-METERING-MIB"
+      },
+      {
+        "object": "ccmtrMeteringSrcIntfObjGroup",
+        "module": "CISCO-CABLE-METERING-MIB"
+      },
+      {
+        "object": "ccmtrMeteringRateCtrlObjGroup",
+        "module": "CISCO-CABLE-METERING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmtrMeteringObjGroup": {
+    "name": "ccmtrMeteringObjGroup",
+    "oid": "1.3.6.1.4.1.9.9.424.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionType"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionFilesystem"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionIpAddrType"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionIpAddress"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionPort"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionInterval"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionRetries"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionSecure"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionRowStatus"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionCpeList"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionAggregate"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionStatus"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionDestination"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionTimestamp"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ccmtrMeteringNotifCtrlGroup": {
+    "name": "ccmtrMeteringNotifCtrlGroup",
+    "oid": "1.3.6.1.4.1.9.9.424.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrMeteringNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmtrMeteringNotifGroup": {
+    "name": "ccmtrMeteringNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.424.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmtrMeteringObjGroupRev1": {
+    "name": "ccmtrMeteringObjGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.424.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionType"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionFilesystem"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionIpAddrType"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionIpAddress"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionPort"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionRowStatus"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionRetries"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionSecure"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionCpeList"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionAggregate"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionRevInterval"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionStatus"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionDestination"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmtrMeteringSrcIntfObjGroup": {
+    "name": "ccmtrMeteringSrcIntfObjGroup",
+    "oid": "1.3.6.1.4.1.9.9.424.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionSrcIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmtrMeteringRateCtrlObjGroup": {
+    "name": "ccmtrMeteringRateCtrlObjGroup",
+    "oid": "1.3.6.1.4.1.9.9.424.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionDataPerSession"
+      },
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "object": "ccmtrCollectionDataTimer"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CABLE-METERING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CABLE-METERING-MIB"
+  }
+}

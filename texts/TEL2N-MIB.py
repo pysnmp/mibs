@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module TEL2N-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2n/TEL2N-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:15:52 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:15:35 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, NotificationType, MibIdentifier, iso, enterprises, TimeTicks, Counter32, Bits, Counter64, Gauge32, ModuleIdentity, IpAddress, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "NotificationType", "MibIdentifier", "iso", "enterprises", "TimeTicks", "Counter32", "Bits", "Counter64", "Gauge32", "ModuleIdentity", "IpAddress", "Unsigned32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Counter32, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Counter64, IpAddress, iso, ObjectIdentity, MibIdentifier, ModuleIdentity, Integer32, NotificationType, Bits, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Counter64", "IpAddress", "iso", "ObjectIdentity", "MibIdentifier", "ModuleIdentity", "Integer32", "NotificationType", "Bits", "enterprises")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 tel2n = ModuleIdentity((1, 3, 6, 1, 4, 1, 6530))
 tel2n.setRevisions(('2015-05-01 10:57',))
 
@@ -57,4 +57,4 @@ if mibBuilder.loadTexts: hipRegistrationAt.setDescription('Registrar IP address'
 hipRegistrationTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6530, 11, 6, 1, 5), TimeTicks()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: hipRegistrationTime.setStatus('current')
 if mibBuilder.loadTexts: hipRegistrationTime.setDescription('Registration time')
-mibBuilder.exportSymbols("TEL2N-MIB", hipState=hipState, hipSipEntry=hipSipEntry, hipSipTable=hipSipTable, hipBootVersion=hipBootVersion, hipVersion=hipVersion, hipRegistrationAt=hipRegistrationAt, heliosip=heliosip, tel2n=tel2n, hipProductName=hipProductName, hipIndex=hipIndex, hipRegistrationTime=hipRegistrationTime, PYSNMP_MODULE_ID=tel2n, hipHwVersion=hipHwVersion, hipPhoneNumber=hipPhoneNumber, hipSerial=hipSerial)
+mibBuilder.exportSymbols("TEL2N-MIB", heliosip=heliosip, hipHwVersion=hipHwVersion, hipSipTable=hipSipTable, hipVersion=hipVersion, tel2n=tel2n, PYSNMP_MODULE_ID=tel2n, hipBootVersion=hipBootVersion, hipPhoneNumber=hipPhoneNumber, hipProductName=hipProductName, hipRegistrationAt=hipRegistrationAt, hipState=hipState, hipIndex=hipIndex, hipRegistrationTime=hipRegistrationTime, hipSerial=hipSerial, hipSipEntry=hipSipEntry)

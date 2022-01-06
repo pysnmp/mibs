@@ -1,0 +1,294 @@
+{
+  "imports": {
+    "class": "imports",
+    "BDCOM-SMI": [
+      "bdMgmt"
+    ],
+    "BDCOM-TC": [
+      "EntPhysicalIndexOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
+      "Gauge32",
+      "iso",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "bdcomProcessMIB": {
+    "name": "bdcomProcessMIB",
+    "oid": "1.3.6.1.4.1.3320.9.109",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-10-16 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "bdcomProcessMIBObjects": {
+    "name": "bdcomProcessMIBObjects",
+    "oid": "1.3.6.1.4.1.3320.9.109.1",
+    "class": "objectidentity"
+  },
+  "bdpmCPU": {
+    "name": "bdpmCPU",
+    "oid": "1.3.6.1.4.1.3320.9.109.1.1",
+    "class": "objectidentity"
+  },
+  "bdpmProcess": {
+    "name": "bdpmProcess",
+    "oid": "1.3.6.1.4.1.3320.9.109.1.2",
+    "class": "objectidentity"
+  },
+  "bdpmCPUTotalTable": {
+    "name": "bdpmCPUTotalTable",
+    "oid": "1.3.6.1.4.1.3320.9.109.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bdpmCPUTotalEntry": {
+    "name": "bdpmCPUTotalEntry",
+    "oid": "1.3.6.1.4.1.3320.9.109.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BDCOM-PROCESS-MIB",
+        "object": "bdpmCPUTotalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bdpmCPUTotalIndex": {
+    "name": "bdpmCPUTotalIndex",
+    "oid": "1.3.6.1.4.1.3320.9.109.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bdpmCPUTotalPhysicalIndex": {
+    "name": "bdpmCPUTotalPhysicalIndex",
+    "oid": "1.3.6.1.4.1.3320.9.109.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bdpmCPUTotal5sec": {
+    "name": "bdpmCPUTotal5sec",
+    "oid": "1.3.6.1.4.1.3320.9.109.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bdpmCPUTotal1min": {
+    "name": "bdpmCPUTotal1min",
+    "oid": "1.3.6.1.4.1.3320.9.109.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bdpmCPUTotal5min": {
+    "name": "bdpmCPUTotal5min",
+    "oid": "1.3.6.1.4.1.3320.9.109.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bdpmProcessTable": {
+    "name": "bdpmProcessTable",
+    "oid": "1.3.6.1.4.1.3320.9.109.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bdpmProcessEntry": {
+    "name": "bdpmProcessEntry",
+    "oid": "1.3.6.1.4.1.3320.9.109.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BDCOM-PROCESS-MIB",
+        "object": "bdpmCPUTotalIndex",
+        "implied": 0
+      },
+      {
+        "module": "BDCOM-PROCESS-MIB",
+        "object": "bdpmProcessPID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bdpmProcessPID": {
+    "name": "bdpmProcessPID",
+    "oid": "1.3.6.1.4.1.3320.9.109.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bdpmProcessName": {
+    "name": "bdpmProcessName",
+    "oid": "1.3.6.1.4.1.3320.9.109.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bdpmProcessPriority": {
+    "name": "bdpmProcessPriority",
+    "oid": "1.3.6.1.4.1.3320.9.109.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 0,
+          "veryhigh": 55,
+          "high": 60,
+          "normal": 128,
+          "low": 180,
+          "verylow": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bdpmProcessTimeCreated": {
+    "name": "bdpmProcessTimeCreated",
+    "oid": "1.3.6.1.4.1.3320.9.109.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bdcomProcessMIBNotifPrefix": {
+    "name": "bdcomProcessMIBNotifPrefix",
+    "oid": "1.3.6.1.4.1.3320.9.109.2",
+    "class": "objectidentity"
+  },
+  "bdcomProcessMIBNotifs": {
+    "name": "bdcomProcessMIBNotifs",
+    "oid": "1.3.6.1.4.1.3320.9.109.2.0",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bdcom/BDCOM-PROCESS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BDCOM-PROCESS-MIB"
+  }
+}

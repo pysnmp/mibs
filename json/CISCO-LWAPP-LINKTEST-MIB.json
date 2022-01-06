@@ -1,0 +1,867 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeInterval",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoLwappLinkTestMIB": {
+    "name": "ciscoLwappLinkTestMIB",
+    "oid": "1.3.6.1.4.1.9.9.516",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-04-06 00:00",
+        "description": "Initial version of this MIB module. "
+      }
+    ]
+  },
+  "ciscoLwappLinkTestMIBNotifs": {
+    "name": "ciscoLwappLinkTestMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.516.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappLinkTestMIBObjects": {
+    "name": "ciscoLwappLinkTestMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.516.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappLinkTestMIBConform": {
+    "name": "ciscoLwappLinkTestMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.516.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappLinkTestConfig": {
+    "name": "ciscoLwappLinkTestConfig",
+    "oid": "1.3.6.1.4.1.9.9.516.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappLinkTestRun": {
+    "name": "ciscoLwappLinkTestRun",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappLinkTestStatus": {
+    "name": "ciscoLwappLinkTestStatus",
+    "oid": "1.3.6.1.4.1.9.9.516.1.3",
+    "class": "objectidentity"
+  },
+  "cLLtResponder": {
+    "name": "cLLtResponder",
+    "oid": "1.3.6.1.4.1.9.9.516.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLLtPacketSize": {
+    "name": "cLLtPacketSize",
+    "oid": "1.3.6.1.4.1.9.9.516.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLLtNumberOfPackets": {
+    "name": "cLLtNumberOfPackets",
+    "oid": "1.3.6.1.4.1.9.9.516.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLLtTestPurgeTime": {
+    "name": "cLLtTestPurgeTime",
+    "oid": "1.3.6.1.4.1.9.9.516.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 15,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLLtClientLinkTestTable": {
+    "name": "cLLtClientLinkTestTable",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLLtClientLinkTestEntry": {
+    "name": "cLLtClientLinkTestEntry",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLLtClientLtIndex": {
+    "name": "cLLtClientLtIndex",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLLtClientLtMacAddress": {
+    "name": "cLLtClientLtMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLLtClientLtRowStatus": {
+    "name": "cLLtClientLtRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLLtClientLTResultsTable": {
+    "name": "cLLtClientLTResultsTable",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLLtClientLTResultsEntry": {
+    "name": "cLLtClientLTResultsEntry",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLLtClientLtPacketsSent": {
+    "name": "cLLtClientLtPacketsSent",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtPacketsRx": {
+    "name": "cLLtClientLtPacketsRx",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtTotalPacketsLost": {
+    "name": "cLLtClientLtTotalPacketsLost",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtApToClientPktsLost": {
+    "name": "cLLtClientLtApToClientPktsLost",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtClientToApPktsLost": {
+    "name": "cLLtClientLtClientToApPktsLost",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtMinRoundTripTime": {
+    "name": "cLLtClientLtMinRoundTripTime",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "units": "hundredths-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtMaxRoundTripTime": {
+    "name": "cLLtClientLtMaxRoundTripTime",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "units": "hundredths-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtAvgRoundTripTime": {
+    "name": "cLLtClientLtAvgRoundTripTime",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "units": "hundredths-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtUplinkMinRSSI": {
+    "name": "cLLtClientLtUplinkMinRSSI",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtUplinkMaxRSSI": {
+    "name": "cLLtClientLtUplinkMaxRSSI",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtUplinkAvgRSSI": {
+    "name": "cLLtClientLtUplinkAvgRSSI",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtDownlinkMinRSSI": {
+    "name": "cLLtClientLtDownlinkMinRSSI",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtDownlinkMaxRSSI": {
+    "name": "cLLtClientLtDownlinkMaxRSSI",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtDownlinkAvgRSSI": {
+    "name": "cLLtClientLtDownlinkAvgRSSI",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtUplinkMinSNR": {
+    "name": "cLLtClientLtUplinkMinSNR",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtUplinkMaxSNR": {
+    "name": "cLLtClientLtUplinkMaxSNR",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtUplinkAvgSNR": {
+    "name": "cLLtClientLtUplinkAvgSNR",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtDownlinkMinSNR": {
+    "name": "cLLtClientLtDownlinkMinSNR",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtDownlinkMaxSNR": {
+    "name": "cLLtClientLtDownlinkMaxSNR",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtDownlinkAvgSNR": {
+    "name": "cLLtClientLtDownlinkAvgSNR",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtTotalTxRetriesAP": {
+    "name": "cLLtClientLtTotalTxRetriesAP",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "retries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtMaxTxRetriesAP": {
+    "name": "cLLtClientLtMaxTxRetriesAP",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "retries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtTotalTxRetriesClient": {
+    "name": "cLLtClientLtTotalTxRetriesClient",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "retries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtMaxTxRetriesClient": {
+    "name": "cLLtClientLtMaxTxRetriesClient",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "retries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtStatus": {
+    "name": "cLLtClientLtStatus",
+    "oid": "1.3.6.1.4.1.9.9.516.1.2.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cLLtClientLtStatusFailed": 0,
+          "cLLtClientLtStatusCcxInProgress": 1,
+          "cLLtClientLtStatusPngInProgress": 2,
+          "cLLtClientLtStatusPingSuccess": 3,
+          "cLLtClientLtStatusCcxLtSuccess": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtDataRateTable": {
+    "name": "cLLtClientLtDataRateTable",
+    "oid": "1.3.6.1.4.1.9.9.516.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLLtClientLtDataRateEntry": {
+    "name": "cLLtClientLtDataRateEntry",
+    "oid": "1.3.6.1.4.1.9.9.516.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtDataRate",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLLtClientLtDataRate": {
+    "name": "cLLtClientLtDataRate",
+    "oid": "1.3.6.1.4.1.9.9.516.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLLtClientLtRateDownlinkPktsSent": {
+    "name": "cLLtClientLtRateDownlinkPktsSent",
+    "oid": "1.3.6.1.4.1.9.9.516.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLLtClientLtRateUplinkPktsSent": {
+    "name": "cLLtClientLtRateUplinkPktsSent",
+    "oid": "1.3.6.1.4.1.9.9.516.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoLwappLinkTestMIBCompliances": {
+    "name": "ciscoLwappLinkTestMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.516.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappLinkTestMIBGroups": {
+    "name": "ciscoLwappLinkTestMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.516.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappLinkTestMIBCompliance": {
+    "name": "ciscoLwappLinkTestMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.516.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cLLinkTestConfigGroup",
+        "module": "CISCO-LWAPP-LINKTEST-MIB"
+      },
+      {
+        "object": "cLLinkTestRunsGroup",
+        "module": "CISCO-LWAPP-LINKTEST-MIB"
+      },
+      {
+        "object": "cLLinkTestStatusGroup",
+        "module": "CISCO-LWAPP-LINKTEST-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cLLinkTestConfigGroup": {
+    "name": "cLLinkTestConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.516.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtResponder"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtPacketSize"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtNumberOfPackets"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtTestPurgeTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cLLinkTestRunsGroup": {
+    "name": "cLLinkTestRunsGroup",
+    "oid": "1.3.6.1.4.1.9.9.516.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtMacAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtPacketsSent"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtPacketsRx"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtTotalPacketsLost"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtApToClientPktsLost"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtClientToApPktsLost"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtMinRoundTripTime"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtMaxRoundTripTime"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtAvgRoundTripTime"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtUplinkMinRSSI"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtUplinkMaxRSSI"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtUplinkAvgRSSI"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtDownlinkMinRSSI"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtDownlinkMaxRSSI"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtDownlinkAvgRSSI"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtUplinkMinSNR"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtUplinkMaxSNR"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtUplinkAvgSNR"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtDownlinkMinSNR"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtDownlinkMaxSNR"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtDownlinkAvgSNR"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtTotalTxRetriesAP"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtMaxTxRetriesAP"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtTotalTxRetriesClient"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtMaxTxRetriesClient"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cLLinkTestStatusGroup": {
+    "name": "cLLinkTestStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.516.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtRateDownlinkPktsSent"
+      },
+      {
+        "module": "CISCO-LWAPP-LINKTEST-MIB",
+        "object": "cLLtClientLtRateUplinkPktsSent"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-LINKTEST-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-LINKTEST-MIB"
+  }
+}

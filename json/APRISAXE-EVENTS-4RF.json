@@ -1,0 +1,1268 @@
+{
+  "imports": {
+    "class": "imports",
+    "APRISAXE-MIB-4RF": [
+      "aprisaXEEvents",
+      "aprisaXEObjects"
+    ],
+    "APRISAXE-TC-4RF": [
+      "AprisaXEAlarmType",
+      "AprisaXESlotNumber",
+      "AprisaXECardType",
+      "AprisaXEPortNumber",
+      "AprisaXEDataStatus"
+    ],
+    "COMMON-TC-4RF": [
+      "FourRFAlarmSeverity",
+      "FourRFImageVersion",
+      "FourRFHardwareVersion",
+      "FourRFAlarmStatus",
+      "FourRFAlarmEnabled",
+      "FourRFAlarmPresent"
+    ],
+    "MIB-4RF": [
+      "fourRFModules"
+    ],
+    "PRODUCTS-MIB-4RF": [
+      "fourRFAprisaXE"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "iso",
+      "Bits",
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "aprisaXE4RFEventModule": {
+    "name": "aprisaXE4RFEventModule",
+    "oid": "1.3.6.1.4.1.14817.2.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-04-30 00:00",
+        "description": "Second draft"
+      },
+      {
+        "revision": "2004-11-30 03:34",
+        "description": "First draft"
+      }
+    ]
+  },
+  "aprisaXEEventValues": {
+    "name": "aprisaXEEventValues",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.2.1000",
+    "class": "objectidentity"
+  },
+  "aprisaXEEventAlarmStatus": {
+    "name": "aprisaXEEventAlarmStatus",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.2.1000.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FourRFAlarmPresent",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aprisaXEEventAlarmSeverity": {
+    "name": "aprisaXEEventAlarmSeverity",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.2.1000.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FourRFAlarmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aprisaXEEventAlarmValue": {
+    "name": "aprisaXEEventAlarmValue",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.2.1000.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aprisaXEEventAlarmThreshold": {
+    "name": "aprisaXEEventAlarmThreshold",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.2.1000.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aprisaXEEventAlarmType": {
+    "name": "aprisaXEEventAlarmType",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.2.1000.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AprisaXEAlarmType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aprisaXEEventCardExpected": {
+    "name": "aprisaXEEventCardExpected",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.2.1000.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AprisaXECardType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aprisaXEEventCardInstalled": {
+    "name": "aprisaXEEventCardInstalled",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.2.1000.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AprisaXECardType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aprisaXEEventCardSlot": {
+    "name": "aprisaXEEventCardSlot",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.2.1000.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AprisaXESlotNumber",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aprisaXEEventCardStatus": {
+    "name": "aprisaXEEventCardStatus",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.2.1000.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FourRFAlarmPresent",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aprisaXEEventCardPort": {
+    "name": "aprisaXEEventCardPort",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.2.1000.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AprisaXEPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aprisaXEEventCharacterisationStatus": {
+    "name": "aprisaXEEventCharacterisationStatus",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.2.1000.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AprisaXEDataStatus",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aprisaXEEventMibStatus": {
+    "name": "aprisaXEEventMibStatus",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.2.1000.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AprisaXEDataStatus",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aprisaXELinkAlarmsEvents": {
+    "name": "aprisaXELinkAlarmsEvents",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aprisaXELinkAlarmsEventsV2": {
+    "name": "aprisaXELinkAlarmsEventsV2",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aprisaXEThresholdAlarmEvent": {
+    "name": "aprisaXEThresholdAlarmEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmSeverity"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmValue"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmThreshold"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmType"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXERxSynthOutOfLockAlarmEvent": {
+    "name": "aprisaXERxSynthOutOfLockAlarmEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEAlarmRxCDataEvent": {
+    "name": "aprisaXEAlarmRxCDataEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCharacterisationStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEAlarmRx12VStatusEvent": {
+    "name": "aprisaXEAlarmRx12VStatusEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEAlarmRxOffEvent": {
+    "name": "aprisaXEAlarmRxOffEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEAlarmRxBadMibEvent": {
+    "name": "aprisaXEAlarmRxBadMibEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventMibStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEAlarmTxCDataEvent": {
+    "name": "aprisaXEAlarmTxCDataEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCharacterisationStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEAlarmTxSynthOutOfLockEvent": {
+    "name": "aprisaXEAlarmTxSynthOutOfLockEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEAlarmTx28VStatusEvent": {
+    "name": "aprisaXEAlarmTx28VStatusEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEAlarmTx11VStatusEvent": {
+    "name": "aprisaXEAlarmTx11VStatusEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEAlarmTx5VStatusEvent": {
+    "name": "aprisaXEAlarmTx5VStatusEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEAlarmTxAmplifierBalanceEvent": {
+    "name": "aprisaXEAlarmTxAmplifierBalanceEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEAlarmTxBadMibEvent": {
+    "name": "aprisaXEAlarmTxBadMibEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventMibStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEAlarmTxNeg5VStatusEvent": {
+    "name": "aprisaXEAlarmTxNeg5VStatusEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEModemSyncEvent": {
+    "name": "aprisaXEModemSyncEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEModemTDMAlignmentEvent": {
+    "name": "aprisaXEModemTDMAlignmentEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEModemDemodAlignmentEvent": {
+    "name": "aprisaXEModemDemodAlignmentEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEModemRefAStatusEvent": {
+    "name": "aprisaXEModemRefAStatusEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEModemRefBStatusEvent": {
+    "name": "aprisaXEModemRefBStatusEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEModemUCEPresentEvent": {
+    "name": "aprisaXEModemUCEPresentEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEQuadE1LOSEvent": {
+    "name": "aprisaXEQuadE1LOSEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardPort"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEQuadE1AISEvent": {
+    "name": "aprisaXEQuadE1AISEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardPort"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEQuadE1RAIEvent": {
+    "name": "aprisaXEQuadE1RAIEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardPort"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEQuadE1RMAIEvent": {
+    "name": "aprisaXEQuadE1RMAIEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardPort"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEQuadE1TS16AISEvent": {
+    "name": "aprisaXEQuadE1TS16AISEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardPort"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEQuadE1TS16LOSEvent": {
+    "name": "aprisaXEQuadE1TS16LOSEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardPort"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEQuadE1LOFEvent": {
+    "name": "aprisaXEQuadE1LOFEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardPort"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEFXOCodecOvldEvent": {
+    "name": "aprisaXEFXOCodecOvldEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.50",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardPort"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEFXOBillToneOvldEvent": {
+    "name": "aprisaXEFXOBillToneOvldEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.51",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardPort"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEFXOCurrentOvldEvent": {
+    "name": "aprisaXEFXOCurrentOvldEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.52",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardPort"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEFXOUnplugEvent": {
+    "name": "aprisaXEFXOUnplugEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.53",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardPort"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEFXSCalibrateErrorEvent": {
+    "name": "aprisaXEFXSCalibrateErrorEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.60",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardPort"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEFXSDCDCErrorEvent": {
+    "name": "aprisaXEFXSDCDCErrorEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.61",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardPort"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "aprisaXEFXSCASLockEvent": {
+    "name": "aprisaXEFXSCASLockEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.62",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardPort"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEHSSTDMLockEvent": {
+    "name": "aprisaXEHSSTDMLockEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.70",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEHSS32MHzResetEvent": {
+    "name": "aprisaXEHSS32MHzResetEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.71",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEHSSTDMResetEvent": {
+    "name": "aprisaXEHSSTDMResetEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.72",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEHSSPatternLossEvent": {
+    "name": "aprisaXEHSSPatternLossEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.73",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEHSSRxFifoFullEvent": {
+    "name": "aprisaXEHSSRxFifoFullEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.74",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEHSSRxFifoEmptyEvent": {
+    "name": "aprisaXEHSSRxFifoEmptyEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.75",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEHSSTxFifoFullEvent": {
+    "name": "aprisaXEHSSTxFifoFullEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.76",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEHSSTxFifoEmptyEvent": {
+    "name": "aprisaXEHSSTxFifoEmptyEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.77",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEHSSRxClockValidEvent": {
+    "name": "aprisaXEHSSRxClockValidEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.78",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEHSSTxClockValidEvent": {
+    "name": "aprisaXEHSSTxClockValidEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.79",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEV24ControlLineLossEvent": {
+    "name": "aprisaXEV24ControlLineLossEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.80",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardPort"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEUnexpectedCardEvent": {
+    "name": "aprisaXEUnexpectedCardEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.100",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardExpected"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardInstalled"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXECLKSyncEvent": {
+    "name": "aprisaXECLKSyncEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.110",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXENetClkConfigEvent": {
+    "name": "aprisaXENetClkConfigEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.111",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXECharacterisationEEFailEvent": {
+    "name": "aprisaXECharacterisationEEFailEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.120",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardInstalled"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCharacterisationStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEMibEEFailEvent": {
+    "name": "aprisaXEMibEEFailEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.121",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardInstalled"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventMibStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEMhsbSwitchToStandbyEvent": {
+    "name": "aprisaXEMhsbSwitchToStandbyEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.130",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEAlternateImageTableEvent": {
+    "name": "aprisaXEAlternateImageTableEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.131",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEDefaultImageTableEvent": {
+    "name": "aprisaXEDefaultImageTableEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.132",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEUploadFailEvent": {
+    "name": "aprisaXEUploadFailEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.133",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEPscDemuxAlignmentEvent": {
+    "name": "aprisaXEPscDemuxAlignmentEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.140",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEPscTDMAlignmentEvent": {
+    "name": "aprisaXEPscTDMAlignmentEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.141",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEPscMuxAlignmentErrorEvent": {
+    "name": "aprisaXEPscMuxAlignmentErrorEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.142",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEPscCompanionTxFailEvent": {
+    "name": "aprisaXEPscCompanionTxFailEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.143",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEPscSoftwareOverrideEvent": {
+    "name": "aprisaXEPscSoftwareOverrideEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.144",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEPscInvalidSwitchValueEvent": {
+    "name": "aprisaXEPscInvalidSwitchValueEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.145",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEDualE1LOSEvent": {
+    "name": "aprisaXEDualE1LOSEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.150",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardPort"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEDualE1AISEvent": {
+    "name": "aprisaXEDualE1AISEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.151",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardPort"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXESingleE1LOSEvent": {
+    "name": "aprisaXESingleE1LOSEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.160",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardPort"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXESingleE1AISEvent": {
+    "name": "aprisaXESingleE1AISEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.161",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardSlot"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventCardPort"
+      },
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEHrsdCompareOidEvent": {
+    "name": "aprisaXEHrsdCompareOidEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.170",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "aprisaXEHrsdCompanionLostEvent": {
+    "name": "aprisaXEHrsdCompanionLostEvent",
+    "oid": "1.3.6.1.4.1.14817.7.3.1.3.1.0.171",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APRISAXE-EVENTS-4RF",
+        "object": "aprisaXEEventAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-APRISAXE-EVENTS",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:55 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "APRISAXE-EVENTS-4RF"
+  }
+}

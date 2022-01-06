@@ -1,0 +1,7327 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1Fips"
+    ],
+    "ALCATEL-IND1-MULTI-CHASSIS-MIB": [
+      "MultiChassisId"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "Bits",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "MacAddress"
+    ]
+  },
+  "alcatelIND1FipsMIB": {
+    "name": "alcatelIND1FipsMIB",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1",
+    "class": "moduleidentity"
+  },
+  "FipsFCMAP": {
+    "name": "FipsFCMAP",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "displayhint": "1x:",
+    "status": "current"
+  },
+  "Fcid": {
+    "name": "Fcid",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "displayhint": "1x:",
+    "status": "current"
+  },
+  "Wwpn": {
+    "name": "Wwpn",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "1x:",
+    "status": "current"
+  },
+  "Wwnn": {
+    "name": "Wwnn",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "1x:",
+    "status": "current"
+  },
+  "alcatelIND1FipsMIBNotifications": {
+    "name": "alcatelIND1FipsMIBNotifications",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1FipsMIBObjects": {
+    "name": "alcatelIND1FipsMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1FipsMIBConformance": {
+    "name": "alcatelIND1FipsMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1FipsMIBGroups": {
+    "name": "alcatelIND1FipsMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1FipsMIBCompliances": {
+    "name": "alcatelIND1FipsMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alaFipsInfo": {
+    "name": "alaFipsInfo",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.1",
+    "class": "objectidentity"
+  },
+  "alaFipsConfigFilterResourceLimit": {
+    "name": "alaFipsConfigFilterResourceLimit",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 80,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFipsConfigFIPSAdmin": {
+    "name": "alaFipsConfigFIPSAdmin",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFipsConfigAddressMode": {
+    "name": "alaFipsConfigAddressMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fpma": 1,
+          "spma": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "fpma",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFipsConfigPriorityOne": {
+    "name": "alaFipsConfigPriorityOne",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFipsConfigPriorityTwo": {
+    "name": "alaFipsConfigPriorityTwo",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFipsTotalNumFilterResource": {
+    "name": "alaFipsTotalNumFilterResource",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 256,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsUsedNumFilterResource": {
+    "name": "alaFipsUsedNumFilterResource",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsConfigStatsClear": {
+    "name": "alaFipsConfigStatsClear",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFipsConfigPrioProtection": {
+    "name": "alaFipsConfigPrioProtection",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFipsConfigPriorityProtectionAction": {
+    "name": "alaFipsConfigPriorityProtectionAction",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 1,
+          "remark": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "drop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFipsConfigPriorityProtectionRemarkVal": {
+    "name": "alaFipsConfigPriorityProtectionRemarkVal",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFipsConfigHouseKeepingTimePeriod": {
+    "name": "alaFipsConfigHouseKeepingTimePeriod",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFipsConfigSWReinsertStatus": {
+    "name": "alaFipsConfigSWReinsertStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFipsConfigSessClear": {
+    "name": "alaFipsConfigSessClear",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "npiv": 2,
+          "reverseNpiv": 3,
+          "eTunnel": 4,
+          "fips": 5,
+          "npivPending": 6,
+          "none": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFipsVlan": {
+    "name": "alaFipsVlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.2",
+    "class": "objectidentity"
+  },
+  "alaFipsVlanTable": {
+    "name": "alaFipsVlanTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsVlanEntry": {
+    "name": "alaFipsVlanEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsVlanId": {
+    "name": "alaFipsVlanId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsVlanFCMap": {
+    "name": "alaFipsVlanFCMap",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FipsFCMAP",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsVlanStatsClear": {
+    "name": "alaFipsVlanStatsClear",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsVlanStatsFnreClear": {
+    "name": "alaFipsVlanStatsFnreClear",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "fips": 2,
+          "npiv": 3,
+          "reverseNpiv": 4,
+          "eTunnel": 5,
+          "none": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsVlanEnodeStats": {
+    "name": "alaFipsVlanEnodeStats",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.3",
+    "class": "objectidentity"
+  },
+  "alaFipsVlanEnodeStatsTable": {
+    "name": "alaFipsVlanEnodeStatsTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsVlanEnodeStatsEntry": {
+    "name": "alaFipsVlanEnodeStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanEnodeStatsVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsVlanEnodeStatsVlanId": {
+    "name": "alaFipsVlanEnodeStatsVlanId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsVlanEnodeStatsSessions": {
+    "name": "alaFipsVlanEnodeStatsSessions",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanEnodeStatsMds": {
+    "name": "alaFipsVlanEnodeStatsMds",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanEnodeStatsUds": {
+    "name": "alaFipsVlanEnodeStatsUds",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanEnodeStatsFlogi": {
+    "name": "alaFipsVlanEnodeStatsFlogi",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanEnodeStatsFdisc": {
+    "name": "alaFipsVlanEnodeStatsFdisc",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanEnodeStatsLogo": {
+    "name": "alaFipsVlanEnodeStatsLogo",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanEnodeStatsEka": {
+    "name": "alaFipsVlanEnodeStatsEka",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanEnodeStatsVnka": {
+    "name": "alaFipsVlanEnodeStatsVnka",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanEnodeStatsClear": {
+    "name": "alaFipsVlanEnodeStatsClear",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFipsVlanFcfStats": {
+    "name": "alaFipsVlanFcfStats",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.4",
+    "class": "objectidentity"
+  },
+  "alaFipsVlanFcfStatsTable": {
+    "name": "alaFipsVlanFcfStatsTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsVlanFcfStatsEntry": {
+    "name": "alaFipsVlanFcfStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanFcfStatsVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsVlanFcfStatsVlanId": {
+    "name": "alaFipsVlanFcfStatsVlanId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsVlanFcfStatsSessions": {
+    "name": "alaFipsVlanFcfStatsSessions",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanFcfStatsMda": {
+    "name": "alaFipsVlanFcfStatsMda",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanFcfStatsUda": {
+    "name": "alaFipsVlanFcfStatsUda",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanFcfStatsFlogiAcc": {
+    "name": "alaFipsVlanFcfStatsFlogiAcc",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanFcfStatsFlogiRjt": {
+    "name": "alaFipsVlanFcfStatsFlogiRjt",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanFcfStatsFdiscRjt": {
+    "name": "alaFipsVlanFcfStatsFdiscRjt",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanFcfStatsLogoAcc": {
+    "name": "alaFipsVlanFcfStatsLogoAcc",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanFcfStatsLogoRjt": {
+    "name": "alaFipsVlanFcfStatsLogoRjt",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanFcfStatsCvl": {
+    "name": "alaFipsVlanFcfStatsCvl",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanFcfStatsClear": {
+    "name": "alaFipsVlanFcfStatsClear",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFipsVlanFcfStatsFdiscAcc": {
+    "name": "alaFipsVlanFcfStatsFdiscAcc",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntf": {
+    "name": "alaFipsIntf",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.5",
+    "class": "objectidentity"
+  },
+  "alaFipsIntfTable": {
+    "name": "alaFipsIntfTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsIntfEntry": {
+    "name": "alaFipsIntfEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsIntfIfIndex": {
+    "name": "alaFipsIntfIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsIntfOperStatus": {
+    "name": "alaFipsIntfOperStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfPortRole": {
+    "name": "alaFipsIntfPortRole",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "edge": 1,
+          "enode": 2,
+          "fcf": 3,
+          "mixed": 4,
+          "trusted": 5,
+          "ve": 6
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsIntfRowStatus": {
+    "name": "alaFipsIntfRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notReady",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsIntfStatsClear": {
+    "name": "alaFipsIntfStatsClear",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsIntfStatsFnreClear": {
+    "name": "alaFipsIntfStatsFnreClear",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "fips": 2,
+          "npiv": 3,
+          "reverseNpiv": 4,
+          "eTunnel": 5,
+          "none": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsIntfEnodeStats": {
+    "name": "alaFipsIntfEnodeStats",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.6",
+    "class": "objectidentity"
+  },
+  "alaFipsIntfEnodeStatsTable": {
+    "name": "alaFipsIntfEnodeStatsTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsIntfEnodeStatsEntry": {
+    "name": "alaFipsIntfEnodeStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfEnodeStatsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsIntfEnodeStatsIfIndex": {
+    "name": "alaFipsIntfEnodeStatsIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsIntfEnodeStatsSessions": {
+    "name": "alaFipsIntfEnodeStatsSessions",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfEnodeStatsMds": {
+    "name": "alaFipsIntfEnodeStatsMds",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfEnodeStatsUds": {
+    "name": "alaFipsIntfEnodeStatsUds",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfEnodeStatsFlogi": {
+    "name": "alaFipsIntfEnodeStatsFlogi",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfEnodeStatsFdisc": {
+    "name": "alaFipsIntfEnodeStatsFdisc",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfEnodeStatsLogo": {
+    "name": "alaFipsIntfEnodeStatsLogo",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfEnodeStatsEka": {
+    "name": "alaFipsIntfEnodeStatsEka",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfEnodeStatsVnka": {
+    "name": "alaFipsIntfEnodeStatsVnka",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfEnodeStatsClear": {
+    "name": "alaFipsIntfEnodeStatsClear",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFipsIntfFcfStats": {
+    "name": "alaFipsIntfFcfStats",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.7",
+    "class": "objectidentity"
+  },
+  "alaFipsIntfFcfStatsTable": {
+    "name": "alaFipsIntfFcfStatsTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsIntfFcfStatsEntry": {
+    "name": "alaFipsIntfFcfStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfFcfStatsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsIntfFcfStatsIfIndex": {
+    "name": "alaFipsIntfFcfStatsIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsIntfFcfStatsSessions": {
+    "name": "alaFipsIntfFcfStatsSessions",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfFcfStatsMda": {
+    "name": "alaFipsIntfFcfStatsMda",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfFcfStatsUda": {
+    "name": "alaFipsIntfFcfStatsUda",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfFcfStatsFlogiAcc": {
+    "name": "alaFipsIntfFcfStatsFlogiAcc",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfFcfStatsFdiscRjt": {
+    "name": "alaFipsIntfFcfStatsFdiscRjt",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfFcfStatsFlogiRjt": {
+    "name": "alaFipsIntfFcfStatsFlogiRjt",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfFcfStatsLogoAcc": {
+    "name": "alaFipsIntfFcfStatsLogoAcc",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfFcfStatsLogoRjt": {
+    "name": "alaFipsIntfFcfStatsLogoRjt",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfFcfStatsCvl": {
+    "name": "alaFipsIntfFcfStatsCvl",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfFcfStatsClear": {
+    "name": "alaFipsIntfFcfStatsClear",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.7.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFipsIntfFcfStatsFdiscAcc": {
+    "name": "alaFipsIntfFcfStatsFdiscAcc",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.7.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsFcf": {
+    "name": "alaFipsFcf",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.8",
+    "class": "objectidentity"
+  },
+  "alaFipsFcfTable": {
+    "name": "alaFipsFcfTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsFcfEntry": {
+    "name": "alaFipsFcfEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsFcfMAC",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsFcfVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsFcfMAC": {
+    "name": "alaFipsFcfMAC",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsFcfVlan": {
+    "name": "alaFipsFcfVlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsFcfIntf": {
+    "name": "alaFipsFcfIntf",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsFcfSessions": {
+    "name": "alaFipsFcfSessions",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsFcfConfigType": {
+    "name": "alaFipsFcfConfigType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fpma": 1,
+          "spma": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "fpma",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsFcfRowStatus": {
+    "name": "alaFipsFcfRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notReady",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsFcfAvailForLogin": {
+    "name": "alaFipsFcfAvailForLogin",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsFcfMaxFcoeFrmSizeVerified": {
+    "name": "alaFipsFcfMaxFcoeFrmSizeVerified",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.8.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsFcfPriority": {
+    "name": "alaFipsFcfPriority",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.8.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsFcfType": {
+    "name": "alaFipsFcfType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.8.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 1,
+          "static": 2,
+          "npiv": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsSession": {
+    "name": "alaFipsSession",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.9",
+    "class": "objectidentity"
+  },
+  "alaFipsSessionTable": {
+    "name": "alaFipsSessionTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsSessionEntry": {
+    "name": "alaFipsSessionEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsSessionEnodeMAC",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsSessionVNMAC",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsSessionVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsSessionEnodeMAC": {
+    "name": "alaFipsSessionEnodeMAC",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsSessionVNMAC": {
+    "name": "alaFipsSessionVNMAC",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsSessionVlanId": {
+    "name": "alaFipsSessionVlanId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsSessionIfIndex": {
+    "name": "alaFipsSessionIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsSessionFCFMAC": {
+    "name": "alaFipsSessionFCFMAC",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsSessionStatus": {
+    "name": "alaFipsSessionStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pending": 1,
+          "created": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "pending",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsSessionLoginTime": {
+    "name": "alaFipsSessionLoginTime",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.9.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsSessionLoginTimeDate": {
+    "name": "alaFipsSessionLoginTimeDate",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.9.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsResourceThresholdReached": {
+    "name": "alaFipsResourceThresholdReached",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsFilterResourceUsage"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsNotificationObj": {
+    "name": "alaFipsNotificationObj",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.10",
+    "class": "objectidentity"
+  },
+  "alaFipsFilterResourceUsage": {
+    "name": "alaFipsFilterResourceUsage",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaFcVsan": {
+    "name": "alaFcVsan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.11",
+    "class": "objectidentity"
+  },
+  "alaFcVsanTable": {
+    "name": "alaFcVsanTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcVsanEntry": {
+    "name": "alaFcVsanEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVsanNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcVsanNumber": {
+    "name": "alaFcVsanNumber",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcVsanDescription": {
+    "name": "alaFcVsanDescription",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFcVsanAdmStatus": {
+    "name": "alaFcVsanAdmStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFcVsanOperStatus": {
+    "name": "alaFcVsanOperStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.11.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "inactive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcVsanRowStatus": {
+    "name": "alaFcVsanRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.11.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFcVfpa": {
+    "name": "alaFcVfpa",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.12",
+    "class": "objectidentity"
+  },
+  "alaFcVfpaTable": {
+    "name": "alaFcVfpaTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcVfpaEntry": {
+    "name": "alaFcVfpaEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVfpaVsanNumber",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVfpaIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcVfpaVsanNumber": {
+    "name": "alaFcVfpaVsanNumber",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcVfpaIfIndex": {
+    "name": "alaFcVfpaIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1001,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcVfpaState": {
+    "name": "alaFcVfpaState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 0,
+          "disabled": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "inactive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcVfpaRowStatus": {
+    "name": "alaFcVfpaRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.12.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFcIntf": {
+    "name": "alaFcIntf",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.13",
+    "class": "objectidentity"
+  },
+  "alaFcIntfTable": {
+    "name": "alaFcIntfTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.13.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcIntfEntry": {
+    "name": "alaFcIntfEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.13.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcIntfIfIndex": {
+    "name": "alaFcIntfIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.13.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcIntfOperStatus": {
+    "name": "alaFcIntfOperStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.13.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfMode": {
+    "name": "alaFcIntfMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.13.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "np": 1,
+          "f": 2,
+          "te": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFcIntfBbScN": {
+    "name": "alaFcIntfBbScN",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.13.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFcIntfClassOfService": {
+    "name": "alaFcIntfClassOfService",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.13.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "class2": 1,
+          "class3": 2,
+          "classF": 3,
+          "class3andF": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfFcid": {
+    "name": "alaFcIntfFcid",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.13.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Fcid",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfWwpn": {
+    "name": "alaFcIntfWwpn",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.13.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Wwpn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfLoginState": {
+    "name": "alaFcIntfLoginState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.13.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "flogiSent": 2,
+          "elpSent": 3,
+          "sessionClearing": 4,
+          "down": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfRowStatus": {
+    "name": "alaFcIntfRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.13.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notReady",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFcIntfStatsClear": {
+    "name": "alaFcIntfStatsClear",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.13.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "none": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFcNpivStaticLoadBalance": {
+    "name": "alaFcNpivStaticLoadBalance",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.14",
+    "class": "objectidentity"
+  },
+  "alaFcNpivStaticLoadBalanceTable": {
+    "name": "alaFcNpivStaticLoadBalanceTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcNpivStaticLoadBalanceEntry": {
+    "name": "alaFcNpivStaticLoadBalanceEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcNpivStaticLoadBalanceFcIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcNpivStaticLoadBalanceEthIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcNpivStaticLoadBalanceFcIfIndex": {
+    "name": "alaFcNpivStaticLoadBalanceFcIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcNpivStaticLoadBalanceEthIfIndex": {
+    "name": "alaFcNpivStaticLoadBalanceEthIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcNpivStaticLoadBalanceRowStatus": {
+    "name": "alaFcNpivStaticLoadBalanceRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.14.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notReady",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFcNode": {
+    "name": "alaFcNode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.15",
+    "class": "objectidentity"
+  },
+  "alaFcNodeTable": {
+    "name": "alaFcNodeTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.15.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcNodeEntry": {
+    "name": "alaFcNodeEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.15.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcNodeIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcNodeWwpn",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcNodeIfIndex": {
+    "name": "alaFcNodeIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.15.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcNodeWwpn": {
+    "name": "alaFcNodeWwpn",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.15.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Wwpn",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcNodeVsanNumber": {
+    "name": "alaFcNodeVsanNumber",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.15.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcNodeVlanNumber": {
+    "name": "alaFcNodeVlanNumber",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.15.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcNodeFcid": {
+    "name": "alaFcNodeFcid",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.15.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Fcid",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcNodeWwnn": {
+    "name": "alaFcNodeWwnn",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.15.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Wwnn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcSess": {
+    "name": "alaFcSess",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.16",
+    "class": "objectidentity"
+  },
+  "alaFcSessTable": {
+    "name": "alaFcSessTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.16.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcSessEntry": {
+    "name": "alaFcSessEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.16.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcSessIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcSessWwpn",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcSessIfIndex": {
+    "name": "alaFcSessIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.16.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcSessWwpn": {
+    "name": "alaFcSessWwpn",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.16.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Wwpn",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcSessVsanNumber": {
+    "name": "alaFcSessVsanNumber",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.16.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcSessStatus": {
+    "name": "alaFcSessStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.16.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pending": 1,
+          "success": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcSessIntfMode": {
+    "name": "alaFcSessIntfMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.16.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "np": 1,
+          "f": 2,
+          "te": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcSessFcid": {
+    "name": "alaFcSessFcid",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.16.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Fcid",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcSessType": {
+    "name": "alaFcSessType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.16.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fdisc": 1,
+          "flogi": 2,
+          "elp": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcSessTunnelId": {
+    "name": "alaFcSessTunnelId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.16.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfNpivStats": {
+    "name": "alaFcIntfNpivStats",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.17",
+    "class": "objectidentity"
+  },
+  "alaFcIntfNpivStatsTable": {
+    "name": "alaFcIntfNpivStatsTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.17.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcIntfNpivStatsEntry": {
+    "name": "alaFcIntfNpivStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.17.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfNpivStatsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcIntfNpivStatsIfIndex": {
+    "name": "alaFcIntfNpivStatsIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.17.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcIntfNpivStatsTxFlogis": {
+    "name": "alaFcIntfNpivStatsTxFlogis",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.17.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfNpivStatsTxFdiscs": {
+    "name": "alaFcIntfNpivStatsTxFdiscs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.17.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfNpivStatsRxLsAccs": {
+    "name": "alaFcIntfNpivStatsRxLsAccs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.17.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfNpivStatsRxFlogos": {
+    "name": "alaFcIntfNpivStatsRxFlogos",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.17.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfNpivStatsRxFlogiLsRjts": {
+    "name": "alaFcIntfNpivStatsRxFlogiLsRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.17.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfNpivStatsRxFdiscLsRjts": {
+    "name": "alaFcIntfNpivStatsRxFdiscLsRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.17.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfNpivStatsTxFlogos": {
+    "name": "alaFcIntfNpivStatsTxFlogos",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.17.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfNpivStatsClear": {
+    "name": "alaFcIntfNpivStatsClear",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.17.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "none": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFcVsanNpivStats": {
+    "name": "alaFcVsanNpivStats",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.18",
+    "class": "objectidentity"
+  },
+  "alaFcVsanNpivStatsTable": {
+    "name": "alaFcVsanNpivStatsTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.18.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcVsanNpivStatsEntry": {
+    "name": "alaFcVsanNpivStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.18.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVsanNpivStatsVsan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcVsanNpivStatsVsan": {
+    "name": "alaFcVsanNpivStatsVsan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.18.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcVsanNpivStatsTxFlogis": {
+    "name": "alaFcVsanNpivStatsTxFlogis",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.18.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcVsanNpivStatsTxFdiscs": {
+    "name": "alaFcVsanNpivStatsTxFdiscs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.18.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcVsanNpivStatsRxLsAccs": {
+    "name": "alaFcVsanNpivStatsRxLsAccs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.18.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcVsanNpivStatsRxFlogos": {
+    "name": "alaFcVsanNpivStatsRxFlogos",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.18.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcVsanNpivStatsRxFlogiLsRjts": {
+    "name": "alaFcVsanNpivStatsRxFlogiLsRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.18.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcVsanNpivStatsRxFdiscLsRjts": {
+    "name": "alaFcVsanNpivStatsRxFdiscLsRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.18.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcVsanNpivStatsTxFlogos": {
+    "name": "alaFcVsanNpivStatsTxFlogos",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.18.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfRnpivStats": {
+    "name": "alaFcIntfRnpivStats",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.19",
+    "class": "objectidentity"
+  },
+  "alaFcIntfRnpivStatsTable": {
+    "name": "alaFcIntfRnpivStatsTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.19.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcIntfRnpivStatsEntry": {
+    "name": "alaFcIntfRnpivStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.19.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfRnpivStatsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcIntfRnpivStatsIfIndex": {
+    "name": "alaFcIntfRnpivStatsIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.19.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcIntfRnpivStatsRxFlogis": {
+    "name": "alaFcIntfRnpivStatsRxFlogis",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.19.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfRnpivStatsRxFdiscs": {
+    "name": "alaFcIntfRnpivStatsRxFdiscs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.19.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfRnpivStatsTxFlogiLsAccs": {
+    "name": "alaFcIntfRnpivStatsTxFlogiLsAccs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.19.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfRnpivStatsTxFdiscLsAccs": {
+    "name": "alaFcIntfRnpivStatsTxFdiscLsAccs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.19.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfRnpivStatsTxFlogos": {
+    "name": "alaFcIntfRnpivStatsTxFlogos",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.19.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfRnpivStatsTxFlogiLsRjts": {
+    "name": "alaFcIntfRnpivStatsTxFlogiLsRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.19.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfRnpivStatsTxFdiscLsRjts": {
+    "name": "alaFcIntfRnpivStatsTxFdiscLsRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.19.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfRnpivStatsRxFlogos": {
+    "name": "alaFcIntfRnpivStatsRxFlogos",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.19.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfRnpivStatsClear": {
+    "name": "alaFcIntfRnpivStatsClear",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.19.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "none": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFcVsanRnpivStats": {
+    "name": "alaFcVsanRnpivStats",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.20",
+    "class": "objectidentity"
+  },
+  "alaFcVsanRnpivStatsTable": {
+    "name": "alaFcVsanRnpivStatsTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.20.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcVsanRnpivStatsEntry": {
+    "name": "alaFcVsanRnpivStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.20.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVsanRnpivStatsVsan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcVsanRnpivStatsVsan": {
+    "name": "alaFcVsanRnpivStatsVsan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.20.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcVsanRnpivStatsRxFlogis": {
+    "name": "alaFcVsanRnpivStatsRxFlogis",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.20.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcVsanRnpivStatsRxFdiscs": {
+    "name": "alaFcVsanRnpivStatsRxFdiscs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.20.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcVsanRnpivStatsTxFlogiLsAccs": {
+    "name": "alaFcVsanRnpivStatsTxFlogiLsAccs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.20.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcVsanRnpivStatsTxFdiscLsAccs": {
+    "name": "alaFcVsanRnpivStatsTxFdiscLsAccs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.20.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcVsanRnpivStatsTxFlogos": {
+    "name": "alaFcVsanRnpivStatsTxFlogos",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.20.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcVsanRnpivStatsTxFlogiLsRjts": {
+    "name": "alaFcVsanRnpivStatsTxFlogiLsRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.20.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcVsanRnpivStatsTxFdiscLsRjts": {
+    "name": "alaFcVsanRnpivStatsTxFdiscLsRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.20.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcVsanRnpivStatsRxFlogos": {
+    "name": "alaFcVsanRnpivStatsRxFlogos",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.20.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcInfo": {
+    "name": "alaFcInfo",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.21",
+    "class": "objectidentity"
+  },
+  "alaFcConfigSessClear": {
+    "name": "alaFcConfigSessClear",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.21.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "npiv": 2,
+          "reverseNpiv": 3,
+          "eTunnel": 4,
+          "none": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFcConfigStatsClear": {
+    "name": "alaFcConfigStatsClear",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.21.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "npiv": 2,
+          "reverseNpiv": 3,
+          "eTunnel": 4,
+          "none": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFcConfigNpivLoadBalance": {
+    "name": "alaFcConfigNpivLoadBalance",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.21.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "dynamicReorder": 2,
+          "enodeBased": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFcConfigWwnn": {
+    "name": "alaFcConfigWwnn",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.21.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Wwnn",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFipsVlanNpivDiscStats": {
+    "name": "alaFipsVlanNpivDiscStats",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.22",
+    "class": "objectidentity"
+  },
+  "alaFipsVlanNpivDiscStatsTable": {
+    "name": "alaFipsVlanNpivDiscStatsTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.22.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsVlanNpivDiscStatsEntry": {
+    "name": "alaFipsVlanNpivDiscStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.22.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanNpivDiscStatsVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsVlanNpivDiscStatsVlanId": {
+    "name": "alaFipsVlanNpivDiscStatsVlanId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.22.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsVlanNpivDiscStatsRxVlanDiscRqs": {
+    "name": "alaFipsVlanNpivDiscStatsRxVlanDiscRqs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.22.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanNpivDiscStatsTxVlanDiscResps": {
+    "name": "alaFipsVlanNpivDiscStatsTxVlanDiscResps",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.22.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanNpivDiscStatsRxMdss": {
+    "name": "alaFipsVlanNpivDiscStatsRxMdss",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.22.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanNpivDiscStatsRxUdss": {
+    "name": "alaFipsVlanNpivDiscStatsRxUdss",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.22.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanNpivDiscStatsTxMdas": {
+    "name": "alaFipsVlanNpivDiscStatsTxMdas",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.22.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanNpivDiscStatsTxUdas": {
+    "name": "alaFipsVlanNpivDiscStatsTxUdas",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.22.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfNpivDiscStats": {
+    "name": "alaFipsIntfNpivDiscStats",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.23",
+    "class": "objectidentity"
+  },
+  "alaFipsIntfNpivDiscStatsTable": {
+    "name": "alaFipsIntfNpivDiscStatsTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.23.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsIntfNpivDiscStatsEntry": {
+    "name": "alaFipsIntfNpivDiscStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.23.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfNpivDiscStatsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsIntfNpivDiscStatsIfIndex": {
+    "name": "alaFipsIntfNpivDiscStatsIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.23.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsIntfNpivDiscStatsRxVlanDiscRqs": {
+    "name": "alaFipsIntfNpivDiscStatsRxVlanDiscRqs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.23.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfNpivDiscStatsTxVlanDiscResps": {
+    "name": "alaFipsIntfNpivDiscStatsTxVlanDiscResps",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.23.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfNpivDiscStatsRxMdss": {
+    "name": "alaFipsIntfNpivDiscStatsRxMdss",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.23.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfNpivDiscStatsRxUdss": {
+    "name": "alaFipsIntfNpivDiscStatsRxUdss",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.23.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfNpivDiscStatsTxMdas": {
+    "name": "alaFipsIntfNpivDiscStatsTxMdas",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.23.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfNpivDiscStatsTxUdas": {
+    "name": "alaFipsIntfNpivDiscStatsTxUdas",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.23.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanNpivLoginStats": {
+    "name": "alaFipsVlanNpivLoginStats",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.24",
+    "class": "objectidentity"
+  },
+  "alaFipsVlanNpivLoginStatsTable": {
+    "name": "alaFipsVlanNpivLoginStatsTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.24.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsVlanNpivLoginStatsEntry": {
+    "name": "alaFipsVlanNpivLoginStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.24.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanNpivLoginStatsVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsVlanNpivLoginStatsVlanId": {
+    "name": "alaFipsVlanNpivLoginStatsVlanId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.24.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsVlanNpivLoginStatsRxFlogis": {
+    "name": "alaFipsVlanNpivLoginStatsRxFlogis",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.24.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanNpivLoginStatsRxFdiscs": {
+    "name": "alaFipsVlanNpivLoginStatsRxFdiscs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.24.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanNpivLoginStatsTxFlogiAccs": {
+    "name": "alaFipsVlanNpivLoginStatsTxFlogiAccs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.24.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanNpivLoginStatsTxFlogiLsRjts": {
+    "name": "alaFipsVlanNpivLoginStatsTxFlogiLsRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.24.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanNpivLoginStatsTxFdiscLsRjts": {
+    "name": "alaFipsVlanNpivLoginStatsTxFdiscLsRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.24.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanNpivLoginStatsRxLogos": {
+    "name": "alaFipsVlanNpivLoginStatsRxLogos",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.24.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanNpivLoginStatsTxCvls": {
+    "name": "alaFipsVlanNpivLoginStatsTxCvls",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.24.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanNpivLoginStatsRxEkas": {
+    "name": "alaFipsVlanNpivLoginStatsRxEkas",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.24.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanNpivLoginStatsRxVnkas": {
+    "name": "alaFipsVlanNpivLoginStatsRxVnkas",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.24.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanNpivLoginStatsTxFDiscAccs": {
+    "name": "alaFipsVlanNpivLoginStatsTxFDiscAccs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.24.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanNpivLoginStatsTxFlogoAccs": {
+    "name": "alaFipsVlanNpivLoginStatsTxFlogoAccs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.24.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanNpivLoginStatsTxFLogoLsRjts": {
+    "name": "alaFipsVlanNpivLoginStatsTxFLogoLsRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.24.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfNpivLoginStats": {
+    "name": "alaFipsIntfNpivLoginStats",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.25",
+    "class": "objectidentity"
+  },
+  "alaFipsIntfNpivLoginStatsTable": {
+    "name": "alaFipsIntfNpivLoginStatsTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.25.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsIntfNpivLoginStatsEntry": {
+    "name": "alaFipsIntfNpivLoginStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.25.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfNpivLoginStatsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsIntfNpivLoginStatsIfIndex": {
+    "name": "alaFipsIntfNpivLoginStatsIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.25.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsIntfNpivLoginStatsRxFlogis": {
+    "name": "alaFipsIntfNpivLoginStatsRxFlogis",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.25.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfNpivLoginStatsRxFdiscs": {
+    "name": "alaFipsIntfNpivLoginStatsRxFdiscs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.25.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfNpivLoginStatsTxFlogiAccs": {
+    "name": "alaFipsIntfNpivLoginStatsTxFlogiAccs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.25.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfNpivLoginStatsTxFlogiLsRjts": {
+    "name": "alaFipsIntfNpivLoginStatsTxFlogiLsRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.25.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfNpivLoginStatsTxFdiscLsRjts": {
+    "name": "alaFipsIntfNpivLoginStatsTxFdiscLsRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.25.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfNpivLoginStatsRxLogos": {
+    "name": "alaFipsIntfNpivLoginStatsRxLogos",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.25.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfNpivLoginStatsTxCvls": {
+    "name": "alaFipsIntfNpivLoginStatsTxCvls",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.25.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfNpivLoginStatsRxEkas": {
+    "name": "alaFipsIntfNpivLoginStatsRxEkas",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.25.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfNpivLoginStatsRxVnkas": {
+    "name": "alaFipsIntfNpivLoginStatsRxVnkas",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.25.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfNpivLoginStatsTxFDiscAccs": {
+    "name": "alaFipsIntfNpivLoginStatsTxFDiscAccs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.25.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfNpivLoginStatsTxFlogoAccs": {
+    "name": "alaFipsIntfNpivLoginStatsTxFlogoAccs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.25.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfNpivLoginStatsTxFLogoLsRjts": {
+    "name": "alaFipsIntfNpivLoginStatsTxFLogoLsRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.25.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanRnpivDiscStats": {
+    "name": "alaFipsVlanRnpivDiscStats",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.26",
+    "class": "objectidentity"
+  },
+  "alaFipsVlanRnpivDiscStatsTable": {
+    "name": "alaFipsVlanRnpivDiscStatsTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.26.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsVlanRnpivDiscStatsEntry": {
+    "name": "alaFipsVlanRnpivDiscStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.26.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanRnpivDiscStatsVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsVlanRnpivDiscStatsVlanId": {
+    "name": "alaFipsVlanRnpivDiscStatsVlanId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.26.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsVlanRnpivDiscStatsRxMdas": {
+    "name": "alaFipsVlanRnpivDiscStatsRxMdas",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.26.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanRnpivDiscStatsRxUdas": {
+    "name": "alaFipsVlanRnpivDiscStatsRxUdas",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.26.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanRnpivDiscStatsTxMdss": {
+    "name": "alaFipsVlanRnpivDiscStatsTxMdss",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.26.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanRnpivDiscStatsTxUdss": {
+    "name": "alaFipsVlanRnpivDiscStatsTxUdss",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.26.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfRnpivDiscStats": {
+    "name": "alaFipsIntfRnpivDiscStats",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.27",
+    "class": "objectidentity"
+  },
+  "alaFipsIntfRnpivDiscStatsTable": {
+    "name": "alaFipsIntfRnpivDiscStatsTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.27.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsIntfRnpivDiscStatsEntry": {
+    "name": "alaFipsIntfRnpivDiscStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.27.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfRnpivDiscStatsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsIntfRnpivDiscStatsIfIndex": {
+    "name": "alaFipsIntfRnpivDiscStatsIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.27.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsIntfRnpivDiscStatsRxMdas": {
+    "name": "alaFipsIntfRnpivDiscStatsRxMdas",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.27.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfRnpivDiscStatsRxUdas": {
+    "name": "alaFipsIntfRnpivDiscStatsRxUdas",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.27.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfRnpivDiscStatsTxMdss": {
+    "name": "alaFipsIntfRnpivDiscStatsTxMdss",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.27.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfRnpivDiscStatsTxUdss": {
+    "name": "alaFipsIntfRnpivDiscStatsTxUdss",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.27.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanRnpivLoginStats": {
+    "name": "alaFipsVlanRnpivLoginStats",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.28",
+    "class": "objectidentity"
+  },
+  "alaFipsVlanRnpivLoginStatsTable": {
+    "name": "alaFipsVlanRnpivLoginStatsTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.28.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsVlanRnpivLoginStatsEntry": {
+    "name": "alaFipsVlanRnpivLoginStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.28.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanRnpivLoginStatsVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsVlanRnpivLoginStatsVlanId": {
+    "name": "alaFipsVlanRnpivLoginStatsVlanId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.28.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsVlanRnpivLoginStatsTxFlogis": {
+    "name": "alaFipsVlanRnpivLoginStatsTxFlogis",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.28.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanRnpivLoginStatsTxFdiscs": {
+    "name": "alaFipsVlanRnpivLoginStatsTxFdiscs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.28.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanRnpivLoginStatsRxLsAccs": {
+    "name": "alaFipsVlanRnpivLoginStatsRxLsAccs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.28.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanRnpivLoginStatsRxFlogiLsRjts": {
+    "name": "alaFipsVlanRnpivLoginStatsRxFlogiLsRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.28.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanRnpivLoginStatsRxFdiscLsRjts": {
+    "name": "alaFipsVlanRnpivLoginStatsRxFdiscLsRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.28.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanRnpivLoginStatsRxCvls": {
+    "name": "alaFipsVlanRnpivLoginStatsRxCvls",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.28.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanRnpivLoginStatsTxLogos": {
+    "name": "alaFipsVlanRnpivLoginStatsTxLogos",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.28.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanRnpivLoginStatsTxVnkas": {
+    "name": "alaFipsVlanRnpivLoginStatsTxVnkas",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.28.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsVlanRnpivLoginStatsTxEkas": {
+    "name": "alaFipsVlanRnpivLoginStatsTxEkas",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.28.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfRnpivLoginStats": {
+    "name": "alaFipsIntfRnpivLoginStats",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.29",
+    "class": "objectidentity"
+  },
+  "alaFipsIntfRnpivLoginStatsTable": {
+    "name": "alaFipsIntfRnpivLoginStatsTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.29.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsIntfRnpivLoginStatsEntry": {
+    "name": "alaFipsIntfRnpivLoginStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.29.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfRnpivLoginStatsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsIntfRnpivLoginStatsIfIndex": {
+    "name": "alaFipsIntfRnpivLoginStatsIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.29.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsIntfRnpivLoginStatsTxFlogis": {
+    "name": "alaFipsIntfRnpivLoginStatsTxFlogis",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.29.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfRnpivLoginStatsTxFdiscs": {
+    "name": "alaFipsIntfRnpivLoginStatsTxFdiscs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.29.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfRnpivLoginStatsRxLsAccs": {
+    "name": "alaFipsIntfRnpivLoginStatsRxLsAccs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.29.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfRnpivLoginStatsRxFlogiLsRjts": {
+    "name": "alaFipsIntfRnpivLoginStatsRxFlogiLsRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.29.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfRnpivLoginStatsRxFdiscLsRjts": {
+    "name": "alaFipsIntfRnpivLoginStatsRxFdiscLsRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.29.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfRnpivLoginStatsRxCvls": {
+    "name": "alaFipsIntfRnpivLoginStatsRxCvls",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.29.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfRnpivLoginStatsTxLogos": {
+    "name": "alaFipsIntfRnpivLoginStatsTxLogos",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.29.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfRnpivLoginStatsTxVnkas": {
+    "name": "alaFipsIntfRnpivLoginStatsTxVnkas",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.29.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsIntfRnpivLoginStatsTxEkas": {
+    "name": "alaFipsIntfRnpivLoginStatsTxEkas",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.29.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelVePortStats": {
+    "name": "alaFipsEtunnelVePortStats",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.30",
+    "class": "objectidentity"
+  },
+  "alaFipsEtunnelVePortStatsTable": {
+    "name": "alaFipsEtunnelVePortStatsTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.30.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsEtunnelVePortStatsEntry": {
+    "name": "alaFipsEtunnelVePortStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.30.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelVePortStatsTunnelId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsEtunnelVePortStatsTunnelId": {
+    "name": "alaFipsEtunnelVePortStatsTunnelId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.30.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsEtunnelVePortStatsRxMdss": {
+    "name": "alaFipsEtunnelVePortStatsRxMdss",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.30.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelVePortStatsRxUdss": {
+    "name": "alaFipsEtunnelVePortStatsRxUdss",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.30.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelVePortStatsRxMdas": {
+    "name": "alaFipsEtunnelVePortStatsRxMdas",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.30.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelVePortStatsRxUdas": {
+    "name": "alaFipsEtunnelVePortStatsRxUdas",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.30.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelVePortStatsRxElpReqs": {
+    "name": "alaFipsEtunnelVePortStatsRxElpReqs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.30.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelVePortStatsRxSwAccs": {
+    "name": "alaFipsEtunnelVePortStatsRxSwAccs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.30.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelVePortStatsRxSwRjts": {
+    "name": "alaFipsEtunnelVePortStatsRxSwRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.30.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelVePortStatsRxCvls": {
+    "name": "alaFipsEtunnelVePortStatsRxCvls",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.30.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelVePortStatsTxMdss": {
+    "name": "alaFipsEtunnelVePortStatsTxMdss",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.30.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelVePortStatsTxUdss": {
+    "name": "alaFipsEtunnelVePortStatsTxUdss",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.30.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelVePortStatsTxMdas": {
+    "name": "alaFipsEtunnelVePortStatsTxMdas",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.30.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelVePortStatsTxUdas": {
+    "name": "alaFipsEtunnelVePortStatsTxUdas",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.30.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelVePortStatsTxElpReqs": {
+    "name": "alaFipsEtunnelVePortStatsTxElpReqs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.30.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelVePortStatsTxSwAccs": {
+    "name": "alaFipsEtunnelVePortStatsTxSwAccs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.30.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelVePortStatsTxSwRjts": {
+    "name": "alaFipsEtunnelVePortStatsTxSwRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.30.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelVePortStatsTxCvls": {
+    "name": "alaFipsEtunnelVePortStatsTxCvls",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.30.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelVePortStatsClear": {
+    "name": "alaFipsEtunnelVePortStatsClear",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.30.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "none": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFipsEtunnelTePortStats": {
+    "name": "alaFipsEtunnelTePortStats",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.31",
+    "class": "objectidentity"
+  },
+  "alaFipsEtunnelTePortStatsTable": {
+    "name": "alaFipsEtunnelTePortStatsTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.31.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsEtunnelTePortStatsEntry": {
+    "name": "alaFipsEtunnelTePortStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.31.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelTePortStatsTunnelId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsEtunnelTePortStatsTunnelId": {
+    "name": "alaFipsEtunnelTePortStatsTunnelId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.31.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsEtunnelTePortStatsRxElpReqs": {
+    "name": "alaFipsEtunnelTePortStatsRxElpReqs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.31.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelTePortStatsRxSwAccs": {
+    "name": "alaFipsEtunnelTePortStatsRxSwAccs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.31.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelTePortStatsRxSwRjts": {
+    "name": "alaFipsEtunnelTePortStatsRxSwRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.31.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelTePortStatsTxElpReqs": {
+    "name": "alaFipsEtunnelTePortStatsTxElpReqs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.31.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelTePortStatsTxSwAccs": {
+    "name": "alaFipsEtunnelTePortStatsTxSwAccs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.31.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelTePortStatsTxSwRjts": {
+    "name": "alaFipsEtunnelTePortStatsTxSwRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.31.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelTePortStatsClear": {
+    "name": "alaFipsEtunnelTePortStatsClear",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.31.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "none": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaFipsVsanVlanMap": {
+    "name": "alaFipsVsanVlanMap",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.32",
+    "class": "objectidentity"
+  },
+  "alaFipsVsanVlanMapTable": {
+    "name": "alaFipsVsanVlanMapTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.32.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsVsanVlanMapEntry": {
+    "name": "alaFipsVsanVlanMapEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.32.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVsanVlanMapVsanNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsVsanVlanMapVsanNumber": {
+    "name": "alaFipsVsanVlanMapVsanNumber",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.32.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsVsanVlanMapVlanNumber": {
+    "name": "alaFipsVsanVlanMapVlanNumber",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.32.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsVsanVlanMapRowStatus": {
+    "name": "alaFipsVsanVlanMapRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.32.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsDiscAdvt": {
+    "name": "alaFipsDiscAdvt",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.33",
+    "class": "objectidentity"
+  },
+  "alaFipsDiscAdvtTable": {
+    "name": "alaFipsDiscAdvtTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.33.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsDiscAdvtEntry": {
+    "name": "alaFipsDiscAdvtEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.33.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsDiscAdvtVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsDiscAdvtVlanId": {
+    "name": "alaFipsDiscAdvtVlanId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.33.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsDiscAdvtAbit": {
+    "name": "alaFipsDiscAdvtAbit",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.33.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsDiscAdvtFkaAdvPeriod": {
+    "name": "alaFipsDiscAdvtFkaAdvPeriod",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.33.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 90
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsDiscAdvtPriority": {
+    "name": "alaFipsDiscAdvtPriority",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.33.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 128,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsDiscAdvtUdsRetries": {
+    "name": "alaFipsDiscAdvtUdsRetries",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.33.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsDiscAdvtRowStatus": {
+    "name": "alaFipsDiscAdvtRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.33.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsEtunnel": {
+    "name": "alaFipsEtunnel",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.34",
+    "class": "objectidentity"
+  },
+  "alaFipsEtunnelTable": {
+    "name": "alaFipsEtunnelTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.34.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsEtunnelEntry": {
+    "name": "alaFipsEtunnelEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.34.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsEtunnelId": {
+    "name": "alaFipsEtunnelId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.34.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsEtunnelVlanId": {
+    "name": "alaFipsEtunnelVlanId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.34.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsEtunnelIfIndexOne": {
+    "name": "alaFipsEtunnelIfIndexOne",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.34.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsEtunnelIfIndexTwo": {
+    "name": "alaFipsEtunnelIfIndexTwo",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.34.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsEtunnelRowStatus": {
+    "name": "alaFipsEtunnelRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.34.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsEtunnelStatsClear": {
+    "name": "alaFipsEtunnelStatsClear",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.34.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "none": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsNpivSession": {
+    "name": "alaFipsNpivSession",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.35",
+    "class": "objectidentity"
+  },
+  "alaFipsNpivSessionTable": {
+    "name": "alaFipsNpivSessionTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.35.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsNpivSessionEntry": {
+    "name": "alaFipsNpivSessionEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.35.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsNpivSessionEnodeMAC",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsNpivSessionVNMAC",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsNpivSessionVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsNpivSessionEnodeMAC": {
+    "name": "alaFipsNpivSessionEnodeMAC",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.35.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsNpivSessionVNMAC": {
+    "name": "alaFipsNpivSessionVNMAC",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.35.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsNpivSessionVlanId": {
+    "name": "alaFipsNpivSessionVlanId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.35.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsNpivSessionInIfIndex": {
+    "name": "alaFipsNpivSessionInIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.35.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsNpivSessionOutIfIndex": {
+    "name": "alaFipsNpivSessionOutIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.35.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsNpivSessionFCFMAC": {
+    "name": "alaFipsNpivSessionFCFMAC",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.35.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsNpivSessionStatus": {
+    "name": "alaFipsNpivSessionStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.35.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pending": 1,
+          "created": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "pending",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsNpivSessionLoginTimeDate": {
+    "name": "alaFipsNpivSessionLoginTimeDate",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.35.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsRnpivSession": {
+    "name": "alaFipsRnpivSession",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.36",
+    "class": "objectidentity"
+  },
+  "alaFipsRnpivSessionTable": {
+    "name": "alaFipsRnpivSessionTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.36.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsRnpivSessionEntry": {
+    "name": "alaFipsRnpivSessionEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.36.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsRnpivSessionFcid",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsRnpivSessionVsanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsRnpivSessionFcid": {
+    "name": "alaFipsRnpivSessionFcid",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.36.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Fcid",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsRnpivSessionVsanId": {
+    "name": "alaFipsRnpivSessionVsanId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.36.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsRnpivSessionVNMAC": {
+    "name": "alaFipsRnpivSessionVNMAC",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.36.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsRnpivSessionVlanId": {
+    "name": "alaFipsRnpivSessionVlanId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.36.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsRnpivSessionInIfIndex": {
+    "name": "alaFipsRnpivSessionInIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.36.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsRnpivSessionOutIfIndex": {
+    "name": "alaFipsRnpivSessionOutIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.36.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsRnpivSessionFCFMAC": {
+    "name": "alaFipsRnpivSessionFCFMAC",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.36.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsRnpivSessionStatus": {
+    "name": "alaFipsRnpivSessionStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.36.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pending": 1,
+          "created": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "pending",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsRnpivSessionLoginTimeDate": {
+    "name": "alaFipsRnpivSessionLoginTimeDate",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.36.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelSession": {
+    "name": "alaFipsEtunnelSession",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.37",
+    "class": "objectidentity"
+  },
+  "alaFipsEtunnelSessionTable": {
+    "name": "alaFipsEtunnelSessionTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.37.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsEtunnelSessionEntry": {
+    "name": "alaFipsEtunnelSessionEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.37.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelSessionTunnelId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsEtunnelSessionTunnelId": {
+    "name": "alaFipsEtunnelSessionTunnelId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.37.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFipsEtunnelSessionVlanId": {
+    "name": "alaFipsEtunnelSessionVlanId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.37.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelSessionInIfIndex": {
+    "name": "alaFipsEtunnelSessionInIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.37.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelSessionOutIfIndex": {
+    "name": "alaFipsEtunnelSessionOutIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.37.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelSessionFCFMAC": {
+    "name": "alaFipsEtunnelSessionFCFMAC",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.37.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaFipsEtunnelSessionStatus": {
+    "name": "alaFipsEtunnelSessionStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.37.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pending": 1,
+          "created": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "pending",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelSessionLoginTimeDate": {
+    "name": "alaFipsEtunnelSessionLoginTimeDate",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.37.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFipsEtunnelSessionPairMode": {
+    "name": "alaFipsEtunnelSessionPairMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.37.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "teToVe": 1,
+          "te-to-te": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcNpivLoadBalSess": {
+    "name": "alaFcNpivLoadBalSess",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.38",
+    "class": "objectidentity"
+  },
+  "alaFcNpivLoadBalSessTable": {
+    "name": "alaFcNpivLoadBalSessTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.38.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcNpivLoadBalSessEntry": {
+    "name": "alaFcNpivLoadBalSessEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.38.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcNpivLoadBalSessIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcNpivLoadBalSessIfIndex": {
+    "name": "alaFcNpivLoadBalSessIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.38.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcNpivLoadBalSessCount": {
+    "name": "alaFcNpivLoadBalSessCount",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.38.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfEtunnelStats": {
+    "name": "alaFcIntfEtunnelStats",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.39",
+    "class": "objectidentity"
+  },
+  "alaFcIntfEtunnelStatsTable": {
+    "name": "alaFcIntfEtunnelStatsTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.39.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcIntfEtunnelStatsEntry": {
+    "name": "alaFcIntfEtunnelStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.39.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfEtunnelStatsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcIntfEtunnelStatsIfIndex": {
+    "name": "alaFcIntfEtunnelStatsIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.39.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaFcIntfEtunnelStatsTunnelId": {
+    "name": "alaFcIntfEtunnelStatsTunnelId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.39.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfEtunnelStatsRxElpReqs": {
+    "name": "alaFcIntfEtunnelStatsRxElpReqs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.39.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfEtunnelStatsRxSwAccs": {
+    "name": "alaFcIntfEtunnelStatsRxSwAccs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.39.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfEtunnelStatsRxSwRjts": {
+    "name": "alaFcIntfEtunnelStatsRxSwRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.39.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfEtunnelStatsTxElpReqs": {
+    "name": "alaFcIntfEtunnelStatsTxElpReqs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.39.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfEtunnelStatsTxSwAccs": {
+    "name": "alaFcIntfEtunnelStatsTxSwAccs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.39.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfEtunnelStatsTxSwRjts": {
+    "name": "alaFcIntfEtunnelStatsTxSwRjts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.39.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaFcIntfEtunnelStatsClear": {
+    "name": "alaFcIntfEtunnelStatsClear",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.1.39.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "none": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1FipsMIBCompliance": {
+    "name": "alcatelIND1FipsMIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alaFipsInfoGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsVlanGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsVlanEnodeStatsGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsVlanFcfStatsGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsIntfGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsIntfEnodeStatsGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsIntfFcfStatsGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsFcfGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsSessionGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsNotificationGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsNotificationObjectGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFcVsanGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFcVfpaGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFcIntfGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFcNpivStaticLoadBalanceGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFcNodeGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFcSessGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFcIntfNpivStatsGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFcVsanNpivStatsGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFcIntfRnpivStatsGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFcVsanRnpivStatsGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFcInfoGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsVlanNpivDiscStatsGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsIntfNpivDiscStatsGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsVlanNpivLoginStatsGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsIntfNpivLoginStatsGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsVlanRnpivDiscStatsGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsIntfRnpivDiscStatsGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsVlanRnpivLoginStatsGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsIntfRnpivLoginStatsGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsEtunnelVePortStatsGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsEtunnelTePortStatsGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsVsanVlanMapGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsDiscAdvtGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsEtunnelGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsNpivSessionGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsRnpivSessionGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFipsEtunnelSessionGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFcNpivLoadBalSessGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      },
+      {
+        "object": "alaFcIntfEtunnelStatsGroup",
+        "module": "ALCATEL-IND1-FIPS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsInfoGroup": {
+    "name": "alaFipsInfoGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsConfigFilterResourceLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsConfigFIPSAdmin"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsConfigAddressMode"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsConfigPriorityOne"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsConfigPriorityTwo"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsTotalNumFilterResource"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsUsedNumFilterResource"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsConfigStatsClear"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsConfigPrioProtection"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsConfigPriorityProtectionAction"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsConfigPriorityProtectionRemarkVal"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsConfigHouseKeepingTimePeriod"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsConfigSWReinsertStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsConfigSessClear"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsVlanGroup": {
+    "name": "alaFipsVlanGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanFCMap"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanStatsClear"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanStatsFnreClear"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsVlanEnodeStatsGroup": {
+    "name": "alaFipsVlanEnodeStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanEnodeStatsSessions"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanEnodeStatsMds"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanEnodeStatsUds"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanEnodeStatsFlogi"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanEnodeStatsFdisc"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanEnodeStatsLogo"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanEnodeStatsEka"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanEnodeStatsVnka"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanEnodeStatsClear"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsVlanFcfStatsGroup": {
+    "name": "alaFipsVlanFcfStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanFcfStatsSessions"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanFcfStatsMda"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanFcfStatsUda"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanFcfStatsFlogiAcc"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanFcfStatsFlogiRjt"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanFcfStatsFdiscRjt"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanFcfStatsLogoAcc"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanFcfStatsLogoRjt"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanFcfStatsCvl"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanFcfStatsClear"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanFcfStatsFdiscAcc"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsIntfGroup": {
+    "name": "alaFipsIntfGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfOperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfPortRole"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfStatsClear"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfStatsFnreClear"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsIntfEnodeStatsGroup": {
+    "name": "alaFipsIntfEnodeStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfEnodeStatsSessions"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfEnodeStatsMds"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfEnodeStatsUds"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfEnodeStatsFlogi"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfEnodeStatsFdisc"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfEnodeStatsLogo"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfEnodeStatsEka"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfEnodeStatsVnka"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfEnodeStatsClear"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsIntfFcfStatsGroup": {
+    "name": "alaFipsIntfFcfStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfFcfStatsSessions"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfFcfStatsMda"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfFcfStatsUda"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfFcfStatsFlogiAcc"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfFcfStatsFlogiRjt"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfFcfStatsFdiscRjt"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfFcfStatsLogoAcc"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfFcfStatsLogoRjt"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfFcfStatsCvl"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfFcfStatsClear"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfFcfStatsFdiscAcc"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsFcfGroup": {
+    "name": "alaFipsFcfGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsFcfIntf"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsFcfSessions"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsFcfConfigType"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsFcfRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsFcfAvailForLogin"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsFcfMaxFcoeFrmSizeVerified"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsFcfPriority"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsFcfType"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsSessionGroup": {
+    "name": "alaFipsSessionGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsSessionIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsSessionFCFMAC"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsSessionStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsSessionLoginTime"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsSessionLoginTimeDate"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsNotificationObjectGroup": {
+    "name": "alaFipsNotificationObjectGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsFilterResourceUsage"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsNotificationGroup": {
+    "name": "alaFipsNotificationGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsResourceThresholdReached"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcVsanGroup": {
+    "name": "alaFcVsanGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVsanDescription"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVsanAdmStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVsanOperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVsanRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcVfpaGroup": {
+    "name": "alaFcVfpaGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVfpaState"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVfpaRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcIntfGroup": {
+    "name": "alaFcIntfGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfOperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfMode"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfBbScN"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfClassOfService"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfFcid"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfWwpn"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfLoginState"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfStatsClear"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcNpivStaticLoadBalanceGroup": {
+    "name": "alaFcNpivStaticLoadBalanceGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcNpivStaticLoadBalanceRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcNodeGroup": {
+    "name": "alaFcNodeGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcNodeVsanNumber"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcNodeVlanNumber"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcNodeFcid"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcNodeWwnn"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcSessGroup": {
+    "name": "alaFcSessGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcSessVsanNumber"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcSessStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcSessIntfMode"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcSessFcid"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcSessType"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcSessTunnelId"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcIntfNpivStatsGroup": {
+    "name": "alaFcIntfNpivStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfNpivStatsTxFlogis"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfNpivStatsTxFdiscs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfNpivStatsRxLsAccs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfNpivStatsRxFlogos"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfNpivStatsRxFlogiLsRjts"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfNpivStatsRxFdiscLsRjts"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfNpivStatsTxFlogos"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfNpivStatsClear"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcVsanNpivStatsGroup": {
+    "name": "alaFcVsanNpivStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVsanNpivStatsTxFlogis"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVsanNpivStatsTxFdiscs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVsanNpivStatsRxLsAccs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVsanNpivStatsRxFlogos"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVsanNpivStatsRxFlogiLsRjts"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVsanNpivStatsRxFdiscLsRjts"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVsanNpivStatsTxFlogos"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcIntfRnpivStatsGroup": {
+    "name": "alaFcIntfRnpivStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfRnpivStatsRxFlogis"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfRnpivStatsRxFdiscs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfRnpivStatsTxFlogiLsAccs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfRnpivStatsTxFdiscLsAccs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfRnpivStatsTxFlogos"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfRnpivStatsTxFlogiLsRjts"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfRnpivStatsTxFdiscLsRjts"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfRnpivStatsRxFlogos"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfRnpivStatsClear"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcVsanRnpivStatsGroup": {
+    "name": "alaFcVsanRnpivStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVsanRnpivStatsRxFlogis"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVsanRnpivStatsRxFdiscs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVsanRnpivStatsTxFlogiLsAccs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVsanRnpivStatsTxFdiscLsAccs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVsanRnpivStatsTxFlogos"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVsanRnpivStatsTxFlogiLsRjts"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVsanRnpivStatsTxFdiscLsRjts"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcVsanRnpivStatsRxFlogos"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcInfoGroup": {
+    "name": "alaFcInfoGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcConfigSessClear"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcConfigStatsClear"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcConfigNpivLoadBalance"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcConfigWwnn"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsVlanNpivDiscStatsGroup": {
+    "name": "alaFipsVlanNpivDiscStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanNpivDiscStatsRxVlanDiscRqs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanNpivDiscStatsTxVlanDiscResps"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanNpivDiscStatsRxMdss"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanNpivDiscStatsRxUdss"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanNpivDiscStatsTxMdas"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanNpivDiscStatsTxUdas"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsIntfNpivDiscStatsGroup": {
+    "name": "alaFipsIntfNpivDiscStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfNpivDiscStatsRxVlanDiscRqs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfNpivDiscStatsTxVlanDiscResps"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfNpivDiscStatsRxMdss"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfNpivDiscStatsRxUdss"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfNpivDiscStatsTxMdas"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfNpivDiscStatsTxUdas"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsVlanNpivLoginStatsGroup": {
+    "name": "alaFipsVlanNpivLoginStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanNpivLoginStatsRxFlogis"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanNpivLoginStatsRxFdiscs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanNpivLoginStatsTxFlogiAccs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanNpivLoginStatsTxFlogiLsRjts"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanNpivLoginStatsTxFdiscLsRjts"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanNpivLoginStatsRxLogos"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanNpivLoginStatsTxCvls"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanNpivLoginStatsRxEkas"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanNpivLoginStatsRxVnkas"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanNpivLoginStatsTxFDiscAccs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanNpivLoginStatsTxFlogoAccs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanNpivLoginStatsTxFLogoLsRjts"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsIntfNpivLoginStatsGroup": {
+    "name": "alaFipsIntfNpivLoginStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfNpivLoginStatsRxFlogis"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfNpivLoginStatsRxFdiscs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfNpivLoginStatsTxFlogiAccs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfNpivLoginStatsTxFlogiLsRjts"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfNpivLoginStatsTxFdiscLsRjts"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfNpivLoginStatsRxLogos"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfNpivLoginStatsTxCvls"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfNpivLoginStatsRxEkas"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfNpivLoginStatsRxVnkas"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfNpivLoginStatsTxFDiscAccs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfNpivLoginStatsTxFlogoAccs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfNpivLoginStatsTxFLogoLsRjts"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsVlanRnpivDiscStatsGroup": {
+    "name": "alaFipsVlanRnpivDiscStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanRnpivDiscStatsRxMdas"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanRnpivDiscStatsRxUdas"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanRnpivDiscStatsTxMdss"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanRnpivDiscStatsTxUdss"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsIntfRnpivDiscStatsGroup": {
+    "name": "alaFipsIntfRnpivDiscStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfRnpivDiscStatsRxMdas"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfRnpivDiscStatsRxUdas"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfRnpivDiscStatsTxMdss"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfRnpivDiscStatsTxUdss"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsVlanRnpivLoginStatsGroup": {
+    "name": "alaFipsVlanRnpivLoginStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanRnpivLoginStatsTxFlogis"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanRnpivLoginStatsTxFdiscs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanRnpivLoginStatsRxLsAccs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanRnpivLoginStatsRxFlogiLsRjts"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanRnpivLoginStatsRxFdiscLsRjts"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanRnpivLoginStatsRxCvls"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanRnpivLoginStatsTxLogos"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanRnpivLoginStatsTxVnkas"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVlanRnpivLoginStatsTxEkas"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsIntfRnpivLoginStatsGroup": {
+    "name": "alaFipsIntfRnpivLoginStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.30",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfRnpivLoginStatsTxFlogis"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfRnpivLoginStatsTxFdiscs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfRnpivLoginStatsRxLsAccs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfRnpivLoginStatsRxFlogiLsRjts"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfRnpivLoginStatsRxFdiscLsRjts"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfRnpivLoginStatsRxCvls"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfRnpivLoginStatsTxLogos"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfRnpivLoginStatsTxVnkas"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsIntfRnpivLoginStatsTxEkas"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsEtunnelVePortStatsGroup": {
+    "name": "alaFipsEtunnelVePortStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.31",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelVePortStatsRxMdss"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelVePortStatsRxUdss"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelVePortStatsRxMdas"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelVePortStatsRxUdas"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelVePortStatsRxElpReqs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelVePortStatsRxSwAccs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelVePortStatsRxSwRjts"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelVePortStatsRxCvls"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelVePortStatsTxMdss"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelVePortStatsTxUdss"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelVePortStatsTxMdas"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelVePortStatsTxUdas"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelVePortStatsTxElpReqs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelVePortStatsTxSwAccs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelVePortStatsTxSwRjts"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelVePortStatsTxCvls"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelVePortStatsClear"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsEtunnelTePortStatsGroup": {
+    "name": "alaFipsEtunnelTePortStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.32",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelTePortStatsRxElpReqs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelTePortStatsRxSwAccs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelTePortStatsRxSwRjts"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelTePortStatsTxElpReqs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelTePortStatsTxSwAccs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelTePortStatsTxSwRjts"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelTePortStatsClear"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsVsanVlanMapGroup": {
+    "name": "alaFipsVsanVlanMapGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.33",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVsanVlanMapVlanNumber"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsVsanVlanMapRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsDiscAdvtGroup": {
+    "name": "alaFipsDiscAdvtGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.34",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsDiscAdvtAbit"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsDiscAdvtFkaAdvPeriod"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsDiscAdvtPriority"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsDiscAdvtUdsRetries"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsDiscAdvtRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsEtunnelGroup": {
+    "name": "alaFipsEtunnelGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.35",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelVlanId"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelIfIndexOne"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelIfIndexTwo"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelStatsClear"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsNpivSessionGroup": {
+    "name": "alaFipsNpivSessionGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.36",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsNpivSessionInIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsNpivSessionOutIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsNpivSessionFCFMAC"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsNpivSessionStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsNpivSessionLoginTimeDate"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsRnpivSessionGroup": {
+    "name": "alaFipsRnpivSessionGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.37",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsRnpivSessionVNMAC"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsRnpivSessionVlanId"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsRnpivSessionInIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsRnpivSessionOutIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsRnpivSessionFCFMAC"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsRnpivSessionStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsRnpivSessionLoginTimeDate"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFipsEtunnelSessionGroup": {
+    "name": "alaFipsEtunnelSessionGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.38",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelSessionVlanId"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelSessionInIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelSessionOutIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelSessionFCFMAC"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelSessionStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelSessionLoginTimeDate"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFipsEtunnelSessionPairMode"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcNpivLoadBalSessGroup": {
+    "name": "alaFcNpivLoadBalSessGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.39",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcNpivLoadBalSessCount"
+      }
+    ],
+    "status": "current"
+  },
+  "alaFcIntfEtunnelStatsGroup": {
+    "name": "alaFcIntfEtunnelStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.74.1.2.1.40",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfEtunnelStatsTunnelId"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfEtunnelStatsRxElpReqs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfEtunnelStatsRxSwAccs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfEtunnelStatsRxSwRjts"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfEtunnelStatsTxElpReqs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfEtunnelStatsTxSwAccs"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfEtunnelStatsTxSwRjts"
+      },
+      {
+        "module": "ALCATEL-IND1-FIPS-MIB",
+        "object": "alaFcIntfEtunnelStatsClear"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/aos7/ALCATEL-IND1-FIPS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:46 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-FIPS-MIB"
+  }
+}

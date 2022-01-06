@@ -1,0 +1,2245 @@
+{
+  "imports": {
+    "class": "imports",
+    "IEEE8021-CFM-MIB": [
+      "dot1agCfmMaIndex",
+      "Dot1agCfmMepIdOrZero",
+      "Dot1agCfmCcmInterval",
+      "Dot1agCfmMDLevel",
+      "dot1agCfmLtrSeqNumber",
+      "dot1agCfmMdIndex",
+      "Dot1agCfmMepId",
+      "dot1agCfmMepDbRMepIdentifier",
+      "Dot1agCfmMpDirection",
+      "dot1agCfmMaComponentId",
+      "Dot1agCfmIdPermission",
+      "dot1agCfmLtrReceiveOrder",
+      "dot1agCfmMepIdentifier",
+      "Dot1agCfmPbbComponentIdentifier",
+      "dot1agCfmMaMepListIdentifier"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "LLDP-MIB": [
+      "LldpChassisIdSubtype",
+      "LldpPortIdSubtype",
+      "LldpPortId",
+      "LldpChassisId"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId",
+      "VlanIdOrNone"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "Gauge32",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter64",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TAddress",
+      "TruthValue",
+      "TDomain",
+      "DisplayString"
+    ]
+  },
+  "calixEoamExtMIB": {
+    "name": "calixEoamExtMIB",
+    "oid": "1.3.6.1.4.1.6321.1.99",
+    "class": "moduleidentity"
+  },
+  "calixEoamExtConfig": {
+    "name": "calixEoamExtConfig",
+    "oid": "1.3.6.1.4.1.6321.1.99.1",
+    "class": "objectidentity"
+  },
+  "CalixEoamEnableType": {
+    "name": "CalixEoamEnableType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CalixSoamLmType": {
+    "name": "CalixSoamLmType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "single": 1,
+          "dual": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "calixSoamExtMegTable": {
+    "name": "calixSoamExtMegTable",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "calixSoamExtMegEntry": {
+    "name": "calixSoamExtMegEntry",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CALIX-EOAM-EXT-MIB",
+        "object": "calixSoamExtMegIdentifier",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "calixSoamExtMegIdentifier": {
+    "name": "calixSoamExtMegIdentifier",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "calixSoamExtMegName": {
+    "name": "calixSoamExtMegName",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 44
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMegLevel": {
+    "name": "calixSoamExtMegLevel",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMDLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMegCcmInterval": {
+    "name": "calixSoamExtMegCcmInterval",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmCcmInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "interval1s",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMegVid": {
+    "name": "calixSoamExtMegVid",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMegAutoDiscovery": {
+    "name": "calixSoamExtMegAutoDiscovery",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CalixEoamEnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMegAutoDiscoveryTimeout": {
+    "name": "calixSoamExtMegAutoDiscoveryTimeout",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMegCciInterworking": {
+    "name": "calixSoamExtMegCciInterworking",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CalixEoamEnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMegIdPermission": {
+    "name": "calixSoamExtMegIdPermission",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmIdPermission",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "sendIdNone",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMegRowStatus": {
+    "name": "calixSoamExtMegRowStatus",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMipTable": {
+    "name": "calixSoamExtMipTable",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "calixSoamExtMipEntry": {
+    "name": "calixSoamExtMipEntry",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CALIX-EOAM-EXT-MIB",
+        "object": "calixSoamExtMegIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "CALIX-EOAM-EXT-MIB",
+        "object": "calixSoamExtMipIdentifier",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "calixSoamExtMipIdentifier": {
+    "name": "calixSoamExtMipIdentifier",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "calixSoamExtMipIfIndex": {
+    "name": "calixSoamExtMipIfIndex",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMipAdminState": {
+    "name": "calixSoamExtMipAdminState",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CalixEoamEnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMipMacAddress": {
+    "name": "calixSoamExtMipMacAddress",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMipResetStat": {
+    "name": "calixSoamExtMipResetStat",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMipRowStatus": {
+    "name": "calixSoamExtMipRowStatus",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMipStatsTable": {
+    "name": "calixSoamExtMipStatsTable",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "calixSoamExtMipStatsEntry": {
+    "name": "calixSoamExtMipStatsEntry",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CALIX-EOAM-EXT-MIB",
+        "object": "calixSoamExtMegIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "CALIX-EOAM-EXT-MIB",
+        "object": "calixSoamExtMipIdentifier",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "calixSoamExtMipStatsDirection": {
+    "name": "calixSoamExtMipStatsDirection",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMpDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMipStatsLbmIn": {
+    "name": "calixSoamExtMipStatsLbmIn",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMipStatsLbrOut": {
+    "name": "calixSoamExtMipStatsLbrOut",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMipStatsLtmIn": {
+    "name": "calixSoamExtMipStatsLtmIn",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMipStatsLtmForwarded": {
+    "name": "calixSoamExtMipStatsLtmForwarded",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMipStatsLtrOut": {
+    "name": "calixSoamExtMipStatsLtrOut",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMipStatsLbmInvalidSenderId": {
+    "name": "calixSoamExtMipStatsLbmInvalidSenderId",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMipStatsDiscards": {
+    "name": "calixSoamExtMipStatsDiscards",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMipStatsResetStat": {
+    "name": "calixSoamExtMipStatsResetStat",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtTable": {
+    "name": "calixSoamExtMepDmExtTable",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtEntry": {
+    "name": "calixSoamExtMepDmExtEntry",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtActive": {
+    "name": "calixSoamExtMepDmExtActive",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CalixEoamEnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtDestMacAddress": {
+    "name": "calixSoamExtMepDmExtDestMacAddress",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtDestMepId": {
+    "name": "calixSoamExtMepDmExtDestMepId",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMepIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtDestIsMepId": {
+    "name": "calixSoamExtMepDmExtDestIsMepId",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtClassOfService": {
+    "name": "calixSoamExtMepDmExtClassOfService",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtDmPeriod": {
+    "name": "calixSoamExtMepDmExtDmPeriod",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dm1sec": 3,
+          "dm10sec": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtMaxRtdThrSet": {
+    "name": "calixSoamExtMepDmExtMaxRtdThrSet",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtMaxRtdThrClr": {
+    "name": "calixSoamExtMepDmExtMaxRtdThrClr",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtAvgRtdThrSet": {
+    "name": "calixSoamExtMepDmExtAvgRtdThrSet",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtAvgRtdThrClr": {
+    "name": "calixSoamExtMepDmExtAvgRtdThrClr",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtMaxRtdVarThrSet": {
+    "name": "calixSoamExtMepDmExtMaxRtdVarThrSet",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtMaxRtdVarThrClr": {
+    "name": "calixSoamExtMepDmExtMaxRtdVarThrClr",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtAvgRtdVarThrSet": {
+    "name": "calixSoamExtMepDmExtAvgRtdVarThrSet",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtAvgRtdVarThrClr": {
+    "name": "calixSoamExtMepDmExtAvgRtdVarThrClr",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtAvgRoundTripDelay": {
+    "name": "calixSoamExtMepDmExtAvgRoundTripDelay",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtMinRoundTripDelay": {
+    "name": "calixSoamExtMepDmExtMinRoundTripDelay",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtMaxRoundTripDelay": {
+    "name": "calixSoamExtMepDmExtMaxRoundTripDelay",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtAvgRoundTripDelayVariation": {
+    "name": "calixSoamExtMepDmExtAvgRoundTripDelayVariation",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtMinRoundTripDelayVariation": {
+    "name": "calixSoamExtMepDmExtMinRoundTripDelayVariation",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtMaxRoundTripDelayVariation": {
+    "name": "calixSoamExtMepDmExtMaxRoundTripDelayVariation",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtAvgRoundTripProcessingDelay": {
+    "name": "calixSoamExtMepDmExtAvgRoundTripProcessingDelay",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtMinRoundTripProcessingDelay": {
+    "name": "calixSoamExtMepDmExtMinRoundTripProcessingDelay",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtMaxRoundTripProcessingDelay": {
+    "name": "calixSoamExtMepDmExtMaxRoundTripProcessingDelay",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtDataLength": {
+    "name": "calixSoamExtMepDmExtDataLength",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepDmExtDataPattern": {
+    "name": "calixSoamExtMepDmExtDataPattern",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtTable": {
+    "name": "calixSoamExtMepLmExtTable",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtEntry": {
+    "name": "calixSoamExtMepLmExtEntry",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtActive": {
+    "name": "calixSoamExtMepLmExtActive",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CalixEoamEnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtDestMacAddress": {
+    "name": "calixSoamExtMepLmExtDestMacAddress",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtDestMepId": {
+    "name": "calixSoamExtMepLmExtDestMepId",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMepIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtDestIsMepId": {
+    "name": "calixSoamExtMepLmExtDestIsMepId",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtLmType": {
+    "name": "calixSoamExtMepLmExtLmType",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CalixSoamLmType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtClassOfService": {
+    "name": "calixSoamExtMepLmExtClassOfService",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtLmPeriod": {
+    "name": "calixSoamExtMepLmExtLmPeriod",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lm100ms": 1,
+          "lm1sec": 2,
+          "lm10sec": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtMaxNearEndLossThrSet": {
+    "name": "calixSoamExtMepLmExtMaxNearEndLossThrSet",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtMaxNearEndLossThrClr": {
+    "name": "calixSoamExtMepLmExtMaxNearEndLossThrClr",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtAvgNearEndLossThrSet": {
+    "name": "calixSoamExtMepLmExtAvgNearEndLossThrSet",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtAvgNearEndLossThrClr": {
+    "name": "calixSoamExtMepLmExtAvgNearEndLossThrClr",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtMaxFarEndLossThrSet": {
+    "name": "calixSoamExtMepLmExtMaxFarEndLossThrSet",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtMaxFarEndLossThrClr": {
+    "name": "calixSoamExtMepLmExtMaxFarEndLossThrClr",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtAvgFarEndLossThrSet": {
+    "name": "calixSoamExtMepLmExtAvgFarEndLossThrSet",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtAvgFarEndLossThrClr": {
+    "name": "calixSoamExtMepLmExtAvgFarEndLossThrClr",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtNearEndLostPkts": {
+    "name": "calixSoamExtMepLmExtNearEndLostPkts",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtNearEndLossRatio": {
+    "name": "calixSoamExtMepLmExtNearEndLossRatio",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtMaxNearEndLossRatio": {
+    "name": "calixSoamExtMepLmExtMaxNearEndLossRatio",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtMinNearEndLossRatio": {
+    "name": "calixSoamExtMepLmExtMinNearEndLossRatio",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtAvgNearEndLossRatio": {
+    "name": "calixSoamExtMepLmExtAvgNearEndLossRatio",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtFarEndLostPkts": {
+    "name": "calixSoamExtMepLmExtFarEndLostPkts",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtFarEndLossRatio": {
+    "name": "calixSoamExtMepLmExtFarEndLossRatio",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtMaxFarEndLossRatio": {
+    "name": "calixSoamExtMepLmExtMaxFarEndLossRatio",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtMinFarEndLossRatio": {
+    "name": "calixSoamExtMepLmExtMinFarEndLossRatio",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepLmExtAvgFarEndLossRatio": {
+    "name": "calixSoamExtMepLmExtAvgFarEndLossRatio",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepMcastLoopbackSessionTable": {
+    "name": "calixSoamExtMepMcastLoopbackSessionTable",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "calixSoamExtMepMcastLoopbackSessionEntry": {
+    "name": "calixSoamExtMepMcastLoopbackSessionEntry",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "calixSoamExtMepMcastLoopbackSessionStatus": {
+    "name": "calixSoamExtMepMcastLoopbackSessionStatus",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "inProgress": 2,
+          "completed": 3,
+          "activate": 4,
+          "failed": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepMcastLoopbackSessionReplies": {
+    "name": "calixSoamExtMepMcastLoopbackSessionReplies",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepMcastLoopbackResultsTable": {
+    "name": "calixSoamExtMepMcastLoopbackResultsTable",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "calixSoamExtMepMcastLoopbackResultsEntry": {
+    "name": "calixSoamExtMepMcastLoopbackResultsEntry",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "CALIX-EOAM-EXT-MIB",
+        "object": "calixSoamExtMepMcastLoopbackResultsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "calixSoamExtMepMcastLoopbackResultsIndex": {
+    "name": "calixSoamExtMepMcastLoopbackResultsIndex",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "calixSoamExtMepMcastLoopbackResultsMacAddress": {
+    "name": "calixSoamExtMepMcastLoopbackResultsMacAddress",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtTable": {
+    "name": "calixSoamExtMepStatsExtTable",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtEntry": {
+    "name": "calixSoamExtMepStatsExtEntry",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtCcmRdiSent": {
+    "name": "calixSoamExtMepStatsExtCcmRdiSent",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtCcmReceived": {
+    "name": "calixSoamExtMepStatsExtCcmReceived",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtCcmInvalidSenderId": {
+    "name": "calixSoamExtMepStatsExtCcmInvalidSenderId",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtCcmInvalidPortStatus": {
+    "name": "calixSoamExtMepStatsExtCcmInvalidPortStatus",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtCcmInvalidIfStatus": {
+    "name": "calixSoamExtMepStatsExtCcmInvalidIfStatus",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtCcmRdiReceived": {
+    "name": "calixSoamExtMepStatsExtCcmRdiReceived",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtLbmReceived": {
+    "name": "calixSoamExtMepStatsExtLbmReceived",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtLbmSent": {
+    "name": "calixSoamExtMepStatsExtLbmSent",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtLbmInvalidSenderId": {
+    "name": "calixSoamExtMepStatsExtLbmInvalidSenderId",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtLbrInvalidSenderId": {
+    "name": "calixSoamExtMepStatsExtLbrInvalidSenderId",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtLtmReceived": {
+    "name": "calixSoamExtMepStatsExtLtmReceived",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtLtmSent": {
+    "name": "calixSoamExtMepStatsExtLtmSent",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtLtrInvalidMac": {
+    "name": "calixSoamExtMepStatsExtLtrInvalidMac",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtLtrReceived": {
+    "name": "calixSoamExtMepStatsExtLtrReceived",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtLtrSent": {
+    "name": "calixSoamExtMepStatsExtLtrSent",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtLmmReceived": {
+    "name": "calixSoamExtMepStatsExtLmmReceived",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtLmmSent": {
+    "name": "calixSoamExtMepStatsExtLmmSent",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtLmrReceived": {
+    "name": "calixSoamExtMepStatsExtLmrReceived",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtLmrSent": {
+    "name": "calixSoamExtMepStatsExtLmrSent",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtDmmReceived": {
+    "name": "calixSoamExtMepStatsExtDmmReceived",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtDmmSent": {
+    "name": "calixSoamExtMepStatsExtDmmSent",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtDmrReceived": {
+    "name": "calixSoamExtMepStatsExtDmrReceived",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtDmrSent": {
+    "name": "calixSoamExtMepStatsExtDmrSent",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepStatsExtResetStat": {
+    "name": "calixSoamExtMepStatsExtResetStat",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.8.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtMepUcastLoopbackResultsTable": {
+    "name": "calixSoamExtMepUcastLoopbackResultsTable",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "calixSoamExtMepUcastLoopbackResultsEntry": {
+    "name": "calixSoamExtMepUcastLoopbackResultsEntry",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "calixSoamExtMepUcastLoopbackResultsLbmFirstSeqNumber": {
+    "name": "calixSoamExtMepUcastLoopbackResultsLbmFirstSeqNumber",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepUcastLoopbackResultsDestMacAddress": {
+    "name": "calixSoamExtMepUcastLoopbackResultsDestMacAddress",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepUcastLoopbackResultsStatus": {
+    "name": "calixSoamExtMepUcastLoopbackResultsStatus",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "inProgress": 1,
+          "failed": 2,
+          "succeeded": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepUcastLoopbackResultsLbmOut": {
+    "name": "calixSoamExtMepUcastLoopbackResultsLbmOut",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtMepUcastLoopbackResultsLbrIn": {
+    "name": "calixSoamExtMepUcastLoopbackResultsLbrIn",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calixSoamExtCfgTable": {
+    "name": "calixSoamExtCfgTable",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "calixSoamExtCfgEntry": {
+    "name": "calixSoamExtCfgEntry",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CALIX-EOAM-EXT-MIB",
+        "object": "calixSoamExtCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "calixSoamExtCfgIndex": {
+    "name": "calixSoamExtCfgIndex",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtCfgAdminState": {
+    "name": "calixSoamExtCfgAdminState",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CalixEoamEnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtCfgPermission": {
+    "name": "calixSoamExtCfgPermission",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmIdPermission",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtCfgChassisIdSubtype": {
+    "name": "calixSoamExtCfgChassisIdSubtype",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpChassisIdSubtype",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtCfgChassisId": {
+    "name": "calixSoamExtCfgChassisId",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpChassisId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtCfgManAddressDomain": {
+    "name": "calixSoamExtCfgManAddressDomain",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TDomain",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtCfgManAddress": {
+    "name": "calixSoamExtCfgManAddress",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtCfgCcmOptTlvSenderId": {
+    "name": "calixSoamExtCfgCcmOptTlvSenderId",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CalixEoamEnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtCfgCcmOptTlvPortStatus": {
+    "name": "calixSoamExtCfgCcmOptTlvPortStatus",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CalixEoamEnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtCfgCcmOptTlvIfStatus": {
+    "name": "calixSoamExtCfgCcmOptTlvIfStatus",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CalixEoamEnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtCfgLtmOptTlvSenderId": {
+    "name": "calixSoamExtCfgLtmOptTlvSenderId",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CalixEoamEnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtCfgLbmOptTlvSenderId": {
+    "name": "calixSoamExtCfgLbmOptTlvSenderId",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CalixEoamEnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtCfgLbmOptTlvIfStatus": {
+    "name": "calixSoamExtCfgLbmOptTlvIfStatus",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CalixEoamEnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtCfgLbmOptTlvData": {
+    "name": "calixSoamExtCfgLbmOptTlvData",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CalixEoamEnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixSoamExtCfgDmmOptTlvData": {
+    "name": "calixSoamExtCfgDmmOptTlvData",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.10.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CalixEoamEnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixLoamExtCfgTable": {
+    "name": "calixLoamExtCfgTable",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "calixLoamExtCfgEntry": {
+    "name": "calixLoamExtCfgEntry",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CALIX-EOAM-EXT-MIB",
+        "object": "calixLoamExtCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "calixLoamExtCfgIndex": {
+    "name": "calixLoamExtCfgIndex",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixLoamExtCfgAdminState": {
+    "name": "calixLoamExtCfgAdminState",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CalixEoamEnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "calixRfc2544CfgTable": {
+    "name": "calixRfc2544CfgTable",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "calixRfc2544CfgEntry": {
+    "name": "calixRfc2544CfgEntry",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CALIX-EOAM-EXT-MIB",
+        "object": "calixRfc2544CfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "calixRfc2544CfgIndex": {
+    "name": "calixRfc2544CfgIndex",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixRfc2544CfgAdminState": {
+    "name": "calixRfc2544CfgAdminState",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CalixEoamEnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "calixRfc2544CfgIfIndex": {
+    "name": "calixRfc2544CfgIfIndex",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "calixRfc2544CfgVlanId": {
+    "name": "calixRfc2544CfgVlanId",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "calixRfc2544CfgMacAddress": {
+    "name": "calixRfc2544CfgMacAddress",
+    "oid": "1.3.6.1.4.1.6321.1.99.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/CALIX-SOAM-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:20:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CALIX-EOAM-EXT-MIB"
+  }
+}

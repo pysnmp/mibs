@@ -1,0 +1,1906 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifName",
+      "InterfaceIndex",
+      "ifAdminStatus",
+      "ifDescr",
+      "ifIndex",
+      "ifOperStatus",
+      "InterfaceIndexOrZero"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
+    ]
+  },
+  "hwMFlpMIB": {
+    "name": "hwMFlpMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.160",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-04-05 00:00",
+        "description": "Add Objects to hwMflpTrapGroup."
+      },
+      {
+        "revision": "2017-03-03 00:00",
+        "description": "Mac flapping management MIB."
+      },
+      {
+        "revision": "2016-04-27 00:00",
+        "description": "Add Objects to hwMflpBdCfgTable."
+      },
+      {
+        "revision": "2015-07-17 00:00",
+        "description": "Fix the errors."
+      },
+      {
+        "revision": "2015-07-14 00:00",
+        "description": "Add Objects to hwMflpNewAlarm."
+      },
+      {
+        "revision": "2014-12-23 00:00",
+        "description": "Add Objects to hwMflpLinkBlkedIfName."
+      },
+      {
+        "revision": "2014-03-15 00:00",
+        "description": "Add Objects to hwMflpDefaultAlarm and hwMflpDefaultResume ."
+      },
+      {
+        "revision": "2014-03-15 00:00",
+        "description": "Add Objects to hwMflpVsiAlarm."
+      },
+      {
+        "revision": "2013-09-07 00:00",
+        "description": "Fix the errors checked by a tool."
+      },
+      {
+        "revision": "2008-01-02 06:00",
+        "description": "V1.00, initial version."
+      }
+    ]
+  },
+  "hwMflpObjects": {
+    "name": "hwMflpObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1",
+    "class": "objectidentity"
+  },
+  "hwMflpVlanCfgTable": {
+    "name": "hwMflpVlanCfgTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMflpVlanCfgEntry": {
+    "name": "hwMflpVlanCfgEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpVlanId": {
+    "name": "hwMflpVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpVlanCfgLoopTimes": {
+    "name": "hwMflpVlanCfgLoopTimes",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMflpVlanCfgDetectCycle": {
+    "name": "hwMflpVlanCfgDetectCycle",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMflpVlanCfgCycles": {
+    "name": "hwMflpVlanCfgCycles",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMflpVlanCfgAction": {
+    "name": "hwMflpVlanCfgAction",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "block": 1,
+          "alarmOnly": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "block",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMflpVlanCfgBlockTime": {
+    "name": "hwMflpVlanCfgBlockTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMflpVlanCfgRetryTimes": {
+    "name": "hwMflpVlanCfgRetryTimes",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMflpVlanCfgIfName": {
+    "name": "hwMflpVlanCfgIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpVlanCfgAlarmReason": {
+    "name": "hwMflpVlanCfgAlarmReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpVlanCfgRowstatus": {
+    "name": "hwMflpVlanCfgRowstatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMflpVlanDetectMAC": {
+    "name": "hwMflpVlanDetectMAC",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpVlanCfgMacAddr": {
+    "name": "hwMflpVlanCfgMacAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMflpVlanCfgPreIfName": {
+    "name": "hwMflpVlanCfgPreIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMflpVsiCfgTable": {
+    "name": "hwMflpVsiCfgTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMflpVsiCfgEntry": {
+    "name": "hwMflpVsiCfgEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpVsiName": {
+    "name": "hwMflpVsiName",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpVsiCfgLoopTimes": {
+    "name": "hwMflpVsiCfgLoopTimes",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMflpVsiCfgDetectCycle": {
+    "name": "hwMflpVsiCfgDetectCycle",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMflpVsiCfgCycles": {
+    "name": "hwMflpVsiCfgCycles",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMflpVsiCfgAction": {
+    "name": "hwMflpVsiCfgAction",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "block": 1,
+          "alarmOnly": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "block",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMflpVsiCfgBlockTime": {
+    "name": "hwMflpVsiCfgBlockTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMflpVsiCfgRetryTimes": {
+    "name": "hwMflpVsiCfgRetryTimes",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMflpVsiCfgBlockPolicy": {
+    "name": "hwMflpVsiCfgBlockPolicy",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "acFirst": 2,
+          "pwFirst": 3,
+          "acOnly": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMflpVsiCfgAcName": {
+    "name": "hwMflpVsiCfgAcName",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpVsiCfgAlarmReason": {
+    "name": "hwMflpVsiCfgAlarmReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpVsiCfgIpAddr": {
+    "name": "hwMflpVsiCfgIpAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpVsiCfgPwId": {
+    "name": "hwMflpVsiCfgPwId",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpVsiCfgRowstatus": {
+    "name": "hwMflpVsiCfgRowstatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMflpVsiDetectMAC": {
+    "name": "hwMflpVsiDetectMAC",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpLinkBlkedIfName": {
+    "name": "hwMflpLinkBlkedIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpVsiCfgAcNameEx1": {
+    "name": "hwMflpVsiCfgAcNameEx1",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpVsiCfgAcNameEx2": {
+    "name": "hwMflpVsiCfgAcNameEx2",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpBdCfgTable": {
+    "name": "hwMflpBdCfgTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMflpBdCfgEntry": {
+    "name": "hwMflpBdCfgEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpBdIndex": {
+    "name": "hwMflpBdIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMflpBdCfgBlockTime": {
+    "name": "hwMflpBdCfgBlockTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpBdCfgAcName": {
+    "name": "hwMflpBdCfgAcName",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpBdCfgAlarmReason": {
+    "name": "hwMflpBdCfgAlarmReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpBdDetectMAC": {
+    "name": "hwMflpBdDetectMAC",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpBdCfgAcNameEx1": {
+    "name": "hwMflpBdCfgAcNameEx1",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpBdCfgAcNameEx2": {
+    "name": "hwMflpBdCfgAcNameEx2",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpBdCfgVsiName": {
+    "name": "hwMflpBdCfgVsiName",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpBdCfgIpAddr": {
+    "name": "hwMflpBdCfgIpAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpBdCfgPwId": {
+    "name": "hwMflpBdCfgPwId",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpGeneralObjects": {
+    "name": "hwMflpGeneralObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.2",
+    "class": "objectidentity"
+  },
+  "hwMflpTrapEnable": {
+    "name": "hwMflpTrapEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {}
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMflpBdId": {
+    "name": "hwMflpBdId",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpIfName": {
+    "name": "hwMflpIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpAlarmReason": {
+    "name": "hwMflpAlarmReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMflpMIBTraps": {
+    "name": "hwMflpMIBTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3",
+    "class": "objectidentity"
+  },
+  "hwMflpIfBlock": {
+    "name": "hwMflpIfBlock",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgAlarmReason"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanDetectMAC"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpIfResume": {
+    "name": "hwMflpIfResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgAlarmReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpAcBlock": {
+    "name": "hwMflpAcBlock",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAcName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAlarmReason"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiDetectMAC"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpAcResume": {
+    "name": "hwMflpAcResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAcName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAlarmReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpPwBlock": {
+    "name": "hwMflpPwBlock",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgIpAddr"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgPwId"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAlarmReason"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiDetectMAC"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpPwResume": {
+    "name": "hwMflpPwResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgIpAddr"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgPwId"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAlarmReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpVlanAlarm": {
+    "name": "hwMflpVlanAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgAlarmReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpVsiAlarm": {
+    "name": "hwMflpVsiAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAlarmReason"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiDetectMAC"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAcName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAcNameEx1"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAcNameEx2"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpMacAddrAlarm": {
+    "name": "hwMflpMacAddrAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgMacAddr"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgPreIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgAlarmReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpMacAddrResume": {
+    "name": "hwMflpMacAddrResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgMacAddr"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgPreIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgAlarmReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpQuitVlanAlarm": {
+    "name": "hwMflpQuitVlanAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgAlarmReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpQuitVlanResume": {
+    "name": "hwMflpQuitVlanResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgAlarmReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpVlanLoopAlarm": {
+    "name": "hwMflpVlanLoopAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanId"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgPreIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgAlarmReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpVlanLoopAlarmResume": {
+    "name": "hwMflpVlanLoopAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanId"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgPreIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgAlarmReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpDefaultAlarm": {
+    "name": "hwMflpDefaultAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanId"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpDefaultResume": {
+    "name": "hwMflpDefaultResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanId"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpBdAlarm": {
+    "name": "hwMflpBdAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdId"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpAlarmReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpBdAlarmResume": {
+    "name": "hwMflpBdAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdId"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpAlarmReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpBdPeriodicTrap": {
+    "name": "hwMflpBdPeriodicTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdId"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpAlarmReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpVlanLoopPeriodicTrap": {
+    "name": "hwMflpVlanLoopPeriodicTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanId"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgPreIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgAlarmReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpBdAcBlock": {
+    "name": "hwMflpBdAcBlock",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgAcName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgAlarmReason"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdDetectMAC"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpBdAcResume": {
+    "name": "hwMflpBdAcResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgAcName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgAlarmReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpBdPwBlock": {
+    "name": "hwMflpBdPwBlock",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgVsiName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgIpAddr"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgPwId"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgAlarmReason"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdDetectMAC"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpBdPwResume": {
+    "name": "hwMflpBdPwResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgVsiName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgIpAddr"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgPwId"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgAlarmReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpBdAlarmOnly": {
+    "name": "hwMflpBdAlarmOnly",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgAcName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgAcNameEx1"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgAcNameEx2"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgAlarmReason"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdDetectMAC"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpLinkBlocked": {
+    "name": "hwMflpLinkBlocked",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAcName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpLinkBlkedIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgBlockTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpLinkResumed": {
+    "name": "hwMflpLinkResumed",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAcName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpLinkBlkedIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpBdLinkBlocked": {
+    "name": "hwMflpBdLinkBlocked",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgAcName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpLinkBlkedIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgBlockTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpBdLinkResumed": {
+    "name": "hwMflpBdLinkResumed",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgAcName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpLinkBlkedIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpConformance": {
+    "name": "hwMflpConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.4",
+    "class": "objectidentity"
+  },
+  "hwMflpCompliances": {
+    "name": "hwMflpCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.4.1",
+    "class": "objectidentity"
+  },
+  "hwMflpFullCompliance": {
+    "name": "hwMflpFullCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwMflpVlanCfgGroup",
+        "module": "HUAWEI-MFLP-MIB"
+      },
+      {
+        "object": "hwMflpVsiCfgGroup",
+        "module": "HUAWEI-MFLP-MIB"
+      },
+      {
+        "object": "hwMflpTrapEnableGroup",
+        "module": "HUAWEI-MFLP-MIB"
+      },
+      {
+        "object": "hwMflpTrapGroup",
+        "module": "HUAWEI-MFLP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpGroups": {
+    "name": "hwMflpGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.4.2",
+    "class": "objectidentity"
+  },
+  "hwMflpVlanCfgGroup": {
+    "name": "hwMflpVlanCfgGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgLoopTimes"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgDetectCycle"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgCycles"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgRetryTimes"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgAction"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgAlarmReason"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgRowstatus"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanDetectMAC"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgMacAddr"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgPreIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpVsiCfgGroup": {
+    "name": "hwMflpVsiCfgGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgLoopTimes"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgDetectCycle"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgCycles"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgRetryTimes"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAction"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgBlockPolicy"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAcName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAlarmReason"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgIpAddr"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgPwId"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgRowstatus"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiDetectMAC"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpLinkBlkedIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAcNameEx1"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAcNameEx2"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpTrapEnableGroup": {
+    "name": "hwMflpTrapEnableGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpTrapEnable"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdId"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpAlarmReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpTrapGroup": {
+    "name": "hwMflpTrapGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.4.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpIfBlock"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpIfResume"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpAcBlock"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpAcResume"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpPwBlock"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpPwResume"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanAlarm"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiAlarm"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpMacAddrAlarm"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpMacAddrResume"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpQuitVlanAlarm"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpQuitVlanResume"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanLoopAlarm"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanLoopAlarmResume"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpDefaultAlarm"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpDefaultResume"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdAlarm"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdAlarmResume"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdPeriodicTrap"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanLoopPeriodicTrap"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdAcBlock"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdAcResume"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdPwBlock"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdPwResume"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdAlarmOnly"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpLinkBlocked"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpLinkResumed"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdLinkBlocked"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdLinkResumed"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMflpBdCfgGroup": {
+    "name": "hwMflpBdCfgGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.4.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgAcName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgAlarmReason"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdDetectMAC"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgAcNameEx1"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgAcNameEx2"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgVsiName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgIpAddr"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpBdCfgPwId"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgPwId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-MFLP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-MFLP-MIB"
+  }
+}

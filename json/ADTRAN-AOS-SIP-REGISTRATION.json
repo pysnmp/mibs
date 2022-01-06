@@ -1,0 +1,436 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADTRAN-AOS": [
+      "adGenAOSConformance",
+      "adGenAOSVoice"
+    ],
+    "ADTRAN-MIB": [
+      "adIdentityShared"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Counter32",
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "adGenAOSSipRegistration": {
+    "name": "adGenAOSSipRegistration",
+    "oid": "1.3.6.1.4.1.664.6.10000.53.5.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-11-02 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "adSipRegistration": {
+    "name": "adSipRegistration",
+    "oid": "1.3.6.1.4.1.664.5.53.5.4",
+    "class": "objectidentity"
+  },
+  "adSipRegistrationTraps": {
+    "name": "adSipRegistrationTraps",
+    "oid": "1.3.6.1.4.1.664.5.53.5.4.0",
+    "class": "objectidentity"
+  },
+  "adSipTrunkRegistrationAlarmTrunkIdentity": {
+    "name": "adSipTrunkRegistrationAlarmTrunkIdentity",
+    "oid": "1.3.6.1.4.1.664.5.53.5.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "adSipTrunkRegistrationAlarmSipIdentity": {
+    "name": "adSipTrunkRegistrationAlarmSipIdentity",
+    "oid": "1.3.6.1.4.1.664.5.53.5.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "adSipTrunkRegistrationAlarmRegistrar": {
+    "name": "adSipTrunkRegistrationAlarmRegistrar",
+    "oid": "1.3.6.1.4.1.664.5.53.5.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "adSipTrunkRegistrationAlarmTimestamp": {
+    "name": "adSipTrunkRegistrationAlarmTimestamp",
+    "oid": "1.3.6.1.4.1.664.5.53.5.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "adSipTrunkRegistrationTable": {
+    "name": "adSipTrunkRegistrationTable",
+    "oid": "1.3.6.1.4.1.664.5.53.5.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adSipTrunkRegistrationEntry": {
+    "name": "adSipTrunkRegistrationEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.5.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOS-SIP-REGISTRATION",
+        "object": "adSipTrunkRegistrationTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adSipTrunkRegistrationTableIndex": {
+    "name": "adSipTrunkRegistrationTableIndex",
+    "oid": "1.3.6.1.4.1.664.5.53.5.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adSipTrunkRegistrationTrunkIdentity": {
+    "name": "adSipTrunkRegistrationTrunkIdentity",
+    "oid": "1.3.6.1.4.1.664.5.53.5.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adSipTrunkRegistrationSipIdentity": {
+    "name": "adSipTrunkRegistrationSipIdentity",
+    "oid": "1.3.6.1.4.1.664.5.53.5.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adSipTrunkRegistrationStatus": {
+    "name": "adSipTrunkRegistrationStatus",
+    "oid": "1.3.6.1.4.1.664.5.53.5.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adSipTrunkRegistrarIpAddress": {
+    "name": "adSipTrunkRegistrarIpAddress",
+    "oid": "1.3.6.1.4.1.664.5.53.5.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adSipTrunkRegistrationGrantTime": {
+    "name": "adSipTrunkRegistrationGrantTime",
+    "oid": "1.3.6.1.4.1.664.5.53.5.4.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adSipTrunkRegistrationExpireTime": {
+    "name": "adSipTrunkRegistrationExpireTime",
+    "oid": "1.3.6.1.4.1.664.5.53.5.4.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adSipTrunkRegistrationSuccesses": {
+    "name": "adSipTrunkRegistrationSuccesses",
+    "oid": "1.3.6.1.4.1.664.5.53.5.4.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adSipTrunkRegistrationFailures": {
+    "name": "adSipTrunkRegistrationFailures",
+    "oid": "1.3.6.1.4.1.664.5.53.5.4.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adSipTrunkRegistrationRequests": {
+    "name": "adSipTrunkRegistrationRequests",
+    "oid": "1.3.6.1.4.1.664.5.53.5.4.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adSipTrunkRegistrationChallenges": {
+    "name": "adSipTrunkRegistrationChallenges",
+    "oid": "1.3.6.1.4.1.664.5.53.5.4.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adSipTrunkRegistrationRollovers": {
+    "name": "adSipTrunkRegistrationRollovers",
+    "oid": "1.3.6.1.4.1.664.5.53.5.4.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adSipTrunkRegistrationAlarm": {
+    "name": "adSipTrunkRegistrationAlarm",
+    "oid": "1.3.6.1.4.1.664.5.53.5.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-REGISTRATION",
+        "object": "adSipTrunkRegistrationAlarmTrunkIdentity"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-REGISTRATION",
+        "object": "adSipTrunkRegistrationAlarmSipIdentity"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-REGISTRATION",
+        "object": "adSipTrunkRegistrationAlarmRegistrar"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-REGISTRATION",
+        "object": "adSipTrunkRegistrationAlarmTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "adSipRegistrationConformance": {
+    "name": "adSipRegistrationConformance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.12",
+    "class": "objectidentity"
+  },
+  "adSipRegistrationGroups": {
+    "name": "adSipRegistrationGroups",
+    "oid": "1.3.6.1.4.1.664.5.53.99.12.1",
+    "class": "objectidentity"
+  },
+  "adSipRegistrationCompliances": {
+    "name": "adSipRegistrationCompliances",
+    "oid": "1.3.6.1.4.1.664.5.53.99.12.2",
+    "class": "objectidentity"
+  },
+  "adSipRegistrationFullCompliance": {
+    "name": "adSipRegistrationFullCompliance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.12.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "adSipRegistrationNotificationUtilityGroup",
+        "module": "ADTRAN-AOS-SIP-REGISTRATION"
+      },
+      {
+        "object": "adSipRegistrationNotificationGroup",
+        "module": "ADTRAN-AOS-SIP-REGISTRATION"
+      },
+      {
+        "object": "adSipRegistrationStatisticsGroup",
+        "module": "ADTRAN-AOS-SIP-REGISTRATION"
+      }
+    ],
+    "status": "current"
+  },
+  "adSipRegistrationNotificationGroup": {
+    "name": "adSipRegistrationNotificationGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.12.1.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-SIP-REGISTRATION",
+        "object": "adSipTrunkRegistrationAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "adSipRegistrationNotificationUtilityGroup": {
+    "name": "adSipRegistrationNotificationUtilityGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.12.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-SIP-REGISTRATION",
+        "object": "adSipTrunkRegistrationAlarmTrunkIdentity"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-REGISTRATION",
+        "object": "adSipTrunkRegistrationAlarmSipIdentity"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-REGISTRATION",
+        "object": "adSipTrunkRegistrationAlarmRegistrar"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-REGISTRATION",
+        "object": "adSipTrunkRegistrationAlarmTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "adSipRegistrationStatisticsGroup": {
+    "name": "adSipRegistrationStatisticsGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.12.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-SIP-REGISTRATION",
+        "object": "adSipTrunkRegistrationTrunkIdentity"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-REGISTRATION",
+        "object": "adSipTrunkRegistrationSipIdentity"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-REGISTRATION",
+        "object": "adSipTrunkRegistrationStatus"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-REGISTRATION",
+        "object": "adSipTrunkRegistrarIpAddress"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-REGISTRATION",
+        "object": "adSipTrunkRegistrationGrantTime"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-REGISTRATION",
+        "object": "adSipTrunkRegistrationExpireTime"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-REGISTRATION",
+        "object": "adSipTrunkRegistrationSuccesses"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-REGISTRATION",
+        "object": "adSipTrunkRegistrationFailures"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-REGISTRATION",
+        "object": "adSipTrunkRegistrationRequests"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-REGISTRATION",
+        "object": "adSipTrunkRegistrationChallenges"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-REGISTRATION",
+        "object": "adSipTrunkRegistrationRollovers"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-SIP-REGISTRATION",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:08 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ADTRAN-AOS-SIP-REGISTRATION"
+  }
+}

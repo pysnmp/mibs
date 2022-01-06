@@ -1,0 +1,6944 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-SMI": [
+      "sleMgmt"
+    ],
+    "SLE-TC-MIB": [
+      "SleControlStatusType",
+      "SleControlRequestResultType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sleISIS": {
+    "name": "sleISIS",
+    "oid": "1.3.6.1.4.1.6296.101.56",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1970-01-01 00:00",
+        "description": "OSFPv2"
+      }
+    ]
+  },
+  "sleISISBase": {
+    "name": "sleISISBase",
+    "oid": "1.3.6.1.4.1.6296.101.56.1",
+    "class": "objectidentity"
+  },
+  "sleISISBaseInfo": {
+    "name": "sleISISBaseInfo",
+    "oid": "1.3.6.1.4.1.6296.101.56.1.1",
+    "class": "objectidentity"
+  },
+  "sleISISRestartSuppressAdjacency": {
+    "name": "sleISISRestartSuppressAdjacency",
+    "oid": "1.3.6.1.4.1.6296.101.56.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISRestartHelper": {
+    "name": "sleISISRestartHelper",
+    "oid": "1.3.6.1.4.1.6296.101.56.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISRestartGracePeriod": {
+    "name": "sleISISRestartGracePeriod",
+    "oid": "1.3.6.1.4.1.6296.101.56.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISBaseControl": {
+    "name": "sleISISBaseControl",
+    "oid": "1.3.6.1.4.1.6296.101.56.1.2",
+    "class": "objectidentity"
+  },
+  "sleISISControlRequest": {
+    "name": "sleISISControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.56.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setISISRestartSuppressAdj": 1,
+          "setISISRestartHelper": 2,
+          "setISISRestartGracefulPeriod": 3,
+          "clearISISClnsNeighbors": 4,
+          "clearISISClnsIsNeighbors": 5,
+          "clearISISCounter": 6,
+          "clearISISInterfaceCounter": 7,
+          "clearISISProcess": 8,
+          "clearISISRoute": 9,
+          "retartISISGraceful": 10,
+          "snmpRestartISIS": 11
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISControlStatus": {
+    "name": "sleISISControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.56.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISControlTimer": {
+    "name": "sleISISControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.56.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISControlTimeStamp": {
+    "name": "sleISISControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.56.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISControlReqResult": {
+    "name": "sleISISControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.56.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISControlRestartSuppressAdjacency": {
+    "name": "sleISISControlRestartSuppressAdjacency",
+    "oid": "1.3.6.1.4.1.6296.101.56.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "diable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISControlRestartHelper": {
+    "name": "sleISISControlRestartHelper",
+    "oid": "1.3.6.1.4.1.6296.101.56.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISControlRestartPeriod": {
+    "name": "sleISISControlRestartPeriod",
+    "oid": "1.3.6.1.4.1.6296.101.56.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISControlClearSystemId": {
+    "name": "sleISISControlClearSystemId",
+    "oid": "1.3.6.1.4.1.6296.101.56.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISControlClearIfName": {
+    "name": "sleISISControlClearIfName",
+    "oid": "1.3.6.1.4.1.6296.101.56.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISControlClearRouteTag": {
+    "name": "sleISISControlClearRouteTag",
+    "oid": "1.3.6.1.4.1.6296.101.56.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISControlClearRouteMode": {
+    "name": "sleISISControlClearRouteMode",
+    "oid": "1.3.6.1.4.1.6296.101.56.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "redistribution": 1,
+          "all": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISBaseNotification": {
+    "name": "sleISISBaseNotification",
+    "oid": "1.3.6.1.4.1.6296.101.56.1.3",
+    "class": "objectidentity"
+  },
+  "sleISISProc": {
+    "name": "sleISISProc",
+    "oid": "1.3.6.1.4.1.6296.101.56.2",
+    "class": "objectidentity"
+  },
+  "sleISISProcInfo": {
+    "name": "sleISISProcInfo",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1",
+    "class": "objectidentity"
+  },
+  "sleISISProcInfoTable": {
+    "name": "sleISISProcInfoTable",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleISISProcInfoEntry": {
+    "name": "sleISISProcInfoEntry",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoInstanceID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleISISProcInfoInstanceID": {
+    "name": "sleISISProcInfoInstanceID",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcInfoTag": {
+    "name": "sleISISProcInfoTag",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcBfdAllInterface": {
+    "name": "sleISISProcBfdAllInterface",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcCapCspf": {
+    "name": "sleISISProcCapCspf",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcDynHostname": {
+    "name": "sleISISProcDynHostname",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcDynHostnameAreaTag": {
+    "name": "sleISISProcDynHostnameAreaTag",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcIgnLspErr": {
+    "name": "sleISISProcIgnLspErr",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcRouteHighPriorityTag": {
+    "name": "sleISISProcRouteHighPriorityTag",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcIspfLevel": {
+    "name": "sleISISProcIspfLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level1To2": 2,
+          "level2only": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcIsTypeLevel": {
+    "name": "sleISISProcIsTypeLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level1To2": 2,
+          "level2Only": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcLspGenInterval": {
+    "name": "sleISISProcLspGenInterval",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcLspGenIntervalLevel": {
+    "name": "sleISISProcLspGenIntervalLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level2": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcLspMtu": {
+    "name": "sleISISProcLspMtu",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 1492
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcLspMtuLevel": {
+    "name": "sleISISProcLspMtuLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level1To2": 2,
+          "level2Only": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcLspRefreshInterval": {
+    "name": "sleISISProcLspRefreshInterval",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcMaxAreaAddressNum": {
+    "name": "sleISISProcMaxAreaAddressNum",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcMaxLspLifetime": {
+    "name": "sleISISProcMaxLspLifetime",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 350,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcMetricStyle": {
+    "name": "sleISISProcMetricStyle",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "wide": 1,
+          "wideTransition": 2,
+          "transition": 3,
+          "narrowTransition": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcMetricStyleLevel": {
+    "name": "sleISISProcMetricStyleLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level1To2": 2,
+          "level2Only": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcMplsTrafficEngLevel": {
+    "name": "sleISISProcMplsTrafficEngLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level2": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcMplsTrafficEngRouterID": {
+    "name": "sleISISProcMplsTrafficEngRouterID",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcPrcIntervalExpMinDelay": {
+    "name": "sleISISProcPrcIntervalExpMinDelay",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcPrcIntervalExpMaxDelay": {
+    "name": "sleISISProcPrcIntervalExpMaxDelay",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcProtocolTopolgy": {
+    "name": "sleISISProcProtocolTopolgy",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcRestartTimerVal": {
+    "name": "sleISISProcRestartTimerVal",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcRestartTimerLevel": {
+    "name": "sleISISProcRestartTimerLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level1To2": 2,
+          "level2Only": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcSpfIntervalExpMin": {
+    "name": "sleISISProcSpfIntervalExpMin",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcSpfIntervalExpMax": {
+    "name": "sleISISProcSpfIntervalExpMax",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcSpfIntervalExpLevel": {
+    "name": "sleISISProcSpfIntervalExpLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level2": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcAuthMode": {
+    "name": "sleISISProcAuthMode",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "md5": 1,
+          "text": 2,
+          "md5Text": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcAuthModeLevel": {
+    "name": "sleISISProcAuthModeLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level2": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcAuthSendOnly": {
+    "name": "sleISISProcAuthSendOnly",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcAuthSendOnlyLevel": {
+    "name": "sleISISProcAuthSendOnlyLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level2": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcDomPassVal": {
+    "name": "sleISISProcDomPassVal",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcDomPassAuthSnp": {
+    "name": "sleISISProcDomPassAuthSnp",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "validate": 1,
+          "sendOnly": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcAreaPassVal": {
+    "name": "sleISISProcAreaPassVal",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcAreaPassAuthSnp": {
+    "name": "sleISISProcAreaPassAuthSnp",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "validate": 1,
+          "sendOnly": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcSetOverloadBit": {
+    "name": "sleISISProcSetOverloadBit",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcSetOverloadBitOnStartup": {
+    "name": "sleISISProcSetOverloadBitOnStartup",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "overload": 1,
+          "waitForBgp": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcSetOverloadBitOnStartupInterval": {
+    "name": "sleISISProcSetOverloadBitOnStartupInterval",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcSetOverloadBitSuppress": {
+    "name": "sleISISProcSetOverloadBitSuppress",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "external": 1,
+          "interlevel": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcWaitTimerVal": {
+    "name": "sleISISProcWaitTimerVal",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcWaitTimerLevel": {
+    "name": "sleISISProcWaitTimerLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level1To2": 2,
+          "level2Only": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcAuthenKeyChainL1": {
+    "name": "sleISISProcAuthenKeyChainL1",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcAuthenKeyChainL2": {
+    "name": "sleISISProcAuthenKeyChainL2",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcAuthenKeyChainL1L2": {
+    "name": "sleISISProcAuthenKeyChainL1L2",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcInfoControl": {
+    "name": "sleISISProcInfoControl",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2",
+    "class": "objectidentity"
+  },
+  "sleISISProcInfoControlRequest": {
+    "name": "sleISISProcInfoControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createISISProcess": 1,
+          "deleteISISProcess": 2,
+          "setISISProcBfdAllInterface": 3,
+          "setISISProcCapabilityCspf": 4,
+          "setISISProcDynamicHostname": 5,
+          "setISISProcIgnoreLspErr": 6,
+          "setISISProcRouteHighPriorityTag": 7,
+          "setISISProcIspfLevel": 8,
+          "setISISProcIsTypeLevel": 9,
+          "setISISProcLspGenInterval": 10,
+          "setISISProcLspMtu": 11,
+          "setISISProcLspRefreshInterval": 12,
+          "setISISProcMaxAreaAddress": 13,
+          "setISISProcMaxLspLifetime": 14,
+          "setISISProcMetricStyle": 15,
+          "setISISProcMplsTrafficEngLevel": 16,
+          "setISISProcMplsTrafficEngRouterID": 17,
+          "setISISProcPrcIntervalExp": 18,
+          "setISISProcProtocoalTopology": 19,
+          "setISISProcRestartTimer": 20,
+          "setISISProcSpfIntervalExp": 21,
+          "setISISProcAuthMode": 22,
+          "setISISProcAuthSendOnly": 23,
+          "setISISProcDomPassword": 24,
+          "setISISProcAreaPassword": 25,
+          "setISISProcSetOverloadBit": 26,
+          "setISISProcWaitTimer": 27,
+          "setISISProcAuthenKeyChain": 28,
+          "delISISProcAuthenKeyChain": 29
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlStatus": {
+    "name": "sleISISProcInfoControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcInfoControlTimer": {
+    "name": "sleISISProcInfoControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlTimeStamp": {
+    "name": "sleISISProcInfoControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcInfoControlReqResult": {
+    "name": "sleISISProcInfoControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcInfoControlTag": {
+    "name": "sleISISProcInfoControlTag",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlBfdAllInterface": {
+    "name": "sleISISProcInfoControlBfdAllInterface",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlCapCspf": {
+    "name": "sleISISProcInfoControlCapCspf",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlDynHostname": {
+    "name": "sleISISProcInfoControlDynHostname",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlDynHostnameAreaTag": {
+    "name": "sleISISProcInfoControlDynHostnameAreaTag",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlIgnLspErr": {
+    "name": "sleISISProcInfoControlIgnLspErr",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlRouteHighPriorityTag": {
+    "name": "sleISISProcInfoControlRouteHighPriorityTag",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlIspfLevel": {
+    "name": "sleISISProcInfoControlIspfLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level1To2": 2,
+          "level2Only": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlIsTypeLevel": {
+    "name": "sleISISProcInfoControlIsTypeLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level1To2": 2,
+          "level2Only": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlLspGenInterval": {
+    "name": "sleISISProcInfoControlLspGenInterval",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlLspGenIntervalLevel": {
+    "name": "sleISISProcInfoControlLspGenIntervalLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level2": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlLspMtu": {
+    "name": "sleISISProcInfoControlLspMtu",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 1492
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlLspMtuLevel": {
+    "name": "sleISISProcInfoControlLspMtuLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level1To2": 2,
+          "level2Only": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlLspRefreshInterval": {
+    "name": "sleISISProcInfoControlLspRefreshInterval",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlMaxAreaAddressNum": {
+    "name": "sleISISProcInfoControlMaxAreaAddressNum",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlMaxLspLifetime": {
+    "name": "sleISISProcInfoControlMaxLspLifetime",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 350,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlMetricStyle": {
+    "name": "sleISISProcInfoControlMetricStyle",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "wide": 1,
+          "wideTransition": 2,
+          "transition": 3,
+          "narrowTransition": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlMetricStyleLevel": {
+    "name": "sleISISProcInfoControlMetricStyleLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level1To2": 2,
+          "level2Only": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlMplsTrafficEngLevel": {
+    "name": "sleISISProcInfoControlMplsTrafficEngLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level2": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlMplsTrafficEngRouterID": {
+    "name": "sleISISProcInfoControlMplsTrafficEngRouterID",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlPrcIntervalExpMinDelay": {
+    "name": "sleISISProcInfoControlPrcIntervalExpMinDelay",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlPrcIntervalExpMaxDelay": {
+    "name": "sleISISProcInfoControlPrcIntervalExpMaxDelay",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlProtocolTopolgy": {
+    "name": "sleISISProcInfoControlProtocolTopolgy",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlRestartTimerVal": {
+    "name": "sleISISProcInfoControlRestartTimerVal",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlRestartTimerLevel": {
+    "name": "sleISISProcInfoControlRestartTimerLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level1To2": 2,
+          "level2Only": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlSpfIntervalExpMin": {
+    "name": "sleISISProcInfoControlSpfIntervalExpMin",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlSpfIntervalExpMax": {
+    "name": "sleISISProcInfoControlSpfIntervalExpMax",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlSpfIntervalExpLevel": {
+    "name": "sleISISProcInfoControlSpfIntervalExpLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level2": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlAuthMode": {
+    "name": "sleISISProcInfoControlAuthMode",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "md5": 1,
+          "text": 2,
+          "md5Text": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlAuthModeLevel": {
+    "name": "sleISISProcInfoControlAuthModeLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level2": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlAuthSendOnly": {
+    "name": "sleISISProcInfoControlAuthSendOnly",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlAuthSendOnlyLevel": {
+    "name": "sleISISProcInfoControlAuthSendOnlyLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level2": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlDomPassVal": {
+    "name": "sleISISProcInfoControlDomPassVal",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlDomPassAuthSnp": {
+    "name": "sleISISProcInfoControlDomPassAuthSnp",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "validate": 1,
+          "sendOnly": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlAreaPassVal": {
+    "name": "sleISISProcInfoControlAreaPassVal",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlAreaPassAuthSnp": {
+    "name": "sleISISProcInfoControlAreaPassAuthSnp",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "validate": 1,
+          "sendOnly": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlSetOverloadBit": {
+    "name": "sleISISProcInfoControlSetOverloadBit",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlSetOverloadBitOnStartup": {
+    "name": "sleISISProcInfoControlSetOverloadBitOnStartup",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "overload": 1,
+          "waitForBgp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlSetOverloadBitOnStartupInterval": {
+    "name": "sleISISProcInfoControlSetOverloadBitOnStartupInterval",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoControlSetOverloadBitSuppress": {
+    "name": "sleISISProcInfoControlSetOverloadBitSuppress",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "external": 1,
+          "interlevel": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcControlWaitTimerVal": {
+    "name": "sleISISProcControlWaitTimerVal",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcControlWaitTimerLevel": {
+    "name": "sleISISProcControlWaitTimerLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level1To2": 2,
+          "level2Only": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcControlAuthenkeyChain": {
+    "name": "sleISISProcControlAuthenkeyChain",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcControlAuthenkeyChainLevel": {
+    "name": "sleISISProcControlAuthenkeyChainLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.2.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1": 1,
+          "level2": 2,
+          "level1And2": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcInfoNotification": {
+    "name": "sleISISProcInfoNotification",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.1.3",
+    "class": "objectidentity"
+  },
+  "sleISISProcNet": {
+    "name": "sleISISProcNet",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.2",
+    "class": "objectidentity"
+  },
+  "sleISISProcNetTable": {
+    "name": "sleISISProcNetTable",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleISISProcNetEntry": {
+    "name": "sleISISProcNetEntry",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcNetInstanceID",
+        "implied": 0
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcNetTitle",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleISISProcNetInstanceID": {
+    "name": "sleISISProcNetInstanceID",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcNetTitle": {
+    "name": "sleISISProcNetTitle",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcNetControl": {
+    "name": "sleISISProcNetControl",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.2.2",
+    "class": "objectidentity"
+  },
+  "sleISISProcNetControlRequest": {
+    "name": "sleISISProcNetControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createISISProcNet": 1,
+          "deleteISISProcNet": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcNetControlStatus": {
+    "name": "sleISISProcNetControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcNetControlTimer": {
+    "name": "sleISISProcNetControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcNetControlTimeStamp": {
+    "name": "sleISISProcNetControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcNetControlReqResult": {
+    "name": "sleISISProcNetControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcNetControlInstanceID": {
+    "name": "sleISISProcNetControlInstanceID",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcNetControlTitle": {
+    "name": "sleISISProcNetControlTitle",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcNetNotification": {
+    "name": "sleISISProcNetNotification",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.2.3",
+    "class": "objectidentity"
+  },
+  "sleISISProcDistanceV4": {
+    "name": "sleISISProcDistanceV4",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.3",
+    "class": "objectidentity"
+  },
+  "sleISISProcDistanceV4Table": {
+    "name": "sleISISProcDistanceV4Table",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleISISProcDistanceV4Entry": {
+    "name": "sleISISProcDistanceV4Entry",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcDistanceV4InstanceID",
+        "implied": 0
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcDistanceV4SytemID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleISISProcDistanceV4InstanceID": {
+    "name": "sleISISProcDistanceV4InstanceID",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcDistanceV4Dist": {
+    "name": "sleISISProcDistanceV4Dist",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcDistanceV4SytemID": {
+    "name": "sleISISProcDistanceV4SytemID",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 112
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcDistanceV4AccessList": {
+    "name": "sleISISProcDistanceV4AccessList",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcDistanceV4Control": {
+    "name": "sleISISProcDistanceV4Control",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.3.2",
+    "class": "objectidentity"
+  },
+  "sleISISProcDistanceV4ControlRequest": {
+    "name": "sleISISProcDistanceV4ControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createRIPNetworkIfname": 1,
+          "deleteRIPNetworkIfname": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcDistanceV4ControlStatus": {
+    "name": "sleISISProcDistanceV4ControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcDistanceV4ControlTimer": {
+    "name": "sleISISProcDistanceV4ControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISProcDistanceV4TimeStamp": {
+    "name": "sleISISProcDistanceV4TimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcDistanceV4ntrolReqResult": {
+    "name": "sleISISProcDistanceV4ntrolReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcDistanceV4ControlInstanceID": {
+    "name": "sleISISProcDistanceV4ControlInstanceID",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcDistanceV4ControlDist": {
+    "name": "sleISISProcDistanceV4ControlDist",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcDistanceV4ControlSytemID": {
+    "name": "sleISISProcDistanceV4ControlSytemID",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcDistanceV4ControlAccessList": {
+    "name": "sleISISProcDistanceV4ControlAccessList",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISProcDistanceV4Notification": {
+    "name": "sleISISProcDistanceV4Notification",
+    "oid": "1.3.6.1.4.1.6296.101.56.2.3.3",
+    "class": "objectidentity"
+  },
+  "sleISISIf": {
+    "name": "sleISISIf",
+    "oid": "1.3.6.1.4.1.6296.101.56.3",
+    "class": "objectidentity"
+  },
+  "slsISISIfTable": {
+    "name": "slsISISIfTable",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slsISISIfEntry": {
+    "name": "slsISISIfEntry",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleISISIfIndex": {
+    "name": "sleISISIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfMplsLdpIgpSync": {
+    "name": "sleISISIfMplsLdpIgpSync",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "diaable": 0,
+          "level1": 1,
+          "level1To2": 2,
+          "level2": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfIpRouter": {
+    "name": "sleISISIfIpRouter",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfAuthSendLevel1": {
+    "name": "sleISISIfAuthSendLevel1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfAuthSendLevel2": {
+    "name": "sleISISIfAuthSendLevel2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfAuthModeMd5Levle1": {
+    "name": "sleISISIfAuthModeMd5Levle1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfAuthModeMd5Levle2": {
+    "name": "sleISISIfAuthModeMd5Levle2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfAuthModeTextLevle1": {
+    "name": "sleISISIfAuthModeTextLevle1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfAuthModeTextLevle2": {
+    "name": "sleISISIfAuthModeTextLevle2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfAuthKeyChainLevle1": {
+    "name": "sleISISIfAuthKeyChainLevle1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfAuthKeyChainLevle2": {
+    "name": "sleISISIfAuthKeyChainLevle2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfBfd": {
+    "name": "sleISISIfBfd",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfBfdDisable": {
+    "name": "sleISISIfBfdDisable",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfCircuitType": {
+    "name": "sleISISIfCircuitType",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1": 1,
+          "level1To2": 2,
+          "level2": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfCsnpIntervalLevel1": {
+    "name": "sleISISIfCsnpIntervalLevel1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfCsnpIntervalLevel2": {
+    "name": "sleISISIfCsnpIntervalLevel2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfHelloPadding": {
+    "name": "sleISISIfHelloPadding",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfHelloIntervalLevel1": {
+    "name": "sleISISIfHelloIntervalLevel1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfHelloIntervalLevel2": {
+    "name": "sleISISIfHelloIntervalLevel2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfHelloIntervalMinimalLevel1": {
+    "name": "sleISISIfHelloIntervalMinimalLevel1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfHelloIntervalMinimalLevel2": {
+    "name": "sleISISIfHelloIntervalMinimalLevel2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfHelloMultiplierLevel1": {
+    "name": "sleISISIfHelloMultiplierLevel1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfHelloMultiplierLevel2": {
+    "name": "sleISISIfHelloMultiplierLevel2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfLspInterval": {
+    "name": "sleISISIfLspInterval",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfMeshGroup": {
+    "name": "sleISISIfMeshGroup",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfMetricLevel1": {
+    "name": "sleISISIfMetricLevel1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfMetricLevel2": {
+    "name": "sleISISIfMetricLevel2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfNetwork": {
+    "name": "sleISISIfNetwork",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "broadcast": 1,
+          "pointToPoint": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfPriorityLevel1": {
+    "name": "sleISISIfPriorityLevel1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfPriorityLevel2": {
+    "name": "sleISISIfPriorityLevel2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfRestartHelloIntervalLevel1": {
+    "name": "sleISISIfRestartHelloIntervalLevel1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfRestartHelloIntervalLevel2": {
+    "name": "sleISISIfRestartHelloIntervalLevel2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfRetransmitInterval": {
+    "name": "sleISISIfRetransmitInterval",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfWideMetricLevel1": {
+    "name": "sleISISIfWideMetricLevel1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777214
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISIfWideMetricLevel2": {
+    "name": "sleISISIfWideMetricLevel2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777214
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControl": {
+    "name": "sleISISIfControl",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2",
+    "class": "objectidentity"
+  },
+  "sleISISIfControlRequest": {
+    "name": "sleISISIfControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setISISIfProfile": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlStatus": {
+    "name": "sleISISIfControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlTimer": {
+    "name": "sleISISIfControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlTimeStamp": {
+    "name": "sleISISIfControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlReqResult": {
+    "name": "sleISISIfControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlIndex": {
+    "name": "sleISISIfControlIndex",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlMplsLdpIgpSync": {
+    "name": "sleISISIfControlMplsLdpIgpSync",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "level1": 1,
+          "level1To2": 2,
+          "level2": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlIpRouter": {
+    "name": "sleISISIfControlIpRouter",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dissable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlAuthSendLevel1": {
+    "name": "sleISISIfControlAuthSendLevel1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlAuthSendLevel2": {
+    "name": "sleISISIfControlAuthSendLevel2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlAuthModeMd5Levle1": {
+    "name": "sleISISIfControlAuthModeMd5Levle1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlAuthModeMd5Levle2": {
+    "name": "sleISISIfControlAuthModeMd5Levle2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlAuthModeTextLevle1": {
+    "name": "sleISISIfControlAuthModeTextLevle1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlAuthModeTextLevle2": {
+    "name": "sleISISIfControlAuthModeTextLevle2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlAuthKeyChainLevle1": {
+    "name": "sleISISIfControlAuthKeyChainLevle1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlAuthKeyChainLevle2": {
+    "name": "sleISISIfControlAuthKeyChainLevle2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlBfd": {
+    "name": "sleISISIfControlBfd",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlBfdDisable": {
+    "name": "sleISISIfControlBfdDisable",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlCircuitType": {
+    "name": "sleISISIfControlCircuitType",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "level1": 1,
+          "level1To2": 2,
+          "level2": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlCsnpIntervalLevel1": {
+    "name": "sleISISIfControlCsnpIntervalLevel1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlCsnpIntervalLevel2": {
+    "name": "sleISISIfControlCsnpIntervalLevel2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlHelloPadding": {
+    "name": "sleISISIfControlHelloPadding",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlHelloIntervalLevel1": {
+    "name": "sleISISIfControlHelloIntervalLevel1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlHelloIntervalLevel2": {
+    "name": "sleISISIfControlHelloIntervalLevel2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlHelloIntervalMinimalLevel1": {
+    "name": "sleISISIfControlHelloIntervalMinimalLevel1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlHelloIntervalMinimalLevel2": {
+    "name": "sleISISIfControlHelloIntervalMinimalLevel2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlHelloMultiplierLevel1": {
+    "name": "sleISISIfControlHelloMultiplierLevel1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlHelloMultiplierLevel2": {
+    "name": "sleISISIfControlHelloMultiplierLevel2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlLspInterval": {
+    "name": "sleISISIfControlLspInterval",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlMeshGroup": {
+    "name": "sleISISIfControlMeshGroup",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlMetricLevel1": {
+    "name": "sleISISIfControlMetricLevel1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlMetricLevel2": {
+    "name": "sleISISIfControlMetricLevel2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlNetwork": {
+    "name": "sleISISIfControlNetwork",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "broadcast": 1,
+          "pointToPoint": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlPriorityLevel1": {
+    "name": "sleISISIfControlPriorityLevel1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlPriorityLevel2": {
+    "name": "sleISISIfControlPriorityLevel2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlRestartHelloIntervalLevel1": {
+    "name": "sleISISIfControlRestartHelloIntervalLevel1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlRestartHelloIntervalLevel2": {
+    "name": "sleISISIfControlRestartHelloIntervalLevel2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlRetransmitInterval": {
+    "name": "sleISISIfControlRetransmitInterval",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlWideMetricLevel1": {
+    "name": "sleISISIfControlWideMetricLevel1",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777214
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISIfControlWideMetricLevel2": {
+    "name": "sleISISIfControlWideMetricLevel2",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.2.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777214
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slsISISNotification": {
+    "name": "slsISISNotification",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.3",
+    "class": "objectidentity"
+  },
+  "sleISISIfStatusTable": {
+    "name": "sleISISIfStatusTable",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleISISIfStatusEntry": {
+    "name": "sleISISIfStatusEntry",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfStatusIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleISISIfStatusIfIndex": {
+    "name": "sleISISIfStatusIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusIfStatus": {
+    "name": "sleIsisIfStatusIfStatus",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusIsisTag": {
+    "name": "sleIsisIfStatusIsisTag",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusNetworkType": {
+    "name": "sleIsisIfStatusNetworkType",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "broadcast": 1,
+          "point2Point": 2,
+          "loopback": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusCircuitType": {
+    "name": "sleIsisIfStatusCircuitType",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "level1": 1,
+          "level2": 2,
+          "level1And2": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusLocalCircuitId": {
+    "name": "sleIsisIfStatusLocalCircuitId",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusExtendedLocalCircuitId": {
+    "name": "sleIsisIfStatusExtendedLocalCircuitId",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusLocalSnpa": {
+    "name": "sleIsisIfStatusLocalSnpa",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusLdpSyncHoldTimer": {
+    "name": "sleIsisIfStatusLdpSyncHoldTimer",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusLdpSyncRemainingTime": {
+    "name": "sleIsisIfStatusLdpSyncRemainingTime",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusCircuitL1Metric": {
+    "name": "sleIsisIfStatusCircuitL1Metric",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusCircuitL1WideMetric": {
+    "name": "sleIsisIfStatusCircuitL1WideMetric",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusCircuitL1Priority": {
+    "name": "sleIsisIfStatusCircuitL1Priority",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusCircuitL1CircuitId": {
+    "name": "sleIsisIfStatusCircuitL1CircuitId",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusCircuitL1ActiveAdjacencies": {
+    "name": "sleIsisIfStatusCircuitL1ActiveAdjacencies",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusCircuitL1LscpMtu": {
+    "name": "sleIsisIfStatusCircuitL1LscpMtu",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusCircuitL2Metric": {
+    "name": "sleIsisIfStatusCircuitL2Metric",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusCircuitL2WideMetric": {
+    "name": "sleIsisIfStatusCircuitL2WideMetric",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusCircuitL2Priority": {
+    "name": "sleIsisIfStatusCircuitL2Priority",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusCircuitL2CircuitId": {
+    "name": "sleIsisIfStatusCircuitL2CircuitId",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusCircuitL2ActiveAdjacencies": {
+    "name": "sleIsisIfStatusCircuitL2ActiveAdjacencies",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusCircuitL2LscpMtu": {
+    "name": "sleIsisIfStatusCircuitL2LscpMtu",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusL1HelloTimerBroadcast": {
+    "name": "sleIsisIfStatusL1HelloTimerBroadcast",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusL2HelloTimerBroadcast": {
+    "name": "sleIsisIfStatusL2HelloTimerBroadcast",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusL1HellotimerPoint2Point": {
+    "name": "sleIsisIfStatusL1HellotimerPoint2Point",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIsisIfStatusL2HellotimerPoint2Point": {
+    "name": "sleIsisIfStatusL2HellotimerPoint2Point",
+    "oid": "1.3.6.1.4.1.6296.101.56.3.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISInstIf": {
+    "name": "sleISISInstIf",
+    "oid": "1.3.6.1.4.1.6296.101.56.4",
+    "class": "objectidentity"
+  },
+  "sleISISInstIfTable": {
+    "name": "sleISISInstIfTable",
+    "oid": "1.3.6.1.4.1.6296.101.56.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleISISInstIfEntry": {
+    "name": "sleISISInstIfEntry",
+    "oid": "1.3.6.1.4.1.6296.101.56.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstIfInstanceId",
+        "implied": 0
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstIfInterfaceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleISISInstIfInstanceId": {
+    "name": "sleISISInstIfInstanceId",
+    "oid": "1.3.6.1.4.1.6296.101.56.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISInstIfInterfaceId": {
+    "name": "sleISISInstIfInterfaceId",
+    "oid": "1.3.6.1.4.1.6296.101.56.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISPassiveInterface": {
+    "name": "sleISISPassiveInterface",
+    "oid": "1.3.6.1.4.1.6296.101.56.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISInstIfControl": {
+    "name": "sleISISInstIfControl",
+    "oid": "1.3.6.1.4.1.6296.101.56.4.2",
+    "class": "objectidentity"
+  },
+  "sleISISInstIfControlRequest": {
+    "name": "sleISISInstIfControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.56.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setISISInstIfPassiveIf": 1,
+          "delISISInstIfPassiveIf": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISInstIfControlStatus": {
+    "name": "sleISISInstIfControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.56.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISInstIfControlTimer": {
+    "name": "sleISISInstIfControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.56.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISInstIfControlTimeStamp": {
+    "name": "sleISISInstIfControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.56.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISInstIfControlReqResult": {
+    "name": "sleISISInstIfControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.56.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISInstIfControlInstanceId": {
+    "name": "sleISISInstIfControlInstanceId",
+    "oid": "1.3.6.1.4.1.6296.101.56.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISInstIfControlInterfaceId": {
+    "name": "sleISISInstIfControlInterfaceId",
+    "oid": "1.3.6.1.4.1.6296.101.56.4.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISInstRedistribute": {
+    "name": "sleISISInstRedistribute",
+    "oid": "1.3.6.1.4.1.6296.101.56.5",
+    "class": "objectidentity"
+  },
+  "sleISISInstRedistProtocol": {
+    "name": "sleISISInstRedistProtocol",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.1",
+    "class": "objectidentity"
+  },
+  "sleISISInstRedistProtocolTable": {
+    "name": "sleISISInstRedistProtocolTable",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleISISInstRedistProtocolEntry": {
+    "name": "sleISISInstRedistProtocolEntry",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistProtocolInstanceId",
+        "implied": 0
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistProtocolId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleISISInstRedistProtocolInstanceId": {
+    "name": "sleISISInstRedistProtocolInstanceId",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISInstRedistProtocolId": {
+    "name": "sleISISInstRedistProtocolId",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "kernel": 1,
+          "connected": 2,
+          "static": 3,
+          "rip": 4,
+          "ospf": 5,
+          "bgp": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISInstRedistProtocolMetric": {
+    "name": "sleISISInstRedistProtocolMetric",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4261412864
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISInstRedistProtocolMetricType": {
+    "name": "sleISISInstRedistProtocolMetricType",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": -1,
+          "internal": 0,
+          "external": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISInstRedistProtocolRouteLevelType": {
+    "name": "sleISISInstRedistProtocolRouteLevelType",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level2": 2,
+          "level1To2": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISInstRedistProtocolRouteMapName": {
+    "name": "sleISISInstRedistProtocolRouteMapName",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISInstRedistProtocolControl": {
+    "name": "sleISISInstRedistProtocolControl",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.1.2",
+    "class": "objectidentity"
+  },
+  "sleISISInstRedistProtocolControlRequest": {
+    "name": "sleISISInstRedistProtocolControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setISISInstIfRedistProtocol": 1,
+          "delISISInstIfRedistProtocol": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISInstRedistProtocolControlStatus": {
+    "name": "sleISISInstRedistProtocolControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISInstRedistProtocolControlTimer": {
+    "name": "sleISISInstRedistProtocolControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISInstRedistProtocolControlTimeStamp": {
+    "name": "sleISISInstRedistProtocolControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISInstRedistProtocolControlReqResult": {
+    "name": "sleISISInstRedistProtocolControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISInstRedistProtocolControlInstanceId": {
+    "name": "sleISISInstRedistProtocolControlInstanceId",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISInstRedistProtocolControlId": {
+    "name": "sleISISInstRedistProtocolControlId",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "kernel": 1,
+          "connected": 2,
+          "static": 3,
+          "rip": 4,
+          "ospf": 5,
+          "bgp": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISInstRedistProtocolControlMetric": {
+    "name": "sleISISInstRedistProtocolControlMetric",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4261412864
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISInstRedistProtocolControlMetricType": {
+    "name": "sleISISInstRedistProtocolControlMetricType",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": -1,
+          "internal": 0,
+          "external": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISInstRedistProtocolControlRouteLevelType": {
+    "name": "sleISISInstRedistProtocolControlRouteLevelType",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level2": 2,
+          "level1To2": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISInstRedistProtocolControlRouteMapName": {
+    "name": "sleISISInstRedistProtocolControlRouteMapName",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISInstRedistIsisProtocol": {
+    "name": "sleISISInstRedistIsisProtocol",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.2",
+    "class": "objectidentity"
+  },
+  "sleISISInstRedistIsisProtocolTable": {
+    "name": "sleISISInstRedistIsisProtocolTable",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleISISInstRedistIsisProtocolEntry": {
+    "name": "sleISISInstRedistIsisProtocolEntry",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistIsisProtocolInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleISISInstRedistIsisProtocolInstanceId": {
+    "name": "sleISISInstRedistIsisProtocolInstanceId",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISInstRedistIsisProtocolInterAreaFromLv1ToLv2": {
+    "name": "sleISISInstRedistIsisProtocolInterAreaFromLv1ToLv2",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISInstRedistIsisProtocolLv1Lv2DistributeList": {
+    "name": "sleISISInstRedistIsisProtocolLv1Lv2DistributeList",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISInstRedistIsisProtocolInterAreaFromLv2ToLv1": {
+    "name": "sleISISInstRedistIsisProtocolInterAreaFromLv2ToLv1",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISInstRedistIsisProtocolLv2Lv1DistributeList": {
+    "name": "sleISISInstRedistIsisProtocolLv2Lv1DistributeList",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISInstRedistIsisProtocolControl": {
+    "name": "sleISISInstRedistIsisProtocolControl",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.2.2",
+    "class": "objectidentity"
+  },
+  "sleISISInstRedistIsisProtocolControlRequest": {
+    "name": "sleISISInstRedistIsisProtocolControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setISISInstRedistIsisLv1Lv2": 1,
+          "delISISInstRedistIsisLv1Lv2": 2,
+          "setISISInstRedistIsisLv2Lv1": 3,
+          "delISISInstRedistIsisLv2Lv1": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISInstRedistIsisProtocolControlStatus": {
+    "name": "sleISISInstRedistIsisProtocolControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISInstRedistIsisProtocolControlTimer": {
+    "name": "sleISISInstRedistIsisProtocolControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISInstRedistIsisProtocolControlTimeStamp": {
+    "name": "sleISISInstRedistIsisProtocolControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISInstRedistIsisProtocolControlReqResult": {
+    "name": "sleISISInstRedistIsisProtocolControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISInstRedistIsisProtocolControlInstanceId": {
+    "name": "sleISISInstRedistIsisProtocolControlInstanceId",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISInstRedistIsisProtocolControlLv1Lv2DistributeList": {
+    "name": "sleISISInstRedistIsisProtocolControlLv1Lv2DistributeList",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISInstRedistIsisProtocolControlLv2Lv1DistributeList": {
+    "name": "sleISISInstRedistIsisProtocolControlLv2Lv1DistributeList",
+    "oid": "1.3.6.1.4.1.6296.101.56.5.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISSummanryAddress": {
+    "name": "sleISISSummanryAddress",
+    "oid": "1.3.6.1.4.1.6296.101.56.6",
+    "class": "objectidentity"
+  },
+  "sleISISSummanryAddressTable": {
+    "name": "sleISISSummanryAddressTable",
+    "oid": "1.3.6.1.4.1.6296.101.56.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleISISSummanryAddressEntry": {
+    "name": "sleISISSummanryAddressEntry",
+    "oid": "1.3.6.1.4.1.6296.101.56.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISSummanryAddressInstanceId",
+        "implied": 0
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISSummanryAddressIpValue",
+        "implied": 0
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISSummanryAddressIpNetmask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleISISSummanryAddressInstanceId": {
+    "name": "sleISISSummanryAddressInstanceId",
+    "oid": "1.3.6.1.4.1.6296.101.56.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISSummanryAddressIpValue": {
+    "name": "sleISISSummanryAddressIpValue",
+    "oid": "1.3.6.1.4.1.6296.101.56.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISSummanryAddressIpNetmask": {
+    "name": "sleISISSummanryAddressIpNetmask",
+    "oid": "1.3.6.1.4.1.6296.101.56.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISSummanryAddressLevel": {
+    "name": "sleISISSummanryAddressLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level2": 2,
+          "level1To2": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISSummanryAddressMetric": {
+    "name": "sleISISSummanryAddressMetric",
+    "oid": "1.3.6.1.4.1.6296.101.56.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISSummanryAddressControl": {
+    "name": "sleISISSummanryAddressControl",
+    "oid": "1.3.6.1.4.1.6296.101.56.6.2",
+    "class": "objectidentity"
+  },
+  "sleISISSummanryAddressControlRequest": {
+    "name": "sleISISSummanryAddressControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.56.6.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setISISSummaryAddress": 1,
+          "delISISSummaryAddress": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISSummanryAddressControlStatus": {
+    "name": "sleISISSummanryAddressControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.56.6.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISSummanryAddressControlTimer": {
+    "name": "sleISISSummanryAddressControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.56.6.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISSummanryAddressControlTimeStamp": {
+    "name": "sleISISSummanryAddressControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.56.6.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISSummanryAddressControlReqResult": {
+    "name": "sleISISSummanryAddressControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.56.6.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISSummanryAddressControlInstanceId": {
+    "name": "sleISISSummanryAddressControlInstanceId",
+    "oid": "1.3.6.1.4.1.6296.101.56.6.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISSummanryAddressControlIpValue": {
+    "name": "sleISISSummanryAddressControlIpValue",
+    "oid": "1.3.6.1.4.1.6296.101.56.6.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISSummanryAddressControlIpNetmask": {
+    "name": "sleISISSummanryAddressControlIpNetmask",
+    "oid": "1.3.6.1.4.1.6296.101.56.6.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISSummanryAddressControlLevel": {
+    "name": "sleISISSummanryAddressControlLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.6.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level2": 2,
+          "level1To2": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISSummanryAddressControlMetric": {
+    "name": "sleISISSummanryAddressControlMetric",
+    "oid": "1.3.6.1.4.1.6296.101.56.6.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleISISDatabase": {
+    "name": "sleISISDatabase",
+    "oid": "1.3.6.1.4.1.6296.101.56.7",
+    "class": "objectidentity"
+  },
+  "sleISISDatabaseTable": {
+    "name": "sleISISDatabaseTable",
+    "oid": "1.3.6.1.4.1.6296.101.56.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleISISDatabaseEntry": {
+    "name": "sleISISDatabaseEntry",
+    "oid": "1.3.6.1.4.1.6296.101.56.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseTag",
+        "implied": 0
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseLevel",
+        "implied": 0
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseLspId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleISISDatabaseTag": {
+    "name": "sleISISDatabaseTag",
+    "oid": "1.3.6.1.4.1.6296.101.56.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISDatabaseLevel": {
+    "name": "sleISISDatabaseLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISDatabaseLspId": {
+    "name": "sleISISDatabaseLspId",
+    "oid": "1.3.6.1.4.1.6296.101.56.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISDatabaseLspSeqNum": {
+    "name": "sleISISDatabaseLspSeqNum",
+    "oid": "1.3.6.1.4.1.6296.101.56.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISDatabaseLspChecksum": {
+    "name": "sleISISDatabaseLspChecksum",
+    "oid": "1.3.6.1.4.1.6296.101.56.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISDatabaseLspHoldtime": {
+    "name": "sleISISDatabaseLspHoldtime",
+    "oid": "1.3.6.1.4.1.6296.101.56.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISDatabaseAtt": {
+    "name": "sleISISDatabaseAtt",
+    "oid": "1.3.6.1.4.1.6296.101.56.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISDatabaseP": {
+    "name": "sleISISDatabaseP",
+    "oid": "1.3.6.1.4.1.6296.101.56.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISDatabaseOl": {
+    "name": "sleISISDatabaseOl",
+    "oid": "1.3.6.1.4.1.6296.101.56.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISDatabaseDetail": {
+    "name": "sleISISDatabaseDetail",
+    "oid": "1.3.6.1.4.1.6296.101.56.8",
+    "class": "objectidentity"
+  },
+  "sleISISDatabaseDetailTable": {
+    "name": "sleISISDatabaseDetailTable",
+    "oid": "1.3.6.1.4.1.6296.101.56.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleISISDatabaseDetailEntry": {
+    "name": "sleISISDatabaseDetailEntry",
+    "oid": "1.3.6.1.4.1.6296.101.56.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseDetailTag",
+        "implied": 0
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseDetailLevel",
+        "implied": 0
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseDetailLspId",
+        "implied": 0
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseDetailType",
+        "implied": 0
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseDetailIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleISISDatabaseDetailTag": {
+    "name": "sleISISDatabaseDetailTag",
+    "oid": "1.3.6.1.4.1.6296.101.56.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISDatabaseDetailLevel": {
+    "name": "sleISISDatabaseDetailLevel",
+    "oid": "1.3.6.1.4.1.6296.101.56.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "null": 0,
+          "level1": 1,
+          "level2": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISDatabaseDetailLspId": {
+    "name": "sleISISDatabaseDetailLspId",
+    "oid": "1.3.6.1.4.1.6296.101.56.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISDatabaseDetailType": {
+    "name": "sleISISDatabaseDetailType",
+    "oid": "1.3.6.1.4.1.6296.101.56.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "areaAddr": 1,
+          "lspIsNeighbor": 2,
+          "lspEsNeighbor": 3,
+          "authInfo": 10,
+          "extendedIsReachability": 22,
+          "ipInternalReachability": 128,
+          "protocolsSupportded": 129,
+          "ipExternalReachability": 130,
+          "ipIfAddr": 132,
+          "ipAuthInfo": 133,
+          "teRouteId": 134,
+          "extendedIpReachability": 135,
+          "hostname": 137,
+          "sharedRiskLinkGroup": 138,
+          "multiIsReachability": 222,
+          "multiTopology": 229,
+          "ipv6IfAddr": 232,
+          "multiIpv4Reachability": 235,
+          "ipv6Reachability": 236,
+          "multiIpv6Reachability": 237
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISDatabaseDetailIndex": {
+    "name": "sleISISDatabaseDetailIndex",
+    "oid": "1.3.6.1.4.1.6296.101.56.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISDatabaseDetailPad": {
+    "name": "sleISISDatabaseDetailPad",
+    "oid": "1.3.6.1.4.1.6296.101.56.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISDatabaseDetailValue": {
+    "name": "sleISISDatabaseDetailValue",
+    "oid": "1.3.6.1.4.1.6296.101.56.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISDatabaseDetailDescription": {
+    "name": "sleISISDatabaseDetailDescription",
+    "oid": "1.3.6.1.4.1.6296.101.56.8.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISGroup": {
+    "name": "sleISISGroup",
+    "oid": "1.3.6.1.4.1.6296.101.56.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISRestartSuppressAdjacency"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISRestartHelper"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISRestartGracePeriod"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISControlRequest"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISControlStatus"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISControlTimer"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISControlTimeStamp"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISControlReqResult"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISControlRestartSuppressAdjacency"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISControlRestartHelper"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISControlRestartPeriod"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISControlClearSystemId"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISControlClearIfName"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISControlClearRouteTag"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISControlClearRouteMode"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoInstanceID"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoTag"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcBfdAllInterface"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcCapCspf"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcDynHostname"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcDynHostnameAreaTag"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcIgnLspErr"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcRouteHighPriorityTag"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcIspfLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcIsTypeLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcLspGenInterval"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcLspGenIntervalLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcLspMtu"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcLspMtuLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcLspRefreshInterval"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcMaxAreaAddressNum"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcMaxLspLifetime"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcMetricStyle"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcMetricStyleLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcMplsTrafficEngLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcMplsTrafficEngRouterID"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcPrcIntervalExpMinDelay"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcPrcIntervalExpMaxDelay"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcProtocolTopolgy"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcRestartTimerVal"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcRestartTimerLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcSpfIntervalExpMin"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcSpfIntervalExpMax"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcSpfIntervalExpLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcAuthMode"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcAuthModeLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcAuthSendOnly"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcAuthSendOnlyLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcDomPassVal"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcDomPassAuthSnp"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcAreaPassVal"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcAreaPassAuthSnp"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcSetOverloadBit"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcSetOverloadBitOnStartup"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcSetOverloadBitOnStartupInterval"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcSetOverloadBitSuppress"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcWaitTimerVal"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcWaitTimerLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlRequest"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlStatus"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlTimer"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlTimeStamp"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlReqResult"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlTag"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlBfdAllInterface"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlCapCspf"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlDynHostname"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlDynHostnameAreaTag"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlIgnLspErr"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlRouteHighPriorityTag"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlIspfLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlIsTypeLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlLspGenInterval"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlLspGenIntervalLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlLspMtu"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlLspMtuLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlLspRefreshInterval"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlMaxAreaAddressNum"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlMaxLspLifetime"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlMetricStyle"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlMetricStyleLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlMplsTrafficEngLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlMplsTrafficEngRouterID"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlPrcIntervalExpMinDelay"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlPrcIntervalExpMaxDelay"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlProtocolTopolgy"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlRestartTimerVal"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlRestartTimerLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlSpfIntervalExpMin"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlSpfIntervalExpMax"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlSpfIntervalExpLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlAuthMode"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlAuthModeLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlAuthSendOnly"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlAuthSendOnlyLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlDomPassVal"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlDomPassAuthSnp"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlAreaPassVal"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlAreaPassAuthSnp"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlSetOverloadBit"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlSetOverloadBitOnStartup"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlSetOverloadBitOnStartupInterval"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcInfoControlSetOverloadBitSuppress"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcControlWaitTimerVal"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcControlWaitTimerLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcNetInstanceID"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcNetTitle"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcNetControlRequest"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcNetControlStatus"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcNetControlTimer"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcNetControlTimeStamp"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcNetControlReqResult"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcNetControlInstanceID"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcNetControlTitle"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcDistanceV4InstanceID"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcDistanceV4Dist"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcDistanceV4SytemID"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcDistanceV4AccessList"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcDistanceV4ControlRequest"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcDistanceV4ControlStatus"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcDistanceV4ControlTimer"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcDistanceV4TimeStamp"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcDistanceV4ntrolReqResult"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcDistanceV4ControlInstanceID"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcDistanceV4ControlDist"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcDistanceV4ControlSytemID"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcDistanceV4ControlAccessList"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfIndex"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfMplsLdpIgpSync"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfIpRouter"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfAuthSendLevel1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfAuthSendLevel2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfAuthModeMd5Levle1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfAuthModeMd5Levle2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfAuthModeTextLevle1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfAuthModeTextLevle2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfAuthKeyChainLevle1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfAuthKeyChainLevle2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfBfd"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfBfdDisable"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfCircuitType"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfCsnpIntervalLevel1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfCsnpIntervalLevel2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfHelloPadding"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfHelloIntervalLevel1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfHelloIntervalLevel2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfHelloIntervalMinimalLevel1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfHelloIntervalMinimalLevel2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfHelloMultiplierLevel1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfHelloMultiplierLevel2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfLspInterval"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfMeshGroup"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfMetricLevel1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfMetricLevel2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfNetwork"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfPriorityLevel1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfPriorityLevel2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfRestartHelloIntervalLevel1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfRestartHelloIntervalLevel2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfRetransmitInterval"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfWideMetricLevel1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfWideMetricLevel2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlRequest"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlStatus"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlTimer"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlTimeStamp"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlReqResult"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlIndex"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlMplsLdpIgpSync"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlIpRouter"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlAuthSendLevel1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlAuthSendLevel2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlAuthModeMd5Levle1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlAuthModeMd5Levle2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlAuthModeTextLevle1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlAuthModeTextLevle2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlAuthKeyChainLevle1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlAuthKeyChainLevle2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlBfd"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlBfdDisable"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlCircuitType"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlCsnpIntervalLevel1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlCsnpIntervalLevel2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlHelloPadding"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlHelloIntervalLevel1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlHelloIntervalLevel2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlHelloIntervalMinimalLevel1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlHelloIntervalMinimalLevel2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlHelloMultiplierLevel1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlHelloMultiplierLevel2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlLspInterval"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlMeshGroup"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlMetricLevel1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlMetricLevel2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlNetwork"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlPriorityLevel1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlPriorityLevel2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlRestartHelloIntervalLevel1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlRestartHelloIntervalLevel2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlRetransmitInterval"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlWideMetricLevel1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfControlWideMetricLevel2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstIfInstanceId"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstIfInterfaceId"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISPassiveInterface"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstIfControlRequest"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstIfControlStatus"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstIfControlTimer"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstIfControlTimeStamp"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstIfControlReqResult"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstIfControlInstanceId"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstIfControlInterfaceId"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistProtocolInstanceId"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistProtocolId"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistProtocolMetric"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistProtocolMetricType"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistProtocolRouteLevelType"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistProtocolRouteMapName"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistProtocolControlRequest"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistProtocolControlStatus"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistProtocolControlTimer"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistProtocolControlTimeStamp"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistProtocolControlReqResult"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistProtocolControlInstanceId"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistProtocolControlId"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistProtocolControlMetric"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistProtocolControlMetricType"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistProtocolControlRouteLevelType"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistProtocolControlRouteMapName"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistIsisProtocolInstanceId"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistIsisProtocolInterAreaFromLv1ToLv2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistIsisProtocolLv1Lv2DistributeList"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistIsisProtocolInterAreaFromLv2ToLv1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistIsisProtocolLv2Lv1DistributeList"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistIsisProtocolControlRequest"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistIsisProtocolControlStatus"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistIsisProtocolControlTimer"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistIsisProtocolControlTimeStamp"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistIsisProtocolControlReqResult"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistIsisProtocolControlInstanceId"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistIsisProtocolControlLv1Lv2DistributeList"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISInstRedistIsisProtocolControlLv2Lv1DistributeList"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISSummanryAddressInstanceId"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISSummanryAddressIpValue"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISSummanryAddressIpNetmask"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISSummanryAddressLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISSummanryAddressMetric"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISSummanryAddressControlRequest"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISSummanryAddressControlStatus"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISSummanryAddressControlTimer"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISSummanryAddressControlTimeStamp"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISSummanryAddressControlReqResult"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISSummanryAddressControlInstanceId"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISSummanryAddressControlIpValue"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISSummanryAddressControlIpNetmask"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISSummanryAddressControlLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcAuthenKeyChainL1"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcAuthenKeyChainL2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcAuthenKeyChainL1L2"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcControlAuthenkeyChain"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISProcControlAuthenkeyChainLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseTag"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseLspId"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseLspSeqNum"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseLspChecksum"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseLspHoldtime"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseAtt"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseP"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseOl"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseDetailTag"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseDetailLevel"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseDetailLspId"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseDetailType"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseDetailIndex"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseDetailPad"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseDetailValue"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISDatabaseDetailDescription"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISSummanryAddressControlMetric"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleISISIfStatusIfIndex"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusIfStatus"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusIsisTag"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusNetworkType"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusCircuitType"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusLocalCircuitId"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusExtendedLocalCircuitId"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusLocalSnpa"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusLdpSyncHoldTimer"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusLdpSyncRemainingTime"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusCircuitL1Metric"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusCircuitL1WideMetric"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusCircuitL1Priority"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusCircuitL1CircuitId"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusCircuitL1ActiveAdjacencies"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusCircuitL1LscpMtu"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusCircuitL2Metric"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusCircuitL2WideMetric"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusCircuitL2Priority"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusCircuitL2CircuitId"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusCircuitL2ActiveAdjacencies"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusCircuitL2LscpMtu"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusL1HelloTimerBroadcast"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusL2HelloTimerBroadcast"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusL1HellotimerPoint2Point"
+      },
+      {
+        "module": "SLE-ISIS-MIB",
+        "object": "sleIsisIfStatusL2HellotimerPoint2Point"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-ISIS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:15 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SLE-ISIS-MIB"
+  }
+}

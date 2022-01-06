@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module ADSL-TC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ADSL-TC-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:04:50 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:15:22 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, IpAddress, NotificationType, Bits, Unsigned32, transmission, Gauge32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, iso, Counter32, Integer32, Counter64, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "IpAddress", "NotificationType", "Bits", "Unsigned32", "transmission", "Gauge32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "iso", "Counter32", "Integer32", "Counter64", "MibIdentifier")
+ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+IpAddress, Bits, Counter64, TimeTicks, transmission, ObjectIdentity, iso, MibIdentifier, Integer32, ModuleIdentity, NotificationType, Unsigned32, Counter32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Bits", "Counter64", "TimeTicks", "transmission", "ObjectIdentity", "iso", "MibIdentifier", "Integer32", "ModuleIdentity", "NotificationType", "Unsigned32", "Counter32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 adsltcmib = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 94, 2))
 adsltcmib.setRevisions(('1999-08-19 00:00',))
@@ -38,4 +38,4 @@ class AdslPerfTimeElapsed(TextualConvention, Gauge32):
     description = "The number of seconds that have elapsed since\n               the beginning of the current measurement period.\n               If, for some reason, such as an adjustment in the\n               system's time-of-day clock, the current interval\n               exceeds the maximum value, the agent will return\n               the maximum value."
     status = 'current'
 
-mibBuilder.exportSymbols("ADSL-TC-MIB", AdslPerfPrevDayCount=AdslPerfPrevDayCount, AdslPerfCurrDayCount=AdslPerfCurrDayCount, adsltcmib=adsltcmib, AdslLineCodingType=AdslLineCodingType, AdslPerfTimeElapsed=AdslPerfTimeElapsed, PYSNMP_MODULE_ID=adsltcmib)
+mibBuilder.exportSymbols("ADSL-TC-MIB", AdslPerfTimeElapsed=AdslPerfTimeElapsed, PYSNMP_MODULE_ID=adsltcmib, adsltcmib=adsltcmib, AdslPerfCurrDayCount=AdslPerfCurrDayCount, AdslPerfPrevDayCount=AdslPerfPrevDayCount, AdslLineCodingType=AdslLineCodingType)

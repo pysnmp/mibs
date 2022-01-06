@@ -1,0 +1,4297 @@
+{
+  "imports": {
+    "class": "imports",
+    "BASIS-MIB": [
+      "cwsonetObjects"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sonetConfig": {
+    "name": "sonetConfig",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.1",
+    "class": "objectidentity"
+  },
+  "cwsonetMedium": {
+    "name": "cwsonetMedium",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.2",
+    "class": "objectidentity"
+  },
+  "cwsonetSection": {
+    "name": "cwsonetSection",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3",
+    "class": "objectidentity"
+  },
+  "cwsonetLine": {
+    "name": "cwsonetLine",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4",
+    "class": "objectidentity"
+  },
+  "cwsonetPath": {
+    "name": "cwsonetPath",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5",
+    "class": "objectidentity"
+  },
+  "sonetConfigTable": {
+    "name": "sonetConfigTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sonetConfigEntry": {
+    "name": "sonetConfigEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "sonetLineNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sonetLineNum": {
+    "name": "sonetLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetLineType": {
+    "name": "sonetLineType",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sonetSts3c": 1,
+          "sonetStm1": 2,
+          "sonetSts12c": 3,
+          "sonetStm4": 4,
+          "sonetSts48c": 5,
+          "sonetStm16": 6,
+          "sonetSts192c": 7,
+          "sonetStm64": 8,
+          "sonetSts3": 9
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetLineLoopbackCommand": {
+    "name": "sonetLineLoopbackCommand",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sonetNoLoop": 1,
+          "sonetRemoteLineLoop": 2,
+          "sonetLocalLineLoop": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetHCSmasking": {
+    "name": "sonetHCSmasking",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetPayloadScrambling": {
+    "name": "sonetPayloadScrambling",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetFrameScrambling": {
+    "name": "sonetFrameScrambling",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetLineEnable": {
+    "name": "sonetLineEnable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetLineXmtClkSrc": {
+    "name": "sonetLineXmtClkSrc",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backplaneClk": 1,
+          "recoverClk": 2,
+          "localClk": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetRDIVType": {
+    "name": "sonetRDIVType",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "onebit": 1,
+          "threebit": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetRDIPType": {
+    "name": "sonetRDIPType",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "onebit": 1,
+          "threebit": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetTributaryType": {
+    "name": "sonetTributaryType",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vt15vc11": 1,
+          "vt2vc12": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetTributaryMappingType": {
+    "name": "sonetTributaryMappingType",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "asynchronous": 1,
+          "byteSynchronous": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetTributaryFramingFormat": {
+    "name": "sonetTributaryFramingFormat",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "sf": 2,
+          "esf": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetSignallingTransportMode": {
+    "name": "sonetSignallingTransportMode",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "signallingTransferMode": 2,
+          "clearMode": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetTributaryGroupingType": {
+    "name": "sonetTributaryGroupingType",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "au3Grouping": 2,
+          "au4Grouping": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetConfigNumOfValidEntries": {
+    "name": "sonetConfigNumOfValidEntries",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetMediumTable": {
+    "name": "cwSonetMediumTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cwSonetMediumEntry": {
+    "name": "cwSonetMediumEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "sonetLineNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cwSonetMediumType": {
+    "name": "cwSonetMediumType",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sonet": 1,
+          "sdh": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetMediumTimeElapsed": {
+    "name": "cwSonetMediumTimeElapsed",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetMediumValidIntervals": {
+    "name": "cwSonetMediumValidIntervals",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetMediumLineCoding": {
+    "name": "cwSonetMediumLineCoding",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sonetMediumOther": 1,
+          "sonetMediumB3ZS": 2,
+          "sonetMediumCMI": 3,
+          "sonetMediumNRZ": 4,
+          "sonetMediumRZ": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetMediumLineType": {
+    "name": "cwSonetMediumLineType",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sonetOther": 1,
+          "sonetShortSingleMode": 2,
+          "sonetLongSingleMode": 3,
+          "sonetMultiMode": 4,
+          "sonetCoax": 5,
+          "sonetUTP": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetMediumCircuitIdentifier": {
+    "name": "cwSonetMediumCircuitIdentifier",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetSectionCurrentTable": {
+    "name": "cwSonetSectionCurrentTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cwSonetSectionCurrentEntry": {
+    "name": "cwSonetSectionCurrentEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "cwSonetSectionCurrentLineNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cwSonetSectionCurrentLineNum": {
+    "name": "cwSonetSectionCurrentLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetSectionCurrentStatus": {
+    "name": "cwSonetSectionCurrentStatus",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetSectionCurrentValidFlag": {
+    "name": "cwSonetSectionCurrentValidFlag",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notValid": 1,
+          "valid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetSectionCurrent15minTimeElapsed": {
+    "name": "cwSonetSectionCurrent15minTimeElapsed",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetSectionCurrentESs": {
+    "name": "cwSonetSectionCurrentESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetSectionCurrentSESs": {
+    "name": "cwSonetSectionCurrentSESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetSectionCurrentSEFSs": {
+    "name": "cwSonetSectionCurrentSEFSs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetSectionCurrentCVs": {
+    "name": "cwSonetSectionCurrentCVs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetSectionCurrentClrButton": {
+    "name": "cwSonetSectionCurrentClrButton",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetSectionCurrentDayTable": {
+    "name": "sonetSectionCurrentDayTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sonetSectionCurrentDayEntry": {
+    "name": "sonetSectionCurrentDayEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "sonetSectionCurrentDayLineNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sonetSectionCurrentDayLineNum": {
+    "name": "sonetSectionCurrentDayLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetSectionCurrentDayValidFlag": {
+    "name": "sonetSectionCurrentDayValidFlag",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notValid": 1,
+          "valid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetSectionCurrentDayESs": {
+    "name": "sonetSectionCurrentDayESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetSectionCurrentDaySESs": {
+    "name": "sonetSectionCurrentDaySESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetSectionCurrentDaySEFSs": {
+    "name": "sonetSectionCurrentDaySEFSs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetSectionCurrentDayCVs": {
+    "name": "sonetSectionCurrentDayCVs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetSectionCurrentDayClrButton": {
+    "name": "sonetSectionCurrentDayClrButton",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cwSonetSectionIntervalTable": {
+    "name": "cwSonetSectionIntervalTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cwSonetSectionIntervalEntry": {
+    "name": "cwSonetSectionIntervalEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "cwSonetSectionIntervalLineNum",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "cwSonetSectionIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cwSonetSectionIntervalLineNum": {
+    "name": "cwSonetSectionIntervalLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetSectionIntervalNumber": {
+    "name": "cwSonetSectionIntervalNumber",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetSectionIntervalValidFlag": {
+    "name": "cwSonetSectionIntervalValidFlag",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notValid": 1,
+          "valid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetSectionIntervalESs": {
+    "name": "cwSonetSectionIntervalESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetSectionIntervalSESs": {
+    "name": "cwSonetSectionIntervalSESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetSectionIntervalSEFss": {
+    "name": "cwSonetSectionIntervalSEFss",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetSectionIntervalCVs": {
+    "name": "cwSonetSectionIntervalCVs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetSectionAlarmTable": {
+    "name": "sonetSectionAlarmTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sonetSectionAlarmEntry": {
+    "name": "sonetSectionAlarmEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "sectionAlarmLineNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sectionAlarmLineNum": {
+    "name": "sectionAlarmLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetSectionStatisticalAlarmSeverity": {
+    "name": "sonetSectionStatisticalAlarmSeverity",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "minor": 1,
+          "major": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetSectionCurrent15minESsThreshold": {
+    "name": "sonetSectionCurrent15minESsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetSectionCurrentDayESsThreshold": {
+    "name": "sonetSectionCurrentDayESsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetSectionCurrent15minSESsThreshold": {
+    "name": "sonetSectionCurrent15minSESsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetSectionCurrentDaySESsThreshold": {
+    "name": "sonetSectionCurrentDaySESsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetSectionCurrent15minSEFSsThreshold": {
+    "name": "sonetSectionCurrent15minSEFSsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetSectionCurrentDaySEFSsThreshold": {
+    "name": "sonetSectionCurrentDaySEFSsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetSectionCurrent15minCVsThreshold": {
+    "name": "sonetSectionCurrent15minCVsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetSectionCurrentDayCVsThreshold": {
+    "name": "sonetSectionCurrentDayCVsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetSectionTraceSelection": {
+    "name": "sonetSectionTraceSelection",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "sixtyFourBytes": 2,
+          "sixtyFourBytesCrlf": 3,
+          "sixteenBytes": 4,
+          "sixteenBytesCrc7": 5,
+          "sixteenBytesMsb1": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetSectionTraceToTransmit": {
+    "name": "sonetSectionTraceToTransmit",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetSectionTraceToExpect": {
+    "name": "sonetSectionTraceToExpect",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetSectionTraceReceived": {
+    "name": "sonetSectionTraceReceived",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetSectionStatAlarmStatus": {
+    "name": "sonetSectionStatAlarmStatus",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 511
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetSectionCounterTable": {
+    "name": "sonetSectionCounterTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sonetSectionCounterEntry": {
+    "name": "sonetSectionCounterEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "sectionCounterLineNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sectionCounterLineNum": {
+    "name": "sectionCounterLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetSectionCounterLOSs": {
+    "name": "sonetSectionCounterLOSs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetSectionCounterLOFs": {
+    "name": "sonetSectionCounterLOFs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetSectionCounterClrButton": {
+    "name": "sonetSectionCounterClrButton",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cwSonetLineCurrentTable": {
+    "name": "cwSonetLineCurrentTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cwSonetLineCurrentEntry": {
+    "name": "cwSonetLineCurrentEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "cwSonetLineCurrentLineNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cwSonetLineCurrentLineNum": {
+    "name": "cwSonetLineCurrentLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetLineCurrentStatus": {
+    "name": "cwSonetLineCurrentStatus",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetLineCurrentValidFlag": {
+    "name": "cwSonetLineCurrentValidFlag",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notValid": 1,
+          "valid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetLineCurrent15minTimeElapsed": {
+    "name": "cwSonetLineCurrent15minTimeElapsed",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetLineCurrentESs": {
+    "name": "cwSonetLineCurrentESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetLineCurrentSESs": {
+    "name": "cwSonetLineCurrentSESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetLineCurrentCVs": {
+    "name": "cwSonetLineCurrentCVs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetLineCurrentUASs": {
+    "name": "cwSonetLineCurrentUASs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetLineCurrentClrButton": {
+    "name": "cwSonetLineCurrentClrButton",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetLineCurrentDayTable": {
+    "name": "sonetLineCurrentDayTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sonetLineCurrentDayEntry": {
+    "name": "sonetLineCurrentDayEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "lineCurrentDayLineNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "lineCurrentDayLineNum": {
+    "name": "lineCurrentDayLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetLineCurrentDayValidFlag": {
+    "name": "sonetLineCurrentDayValidFlag",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notValid": 1,
+          "valid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetLineCurrentDayESs": {
+    "name": "sonetLineCurrentDayESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetLineCurrentDaySESs": {
+    "name": "sonetLineCurrentDaySESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetLineCurrentDayCVs": {
+    "name": "sonetLineCurrentDayCVs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetLineCurrentDayFCs": {
+    "name": "sonetLineCurrentDayFCs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetLineCurrentDayUASs": {
+    "name": "sonetLineCurrentDayUASs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetLineCurrentDayClrButton": {
+    "name": "sonetLineCurrentDayClrButton",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cwSonetLineIntervalTable": {
+    "name": "cwSonetLineIntervalTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cwSonetLineIntervalEntry": {
+    "name": "cwSonetLineIntervalEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "cwSonetLineIntervalLineNum",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "cwSonetLineIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cwSonetLineIntervalLineNum": {
+    "name": "cwSonetLineIntervalLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetLineIntervalNumber": {
+    "name": "cwSonetLineIntervalNumber",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetLineIntervalValidFlag": {
+    "name": "cwSonetLineIntervalValidFlag",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notValid": 1,
+          "valid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetLineIntervalESs": {
+    "name": "cwSonetLineIntervalESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetLineIntervalSESs": {
+    "name": "cwSonetLineIntervalSESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetLineIntervalCVs": {
+    "name": "cwSonetLineIntervalCVs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetLineIntervalFCs": {
+    "name": "cwSonetLineIntervalFCs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetLineIntervalUASs": {
+    "name": "cwSonetLineIntervalUASs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndLineCurrentTable": {
+    "name": "cwSonetFarEndLineCurrentTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndLineCurrentEntry": {
+    "name": "cwSonetFarEndLineCurrentEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "cwSonetFELineCurrentLineNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cwSonetFELineCurrentLineNum": {
+    "name": "cwSonetFELineCurrentLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndLineCurrentValidFlag": {
+    "name": "cwSonetFarEndLineCurrentValidFlag",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notValid": 1,
+          "valid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndLineCurrentTimeElapsed": {
+    "name": "cwSonetFarEndLineCurrentTimeElapsed",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndLineCurrentESs": {
+    "name": "cwSonetFarEndLineCurrentESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndLineCurrentSESs": {
+    "name": "cwSonetFarEndLineCurrentSESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndLineCurrentCVs": {
+    "name": "cwSonetFarEndLineCurrentCVs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndLineCurrentFCs": {
+    "name": "cwSonetFarEndLineCurrentFCs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndLineCurrentUASs": {
+    "name": "cwSonetFarEndLineCurrentUASs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndLineCurrentClrButton": {
+    "name": "cwSonetFarEndLineCurrentClrButton",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetFarEndLineCurrentDayTable": {
+    "name": "sonetFarEndLineCurrentDayTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sonetFarEndLineCurrentDayEntry": {
+    "name": "sonetFarEndLineCurrentDayEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "sonetFELineCurrentDayLineNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sonetFELineCurrentDayLineNum": {
+    "name": "sonetFELineCurrentDayLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetFarEndLineCurrentDayValidFlag": {
+    "name": "sonetFarEndLineCurrentDayValidFlag",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notValid": 1,
+          "valid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetFarEndLineCurrentDayESs": {
+    "name": "sonetFarEndLineCurrentDayESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetFarEndLineCurrentDaySESs": {
+    "name": "sonetFarEndLineCurrentDaySESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetFarEndLineCurrentDayCVs": {
+    "name": "sonetFarEndLineCurrentDayCVs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetFarEndLineCurrentDayFCs": {
+    "name": "sonetFarEndLineCurrentDayFCs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetFarEndLineCurrentDayUASs": {
+    "name": "sonetFarEndLineCurrentDayUASs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetFarEndLineCurrentDayClrButton": {
+    "name": "sonetFarEndLineCurrentDayClrButton",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndLineIntervalTable": {
+    "name": "cwSonetFarEndLineIntervalTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndLineIntervalEntry": {
+    "name": "cwSonetFarEndLineIntervalEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "cwSonetFELineIntervalLineNum",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "cwSonetFarEndLineIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cwSonetFELineIntervalLineNum": {
+    "name": "cwSonetFELineIntervalLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndLineIntervalNumber": {
+    "name": "cwSonetFarEndLineIntervalNumber",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndLineIntervalValidFlag": {
+    "name": "cwSonetFarEndLineIntervalValidFlag",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notValid": 1,
+          "valid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndLineIntervalESs": {
+    "name": "cwSonetFarEndLineIntervalESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndLineIntervalSESs": {
+    "name": "cwSonetFarEndLineIntervalSESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndLineIntervalCVs": {
+    "name": "cwSonetFarEndLineIntervalCVs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndLineIntervalFCs": {
+    "name": "cwSonetFarEndLineIntervalFCs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndLineIntervalUASs": {
+    "name": "cwSonetFarEndLineIntervalUASs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetLineAlarmTable": {
+    "name": "sonetLineAlarmTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sonetLineAlarmEntry": {
+    "name": "sonetLineAlarmEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "sonetLineAlarmLineNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sonetLineAlarmLineNum": {
+    "name": "sonetLineAlarmLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetLineStatisticalAlarmSeverity": {
+    "name": "sonetLineStatisticalAlarmSeverity",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "minor": 1,
+          "major": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetLineCurrent15minESsThreshold": {
+    "name": "sonetLineCurrent15minESsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetLineCurrentDayESsThreshold": {
+    "name": "sonetLineCurrentDayESsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetLineCurrent15minSESsThreshold": {
+    "name": "sonetLineCurrent15minSESsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetLineCurrentDaySESsThreshold": {
+    "name": "sonetLineCurrentDaySESsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetLineCurrent15minCVsThreshold": {
+    "name": "sonetLineCurrent15minCVsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetLineCurrentDayCVsThreshold": {
+    "name": "sonetLineCurrentDayCVsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetLineCurrent15minUASsThreshold": {
+    "name": "sonetLineCurrent15minUASsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetLineCurrentDayUASsThreshold": {
+    "name": "sonetLineCurrentDayUASsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetLineStatAlarmStatus": {
+    "name": "sonetLineStatAlarmStatus",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 131071
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetLineCounterTable": {
+    "name": "sonetLineCounterTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sonetLineCounterEntry": {
+    "name": "sonetLineCounterEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "sonetLineCounterLineNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sonetLineCounterLineNum": {
+    "name": "sonetLineCounterLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetLineCounterAISs": {
+    "name": "sonetLineCounterAISs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetLineCounterRFIs": {
+    "name": "sonetLineCounterRFIs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetLineCounterClrButton": {
+    "name": "sonetLineCounterClrButton",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.4.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cwSonetPathCurrentTable": {
+    "name": "cwSonetPathCurrentTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cwSonetPathCurrentEntry": {
+    "name": "cwSonetPathCurrentEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "cwSonetPathCurrentLineNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cwSonetPathCurrentLineNum": {
+    "name": "cwSonetPathCurrentLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetPathCurrentStatus": {
+    "name": "cwSonetPathCurrentStatus",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1022
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetPathCurrentValidFlag": {
+    "name": "cwSonetPathCurrentValidFlag",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notValid": 1,
+          "valid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetPathCurrentTimeElapsed": {
+    "name": "cwSonetPathCurrentTimeElapsed",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetPathCurrentESs": {
+    "name": "cwSonetPathCurrentESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetPathCurrentSESs": {
+    "name": "cwSonetPathCurrentSESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetPathCurrentCVs": {
+    "name": "cwSonetPathCurrentCVs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetPathCurrentFCs": {
+    "name": "cwSonetPathCurrentFCs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetPathCurrentUASs": {
+    "name": "cwSonetPathCurrentUASs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetPathCurrentClrButton": {
+    "name": "cwSonetPathCurrentClrButton",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetPathCurrentDayTable": {
+    "name": "sonetPathCurrentDayTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sonetPathCurrentDayEntry": {
+    "name": "sonetPathCurrentDayEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "sonetPathCurrentDayLineNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sonetPathCurrentDayLineNum": {
+    "name": "sonetPathCurrentDayLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetPathCurrentDayValidFlag": {
+    "name": "sonetPathCurrentDayValidFlag",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notValid": 1,
+          "valid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetPathCurrentDayESs": {
+    "name": "sonetPathCurrentDayESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetPathCurrentDaySESs": {
+    "name": "sonetPathCurrentDaySESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetPathCurrentDayCVs": {
+    "name": "sonetPathCurrentDayCVs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetPathCurrentDayFCs": {
+    "name": "sonetPathCurrentDayFCs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetPathCurrentDayUASs": {
+    "name": "sonetPathCurrentDayUASs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetPathCurrentDayClrButton": {
+    "name": "sonetPathCurrentDayClrButton",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cwSonetPathIntervalTable": {
+    "name": "cwSonetPathIntervalTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cwSonetPathIntervalEntry": {
+    "name": "cwSonetPathIntervalEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "cwSonetPathIntervalLineNum",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "cwSonetPathIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cwSonetPathIntervalLineNum": {
+    "name": "cwSonetPathIntervalLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetPathIntervalNumber": {
+    "name": "cwSonetPathIntervalNumber",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetPathIntervalValidFlag": {
+    "name": "cwSonetPathIntervalValidFlag",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notValid": 1,
+          "valid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetPathIntervalESs": {
+    "name": "cwSonetPathIntervalESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetPathIntervalSESs": {
+    "name": "cwSonetPathIntervalSESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetPathIntervalCVs": {
+    "name": "cwSonetPathIntervalCVs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetPathIntervalFCs": {
+    "name": "cwSonetPathIntervalFCs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetPathIntervalUASs": {
+    "name": "cwSonetPathIntervalUASs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndPathCurrentTable": {
+    "name": "cwSonetFarEndPathCurrentTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndPathCurrentEntry": {
+    "name": "cwSonetFarEndPathCurrentEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "cwSonetFEPathCurrentLineNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cwSonetFEPathCurrentLineNum": {
+    "name": "cwSonetFEPathCurrentLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndPathCurrentValidFlag": {
+    "name": "cwSonetFarEndPathCurrentValidFlag",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notValid": 1,
+          "valid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndPathCurrentTimeElapsed": {
+    "name": "cwSonetFarEndPathCurrentTimeElapsed",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndPathCurrentESs": {
+    "name": "cwSonetFarEndPathCurrentESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndPathCurrentSESs": {
+    "name": "cwSonetFarEndPathCurrentSESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndPathCurrentCVs": {
+    "name": "cwSonetFarEndPathCurrentCVs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndPathCurrentFCs": {
+    "name": "cwSonetFarEndPathCurrentFCs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndPathCurrentUASs": {
+    "name": "cwSonetFarEndPathCurrentUASs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndPathCurrentClrButton": {
+    "name": "cwSonetFarEndPathCurrentClrButton",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetFarEndPathCurrentDayTable": {
+    "name": "sonetFarEndPathCurrentDayTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sonetFarEndPathCurrentDayEntry": {
+    "name": "sonetFarEndPathCurrentDayEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "sonetFEPathCurrentDayLineNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sonetFEPathCurrentDayLineNum": {
+    "name": "sonetFEPathCurrentDayLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetFarEndPathCurrentDayValidFlag": {
+    "name": "sonetFarEndPathCurrentDayValidFlag",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notValid": 1,
+          "valid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetFarEndPathCurrentDayESs": {
+    "name": "sonetFarEndPathCurrentDayESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetFarEndPathCurrentDaySESs": {
+    "name": "sonetFarEndPathCurrentDaySESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetFarEndPathCurrentDayCVs": {
+    "name": "sonetFarEndPathCurrentDayCVs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetFarEndPathCurrentDayFCs": {
+    "name": "sonetFarEndPathCurrentDayFCs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetFarEndPathCurrentDayUASs": {
+    "name": "sonetFarEndPathCurrentDayUASs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetFarEndPathCurrentDayClrButton": {
+    "name": "sonetFarEndPathCurrentDayClrButton",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndPathIntervalTable": {
+    "name": "cwSonetFarEndPathIntervalTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndPathIntervalEntry": {
+    "name": "cwSonetFarEndPathIntervalEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "cwSonetFEPathIntervalLineNum",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "cwSonetFarEndPathIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cwSonetFEPathIntervalLineNum": {
+    "name": "cwSonetFEPathIntervalLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndPathIntervalNumber": {
+    "name": "cwSonetFarEndPathIntervalNumber",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndPathIntervalValidFlag": {
+    "name": "cwSonetFarEndPathIntervalValidFlag",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notValid": 1,
+          "valid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndPathIntervalESs": {
+    "name": "cwSonetFarEndPathIntervalESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndPathIntervalSESs": {
+    "name": "cwSonetFarEndPathIntervalSESs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndPathIntervalCVs": {
+    "name": "cwSonetFarEndPathIntervalCVs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndPathIntervalFCs": {
+    "name": "cwSonetFarEndPathIntervalFCs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cwSonetFarEndPathIntervalUASs": {
+    "name": "cwSonetFarEndPathIntervalUASs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetPathAlarmTable": {
+    "name": "sonetPathAlarmTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sonetPathAlarmEntry": {
+    "name": "sonetPathAlarmEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "sonetPathAlarmLineNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sonetPathAlarmLineNum": {
+    "name": "sonetPathAlarmLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetPathStatisticalAlarmSeverity": {
+    "name": "sonetPathStatisticalAlarmSeverity",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "minor": 1,
+          "major": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetPathCurrent15minESsThreshold": {
+    "name": "sonetPathCurrent15minESsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetPathCurrentDayESsThreshold": {
+    "name": "sonetPathCurrentDayESsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetPathCurrent15minSESsThreshold": {
+    "name": "sonetPathCurrent15minSESsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetPathCurrentDaySESsThreshold": {
+    "name": "sonetPathCurrentDaySESsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetPathCurrent15minCVsThreshold": {
+    "name": "sonetPathCurrent15minCVsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetPathCurrentDayCVsThreshold": {
+    "name": "sonetPathCurrentDayCVsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetPathCurrent15minUASsThreshold": {
+    "name": "sonetPathCurrent15minUASsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetPathCurrentDayUASsThreshold": {
+    "name": "sonetPathCurrentDayUASsThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetPathTraceSelection": {
+    "name": "sonetPathTraceSelection",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "sixtyFourBytes": 2,
+          "sixtyFourBytesCrlf": 3,
+          "sixteenBytes": 4,
+          "sixteenBytesCrc7": 5,
+          "sixteenBytesMsb1": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetPathTraceToTransmit": {
+    "name": "sonetPathTraceToTransmit",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetPathTraceToExpect": {
+    "name": "sonetPathTraceToExpect",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetPathTraceReceived": {
+    "name": "sonetPathTraceReceived",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetPathStatAlarmStatus": {
+    "name": "sonetPathStatAlarmStatus",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 131071
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetPathCounterTable": {
+    "name": "sonetPathCounterTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sonetPathCounterEntry": {
+    "name": "sonetPathCounterEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "sonetPathCounterLineNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sonetPathCounterLineNum": {
+    "name": "sonetPathCounterLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetPathCounterAISs": {
+    "name": "sonetPathCounterAISs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetPathCounterRFIs": {
+    "name": "sonetPathCounterRFIs",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sonetPathCounterClrButton": {
+    "name": "sonetPathCounterClrButton",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.5.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sonetApsConfig": {
+    "name": "sonetApsConfig",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.6",
+    "class": "objectidentity"
+  },
+  "sonetApsConfigTable": {
+    "name": "sonetApsConfigTable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sonetApsConfigEntry": {
+    "name": "sonetApsConfigEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-SONET-MIB",
+        "object": "apsWorkingLine",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "apsWorkingSlot": {
+    "name": "apsWorkingSlot",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "apsWorkingLine": {
+    "name": "apsWorkingLine",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "apsProtectionSlot": {
+    "name": "apsProtectionSlot",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "apsProtectionLine": {
+    "name": "apsProtectionLine",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "apsEnable": {
+    "name": "apsEnable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apsFeatDisable": 1,
+          "apsFeatEnable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "apsArchMode": {
+    "name": "apsArchMode",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singleCardonePlusOne": 1,
+          "dualCardonePlusOne": 2,
+          "singleCardOneToOne": 3,
+          "anexBOnePlusOne": 4,
+          "anexAOnePlusOne": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "apsActiveLine": {
+    "name": "apsActiveLine",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apsWorkingLine": 1,
+          "apsProtectionLine": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "apsSFBER": {
+    "name": "apsSFBER",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 13
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "apsSDBER": {
+    "name": "apsSDBER",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 13
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "apsWtr": {
+    "name": "apsWtr",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "apsdirection": {
+    "name": "apsdirection",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uniDirectional": 1,
+          "biDirectional": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "apsRevertive": {
+    "name": "apsRevertive",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonrevertive": 1,
+          "revertive": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "apsK1K2Disable": {
+    "name": "apsK1K2Disable",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "kbandEnable": 1,
+          "kbandDisable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "apsCardFailureCode": {
+    "name": "apsCardFailureCode",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apsProtectBCMissing": 1,
+          "apsProtectDCMissing": 2,
+          "apsWorkingBCMissing": 3,
+          "apsWorkingDCMissing": 4,
+          "apsWorkingCdMismatch": 5,
+          "apsProtectCdMismatch": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "apsLineFailureCode": {
+    "name": "apsLineFailureCode",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apsSignalDegrade": 1,
+          "apsSignalFailure": 2,
+          "apsLineAlarm": 3,
+          "apsLineLoopBack": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "apsLineSwReason": {
+    "name": "apsLineSwReason",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apsRevertive": 1,
+          "apsManual": 2,
+          "apsSignalDefectLow": 3,
+          "apsSignalDefectHigh": 4,
+          "apsSignalFailureLow": 5,
+          "apsSignalFailureHigh": 6,
+          "apsForceSwitch": 7,
+          "apsLockOut": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "apsLineSwFailureCode": {
+    "name": "apsLineSwFailureCode",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apsRevertiveSwitchFail": 1,
+          "apsManualSwitchFail": 2,
+          "apsSDLowSwitchFail": 3,
+          "apsSDHighSwitchFail": 4,
+          "apsSFLowSwitchFail": 5,
+          "apsSFHighSwitchFail": 6,
+          "apsForceSwitchFail": 7,
+          "apsLockOutSwitchFail": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "apsStandbyLineFailureCode": {
+    "name": "apsStandbyLineFailureCode",
+    "oid": "1.3.6.1.4.1.351.110.4.6.1.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apsSignalDegrade": 1,
+          "apsSignalFailure": 2,
+          "apsLineAlarm": 3,
+          "apsLineLoopBack": 4,
+          "apsProtectionByteFail": 5,
+          "apsArchitectureMismatch": 6,
+          "apsChannelMismatch": 7,
+          "apsDirectionMismatch": 8,
+          "apsWrongRequest": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MGX82XX-SONET-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-MGX82XX-SONET-MIB"
+  }
+}

@@ -1,0 +1,1734 @@
+{
+  "imports": {
+    "class": "imports",
+    "DISMAN-PING-MIB": [
+      "OperationResponseStatus"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "mib-2",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus",
+      "StorageType"
+    ]
+  },
+  "traceRouteMIB": {
+    "name": "traceRouteMIB",
+    "oid": "1.3.6.1.2.1.81",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-06-13 00:00",
+        "description": "Updated version, published as RFC 4560. - Correctly considered IPv6 in DESCRIPTION clause of object traceRouteCtlDataSize - Replaced references to RFC 2575 by RFC 3415 - Replaced references to RFC 2571 by RFC 3411 - Replaced references to RFC 2851 by RFC 4001 - Clarified DESCRIPTION clause of object traceRouteResultsLastGoodPath - Changed range of object traceRouteCtlInitialTtl from (0..255) to (1..255) - Extended DESCRIPTION clause of traceRouteResultsTable describing re-initialization of entries - Changed SYNTAX of traceRouteResultsTestAttempts and traceRouteResultsTestSuccesses from Unsigned32 to Gauge32 - Changed status of traceRouteCompliance to deprecated - Added traceRouteFullCompliance and traceRouteMinimumCompliance - Changed status of traceRouteGroup and traceRouteTimeStampGroup to deprecated - Added traceRouteMinimumGroup, traceRouteCtlRowStatusGroup, and traceRouteHistoryGroup - Changed DEFVAL of object traceRouteCtlTargetAddressType from { ipv4 } to { unknown } - Changed DEFVAL of object traceRouteCtlDescr from { '00'H } to { ''H } - Added DEFVAL for object traceRouteCtlTrapGeneration of DEFVAL { { } }"
+      },
+      {
+        "revision": "2000-09-21 00:00",
+        "description": "Initial version, published as RFC 2925."
+      }
+    ]
+  },
+  "traceRouteNotifications": {
+    "name": "traceRouteNotifications",
+    "oid": "1.3.6.1.2.1.81.0",
+    "class": "objectidentity"
+  },
+  "traceRouteObjects": {
+    "name": "traceRouteObjects",
+    "oid": "1.3.6.1.2.1.81.1",
+    "class": "objectidentity"
+  },
+  "traceRouteConformance": {
+    "name": "traceRouteConformance",
+    "oid": "1.3.6.1.2.1.81.2",
+    "class": "objectidentity"
+  },
+  "traceRouteImplementationTypeDomains": {
+    "name": "traceRouteImplementationTypeDomains",
+    "oid": "1.3.6.1.2.1.81.3",
+    "class": "objectidentity"
+  },
+  "traceRouteUsingUdpProbes": {
+    "name": "traceRouteUsingUdpProbes",
+    "oid": "1.3.6.1.2.1.81.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "traceRouteMaxConcurrentRequests": {
+    "name": "traceRouteMaxConcurrentRequests",
+    "oid": "1.3.6.1.2.1.81.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "requests",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "traceRouteCtlTable": {
+    "name": "traceRouteCtlTable",
+    "oid": "1.3.6.1.2.1.81.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "traceRouteCtlEntry": {
+    "name": "traceRouteCtlEntry",
+    "oid": "1.3.6.1.2.1.81.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlTestName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "traceRouteCtlOwnerIndex": {
+    "name": "traceRouteCtlOwnerIndex",
+    "oid": "1.3.6.1.2.1.81.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "traceRouteCtlTestName": {
+    "name": "traceRouteCtlTestName",
+    "oid": "1.3.6.1.2.1.81.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "traceRouteCtlTargetAddressType": {
+    "name": "traceRouteCtlTargetAddressType",
+    "oid": "1.3.6.1.2.1.81.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlTargetAddress": {
+    "name": "traceRouteCtlTargetAddress",
+    "oid": "1.3.6.1.2.1.81.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlByPassRouteTable": {
+    "name": "traceRouteCtlByPassRouteTable",
+    "oid": "1.3.6.1.2.1.81.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlDataSize": {
+    "name": "traceRouteCtlDataSize",
+    "oid": "1.3.6.1.2.1.81.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65507
+          }
+        ]
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlTimeOut": {
+    "name": "traceRouteCtlTimeOut",
+    "oid": "1.3.6.1.2.1.81.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlProbesPerHop": {
+    "name": "traceRouteCtlProbesPerHop",
+    "oid": "1.3.6.1.2.1.81.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "units": "probes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlPort": {
+    "name": "traceRouteCtlPort",
+    "oid": "1.3.6.1.2.1.81.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 33434,
+        "format": "decimal"
+      }
+    },
+    "units": "UDP Port",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlMaxTtl": {
+    "name": "traceRouteCtlMaxTtl",
+    "oid": "1.3.6.1.2.1.81.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "time-to-live value",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlDSField": {
+    "name": "traceRouteCtlDSField",
+    "oid": "1.3.6.1.2.1.81.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlSourceAddressType": {
+    "name": "traceRouteCtlSourceAddressType",
+    "oid": "1.3.6.1.2.1.81.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlSourceAddress": {
+    "name": "traceRouteCtlSourceAddress",
+    "oid": "1.3.6.1.2.1.81.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlIfIndex": {
+    "name": "traceRouteCtlIfIndex",
+    "oid": "1.3.6.1.2.1.81.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlMiscOptions": {
+    "name": "traceRouteCtlMiscOptions",
+    "oid": "1.3.6.1.2.1.81.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlMaxFailures": {
+    "name": "traceRouteCtlMaxFailures",
+    "oid": "1.3.6.1.2.1.81.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "timeouts",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlDontFragment": {
+    "name": "traceRouteCtlDontFragment",
+    "oid": "1.3.6.1.2.1.81.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlInitialTtl": {
+    "name": "traceRouteCtlInitialTtl",
+    "oid": "1.3.6.1.2.1.81.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlFrequency": {
+    "name": "traceRouteCtlFrequency",
+    "oid": "1.3.6.1.2.1.81.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlStorageType": {
+    "name": "traceRouteCtlStorageType",
+    "oid": "1.3.6.1.2.1.81.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlAdminStatus": {
+    "name": "traceRouteCtlAdminStatus",
+    "oid": "1.3.6.1.2.1.81.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlDescr": {
+    "name": "traceRouteCtlDescr",
+    "oid": "1.3.6.1.2.1.81.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlMaxRows": {
+    "name": "traceRouteCtlMaxRows",
+    "oid": "1.3.6.1.2.1.81.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "units": "rows",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlTrapGeneration": {
+    "name": "traceRouteCtlTrapGeneration",
+    "oid": "1.3.6.1.2.1.81.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "pathChange": 0,
+        "testFailure": 1,
+        "testCompletion": 2
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlCreateHopsEntries": {
+    "name": "traceRouteCtlCreateHopsEntries",
+    "oid": "1.3.6.1.2.1.81.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlType": {
+    "name": "traceRouteCtlType",
+    "oid": "1.3.6.1.2.1.81.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(1, 3, 6, 1, 2, 1, 81, 3, 1)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteCtlRowStatus": {
+    "name": "traceRouteCtlRowStatus",
+    "oid": "1.3.6.1.2.1.81.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "traceRouteResultsTable": {
+    "name": "traceRouteResultsTable",
+    "oid": "1.3.6.1.2.1.81.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "traceRouteResultsEntry": {
+    "name": "traceRouteResultsEntry",
+    "oid": "1.3.6.1.2.1.81.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlTestName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "traceRouteResultsOperStatus": {
+    "name": "traceRouteResultsOperStatus",
+    "oid": "1.3.6.1.2.1.81.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "completed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceRouteResultsCurHopCount": {
+    "name": "traceRouteResultsCurHopCount",
+    "oid": "1.3.6.1.2.1.81.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "hops",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceRouteResultsCurProbeCount": {
+    "name": "traceRouteResultsCurProbeCount",
+    "oid": "1.3.6.1.2.1.81.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "probes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceRouteResultsIpTgtAddrType": {
+    "name": "traceRouteResultsIpTgtAddrType",
+    "oid": "1.3.6.1.2.1.81.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceRouteResultsIpTgtAddr": {
+    "name": "traceRouteResultsIpTgtAddr",
+    "oid": "1.3.6.1.2.1.81.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceRouteResultsTestAttempts": {
+    "name": "traceRouteResultsTestAttempts",
+    "oid": "1.3.6.1.2.1.81.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "tests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceRouteResultsTestSuccesses": {
+    "name": "traceRouteResultsTestSuccesses",
+    "oid": "1.3.6.1.2.1.81.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "tests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceRouteResultsLastGoodPath": {
+    "name": "traceRouteResultsLastGoodPath",
+    "oid": "1.3.6.1.2.1.81.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceRouteProbeHistoryTable": {
+    "name": "traceRouteProbeHistoryTable",
+    "oid": "1.3.6.1.2.1.81.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "traceRouteProbeHistoryEntry": {
+    "name": "traceRouteProbeHistoryEntry",
+    "oid": "1.3.6.1.2.1.81.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlTestName",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteProbeHistoryIndex",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteProbeHistoryHopIndex",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteProbeHistoryProbeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "traceRouteProbeHistoryIndex": {
+    "name": "traceRouteProbeHistoryIndex",
+    "oid": "1.3.6.1.2.1.81.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "traceRouteProbeHistoryHopIndex": {
+    "name": "traceRouteProbeHistoryHopIndex",
+    "oid": "1.3.6.1.2.1.81.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "traceRouteProbeHistoryProbeIndex": {
+    "name": "traceRouteProbeHistoryProbeIndex",
+    "oid": "1.3.6.1.2.1.81.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "traceRouteProbeHistoryHAddrType": {
+    "name": "traceRouteProbeHistoryHAddrType",
+    "oid": "1.3.6.1.2.1.81.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceRouteProbeHistoryHAddr": {
+    "name": "traceRouteProbeHistoryHAddr",
+    "oid": "1.3.6.1.2.1.81.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceRouteProbeHistoryResponse": {
+    "name": "traceRouteProbeHistoryResponse",
+    "oid": "1.3.6.1.2.1.81.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceRouteProbeHistoryStatus": {
+    "name": "traceRouteProbeHistoryStatus",
+    "oid": "1.3.6.1.2.1.81.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperationResponseStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceRouteProbeHistoryLastRC": {
+    "name": "traceRouteProbeHistoryLastRC",
+    "oid": "1.3.6.1.2.1.81.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceRouteProbeHistoryTime": {
+    "name": "traceRouteProbeHistoryTime",
+    "oid": "1.3.6.1.2.1.81.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceRouteHopsTable": {
+    "name": "traceRouteHopsTable",
+    "oid": "1.3.6.1.2.1.81.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "traceRouteHopsEntry": {
+    "name": "traceRouteHopsEntry",
+    "oid": "1.3.6.1.2.1.81.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlTestName",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteHopsHopIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "traceRouteHopsHopIndex": {
+    "name": "traceRouteHopsHopIndex",
+    "oid": "1.3.6.1.2.1.81.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "traceRouteHopsIpTgtAddressType": {
+    "name": "traceRouteHopsIpTgtAddressType",
+    "oid": "1.3.6.1.2.1.81.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceRouteHopsIpTgtAddress": {
+    "name": "traceRouteHopsIpTgtAddress",
+    "oid": "1.3.6.1.2.1.81.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceRouteHopsMinRtt": {
+    "name": "traceRouteHopsMinRtt",
+    "oid": "1.3.6.1.2.1.81.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceRouteHopsMaxRtt": {
+    "name": "traceRouteHopsMaxRtt",
+    "oid": "1.3.6.1.2.1.81.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceRouteHopsAverageRtt": {
+    "name": "traceRouteHopsAverageRtt",
+    "oid": "1.3.6.1.2.1.81.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceRouteHopsRttSumOfSquares": {
+    "name": "traceRouteHopsRttSumOfSquares",
+    "oid": "1.3.6.1.2.1.81.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceRouteHopsSentProbes": {
+    "name": "traceRouteHopsSentProbes",
+    "oid": "1.3.6.1.2.1.81.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceRouteHopsProbeResponses": {
+    "name": "traceRouteHopsProbeResponses",
+    "oid": "1.3.6.1.2.1.81.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceRouteHopsLastGoodProbe": {
+    "name": "traceRouteHopsLastGoodProbe",
+    "oid": "1.3.6.1.2.1.81.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceRoutePathChange": {
+    "name": "traceRoutePathChange",
+    "oid": "1.3.6.1.2.1.81.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteResultsIpTgtAddrType"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteResultsIpTgtAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "traceRouteTestFailed": {
+    "name": "traceRouteTestFailed",
+    "oid": "1.3.6.1.2.1.81.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteResultsIpTgtAddrType"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteResultsIpTgtAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "traceRouteTestCompleted": {
+    "name": "traceRouteTestCompleted",
+    "oid": "1.3.6.1.2.1.81.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteResultsIpTgtAddrType"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteResultsIpTgtAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "traceRouteCompliances": {
+    "name": "traceRouteCompliances",
+    "oid": "1.3.6.1.2.1.81.2.1",
+    "class": "objectidentity"
+  },
+  "traceRouteGroups": {
+    "name": "traceRouteGroups",
+    "oid": "1.3.6.1.2.1.81.2.2",
+    "class": "objectidentity"
+  },
+  "traceRouteFullCompliance": {
+    "name": "traceRouteFullCompliance",
+    "oid": "1.3.6.1.2.1.81.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "traceRouteMinimumGroup",
+        "module": "DISMAN-TRACEROUTE-MIB"
+      },
+      {
+        "object": "traceRouteCtlRowStatusGroup",
+        "module": "DISMAN-TRACEROUTE-MIB"
+      },
+      {
+        "object": "traceRouteHistoryGroup",
+        "module": "DISMAN-TRACEROUTE-MIB"
+      },
+      {
+        "object": "traceRouteHopsTableGroup",
+        "module": "DISMAN-TRACEROUTE-MIB"
+      },
+      {
+        "object": "traceRouteNotificationsGroup",
+        "module": "DISMAN-TRACEROUTE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "traceRouteMinimumCompliance": {
+    "name": "traceRouteMinimumCompliance",
+    "oid": "1.3.6.1.2.1.81.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "traceRouteMinimumGroup",
+        "module": "DISMAN-TRACEROUTE-MIB"
+      },
+      {
+        "object": "traceRouteCtlRowStatusGroup",
+        "module": "DISMAN-TRACEROUTE-MIB"
+      },
+      {
+        "object": "traceRouteHistoryGroup",
+        "module": "DISMAN-TRACEROUTE-MIB"
+      },
+      {
+        "object": "traceRouteHopsTableGroup",
+        "module": "DISMAN-TRACEROUTE-MIB"
+      },
+      {
+        "object": "traceRouteNotificationsGroup",
+        "module": "DISMAN-TRACEROUTE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "traceRouteCompliance": {
+    "name": "traceRouteCompliance",
+    "oid": "1.3.6.1.2.1.81.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "traceRouteGroup",
+        "module": "DISMAN-TRACEROUTE-MIB"
+      },
+      {
+        "object": "traceRouteTimeStampGroup",
+        "module": "DISMAN-TRACEROUTE-MIB"
+      },
+      {
+        "object": "traceRouteNotificationsGroup",
+        "module": "DISMAN-TRACEROUTE-MIB"
+      },
+      {
+        "object": "traceRouteHopsTableGroup",
+        "module": "DISMAN-TRACEROUTE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "traceRouteMinimumGroup": {
+    "name": "traceRouteMinimumGroup",
+    "oid": "1.3.6.1.2.1.81.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteMaxConcurrentRequests"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlByPassRouteTable"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlDataSize"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlTimeOut"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlProbesPerHop"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlPort"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlMaxTtl"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlDSField"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlSourceAddressType"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlSourceAddress"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlIfIndex"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlMiscOptions"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlMaxFailures"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlDontFragment"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlInitialTtl"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlFrequency"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlStorageType"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlAdminStatus"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlMaxRows"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlTrapGeneration"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlDescr"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlCreateHopsEntries"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlType"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteResultsOperStatus"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteResultsCurHopCount"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteResultsCurProbeCount"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteResultsIpTgtAddrType"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteResultsIpTgtAddr"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteResultsTestAttempts"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteResultsTestSuccesses"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteResultsLastGoodPath"
+      }
+    ],
+    "status": "current"
+  },
+  "traceRouteCtlRowStatusGroup": {
+    "name": "traceRouteCtlRowStatusGroup",
+    "oid": "1.3.6.1.2.1.81.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "traceRouteHistoryGroup": {
+    "name": "traceRouteHistoryGroup",
+    "oid": "1.3.6.1.2.1.81.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteProbeHistoryHAddrType"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteProbeHistoryHAddr"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteProbeHistoryResponse"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteProbeHistoryStatus"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteProbeHistoryLastRC"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteProbeHistoryTime"
+      }
+    ],
+    "status": "current"
+  },
+  "traceRouteNotificationsGroup": {
+    "name": "traceRouteNotificationsGroup",
+    "oid": "1.3.6.1.2.1.81.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRoutePathChange"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteTestFailed"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteTestCompleted"
+      }
+    ],
+    "status": "current"
+  },
+  "traceRouteHopsTableGroup": {
+    "name": "traceRouteHopsTableGroup",
+    "oid": "1.3.6.1.2.1.81.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteHopsIpTgtAddressType"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteHopsIpTgtAddress"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteHopsMinRtt"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteHopsMaxRtt"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteHopsAverageRtt"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteHopsRttSumOfSquares"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteHopsSentProbes"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteHopsProbeResponses"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteHopsLastGoodProbe"
+      }
+    ],
+    "status": "current"
+  },
+  "traceRouteGroup": {
+    "name": "traceRouteGroup",
+    "oid": "1.3.6.1.2.1.81.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteMaxConcurrentRequests"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlByPassRouteTable"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlDataSize"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlTimeOut"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlProbesPerHop"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlPort"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlMaxTtl"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlDSField"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlSourceAddressType"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlSourceAddress"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlIfIndex"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlMiscOptions"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlMaxFailures"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlDontFragment"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlInitialTtl"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlFrequency"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlStorageType"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlAdminStatus"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlMaxRows"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlTrapGeneration"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlDescr"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlCreateHopsEntries"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlType"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteCtlRowStatus"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteResultsOperStatus"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteResultsCurHopCount"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteResultsCurProbeCount"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteResultsIpTgtAddrType"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteResultsIpTgtAddr"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteResultsTestAttempts"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteResultsTestSuccesses"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteProbeHistoryHAddrType"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteProbeHistoryHAddr"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteProbeHistoryResponse"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteProbeHistoryStatus"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteProbeHistoryLastRC"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "traceRouteTimeStampGroup": {
+    "name": "traceRouteTimeStampGroup",
+    "oid": "1.3.6.1.2.1.81.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteResultsLastGoodPath"
+      },
+      {
+        "module": "DISMAN-TRACEROUTE-MIB",
+        "object": "traceRouteProbeHistoryTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DISMAN-TRACEROUTE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DISMAN-TRACEROUTE-MIB"
+  }
+}

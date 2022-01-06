@@ -1,0 +1,7470 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "enterprises",
+      "Bits",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "iso",
+      "IpAddress",
+      "TRAP-TYPE",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "avtech": {
+    "name": "avtech",
+    "oid": "1.3.6.1.4.1.20916",
+    "class": "objectidentity"
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.20916.1",
+    "class": "objectidentity"
+  },
+  "roomalert26w": {
+    "name": "roomalert26w",
+    "oid": "1.3.6.1.4.1.20916.1.4",
+    "class": "objectidentity"
+  },
+  "sensors": {
+    "name": "sensors",
+    "oid": "1.3.6.1.4.1.20916.1.4.1",
+    "class": "objectidentity"
+  },
+  "internal": {
+    "name": "internal",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.1",
+    "class": "objectidentity"
+  },
+  "temperature": {
+    "name": "temperature",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.1.1",
+    "class": "objectidentity"
+  },
+  "humidity": {
+    "name": "humidity",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.1.2",
+    "class": "objectidentity"
+  },
+  "heat_index": {
+    "name": "heat_index",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.1.5",
+    "class": "objectidentity"
+  },
+  "power": {
+    "name": "power",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.1.3",
+    "class": "objectidentity"
+  },
+  "flood": {
+    "name": "flood",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.1.4",
+    "class": "objectidentity"
+  },
+  "digital": {
+    "name": "digital",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2",
+    "class": "objectidentity"
+  },
+  "digital_sen1": {
+    "name": "digital_sen1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.1",
+    "class": "objectidentity"
+  },
+  "digital_sen2": {
+    "name": "digital_sen2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.2",
+    "class": "objectidentity"
+  },
+  "digital_sen3": {
+    "name": "digital_sen3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.3",
+    "class": "objectidentity"
+  },
+  "digital_sen4": {
+    "name": "digital_sen4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.4",
+    "class": "objectidentity"
+  },
+  "digital_sen5": {
+    "name": "digital_sen5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.5",
+    "class": "objectidentity"
+  },
+  "digital_sen6": {
+    "name": "digital_sen6",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.6",
+    "class": "objectidentity"
+  },
+  "switch": {
+    "name": "switch",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.3",
+    "class": "objectidentity"
+  },
+  "wireless": {
+    "name": "wireless",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4",
+    "class": "objectidentity"
+  },
+  "wish_1": {
+    "name": "wish_1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1",
+    "class": "objectidentity"
+  },
+  "wish_1_sensors": {
+    "name": "wish_1_sensors",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.4",
+    "class": "objectidentity"
+  },
+  "wish_1_internal": {
+    "name": "wish_1_internal",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.4.1",
+    "class": "objectidentity"
+  },
+  "wish_1_external": {
+    "name": "wish_1_external",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.4.2",
+    "class": "objectidentity"
+  },
+  "wish_1_external_1": {
+    "name": "wish_1_external_1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.4.2.1",
+    "class": "objectidentity"
+  },
+  "wish_1_external_2": {
+    "name": "wish_1_external_2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.4.2.2",
+    "class": "objectidentity"
+  },
+  "wish_2": {
+    "name": "wish_2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2",
+    "class": "objectidentity"
+  },
+  "wish_2_sensors": {
+    "name": "wish_2_sensors",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.4",
+    "class": "objectidentity"
+  },
+  "wish_2_internal": {
+    "name": "wish_2_internal",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.4.1",
+    "class": "objectidentity"
+  },
+  "wish_2_external": {
+    "name": "wish_2_external",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.4.2",
+    "class": "objectidentity"
+  },
+  "wish_2_external_1": {
+    "name": "wish_2_external_1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.4.2.1",
+    "class": "objectidentity"
+  },
+  "wish_2_external_2": {
+    "name": "wish_2_external_2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.4.2.2",
+    "class": "objectidentity"
+  },
+  "wish_3": {
+    "name": "wish_3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3",
+    "class": "objectidentity"
+  },
+  "wish_3_sensors": {
+    "name": "wish_3_sensors",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.4",
+    "class": "objectidentity"
+  },
+  "wish_3_internal": {
+    "name": "wish_3_internal",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.4.1",
+    "class": "objectidentity"
+  },
+  "wish_3_external": {
+    "name": "wish_3_external",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.4.2",
+    "class": "objectidentity"
+  },
+  "wish_3_external_1": {
+    "name": "wish_3_external_1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.4.2.1",
+    "class": "objectidentity"
+  },
+  "wish_3_external_2": {
+    "name": "wish_3_external_2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.4.2.2",
+    "class": "objectidentity"
+  },
+  "wish_4": {
+    "name": "wish_4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4",
+    "class": "objectidentity"
+  },
+  "wish_4_sensors": {
+    "name": "wish_4_sensors",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.4",
+    "class": "objectidentity"
+  },
+  "wish_4_internal": {
+    "name": "wish_4_internal",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.4.1",
+    "class": "objectidentity"
+  },
+  "wish_4_external": {
+    "name": "wish_4_external",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.4.2",
+    "class": "objectidentity"
+  },
+  "wish_4_external_1": {
+    "name": "wish_4_external_1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.4.2.1",
+    "class": "objectidentity"
+  },
+  "wish_4_external_2": {
+    "name": "wish_4_external_2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.4.2.2",
+    "class": "objectidentity"
+  },
+  "wish_5": {
+    "name": "wish_5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5",
+    "class": "objectidentity"
+  },
+  "wish_5_sensors": {
+    "name": "wish_5_sensors",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.4",
+    "class": "objectidentity"
+  },
+  "wish_5_internal": {
+    "name": "wish_5_internal",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.4.1",
+    "class": "objectidentity"
+  },
+  "wish_5_external": {
+    "name": "wish_5_external",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.4.2",
+    "class": "objectidentity"
+  },
+  "wish_5_external_1": {
+    "name": "wish_5_external_1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.4.2.1",
+    "class": "objectidentity"
+  },
+  "wish_5_external_2": {
+    "name": "wish_5_external_2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.4.2.2",
+    "class": "objectidentity"
+  },
+  "wish_6": {
+    "name": "wish_6",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6",
+    "class": "objectidentity"
+  },
+  "wish_6_sensors": {
+    "name": "wish_6_sensors",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.4",
+    "class": "objectidentity"
+  },
+  "wish_6_internal": {
+    "name": "wish_6_internal",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.4.1",
+    "class": "objectidentity"
+  },
+  "wish_6_external": {
+    "name": "wish_6_external",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.4.2",
+    "class": "objectidentity"
+  },
+  "wish_6_external_1": {
+    "name": "wish_6_external_1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.4.2.1",
+    "class": "objectidentity"
+  },
+  "wish_6_external_2": {
+    "name": "wish_6_external_2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.4.2.2",
+    "class": "objectidentity"
+  },
+  "wish_7": {
+    "name": "wish_7",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7",
+    "class": "objectidentity"
+  },
+  "wish_7_sensors": {
+    "name": "wish_7_sensors",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.4",
+    "class": "objectidentity"
+  },
+  "wish_7_internal": {
+    "name": "wish_7_internal",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.4.1",
+    "class": "objectidentity"
+  },
+  "wish_7_external": {
+    "name": "wish_7_external",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.4.2",
+    "class": "objectidentity"
+  },
+  "wish_7_external_1": {
+    "name": "wish_7_external_1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.4.2.1",
+    "class": "objectidentity"
+  },
+  "wish_7_external_2": {
+    "name": "wish_7_external_2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.4.2.2",
+    "class": "objectidentity"
+  },
+  "wish_8": {
+    "name": "wish_8",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8",
+    "class": "objectidentity"
+  },
+  "wish_8_sensors": {
+    "name": "wish_8_sensors",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.4",
+    "class": "objectidentity"
+  },
+  "wish_8_internal": {
+    "name": "wish_8_internal",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.4.1",
+    "class": "objectidentity"
+  },
+  "wish_8_external": {
+    "name": "wish_8_external",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.4.2",
+    "class": "objectidentity"
+  },
+  "wish_8_external_1": {
+    "name": "wish_8_external_1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.4.2.1",
+    "class": "objectidentity"
+  },
+  "wish_8_external_2": {
+    "name": "wish_8_external_2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.4.2.2",
+    "class": "objectidentity"
+  },
+  "wish_9": {
+    "name": "wish_9",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9",
+    "class": "objectidentity"
+  },
+  "wish_9_sensors": {
+    "name": "wish_9_sensors",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.4",
+    "class": "objectidentity"
+  },
+  "wish_9_internal": {
+    "name": "wish_9_internal",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.4.1",
+    "class": "objectidentity"
+  },
+  "wish_9_external": {
+    "name": "wish_9_external",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.4.2",
+    "class": "objectidentity"
+  },
+  "wish_9_external_1": {
+    "name": "wish_9_external_1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.4.2.1",
+    "class": "objectidentity"
+  },
+  "wish_9_external_2": {
+    "name": "wish_9_external_2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.4.2.2",
+    "class": "objectidentity"
+  },
+  "wish_10": {
+    "name": "wish_10",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10",
+    "class": "objectidentity"
+  },
+  "wish_10_sensors": {
+    "name": "wish_10_sensors",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.4",
+    "class": "objectidentity"
+  },
+  "wish_10_internal": {
+    "name": "wish_10_internal",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.4.1",
+    "class": "objectidentity"
+  },
+  "wish_10_external": {
+    "name": "wish_10_external",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.4.2",
+    "class": "objectidentity"
+  },
+  "wish_10_external_1": {
+    "name": "wish_10_external_1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.4.2.1",
+    "class": "objectidentity"
+  },
+  "wish_10_external_2": {
+    "name": "wish_10_external_2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.4.2.2",
+    "class": "objectidentity"
+  },
+  "wish_11": {
+    "name": "wish_11",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11",
+    "class": "objectidentity"
+  },
+  "wish_11_sensors": {
+    "name": "wish_11_sensors",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.4",
+    "class": "objectidentity"
+  },
+  "wish_11_internal": {
+    "name": "wish_11_internal",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.4.1",
+    "class": "objectidentity"
+  },
+  "wish_11_external": {
+    "name": "wish_11_external",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.4.2",
+    "class": "objectidentity"
+  },
+  "wish_11_external_1": {
+    "name": "wish_11_external_1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.4.2.1",
+    "class": "objectidentity"
+  },
+  "wish_11_external_2": {
+    "name": "wish_11_external_2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.4.2.2",
+    "class": "objectidentity"
+  },
+  "wish_12": {
+    "name": "wish_12",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12",
+    "class": "objectidentity"
+  },
+  "wish_12_sensors": {
+    "name": "wish_12_sensors",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.4",
+    "class": "objectidentity"
+  },
+  "wish_12_internal": {
+    "name": "wish_12_internal",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.4.1",
+    "class": "objectidentity"
+  },
+  "wish_12_external": {
+    "name": "wish_12_external",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.4.2",
+    "class": "objectidentity"
+  },
+  "wish_12_external_1": {
+    "name": "wish_12_external_1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.4.2.1",
+    "class": "objectidentity"
+  },
+  "wish_12_external_2": {
+    "name": "wish_12_external_2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.4.2.2",
+    "class": "objectidentity"
+  },
+  "wish_13": {
+    "name": "wish_13",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13",
+    "class": "objectidentity"
+  },
+  "wish_13_sensors": {
+    "name": "wish_13_sensors",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.4",
+    "class": "objectidentity"
+  },
+  "wish_13_internal": {
+    "name": "wish_13_internal",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.4.1",
+    "class": "objectidentity"
+  },
+  "wish_13_external": {
+    "name": "wish_13_external",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.4.2",
+    "class": "objectidentity"
+  },
+  "wish_13_external_1": {
+    "name": "wish_13_external_1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.4.2.1",
+    "class": "objectidentity"
+  },
+  "wish_13_external_2": {
+    "name": "wish_13_external_2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.4.2.2",
+    "class": "objectidentity"
+  },
+  "wish_14": {
+    "name": "wish_14",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14",
+    "class": "objectidentity"
+  },
+  "wish_14_sensors": {
+    "name": "wish_14_sensors",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.4",
+    "class": "objectidentity"
+  },
+  "wish_14_internal": {
+    "name": "wish_14_internal",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.4.1",
+    "class": "objectidentity"
+  },
+  "wish_14_external": {
+    "name": "wish_14_external",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.4.2",
+    "class": "objectidentity"
+  },
+  "wish_14_external_1": {
+    "name": "wish_14_external_1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.4.2.1",
+    "class": "objectidentity"
+  },
+  "wish_14_external_2": {
+    "name": "wish_14_external_2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.4.2.2",
+    "class": "objectidentity"
+  },
+  "wish_15": {
+    "name": "wish_15",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15",
+    "class": "objectidentity"
+  },
+  "wish_15_sensors": {
+    "name": "wish_15_sensors",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.4",
+    "class": "objectidentity"
+  },
+  "wish_15_internal": {
+    "name": "wish_15_internal",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.4.1",
+    "class": "objectidentity"
+  },
+  "wish_15_external": {
+    "name": "wish_15_external",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.4.2",
+    "class": "objectidentity"
+  },
+  "wish_15_external_1": {
+    "name": "wish_15_external_1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.4.2.1",
+    "class": "objectidentity"
+  },
+  "wish_15_external_2": {
+    "name": "wish_15_external_2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.4.2.2",
+    "class": "objectidentity"
+  },
+  "traps": {
+    "name": "traps",
+    "oid": "1.3.6.1.4.1.20916.1.4.2",
+    "class": "objectidentity"
+  },
+  "internal_tempf": {
+    "name": "internal_tempf",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "internal_tempc": {
+    "name": "internal_tempc",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "internal_humidity": {
+    "name": "internal_humidity",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "internal_heat_index": {
+    "name": "internal_heat_index",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "internal_heat_indexC": {
+    "name": "internal_heat_indexC",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "internal_power": {
+    "name": "internal_power",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "flood_detected": {
+    "name": "flood_detected",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cable_fault": {
+    "name": "cable_fault",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen1_1": {
+    "name": "digital_sen1_1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen1_2": {
+    "name": "digital_sen1_2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen1_3": {
+    "name": "digital_sen1_3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen1_4": {
+    "name": "digital_sen1_4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen1_5": {
+    "name": "digital_sen1_5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen2_1": {
+    "name": "digital_sen2_1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen2_2": {
+    "name": "digital_sen2_2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen2_3": {
+    "name": "digital_sen2_3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen2_4": {
+    "name": "digital_sen2_4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen3_1": {
+    "name": "digital_sen3_1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen3_2": {
+    "name": "digital_sen3_2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen3_3": {
+    "name": "digital_sen3_3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen3_4": {
+    "name": "digital_sen3_4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen4_1": {
+    "name": "digital_sen4_1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen4_2": {
+    "name": "digital_sen4_2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen4_3": {
+    "name": "digital_sen4_3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen4_4": {
+    "name": "digital_sen4_4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen5_1": {
+    "name": "digital_sen5_1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen5_2": {
+    "name": "digital_sen5_2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen5_3": {
+    "name": "digital_sen5_3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen5_4": {
+    "name": "digital_sen5_4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen6_1": {
+    "name": "digital_sen6_1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen6_2": {
+    "name": "digital_sen6_2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen6_3": {
+    "name": "digital_sen6_3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen6_4": {
+    "name": "digital_sen6_4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.2.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "switch_sen1": {
+    "name": "switch_sen1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "switch_sen2": {
+    "name": "switch_sen2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "switch_sen3": {
+    "name": "switch_sen3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "switch_sen4": {
+    "name": "switch_sen4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "switch_sen5": {
+    "name": "switch_sen5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "switch_sen6": {
+    "name": "switch_sen6",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "switch_sen7": {
+    "name": "switch_sen7",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "switch_sen8": {
+    "name": "switch_sen8",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "switch_sen9": {
+    "name": "switch_sen9",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "switch_sen10": {
+    "name": "switch_sen10",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "switch_sen11": {
+    "name": "switch_sen11",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "switch_sen12": {
+    "name": "switch_sen12",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "switch_sen13": {
+    "name": "switch_sen13",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "switch_sen14": {
+    "name": "switch_sen14",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "switch_sen15": {
+    "name": "switch_sen15",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "switch_sen16": {
+    "name": "switch_sen16",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_1_enabled": {
+    "name": "wish_1_enabled",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_1_serial_num": {
+    "name": "wish_1_serial_num",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_1_updates": {
+    "name": "wish_1_updates",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_1_battery_voltage": {
+    "name": "wish_1_battery_voltage",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_1_internal_tempc": {
+    "name": "wish_1_internal_tempc",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_1_internal_tempf": {
+    "name": "wish_1_internal_tempf",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_1_external_1_type": {
+    "name": "wish_1_external_1_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.4.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_1_external_1_val1": {
+    "name": "wish_1_external_1_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.4.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_1_external_1_val2": {
+    "name": "wish_1_external_1_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.4.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_1_external_1_val3": {
+    "name": "wish_1_external_1_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.4.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_1_external_1_val4": {
+    "name": "wish_1_external_1_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.4.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_1_external_1_val5": {
+    "name": "wish_1_external_1_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.4.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_1_external_2_type": {
+    "name": "wish_1_external_2_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.4.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_1_external_2_val1": {
+    "name": "wish_1_external_2_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.4.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_1_external_2_val2": {
+    "name": "wish_1_external_2_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.4.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_1_external_2_val3": {
+    "name": "wish_1_external_2_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.4.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_1_external_2_val4": {
+    "name": "wish_1_external_2_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.4.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_1_external_2_val5": {
+    "name": "wish_1_external_2_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.4.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_1_external_switch": {
+    "name": "wish_1_external_switch",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.1.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_2_enabled": {
+    "name": "wish_2_enabled",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_2_serial_num": {
+    "name": "wish_2_serial_num",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_2_updates": {
+    "name": "wish_2_updates",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_2_battery_voltage": {
+    "name": "wish_2_battery_voltage",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_2_internal_tempc": {
+    "name": "wish_2_internal_tempc",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_2_internal_tempf": {
+    "name": "wish_2_internal_tempf",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_2_external_1_type": {
+    "name": "wish_2_external_1_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.4.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_2_external_1_val1": {
+    "name": "wish_2_external_1_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.4.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_2_external_1_val2": {
+    "name": "wish_2_external_1_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.4.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_2_external_1_val3": {
+    "name": "wish_2_external_1_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.4.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_2_external_1_val4": {
+    "name": "wish_2_external_1_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.4.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_2_external_1_val5": {
+    "name": "wish_2_external_1_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.4.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_2_external_2_type": {
+    "name": "wish_2_external_2_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.4.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_2_external_2_val1": {
+    "name": "wish_2_external_2_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.4.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_2_external_2_val2": {
+    "name": "wish_2_external_2_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.4.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_2_external_2_val3": {
+    "name": "wish_2_external_2_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.4.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_2_external_2_val4": {
+    "name": "wish_2_external_2_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.4.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_2_external_2_val5": {
+    "name": "wish_2_external_2_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.4.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_2_external_switch": {
+    "name": "wish_2_external_switch",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.2.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_3_enabled": {
+    "name": "wish_3_enabled",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_3_serial_num": {
+    "name": "wish_3_serial_num",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_3_updates": {
+    "name": "wish_3_updates",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_3_battery_voltage": {
+    "name": "wish_3_battery_voltage",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_3_internal_tempc": {
+    "name": "wish_3_internal_tempc",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_3_internal_tempf": {
+    "name": "wish_3_internal_tempf",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_3_external_1_type": {
+    "name": "wish_3_external_1_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.4.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_3_external_1_val1": {
+    "name": "wish_3_external_1_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.4.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_3_external_1_val2": {
+    "name": "wish_3_external_1_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.4.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_3_external_1_val3": {
+    "name": "wish_3_external_1_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.4.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_3_external_1_val4": {
+    "name": "wish_3_external_1_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.4.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_3_external_1_val5": {
+    "name": "wish_3_external_1_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.4.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_3_external_2_type": {
+    "name": "wish_3_external_2_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.4.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_3_external_2_val1": {
+    "name": "wish_3_external_2_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.4.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_3_external_2_val2": {
+    "name": "wish_3_external_2_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.4.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_3_external_2_val3": {
+    "name": "wish_3_external_2_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.4.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_3_external_2_val4": {
+    "name": "wish_3_external_2_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.4.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_3_external_2_val5": {
+    "name": "wish_3_external_2_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.4.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_3_external_switch": {
+    "name": "wish_3_external_switch",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.3.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_4_enabled": {
+    "name": "wish_4_enabled",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_4_serial_num": {
+    "name": "wish_4_serial_num",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_4_updates": {
+    "name": "wish_4_updates",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_4_battery_voltage": {
+    "name": "wish_4_battery_voltage",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_4_internal_tempc": {
+    "name": "wish_4_internal_tempc",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_4_internal_tempf": {
+    "name": "wish_4_internal_tempf",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_4_external_1_type": {
+    "name": "wish_4_external_1_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.4.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_4_external_1_val1": {
+    "name": "wish_4_external_1_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.4.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_4_external_1_val2": {
+    "name": "wish_4_external_1_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.4.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_4_external_1_val3": {
+    "name": "wish_4_external_1_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.4.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_4_external_1_val4": {
+    "name": "wish_4_external_1_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.4.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_4_external_1_val5": {
+    "name": "wish_4_external_1_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.4.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_4_external_2_type": {
+    "name": "wish_4_external_2_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.4.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_4_external_2_val1": {
+    "name": "wish_4_external_2_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.4.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_4_external_2_val2": {
+    "name": "wish_4_external_2_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.4.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_4_external_2_val3": {
+    "name": "wish_4_external_2_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.4.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_4_external_2_val4": {
+    "name": "wish_4_external_2_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.4.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_4_external_2_val5": {
+    "name": "wish_4_external_2_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.4.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_4_external_switch": {
+    "name": "wish_4_external_switch",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.4.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_5_enabled": {
+    "name": "wish_5_enabled",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_5_serial_num": {
+    "name": "wish_5_serial_num",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_5_updates": {
+    "name": "wish_5_updates",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_5_battery_voltage": {
+    "name": "wish_5_battery_voltage",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_5_internal_tempc": {
+    "name": "wish_5_internal_tempc",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_5_internal_tempf": {
+    "name": "wish_5_internal_tempf",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_5_external_1_type": {
+    "name": "wish_5_external_1_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.4.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_5_external_1_val1": {
+    "name": "wish_5_external_1_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.4.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_5_external_1_val2": {
+    "name": "wish_5_external_1_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.4.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_5_external_1_val3": {
+    "name": "wish_5_external_1_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.4.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_5_external_1_val4": {
+    "name": "wish_5_external_1_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.4.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_5_external_1_val5": {
+    "name": "wish_5_external_1_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.4.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_5_external_2_type": {
+    "name": "wish_5_external_2_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.4.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_5_external_2_val1": {
+    "name": "wish_5_external_2_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.4.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_5_external_2_val2": {
+    "name": "wish_5_external_2_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.4.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_5_external_2_val3": {
+    "name": "wish_5_external_2_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.4.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_5_external_2_val4": {
+    "name": "wish_5_external_2_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.4.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_5_external_2_val5": {
+    "name": "wish_5_external_2_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.4.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_5_external_switch": {
+    "name": "wish_5_external_switch",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.5.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_6_enabled": {
+    "name": "wish_6_enabled",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_6_serial_num": {
+    "name": "wish_6_serial_num",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_6_updates": {
+    "name": "wish_6_updates",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_6_battery_voltage": {
+    "name": "wish_6_battery_voltage",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_6_internal_tempc": {
+    "name": "wish_6_internal_tempc",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_6_internal_tempf": {
+    "name": "wish_6_internal_tempf",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_6_external_1_type": {
+    "name": "wish_6_external_1_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.4.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_6_external_1_val1": {
+    "name": "wish_6_external_1_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.4.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_6_external_1_val2": {
+    "name": "wish_6_external_1_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.4.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_6_external_1_val3": {
+    "name": "wish_6_external_1_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.4.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_6_external_1_val4": {
+    "name": "wish_6_external_1_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.4.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_6_external_1_val5": {
+    "name": "wish_6_external_1_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.4.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_6_external_2_type": {
+    "name": "wish_6_external_2_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.4.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_6_external_2_val1": {
+    "name": "wish_6_external_2_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.4.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_6_external_2_val2": {
+    "name": "wish_6_external_2_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.4.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_6_external_2_val3": {
+    "name": "wish_6_external_2_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.4.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_6_external_2_val4": {
+    "name": "wish_6_external_2_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.4.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_6_external_2_val5": {
+    "name": "wish_6_external_2_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.4.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_6_external_switch": {
+    "name": "wish_6_external_switch",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.6.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_7_enabled": {
+    "name": "wish_7_enabled",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_7_serial_num": {
+    "name": "wish_7_serial_num",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_7_updates": {
+    "name": "wish_7_updates",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_7_battery_voltage": {
+    "name": "wish_7_battery_voltage",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_7_internal_tempc": {
+    "name": "wish_7_internal_tempc",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_7_internal_tempf": {
+    "name": "wish_7_internal_tempf",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_7_external_1_type": {
+    "name": "wish_7_external_1_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.4.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_7_external_1_val1": {
+    "name": "wish_7_external_1_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.4.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_7_external_1_val2": {
+    "name": "wish_7_external_1_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.4.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_7_external_1_val3": {
+    "name": "wish_7_external_1_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.4.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_7_external_1_val4": {
+    "name": "wish_7_external_1_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.4.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_7_external_1_val5": {
+    "name": "wish_7_external_1_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.4.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_7_external_2_type": {
+    "name": "wish_7_external_2_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.4.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_7_external_2_val1": {
+    "name": "wish_7_external_2_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.4.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_7_external_2_val2": {
+    "name": "wish_7_external_2_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.4.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_7_external_2_val3": {
+    "name": "wish_7_external_2_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.4.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_7_external_2_val4": {
+    "name": "wish_7_external_2_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.4.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_7_external_2_val5": {
+    "name": "wish_7_external_2_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.4.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_7_external_switch": {
+    "name": "wish_7_external_switch",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.7.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_8_enabled": {
+    "name": "wish_8_enabled",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_8_serial_num": {
+    "name": "wish_8_serial_num",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_8_updates": {
+    "name": "wish_8_updates",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_8_battery_voltage": {
+    "name": "wish_8_battery_voltage",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_8_internal_tempc": {
+    "name": "wish_8_internal_tempc",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_8_internal_tempf": {
+    "name": "wish_8_internal_tempf",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_8_external_1_type": {
+    "name": "wish_8_external_1_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.4.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_8_external_1_val1": {
+    "name": "wish_8_external_1_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.4.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_8_external_1_val2": {
+    "name": "wish_8_external_1_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.4.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_8_external_1_val3": {
+    "name": "wish_8_external_1_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.4.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_8_external_1_val4": {
+    "name": "wish_8_external_1_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.4.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_8_external_1_val5": {
+    "name": "wish_8_external_1_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.4.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_8_external_2_type": {
+    "name": "wish_8_external_2_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.4.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_8_external_2_val1": {
+    "name": "wish_8_external_2_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.4.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_8_external_2_val2": {
+    "name": "wish_8_external_2_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.4.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_8_external_2_val3": {
+    "name": "wish_8_external_2_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.4.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_8_external_2_val4": {
+    "name": "wish_8_external_2_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.4.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_8_external_2_val5": {
+    "name": "wish_8_external_2_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.4.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_8_external_switch": {
+    "name": "wish_8_external_switch",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.8.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_9_enabled": {
+    "name": "wish_9_enabled",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_9_serial_num": {
+    "name": "wish_9_serial_num",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_9_updates": {
+    "name": "wish_9_updates",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_9_battery_voltage": {
+    "name": "wish_9_battery_voltage",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_9_internal_tempc": {
+    "name": "wish_9_internal_tempc",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_9_internal_tempf": {
+    "name": "wish_9_internal_tempf",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_9_external_1_type": {
+    "name": "wish_9_external_1_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.4.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_9_external_1_val1": {
+    "name": "wish_9_external_1_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.4.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_9_external_1_val2": {
+    "name": "wish_9_external_1_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.4.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_9_external_1_val3": {
+    "name": "wish_9_external_1_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.4.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_9_external_1_val4": {
+    "name": "wish_9_external_1_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.4.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_9_external_1_val5": {
+    "name": "wish_9_external_1_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.4.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_9_external_2_type": {
+    "name": "wish_9_external_2_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.4.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_9_external_2_val1": {
+    "name": "wish_9_external_2_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.4.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_9_external_2_val2": {
+    "name": "wish_9_external_2_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.4.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_9_external_2_val3": {
+    "name": "wish_9_external_2_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.4.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_9_external_2_val4": {
+    "name": "wish_9_external_2_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.4.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_9_external_2_val5": {
+    "name": "wish_9_external_2_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.4.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_9_external_switch": {
+    "name": "wish_9_external_switch",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.9.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_10_enabled": {
+    "name": "wish_10_enabled",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_10_serial_num": {
+    "name": "wish_10_serial_num",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_10_updates": {
+    "name": "wish_10_updates",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_10_battery_voltage": {
+    "name": "wish_10_battery_voltage",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_10_internal_tempc": {
+    "name": "wish_10_internal_tempc",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_10_internal_tempf": {
+    "name": "wish_10_internal_tempf",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_10_external_1_type": {
+    "name": "wish_10_external_1_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.4.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_10_external_1_val1": {
+    "name": "wish_10_external_1_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.4.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_10_external_1_val2": {
+    "name": "wish_10_external_1_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.4.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_10_external_1_val3": {
+    "name": "wish_10_external_1_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.4.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_10_external_1_val4": {
+    "name": "wish_10_external_1_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.4.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_10_external_1_val5": {
+    "name": "wish_10_external_1_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.4.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_10_external_2_type": {
+    "name": "wish_10_external_2_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.4.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_10_external_2_val1": {
+    "name": "wish_10_external_2_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.4.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_10_external_2_val2": {
+    "name": "wish_10_external_2_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.4.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_10_external_2_val3": {
+    "name": "wish_10_external_2_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.4.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_10_external_2_val4": {
+    "name": "wish_10_external_2_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.4.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_10_external_2_val5": {
+    "name": "wish_10_external_2_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.4.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_10_external_switch": {
+    "name": "wish_10_external_switch",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.10.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_11_enabled": {
+    "name": "wish_11_enabled",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_11_serial_num": {
+    "name": "wish_11_serial_num",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_11_updates": {
+    "name": "wish_11_updates",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_11_battery_voltage": {
+    "name": "wish_11_battery_voltage",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_11_internal_tempc": {
+    "name": "wish_11_internal_tempc",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_11_internal_tempf": {
+    "name": "wish_11_internal_tempf",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_11_external_1_type": {
+    "name": "wish_11_external_1_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.4.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_11_external_1_val1": {
+    "name": "wish_11_external_1_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.4.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_11_external_1_val2": {
+    "name": "wish_11_external_1_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.4.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_11_external_1_val3": {
+    "name": "wish_11_external_1_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.4.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_11_external_1_val4": {
+    "name": "wish_11_external_1_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.4.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_11_external_1_val5": {
+    "name": "wish_11_external_1_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.4.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_11_external_2_type": {
+    "name": "wish_11_external_2_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.4.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_11_external_2_val1": {
+    "name": "wish_11_external_2_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.4.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_11_external_2_val2": {
+    "name": "wish_11_external_2_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.4.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_11_external_2_val3": {
+    "name": "wish_11_external_2_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.4.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_11_external_2_val4": {
+    "name": "wish_11_external_2_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.4.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_11_external_2_val5": {
+    "name": "wish_11_external_2_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.4.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_11_external_switch": {
+    "name": "wish_11_external_switch",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.11.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_12_enabled": {
+    "name": "wish_12_enabled",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_12_serial_num": {
+    "name": "wish_12_serial_num",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_12_updates": {
+    "name": "wish_12_updates",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_12_battery_voltage": {
+    "name": "wish_12_battery_voltage",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_12_internal_tempc": {
+    "name": "wish_12_internal_tempc",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_12_internal_tempf": {
+    "name": "wish_12_internal_tempf",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_12_external_1_type": {
+    "name": "wish_12_external_1_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.4.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_12_external_1_val1": {
+    "name": "wish_12_external_1_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.4.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_12_external_1_val2": {
+    "name": "wish_12_external_1_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.4.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_12_external_1_val3": {
+    "name": "wish_12_external_1_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.4.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_12_external_1_val4": {
+    "name": "wish_12_external_1_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.4.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_12_external_1_val5": {
+    "name": "wish_12_external_1_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.4.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_12_external_2_type": {
+    "name": "wish_12_external_2_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.4.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_12_external_2_val1": {
+    "name": "wish_12_external_2_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.4.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_12_external_2_val2": {
+    "name": "wish_12_external_2_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.4.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_12_external_2_val3": {
+    "name": "wish_12_external_2_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.4.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_12_external_2_val4": {
+    "name": "wish_12_external_2_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.4.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_12_external_2_val5": {
+    "name": "wish_12_external_2_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.4.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_12_external_switch": {
+    "name": "wish_12_external_switch",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.12.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_13_enabled": {
+    "name": "wish_13_enabled",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_13_serial_num": {
+    "name": "wish_13_serial_num",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_13_updates": {
+    "name": "wish_13_updates",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_13_battery_voltage": {
+    "name": "wish_13_battery_voltage",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_13_internal_tempc": {
+    "name": "wish_13_internal_tempc",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_13_internal_tempf": {
+    "name": "wish_13_internal_tempf",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_13_external_1_type": {
+    "name": "wish_13_external_1_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.4.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_13_external_1_val1": {
+    "name": "wish_13_external_1_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.4.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_13_external_1_val2": {
+    "name": "wish_13_external_1_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.4.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_13_external_1_val3": {
+    "name": "wish_13_external_1_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.4.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_13_external_1_val4": {
+    "name": "wish_13_external_1_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.4.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_13_external_1_val5": {
+    "name": "wish_13_external_1_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.4.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_13_external_2_type": {
+    "name": "wish_13_external_2_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.4.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_13_external_2_val1": {
+    "name": "wish_13_external_2_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.4.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_13_external_2_val2": {
+    "name": "wish_13_external_2_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.4.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_13_external_2_val3": {
+    "name": "wish_13_external_2_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.4.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_13_external_2_val4": {
+    "name": "wish_13_external_2_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.4.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_13_external_2_val5": {
+    "name": "wish_13_external_2_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.4.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_13_external_switch": {
+    "name": "wish_13_external_switch",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.13.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_14_enabled": {
+    "name": "wish_14_enabled",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_14_serial_num": {
+    "name": "wish_14_serial_num",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_14_updates": {
+    "name": "wish_14_updates",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_14_battery_voltage": {
+    "name": "wish_14_battery_voltage",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_14_internal_tempc": {
+    "name": "wish_14_internal_tempc",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_14_internal_tempf": {
+    "name": "wish_14_internal_tempf",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_14_external_1_type": {
+    "name": "wish_14_external_1_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.4.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_14_external_1_val1": {
+    "name": "wish_14_external_1_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.4.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_14_external_1_val2": {
+    "name": "wish_14_external_1_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.4.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_14_external_1_val3": {
+    "name": "wish_14_external_1_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.4.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_14_external_1_val4": {
+    "name": "wish_14_external_1_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.4.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_14_external_1_val5": {
+    "name": "wish_14_external_1_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.4.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_14_external_2_type": {
+    "name": "wish_14_external_2_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.4.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_14_external_2_val1": {
+    "name": "wish_14_external_2_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.4.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_14_external_2_val2": {
+    "name": "wish_14_external_2_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.4.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_14_external_2_val3": {
+    "name": "wish_14_external_2_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.4.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_14_external_2_val4": {
+    "name": "wish_14_external_2_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.4.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_14_external_2_val5": {
+    "name": "wish_14_external_2_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.4.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_14_external_switch": {
+    "name": "wish_14_external_switch",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.14.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_15_enabled": {
+    "name": "wish_15_enabled",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_15_serial_num": {
+    "name": "wish_15_serial_num",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_15_updates": {
+    "name": "wish_15_updates",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_15_battery_voltage": {
+    "name": "wish_15_battery_voltage",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_15_internal_tempc": {
+    "name": "wish_15_internal_tempc",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_15_internal_tempf": {
+    "name": "wish_15_internal_tempf",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_15_external_1_type": {
+    "name": "wish_15_external_1_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.4.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_15_external_1_val1": {
+    "name": "wish_15_external_1_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.4.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_15_external_1_val2": {
+    "name": "wish_15_external_1_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.4.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_15_external_1_val3": {
+    "name": "wish_15_external_1_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.4.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_15_external_1_val4": {
+    "name": "wish_15_external_1_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.4.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_15_external_1_val5": {
+    "name": "wish_15_external_1_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.4.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_15_external_2_type": {
+    "name": "wish_15_external_2_type",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.4.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_15_external_2_val1": {
+    "name": "wish_15_external_2_val1",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.4.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_15_external_2_val2": {
+    "name": "wish_15_external_2_val2",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.4.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_15_external_2_val3": {
+    "name": "wish_15_external_2_val3",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.4.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_15_external_2_val4": {
+    "name": "wish_15_external_2_val4",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.4.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_15_external_2_val5": {
+    "name": "wish_15_external_2_val5",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.4.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wish_15_external_switch": {
+    "name": "wish_15_external_switch",
+    "oid": "1.3.6.1.4.1.20916.1.4.1.4.15.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alarmmessage": {
+    "name": "alarmmessage",
+    "oid": "1.3.6.1.4.1.20916.1.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tempalarm1_26w": {
+    "name": "tempalarm1_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "room_alert_26w_snmp_trap": {
+    "name": "room_alert_26w_snmp_trap",
+    "oid": "1.3.6.1.4.1.20916.1.40.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "tempalarm2_26w": {
+    "name": "tempalarm2_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "tempclear2_26w": {
+    "name": "tempclear2_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "tempalarm3_26w": {
+    "name": "tempalarm3_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "tempclear3_26w": {
+    "name": "tempclear3_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "humidityalarm1_26w": {
+    "name": "humidityalarm1_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "humidityclear1_26w": {
+    "name": "humidityclear1_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "humidityalarm2_26w": {
+    "name": "humidityalarm2_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "humidityclear2_26w": {
+    "name": "humidityclear2_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "humidityalarm3_26w": {
+    "name": "humidityalarm3_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "humidityclear3_26w": {
+    "name": "humidityclear3_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "switchalarm1_26w": {
+    "name": "switchalarm1_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "switchclear1_26w": {
+    "name": "switchclear1_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "switchalarm2_26w": {
+    "name": "switchalarm2_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "switchclear2_26w": {
+    "name": "switchclear2_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "switchalarm3_26w": {
+    "name": "switchalarm3_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "switchclear3_26w": {
+    "name": "switchclear3_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "switchalarm4_26w": {
+    "name": "switchalarm4_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "switchclear4_26w": {
+    "name": "switchclear4_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "switchalarm5_26w": {
+    "name": "switchalarm5_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "switchclear5_26w": {
+    "name": "switchclear5_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "switchalarm6_26w": {
+    "name": "switchalarm6_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "switchclear6_26w": {
+    "name": "switchclear6_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "switchalarm7_26w": {
+    "name": "switchalarm7_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "switchclear7_26w": {
+    "name": "switchclear7_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "switchalarm8_26w": {
+    "name": "switchalarm8_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "switchclear8_26w": {
+    "name": "switchclear8_26w",
+    "oid": "1.3.6.1.4.1.20916.1.40.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT26W-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avtech/ROOMALERT26W-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ROOMALERT26W-MIB"
+  }
+}

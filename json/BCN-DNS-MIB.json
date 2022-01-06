@@ -1,0 +1,457 @@
+{
+  "imports": {
+    "class": "imports",
+    "BCN-SMI-MIB": [
+      "bcnServices"
+    ],
+    "BCN-TC-MIB": [
+      "BcnAlarmSeverity"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "bcnDnsMIB": {
+    "name": "bcnDnsMIB",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-11-30 12:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "bcnDns": {
+    "name": "bcnDns",
+    "oid": "1.3.6.1.4.1.13315.3.1.2",
+    "class": "objectidentity"
+  },
+  "bcnDnsObjects": {
+    "name": "bcnDnsObjects",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.2",
+    "class": "objectidentity"
+  },
+  "bcnDnsNotification": {
+    "name": "bcnDnsNotification",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.3",
+    "class": "objectidentity"
+  },
+  "bcnDnsConformance": {
+    "name": "bcnDnsConformance",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.4",
+    "class": "objectidentity"
+  },
+  "bcnDnsServiceStatus": {
+    "name": "bcnDnsServiceStatus",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bcnDnsSerOperState": {
+    "name": "bcnDnsSerOperState",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "notRunning": 2,
+          "starting": 3,
+          "stopping": 4,
+          "fault": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDnsSerNumberOfZones": {
+    "name": "bcnDnsSerNumberOfZones",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDnsSerTransfersRunning": {
+    "name": "bcnDnsSerTransfersRunning",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDnsSerTransfersDeferred": {
+    "name": "bcnDnsSerTransfersDeferred",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDnsSerSOAQueriesInProgress": {
+    "name": "bcnDnsSerSOAQueriesInProgress",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDnsSerQueryLogging": {
+    "name": "bcnDnsSerQueryLogging",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDnsSerDebugLevel": {
+    "name": "bcnDnsSerDebugLevel",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDnsServiceStatistics": {
+    "name": "bcnDnsServiceStatistics",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bcnDnsStatServer": {
+    "name": "bcnDnsStatServer",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.2.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bcnDnsStatSrvQrySuccess": {
+    "name": "bcnDnsStatSrvQrySuccess",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.2.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDnsStatSrvQryReferral": {
+    "name": "bcnDnsStatSrvQryReferral",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.2.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDnsStatSrvQryNXRRSet": {
+    "name": "bcnDnsStatSrvQryNXRRSet",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.2.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDnsStatSrvQryNXDomain": {
+    "name": "bcnDnsStatSrvQryNXDomain",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.2.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDnsStatSrvQryRecursion": {
+    "name": "bcnDnsStatSrvQryRecursion",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.2.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDnsStatSrvQryFailure": {
+    "name": "bcnDnsStatSrvQryFailure",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.2.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDnsNotificationEvents": {
+    "name": "bcnDnsNotificationEvents",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.3.0",
+    "class": "objectidentity"
+  },
+  "bcnDnsNotificationData": {
+    "name": "bcnDnsNotificationData",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.3.1",
+    "class": "objectidentity"
+  },
+  "bcnDnsAlarmSeverity": {
+    "name": "bcnDnsAlarmSeverity",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BcnAlarmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "bcnDnsAlarmInfo": {
+    "name": "bcnDnsAlarmInfo",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "bcnDnsAlarmNotif": {
+    "name": "bcnDnsAlarmNotif",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BCN-DNS-MIB",
+        "object": "bcnDnsSerOperState"
+      },
+      {
+        "module": "BCN-DNS-MIB",
+        "object": "bcnDnsAlarmSeverity"
+      },
+      {
+        "module": "BCN-DNS-MIB",
+        "object": "bcnDnsAlarmInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnDnsServiceCompliances": {
+    "name": "bcnDnsServiceCompliances",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.4.1",
+    "class": "objectidentity"
+  },
+  "bcnDnsServiceGroups": {
+    "name": "bcnDnsServiceGroups",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.4.2",
+    "class": "objectidentity"
+  },
+  "bcnDnsServiceStatusGroup": {
+    "name": "bcnDnsServiceStatusGroup",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BCN-DNS-MIB",
+        "object": "bcnDnsSerOperState"
+      },
+      {
+        "module": "BCN-DNS-MIB",
+        "object": "bcnDnsSerNumberOfZones"
+      },
+      {
+        "module": "BCN-DNS-MIB",
+        "object": "bcnDnsSerTransfersRunning"
+      },
+      {
+        "module": "BCN-DNS-MIB",
+        "object": "bcnDnsSerTransfersDeferred"
+      },
+      {
+        "module": "BCN-DNS-MIB",
+        "object": "bcnDnsSerSOAQueriesInProgress"
+      },
+      {
+        "module": "BCN-DNS-MIB",
+        "object": "bcnDnsSerQueryLogging"
+      },
+      {
+        "module": "BCN-DNS-MIB",
+        "object": "bcnDnsSerDebugLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnDnsServerStatisticsGroup": {
+    "name": "bcnDnsServerStatisticsGroup",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BCN-DNS-MIB",
+        "object": "bcnDnsStatSrvQrySuccess"
+      },
+      {
+        "module": "BCN-DNS-MIB",
+        "object": "bcnDnsStatSrvQryReferral"
+      },
+      {
+        "module": "BCN-DNS-MIB",
+        "object": "bcnDnsStatSrvQryNXRRSet"
+      },
+      {
+        "module": "BCN-DNS-MIB",
+        "object": "bcnDnsStatSrvQryNXDomain"
+      },
+      {
+        "module": "BCN-DNS-MIB",
+        "object": "bcnDnsStatSrvQryRecursion"
+      },
+      {
+        "module": "BCN-DNS-MIB",
+        "object": "bcnDnsStatSrvQryFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnDnsNotificationEventGroup": {
+    "name": "bcnDnsNotificationEventGroup",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.4.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "BCN-DNS-MIB",
+        "object": "bcnDnsAlarmNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnDnsNotificationDataGroup": {
+    "name": "bcnDnsNotificationDataGroup",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.4.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BCN-DNS-MIB",
+        "object": "bcnDnsAlarmSeverity"
+      },
+      {
+        "module": "BCN-DNS-MIB",
+        "object": "bcnDnsAlarmInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnDnsStatusCompliance": {
+    "name": "bcnDnsStatusCompliance",
+    "oid": "1.3.6.1.4.1.13315.3.1.2.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "bcnDnsServiceStatusGroup",
+        "module": "BCN-DNS-MIB"
+      },
+      {
+        "object": "bcnDnsServerStatisticsGroup",
+        "module": "BCN-DNS-MIB"
+      },
+      {
+        "object": "bcnDnsNotificationEventGroup",
+        "module": "BCN-DNS-MIB"
+      },
+      {
+        "object": "bcnDnsNotificationDataGroup",
+        "module": "BCN-DNS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/BCN-DNS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:42 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BCN-DNS-MIB"
+  }
+}

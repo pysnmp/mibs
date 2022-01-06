@@ -1,0 +1,1183 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-RTTMON-MIB": [
+      "rttMonCtrlAdminIndex"
+    ],
+    "CISCO-RTTMON-TC-MIB": [
+      "RttResponseSense"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIpslaVideoMIB": {
+    "name": "ciscoIpslaVideoMIB",
+    "oid": "1.3.6.1.4.1.9.9.744",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-06-11 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoIpslaVideoMIBNotifs": {
+    "name": "ciscoIpslaVideoMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.744.0",
+    "class": "objectidentity"
+  },
+  "ciscoIpslaVideoMIBObjects": {
+    "name": "ciscoIpslaVideoMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.744.1",
+    "class": "objectidentity"
+  },
+  "ciscoIpslaVideoMIBConform": {
+    "name": "ciscoIpslaVideoMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.744.2",
+    "class": "objectidentity"
+  },
+  "cipslaVideoLatestOper": {
+    "name": "cipslaVideoLatestOper",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1",
+    "class": "objectidentity"
+  },
+  "cipslaVideoStats": {
+    "name": "cipslaVideoStats",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2",
+    "class": "objectidentity"
+  },
+  "cipslaLatestVideoStatsTable": {
+    "name": "cipslaLatestVideoStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipslaLatestVideoStatsEntry": {
+    "name": "cipslaLatestVideoStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-RTTMON-MIB",
+        "object": "rttMonCtrlAdminIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipslaLatestVideoMinPosSD": {
+    "name": "cipslaLatestVideoMinPosSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoMaxPosSD": {
+    "name": "cipslaLatestVideoMaxPosSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoNumPosSD": {
+    "name": "cipslaLatestVideoNumPosSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoSumPosSD": {
+    "name": "cipslaLatestVideoSumPosSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoSum2PosSD": {
+    "name": "cipslaLatestVideoSum2PosSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoMinNegSD": {
+    "name": "cipslaLatestVideoMinNegSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoMaxNegSD": {
+    "name": "cipslaLatestVideoMaxNegSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoNumNegSD": {
+    "name": "cipslaLatestVideoNumNegSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoSumNegSD": {
+    "name": "cipslaLatestVideoSumNegSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoSum2NegSD": {
+    "name": "cipslaLatestVideoSum2NegSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoPktLossSD": {
+    "name": "cipslaLatestVideoPktLossSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoPktOutSeq": {
+    "name": "cipslaLatestVideoPktOutSeq",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoSense": {
+    "name": "cipslaLatestVideoSense",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RttResponseSense",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoOWSumSD": {
+    "name": "cipslaLatestVideoOWSumSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoOWSum2SD": {
+    "name": "cipslaLatestVideoOWSum2SD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoOWMinSD": {
+    "name": "cipslaLatestVideoOWMinSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoOWMaxSD": {
+    "name": "cipslaLatestVideoOWMaxSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoNumOWSD": {
+    "name": "cipslaLatestVideoNumOWSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoAvgJitterSD": {
+    "name": "cipslaLatestVideoAvgJitterSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoIAJOut": {
+    "name": "cipslaLatestVideoIAJOut",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoErrSenseDescr": {
+    "name": "cipslaLatestVideoErrSenseDescr",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoUnSyncRTs": {
+    "name": "cipslaLatestVideoUnSyncRTs",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoOWSumSDHigh": {
+    "name": "cipslaLatestVideoOWSumSDHigh",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoOWSum2SDHigh": {
+    "name": "cipslaLatestVideoOWSum2SDHigh",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoNTPState": {
+    "name": "cipslaLatestVideoNTPState",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sync": 1,
+          "outOfSync": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoIPDVAvgSDJ": {
+    "name": "cipslaLatestVideoIPDVAvgSDJ",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoOWAvgSD": {
+    "name": "cipslaLatestVideoOWAvgSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaLatestVideoPktLateArrival": {
+    "name": "cipslaLatestVideoPktLateArrival",
+    "oid": "1.3.6.1.4.1.9.9.744.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggStatsTable": {
+    "name": "cipslaVideoAggStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipslaVideoAggStatsEntry": {
+    "name": "cipslaVideoAggStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-RTTMON-MIB",
+        "object": "rttMonCtrlAdminIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggStartTimeId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipslaVideoAggStartTimeId": {
+    "name": "cipslaVideoAggStartTimeId",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipslaVideoAggCompletions": {
+    "name": "cipslaVideoAggCompletions",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "completions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggOverThresholds": {
+    "name": "cipslaVideoAggOverThresholds",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "operations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggMinPosSD": {
+    "name": "cipslaVideoAggMinPosSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggMaxPosSD": {
+    "name": "cipslaVideoAggMaxPosSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggNumPosSD": {
+    "name": "cipslaVideoAggNumPosSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggSumPosSD": {
+    "name": "cipslaVideoAggSumPosSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggSum2PosSDLow": {
+    "name": "cipslaVideoAggSum2PosSDLow",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggSum2PosSDHigh": {
+    "name": "cipslaVideoAggSum2PosSDHigh",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggMinNegSD": {
+    "name": "cipslaVideoAggMinNegSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggMaxNegSD": {
+    "name": "cipslaVideoAggMaxNegSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggNumNegSD": {
+    "name": "cipslaVideoAggNumNegSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggSumNegSD": {
+    "name": "cipslaVideoAggSumNegSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggSum2NegSDLow": {
+    "name": "cipslaVideoAggSum2NegSDLow",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggSum2NegSDHigh": {
+    "name": "cipslaVideoAggSum2NegSDHigh",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggPktLossSD": {
+    "name": "cipslaVideoAggPktLossSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggPktOutSeq": {
+    "name": "cipslaVideoAggPktOutSeq",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggPktSkipped": {
+    "name": "cipslaVideoAggPktSkipped",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggErrors": {
+    "name": "cipslaVideoAggErrors",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "errors",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggBusies": {
+    "name": "cipslaVideoAggBusies",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "busies",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggOWSumSD": {
+    "name": "cipslaVideoAggOWSumSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggOWSum2SDLow": {
+    "name": "cipslaVideoAggOWSum2SDLow",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggOWSum2SDHigh": {
+    "name": "cipslaVideoAggOWSum2SDHigh",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggOWMinSD": {
+    "name": "cipslaVideoAggOWMinSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggOWMaxSD": {
+    "name": "cipslaVideoAggOWMaxSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggNumOWSD": {
+    "name": "cipslaVideoAggNumOWSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggAvgJSD": {
+    "name": "cipslaVideoAggAvgJSD",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggIAJOut": {
+    "name": "cipslaVideoAggIAJOut",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggIAJIn": {
+    "name": "cipslaVideoAggIAJIn",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggPktLateArrival": {
+    "name": "cipslaVideoAggPktLateArrival",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggUnSyncRTs": {
+    "name": "cipslaVideoAggUnSyncRTs",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipslaVideoAggOWSumSDHigh": {
+    "name": "cipslaVideoAggOWSumSDHigh",
+    "oid": "1.3.6.1.4.1.9.9.744.1.2.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpslaVideoMIBCompliances": {
+    "name": "ciscoIpslaVideoMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.744.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoIpslaVideoMIBGroups": {
+    "name": "ciscoIpslaVideoMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.744.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoIpslaVideoMIBCompliance": {
+    "name": "ciscoIpslaVideoMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.744.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIpslaVideoStatsGroup",
+        "module": "CISCO-IPSLA-VIDEO-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpslaVideoStatsGroup": {
+    "name": "ciscoIpslaVideoStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.744.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoMinPosSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoMaxPosSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoNumPosSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoSumPosSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoSum2PosSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoMinNegSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoMaxNegSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoNumNegSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoSumNegSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoSum2NegSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoPktLossSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoPktOutSeq"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoSense"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoOWSumSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoOWSum2SD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoOWMinSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoOWMaxSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoNumOWSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoAvgJitterSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoIAJOut"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoErrSenseDescr"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoUnSyncRTs"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoOWSumSDHigh"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoOWSum2SDHigh"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoNTPState"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoIPDVAvgSDJ"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoOWAvgSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaLatestVideoPktLateArrival"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggCompletions"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggOverThresholds"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggMinPosSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggMaxPosSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggNumPosSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggSumPosSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggSum2PosSDLow"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggSum2PosSDHigh"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggMinNegSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggMaxNegSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggNumNegSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggSumNegSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggSum2NegSDLow"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggSum2NegSDHigh"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggPktLossSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggPktOutSeq"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggPktSkipped"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggErrors"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggBusies"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggOWSumSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggOWSum2SDLow"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggOWSum2SDHigh"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggOWMinSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggOWMaxSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggNumOWSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggAvgJSD"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggIAJOut"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggIAJIn"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggPktLateArrival"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggUnSyncRTs"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-MIB",
+        "object": "cipslaVideoAggOWSumSDHigh"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IPSLA-VIDEO-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IPSLA-VIDEO-MIB"
+  }
+}

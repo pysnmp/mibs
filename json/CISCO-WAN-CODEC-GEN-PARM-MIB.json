@@ -1,0 +1,292 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOWAN-SMI": [
+      "ciscoWan"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoWanCodecGenParmMIB": {
+    "name": "ciscoWanCodecGenParmMIB",
+    "oid": "1.3.6.1.4.1.351.150.21",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-03-17 00:00",
+        "description": "Add new enums to vismCodecJitterInitialDelay in order to support lossless codec. Updated vismCodecJitterInitialDelay description. "
+      },
+      {
+        "revision": "2004-01-30 00:00",
+        "description": "1. Update descriptions in MIB. 2. added jitter with fixed timestamp to vismCodecJitterDelayMode. "
+      },
+      {
+        "revision": "2003-05-23 00:00",
+        "description": "added Lossless codec. "
+      },
+      {
+        "revision": "2001-09-10 00:00",
+        "description": "added codec G723 family. "
+      },
+      {
+        "revision": "2001-08-21 15:00",
+        "description": "added codecGenParmNotifications entry. "
+      },
+      {
+        "revision": "2001-08-02 15:00",
+        "description": "description modification and LAST-UPDATED modify. "
+      },
+      {
+        "revision": "2001-06-15 15:00",
+        "description": "changed the name to from 'codec jitter' to 'codec gen parm' so that this table can be used for all non application specific per codec based MIB objects. "
+      },
+      {
+        "revision": "2001-03-20 15:00",
+        "description": "Initial draft. "
+      }
+    ]
+  },
+  "ciscoWanCodecGenParmMIBObjects": {
+    "name": "ciscoWanCodecGenParmMIBObjects",
+    "oid": "1.3.6.1.4.1.351.150.21.1",
+    "class": "objectidentity"
+  },
+  "vismCodecGenParmGrp": {
+    "name": "vismCodecGenParmGrp",
+    "oid": "1.3.6.1.4.1.351.150.21.1.1",
+    "class": "objectidentity"
+  },
+  "vismCodecGenParmTable": {
+    "name": "vismCodecGenParmTable",
+    "oid": "1.3.6.1.4.1.351.150.21.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vismCodecGenParmEntry": {
+    "name": "vismCodecGenParmEntry",
+    "oid": "1.3.6.1.4.1.351.150.21.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-CODEC-GEN-PARM-MIB",
+        "object": "vismCodecIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vismCodecIndex": {
+    "name": "vismCodecIndex",
+    "oid": "1.3.6.1.4.1.351.150.21.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "g711u": 1,
+          "g711a": 2,
+          "g726r32000": 3,
+          "g729a": 4,
+          "g729ab": 5,
+          "clearChannel": 6,
+          "g726r16000": 7,
+          "g726r24000": 8,
+          "g726r40000": 9,
+          "g723h": 11,
+          "g723ah": 12,
+          "g723l": 13,
+          "g723al": 14,
+          "lossless": 15
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vismCodecJitterDelayMode": {
+    "name": "vismCodecJitterDelayMode",
+    "oid": "1.3.6.1.4.1.351.150.21.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 1,
+          "adaptive": 2,
+          "fixedWithTimeStamp": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismCodecJitterInitialDelay": {
+    "name": "vismCodecJitterInitialDelay",
+    "oid": "1.3.6.1.4.1.351.150.21.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "zero": 1,
+          "two": 2,
+          "three": 3,
+          "four": 4,
+          "five": 5,
+          "six": 6,
+          "seven": 7,
+          "eight": 8,
+          "nine": 9,
+          "ten": 10,
+          "eleven": 11,
+          "twelve": 12,
+          "thirteen": 13,
+          "fourteen": 14,
+          "fifteen": 15,
+          "sixteen": 16,
+          "seventeen": 17,
+          "eighteen": 18,
+          "nineteen": 19,
+          "twenty": 20,
+          "twentyone": 21,
+          "twentytwo": 22,
+          "twentythree": 23,
+          "twentyfour": 24,
+          "twentyfive": 25,
+          "twentysix": 26,
+          "twentyseven": 27,
+          "twentyeight": 28,
+          "twentynine": 29,
+          "thirty": 30,
+          "thirtyone": 31,
+          "thirtytwo": 32,
+          "thirtythree": 33,
+          "thirtyfour": 34,
+          "thirtyfive": 35,
+          "thirtysix": 36,
+          "thirtyseven": 37,
+          "thirtyeight": 38,
+          "thirtynine": 39,
+          "fourty": 40,
+          "fortyone": 41,
+          "fortytwo": 42,
+          "fortythree": 43,
+          "fortyfour": 44,
+          "fortyfive": 45,
+          "fortysix": 46,
+          "fortyseven": 47,
+          "fortyeight": 48,
+          "fortynine": 49,
+          "fifty": 50,
+          "fiftyfive": 55,
+          "sixty": 60,
+          "sixtyfive": 65,
+          "seventy": 70,
+          "seventyfive": 75,
+          "eighty": 80,
+          "eightyfive": 85,
+          "ninty": 90,
+          "ninetyfive": 95,
+          "hundred": 100
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismCodecGenParmNotificationPrefix": {
+    "name": "vismCodecGenParmNotificationPrefix",
+    "oid": "1.3.6.1.4.1.351.150.21.2",
+    "class": "objectidentity"
+  },
+  "vismCodecGenParmNotifications": {
+    "name": "vismCodecGenParmNotifications",
+    "oid": "1.3.6.1.4.1.351.150.21.2.0",
+    "class": "objectidentity"
+  },
+  "vismCodecGenParmMIBConformance": {
+    "name": "vismCodecGenParmMIBConformance",
+    "oid": "1.3.6.1.4.1.351.150.21.3",
+    "class": "objectidentity"
+  },
+  "vismCodecGenParmMIBCompliances": {
+    "name": "vismCodecGenParmMIBCompliances",
+    "oid": "1.3.6.1.4.1.351.150.21.3.1",
+    "class": "objectidentity"
+  },
+  "vismCodecGenParmMIBGroups": {
+    "name": "vismCodecGenParmMIBGroups",
+    "oid": "1.3.6.1.4.1.351.150.21.3.2",
+    "class": "objectidentity"
+  },
+  "vismCodecGenParmMIBCompliance": {
+    "name": "vismCodecGenParmMIBCompliance",
+    "oid": "1.3.6.1.4.1.351.150.21.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vismCodecGenParmGroup",
+        "module": "CISCO-WAN-CODEC-GEN-PARM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "vismCodecGenParmGroup": {
+    "name": "vismCodecGenParmGroup",
+    "oid": "1.3.6.1.4.1.351.150.21.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-CODEC-GEN-PARM-MIB",
+        "object": "vismCodecJitterDelayMode"
+      },
+      {
+        "module": "CISCO-WAN-CODEC-GEN-PARM-MIB",
+        "object": "vismCodecJitterInitialDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WAN-CODEC-GEN-PARM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-WAN-CODEC-GEN-PARM-MIB"
+  }
+}

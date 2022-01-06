@@ -1,0 +1,1299 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-IPSLA-TC-MIB": [
+      "IpSlaCodecType"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoIpSlaJitterMIB": {
+    "name": "ciscoIpSlaJitterMIB",
+    "oid": "1.3.6.1.4.1.9.9.635",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-07-24 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoIpSlaJitterMIBNotifs": {
+    "name": "ciscoIpSlaJitterMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.635.0",
+    "class": "objectidentity"
+  },
+  "ciscoIpSlaJitterMIBObjects": {
+    "name": "ciscoIpSlaJitterMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.635.1",
+    "class": "objectidentity"
+  },
+  "cipslaUdpJitterTmplTable": {
+    "name": "cipslaUdpJitterTmplTable",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplEntry": {
+    "name": "cipslaUdpJitterTmplEntry",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplName": {
+    "name": "cipslaUdpJitterTmplName",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplDescription": {
+    "name": "cipslaUdpJitterTmplDescription",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplControlEnable": {
+    "name": "cipslaUdpJitterTmplControlEnable",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplTimeOut": {
+    "name": "cipslaUdpJitterTmplTimeOut",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 604800000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplVerifyData": {
+    "name": "cipslaUdpJitterTmplVerifyData",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplCodecType": {
+    "name": "cipslaUdpJitterTmplCodecType",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpSlaCodecType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplCodecInterval": {
+    "name": "cipslaUdpJitterTmplCodecInterval",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplCodecPayload": {
+    "name": "cipslaUdpJitterTmplCodecPayload",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplCodecNumPkts": {
+    "name": "cipslaUdpJitterTmplCodecNumPkts",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplInterval": {
+    "name": "cipslaUdpJitterTmplInterval",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplNumPkts": {
+    "name": "cipslaUdpJitterTmplNumPkts",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplSrcAddrType": {
+    "name": "cipslaUdpJitterTmplSrcAddrType",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplSrcAddr": {
+    "name": "cipslaUdpJitterTmplSrcAddr",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplSrcPort": {
+    "name": "cipslaUdpJitterTmplSrcPort",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplPrecision": {
+    "name": "cipslaUdpJitterTmplPrecision",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "milliseconds": 1,
+          "microseconds": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "milliseconds",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplReqDataSize": {
+    "name": "cipslaUdpJitterTmplReqDataSize",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 65024
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplPktPriority": {
+    "name": "cipslaUdpJitterTmplPktPriority",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "high": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "normal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplTOS": {
+    "name": "cipslaUdpJitterTmplTOS",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplVrfName": {
+    "name": "cipslaUdpJitterTmplVrfName",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplThreshold": {
+    "name": "cipslaUdpJitterTmplThreshold",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplNTPTolAbs": {
+    "name": "cipslaUdpJitterTmplNTPTolAbs",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplNTPTolPct": {
+    "name": "cipslaUdpJitterTmplNTPTolPct",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplNTPTolType": {
+    "name": "cipslaUdpJitterTmplNTPTolType",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "percent": 1,
+          "absolute": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "percent",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplIcpifFactor": {
+    "name": "cipslaUdpJitterTmplIcpifFactor",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplStatsHours": {
+    "name": "cipslaUdpJitterTmplStatsHours",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "units": "hours",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplDistBuckets": {
+    "name": "cipslaUdpJitterTmplDistBuckets",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplDistInterval": {
+    "name": "cipslaUdpJitterTmplDistInterval",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplStorageType": {
+    "name": "cipslaUdpJitterTmplStorageType",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaUdpJitterTmplRowStatus": {
+    "name": "cipslaUdpJitterTmplRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.635.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaIcmpJitterTmplTable": {
+    "name": "cipslaIcmpJitterTmplTable",
+    "oid": "1.3.6.1.4.1.9.9.635.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipslaIcmpJitterTmplEntry": {
+    "name": "cipslaIcmpJitterTmplEntry",
+    "oid": "1.3.6.1.4.1.9.9.635.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaIcmpJitterTmplName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipslaIcmpJitterTmplName": {
+    "name": "cipslaIcmpJitterTmplName",
+    "oid": "1.3.6.1.4.1.9.9.635.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipslaIcmpJitterTmplDescription": {
+    "name": "cipslaIcmpJitterTmplDescription",
+    "oid": "1.3.6.1.4.1.9.9.635.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaIcmpJitterTmplTimeOut": {
+    "name": "cipslaIcmpJitterTmplTimeOut",
+    "oid": "1.3.6.1.4.1.9.9.635.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 604800000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaIcmpJitterTmplVerifyData": {
+    "name": "cipslaIcmpJitterTmplVerifyData",
+    "oid": "1.3.6.1.4.1.9.9.635.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaIcmpJitterTmplNumPkts": {
+    "name": "cipslaIcmpJitterTmplNumPkts",
+    "oid": "1.3.6.1.4.1.9.9.635.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaIcmpJitterTmplInterval": {
+    "name": "cipslaIcmpJitterTmplInterval",
+    "oid": "1.3.6.1.4.1.9.9.635.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaIcmpJitterTmplSrcAddrType": {
+    "name": "cipslaIcmpJitterTmplSrcAddrType",
+    "oid": "1.3.6.1.4.1.9.9.635.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaIcmpJitterTmplSrcAddr": {
+    "name": "cipslaIcmpJitterTmplSrcAddr",
+    "oid": "1.3.6.1.4.1.9.9.635.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaIcmpJitterTmplTOS": {
+    "name": "cipslaIcmpJitterTmplTOS",
+    "oid": "1.3.6.1.4.1.9.9.635.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaIcmpJitterTmplVrfName": {
+    "name": "cipslaIcmpJitterTmplVrfName",
+    "oid": "1.3.6.1.4.1.9.9.635.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaIcmpJitterTmplThreshold": {
+    "name": "cipslaIcmpJitterTmplThreshold",
+    "oid": "1.3.6.1.4.1.9.9.635.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaIcmpJitterTmplStatsHours": {
+    "name": "cipslaIcmpJitterTmplStatsHours",
+    "oid": "1.3.6.1.4.1.9.9.635.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "units": "hours",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaIcmpJitterTmplDistBuckets": {
+    "name": "cipslaIcmpJitterTmplDistBuckets",
+    "oid": "1.3.6.1.4.1.9.9.635.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaIcmpJitterTmplDistInterval": {
+    "name": "cipslaIcmpJitterTmplDistInterval",
+    "oid": "1.3.6.1.4.1.9.9.635.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaIcmpJitterTmplStorageType": {
+    "name": "cipslaIcmpJitterTmplStorageType",
+    "oid": "1.3.6.1.4.1.9.9.635.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaIcmpJitterTmplRowStatus": {
+    "name": "cipslaIcmpJitterTmplRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.635.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoIpSlaJitterMIBConform": {
+    "name": "ciscoIpSlaJitterMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.635.2",
+    "class": "objectidentity"
+  },
+  "ciscoIpSlaJitterMIBCompliances": {
+    "name": "ciscoIpSlaJitterMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.635.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoIpSlaJitterMIBGroups": {
+    "name": "ciscoIpSlaJitterMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.635.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoIpSlaJitterMIBCompliance": {
+    "name": "ciscoIpSlaJitterMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.635.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIpSlaUdpJitterTmplGroup",
+        "module": "CISCO-IPSLA-JITTER-MIB"
+      },
+      {
+        "object": "ciscoIpSlaIcmpJitterTmplGroup",
+        "module": "CISCO-IPSLA-JITTER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpSlaUdpJitterTmplGroup": {
+    "name": "ciscoIpSlaUdpJitterTmplGroup",
+    "oid": "1.3.6.1.4.1.9.9.635.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplDescription"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplControlEnable"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplTimeOut"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplVerifyData"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplCodecType"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplCodecInterval"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplCodecPayload"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplCodecNumPkts"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplInterval"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplNumPkts"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplSrcAddrType"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplSrcAddr"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplSrcPort"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplPrecision"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplReqDataSize"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplPktPriority"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplTOS"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplVrfName"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplThreshold"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplNTPTolAbs"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplNTPTolPct"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplNTPTolType"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplIcpifFactor"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplStatsHours"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplDistBuckets"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplDistInterval"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplStorageType"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaUdpJitterTmplRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpSlaIcmpJitterTmplGroup": {
+    "name": "ciscoIpSlaIcmpJitterTmplGroup",
+    "oid": "1.3.6.1.4.1.9.9.635.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaIcmpJitterTmplDescription"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaIcmpJitterTmplTimeOut"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaIcmpJitterTmplVerifyData"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaIcmpJitterTmplNumPkts"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaIcmpJitterTmplInterval"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaIcmpJitterTmplSrcAddrType"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaIcmpJitterTmplSrcAddr"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaIcmpJitterTmplTOS"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaIcmpJitterTmplVrfName"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaIcmpJitterTmplThreshold"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaIcmpJitterTmplStatsHours"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaIcmpJitterTmplDistBuckets"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaIcmpJitterTmplDistInterval"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaIcmpJitterTmplStorageType"
+      },
+      {
+        "module": "CISCO-IPSLA-JITTER-MIB",
+        "object": "cipslaIcmpJitterTmplRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IPSLA-JITTER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IPSLA-JITTER-MIB"
+  }
+}

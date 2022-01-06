@@ -1,0 +1,4613 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "TRAP-TYPE",
+      "MibIdentifier",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "saf": {
+    "name": "saf",
+    "oid": "1.3.6.1.4.1.7571",
+    "class": "objectidentity"
+  },
+  "tehnika": {
+    "name": "tehnika",
+    "oid": "1.3.6.1.4.1.7571.100",
+    "class": "objectidentity"
+  },
+  "microwaveRadio": {
+    "name": "microwaveRadio",
+    "oid": "1.3.6.1.4.1.7571.100.1",
+    "class": "objectidentity"
+  },
+  "pointToPoint": {
+    "name": "pointToPoint",
+    "oid": "1.3.6.1.4.1.7571.100.1.1",
+    "class": "objectidentity"
+  },
+  "cfm22": {
+    "name": "cfm22",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2",
+    "class": "objectidentity"
+  },
+  "mpmux": {
+    "name": "mpmux",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22",
+    "class": "objectidentity"
+  },
+  "terminal": {
+    "name": "terminal",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1",
+    "class": "objectidentity"
+  },
+  "baseband": {
+    "name": "baseband",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.2",
+    "class": "objectidentity"
+  },
+  "radio1": {
+    "name": "radio1",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3",
+    "class": "objectidentity"
+  },
+  "radio2": {
+    "name": "radio2",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4",
+    "class": "objectidentity"
+  },
+  "switchCtrl": {
+    "name": "switchCtrl",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.5",
+    "class": "objectidentity"
+  },
+  "modules": {
+    "name": "modules",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6",
+    "class": "objectidentity"
+  },
+  "m1": {
+    "name": "m1",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1",
+    "class": "objectidentity"
+  },
+  "m2": {
+    "name": "m2",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2",
+    "class": "objectidentity"
+  },
+  "m3": {
+    "name": "m3",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3",
+    "class": "objectidentity"
+  },
+  "m4": {
+    "name": "m4",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4",
+    "class": "objectidentity"
+  },
+  "termProduct": {
+    "name": "termProduct",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "termDescription": {
+    "name": "termDescription",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "termLocation": {
+    "name": "termLocation",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "termVersion": {
+    "name": "termVersion",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "termOperation": {
+    "name": "termOperation",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "booting": 1,
+          "ok": 2,
+          "testing": 3,
+          "error": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "termIduTemperature": {
+    "name": "termIduTemperature",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "termFrameErrors": {
+    "name": "termFrameErrors",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "writeConfig": {
+    "name": "writeConfig",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "mandatory"
+  },
+  "restartCPU": {
+    "name": "restartCPU",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "mandatory"
+  },
+  "serialNumber": {
+    "name": "serialNumber",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "termRf1CablePowerStatus": {
+    "name": "termRf1CablePowerStatus",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "ok": 1,
+          "short": 2,
+          "error": 3,
+          "power-off": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "termRf2CablePowerStatus": {
+    "name": "termRf2CablePowerStatus",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "ok": 1,
+          "short": 2,
+          "error": 3,
+          "power-off": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "power3V3PS1": {
+    "name": "power3V3PS1",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "power5VPS1": {
+    "name": "power5VPS1",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "powerM5VPS1": {
+    "name": "powerM5VPS1",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "powerODU1V": {
+    "name": "powerODU1V",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "powerODU1I": {
+    "name": "powerODU1I",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "powerODU1W": {
+    "name": "powerODU1W",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "power3V3PS2": {
+    "name": "power3V3PS2",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "power5VPS2": {
+    "name": "power5VPS2",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "powerM5VPS2": {
+    "name": "powerM5VPS2",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "powerODU2V": {
+    "name": "powerODU2V",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "powerODU2I": {
+    "name": "powerODU2I",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "powerODU2W": {
+    "name": "powerODU2W",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpuUsage": {
+    "name": "cpuUsage",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "termBFrameErr": {
+    "name": "termBFrameErr",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "termStatCountTime": {
+    "name": "termStatCountTime",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "termErroredSecond": {
+    "name": "termErroredSecond",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "termSeverelyErroredSecond": {
+    "name": "termSeverelyErroredSecond",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "termSyncLostTime": {
+    "name": "termSyncLostTime",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "termAvailableTime": {
+    "name": "termAvailableTime",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "termUnAvailableTime": {
+    "name": "termUnAvailableTime",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "termBer": {
+    "name": "termBer",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "berAlarm": {
+    "name": "berAlarm",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "remoteAlarm": {
+    "name": "remoteAlarm",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemAlarm": {
+    "name": "systemAlarm",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inputABCD": {
+    "name": "inputABCD",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outputABCD": {
+    "name": "outputABCD",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "termBerInPwOf10": {
+    "name": "termBerInPwOf10",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "outputMaskABCD": {
+    "name": "outputMaskABCD",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.1.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "bbVersion": {
+    "name": "bbVersion",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "bbOperation": {
+    "name": "bbOperation",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "booting": 1,
+          "ok": 2,
+          "testing": 3,
+          "loopback": 4,
+          "illegalSpeed": 5,
+          "error": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "bbLinkCapacity": {
+    "name": "bbLinkCapacity",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "bbLinkCapacityDescription": {
+    "name": "bbLinkCapacityDescription",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "bbLoopback": {
+    "name": "bbLoopback",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "digital": 1,
+          "analog": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "bbSyncLostAlarm": {
+    "name": "bbSyncLostAlarm",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf1Operation": {
+    "name": "rf1Operation",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "booting": 1,
+          "ok": 2,
+          "testing": 3,
+          "error": 4,
+          "noDataFromODU": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf1Alarm": {
+    "name": "rf1Alarm",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf1Version": {
+    "name": "rf1Version",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf1Side": {
+    "name": "rf1Side",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf1Channel": {
+    "name": "rf1Channel",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rf1TxFrequency": {
+    "name": "rf1TxFrequency",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf1RxFrequency": {
+    "name": "rf1RxFrequency",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf1TxPower": {
+    "name": "rf1TxPower",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rf1RxState": {
+    "name": "rf1RxState",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "ok": 1,
+          "error": 2,
+          "loopback": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf1RxLevel": {
+    "name": "rf1RxLevel",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf1CableAttenuation": {
+    "name": "rf1CableAttenuation",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf1TxOut": {
+    "name": "rf1TxOut",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 0,
+          "ok": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf1TxPLL": {
+    "name": "rf1TxPLL",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 0,
+          "ok": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf1RxPLL": {
+    "name": "rf1RxPLL",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 0,
+          "ok": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf1OduTemperature": {
+    "name": "rf1OduTemperature",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf1OduHumidity": {
+    "name": "rf1OduHumidity",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf1Loopback": {
+    "name": "rf1Loopback",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rf1RxAlarmLevel": {
+    "name": "rf1RxAlarmLevel",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rf1txfstart": {
+    "name": "rf1txfstart",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rf1duplexshift": {
+    "name": "rf1duplexshift",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rf1chstep": {
+    "name": "rf1chstep",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rf1chstart": {
+    "name": "rf1chstart",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rf1chend": {
+    "name": "rf1chend",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rf1txpwmin": {
+    "name": "rf1txpwmin",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rf1txpwmax": {
+    "name": "rf1txpwmax",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rf1txpwstep": {
+    "name": "rf1txpwstep",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.3.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rf2Operation": {
+    "name": "rf2Operation",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "booting": 1,
+          "ok": 2,
+          "testing": 3,
+          "error": 4,
+          "noDataFromODU": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf2Alarm": {
+    "name": "rf2Alarm",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rf2Version": {
+    "name": "rf2Version",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf2Side": {
+    "name": "rf2Side",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf2Channel": {
+    "name": "rf2Channel",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rf2TxFrequency": {
+    "name": "rf2TxFrequency",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf2RxFrequency": {
+    "name": "rf2RxFrequency",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf2TxPower": {
+    "name": "rf2TxPower",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rf2RxState": {
+    "name": "rf2RxState",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "ok": 1,
+          "error": 2,
+          "loopback": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf2RxLevel": {
+    "name": "rf2RxLevel",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf2CableAttenuation": {
+    "name": "rf2CableAttenuation",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf2TxOut": {
+    "name": "rf2TxOut",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 0,
+          "ok": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf2TxPLL": {
+    "name": "rf2TxPLL",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 0,
+          "ok": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf2RxPLL": {
+    "name": "rf2RxPLL",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 0,
+          "ok": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf2OduTemperature": {
+    "name": "rf2OduTemperature",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf2OduHumidity": {
+    "name": "rf2OduHumidity",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rf2Loopback": {
+    "name": "rf2Loopback",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rf2RxAlarmLevel": {
+    "name": "rf2RxAlarmLevel",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rf2txfstart": {
+    "name": "rf2txfstart",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rf2duplexshift": {
+    "name": "rf2duplexshift",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rf2chstep": {
+    "name": "rf2chstep",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rf2chstart": {
+    "name": "rf2chstart",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rf2chend": {
+    "name": "rf2chend",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rf2txpwmin": {
+    "name": "rf2txpwmin",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rf2txpwmax": {
+    "name": "rf2txpwmax",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rf2txpwstep": {
+    "name": "rf2txpwstep",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.4.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "activeLink": {
+    "name": "activeLink",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "link1": 1,
+          "link2": 2,
+          "error": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "activeTx": {
+    "name": "activeTx",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "link1": 1,
+          "link2": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "preferedLink": {
+    "name": "preferedLink",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "link1": 1,
+          "link2": 2,
+          "error": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "forcedLink": {
+    "name": "forcedLink",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "link1": 1,
+          "link2": 2,
+          "error": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "switchMode": {
+    "name": "switchMode",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "freqDiv": 1,
+          "hotStandby": 2,
+          "independent": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "odu1RxMax": {
+    "name": "odu1RxMax",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "odu2RxMax": {
+    "name": "odu2RxMax",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "odu1RxMin": {
+    "name": "odu1RxMin",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "odu2RxMin": {
+    "name": "odu2RxMin",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rxDelta": {
+    "name": "rxDelta",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rxBER": {
+    "name": "rxBER",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "switchDelay": {
+    "name": "switchDelay",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "switchEnabledForRxBer": {
+    "name": "switchEnabledForRxBer",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "switchReason": {
+    "name": "switchReason",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m1Type": {
+    "name": "m1Type",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 0,
+          "e1x1": 30,
+          "e1": 33,
+          "v35": 37,
+          "bridge": 43,
+          "eow64": 100,
+          "e3": 227,
+          "t1x4": 74,
+          "e1x4": 78,
+          "f1bridge": 241,
+          "f2bridge": 242,
+          "none": 255
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m1Description": {
+    "name": "m1Description",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m1Version": {
+    "name": "m1Version",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m1Speed": {
+    "name": "m1Speed",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m1Operation": {
+    "name": "m1Operation",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "booting": 1,
+          "ok": 2,
+          "testing": 3,
+          "loopback": 4,
+          "illegalSpeed": 5,
+          "error": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m1Rx": {
+    "name": "m1Rx",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "ok": 1,
+          "noSignal": 2,
+          "noLink": 3,
+          "rxAIS": 4,
+          "error": 5,
+          "noData": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m1Tx": {
+    "name": "m1Tx",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "ok": 1,
+          "noSignal": 2,
+          "noLink": 3,
+          "txAIS": 4,
+          "error": 5,
+          "noData": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m1Loopback": {
+    "name": "m1Loopback",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1,
+          "analog": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m1RxInput": {
+    "name": "m1RxInput",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "coax": 1,
+          "rj45": 2,
+          "v35": 3,
+          "e3": 4,
+          "db25unbalanced": 5,
+          "db25balanced": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m1TxMode": {
+    "name": "m1TxMode",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "halfDuplex": 1,
+          "fullDuplex": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m1TxClockSource": {
+    "name": "m1TxClockSource",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "master": 1,
+          "slave": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m1TxClockPhase": {
+    "name": "m1TxClockPhase",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "normal": 1,
+          "inverse": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m1DataPolarity": {
+    "name": "m1DataPolarity",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "normal": 1,
+          "inverse": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m1ChanCount": {
+    "name": "m1ChanCount",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m2Type": {
+    "name": "m2Type",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 0,
+          "e1x1": 30,
+          "e1": 33,
+          "v35": 37,
+          "bridge": 43,
+          "eow64": 100,
+          "e3": 227,
+          "t1x4": 74,
+          "e1x4": 78,
+          "f1bridge": 241,
+          "f2bridge": 242,
+          "none": 255
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m2Description": {
+    "name": "m2Description",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m2Version": {
+    "name": "m2Version",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m2Speed": {
+    "name": "m2Speed",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m2Operation": {
+    "name": "m2Operation",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "booting": 1,
+          "ok": 2,
+          "testing": 3,
+          "loopback": 4,
+          "illegalSpeed": 5,
+          "error": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m2Rx": {
+    "name": "m2Rx",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "ok": 1,
+          "noSignal": 2,
+          "noLink": 3,
+          "rxAIS": 4,
+          "error": 5,
+          "noData": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m2Tx": {
+    "name": "m2Tx",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "ok": 1,
+          "noSignal": 2,
+          "noLink": 3,
+          "txAIS": 4,
+          "error": 5,
+          "noData": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m2Loopback": {
+    "name": "m2Loopback",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1,
+          "analog": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m2RxInput": {
+    "name": "m2RxInput",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "coax": 1,
+          "rj45": 2,
+          "v35": 3,
+          "e3": 4,
+          "db25unbalanced": 5,
+          "db25balanced": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m2TxMode": {
+    "name": "m2TxMode",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "halfDuplex": 1,
+          "fullDuplex": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m2TxClockSource": {
+    "name": "m2TxClockSource",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "master": 1,
+          "slave": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m2TxClockPhase": {
+    "name": "m2TxClockPhase",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "normal": 1,
+          "inverse": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m2DataPolarity": {
+    "name": "m2DataPolarity",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "normal": 1,
+          "inverse": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m2ChanCount": {
+    "name": "m2ChanCount",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m3Type": {
+    "name": "m3Type",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 0,
+          "e1x1": 30,
+          "e1": 33,
+          "v35": 37,
+          "bridge": 43,
+          "eow64": 100,
+          "e3": 227,
+          "t1x4": 74,
+          "e1x4": 78,
+          "f1bridge": 241,
+          "f2bridge": 242,
+          "none": 255
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m3Description": {
+    "name": "m3Description",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m3Version": {
+    "name": "m3Version",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m3Speed": {
+    "name": "m3Speed",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m3Operation": {
+    "name": "m3Operation",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "booting": 1,
+          "ok": 2,
+          "testing": 3,
+          "loopback": 4,
+          "illegalSpeed": 5,
+          "error": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m3Rx": {
+    "name": "m3Rx",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "ok": 1,
+          "noSignal": 2,
+          "noLink": 3,
+          "rxAIS": 4,
+          "error": 5,
+          "noData": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m3Tx": {
+    "name": "m3Tx",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "ok": 1,
+          "noSignal": 2,
+          "noLink": 3,
+          "txAIS": 4,
+          "error": 5,
+          "noData": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m3Loopback": {
+    "name": "m3Loopback",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1,
+          "analog": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m3RxInput": {
+    "name": "m3RxInput",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "coax": 1,
+          "rj45": 2,
+          "v35": 3,
+          "e3": 4,
+          "db25unbalanced": 5,
+          "db25balanced": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m3TxMode": {
+    "name": "m3TxMode",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "halfDuplex": 1,
+          "fullDuplex": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m3TxClockSource": {
+    "name": "m3TxClockSource",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "master": 1,
+          "slave": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m3TxClockPhase": {
+    "name": "m3TxClockPhase",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "normal": 1,
+          "inverse": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m3DataPolarity": {
+    "name": "m3DataPolarity",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "normal": 1,
+          "inverse": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m3ChanCount": {
+    "name": "m3ChanCount",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m4Type": {
+    "name": "m4Type",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 0,
+          "e1x1": 30,
+          "e1": 33,
+          "v35": 37,
+          "bridge": 43,
+          "eow64": 100,
+          "e3": 227,
+          "t1x4": 74,
+          "e1x4": 78,
+          "f1bridge": 241,
+          "f2bridge": 242,
+          "none": 255
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m4Description": {
+    "name": "m4Description",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m4Version": {
+    "name": "m4Version",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m4Speed": {
+    "name": "m4Speed",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m4Operation": {
+    "name": "m4Operation",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "booting": 1,
+          "ok": 2,
+          "testing": 3,
+          "loopback": 4,
+          "illegalSpeed": 5,
+          "error": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m4Rx": {
+    "name": "m4Rx",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "ok": 1,
+          "noSignal": 2,
+          "noLink": 3,
+          "rxAIS": 4,
+          "error": 5,
+          "noData": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m4Tx": {
+    "name": "m4Tx",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "ok": 1,
+          "noSignal": 2,
+          "noLink": 3,
+          "txAIS": 4,
+          "error": 5,
+          "noData": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m4Loopback": {
+    "name": "m4Loopback",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1,
+          "analog": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m4RxInput": {
+    "name": "m4RxInput",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "coax": 1,
+          "rj45": 2,
+          "v35": 3,
+          "e3": 4,
+          "db25unbalanced": 5,
+          "db25balanced": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m4TxMode": {
+    "name": "m4TxMode",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "halfDuplex": 1,
+          "fullDuplex": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m4TxClockSource": {
+    "name": "m4TxClockSource",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "master": 1,
+          "slave": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m4TxClockPhase": {
+    "name": "m4TxClockPhase",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "normal": 1,
+          "inverse": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m4DataPolarity": {
+    "name": "m4DataPolarity",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "normal": 1,
+          "inverse": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m4ChanCount": {
+    "name": "m4ChanCount",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m1port1": {
+    "name": "m1port1",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.21",
+    "class": "objectidentity"
+  },
+  "m1port2": {
+    "name": "m1port2",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.22",
+    "class": "objectidentity"
+  },
+  "m1port3": {
+    "name": "m1port3",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.23",
+    "class": "objectidentity"
+  },
+  "m1port4": {
+    "name": "m1port4",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.24",
+    "class": "objectidentity"
+  },
+  "m2port1": {
+    "name": "m2port1",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.21",
+    "class": "objectidentity"
+  },
+  "m2port2": {
+    "name": "m2port2",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.22",
+    "class": "objectidentity"
+  },
+  "m2port3": {
+    "name": "m2port3",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.23",
+    "class": "objectidentity"
+  },
+  "m2port4": {
+    "name": "m2port4",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.24",
+    "class": "objectidentity"
+  },
+  "m3port1": {
+    "name": "m3port1",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.21",
+    "class": "objectidentity"
+  },
+  "m3port2": {
+    "name": "m3port2",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.22",
+    "class": "objectidentity"
+  },
+  "m3port3": {
+    "name": "m3port3",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.23",
+    "class": "objectidentity"
+  },
+  "m3port4": {
+    "name": "m3port4",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.24",
+    "class": "objectidentity"
+  },
+  "m4port1": {
+    "name": "m4port1",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.21",
+    "class": "objectidentity"
+  },
+  "m4port2": {
+    "name": "m4port2",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.22",
+    "class": "objectidentity"
+  },
+  "m4port3": {
+    "name": "m4port3",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.23",
+    "class": "objectidentity"
+  },
+  "m4port4": {
+    "name": "m4port4",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.24",
+    "class": "objectidentity"
+  },
+  "m1p1statbin": {
+    "name": "m1p1statbin",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.21.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m1p1connection": {
+    "name": "m1p1connection",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.21.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "auto": 1,
+          "eth10fdx": 2,
+          "eth10hdx": 3,
+          "eth100fdx": 4,
+          "eth100hdx": 5,
+          "ds1": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m1p1flowcntrl": {
+    "name": "m1p1flowcntrl",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.21.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m1p1priority": {
+    "name": "m1p1priority",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.21.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m1p1loopback": {
+    "name": "m1p1loopback",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.21.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "analog": 1,
+          "remote": 2,
+          "digital": 4,
+          "remoteANDdigital": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m1p2statbin": {
+    "name": "m1p2statbin",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.22.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m1p2connection": {
+    "name": "m1p2connection",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.22.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "auto": 1,
+          "eth10fdx": 2,
+          "eth10hdx": 3,
+          "eth100fdx": 4,
+          "eth100hdx": 5,
+          "ds1": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m1p2flowcntrl": {
+    "name": "m1p2flowcntrl",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.22.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m1p2priority": {
+    "name": "m1p2priority",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.22.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m1p2loopback": {
+    "name": "m1p2loopback",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.22.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "analog": 1,
+          "remote": 2,
+          "digital": 4,
+          "remoteANDdigital": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m1p3statbin": {
+    "name": "m1p3statbin",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.23.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m1p3connection": {
+    "name": "m1p3connection",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.23.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "auto": 1,
+          "eth10fdx": 2,
+          "eth10hdx": 3,
+          "eth100fdx": 4,
+          "eth100hdx": 5,
+          "ds1": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m1p3flowcntrl": {
+    "name": "m1p3flowcntrl",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.23.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m1p3priority": {
+    "name": "m1p3priority",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.23.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m1p3loopback": {
+    "name": "m1p3loopback",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.23.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "analog": 1,
+          "remote": 2,
+          "digital": 4,
+          "remoteANDdigital": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m1p4statbin": {
+    "name": "m1p4statbin",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.24.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m1p4connection": {
+    "name": "m1p4connection",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.24.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "auto": 1,
+          "eth10fdx": 2,
+          "eth10hdx": 3,
+          "eth100fdx": 4,
+          "eth100hdx": 5,
+          "ds1": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m1p4flowcntrl": {
+    "name": "m1p4flowcntrl",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.24.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m1p4priority": {
+    "name": "m1p4priority",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.24.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m1p4loopback": {
+    "name": "m1p4loopback",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.1.24.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "analog": 1,
+          "remote": 2,
+          "digital": 4,
+          "remoteANDdigital": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m2p1statbin": {
+    "name": "m2p1statbin",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.21.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m2p1connection": {
+    "name": "m2p1connection",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.21.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "auto": 1,
+          "eth10fdx": 2,
+          "eth10hdx": 3,
+          "eth100fdx": 4,
+          "eth100hdx": 5,
+          "ds1": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m2p1flowcntrl": {
+    "name": "m2p1flowcntrl",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.21.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m2p1priority": {
+    "name": "m2p1priority",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.21.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m2p1loopback": {
+    "name": "m2p1loopback",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.21.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "analog": 1,
+          "remote": 2,
+          "digital": 4,
+          "remoteANDdigital": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m2p2statbin": {
+    "name": "m2p2statbin",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.22.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m2p2connection": {
+    "name": "m2p2connection",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.22.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "auto": 1,
+          "eth10fdx": 2,
+          "eth10hdx": 3,
+          "eth100fdx": 4,
+          "eth100hdx": 5,
+          "ds1": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m2p2flowcntrl": {
+    "name": "m2p2flowcntrl",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.22.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m2p2priority": {
+    "name": "m2p2priority",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.22.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m2p2loopback": {
+    "name": "m2p2loopback",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.22.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "analog": 1,
+          "remote": 2,
+          "digital": 4,
+          "remoteANDdigital": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m2p3statbin": {
+    "name": "m2p3statbin",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.23.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m2p3connection": {
+    "name": "m2p3connection",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.23.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "auto": 1,
+          "eth10fdx": 2,
+          "eth10hdx": 3,
+          "eth100fdx": 4,
+          "eth100hdx": 5,
+          "ds1": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m2p3flowcntrl": {
+    "name": "m2p3flowcntrl",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.23.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m2p3priority": {
+    "name": "m2p3priority",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.23.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m2p3loopback": {
+    "name": "m2p3loopback",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.23.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "analog": 1,
+          "remote": 2,
+          "digital": 4,
+          "remoteANDdigital": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m2p4statbin": {
+    "name": "m2p4statbin",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.24.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m2p4connection": {
+    "name": "m2p4connection",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.24.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "auto": 1,
+          "eth10fdx": 2,
+          "eth10hdx": 3,
+          "eth100fdx": 4,
+          "eth100hdx": 5,
+          "ds1": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m2p4flowcntrl": {
+    "name": "m2p4flowcntrl",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.24.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m2p4priority": {
+    "name": "m2p4priority",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.24.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m2p4loopback": {
+    "name": "m2p4loopback",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.2.24.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "analog": 1,
+          "remote": 2,
+          "digital": 4,
+          "remoteANDdigital": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m3p1statbin": {
+    "name": "m3p1statbin",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.21.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m3p1connection": {
+    "name": "m3p1connection",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.21.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "auto": 1,
+          "eth10fdx": 2,
+          "eth10hdx": 3,
+          "eth100fdx": 4,
+          "eth100hdx": 5,
+          "ds1": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m3p1flowcntrl": {
+    "name": "m3p1flowcntrl",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.21.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m3p1priority": {
+    "name": "m3p1priority",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.21.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m3p1loopback": {
+    "name": "m3p1loopback",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.21.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "analog": 1,
+          "remote": 2,
+          "digital": 4,
+          "remoteANDdigital": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m3p2statbin": {
+    "name": "m3p2statbin",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.22.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m3p2connection": {
+    "name": "m3p2connection",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.22.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "auto": 1,
+          "eth10fdx": 2,
+          "eth10hdx": 3,
+          "eth100fdx": 4,
+          "eth100hdx": 5,
+          "ds1": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m3p2flowcntrl": {
+    "name": "m3p2flowcntrl",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.22.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m3p2priority": {
+    "name": "m3p2priority",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.22.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m3p2loopback": {
+    "name": "m3p2loopback",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.22.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "analog": 1,
+          "remote": 2,
+          "digital": 4,
+          "remoteANDdigital": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m3p3statbin": {
+    "name": "m3p3statbin",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.23.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m3p3connection": {
+    "name": "m3p3connection",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.23.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "auto": 1,
+          "eth10fdx": 2,
+          "eth10hdx": 3,
+          "eth100fdx": 4,
+          "eth100hdx": 5,
+          "ds1": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m3p3flowcntrl": {
+    "name": "m3p3flowcntrl",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.23.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m3p3priority": {
+    "name": "m3p3priority",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.23.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m3p3loopback": {
+    "name": "m3p3loopback",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.23.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "analog": 1,
+          "remote": 2,
+          "digital": 4,
+          "remoteANDdigital": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m3p4statbin": {
+    "name": "m3p4statbin",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.24.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m3p4connection": {
+    "name": "m3p4connection",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.24.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "auto": 1,
+          "eth10fdx": 2,
+          "eth10hdx": 3,
+          "eth100fdx": 4,
+          "eth100hdx": 5,
+          "ds1": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m3p4flowcntrl": {
+    "name": "m3p4flowcntrl",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.24.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m3p4priority": {
+    "name": "m3p4priority",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.24.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m3p4loopback": {
+    "name": "m3p4loopback",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.3.24.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "analog": 1,
+          "remote": 2,
+          "digital": 4,
+          "remoteANDdigital": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m4p1statbin": {
+    "name": "m4p1statbin",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.21.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m4p1connection": {
+    "name": "m4p1connection",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.21.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "auto": 1,
+          "eth10fdx": 2,
+          "eth10hdx": 3,
+          "eth100fdx": 4,
+          "eth100hdx": 5,
+          "ds1": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m4p1flowcntrl": {
+    "name": "m4p1flowcntrl",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.21.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m4p1priority": {
+    "name": "m4p1priority",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.21.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m4p1loopback": {
+    "name": "m4p1loopback",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.21.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "analog": 1,
+          "remote": 2,
+          "digital": 4,
+          "remoteANDdigital": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m4p2statbin": {
+    "name": "m4p2statbin",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.22.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m4p2connection": {
+    "name": "m4p2connection",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.22.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "auto": 1,
+          "eth10fdx": 2,
+          "eth10hdx": 3,
+          "eth100fdx": 4,
+          "eth100hdx": 5,
+          "ds1": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m4p2flowcntrl": {
+    "name": "m4p2flowcntrl",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.22.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m4p2priority": {
+    "name": "m4p2priority",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.22.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m4p2loopback": {
+    "name": "m4p2loopback",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.22.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "analog": 1,
+          "remote": 2,
+          "digital": 4,
+          "remoteANDdigital": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m4p3statbin": {
+    "name": "m4p3statbin",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.23.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m4p3connection": {
+    "name": "m4p3connection",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.23.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "auto": 1,
+          "eth10fdx": 2,
+          "eth10hdx": 3,
+          "eth100fdx": 4,
+          "eth100hdx": 5,
+          "ds1": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m4p3flowcntrl": {
+    "name": "m4p3flowcntrl",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.23.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m4p3priority": {
+    "name": "m4p3priority",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.23.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m4p3loopback": {
+    "name": "m4p3loopback",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.23.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "analog": 1,
+          "remote": 2,
+          "digital": 4,
+          "remoteANDdigital": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m4p4statbin": {
+    "name": "m4p4statbin",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.24.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "m4p4connection": {
+    "name": "m4p4connection",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.24.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "auto": 1,
+          "eth10fdx": 2,
+          "eth10hdx": 3,
+          "eth100fdx": 4,
+          "eth100hdx": 5,
+          "ds1": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m4p4flowcntrl": {
+    "name": "m4p4flowcntrl",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.24.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m4p4priority": {
+    "name": "m4p4priority",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.24.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "m4p4loopback": {
+    "name": "m4p4loopback",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.22.6.4.24.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "analog": 1,
+          "remote": 2,
+          "digital": 4,
+          "remoteANDdigital": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "alarmTrap": {
+    "name": "alarmTrap",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.220.0",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAF-MPMUX-MIB",
+        "object": "rfAlarm"
+      },
+      {
+        "module": "SAF-MPMUX-MIB",
+        "object": "bbSyncLostAlarm"
+      },
+      {
+        "module": "SAF-MPMUX-MIB",
+        "object": "berAlarm"
+      },
+      {
+        "module": "SAF-MPMUX-MIB",
+        "object": "remoteAlarm"
+      },
+      {
+        "module": "SAF-MPMUX-MIB",
+        "object": "systemAlarm"
+      }
+    ]
+  },
+  "alinkTrap": {
+    "name": "alinkTrap",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.2.220.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAF-MPMUX-MIB",
+        "object": "activeLink"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/saf/SAF-MPMUX-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SAF-MPMUX-MIB"
+  }
+}

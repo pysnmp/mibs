@@ -1,0 +1,1794 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-SMI": [
+      "sleMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SLE-TC-MIB": [
+      "SleControlStatusType",
+      "SleControlRequestResultType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sleSFlow": {
+    "name": "sleSFlow",
+    "oid": "1.3.6.1.4.1.6296.101.21",
+    "class": "moduleidentity"
+  },
+  "sleSFlowBase": {
+    "name": "sleSFlowBase",
+    "oid": "1.3.6.1.4.1.6296.101.21.1",
+    "class": "objectidentity"
+  },
+  "sleSFlowInfo": {
+    "name": "sleSFlowInfo",
+    "oid": "1.3.6.1.4.1.6296.101.21.1.1",
+    "class": "objectidentity"
+  },
+  "sleSFlowEnable": {
+    "name": "sleSFlowEnable",
+    "oid": "1.3.6.1.4.1.6296.101.21.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowVersion": {
+    "name": "sleSFlowVersion",
+    "oid": "1.3.6.1.4.1.6296.101.21.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowAgentAddress": {
+    "name": "sleSFlowAgentAddress",
+    "oid": "1.3.6.1.4.1.6296.101.21.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowMaxInstance": {
+    "name": "sleSFlowMaxInstance",
+    "oid": "1.3.6.1.4.1.6296.101.21.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowControl": {
+    "name": "sleSFlowControl",
+    "oid": "1.3.6.1.4.1.6296.101.21.1.2",
+    "class": "objectidentity"
+  },
+  "sleSFlowControlRequest": {
+    "name": "sleSFlowControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.21.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setSFlowEnable": 1,
+          "setSFlowAgentAddress": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowControlStatus": {
+    "name": "sleSFlowControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.21.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowControlTimer": {
+    "name": "sleSFlowControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.21.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowControlTimeStamp": {
+    "name": "sleSFlowControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.21.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowControlReqResult": {
+    "name": "sleSFlowControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.21.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowControlEnable": {
+    "name": "sleSFlowControlEnable",
+    "oid": "1.3.6.1.4.1.6296.101.21.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowControlAgentAddress": {
+    "name": "sleSFlowControlAgentAddress",
+    "oid": "1.3.6.1.4.1.6296.101.21.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowNotification": {
+    "name": "sleSFlowNotification",
+    "oid": "1.3.6.1.4.1.6296.101.21.1.3",
+    "class": "objectidentity"
+  },
+  "sleSFlowEnableChanged": {
+    "name": "sleSFlowEnableChanged",
+    "oid": "1.3.6.1.4.1.6296.101.21.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowControlRequest"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowControlTimeStamp"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowControlReqResult"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSFlowAgentAddressChanged": {
+    "name": "sleSFlowAgentAddressChanged",
+    "oid": "1.3.6.1.4.1.6296.101.21.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowControlRequest"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowControlTimeStamp"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowControlReqResult"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowAgentAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSFlowRcvr": {
+    "name": "sleSFlowRcvr",
+    "oid": "1.3.6.1.4.1.6296.101.21.2",
+    "class": "objectidentity"
+  },
+  "sleSFlowRcvrTable": {
+    "name": "sleSFlowRcvrTable",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleSFlowRcvrEntry": {
+    "name": "sleSFlowRcvrEntry",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleSFlowRcvrIndex": {
+    "name": "sleSFlowRcvrIndex",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowRcvrOwner": {
+    "name": "sleSFlowRcvrOwner",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowRcvrTimeout": {
+    "name": "sleSFlowRcvrTimeout",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowRcvrMaxDatagramSize": {
+    "name": "sleSFlowRcvrMaxDatagramSize",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 256,
+            "max": 1400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1400,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowRcvrAddress": {
+    "name": "sleSFlowRcvrAddress",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowRcvrPort": {
+    "name": "sleSFlowRcvrPort",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6343,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowRcvrDatagramVersion": {
+    "name": "sleSFlowRcvrDatagramVersion",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version5": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowRcvrControl": {
+    "name": "sleSFlowRcvrControl",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.2",
+    "class": "objectidentity"
+  },
+  "sleSFlowRcvrControlRequest": {
+    "name": "sleSFlowRcvrControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createSFlowRcvr": 1,
+          "setSFlowRcvr": 2,
+          "destroySFlowRcvr": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowRcvrControlStatus": {
+    "name": "sleSFlowRcvrControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowRcvrControlTimer": {
+    "name": "sleSFlowRcvrControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowRcvrControlTimeStamp": {
+    "name": "sleSFlowRcvrControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowRcvrControlReqResult": {
+    "name": "sleSFlowRcvrControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowRcvrControlIndex": {
+    "name": "sleSFlowRcvrControlIndex",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowRcvrControlOwner": {
+    "name": "sleSFlowRcvrControlOwner",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowRcvrControlTimeout": {
+    "name": "sleSFlowRcvrControlTimeout",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowRcvrControlMaxDatagramSize": {
+    "name": "sleSFlowRcvrControlMaxDatagramSize",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 256,
+            "max": 1400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1400,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowRcvrControlAddress": {
+    "name": "sleSFlowRcvrControlAddress",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowRcvrControlPort": {
+    "name": "sleSFlowRcvrControlPort",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6343,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowRcvrNotification": {
+    "name": "sleSFlowRcvrNotification",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.3",
+    "class": "objectidentity"
+  },
+  "sleSFlowRcvrCreated": {
+    "name": "sleSFlowRcvrCreated",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrControlRequest"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrControlTimeStamp"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrControlReqResult"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrOwner"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrTimeout"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrMaxDatagramSize"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrAddress"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrPort"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrDatagramVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSFlowRcvrChanged": {
+    "name": "sleSFlowRcvrChanged",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrControlRequest"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrControlTimeStamp"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrControlReqResult"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrOwner"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrTimeout"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrMaxDatagramSize"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrAddress"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrPort"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrDatagramVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSFlowRcvrDestroyed": {
+    "name": "sleSFlowRcvrDestroyed",
+    "oid": "1.3.6.1.4.1.6296.101.21.2.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrControlRequest"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrControlTimeStamp"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrControlReqResult"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrControlIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSFlowFs": {
+    "name": "sleSFlowFs",
+    "oid": "1.3.6.1.4.1.6296.101.21.3",
+    "class": "objectidentity"
+  },
+  "sleSFlowFsTable": {
+    "name": "sleSFlowFsTable",
+    "oid": "1.3.6.1.4.1.6296.101.21.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleSFlowFsEntry": {
+    "name": "sleSFlowFsEntry",
+    "oid": "1.3.6.1.4.1.6296.101.21.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsDataSource",
+        "implied": 0
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleSFlowFsDataSource": {
+    "name": "sleSFlowFsDataSource",
+    "oid": "1.3.6.1.4.1.6296.101.21.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowFsInstance": {
+    "name": "sleSFlowFsInstance",
+    "oid": "1.3.6.1.4.1.6296.101.21.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowFsReceiver": {
+    "name": "sleSFlowFsReceiver",
+    "oid": "1.3.6.1.4.1.6296.101.21.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowFsPacketSamplingRate": {
+    "name": "sleSFlowFsPacketSamplingRate",
+    "oid": "1.3.6.1.4.1.6296.101.21.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowFsMaxHeaderSize": {
+    "name": "sleSFlowFsMaxHeaderSize",
+    "oid": "1.3.6.1.4.1.6296.101.21.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 128,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowFsControl": {
+    "name": "sleSFlowFsControl",
+    "oid": "1.3.6.1.4.1.6296.101.21.3.2",
+    "class": "objectidentity"
+  },
+  "sleSFlowFsControlRequest": {
+    "name": "sleSFlowFsControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.21.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createSFlowFs": 1,
+          "setSFlowFs": 2,
+          "destroySFlowFs": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowFsControlStatus": {
+    "name": "sleSFlowFsControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.21.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowFsControlTimer": {
+    "name": "sleSFlowFsControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.21.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowFsControlTimeStamp": {
+    "name": "sleSFlowFsControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.21.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowFsControlReqResult": {
+    "name": "sleSFlowFsControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.21.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowFsControlDataSource": {
+    "name": "sleSFlowFsControlDataSource",
+    "oid": "1.3.6.1.4.1.6296.101.21.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowFsControlInstance": {
+    "name": "sleSFlowFsControlInstance",
+    "oid": "1.3.6.1.4.1.6296.101.21.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowFsControlReceiver": {
+    "name": "sleSFlowFsControlReceiver",
+    "oid": "1.3.6.1.4.1.6296.101.21.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowFsControlPacketSamplingRate": {
+    "name": "sleSFlowFsControlPacketSamplingRate",
+    "oid": "1.3.6.1.4.1.6296.101.21.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowFsControlMaxHeaderSize": {
+    "name": "sleSFlowFsControlMaxHeaderSize",
+    "oid": "1.3.6.1.4.1.6296.101.21.3.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 128,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowFsNotification": {
+    "name": "sleSFlowFsNotification",
+    "oid": "1.3.6.1.4.1.6296.101.21.3.3",
+    "class": "objectidentity"
+  },
+  "sleSFlowFsCreated": {
+    "name": "sleSFlowFsCreated",
+    "oid": "1.3.6.1.4.1.6296.101.21.3.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsControlRequest"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsControlTimeStamp"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsControlReqResult"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsReceiver"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsPacketSamplingRate"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsMaxHeaderSize"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSFlowFsChanged": {
+    "name": "sleSFlowFsChanged",
+    "oid": "1.3.6.1.4.1.6296.101.21.3.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsControlRequest"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsControlTimeStamp"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsControlReqResult"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsReceiver"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsPacketSamplingRate"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsMaxHeaderSize"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSFlowFsDestroyed": {
+    "name": "sleSFlowFsDestroyed",
+    "oid": "1.3.6.1.4.1.6296.101.21.3.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsControlRequest"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsControlTimeStamp"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsControlReqResult"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsControlDataSource"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsControlInstance"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSFlowCp": {
+    "name": "sleSFlowCp",
+    "oid": "1.3.6.1.4.1.6296.101.21.4",
+    "class": "objectidentity"
+  },
+  "sleSFlowCpTable": {
+    "name": "sleSFlowCpTable",
+    "oid": "1.3.6.1.4.1.6296.101.21.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleSFlowCpEntry": {
+    "name": "sleSFlowCpEntry",
+    "oid": "1.3.6.1.4.1.6296.101.21.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpDataSource",
+        "implied": 0
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleSFlowCpDataSource": {
+    "name": "sleSFlowCpDataSource",
+    "oid": "1.3.6.1.4.1.6296.101.21.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowCpInstance": {
+    "name": "sleSFlowCpInstance",
+    "oid": "1.3.6.1.4.1.6296.101.21.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowCpReceiver": {
+    "name": "sleSFlowCpReceiver",
+    "oid": "1.3.6.1.4.1.6296.101.21.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowCpInterval": {
+    "name": "sleSFlowCpInterval",
+    "oid": "1.3.6.1.4.1.6296.101.21.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowCpControl": {
+    "name": "sleSFlowCpControl",
+    "oid": "1.3.6.1.4.1.6296.101.21.4.2",
+    "class": "objectidentity"
+  },
+  "sleSFlowCpControlRequest": {
+    "name": "sleSFlowCpControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.21.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createSFlowCp": 1,
+          "setSFlowCp": 2,
+          "destroySFlowCp": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowCpControlStatus": {
+    "name": "sleSFlowCpControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.21.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowCpControlTimer": {
+    "name": "sleSFlowCpControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.21.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowCpControlTimeStamp": {
+    "name": "sleSFlowCpControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.21.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowCpControlReqResult": {
+    "name": "sleSFlowCpControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.21.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowCpControlDataSource": {
+    "name": "sleSFlowCpControlDataSource",
+    "oid": "1.3.6.1.4.1.6296.101.21.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowCpControlInstance": {
+    "name": "sleSFlowCpControlInstance",
+    "oid": "1.3.6.1.4.1.6296.101.21.4.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowCpControlReceiver": {
+    "name": "sleSFlowCpControlReceiver",
+    "oid": "1.3.6.1.4.1.6296.101.21.4.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowCpControlInterval": {
+    "name": "sleSFlowCpControlInterval",
+    "oid": "1.3.6.1.4.1.6296.101.21.4.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSFlowCpNotification": {
+    "name": "sleSFlowCpNotification",
+    "oid": "1.3.6.1.4.1.6296.101.21.4.3",
+    "class": "objectidentity"
+  },
+  "sleSFlowCpCreated": {
+    "name": "sleSFlowCpCreated",
+    "oid": "1.3.6.1.4.1.6296.101.21.4.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpControlRequest"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpControlTimeStamp"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpControlReqResult"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpReceiver"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSFlowCpChanged": {
+    "name": "sleSFlowCpChanged",
+    "oid": "1.3.6.1.4.1.6296.101.21.4.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpControlRequest"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpControlTimeStamp"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpControlReqResult"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpReceiver"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSFlowCpDestroyed": {
+    "name": "sleSFlowCpDestroyed",
+    "oid": "1.3.6.1.4.1.6296.101.21.4.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpControlRequest"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpControlTimeStamp"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpControlReqResult"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpControlDataSource"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpControlInstance"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSFlowGroup": {
+    "name": "sleSFlowGroup",
+    "oid": "1.3.6.1.4.1.6296.101.21.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowEnable"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowVersion"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowAgentAddress"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowMaxInstance"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrIndex"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrOwner"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrTimeout"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrMaxDatagramSize"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrAddress"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrPort"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrDatagramVersion"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsDataSource"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsInstance"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsReceiver"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsPacketSamplingRate"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsMaxHeaderSize"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpDataSource"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpInstance"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpReceiver"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSFlowControlGroup": {
+    "name": "sleSFlowControlGroup",
+    "oid": "1.3.6.1.4.1.6296.101.21.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowControlRequest"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowControlStatus"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowControlTimer"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowControlTimeStamp"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowControlReqResult"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowControlEnable"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowControlAgentAddress"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrControlRequest"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrControlStatus"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrControlTimer"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrControlTimeStamp"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrControlReqResult"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrControlIndex"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrControlOwner"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrControlTimeout"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrControlMaxDatagramSize"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrControlAddress"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrControlPort"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsControlRequest"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsControlStatus"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsControlTimer"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsControlTimeStamp"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsControlReqResult"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsControlDataSource"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsControlInstance"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsControlReceiver"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsControlPacketSamplingRate"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsControlMaxHeaderSize"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpControlRequest"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpControlStatus"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpControlTimer"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpControlTimeStamp"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpControlReqResult"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpControlDataSource"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpControlInstance"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpControlReceiver"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpControlInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSFlowNotificationGroup": {
+    "name": "sleSFlowNotificationGroup",
+    "oid": "1.3.6.1.4.1.6296.101.21.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowEnableChanged"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowAgentAddressChanged"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrCreated"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrChanged"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowRcvrDestroyed"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsCreated"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsChanged"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowFsDestroyed"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpCreated"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpChanged"
+      },
+      {
+        "module": "SLE-SFLOW-MIB",
+        "object": "sleSFlowCpDestroyed"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-SFLOW-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:15 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SLE-SFLOW-MIB"
+  }
+}

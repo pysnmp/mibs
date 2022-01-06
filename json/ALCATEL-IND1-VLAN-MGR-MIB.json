@@ -1,0 +1,1207 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1VlanMgt"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "IpAddress",
+      "Unsigned32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "alcatelIND1VLANMgrMIB": {
+    "name": "alcatelIND1VLANMgrMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-04-03 00:00",
+        "description": "The latest version of this MIB Module."
+      }
+    ]
+  },
+  "IpxNetworkAddress": {
+    "name": "IpxNetworkAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "x",
+    "status": "current"
+  },
+  "alcatelIND1VLANMgrMIBObjects": {
+    "name": "alcatelIND1VLANMgrMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1VLANMgrMIBConformance": {
+    "name": "alcatelIND1VLANMgrMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1VLANMgrMIBGroups": {
+    "name": "alcatelIND1VLANMgrMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1VLANMgrMIBCompliances": {
+    "name": "alcatelIND1VLANMgrMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vlanMgrVlan": {
+    "name": "vlanMgrVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1",
+    "class": "objectidentity"
+  },
+  "vlanTable": {
+    "name": "vlanTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanEntry": {
+    "name": "vlanEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanNumber": {
+    "name": "vlanNumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanDescription": {
+    "name": "vlanDescription",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanAdmStatus": {
+    "name": "vlanAdmStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanOperStatus": {
+    "name": "vlanOperStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanStatus": {
+    "name": "vlanStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanStpStatus": {
+    "name": "vlanStpStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanAuthentStatus": {
+    "name": "vlanAuthentStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanVoiceStatus": {
+    "name": "vlanVoiceStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanIpAddress": {
+    "name": "vlanIpAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanIpMask": {
+    "name": "vlanIpMask",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanIpEncap": {
+    "name": "vlanIpEncap",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet2": 1,
+          "snap": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ethernet2",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanIpForward": {
+    "name": "vlanIpForward",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanIpStatus": {
+    "name": "vlanIpStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 1,
+          "delete": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanIpxNet": {
+    "name": "vlanIpxNet",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpxNetworkAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanIpxEncap": {
+    "name": "vlanIpxEncap",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet2": 1,
+          "novellraw": 2,
+          "llc": 3,
+          "snap": 4,
+          "notApplicable": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ethernet2",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanIpxRipSapMode": {
+    "name": "vlanIpxRipSapMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "riponly": 1,
+          "ripsap": 2,
+          "triggered": 3,
+          "inactive": 4,
+          "notApplicable": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ripsap",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanIpxDelayTicks": {
+    "name": "vlanIpxDelayTicks",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanIpxStatus": {
+    "name": "vlanIpxStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 1,
+          "delete": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanTagMobilePortStatus": {
+    "name": "vlanTagMobilePortStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanPortMacStatus": {
+    "name": "vlanPortMacStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanLocalProxyArp": {
+    "name": "vlanLocalProxyArp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanMtu": {
+    "name": "vlanMtu",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1280,
+            "max": 9198
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlan1x1StpStatus": {
+    "name": "vlan1x1StpStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanflatStpStatus": {
+    "name": "vlanflatStpStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanHABandwidth": {
+    "name": "vlanHABandwidth",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanSvlanTrafficType": {
+    "name": "vlanSvlanTrafficType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "customer": 1,
+          "provider": 2,
+          "multicastEnterprise": 3,
+          "multicastVlanStacking": 4,
+          "eServiceCustomer": 6,
+          "eServiceManagement": 7,
+          "eServiceMulticastVlanStacking": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanSvlanPriority": {
+    "name": "vlanSvlanPriority",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanMacLearningControlStatus": {
+    "name": "vlanMacLearningControlStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanMgrVpa": {
+    "name": "vlanMgrVpa",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.2",
+    "class": "objectidentity"
+  },
+  "vpaTable": {
+    "name": "vpaTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vpaEntry": {
+    "name": "vpaEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vpaVlanNumber",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vpaIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vpaVlanNumber": {
+    "name": "vpaVlanNumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpaIfIndex": {
+    "name": "vpaIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1001,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpaType": {
+    "name": "vpaType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cfgDefault": 1,
+          "qTagged": 2,
+          "mobile": 3,
+          "mirrored": 4,
+          "svlan": 6,
+          "dynamic": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpaState": {
+    "name": "vpaState",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "blocking": 2,
+          "forwarding": 3,
+          "filtering": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpaStatus": {
+    "name": "vpaStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpaPortMacType": {
+    "name": "vpaPortMacType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ingress": 1,
+          "egress": 2,
+          "inapplicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanMgrVlanSet": {
+    "name": "vlanMgrVlanSet",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.3",
+    "class": "objectidentity"
+  },
+  "vlanSetVlanCount": {
+    "name": "vlanSetVlanCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanSetVlanRouterCount": {
+    "name": "vlanSetVlanRouterCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanSetIpRouterCount": {
+    "name": "vlanSetIpRouterCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanSetIpxRouterCount": {
+    "name": "vlanSetIpxRouterCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanSetMultiRtrMacStatus": {
+    "name": "vlanSetMultiRtrMacStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanMgrHAPort": {
+    "name": "vlanMgrHAPort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.4",
+    "class": "objectidentity"
+  },
+  "vlanHAPortTable": {
+    "name": "vlanHAPortTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanHAPortEntry": {
+    "name": "vlanHAPortEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanHAPortVlanId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanHAPortIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanHAPortType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanHAPortVlanId": {
+    "name": "vlanHAPortVlanId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanHAPortIfIndex": {
+    "name": "vlanHAPortIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanHAPortType": {
+    "name": "vlanHAPortType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ingress": 1,
+          "egress": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanHAPortRowStatus": {
+    "name": "vlanHAPortRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1VLANMgrMIBCompliance": {
+    "name": "alcatelIND1VLANMgrMIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vlanMgrVlanGroup",
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB"
+      },
+      {
+        "object": "vlanMgrVpaGroup",
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB"
+      },
+      {
+        "object": "vlanMgrVlanSetGroup",
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "vlanMgrVlanGroup": {
+    "name": "vlanMgrVlanGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanNumber"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanDescription"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanAdmStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanOperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlan1x1StpStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanflatStpStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanStpStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanAuthentStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanVoiceStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanIpAddress"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanIpMask"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanIpEncap"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanIpForward"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanIpStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanIpxNet"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanIpxEncap"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanIpxRipSapMode"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanIpxDelayTicks"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanIpxStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "vlanMgrVpaGroup": {
+    "name": "vlanMgrVpaGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vpaVlanNumber"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vpaIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vpaType"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vpaState"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vpaStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "vlanMgrVlanSetGroup": {
+    "name": "vlanMgrVlanSetGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanSetVlanCount"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanSetVlanRouterCount"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanSetIpRouterCount"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanSetIpxRouterCount"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanSetMultiRtrMacStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-VLAN-MGR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:03 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-VLAN-MGR-MIB"
+  }
+}

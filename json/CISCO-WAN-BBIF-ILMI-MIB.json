@@ -1,0 +1,790 @@
+{
+  "imports": {
+    "class": "imports",
+    "ATM-TC-MIB": [
+      "AtmIlmiNetworkPrefix"
+    ],
+    "BASIS-MIB": [
+      "bbIfCnt",
+      "bbIfCnf"
+    ],
+    "CISCOWAN-SMI": [
+      "ciscoWan"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoWanBbifIlmiMIB": {
+    "name": "ciscoWanBbifIlmiMIB",
+    "oid": "1.3.6.1.4.1.351.150.33",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-12-20 00:00",
+        "description": "Initial version of the MIB. The content of this MIB was originally available in CISCO-WAN-AXIPOP-MIB defined using SMIv1. The applicable objects from CISCO-WAN-AXIPOP-MIB are defined using SMIv2 in this MIB. Also the descriptions of some of the objects have been modified."
+      }
+    ]
+  },
+  "bbIfCnfSigILMIGrp": {
+    "name": "bbIfCnfSigILMIGrp",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.1.2",
+    "class": "objectidentity"
+  },
+  "bbIfCntSigILMIGrp": {
+    "name": "bbIfCntSigILMIGrp",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.4.2",
+    "class": "objectidentity"
+  },
+  "bbIfCnfSigILMIGrpTable": {
+    "name": "bbIfCnfSigILMIGrpTable",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bbIfCnfSigILMIGrpEntry": {
+    "name": "bbIfCnfSigILMIGrpEntry",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfSigPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bbIfSigPortNum": {
+    "name": "bbIfSigPortNum",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbIfIlmiEnable": {
+    "name": "bbIfIlmiEnable",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbIfSignallingProtocolType": {
+    "name": "bbIfSignallingProtocolType",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "noSignalling": 2,
+          "iLMI": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbIfSignallingVpi": {
+    "name": "bbIfSignallingVpi",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbIfSignallingVci": {
+    "name": "bbIfSignallingVci",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbIfAddrPrefix": {
+    "name": "bbIfAddrPrefix",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmIlmiNetworkPrefix",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbIfCustomerId": {
+    "name": "bbIfCustomerId",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbIfProtocolRevNo": {
+    "name": "bbIfProtocolRevNo",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbIfIlmiTrapEnable": {
+    "name": "bbIfIlmiTrapEnable",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbIfMinTrapInterval": {
+    "name": "bbIfMinTrapInterval",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbIfKeepAlivePollingEnable": {
+    "name": "bbIfKeepAlivePollingEnable",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbIfErrorThresholdN491": {
+    "name": "bbIfErrorThresholdN491",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbIfEventThresholdN492": {
+    "name": "bbIfEventThresholdN492",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbIfPollingIntervalT491": {
+    "name": "bbIfPollingIntervalT491",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 5,
+          "v2": 10,
+          "v3": 15,
+          "v4": 20,
+          "v5": 25,
+          "v6": 30,
+          "v7": 35,
+          "v8": 40,
+          "v9": 45,
+          "v10": 50,
+          "v11": 55,
+          "v12": 60
+        }
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbIfMinEnquiryIntervalT493": {
+    "name": "bbIfMinEnquiryIntervalT493",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbIfAddrRegEnable": {
+    "name": "bbIfAddrRegEnable",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbIfCntSigILMIGrpTable": {
+    "name": "bbIfCntSigILMIGrpTable",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bbIfCntSigILMIGrpEntry": {
+    "name": "bbIfCntSigILMIGrpEntry",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "sigCntBbIfNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sigCntBbIfNum": {
+    "name": "sigCntBbIfNum",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbIfSnmpPduReceived": {
+    "name": "bbIfSnmpPduReceived",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbIfGetRequestReceived": {
+    "name": "bbIfGetRequestReceived",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbIfGetNextRequestReceived": {
+    "name": "bbIfGetNextRequestReceived",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbIfSetRequestReceived": {
+    "name": "bbIfSetRequestReceived",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.4.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbIfTrapReceived": {
+    "name": "bbIfTrapReceived",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.4.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbIfGetResponseReceived": {
+    "name": "bbIfGetResponseReceived",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.4.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbIfGetResponseTransmitted": {
+    "name": "bbIfGetResponseTransmitted",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.4.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbIfGetRequestTransmitted": {
+    "name": "bbIfGetRequestTransmitted",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.4.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbIfTrapTransmitted": {
+    "name": "bbIfTrapTransmitted",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.4.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbIfInvalidPDUReceived": {
+    "name": "bbIfInvalidPDUReceived",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.4.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbIfAsn1ParseError": {
+    "name": "bbIfAsn1ParseError",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.4.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbIfNoSuchNameError": {
+    "name": "bbIfNoSuchNameError",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.4.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbIfTooBigError": {
+    "name": "bbIfTooBigError",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.4.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbIfSigCntClrButton": {
+    "name": "bbIfSigCntClrButton",
+    "oid": "1.3.6.1.4.1.351.110.5.2.6.4.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "resetCounters": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwbIlmiMIBConformance": {
+    "name": "cwbIlmiMIBConformance",
+    "oid": "1.3.6.1.4.1.351.150.33.2",
+    "class": "objectidentity"
+  },
+  "cwbIlmiMIBGroups": {
+    "name": "cwbIlmiMIBGroups",
+    "oid": "1.3.6.1.4.1.351.150.33.2.1",
+    "class": "objectidentity"
+  },
+  "cwbIlmiMIBCompliances": {
+    "name": "cwbIlmiMIBCompliances",
+    "oid": "1.3.6.1.4.1.351.150.33.2.2",
+    "class": "objectidentity"
+  },
+  "cwbIlmiCompliance": {
+    "name": "cwbIlmiCompliance",
+    "oid": "1.3.6.1.4.1.351.150.33.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cwbIlmiConfGroup",
+        "module": "CISCO-WAN-BBIF-ILMI-MIB"
+      },
+      {
+        "object": "cwbIlmiStatsGroup",
+        "module": "CISCO-WAN-BBIF-ILMI-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cwbIlmiConfGroup": {
+    "name": "cwbIlmiConfGroup",
+    "oid": "1.3.6.1.4.1.351.150.33.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfSigPortNum"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfIlmiEnable"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfSignallingProtocolType"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfSignallingVpi"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfSignallingVci"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfAddrPrefix"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfCustomerId"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfProtocolRevNo"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfIlmiTrapEnable"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfMinTrapInterval"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfKeepAlivePollingEnable"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfErrorThresholdN491"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfEventThresholdN492"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfPollingIntervalT491"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfMinEnquiryIntervalT493"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfAddrRegEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cwbIlmiStatsGroup": {
+    "name": "cwbIlmiStatsGroup",
+    "oid": "1.3.6.1.4.1.351.150.33.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "sigCntBbIfNum"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfSnmpPduReceived"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfGetRequestReceived"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfGetNextRequestReceived"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfSetRequestReceived"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfTrapReceived"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfGetResponseReceived"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfGetResponseTransmitted"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfGetRequestTransmitted"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfTrapTransmitted"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfInvalidPDUReceived"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfAsn1ParseError"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfNoSuchNameError"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfTooBigError"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ILMI-MIB",
+        "object": "bbIfSigCntClrButton"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WAN-BBIF-ILMI-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-WAN-BBIF-ILMI-MIB"
+  }
+}

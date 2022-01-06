@@ -1,0 +1,6697 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "StorageType"
+    ]
+  },
+  "ciscoSipUaMIB": {
+    "name": "ciscoSipUaMIB",
+    "oid": "1.3.6.1.4.1.9.9.152",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-02-19 00:00",
+        "description": " Addition of the following objects: cSipCfgSuspendResumeEnabled cSipCfgTimerHold cSipCfgTimerInfo cSipCfgTimerConnectionAging cSipCfgTimerBufferInvite cSipCfgRetryInfo cSipCfgRetrySubscribe cSipCfgOfferCallHold cSipCfgPeerSwitchTransEnabled cSipCfgSwitchTransportEnabled cSipCfgMaximumForwards cSipCfgReasonHeaderOveride cSipCfgBindSourceAddrTable -> cSipCfgBindSourceAddrEntry cSipCfgBindSourceAddrScope cSipCfgBindSourceAddrInterface cSipCfgVoiceServiceVoip -> cSipCfgHeaderPassingEnabled cSipCfgMaxSubscriptionAccept cSipCfgMaxSubscriptionOriginate cSipStatsRedirMovedTempsIns cSipStatsRedirMovedTempsOuts cSipStatsRetryInfo cSipStatsRetrySubscribe cSipStatsClientReqPendingIns cSipStatsClientReqPendingOuts cSipStatsTrafficUpdateIns cSipStatsTrafficUpdateOuts cSipStatsConnTCPSendFailures cSipStatsConnUDPSendFailures cSipStatsConnTCPRemoteClosures cSipStatsConnUDPCreateFailures cSipStatsConnTCPCreateFailures cSipStatsConnUDPInactiveTimeouts cSipStatsConnTCPInactiveTimeouts cSipStatsActiveUDPConnections cSipStatsActiveTCPConnections Deprecated the following objects: cSipCfgMaxForwards cSipStatsRedirMovedTemps cSipCfgBindSrcAddrScope cSipCfgBindSrcAddrInterface Addition of the following Conformance objects: ciscoSipTrafficStatsGroupRev3 ciscoSipStatsRedirStatusCodesGroupRev2 ciscoSipTimerConfigGroupRev4 ciscoSipRetryStatsGroupRev4 ciscoSipBaseIOSConfigGroupRev1 ciscoSipStatsClientStatusCodesGroupRev4 ciscoSipRetryConfigGroupRev4 ciscoSipCfgPeerGroupRev1 ciscoSipCfgVoiceServiceVoipGroup ciscoSipStatsConnectionGroup Deprecated the following Conformance objects: ciscoSipTrafficStatsGroupRev2 ciscoSipStatsRedirStatusCodesGroupRev1 ciscoSipTimerConfigGroupRev3 ciscoSipRetryStatsGroupRev3 ciscoSipBaseIOSConfigGroup ciscoSipStatsClientStatusCodesGroupRev3 ciscoSipRetryConfigGroupRev3 ciscoSipCfgPeerGroup Addition of the following Compliance object: ciscoSipComplianceRev5 Deprecated the following Compliance object: ciscoSipComplianceRev4 "
+      },
+      {
+        "revision": "2002-05-08 00:00",
+        "description": " Addition of the following textual conventions: CSipStatusCode CSipMethodStr Addition of the following objects: cSipCfgRedirectionDisabled cSipCfgTimerSessionTimer cSipCfgEarlyMediaTable cSipCfgEarlyMediaStatusCodeIndex cSipCfgEarlyMediaCutThruDisabled cSipStatsClientSTTooSmallIns cSipStatsClientSTTooSmallOuts cSipStatsMisc3xxMappedTo4xxRsps cSipStatsSuccessOkTable cSipStatsSuccessOkMethod cSipStatsSuccessOkInbounds cSipStatsSuccessOkOutbounds cSipCfgSymNatEnabled cSipCfgSymNatDirectionRole "
+      },
+      {
+        "revision": "2001-10-05 00:00",
+        "description": "Obsoleting cSipStatsRedirSeeOthers, cSipStatsClientLengthRequiredIns and cSipStatsClientLengthRequiredOuts. Add cSipCfgTimerRefer, cSipCfgRetryRefer, and cSipStatsRetryRefers. Deprecated old-style ciscoSipUaMIBNotificationPrefix. "
+      },
+      {
+        "revision": "2001-09-07 00:00",
+        "description": "Neglected to deprecate ciscoSipStatsClientStatusCodesGroupRev1 in the previous revision where ciscoSipStatsClientStatusCodesGroupRev2 was made current. "
+      },
+      {
+        "revision": "2001-08-21 00:00",
+        "description": "Deprecating cSipStatsRedirSeeOthers, cSipStatsClientLengthRequiredIns and cSipStatsClientLengthRequiredOuts. The SIP status codes related to these counters have been removed from RFC2543bis03 version of the standard. "
+      },
+      {
+        "revision": "2001-08-02 00:00",
+        "description": "Addition of the following objects: cSipCfgAaaUsername cSipStatsTrafficInfoIns cSipStatsTrafficInfoOuts cSipStatsTrafficSubscribeIns cSipStatsTrafficSubscribeOuts cSipStatsClientBadEventIns cSipStatsClientBadEventOuts "
+      },
+      {
+        "revision": "2001-06-07 00:00",
+        "description": "Addition of the following objects: cSipCfgBindSrcAddrInterface cSipCfgBindSrcAddrScope cSipCfgDnsSrvQueryStringFormat cSipStatsTrafficReferIns cSipStatsTrafficReferOuts cSipStatsTrafficNotifyIns cSipStatsTrafficNotifyOuts cSipStatsSuccessAcceptedIns cSipStatsSuccessAcceptedOuts cSipCfgTimerNotify cSipCfgRetryNotify cSipCfgStatusCodeIndex cSipCfgPstnCause cSipCfgStatusCauseStoreStatus cSipCfgPstnCauseIndex cSipCfgStatusCode cSipCfgCauseStatusStoreStatus cSipStatsRetryNotifys "
+      },
+      {
+        "revision": "2001-03-02 00:00",
+        "description": "Addition of the following objects: cSipCfgMaxForwards cSipCfgTimerPrack cSipCfgTimerComet cSipCfgTimerReliableRsp cSipCfgRetryPrack cSipCfgRetryComet cSipCfgRetryReliableRsp cSipCfgOutSessionTransport cSipCfgReliable1xxRspStr cSipCfgReliable1xxRspHdr cSipCfgUrlType cSipCfgPeerTable cSipCfgPeerIndex cSipCfgPeerOutSessionTransport cSipCfgPeerReliable1xxRspStr cSipCfgPeerReliable1xxRspHdr cSipCfgPeerUrlType cSipStatsClientReqTermIns cSipStatsClientReqTermOuts cSipStatsClientNoAcceptHereIns cSipStatsClientNoAcceptHereOuts cSipStatsServerPrecondFailureIns cSipStatsServerPrecondFailureOuts cSipStatsTrafficCometIns cSipStatsTrafficCometOuts cSipStatsTrafficPrackIns cSipStatsTrafficPrackOuts cSipStatsRetryPrack cSipStatsRetryComets cSipStatsRetryReliable1xxRsps "
+      }
+    ]
+  },
+  "ciscoSipUaMIBNotifs": {
+    "name": "ciscoSipUaMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.152.0",
+    "class": "objectidentity"
+  },
+  "ciscoSipUaMIBObjects": {
+    "name": "ciscoSipUaMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.152.1",
+    "class": "objectidentity"
+  },
+  "cSipCfg": {
+    "name": "cSipCfg",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1",
+    "class": "objectidentity"
+  },
+  "cSipCfgBase": {
+    "name": "cSipCfgBase",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.1",
+    "class": "objectidentity"
+  },
+  "cSipCfgTimer": {
+    "name": "cSipCfgTimer",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.2",
+    "class": "objectidentity"
+  },
+  "cSipCfgRetry": {
+    "name": "cSipCfgRetry",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.3",
+    "class": "objectidentity"
+  },
+  "cSipCfgPeer": {
+    "name": "cSipCfgPeer",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.4",
+    "class": "objectidentity"
+  },
+  "cSipCfgStatusCauseMap": {
+    "name": "cSipCfgStatusCauseMap",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.5",
+    "class": "objectidentity"
+  },
+  "cSipCfgAaa": {
+    "name": "cSipCfgAaa",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.6",
+    "class": "objectidentity"
+  },
+  "cSipCfgVoiceServiceVoip": {
+    "name": "cSipCfgVoiceServiceVoip",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.7",
+    "class": "objectidentity"
+  },
+  "cSipStats": {
+    "name": "cSipStats",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2",
+    "class": "objectidentity"
+  },
+  "cSipStatsInfo": {
+    "name": "cSipStatsInfo",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.1",
+    "class": "objectidentity"
+  },
+  "cSipStatsSuccess": {
+    "name": "cSipStatsSuccess",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.2",
+    "class": "objectidentity"
+  },
+  "cSipStatsRedirect": {
+    "name": "cSipStatsRedirect",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.3",
+    "class": "objectidentity"
+  },
+  "cSipStatsErrClient": {
+    "name": "cSipStatsErrClient",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4",
+    "class": "objectidentity"
+  },
+  "cSipStatsErrServer": {
+    "name": "cSipStatsErrServer",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.5",
+    "class": "objectidentity"
+  },
+  "cSipStatsGlobalFail": {
+    "name": "cSipStatsGlobalFail",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.6",
+    "class": "objectidentity"
+  },
+  "cSipStatsTraffic": {
+    "name": "cSipStatsTraffic",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7",
+    "class": "objectidentity"
+  },
+  "cSipStatsRetry": {
+    "name": "cSipStatsRetry",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.8",
+    "class": "objectidentity"
+  },
+  "cSipStatsMisc": {
+    "name": "cSipStatsMisc",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.9",
+    "class": "objectidentity"
+  },
+  "cSipStatsConnection": {
+    "name": "cSipStatsConnection",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.10",
+    "class": "objectidentity"
+  },
+  "CSipStatusCode": {
+    "name": "CSipStatusCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CSipMethodStr": {
+    "name": "CSipMethodStr",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cSipCfgVersion": {
+    "name": "cSipCfgVersion",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipCfgTransport": {
+    "name": "cSipCfgTransport",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "udp": 1,
+          "tcp": 2,
+          "udpAndTcp": 3,
+          "disabled": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgUserLocationServerAddr": {
+    "name": "cSipCfgUserLocationServerAddr",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgMaxForwards": {
+    "name": "cSipCfgMaxForwards",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cSipCfgBindSrcAddrInterface": {
+    "name": "cSipCfgBindSrcAddrInterface",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cSipCfgBindSrcAddrScope": {
+    "name": "cSipCfgBindSrcAddrScope",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "control": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "all",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cSipCfgDnsSrvQueryStringFormat": {
+    "name": "cSipCfgDnsSrvQueryStringFormat",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 1,
+          "v2": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "v2",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgRedirectionDisabled": {
+    "name": "cSipCfgRedirectionDisabled",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgEarlyMediaTable": {
+    "name": "cSipCfgEarlyMediaTable",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSipCfgEarlyMediaEntry": {
+    "name": "cSipCfgEarlyMediaEntry",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgEarlyMediaStatusCodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSipCfgEarlyMediaStatusCodeIndex": {
+    "name": "cSipCfgEarlyMediaStatusCodeIndex",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CSipStatusCode",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSipCfgEarlyMediaCutThruDisabled": {
+    "name": "cSipCfgEarlyMediaCutThruDisabled",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgSymNatEnabled": {
+    "name": "cSipCfgSymNatEnabled",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgSymNatDirectionRole": {
+    "name": "cSipCfgSymNatDirectionRole",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "passive": 2,
+          "active": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgBindSourceAddrTable": {
+    "name": "cSipCfgBindSourceAddrTable",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSipCfgBindSourceAddrEntry": {
+    "name": "cSipCfgBindSourceAddrEntry",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgBindSourceAddrScope",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSipCfgBindSourceAddrScope": {
+    "name": "cSipCfgBindSourceAddrScope",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "media": 1,
+          "control": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSipCfgBindSourceAddrInterface": {
+    "name": "cSipCfgBindSourceAddrInterface",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgSuspendResumeEnabled": {
+    "name": "cSipCfgSuspendResumeEnabled",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgOfferCallHold": {
+    "name": "cSipCfgOfferCallHold",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "directionAttr": 1,
+          "connAddr": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "directionAttr",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgReasonHeaderOveride": {
+    "name": "cSipCfgReasonHeaderOveride",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgMaximumForwards": {
+    "name": "cSipCfgMaximumForwards",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 70
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 70,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgTimerTrying": {
+    "name": "cSipCfgTimerTrying",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgTimerExpires": {
+    "name": "cSipCfgTimerExpires",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60000,
+            "max": 300000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgTimerConnect": {
+    "name": "cSipCfgTimerConnect",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgTimerDisconnect": {
+    "name": "cSipCfgTimerDisconnect",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgTimerPrack": {
+    "name": "cSipCfgTimerPrack",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgTimerComet": {
+    "name": "cSipCfgTimerComet",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgTimerReliableRsp": {
+    "name": "cSipCfgTimerReliableRsp",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgTimerNotify": {
+    "name": "cSipCfgTimerNotify",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgTimerRefer": {
+    "name": "cSipCfgTimerRefer",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgTimerSessionTimer": {
+    "name": "cSipCfgTimerSessionTimer",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1800,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgTimerHold": {
+    "name": "cSipCfgTimerHold",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 15,
+            "max": 2880
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2880,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgTimerInfo": {
+    "name": "cSipCfgTimerInfo",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgTimerConnectionAging": {
+    "name": "cSipCfgTimerConnectionAging",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgTimerBufferInvite": {
+    "name": "cSipCfgTimerBufferInvite",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 50,
+            "max": 5000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgRetryInvite": {
+    "name": "cSipCfgRetryInvite",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgRetryBye": {
+    "name": "cSipCfgRetryBye",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgRetryCancel": {
+    "name": "cSipCfgRetryCancel",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgRetryRegister": {
+    "name": "cSipCfgRetryRegister",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgRetryResponse": {
+    "name": "cSipCfgRetryResponse",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgRetryPrack": {
+    "name": "cSipCfgRetryPrack",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgRetryComet": {
+    "name": "cSipCfgRetryComet",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgRetryReliableRsp": {
+    "name": "cSipCfgRetryReliableRsp",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgRetryNotify": {
+    "name": "cSipCfgRetryNotify",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgRetryRefer": {
+    "name": "cSipCfgRetryRefer",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgRetryInfo": {
+    "name": "cSipCfgRetryInfo",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgRetrySubscribe": {
+    "name": "cSipCfgRetrySubscribe",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgPeerTable": {
+    "name": "cSipCfgPeerTable",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSipCfgPeerEntry": {
+    "name": "cSipCfgPeerEntry",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgPeerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSipCfgPeerIndex": {
+    "name": "cSipCfgPeerIndex",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSipCfgPeerOutSessionTransport": {
+    "name": "cSipCfgPeerOutSessionTransport",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "system": 1,
+          "udp": 2,
+          "tcp": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "system",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgPeerReliable1xxRspStr": {
+    "name": "cSipCfgPeerReliable1xxRspStr",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "100rel",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgPeerReliable1xxRspHdr": {
+    "name": "cSipCfgPeerReliable1xxRspHdr",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "system": 1,
+          "supported": 2,
+          "require": 3,
+          "disabled": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "system",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgPeerUrlType": {
+    "name": "cSipCfgPeerUrlType",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "system": 1,
+          "sip": 2,
+          "tel": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "system",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgPeerSwitchTransEnabled": {
+    "name": "cSipCfgPeerSwitchTransEnabled",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgOutSessionTransport": {
+    "name": "cSipCfgOutSessionTransport",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "udp": 1,
+          "tcp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "udp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgReliable1xxRspStr": {
+    "name": "cSipCfgReliable1xxRspStr",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "100rel",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgReliable1xxRspHdr": {
+    "name": "cSipCfgReliable1xxRspHdr",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supported": 1,
+          "require": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "supported",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgUrlType": {
+    "name": "cSipCfgUrlType",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sip": 1,
+          "tel": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "sip",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgStatusCauseTable": {
+    "name": "cSipCfgStatusCauseTable",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSipCfgStatusCauseEntry": {
+    "name": "cSipCfgStatusCauseEntry",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgStatusCodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSipCfgStatusCodeIndex": {
+    "name": "cSipCfgStatusCodeIndex",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CSipStatusCode",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSipCfgPstnCause": {
+    "name": "cSipCfgPstnCause",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgStatusCauseStoreStatus": {
+    "name": "cSipCfgStatusCauseStoreStatus",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipCfgCauseStatusTable": {
+    "name": "cSipCfgCauseStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSipCfgCauseStatusEntry": {
+    "name": "cSipCfgCauseStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgPstnCauseIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSipCfgPstnCauseIndex": {
+    "name": "cSipCfgPstnCauseIndex",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSipCfgStatusCode": {
+    "name": "cSipCfgStatusCode",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CSipStatusCode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgCauseStatusStoreStatus": {
+    "name": "cSipCfgCauseStatusStoreStatus",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipCfgAaaUsername": {
+    "name": "cSipCfgAaaUsername",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "callingNumber": 1,
+          "proxyAuth": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "callingNumber",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgHeaderPassingEnabled": {
+    "name": "cSipCfgHeaderPassingEnabled",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgMaxSubscriptionAccept": {
+    "name": "cSipCfgMaxSubscriptionAccept",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgMaxSubscriptionOriginate": {
+    "name": "cSipCfgMaxSubscriptionOriginate",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipCfgSwitchTransportEnabled": {
+    "name": "cSipCfgSwitchTransportEnabled",
+    "oid": "1.3.6.1.4.1.9.9.152.1.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSipStatsInfoTryingIns": {
+    "name": "cSipStatsInfoTryingIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsInfoTryingOuts": {
+    "name": "cSipStatsInfoTryingOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsInfoRingingIns": {
+    "name": "cSipStatsInfoRingingIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsInfoRingingOuts": {
+    "name": "cSipStatsInfoRingingOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsInfoForwardedIns": {
+    "name": "cSipStatsInfoForwardedIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsInfoForwardedOuts": {
+    "name": "cSipStatsInfoForwardedOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsInfoQueuedIns": {
+    "name": "cSipStatsInfoQueuedIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsInfoQueuedOuts": {
+    "name": "cSipStatsInfoQueuedOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsInfoSessionProgIns": {
+    "name": "cSipStatsInfoSessionProgIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsInfoSessionProgOuts": {
+    "name": "cSipStatsInfoSessionProgOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsSuccessOkIns": {
+    "name": "cSipStatsSuccessOkIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cSipStatsSuccessOkOuts": {
+    "name": "cSipStatsSuccessOkOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cSipStatsSuccessAcceptedIns": {
+    "name": "cSipStatsSuccessAcceptedIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsSuccessAcceptedOuts": {
+    "name": "cSipStatsSuccessAcceptedOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsSuccessOkTable": {
+    "name": "cSipStatsSuccessOkTable",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSipStatsSuccessOkEntry": {
+    "name": "cSipStatsSuccessOkEntry",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsSuccessOkMethod",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSipStatsSuccessOkMethod": {
+    "name": "cSipStatsSuccessOkMethod",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CSipMethodStr",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSipStatsSuccessOkInbounds": {
+    "name": "cSipStatsSuccessOkInbounds",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsSuccessOkOutbounds": {
+    "name": "cSipStatsSuccessOkOutbounds",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsRedirMultipleChoices": {
+    "name": "cSipStatsRedirMultipleChoices",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsRedirMovedPerms": {
+    "name": "cSipStatsRedirMovedPerms",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsRedirMovedTemps": {
+    "name": "cSipStatsRedirMovedTemps",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cSipStatsRedirSeeOthers": {
+    "name": "cSipStatsRedirSeeOthers",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cSipStatsRedirUseProxys": {
+    "name": "cSipStatsRedirUseProxys",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsRedirAltServices": {
+    "name": "cSipStatsRedirAltServices",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsRedirMovedTempsIns": {
+    "name": "cSipStatsRedirMovedTempsIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsRedirMovedTempsOuts": {
+    "name": "cSipStatsRedirMovedTempsOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientBadRequestIns": {
+    "name": "cSipStatsClientBadRequestIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientBadRequestOuts": {
+    "name": "cSipStatsClientBadRequestOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientUnauthorizedIns": {
+    "name": "cSipStatsClientUnauthorizedIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientUnauthorizedOuts": {
+    "name": "cSipStatsClientUnauthorizedOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientPaymentReqdIns": {
+    "name": "cSipStatsClientPaymentReqdIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientPaymentReqdOuts": {
+    "name": "cSipStatsClientPaymentReqdOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientForbiddenIns": {
+    "name": "cSipStatsClientForbiddenIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientForbiddenOuts": {
+    "name": "cSipStatsClientForbiddenOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientNotFoundIns": {
+    "name": "cSipStatsClientNotFoundIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientNotFoundOuts": {
+    "name": "cSipStatsClientNotFoundOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientMethNotAllowedIns": {
+    "name": "cSipStatsClientMethNotAllowedIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientMethNotAllowedOuts": {
+    "name": "cSipStatsClientMethNotAllowedOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientNotAcceptableIns": {
+    "name": "cSipStatsClientNotAcceptableIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientNotAcceptableOuts": {
+    "name": "cSipStatsClientNotAcceptableOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientProxyAuthReqdIns": {
+    "name": "cSipStatsClientProxyAuthReqdIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientProxyAuthReqdOuts": {
+    "name": "cSipStatsClientProxyAuthReqdOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientReqTimeoutIns": {
+    "name": "cSipStatsClientReqTimeoutIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientReqTimeoutOuts": {
+    "name": "cSipStatsClientReqTimeoutOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientConflictIns": {
+    "name": "cSipStatsClientConflictIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientConflictOuts": {
+    "name": "cSipStatsClientConflictOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientGoneIns": {
+    "name": "cSipStatsClientGoneIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientGoneOuts": {
+    "name": "cSipStatsClientGoneOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientLengthRequiredIns": {
+    "name": "cSipStatsClientLengthRequiredIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cSipStatsClientLengthRequiredOuts": {
+    "name": "cSipStatsClientLengthRequiredOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cSipStatsClientReqEntTooLargeIns": {
+    "name": "cSipStatsClientReqEntTooLargeIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientReqEntTooLargeOuts": {
+    "name": "cSipStatsClientReqEntTooLargeOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientReqURITooLargeIns": {
+    "name": "cSipStatsClientReqURITooLargeIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientReqURITooLargeOuts": {
+    "name": "cSipStatsClientReqURITooLargeOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientNoSupMediaTypeIns": {
+    "name": "cSipStatsClientNoSupMediaTypeIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientNoSupMediaTypeOuts": {
+    "name": "cSipStatsClientNoSupMediaTypeOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientBadExtensionIns": {
+    "name": "cSipStatsClientBadExtensionIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientBadExtensionOuts": {
+    "name": "cSipStatsClientBadExtensionOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientTempNotAvailIns": {
+    "name": "cSipStatsClientTempNotAvailIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientTempNotAvailOuts": {
+    "name": "cSipStatsClientTempNotAvailOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientCallLegNoExistIns": {
+    "name": "cSipStatsClientCallLegNoExistIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientCallLegNoExistOuts": {
+    "name": "cSipStatsClientCallLegNoExistOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientLoopDetectedIns": {
+    "name": "cSipStatsClientLoopDetectedIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientLoopDetectedOuts": {
+    "name": "cSipStatsClientLoopDetectedOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientTooManyHopsIns": {
+    "name": "cSipStatsClientTooManyHopsIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientTooManyHopsOuts": {
+    "name": "cSipStatsClientTooManyHopsOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientAddrIncompleteIns": {
+    "name": "cSipStatsClientAddrIncompleteIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientAddrIncompleteOuts": {
+    "name": "cSipStatsClientAddrIncompleteOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientAmbiguousIns": {
+    "name": "cSipStatsClientAmbiguousIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientAmbiguousOuts": {
+    "name": "cSipStatsClientAmbiguousOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientBusyHereIns": {
+    "name": "cSipStatsClientBusyHereIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientBusyHereOuts": {
+    "name": "cSipStatsClientBusyHereOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientReqTermIns": {
+    "name": "cSipStatsClientReqTermIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientReqTermOuts": {
+    "name": "cSipStatsClientReqTermOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientNoAcceptHereIns": {
+    "name": "cSipStatsClientNoAcceptHereIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientNoAcceptHereOuts": {
+    "name": "cSipStatsClientNoAcceptHereOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientBadEventIns": {
+    "name": "cSipStatsClientBadEventIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientBadEventOuts": {
+    "name": "cSipStatsClientBadEventOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientSTTooSmallIns": {
+    "name": "cSipStatsClientSTTooSmallIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientSTTooSmallOuts": {
+    "name": "cSipStatsClientSTTooSmallOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientReqPendingIns": {
+    "name": "cSipStatsClientReqPendingIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsClientReqPendingOuts": {
+    "name": "cSipStatsClientReqPendingOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.4.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsServerIntErrorIns": {
+    "name": "cSipStatsServerIntErrorIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsServerIntErrorOuts": {
+    "name": "cSipStatsServerIntErrorOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsServerNotImplementedIns": {
+    "name": "cSipStatsServerNotImplementedIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsServerNotImplementedOuts": {
+    "name": "cSipStatsServerNotImplementedOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsServerBadGatewayIns": {
+    "name": "cSipStatsServerBadGatewayIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsServerBadGatewayOuts": {
+    "name": "cSipStatsServerBadGatewayOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsServerServiceUnavailIns": {
+    "name": "cSipStatsServerServiceUnavailIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsServerServiceUnavailOuts": {
+    "name": "cSipStatsServerServiceUnavailOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsServerGatewayTimeoutIns": {
+    "name": "cSipStatsServerGatewayTimeoutIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsServerGatewayTimeoutOuts": {
+    "name": "cSipStatsServerGatewayTimeoutOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsServerBadSipVersionIns": {
+    "name": "cSipStatsServerBadSipVersionIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsServerBadSipVersionOuts": {
+    "name": "cSipStatsServerBadSipVersionOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsServerPrecondFailureIns": {
+    "name": "cSipStatsServerPrecondFailureIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsServerPrecondFailureOuts": {
+    "name": "cSipStatsServerPrecondFailureOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsGlobalBusyEverywhereIns": {
+    "name": "cSipStatsGlobalBusyEverywhereIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsGlobalBusyEverywhereOuts": {
+    "name": "cSipStatsGlobalBusyEverywhereOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsGlobalDeclineIns": {
+    "name": "cSipStatsGlobalDeclineIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsGlobalDeclineOuts": {
+    "name": "cSipStatsGlobalDeclineOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsGlobalNotAnywhereIns": {
+    "name": "cSipStatsGlobalNotAnywhereIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsGlobalNotAnywhereOuts": {
+    "name": "cSipStatsGlobalNotAnywhereOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsGlobalNotAcceptableIns": {
+    "name": "cSipStatsGlobalNotAcceptableIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsGlobalNotAcceptableOuts": {
+    "name": "cSipStatsGlobalNotAcceptableOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficInviteIns": {
+    "name": "cSipStatsTrafficInviteIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficInviteOuts": {
+    "name": "cSipStatsTrafficInviteOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficAckIns": {
+    "name": "cSipStatsTrafficAckIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficAckOuts": {
+    "name": "cSipStatsTrafficAckOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficByeIns": {
+    "name": "cSipStatsTrafficByeIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficByeOuts": {
+    "name": "cSipStatsTrafficByeOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficCancelIns": {
+    "name": "cSipStatsTrafficCancelIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficCancelOuts": {
+    "name": "cSipStatsTrafficCancelOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficOptionsIns": {
+    "name": "cSipStatsTrafficOptionsIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficOptionsOuts": {
+    "name": "cSipStatsTrafficOptionsOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficRegisterIns": {
+    "name": "cSipStatsTrafficRegisterIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficRegisterOuts": {
+    "name": "cSipStatsTrafficRegisterOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficCometIns": {
+    "name": "cSipStatsTrafficCometIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficCometOuts": {
+    "name": "cSipStatsTrafficCometOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficPrackIns": {
+    "name": "cSipStatsTrafficPrackIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficPrackOuts": {
+    "name": "cSipStatsTrafficPrackOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficReferIns": {
+    "name": "cSipStatsTrafficReferIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficReferOuts": {
+    "name": "cSipStatsTrafficReferOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficNotifyIns": {
+    "name": "cSipStatsTrafficNotifyIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficNotifyOuts": {
+    "name": "cSipStatsTrafficNotifyOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficInfoIns": {
+    "name": "cSipStatsTrafficInfoIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficInfoOuts": {
+    "name": "cSipStatsTrafficInfoOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficSubscribeIns": {
+    "name": "cSipStatsTrafficSubscribeIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficSubscribeOuts": {
+    "name": "cSipStatsTrafficSubscribeOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficUpdateIns": {
+    "name": "cSipStatsTrafficUpdateIns",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsTrafficUpdateOuts": {
+    "name": "cSipStatsTrafficUpdateOuts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.7.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsRetryInvites": {
+    "name": "cSipStatsRetryInvites",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsRetryByes": {
+    "name": "cSipStatsRetryByes",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsRetryCancels": {
+    "name": "cSipStatsRetryCancels",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsRetryRegisters": {
+    "name": "cSipStatsRetryRegisters",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsRetryResponses": {
+    "name": "cSipStatsRetryResponses",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsRetryPracks": {
+    "name": "cSipStatsRetryPracks",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsRetryComets": {
+    "name": "cSipStatsRetryComets",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsRetryReliable1xxRsps": {
+    "name": "cSipStatsRetryReliable1xxRsps",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsRetryNotifys": {
+    "name": "cSipStatsRetryNotifys",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsRetryRefers": {
+    "name": "cSipStatsRetryRefers",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.8.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsRetryInfo": {
+    "name": "cSipStatsRetryInfo",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.8.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsRetrySubscribe": {
+    "name": "cSipStatsRetrySubscribe",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.8.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsMisc3xxMappedTo4xxRsps": {
+    "name": "cSipStatsMisc3xxMappedTo4xxRsps",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsConnTCPSendFailures": {
+    "name": "cSipStatsConnTCPSendFailures",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsConnUDPSendFailures": {
+    "name": "cSipStatsConnUDPSendFailures",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsConnTCPRemoteClosures": {
+    "name": "cSipStatsConnTCPRemoteClosures",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsConnUDPCreateFailures": {
+    "name": "cSipStatsConnUDPCreateFailures",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsConnTCPCreateFailures": {
+    "name": "cSipStatsConnTCPCreateFailures",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsConnUDPInactiveTimeouts": {
+    "name": "cSipStatsConnUDPInactiveTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsConnTCPInactiveTimeouts": {
+    "name": "cSipStatsConnTCPInactiveTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsActiveUDPConnections": {
+    "name": "cSipStatsActiveUDPConnections",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.10.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipStatsActiveTCPConnections": {
+    "name": "cSipStatsActiveTCPConnections",
+    "oid": "1.3.6.1.4.1.9.9.152.1.2.10.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSipUaMIBNotificationPrefix": {
+    "name": "ciscoSipUaMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.152.2",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "ciscoSipUaMIBNotifications": {
+    "name": "ciscoSipUaMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.152.2.0",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "ciscoSipUaMIBConformance": {
+    "name": "ciscoSipUaMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.152.3",
+    "class": "objectidentity"
+  },
+  "ciscoSipUaMIBCompliances": {
+    "name": "ciscoSipUaMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.152.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoSipUaMIBGroups": {
+    "name": "ciscoSipUaMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoSipCompliance": {
+    "name": "ciscoSipCompliance",
+    "oid": "1.3.6.1.4.1.9.9.152.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSipBaseConfigGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsInfoStatusCodesGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsSuccessStatusCodesGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsGlobalStatusCodesGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipTrafficStatsGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipTimerConfigGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipRetryConfigGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipRetryStatsGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsRedirStatusCodesGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsClientStatusCodesGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsServerStatusCodesGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoSipComplianceRev1": {
+    "name": "ciscoSipComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.152.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSipBaseConfigGroupRev1",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsInfoStatusCodesGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsSuccessStatusCodesGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsGlobalStatusCodesGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipTrafficStatsGroupRev1",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipTimerConfigGroupRev1",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipRetryConfigGroupRev1",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipRetryStatsGroupRev1",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsRedirStatusCodesGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsClientStatusCodesGroupRev1",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsServerStatusCodesGroupRev1",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipCfgPeerGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoSipComplianceRev2": {
+    "name": "ciscoSipComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.152.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSipBaseConfigGroupRev2",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsInfoStatusCodesGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsSuccessStatusCodesGroupRev1",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsGlobalStatusCodesGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipTrafficStatsGroupRev2",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipTimerConfigGroupRev2",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipRetryConfigGroupRev2",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipRetryStatsGroupRev2",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsRedirStatusCodesGroupRev1",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsClientStatusCodesGroupRev2",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsServerStatusCodesGroupRev1",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipCfgPeerGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipCfgAaaGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipComplianceRev3": {
+    "name": "ciscoSipComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.152.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSipBaseConfigGroupRev2",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsInfoStatusCodesGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsSuccessStatusCodesGroupRev1",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsGlobalStatusCodesGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipTrafficStatsGroupRev2",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipTimerConfigGroupRev3",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipRetryConfigGroupRev3",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipRetryStatsGroupRev3",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsRedirStatusCodesGroupRev1",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsClientStatusCodesGroupRev2",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsServerStatusCodesGroupRev1",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipCfgPeerGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipCfgAaaGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatusCauseMapGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipComplianceRev4": {
+    "name": "ciscoSipComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.152.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSipBaseConfigGroupRev3",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsInfoStatusCodesGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsSuccessStatusCodesGroupRev2",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsGlobalStatusCodesGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipTrafficStatsGroupRev2",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipTimerConfigGroupRev3",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipRetryConfigGroupRev3",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipRetryStatsGroupRev3",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsRedirStatusCodesGroupRev1",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsClientStatusCodesGroupRev3",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsServerStatusCodesGroupRev1",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipCfgPeerGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipCfgAaaGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatusCauseMapGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsMiscGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipBaseIOSConfigGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipComplianceRev5": {
+    "name": "ciscoSipComplianceRev5",
+    "oid": "1.3.6.1.4.1.9.9.152.3.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSipBaseConfigGroupRev3",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsInfoStatusCodesGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsSuccessStatusCodesGroupRev2",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsGlobalStatusCodesGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipTrafficStatsGroupRev3",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipTimerConfigGroupRev4",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipRetryConfigGroupRev4",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipRetryStatsGroupRev4",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsRedirStatusCodesGroupRev2",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsClientStatusCodesGroupRev4",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsServerStatusCodesGroupRev1",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipCfgPeerGroupRev1",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipCfgAaaGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatusCauseMapGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsMiscGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipBaseIOSConfigGroupRev1",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipCfgVoiceServiceVoipGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      },
+      {
+        "object": "ciscoSipStatsConnectionGroup",
+        "module": "CISCO-SIP-UA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSipBaseConfigGroup": {
+    "name": "ciscoSipBaseConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgUserLocationServerAddr"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTransport"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgVersion"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipTimerConfigGroup": {
+    "name": "ciscoSipTimerConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerTrying"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerExpires"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerConnect"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerDisconnect"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipRetryConfigGroup": {
+    "name": "ciscoSipRetryConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryInvite"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryBye"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryCancel"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryRegister"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryResponse"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipStatsInfoStatusCodesGroup": {
+    "name": "ciscoSipStatsInfoStatusCodesGroup",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsInfoTryingIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsInfoTryingOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsInfoRingingIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsInfoRingingOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsInfoForwardedIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsInfoForwardedOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsInfoQueuedIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsInfoQueuedOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsInfoSessionProgIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsInfoSessionProgOuts"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSipStatsSuccessStatusCodesGroup": {
+    "name": "ciscoSipStatsSuccessStatusCodesGroup",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsSuccessOkIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsSuccessOkOuts"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipStatsRedirStatusCodesGroup": {
+    "name": "ciscoSipStatsRedirStatusCodesGroup",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRedirMultipleChoices"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRedirMovedPerms"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRedirMovedTemps"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRedirSeeOthers"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRedirUseProxys"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRedirAltServices"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoSipStatsClientStatusCodesGroup": {
+    "name": "ciscoSipStatsClientStatusCodesGroup",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadRequestIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadRequestOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientUnauthorizedIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientUnauthorizedOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientPaymentReqdIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientPaymentReqdOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientForbiddenIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientForbiddenOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNotFoundIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNotFoundOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientMethNotAllowedIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientMethNotAllowedOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNotAcceptableIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNotAcceptableOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientProxyAuthReqdIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientProxyAuthReqdOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqTimeoutIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqTimeoutOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientConflictIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientConflictOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientGoneIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientGoneOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientLengthRequiredIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientLengthRequiredOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqEntTooLargeIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqEntTooLargeOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqURITooLargeIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqURITooLargeOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNoSupMediaTypeIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNoSupMediaTypeOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadExtensionIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadExtensionOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientTempNotAvailIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientTempNotAvailOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientCallLegNoExistIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientCallLegNoExistOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientLoopDetectedIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientLoopDetectedOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientTooManyHopsIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientTooManyHopsOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientAddrIncompleteIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientAddrIncompleteOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientAmbiguousIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientAmbiguousOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBusyHereIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBusyHereOuts"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoSipStatsServerStatusCodesGroup": {
+    "name": "ciscoSipStatsServerStatusCodesGroup",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerIntErrorIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerIntErrorOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerNotImplementedIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerNotImplementedOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerBadGatewayIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerBadGatewayOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerServiceUnavailIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerServiceUnavailOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerGatewayTimeoutIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerGatewayTimeoutOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerBadSipVersionIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerBadSipVersionOuts"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipStatsGlobalStatusCodesGroup": {
+    "name": "ciscoSipStatsGlobalStatusCodesGroup",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsGlobalBusyEverywhereIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsGlobalBusyEverywhereOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsGlobalDeclineIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsGlobalDeclineOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsGlobalNotAnywhereIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsGlobalNotAnywhereOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsGlobalNotAcceptableIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsGlobalNotAcceptableOuts"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSipTrafficStatsGroup": {
+    "name": "ciscoSipTrafficStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficInviteIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficInviteOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficAckIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficAckOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficByeIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficByeOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficCancelIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficCancelOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficOptionsIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficOptionsOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficRegisterIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficRegisterOuts"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipRetryStatsGroup": {
+    "name": "ciscoSipRetryStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryInvites"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryByes"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryCancels"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryRegisters"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryResponses"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipBaseConfigGroupRev1": {
+    "name": "ciscoSipBaseConfigGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgUserLocationServerAddr"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTransport"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgVersion"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgMaxForwards"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipTimerConfigGroupRev1": {
+    "name": "ciscoSipTimerConfigGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerTrying"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerExpires"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerConnect"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerDisconnect"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerPrack"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerComet"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerReliableRsp"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipRetryConfigGroupRev1": {
+    "name": "ciscoSipRetryConfigGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryInvite"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryBye"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryCancel"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryRegister"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryResponse"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryPrack"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryComet"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryReliableRsp"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipTrafficStatsGroupRev1": {
+    "name": "ciscoSipTrafficStatsGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficInviteIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficInviteOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficAckIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficAckOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficByeIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficByeOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficCancelIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficCancelOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficOptionsIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficOptionsOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficRegisterIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficRegisterOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficCometIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficCometOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficPrackIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficPrackOuts"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipStatsServerStatusCodesGroupRev1": {
+    "name": "ciscoSipStatsServerStatusCodesGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerIntErrorIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerIntErrorOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerNotImplementedIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerNotImplementedOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerBadGatewayIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerBadGatewayOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerServiceUnavailIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerServiceUnavailOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerGatewayTimeoutIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerGatewayTimeoutOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerBadSipVersionIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerBadSipVersionOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerPrecondFailureIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsServerPrecondFailureOuts"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSipRetryStatsGroupRev1": {
+    "name": "ciscoSipRetryStatsGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryInvites"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryByes"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryCancels"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryRegisters"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryResponses"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryPracks"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryComets"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryReliable1xxRsps"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipStatsClientStatusCodesGroupRev1": {
+    "name": "ciscoSipStatsClientStatusCodesGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadRequestIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadRequestOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientUnauthorizedIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientUnauthorizedOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientPaymentReqdIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientPaymentReqdOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientForbiddenIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientForbiddenOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNotFoundIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNotFoundOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientMethNotAllowedIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientMethNotAllowedOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNotAcceptableIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNotAcceptableOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientProxyAuthReqdIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientProxyAuthReqdOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqTimeoutIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqTimeoutOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientConflictIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientConflictOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientGoneIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientGoneOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientLengthRequiredIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientLengthRequiredOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqEntTooLargeIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqEntTooLargeOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqURITooLargeIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqURITooLargeOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNoSupMediaTypeIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNoSupMediaTypeOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadExtensionIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadExtensionOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientTempNotAvailIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientTempNotAvailOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientCallLegNoExistIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientCallLegNoExistOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientLoopDetectedIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientLoopDetectedOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientTooManyHopsIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientTooManyHopsOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientAddrIncompleteIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientAddrIncompleteOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientAmbiguousIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientAmbiguousOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBusyHereIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBusyHereOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqTermIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqTermOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNoAcceptHereIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNoAcceptHereOuts"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoSipCfgPeerGroup": {
+    "name": "ciscoSipCfgPeerGroup",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgPeerOutSessionTransport"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgPeerReliable1xxRspStr"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgPeerReliable1xxRspHdr"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgPeerUrlType"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgOutSessionTransport"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgReliable1xxRspStr"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgReliable1xxRspHdr"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgUrlType"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipBaseConfigGroupRev2": {
+    "name": "ciscoSipBaseConfigGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgUserLocationServerAddr"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTransport"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgVersion"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgMaxForwards"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgBindSrcAddrInterface"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgBindSrcAddrScope"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgDnsSrvQueryStringFormat"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipStatusCauseMapGroup": {
+    "name": "ciscoSipStatusCauseMapGroup",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgPstnCause"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgStatusCauseStoreStatus"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgStatusCode"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgCauseStatusStoreStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSipTrafficStatsGroupRev2": {
+    "name": "ciscoSipTrafficStatsGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficInviteIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficInviteOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficAckIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficAckOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficByeIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficByeOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficCancelIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficCancelOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficOptionsIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficOptionsOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficRegisterIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficRegisterOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficCometIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficCometOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficPrackIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficPrackOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficReferIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficReferOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficNotifyIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficNotifyOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficInfoIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficInfoOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficSubscribeIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficSubscribeOuts"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipStatsSuccessStatusCodesGroupRev1": {
+    "name": "ciscoSipStatsSuccessStatusCodesGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsSuccessOkIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsSuccessOkOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsSuccessAcceptedIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsSuccessAcceptedOuts"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipTimerConfigGroupRev2": {
+    "name": "ciscoSipTimerConfigGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerTrying"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerExpires"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerConnect"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerDisconnect"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerPrack"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerComet"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerReliableRsp"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerNotify"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipRetryConfigGroupRev2": {
+    "name": "ciscoSipRetryConfigGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryInvite"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryBye"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryCancel"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryRegister"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryResponse"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryPrack"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryComet"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryReliableRsp"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryNotify"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipRetryStatsGroupRev2": {
+    "name": "ciscoSipRetryStatsGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryInvites"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryByes"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryCancels"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryRegisters"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryResponses"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryPracks"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryComets"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryReliable1xxRsps"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryNotifys"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipCfgAaaGroup": {
+    "name": "ciscoSipCfgAaaGroup",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgAaaUsername"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSipStatsClientStatusCodesGroupRev2": {
+    "name": "ciscoSipStatsClientStatusCodesGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadRequestIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadRequestOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientUnauthorizedIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientUnauthorizedOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientPaymentReqdIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientPaymentReqdOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientForbiddenIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientForbiddenOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNotFoundIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNotFoundOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientMethNotAllowedIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientMethNotAllowedOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNotAcceptableIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNotAcceptableOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientProxyAuthReqdIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientProxyAuthReqdOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqTimeoutIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqTimeoutOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientConflictIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientConflictOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientGoneIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientGoneOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqEntTooLargeIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqEntTooLargeOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqURITooLargeIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqURITooLargeOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNoSupMediaTypeIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNoSupMediaTypeOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadExtensionIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadExtensionOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientTempNotAvailIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientTempNotAvailOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientCallLegNoExistIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientCallLegNoExistOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientLoopDetectedIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientLoopDetectedOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientTooManyHopsIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientTooManyHopsOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientAddrIncompleteIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientAddrIncompleteOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientAmbiguousIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientAmbiguousOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBusyHereIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBusyHereOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqTermIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqTermOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNoAcceptHereIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNoAcceptHereOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadEventIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadEventOuts"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipStatsRedirStatusCodesGroupRev1": {
+    "name": "ciscoSipStatsRedirStatusCodesGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRedirMultipleChoices"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRedirMovedPerms"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRedirMovedTemps"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRedirUseProxys"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRedirAltServices"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipTimerConfigGroupRev3": {
+    "name": "ciscoSipTimerConfigGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.30",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerTrying"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerExpires"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerConnect"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerDisconnect"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerPrack"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerComet"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerReliableRsp"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerNotify"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerRefer"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipRetryConfigGroupRev3": {
+    "name": "ciscoSipRetryConfigGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.31",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryInvite"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryBye"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryCancel"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryRegister"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryResponse"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryPrack"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryComet"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryReliableRsp"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryNotify"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryRefer"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipRetryStatsGroupRev3": {
+    "name": "ciscoSipRetryStatsGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.32",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryInvites"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryByes"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryCancels"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryRegisters"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryResponses"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryPracks"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryComets"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryReliable1xxRsps"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryNotifys"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryRefers"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipStatsSuccessStatusCodesGroupRev2": {
+    "name": "ciscoSipStatsSuccessStatusCodesGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.33",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsSuccessAcceptedIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsSuccessAcceptedOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsSuccessOkInbounds"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsSuccessOkOutbounds"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSipBaseConfigGroupRev3": {
+    "name": "ciscoSipBaseConfigGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.34",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgUserLocationServerAddr"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTransport"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSipStatsClientStatusCodesGroupRev3": {
+    "name": "ciscoSipStatsClientStatusCodesGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.35",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadRequestIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadRequestOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientUnauthorizedIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientUnauthorizedOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientPaymentReqdIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientPaymentReqdOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientForbiddenIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientForbiddenOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNotFoundIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNotFoundOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientMethNotAllowedIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientMethNotAllowedOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNotAcceptableIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNotAcceptableOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientProxyAuthReqdIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientProxyAuthReqdOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqTimeoutIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqTimeoutOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientConflictIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientConflictOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientGoneIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientGoneOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqEntTooLargeIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqEntTooLargeOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqURITooLargeIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqURITooLargeOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNoSupMediaTypeIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNoSupMediaTypeOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadExtensionIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadExtensionOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientTempNotAvailIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientTempNotAvailOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientCallLegNoExistIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientCallLegNoExistOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientLoopDetectedIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientLoopDetectedOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientTooManyHopsIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientTooManyHopsOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientAddrIncompleteIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientAddrIncompleteOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientAmbiguousIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientAmbiguousOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBusyHereIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBusyHereOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqTermIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqTermOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNoAcceptHereIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNoAcceptHereOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadEventIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadEventOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientSTTooSmallIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientSTTooSmallOuts"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipStatsMiscGroup": {
+    "name": "ciscoSipStatsMiscGroup",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.36",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsMisc3xxMappedTo4xxRsps"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSipBaseIOSConfigGroup": {
+    "name": "ciscoSipBaseIOSConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.37",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgMaxForwards"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgBindSrcAddrInterface"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgBindSrcAddrScope"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgDnsSrvQueryStringFormat"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRedirectionDisabled"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerSessionTimer"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgEarlyMediaCutThruDisabled"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgSymNatEnabled"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgSymNatDirectionRole"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSipTrafficStatsGroupRev3": {
+    "name": "ciscoSipTrafficStatsGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.38",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficInviteIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficInviteOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficAckIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficAckOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficByeIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficByeOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficCancelIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficCancelOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficOptionsIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficOptionsOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficRegisterIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficRegisterOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficCometIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficCometOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficPrackIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficPrackOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficReferIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficReferOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficNotifyIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficNotifyOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficInfoIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficInfoOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficSubscribeIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficSubscribeOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficUpdateIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsTrafficUpdateOuts"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSipStatsRedirStatusCodesGroupRev2": {
+    "name": "ciscoSipStatsRedirStatusCodesGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.39",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRedirMultipleChoices"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRedirMovedPerms"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRedirUseProxys"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRedirAltServices"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRedirMovedTempsIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRedirMovedTempsOuts"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSipTimerConfigGroupRev4": {
+    "name": "ciscoSipTimerConfigGroupRev4",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.40",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerTrying"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerExpires"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerConnect"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerDisconnect"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerPrack"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerComet"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerReliableRsp"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerNotify"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerRefer"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerHold"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerInfo"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerConnectionAging"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerBufferInvite"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSipRetryStatsGroupRev4": {
+    "name": "ciscoSipRetryStatsGroupRev4",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.41",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryInvites"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryByes"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryCancels"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryRegisters"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryResponses"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryPracks"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryComets"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryReliable1xxRsps"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryNotifys"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryRefers"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetryInfo"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsRetrySubscribe"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSipBaseIOSConfigGroupRev1": {
+    "name": "ciscoSipBaseIOSConfigGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.42",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgMaximumForwards"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgDnsSrvQueryStringFormat"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRedirectionDisabled"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgTimerSessionTimer"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgEarlyMediaCutThruDisabled"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgSymNatEnabled"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgSymNatDirectionRole"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgBindSourceAddrInterface"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgSuspendResumeEnabled"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgOfferCallHold"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgReasonHeaderOveride"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSipStatsClientStatusCodesGroupRev4": {
+    "name": "ciscoSipStatsClientStatusCodesGroupRev4",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.43",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadRequestIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadRequestOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientUnauthorizedIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientUnauthorizedOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientPaymentReqdIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientPaymentReqdOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientForbiddenIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientForbiddenOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNotFoundIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNotFoundOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientMethNotAllowedIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientMethNotAllowedOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNotAcceptableIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNotAcceptableOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientProxyAuthReqdIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientProxyAuthReqdOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqTimeoutIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqTimeoutOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientConflictIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientConflictOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientGoneIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientGoneOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqEntTooLargeIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqEntTooLargeOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqURITooLargeIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqURITooLargeOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNoSupMediaTypeIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNoSupMediaTypeOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadExtensionIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadExtensionOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientTempNotAvailIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientTempNotAvailOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientCallLegNoExistIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientCallLegNoExistOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientLoopDetectedIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientLoopDetectedOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientTooManyHopsIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientTooManyHopsOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientAddrIncompleteIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientAddrIncompleteOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientAmbiguousIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientAmbiguousOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBusyHereIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBusyHereOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqTermIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqTermOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNoAcceptHereIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientNoAcceptHereOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadEventIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientBadEventOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientSTTooSmallIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientSTTooSmallOuts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqPendingIns"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsClientReqPendingOuts"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSipRetryConfigGroupRev4": {
+    "name": "ciscoSipRetryConfigGroupRev4",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.44",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryInvite"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryBye"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryCancel"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryRegister"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryResponse"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryPrack"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryComet"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryReliableRsp"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryNotify"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryRefer"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetryInfo"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgRetrySubscribe"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSipCfgPeerGroupRev1": {
+    "name": "ciscoSipCfgPeerGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.45",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgPeerOutSessionTransport"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgPeerReliable1xxRspStr"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgPeerReliable1xxRspHdr"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgPeerUrlType"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgOutSessionTransport"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgReliable1xxRspStr"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgReliable1xxRspHdr"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgUrlType"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgPeerSwitchTransEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSipCfgVoiceServiceVoipGroup": {
+    "name": "ciscoSipCfgVoiceServiceVoipGroup",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.46",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgHeaderPassingEnabled"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgMaxSubscriptionAccept"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgMaxSubscriptionOriginate"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipCfgSwitchTransportEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSipStatsConnectionGroup": {
+    "name": "ciscoSipStatsConnectionGroup",
+    "oid": "1.3.6.1.4.1.9.9.152.3.2.47",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsConnTCPSendFailures"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsConnUDPSendFailures"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsConnTCPRemoteClosures"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsConnUDPCreateFailures"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsConnTCPCreateFailures"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsConnUDPInactiveTimeouts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsConnTCPInactiveTimeouts"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsActiveUDPConnections"
+      },
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "object": "cSipStatsActiveTCPConnections"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SIP-UA-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SIP-UA-MIB"
+  }
+}

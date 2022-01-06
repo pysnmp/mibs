@@ -1,0 +1,1285 @@
+{
+  "imports": {
+    "class": "imports",
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "JUNIPER-SMI": [
+      "jnxMibs",
+      "jnxSpNotifications"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxSpMIB": {
+    "name": "jnxSpMIB",
+    "oid": "1.3.6.1.4.1.2636.3.32",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-04-02 00:00",
+        "description": "Initial revision."
+      },
+      {
+        "revision": "2013-02-23 00:00",
+        "description": "Added OID jnxSpSvcSetFlowLimitUtilised under jnxSpNotificationPrefix Depreated OID jnxSpSvcSetFlowLimitUtilized ."
+      },
+      {
+        "revision": "2016-05-31 00:00",
+        "description": "Removed duplicate entries"
+      },
+      {
+        "revision": "2018-10-22 00:00",
+        "description": "Added OID jnxSpTcpLoggingHostStatus under jnxSpNotificationPrefix"
+      },
+      {
+        "revision": "2019-08-10 00:00",
+        "description": "Added OIDs jnxSpSvcSetMemoryUsage64, jnxSpSvcSetMemLimitPktDrops64, jnxSpSvcSetCpuLimitPktDrops64, jnxSpSvcSetFlowLimitPktDrops64 under JnxSpSvcSetEntry. "
+      },
+      {
+        "revision": "2019-09-19 00:00",
+        "description": "Added OID jnxSpSvcSetSessCount under JnxSpSvcSetEntry. Added new OIDs under JnxSpSvcSetIfEntry."
+      }
+    ]
+  },
+  "jnxFlowLimitTrapVars": {
+    "name": "jnxFlowLimitTrapVars",
+    "oid": "1.3.6.1.4.1.2636.3.32.2",
+    "class": "objectidentity"
+  },
+  "jnxTcpLoggingTrapVars": {
+    "name": "jnxTcpLoggingTrapVars",
+    "oid": "1.3.6.1.4.1.2636.3.32.3",
+    "class": "objectidentity"
+  },
+  "jnxSpSvcSet": {
+    "name": "jnxSpSvcSet",
+    "oid": "1.3.6.1.4.1.2636.3.32.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxSpSvcSetTable": {
+    "name": "jnxSpSvcSetTable",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSpSvcSetEntry": {
+    "name": "jnxSpSvcSetEntry",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-SP-MIB",
+        "object": "jnxSpSvcSetName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSpSvcSetName": {
+    "name": "jnxSpSvcSetName",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSpSvcSetSvcType": {
+    "name": "jnxSpSvcSetSvcType",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetTypeIndex": {
+    "name": "jnxSpSvcSetTypeIndex",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfName": {
+    "name": "jnxSpSvcSetIfName",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfIndex": {
+    "name": "jnxSpSvcSetIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetMemoryUsage": {
+    "name": "jnxSpSvcSetMemoryUsage",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetCpuUtil": {
+    "name": "jnxSpSvcSetCpuUtil",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetSvcStyle": {
+    "name": "jnxSpSvcSetSvcStyle",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "interface-service": 2,
+          "next-hop-service": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetMemLimitPktDrops": {
+    "name": "jnxSpSvcSetMemLimitPktDrops",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetCpuLimitPktDrops": {
+    "name": "jnxSpSvcSetCpuLimitPktDrops",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetFlowLimitPktDrops": {
+    "name": "jnxSpSvcSetFlowLimitPktDrops",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetMemoryUsage64": {
+    "name": "jnxSpSvcSetMemoryUsage64",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetMemLimitPktDrops64": {
+    "name": "jnxSpSvcSetMemLimitPktDrops64",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetCpuLimitPktDrops64": {
+    "name": "jnxSpSvcSetCpuLimitPktDrops64",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetFlowLimitPktDrops64": {
+    "name": "jnxSpSvcSetFlowLimitPktDrops64",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetSessCount": {
+    "name": "jnxSpSvcSetSessCount",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetSvcTypeTable": {
+    "name": "jnxSpSvcSetSvcTypeTable",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSpSvcSetSvcTypeEntry": {
+    "name": "jnxSpSvcSetSvcTypeEntry",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SP-MIB",
+        "object": "jnxSpSvcSetSvcTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSpSvcSetSvcTypeIndex": {
+    "name": "jnxSpSvcSetSvcTypeIndex",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSpSvcSetSvcTypeIfName": {
+    "name": "jnxSpSvcSetSvcTypeIfName",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetSvcTypeName": {
+    "name": "jnxSpSvcSetSvcTypeName",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetSvcTypeSvcSets": {
+    "name": "jnxSpSvcSetSvcTypeSvcSets",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetSvcTypeMemoryUsage": {
+    "name": "jnxSpSvcSetSvcTypeMemoryUsage",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetSvcTypePctMemoryUsage": {
+    "name": "jnxSpSvcSetSvcTypePctMemoryUsage",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetSvcTypeCpuUtil": {
+    "name": "jnxSpSvcSetSvcTypeCpuUtil",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetSvcTypeMemoryUsage64": {
+    "name": "jnxSpSvcSetSvcTypeMemoryUsage64",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfTable": {
+    "name": "jnxSpSvcSetIfTable",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfEntry": {
+    "name": "jnxSpSvcSetIfEntry",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSpSvcSetIfTableName": {
+    "name": "jnxSpSvcSetIfTableName",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfSvcSets": {
+    "name": "jnxSpSvcSetIfSvcSets",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfMemoryUsage": {
+    "name": "jnxSpSvcSetIfMemoryUsage",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfPctMemoryUsage": {
+    "name": "jnxSpSvcSetIfPctMemoryUsage",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfPolMemoryUsage": {
+    "name": "jnxSpSvcSetIfPolMemoryUsage",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfPctPolMemoryUsage": {
+    "name": "jnxSpSvcSetIfPctPolMemoryUsage",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfMemoryZone": {
+    "name": "jnxSpSvcSetIfMemoryZone",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "green": 1,
+          "yellow": 2,
+          "orange": 3,
+          "red": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfCpuUtil": {
+    "name": "jnxSpSvcSetIfCpuUtil",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfMemoryUsage64": {
+    "name": "jnxSpSvcSetIfMemoryUsage64",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfPolMemoryUsage64": {
+    "name": "jnxSpSvcSetIfPolMemoryUsage64",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfNumTotalSessActive": {
+    "name": "jnxSpSvcSetIfNumTotalSessActive",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfPeakTotalSessActive": {
+    "name": "jnxSpSvcSetIfPeakTotalSessActive",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfNumCreatedSessPerSec": {
+    "name": "jnxSpSvcSetIfNumCreatedSessPerSec",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfNumDeletedSessPerSec": {
+    "name": "jnxSpSvcSetIfNumDeletedSessPerSec",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfNumTotalTcpSessActive": {
+    "name": "jnxSpSvcSetIfNumTotalTcpSessActive",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfNumTotalUdpSessActive": {
+    "name": "jnxSpSvcSetIfNumTotalUdpSessActive",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfNumTotalOtherSessActive": {
+    "name": "jnxSpSvcSetIfNumTotalOtherSessActive",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfPeakTotalTcpSessActive": {
+    "name": "jnxSpSvcSetIfPeakTotalTcpSessActive",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfPeakTotalUdpSessActive": {
+    "name": "jnxSpSvcSetIfPeakTotalUdpSessActive",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfPeakTotalOtherSessActive": {
+    "name": "jnxSpSvcSetIfPeakTotalOtherSessActive",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfPeakCreatedSessPerSec": {
+    "name": "jnxSpSvcSetIfPeakCreatedSessPerSec",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfPeakDeletedSessPerSec": {
+    "name": "jnxSpSvcSetIfPeakDeletedSessPerSec",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfNumTotalTcpIpv4SessActive": {
+    "name": "jnxSpSvcSetIfNumTotalTcpIpv4SessActive",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfNumTotalTcpIpv6SessActive": {
+    "name": "jnxSpSvcSetIfNumTotalTcpIpv6SessActive",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfNumTotalUdpIpv4SessActive": {
+    "name": "jnxSpSvcSetIfNumTotalUdpIpv4SessActive",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfNumTotalUdpIpv6SessActive": {
+    "name": "jnxSpSvcSetIfNumTotalUdpIpv6SessActive",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfNumTotalOtherIpv4SessActive": {
+    "name": "jnxSpSvcSetIfNumTotalOtherIpv4SessActive",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfNumTotalOtherIpv6SessActive": {
+    "name": "jnxSpSvcSetIfNumTotalOtherIpv6SessActive",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfNumTotalTcpGatedSessActive": {
+    "name": "jnxSpSvcSetIfNumTotalTcpGatedSessActive",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfNumTotalUdpGatedSessActive": {
+    "name": "jnxSpSvcSetIfNumTotalUdpGatedSessActive",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfNumTotalTcpRegSessActive": {
+    "name": "jnxSpSvcSetIfNumTotalTcpRegSessActive",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfNumTotalUdpRegSessActive": {
+    "name": "jnxSpSvcSetIfNumTotalUdpRegSessActive",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfNumTotalTcpTunSessActive": {
+    "name": "jnxSpSvcSetIfNumTotalTcpTunSessActive",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfNumTotalUdpTunSessActive": {
+    "name": "jnxSpSvcSetIfNumTotalUdpTunSessActive",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfSessPktRecv": {
+    "name": "jnxSpSvcSetIfSessPktRecv",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfSessPktXmit": {
+    "name": "jnxSpSvcSetIfSessPktXmit",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfSessSlowPathDiscard": {
+    "name": "jnxSpSvcSetIfSessSlowPathDiscard",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfSessSlowPathForward": {
+    "name": "jnxSpSvcSetIfSessSlowPathForward",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfMspNumCreatedSubsPerSec": {
+    "name": "jnxSpSvcSetIfMspNumCreatedSubsPerSec",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfMspNumDeletedSubsPerSec": {
+    "name": "jnxSpSvcSetIfMspNumDeletedSubsPerSec",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfMspNumTotalSubsActive": {
+    "name": "jnxSpSvcSetIfMspNumTotalSubsActive",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfMspPeakCreatedSubsPerSec": {
+    "name": "jnxSpSvcSetIfMspPeakCreatedSubsPerSec",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfMspPeakDeletedSubsPerSec": {
+    "name": "jnxSpSvcSetIfMspPeakDeletedSubsPerSec",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpSvcSetIfMspPeakTotalSubsActive": {
+    "name": "jnxSpSvcSetIfMspPeakTotalSubsActive",
+    "oid": "1.3.6.1.4.1.2636.3.32.1.3.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSpNotificationPrefix": {
+    "name": "jnxSpNotificationPrefix",
+    "oid": "1.3.6.1.4.1.2636.4.10.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxSpSvcSetZoneEntered": {
+    "name": "jnxSpSvcSetZoneEntered",
+    "oid": "1.3.6.1.4.1.2636.4.10.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-SP-MIB",
+        "object": "jnxSpSvcSetIfMemoryZone"
+      },
+      {
+        "module": "JUNIPER-SP-MIB",
+        "object": "jnxSpSvcSetIfTableName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSpSvcSetZoneExited": {
+    "name": "jnxSpSvcSetZoneExited",
+    "oid": "1.3.6.1.4.1.2636.4.10.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-SP-MIB",
+        "object": "jnxSpSvcSetIfMemoryZone"
+      },
+      {
+        "module": "JUNIPER-SP-MIB",
+        "object": "jnxSpSvcSetIfTableName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSpSvcSetCpuExceeded": {
+    "name": "jnxSpSvcSetCpuExceeded",
+    "oid": "1.3.6.1.4.1.2636.4.10.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-SP-MIB",
+        "object": "jnxSpSvcSetIfCpuUtil"
+      },
+      {
+        "module": "JUNIPER-SP-MIB",
+        "object": "jnxSpSvcSetIfTableName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSpSvcSetCpuOk": {
+    "name": "jnxSpSvcSetCpuOk",
+    "oid": "1.3.6.1.4.1.2636.4.10.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-SP-MIB",
+        "object": "jnxSpSvcSetIfCpuUtil"
+      },
+      {
+        "module": "JUNIPER-SP-MIB",
+        "object": "jnxSpSvcSetIfTableName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSpSvcSetFlowLimitUtil": {
+    "name": "jnxSpSvcSetFlowLimitUtil",
+    "oid": "1.3.6.1.4.1.2636.3.32.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSpSvcSetNameUtil": {
+    "name": "jnxSpSvcSetNameUtil",
+    "oid": "1.3.6.1.4.1.2636.3.32.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSpTcpLoggingHostIpaddr": {
+    "name": "jnxSpTcpLoggingHostIpaddr",
+    "oid": "1.3.6.1.4.1.2636.3.32.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSpTcpLoggingHostPort": {
+    "name": "jnxSpTcpLoggingHostPort",
+    "oid": "1.3.6.1.4.1.2636.3.32.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSpTcpLoggingHostConnStatus": {
+    "name": "jnxSpTcpLoggingHostConnStatus",
+    "oid": "1.3.6.1.4.1.2636.3.32.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSpTcpLoggingHostRoutingInstance": {
+    "name": "jnxSpTcpLoggingHostRoutingInstance",
+    "oid": "1.3.6.1.4.1.2636.3.32.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSpSvcSetFlowLimitUtilized": {
+    "name": "jnxSpSvcSetFlowLimitUtilized",
+    "oid": "1.3.6.1.4.1.2636.4.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-SP-MIB",
+        "object": "jnxSpSvcSetFlowLimitUtil"
+      },
+      {
+        "module": "JUNIPER-SP-MIB",
+        "object": "jnxSpSvcSetNameUtil"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxSpSvcSetFlowLimitUtilised": {
+    "name": "jnxSpSvcSetFlowLimitUtilised",
+    "oid": "1.3.6.1.4.1.2636.4.10.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-SP-MIB",
+        "object": "jnxSpSvcSetFlowLimitUtil"
+      },
+      {
+        "module": "JUNIPER-SP-MIB",
+        "object": "jnxSpSvcSetNameUtil"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSpTcpLoggingHostStatus": {
+    "name": "jnxSpTcpLoggingHostStatus",
+    "oid": "1.3.6.1.4.1.2636.4.10.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-SP-MIB",
+        "object": "jnxSpTcpLoggingHostIpaddr"
+      },
+      {
+        "module": "JUNIPER-SP-MIB",
+        "object": "jnxSpTcpLoggingHostPort"
+      },
+      {
+        "module": "JUNIPER-SP-MIB",
+        "object": "jnxSpTcpLoggingHostConnStatus"
+      },
+      {
+        "module": "JUNIPER-SP-MIB",
+        "object": "jnxSpTcpLoggingHostRoutingInstance"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-SP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-SP-MIB"
+  }
+}

@@ -1,0 +1,2366 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifDescr",
+      "ifIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrNone",
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hwL2Mgmt": {
+    "name": "hwL2Mgmt",
+    "oid": "1.3.6.1.4.1.2011.5.25.42",
+    "class": "objectidentity"
+  },
+  "hwL2IfMib": {
+    "name": "hwL2IfMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-08-17 09:00",
+        "description": "Modify descriptions of the nodes."
+      },
+      {
+        "revision": "2016-11-22 09:00",
+        "description": "Add hwL2IfActivePortType."
+      },
+      {
+        "revision": "2013-08-06 09:00",
+        "description": "Add hwL2IfActivePortType."
+      },
+      {
+        "revision": "2013-07-24 09:00",
+        "description": "Add two l2ifport types:desirable(6),auto(7)."
+      }
+    ]
+  },
+  "VlanList": {
+    "name": "VlanList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "hwL2IfObjects": {
+    "name": "hwL2IfObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1",
+    "class": "objectidentity"
+  },
+  "hwL2Interface": {
+    "name": "hwL2Interface",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1",
+    "class": "objectidentity"
+  },
+  "hwL2IfPortMax": {
+    "name": "hwL2IfPortMax",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2TopologyDetect": {
+    "name": "hwL2TopologyDetect",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfTable": {
+    "name": "hwL2IfTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfEntry": {
+    "name": "hwL2IfEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfPortNum": {
+    "name": "hwL2IfPortNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfPortIfIndex": {
+    "name": "hwL2IfPortIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2IfPortType": {
+    "name": "hwL2IfPortType",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "trunk": 1,
+          "access": 2,
+          "hybrid": 3,
+          "fabric": 4,
+          "qinq": 5,
+          "desirable": 6,
+          "auto": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfPVID": {
+    "name": "hwL2IfPVID",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfIsSrcMacFilter": {
+    "name": "hwL2IfIsSrcMacFilter",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2IfMacAddrLearnMode": {
+    "name": "hwL2IfMacAddrLearnMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "iVL": 1,
+          "sVL": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2IfMacAddressLearn": {
+    "name": "hwL2IfMacAddressLearn",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "discard": 3,
+          "invalid": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfBcastRatio": {
+    "name": "hwL2IfBcastRatio",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfMcastRatio": {
+    "name": "hwL2IfMcastRatio",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfUcastRatio": {
+    "name": "hwL2IfUcastRatio",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfOutBcastRatio": {
+    "name": "hwL2IfOutBcastRatio",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfOutMcastRatio": {
+    "name": "hwL2IfOutMcastRatio",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfOutUcastRatio": {
+    "name": "hwL2IfOutUcastRatio",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfDiscardBcast": {
+    "name": "hwL2IfDiscardBcast",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfDiscardUnknownMcast": {
+    "name": "hwL2IfDiscardUnknownMcast",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfDiscardUnknownUcast": {
+    "name": "hwL2IfDiscardUnknownUcast",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfBpdu": {
+    "name": "hwL2IfBpdu",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfPortPriority": {
+    "name": "hwL2IfPortPriority",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfPortName": {
+    "name": "hwL2IfPortName",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2IfInInvalidVlanPkts": {
+    "name": "hwL2IfInInvalidVlanPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2IfFlushEnable": {
+    "name": "hwL2IfFlushEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfFlushControlVlan": {
+    "name": "hwL2IfFlushControlVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfCurrentInBcastPercent": {
+    "name": "hwL2IfCurrentInBcastPercent",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfCurrentOutBcastPercent": {
+    "name": "hwL2IfCurrentOutBcastPercent",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfQinqVlanTransEnable": {
+    "name": "hwL2IfQinqVlanTransEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfQinqVlanTransMissDrop": {
+    "name": "hwL2IfQinqVlanTransMissDrop",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noDrop": 1,
+          "drop": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfIpSubnetVlanEnable": {
+    "name": "hwL2IfIpSubnetVlanEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfMacVlanEnable": {
+    "name": "hwL2IfMacVlanEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfPolicyVlanEnable": {
+    "name": "hwL2IfPolicyVlanEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfVlanPrecedence": {
+    "name": "hwL2IfVlanPrecedence",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfIsolateGroupEnable": {
+    "name": "hwL2IfIsolateGroupEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfActivePortType": {
+    "name": "hwL2IfActivePortType",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "trunk": 1,
+          "access": 2,
+          "hybrid": 3,
+          "fabric": 4,
+          "qinq": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2IfHybridPortTable": {
+    "name": "hwL2IfHybridPortTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfHybridPortEntry": {
+    "name": "hwL2IfHybridPortEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfHybridPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfHybridPortIndex": {
+    "name": "hwL2IfHybridPortIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfHybridTaggedVlanListLow": {
+    "name": "hwL2IfHybridTaggedVlanListLow",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfHybridTaggedVlanListHigh": {
+    "name": "hwL2IfHybridTaggedVlanListHigh",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfHybridUnTaggedVlanListLow": {
+    "name": "hwL2IfHybridUnTaggedVlanListLow",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfHybridUnTaggedVlanListHigh": {
+    "name": "hwL2IfHybridUnTaggedVlanListHigh",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfTrunkPortTable": {
+    "name": "hwL2IfTrunkPortTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfTrunkPortEntry": {
+    "name": "hwL2IfTrunkPortEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfTrunkPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfTrunkPortIndex": {
+    "name": "hwL2IfTrunkPortIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfTrunkAllowPassVlanListLow": {
+    "name": "hwL2IfTrunkAllowPassVlanListLow",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfTrunkAllowPassVlanListHigh": {
+    "name": "hwL2IfTrunkAllowPassVlanListHigh",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfPortIsolateTable": {
+    "name": "hwL2IfPortIsolateTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfPortIsolateEntry": {
+    "name": "hwL2IfPortIsolateEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortIsolatePortIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortIsolateSIName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfPortIsolatePortIndex": {
+    "name": "hwL2IfPortIsolatePortIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfPortIsolateSIName": {
+    "name": "hwL2IfPortIsolateSIName",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfPortIsolateRowStatus": {
+    "name": "hwL2IfPortIsolateRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwL2IfSuppressionTable": {
+    "name": "hwL2IfSuppressionTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfSuppressionEntry": {
+    "name": "hwL2IfSuppressionEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfSuppressionPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfSuppressionType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfSuppressionPortIndex": {
+    "name": "hwL2IfSuppressionPortIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfSuppressionType": {
+    "name": "hwL2IfSuppressionType",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "broadcast": 1,
+          "multicast": 2,
+          "unicast": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfSuppressionCir": {
+    "name": "hwL2IfSuppressionCir",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwL2IfSuppressionCbs": {
+    "name": "hwL2IfSuppressionCbs",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2048,
+            "max": 64000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwL2IfSuppressionRowStatus": {
+    "name": "hwL2IfSuppressionRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwL2IfVlanSuppressionTable": {
+    "name": "hwL2IfVlanSuppressionTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfVlanSuppressionEntry": {
+    "name": "hwL2IfVlanSuppressionEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfVlanSuppressionPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfVlanSuppressionStartVlan",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfVlanSuppressionEndVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfVlanSuppressionPortIndex": {
+    "name": "hwL2IfVlanSuppressionPortIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfVlanSuppressionStartVlan": {
+    "name": "hwL2IfVlanSuppressionStartVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfVlanSuppressionEndVlan": {
+    "name": "hwL2IfVlanSuppressionEndVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfVlanSuppressionCir": {
+    "name": "hwL2IfVlanSuppressionCir",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwL2IfVlanSuppressionCbs": {
+    "name": "hwL2IfVlanSuppressionCbs",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2048,
+            "max": 64000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwL2IfVlanSuppressionRowStatus": {
+    "name": "hwL2IfVlanSuppressionRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwL2IfPortTcnTable": {
+    "name": "hwL2IfPortTcnTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfPortTcnEntry": {
+    "name": "hwL2IfPortTcnEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfTcnPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfTcnPortIndex": {
+    "name": "hwL2IfTcnPortIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfTcnStp": {
+    "name": "hwL2IfTcnStp",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfTcnSmartLink": {
+    "name": "hwL2IfTcnSmartLink",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfTcnVlanListLow": {
+    "name": "hwL2IfTcnVlanListLow",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfTcnVlanListHigh": {
+    "name": "hwL2IfTcnVlanListHigh",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfPortLoopDetectTable": {
+    "name": "hwL2IfPortLoopDetectTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfPortLoopDetectEntry": {
+    "name": "hwL2IfPortLoopDetectEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortLoopDetectPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfPortLoopDetectPort": {
+    "name": "hwL2IfPortLoopDetectPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfPortLoopDetectEnabled": {
+    "name": "hwL2IfPortLoopDetectEnabled",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfPortLoopDetectInterval": {
+    "name": "hwL2IfPortLoopDetectInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfPortLoopDetectAction": {
+    "name": "hwL2IfPortLoopDetectAction",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "shutdown": 1,
+          "block": 2,
+          "trap": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfPortLoopDetectStatus": {
+    "name": "hwL2IfPortLoopDetectStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "block": 2,
+          "shutdown": 3,
+          "trap": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2IfPortLoopDetectProtocol": {
+    "name": "hwL2IfPortLoopDetectProtocol",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfPortProtocolVlanDataTable": {
+    "name": "hwL2IfPortProtocolVlanDataTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfPortProtocolVlanDataEntry": {
+    "name": "hwL2IfPortProtocolVlanDataEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortProtocolVlanDataPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfPortProtocolVlanDataPortIndex": {
+    "name": "hwL2IfPortProtocolVlanDataPortIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 479
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfPortProtocolVlanDataVlan": {
+    "name": "hwL2IfPortProtocolVlanDataVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwL2IfPortProtocolVlanDataPri": {
+    "name": "hwL2IfPortProtocolVlanDataPri",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwL2IfPortProtocolVlanDataRowStatus": {
+    "name": "hwL2IfPortProtocolVlanDataRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwL2IfPwSuppressionTable": {
+    "name": "hwL2IfPwSuppressionTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfPwSuppressionEntry": {
+    "name": "hwL2IfPwSuppressionEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPwSuppressionVsiName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPwSuppressionPwName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPwSuppressionType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfPwSuppressionVsiName": {
+    "name": "hwL2IfPwSuppressionVsiName",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfPwSuppressionPwName": {
+    "name": "hwL2IfPwSuppressionPwName",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfPwSuppressionType": {
+    "name": "hwL2IfPwSuppressionType",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "broadcast": 1,
+          "multicast": 2,
+          "unicast": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfPwSuppressionCir": {
+    "name": "hwL2IfPwSuppressionCir",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwL2IfPwSuppressionCbs": {
+    "name": "hwL2IfPwSuppressionCbs",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 33554432
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwL2IfPwSuppressionRowStatus": {
+    "name": "hwL2IfPwSuppressionRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.17.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwL2IfLoopDetectInterval": {
+    "name": "hwL2IfLoopDetectInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2IfDynamicPortVlanTable": {
+    "name": "hwL2IfDynamicPortVlanTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfDynamicPortVlanEntry": {
+    "name": "hwL2IfDynamicPortVlanEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfDynamicPortVlanPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfDynamicPortVlanServiceType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfDynamicPortVlanPortIndex": {
+    "name": "hwL2IfDynamicPortVlanPortIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfDynamicPortVlanServiceType": {
+    "name": "hwL2IfDynamicPortVlanServiceType",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configured": 1,
+          "gvrp": 2,
+          "voiceVLAN": 3,
+          "unAuthenUserVLAN": 4,
+          "dynAuthenVLAN": 5,
+          "hvrp": 6,
+          "elmi": 7,
+          "macFlapping": 8,
+          "loopbackDetect": 9,
+          "loopDetection": 10
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2IfDynamicPortVlanPvid": {
+    "name": "hwL2IfDynamicPortVlanPvid",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2IfDynamicPortVlanUntaggedVlanListLow": {
+    "name": "hwL2IfDynamicPortVlanUntaggedVlanListLow",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2IfDynamicPortVlanUntaggedVlanListHigh": {
+    "name": "hwL2IfDynamicPortVlanUntaggedVlanListHigh",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2IfDynamicPortVlanTaggedVlanListLow": {
+    "name": "hwL2IfDynamicPortVlanTaggedVlanListLow",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.19.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2IfDynamicPortVlanTaggedVlanListHigh": {
+    "name": "hwL2IfDynamicPortVlanTaggedVlanListHigh",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.1.19.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2IfTraps": {
+    "name": "hwL2IfTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.2",
+    "class": "objectidentity"
+  },
+  "hwL2IfInvalidVlanPacketAlarm": {
+    "name": "hwL2IfInvalidVlanPacketAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortName"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfInInvalidVlanPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "hwInBcastRisingThreshold": {
+    "name": "hwInBcastRisingThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.1.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortLoopDetectStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfConformance": {
+    "name": "hwL2IfConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.2",
+    "class": "objectidentity"
+  },
+  "hwL2IfCompliances": {
+    "name": "hwL2IfCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.2.1",
+    "class": "objectidentity"
+  },
+  "hwL2IfMacAddrGroup": {
+    "name": "hwL2IfMacAddrGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfMacAddrLearnMode"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfMacAddressLearn"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfBroadcastRatioGroup": {
+    "name": "hwL2IfBroadcastRatioGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfBcastRatio"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfMcastRatio"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfUcastRatio"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfOutBcastRatio"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfOutMcastRatio"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfOutUcastRatio"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfHybridTaggedVlanGroup": {
+    "name": "hwL2IfHybridTaggedVlanGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfHybridTaggedVlanListLow"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfHybridTaggedVlanListHigh"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfHybridUnTaggedVlanListLow"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfHybridUnTaggedVlanListHigh"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfTrunkAllowPassVlanListGroup": {
+    "name": "hwL2IfTrunkAllowPassVlanListGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfTrunkAllowPassVlanListLow"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfTrunkAllowPassVlanListHigh"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfPortGroup": {
+    "name": "hwL2IfPortGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfIsSrcMacFilter"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfPVIDGroup": {
+    "name": "hwL2IfPVIDGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPVID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfPortTypeGroup": {
+    "name": "hwL2IfPortTypeGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortType"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfActivePortType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfPortMaxGroup": {
+    "name": "hwL2IfPortMaxGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortMax"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2TopologyDetect"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfPortExtGroup": {
+    "name": "hwL2IfPortExtGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfBpdu"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfDiscardBcast"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfDiscardUnknownMcast"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfDiscardUnknownUcast"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortPriority"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortName"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfInInvalidVlanPkts"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfFlushEnable"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfFlushControlVlan"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfCurrentInBcastPercent"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfCurrentOutBcastPercent"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfQinqVlanTransEnable"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfQinqVlanTransMissDrop"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfIpSubnetVlanEnable"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfMacVlanEnable"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPolicyVlanEnable"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfVlanPrecedence"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfIsolateGroupEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfPortIsolateGroup": {
+    "name": "hwL2IfPortIsolateGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortIsolateRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfAlarmGroup": {
+    "name": "hwL2IfAlarmGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.2.2.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfInvalidVlanPacketAlarm"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwInBcastRisingThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfSuppressionGroup": {
+    "name": "hwL2IfSuppressionGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfSuppressionCir"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfSuppressionCbs"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfSuppressionRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfVlanSuppressionGroup": {
+    "name": "hwL2IfVlanSuppressionGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfVlanSuppressionCir"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfVlanSuppressionCbs"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfVlanSuppressionRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfPortTcnGroup": {
+    "name": "hwL2IfPortTcnGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfTcnStp"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfTcnSmartLink"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfTcnVlanListLow"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfTcnVlanListHigh"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfPortLoopDetectGroup": {
+    "name": "hwL2IfPortLoopDetectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortLoopDetectEnabled"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortLoopDetectInterval"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortLoopDetectAction"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortLoopDetectStatus"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortLoopDetectProtocol"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfLoopDetectInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfPortProtocolVlanDataGroup": {
+    "name": "hwL2IfPortProtocolVlanDataGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortProtocolVlanDataVlan"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortProtocolVlanDataPri"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortProtocolVlanDataRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfPwSuppressionGroup": {
+    "name": "hwL2IfPwSuppressionGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPwSuppressionCir"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPwSuppressionCbs"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPwSuppressionRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfDynamicPortVlanTableGroup": {
+    "name": "hwL2IfDynamicPortVlanTableGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.2.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfDynamicPortVlanPvid"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfDynamicPortVlanUntaggedVlanListLow"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfDynamicPortVlanUntaggedVlanListHigh"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfDynamicPortVlanTaggedVlanListLow"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfDynamicPortVlanTaggedVlanListHigh"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfCompliance": {
+    "name": "hwL2IfCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwL2IfMacAddrGroup",
+        "module": "HUAWEI-L2IF-MIB"
+      },
+      {
+        "object": "hwL2IfBroadcastRatioGroup",
+        "module": "HUAWEI-L2IF-MIB"
+      },
+      {
+        "object": "hwL2IfHybridTaggedVlanGroup",
+        "module": "HUAWEI-L2IF-MIB"
+      },
+      {
+        "object": "hwL2IfTrunkAllowPassVlanListGroup",
+        "module": "HUAWEI-L2IF-MIB"
+      },
+      {
+        "object": "hwL2IfPortGroup",
+        "module": "HUAWEI-L2IF-MIB"
+      },
+      {
+        "object": "hwL2IfPVIDGroup",
+        "module": "HUAWEI-L2IF-MIB"
+      },
+      {
+        "object": "hwL2IfPortTypeGroup",
+        "module": "HUAWEI-L2IF-MIB"
+      },
+      {
+        "object": "hwL2IfPortMaxGroup",
+        "module": "HUAWEI-L2IF-MIB"
+      },
+      {
+        "object": "hwL2IfPortExtGroup",
+        "module": "HUAWEI-L2IF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2IfGroups": {
+    "name": "hwL2IfGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.1.2.2",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-L2IF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-L2IF-MIB"
+  }
+}

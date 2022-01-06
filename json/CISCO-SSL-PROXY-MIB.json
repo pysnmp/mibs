@@ -1,0 +1,4863 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoPort"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoSslProxyMIB": {
+    "name": "ciscoSslProxyMIB",
+    "oid": "1.3.6.1.4.1.9.9.370",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-09-18 00:00",
+        "description": "Added the following mib groups: cspSslResourceLimitNotifGroup cspSslResourceLimitNotifObjectsGroup"
+      },
+      {
+        "revision": "2009-09-22 00:00",
+        "description": "Added following OBJECT IDENTIFIER. - cspHttpHeaderInsertedInfo - cspHttpRedirectInfo - cspHttpHeaderInsertedSslInfoStats - cspHttpHeaderInsertedSslClientCertStats - cspHttpRedirectClientCertAuthFailedStats Added the following OBJECT-GROUPs - cspHttpHeaderInsertedSslInfoGroup - cspHttpHeaderInsertedSslClientCertGroup - cspHttpRedirectInfoGroup Deprecated MODULE-COMPLIANCE cspMIBCompliance Added new MODULE-COMPLIANCE cspMIBComplianceRev1"
+      },
+      {
+        "revision": "2003-10-27 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cspMIBNotifications": {
+    "name": "cspMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.370.0",
+    "class": "objectidentity"
+  },
+  "cspMIBObjects": {
+    "name": "cspMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.370.1",
+    "class": "objectidentity"
+  },
+  "cspMIBConformance": {
+    "name": "cspMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.370.2",
+    "class": "objectidentity"
+  },
+  "cspGlobalConfig": {
+    "name": "cspGlobalConfig",
+    "oid": "1.3.6.1.4.1.9.9.370.1.1",
+    "class": "objectidentity"
+  },
+  "cspPsConfig": {
+    "name": "cspPsConfig",
+    "oid": "1.3.6.1.4.1.9.9.370.1.2",
+    "class": "objectidentity"
+  },
+  "cspPsPolicyConfig": {
+    "name": "cspPsPolicyConfig",
+    "oid": "1.3.6.1.4.1.9.9.370.1.3",
+    "class": "objectidentity"
+  },
+  "cspPsKeyCertConfig": {
+    "name": "cspPsKeyCertConfig",
+    "oid": "1.3.6.1.4.1.9.9.370.1.4",
+    "class": "objectidentity"
+  },
+  "cspTcpPolicyConfig": {
+    "name": "cspTcpPolicyConfig",
+    "oid": "1.3.6.1.4.1.9.9.370.1.5",
+    "class": "objectidentity"
+  },
+  "cspSslPolicyConfig": {
+    "name": "cspSslPolicyConfig",
+    "oid": "1.3.6.1.4.1.9.9.370.1.6",
+    "class": "objectidentity"
+  },
+  "cspTcpCountersInfo": {
+    "name": "cspTcpCountersInfo",
+    "oid": "1.3.6.1.4.1.9.9.370.1.7",
+    "class": "objectidentity"
+  },
+  "cspTcpCounters": {
+    "name": "cspTcpCounters",
+    "oid": "1.3.6.1.4.1.9.9.370.1.8",
+    "class": "objectidentity"
+  },
+  "cspSslCountersInfo": {
+    "name": "cspSslCountersInfo",
+    "oid": "1.3.6.1.4.1.9.9.370.1.9",
+    "class": "objectidentity"
+  },
+  "cspSslCounters": {
+    "name": "cspSslCounters",
+    "oid": "1.3.6.1.4.1.9.9.370.1.10",
+    "class": "objectidentity"
+  },
+  "cspSsl3Counters": {
+    "name": "cspSsl3Counters",
+    "oid": "1.3.6.1.4.1.9.9.370.1.11",
+    "class": "objectidentity"
+  },
+  "cspTls1Counters": {
+    "name": "cspTls1Counters",
+    "oid": "1.3.6.1.4.1.9.9.370.1.12",
+    "class": "objectidentity"
+  },
+  "cspSslCryptoCounters": {
+    "name": "cspSslCryptoCounters",
+    "oid": "1.3.6.1.4.1.9.9.370.1.13",
+    "class": "objectidentity"
+  },
+  "cspSslErrorCounters": {
+    "name": "cspSslErrorCounters",
+    "oid": "1.3.6.1.4.1.9.9.370.1.14",
+    "class": "objectidentity"
+  },
+  "cspPsCounters": {
+    "name": "cspPsCounters",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15",
+    "class": "objectidentity"
+  },
+  "cspPsSsl3Counters": {
+    "name": "cspPsSsl3Counters",
+    "oid": "1.3.6.1.4.1.9.9.370.1.16",
+    "class": "objectidentity"
+  },
+  "cspPsTls1Counters": {
+    "name": "cspPsTls1Counters",
+    "oid": "1.3.6.1.4.1.9.9.370.1.17",
+    "class": "objectidentity"
+  },
+  "cspCpuStatusInfo": {
+    "name": "cspCpuStatusInfo",
+    "oid": "1.3.6.1.4.1.9.9.370.1.18",
+    "class": "objectidentity"
+  },
+  "cspHttpHeaderInsertedInfo": {
+    "name": "cspHttpHeaderInsertedInfo",
+    "oid": "1.3.6.1.4.1.9.9.370.1.19",
+    "class": "objectidentity"
+  },
+  "cspHttpRedirectInfo": {
+    "name": "cspHttpRedirectInfo",
+    "oid": "1.3.6.1.4.1.9.9.370.1.20",
+    "class": "objectidentity"
+  },
+  "cspSslResourceNotifInfo": {
+    "name": "cspSslResourceNotifInfo",
+    "oid": "1.3.6.1.4.1.9.9.370.1.21",
+    "class": "objectidentity"
+  },
+  "cspHttpHeaderInsertedSslInfoStats": {
+    "name": "cspHttpHeaderInsertedSslInfoStats",
+    "oid": "1.3.6.1.4.1.9.9.370.1.19.1",
+    "class": "objectidentity"
+  },
+  "cspHttpHeaderInsertedSslClientCertStats": {
+    "name": "cspHttpHeaderInsertedSslClientCertStats",
+    "oid": "1.3.6.1.4.1.9.9.370.1.19.2",
+    "class": "objectidentity"
+  },
+  "cspHttpRedirectClientCertAuthFailedStats": {
+    "name": "cspHttpRedirectClientCertAuthFailedStats",
+    "oid": "1.3.6.1.4.1.9.9.370.1.20.1",
+    "class": "objectidentity"
+  },
+  "cspGcVersion": {
+    "name": "cspGcVersion",
+    "oid": "1.3.6.1.4.1.9.9.370.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspGcFIPSMode": {
+    "name": "cspGcFIPSMode",
+    "oid": "1.3.6.1.4.1.9.9.370.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cspGcRSArc4128md5": {
+    "name": "cspGcRSArc4128md5",
+    "oid": "1.3.6.1.4.1.9.9.370.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspGcRSArc4128sha": {
+    "name": "cspGcRSArc4128sha",
+    "oid": "1.3.6.1.4.1.9.9.370.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspGcRSAdescbcsha": {
+    "name": "cspGcRSAdescbcsha",
+    "oid": "1.3.6.1.4.1.9.9.370.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspGcRSA3descbcsha": {
+    "name": "cspGcRSA3descbcsha",
+    "oid": "1.3.6.1.4.1.9.9.370.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspGcNotifyProxyServOperStatus": {
+    "name": "cspGcNotifyProxyServOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.370.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cspGcNotifyPSCertExpiring": {
+    "name": "cspGcNotifyPSCertExpiring",
+    "oid": "1.3.6.1.4.1.9.9.370.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cspGcPSCertExpireInterval": {
+    "name": "cspGcPSCertExpireInterval",
+    "oid": "1.3.6.1.4.1.9.9.370.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 720
+          }
+        ]
+      }
+    },
+    "units": "hours",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cspPsTable": {
+    "name": "cspPsTable",
+    "oid": "1.3.6.1.4.1.9.9.370.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cspPsEntry": {
+    "name": "cspPsEntry",
+    "oid": "1.3.6.1.4.1.9.9.370.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPsName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPsListIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cspPsName": {
+    "name": "cspPsName",
+    "oid": "1.3.6.1.4.1.9.9.370.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cspPsListIndex": {
+    "name": "cspPsListIndex",
+    "oid": "1.3.6.1.4.1.9.9.370.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cspPsServiceType": {
+    "name": "cspPsServiceType",
+    "oid": "1.3.6.1.4.1.9.9.370.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "server": 1,
+          "client": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "server",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspPsVirtualAddressType": {
+    "name": "cspPsVirtualAddressType",
+    "oid": "1.3.6.1.4.1.9.9.370.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspPsVirtualAddress": {
+    "name": "cspPsVirtualAddress",
+    "oid": "1.3.6.1.4.1.9.9.370.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspPsVirtualPort": {
+    "name": "cspPsVirtualPort",
+    "oid": "1.3.6.1.4.1.9.9.370.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspPsServerAddressType": {
+    "name": "cspPsServerAddressType",
+    "oid": "1.3.6.1.4.1.9.9.370.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspPsServerAddress": {
+    "name": "cspPsServerAddress",
+    "oid": "1.3.6.1.4.1.9.9.370.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspPsServerPort": {
+    "name": "cspPsServerPort",
+    "oid": "1.3.6.1.4.1.9.9.370.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspPsAdminStatus": {
+    "name": "cspPsAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.370.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspPsOperStatus": {
+    "name": "cspPsOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.370.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPsOperDownReason": {
+    "name": "cspPsOperDownReason",
+    "oid": "1.3.6.1.4.1.9.9.370.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "notApplicable": 2,
+          "noConnectivity": 3,
+          "noVirtualAddr": 4,
+          "noServerAddr": 5,
+          "noCert": 6,
+          "certNotConfigured": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPsConfigRowStatus": {
+    "name": "cspPsConfigRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.370.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspPsPolicyTable": {
+    "name": "cspPsPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.370.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cspPsPolicyEntry": {
+    "name": "cspPsPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.370.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cspPsPolicyEntry",
+      "module": "CISCO-SSL-PROXY-MIB",
+      "object": "cspPsEntry"
+    },
+    "status": "current"
+  },
+  "cspPspVirTcpPolicyName": {
+    "name": "cspPspVirTcpPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.370.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspPspSerTcpPolicyName": {
+    "name": "cspPspSerTcpPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.370.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspPspSslPolicyName": {
+    "name": "cspPspSslPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.370.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspPspHttpHdrPolicyName": {
+    "name": "cspPspHttpHdrPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.370.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspPspUrlRewritePolicyName": {
+    "name": "cspPspUrlRewritePolicyName",
+    "oid": "1.3.6.1.4.1.9.9.370.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspPsKeyCertTable": {
+    "name": "cspPsKeyCertTable",
+    "oid": "1.3.6.1.4.1.9.9.370.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cspPsKeyCertEntry": {
+    "name": "cspPsKeyCertEntry",
+    "oid": "1.3.6.1.4.1.9.9.370.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPsName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPsListIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPskcKeyUsage",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cspPskcKeyUsage": {
+    "name": "cspPskcKeyUsage",
+    "oid": "1.3.6.1.4.1.9.9.370.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rsaSigning": 1,
+          "rsaEncryption": 2,
+          "rsaGeneralPurpose": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cspPskcTrustPointName": {
+    "name": "cspPskcTrustPointName",
+    "oid": "1.3.6.1.4.1.9.9.370.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspPskcCertFileName": {
+    "name": "cspPskcCertFileName",
+    "oid": "1.3.6.1.4.1.9.9.370.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspPskcKeyName": {
+    "name": "cspPskcKeyName",
+    "oid": "1.3.6.1.4.1.9.9.370.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspPskcKeyFileName": {
+    "name": "cspPskcKeyFileName",
+    "oid": "1.3.6.1.4.1.9.9.370.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspPskcKeySize": {
+    "name": "cspPskcKeySize",
+    "oid": "1.3.6.1.4.1.9.9.370.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "rsa512": 2,
+          "rsa768": 3,
+          "rsa1024": 4,
+          "rsa1536": 5,
+          "rsa2048": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPskcKeyTime": {
+    "name": "cspPskcKeyTime",
+    "oid": "1.3.6.1.4.1.9.9.370.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPskcCertStatus": {
+    "name": "cspPskcCertStatus",
+    "oid": "1.3.6.1.4.1.9.9.370.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "expired": 2,
+          "rollover": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPskcCertSubjName": {
+    "name": "cspPskcCertSubjName",
+    "oid": "1.3.6.1.4.1.9.9.370.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPskcCertSerialNum": {
+    "name": "cspPskcCertSerialNum",
+    "oid": "1.3.6.1.4.1.9.9.370.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPskcIssuerName": {
+    "name": "cspPskcIssuerName",
+    "oid": "1.3.6.1.4.1.9.9.370.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPskcIssuerCertSerialNum": {
+    "name": "cspPskcIssuerCertSerialNum",
+    "oid": "1.3.6.1.4.1.9.9.370.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPskcCertStartDate": {
+    "name": "cspPskcCertStartDate",
+    "oid": "1.3.6.1.4.1.9.9.370.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPskcCertEndDate": {
+    "name": "cspPskcCertEndDate",
+    "oid": "1.3.6.1.4.1.9.9.370.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPskcConfigRowStatus": {
+    "name": "cspPskcConfigRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.370.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspTcpPolicyTable": {
+    "name": "cspTcpPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.370.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cspTcpPolicyEntry": {
+    "name": "cspTcpPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.370.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTpPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cspTpPolicyName": {
+    "name": "cspTpPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.370.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cspTpSynTimeOut": {
+    "name": "cspTpSynTimeOut",
+    "oid": "1.3.6.1.4.1.9.9.370.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 75,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspTpInActivityTimeOut": {
+    "name": "cspTpInActivityTimeOut",
+    "oid": "1.3.6.1.4.1.9.9.370.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspTpNagleAlgo": {
+    "name": "cspTpNagleAlgo",
+    "oid": "1.3.6.1.4.1.9.9.370.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspTpFinWaitTimeOut": {
+    "name": "cspTpFinWaitTimeOut",
+    "oid": "1.3.6.1.4.1.9.9.370.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 75,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspTpReassemTimeOut": {
+    "name": "cspTpReassemTimeOut",
+    "oid": "1.3.6.1.4.1.9.9.370.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspTpRcvBufShrLim": {
+    "name": "cspTpRcvBufShrLim",
+    "oid": "1.3.6.1.4.1.9.9.370.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8192,
+            "max": 262144
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32768,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspTpTransBufShrLim": {
+    "name": "cspTpTransBufShrLim",
+    "oid": "1.3.6.1.4.1.9.9.370.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8192,
+            "max": 262144
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32768,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspTpMss": {
+    "name": "cspTpMss",
+    "oid": "1.3.6.1.4.1.9.9.370.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 256,
+            "max": 1460
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1460,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspTpPathMtuDisc": {
+    "name": "cspTpPathMtuDisc",
+    "oid": "1.3.6.1.4.1.9.9.370.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspTpConfigRowStatus": {
+    "name": "cspTpConfigRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.370.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspSslPolicyTable": {
+    "name": "cspSslPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.370.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cspSslPolicyEntry": {
+    "name": "cspSslPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.370.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSpPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cspSpPolicyName": {
+    "name": "cspSpPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.370.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cspSpRSArc4128md5": {
+    "name": "cspSpRSArc4128md5",
+    "oid": "1.3.6.1.4.1.9.9.370.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspSpRSArc4128sha": {
+    "name": "cspSpRSArc4128sha",
+    "oid": "1.3.6.1.4.1.9.9.370.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspSpRSAdescbcsha": {
+    "name": "cspSpRSAdescbcsha",
+    "oid": "1.3.6.1.4.1.9.9.370.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspSpRSA3descbcsha": {
+    "name": "cspSpRSA3descbcsha",
+    "oid": "1.3.6.1.4.1.9.9.370.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspSpProtocol": {
+    "name": "cspSpProtocol",
+    "oid": "1.3.6.1.4.1.9.9.370.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ssl3": 2,
+          "tls1": 3,
+          "ssl3AndTls1": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspSpCloseProtocol": {
+    "name": "cspSpCloseProtocol",
+    "oid": "1.3.6.1.4.1.9.9.370.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspSpSessionCache": {
+    "name": "cspSpSessionCache",
+    "oid": "1.3.6.1.4.1.9.9.370.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 262143
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspSpSessionTimeOut": {
+    "name": "cspSpSessionTimeOut",
+    "oid": "1.3.6.1.4.1.9.9.370.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 72000
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspSpConfigRowStatus": {
+    "name": "cspSpConfigRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.370.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cspTcpCountersClearTime": {
+    "name": "cspTcpCountersClearTime",
+    "oid": "1.3.6.1.4.1.9.9.370.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTcConnInit": {
+    "name": "cspTcConnInit",
+    "oid": "1.3.6.1.4.1.9.9.370.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTcConnAccept": {
+    "name": "cspTcConnAccept",
+    "oid": "1.3.6.1.4.1.9.9.370.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTcConnEstab": {
+    "name": "cspTcConnEstab",
+    "oid": "1.3.6.1.4.1.9.9.370.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTcConnDrop": {
+    "name": "cspTcConnDrop",
+    "oid": "1.3.6.1.4.1.9.9.370.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTcConnClosed": {
+    "name": "cspTcConnClosed",
+    "oid": "1.3.6.1.4.1.9.9.370.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTcSynTimeOuts": {
+    "name": "cspTcSynTimeOuts",
+    "oid": "1.3.6.1.4.1.9.9.370.1.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTcIdleTimeOuts": {
+    "name": "cspTcIdleTimeOuts",
+    "oid": "1.3.6.1.4.1.9.9.370.1.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTcTotalPktSent": {
+    "name": "cspTcTotalPktSent",
+    "oid": "1.3.6.1.4.1.9.9.370.1.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTcDataPktSent": {
+    "name": "cspTcDataPktSent",
+    "oid": "1.3.6.1.4.1.9.9.370.1.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTcDataByteSent": {
+    "name": "cspTcDataByteSent",
+    "oid": "1.3.6.1.4.1.9.9.370.1.8.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTcTotalPktRcv": {
+    "name": "cspTcTotalPktRcv",
+    "oid": "1.3.6.1.4.1.9.9.370.1.8.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTcPktRcvSeq": {
+    "name": "cspTcPktRcvSeq",
+    "oid": "1.3.6.1.4.1.9.9.370.1.8.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTcByteRcvSeq": {
+    "name": "cspTcByteRcvSeq",
+    "oid": "1.3.6.1.4.1.9.9.370.1.8.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSslCountersClearTime": {
+    "name": "cspSslCountersClearTime",
+    "oid": "1.3.6.1.4.1.9.9.370.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspScConnAttempt": {
+    "name": "cspScConnAttempt",
+    "oid": "1.3.6.1.4.1.9.9.370.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspScConnComplete": {
+    "name": "cspScConnComplete",
+    "oid": "1.3.6.1.4.1.9.9.370.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspScConnInHandShake": {
+    "name": "cspScConnInHandShake",
+    "oid": "1.3.6.1.4.1.9.9.370.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspScConnInDataPhase": {
+    "name": "cspScConnInDataPhase",
+    "oid": "1.3.6.1.4.1.9.9.370.1.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspScRenegAttempt": {
+    "name": "cspScRenegAttempt",
+    "oid": "1.3.6.1.4.1.9.9.370.1.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspScConnInReneg": {
+    "name": "cspScConnInReneg",
+    "oid": "1.3.6.1.4.1.9.9.370.1.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspScActiveSessions": {
+    "name": "cspScActiveSessions",
+    "oid": "1.3.6.1.4.1.9.9.370.1.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspScMaxHandShakeConns": {
+    "name": "cspScMaxHandShakeConns",
+    "oid": "1.3.6.1.4.1.9.9.370.1.10.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspScCurrDeviceQLen": {
+    "name": "cspScCurrDeviceQLen",
+    "oid": "1.3.6.1.4.1.9.9.370.1.10.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspScMaxDeviceQLen": {
+    "name": "cspScMaxDeviceQLen",
+    "oid": "1.3.6.1.4.1.9.9.370.1.10.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspScSessionReuses": {
+    "name": "cspScSessionReuses",
+    "oid": "1.3.6.1.4.1.9.9.370.1.10.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspS3cFullHandShake": {
+    "name": "cspS3cFullHandShake",
+    "oid": "1.3.6.1.4.1.9.9.370.1.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspS3cResumedHandShake": {
+    "name": "cspS3cResumedHandShake",
+    "oid": "1.3.6.1.4.1.9.9.370.1.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspS3cHandShakeFailed": {
+    "name": "cspS3cHandShakeFailed",
+    "oid": "1.3.6.1.4.1.9.9.370.1.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspS3cDataFailed": {
+    "name": "cspS3cDataFailed",
+    "oid": "1.3.6.1.4.1.9.9.370.1.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspS3cBadMacRcvd": {
+    "name": "cspS3cBadMacRcvd",
+    "oid": "1.3.6.1.4.1.9.9.370.1.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspS3cPadErrors": {
+    "name": "cspS3cPadErrors",
+    "oid": "1.3.6.1.4.1.9.9.370.1.11.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspS3cRSArc4128md5": {
+    "name": "cspS3cRSArc4128md5",
+    "oid": "1.3.6.1.4.1.9.9.370.1.11.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspS3cRSArc4128sha": {
+    "name": "cspS3cRSArc4128sha",
+    "oid": "1.3.6.1.4.1.9.9.370.1.11.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspS3cRSAdescbcsha": {
+    "name": "cspS3cRSAdescbcsha",
+    "oid": "1.3.6.1.4.1.9.9.370.1.11.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspS3cRSA3desedecbcsha": {
+    "name": "cspS3cRSA3desedecbcsha",
+    "oid": "1.3.6.1.4.1.9.9.370.1.11.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTlcFullHandShake": {
+    "name": "cspTlcFullHandShake",
+    "oid": "1.3.6.1.4.1.9.9.370.1.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTlcResumedHandShake": {
+    "name": "cspTlcResumedHandShake",
+    "oid": "1.3.6.1.4.1.9.9.370.1.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTlcHandShakeFailed": {
+    "name": "cspTlcHandShakeFailed",
+    "oid": "1.3.6.1.4.1.9.9.370.1.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTlcDataFailed": {
+    "name": "cspTlcDataFailed",
+    "oid": "1.3.6.1.4.1.9.9.370.1.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTlcBadMacRcvd": {
+    "name": "cspTlcBadMacRcvd",
+    "oid": "1.3.6.1.4.1.9.9.370.1.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTlcPadErrors": {
+    "name": "cspTlcPadErrors",
+    "oid": "1.3.6.1.4.1.9.9.370.1.12.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTlcRSArc4128md5": {
+    "name": "cspTlcRSArc4128md5",
+    "oid": "1.3.6.1.4.1.9.9.370.1.12.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTlcRSArc4128sha": {
+    "name": "cspTlcRSArc4128sha",
+    "oid": "1.3.6.1.4.1.9.9.370.1.12.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTlcRSAdescbcsha": {
+    "name": "cspTlcRSAdescbcsha",
+    "oid": "1.3.6.1.4.1.9.9.370.1.12.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTlcRSA3desedecbcsha": {
+    "name": "cspTlcRSA3desedecbcsha",
+    "oid": "1.3.6.1.4.1.9.9.370.1.12.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSccBlksEncrypted": {
+    "name": "cspSccBlksEncrypted",
+    "oid": "1.3.6.1.4.1.9.9.370.1.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSccBlksDecrypted": {
+    "name": "cspSccBlksDecrypted",
+    "oid": "1.3.6.1.4.1.9.9.370.1.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSccBytesEncrypted": {
+    "name": "cspSccBytesEncrypted",
+    "oid": "1.3.6.1.4.1.9.9.370.1.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSccBytesDecrypted": {
+    "name": "cspSccBytesDecrypted",
+    "oid": "1.3.6.1.4.1.9.9.370.1.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSccPublicKeyOpers": {
+    "name": "cspSccPublicKeyOpers",
+    "oid": "1.3.6.1.4.1.9.9.370.1.13.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSccPrivateKeyOpers": {
+    "name": "cspSccPrivateKeyOpers",
+    "oid": "1.3.6.1.4.1.9.9.370.1.13.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSccCryptoFails": {
+    "name": "cspSccCryptoFails",
+    "oid": "1.3.6.1.4.1.9.9.370.1.13.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSccDmaErrors": {
+    "name": "cspSccDmaErrors",
+    "oid": "1.3.6.1.4.1.9.9.370.1.13.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSecSessAllocFailed": {
+    "name": "cspSecSessAllocFailed",
+    "oid": "1.3.6.1.4.1.9.9.370.1.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSecSessLimitExceed": {
+    "name": "cspSecSessLimitExceed",
+    "oid": "1.3.6.1.4.1.9.9.370.1.14.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSecHShakeInitFailed": {
+    "name": "cspSecHShakeInitFailed",
+    "oid": "1.3.6.1.4.1.9.9.370.1.14.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSecRenegFailed": {
+    "name": "cspSecRenegFailed",
+    "oid": "1.3.6.1.4.1.9.9.370.1.14.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSecFatalAlertsRcvd": {
+    "name": "cspSecFatalAlertsRcvd",
+    "oid": "1.3.6.1.4.1.9.9.370.1.14.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSecFatalAlertsSent": {
+    "name": "cspSecFatalAlertsSent",
+    "oid": "1.3.6.1.4.1.9.9.370.1.14.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSecNoCipherAlerts": {
+    "name": "cspSecNoCipherAlerts",
+    "oid": "1.3.6.1.4.1.9.9.370.1.14.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSecVerMismatchAlerts": {
+    "name": "cspSecVerMismatchAlerts",
+    "oid": "1.3.6.1.4.1.9.9.370.1.14.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSecNoComprsnAlerts": {
+    "name": "cspSecNoComprsnAlerts",
+    "oid": "1.3.6.1.4.1.9.9.370.1.14.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSecHShakeHndleMemFail": {
+    "name": "cspSecHShakeHndleMemFail",
+    "oid": "1.3.6.1.4.1.9.9.370.1.14.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSecStalePakDrop": {
+    "name": "cspSecStalePakDrop",
+    "oid": "1.3.6.1.4.1.9.9.370.1.14.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSecServiceIdDiscard": {
+    "name": "cspSecServiceIdDiscard",
+    "oid": "1.3.6.1.4.1.9.9.370.1.14.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSecHShakeLimitExceed": {
+    "name": "cspSecHShakeLimitExceed",
+    "oid": "1.3.6.1.4.1.9.9.370.1.14.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSecDevConnCtxtFail": {
+    "name": "cspSecDevConnCtxtFail",
+    "oid": "1.3.6.1.4.1.9.9.370.1.14.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSecMemAllocFailed": {
+    "name": "cspSecMemAllocFailed",
+    "oid": "1.3.6.1.4.1.9.9.370.1.14.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSecBuffAllocFailed": {
+    "name": "cspSecBuffAllocFailed",
+    "oid": "1.3.6.1.4.1.9.9.370.1.14.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSecAlertSendFailed": {
+    "name": "cspSecAlertSendFailed",
+    "oid": "1.3.6.1.4.1.9.9.370.1.14.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSecOverloadDropped": {
+    "name": "cspSecOverloadDropped",
+    "oid": "1.3.6.1.4.1.9.9.370.1.14.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSecConnAborted": {
+    "name": "cspSecConnAborted",
+    "oid": "1.3.6.1.4.1.9.9.370.1.14.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPsCountersTable": {
+    "name": "cspPsCountersTable",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cspPsCounterEntry": {
+    "name": "cspPsCounterEntry",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPsName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPsListIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cspPscClearTime": {
+    "name": "cspPscClearTime",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPscConnAttempt": {
+    "name": "cspPscConnAttempt",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPscConnComplete": {
+    "name": "cspPscConnComplete",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPscFullHandShake": {
+    "name": "cspPscFullHandShake",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPscResumedHandShake": {
+    "name": "cspPscResumedHandShake",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPscConnInHandShake": {
+    "name": "cspPscConnInHandShake",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPscConnInDataPhase": {
+    "name": "cspPscConnInDataPhase",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPscRenegAttempt": {
+    "name": "cspPscRenegAttempt",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPscConnInReneg": {
+    "name": "cspPscConnInReneg",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPscBlksEncrypted": {
+    "name": "cspPscBlksEncrypted",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPscBlksDecrypted": {
+    "name": "cspPscBlksDecrypted",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPscBytesEncrypted": {
+    "name": "cspPscBytesEncrypted",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPscBytesDecrypted": {
+    "name": "cspPscBytesDecrypted",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPscValidSessions": {
+    "name": "cspPscValidSessions",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPscSessLimitExceed": {
+    "name": "cspPscSessLimitExceed",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPscHandShakeFailed": {
+    "name": "cspPscHandShakeFailed",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPscDataFailed": {
+    "name": "cspPscDataFailed",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPscFatalAlertsRcvd": {
+    "name": "cspPscFatalAlertsRcvd",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPscFatalAlertsSent": {
+    "name": "cspPscFatalAlertsSent",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPscBadMacRcvd": {
+    "name": "cspPscBadMacRcvd",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPscPadErrors": {
+    "name": "cspPscPadErrors",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPscNoCipherAlerts": {
+    "name": "cspPscNoCipherAlerts",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPscNoComprsnAlerts": {
+    "name": "cspPscNoComprsnAlerts",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPscVerMismatchAlerts": {
+    "name": "cspPscVerMismatchAlerts",
+    "oid": "1.3.6.1.4.1.9.9.370.1.15.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPsSsl3CountersTable": {
+    "name": "cspPsSsl3CountersTable",
+    "oid": "1.3.6.1.4.1.9.9.370.1.16.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cspPsSsl3CounterEntry": {
+    "name": "cspPsSsl3CounterEntry",
+    "oid": "1.3.6.1.4.1.9.9.370.1.16.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPsName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPsListIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cspPs3cClearTime": {
+    "name": "cspPs3cClearTime",
+    "oid": "1.3.6.1.4.1.9.9.370.1.16.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPs3cFullHandShake": {
+    "name": "cspPs3cFullHandShake",
+    "oid": "1.3.6.1.4.1.9.9.370.1.16.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPs3cResumedHandShake": {
+    "name": "cspPs3cResumedHandShake",
+    "oid": "1.3.6.1.4.1.9.9.370.1.16.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPs3cHandShakeFailed": {
+    "name": "cspPs3cHandShakeFailed",
+    "oid": "1.3.6.1.4.1.9.9.370.1.16.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPs3cDataFailed": {
+    "name": "cspPs3cDataFailed",
+    "oid": "1.3.6.1.4.1.9.9.370.1.16.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPs3cBadMacRcvd": {
+    "name": "cspPs3cBadMacRcvd",
+    "oid": "1.3.6.1.4.1.9.9.370.1.16.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPs3cPadErrors": {
+    "name": "cspPs3cPadErrors",
+    "oid": "1.3.6.1.4.1.9.9.370.1.16.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPs3cRSArc4128md5": {
+    "name": "cspPs3cRSArc4128md5",
+    "oid": "1.3.6.1.4.1.9.9.370.1.16.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPs3cRSArc4128sha": {
+    "name": "cspPs3cRSArc4128sha",
+    "oid": "1.3.6.1.4.1.9.9.370.1.16.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPs3cRSAdescbcsha": {
+    "name": "cspPs3cRSAdescbcsha",
+    "oid": "1.3.6.1.4.1.9.9.370.1.16.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPs3cRSA3desedecbcsha": {
+    "name": "cspPs3cRSA3desedecbcsha",
+    "oid": "1.3.6.1.4.1.9.9.370.1.16.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPsTls1CountersTable": {
+    "name": "cspPsTls1CountersTable",
+    "oid": "1.3.6.1.4.1.9.9.370.1.17.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cspPsTls1CounterEntry": {
+    "name": "cspPsTls1CounterEntry",
+    "oid": "1.3.6.1.4.1.9.9.370.1.17.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPsName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPsListIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cspPt1cClearTime": {
+    "name": "cspPt1cClearTime",
+    "oid": "1.3.6.1.4.1.9.9.370.1.17.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPt1cFullHandShake": {
+    "name": "cspPt1cFullHandShake",
+    "oid": "1.3.6.1.4.1.9.9.370.1.17.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPt1cResumedHandShake": {
+    "name": "cspPt1cResumedHandShake",
+    "oid": "1.3.6.1.4.1.9.9.370.1.17.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPt1cHandShakeFailed": {
+    "name": "cspPt1cHandShakeFailed",
+    "oid": "1.3.6.1.4.1.9.9.370.1.17.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPt1cDataFailed": {
+    "name": "cspPt1cDataFailed",
+    "oid": "1.3.6.1.4.1.9.9.370.1.17.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPt1cBadMacRcvd": {
+    "name": "cspPt1cBadMacRcvd",
+    "oid": "1.3.6.1.4.1.9.9.370.1.17.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPt1cPadErrors": {
+    "name": "cspPt1cPadErrors",
+    "oid": "1.3.6.1.4.1.9.9.370.1.17.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPt1cRSArc4128md5": {
+    "name": "cspPt1cRSArc4128md5",
+    "oid": "1.3.6.1.4.1.9.9.370.1.17.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPt1cRSArc4128sha": {
+    "name": "cspPt1cRSArc4128sha",
+    "oid": "1.3.6.1.4.1.9.9.370.1.17.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPt1cRSAdescbcsha": {
+    "name": "cspPt1cRSAdescbcsha",
+    "oid": "1.3.6.1.4.1.9.9.370.1.17.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspPt1cRSA3desedecbcsha": {
+    "name": "cspPt1cRSA3desedecbcsha",
+    "oid": "1.3.6.1.4.1.9.9.370.1.17.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspCpuStatusTable": {
+    "name": "cspCpuStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.370.1.18.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cspCpuStatusEntry": {
+    "name": "cspCpuStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.370.1.18.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspCpuName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cspCpuName": {
+    "name": "cspCpuName",
+    "oid": "1.3.6.1.4.1.9.9.370.1.18.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cspCpuStatus": {
+    "name": "cspCpuStatus",
+    "oid": "1.3.6.1.4.1.9.9.370.1.18.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspCpuClearTime": {
+    "name": "cspCpuClearTime",
+    "oid": "1.3.6.1.4.1.9.9.370.1.18.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspCpuProcessUtil": {
+    "name": "cspCpuProcessUtil",
+    "oid": "1.3.6.1.4.1.9.9.370.1.18.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspCpuInterruptUtil": {
+    "name": "cspCpuInterruptUtil",
+    "oid": "1.3.6.1.4.1.9.9.370.1.18.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspCpuProcessUtilIn5Sec": {
+    "name": "cspCpuProcessUtilIn5Sec",
+    "oid": "1.3.6.1.4.1.9.9.370.1.18.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspCpuProcessUtilIn1Min": {
+    "name": "cspCpuProcessUtilIn1Min",
+    "oid": "1.3.6.1.4.1.9.9.370.1.18.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspCpuProcessUtilIn5Min": {
+    "name": "cspCpuProcessUtilIn5Min",
+    "oid": "1.3.6.1.4.1.9.9.370.1.18.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspCpuInterruptUtilIn5Sec": {
+    "name": "cspCpuInterruptUtilIn5Sec",
+    "oid": "1.3.6.1.4.1.9.9.370.1.18.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspCpuInterruptUtilIn1Min": {
+    "name": "cspCpuInterruptUtilIn1Min",
+    "oid": "1.3.6.1.4.1.9.9.370.1.18.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspCpuInterruptUtilIn5Min": {
+    "name": "cspCpuInterruptUtilIn5Min",
+    "oid": "1.3.6.1.4.1.9.9.370.1.18.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspNumOfSslInfoSuccessInserted": {
+    "name": "cspNumOfSslInfoSuccessInserted",
+    "oid": "1.3.6.1.4.1.9.9.370.1.19.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspNumOfSslInfoFailedInserted": {
+    "name": "cspNumOfSslInfoFailedInserted",
+    "oid": "1.3.6.1.4.1.9.9.370.1.19.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspNumOfSpoofHttpHeaderDeleted": {
+    "name": "cspNumOfSpoofHttpHeaderDeleted",
+    "oid": "1.3.6.1.4.1.9.9.370.1.19.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspNumOfSslSessHeaderExtracted": {
+    "name": "cspNumOfSslSessHeaderExtracted",
+    "oid": "1.3.6.1.4.1.9.9.370.1.19.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspNumOfSslSessHeaderFailedExtracted": {
+    "name": "cspNumOfSslSessHeaderFailedExtracted",
+    "oid": "1.3.6.1.4.1.9.9.370.1.19.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspNumOfSslServerCertHeaderExtracted": {
+    "name": "cspNumOfSslServerCertHeaderExtracted",
+    "oid": "1.3.6.1.4.1.9.9.370.1.19.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspNumOfSslServerCerHeaderFailedExtracted": {
+    "name": "cspNumOfSslServerCerHeaderFailedExtracted",
+    "oid": "1.3.6.1.4.1.9.9.370.1.19.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspNumOfTimesSslHeaderTruncated": {
+    "name": "cspNumOfTimesSslHeaderTruncated",
+    "oid": "1.3.6.1.4.1.9.9.370.1.19.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspNumOfSslClientCertHeaderExtracted": {
+    "name": "cspNumOfSslClientCertHeaderExtracted",
+    "oid": "1.3.6.1.4.1.9.9.370.1.19.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspNumOfSslClientCertHeaderFailedExtracted": {
+    "name": "cspNumOfSslClientCertHeaderFailedExtracted",
+    "oid": "1.3.6.1.4.1.9.9.370.1.19.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspCertNotYetValidRedirect": {
+    "name": "cspCertNotYetValidRedirect",
+    "oid": "1.3.6.1.4.1.9.9.370.1.20.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspCertExpiredRedirect": {
+    "name": "cspCertExpiredRedirect",
+    "oid": "1.3.6.1.4.1.9.9.370.1.20.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspIssuerCertNotFoundRedirect": {
+    "name": "cspIssuerCertNotFoundRedirect",
+    "oid": "1.3.6.1.4.1.9.9.370.1.20.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspCertRevokedRedirect": {
+    "name": "cspCertRevokedRedirect",
+    "oid": "1.3.6.1.4.1.9.9.370.1.20.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspNoClientCertSentRedirect": {
+    "name": "cspNoClientCertSentRedirect",
+    "oid": "1.3.6.1.4.1.9.9.370.1.20.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspNoCrlAvailableRedirect": {
+    "name": "cspNoCrlAvailableRedirect",
+    "oid": "1.3.6.1.4.1.9.9.370.1.20.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspCrlExpiredRedirect": {
+    "name": "cspCrlExpiredRedirect",
+    "oid": "1.3.6.1.4.1.9.9.370.1.20.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspCertSignatureFailedRedirect": {
+    "name": "cspCertSignatureFailedRedirect",
+    "oid": "1.3.6.1.4.1.9.9.370.1.20.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspOtherCertErrorRedirect": {
+    "name": "cspOtherCertErrorRedirect",
+    "oid": "1.3.6.1.4.1.9.9.370.1.20.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSslTrapType": {
+    "name": "cspSslTrapType",
+    "oid": "1.3.6.1.4.1.9.9.370.1.21.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "risingHighThresh": 1,
+          "fallingHighThresh": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cspSslMaxConn": {
+    "name": "cspSslMaxConn",
+    "oid": "1.3.6.1.4.1.9.9.370.1.21.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "connections per system",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cspSslActiveConn": {
+    "name": "cspSslActiveConn",
+    "oid": "1.3.6.1.4.1.9.9.370.1.21.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "connections per system",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSslConfigHighConnPcnt": {
+    "name": "cspSslConfigHighConnPcnt",
+    "oid": "1.3.6.1.4.1.9.9.370.1.21.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cspSslActiveConnPcnt": {
+    "name": "cspSslActiveConnPcnt",
+    "oid": "1.3.6.1.4.1.9.9.370.1.21.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspSslConfigWatermarkConnPcnt": {
+    "name": "cspSslConfigWatermarkConnPcnt",
+    "oid": "1.3.6.1.4.1.9.9.370.1.21.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cspServOperStatus": {
+    "name": "cspServOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.370.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPsOperStatus"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPsOperDownReason"
+      }
+    ],
+    "status": "current"
+  },
+  "cspServCertExpiring": {
+    "name": "cspServCertExpiring",
+    "oid": "1.3.6.1.4.1.9.9.370.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPskcCertSubjName"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPskcCertSerialNum"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPskcIssuerName"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPskcIssuerCertSerialNum"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPskcCertEndDate"
+      }
+    ],
+    "status": "current"
+  },
+  "cspSSLResourceLimitReached": {
+    "name": "cspSSLResourceLimitReached",
+    "oid": "1.3.6.1.4.1.9.9.370.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSslTrapType"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSslMaxConn"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSslActiveConn"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSslConfigHighConnPcnt"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSslActiveConnPcnt"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSslConfigWatermarkConnPcnt"
+      }
+    ],
+    "status": "current"
+  },
+  "cspMIBCompliances": {
+    "name": "cspMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.370.2.1",
+    "class": "objectidentity"
+  },
+  "cspMIBGroups": {
+    "name": "cspMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.370.2.2",
+    "class": "objectidentity"
+  },
+  "cspMIBCompliance": {
+    "name": "cspMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.370.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cspGlobalConfigGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspProxyServiceConfigGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspSslGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspSsl3Group",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspTls1Group",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspPolicyConfigGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspTcpGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspSslCryptoGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspSslErrorGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspProxyServiceStatsGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspProxyServiceSsl3Group",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspProxyServiceTls1Group",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspCpuStatusGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspProxyServiceNotificationGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cspMIBComplianceRev1": {
+    "name": "cspMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.370.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cspGlobalConfigGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspProxyServiceConfigGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspSslGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspSsl3Group",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspTls1Group",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspHttpHeaderInsertedSslInfoGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspHttpHeaderInsertedSslClientCertGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspHttpRedirectInfoGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspPolicyConfigGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspTcpGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspSslCryptoGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspSslErrorGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspProxyServiceStatsGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspProxyServiceSsl3Group",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspProxyServiceTls1Group",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspCpuStatusGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspProxyServiceNotificationGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cspMIBComplianceRev2": {
+    "name": "cspMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.370.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cspGlobalConfigGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspProxyServiceConfigGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspSslGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspSsl3Group",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspTls1Group",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspHttpHeaderInsertedSslInfoGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspHttpHeaderInsertedSslClientCertGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspHttpRedirectInfoGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspPolicyConfigGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspTcpGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspSslCryptoGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspSslErrorGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspProxyServiceStatsGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspProxyServiceSsl3Group",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspProxyServiceTls1Group",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspCpuStatusGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspProxyServiceNotificationGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspSslResourceLimitNotifObjectsGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      },
+      {
+        "object": "cspSslResourceLimitNotifGroup",
+        "module": "CISCO-SSL-PROXY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cspGlobalConfigGroup": {
+    "name": "cspGlobalConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.370.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspGcVersion"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspGcFIPSMode"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspGcRSArc4128md5"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspGcRSArc4128sha"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspGcRSAdescbcsha"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspGcRSA3descbcsha"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspGcNotifyProxyServOperStatus"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspGcNotifyPSCertExpiring"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspGcPSCertExpireInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "cspProxyServiceConfigGroup": {
+    "name": "cspProxyServiceConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.370.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPsServiceType"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPsVirtualAddressType"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPsVirtualAddress"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPsVirtualPort"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPsServerAddressType"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPsServerAddress"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPsServerPort"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPsAdminStatus"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPsOperStatus"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPsOperDownReason"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPsConfigRowStatus"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPspVirTcpPolicyName"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPspSerTcpPolicyName"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPspSslPolicyName"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPspHttpHdrPolicyName"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPspUrlRewritePolicyName"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPskcTrustPointName"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPskcCertFileName"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPskcKeyName"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPskcKeyFileName"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPskcKeySize"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPskcKeyTime"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPskcCertStatus"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPskcCertSubjName"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPskcCertSerialNum"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPskcIssuerName"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPskcIssuerCertSerialNum"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPskcCertStartDate"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPskcCertEndDate"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPskcConfigRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cspPolicyConfigGroup": {
+    "name": "cspPolicyConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.370.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTpSynTimeOut"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTpInActivityTimeOut"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTpNagleAlgo"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTpFinWaitTimeOut"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTpReassemTimeOut"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTpRcvBufShrLim"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTpTransBufShrLim"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTpMss"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTpPathMtuDisc"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTpConfigRowStatus"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSpRSArc4128md5"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSpRSArc4128sha"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSpRSAdescbcsha"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSpRSA3descbcsha"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSpProtocol"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSpCloseProtocol"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSpSessionCache"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSpSessionTimeOut"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSpConfigRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cspTcpGroup": {
+    "name": "cspTcpGroup",
+    "oid": "1.3.6.1.4.1.9.9.370.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTcpCountersClearTime"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTcConnInit"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTcConnAccept"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTcConnEstab"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTcConnDrop"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTcConnClosed"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTcSynTimeOuts"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTcIdleTimeOuts"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTcTotalPktSent"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTcDataPktSent"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTcDataByteSent"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTcTotalPktRcv"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTcPktRcvSeq"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTcByteRcvSeq"
+      }
+    ],
+    "status": "current"
+  },
+  "cspSslGroup": {
+    "name": "cspSslGroup",
+    "oid": "1.3.6.1.4.1.9.9.370.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSslCountersClearTime"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspScConnAttempt"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspScConnComplete"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspScConnInHandShake"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspScConnInDataPhase"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspScRenegAttempt"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspScConnInReneg"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspScActiveSessions"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspScMaxHandShakeConns"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspScCurrDeviceQLen"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspScMaxDeviceQLen"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspScSessionReuses"
+      }
+    ],
+    "status": "current"
+  },
+  "cspSsl3Group": {
+    "name": "cspSsl3Group",
+    "oid": "1.3.6.1.4.1.9.9.370.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspS3cFullHandShake"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspS3cResumedHandShake"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspS3cHandShakeFailed"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspS3cDataFailed"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspS3cBadMacRcvd"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspS3cPadErrors"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspS3cRSArc4128md5"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspS3cRSArc4128sha"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspS3cRSAdescbcsha"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspS3cRSA3desedecbcsha"
+      }
+    ],
+    "status": "current"
+  },
+  "cspTls1Group": {
+    "name": "cspTls1Group",
+    "oid": "1.3.6.1.4.1.9.9.370.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTlcFullHandShake"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTlcResumedHandShake"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTlcHandShakeFailed"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTlcDataFailed"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTlcBadMacRcvd"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTlcPadErrors"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTlcRSArc4128md5"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTlcRSArc4128sha"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTlcRSAdescbcsha"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspTlcRSA3desedecbcsha"
+      }
+    ],
+    "status": "current"
+  },
+  "cspSslCryptoGroup": {
+    "name": "cspSslCryptoGroup",
+    "oid": "1.3.6.1.4.1.9.9.370.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSccBlksEncrypted"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSccBlksDecrypted"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSccBytesEncrypted"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSccBytesDecrypted"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSccPublicKeyOpers"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSccPrivateKeyOpers"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSccCryptoFails"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSccDmaErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "cspSslErrorGroup": {
+    "name": "cspSslErrorGroup",
+    "oid": "1.3.6.1.4.1.9.9.370.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSecSessAllocFailed"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSecSessLimitExceed"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSecHShakeInitFailed"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSecRenegFailed"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSecFatalAlertsRcvd"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSecFatalAlertsSent"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSecNoCipherAlerts"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSecVerMismatchAlerts"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSecNoComprsnAlerts"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSecHShakeHndleMemFail"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSecStalePakDrop"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSecServiceIdDiscard"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSecHShakeLimitExceed"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSecDevConnCtxtFail"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSecMemAllocFailed"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSecBuffAllocFailed"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSecAlertSendFailed"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSecOverloadDropped"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSecConnAborted"
+      }
+    ],
+    "status": "current"
+  },
+  "cspProxyServiceStatsGroup": {
+    "name": "cspProxyServiceStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.370.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscClearTime"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscConnAttempt"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscConnComplete"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscFullHandShake"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscResumedHandShake"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscConnInHandShake"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscConnInDataPhase"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscRenegAttempt"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscConnInReneg"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscBlksEncrypted"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscBlksDecrypted"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscBytesEncrypted"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscBytesDecrypted"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscValidSessions"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscSessLimitExceed"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscHandShakeFailed"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscDataFailed"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscFatalAlertsRcvd"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscFatalAlertsSent"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscBadMacRcvd"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscPadErrors"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscNoCipherAlerts"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscNoComprsnAlerts"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPscVerMismatchAlerts"
+      }
+    ],
+    "status": "current"
+  },
+  "cspProxyServiceSsl3Group": {
+    "name": "cspProxyServiceSsl3Group",
+    "oid": "1.3.6.1.4.1.9.9.370.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPs3cClearTime"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPs3cFullHandShake"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPs3cResumedHandShake"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPs3cHandShakeFailed"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPs3cDataFailed"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPs3cBadMacRcvd"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPs3cPadErrors"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPs3cRSArc4128md5"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPs3cRSArc4128sha"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPs3cRSAdescbcsha"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPs3cRSA3desedecbcsha"
+      }
+    ],
+    "status": "current"
+  },
+  "cspProxyServiceTls1Group": {
+    "name": "cspProxyServiceTls1Group",
+    "oid": "1.3.6.1.4.1.9.9.370.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPt1cClearTime"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPt1cFullHandShake"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPt1cResumedHandShake"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPt1cHandShakeFailed"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPt1cDataFailed"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPt1cBadMacRcvd"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPt1cPadErrors"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPt1cRSArc4128md5"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPt1cRSArc4128sha"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPt1cRSAdescbcsha"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspPt1cRSA3desedecbcsha"
+      }
+    ],
+    "status": "current"
+  },
+  "cspCpuStatusGroup": {
+    "name": "cspCpuStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.370.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspCpuStatus"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspCpuClearTime"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspCpuProcessUtil"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspCpuInterruptUtil"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspCpuProcessUtilIn5Sec"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspCpuProcessUtilIn1Min"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspCpuProcessUtilIn5Min"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspCpuInterruptUtilIn5Sec"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspCpuInterruptUtilIn1Min"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspCpuInterruptUtilIn5Min"
+      }
+    ],
+    "status": "current"
+  },
+  "cspProxyServiceNotificationGroup": {
+    "name": "cspProxyServiceNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.370.2.2.14",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspServOperStatus"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspServCertExpiring"
+      }
+    ],
+    "status": "current"
+  },
+  "cspHttpHeaderInsertedSslInfoGroup": {
+    "name": "cspHttpHeaderInsertedSslInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.370.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspNumOfSslInfoSuccessInserted"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspNumOfSslInfoFailedInserted"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspNumOfSpoofHttpHeaderDeleted"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspNumOfSslSessHeaderExtracted"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspNumOfSslSessHeaderFailedExtracted"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspNumOfSslServerCertHeaderExtracted"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspNumOfSslServerCerHeaderFailedExtracted"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspNumOfTimesSslHeaderTruncated"
+      }
+    ],
+    "status": "current"
+  },
+  "cspHttpHeaderInsertedSslClientCertGroup": {
+    "name": "cspHttpHeaderInsertedSslClientCertGroup",
+    "oid": "1.3.6.1.4.1.9.9.370.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspNumOfSslClientCertHeaderExtracted"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspNumOfSslClientCertHeaderFailedExtracted"
+      }
+    ],
+    "status": "current"
+  },
+  "cspHttpRedirectInfoGroup": {
+    "name": "cspHttpRedirectInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.370.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspCertNotYetValidRedirect"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspCertExpiredRedirect"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspIssuerCertNotFoundRedirect"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspCertRevokedRedirect"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspNoClientCertSentRedirect"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspNoCrlAvailableRedirect"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspCrlExpiredRedirect"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspCertSignatureFailedRedirect"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspOtherCertErrorRedirect"
+      }
+    ],
+    "status": "current"
+  },
+  "cspSslResourceLimitNotifObjectsGroup": {
+    "name": "cspSslResourceLimitNotifObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.9.370.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSslTrapType"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSslMaxConn"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSslActiveConn"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSslConfigHighConnPcnt"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSslActiveConnPcnt"
+      },
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSslConfigWatermarkConnPcnt"
+      }
+    ],
+    "status": "current"
+  },
+  "cspSslResourceLimitNotifGroup": {
+    "name": "cspSslResourceLimitNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.370.2.2.19",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSL-PROXY-MIB",
+        "object": "cspSSLResourceLimitReached"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SSL-PROXY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SSL-PROXY-MIB"
+  }
+}

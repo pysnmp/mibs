@@ -1,0 +1,1173 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARRIS-D5-VIDEO-MIB": [
+      "D5Program"
+    ],
+    "ARRIS-MIB": [
+      "arrisD5UEQam"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "d5VideoSessionMib": {
+    "name": "d5VideoSessionMib",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-09-08 08:00",
+        "description": "D5 UEQ VIDEO SESSION MIB"
+      }
+    ]
+  },
+  "d5SdvRpcConfigurationGroup": {
+    "name": "d5SdvRpcConfigurationGroup",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARRIS-D5-VIDEO-SESSION-MIB",
+        "object": "d5SdvRpc"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-SESSION-MIB",
+        "object": "d5SdvRpcDncsCompatibility"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-SESSION-MIB",
+        "object": "d5SdvRpcPersistence"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-SESSION-MIB",
+        "object": "d5SdvRpcQamModel"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-SESSION-MIB",
+        "object": "d5SdvRpcMasterSrmIpAddress"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-SESSION-MIB",
+        "object": "d5SdvRpcResetIndicatorType"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-SESSION-MIB",
+        "object": "d5SdvRpcResetIndicatorInterval"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-SESSION-MIB",
+        "object": "d5SdvRpcTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "d5SdvRpc": {
+    "name": "d5SdvRpc",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5SdvRpcDncsCompatibility": {
+    "name": "d5SdvRpcDncsCompatibility",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5SdvRpcPersistence": {
+    "name": "d5SdvRpcPersistence",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5SdvRpcQamModel": {
+    "name": "d5SdvRpcQamModel",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qam2x4": 1,
+          "qam2x6": 2,
+          "qam4x8": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "qam2x4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5SdvRpcMasterSrmIpAddress": {
+    "name": "d5SdvRpcMasterSrmIpAddress",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5SdvRpcResetIndicatorType": {
+    "name": "d5SdvRpcResetIndicatorType",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "udp": 1,
+          "tcp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5SdvRpcResetIndicatorInterval": {
+    "name": "d5SdvRpcResetIndicatorInterval",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5SdvRpcTimeout": {
+    "name": "d5SdvRpcTimeout",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 25000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5VideoSessionTable": {
+    "name": "d5VideoSessionTable",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "d5VideoSessionEntry": {
+    "name": "d5VideoSessionEntry",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARRIS-D5-VIDEO-SESSION-MIB",
+        "object": "d5VideoSessionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "d5VideoSessionId": {
+    "name": "d5VideoSessionId",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 33
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionState": {
+    "name": "d5VideoSessionState",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "psi": 2,
+          "data": 3,
+          "active": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionQamIfIndex": {
+    "name": "d5VideoSessionQamIfIndex",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionTsid": {
+    "name": "d5VideoSessionTsid",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionBandwidth": {
+    "name": "d5VideoSessionBandwidth",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionBitrate": {
+    "name": "d5VideoSessionBitrate",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionTimeActive": {
+    "name": "d5VideoSessionTimeActive",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionNoPidRemapping": {
+    "name": "d5VideoSessionNoPidRemapping",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionSessionGroupId": {
+    "name": "d5VideoSessionSessionGroupId",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionTransportId": {
+    "name": "d5VideoSessionTransportId",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionProgramNumber": {
+    "name": "d5VideoSessionProgramNumber",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "D5Program",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoMulticastSessionTable": {
+    "name": "d5VideoMulticastSessionTable",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "d5VideoMulticastSessionEntry": {
+    "name": "d5VideoMulticastSessionEntry",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARRIS-D5-VIDEO-SESSION-MIB",
+        "object": "d5VideoMulticastSessionIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-SESSION-MIB",
+        "object": "d5VideoMulticastSessionUdpPort",
+        "implied": 0
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-SESSION-MIB",
+        "object": "d5VideoMulticastSessionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "d5VideoMulticastSessionIpAddress": {
+    "name": "d5VideoMulticastSessionIpAddress",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoMulticastSessionUdpPort": {
+    "name": "d5VideoMulticastSessionUdpPort",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoMulticastSessionId": {
+    "name": "d5VideoMulticastSessionId",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 33
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionTransportTable": {
+    "name": "d5VideoSessionTransportTable",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "d5VideoSessionTransportEntry": {
+    "name": "d5VideoSessionTransportEntry",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARRIS-D5-VIDEO-SESSION-MIB",
+        "object": "d5VideoSessionTransportTransportId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "d5VideoSessionTransportTransportId": {
+    "name": "d5VideoSessionTransportTransportId",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionTransportSrcIpAddress": {
+    "name": "d5VideoSessionTransportSrcIpAddress",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionTransportDestIpAddress": {
+    "name": "d5VideoSessionTransportDestIpAddress",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionTransportDestUdpPort": {
+    "name": "d5VideoSessionTransportDestUdpPort",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionTransportGigIfIndex": {
+    "name": "d5VideoSessionTransportGigIfIndex",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoMulticastTransportTable": {
+    "name": "d5VideoMulticastTransportTable",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "d5VideoMulticastTransportEntry": {
+    "name": "d5VideoMulticastTransportEntry",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARRIS-D5-VIDEO-SESSION-MIB",
+        "object": "d5VideoMulticastTransportIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-SESSION-MIB",
+        "object": "d5VideoMulticastTransportUdpPort",
+        "implied": 0
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-SESSION-MIB",
+        "object": "d5VideoMulticastTransportId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "d5VideoMulticastTransportIpAddress": {
+    "name": "d5VideoMulticastTransportIpAddress",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoMulticastTransportUdpPort": {
+    "name": "d5VideoMulticastTransportUdpPort",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoMulticastTransportId": {
+    "name": "d5VideoMulticastTransportId",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionGroupTable": {
+    "name": "d5VideoSessionGroupTable",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "d5VideoSessionGroupEntry": {
+    "name": "d5VideoSessionGroupEntry",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARRIS-D5-VIDEO-SESSION-MIB",
+        "object": "d5VideoSessionGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "d5VideoSessionGroupId": {
+    "name": "d5VideoSessionGroupId",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionGroupQamIfIndex": {
+    "name": "d5VideoSessionGroupQamIfIndex",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionGroupNumSessions": {
+    "name": "d5VideoSessionGroupNumSessions",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionGroupActiveSessions": {
+    "name": "d5VideoSessionGroupActiveSessions",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionGroupBandwidth": {
+    "name": "d5VideoSessionGroupBandwidth",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionGroupBitrate": {
+    "name": "d5VideoSessionGroupBitrate",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionGroupMaxBoundSessions": {
+    "name": "d5VideoSessionGroupMaxBoundSessions",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionQamTable": {
+    "name": "d5VideoSessionQamTable",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "d5VideoSessionQamEntry": {
+    "name": "d5VideoSessionQamEntry",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARRIS-D5-VIDEO-SESSION-MIB",
+        "object": "d5VideoSessionQamQamIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "d5VideoSessionQamQamIfIndex": {
+    "name": "d5VideoSessionQamQamIfIndex",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionQamTsid": {
+    "name": "d5VideoSessionQamTsid",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionQamCreateSessions": {
+    "name": "d5VideoSessionQamCreateSessions",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionQamDeleteSessions": {
+    "name": "d5VideoSessionQamDeleteSessions",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionQamQuerySessions": {
+    "name": "d5VideoSessionQamQuerySessions",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionQamPacketInserts": {
+    "name": "d5VideoSessionQamPacketInserts",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionQamBindSessions": {
+    "name": "d5VideoSessionQamBindSessions",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionQamUnbindSessions": {
+    "name": "d5VideoSessionQamUnbindSessions",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionQamCreateSessionFailures": {
+    "name": "d5VideoSessionQamCreateSessionFailures",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionQamBindSessionFailures": {
+    "name": "d5VideoSessionQamBindSessionFailures",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionQamMaxActiveSessions": {
+    "name": "d5VideoSessionQamMaxActiveSessions",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionQamMaxActiveBandwidth": {
+    "name": "d5VideoSessionQamMaxActiveBandwidth",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionQamActiveSessions": {
+    "name": "d5VideoSessionQamActiveSessions",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5VideoSessionQamActiveBandwidth": {
+    "name": "d5VideoSessionQamActiveBandwidth",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5SdvLoadBalancingConfigurationGroup": {
+    "name": "d5SdvLoadBalancingConfigurationGroup",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARRIS-D5-VIDEO-SESSION-MIB",
+        "object": "d5SdvLoadBalancingForced"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-SESSION-MIB",
+        "object": "d5SdvLoadBalancingMode"
+      }
+    ],
+    "status": "current"
+  },
+  "d5SdvLoadBalancingForced": {
+    "name": "d5SdvLoadBalancingForced",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5SdvLoadBalancingMode": {
+    "name": "d5SdvLoadBalancingMode",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hothot": 1,
+          "hotwarm": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5SdvLoadBalancingTable": {
+    "name": "d5SdvLoadBalancingTable",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "d5SdvLoadBalancingEntry": {
+    "name": "d5SdvLoadBalancingEntry",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARRIS-D5-VIDEO-SESSION-MIB",
+        "object": "d5SdvLoadBalancingGigIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "d5SdvLoadBalancingGigIfIndex": {
+    "name": "d5SdvLoadBalancingGigIfIndex",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5SdvLoadBalancingGigOperStatus": {
+    "name": "d5SdvLoadBalancingGigOperStatus",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5SdvLoadBalancingAssignment": {
+    "name": "d5SdvLoadBalancingAssignment",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "primary": 2,
+          "secondary": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5SdvLoadBalancingSessionCount": {
+    "name": "d5SdvLoadBalancingSessionCount",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5SdvLoadBalancingBandwidth": {
+    "name": "d5SdvLoadBalancingBandwidth",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.8.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/d5/ARRIS-D5-VIDEO-SESSION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ARRIS-D5-VIDEO-SESSION-MIB"
+  }
+}

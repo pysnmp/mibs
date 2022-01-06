@@ -1,0 +1,133 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "Counter_32": {
+    "name": "Counter-32",
+    "class": "type",
+    "type": {
+      "type": "Counter",
+      "class": "type"
+    }
+  },
+  "Gauge_32": {
+    "name": "Gauge-32",
+    "class": "type",
+    "type": {
+      "type": "Gauge",
+      "class": "type"
+    }
+  },
+  "Integer_32": {
+    "name": "Integer-32",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    }
+  },
+  "Unsigned_32": {
+    "name": "Unsigned-32",
+    "class": "type",
+    "type": {
+      "type": "Gauge",
+      "class": "type"
+    }
+  },
+  "internet": {
+    "name": "internet",
+    "oid": "1.3.6.1",
+    "class": "objectidentity"
+  },
+  "directory": {
+    "name": "directory",
+    "oid": "1.3.6.1.1",
+    "class": "objectidentity"
+  },
+  "mgmt": {
+    "name": "mgmt",
+    "oid": "1.3.6.1.2",
+    "class": "objectidentity"
+  },
+  "experimental": {
+    "name": "experimental",
+    "oid": "1.3.6.1.3",
+    "class": "objectidentity"
+  },
+  "private": {
+    "name": "private",
+    "oid": "1.3.6.1.4",
+    "class": "objectidentity"
+  },
+  "enterprises": {
+    "name": "enterprises",
+    "oid": "1.3.6.1.4.1",
+    "class": "objectidentity"
+  },
+  "security": {
+    "name": "security",
+    "oid": "1.3.6.1.5",
+    "class": "objectidentity"
+  },
+  "snmpV2": {
+    "name": "snmpV2",
+    "oid": "1.3.6.1.6",
+    "class": "objectidentity"
+  },
+  "snmpDomains": {
+    "name": "snmpDomains",
+    "oid": "1.3.6.1.6.1",
+    "class": "objectidentity"
+  },
+  "snmpProxys": {
+    "name": "snmpProxys",
+    "oid": "1.3.6.1.6.2",
+    "class": "objectidentity"
+  },
+  "snmpModules": {
+    "name": "snmpModules",
+    "oid": "1.3.6.1.6.3",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/SNMPv2-SMI-v1",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SNMPv2-SMI-v1"
+  }
+}

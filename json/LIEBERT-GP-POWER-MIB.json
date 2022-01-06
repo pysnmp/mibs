@@ -1,0 +1,3717 @@
+{
+  "imports": {
+    "class": "imports",
+    "LIEBERT-GP-REGISTRATION-MIB": [
+      "lgpPower",
+      "liebertPowerModuleReg"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MibIdentifier",
+      "Integer32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "Counter64",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "liebertGlobalProductsPowerModule": {
+    "name": "liebertGlobalProductsPowerModule",
+    "oid": "1.3.6.1.4.1.476.1.42.1.6.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-07-10 00:00",
+        "description": "Added support for GXT4 economic operation mode and outlet control."
+      },
+      {
+        "revision": "2008-11-17 00:00",
+        "description": "Added support for NXL unit."
+      },
+      {
+        "revision": "2008-07-02 00:00",
+        "description": "Replaced INTEGER with Integer32 (SMIv2). Minor spelling fixes and formatting."
+      },
+      {
+        "revision": "2008-01-10 00:00",
+        "description": "Modified contact email address and removed redundant lgpPwrMeasurementPointNumLines."
+      },
+      {
+        "revision": "2006-02-22 00:00",
+        "description": "Added support for Liebert DS Unit."
+      }
+    ]
+  },
+  "lgpPwrBattery": {
+    "name": "lgpPwrBattery",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrMeasurements": {
+    "name": "lgpPwrMeasurements",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrStatus": {
+    "name": "lgpPwrStatus",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrSettings": {
+    "name": "lgpPwrSettings",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrConversion": {
+    "name": "lgpPwrConversion",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrControl": {
+    "name": "lgpPwrControl",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrTopology": {
+    "name": "lgpPwrTopology",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrStatistic": {
+    "name": "lgpPwrStatistic",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrConfig": {
+    "name": "lgpPwrConfig",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrNumberInstalledBatteryModules": {
+    "name": "lgpPwrNumberInstalledBatteryModules",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrNumberFailedBatteryModules": {
+    "name": "lgpPwrNumberFailedBatteryModules",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrNumberRedundantBatteryModules": {
+    "name": "lgpPwrNumberRedundantBatteryModules",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrNumberActiveBatteryModules": {
+    "name": "lgpPwrNumberActiveBatteryModules",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrConfigLowBatteryWarningTime": {
+    "name": "lgpPwrConfigLowBatteryWarningTime",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrNumberBatteryModuleWarnings": {
+    "name": "lgpPwrNumberBatteryModuleWarnings",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrBatteryCount": {
+    "name": "lgpPwrBatteryCount",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrBatteryTestResult": {
+    "name": "lgpPwrBatteryTestResult",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "passed": 2,
+          "failed": 3,
+          "inProgress": 4,
+          "systemFailure": 5,
+          "inhibited": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrNominalBatteryCapacity": {
+    "name": "lgpPwrNominalBatteryCapacity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrBatteryFloatVoltage": {
+    "name": "lgpPwrBatteryFloatVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Volt",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrBatteryEndOfDischargeVoltage": {
+    "name": "lgpPwrBatteryEndOfDischargeVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrAutomaticBatteryTestInterval": {
+    "name": "lgpPwrAutomaticBatteryTestInterval",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrAutomaticBatteryTestCountdown": {
+    "name": "lgpPwrAutomaticBatteryTestCountdown",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrBatteryChargeStatus": {
+    "name": "lgpPwrBatteryChargeStatus",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fullycharged": 1,
+          "notfullycharged": 2,
+          "charging": 3,
+          "discharging": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrBatteryLifeEnhancer": {
+    "name": "lgpPwrBatteryLifeEnhancer",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrBatteryCharger": {
+    "name": "lgpPwrBatteryCharger",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrBatteryChargeMode": {
+    "name": "lgpPwrBatteryChargeMode",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "float": 1,
+          "equalize": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrBatteryTimeRemaining": {
+    "name": "lgpPwrBatteryTimeRemaining",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrBatteryCapacity": {
+    "name": "lgpPwrBatteryCapacity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrBatteryCabinet": {
+    "name": "lgpPwrBatteryCabinet",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrBatteryCabinetCount": {
+    "name": "lgpPwrBatteryCabinetCount",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.20.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrBatteryCabinetType": {
+    "name": "lgpPwrBatteryCabinetType",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.20.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSpecified": 1,
+          "internal": 2,
+          "external": 3,
+          "lrt": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrBatteryCabinetRatedCapacity": {
+    "name": "lgpPwrBatteryCabinetRatedCapacity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.20.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Amp-hour",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrBatteryLeadAcidCellCount": {
+    "name": "lgpPwrBatteryLeadAcidCellCount",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.20.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrBatteryNiCadCellCount": {
+    "name": "lgpPwrBatteryNiCadCellCount",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.20.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrBatteryAmpHoursConsumed": {
+    "name": "lgpPwrBatteryAmpHoursConsumed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Amp-hour",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrBatteryAmpHoursDischargeConsumed": {
+    "name": "lgpPwrBatteryAmpHoursDischargeConsumed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Amp-hour",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrBatteryLastDischargeTime": {
+    "name": "lgpPwrBatteryLastDischargeTime",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrBatteryLastCommissionTime": {
+    "name": "lgpPwrBatteryLastCommissionTime",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrBatteryPresentDischargeTime": {
+    "name": "lgpPwrBatteryPresentDischargeTime",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrBatteryCapacityStatus": {
+    "name": "lgpPwrBatteryCapacityStatus",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "batteryNormal": 2,
+          "batteryLow": 3,
+          "batteryDepleted": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrBatteryCircuitBreakerState": {
+    "name": "lgpPwrBatteryCircuitBreakerState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "open": 1,
+          "closed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrWellKnownMeasurementPoints": {
+    "name": "lgpPwrWellKnownMeasurementPoints",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrSource1Input": {
+    "name": "lgpPwrSource1Input",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrSource2Input": {
+    "name": "lgpPwrSource2Input",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrSourcePdu1Input": {
+    "name": "lgpPwrSourcePdu1Input",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrSourcePdu2Input": {
+    "name": "lgpPwrSourcePdu2Input",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrOutputToLoad": {
+    "name": "lgpPwrOutputToLoad",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrMeasBattery": {
+    "name": "lgpPwrMeasBattery",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrMeasBypass": {
+    "name": "lgpPwrMeasBypass",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.1.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrMeasDcBus": {
+    "name": "lgpPwrMeasDcBus",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.1.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrMeasSystemOutput": {
+    "name": "lgpPwrMeasSystemOutput",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.1.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrMeasBatteryCabinet": {
+    "name": "lgpPwrMeasBatteryCabinet",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.1.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrMeasurementPointTable": {
+    "name": "lgpPwrMeasurementPointTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPwrMeasurementPointEntry": {
+    "name": "lgpPwrMeasurementPointEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-POWER-MIB",
+        "object": "lgpPwrMeasurementPointIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpPwrMeasurementPointIndex": {
+    "name": "lgpPwrMeasurementPointIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPwrMeasurementPointId": {
+    "name": "lgpPwrMeasurementPointId",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrMeasurementPointNumLines": {
+    "name": "lgpPwrMeasurementPointNumLines",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrMeasurementPointNomVolts": {
+    "name": "lgpPwrMeasurementPointNomVolts",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Volt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrMeasurementPointNomFrequency": {
+    "name": "lgpPwrMeasurementPointNomFrequency",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Hertz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrMeasurementPointFrequency": {
+    "name": "lgpPwrMeasurementPointFrequency",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Hertz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrMeasurementPointApparentPower": {
+    "name": "lgpPwrMeasurementPointApparentPower",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Volt-Amp",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrMeasurementPointTruePower": {
+    "name": "lgpPwrMeasurementPointTruePower",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Watt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrMeasurementPointPowerFactor": {
+    "name": "lgpPwrMeasurementPointPowerFactor",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".01 Power Factor",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrMeasurementPointWattHours": {
+    "name": "lgpPwrMeasurementPointWattHours",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Watt-Hour",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrMeasurementPointVAPercent": {
+    "name": "lgpPwrMeasurementPointVAPercent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrMeasurementPointNeutralCurrent": {
+    "name": "lgpPwrMeasurementPointNeutralCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Amp",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrMeasurementPointGroundCurrent": {
+    "name": "lgpPwrMeasurementPointGroundCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Amp",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrMeasurementPointNomCurrent": {
+    "name": "lgpPwrMeasurementPointNomCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Amp",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrMeasurementPointNomPowerFactor": {
+    "name": "lgpPwrMeasurementPointNomPowerFactor",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".01 Power Factor",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrMeasurementPointNomVA": {
+    "name": "lgpPwrMeasurementPointNomVA",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Volt-Amp",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrMeasurementPointNomW": {
+    "name": "lgpPwrMeasurementPointNomW",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Watt",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrMeasurementPointPowerFactorTag": {
+    "name": "lgpPwrMeasurementPointPowerFactorTag",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "leading": 1,
+          "lagging": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrLineMeasurementTable": {
+    "name": "lgpPwrLineMeasurementTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPwrLineMeasurementEntry": {
+    "name": "lgpPwrLineMeasurementEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-POWER-MIB",
+        "object": "lgpPwrMeasurementPtIndex",
+        "implied": 0
+      },
+      {
+        "module": "LIEBERT-GP-POWER-MIB",
+        "object": "lgpPwrLineMeasurementIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpPwrMeasurementPtIndex": {
+    "name": "lgpPwrMeasurementPtIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPwrLineMeasurementIndex": {
+    "name": "lgpPwrLineMeasurementIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPwrMeasurementPoint": {
+    "name": "lgpPwrMeasurementPoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrLineMeasurementVoltsLL": {
+    "name": "lgpPwrLineMeasurementVoltsLL",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Volt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrLineMeasurementVoltsLN": {
+    "name": "lgpPwrLineMeasurementVoltsLN",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Volt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrLineMeasurementCurrent": {
+    "name": "lgpPwrLineMeasurementCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Amp",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrLineMeasurementCapacity": {
+    "name": "lgpPwrLineMeasurementCapacity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrLineMeasurementVA": {
+    "name": "lgpPwrLineMeasurementVA",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Volt-Amp",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrLineMeasurementTruePower": {
+    "name": "lgpPwrLineMeasurementTruePower",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Watt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrLineMeasurementVoltageTHD": {
+    "name": "lgpPwrLineMeasurementVoltageTHD",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrLineMeasurementCurrentTHD": {
+    "name": "lgpPwrLineMeasurementCurrentTHD",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrLineMeasurementKFactorCurrent": {
+    "name": "lgpPwrLineMeasurementKFactorCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 K Factor",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrLineMeasurementCrestFactorCurrent": {
+    "name": "lgpPwrLineMeasurementCrestFactorCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Crest Factor",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrLineMeasurementPowerFactor": {
+    "name": "lgpPwrLineMeasurementPowerFactor",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.01 Power Factor",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrLineMeasurementPowerFactorTag": {
+    "name": "lgpPwrLineMeasurementPowerFactorTag",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "leading": 1,
+          "lagging": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrLineMeasurementMaxVolts": {
+    "name": "lgpPwrLineMeasurementMaxVolts",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Volt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrLineMeasurementMinVolts": {
+    "name": "lgpPwrLineMeasurementMinVolts",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Volt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrLineMeasurementVAR": {
+    "name": "lgpPwrLineMeasurementVAR",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Volt-Amp-Reactive",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrLineMeasurementPercentLoad": {
+    "name": "lgpPwrLineMeasurementPercentLoad",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrLineMeasurementVolts": {
+    "name": "lgpPwrLineMeasurementVolts",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Volt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrLineMeasurementVACapacity": {
+    "name": "lgpPwrLineMeasurementVACapacity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrDcMeasurementPointTable": {
+    "name": "lgpPwrDcMeasurementPointTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPwrDcMeasurementPointEntry": {
+    "name": "lgpPwrDcMeasurementPointEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-POWER-MIB",
+        "object": "lgpPwrDcMeasurementPointIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpPwrDcMeasurementPointIndex": {
+    "name": "lgpPwrDcMeasurementPointIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPwrDcMeasurementPointId": {
+    "name": "lgpPwrDcMeasurementPointId",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrDcMeasurementPointSubID": {
+    "name": "lgpPwrDcMeasurementPointSubID",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrDcMeasurementPointVolts": {
+    "name": "lgpPwrDcMeasurementPointVolts",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Volt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrDcMeasurementPointCurrent": {
+    "name": "lgpPwrDcMeasurementPointCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Amp",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrDcMeasurementPointNomVolts": {
+    "name": "lgpPwrDcMeasurementPointNomVolts",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Volt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrDcMeasurementPointTruePower": {
+    "name": "lgpPwrDcMeasurementPointTruePower",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Watt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrWellKnownMeasurementTypes": {
+    "name": "lgpPwrWellKnownMeasurementTypes",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrVoltsAc": {
+    "name": "lgpPwrVoltsAc",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrVoltsDc": {
+    "name": "lgpPwrVoltsDc",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.5.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrAmpsNeutral": {
+    "name": "lgpPwrAmpsNeutral",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.2.5.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrWellKnownControlPoints": {
+    "name": "lgpPwrWellKnownControlPoints",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.6.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrLoadCircuit": {
+    "name": "lgpPwrLoadCircuit",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.6.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrLoadCircuitTable": {
+    "name": "lgpPwrLoadCircuitTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPwrLoadCircuitEntry": {
+    "name": "lgpPwrLoadCircuitEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-POWER-MIB",
+        "object": "lgpPwrLoadCircuitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpPwrLoadCircuitIndex": {
+    "name": "lgpPwrLoadCircuitIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPwrLoadCircuitId": {
+    "name": "lgpPwrLoadCircuitId",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrLoadCircuitSubID": {
+    "name": "lgpPwrLoadCircuitSubID",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrLoadCircuitState": {
+    "name": "lgpPwrLoadCircuitState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "default": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrLoadCircuitStateAndControl": {
+    "name": "lgpPwrLoadCircuitStateAndControl",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1,
+          "reboot": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrAlarmSilence": {
+    "name": "lgpPwrAlarmSilence",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrBatteryTest": {
+    "name": "lgpPwrBatteryTest",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "abort": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrUpsAbortCommand": {
+    "name": "lgpPwrUpsAbortCommand",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrTransferToBypass": {
+    "name": "lgpPwrTransferToBypass",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrTransferToInverter": {
+    "name": "lgpPwrTransferToInverter",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrOutputOnDelay": {
+    "name": "lgpPwrOutputOnDelay",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrOutputOffDelayWithRestart": {
+    "name": "lgpPwrOutputOffDelayWithRestart",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrOutputOffDelayWithoutRestart": {
+    "name": "lgpPwrOutputOffDelayWithoutRestart",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrTransferCount": {
+    "name": "lgpPwrTransferCount",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrAutoTransferTimer": {
+    "name": "lgpPwrAutoTransferTimer",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrAutoReTransferEnabled": {
+    "name": "lgpPwrAutoReTransferEnabled",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrSyncPhaseAngle": {
+    "name": "lgpPwrSyncPhaseAngle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -3600,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "units": "0.1 Degrees",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrParallelSystemOutputToLoadSource": {
+    "name": "lgpPwrParallelSystemOutputToLoadSource",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "utility": 1,
+          "battery": 2,
+          "bypass": 3,
+          "none": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrDcToDcConverter": {
+    "name": "lgpPwrDcToDcConverter",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrOutputToLoadOnInverter": {
+    "name": "lgpPwrOutputToLoadOnInverter",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrBatteryChargeCompensating": {
+    "name": "lgpPwrBatteryChargeCompensating",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrInverterReady": {
+    "name": "lgpPwrInverterReady",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrOutputToLoadOnBypass": {
+    "name": "lgpPwrOutputToLoadOnBypass",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrBoost": {
+    "name": "lgpPwrBoost",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrBuck": {
+    "name": "lgpPwrBuck",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrShutdownOverTemperature": {
+    "name": "lgpPwrShutdownOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrShutdownOverload": {
+    "name": "lgpPwrShutdownOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrShutdownDcBusOverload": {
+    "name": "lgpPwrShutdownDcBusOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrShutdownOutputShort": {
+    "name": "lgpPwrShutdownOutputShort",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrShutdownLineSwap": {
+    "name": "lgpPwrShutdownLineSwap",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrShutdownLowBattery": {
+    "name": "lgpPwrShutdownLowBattery",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrShutdownRemote": {
+    "name": "lgpPwrShutdownRemote",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrShutdownInputUnderVoltage": {
+    "name": "lgpPwrShutdownInputUnderVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrShutdownPowerFactorCorrectionFailure": {
+    "name": "lgpPwrShutdownPowerFactorCorrectionFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrShutdownHardware": {
+    "name": "lgpPwrShutdownHardware",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrRedundantSubModule": {
+    "name": "lgpPwrRedundantSubModule",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrBypassReady": {
+    "name": "lgpPwrBypassReady",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrGeneratorStatus": {
+    "name": "lgpPwrGeneratorStatus",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connected": 1,
+          "disconnected": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrRotaryBreakerStatus": {
+    "name": "lgpPwrRotaryBreakerStatus",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "closed": 2,
+          "test": 3,
+          "normal": 4,
+          "bypass": 5,
+          "maintenance": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrPowerFactorCorrection": {
+    "name": "lgpPwrPowerFactorCorrection",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrBypassSyncDiff": {
+    "name": "lgpPwrBypassSyncDiff",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Degrees",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrBypassOverloadShutdownTime": {
+    "name": "lgpPwrBypassOverloadShutdownTime",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrInverterOverloadShutdownTime": {
+    "name": "lgpPwrInverterOverloadShutdownTime",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateOutputSource": {
+    "name": "lgpPwrStateOutputSource",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "inverter": 2,
+          "bypass": 3,
+          "maintenanceBypass": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateInputSource": {
+    "name": "lgpPwrStateInputSource",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "utility": 2,
+          "generator": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateInputQualification": {
+    "name": "lgpPwrStateInputQualification",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fail": 1,
+          "marginalLow": 2,
+          "normal": 3,
+          "marginalHigh": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateBypassStaticSwitchState": {
+    "name": "lgpPwrStateBypassStaticSwitchState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateBypassQualification": {
+    "name": "lgpPwrStateBypassQualification",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fail": 1,
+          "marginalLow": 2,
+          "normal": 3,
+          "marginalHigh": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateDCBusQualification": {
+    "name": "lgpPwrStateDCBusQualification",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fail": 1,
+          "marginalLow": 2,
+          "normal": 3,
+          "marginalHigh": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateOutQualification": {
+    "name": "lgpPwrStateOutQualification",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fail": 1,
+          "marginalLow": 2,
+          "normal": 3,
+          "marginalHigh": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateInverterQualification": {
+    "name": "lgpPwrStateInverterQualification",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fail": 1,
+          "marginalLow": 2,
+          "normal": 3,
+          "marginalHigh": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateInverterState": {
+    "name": "lgpPwrStateInverterState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateRectifierState": {
+    "name": "lgpPwrStateRectifierState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateModuleGroup": {
+    "name": "lgpPwrStateModuleGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.41",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrStateUpsModuleCount": {
+    "name": "lgpPwrStateUpsModuleCount",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.41.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrStateUpsModuleRedundantCount": {
+    "name": "lgpPwrStateUpsModuleRedundantCount",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.41.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateBackfeedBrkrState": {
+    "name": "lgpPwrStateBackfeedBrkrState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "notInstalled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateLoadDisconnectState": {
+    "name": "lgpPwrStateLoadDisconnectState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "notInstalled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateInputBrkrState": {
+    "name": "lgpPwrStateInputBrkrState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "notInstalled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateTrapFilterBrkrState": {
+    "name": "lgpPwrStateTrapFilterBrkrState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "notInstalled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateInvOutputBrkrState": {
+    "name": "lgpPwrStateInvOutputBrkrState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "notInstalled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateIntBypassBrkrState": {
+    "name": "lgpPwrStateIntBypassBrkrState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "notInstalled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateBypassIsolBrkrState": {
+    "name": "lgpPwrStateBypassIsolBrkrState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "notInstalled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateRectifierIsolBrkrState": {
+    "name": "lgpPwrStateRectifierIsolBrkrState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "notInstalled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateMaintBypassBrkrState": {
+    "name": "lgpPwrStateMaintBypassBrkrState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "notInstalled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateMaintIsolBrkrState": {
+    "name": "lgpPwrStateMaintIsolBrkrState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "notInstalled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateOutStaticSwState": {
+    "name": "lgpPwrStateOutStaticSwState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "notInstalled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateModuleOutBrkrState": {
+    "name": "lgpPwrStateModuleOutBrkrState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "notInstalled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrBypassReXfrRemainTime": {
+    "name": "lgpPwrBypassReXfrRemainTime",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateUpsOutputSource": {
+    "name": "lgpPwrStateUpsOutputSource",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "none": 2,
+          "normal": 3,
+          "bypass": 4,
+          "battery": 5,
+          "booster": 6,
+          "reducer": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateLoadBusSynchronization": {
+    "name": "lgpPwrStateLoadBusSynchronization",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "active": 1,
+          "abnormal": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateCircuitBrkrStateGroup": {
+    "name": "lgpPwrStateCircuitBrkrStateGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.57",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPwrStateSource1InputBrkrState": {
+    "name": "lgpPwrStateSource1InputBrkrState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.57.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "notInstalled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateSource2InputBrkrState": {
+    "name": "lgpPwrStateSource2InputBrkrState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.57.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "notInstalled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateSource1BypassBrkrState": {
+    "name": "lgpPwrStateSource1BypassBrkrState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.57.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "notInstalled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateSource2BypassBrkrState": {
+    "name": "lgpPwrStateSource2BypassBrkrState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.57.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "notInstalled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateOutputBrkrState": {
+    "name": "lgpPwrStateOutputBrkrState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.57.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "notInstalled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateAuxOutputBrkrState": {
+    "name": "lgpPwrStateAuxOutputBrkrState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.57.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "notInstalled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateSource1PduInputBrkrState": {
+    "name": "lgpPwrStateSource1PduInputBrkrState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.57.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "notInstalled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateSource2PduInputBrkrState": {
+    "name": "lgpPwrStateSource2PduInputBrkrState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.57.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "notInstalled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrEconomicOperation": {
+    "name": "lgpPwrEconomicOperation",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.3.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrPreferredSource": {
+    "name": "lgpPwrPreferredSource",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrLoadOnSource": {
+    "name": "lgpPwrLoadOnSource",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrNominalVoltageDeviation": {
+    "name": "lgpPwrNominalVoltageDeviation",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Volt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrNominalVoltageDeviationPercent": {
+    "name": "lgpPwrNominalVoltageDeviationPercent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrPhaseDifferenceLimit": {
+    "name": "lgpPwrPhaseDifferenceLimit",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Degrees",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrFrequencyDeviationLimit": {
+    "name": "lgpPwrFrequencyDeviationLimit",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Hertz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrThresholdTable": {
+    "name": "lgpPwrThresholdTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPwrThresholdEntry": {
+    "name": "lgpPwrThresholdEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-POWER-MIB",
+        "object": "lgpPwrThresholdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpPwrThresholdIndex": {
+    "name": "lgpPwrThresholdIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPwrThresholdPoint": {
+    "name": "lgpPwrThresholdPoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrThresholdSubID": {
+    "name": "lgpPwrThresholdSubID",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrThresholdType": {
+    "name": "lgpPwrThresholdType",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrThresholdHighWarning": {
+    "name": "lgpPwrThresholdHighWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrThresholdHighFailure": {
+    "name": "lgpPwrThresholdHighFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrThresholdLowWarning": {
+    "name": "lgpPwrThresholdLowWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrThresholdLowFailure": {
+    "name": "lgpPwrThresholdLowFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrUpsAutoRestart": {
+    "name": "lgpPwrUpsAutoRestart",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrUpsAutoRestartDelay": {
+    "name": "lgpPwrUpsAutoRestartDelay",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrAutoRestartBatteryChargeThreshold": {
+    "name": "lgpPwrAutoRestartBatteryChargeThreshold",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrParallelModuleCount": {
+    "name": "lgpPwrParallelModuleCount",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrParallelRedundancyCount": {
+    "name": "lgpPwrParallelRedundancyCount",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrLoadBusSyncMode": {
+    "name": "lgpPwrLoadBusSyncMode",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrEconomicOperationMode": {
+    "name": "lgpPwrEconomicOperationMode",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrAutomaticBatteryTest": {
+    "name": "lgpPwrAutomaticBatteryTest",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrMinimumRedundantPowerModule": {
+    "name": "lgpPwrMinimumRedundantPowerModule",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrMinimumRedundantBatteryModule": {
+    "name": "lgpPwrMinimumRedundantBatteryModule",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrOutputToLoadUserOverloadLimit": {
+    "name": "lgpPwrOutputToLoadUserOverloadLimit",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Volt-Amp",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrNoLoadWarningLimit": {
+    "name": "lgpPwrNoLoadWarningLimit",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Amp",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrNoLoadWarningDelay": {
+    "name": "lgpPwrNoLoadWarningDelay",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrEconomicOperationModeControl": {
+    "name": "lgpPwrEconomicOperationModeControl",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.4.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "mode1": 1,
+          "mode2": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrBrownOutCount": {
+    "name": "lgpPwrBrownOutCount",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrBlackOutCount": {
+    "name": "lgpPwrBlackOutCount",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrTransientCount": {
+    "name": "lgpPwrTransientCount",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrBatteryDischargeCount": {
+    "name": "lgpPwrBatteryDischargeCount",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrBatteryDischargeTime": {
+    "name": "lgpPwrBatteryDischargeTime",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrBatteryAmpHours": {
+    "name": "lgpPwrBatteryAmpHours",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Amp-hour",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrBatteryWattHours": {
+    "name": "lgpPwrBatteryWattHours",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Watt-Hour",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrBatteryStatisticsReset": {
+    "name": "lgpPwrBatteryStatisticsReset",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrStatisticsReset": {
+    "name": "lgpPwrStatisticsReset",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrNumberInstalledPowerModules": {
+    "name": "lgpPwrNumberInstalledPowerModules",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrNumberFailedPowerModules": {
+    "name": "lgpPwrNumberFailedPowerModules",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrNumberRedundantPowerModules": {
+    "name": "lgpPwrNumberRedundantPowerModules",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrNumberActivePowerModules": {
+    "name": "lgpPwrNumberActivePowerModules",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrNumberPowerModuleWarnings": {
+    "name": "lgpPwrNumberPowerModuleWarnings",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrUpsInverterStandby": {
+    "name": "lgpPwrUpsInverterStandby",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrUpsTopOffline": {
+    "name": "lgpPwrUpsTopOffline",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrUpsTopLineInteractive": {
+    "name": "lgpPwrUpsTopLineInteractive",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrUPSTopDualInput": {
+    "name": "lgpPwrUPSTopDualInput",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrTopFrequencyConverter": {
+    "name": "lgpPwrTopFrequencyConverter",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrTopVoltageConverter": {
+    "name": "lgpPwrTopVoltageConverter",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrTopMaximumFrameCapacity": {
+    "name": "lgpPwrTopMaximumFrameCapacity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Volt-Amp",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrTopRedundantControlModules": {
+    "name": "lgpPwrTopRedundantControlModules",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrInputIsolationTransformerInstalled": {
+    "name": "lgpPwrInputIsolationTransformerInstalled",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInstalled": 1,
+          "installed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateStaticSwitchType": {
+    "name": "lgpPwrStateStaticSwitchType",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "continuousDuty": 2,
+          "momentaryDuty": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateModuleType": {
+    "name": "lgpPwrStateModuleType",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.7.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singleModuleSystem": 1,
+          "module1plus1": 2,
+          "module1plusN": 3,
+          "moduleNplus1": 4,
+          "systemControlCabinet": 5,
+          "mainStaticSwitch": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateBypassInputConfig": {
+    "name": "lgpPwrStateBypassInputConfig",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.7.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singlePhase2WireL1WithReturn": 1,
+          "twoPhase2WireL1L2": 2,
+          "twoPhase3WireL1L2WithNeutral": 3,
+          "threePhase3WireL1L2L3": 4,
+          "threePhase4WireL1L2L3WithNeutral": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrStateOutputConfig": {
+    "name": "lgpPwrStateOutputConfig",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.7.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singlePhase2WireL1WithReturn": 1,
+          "twoPhase2WireL1L2": 2,
+          "twoPhase3WireL1L2WithNeutral": 3,
+          "threePhase3WireL1L2L3": 4,
+          "threePhase4WireL1L2L3WithNeutral": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrRectifierPassiveFilterInstalled": {
+    "name": "lgpPwrRectifierPassiveFilterInstalled",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.7.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInstalled": 1,
+          "installed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrRectifierTrapInstalled": {
+    "name": "lgpPwrRectifierTrapInstalled",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.7.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInstalled": 1,
+          "installed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrRectifierActiveFilterInstalled": {
+    "name": "lgpPwrRectifierActiveFilterInstalled",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.7.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInstalled": 1,
+          "installed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrSysCapacity": {
+    "name": "lgpPwrSysCapacity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Volt-Amp",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrUPSModuleMode": {
+    "name": "lgpPwrUPSModuleMode",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "single": 1,
+          "parallel": 2,
+          "hotmaster": 3,
+          "hotslave": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPwrMaxRatedCurrent": {
+    "name": "lgpPwrMaxRatedCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Amp",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPwrRectifierPulseCount": {
+    "name": "lgpPwrRectifierPulseCount",
+    "oid": "1.3.6.1.4.1.476.1.42.3.5.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sixPulse": 1,
+          "twelvePulse": 2,
+          "eighteenPulse": 3,
+          "twentyFourPulse": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/liebert/LIEBERT-GP-POWER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:41:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "LIEBERT-GP-POWER-MIB"
+  }
+}

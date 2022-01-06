@@ -1,0 +1,448 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfRhw"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfLAG": {
+    "name": "hpnicfLAG",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25",
+    "class": "moduleidentity"
+  },
+  "hpnicfLAGMibObjects": {
+    "name": "hpnicfLAGMibObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.1",
+    "class": "objectidentity"
+  },
+  "hpnicfAggLinkTable": {
+    "name": "hpnicfAggLinkTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfAggLinkEntry": {
+    "name": "hpnicfAggLinkEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-LAG-MIB",
+        "object": "hpnicfAggLinkNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfAggLinkNumber": {
+    "name": "hpnicfAggLinkNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfAggLinkName": {
+    "name": "hpnicfAggLinkName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfAggLinkMode": {
+    "name": "hpnicfAggLinkMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "static": 2,
+          "dynamic": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfAggLinkPortList": {
+    "name": "hpnicfAggLinkPortList",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfAggLinkState": {
+    "name": "hpnicfAggLinkState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfAggPortListSelectedPorts": {
+    "name": "hpnicfAggPortListSelectedPorts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfAggPortListSamePartnerPorts": {
+    "name": "hpnicfAggPortListSamePartnerPorts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfAggPortTable": {
+    "name": "hpnicfAggPortTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfAggPortEntry": {
+    "name": "hpnicfAggPortEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-LAG-MIB",
+        "object": "hpnicfAggPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfAggPortIndex": {
+    "name": "hpnicfAggPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfAggPortNotAttachedReason": {
+    "name": "hpnicfAggPortNotAttachedReason",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfAggPortLacpState": {
+    "name": "hpnicfAggPortLacpState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfAggPortNotAttachedString": {
+    "name": "hpnicfAggPortNotAttachedString",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfAggResourceAllocationValue": {
+    "name": "hpnicfAggResourceAllocationValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLAGMibNotifications": {
+    "name": "hpnicfLAGMibNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.2",
+    "class": "objectidentity"
+  },
+  "hpnicfAggSpeedChangedNotification": {
+    "name": "hpnicfAggSpeedChangedNotification",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-LAG-MIB",
+        "object": "hpnicfAggLinkNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfAggPortInactiveNotification": {
+    "name": "hpnicfAggPortInactiveNotification",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-LAG-MIB",
+        "object": "hpnicfAggLinkNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfAggPortInactiveNotification2": {
+    "name": "hpnicfAggPortInactiveNotification2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-LAG-MIB",
+        "object": "hpnicfAggLinkNumber"
+      },
+      {
+        "module": "HPN-ICF-LAG-MIB",
+        "object": "hpnicfAggPortIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfAggPortActiveNotification": {
+    "name": "hpnicfAggPortActiveNotification",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-LAG-MIB",
+        "object": "hpnicfAggLinkNumber"
+      },
+      {
+        "module": "HPN-ICF-LAG-MIB",
+        "object": "hpnicfAggPortIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLAGMibConformance": {
+    "name": "hpnicfLAGMibConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.3",
+    "class": "objectidentity"
+  },
+  "hpnicfLAGMibCompliances": {
+    "name": "hpnicfLAGMibCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.3.1",
+    "class": "objectidentity"
+  },
+  "hpnicfLAGMibCompliance": {
+    "name": "hpnicfLAGMibCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpnicfLAGMibObjectGroup",
+        "module": "HPN-ICF-LAG-MIB"
+      },
+      {
+        "object": "hpnicfLAGMibNotificationGroup",
+        "module": "HPN-ICF-LAG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLAGMibGroup": {
+    "name": "hpnicfLAGMibGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.3.2",
+    "class": "objectidentity"
+  },
+  "hpnicfLAGMibObjectGroup": {
+    "name": "hpnicfLAGMibObjectGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-LAG-MIB",
+        "object": "hpnicfAggLinkName"
+      },
+      {
+        "module": "HPN-ICF-LAG-MIB",
+        "object": "hpnicfAggLinkMode"
+      },
+      {
+        "module": "HPN-ICF-LAG-MIB",
+        "object": "hpnicfAggLinkPortList"
+      },
+      {
+        "module": "HPN-ICF-LAG-MIB",
+        "object": "hpnicfAggLinkState"
+      },
+      {
+        "module": "HPN-ICF-LAG-MIB",
+        "object": "hpnicfAggPortListSelectedPorts"
+      },
+      {
+        "module": "HPN-ICF-LAG-MIB",
+        "object": "hpnicfAggPortListSamePartnerPorts"
+      },
+      {
+        "module": "HPN-ICF-LAG-MIB",
+        "object": "hpnicfAggPortNotAttachedReason"
+      },
+      {
+        "module": "HPN-ICF-LAG-MIB",
+        "object": "hpnicfAggPortLacpState"
+      },
+      {
+        "module": "HPN-ICF-LAG-MIB",
+        "object": "hpnicfAggPortNotAttachedString"
+      },
+      {
+        "module": "HPN-ICF-LAG-MIB",
+        "object": "hpnicfAggResourceAllocationValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLAGMibNotificationGroup": {
+    "name": "hpnicfLAGMibNotificationGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.25.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-LAG-MIB",
+        "object": "hpnicfAggSpeedChangedNotification"
+      },
+      {
+        "module": "HPN-ICF-LAG-MIB",
+        "object": "hpnicfAggPortInactiveNotification"
+      },
+      {
+        "module": "HPN-ICF-LAG-MIB",
+        "object": "hpnicfAggPortInactiveNotification2"
+      },
+      {
+        "module": "HPN-ICF-LAG-MIB",
+        "object": "hpnicfAggPortActiveNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-LAG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-LAG-MIB"
+  }
+}

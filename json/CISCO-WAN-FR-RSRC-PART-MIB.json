@@ -1,0 +1,341 @@
+{
+  "imports": {
+    "class": "imports",
+    "BASIS-MIB": [
+      "frPortCnfResPartGrp"
+    ],
+    "CISCOWAN-SMI": [
+      "ciscoWan"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoWanFrRsrcPartMIB": {
+    "name": "ciscoWanFrRsrcPartMIB",
+    "oid": "1.3.6.1.4.1.351.150.45",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-04 00:00",
+        "description": "Initial version of the MIB. The content of this MIB was originally available in CISCO-WAN-AXIPOP-MIB defined using SMIv1. The applicable objects from CISCO-WAN-AXIPOP-MIB are defined using SMIv2 in this MIB. Also the descriptions of some of the objects have been modified."
+      }
+    ]
+  },
+  "frPortCnfResPartGrpTable": {
+    "name": "frPortCnfResPartGrpTable",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frPortCnfResPartGrpEntry": {
+    "name": "frPortCnfResPartGrpEntry",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-FR-RSRC-PART-MIB",
+        "object": "frResPartPortNum",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-FR-RSRC-PART-MIB",
+        "object": "frResPartCtrlrNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "frResPartPortNum": {
+    "name": "frResPartPortNum",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frResPartCtrlrNum": {
+    "name": "frResPartCtrlrNum",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "par": 1,
+          "pnni": 2,
+          "tag": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frResPartRowStatus": {
+    "name": "frResPartRowStatus",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 1,
+          "del": 2,
+          "mod": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "frResPartNumOfLcnAvail": {
+    "name": "frResPartNumOfLcnAvail",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "frResPartDlciLow": {
+    "name": "frResPartDlciLow",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8388607
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "frResPartDlciHigh": {
+    "name": "frResPartDlciHigh",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8388607
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "frResPartIngrPctBW": {
+    "name": "frResPartIngrPctBW",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percentage",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "frResPartEgrPctBW": {
+    "name": "frResPartEgrPctBW",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percentage",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "frResPartCtrlrID": {
+    "name": "frResPartCtrlrID",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwfRsrcPartMIBConformance": {
+    "name": "cwfRsrcPartMIBConformance",
+    "oid": "1.3.6.1.4.1.351.150.45.2",
+    "class": "objectidentity"
+  },
+  "cwfRsrcPartMIBCompliances": {
+    "name": "cwfRsrcPartMIBCompliances",
+    "oid": "1.3.6.1.4.1.351.150.45.2.1",
+    "class": "objectidentity"
+  },
+  "cwfRsrcPartMIBGroups": {
+    "name": "cwfRsrcPartMIBGroups",
+    "oid": "1.3.6.1.4.1.351.150.45.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoWanFrRsrcPartCompliance": {
+    "name": "ciscoWanFrRsrcPartCompliance",
+    "oid": "1.3.6.1.4.1.351.150.45.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoWanFrRsrcPartGroup",
+        "module": "CISCO-WAN-FR-RSRC-PART-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWanFrRsrcPartGroup": {
+    "name": "ciscoWanFrRsrcPartGroup",
+    "oid": "1.3.6.1.4.1.351.150.45.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-FR-RSRC-PART-MIB",
+        "object": "frResPartPortNum"
+      },
+      {
+        "module": "CISCO-WAN-FR-RSRC-PART-MIB",
+        "object": "frResPartCtrlrNum"
+      },
+      {
+        "module": "CISCO-WAN-FR-RSRC-PART-MIB",
+        "object": "frResPartRowStatus"
+      },
+      {
+        "module": "CISCO-WAN-FR-RSRC-PART-MIB",
+        "object": "frResPartNumOfLcnAvail"
+      },
+      {
+        "module": "CISCO-WAN-FR-RSRC-PART-MIB",
+        "object": "frResPartDlciLow"
+      },
+      {
+        "module": "CISCO-WAN-FR-RSRC-PART-MIB",
+        "object": "frResPartDlciHigh"
+      },
+      {
+        "module": "CISCO-WAN-FR-RSRC-PART-MIB",
+        "object": "frResPartIngrPctBW"
+      },
+      {
+        "module": "CISCO-WAN-FR-RSRC-PART-MIB",
+        "object": "frResPartEgrPctBW"
+      },
+      {
+        "module": "CISCO-WAN-FR-RSRC-PART-MIB",
+        "object": "frResPartCtrlrID"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WAN-FR-RSRC-PART-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-WAN-FR-RSRC-PART-MIB"
+  }
+}

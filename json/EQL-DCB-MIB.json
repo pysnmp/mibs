@@ -1,0 +1,3447 @@
+{
+  "imports": {
+    "class": "imports",
+    "EQLGROUP-MIB": [
+      "eqlGroupId"
+    ],
+    "EQLMEMBER-MIB": [
+      "eqlMemberIndex"
+    ],
+    "EQUALLOGIC-SMI": [
+      "equalLogic"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "enterprises",
+      "TimeTicks",
+      "Counter32",
+      "Integer32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TimeInterval",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "eqlDcbMib": {
+    "name": "eqlDcbMib",
+    "oid": "1.3.6.1.4.1.12740.19",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-01-27 00:00",
+        "description": "Initial revision - based on IEEE P802.1Qbb Draft 1.2 Copyright (C) IEEE."
+      }
+    ]
+  },
+  "eqlDcbMIBObjects": {
+    "name": "eqlDcbMIBObjects",
+    "oid": "1.3.6.1.4.1.12740.19.1",
+    "class": "objectidentity"
+  },
+  "EqlDcbxTrafficClassGroupValue": {
+    "name": "EqlDcbxTrafficClassGroupValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "EqlDcbxAppSelector": {
+    "name": "EqlDcbxAppSelector",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "asEthertype": 0,
+          "asTCPPortNumber": 1,
+          "asUDPPortNumber": 2,
+          "asTCPUDPPortNumber": 3,
+          "asNotTCPUDPPortNumber": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EqlDcbxAppProtocol": {
+    "name": "EqlDcbxAppProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "EqlDcbxSupportedCapacity": {
+    "name": "EqlDcbxSupportedCapacity",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "EqlVlanIdentifier": {
+    "name": "EqlVlanIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4094
+          },
+          {
+            "min": 4095,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "EqlIEEE8021PriorityValue": {
+    "name": "EqlIEEE8021PriorityValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "EqlIEEEDraftSubtypeValue": {
+    "name": "EqlIEEEDraftSubtypeValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "EqlDcbxState": {
+    "name": "EqlDcbxState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EqlDcbxVlanState": {
+    "name": "EqlDcbxVlanState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EqlDcbxTransmissionSelectionAlgorithm": {
+    "name": "EqlDcbxTransmissionSelectionAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tsaStrictPriority": 0,
+          "tsaCreditBasedShaper": 1,
+          "tsaEnhancedTransmission": 2,
+          "tsaVendorSpecific": 255
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EqlDcbxMode": {
+    "name": "EqlDcbxMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "dcbx101Baseline": 1,
+          "dcbxIeeeStandard": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "eqlDcbStaticIfTable": {
+    "name": "eqlDcbStaticIfTable",
+    "oid": "1.3.6.1.4.1.12740.19.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlDcbStaticIfEntry": {
+    "name": "eqlDcbStaticIfEntry",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlDcbxConfigTCSupportedTxEnable": {
+    "name": "eqlDcbxConfigTCSupportedTxEnable",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "eqlDcbxConfigETSConfigurationTxEnable": {
+    "name": "eqlDcbxConfigETSConfigurationTxEnable",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxConfigETSRecommendationTxEnable": {
+    "name": "eqlDcbxConfigETSRecommendationTxEnable",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxConfigPFCTxEnable": {
+    "name": "eqlDcbxConfigPFCTxEnable",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxConfigAppPriorityTxEnable": {
+    "name": "eqlDcbxConfigAppPriorityTxEnable",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxConfigQcnTxEnable": {
+    "name": "eqlDcbxConfigQcnTxEnable",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminTCSupported": {
+    "name": "eqlDcbxAdminTCSupported",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxSupportedCapacity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "eqlDcbxAdminETSConMaxTCG": {
+    "name": "eqlDcbxAdminETSConMaxTCG",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxSupportedCapacity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSConWilling": {
+    "name": "eqlDcbxAdminETSConWilling",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSConTrafficClassGroupBandwidthTable": {
+    "name": "eqlDcbxAdminETSConTrafficClassGroupBandwidthTable",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "6400000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSRecoTrafficClassGroupBandwidthTable": {
+    "name": "eqlDcbxAdminETSRecoTrafficClassGroupBandwidthTable",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "6400000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminPFCWilling": {
+    "name": "eqlDcbxAdminPFCWilling",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminPFCMBC": {
+    "name": "eqlDcbxAdminPFCMBC",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminPFCCap": {
+    "name": "eqlDcbxAdminPFCCap",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxSupportedCapacity",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminAppPriorityWilling": {
+    "name": "eqlDcbxAdminAppPriorityWilling",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxConfigAutoDetectVLANEnable": {
+    "name": "eqlDcbxConfigAutoDetectVLANEnable",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxConfigVLANId": {
+    "name": "eqlDcbxConfigVLANId",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlVlanIdentifier",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4095,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSConTrafficClassGroupPri0": {
+    "name": "eqlDcbxAdminETSConTrafficClassGroupPri0",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSConTrafficClassGroupPri1": {
+    "name": "eqlDcbxAdminETSConTrafficClassGroupPri1",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSConTrafficClassGroupPri2": {
+    "name": "eqlDcbxAdminETSConTrafficClassGroupPri2",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSConTrafficClassGroupPri3": {
+    "name": "eqlDcbxAdminETSConTrafficClassGroupPri3",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSConTrafficClassGroupPri4": {
+    "name": "eqlDcbxAdminETSConTrafficClassGroupPri4",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSConTrafficClassGroupPri5": {
+    "name": "eqlDcbxAdminETSConTrafficClassGroupPri5",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSConTrafficClassGroupPri6": {
+    "name": "eqlDcbxAdminETSConTrafficClassGroupPri6",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSConTrafficClassGroupPri7": {
+    "name": "eqlDcbxAdminETSConTrafficClassGroupPri7",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminPFCEnableEnabledPri0": {
+    "name": "eqlDcbxAdminPFCEnableEnabledPri0",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminPFCEnableEnabledPri1": {
+    "name": "eqlDcbxAdminPFCEnableEnabledPri1",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminPFCEnableEnabledPri2": {
+    "name": "eqlDcbxAdminPFCEnableEnabledPri2",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminPFCEnableEnabledPri3": {
+    "name": "eqlDcbxAdminPFCEnableEnabledPri3",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminPFCEnableEnabledPri4": {
+    "name": "eqlDcbxAdminPFCEnableEnabledPri4",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminPFCEnableEnabledPri5": {
+    "name": "eqlDcbxAdminPFCEnableEnabledPri5",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminPFCEnableEnabledPri6": {
+    "name": "eqlDcbxAdminPFCEnableEnabledPri6",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminPFCEnableEnabledPri7": {
+    "name": "eqlDcbxAdminPFCEnableEnabledPri7",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminAppPriorityiSCSITxEnable": {
+    "name": "eqlDcbxAdminAppPriorityiSCSITxEnable",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminAppPriorityiSCSIProtocol": {
+    "name": "eqlDcbxAdminAppPriorityiSCSIProtocol",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxAppProtocol",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3260,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminAppPriorityiSCSIPriority": {
+    "name": "eqlDcbxAdminAppPriorityiSCSIPriority",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlIEEE8021PriorityValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminAppPriorityFCoETxEnable": {
+    "name": "eqlDcbxAdminAppPriorityFCoETxEnable",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminAppPriorityFCoEProtocol": {
+    "name": "eqlDcbxAdminAppPriorityFCoEProtocol",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxAppProtocol",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 35078,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminAppPriorityFCoEPriority": {
+    "name": "eqlDcbxAdminAppPriorityFCoEPriority",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlIEEE8021PriorityValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxConfigDCBEnable": {
+    "name": "eqlDcbxConfigDCBEnable",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxConfigDCBX101Enable": {
+    "name": "eqlDcbxConfigDCBX101Enable",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxConfigDCBXIEEEDraftEnable": {
+    "name": "eqlDcbxConfigDCBXIEEEDraftEnable",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxConfigQcnSubtype": {
+    "name": "eqlDcbxConfigQcnSubtype",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlIEEEDraftSubtypeValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "eqlDcbxConfigETSConSubtype": {
+    "name": "eqlDcbxConfigETSConSubtype",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlIEEEDraftSubtypeValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 9,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "eqlDcbxConfigETSRecoSubtype": {
+    "name": "eqlDcbxConfigETSRecoSubtype",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlIEEEDraftSubtypeValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "eqlDcbxConfigPFCSubtype": {
+    "name": "eqlDcbxConfigPFCSubtype",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlIEEEDraftSubtypeValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 11,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "eqlDcbxConfigAppPrioritySubtype": {
+    "name": "eqlDcbxConfigAppPrioritySubtype",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlIEEEDraftSubtypeValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 12,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "eqlDcbxConfigTCSupportedSubtype": {
+    "name": "eqlDcbxConfigTCSupportedSubtype",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlIEEEDraftSubtypeValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "eqlDcbxAdminETSRecoTrafficClassGroupPri0": {
+    "name": "eqlDcbxAdminETSRecoTrafficClassGroupPri0",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSRecoTrafficClassGroupPri1": {
+    "name": "eqlDcbxAdminETSRecoTrafficClassGroupPri1",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSRecoTrafficClassGroupPri2": {
+    "name": "eqlDcbxAdminETSRecoTrafficClassGroupPri2",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSRecoTrafficClassGroupPri3": {
+    "name": "eqlDcbxAdminETSRecoTrafficClassGroupPri3",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSRecoTrafficClassGroupPri4": {
+    "name": "eqlDcbxAdminETSRecoTrafficClassGroupPri4",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSRecoTrafficClassGroupPri5": {
+    "name": "eqlDcbxAdminETSRecoTrafficClassGroupPri5",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSRecoTrafficClassGroupPri6": {
+    "name": "eqlDcbxAdminETSRecoTrafficClassGroupPri6",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSRecoTrafficClassGroupPri7": {
+    "name": "eqlDcbxAdminETSRecoTrafficClassGroupPri7",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbCnGlobalMasterEnable": {
+    "name": "eqlDcbCnGlobalMasterEnable",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbCnRpPortPriMaxRps": {
+    "name": "eqlDcbCnRpPortPriMaxRps",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65536,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbCnRpgEnablePri0": {
+    "name": "eqlDcbCnRpgEnablePri0",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbCnRpgEnablePri1": {
+    "name": "eqlDcbCnRpgEnablePri1",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbCnRpgEnablePri2": {
+    "name": "eqlDcbCnRpgEnablePri2",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbCnRpgEnablePri3": {
+    "name": "eqlDcbCnRpgEnablePri3",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbCnRpgEnablePri4": {
+    "name": "eqlDcbCnRpgEnablePri4",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbCnRpgEnablePri5": {
+    "name": "eqlDcbCnRpgEnablePri5",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbCnRpgEnablePri6": {
+    "name": "eqlDcbCnRpgEnablePri6",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbCnRpgEnablePri7": {
+    "name": "eqlDcbCnRpgEnablePri7",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbCnRpgTimeReset": {
+    "name": "eqlDcbCnRpgTimeReset",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbCnRpgByteReset": {
+    "name": "eqlDcbCnRpgByteReset",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 150000,
+        "format": "decimal"
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbCnRpgThreshold": {
+    "name": "eqlDcbCnRpgThreshold",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbCnRpgMaxRate": {
+    "name": "eqlDcbCnRpgMaxRate",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10000,
+        "format": "decimal"
+      }
+    },
+    "units": "Mbit/s",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbCnRpgAiRate": {
+    "name": "eqlDcbCnRpgAiRate",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "Mbit/s",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbCnRpgHaiRate": {
+    "name": "eqlDcbCnRpgHaiRate",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "units": "Mbit/s",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbCnRpgGd": {
+    "name": "eqlDcbCnRpgGd",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbCnRpgMinDecFac": {
+    "name": "eqlDcbCnRpgMinDecFac",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbCnRpgMinRate": {
+    "name": "eqlDcbCnRpgMinRate",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "Mbit/s",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbDefaultiSCSIPriority": {
+    "name": "eqlDcbDefaultiSCSIPriority",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlIEEE8021PriorityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbDefaultFCoEPriority": {
+    "name": "eqlDcbDefaultFCoEPriority",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlIEEE8021PriorityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSConTsaTc0": {
+    "name": "eqlDcbxAdminETSConTsaTc0",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "tsaVendorSpecific",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSConTsaTc1": {
+    "name": "eqlDcbxAdminETSConTsaTc1",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.79",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "tsaVendorSpecific",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSConTsaTc2": {
+    "name": "eqlDcbxAdminETSConTsaTc2",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "tsaVendorSpecific",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSConTsaTc3": {
+    "name": "eqlDcbxAdminETSConTsaTc3",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "tsaVendorSpecific",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSConTsaTc4": {
+    "name": "eqlDcbxAdminETSConTsaTc4",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.82",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "tsaVendorSpecific",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSConTsaTc5": {
+    "name": "eqlDcbxAdminETSConTsaTc5",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "tsaVendorSpecific",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSConTsaTc6": {
+    "name": "eqlDcbxAdminETSConTsaTc6",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.84",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "tsaVendorSpecific",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSConTsaTc7": {
+    "name": "eqlDcbxAdminETSConTsaTc7",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "tsaVendorSpecific",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSRecoTsaTc0": {
+    "name": "eqlDcbxAdminETSRecoTsaTc0",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.86",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "tsaVendorSpecific",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSRecoTsaTc1": {
+    "name": "eqlDcbxAdminETSRecoTsaTc1",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.87",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "tsaVendorSpecific",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSRecoTsaTc2": {
+    "name": "eqlDcbxAdminETSRecoTsaTc2",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.88",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "tsaVendorSpecific",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSRecoTsaTc3": {
+    "name": "eqlDcbxAdminETSRecoTsaTc3",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.89",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "tsaVendorSpecific",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSRecoTsaTc4": {
+    "name": "eqlDcbxAdminETSRecoTsaTc4",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.90",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "tsaVendorSpecific",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSRecoTsaTc5": {
+    "name": "eqlDcbxAdminETSRecoTsaTc5",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.91",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "tsaVendorSpecific",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSRecoTsaTc6": {
+    "name": "eqlDcbxAdminETSRecoTsaTc6",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.92",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "tsaVendorSpecific",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbxAdminETSRecoTsaTc7": {
+    "name": "eqlDcbxAdminETSRecoTsaTc7",
+    "oid": "1.3.6.1.4.1.12740.19.1.1.1.93",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "tsaVendorSpecific",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDcbDynamicIfTable": {
+    "name": "eqlDcbDynamicIfTable",
+    "oid": "1.3.6.1.4.1.12740.19.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlDcbDynamicIfEntry": {
+    "name": "eqlDcbDynamicIfEntry",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlDcbPfcRequestsSent": {
+    "name": "eqlDcbPfcRequestsSent",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbPfcIndicationsReceived": {
+    "name": "eqlDcbPfcIndicationsReceived",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocTCSupported": {
+    "name": "eqlDcbxLocTCSupported",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxSupportedCapacity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "eqlDcbxLocETSConMaxTCG": {
+    "name": "eqlDcbxLocETSConMaxTCG",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxSupportedCapacity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSConWilling": {
+    "name": "eqlDcbxLocETSConWilling",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSConTrafficClassGroupBandwidthTable": {
+    "name": "eqlDcbxLocETSConTrafficClassGroupBandwidthTable",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSRecoTrafficClassGroupBandwidthTable": {
+    "name": "eqlDcbxLocETSRecoTrafficClassGroupBandwidthTable",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPFCWilling": {
+    "name": "eqlDcbxLocPFCWilling",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPFCMBC": {
+    "name": "eqlDcbxLocPFCMBC",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPFCCap": {
+    "name": "eqlDcbxLocPFCCap",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxSupportedCapacity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocAppPriorityWilling": {
+    "name": "eqlDcbxLocAppPriorityWilling",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemTCSupported": {
+    "name": "eqlDcbxRemTCSupported",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxSupportedCapacity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "eqlDcbxRemETSConMaxTCG": {
+    "name": "eqlDcbxRemETSConMaxTCG",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxSupportedCapacity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemETSConWilling": {
+    "name": "eqlDcbxRemETSConWilling",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemETSConTrafficClassGroupBandwidthTable": {
+    "name": "eqlDcbxRemETSConTrafficClassGroupBandwidthTable",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemETSRecoTrafficClassGroupBandwidthTable": {
+    "name": "eqlDcbxRemETSRecoTrafficClassGroupBandwidthTable",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemPFCWilling": {
+    "name": "eqlDcbxRemPFCWilling",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemPFCMBC": {
+    "name": "eqlDcbxRemPFCMBC",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemPFCCap": {
+    "name": "eqlDcbxRemPFCCap",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxSupportedCapacity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemAppPriorityWilling": {
+    "name": "eqlDcbxRemAppPriorityWilling",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSConTrafficClassGroupPri0": {
+    "name": "eqlDcbxLocETSConTrafficClassGroupPri0",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSConTrafficClassGroupPri1": {
+    "name": "eqlDcbxLocETSConTrafficClassGroupPri1",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSConTrafficClassGroupPri2": {
+    "name": "eqlDcbxLocETSConTrafficClassGroupPri2",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSConTrafficClassGroupPri3": {
+    "name": "eqlDcbxLocETSConTrafficClassGroupPri3",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSConTrafficClassGroupPri4": {
+    "name": "eqlDcbxLocETSConTrafficClassGroupPri4",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSConTrafficClassGroupPri5": {
+    "name": "eqlDcbxLocETSConTrafficClassGroupPri5",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSConTrafficClassGroupPri6": {
+    "name": "eqlDcbxLocETSConTrafficClassGroupPri6",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSConTrafficClassGroupPri7": {
+    "name": "eqlDcbxLocETSConTrafficClassGroupPri7",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTrafficClassGroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPFCEnableEnabledPri0": {
+    "name": "eqlDcbxLocPFCEnableEnabledPri0",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPFCEnableEnabledPri1": {
+    "name": "eqlDcbxLocPFCEnableEnabledPri1",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPFCEnableEnabledPri2": {
+    "name": "eqlDcbxLocPFCEnableEnabledPri2",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPFCEnableEnabledPri3": {
+    "name": "eqlDcbxLocPFCEnableEnabledPri3",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPFCEnableEnabledPri4": {
+    "name": "eqlDcbxLocPFCEnableEnabledPri4",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPFCEnableEnabledPri5": {
+    "name": "eqlDcbxLocPFCEnableEnabledPri5",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPFCEnableEnabledPri6": {
+    "name": "eqlDcbxLocPFCEnableEnabledPri6",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPFCEnableEnabledPri7": {
+    "name": "eqlDcbxLocPFCEnableEnabledPri7",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocVLANId": {
+    "name": "eqlDcbxLocVLANId",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlVlanIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocVLANState": {
+    "name": "eqlDcbxLocVLANState",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxVlanState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocDCBState": {
+    "name": "eqlDcbxLocDCBState",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPFCState": {
+    "name": "eqlDcbxLocPFCState",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSState": {
+    "name": "eqlDcbxLocETSState",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocQCNState": {
+    "name": "eqlDcbxLocQCNState",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLociSCSIPriority": {
+    "name": "eqlDcbxLociSCSIPriority",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlIEEE8021PriorityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocFCoEPriority": {
+    "name": "eqlDcbxLocFCoEPriority",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlIEEE8021PriorityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocBytesRxPri0": {
+    "name": "eqlDcbxLocBytesRxPri0",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocBytesRxPri1": {
+    "name": "eqlDcbxLocBytesRxPri1",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocBytesRxPri2": {
+    "name": "eqlDcbxLocBytesRxPri2",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocBytesRxPri3": {
+    "name": "eqlDcbxLocBytesRxPri3",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocBytesRxPri4": {
+    "name": "eqlDcbxLocBytesRxPri4",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocBytesRxPri5": {
+    "name": "eqlDcbxLocBytesRxPri5",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocBytesRxPri6": {
+    "name": "eqlDcbxLocBytesRxPri6",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocBytesRxPri7": {
+    "name": "eqlDcbxLocBytesRxPri7",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocBytesTxPri0": {
+    "name": "eqlDcbxLocBytesTxPri0",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocBytesTxPri1": {
+    "name": "eqlDcbxLocBytesTxPri1",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocBytesTxPri2": {
+    "name": "eqlDcbxLocBytesTxPri2",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocBytesTxPri3": {
+    "name": "eqlDcbxLocBytesTxPri3",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocBytesTxPri4": {
+    "name": "eqlDcbxLocBytesTxPri4",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocBytesTxPri5": {
+    "name": "eqlDcbxLocBytesTxPri5",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocBytesTxPri6": {
+    "name": "eqlDcbxLocBytesTxPri6",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocBytesTxPri7": {
+    "name": "eqlDcbxLocBytesTxPri7",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbCnRpPortPriCreatedRpsPri0": {
+    "name": "eqlDcbCnRpPortPriCreatedRpsPri0",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbCnRpPortPriCreatedRpsPri1": {
+    "name": "eqlDcbCnRpPortPriCreatedRpsPri1",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbCnRpPortPriCreatedRpsPri2": {
+    "name": "eqlDcbCnRpPortPriCreatedRpsPri2",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbCnRpPortPriCreatedRpsPri3": {
+    "name": "eqlDcbCnRpPortPriCreatedRpsPri3",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbCnRpPortPriCreatedRpsPri4": {
+    "name": "eqlDcbCnRpPortPriCreatedRpsPri4",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbCnRpPortPriCreatedRpsPri5": {
+    "name": "eqlDcbCnRpPortPriCreatedRpsPri5",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbCnRpPortPriCreatedRpsPri6": {
+    "name": "eqlDcbCnRpPortPriCreatedRpsPri6",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbCnRpPortPriCreatedRpsPri7": {
+    "name": "eqlDcbCnRpPortPriCreatedRpsPri7",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbCnRpPortPriCentisecondsPri0": {
+    "name": "eqlDcbCnRpPortPriCentisecondsPri0",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbCnRpPortPriCentisecondsPri1": {
+    "name": "eqlDcbCnRpPortPriCentisecondsPri1",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbCnRpPortPriCentisecondsPri2": {
+    "name": "eqlDcbCnRpPortPriCentisecondsPri2",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbCnRpPortPriCentisecondsPri3": {
+    "name": "eqlDcbCnRpPortPriCentisecondsPri3",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbCnRpPortPriCentisecondsPri4": {
+    "name": "eqlDcbCnRpPortPriCentisecondsPri4",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbCnRpPortPriCentisecondsPri5": {
+    "name": "eqlDcbCnRpPortPriCentisecondsPri5",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbCnRpPortPriCentisecondsPri6": {
+    "name": "eqlDcbCnRpPortPriCentisecondsPri6",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbCnRpPortPriCentisecondsPri7": {
+    "name": "eqlDcbCnRpPortPriCentisecondsPri7",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPfcPausePri0": {
+    "name": "eqlDcbxLocPfcPausePri0",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPfcPausePri1": {
+    "name": "eqlDcbxLocPfcPausePri1",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPfcPausePri2": {
+    "name": "eqlDcbxLocPfcPausePri2",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.79",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPfcPausePri3": {
+    "name": "eqlDcbxLocPfcPausePri3",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPfcPausePri4": {
+    "name": "eqlDcbxLocPfcPausePri4",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPfcPausePri5": {
+    "name": "eqlDcbxLocPfcPausePri5",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.82",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPfcPausePri6": {
+    "name": "eqlDcbxLocPfcPausePri6",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPfcPausePri7": {
+    "name": "eqlDcbxLocPfcPausePri7",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.84",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPfcUnpausePri0": {
+    "name": "eqlDcbxLocPfcUnpausePri0",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPfcUnpausePri1": {
+    "name": "eqlDcbxLocPfcUnpausePri1",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.86",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPfcUnpausePri2": {
+    "name": "eqlDcbxLocPfcUnpausePri2",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.87",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPfcUnpausePri3": {
+    "name": "eqlDcbxLocPfcUnpausePri3",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.88",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPfcUnpausePri4": {
+    "name": "eqlDcbxLocPfcUnpausePri4",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.89",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPfcUnpausePri5": {
+    "name": "eqlDcbxLocPfcUnpausePri5",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.90",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPfcUnpausePri6": {
+    "name": "eqlDcbxLocPfcUnpausePri6",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.91",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocPfcUnpausePri7": {
+    "name": "eqlDcbxLocPfcUnpausePri7",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.92",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSConTsaTc0": {
+    "name": "eqlDcbxLocETSConTsaTc0",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.93",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSConTsaTc1": {
+    "name": "eqlDcbxLocETSConTsaTc1",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.94",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSConTsaTc2": {
+    "name": "eqlDcbxLocETSConTsaTc2",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.95",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSConTsaTc3": {
+    "name": "eqlDcbxLocETSConTsaTc3",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.96",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSConTsaTc4": {
+    "name": "eqlDcbxLocETSConTsaTc4",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.97",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSConTsaTc5": {
+    "name": "eqlDcbxLocETSConTsaTc5",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.98",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSConTsaTc6": {
+    "name": "eqlDcbxLocETSConTsaTc6",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSConTsaTc7": {
+    "name": "eqlDcbxLocETSConTsaTc7",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSRecoTsaTc0": {
+    "name": "eqlDcbxLocETSRecoTsaTc0",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.101",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSRecoTsaTc1": {
+    "name": "eqlDcbxLocETSRecoTsaTc1",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.102",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSRecoTsaTc2": {
+    "name": "eqlDcbxLocETSRecoTsaTc2",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.103",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSRecoTsaTc3": {
+    "name": "eqlDcbxLocETSRecoTsaTc3",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.104",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSRecoTsaTc4": {
+    "name": "eqlDcbxLocETSRecoTsaTc4",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.105",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSRecoTsaTc5": {
+    "name": "eqlDcbxLocETSRecoTsaTc5",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.106",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSRecoTsaTc6": {
+    "name": "eqlDcbxLocETSRecoTsaTc6",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.107",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocETSRecoTsaTc7": {
+    "name": "eqlDcbxLocETSRecoTsaTc7",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.108",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemETSConTsaTc0": {
+    "name": "eqlDcbxRemETSConTsaTc0",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.109",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemETSConTsaTc1": {
+    "name": "eqlDcbxRemETSConTsaTc1",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.110",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemETSConTsaTc2": {
+    "name": "eqlDcbxRemETSConTsaTc2",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.111",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemETSConTsaTc3": {
+    "name": "eqlDcbxRemETSConTsaTc3",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.112",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemETSConTsaTc4": {
+    "name": "eqlDcbxRemETSConTsaTc4",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.113",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemETSConTsaTc5": {
+    "name": "eqlDcbxRemETSConTsaTc5",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.114",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemETSConTsaTc6": {
+    "name": "eqlDcbxRemETSConTsaTc6",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.115",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemETSConTsaTc7": {
+    "name": "eqlDcbxRemETSConTsaTc7",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.116",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemETSRecoTsaTc0": {
+    "name": "eqlDcbxRemETSRecoTsaTc0",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.117",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemETSRecoTsaTc1": {
+    "name": "eqlDcbxRemETSRecoTsaTc1",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.118",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemETSRecoTsaTc2": {
+    "name": "eqlDcbxRemETSRecoTsaTc2",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.119",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemETSRecoTsaTc3": {
+    "name": "eqlDcbxRemETSRecoTsaTc3",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.120",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemETSRecoTsaTc4": {
+    "name": "eqlDcbxRemETSRecoTsaTc4",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.121",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemETSRecoTsaTc5": {
+    "name": "eqlDcbxRemETSRecoTsaTc5",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.122",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemETSRecoTsaTc6": {
+    "name": "eqlDcbxRemETSRecoTsaTc6",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.123",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxRemETSRecoTsaTc7": {
+    "name": "eqlDcbxRemETSRecoTsaTc7",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.124",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxTransmissionSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDcbxLocDCBMode": {
+    "name": "eqlDcbxLocDCBMode",
+    "oid": "1.3.6.1.4.1.12740.19.1.2.1.125",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlDcbxMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQL-DCB-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:25 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "EQL-DCB-MIB"
+  }
+}

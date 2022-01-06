@@ -1,0 +1,756 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cQINQ": {
+    "name": "hh3cQINQ",
+    "oid": "1.3.6.1.4.1.25506.2.69",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-03-10 00:00",
+        "description": "The initial version of this MIB."
+      }
+    ]
+  },
+  "Hh3cQinQSwitchState": {
+    "name": "Hh3cQinQSwitchState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cQinQMibObject": {
+    "name": "hh3cQinQMibObject",
+    "oid": "1.3.6.1.4.1.25506.2.69.1",
+    "class": "objectidentity"
+  },
+  "hh3cQinQGlobalConfigGroup": {
+    "name": "hh3cQinQGlobalConfigGroup",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cQinQBpduTunnelSwitch": {
+    "name": "hh3cQinQBpduTunnelSwitch",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cQinQSwitchState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cQinQEthernetTypeValue": {
+    "name": "hh3cQinQEthernetTypeValue",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 33024,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cQinQServiceTPIDValue": {
+    "name": "hh3cQinQServiceTPIDValue",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cQinQCustomerTPIDValue": {
+    "name": "hh3cQinQCustomerTPIDValue",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cQinQBpduTunnelTable": {
+    "name": "hh3cQinQBpduTunnelTable",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQinQBpduTunnelEntry": {
+    "name": "hh3cQinQBpduTunnelEntry",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-QINQ-MIB",
+        "object": "hh3cQinQProtocolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cQinQProtocolIndex": {
+    "name": "hh3cQinQProtocolIndex",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bpdu": 1,
+          "stp": 2,
+          "gmosaic": 3,
+          "igmp": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQinQBpduRowStatus": {
+    "name": "hh3cQinQBpduRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQinQPriorityRemarkTable": {
+    "name": "hh3cQinQPriorityRemarkTable",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQinQPriorityRemarkEntry": {
+    "name": "hh3cQinQPriorityRemarkEntry",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-QINQ-MIB",
+        "object": "hh3cQinQPriorityValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cQinQPriorityValue": {
+    "name": "hh3cQinQPriorityValue",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQinQPriorityRemarkValue": {
+    "name": "hh3cQinQPriorityRemarkValue",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQinQPriorityRowStatus": {
+    "name": "hh3cQinQPriorityRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQinQVidTable": {
+    "name": "hh3cQinQVidTable",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQinQVidEntry": {
+    "name": "hh3cQinQVidEntry",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-QINQ-MIB",
+        "object": "hh3cQinQVlanID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cQinQVlanID": {
+    "name": "hh3cQinQVlanID",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQinQInboundVidListLow": {
+    "name": "hh3cQinQInboundVidListLow",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQinQInboundVidListHigh": {
+    "name": "hh3cQinQInboundVidListHigh",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQinQVidEthernetType": {
+    "name": "hh3cQinQVidEthernetType",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 33024,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQinQVidRowStatus": {
+    "name": "hh3cQinQVidRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQinQVidSwapTable": {
+    "name": "hh3cQinQVidSwapTable",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQinQVidSwapEntry": {
+    "name": "hh3cQinQVidSwapEntry",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-QINQ-MIB",
+        "object": "hh3cQinQVlanID",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-QINQ-MIB",
+        "object": "hh3cQinQVidSwapOld",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cQinQVidSwapOld": {
+    "name": "hh3cQinQVidSwapOld",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQinQVidSwapNew": {
+    "name": "hh3cQinQVidSwapNew",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQinQVidSwapRowStatus": {
+    "name": "hh3cQinQVidSwapRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQinQPrioritySwapTable": {
+    "name": "hh3cQinQPrioritySwapTable",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQinQPrioritySwapEntry": {
+    "name": "hh3cQinQPrioritySwapEntry",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-QINQ-MIB",
+        "object": "hh3cQinQVlanID",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-QINQ-MIB",
+        "object": "hh3cQinQPrioritySwapOld",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cQinQPrioritySwapOld": {
+    "name": "hh3cQinQPrioritySwapOld",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQinQPrioritySwapNew": {
+    "name": "hh3cQinQPrioritySwapNew",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQinQPrioritySwapRowStatus": {
+    "name": "hh3cQinQPrioritySwapRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQinQIfConfigTable": {
+    "name": "hh3cQinQIfConfigTable",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQinQIfConfigEntry": {
+    "name": "hh3cQinQIfConfigEntry",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cQinQIfEthernetType": {
+    "name": "hh3cQinQIfEthernetType",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 33024,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQinQIfSwitch": {
+    "name": "hh3cQinQIfSwitch",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cQinQSwitchState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQinQIfRowStatus": {
+    "name": "hh3cQinQIfRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQinQIfServiceTPIDValue": {
+    "name": "hh3cQinQIfServiceTPIDValue",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQinQIfCustomerTPIDValue": {
+    "name": "hh3cQinQIfCustomerTPIDValue",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQinQIfUplinkSwitch": {
+    "name": "hh3cQinQIfUplinkSwitch",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cQinQSwitchState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQinQIfDownlinkSwitch": {
+    "name": "hh3cQinQIfDownlinkSwitch",
+    "oid": "1.3.6.1.4.1.25506.2.69.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cQinQSwitchState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-QINQ-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-QINQ-MIB"
+  }
+}

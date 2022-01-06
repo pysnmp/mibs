@@ -1,0 +1,3256 @@
+{
+  "imports": {
+    "class": "imports",
+    "BKTEL-HFC862-BASE-MIB": [
+      "DisplayString",
+      "PerceivedSeverityValue",
+      "TruthValue",
+      "modules",
+      "NESlotValue",
+      "ModuleWidthValue"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "oa": {
+    "name": "oa",
+    "oid": "1.3.6.1.4.1.7501.1.2.116",
+    "class": "objectidentity"
+  },
+  "oaCommon": {
+    "name": "oaCommon",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.1",
+    "class": "objectidentity"
+  },
+  "oaStates": {
+    "name": "oaStates",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2",
+    "class": "objectidentity"
+  },
+  "oaConfiguration": {
+    "name": "oaConfiguration",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.3",
+    "class": "objectidentity"
+  },
+  "oaControl": {
+    "name": "oaControl",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.4",
+    "class": "objectidentity"
+  },
+  "oaMeasuringValues": {
+    "name": "oaMeasuringValues",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5",
+    "class": "objectidentity"
+  },
+  "oaDisplay": {
+    "name": "oaDisplay",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6",
+    "class": "objectidentity"
+  },
+  "RegulationMode": {
+    "name": "RegulationMode",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "regModeConstantOutputPower": 1,
+          "regModeConstantGain": 2
+        }
+      }
+    }
+  },
+  "SbsEvaluationMode": {
+    "name": "SbsEvaluationMode",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "evalModeDefault": 1,
+          "evalModeFullScan": 2
+        }
+      }
+    }
+  },
+  "SbsEvaluationState": {
+    "name": "SbsEvaluationState",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "evaluationNotSupported": 1,
+          "evaluationDone": 2,
+          "evaluationInProgress": 3,
+          "evaluationFailed": 4
+        }
+      }
+    }
+  },
+  "ExtIOmode": {
+    "name": "ExtIOmode",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "modeActiveLowOutput": 1,
+          "modeActiveHighOutput": 2,
+          "modeRedundantMasterIrreversible": 3,
+          "modeRedundantMasterFallback": 4,
+          "modeRedundantSlave": 5
+        }
+      }
+    }
+  },
+  "ExtIOmask": {
+    "name": "ExtIOmask",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "maskAlarmsOnly": 1,
+          "maskAlarmsAndWarnings": 2,
+          "maskSpecial": 3
+        }
+      }
+    }
+  },
+  "LaserFeatures": {
+    "name": "LaserFeatures",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lasNonExistent": 0,
+          "lasCurrent": 1,
+          "lasCurrentLasTec": 3,
+          "lasCurrentLasTemperature": 5,
+          "lasCurrentLasTecLasTemperature": 7,
+          "lasCurrentLasVoltage": 9,
+          "lasCurrentLasTecLasVoltage": 11,
+          "lasCurrentLasTemperatureLasVoltage": 13,
+          "lasCurrentLasTecLasTemperatureLasVoltage": 15,
+          "lasCurrentLasPumpPower": 17,
+          "lasCurrentLasTecLasPumpPower": 19,
+          "lasCurrentLasTemperatureLasPumpPower": 21,
+          "lasCurrentLasTecLasTemperatureLasPumpPower": 23,
+          "lasCurrentLasVoltageLasPumpPower": 25,
+          "lasCurrentLasTecLasVoltageLasPumpPower": 27,
+          "lasCurrentLasTemperatureLasVoltageLasPumpPower": 29,
+          "lasCurrentLasTecLasTemperatureLasVoltageLasPumpPower": 31
+        }
+      }
+    }
+  },
+  "NESlotWriteValue": {
+    "name": "NESlotWriteValue",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 99
+          }
+        ]
+      }
+    }
+  },
+  "oaCommonNumberOfModules": {
+    "name": "oaCommonNumberOfModules",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaCommonTable": {
+    "name": "oaCommonTable",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "oaCommonEntry": {
+    "name": "oaCommonEntry",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BKTEL-HFC862-OA-V01-MIB",
+        "object": "oaNESlot",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "oaNESlot": {
+    "name": "oaNESlot",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NESlotValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaCommonType": {
+    "name": "oaCommonType",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaCommonDescr": {
+    "name": "oaCommonDescr",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "oaCommonFirmwareId": {
+    "name": "oaCommonFirmwareId",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaCommonModuleWidth": {
+    "name": "oaCommonModuleWidth",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleWidthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaMeasuringValuesTable": {
+    "name": "oaMeasuringValuesTable",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "oaMeasuringValuesEntry": {
+    "name": "oaMeasuringValuesEntry",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BKTEL-HFC862-OA-V01-MIB",
+        "object": "oaNESlot",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "oaTemperatureLoLo": {
+    "name": "oaTemperatureLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaTemperatureLo": {
+    "name": "oaTemperatureLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaTemperatureValue": {
+    "name": "oaTemperatureValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaTemperatureHi": {
+    "name": "oaTemperatureHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaTemperatureHiHi": {
+    "name": "oaTemperatureHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaInputPowerLoLo": {
+    "name": "oaInputPowerLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "oaInputPowerLo": {
+    "name": "oaInputPowerLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "oaInputPowerValue": {
+    "name": "oaInputPowerValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaInputPowerHi": {
+    "name": "oaInputPowerHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "oaInputPowerHiHi": {
+    "name": "oaInputPowerHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "oaOutputPwrOrGainLoLo": {
+    "name": "oaOutputPwrOrGainLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "oaOutputPwrOrGainLo": {
+    "name": "oaOutputPwrOrGainLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "oaOutputPwrOrGainValue": {
+    "name": "oaOutputPwrOrGainValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaOutputPwrOrGainHi": {
+    "name": "oaOutputPwrOrGainHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "oaOutputPwrOrGainHiHi": {
+    "name": "oaOutputPwrOrGainHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "oaReturnLossLoLo": {
+    "name": "oaReturnLossLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "oaReturnLossLo": {
+    "name": "oaReturnLossLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "oaReturnLossValue": {
+    "name": "oaReturnLossValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaReturnLossHi": {
+    "name": "oaReturnLossHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "oaReturnLossHiHi": {
+    "name": "oaReturnLossHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "oaInputVoltageLoLo": {
+    "name": "oaInputVoltageLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaInputVoltageLo": {
+    "name": "oaInputVoltageLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaInputVoltageValue": {
+    "name": "oaInputVoltageValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaInputVoltageHi": {
+    "name": "oaInputVoltageHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaInputVoltageHiHi": {
+    "name": "oaInputVoltageHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaInternalVoltage1LoLo": {
+    "name": "oaInternalVoltage1LoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaInternalVoltage1Lo": {
+    "name": "oaInternalVoltage1Lo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaInternalVoltage1Value": {
+    "name": "oaInternalVoltage1Value",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaInternalVoltage1Hi": {
+    "name": "oaInternalVoltage1Hi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaInternalVoltage1HiHi": {
+    "name": "oaInternalVoltage1HiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaInternalVoltage2LoLo": {
+    "name": "oaInternalVoltage2LoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaInternalVoltage2Lo": {
+    "name": "oaInternalVoltage2Lo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaInternalVoltage2Value": {
+    "name": "oaInternalVoltage2Value",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaInternalVoltage2Hi": {
+    "name": "oaInternalVoltage2Hi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaInternalVoltage2HiHi": {
+    "name": "oaInternalVoltage2HiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaInternalVoltage3LoLo": {
+    "name": "oaInternalVoltage3LoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaInternalVoltage3Lo": {
+    "name": "oaInternalVoltage3Lo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaInternalVoltage3Value": {
+    "name": "oaInternalVoltage3Value",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaInternalVoltage3Hi": {
+    "name": "oaInternalVoltage3Hi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaInternalVoltage3HiHi": {
+    "name": "oaInternalVoltage3HiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser1CurrentRelLoLo": {
+    "name": "oaLaser1CurrentRelLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.86",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser1CurrentRelLo": {
+    "name": "oaLaser1CurrentRelLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.87",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser1CurrentRelValue": {
+    "name": "oaLaser1CurrentRelValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.88",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser1CurrentRelHi": {
+    "name": "oaLaser1CurrentRelHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.89",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser1CurrentRelHiHi": {
+    "name": "oaLaser1CurrentRelHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.90",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser1TecRelLoLo": {
+    "name": "oaLaser1TecRelLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.91",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser1TecRelLo": {
+    "name": "oaLaser1TecRelLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.92",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser1TecRelValue": {
+    "name": "oaLaser1TecRelValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.93",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser1TecRelHi": {
+    "name": "oaLaser1TecRelHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.94",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser1TecRelHiHi": {
+    "name": "oaLaser1TecRelHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.95",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser1TemperatureLoLo": {
+    "name": "oaLaser1TemperatureLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.96",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser1TemperatureLo": {
+    "name": "oaLaser1TemperatureLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.97",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser1TemperatureValue": {
+    "name": "oaLaser1TemperatureValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.98",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser1TemperatureHi": {
+    "name": "oaLaser1TemperatureHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser1TemperatureHiHi": {
+    "name": "oaLaser1TemperatureHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser1VoltageLoLo": {
+    "name": "oaLaser1VoltageLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.101",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser1VoltageLo": {
+    "name": "oaLaser1VoltageLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.102",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser1VoltageValue": {
+    "name": "oaLaser1VoltageValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.103",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser1VoltageHi": {
+    "name": "oaLaser1VoltageHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.104",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser1VoltageHiHi": {
+    "name": "oaLaser1VoltageHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.105",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser2CurrentRelLoLo": {
+    "name": "oaLaser2CurrentRelLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.111",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser2CurrentRelLo": {
+    "name": "oaLaser2CurrentRelLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.112",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser2CurrentRelValue": {
+    "name": "oaLaser2CurrentRelValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.113",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser2CurrentRelHi": {
+    "name": "oaLaser2CurrentRelHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.114",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser2CurrentRelHiHi": {
+    "name": "oaLaser2CurrentRelHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.115",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser2TecRelLoLo": {
+    "name": "oaLaser2TecRelLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.116",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser2TecRelLo": {
+    "name": "oaLaser2TecRelLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.117",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser2TecRelValue": {
+    "name": "oaLaser2TecRelValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.118",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser2TecRelHi": {
+    "name": "oaLaser2TecRelHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.119",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser2TecRelHiHi": {
+    "name": "oaLaser2TecRelHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.120",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser2TemperatureLoLo": {
+    "name": "oaLaser2TemperatureLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.121",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser2TemperatureLo": {
+    "name": "oaLaser2TemperatureLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.122",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser2TemperatureValue": {
+    "name": "oaLaser2TemperatureValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.123",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser2TemperatureHi": {
+    "name": "oaLaser2TemperatureHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.124",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser2TemperatureHiHi": {
+    "name": "oaLaser2TemperatureHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.125",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser2VoltageLoLo": {
+    "name": "oaLaser2VoltageLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.126",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser2VoltageLo": {
+    "name": "oaLaser2VoltageLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.127",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser2VoltageValue": {
+    "name": "oaLaser2VoltageValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.128",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser2VoltageHi": {
+    "name": "oaLaser2VoltageHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.129",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser2VoltageHiHi": {
+    "name": "oaLaser2VoltageHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.130",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser3CurrentRelLoLo": {
+    "name": "oaLaser3CurrentRelLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.136",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser3CurrentRelLo": {
+    "name": "oaLaser3CurrentRelLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.137",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser3CurrentRelValue": {
+    "name": "oaLaser3CurrentRelValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.138",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser3CurrentRelHi": {
+    "name": "oaLaser3CurrentRelHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.139",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser3CurrentRelHiHi": {
+    "name": "oaLaser3CurrentRelHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.140",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser3TecRelLoLo": {
+    "name": "oaLaser3TecRelLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.141",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser3TecRelLo": {
+    "name": "oaLaser3TecRelLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.142",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser3TecRelValue": {
+    "name": "oaLaser3TecRelValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.143",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser3TecRelHi": {
+    "name": "oaLaser3TecRelHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.144",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser3TecRelHiHi": {
+    "name": "oaLaser3TecRelHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.145",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser3TemperatureLoLo": {
+    "name": "oaLaser3TemperatureLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.146",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser3TemperatureLo": {
+    "name": "oaLaser3TemperatureLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.147",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser3TemperatureValue": {
+    "name": "oaLaser3TemperatureValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.148",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser3TemperatureHi": {
+    "name": "oaLaser3TemperatureHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.149",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser3TemperatureHiHi": {
+    "name": "oaLaser3TemperatureHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.150",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser3VoltageLoLo": {
+    "name": "oaLaser3VoltageLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.151",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser3VoltageLo": {
+    "name": "oaLaser3VoltageLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.152",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser3VoltageValue": {
+    "name": "oaLaser3VoltageValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.153",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser3VoltageHi": {
+    "name": "oaLaser3VoltageHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.154",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser3VoltageHiHi": {
+    "name": "oaLaser3VoltageHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.155",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser4CurrentRelLoLo": {
+    "name": "oaLaser4CurrentRelLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.161",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser4CurrentRelLo": {
+    "name": "oaLaser4CurrentRelLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.162",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser4CurrentRelValue": {
+    "name": "oaLaser4CurrentRelValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.163",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser4CurrentRelHi": {
+    "name": "oaLaser4CurrentRelHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.164",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser4CurrentRelHiHi": {
+    "name": "oaLaser4CurrentRelHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.165",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser4TecRelLoLo": {
+    "name": "oaLaser4TecRelLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.166",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser4TecRelLo": {
+    "name": "oaLaser4TecRelLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.167",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser4TecRelValue": {
+    "name": "oaLaser4TecRelValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.168",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser4TecRelHi": {
+    "name": "oaLaser4TecRelHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.169",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser4TecRelHiHi": {
+    "name": "oaLaser4TecRelHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.170",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser4TemperatureLoLo": {
+    "name": "oaLaser4TemperatureLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.171",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser4TemperatureLo": {
+    "name": "oaLaser4TemperatureLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.172",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser4TemperatureValue": {
+    "name": "oaLaser4TemperatureValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.173",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser4TemperatureHi": {
+    "name": "oaLaser4TemperatureHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.174",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser4TemperatureHiHi": {
+    "name": "oaLaser4TemperatureHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.175",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser4VoltageLoLo": {
+    "name": "oaLaser4VoltageLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.176",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser4VoltageLo": {
+    "name": "oaLaser4VoltageLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.177",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser4VoltageValue": {
+    "name": "oaLaser4VoltageValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.178",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser4VoltageHi": {
+    "name": "oaLaser4VoltageHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.179",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser4VoltageHiHi": {
+    "name": "oaLaser4VoltageHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.180",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser5CurrentRelLoLo": {
+    "name": "oaLaser5CurrentRelLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.186",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser5CurrentRelLo": {
+    "name": "oaLaser5CurrentRelLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.187",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser5CurrentRelValue": {
+    "name": "oaLaser5CurrentRelValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.188",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser5CurrentRelHi": {
+    "name": "oaLaser5CurrentRelHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.189",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser5CurrentRelHiHi": {
+    "name": "oaLaser5CurrentRelHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.190",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser5TecRelLoLo": {
+    "name": "oaLaser5TecRelLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.191",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser5TecRelLo": {
+    "name": "oaLaser5TecRelLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.192",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser5TecRelValue": {
+    "name": "oaLaser5TecRelValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.193",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser5TecRelHi": {
+    "name": "oaLaser5TecRelHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.194",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser5TecRelHiHi": {
+    "name": "oaLaser5TecRelHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.195",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser5TemperatureLoLo": {
+    "name": "oaLaser5TemperatureLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.196",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser5TemperatureLo": {
+    "name": "oaLaser5TemperatureLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.197",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser5TemperatureValue": {
+    "name": "oaLaser5TemperatureValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.198",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser5TemperatureHi": {
+    "name": "oaLaser5TemperatureHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.199",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser5TemperatureHiHi": {
+    "name": "oaLaser5TemperatureHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.200",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser5VoltageLoLo": {
+    "name": "oaLaser5VoltageLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.201",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser5VoltageLo": {
+    "name": "oaLaser5VoltageLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.202",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser5VoltageValue": {
+    "name": "oaLaser5VoltageValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.203",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser5VoltageHi": {
+    "name": "oaLaser5VoltageHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.204",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser5VoltageHiHi": {
+    "name": "oaLaser5VoltageHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.205",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser6CurrentRelLoLo": {
+    "name": "oaLaser6CurrentRelLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.211",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser6CurrentRelLo": {
+    "name": "oaLaser6CurrentRelLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.212",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser6CurrentRelValue": {
+    "name": "oaLaser6CurrentRelValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.213",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser6CurrentRelHi": {
+    "name": "oaLaser6CurrentRelHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.214",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser6CurrentRelHiHi": {
+    "name": "oaLaser6CurrentRelHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.215",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser6TecRelLoLo": {
+    "name": "oaLaser6TecRelLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.216",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser6TecRelLo": {
+    "name": "oaLaser6TecRelLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.217",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser6TecRelValue": {
+    "name": "oaLaser6TecRelValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.218",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser6TecRelHi": {
+    "name": "oaLaser6TecRelHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.219",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser6TecRelHiHi": {
+    "name": "oaLaser6TecRelHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.220",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser6TemperatureLoLo": {
+    "name": "oaLaser6TemperatureLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.221",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser6TemperatureLo": {
+    "name": "oaLaser6TemperatureLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.222",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser6TemperatureValue": {
+    "name": "oaLaser6TemperatureValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.223",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser6TemperatureHi": {
+    "name": "oaLaser6TemperatureHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.224",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser6TemperatureHiHi": {
+    "name": "oaLaser6TemperatureHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.225",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaLaser6VoltageLoLo": {
+    "name": "oaLaser6VoltageLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.226",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser6VoltageLo": {
+    "name": "oaLaser6VoltageLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.227",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser6VoltageValue": {
+    "name": "oaLaser6VoltageValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.228",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser6VoltageHi": {
+    "name": "oaLaser6VoltageHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.229",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaLaser6VoltageHiHi": {
+    "name": "oaLaser6VoltageHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.5.1.1.230",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaStatesTable": {
+    "name": "oaStatesTable",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "oaStatesEntry": {
+    "name": "oaStatesEntry",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BKTEL-HFC862-OA-V01-MIB",
+        "object": "oaNESlot",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "oaStatesBootloader": {
+    "name": "oaStatesBootloader",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesCommLoss": {
+    "name": "oaStatesCommLoss",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesInitializing": {
+    "name": "oaStatesInitializing",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesLaserShutdown": {
+    "name": "oaStatesLaserShutdown",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesTemperatureLow": {
+    "name": "oaStatesTemperatureLow",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesTemperatureHigh": {
+    "name": "oaStatesTemperatureHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesSystem": {
+    "name": "oaStatesSystem",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesInputPwrLow": {
+    "name": "oaStatesInputPwrLow",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesInputPwrHigh": {
+    "name": "oaStatesInputPwrHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesOutputPwrOrGainLow": {
+    "name": "oaStatesOutputPwrOrGainLow",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesOutputPwrOrGainHigh": {
+    "name": "oaStatesOutputPwrOrGainHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesReturnLossLow": {
+    "name": "oaStatesReturnLossLow",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesReturnLossHigh": {
+    "name": "oaStatesReturnLossHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesRedundancySwitch": {
+    "name": "oaStatesRedundancySwitch",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesInputVoltageLow": {
+    "name": "oaStatesInputVoltageLow",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesInputVoltageHigh": {
+    "name": "oaStatesInputVoltageHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesPowerSupplyLeft": {
+    "name": "oaStatesPowerSupplyLeft",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesPowerSupplyRight": {
+    "name": "oaStatesPowerSupplyRight",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesFanLeft": {
+    "name": "oaStatesFanLeft",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesFanRight": {
+    "name": "oaStatesFanRight",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesInternalVoltageLow": {
+    "name": "oaStatesInternalVoltageLow",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesInternalVoltageHigh": {
+    "name": "oaStatesInternalVoltageHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesLaserCurrentLow": {
+    "name": "oaStatesLaserCurrentLow",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesLaserCurrentHigh": {
+    "name": "oaStatesLaserCurrentHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesTecCurrentLow": {
+    "name": "oaStatesTecCurrentLow",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesTecCurrentHigh": {
+    "name": "oaStatesTecCurrentHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesLaserTempLow": {
+    "name": "oaStatesLaserTempLow",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesLaserTempHigh": {
+    "name": "oaStatesLaserTempHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesLaserVoltageLow": {
+    "name": "oaStatesLaserVoltageLow",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesLaserVoltageHigh": {
+    "name": "oaStatesLaserVoltageHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesRamanBackReflectionRatio": {
+    "name": "oaStatesRamanBackReflectionRatio",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaStatesRamanOscSignalMissing": {
+    "name": "oaStatesRamanOscSignalMissing",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.2.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaControlTable": {
+    "name": "oaControlTable",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "oaControlEntry": {
+    "name": "oaControlEntry",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BKTEL-HFC862-OA-V01-MIB",
+        "object": "oaNESlot",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "oaControlLaserShutdown": {
+    "name": "oaControlLaserShutdown",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "oaControlReset": {
+    "name": "oaControlReset",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "oaControlModuleLedBlink": {
+    "name": "oaControlModuleLedBlink",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "oaControlSbsEvaluationStart": {
+    "name": "oaControlSbsEvaluationStart",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "oaConfigurationTable": {
+    "name": "oaConfigurationTable",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "oaConfigurationEntry": {
+    "name": "oaConfigurationEntry",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BKTEL-HFC862-OA-V01-MIB",
+        "object": "oaNESlot",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "oaConfigNESlotWrite": {
+    "name": "oaConfigNESlotWrite",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NESlotWriteValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "oaConfigRegulationMode": {
+    "name": "oaConfigRegulationMode",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RegulationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "oaConfigOutputPwrOrGainAdjust": {
+    "name": "oaConfigOutputPwrOrGainAdjust",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "oaConfigModeExtIO": {
+    "name": "oaConfigModeExtIO",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ExtIOmode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "oaConfigMaskExtIO": {
+    "name": "oaConfigMaskExtIO",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ExtIOmask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "oaConfigSbsEvaluationMode": {
+    "name": "oaConfigSbsEvaluationMode",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SbsEvaluationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "oaDisplayTable": {
+    "name": "oaDisplayTable",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "oaDisplayEntry": {
+    "name": "oaDisplayEntry",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BKTEL-HFC862-OA-V01-MIB",
+        "object": "oaNESlot",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "oaDisplayNumberOfLasers": {
+    "name": "oaDisplayNumberOfLasers",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaDisplayNumberOfInternalVoltages": {
+    "name": "oaDisplayNumberOfInternalVoltages",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaDisplayExtIOSupported": {
+    "name": "oaDisplayExtIOSupported",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaDisplaySbsSupported": {
+    "name": "oaDisplaySbsSupported",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaDisplayReturnLossSupported": {
+    "name": "oaDisplayReturnLossSupported",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaDisplaySbsEvaluatedThreshold": {
+    "name": "oaDisplaySbsEvaluatedThreshold",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaDisplaySbsLastEvaluationState": {
+    "name": "oaDisplaySbsLastEvaluationState",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SbsEvaluationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaDisplaySbsLastEvaluationTime": {
+    "name": "oaDisplaySbsLastEvaluationTime",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaDisplayOutputPwrOrGainNominal": {
+    "name": "oaDisplayOutputPwrOrGainNominal",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaDisplayOutputPwrOrGainAdjusted": {
+    "name": "oaDisplayOutputPwrOrGainAdjusted",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaDisplayInputVoltageNominal": {
+    "name": "oaDisplayInputVoltageNominal",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaDisplayInternalVoltage1Nominal": {
+    "name": "oaDisplayInternalVoltage1Nominal",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaDisplayInternalVoltage2Nominal": {
+    "name": "oaDisplayInternalVoltage2Nominal",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaDisplayInternalVoltage3Nominal": {
+    "name": "oaDisplayInternalVoltage3Nominal",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaDisplayLaser1VoltageNominal": {
+    "name": "oaDisplayLaser1VoltageNominal",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaDisplayLaser2VoltageNominal": {
+    "name": "oaDisplayLaser2VoltageNominal",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaDisplayLaser3VoltageNominal": {
+    "name": "oaDisplayLaser3VoltageNominal",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaDisplayLaser4VoltageNominal": {
+    "name": "oaDisplayLaser4VoltageNominal",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaDisplayLaser5VoltageNominal": {
+    "name": "oaDisplayLaser5VoltageNominal",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaDisplayLaser6VoltageNominal": {
+    "name": "oaDisplayLaser6VoltageNominal",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "oaDisplayLaser1PumpPowerRel": {
+    "name": "oaDisplayLaser1PumpPowerRel",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaDisplayLaser2PumpPowerRel": {
+    "name": "oaDisplayLaser2PumpPowerRel",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaDisplayLaser3PumpPowerRel": {
+    "name": "oaDisplayLaser3PumpPowerRel",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaDisplayLaser4PumpPowerRel": {
+    "name": "oaDisplayLaser4PumpPowerRel",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaDisplayLaser5PumpPowerRel": {
+    "name": "oaDisplayLaser5PumpPowerRel",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaDisplayLaser6PumpPowerRel": {
+    "name": "oaDisplayLaser6PumpPowerRel",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaDisplayLaser1FeaturesSupported": {
+    "name": "oaDisplayLaser1FeaturesSupported",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LaserFeatures",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaDisplayLaser2FeaturesSupported": {
+    "name": "oaDisplayLaser2FeaturesSupported",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LaserFeatures",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaDisplayLaser3FeaturesSupported": {
+    "name": "oaDisplayLaser3FeaturesSupported",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LaserFeatures",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaDisplayLaser4FeaturesSupported": {
+    "name": "oaDisplayLaser4FeaturesSupported",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LaserFeatures",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaDisplayLaser5FeaturesSupported": {
+    "name": "oaDisplayLaser5FeaturesSupported",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LaserFeatures",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaDisplayLaser6FeaturesSupported": {
+    "name": "oaDisplayLaser6FeaturesSupported",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LaserFeatures",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oaDisplayAmplifierIsRamanType": {
+    "name": "oaDisplayAmplifierIsRamanType",
+    "oid": "1.3.6.1.4.1.7501.1.2.116.6.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bktel/BKTEL-HFC862-OA-V01-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BKTEL-HFC862-OA-V01-MIB"
+  }
+}

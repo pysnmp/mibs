@@ -1,0 +1,2758 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-SFPS-INCLUDE-MIB": [
+      "sfpsSubnetResolveStats",
+      "sfpsBlockResolveAPI",
+      "sfpsBlockResolveStats",
+      "sfpsUnresolveTableAPI",
+      "sfpsSubnetResolveNvram",
+      "sfpsSwitchResolve",
+      "sfpsTableResolve",
+      "sfpsSubnetResolveAPI",
+      "sfpsSubnetResolve",
+      "sfpsISPResolve",
+      "sfpsTableResolveAPI",
+      "sfpsUnresolveTableStats",
+      "sfpsRelayAgentResolveStats",
+      "sfpsResolveStats",
+      "sfpsBlockResolve",
+      "sfpsUnresolve",
+      "sfpsMobilityStats",
+      "sfpsRelayAgentResolve"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "HexInteger": {
+    "name": "HexInteger",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "SfpsAddress": {
+    "name": "SfpsAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    }
+  },
+  "sfpsServiceCenterResolveTable": {
+    "name": "sfpsServiceCenterResolveTable",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sfpsServiceCenterResolveEntry": {
+    "name": "sfpsServiceCenterResolveEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-RESOLVE-MIB",
+        "object": "sfpsServiceCenterResolveHashLeaf",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sfpsServiceCenterResolveHashLeaf": {
+    "name": "sfpsServiceCenterResolveHashLeaf",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HexInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsServiceCenterResolveMetric": {
+    "name": "sfpsServiceCenterResolveMetric",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsServiceCenterResolveName": {
+    "name": "sfpsServiceCenterResolveName",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsServiceCenterResolveOperStatus": {
+    "name": "sfpsServiceCenterResolveOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "kStatusRunning": 1,
+          "kStatusHalted": 2,
+          "kStatusPending": 3,
+          "kStatusFaulted": 4,
+          "kStatusNotStarted": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsServiceCenterResolveAdminStatus": {
+    "name": "sfpsServiceCenterResolveAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsServiceCenterResolveStatusTime": {
+    "name": "sfpsServiceCenterResolveStatusTime",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsServiceCenterResolveRequests": {
+    "name": "sfpsServiceCenterResolveRequests",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsServiceCenterResolveResponses": {
+    "name": "sfpsServiceCenterResolveResponses",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsRequests": {
+    "name": "sfpsResolveStatsRequests",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsResponses": {
+    "name": "sfpsResolveStatsResponses",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsAcks": {
+    "name": "sfpsResolveStatsAcks",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsNaks": {
+    "name": "sfpsResolveStatsNaks",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsUnknowns": {
+    "name": "sfpsResolveStatsUnknowns",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsNoAnswer": {
+    "name": "sfpsResolveStatsNoAnswer",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsTimeout": {
+    "name": "sfpsResolveStatsTimeout",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsAvgResponseTime": {
+    "name": "sfpsResolveStatsAvgResponseTime",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsTableSize": {
+    "name": "sfpsResolveStatsTableSize",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsTableHigh": {
+    "name": "sfpsResolveStatsTableHigh",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsErrorCount": {
+    "name": "sfpsResolveStatsErrorCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsStaleCount": {
+    "name": "sfpsResolveStatsStaleCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsDupMsgCount": {
+    "name": "sfpsResolveStatsDupMsgCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsReqRcvd": {
+    "name": "sfpsResolveStatsReqRcvd",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsRespAcksSent": {
+    "name": "sfpsResolveStatsRespAcksSent",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsRespNaksSent": {
+    "name": "sfpsResolveStatsRespNaksSent",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsRespUnknownsSent": {
+    "name": "sfpsResolveStatsRespUnknownsSent",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsRespRecvd": {
+    "name": "sfpsResolveStatsRespRecvd",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsResolveMask": {
+    "name": "sfpsResolveStatsResolveMask",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsINBMask": {
+    "name": "sfpsResolveStatsINBMask",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsFloodMask": {
+    "name": "sfpsResolveStatsFloodMask",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsChangeCount": {
+    "name": "sfpsResolveStatsChangeCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsChangeTime": {
+    "name": "sfpsResolveStatsChangeTime",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsResetStats": {
+    "name": "sfpsResolveStatsResetStats",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsAnswerUnknown": {
+    "name": "sfpsResolveStatsAnswerUnknown",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsDisableProxy": {
+    "name": "sfpsResolveStatsDisableProxy",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsDisableLayer3": {
+    "name": "sfpsResolveStatsDisableLayer3",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsCSPDaveMalPkts": {
+    "name": "sfpsResolveStatsCSPDaveMalPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsStaleTimeOut": {
+    "name": "sfpsResolveStatsStaleTimeOut",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsMaxResponseTime": {
+    "name": "sfpsResolveStatsMaxResponseTime",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsStaleEntryLost": {
+    "name": "sfpsResolveStatsStaleEntryLost",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsResolveStatsDaveEntryLost": {
+    "name": "sfpsResolveStatsDaveEntryLost",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.3.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsOrigSendCount": {
+    "name": "sfpsMobilityStatsOrigSendCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsOrigReceiveCount": {
+    "name": "sfpsMobilityStatsOrigReceiveCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsOrigNUSendCount": {
+    "name": "sfpsMobilityStatsOrigNUSendCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsOrigNASendCount": {
+    "name": "sfpsMobilityStatsOrigNASendCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsOrigNUASendReqCount": {
+    "name": "sfpsMobilityStatsOrigNUASendReqCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsOrigRetrySendCount": {
+    "name": "sfpsMobilityStatsOrigRetrySendCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsOrigLocalMoveCount": {
+    "name": "sfpsMobilityStatsOrigLocalMoveCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsOrigUnknownCount": {
+    "name": "sfpsMobilityStatsOrigUnknownCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsOrigAckCount": {
+    "name": "sfpsMobilityStatsOrigAckCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsOrigNakNodeCount": {
+    "name": "sfpsMobilityStatsOrigNakNodeCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsOrigNakAliasCount": {
+    "name": "sfpsMobilityStatsOrigNakAliasCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsErrorCount": {
+    "name": "sfpsMobilityStatsErrorCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsGenRecCount": {
+    "name": "sfpsMobilityStatsGenRecCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsGenSendCount": {
+    "name": "sfpsMobilityStatsGenSendCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsGenReqRecCount": {
+    "name": "sfpsMobilityStatsGenReqRecCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsGenReqRetryCount": {
+    "name": "sfpsMobilityStatsGenReqRetryCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsGenReqForwardCount": {
+    "name": "sfpsMobilityStatsGenReqForwardCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsGenRespRecCount": {
+    "name": "sfpsMobilityStatsGenRespRecCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsGenRespSendCount": {
+    "name": "sfpsMobilityStatsGenRespSendCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsNUReqRecCount": {
+    "name": "sfpsMobilityStatsNUReqRecCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsNURespSendCount": {
+    "name": "sfpsMobilityStatsNURespSendCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsNAReqRecCount": {
+    "name": "sfpsMobilityStatsNAReqRecCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsNARespSendCount": {
+    "name": "sfpsMobilityStatsNARespSendCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsNUARespRecUnknownCount": {
+    "name": "sfpsMobilityStatsNUARespRecUnknownCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsNURespRecAckCount": {
+    "name": "sfpsMobilityStatsNURespRecAckCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsNUARespRecAliasNakCount": {
+    "name": "sfpsMobilityStatsNUARespRecAliasNakCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsNUARespRecNodeNakCount": {
+    "name": "sfpsMobilityStatsNUARespRecNodeNakCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsNURespAliasNakSendCount": {
+    "name": "sfpsMobilityStatsNURespAliasNakSendCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsNURespNodeNakSendCount": {
+    "name": "sfpsMobilityStatsNURespNodeNakSendCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsNURespAckSendCount": {
+    "name": "sfpsMobilityStatsNURespAckSendCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsNURespUnknownSendCount": {
+    "name": "sfpsMobilityStatsNURespUnknownSendCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsInterNUARespRecCount": {
+    "name": "sfpsMobilityStatsInterNUARespRecCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsInterNUARespSendCount": {
+    "name": "sfpsMobilityStatsInterNUARespSendCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsInterNewUserRespRecCount": {
+    "name": "sfpsMobilityStatsInterNewUserRespRecCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsInterNewAliasRespRecCount": {
+    "name": "sfpsMobilityStatsInterNewAliasRespRecCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsInterNewUserRespSendCount": {
+    "name": "sfpsMobilityStatsInterNewUserRespSendCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsInterNewAliasRespSendCount": {
+    "name": "sfpsMobilityStatsInterNewAliasRespSendCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsInterRespNakNodeSendCount": {
+    "name": "sfpsMobilityStatsInterRespNakNodeSendCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsInterRespNakAliasSendCount": {
+    "name": "sfpsMobilityStatsInterRespNakAliasSendCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsInterRespUnknownSendCount": {
+    "name": "sfpsMobilityStatsInterRespUnknownSendCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsInterRespAckSendCount": {
+    "name": "sfpsMobilityStatsInterRespAckSendCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsAliasOnOfSwitch": {
+    "name": "sfpsMobilityStatsAliasOnOfSwitch",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsResetCounters": {
+    "name": "sfpsMobilityStatsResetCounters",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsRetryCount": {
+    "name": "sfpsMobilityStatsRetryCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsRetryDrops": {
+    "name": "sfpsMobilityStatsRetryDrops",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsMaxRetryReached": {
+    "name": "sfpsMobilityStatsMaxRetryReached",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsNewUserRetryTime": {
+    "name": "sfpsMobilityStatsNewUserRetryTime",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsMaxNewUserRetries": {
+    "name": "sfpsMobilityStatsMaxNewUserRetries",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsNewUserStaleTimeout": {
+    "name": "sfpsMobilityStatsNewUserStaleTimeout",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsAvgResponseTime": {
+    "name": "sfpsMobilityStatsAvgResponseTime",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsMobilityStatsMaxResponeTime": {
+    "name": "sfpsMobilityStatsMaxResponeTime",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.9.2.3.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsUnresolveTable": {
+    "name": "sfpsUnresolveTable",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sfpsUnresolveTableEntry": {
+    "name": "sfpsUnresolveTableEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-RESOLVE-MIB",
+        "object": "sfpsUnresolveTableHash",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-RESOLVE-MIB",
+        "object": "sfpsUnresolveTableHashIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sfpsUnresolveTableHash": {
+    "name": "sfpsUnresolveTableHash",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsUnresolveTableHashIndex": {
+    "name": "sfpsUnresolveTableHashIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsUnresolveTableAOType": {
+    "name": "sfpsUnresolveTableAOType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aoMacDX": 1,
+          "aoIpxSap": 2,
+          "aoIpxRIP": 3,
+          "aoInetYP": 4,
+          "aoInetUDP": 5,
+          "aoIpxIpx": 6,
+          "aoInetIP": 7,
+          "aoInetRPC": 8,
+          "aoInetRIP": 9,
+          "aoMacDXMcast": 10,
+          "aoAtDDP": 11,
+          "aoEmpty": 12,
+          "aoVlan": 13,
+          "aoHostName": 14,
+          "aoNetBiosName": 15,
+          "aoNBT": 16,
+          "aoInetIPMask": 17,
+          "aoIpxSap8022": 18,
+          "aoIpxSapSnap": 19,
+          "aoIpxSapEnet": 20,
+          "aoDHCPXID": 21,
+          "aoipxRip8022": 22,
+          "aoipxRipSnap": 23,
+          "aoipxRipEnet": 24
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsUnresolveTableAOValue": {
+    "name": "sfpsUnresolveTableAOValue",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsUnresolveTableNumMisses": {
+    "name": "sfpsUnresolveTableNumMisses",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsUnresolveTableLastMissTime": {
+    "name": "sfpsUnresolveTableLastMissTime",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsUnresolveTableLastCallProc": {
+    "name": "sfpsUnresolveTableLastCallProc",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsUnresolveTableSrcMAC": {
+    "name": "sfpsUnresolveTableSrcMAC",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsUnresolveTableAvgPeriod": {
+    "name": "sfpsUnresolveTableAvgPeriod",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsUnresolveTableBlockFlag": {
+    "name": "sfpsUnresolveTableBlockFlag",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsUnresolveTableAPIVerb": {
+    "name": "sfpsUnresolveTableAPIVerb",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "set-parameter": 1,
+          "reset": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsUnresolveTableAPIAgeOutTime": {
+    "name": "sfpsUnresolveTableAPIAgeOutTime",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsUnresolveTableAPIBlockHoldDown": {
+    "name": "sfpsUnresolveTableAPIBlockHoldDown",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsUnresolveTableStatsNumEntries": {
+    "name": "sfpsUnresolveTableStatsNumEntries",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.5.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsUnresolveTableStatsTableSize": {
+    "name": "sfpsUnresolveTableStatsTableSize",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.5.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsUnresolveTableStatsTableFullCount": {
+    "name": "sfpsUnresolveTableStatsTableFullCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.5.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsUnresolveTableStatsTotalReqSeen": {
+    "name": "sfpsUnresolveTableStatsTotalReqSeen",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.5.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsUnresolveTableStatsAvgReqTime": {
+    "name": "sfpsUnresolveTableStatsAvgReqTime",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.5.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsBlockResolveTable": {
+    "name": "sfpsBlockResolveTable",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sfpsBlockResolveTableEntry": {
+    "name": "sfpsBlockResolveTableEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-RESOLVE-MIB",
+        "object": "sfpsBlockResolveTableHash",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-RESOLVE-MIB",
+        "object": "sfpsBlockResolveTableHashIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sfpsBlockResolveTableHash": {
+    "name": "sfpsBlockResolveTableHash",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsBlockResolveTableHashIndex": {
+    "name": "sfpsBlockResolveTableHashIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsBlockResolveTableAOType": {
+    "name": "sfpsBlockResolveTableAOType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aoMacDX": 1,
+          "aoIpxSap": 2,
+          "aoIpxRIP": 3,
+          "aoInetYP": 4,
+          "aoInetUDP": 5,
+          "aoIpxIpx": 6,
+          "aoInetIP": 7,
+          "aoInetRPC": 8,
+          "aoInetRIP": 9,
+          "aoMacDXMcast": 10,
+          "aoAtDDP": 11,
+          "aoEmpty": 12,
+          "aoVlan": 13,
+          "aoHostName": 14,
+          "aoNetBiosName": 15,
+          "aoInetIPMask": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsBlockResolveTableAOValue": {
+    "name": "sfpsBlockResolveTableAOValue",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsBlockResolveTableStartTime": {
+    "name": "sfpsBlockResolveTableStartTime",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsBlockResolveTableNumBlocked": {
+    "name": "sfpsBlockResolveTableNumBlocked",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsBlockResolveTableNumSent": {
+    "name": "sfpsBlockResolveTableNumSent",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsBlockResolveTableLastSeen": {
+    "name": "sfpsBlockResolveTableLastSeen",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsBlockResolveTableAvgPeriod": {
+    "name": "sfpsBlockResolveTableAvgPeriod",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsBlockResolveAPIVerb": {
+    "name": "sfpsBlockResolveAPIVerb",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "add-entry": 2,
+          "del-entry": 3,
+          "set-parameter": 4,
+          "reset": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsBlockResolveAPIAOType": {
+    "name": "sfpsBlockResolveAPIAOType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsBlockResolveAPIAOValue": {
+    "name": "sfpsBlockResolveAPIAOValue",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsBlockResolveAPITestCount": {
+    "name": "sfpsBlockResolveAPITestCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsBlockResolveAPIThreshold": {
+    "name": "sfpsBlockResolveAPIThreshold",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsBlockResolveAPISendPeriod": {
+    "name": "sfpsBlockResolveAPISendPeriod",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsBlockResolveStatsNumEntries": {
+    "name": "sfpsBlockResolveStatsNumEntries",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsBlockResolveStatsTableSize": {
+    "name": "sfpsBlockResolveStatsTableSize",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsBlockResolveStatsTotalReqSeen": {
+    "name": "sfpsBlockResolveStatsTotalReqSeen",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.4.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsBlockResolveStatsTotalBlocked": {
+    "name": "sfpsBlockResolveStatsTotalBlocked",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.4.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsBlockResolveStatsTotalSent": {
+    "name": "sfpsBlockResolveStatsTotalSent",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.4.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsBlockResolveStatsAvgReqTime": {
+    "name": "sfpsBlockResolveStatsAvgReqTime",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.4.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsTableResolveTable": {
+    "name": "sfpsTableResolveTable",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sfpsTableResolveTableEntry": {
+    "name": "sfpsTableResolveTableEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-RESOLVE-MIB",
+        "object": "sfpsTableResolveTag",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-RESOLVE-MIB",
+        "object": "sfpsTableResolveHash",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-RESOLVE-MIB",
+        "object": "sfpsTableResolveHashIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sfpsTableResolveTag": {
+    "name": "sfpsTableResolveTag",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsTableResolveHash": {
+    "name": "sfpsTableResolveHash",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsTableResolveHashIndex": {
+    "name": "sfpsTableResolveHashIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsTableResolveSrcType": {
+    "name": "sfpsTableResolveSrcType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsTableResolveSrcLoad": {
+    "name": "sfpsTableResolveSrcLoad",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsTableResolveTrgType": {
+    "name": "sfpsTableResolveTrgType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsTableResolveTrgLoad": {
+    "name": "sfpsTableResolveTrgLoad",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsTableResolveAPIVerb": {
+    "name": "sfpsTableResolveAPIVerb",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.6.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "add": 2,
+          "delete": 3,
+          "modify": 4,
+          "clearTable": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsTableResolveAPISrcAOType": {
+    "name": "sfpsTableResolveAPISrcAOType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.6.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsTableResolveAPISrcAOLoad": {
+    "name": "sfpsTableResolveAPISrcAOLoad",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.6.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsTableResolveAPITrgAOType": {
+    "name": "sfpsTableResolveAPITrgAOType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.6.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsTableResolveAPITrgAOLoad": {
+    "name": "sfpsTableResolveAPITrgAOLoad",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.6.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsTableResolveAPIVlanAOLoad": {
+    "name": "sfpsTableResolveAPIVlanAOLoad",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.6.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsTableResolveAPIDestSwMac": {
+    "name": "sfpsTableResolveAPIDestSwMac",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.6.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsTableResolveAPIScopeToVlan": {
+    "name": "sfpsTableResolveAPIScopeToVlan",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.6.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsTableResolveAPINVRAMEntry": {
+    "name": "sfpsTableResolveAPINVRAMEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.6.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsTableResolveAPIMask": {
+    "name": "sfpsTableResolveAPIMask",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.6.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HexInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsTableResolveAPIResolveOption": {
+    "name": "sfpsTableResolveAPIResolveOption",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.6.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ack": 1,
+          "nak": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsTableResolveAPIAdminStatus": {
+    "name": "sfpsTableResolveAPIAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.6.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveStatsRequests": {
+    "name": "sfpsSubnetResolveStatsRequests",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveStatsAcks": {
+    "name": "sfpsSubnetResolveStatsAcks",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveStatsUnknowns": {
+    "name": "sfpsSubnetResolveStatsUnknowns",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveStatsInternalUnknowns": {
+    "name": "sfpsSubnetResolveStatsInternalUnknowns",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveStatsGatewayAcks": {
+    "name": "sfpsSubnetResolveStatsGatewayAcks",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveStatsErrors": {
+    "name": "sfpsSubnetResolveStatsErrors",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveStatsMaxTblSize": {
+    "name": "sfpsSubnetResolveStatsMaxTblSize",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveStatsTableSize": {
+    "name": "sfpsSubnetResolveStatsTableSize",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveAPIVerb": {
+    "name": "sfpsSubnetResolveAPIVerb",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "add": 2,
+          "delete": 3,
+          "updateMask": 4,
+          "setDefGateway": 5,
+          "clearDefGateway": 6,
+          "clearTable": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveAPISrcAOType": {
+    "name": "sfpsSubnetResolveAPISrcAOType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveAPISrcAPLoad": {
+    "name": "sfpsSubnetResolveAPISrcAPLoad",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveAPITrgAOType": {
+    "name": "sfpsSubnetResolveAPITrgAOType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveAPITrgAOLoad": {
+    "name": "sfpsSubnetResolveAPITrgAOLoad",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveAPIRouteType": {
+    "name": "sfpsSubnetResolveAPIRouteType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "external": 1,
+          "internal": 2,
+          "invalid": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveAPINVRAMEntry": {
+    "name": "sfpsSubnetResolveAPINVRAMEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveAPIAdminStatus": {
+    "name": "sfpsSubnetResolveAPIAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveAPIDefGateway": {
+    "name": "sfpsSubnetResolveAPIDefGateway",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveAPISubnetMask": {
+    "name": "sfpsSubnetResolveAPISubnetMask",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HexInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveTable": {
+    "name": "sfpsSubnetResolveTable",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveEntry": {
+    "name": "sfpsSubnetResolveEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-RESOLVE-MIB",
+        "object": "sfpsSubnetResolveTargetTag",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-RESOLVE-MIB",
+        "object": "sfpsSubnetResolveSourceHash",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-RESOLVE-MIB",
+        "object": "sfpsSubnetResolveHashIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveTargetTag": {
+    "name": "sfpsSubnetResolveTargetTag",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveSourceHash": {
+    "name": "sfpsSubnetResolveSourceHash",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveHashIndex": {
+    "name": "sfpsSubnetResolveHashIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveSrcType": {
+    "name": "sfpsSubnetResolveSrcType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveSrcLoad": {
+    "name": "sfpsSubnetResolveSrcLoad",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveTrgType": {
+    "name": "sfpsSubnetResolveTrgType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveTrgLoad": {
+    "name": "sfpsSubnetResolveTrgLoad",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveRouteType": {
+    "name": "sfpsSubnetResolveRouteType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "external": 1,
+          "internal": 2,
+          "invalid": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveRelativeCnt": {
+    "name": "sfpsSubnetResolveRelativeCnt",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveAbsoluteCnt": {
+    "name": "sfpsSubnetResolveAbsoluteCnt",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveNVRAMEntry": {
+    "name": "sfpsSubnetResolveNVRAMEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveAdminStatus": {
+    "name": "sfpsSubnetResolveAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveOperStatus": {
+    "name": "sfpsSubnetResolveOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "halted": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsRelayAgentResolveVlanName": {
+    "name": "sfpsRelayAgentResolveVlanName",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.10.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveNvramMaskEntries": {
+    "name": "sfpsSubnetResolveNvramMaskEntries",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSubnetResolveNvramIpEntries": {
+    "name": "sfpsSubnetResolveNvramIpEntries",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.7.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsRelayAgentResolveStatsTableSize": {
+    "name": "sfpsRelayAgentResolveStatsTableSize",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.10.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsRelayAgentResolveStatsHighWater": {
+    "name": "sfpsRelayAgentResolveStatsHighWater",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.10.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSwitchResolveTable": {
+    "name": "sfpsSwitchResolveTable",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sfpsSwitchResolveEntry": {
+    "name": "sfpsSwitchResolveEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-RESOLVE-MIB",
+        "object": "sfpsSwitchResolveSwitch",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-RESOLVE-MIB",
+        "object": "sfpsSwitchResolveCallTag",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sfpsSwitchResolveSwitch": {
+    "name": "sfpsSwitchResolveSwitch",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSwitchResolveCallTag": {
+    "name": "sfpsSwitchResolveCallTag",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSwitchResolvePortNum": {
+    "name": "sfpsSwitchResolvePortNum",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSwitchResolveNeighborSw": {
+    "name": "sfpsSwitchResolveNeighborSw",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSwitchResolveRequestCount": {
+    "name": "sfpsSwitchResolveRequestCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSwitchResolveResponseCount": {
+    "name": "sfpsSwitchResolveResponseCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSwitchResolveMobilityRetry": {
+    "name": "sfpsSwitchResolveMobilityRetry",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSwitchResolveEventId": {
+    "name": "sfpsSwitchResolveEventId",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.4.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-RESOLVE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CTRON-SFPS-RESOLVE-MIB"
+  }
+}

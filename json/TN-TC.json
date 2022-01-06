@@ -1,0 +1,523 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "TNInteger8": {
+    "name": "TNInteger8",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "TNInteger16": {
+    "name": "TNInteger16",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -32768,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "TNInteger64": {
+    "name": "TNInteger64",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "8x",
+    "status": "current"
+  },
+  "TNUnsigned8": {
+    "name": "TNUnsigned8",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "TNUnsigned16": {
+    "name": "TNUnsigned16",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "TNUnsigned64": {
+    "name": "TNUnsigned64",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "8x",
+    "status": "current"
+  },
+  "TNTimeStamp": {
+    "name": "TNTimeStamp",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "8x",
+    "status": "current"
+  },
+  "TNEtherType": {
+    "name": "TNEtherType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "2x",
+    "status": "current"
+  },
+  "TNInterfaceIndex": {
+    "name": "TNInterfaceIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "TNRowEditorState": {
+    "name": "TNRowEditorState",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "TNPercent": {
+    "name": "TNPercent",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "TNPortList": {
+    "name": "TNPortList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "displayhint": "128x",
+    "status": "current"
+  },
+  "TNVlan": {
+    "name": "TNVlan",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "TNVlanListQuarter": {
+    "name": "TNVlanListQuarter",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 128,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "displayhint": "128x",
+    "status": "current"
+  },
+  "TNDisplayString": {
+    "name": "TNDisplayString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TNInetAddress": {
+    "name": "TNInetAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TNIpAddress": {
+    "name": "TNIpAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 46
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TNVclProtoEncap": {
+    "name": "TNVclProtoEncap",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "displayhint": "6x",
+    "status": "current"
+  },
+  "TNBitType": {
+    "name": "TNBitType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "any": 0,
+          "zero": 1,
+          "one": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TNDestMacType": {
+    "name": "TNDestMacType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "any": 0,
+          "unicast": 1,
+          "multicast": 2,
+          "broadcast": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TNVcapKeyType": {
+    "name": "TNVcapKeyType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "doubleTag": 1,
+          "ipAddr": 2,
+          "macIpAddr": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TNVlanTagPriority": {
+    "name": "TNVlanTagPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "any": 0,
+          "value0": 1,
+          "value1": 2,
+          "value2": 3,
+          "value3": 4,
+          "value4": 5,
+          "value5": 6,
+          "value6": 7,
+          "value7": 8,
+          "range0to1": 9,
+          "range2to3": 10,
+          "range4to5": 11,
+          "range6to7": 12,
+          "range0to3": 13,
+          "range4to7": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TNVlanTagType": {
+    "name": "TNVlanTagType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "any": 0,
+          "untagged": 1,
+          "tagged": 2,
+          "cTagged": 3,
+          "sTagged": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TNASRType": {
+    "name": "TNASRType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "any": 0,
+          "specific": 1,
+          "range": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TNAdvDestMacType": {
+    "name": "TNAdvDestMacType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "any": 0,
+          "unicast": 1,
+          "multicast": 2,
+          "broadcast": 3,
+          "specific": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TNASType": {
+    "name": "TNASType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "any": 0,
+          "specific": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TNSfpTransceiver": {
+    "name": "TNSfpTransceiver",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "notSupported": 1,
+          "sfp100FX": 2,
+          "sfp1000BaseT": 7,
+          "sfp1000BaseCx": 8,
+          "sfp1000BaseSx": 9,
+          "sfp1000BaseLx": 10,
+          "sfp1000BaseX": 11,
+          "sfp2G5": 12,
+          "sfp5G": 13,
+          "sfp10G": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-TC",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-TC"
+  }
+}

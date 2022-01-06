@@ -1,0 +1,934 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADTRAN-AOS": [
+      "adGenAOSMef",
+      "adGenAOSConformance"
+    ],
+    "ADTRAN-MIB": [
+      "adIdentity"
+    ],
+    "HC-PerfHist-TC-MIB": [
+      "HCPerfTimeElapsed",
+      "HCPerfIntervalCount",
+      "HCPerfInvalidIntervals",
+      "HCPerfCurrentCount",
+      "HCPerfTotalCount",
+      "HCPerfValidIntervals"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Counter32",
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "adGenAosMefPerCosPerUniPerfHistoryMib": {
+    "name": "adGenAosMefPerCosPerUniPerfHistoryMib",
+    "oid": "1.3.6.1.4.1.664.6.10000.53.9.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-09-10 00:00",
+        "description": "Initial version"
+      }
+    ]
+  },
+  "adGenAosMefPerCosPerUniPerfHistory": {
+    "name": "adGenAosMefPerCosPerUniPerfHistory",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2",
+    "class": "objectidentity"
+  },
+  "adMefPerCosPerUniPhCurTable": {
+    "name": "adMefPerCosPerUniPhCurTable",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurEntry": {
+    "name": "adMefPerCosPerUniPhCurEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPhCurQueueNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurQueueNumber": {
+    "name": "adMefPerCosPerUniPhCurQueueNumber",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurTimeElapsed15Min": {
+    "name": "adMefPerCosPerUniPhCurTimeElapsed15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTimeElapsed",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurValidIntervals15Min": {
+    "name": "adMefPerCosPerUniPhCurValidIntervals15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfValidIntervals",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurInvalidIntervals15Min": {
+    "name": "adMefPerCosPerUniPhCurInvalidIntervals15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfInvalidIntervals",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurIngressGreenOctets15Min": {
+    "name": "adMefPerCosPerUniPhCurIngressGreenOctets15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurIngressGreenFrames15Min": {
+    "name": "adMefPerCosPerUniPhCurIngressGreenFrames15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurEgressGreenOctets15Min": {
+    "name": "adMefPerCosPerUniPhCurEgressGreenOctets15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurEgressGreenFrames15Min": {
+    "name": "adMefPerCosPerUniPhCurEgressGreenFrames15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurIngressGreenFrameDiscards15Min": {
+    "name": "adMefPerCosPerUniPhCurIngressGreenFrameDiscards15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurEgressGreenFrameDiscards15Min": {
+    "name": "adMefPerCosPerUniPhCurEgressGreenFrameDiscards15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurIngressGreenOctetDiscards15Min": {
+    "name": "adMefPerCosPerUniPhCurIngressGreenOctetDiscards15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurEgressGreenOctetDiscards15Min": {
+    "name": "adMefPerCosPerUniPhCurEgressGreenOctetDiscards15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurTimeElapsed1Day": {
+    "name": "adMefPerCosPerUniPhCurTimeElapsed1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTimeElapsed",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurValidIntervals1Day": {
+    "name": "adMefPerCosPerUniPhCurValidIntervals1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfValidIntervals",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurInvalidIntervals1Day": {
+    "name": "adMefPerCosPerUniPhCurInvalidIntervals1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfInvalidIntervals",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurIngressGreenOctets1Day": {
+    "name": "adMefPerCosPerUniPhCurIngressGreenOctets1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurIngressGreenFrames1Day": {
+    "name": "adMefPerCosPerUniPhCurIngressGreenFrames1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurEgressGreenOctets1Day": {
+    "name": "adMefPerCosPerUniPhCurEgressGreenOctets1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurEgressGreenFrames1Day": {
+    "name": "adMefPerCosPerUniPhCurEgressGreenFrames1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurIngressGreenFrameDiscards1Day": {
+    "name": "adMefPerCosPerUniPhCurIngressGreenFrameDiscards1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurEgressGreenFrameDiscards1Day": {
+    "name": "adMefPerCosPerUniPhCurEgressGreenFrameDiscards1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurIngressGreenOctetDiscards1Day": {
+    "name": "adMefPerCosPerUniPhCurIngressGreenOctetDiscards1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurEgressGreenOctetDiscards1Day": {
+    "name": "adMefPerCosPerUniPhCurEgressGreenOctetDiscards1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh15MinIntervalTable": {
+    "name": "adMefPerCosPerUniPh15MinIntervalTable",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh15MinIntervalEntry": {
+    "name": "adMefPerCosPerUniPh15MinIntervalEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPh15MinQueueNumber",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPh15MinIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh15MinQueueNumber": {
+    "name": "adMefPerCosPerUniPh15MinQueueNumber",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh15MinIntervalNumber": {
+    "name": "adMefPerCosPerUniPh15MinIntervalNumber",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh15MinIngressGreenOctets": {
+    "name": "adMefPerCosPerUniPh15MinIngressGreenOctets",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh15MinIngressGreenFrames": {
+    "name": "adMefPerCosPerUniPh15MinIngressGreenFrames",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh15MinEgressGreenOctets": {
+    "name": "adMefPerCosPerUniPh15MinEgressGreenOctets",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh15MinEgressGreenFrames": {
+    "name": "adMefPerCosPerUniPh15MinEgressGreenFrames",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh15MinIngressGreenFrameDiscards": {
+    "name": "adMefPerCosPerUniPh15MinIngressGreenFrameDiscards",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh15MinEgressGreenFrameDiscards": {
+    "name": "adMefPerCosPerUniPh15MinEgressGreenFrameDiscards",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh15MinIngressGreenOctetDiscards": {
+    "name": "adMefPerCosPerUniPh15MinIngressGreenOctetDiscards",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh15MinEgressGreenOctetDiscards": {
+    "name": "adMefPerCosPerUniPh15MinEgressGreenOctetDiscards",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh1DayIntervalTable": {
+    "name": "adMefPerCosPerUniPh1DayIntervalTable",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh1DayIntervalEntry": {
+    "name": "adMefPerCosPerUniPh1DayIntervalEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPh1DayQueueNumber",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPh1DayIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh1DayQueueNumber": {
+    "name": "adMefPerCosPerUniPh1DayQueueNumber",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh1DayIntervalNumber": {
+    "name": "adMefPerCosPerUniPh1DayIntervalNumber",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh1DayIngressGreenOctets": {
+    "name": "adMefPerCosPerUniPh1DayIngressGreenOctets",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh1DayIngressGreenFrames": {
+    "name": "adMefPerCosPerUniPh1DayIngressGreenFrames",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh1DayEgressGreenOctets": {
+    "name": "adMefPerCosPerUniPh1DayEgressGreenOctets",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh1DayEgressGreenFrames": {
+    "name": "adMefPerCosPerUniPh1DayEgressGreenFrames",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh1DayIngressGreenFrameDiscards": {
+    "name": "adMefPerCosPerUniPh1DayIngressGreenFrameDiscards",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh1DayEgressGreenFrameDiscards": {
+    "name": "adMefPerCosPerUniPh1DayEgressGreenFrameDiscards",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh1DayIngressGreenOctetDiscards": {
+    "name": "adMefPerCosPerUniPh1DayIngressGreenOctetDiscards",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh1DayEgressGreenOctetDiscards": {
+    "name": "adMefPerCosPerUniPh1DayEgressGreenOctetDiscards",
+    "oid": "1.3.6.1.4.1.664.5.53.9.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAosMefPerCosPerUniPerfHistoryConformance": {
+    "name": "adGenAosMefPerCosPerUniPerfHistoryConformance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.21",
+    "class": "objectidentity"
+  },
+  "adGenAosMefPerCosPerUniPerfHistoryGroups": {
+    "name": "adGenAosMefPerCosPerUniPerfHistoryGroups",
+    "oid": "1.3.6.1.4.1.664.5.53.99.21.1",
+    "class": "objectidentity"
+  },
+  "adGenAosMefPerCosPerUniPerfHistoryCompliances": {
+    "name": "adGenAosMefPerCosPerUniPerfHistoryCompliances",
+    "oid": "1.3.6.1.4.1.664.5.53.99.21.2",
+    "class": "objectidentity"
+  },
+  "adGenAosMefPerCosPerUniPerfHistoryCompliance": {
+    "name": "adGenAosMefPerCosPerUniPerfHistoryCompliance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.21.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "adMefPerCosPerUniPhCurGroup",
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB"
+      },
+      {
+        "object": "adMefPerCosPerUniPh15MinIntervalGroup",
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB"
+      },
+      {
+        "object": "adMefPerCosPerUniPh1DayIntervalGroup",
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "adMefPerCosPerUniPhCurGroup": {
+    "name": "adMefPerCosPerUniPhCurGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.21.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPhCurTimeElapsed15Min"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPhCurValidIntervals15Min"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPhCurInvalidIntervals15Min"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPhCurIngressGreenOctets15Min"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPhCurIngressGreenFrames15Min"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPhCurEgressGreenOctets15Min"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPhCurEgressGreenFrames15Min"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPhCurIngressGreenFrameDiscards15Min"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPhCurEgressGreenFrameDiscards15Min"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPhCurIngressGreenOctetDiscards15Min"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPhCurEgressGreenOctetDiscards15Min"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPhCurTimeElapsed1Day"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPhCurValidIntervals1Day"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPhCurInvalidIntervals1Day"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPhCurIngressGreenOctets1Day"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPhCurIngressGreenFrames1Day"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPhCurEgressGreenOctets1Day"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPhCurEgressGreenFrames1Day"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPhCurIngressGreenFrameDiscards1Day"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPhCurEgressGreenFrameDiscards1Day"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPhCurIngressGreenOctetDiscards1Day"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPhCurEgressGreenOctetDiscards1Day"
+      }
+    ],
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh15MinIntervalGroup": {
+    "name": "adMefPerCosPerUniPh15MinIntervalGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.21.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPh15MinIngressGreenOctets"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPh15MinIngressGreenFrames"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPh15MinEgressGreenOctets"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPh15MinEgressGreenFrames"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPh15MinIngressGreenFrameDiscards"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPh15MinEgressGreenFrameDiscards"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPh15MinIngressGreenOctetDiscards"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPh15MinEgressGreenOctetDiscards"
+      }
+    ],
+    "status": "current"
+  },
+  "adMefPerCosPerUniPh1DayIntervalGroup": {
+    "name": "adMefPerCosPerUniPh1DayIntervalGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.21.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPh1DayIngressGreenOctets"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPh1DayIngressGreenFrames"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPh1DayEgressGreenOctets"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPh1DayEgressGreenFrames"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPh1DayIngressGreenFrameDiscards"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPh1DayEgressGreenFrameDiscards"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPh1DayIngressGreenOctetDiscards"
+      },
+      {
+        "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+        "object": "adMefPerCosPerUniPh1DayEgressGreenOctetDiscards"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB"
+  }
+}

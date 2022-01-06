@@ -1,0 +1,482 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "MacAddress",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfVxlan": {
+    "name": "hpnicfVxlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-11-21 09:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "hpnicfVxlanObjects": {
+    "name": "hpnicfVxlanObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1",
+    "class": "objectidentity"
+  },
+  "hpnicfVxlanScalarGroup": {
+    "name": "hpnicfVxlanScalarGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfVxlanLocalMacNotify": {
+    "name": "hpnicfVxlanLocalMacNotify",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfVxlanRemoteMacLearn": {
+    "name": "hpnicfVxlanRemoteMacLearn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfVxlanNextVxlanID": {
+    "name": "hpnicfVxlanNextVxlanID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfVxlanConfigured": {
+    "name": "hpnicfVxlanConfigured",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfVxlanTable": {
+    "name": "hpnicfVxlanTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVxlanEntry": {
+    "name": "hpnicfVxlanEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-VXLAN-MIB",
+        "object": "hpnicfVxlanID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfVxlanID": {
+    "name": "hpnicfVxlanID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVxlanAddrType": {
+    "name": "hpnicfVxlanAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfVxlanGroupAddr": {
+    "name": "hpnicfVxlanGroupAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfVxlanSourceAddr": {
+    "name": "hpnicfVxlanSourceAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfVxlanVsiIndex": {
+    "name": "hpnicfVxlanVsiIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfVxlanRemoteMacCount": {
+    "name": "hpnicfVxlanRemoteMacCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfVxlanRowStatus": {
+    "name": "hpnicfVxlanRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfVxlanTunnelTable": {
+    "name": "hpnicfVxlanTunnelTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVxlanTunnelEntry": {
+    "name": "hpnicfVxlanTunnelEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-VXLAN-MIB",
+        "object": "hpnicfVxlanID",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-VXLAN-MIB",
+        "object": "hpnicfVxlanTunnelID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfVxlanTunnelID": {
+    "name": "hpnicfVxlanTunnelID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVxlanTunnelRowStatus": {
+    "name": "hpnicfVxlanTunnelRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfVxlanTunnelOctets": {
+    "name": "hpnicfVxlanTunnelOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfVxlanTunnelPackets": {
+    "name": "hpnicfVxlanTunnelPackets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfVxlanTunnelBoundTable": {
+    "name": "hpnicfVxlanTunnelBoundTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVxlanTunnelBoundEntry": {
+    "name": "hpnicfVxlanTunnelBoundEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-VXLAN-MIB",
+        "object": "hpnicfVxlanTunnelID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfVxlanTunnelBoundVxlanNum": {
+    "name": "hpnicfVxlanTunnelBoundVxlanNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfVxlanMacTable": {
+    "name": "hpnicfVxlanMacTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVxlanMacEntry": {
+    "name": "hpnicfVxlanMacEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-VXLAN-MIB",
+        "object": "hpnicfVxlanVsiIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-VXLAN-MIB",
+        "object": "hpnicfVxlanMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfVxlanMacAddr": {
+    "name": "hpnicfVxlanMacAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVxlanMacTunnelID": {
+    "name": "hpnicfVxlanMacTunnelID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfVxlanMacType": {
+    "name": "hpnicfVxlanMacType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "selfLearned": 1,
+          "staticConfigured": 2,
+          "protocolLearned": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfVxlanStaticMacTable": {
+    "name": "hpnicfVxlanStaticMacTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVxlanStaticMacEntry": {
+    "name": "hpnicfVxlanStaticMacEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-VXLAN-MIB",
+        "object": "hpnicfVxlanVsiIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-VXLAN-MIB",
+        "object": "hpnicfVxlanStaticMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfVxlanStaticMacAddr": {
+    "name": "hpnicfVxlanStaticMacAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVxlanStaticMacTunnelID": {
+    "name": "hpnicfVxlanStaticMacTunnelID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfVxlanStaticMacRowStatus": {
+    "name": "hpnicfVxlanStaticMacRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.150.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-VXLAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-VXLAN-MIB"
+  }
+}

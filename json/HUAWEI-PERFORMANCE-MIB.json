@@ -1,0 +1,366 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwInternetProtocol"
+    ],
+    "IF-MIB": [
+      "OwnerString"
+    ],
+    "RMON-MIB": [
+      "EntryStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "rmonExtend": {
+    "name": "rmonExtend",
+    "oid": "1.3.6.1.4.1.2011.1.3.4",
+    "class": "objectidentity"
+  },
+  "performance": {
+    "name": "performance",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4",
+    "class": "objectidentity"
+  },
+  "prialarmTable": {
+    "name": "prialarmTable",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "prialarmEntry": {
+    "name": "prialarmEntry",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PERFORMANCE-MIB",
+        "object": "prialarmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "prialarmIndex": {
+    "name": "prialarmIndex",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "prialarmInterval": {
+    "name": "prialarmInterval",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "prialarmVariable": {
+    "name": "prialarmVariable",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "prialarmSympol": {
+    "name": "prialarmSympol",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "prialarmSampleType": {
+    "name": "prialarmSampleType",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absoluteValue": 1,
+          "deltaValue": 2,
+          "changeratioValue": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "prialarmValue": {
+    "name": "prialarmValue",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "prialarmStartupAlarm": {
+    "name": "prialarmStartupAlarm",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "risingAlarm": 1,
+          "fallingAlarm": 2,
+          "risingOrFallingAlarm": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "prialarmRisingThreshold": {
+    "name": "prialarmRisingThreshold",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "prialarmFallingThreshold": {
+    "name": "prialarmFallingThreshold",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "prialarmRisingEventIndex": {
+    "name": "prialarmRisingEventIndex",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "prialarmFallingEventIndex": {
+    "name": "prialarmFallingEventIndex",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "prialarmStatCycle": {
+    "name": "prialarmStatCycle",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "prialarmStatType": {
+    "name": "prialarmStatType",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forever": 1,
+          "during": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "prialarmOwner": {
+    "name": "prialarmOwner",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "prialarmStatus": {
+    "name": "prialarmStatus",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntryStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "mandatory"
+  },
+  "rmonExtendEventsV2": {
+    "name": "rmonExtendEventsV2",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "pririsingAlarm": {
+    "name": "pririsingAlarm",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PERFORMANCE-MIB",
+        "object": "prialarmIndex"
+      },
+      {
+        "module": "HUAWEI-PERFORMANCE-MIB",
+        "object": "prialarmSympol"
+      },
+      {
+        "module": "HUAWEI-PERFORMANCE-MIB",
+        "object": "prialarmSampleType"
+      },
+      {
+        "module": "HUAWEI-PERFORMANCE-MIB",
+        "object": "prialarmValue"
+      },
+      {
+        "module": "HUAWEI-PERFORMANCE-MIB",
+        "object": "prialarmRisingThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "prifallingAlarm": {
+    "name": "prifallingAlarm",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PERFORMANCE-MIB",
+        "object": "prialarmIndex"
+      },
+      {
+        "module": "HUAWEI-PERFORMANCE-MIB",
+        "object": "prialarmSympol"
+      },
+      {
+        "module": "HUAWEI-PERFORMANCE-MIB",
+        "object": "prialarmSampleType"
+      },
+      {
+        "module": "HUAWEI-PERFORMANCE-MIB",
+        "object": "prialarmValue"
+      },
+      {
+        "module": "HUAWEI-PERFORMANCE-MIB",
+        "object": "prialarmFallingThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-PERFORMANCE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-PERFORMANCE-MIB"
+  }
+}

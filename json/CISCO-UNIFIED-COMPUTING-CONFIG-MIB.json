@@ -1,0 +1,485 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoInetAddressMask",
+      "Unsigned64",
+      "CiscoNetworkAddress",
+      "TimeIntervalSec",
+      "CiscoAlarmSeverity"
+    ],
+    "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectId",
+      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectDn"
+    ],
+    "CISCO-UNIFIED-COMPUTING-TC-MIB": [
+      "CucsLsConfigIssues",
+      "CucsTrigAckChanges",
+      "CucsConfigImpactResponseState",
+      "CucsLsConfigState",
+      "CucsTrigAckMode",
+      "CucsConfigSorterDirection",
+      "CucsMoMoClassId"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6",
+      "InetAddressIPv4"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "RowPointer",
+      "TimeInterval",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cucsConfigObjects": {
+    "name": "cucsConfigObjects",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61",
+    "class": "moduleidentity"
+  },
+  "cucsConfigImpactTable": {
+    "name": "cucsConfigImpactTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsConfigImpactEntry": {
+    "name": "cucsConfigImpactEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-CONFIG-MIB",
+        "object": "cucsConfigImpactInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsConfigImpactInstanceId": {
+    "name": "cucsConfigImpactInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsConfigImpactDn": {
+    "name": "cucsConfigImpactDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigImpactRn": {
+    "name": "cucsConfigImpactRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigImpactAffectedObj": {
+    "name": "cucsConfigImpactAffectedObj",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigImpactAffectedServer": {
+    "name": "cucsConfigImpactAffectedServer",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigImpactChanges": {
+    "name": "cucsConfigImpactChanges",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsTrigAckChanges",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigImpactConfigIssues": {
+    "name": "cucsConfigImpactConfigIssues",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsConfigIssues",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigImpactConfigQualifier": {
+    "name": "cucsConfigImpactConfigQualifier",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsConfigIssues",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigImpactConfigState": {
+    "name": "cucsConfigImpactConfigState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsConfigState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigImpactDeploymentMode": {
+    "name": "cucsConfigImpactDeploymentMode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsTrigAckMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigImpactName": {
+    "name": "cucsConfigImpactName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigImpactRebootRequired": {
+    "name": "cucsConfigImpactRebootRequired",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigManagedEpImpactResponseTable": {
+    "name": "cucsConfigManagedEpImpactResponseTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsConfigManagedEpImpactResponseEntry": {
+    "name": "cucsConfigManagedEpImpactResponseEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-CONFIG-MIB",
+        "object": "cucsConfigManagedEpImpactResponseInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsConfigManagedEpImpactResponseInstanceId": {
+    "name": "cucsConfigManagedEpImpactResponseInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsConfigManagedEpImpactResponseDn": {
+    "name": "cucsConfigManagedEpImpactResponseDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigManagedEpImpactResponseRn": {
+    "name": "cucsConfigManagedEpImpactResponseRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigManagedEpImpactResponseAffectedServers": {
+    "name": "cucsConfigManagedEpImpactResponseAffectedServers",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigManagedEpImpactResponseAppConnectorId": {
+    "name": "cucsConfigManagedEpImpactResponseAppConnectorId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigManagedEpImpactResponseEpName": {
+    "name": "cucsConfigManagedEpImpactResponseEpName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigManagedEpImpactResponseImpactAnalyzerId": {
+    "name": "cucsConfigManagedEpImpactResponseImpactAnalyzerId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigManagedEpImpactResponseRebootRequired": {
+    "name": "cucsConfigManagedEpImpactResponseRebootRequired",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigManagedEpImpactResponseSourceConnectorId": {
+    "name": "cucsConfigManagedEpImpactResponseSourceConnectorId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigManagedEpImpactResponseState": {
+    "name": "cucsConfigManagedEpImpactResponseState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConfigImpactResponseState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigSorterTable": {
+    "name": "cucsConfigSorterTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsConfigSorterEntry": {
+    "name": "cucsConfigSorterEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-CONFIG-MIB",
+        "object": "cucsConfigSorterInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsConfigSorterInstanceId": {
+    "name": "cucsConfigSorterInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsConfigSorterDn": {
+    "name": "cucsConfigSorterDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigSorterRn": {
+    "name": "cucsConfigSorterRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigSorterDirection": {
+    "name": "cucsConfigSorterDirection",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConfigSorterDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigSorterSortClass": {
+    "name": "cucsConfigSorterSortClass",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMoMoClassId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsConfigSorterSortProp": {
+    "name": "cucsConfigSorterSortProp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.61.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-CONFIG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-UNIFIED-COMPUTING-CONFIG-MIB"
+  }
+}

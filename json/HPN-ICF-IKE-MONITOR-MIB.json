@@ -1,0 +1,2775 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfIKEMonitor": {
+    "name": "hpnicfIKEMonitor",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30",
+    "class": "moduleidentity"
+  },
+  "HpnicfIKENegoMode": {
+    "name": "HpnicfIKENegoMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mainMode": 2,
+          "aggressiveMode": 4,
+          "quickMode": 32
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfIKEAuthMethod": {
+    "name": "HpnicfIKEAuthMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "preSharedKey": 1,
+          "dsaSignatures": 2,
+          "rsaSignatures": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDiffHellmanGrp": {
+    "name": "HpnicfDiffHellmanGrp",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "dhGroup1": 1,
+          "dhGroup2": 2,
+          "dhGroup5": 5,
+          "dhGroup14": 14,
+          "dhGroup24": 24,
+          "invalidGroup": 2147483647
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfEncryptAlgo": {
+    "name": "HpnicfEncryptAlgo",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "desCbc": 1,
+          "ideaCbc": 2,
+          "blowfishCbc": 3,
+          "rc5R16B64Cbc": 4,
+          "tripleDesCbc": 5,
+          "castCbc": 6,
+          "aesCbc": 7,
+          "aesCbc128": 8,
+          "aesCbc192": 9,
+          "aesCbc256": 10,
+          "aesCtr": 11,
+          "aesCamelliaCbc": 12,
+          "rc4": 13,
+          "invalidAlg": 2147483647
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfAuthAlgo": {
+    "name": "HpnicfAuthAlgo",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "md5": 1,
+          "sha1": 2,
+          "sha256": 3,
+          "sha384": 4,
+          "sha512": 5,
+          "invalidAlg": 2147483647
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfSaProtocol": {
+    "name": "HpnicfSaProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reserved": 0,
+          "isakmp": 1,
+          "ah": 2,
+          "esp": 3,
+          "ipcomp": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfTrapStatus": {
+    "name": "HpnicfTrapStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfIKEIDType": {
+    "name": "HpnicfIKEIDType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reserved": 0,
+          "ipv4Addr": 1,
+          "fqdn": 2,
+          "userFqdn": 3,
+          "ipv4AddrSubnet": 4,
+          "ipv6Addr": 5,
+          "ipv6AddrSubnet": 6,
+          "ipv4AddrRange": 7,
+          "ipv6AddrRange": 8,
+          "derAsn1Dn": 9,
+          "derAsn1Gn": 10,
+          "keyId": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfTrafficType": {
+    "name": "HpnicfTrafficType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4Addr": 1,
+          "ipv4AddrSubnet": 4,
+          "ipv6Addr": 5,
+          "ipv6AddrSubnet": 6,
+          "ipv4AddrRange": 7,
+          "ipv6AddrRange": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfIKETunnelState": {
+    "name": "HpnicfIKETunnelState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "timeout": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hpnicfIKEObjects": {
+    "name": "hpnicfIKEObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1",
+    "class": "objectidentity"
+  },
+  "hpnicfIKETunnelTable": {
+    "name": "hpnicfIKETunnelTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIKETunnelEntry": {
+    "name": "hpnicfIKETunnelEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKETunIndex": {
+    "name": "hpnicfIKETunIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIKETunLocalType": {
+    "name": "hpnicfIKETunLocalType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfIKEIDType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunLocalValue1": {
+    "name": "hpnicfIKETunLocalValue1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunLocalValue2": {
+    "name": "hpnicfIKETunLocalValue2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunLocalAddr": {
+    "name": "hpnicfIKETunLocalAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "hpnicfIKETunRemoteType": {
+    "name": "hpnicfIKETunRemoteType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfIKEIDType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunRemoteValue1": {
+    "name": "hpnicfIKETunRemoteValue1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunRemoteValue2": {
+    "name": "hpnicfIKETunRemoteValue2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunRemoteAddr": {
+    "name": "hpnicfIKETunRemoteAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "hpnicfIKETunInitiator": {
+    "name": "hpnicfIKETunInitiator",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "remote": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunNegoMode": {
+    "name": "hpnicfIKETunNegoMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfIKENegoMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunDiffHellmanGrp": {
+    "name": "hpnicfIKETunDiffHellmanGrp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDiffHellmanGrp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunEncryptAlgo": {
+    "name": "hpnicfIKETunEncryptAlgo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfEncryptAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunHashAlgo": {
+    "name": "hpnicfIKETunHashAlgo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfAuthAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunAuthMethod": {
+    "name": "hpnicfIKETunAuthMethod",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfIKEAuthMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunLifeTime": {
+    "name": "hpnicfIKETunLifeTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunActiveTime": {
+    "name": "hpnicfIKETunActiveTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunRemainTime": {
+    "name": "hpnicfIKETunRemainTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunTotalRefreshes": {
+    "name": "hpnicfIKETunTotalRefreshes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunState": {
+    "name": "hpnicfIKETunState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfIKETunnelState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunDpdIntervalTime": {
+    "name": "hpnicfIKETunDpdIntervalTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunDpdTimeOut": {
+    "name": "hpnicfIKETunDpdTimeOut",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunLocalInetAddrType": {
+    "name": "hpnicfIKETunLocalInetAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunLocalInetAddr": {
+    "name": "hpnicfIKETunLocalInetAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunRemoteInetAddrType": {
+    "name": "hpnicfIKETunRemoteInetAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunRemoteInetAddr": {
+    "name": "hpnicfIKETunRemoteInetAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunnelStatTable": {
+    "name": "hpnicfIKETunnelStatTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIKETunnelStatEntry": {
+    "name": "hpnicfIKETunnelStatEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKETunInOctets": {
+    "name": "hpnicfIKETunInOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunInPkts": {
+    "name": "hpnicfIKETunInPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunInDropPkts": {
+    "name": "hpnicfIKETunInDropPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunInP2Exchgs": {
+    "name": "hpnicfIKETunInP2Exchgs",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunInP2ExchgRejets": {
+    "name": "hpnicfIKETunInP2ExchgRejets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunInP2SaDelRequests": {
+    "name": "hpnicfIKETunInP2SaDelRequests",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunInP1SaDelRequests": {
+    "name": "hpnicfIKETunInP1SaDelRequests",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunInNotifys": {
+    "name": "hpnicfIKETunInNotifys",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunOutOctets": {
+    "name": "hpnicfIKETunOutOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunOutPkts": {
+    "name": "hpnicfIKETunOutPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunOutDropPkts": {
+    "name": "hpnicfIKETunOutDropPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunOutP2Exchgs": {
+    "name": "hpnicfIKETunOutP2Exchgs",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunOutP2ExchgRejects": {
+    "name": "hpnicfIKETunOutP2ExchgRejects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunOutP2SaDelRequests": {
+    "name": "hpnicfIKETunOutP2SaDelRequests",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunOutP1SaDelRequests": {
+    "name": "hpnicfIKETunOutP1SaDelRequests",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETunOutNotifys": {
+    "name": "hpnicfIKETunOutNotifys",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalStats": {
+    "name": "hpnicfIKEGlobalStats",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3",
+    "class": "objectidentity"
+  },
+  "hpnicfIKEGlobalActiveTunnels": {
+    "name": "hpnicfIKEGlobalActiveTunnels",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalInOctets": {
+    "name": "hpnicfIKEGlobalInOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalInPkts": {
+    "name": "hpnicfIKEGlobalInPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalInDropPkts": {
+    "name": "hpnicfIKEGlobalInDropPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalInP2Exchgs": {
+    "name": "hpnicfIKEGlobalInP2Exchgs",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalInP2ExchgRejects": {
+    "name": "hpnicfIKEGlobalInP2ExchgRejects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalInP2SaDelRequests": {
+    "name": "hpnicfIKEGlobalInP2SaDelRequests",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalInNotifys": {
+    "name": "hpnicfIKEGlobalInNotifys",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalOutOctets": {
+    "name": "hpnicfIKEGlobalOutOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalOutPkts": {
+    "name": "hpnicfIKEGlobalOutPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalOutDropPkts": {
+    "name": "hpnicfIKEGlobalOutDropPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalOutP2Exchgs": {
+    "name": "hpnicfIKEGlobalOutP2Exchgs",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalOutP2ExchgRejects": {
+    "name": "hpnicfIKEGlobalOutP2ExchgRejects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalOutP2SaDelRequests": {
+    "name": "hpnicfIKEGlobalOutP2SaDelRequests",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalOutNotifys": {
+    "name": "hpnicfIKEGlobalOutNotifys",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalInitTunnels": {
+    "name": "hpnicfIKEGlobalInitTunnels",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalInitTunnelFails": {
+    "name": "hpnicfIKEGlobalInitTunnelFails",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalRespTunnels": {
+    "name": "hpnicfIKEGlobalRespTunnels",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalRespTunnelFails": {
+    "name": "hpnicfIKEGlobalRespTunnelFails",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalAuthFails": {
+    "name": "hpnicfIKEGlobalAuthFails",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalNoSaFails": {
+    "name": "hpnicfIKEGlobalNoSaFails",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalInvalidCookieFails": {
+    "name": "hpnicfIKEGlobalInvalidCookieFails",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalAttrNotSuppFails": {
+    "name": "hpnicfIKEGlobalAttrNotSuppFails",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalNoProposalChosenFails": {
+    "name": "hpnicfIKEGlobalNoProposalChosenFails",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalUnsportExchTypeFails": {
+    "name": "hpnicfIKEGlobalUnsportExchTypeFails",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalInvalidIdFails": {
+    "name": "hpnicfIKEGlobalInvalidIdFails",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalInvalidProFails": {
+    "name": "hpnicfIKEGlobalInvalidProFails",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalCertTypeUnsuppFails": {
+    "name": "hpnicfIKEGlobalCertTypeUnsuppFails",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalInvalidCertAuthFails": {
+    "name": "hpnicfIKEGlobalInvalidCertAuthFails",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalInvalidSignFails": {
+    "name": "hpnicfIKEGlobalInvalidSignFails",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEGlobalCertUnavailableFails": {
+    "name": "hpnicfIKEGlobalCertUnavailableFails",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.3.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKETrapObject": {
+    "name": "hpnicfIKETrapObject",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.4",
+    "class": "objectidentity"
+  },
+  "hpnicfIKEProposalNumber": {
+    "name": "hpnicfIKEProposalNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIKEProposalSize": {
+    "name": "hpnicfIKEProposalSize",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIKEIdInformation": {
+    "name": "hpnicfIKEIdInformation",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIKEProtocolNum": {
+    "name": "hpnicfIKEProtocolNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIKECertInformation": {
+    "name": "hpnicfIKECertInformation",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIKETrapCntl": {
+    "name": "hpnicfIKETrapCntl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.5",
+    "class": "objectidentity"
+  },
+  "hpnicfIKETrapGlobalCntl": {
+    "name": "hpnicfIKETrapGlobalCntl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfTrapStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIKETunnelStartTrapCntl": {
+    "name": "hpnicfIKETunnelStartTrapCntl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfTrapStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIKETunnelStopTrapCntl": {
+    "name": "hpnicfIKETunnelStopTrapCntl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfTrapStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIKENoSaTrapCntl": {
+    "name": "hpnicfIKENoSaTrapCntl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfTrapStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIKEEncryFailureTrapCntl": {
+    "name": "hpnicfIKEEncryFailureTrapCntl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfTrapStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIKEDecryFailureTrapCntl": {
+    "name": "hpnicfIKEDecryFailureTrapCntl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfTrapStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIKEInvalidProposalTrapCntl": {
+    "name": "hpnicfIKEInvalidProposalTrapCntl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfTrapStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIKEAuthFailTrapCntl": {
+    "name": "hpnicfIKEAuthFailTrapCntl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfTrapStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIKEInvalidCookieTrapCntl": {
+    "name": "hpnicfIKEInvalidCookieTrapCntl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfTrapStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIKEInvalidSpiTrapCntl": {
+    "name": "hpnicfIKEInvalidSpiTrapCntl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfTrapStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIKEAttrNotSuppTrapCntl": {
+    "name": "hpnicfIKEAttrNotSuppTrapCntl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfTrapStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIKEUnsportExchTypeTrapCntl": {
+    "name": "hpnicfIKEUnsportExchTypeTrapCntl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfTrapStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIKEInvalidIdTrapCntl": {
+    "name": "hpnicfIKEInvalidIdTrapCntl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfTrapStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIKEInvalidProtocolTrapCntl": {
+    "name": "hpnicfIKEInvalidProtocolTrapCntl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfTrapStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIKECertTypeUnsuppTrapCntl": {
+    "name": "hpnicfIKECertTypeUnsuppTrapCntl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfTrapStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIKEInvalidCertAuthTrapCntl": {
+    "name": "hpnicfIKEInvalidCertAuthTrapCntl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.5.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfTrapStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIKEInvalidSignTrapCntl": {
+    "name": "hpnicfIKEInvalidSignTrapCntl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.5.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfTrapStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIKECertUnavailableTrapCntl": {
+    "name": "hpnicfIKECertUnavailableTrapCntl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.5.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfTrapStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIKEProposalAddTrapCntl": {
+    "name": "hpnicfIKEProposalAddTrapCntl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.5.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfTrapStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIKEProposalDelTrapCntl": {
+    "name": "hpnicfIKEProposalDelTrapCntl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.5.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfTrapStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIKETrap": {
+    "name": "hpnicfIKETrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.6",
+    "class": "objectidentity"
+  },
+  "hpnicfIKENotifications": {
+    "name": "hpnicfIKENotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.6.1",
+    "class": "objectidentity"
+  },
+  "hpnicfIKETunnelStart": {
+    "name": "hpnicfIKETunnelStart",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.6.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLifeTime"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunIndex"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKETunnelStop": {
+    "name": "hpnicfIKETunnelStop",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.6.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunActiveTime"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunIndex"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKENoSaFailure": {
+    "name": "hpnicfIKENoSaFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.6.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunIndex"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKEEncryFailFailure": {
+    "name": "hpnicfIKEEncryFailFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.6.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunIndex"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKEDecryFailFailure": {
+    "name": "hpnicfIKEDecryFailFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.6.1.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunIndex"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKEInvalidProposalFailure": {
+    "name": "hpnicfIKEInvalidProposalFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.6.1.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunIndex"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKEAuthFailFailure": {
+    "name": "hpnicfIKEAuthFailFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.6.1.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunIndex"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKEInvalidCookieFailure": {
+    "name": "hpnicfIKEInvalidCookieFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.6.1.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunIndex"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKEAttrNotSuppFailure": {
+    "name": "hpnicfIKEAttrNotSuppFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.6.1.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunIndex"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKEUnsportExchTypeFailure": {
+    "name": "hpnicfIKEUnsportExchTypeFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.6.1.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunIndex"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKEInvalidIdFailure": {
+    "name": "hpnicfIKEInvalidIdFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.6.1.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEIdInformation"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunIndex"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKEInvalidProtocolFailure": {
+    "name": "hpnicfIKEInvalidProtocolFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.6.1.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEProtocolNum"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunIndex"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKECertTypeUnsuppFailure": {
+    "name": "hpnicfIKECertTypeUnsuppFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.6.1.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKECertInformation"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunIndex"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKEInvalidCertAuthFailure": {
+    "name": "hpnicfIKEInvalidCertAuthFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.6.1.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKECertInformation"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunIndex"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKElInvalidSignFailure": {
+    "name": "hpnicfIKElInvalidSignFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.6.1.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKECertInformation"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunIndex"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKECertUnavailableFailure": {
+    "name": "hpnicfIKECertUnavailableFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.6.1.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKECertInformation"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunIndex"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKEProposalAdd": {
+    "name": "hpnicfIKEProposalAdd",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.6.1.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEProposalNumber"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEProposalSize"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKEProposalDel": {
+    "name": "hpnicfIKEProposalDel",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.6.1.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEProposalNumber"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEProposalSize"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKEScalarObjects": {
+    "name": "hpnicfIKEScalarObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.7",
+    "class": "objectidentity"
+  },
+  "hpnicfIKEMIBVersion": {
+    "name": "hpnicfIKEMIBVersion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIKEConformance": {
+    "name": "hpnicfIKEConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.2",
+    "class": "objectidentity"
+  },
+  "hpnicfIKECompliances": {
+    "name": "hpnicfIKECompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.2.1",
+    "class": "objectidentity"
+  },
+  "hpnicfIKEGroups": {
+    "name": "hpnicfIKEGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.2.2",
+    "class": "objectidentity"
+  },
+  "hpnicfIKECompliance": {
+    "name": "hpnicfIKECompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpnicfIKETunnelTableGroup",
+        "module": "HPN-ICF-IKE-MONITOR-MIB"
+      },
+      {
+        "object": "hpnicfIKETunnelStatTableGroup",
+        "module": "HPN-ICF-IKE-MONITOR-MIB"
+      },
+      {
+        "object": "hpnicfIKEGlobalStatsGroup",
+        "module": "HPN-ICF-IKE-MONITOR-MIB"
+      },
+      {
+        "object": "hpnicfIKETrapObjectGroup",
+        "module": "HPN-ICF-IKE-MONITOR-MIB"
+      },
+      {
+        "object": "hpnicfIKETrapCntlGroup",
+        "module": "HPN-ICF-IKE-MONITOR-MIB"
+      },
+      {
+        "object": "hpnicfIKETrapGroup",
+        "module": "HPN-ICF-IKE-MONITOR-MIB"
+      },
+      {
+        "object": "hpnicfIKEScalarObjectsGroup",
+        "module": "HPN-ICF-IKE-MONITOR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKETunnelTableGroup": {
+    "name": "hpnicfIKETunnelTableGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalValue1"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalValue2"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteValue1"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteValue2"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunInitiator"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunNegoMode"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunDiffHellmanGrp"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunEncryptAlgo"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunHashAlgo"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunAuthMethod"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLifeTime"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunActiveTime"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemainTime"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunTotalRefreshes"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunState"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunDpdIntervalTime"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunDpdTimeOut"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunLocalInetAddr"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddrType"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunRemoteInetAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKETunnelStatTableGroup": {
+    "name": "hpnicfIKETunnelStatTableGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunInOctets"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunInPkts"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunInDropPkts"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunInP2Exchgs"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunInP2ExchgRejets"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunInP2SaDelRequests"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunInP1SaDelRequests"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunInNotifys"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunOutOctets"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunOutPkts"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunOutDropPkts"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunOutP2Exchgs"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunOutP2ExchgRejects"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunOutP2SaDelRequests"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunOutP1SaDelRequests"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunOutNotifys"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKEGlobalStatsGroup": {
+    "name": "hpnicfIKEGlobalStatsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalActiveTunnels"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalInOctets"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalInPkts"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalInDropPkts"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalInP2Exchgs"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalInP2ExchgRejects"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalInP2SaDelRequests"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalInNotifys"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalOutOctets"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalOutPkts"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalOutDropPkts"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalOutP2Exchgs"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalOutP2ExchgRejects"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalOutP2SaDelRequests"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalOutNotifys"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalInitTunnels"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalInitTunnelFails"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalRespTunnels"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalRespTunnelFails"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalAuthFails"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalNoSaFails"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalInvalidCookieFails"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalAttrNotSuppFails"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalNoProposalChosenFails"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalUnsportExchTypeFails"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalInvalidIdFails"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalInvalidProFails"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalCertTypeUnsuppFails"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalInvalidCertAuthFails"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalInvalidSignFails"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEGlobalCertUnavailableFails"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKETrapObjectGroup": {
+    "name": "hpnicfIKETrapObjectGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEProposalNumber"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEProposalSize"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEIdInformation"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEProtocolNum"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKECertInformation"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKETrapCntlGroup": {
+    "name": "hpnicfIKETrapCntlGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETrapGlobalCntl"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunnelStartTrapCntl"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunnelStopTrapCntl"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKENoSaTrapCntl"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEEncryFailureTrapCntl"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEDecryFailureTrapCntl"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEInvalidProposalTrapCntl"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEAuthFailTrapCntl"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEInvalidCookieTrapCntl"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEInvalidSpiTrapCntl"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEAttrNotSuppTrapCntl"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEUnsportExchTypeTrapCntl"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEInvalidIdTrapCntl"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEInvalidProtocolTrapCntl"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKECertTypeUnsuppTrapCntl"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEInvalidCertAuthTrapCntl"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEInvalidSignTrapCntl"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKECertUnavailableTrapCntl"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEProposalAddTrapCntl"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEProposalDelTrapCntl"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKETrapGroup": {
+    "name": "hpnicfIKETrapGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.2.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunnelStart"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKETunnelStop"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKENoSaFailure"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEEncryFailFailure"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEDecryFailFailure"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEInvalidProposalFailure"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEAuthFailFailure"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEInvalidCookieFailure"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEAttrNotSuppFailure"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEUnsportExchTypeFailure"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEInvalidIdFailure"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEInvalidProtocolFailure"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKECertTypeUnsuppFailure"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEInvalidCertAuthFailure"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKElInvalidSignFailure"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKECertUnavailableFailure"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEProposalAdd"
+      },
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEProposalDel"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIKEScalarObjectsGroup": {
+    "name": "hpnicfIKEScalarObjectsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.30.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-IKE-MONITOR-MIB",
+        "object": "hpnicfIKEMIBVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-IKE-MONITOR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-IKE-MONITOR-MIB"
+  }
+}

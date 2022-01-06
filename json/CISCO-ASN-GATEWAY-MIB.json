@@ -1,0 +1,5596 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "EntPhysicalIndexOrZero",
+      "CiscoAlarmSeverity"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoAgwMIB": {
+    "name": "ciscoAgwMIB",
+    "oid": "1.3.6.1.4.1.9.9.638",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-05-26 00:00",
+        "description": "Following objects were added to cagwStateTable cagwCurrentPmipEnabledSubs, Following objects were added to cagwUserGrpStatistics cagwUserGrpPodReqRecv, cagwUserGrpPodSuccessNotifsSent, cagwUserGrpPodFailureNotifsSent, cagwUserGrpCoaReqRecv, cagwUserGrpCoaSuccessNotifsSent, cagwUserGrpCoaFailureNotifsSent, cagwUserGrpRejSession, Following objects were added to cagwGlobalStatistics cagwPktsDroppedMipIncomplete, cagwCreatedPmipEnabledSubs, cagwDeletedPmipEnabledSubs, cagwPktsDropPmipStaticIpHost, cagwIdleModeEntryMsBsInitiated, cagwIdleModeEntryBwgInitiated, cagwIdleModeEntryFailures, cagwIdleModeExitMsBsInitiated, cagwIdleModeExitBwgInitiated, cagwIdleModeExitFailures, cagwIdleModeLocUpdtPgidChange, cagwIdleModeLocUpdtPowerDown, cagwIdleModeLocUpdtPeriodic, cagwIdleModeLocUpdtFailures, cagwIdleModePageAttemptsDwnlnkData, cagwIdleModePageFailuresDwnlnkData, cagwIdleModePageAttemptsLocUpdt, cagwIdleModePageFailuresLocUpdt, cagwIdleModeDirectedPagingSuccess, cagwIdleModeDirectedPagingRetries, cagwIdleModeFloodPagingSuccess, cagwIdleModeFloodPagingRetries, cagwPodRequestsRecv, cagwPodSuccessNotifsSent, cagwPodFailureNotifsSent, cagwCoaReqRecv, cagwCoaSuccessNotifsSent, cagwCoaFailureNotifsSent, cagwHotlineUplinkPktDropAclDeny, cagwHotlineDownlinkPktDropAclDeny, cagwUplinkPktDropUsrgrpAclDeny, cagwDownlinkPktDropUsrgrpAclDeny, cagwDownlinkPktDropPagingAclDeny, Following object were added to cagwDhcpStatistics cagwDhcpProxyDiscoverPackets, cagwDhcpProxyOfferPackets, cagwDhcpProxyRequestPackets, cagwDhcpProxyDeclinePackets, cagwDhcpProxyAckPackets, cagwDhcpProxyNakPackets, cagwDhcpProxyReleasePackets, cagwDhcpProxyInformPackets, cagwDhcpProxyLeaseQueryPackets, cagwDhcpProxyUnknownPackets"
+      },
+      {
+        "revision": "2008-04-22 00:00",
+        "description": "Following objects were added to cagwStateTable cagwCurrentFramedRoutes, cagwCurrentFramedRouteSubs, cagwCurrentAutoProvSessions, cagwCurrentSessionsWithIpPktsRedir. Following objects were added to cagwGlobalStatistics cagwRejectedSessionUnapprovedBs, cagwPktsDroppedStaticIpHostNotAllowed, cagwPktsDroppedMulticastBroadcast cagwSlaProfileNotFound. Following objects were obsoleted in cagwGlobalStatistics cagwFramedRouteInserted, cagwFramedRouteInsertFailed, cagwFramedRouteDeleted. Following objects were added to cagwUserGrpStatistics cagwUserGrpOverwritten."
+      },
+      {
+        "revision": "2008-03-24 00:00",
+        "description": "Following objects were deprecated in cagwGlobalStatistics cagwReceivedDataPkts, cagwReceivedDataBytes, cagwSentDataPkts, cagwSentDataBytes. Following objects were added to cagwGlobalStatistics cagwIpGreReceivedDataPkts, cagwIpGreReceivedDataBytes, cagwIpGreSentDataPkts, cagwIpGreSentDataBytes, cagwEthGreReceivedDataPkts, cagwEthGreReceivedDataBytes, cagwEthGreSentdDataPkts, cagwEthGreSentDataBytes, cagwRejectedHosts, cagwAgedOutStaticHosts, cagwSuccessfulHandoff, cagwFailedHandoff, cagwSuccessfulCMACKeyUpdate, cagwFailedCMACKeyUpdate, cagwSuccessfulSecurityKeyExchange, cagwFailedSecurityKeyExchange, cagwIpGreReceivedRedirectedPkts, cagwIpGreReceivedRedirectedBytes, cagwEthGreReceivedRedirectedPkts, cagwEthGreReceivedRedirectedBytes, cagwThrottlingOfPuntsDataPktsDrops, cagwLearningUpStreamDataPktsDrops, cagwPuntedDataPkts. Following objects were deprecated in cagwUserGrpEntry cagwUserGrpPacketsSent, cagwUserGrpBytesSent, cagwUserGrpPacketsReceived, cagwUserGrpBytesReceived. Following objects were added to cagwUserGrpEntry cagwUserGrpIpGrePacketsSent, cagwUserGrpIpGreBytesSent, cagwUserGrpIpGrePacketsReceived, cagwUserGrpIpGreBytesReceived, cagwUserGrpEthGrePacketsSent, cagwUserGrpEthGreBytesSent, cagwUserGrpEthGrePacketsReceived, cagwUserGrpEthGreBytesReceived Following objects were made obsolete cagwPathTable. Following object were added to cagwPathStatistics cagwPathRev1Table Following object were added to cagwStatistics cagwArpStatistics."
+      },
+      {
+        "revision": "2007-09-26 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoAgwMIBNotifs": {
+    "name": "ciscoAgwMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.638.0",
+    "class": "objectidentity"
+  },
+  "ciscoAgwMIBObjects": {
+    "name": "ciscoAgwMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.638.1",
+    "class": "objectidentity"
+  },
+  "ciscoAgwMIBConform": {
+    "name": "ciscoAgwMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.638.2",
+    "class": "objectidentity"
+  },
+  "cagwInstances": {
+    "name": "cagwInstances",
+    "oid": "1.3.6.1.4.1.9.9.638.1.1",
+    "class": "objectidentity"
+  },
+  "cagwState": {
+    "name": "cagwState",
+    "oid": "1.3.6.1.4.1.9.9.638.1.2",
+    "class": "objectidentity"
+  },
+  "cagwStatistics": {
+    "name": "cagwStatistics",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3",
+    "class": "objectidentity"
+  },
+  "cagwNotifMgmt": {
+    "name": "cagwNotifMgmt",
+    "oid": "1.3.6.1.4.1.9.9.638.1.4",
+    "class": "objectidentity"
+  },
+  "cagwNotifInfo": {
+    "name": "cagwNotifInfo",
+    "oid": "1.3.6.1.4.1.9.9.638.1.5",
+    "class": "objectidentity"
+  },
+  "cagwGlobalStatistics": {
+    "name": "cagwGlobalStatistics",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1",
+    "class": "objectidentity"
+  },
+  "cagwDhcpStatistics": {
+    "name": "cagwDhcpStatistics",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.2",
+    "class": "objectidentity"
+  },
+  "cagwMessageStatistics": {
+    "name": "cagwMessageStatistics",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.3",
+    "class": "objectidentity"
+  },
+  "cagwUserGrpStatistics": {
+    "name": "cagwUserGrpStatistics",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4",
+    "class": "objectidentity"
+  },
+  "cagwPathStatistics": {
+    "name": "cagwPathStatistics",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5",
+    "class": "objectidentity"
+  },
+  "cagwArpStatistics": {
+    "name": "cagwArpStatistics",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.6",
+    "class": "objectidentity"
+  },
+  "cagwInstanceTable": {
+    "name": "cagwInstanceTable",
+    "oid": "1.3.6.1.4.1.9.9.638.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cagwInstanceEntry": {
+    "name": "cagwInstanceEntry",
+    "oid": "1.3.6.1.4.1.9.9.638.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cagwInstanceIndex": {
+    "name": "cagwInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.9.638.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cagwInstancePhysicalIndex": {
+    "name": "cagwInstancePhysicalIndex",
+    "oid": "1.3.6.1.4.1.9.9.638.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwInstanceDescription": {
+    "name": "cagwInstanceDescription",
+    "oid": "1.3.6.1.4.1.9.9.638.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwInstanceVersion": {
+    "name": "cagwInstanceVersion",
+    "oid": "1.3.6.1.4.1.9.9.638.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwInstanceOperState": {
+    "name": "cagwInstanceOperState",
+    "oid": "1.3.6.1.4.1.9.9.638.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwInstanceSessionRedundancyAdmin": {
+    "name": "cagwInstanceSessionRedundancyAdmin",
+    "oid": "1.3.6.1.4.1.9.9.638.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwStateTable": {
+    "name": "cagwStateTable",
+    "oid": "1.3.6.1.4.1.9.9.638.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cagwStateEntry": {
+    "name": "cagwStateEntry",
+    "oid": "1.3.6.1.4.1.9.9.638.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cagwMaximumBaseStations": {
+    "name": "cagwMaximumBaseStations",
+    "oid": "1.3.6.1.4.1.9.9.638.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "base stations",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cagwMaximumSubscribers": {
+    "name": "cagwMaximumSubscribers",
+    "oid": "1.3.6.1.4.1.9.9.638.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "subscribers",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cagwMaximumFlowsPerSession": {
+    "name": "cagwMaximumFlowsPerSession",
+    "oid": "1.3.6.1.4.1.9.9.638.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "flows",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cagwCurrentBaseStations": {
+    "name": "cagwCurrentBaseStations",
+    "oid": "1.3.6.1.4.1.9.9.638.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "paths",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwCurrentDataPaths": {
+    "name": "cagwCurrentDataPaths",
+    "oid": "1.3.6.1.4.1.9.9.638.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "paths",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwCurrentSubscribers": {
+    "name": "cagwCurrentSubscribers",
+    "oid": "1.3.6.1.4.1.9.9.638.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "subscribers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwCurrentSessions": {
+    "name": "cagwCurrentSessions",
+    "oid": "1.3.6.1.4.1.9.9.638.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwCurrentFlows": {
+    "name": "cagwCurrentFlows",
+    "oid": "1.3.6.1.4.1.9.9.638.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "flows",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwCurrentHosts": {
+    "name": "cagwCurrentHosts",
+    "oid": "1.3.6.1.4.1.9.9.638.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "hosts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwNetworkBehindMs": {
+    "name": "cagwNetworkBehindMs",
+    "oid": "1.3.6.1.4.1.9.9.638.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "mobile stations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwPendingSignalingPkts": {
+    "name": "cagwPendingSignalingPkts",
+    "oid": "1.3.6.1.4.1.9.9.638.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwCurrentFramedRoutes": {
+    "name": "cagwCurrentFramedRoutes",
+    "oid": "1.3.6.1.4.1.9.9.638.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "routes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwCurrentFramedRouteSubs": {
+    "name": "cagwCurrentFramedRouteSubs",
+    "oid": "1.3.6.1.4.1.9.9.638.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "subscribers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwCurrentAutoProvSessions": {
+    "name": "cagwCurrentAutoProvSessions",
+    "oid": "1.3.6.1.4.1.9.9.638.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwCurrentSessionsWithIpPktsRedir": {
+    "name": "cagwCurrentSessionsWithIpPktsRedir",
+    "oid": "1.3.6.1.4.1.9.9.638.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwCurrentPmipEnabledSubs": {
+    "name": "cagwCurrentPmipEnabledSubs",
+    "oid": "1.3.6.1.4.1.9.9.638.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "subscribers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwGlobalStatisticsTable": {
+    "name": "cagwGlobalStatisticsTable",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cagwGlobalStatisticsEntry": {
+    "name": "cagwGlobalStatisticsEntry",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cagwCreatedSubscribers": {
+    "name": "cagwCreatedSubscribers",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "subscribers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDeletedSubscribers": {
+    "name": "cagwDeletedSubscribers",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "subscribers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwCreatedSessions": {
+    "name": "cagwCreatedSessions",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDeletedSessions": {
+    "name": "cagwDeletedSessions",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwCreatedFlows": {
+    "name": "cagwCreatedFlows",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "flows",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDeletedFlows": {
+    "name": "cagwDeletedFlows",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "flows",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwCreatedHosts": {
+    "name": "cagwCreatedHosts",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "hosts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDeletedHosts": {
+    "name": "cagwDeletedHosts",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "hosts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwCreatedBaseStations": {
+    "name": "cagwCreatedBaseStations",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "paths",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDeletedBaseStations": {
+    "name": "cagwDeletedBaseStations",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "paths",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwCreatedDataPaths": {
+    "name": "cagwCreatedDataPaths",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "paths",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDeletedDataPaths": {
+    "name": "cagwDeletedDataPaths",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "paths",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwProcessedSignalingPkts": {
+    "name": "cagwProcessedSignalingPkts",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwRequeuedSignalingPkts": {
+    "name": "cagwRequeuedSignalingPkts",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwCongestionSignalingPktsDrops": {
+    "name": "cagwCongestionSignalingPktsDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwServiceDisabledSignalingPktsDrops": {
+    "name": "cagwServiceDisabledSignalingPktsDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwServiceNotReadySignalingPktsDrops": {
+    "name": "cagwServiceNotReadySignalingPktsDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwEncapErrorSignalingPktsDrops": {
+    "name": "cagwEncapErrorSignalingPktsDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDisposedSignalingPktsDrops": {
+    "name": "cagwDisposedSignalingPktsDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwEncapErrorDataPktsDrops": {
+    "name": "cagwEncapErrorDataPktsDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwInvalidAddressDataPktsDrops": {
+    "name": "cagwInvalidAddressDataPktsDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwServiceDisabledDataPktsDrops": {
+    "name": "cagwServiceDisabledDataPktsDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwInvalidProtocolTypeDataPktsDrops": {
+    "name": "cagwInvalidProtocolTypeDataPktsDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwLengthErrorDataPktsDrops": {
+    "name": "cagwLengthErrorDataPktsDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwAbsentKeyDataPktsDrops": {
+    "name": "cagwAbsentKeyDataPktsDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwFlowNotFoundDataPktsDrops": {
+    "name": "cagwFlowNotFoundDataPktsDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwFlowPathNotFoundDataPktsDrops": {
+    "name": "cagwFlowPathNotFoundDataPktsDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwFlowPathInvalidSourceDataPktsDrops": {
+    "name": "cagwFlowPathInvalidSourceDataPktsDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwSessionNotFoundDataPktsDrops": {
+    "name": "cagwSessionNotFoundDataPktsDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwSubscriberNotFoundDataPktsDrops": {
+    "name": "cagwSubscriberNotFoundDataPktsDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwChecksumErrorDataPktsDrops": {
+    "name": "cagwChecksumErrorDataPktsDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIngressFilteringDataPktsDrops": {
+    "name": "cagwIngressFilteringDataPktsDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwSequenceNumberErrorDataPktsDrops": {
+    "name": "cagwSequenceNumberErrorDataPktsDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwFragmentedDataPktsDrops": {
+    "name": "cagwFragmentedDataPktsDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwFramedRouteInserted": {
+    "name": "cagwFramedRouteInserted",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "routes",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cagwFramedRouteInsertFailed": {
+    "name": "cagwFramedRouteInsertFailed",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "routes",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cagwFramedRouteDeleted": {
+    "name": "cagwFramedRouteDeleted",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "routes",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cagwServiceFlowProfileNotFound": {
+    "name": "cagwServiceFlowProfileNotFound",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "service flow profiles",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwQosProfileNotFound": {
+    "name": "cagwQosProfileNotFound",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "qos profiles",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwClassifierProfileNotFound": {
+    "name": "cagwClassifierProfileNotFound",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "classifier profiles",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwReceivedDataPkts": {
+    "name": "cagwReceivedDataPkts",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cagwReceivedDataBytes": {
+    "name": "cagwReceivedDataBytes",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cagwSentDataPkts": {
+    "name": "cagwSentDataPkts",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cagwSentDataBytes": {
+    "name": "cagwSentDataBytes",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cagwRejectedSessions": {
+    "name": "cagwRejectedSessions",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwRejectedFlows": {
+    "name": "cagwRejectedFlows",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "flows",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwRejectedBaseStations": {
+    "name": "cagwRejectedBaseStations",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "paths",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwSessionsDeletedByAgw": {
+    "name": "cagwSessionsDeletedByAgw",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIpGreReceivedDataPkts": {
+    "name": "cagwIpGreReceivedDataPkts",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIpGreReceivedDataBytes": {
+    "name": "cagwIpGreReceivedDataBytes",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIpGreSentDataPkts": {
+    "name": "cagwIpGreSentDataPkts",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIpGreSentDataBytes": {
+    "name": "cagwIpGreSentDataBytes",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwEthGreReceivedDataPkts": {
+    "name": "cagwEthGreReceivedDataPkts",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwEthGreReceivedDataBytes": {
+    "name": "cagwEthGreReceivedDataBytes",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwEthGreSentDataPkts": {
+    "name": "cagwEthGreSentDataPkts",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwEthGreSentDataBytes": {
+    "name": "cagwEthGreSentDataBytes",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwRejectedHosts": {
+    "name": "cagwRejectedHosts",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "hosts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwAgedOutStaticHosts": {
+    "name": "cagwAgedOutStaticHosts",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.79",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "hosts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwSuccessfulHandoff": {
+    "name": "cagwSuccessfulHandoff",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwFailedHandoff": {
+    "name": "cagwFailedHandoff",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwSuccessfulCMACKeyUpdate": {
+    "name": "cagwSuccessfulCMACKeyUpdate",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.82",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "CMACKeyUpdates",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwFailedCMACKeyUpdate": {
+    "name": "cagwFailedCMACKeyUpdate",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "CMACKeyUpdates",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwSuccessfulSecurityKeyExchange": {
+    "name": "cagwSuccessfulSecurityKeyExchange",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.84",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SecurityKeyExchange",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwFailedSecurityKeyExchange": {
+    "name": "cagwFailedSecurityKeyExchange",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SecurityKeyExchange",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIpGreReceivedRedirectedPkts": {
+    "name": "cagwIpGreReceivedRedirectedPkts",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.86",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "IpDataPktsRedirected",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIpGreReceivedRedirectedBytes": {
+    "name": "cagwIpGreReceivedRedirectedBytes",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.87",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "IpDataBytesRedirected",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwEthGreReceivedRedirectedPkts": {
+    "name": "cagwEthGreReceivedRedirectedPkts",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.88",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "EthDataPktsRedirected",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwEthGreReceivedRedirectedBytes": {
+    "name": "cagwEthGreReceivedRedirectedBytes",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.89",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "EthDataBytesRedirected",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwThrottlingOfPuntsDataPktsDrops": {
+    "name": "cagwThrottlingOfPuntsDataPktsDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.90",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwLearningUpstreamDataPktsDrops": {
+    "name": "cagwLearningUpstreamDataPktsDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.91",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwPuntedDataPkts": {
+    "name": "cagwPuntedDataPkts",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.92",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwRejectedSessionUnapprovedBs": {
+    "name": "cagwRejectedSessionUnapprovedBs",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.93",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwPktsDroppedStaticIpHostNotAllowed": {
+    "name": "cagwPktsDroppedStaticIpHostNotAllowed",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.94",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwPktsDroppedMulticastBroadcast": {
+    "name": "cagwPktsDroppedMulticastBroadcast",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.95",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwSlaProfileNotFound": {
+    "name": "cagwSlaProfileNotFound",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.96",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SLA profile",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwPktsDroppedMipIncomplete": {
+    "name": "cagwPktsDroppedMipIncomplete",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.97",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwCreatedPmipEnabledSubs": {
+    "name": "cagwCreatedPmipEnabledSubs",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.98",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "subscribers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDeletedPmipEnabledSubs": {
+    "name": "cagwDeletedPmipEnabledSubs",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "subscribers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwPktsDropPmipStaticIpHost": {
+    "name": "cagwPktsDropPmipStaticIpHost",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIdleModeEntryMsBsInitiated": {
+    "name": "cagwIdleModeEntryMsBsInitiated",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.101",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIdleModeEntryBwgInitiated": {
+    "name": "cagwIdleModeEntryBwgInitiated",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.102",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIdleModeEntryFailures": {
+    "name": "cagwIdleModeEntryFailures",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.103",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIdleModeExitMsBsInitiated": {
+    "name": "cagwIdleModeExitMsBsInitiated",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.104",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIdleModeExitBwgInitiated": {
+    "name": "cagwIdleModeExitBwgInitiated",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.105",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIdleModeExitFailures": {
+    "name": "cagwIdleModeExitFailures",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.106",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIdleModeLocUpdtPgidChange": {
+    "name": "cagwIdleModeLocUpdtPgidChange",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.107",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIdleModeLocUpdtPowerDown": {
+    "name": "cagwIdleModeLocUpdtPowerDown",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.108",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIdleModeLocUpdtPeriodic": {
+    "name": "cagwIdleModeLocUpdtPeriodic",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.109",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIdleModeLocUpdtFailures": {
+    "name": "cagwIdleModeLocUpdtFailures",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.110",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIdleModePageAttemptsDwnlnkData": {
+    "name": "cagwIdleModePageAttemptsDwnlnkData",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.111",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIdleModePageFailuresDwnlnkData": {
+    "name": "cagwIdleModePageFailuresDwnlnkData",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.112",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIdleModePageAttemptsLocUpdt": {
+    "name": "cagwIdleModePageAttemptsLocUpdt",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.113",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIdleModePageFailuresLocUpdt": {
+    "name": "cagwIdleModePageFailuresLocUpdt",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.114",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIdleModeDirectedPagingSuccess": {
+    "name": "cagwIdleModeDirectedPagingSuccess",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.115",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIdleModeDirectedPagingRetries": {
+    "name": "cagwIdleModeDirectedPagingRetries",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.116",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIdleModeFloodPagingSuccess": {
+    "name": "cagwIdleModeFloodPagingSuccess",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.117",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIdleModeFloodPagingRetries": {
+    "name": "cagwIdleModeFloodPagingRetries",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.118",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwPodRequestsRecv": {
+    "name": "cagwPodRequestsRecv",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.119",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwPodSuccessNotifsSent": {
+    "name": "cagwPodSuccessNotifsSent",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.120",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwPodFailureNotifsSent": {
+    "name": "cagwPodFailureNotifsSent",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.121",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwCoaReqRecv": {
+    "name": "cagwCoaReqRecv",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.122",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwCoaSuccessNotifsSent": {
+    "name": "cagwCoaSuccessNotifsSent",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.123",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwCoaFailureNotifsSent": {
+    "name": "cagwCoaFailureNotifsSent",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.124",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwHotlineUplinkPktDropAclDeny": {
+    "name": "cagwHotlineUplinkPktDropAclDeny",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.125",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwHotlineDownlinkPktDropAclDeny": {
+    "name": "cagwHotlineDownlinkPktDropAclDeny",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.126",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUplinkPktDropUsrgrpAclDeny": {
+    "name": "cagwUplinkPktDropUsrgrpAclDeny",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.127",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDownlinkPktDropUsrgrpAclDeny": {
+    "name": "cagwDownlinkPktDropUsrgrpAclDeny",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.128",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDownlinkPktDropPagingAclDeny": {
+    "name": "cagwDownlinkPktDropPagingAclDeny",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.1.1.1.129",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDhcpStatisticsTable": {
+    "name": "cagwDhcpStatisticsTable",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cagwDhcpStatisticsEntry": {
+    "name": "cagwDhcpStatisticsEntry",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cagwDhcpDiscoverPackets": {
+    "name": "cagwDhcpDiscoverPackets",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDhcpOfferPackets": {
+    "name": "cagwDhcpOfferPackets",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDhcpRequestPackets": {
+    "name": "cagwDhcpRequestPackets",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDhcpDeclinePackets": {
+    "name": "cagwDhcpDeclinePackets",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDhcpAckPackets": {
+    "name": "cagwDhcpAckPackets",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDhcpNakPackets": {
+    "name": "cagwDhcpNakPackets",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDhcpReleasePackets": {
+    "name": "cagwDhcpReleasePackets",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDhcpInformPackets": {
+    "name": "cagwDhcpInformPackets",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDhcpLeaseQueryPackets": {
+    "name": "cagwDhcpLeaseQueryPackets",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDhcpUnknownPackets": {
+    "name": "cagwDhcpUnknownPackets",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDhcpProxyDiscoverPackets": {
+    "name": "cagwDhcpProxyDiscoverPackets",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDhcpProxyOfferPackets": {
+    "name": "cagwDhcpProxyOfferPackets",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDhcpProxyRequestPackets": {
+    "name": "cagwDhcpProxyRequestPackets",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDhcpProxyDeclinePackets": {
+    "name": "cagwDhcpProxyDeclinePackets",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDhcpProxyAckPackets": {
+    "name": "cagwDhcpProxyAckPackets",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDhcpProxyNakPackets": {
+    "name": "cagwDhcpProxyNakPackets",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDhcpProxyReleasePackets": {
+    "name": "cagwDhcpProxyReleasePackets",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDhcpProxyInformPackets": {
+    "name": "cagwDhcpProxyInformPackets",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDhcpProxyLeaseQueryPackets": {
+    "name": "cagwDhcpProxyLeaseQueryPackets",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwDhcpProxyUnknownPackets": {
+    "name": "cagwDhcpProxyUnknownPackets",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwMsgTable": {
+    "name": "cagwMsgTable",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cagwMsgEntry": {
+    "name": "cagwMsgEntry",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwMsgType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cagwMsgType": {
+    "name": "cagwMsgType",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "preAttachmentRequest": 1,
+          "preAttachmentResponse": 2,
+          "preAttachmentAck": 3,
+          "authRelayEapStart": 11,
+          "authRelayEapTransfer": 12,
+          "keyChangeDirective": 21,
+          "keyChangeConfirm": 22,
+          "keyChangeAck": 23,
+          "attachmentRequest": 31,
+          "attachmentResponse": 32,
+          "attachmentAck": 33,
+          "datapathRegRequest": 41,
+          "datapathRegResponse": 42,
+          "datapathRegAck": 43,
+          "datapathModifyRequest": 44,
+          "datapathModifyResponse": 45,
+          "datapathModifyAck": 46,
+          "datapathDeregRequest": 47,
+          "datapathDeregResponse": 48,
+          "datapathDeregAck": 49,
+          "contextDeliveryRequest": 51,
+          "contextDeliveryReport": 52,
+          "contextDeliveryAck": 53,
+          "keepaliveRequest": 61,
+          "keepaliveResponse": 62,
+          "handoffRegRequest": 71,
+          "handoffRegResponse": 72,
+          "handoffRegAck": 73,
+          "handoffDeregRequest": 74,
+          "handoffDeregResponse": 75,
+          "handoffDeregAck": 76,
+          "handoffSuccessful": 77
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cagwMsgSent": {
+    "name": "cagwMsgSent",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwMsgReceived": {
+    "name": "cagwMsgReceived",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwMsgResent": {
+    "name": "cagwMsgResent",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpTable": {
+    "name": "cagwUserGrpTable",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cagwUserGrpEntry": {
+    "name": "cagwUserGrpEntry",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpDomainName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cagwUserGrpDomainName": {
+    "name": "cagwUserGrpDomainName",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cagwUserGrpServiceMode": {
+    "name": "cagwUserGrpServiceMode",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "operational": 0,
+          "disable": 1,
+          "maintenance": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpCreatedSessions": {
+    "name": "cagwUserGrpCreatedSessions",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpDeletedSessions": {
+    "name": "cagwUserGrpDeletedSessions",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpCurrentSessions": {
+    "name": "cagwUserGrpCurrentSessions",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpCreatedFlows": {
+    "name": "cagwUserGrpCreatedFlows",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "flows",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpDeletedFlows": {
+    "name": "cagwUserGrpDeletedFlows",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "flows",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpCurrentFlows": {
+    "name": "cagwUserGrpCurrentFlows",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "flows",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpPacketsSent": {
+    "name": "cagwUserGrpPacketsSent",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cagwUserGrpBytesSent": {
+    "name": "cagwUserGrpBytesSent",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cagwUserGrpPacketsReceived": {
+    "name": "cagwUserGrpPacketsReceived",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cagwUserGrpBytesReceived": {
+    "name": "cagwUserGrpBytesReceived",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cagwUserGrpInvalidSourcePacketsDrops": {
+    "name": "cagwUserGrpInvalidSourcePacketsDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpInvalidSourceBytesDrops": {
+    "name": "cagwUserGrpInvalidSourceBytesDrops",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpIpGrePacketsSent": {
+    "name": "cagwUserGrpIpGrePacketsSent",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpIpGreBytesSent": {
+    "name": "cagwUserGrpIpGreBytesSent",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpIpGrePacketsReceived": {
+    "name": "cagwUserGrpIpGrePacketsReceived",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpIpGreBytesReceived": {
+    "name": "cagwUserGrpIpGreBytesReceived",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpEthGrePacketsSent": {
+    "name": "cagwUserGrpEthGrePacketsSent",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpEthGreBytesSent": {
+    "name": "cagwUserGrpEthGreBytesSent",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpEthGrePacketsReceived": {
+    "name": "cagwUserGrpEthGrePacketsReceived",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpEthGreBytesReceived": {
+    "name": "cagwUserGrpEthGreBytesReceived",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpOverwritten": {
+    "name": "cagwUserGrpOverwritten",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "number",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpPodReqRecv": {
+    "name": "cagwUserGrpPodReqRecv",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpPodSuccessNotifsSent": {
+    "name": "cagwUserGrpPodSuccessNotifsSent",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpPodFailureNotifsSent": {
+    "name": "cagwUserGrpPodFailureNotifsSent",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpCoaReqRecv": {
+    "name": "cagwUserGrpCoaReqRecv",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpCoaSuccessNotifsSent": {
+    "name": "cagwUserGrpCoaSuccessNotifsSent",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpCoaFailureNotifsSent": {
+    "name": "cagwUserGrpCoaFailureNotifsSent",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwUserGrpRejSession": {
+    "name": "cagwUserGrpRejSession",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.4.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwPathTable": {
+    "name": "cagwPathTable",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cagwPathEntry": {
+    "name": "cagwPathEntry",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathRemoteIpType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathRemoteIp",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathType",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cagwPathRemoteIpType": {
+    "name": "cagwPathRemoteIpType",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cagwPathRemoteIp": {
+    "name": "cagwPathRemoteIp",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cagwPathType": {
+    "name": "cagwPathType",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "signaling": 1,
+          "data": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cagwPathLocalIpType": {
+    "name": "cagwPathLocalIpType",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cagwPathLocalIp": {
+    "name": "cagwPathLocalIp",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cagwPathCurrentSessions": {
+    "name": "cagwPathCurrentSessions",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cagwPathCurrentFlows": {
+    "name": "cagwPathCurrentFlows",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "flows",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cagwPathPacketsSent": {
+    "name": "cagwPathPacketsSent",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cagwPathBytesSent": {
+    "name": "cagwPathBytesSent",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cagwPathPacketsReceived": {
+    "name": "cagwPathPacketsReceived",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cagwPathBytesReceived": {
+    "name": "cagwPathBytesReceived",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cagwPathRev1Table": {
+    "name": "cagwPathRev1Table",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cagwPathRev1Entry": {
+    "name": "cagwPathRev1Entry",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathTypeRev1",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathRemoteIpTypeRev1",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathRemoteIpRev1",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cagwPathTypeRev1": {
+    "name": "cagwPathTypeRev1",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "signaling": 1,
+          "data": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cagwPathRemoteIpTypeRev1": {
+    "name": "cagwPathRemoteIpTypeRev1",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cagwPathRemoteIpRev1": {
+    "name": "cagwPathRemoteIpRev1",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cagwPathLocalIpTypeRev1": {
+    "name": "cagwPathLocalIpTypeRev1",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwPathLocalIpRev1": {
+    "name": "cagwPathLocalIpRev1",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwPathCurrentSessionsRev1": {
+    "name": "cagwPathCurrentSessionsRev1",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwPathCurrentFlowsRev1": {
+    "name": "cagwPathCurrentFlowsRev1",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "flows",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwPathIpGrePacketsSentRev1": {
+    "name": "cagwPathIpGrePacketsSentRev1",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwPathIpGreBytesSentRev1": {
+    "name": "cagwPathIpGreBytesSentRev1",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwPathIpGrePacketsReceivedRev1": {
+    "name": "cagwPathIpGrePacketsReceivedRev1",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwPathIpGreBytesReceivedRev1": {
+    "name": "cagwPathIpGreBytesReceivedRev1",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwPathEthGrePacketsSentRev1": {
+    "name": "cagwPathEthGrePacketsSentRev1",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwPathEthGreBytesSentRev1": {
+    "name": "cagwPathEthGreBytesSentRev1",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwPathEthGrePacketsReceivedRev1": {
+    "name": "cagwPathEthGrePacketsReceivedRev1",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwPathEthGreBytesReceivedRev1": {
+    "name": "cagwPathEthGreBytesReceivedRev1",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.5.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwArpStatisticsTable": {
+    "name": "cagwArpStatisticsTable",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cagwArpStatisticsEntry": {
+    "name": "cagwArpStatisticsEntry",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cagwArpReqReceived": {
+    "name": "cagwArpReqReceived",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwArpReplySent": {
+    "name": "cagwArpReplySent",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwArpPacketsDropped": {
+    "name": "cagwArpPacketsDropped",
+    "oid": "1.3.6.1.4.1.9.9.638.1.3.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwNotifEnabled": {
+    "name": "cagwNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.638.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cagwNotifSeverityLevel": {
+    "name": "cagwNotifSeverityLevel",
+    "oid": "1.3.6.1.4.1.9.9.638.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAlarmSeverity",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "info",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cagwRepeatNotifInterval": {
+    "name": "cagwRepeatNotifInterval",
+    "oid": "1.3.6.1.4.1.9.9.638.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 60,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cagwGeneratedNotifs": {
+    "name": "cagwGeneratedNotifs",
+    "oid": "1.3.6.1.4.1.9.9.638.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIgnoredNotifs": {
+    "name": "cagwIgnoredNotifs",
+    "oid": "1.3.6.1.4.1.9.9.638.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwServiceNotifEnabled": {
+    "name": "cagwServiceNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.638.1.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cagwServiceNotifSeverity": {
+    "name": "cagwServiceNotifSeverity",
+    "oid": "1.3.6.1.4.1.9.9.638.1.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAlarmSeverity",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "critical",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cagwGeneratedServiceNotifs": {
+    "name": "cagwGeneratedServiceNotifs",
+    "oid": "1.3.6.1.4.1.9.9.638.1.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIgnoredServiceNotifs": {
+    "name": "cagwIgnoredServiceNotifs",
+    "oid": "1.3.6.1.4.1.9.9.638.1.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwMaxBaseStationExceededNotifEnabled": {
+    "name": "cagwMaxBaseStationExceededNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.638.1.4.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cagwMaxBaseStationExceededNotifSeverity": {
+    "name": "cagwMaxBaseStationExceededNotifSeverity",
+    "oid": "1.3.6.1.4.1.9.9.638.1.4.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAlarmSeverity",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "major",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cagwMaxBaseStationExceededNotifThreshold": {
+    "name": "cagwMaxBaseStationExceededNotifThreshold",
+    "oid": "1.3.6.1.4.1.9.9.638.1.4.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 25,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cagwGeneratedMaxBsNotifs": {
+    "name": "cagwGeneratedMaxBsNotifs",
+    "oid": "1.3.6.1.4.1.9.9.638.1.4.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIgnoredMaxBsNotifs": {
+    "name": "cagwIgnoredMaxBsNotifs",
+    "oid": "1.3.6.1.4.1.9.9.638.1.4.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwMaxSubscribersExceededNotifEnabled": {
+    "name": "cagwMaxSubscribersExceededNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.638.1.4.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cagwMaxSubscribersExceededNotifSeverity": {
+    "name": "cagwMaxSubscribersExceededNotifSeverity",
+    "oid": "1.3.6.1.4.1.9.9.638.1.4.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAlarmSeverity",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "major",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cagwMaxSubscribersExceededNotifThreshold": {
+    "name": "cagwMaxSubscribersExceededNotifThreshold",
+    "oid": "1.3.6.1.4.1.9.9.638.1.4.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 25,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cagwGeneratedMaxSubscNotifs": {
+    "name": "cagwGeneratedMaxSubscNotifs",
+    "oid": "1.3.6.1.4.1.9.9.638.1.4.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwIgnoredMaxSubscNotifs": {
+    "name": "cagwIgnoredMaxSubscNotifs",
+    "oid": "1.3.6.1.4.1.9.9.638.1.4.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwImpactedIpType": {
+    "name": "cagwImpactedIpType",
+    "oid": "1.3.6.1.4.1.9.9.638.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwImpactedIp": {
+    "name": "cagwImpactedIp",
+    "oid": "1.3.6.1.4.1.9.9.638.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwImpactedReason": {
+    "name": "cagwImpactedReason",
+    "oid": "1.3.6.1.4.1.9.9.638.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "limit": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cagwImpactedInfo": {
+    "name": "cagwImpactedInfo",
+    "oid": "1.3.6.1.4.1.9.9.638.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAgwServiceDownNotif": {
+    "name": "ciscoAgwServiceDownNotif",
+    "oid": "1.3.6.1.4.1.9.9.638.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInstanceDescription"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwServiceNotifSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAgwServiceUpNotif": {
+    "name": "ciscoAgwServiceUpNotif",
+    "oid": "1.3.6.1.4.1.9.9.638.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInstanceDescription"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwServiceNotifSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAgwMaxBaseStationExceededOnsetNotif": {
+    "name": "ciscoAgwMaxBaseStationExceededOnsetNotif",
+    "oid": "1.3.6.1.4.1.9.9.638.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInstanceDescription"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwMaxBaseStationExceededNotifSeverity"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwMaximumBaseStations"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCurrentBaseStations"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwRejectedBaseStations"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwImpactedIpType"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwImpactedIp"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAgwMaxBaseStationExceededAbateNotif": {
+    "name": "ciscoAgwMaxBaseStationExceededAbateNotif",
+    "oid": "1.3.6.1.4.1.9.9.638.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInstanceDescription"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwMaxBaseStationExceededNotifSeverity"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwMaximumBaseStations"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCurrentBaseStations"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwRejectedBaseStations"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAgwMaxSubscribersExceededOnsetNotif": {
+    "name": "ciscoAgwMaxSubscribersExceededOnsetNotif",
+    "oid": "1.3.6.1.4.1.9.9.638.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInstanceDescription"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwMaxSubscribersExceededNotifSeverity"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwMaximumSubscribers"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCurrentSubscribers"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwRejectedSessions"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwImpactedIpType"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwImpactedIp"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwImpactedInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAgwMaxSubscribersExceededAbateNotif": {
+    "name": "ciscoAgwMaxSubscribersExceededAbateNotif",
+    "oid": "1.3.6.1.4.1.9.9.638.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInstanceDescription"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwMaxSubscribersExceededNotifSeverity"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwMaximumSubscribers"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCurrentSubscribers"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwRejectedSessions"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAgwMIBCompliances": {
+    "name": "ciscoAgwMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.638.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoAgwMIBGroups": {
+    "name": "ciscoAgwMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.638.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoAgwMIBCompliance": {
+    "name": "ciscoAgwMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.638.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cagwInstanceGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwStateGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwGlobalStatisticsGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwDhcpStatisticsGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwMessageStatisticsGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwUserGrpGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwPathGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwNotifInfoGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwNotifMgmtGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwNotifGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoAgwMIBComplianceRev1": {
+    "name": "ciscoAgwMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.638.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cagwInstanceGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwStateGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwDhcpStatisticsGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwMessageStatisticsGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwNotifInfoGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwNotifMgmtGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwNotifGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwGlobalStatisticsGroupRev1",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwUserGrpGroupRev1",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwPathGroupRev1",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwArpStatisticsGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoAgwMIBComplianceRev2": {
+    "name": "ciscoAgwMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.638.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cagwInstanceGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwStateGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwDhcpStatisticsGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwMessageStatisticsGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwNotifInfoGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwNotifMgmtGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwNotifGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwUserGrpGroupRev1",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwPathGroupRev1",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwArpStatisticsGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwStateGroupSup1",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwGlobalStatisticsGroupRev2",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwUserGrpGroupRev1Sup1",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoAgwMIBComplianceRev3": {
+    "name": "ciscoAgwMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.638.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cagwInstanceGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwStateGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwDhcpStatisticsGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwMessageStatisticsGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwNotifInfoGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwNotifMgmtGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwNotifGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwUserGrpGroupRev1",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwPathGroupRev1",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwArpStatisticsGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwStateGroupSup1",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwGlobalStatisticsGroupRev2",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwUserGrpGroupRev1Sup1",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwStateGroupSup2",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwUserGrpGroupRev1Sup2",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwGlobalStatisticsGroupRev2Sup1",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      },
+      {
+        "object": "cagwDhcpProxyStatsGroup",
+        "module": "CISCO-ASN-GATEWAY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cagwInstanceGroup": {
+    "name": "cagwInstanceGroup",
+    "oid": "1.3.6.1.4.1.9.9.638.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInstancePhysicalIndex"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInstanceDescription"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInstanceVersion"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInstanceOperState"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInstanceSessionRedundancyAdmin"
+      }
+    ],
+    "status": "current"
+  },
+  "cagwStateGroup": {
+    "name": "cagwStateGroup",
+    "oid": "1.3.6.1.4.1.9.9.638.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwMaximumBaseStations"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwMaximumSubscribers"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwMaximumFlowsPerSession"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCurrentBaseStations"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCurrentDataPaths"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCurrentSubscribers"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCurrentSessions"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCurrentFlows"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCurrentHosts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwNetworkBehindMs"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPendingSignalingPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "cagwGlobalStatisticsGroup": {
+    "name": "cagwGlobalStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.638.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCreatedSubscribers"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDeletedSubscribers"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCreatedSessions"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDeletedSessions"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCreatedFlows"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDeletedFlows"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCreatedHosts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDeletedHosts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCreatedBaseStations"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDeletedBaseStations"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCreatedDataPaths"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDeletedDataPaths"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwProcessedSignalingPkts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwRequeuedSignalingPkts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCongestionSignalingPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwServiceDisabledSignalingPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwServiceNotReadySignalingPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwEncapErrorSignalingPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDisposedSignalingPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwEncapErrorDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInvalidAddressDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwServiceDisabledDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInvalidProtocolTypeDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwLengthErrorDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwAbsentKeyDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFlowNotFoundDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFlowPathNotFoundDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFlowPathInvalidSourceDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwSessionNotFoundDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwSubscriberNotFoundDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwChecksumErrorDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIngressFilteringDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwSequenceNumberErrorDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFragmentedDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFramedRouteInserted"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFramedRouteInsertFailed"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFramedRouteDeleted"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwServiceFlowProfileNotFound"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwQosProfileNotFound"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwClassifierProfileNotFound"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwReceivedDataPkts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwReceivedDataBytes"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwSentDataPkts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwSentDataBytes"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwRejectedBaseStations"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwRejectedSessions"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwRejectedFlows"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwSessionsDeletedByAgw"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cagwDhcpStatisticsGroup": {
+    "name": "cagwDhcpStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.638.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDhcpDiscoverPackets"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDhcpOfferPackets"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDhcpRequestPackets"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDhcpDeclinePackets"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDhcpAckPackets"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDhcpNakPackets"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDhcpReleasePackets"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDhcpInformPackets"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDhcpLeaseQueryPackets"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDhcpUnknownPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "cagwMessageStatisticsGroup": {
+    "name": "cagwMessageStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.638.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwMsgSent"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwMsgReceived"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwMsgResent"
+      }
+    ],
+    "status": "current"
+  },
+  "cagwUserGrpGroup": {
+    "name": "cagwUserGrpGroup",
+    "oid": "1.3.6.1.4.1.9.9.638.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpServiceMode"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpCreatedSessions"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpDeletedSessions"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpCurrentSessions"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpCreatedFlows"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpDeletedFlows"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpCurrentFlows"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpPacketsSent"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpBytesSent"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpPacketsReceived"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpBytesReceived"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpInvalidSourcePacketsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpInvalidSourceBytesDrops"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cagwPathGroup": {
+    "name": "cagwPathGroup",
+    "oid": "1.3.6.1.4.1.9.9.638.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathLocalIpType"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathLocalIp"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathCurrentSessions"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathCurrentFlows"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathPacketsSent"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathBytesSent"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathPacketsReceived"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathBytesReceived"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cagwNotifInfoGroup": {
+    "name": "cagwNotifInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.638.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwImpactedIpType"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwImpactedIp"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwImpactedReason"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwImpactedInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "cagwNotifMgmtGroup": {
+    "name": "cagwNotifMgmtGroup",
+    "oid": "1.3.6.1.4.1.9.9.638.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwNotifEnabled"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwNotifSeverityLevel"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwRepeatNotifInterval"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwGeneratedNotifs"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIgnoredNotifs"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwServiceNotifEnabled"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwServiceNotifSeverity"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwGeneratedServiceNotifs"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIgnoredServiceNotifs"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwMaxBaseStationExceededNotifEnabled"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwMaxBaseStationExceededNotifSeverity"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwMaxBaseStationExceededNotifThreshold"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwGeneratedMaxBsNotifs"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIgnoredMaxBsNotifs"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwMaxSubscribersExceededNotifEnabled"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwMaxSubscribersExceededNotifSeverity"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwMaxSubscribersExceededNotifThreshold"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwGeneratedMaxSubscNotifs"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIgnoredMaxSubscNotifs"
+      }
+    ],
+    "status": "current"
+  },
+  "cagwNotifGroup": {
+    "name": "cagwNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.638.2.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "ciscoAgwServiceDownNotif"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "ciscoAgwServiceUpNotif"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "ciscoAgwMaxBaseStationExceededOnsetNotif"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "ciscoAgwMaxBaseStationExceededAbateNotif"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "ciscoAgwMaxSubscribersExceededOnsetNotif"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "ciscoAgwMaxSubscribersExceededAbateNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "cagwGlobalStatisticsGroupRev1": {
+    "name": "cagwGlobalStatisticsGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.638.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCreatedSubscribers"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDeletedSubscribers"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCreatedSessions"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDeletedSessions"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCreatedFlows"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDeletedFlows"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCreatedHosts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDeletedHosts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCreatedBaseStations"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDeletedBaseStations"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCreatedDataPaths"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDeletedDataPaths"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwProcessedSignalingPkts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwRequeuedSignalingPkts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCongestionSignalingPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwServiceDisabledSignalingPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwServiceNotReadySignalingPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwEncapErrorSignalingPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDisposedSignalingPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwEncapErrorDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInvalidAddressDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwServiceDisabledDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInvalidProtocolTypeDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwLengthErrorDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwAbsentKeyDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFlowNotFoundDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFlowPathNotFoundDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFlowPathInvalidSourceDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwSessionNotFoundDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwSubscriberNotFoundDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwChecksumErrorDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIngressFilteringDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwSequenceNumberErrorDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFragmentedDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFramedRouteInserted"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFramedRouteInsertFailed"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFramedRouteDeleted"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwServiceFlowProfileNotFound"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwQosProfileNotFound"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwClassifierProfileNotFound"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwRejectedBaseStations"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwRejectedSessions"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwRejectedFlows"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwSessionsDeletedByAgw"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIpGreReceivedDataPkts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIpGreReceivedDataBytes"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIpGreSentDataPkts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIpGreSentDataBytes"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwEthGreReceivedDataPkts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwEthGreReceivedDataBytes"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwEthGreSentDataPkts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwEthGreSentDataBytes"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwRejectedHosts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwAgedOutStaticHosts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwSuccessfulHandoff"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFailedHandoff"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwSuccessfulCMACKeyUpdate"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFailedCMACKeyUpdate"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwSuccessfulSecurityKeyExchange"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFailedSecurityKeyExchange"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIpGreReceivedRedirectedPkts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIpGreReceivedRedirectedBytes"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwEthGreReceivedRedirectedPkts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwEthGreReceivedRedirectedBytes"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwThrottlingOfPuntsDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwLearningUpstreamDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPuntedDataPkts"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cagwUserGrpGroupRev1": {
+    "name": "cagwUserGrpGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.638.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpServiceMode"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpCreatedSessions"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpDeletedSessions"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpCurrentSessions"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpCreatedFlows"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpDeletedFlows"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpCurrentFlows"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpInvalidSourcePacketsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpInvalidSourceBytesDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpIpGrePacketsSent"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpIpGreBytesSent"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpIpGrePacketsReceived"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpIpGreBytesReceived"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpEthGrePacketsSent"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpEthGreBytesSent"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpEthGrePacketsReceived"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpEthGreBytesReceived"
+      }
+    ],
+    "status": "current"
+  },
+  "cagwPathGroupRev1": {
+    "name": "cagwPathGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.638.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathLocalIpTypeRev1"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathLocalIpRev1"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathCurrentSessionsRev1"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathCurrentFlowsRev1"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathIpGrePacketsSentRev1"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathIpGreBytesSentRev1"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathIpGrePacketsReceivedRev1"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathIpGreBytesReceivedRev1"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathEthGrePacketsSentRev1"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathEthGreBytesSentRev1"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathEthGrePacketsReceivedRev1"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPathEthGreBytesReceivedRev1"
+      }
+    ],
+    "status": "current"
+  },
+  "cagwArpStatisticsGroup": {
+    "name": "cagwArpStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.638.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwArpReqReceived"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwArpReplySent"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwArpPacketsDropped"
+      }
+    ],
+    "status": "current"
+  },
+  "cagwStateGroupSup1": {
+    "name": "cagwStateGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.638.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCurrentFramedRoutes"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCurrentFramedRouteSubs"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCurrentAutoProvSessions"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCurrentSessionsWithIpPktsRedir"
+      }
+    ],
+    "status": "current"
+  },
+  "cagwGlobalStatisticsGroupRev2": {
+    "name": "cagwGlobalStatisticsGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.638.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCreatedSubscribers"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDeletedSubscribers"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCreatedSessions"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDeletedSessions"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCreatedFlows"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDeletedFlows"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCreatedHosts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDeletedHosts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCreatedBaseStations"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDeletedBaseStations"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCreatedDataPaths"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDeletedDataPaths"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwProcessedSignalingPkts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwRequeuedSignalingPkts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCongestionSignalingPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwServiceDisabledSignalingPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwServiceNotReadySignalingPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwEncapErrorSignalingPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDisposedSignalingPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwEncapErrorDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInvalidAddressDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwServiceDisabledDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwInvalidProtocolTypeDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwLengthErrorDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwAbsentKeyDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFlowNotFoundDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFlowPathNotFoundDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFlowPathInvalidSourceDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwSessionNotFoundDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwSubscriberNotFoundDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwChecksumErrorDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIngressFilteringDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwSequenceNumberErrorDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFragmentedDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwServiceFlowProfileNotFound"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwQosProfileNotFound"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwClassifierProfileNotFound"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwRejectedBaseStations"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwRejectedSessions"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwRejectedFlows"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwSessionsDeletedByAgw"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIpGreReceivedDataPkts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIpGreReceivedDataBytes"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIpGreSentDataPkts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIpGreSentDataBytes"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwEthGreReceivedDataPkts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwEthGreReceivedDataBytes"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwEthGreSentDataPkts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwEthGreSentDataBytes"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwRejectedHosts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwAgedOutStaticHosts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwSuccessfulHandoff"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFailedHandoff"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwSuccessfulCMACKeyUpdate"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFailedCMACKeyUpdate"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwSuccessfulSecurityKeyExchange"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwFailedSecurityKeyExchange"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIpGreReceivedRedirectedPkts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIpGreReceivedRedirectedBytes"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwEthGreReceivedRedirectedPkts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwEthGreReceivedRedirectedBytes"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwThrottlingOfPuntsDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwLearningUpstreamDataPktsDrops"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPuntedDataPkts"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwRejectedSessionUnapprovedBs"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPktsDroppedStaticIpHostNotAllowed"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPktsDroppedMulticastBroadcast"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwSlaProfileNotFound"
+      }
+    ],
+    "status": "current"
+  },
+  "cagwUserGrpGroupRev1Sup1": {
+    "name": "cagwUserGrpGroupRev1Sup1",
+    "oid": "1.3.6.1.4.1.9.9.638.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpOverwritten"
+      }
+    ],
+    "status": "current"
+  },
+  "cagwStateGroupSup2": {
+    "name": "cagwStateGroupSup2",
+    "oid": "1.3.6.1.4.1.9.9.638.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCurrentPmipEnabledSubs"
+      }
+    ],
+    "status": "current"
+  },
+  "cagwUserGrpGroupRev1Sup2": {
+    "name": "cagwUserGrpGroupRev1Sup2",
+    "oid": "1.3.6.1.4.1.9.9.638.2.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpPodReqRecv"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpPodSuccessNotifsSent"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpPodFailureNotifsSent"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpCoaReqRecv"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpCoaSuccessNotifsSent"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpCoaFailureNotifsSent"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUserGrpRejSession"
+      }
+    ],
+    "status": "current"
+  },
+  "cagwGlobalStatisticsGroupRev2Sup1": {
+    "name": "cagwGlobalStatisticsGroupRev2Sup1",
+    "oid": "1.3.6.1.4.1.9.9.638.2.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPktsDroppedMipIncomplete"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCreatedPmipEnabledSubs"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDeletedPmipEnabledSubs"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPktsDropPmipStaticIpHost"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIdleModeEntryMsBsInitiated"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIdleModeEntryBwgInitiated"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIdleModeEntryFailures"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIdleModeExitMsBsInitiated"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIdleModeExitBwgInitiated"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIdleModeExitFailures"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIdleModeLocUpdtPgidChange"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIdleModeLocUpdtPowerDown"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIdleModeLocUpdtPeriodic"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIdleModeLocUpdtFailures"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIdleModePageAttemptsDwnlnkData"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIdleModePageFailuresDwnlnkData"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIdleModePageAttemptsLocUpdt"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIdleModePageFailuresLocUpdt"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIdleModeDirectedPagingSuccess"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIdleModeDirectedPagingRetries"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIdleModeFloodPagingSuccess"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwIdleModeFloodPagingRetries"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPodRequestsRecv"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPodSuccessNotifsSent"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwPodFailureNotifsSent"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCoaReqRecv"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCoaSuccessNotifsSent"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwCoaFailureNotifsSent"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwHotlineUplinkPktDropAclDeny"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwHotlineDownlinkPktDropAclDeny"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwUplinkPktDropUsrgrpAclDeny"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDownlinkPktDropUsrgrpAclDeny"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDownlinkPktDropPagingAclDeny"
+      }
+    ],
+    "status": "current"
+  },
+  "cagwDhcpProxyStatsGroup": {
+    "name": "cagwDhcpProxyStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.638.2.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDhcpProxyDiscoverPackets"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDhcpProxyOfferPackets"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDhcpProxyRequestPackets"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDhcpProxyDeclinePackets"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDhcpProxyAckPackets"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDhcpProxyNakPackets"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDhcpProxyReleasePackets"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDhcpProxyInformPackets"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDhcpProxyLeaseQueryPackets"
+      },
+      {
+        "module": "CISCO-ASN-GATEWAY-MIB",
+        "object": "cagwDhcpProxyUnknownPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ASN-GATEWAY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ASN-GATEWAY-MIB"
+  }
+}

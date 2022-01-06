@@ -1,0 +1,1580 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "dot1dBasePort"
+    ],
+    "CTRON-MIB-NAMES": [
+      "ctIGMPBranch"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId",
+      "PortList"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ctIGMP": {
+    "name": "ctIGMP",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-05-09 20:30",
+        "description": " Added the IgmpProtocolClassTc, and IgmpProtocolIdTc TEXTUAL CONVENTIONS, added the ctIGMPProtocolClassificationTable."
+      },
+      {
+        "revision": "2005-03-15 20:38",
+        "description": "Deprecated the ctIGMPPolicyTable and the ctIGMPStaticTable. Added ctIGMPStaticGroupTable, ctIGMPExtCacheTable, ctIGMPDiscoveredRouterTable, ctIGMPPortTable, and the ctIGMPStatsCntrs groups."
+      },
+      {
+        "revision": "2003-12-10 14:56",
+        "description": "Added the ctIGMPStaticEntry Table for static multicast configuration."
+      }
+    ]
+  },
+  "IgmpPortModeTc": {
+    "name": "IgmpPortModeTc",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reporter": 1,
+          "source": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IgmpProtocolClassTc": {
+    "name": "IgmpProtocolClassTc",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "multicastData": 1,
+          "routingProtocol": 2,
+          "ignore": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IgmpProtocolIdTc": {
+    "name": "IgmpProtocolIdTc",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "hopopt": 0,
+        "icmp": 1,
+        "igmp": 2,
+        "ggp": 3,
+        "ip": 4,
+        "st": 5,
+        "tcp": 6,
+        "cbt": 7,
+        "egp": 8,
+        "igp": 9,
+        "bbnRccMon": 10,
+        "nvpII": 11,
+        "pup": 12,
+        "argus": 13,
+        "emcon": 14,
+        "xnet": 15,
+        "chaos": 16,
+        "udp": 17,
+        "mux": 18,
+        "dcnMeas": 19,
+        "hmp": 20,
+        "prm": 21,
+        "xnsIdp": 22,
+        "trunk1": 23,
+        "trunk2": 24,
+        "leaf1": 25,
+        "leaf2": 26,
+        "rdp": 27,
+        "irtp": 28,
+        "isoTp4": 29,
+        "netblt": 30,
+        "mfeNsp": 31,
+        "meritInp": 32,
+        "sep": 33,
+        "x3pc": 34,
+        "idpr": 35,
+        "xtp": 36,
+        "ddp": 37,
+        "idprCmtp": 38,
+        "tpPlusPlus": 39,
+        "il": 40,
+        "ipv6": 41,
+        "sdrp": 42,
+        "ipv6Route": 43,
+        "ipv6Frag": 44,
+        "idrp": 45,
+        "rsvp": 46,
+        "gre": 47,
+        "mhrp": 48,
+        "bna": 49,
+        "esp": 50,
+        "ah": 51,
+        "inlsp": 52,
+        "swipe": 53,
+        "narp": 54,
+        "mobile": 55,
+        "tlsp": 56,
+        "skip": 57,
+        "ipv6Icmp": 58,
+        "ipv6NoNxt": 59,
+        "ipv6Opts": 60,
+        "ipProt61": 61,
+        "cftp": 62,
+        "ipProt63": 63,
+        "satExpak": 64,
+        "kryptolan": 65,
+        "rvd": 66,
+        "ippc": 67,
+        "ipProt64": 68,
+        "satMon": 69,
+        "visa": 70,
+        "ipcv": 71,
+        "cpnx": 72,
+        "cphb": 73,
+        "wsn": 74,
+        "pvp": 75,
+        "brSatMon": 76,
+        "sunNd": 77,
+        "wbMon": 78,
+        "wbExpak": 79,
+        "isoIp": 80,
+        "vmtp": 81,
+        "secureVmtp": 82,
+        "vines": 83,
+        "ttp": 84,
+        "nsfnetIgp": 85,
+        "dgp": 86,
+        "tcf": 87,
+        "eigrp": 88,
+        "ospfIgp": 89,
+        "spriteRpc": 90,
+        "larp": 91,
+        "mtp": 92,
+        "ax25": 93,
+        "ipip": 94,
+        "micp": 95,
+        "sccSp": 96,
+        "etherIp": 97,
+        "encap": 98,
+        "ipProt99": 99,
+        "gmtp": 100,
+        "ifmp": 101,
+        "pnni": 102,
+        "pim": 103,
+        "aris": 104,
+        "scps": 105,
+        "qnx": 106,
+        "an": 107,
+        "ipComp": 108,
+        "snp": 109,
+        "compaqPeer": 110,
+        "ipxInIp": 111,
+        "vrrp": 112,
+        "pgm": 113,
+        "ipProt114": 114,
+        "l2tp": 115,
+        "ddx": 116,
+        "iatp": 117,
+        "stp": 118,
+        "srp": 119,
+        "uti": 120,
+        "smp": 121,
+        "sm": 122,
+        "ptp": 123,
+        "isisIpv4": 124,
+        "fire": 125,
+        "crtp": 126,
+        "crudp": 127,
+        "sscopmce": 128,
+        "iplt": 129,
+        "sps": 130,
+        "pipe": 131,
+        "sctp": 132,
+        "fc": 133,
+        "rsvpE2eIgn": 134,
+        "mobHeader": 135,
+        "udpLite": 136,
+        "mpls": 137,
+        "ipProto138": 138,
+        "ipProto139": 139,
+        "ipProto140": 140,
+        "ipProto141": 141,
+        "ipProto142": 142,
+        "ipProto143": 143,
+        "ipProto144": 144,
+        "ipProto145": 145,
+        "ipProto146": 146,
+        "ipProto147": 147,
+        "ipProto148": 148,
+        "ipProto149": 149,
+        "ipProto150": 150,
+        "ipProto151": 151,
+        "ipProto152": 152,
+        "ipProto153": 153,
+        "ipProto154": 154,
+        "ipProto155": 155,
+        "ipProto156": 156,
+        "ipProto157": 157,
+        "ipProto158": 158,
+        "ipProto159": 159,
+        "ipProto160": 160,
+        "ipProto161": 161,
+        "ipProto162": 162,
+        "ipProto163": 163,
+        "ipProto164": 164,
+        "ipProto165": 165,
+        "ipProto166": 166,
+        "ipProto167": 167,
+        "ipProto168": 168,
+        "ipProto169": 169,
+        "ipProto170": 170,
+        "ipProto171": 171,
+        "ipProto172": 172,
+        "ipProto173": 173,
+        "ipProto174": 174,
+        "ipProto175": 175,
+        "ipProto176": 176,
+        "ipProto177": 177,
+        "ipProto178": 178,
+        "ipProto179": 179,
+        "ipProto180": 180,
+        "ipProto181": 181,
+        "ipProto182": 182,
+        "ipProto183": 183,
+        "ipProto184": 184,
+        "ipProto185": 185,
+        "ipProto186": 186,
+        "ipProto187": 187,
+        "ipProto188": 188,
+        "ipProto189": 189,
+        "ipProto190": 190,
+        "ipProto191": 191,
+        "ipProto192": 192,
+        "ipProto193": 193,
+        "ipProto194": 194,
+        "ipProto195": 195,
+        "ipProto196": 196,
+        "ipProto197": 197,
+        "ipProto198": 198,
+        "ipProto199": 199,
+        "ipProto200": 200,
+        "ipProto201": 201,
+        "ipProto202": 202,
+        "ipProto203": 203,
+        "ipProto204": 204,
+        "ipProto205": 205,
+        "ipProto206": 206,
+        "ipProto207": 207,
+        "ipProto208": 208,
+        "ipProto209": 209,
+        "ipProto210": 210,
+        "ipProto211": 211,
+        "ipProto212": 212,
+        "ipProto213": 213,
+        "ipProto214": 214,
+        "ipProto215": 215,
+        "ipProto216": 216,
+        "ipProto217": 217,
+        "ipProto218": 218,
+        "ipProto219": 219,
+        "ipProto220": 220,
+        "ipProto221": 221,
+        "ipProto222": 222,
+        "ipProto223": 223,
+        "ipProto224": 224,
+        "ipProto225": 225,
+        "ipProto226": 226,
+        "ipProto227": 227,
+        "ipProto228": 228,
+        "ipProto229": 229,
+        "ipProto230": 230,
+        "ipProto231": 231,
+        "ipProto232": 232,
+        "ipProto233": 233,
+        "ipProto234": 234,
+        "ipProto235": 235,
+        "ipProto236": 236,
+        "ipProto237": 237,
+        "ipProto238": 238,
+        "ipProto239": 239,
+        "ipProto240": 240,
+        "ipProto241": 241,
+        "ipProto242": 242,
+        "ipProto243": 243,
+        "ipProto244": 244,
+        "ipProto245": 245,
+        "ipProto246": 246,
+        "ipProto247": 247,
+        "ipProto248": 248,
+        "ipProto249": 249,
+        "ipProto250": 250,
+        "ipProto251": 251,
+        "ipProto252": 252,
+        "ipProto253": 253,
+        "ipProto254": 254,
+        "ipProto255": 255
+      }
+    },
+    "status": "current"
+  },
+  "ctIGMPConfig": {
+    "name": "ctIGMPConfig",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.1",
+    "class": "objectidentity"
+  },
+  "ctIGMPNewDefaultState": {
+    "name": "ctIGMPNewDefaultState",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctIGMPMibRev": {
+    "name": "ctIGMPMibRev",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPMibRevString": {
+    "name": "ctIGMPMibRevString",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPConfigGroupTblFullAction": {
+    "name": "ctIGMPConfigGroupTblFullAction",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "routers": 1,
+          "flood": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctIGMPVlanTable": {
+    "name": "ctIGMPVlanTable",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctIGMPVlanEntry": {
+    "name": "ctIGMPVlanEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-IGMP-MIB",
+        "object": "ctIGMPVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctIGMPVlanId": {
+    "name": "ctIGMPVlanId",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctIGMPVlanQueryInterval": {
+    "name": "ctIGMPVlanQueryInterval",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 125,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctIGMPVlanStatus": {
+    "name": "ctIGMPVlanStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctIGMPVlanVersion": {
+    "name": "ctIGMPVlanVersion",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version1": 1,
+          "version2": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "version2",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctIGMPVlanQuerier": {
+    "name": "ctIGMPVlanQuerier",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPVlanQueryMaxResponseTime": {
+    "name": "ctIGMPVlanQueryMaxResponseTime",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctIGMPVlanRobustness": {
+    "name": "ctIGMPVlanRobustness",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctIGMPVlanLastMembQueryIntvl": {
+    "name": "ctIGMPVlanLastMembQueryIntvl",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "tenths of seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctIGMPVlanQuerierUpTime": {
+    "name": "ctIGMPVlanQuerierUpTime",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPVlanQuerierExpiryTime": {
+    "name": "ctIGMPVlanQuerierExpiryTime",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPVlanQuerierIP": {
+    "name": "ctIGMPVlanQuerierIP",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctIGMPCacheTable": {
+    "name": "ctIGMPCacheTable",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctIGMPCacheEntry": {
+    "name": "ctIGMPCacheEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-IGMP-MIB",
+        "object": "ctIGMPCacheAddress",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-IGMP-MIB",
+        "object": "ctIGMPCacheVlanId",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-IGMP-MIB",
+        "object": "ctIGMPCacheIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctIGMPCacheAddress": {
+    "name": "ctIGMPCacheAddress",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctIGMPCacheVlanId": {
+    "name": "ctIGMPCacheVlanId",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctIGMPCacheIfIndex": {
+    "name": "ctIGMPCacheIfIndex",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctIGMPCacheLastReporter": {
+    "name": "ctIGMPCacheLastReporter",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPCacheUpTime": {
+    "name": "ctIGMPCacheUpTime",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPCacheExpiryTime": {
+    "name": "ctIGMPCacheExpiryTime",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPCacheVersion1HostTimer": {
+    "name": "ctIGMPCacheVersion1HostTimer",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPPolicyTable": {
+    "name": "ctIGMPPolicyTable",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "ctIGMPPolicyEntry": {
+    "name": "ctIGMPPolicyEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-IGMP-MIB",
+        "object": "ctIGMPPolicyAddress",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-IGMP-MIB",
+        "object": "ctIGMPPolicyVlanId",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-IGMP-MIB",
+        "object": "ctIGMPPolicyIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ctIGMPPolicyAddress": {
+    "name": "ctIGMPPolicyAddress",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "ctIGMPPolicyVlanId": {
+    "name": "ctIGMPPolicyVlanId",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "ctIGMPPolicyIfIndex": {
+    "name": "ctIGMPPolicyIfIndex",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "ctIGMPPolicyStatus": {
+    "name": "ctIGMPPolicyStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "ctIGMPPolicyInclusion": {
+    "name": "ctIGMPPolicyInclusion",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "include": 1,
+          "exclude": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "exclude",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "ctIGMPStaticTable": {
+    "name": "ctIGMPStaticTable",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "ctIGMPStaticEntry": {
+    "name": "ctIGMPStaticEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-IGMP-MIB",
+        "object": "ctIGMPStaticGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-IGMP-MIB",
+        "object": "ctIGMPStaticVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ctIGMPStaticGroupAddress": {
+    "name": "ctIGMPStaticGroupAddress",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "ctIGMPStaticVlanId": {
+    "name": "ctIGMPStaticVlanId",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "ctIGMPStaticOutPortList": {
+    "name": "ctIGMPStaticOutPortList",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ctIGMPStaticRowStatus": {
+    "name": "ctIGMPStaticRowStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "ctIGMPStaticGroupTable": {
+    "name": "ctIGMPStaticGroupTable",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctIGMPStaticGroupEntry": {
+    "name": "ctIGMPStaticGroupEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-IGMP-MIB",
+        "object": "ctIGMPStaticGroupIPAddress",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-IGMP-MIB",
+        "object": "ctIGMPStaticGroupVlanId",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-IGMP-MIB",
+        "object": "ctIGMPStaticGroupSourceIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctIGMPStaticGroupIPAddress": {
+    "name": "ctIGMPStaticGroupIPAddress",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctIGMPStaticGroupVlanId": {
+    "name": "ctIGMPStaticGroupVlanId",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctIGMPStaticGroupSourceIPAddress": {
+    "name": "ctIGMPStaticGroupSourceIPAddress",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctIGMPStaticGroupIncludeList": {
+    "name": "ctIGMPStaticGroupIncludeList",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctIGMPStaticGroupExcludeList": {
+    "name": "ctIGMPStaticGroupExcludeList",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctIGMPStaticGroupRowStatus": {
+    "name": "ctIGMPStaticGroupRowStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctIGMPExtCacheTable": {
+    "name": "ctIGMPExtCacheTable",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctIGMPExtCacheEntry": {
+    "name": "ctIGMPExtCacheEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-IGMP-MIB",
+        "object": "ctIGMPExtCacheAddress",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-IGMP-MIB",
+        "object": "ctIGMPExtCacheVlanId",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-IGMP-MIB",
+        "object": "ctIGMPExtCacheSourceIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctIGMPExtCacheAddress": {
+    "name": "ctIGMPExtCacheAddress",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctIGMPExtCacheVlanId": {
+    "name": "ctIGMPExtCacheVlanId",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctIGMPExtCacheSourceIPAddress": {
+    "name": "ctIGMPExtCacheSourceIPAddress",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctIGMPExtCacheLastReporter": {
+    "name": "ctIGMPExtCacheLastReporter",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPExtCacheUpTime": {
+    "name": "ctIGMPExtCacheUpTime",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPExtCacheExpiryTime": {
+    "name": "ctIGMPExtCacheExpiryTime",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPExtCacheVersion1HostTimer": {
+    "name": "ctIGMPExtCacheVersion1HostTimer",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPExtCacheOutPortList": {
+    "name": "ctIGMPExtCacheOutPortList",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPExtCacheSrcPort": {
+    "name": "ctIGMPExtCacheSrcPort",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPDiscoveredRouterTable": {
+    "name": "ctIGMPDiscoveredRouterTable",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctIGMPDiscoveredRouterEntry": {
+    "name": "ctIGMPDiscoveredRouterEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-IGMP-MIB",
+        "object": "ctIGMPDiscoveredRouterVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctIGMPDiscoveredRouterVlanId": {
+    "name": "ctIGMPDiscoveredRouterVlanId",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctIGMPDiscoveredRouterPortList": {
+    "name": "ctIGMPDiscoveredRouterPortList",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPDiscoveredRouterEgressPortList": {
+    "name": "ctIGMPDiscoveredRouterEgressPortList",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPDiscoveredRouterStaticPortList": {
+    "name": "ctIGMPDiscoveredRouterStaticPortList",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctIGMPPortTable": {
+    "name": "ctIGMPPortTable",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctIGMPPortTableEntry": {
+    "name": "ctIGMPPortTableEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-IGMP-MIB",
+        "object": "ctIGMPPortMode",
+        "implied": 0
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-IGMP-MIB",
+        "object": "ctIGMPPortTableGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-IGMP-MIB",
+        "object": "ctIGMPPortTableVlanId",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-IGMP-MIB",
+        "object": "ctIGMPPortTableSourceIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctIGMPPortMode": {
+    "name": "ctIGMPPortMode",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IgmpPortModeTc",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctIGMPPortTableGroupAddress": {
+    "name": "ctIGMPPortTableGroupAddress",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctIGMPPortTableVlanId": {
+    "name": "ctIGMPPortTableVlanId",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctIGMPPortTableSourceIPAddress": {
+    "name": "ctIGMPPortTableSourceIPAddress",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctIGMPPortTableExpireTime": {
+    "name": "ctIGMPPortTableExpireTime",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPStatsCntrs": {
+    "name": "ctIGMPStatsCntrs",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.10",
+    "class": "objectidentity"
+  },
+  "ctIGMPStatsCntrsGroupFull": {
+    "name": "ctIGMPStatsCntrsGroupFull",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPStatsCntrsNumV1QueriesSent": {
+    "name": "ctIGMPStatsCntrsNumV1QueriesSent",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPStatsCntrsNumV2QueriesSent": {
+    "name": "ctIGMPStatsCntrsNumV2QueriesSent",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPStatsCntrsNumV3QueriesSent": {
+    "name": "ctIGMPStatsCntrsNumV3QueriesSent",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPStatsCntrsNumGSQueriesSent": {
+    "name": "ctIGMPStatsCntrsNumGSQueriesSent",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPStatsCntrsNumQueriesRcvd": {
+    "name": "ctIGMPStatsCntrsNumQueriesRcvd",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPStatsCntrsNumV1ReportsRcvd": {
+    "name": "ctIGMPStatsCntrsNumV1ReportsRcvd",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPStatsCntrsNumV2ReportsRcvd": {
+    "name": "ctIGMPStatsCntrsNumV2ReportsRcvd",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.10.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPStatsCntrsNumV3ReportsReceived": {
+    "name": "ctIGMPStatsCntrsNumV3ReportsReceived",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.10.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPStatsCntrsNumLeavesReceived": {
+    "name": "ctIGMPStatsCntrsNumLeavesReceived",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.10.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPStatsCntrsNumDroppedFrames": {
+    "name": "ctIGMPStatsCntrsNumDroppedFrames",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.10.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctIGMPProtocolClassificationTable": {
+    "name": "ctIGMPProtocolClassificationTable",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctIGMPProtocolClassificationEntry": {
+    "name": "ctIGMPProtocolClassificationEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-IGMP-MIB",
+        "object": "ctIGMPProtocolClassification",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctIGMPProtocolClassification": {
+    "name": "ctIGMPProtocolClassification",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IgmpProtocolClassTc",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctIGMPProtocolIdentifier": {
+    "name": "ctIGMPProtocolIdentifier",
+    "oid": "1.3.6.1.4.1.52.4.1.3.5.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IgmpProtocolIdTc",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-IGMP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CTRON-IGMP-MIB"
+  }
+}

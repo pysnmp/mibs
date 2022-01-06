@@ -1,0 +1,6492 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "Juniper-ROUTER-MIB": [
+      "juniRouterName"
+    ],
+    "Juniper-TC": [
+      "JuniInterfaceLocation",
+      "JuniLogSeverity",
+      "JuniEnable"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "Counter64",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TruthValue",
+      "RowStatus",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval"
+    ]
+  },
+  "juniDhcpMIB": {
+    "name": "juniDhcpMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.22",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-01-31 20:38",
+        "description": "Added DHCP Option 60 support, and following objects become obsoleted: juniDhcpLocalServerCableModemServerTable, juniDhcpLocalServerCableModemRequestIn, juniDhcpLocalServerCableModemResponseIn, juniDhcpLocalServerCableModemRequestOut, juniDhcpLocalServerCableModemResponseOut, juniDhcpLocalServerCableModemRequestDropped, juniDhcpLocalServerCableModemResponseDropped, juniDhcpLocalServerCableModemRequestBad, juniDhcpLocalServerCableModemResponseBad, juniDhcpLocalServerCableModemRequestDeleted, juniDhcpLocalServerCableModemPacketsIn, juniDhcpLocalServerCableModemPacketsOut, juniDhcpLocalServerCableModemPacketsDropped. Added juniDhcpRelayBroadcastFlagReplies to control unicast/broadcast delivery of DHCP reply packets. Added juniDhcpRelayGiaddrSelectsInterface for enable/diable of DHCP Relay Giaddr Selects Interface operation mode. Added juniDhcpRelayAgentVendorSpecificSuboption to configure the Vendor-Specific sub-option of the Relay Agent Info option."
+      },
+      {
+        "revision": "2005-11-04 19:53",
+        "description": "Added new DHCP Relay statistics to juniDhcpRelayScalars."
+      },
+      {
+        "revision": "2005-09-27 21:25",
+        "description": "Changed juniDhcpLocalServerSubInterfaceName to be DisplayString type. Made index non-accessible. Added juniDhcpLocalServerSubInterfaceTable to support per interface address limits. Added notification objects for pool groups."
+      },
+      {
+        "revision": "2005-12-05 21:31",
+        "description": "Added juniDhcpLocalServerBindingsLeaseInterval, juniDhcpLocalServerBindingsLeaseStartTime and juniDhcpLocalServerBindingsInitialLeaseStartTime. Update definition of juniDhcpLocalServerBindingsExpireTime. Added juniDhcpLocalServerBindingsRowStatus to permit administrative clearing of an address binding. Added juniDhcpLocalServerPoolSharedInUse to indicate sharing of DHCP pool addresses. Added statistics for renews, rebinds, errors, and discards. Added juniDhcpRelayLayer2UnicastReplies to control L2 ucast L3 bcast of DHCP reply packets."
+      },
+      {
+        "revision": "2004-11-08 16:16",
+        "description": "Added ability to administratively delete DHCP local server address bindings."
+      },
+      {
+        "revision": "2005-10-19 21:47",
+        "description": "Added new attributes juniDhcpLocalServerSnmpTrap and juniDhcpLocalServerInhibitRoaming. Also added juniDhcpLocalServerDuplicateClient notification."
+      },
+      {
+        "revision": "2004-09-09 20:02",
+        "description": "Added juniDhcpLocalServerHealth notification and the juniDhcpLocalServerSubInterfaceStatisticsTable."
+      },
+      {
+        "revision": "2004-01-03 00:59",
+        "description": "Added DHCP local server pool exhaustion variables and notifications for high pool utilization and pool exhaustion."
+      },
+      {
+        "revision": "2003-09-05 18:59",
+        "description": "Added support to exclude the subinterafce ID from option 82 circuit ID."
+      },
+      {
+        "revision": "2002-12-17 16:59",
+        "description": "Added hostname and vrname scalars to DHCP Relay object. Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2002-05-10 19:27",
+        "description": "Added local server reservation and cable modem support. Refined agent info enable into agent circuit ID enable and agent remote ID enable."
+      },
+      {
+        "revision": "2001-03-30 18:09",
+        "description": "Added Local Server support."
+      },
+      {
+        "revision": "2000-02-03 19:50",
+        "description": "Added support for DHCP Proxy Client under juniDhcpProxyClient node. Added additional error/discard statistics for DHCP Relay."
+      },
+      {
+        "revision": "1999-06-01 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "JuniDhcpLocalServerPoolName": {
+    "name": "JuniDhcpLocalServerPoolName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "displayhint": "64a",
+    "status": "current"
+  },
+  "JuniDhcpLocalServerPoolGroupName": {
+    "name": "JuniDhcpLocalServerPoolGroupName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "displayhint": "64a",
+    "status": "current"
+  },
+  "JuniDhcpLocalServerPoolDomainName": {
+    "name": "JuniDhcpLocalServerPoolDomainName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "displayhint": "64a",
+    "status": "current"
+  },
+  "JuniDhcpLocalServerPoolNetBiosNodeType": {
+    "name": "JuniDhcpLocalServerPoolNetBiosNodeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "netBiosNodeTypeNone": 1,
+          "netBiosNodeTypeBroadcast": 2,
+          "netBiosNodeTypePeerToPeer": 3,
+          "netBiosNodeTypeMixed": 4,
+          "netBiosNodeTypeHybrid": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JuniDhcpLocalServerModeType": {
+    "name": "JuniDhcpLocalServerModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "localServerModeTypeEqualAccess": 1,
+          "localServerModeTypeStandalone": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JuniDhcpLocalServerPhysAddressString": {
+    "name": "JuniDhcpLocalServerPhysAddressString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "displayhint": "48a",
+    "status": "current"
+  },
+  "juniDhcpObjects": {
+    "name": "juniDhcpObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1",
+    "class": "objectidentity"
+  },
+  "juniDhcpRelay": {
+    "name": "juniDhcpRelay",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1",
+    "class": "objectidentity"
+  },
+  "juniDhcpProxy": {
+    "name": "juniDhcpProxy",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.2",
+    "class": "objectidentity"
+  },
+  "juniDhcpLocalServerObjects": {
+    "name": "juniDhcpLocalServerObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3",
+    "class": "objectidentity"
+  },
+  "juniDhcpRelayScalars": {
+    "name": "juniDhcpRelayScalars",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1",
+    "class": "objectidentity"
+  },
+  "juniDhcpRelayAgentInfoEnable": {
+    "name": "juniDhcpRelayAgentInfoEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "juniDhcpRelayBadMessages": {
+    "name": "juniDhcpRelayBadMessages",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpRelayUnknownMessages": {
+    "name": "juniDhcpRelayUnknownMessages",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpRelayAgentInfoAlreadyPresents": {
+    "name": "juniDhcpRelayAgentInfoAlreadyPresents",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpRelayGatewayAddrSpoofs": {
+    "name": "juniDhcpRelayGatewayAddrSpoofs",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpRelayAgentCircuitIdEnable": {
+    "name": "juniDhcpRelayAgentCircuitIdEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniDhcpRelayAgentRemoteIdEnable": {
+    "name": "juniDhcpRelayAgentRemoteIdEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniDhcpRelayAgentHostnameEnable": {
+    "name": "juniDhcpRelayAgentHostnameEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniDhcpRelayAgentVrnameEnable": {
+    "name": "juniDhcpRelayAgentVrnameEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniDhcpRelayAgentExcludeSubIdEnable": {
+    "name": "juniDhcpRelayAgentExcludeSubIdEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniDhcpRelayAgentTrustAllEnable": {
+    "name": "juniDhcpRelayAgentTrustAllEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniDhcpRelayAgentInfoAlreadyPresentForwards": {
+    "name": "juniDhcpRelayAgentInfoAlreadyPresentForwards",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpRelayAgentGiaddrOverrides": {
+    "name": "juniDhcpRelayAgentGiaddrOverrides",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpRelayAgentOptionOverrides": {
+    "name": "juniDhcpRelayAgentOptionOverrides",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpRelayDiscoverDiscards": {
+    "name": "juniDhcpRelayDiscoverDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpRelayPacketDiscards": {
+    "name": "juniDhcpRelayPacketDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpRelayUnknownRequestMessages": {
+    "name": "juniDhcpRelayUnknownRequestMessages",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpRelayUnknownReplyMessages": {
+    "name": "juniDhcpRelayUnknownReplyMessages",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpRelayDuplicateRequestDiscards": {
+    "name": "juniDhcpRelayDuplicateRequestDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpRelayPacketsTransmitted": {
+    "name": "juniDhcpRelayPacketsTransmitted",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpRelayPacketsReceived": {
+    "name": "juniDhcpRelayPacketsReceived",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpRelayUnknownXidDiscards": {
+    "name": "juniDhcpRelayUnknownXidDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpRelayDroppedStaleRequestDiscards": {
+    "name": "juniDhcpRelayDroppedStaleRequestDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpRelayLayer2UnicastReplies": {
+    "name": "juniDhcpRelayLayer2UnicastReplies",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniDhcpRelayGiaddrSelectsInterface": {
+    "name": "juniDhcpRelayGiaddrSelectsInterface",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniDhcpRelayAgentVendorSpecificSuboption": {
+    "name": "juniDhcpRelayAgentVendorSpecificSuboption",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "juniDhcpRelayAgentVendorSpecificLayer2CircuitId": 0,
+        "juniDhcpRelayAgentVendorSpecificUserPacketClass": 1
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniDhcpRelayBroadcastFlagReplies": {
+    "name": "juniDhcpRelayBroadcastFlagReplies",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniDhcpRelayServerTable": {
+    "name": "juniDhcpRelayServerTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDhcpRelayServerEntry": {
+    "name": "juniDhcpRelayServerEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayServerAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniDhcpRelayServerAddress": {
+    "name": "juniDhcpRelayServerAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDhcpRelayServerRowStatus": {
+    "name": "juniDhcpRelayServerRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDhcpProxyClient": {
+    "name": "juniDhcpProxyClient",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.2.1",
+    "class": "objectidentity"
+  },
+  "juniDhcpProxyServer": {
+    "name": "juniDhcpProxyServer",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.2.2",
+    "class": "objectidentity"
+  },
+  "juniDhcpProxyClientScalars": {
+    "name": "juniDhcpProxyClientScalars",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.2.1.1",
+    "class": "objectidentity"
+  },
+  "juniDhcpProxyClientUnknownServers": {
+    "name": "juniDhcpProxyClientUnknownServers",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpProxyClientServerTable": {
+    "name": "juniDhcpProxyClientServerTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDhcpProxyClientServerEntry": {
+    "name": "juniDhcpProxyClientServerEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpProxyClientServerAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniDhcpProxyClientServerAddress": {
+    "name": "juniDhcpProxyClientServerAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDhcpProxyClientServerRowStatus": {
+    "name": "juniDhcpProxyClientServerRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDhcpProxyClientServerAdminStatus": {
+    "name": "juniDhcpProxyClientServerAdminStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "drain": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDhcpProxyClientServerOperStatus": {
+    "name": "juniDhcpProxyClientServerOperStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "draining": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpProxyClientServerLeases": {
+    "name": "juniDhcpProxyClientServerLeases",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpProxyClientServerDiscovers": {
+    "name": "juniDhcpProxyClientServerDiscovers",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpProxyClientServerOffers": {
+    "name": "juniDhcpProxyClientServerOffers",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.2.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpProxyClientServerRequests": {
+    "name": "juniDhcpProxyClientServerRequests",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.2.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpProxyClientServerAcks": {
+    "name": "juniDhcpProxyClientServerAcks",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.2.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpProxyClientServerNaks": {
+    "name": "juniDhcpProxyClientServerNaks",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.2.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpProxyClientServerDeclines": {
+    "name": "juniDhcpProxyClientServerDeclines",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.2.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpProxyClientServerReleases": {
+    "name": "juniDhcpProxyClientServerReleases",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.2.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpProxyClientServerInforms": {
+    "name": "juniDhcpProxyClientServerInforms",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.2.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpProxyClientServerBadMessages": {
+    "name": "juniDhcpProxyClientServerBadMessages",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.2.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpProxyClientServerUnknownMessages": {
+    "name": "juniDhcpProxyClientServerUnknownMessages",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.2.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerStatistics": {
+    "name": "juniDhcpLocalServerStatistics",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1",
+    "class": "objectidentity"
+  },
+  "juniDhcpLocalServerBindings": {
+    "name": "juniDhcpLocalServerBindings",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.2",
+    "class": "objectidentity"
+  },
+  "juniDhcpLocalServerPool": {
+    "name": "juniDhcpLocalServerPool",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3",
+    "class": "objectidentity"
+  },
+  "juniDhcpLocalServerAttributes": {
+    "name": "juniDhcpLocalServerAttributes",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.4",
+    "class": "objectidentity"
+  },
+  "juniDhcpLocalServerReserves": {
+    "name": "juniDhcpLocalServerReserves",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.5",
+    "class": "objectidentity"
+  },
+  "juniDhcpLocalServerCableModemServers": {
+    "name": "juniDhcpLocalServerCableModemServers",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.6",
+    "class": "objectidentity"
+  },
+  "juniDhcpLocalServerCableModemStatistics": {
+    "name": "juniDhcpLocalServerCableModemStatistics",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.7",
+    "class": "objectidentity"
+  },
+  "juniDhcpLocalServerPoolGroup": {
+    "name": "juniDhcpLocalServerPoolGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.8",
+    "class": "objectidentity"
+  },
+  "juniDhcpLocalServerMemUsage": {
+    "name": "juniDhcpLocalServerMemUsage",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerNumBindings": {
+    "name": "juniDhcpLocalServerNumBindings",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerRxDiscovers": {
+    "name": "juniDhcpLocalServerRxDiscovers",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerRxAccepts": {
+    "name": "juniDhcpLocalServerRxAccepts",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerRxRenews": {
+    "name": "juniDhcpLocalServerRxRenews",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerRxDeclines": {
+    "name": "juniDhcpLocalServerRxDeclines",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerRxReleases": {
+    "name": "juniDhcpLocalServerRxReleases",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerRxInforms": {
+    "name": "juniDhcpLocalServerRxInforms",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerTxOffers": {
+    "name": "juniDhcpLocalServerTxOffers",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerTxAcks": {
+    "name": "juniDhcpLocalServerTxAcks",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerTxNaks": {
+    "name": "juniDhcpLocalServerTxNaks",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerUnknownMessages": {
+    "name": "juniDhcpLocalServerUnknownMessages",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "juniDhcpLocalServerBadMessages": {
+    "name": "juniDhcpLocalServerBadMessages",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "juniDhcpLocalServerPacketsIn": {
+    "name": "juniDhcpLocalServerPacketsIn",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPacketsOut": {
+    "name": "juniDhcpLocalServerPacketsOut",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerRxRebinds": {
+    "name": "juniDhcpLocalServerRxRebinds",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerRxUnknownClients": {
+    "name": "juniDhcpLocalServerRxUnknownClients",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerRxInErrors": {
+    "name": "juniDhcpLocalServerRxInErrors",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerRxInDiscards": {
+    "name": "juniDhcpLocalServerRxInDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerTxRenewAcks": {
+    "name": "juniDhcpLocalServerTxRenewAcks",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerTxRebindAcks": {
+    "name": "juniDhcpLocalServerTxRebindAcks",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerTxRenewNaks": {
+    "name": "juniDhcpLocalServerTxRenewNaks",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerTxRebindNaks": {
+    "name": "juniDhcpLocalServerTxRebindNaks",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerTxOutErrors": {
+    "name": "juniDhcpLocalServerTxOutErrors",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerTxOutDiscards": {
+    "name": "juniDhcpLocalServerTxOutDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerRxOtherRequests": {
+    "name": "juniDhcpLocalServerRxOtherRequests",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceStatisticsTable": {
+    "name": "juniDhcpLocalServerSubInterfaceStatisticsTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceStatisticsEntry": {
+    "name": "juniDhcpLocalServerSubInterfaceStatisticsEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "InterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceMemUsage": {
+    "name": "juniDhcpLocalServerSubInterfaceMemUsage",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceNumBindings": {
+    "name": "juniDhcpLocalServerSubInterfaceNumBindings",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceRxDiscovers": {
+    "name": "juniDhcpLocalServerSubInterfaceRxDiscovers",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceRxAccepts": {
+    "name": "juniDhcpLocalServerSubInterfaceRxAccepts",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceRxRenews": {
+    "name": "juniDhcpLocalServerSubInterfaceRxRenews",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceRxDeclines": {
+    "name": "juniDhcpLocalServerSubInterfaceRxDeclines",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceRxReleases": {
+    "name": "juniDhcpLocalServerSubInterfaceRxReleases",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceRxInforms": {
+    "name": "juniDhcpLocalServerSubInterfaceRxInforms",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceTxOffers": {
+    "name": "juniDhcpLocalServerSubInterfaceTxOffers",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceTxAcks": {
+    "name": "juniDhcpLocalServerSubInterfaceTxAcks",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceTxNaks": {
+    "name": "juniDhcpLocalServerSubInterfaceTxNaks",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceUnknownMessages": {
+    "name": "juniDhcpLocalServerSubInterfaceUnknownMessages",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "juniDhcpLocalServerSubInterfaceBadMessages": {
+    "name": "juniDhcpLocalServerSubInterfaceBadMessages",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "juniDhcpLocalServerSubInterfacePacketsIn": {
+    "name": "juniDhcpLocalServerSubInterfacePacketsIn",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfacePacketsOut": {
+    "name": "juniDhcpLocalServerSubInterfacePacketsOut",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceClientCount": {
+    "name": "juniDhcpLocalServerSubInterfaceClientCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceDeniedLogins": {
+    "name": "juniDhcpLocalServerSubInterfaceDeniedLogins",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceDeniedTotal": {
+    "name": "juniDhcpLocalServerSubInterfaceDeniedTotal",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceRxRebinds": {
+    "name": "juniDhcpLocalServerSubInterfaceRxRebinds",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceRxUnknownClients": {
+    "name": "juniDhcpLocalServerSubInterfaceRxUnknownClients",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceRxInErrors": {
+    "name": "juniDhcpLocalServerSubInterfaceRxInErrors",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceRxInDiscards": {
+    "name": "juniDhcpLocalServerSubInterfaceRxInDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceTxRenewAcks": {
+    "name": "juniDhcpLocalServerSubInterfaceTxRenewAcks",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceTxRebindAcks": {
+    "name": "juniDhcpLocalServerSubInterfaceTxRebindAcks",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceTxRenewNaks": {
+    "name": "juniDhcpLocalServerSubInterfaceTxRenewNaks",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceTxRebindNaks": {
+    "name": "juniDhcpLocalServerSubInterfaceTxRebindNaks",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceTxOutErrors": {
+    "name": "juniDhcpLocalServerSubInterfaceTxOutErrors",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceTxOutDiscards": {
+    "name": "juniDhcpLocalServerSubInterfaceTxOutDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceRxOtherRequests": {
+    "name": "juniDhcpLocalServerSubInterfaceRxOtherRequests",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.1.30.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerBindingsTable": {
+    "name": "juniDhcpLocalServerBindingsTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDhcpLocalServerBindingsEntry": {
+    "name": "juniDhcpLocalServerBindingsEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniDhcpLocalServerBindingsIpAddress": {
+    "name": "juniDhcpLocalServerBindingsIpAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDhcpLocalServerBindingsPhysAddress": {
+    "name": "juniDhcpLocalServerBindingsPhysAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerBindingsInfinite": {
+    "name": "juniDhcpLocalServerBindingsInfinite",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerBindingsExpireTime": {
+    "name": "juniDhcpLocalServerBindingsExpireTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerBindingsRowStatus": {
+    "name": "juniDhcpLocalServerBindingsRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniDhcpLocalServerBindingsLeaseInterval": {
+    "name": "juniDhcpLocalServerBindingsLeaseInterval",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerBindingsLeaseStartTime": {
+    "name": "juniDhcpLocalServerBindingsLeaseStartTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerBindingsInitialLeaseStartTime": {
+    "name": "juniDhcpLocalServerBindingsInitialLeaseStartTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolTable": {
+    "name": "juniDhcpLocalServerPoolTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolEntry": {
+    "name": "juniDhcpLocalServerPoolEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolName": {
+    "name": "juniDhcpLocalServerPoolName",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniDhcpLocalServerPoolName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolDomainName": {
+    "name": "juniDhcpLocalServerPoolDomainName",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniDhcpLocalServerPoolDomainName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolNetworkIpAddress": {
+    "name": "juniDhcpLocalServerPoolNetworkIpAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolNetworkMask": {
+    "name": "juniDhcpLocalServerPoolNetworkMask",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolNetBiosNodeType": {
+    "name": "juniDhcpLocalServerPoolNetBiosNodeType",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniDhcpLocalServerPoolNetBiosNodeType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "netBiosNodeTypeHybrid",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolLeaseTime": {
+    "name": "juniDhcpLocalServerPoolLeaseTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolPrimaryDnsServer": {
+    "name": "juniDhcpLocalServerPoolPrimaryDnsServer",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolSecondaryDnsServer": {
+    "name": "juniDhcpLocalServerPoolSecondaryDnsServer",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolPrimaryNetBiosNameServer": {
+    "name": "juniDhcpLocalServerPoolPrimaryNetBiosNameServer",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolSecondaryNetBiosNameServer": {
+    "name": "juniDhcpLocalServerPoolSecondaryNetBiosNameServer",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolPrimaryDefaultRouter": {
+    "name": "juniDhcpLocalServerPoolPrimaryDefaultRouter",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolSecondaryDefaultRouter": {
+    "name": "juniDhcpLocalServerPoolSecondaryDefaultRouter",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolRowStatus": {
+    "name": "juniDhcpLocalServerPoolRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolLinkName": {
+    "name": "juniDhcpLocalServerPoolLinkName",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniDhcpLocalServerPoolName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolHighUtilThreshold": {
+    "name": "juniDhcpLocalServerPoolHighUtilThreshold",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 85,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolAbatedUtilThreshold": {
+    "name": "juniDhcpLocalServerPoolAbatedUtilThreshold",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 75,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolUtilPct": {
+    "name": "juniDhcpLocalServerPoolUtilPct",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolTrapEnable": {
+    "name": "juniDhcpLocalServerPoolTrapEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolInUse": {
+    "name": "juniDhcpLocalServerPoolInUse",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolSize": {
+    "name": "juniDhcpLocalServerPoolSize",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolSharedInUse": {
+    "name": "juniDhcpLocalServerPoolSharedInUse",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerAttributesMode": {
+    "name": "juniDhcpLocalServerAttributesMode",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniDhcpLocalServerModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceTable": {
+    "name": "juniDhcpLocalServerSubInterfaceTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceEntry": {
+    "name": "juniDhcpLocalServerSubInterfaceEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceIndex": {
+    "name": "juniDhcpLocalServerSubInterfaceIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceName": {
+    "name": "juniDhcpLocalServerSubInterfaceName",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSubInterfaceLimit": {
+    "name": "juniDhcpLocalServerSubInterfaceLimit",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDhcpLocalServerSnmpTrap": {
+    "name": "juniDhcpLocalServerSnmpTrap",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniDhcpLocalServerInhibitRoaming": {
+    "name": "juniDhcpLocalServerInhibitRoaming",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerUniqueClientIds": {
+    "name": "juniDhcpLocalServerUniqueClientIds",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolGroupTable": {
+    "name": "juniDhcpLocalServerPoolGroupTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolGroupEntry": {
+    "name": "juniDhcpLocalServerPoolGroupEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolGroupName": {
+    "name": "juniDhcpLocalServerPoolGroupName",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniDhcpLocalServerPoolGroupName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolGroupSize": {
+    "name": "juniDhcpLocalServerPoolGroupSize",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolGroupInUse": {
+    "name": "juniDhcpLocalServerPoolGroupInUse",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolGroupUtilPct": {
+    "name": "juniDhcpLocalServerPoolGroupUtilPct",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniDhcpLocalServerReservesTable": {
+    "name": "juniDhcpLocalServerReservesTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDhcpLocalServerReservesEntry": {
+    "name": "juniDhcpLocalServerReservesEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerReservesEntryIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniDhcpLocalServerReservesEntryIpAddress": {
+    "name": "juniDhcpLocalServerReservesEntryIpAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDhcpLocalServerReservesEntryPoolName": {
+    "name": "juniDhcpLocalServerReservesEntryPoolName",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniDhcpLocalServerPoolName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDhcpLocalServerReservesEntryPhysAddress": {
+    "name": "juniDhcpLocalServerReservesEntryPhysAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniDhcpLocalServerPhysAddressString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDhcpLocalServerReservesEntryRowStatus": {
+    "name": "juniDhcpLocalServerReservesEntryRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDhcpLocalServerCableModemServerTable": {
+    "name": "juniDhcpLocalServerCableModemServerTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerCableModemServerEntry": {
+    "name": "juniDhcpLocalServerCableModemServerEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemServerEntryAddress",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerCableModemServerEntryAddress": {
+    "name": "juniDhcpLocalServerCableModemServerEntryAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerCableModemServerEntryRowStatus": {
+    "name": "juniDhcpLocalServerCableModemServerEntryRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerCableModemRequestIn": {
+    "name": "juniDhcpLocalServerCableModemRequestIn",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerCableModemResponseIn": {
+    "name": "juniDhcpLocalServerCableModemResponseIn",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerCableModemRequestOut": {
+    "name": "juniDhcpLocalServerCableModemRequestOut",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerCableModemResponseOut": {
+    "name": "juniDhcpLocalServerCableModemResponseOut",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerCableModemRequestDropped": {
+    "name": "juniDhcpLocalServerCableModemRequestDropped",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerCableModemResponseDropped": {
+    "name": "juniDhcpLocalServerCableModemResponseDropped",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerCableModemRequestBad": {
+    "name": "juniDhcpLocalServerCableModemRequestBad",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerCableModemResponseBad": {
+    "name": "juniDhcpLocalServerCableModemResponseBad",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerCableModemRequestDeleted": {
+    "name": "juniDhcpLocalServerCableModemRequestDeleted",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerCableModemPacketsIn": {
+    "name": "juniDhcpLocalServerCableModemPacketsIn",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.7.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerCableModemPacketsOut": {
+    "name": "juniDhcpLocalServerCableModemPacketsOut",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.7.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerCableModemPacketsDropped": {
+    "name": "juniDhcpLocalServerCableModemPacketsDropped",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.7.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniDhcpTrapControl": {
+    "name": "juniDhcpTrapControl",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.2",
+    "class": "objectidentity"
+  },
+  "juniDhcpLocalServerRelayTraps": {
+    "name": "juniDhcpLocalServerRelayTraps",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.1.0",
+    "class": "objectidentity"
+  },
+  "juniDhcpLocalServerProxyTraps": {
+    "name": "juniDhcpLocalServerProxyTraps",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.2.0",
+    "class": "objectidentity"
+  },
+  "juniDhcpLocalServerTraps": {
+    "name": "juniDhcpLocalServerTraps",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.0",
+    "class": "objectidentity"
+  },
+  "juniDhcpLocalServerPoolHighAddrUtil": {
+    "name": "juniDhcpLocalServerPoolHighAddrUtil",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-ROUTER-MIB",
+        "object": "juniRouterName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSize"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolInUse"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolUtilPct"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolAbatedAddrUtil": {
+    "name": "juniDhcpLocalServerPoolAbatedAddrUtil",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-ROUTER-MIB",
+        "object": "juniRouterName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSize"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolInUse"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolUtilPct"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolNoAddresses": {
+    "name": "juniDhcpLocalServerPoolNoAddresses",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-ROUTER-MIB",
+        "object": "juniRouterName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSize"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDhcpLocalServerHealth": {
+    "name": "juniDhcpLocalServerHealth",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-ROUTER-MIB",
+        "object": "juniRouterName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerEventSeverity"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerEventString"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolGroupHighAddrUtil": {
+    "name": "juniDhcpLocalServerPoolGroupHighAddrUtil",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-ROUTER-MIB",
+        "object": "juniRouterName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolGroupSize"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolGroupInUse"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolGroupUtilPct"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolGroupAbatedAddrUtil": {
+    "name": "juniDhcpLocalServerPoolGroupAbatedAddrUtil",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-ROUTER-MIB",
+        "object": "juniRouterName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolGroupSize"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolGroupInUse"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolGroupUtilPct"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDhcpLocalServerPoolGroupNoAddresses": {
+    "name": "juniDhcpLocalServerPoolGroupNoAddresses",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-ROUTER-MIB",
+        "object": "juniRouterName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolGroupSize"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDhcpLocalServerInterfaceLimitExceeded": {
+    "name": "juniDhcpLocalServerInterfaceLimitExceeded",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-ROUTER-MIB",
+        "object": "juniRouterName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDhcpLocalServerInterfaceLimitAbated": {
+    "name": "juniDhcpLocalServerInterfaceLimitAbated",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-ROUTER-MIB",
+        "object": "juniRouterName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDhcpLocalServerDuplicateClient": {
+    "name": "juniDhcpLocalServerDuplicateClient",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.1.3.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-ROUTER-MIB",
+        "object": "juniRouterName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerMacAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerInterfaceString"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerLastDetected"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDhcpLocalServerEventSeverity": {
+    "name": "juniDhcpLocalServerEventSeverity",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniLogSeverity",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniDhcpLocalServerEventString": {
+    "name": "juniDhcpLocalServerEventString",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniDhcpLocalServerMacAddress": {
+    "name": "juniDhcpLocalServerMacAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniDhcpLocalServerPhysAddressString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniDhcpLocalServerInterfaceString": {
+    "name": "juniDhcpLocalServerInterfaceString",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniDhcpLocalServerLastDetected": {
+    "name": "juniDhcpLocalServerLastDetected",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniDhcpMIBConformance": {
+    "name": "juniDhcpMIBConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4",
+    "class": "objectidentity"
+  },
+  "juniDhcpMIBCompliances": {
+    "name": "juniDhcpMIBCompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.1",
+    "class": "objectidentity"
+  },
+  "juniDhcpMIBGroups": {
+    "name": "juniDhcpMIBGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2",
+    "class": "objectidentity"
+  },
+  "juniDhcpRelayCompliance": {
+    "name": "juniDhcpRelayCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniDhcpRelayGroup",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpProxyGroup",
+        "module": "Juniper-DHCP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpProxyCompliance": {
+    "name": "juniDhcpProxyCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniDhcpProxyGroup",
+        "module": "Juniper-DHCP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpCompliance": {
+    "name": "juniDhcpCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniDhcpRelayGroup",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpProxyGroup",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpLocalServerGroup",
+        "module": "Juniper-DHCP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpCompliance2": {
+    "name": "juniDhcpCompliance2",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniDhcpRelayGroup2",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpProxyGroup",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpLocalServerGroup2",
+        "module": "Juniper-DHCP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpCompliance3": {
+    "name": "juniDhcpCompliance3",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniDhcpRelayGroup3",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpProxyGroup",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpLocalServerGroup2",
+        "module": "Juniper-DHCP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpCompliance4": {
+    "name": "juniDhcpCompliance4",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniDhcpRelayGroup4",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpProxyGroup",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpLocalServerGroup2",
+        "module": "Juniper-DHCP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpCompliance5": {
+    "name": "juniDhcpCompliance5",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniDhcpRelayGroup4",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpProxyGroup",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpLocalServerGroup3",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpLocalServerPoolTrapGroup",
+        "module": "Juniper-DHCP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpCompliance6": {
+    "name": "juniDhcpCompliance6",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniDhcpRelayGroup4",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpProxyGroup",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpLocalServerGroup5",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpLocalServerPoolTrapGroup",
+        "module": "Juniper-DHCP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpCompliance7": {
+    "name": "juniDhcpCompliance7",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.1.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniDhcpRelayGroup4",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpProxyGroup",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpLocalServerGroup5",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpLocalServerPoolTrapGroup",
+        "module": "Juniper-DHCP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpCompliance8": {
+    "name": "juniDhcpCompliance8",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.1.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniDhcpRelayGroup4",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpProxyGroup",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpLocalServerGroup6",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpLocalServerTrapGroup",
+        "module": "Juniper-DHCP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpCompliance9": {
+    "name": "juniDhcpCompliance9",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.1.11",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniDhcpRelayGroup6",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpProxyGroup",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpLocalServerGroup6",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpLocalServerTrapGroup",
+        "module": "Juniper-DHCP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpCompliance10": {
+    "name": "juniDhcpCompliance10",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.1.12",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniDhcpRelayGroup7",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpProxyGroup",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpLocalServerGroup6",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpLocalServerPoolTrapGroup",
+        "module": "Juniper-DHCP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpCompliance11": {
+    "name": "juniDhcpCompliance11",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.1.13",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniDhcpRelayGroup8",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpProxyGroup",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpLocalServerGroup6",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpLocalServerPoolTrapGroup",
+        "module": "Juniper-DHCP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpCompliance12": {
+    "name": "juniDhcpCompliance12",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.1.14",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniDhcpRelayGroup10",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpProxyGroup",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpLocalServerGroup8",
+        "module": "Juniper-DHCP-MIB"
+      },
+      {
+        "object": "juniDhcpLocalServerPoolTrapGroup",
+        "module": "Juniper-DHCP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDhcpRelayGroup": {
+    "name": "juniDhcpRelayGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentInfoEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayUnknownMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentInfoAlreadyPresents"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayGatewayAddrSpoofs"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayServerRowStatus"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpProxyGroup": {
+    "name": "juniDhcpProxyGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpProxyClientUnknownServers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpProxyClientServerRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpProxyClientServerAdminStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpProxyClientServerOperStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpProxyClientServerLeases"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpProxyClientServerDiscovers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpProxyClientServerOffers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpProxyClientServerRequests"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpProxyClientServerAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpProxyClientServerNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpProxyClientServerDeclines"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpProxyClientServerReleases"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpProxyClientServerInforms"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpProxyClientServerBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpProxyClientServerUnknownMessages"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDhcpLocalServerGroup": {
+    "name": "juniDhcpLocalServerGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerMemUsage"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerNumBindings"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxDiscovers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxAccepts"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxRenews"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxDeclines"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxReleases"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxInforms"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxOffers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerUnknownMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPacketsIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPacketsOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsPhysAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsInfinite"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsExpireTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolDomainName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetworkIpAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetworkMask"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetBiosNodeType"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolLeaseTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryDnsServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryDnsServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryNetBiosNameServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryNetBiosNameServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryDefaultRouter"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryDefaultRouter"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolRowStatus"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerGroup2": {
+    "name": "juniDhcpLocalServerGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerMemUsage"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerNumBindings"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxDiscovers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxAccepts"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxRenews"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxDeclines"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxReleases"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxInforms"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxOffers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerUnknownMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPacketsIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPacketsOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsPhysAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsInfinite"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsExpireTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolDomainName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetworkIpAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetworkMask"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetBiosNodeType"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolLeaseTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryDnsServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryDnsServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryNetBiosNameServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryNetBiosNameServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryDefaultRouter"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryDefaultRouter"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolLinkName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerAttributesMode"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerReservesEntryPoolName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerReservesEntryPhysAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerReservesEntryRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemServerEntryRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestDropped"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseDropped"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestBad"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseBad"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestDeleted"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemPacketsIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemPacketsOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemPacketsDropped"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpRelayGroup2": {
+    "name": "juniDhcpRelayGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayUnknownMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentInfoAlreadyPresents"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayGatewayAddrSpoofs"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentCircuitIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentRemoteIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayServerRowStatus"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpRelayGroup3": {
+    "name": "juniDhcpRelayGroup3",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayUnknownMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentInfoAlreadyPresents"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayGatewayAddrSpoofs"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentCircuitIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentRemoteIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentHostnameEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentVrnameEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayServerRowStatus"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpRelayGroup4": {
+    "name": "juniDhcpRelayGroup4",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayUnknownMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentInfoAlreadyPresents"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayGatewayAddrSpoofs"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentCircuitIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentRemoteIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentHostnameEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentVrnameEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentExcludeSubIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayServerRowStatus"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpRelayDeprecatedGroup": {
+    "name": "juniDhcpRelayDeprecatedGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentInfoEnable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniDhcpLocalServerGroup3": {
+    "name": "juniDhcpLocalServerGroup3",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerMemUsage"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerNumBindings"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxDiscovers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxAccepts"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxRenews"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxDeclines"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxReleases"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxInforms"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxOffers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerUnknownMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPacketsIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPacketsOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsPhysAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsInfinite"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsExpireTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolDomainName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetworkIpAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetworkMask"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetBiosNodeType"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolLeaseTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryDnsServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryDnsServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryNetBiosNameServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryNetBiosNameServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryDefaultRouter"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryDefaultRouter"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolLinkName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolHighUtilThreshold"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolAbatedUtilThreshold"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolUtilPct"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolTrapEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolInUse"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSize"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerAttributesMode"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerReservesEntryPoolName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerReservesEntryPhysAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerReservesEntryRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemServerEntryRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestDropped"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseDropped"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestBad"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseBad"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestDeleted"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemPacketsIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemPacketsOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemPacketsDropped"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerGroup4": {
+    "name": "juniDhcpLocalServerGroup4",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerMemUsage"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerNumBindings"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxDiscovers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxAccepts"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxRenews"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxDeclines"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxReleases"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxInforms"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxOffers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerUnknownMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPacketsIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPacketsOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsPhysAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsInfinite"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsExpireTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolDomainName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetworkIpAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetworkMask"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetBiosNodeType"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolLeaseTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryDnsServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryDnsServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryNetBiosNameServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryNetBiosNameServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryDefaultRouter"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryDefaultRouter"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolLinkName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolHighUtilThreshold"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolAbatedUtilThreshold"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolUtilPct"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolTrapEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolInUse"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSize"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerAttributesMode"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerReservesEntryPoolName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerReservesEntryPhysAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerReservesEntryRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemServerEntryRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestDropped"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseDropped"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestBad"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseBad"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestDeleted"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemPacketsIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemPacketsOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemPacketsDropped"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceMemUsage"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceNumBindings"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxDiscovers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxRenews"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxDeclines"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxReleases"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxInforms"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxOffers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceUnknownMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfacePacketsIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfacePacketsOut"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerPoolTrapGroup": {
+    "name": "juniDhcpLocalServerPoolTrapGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolHighAddrUtil"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolAbatedAddrUtil"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNoAddresses"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerHealth"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpRelayGroup5": {
+    "name": "juniDhcpRelayGroup5",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayUnknownMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentInfoAlreadyPresents"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayGatewayAddrSpoofs"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentCircuitIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentRemoteIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentHostnameEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentVrnameEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentExcludeSubIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentTrustAllEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentInfoAlreadyPresentForwards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayServerRowStatus"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerGroup5": {
+    "name": "juniDhcpLocalServerGroup5",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerMemUsage"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerNumBindings"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxDiscovers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxAccepts"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxRenews"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxDeclines"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxReleases"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxInforms"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxOffers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerUnknownMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPacketsIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPacketsOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsPhysAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsInfinite"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsExpireTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsLeaseInterval"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsLeaseStartTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsInitialLeaseStartTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolDomainName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetworkIpAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetworkMask"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetBiosNodeType"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolLeaseTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryDnsServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryDnsServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryNetBiosNameServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryNetBiosNameServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryDefaultRouter"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryDefaultRouter"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolLinkName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolHighUtilThreshold"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolAbatedUtilThreshold"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolUtilPct"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolTrapEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolInUse"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSize"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSharedInUse"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerAttributesMode"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSnmpTrap"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerInhibitRoaming"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerReservesEntryPoolName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerReservesEntryPhysAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerReservesEntryRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemServerEntryRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestDropped"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseDropped"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestBad"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseBad"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestDeleted"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemPacketsIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemPacketsOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemPacketsDropped"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceMemUsage"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceNumBindings"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxDiscovers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxRenews"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxDeclines"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxReleases"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxInforms"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxOffers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceUnknownMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfacePacketsIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfacePacketsOut"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerGroup6": {
+    "name": "juniDhcpLocalServerGroup6",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerMemUsage"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerNumBindings"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxDiscovers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxAccepts"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxRenews"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxDeclines"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxReleases"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxInforms"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxOffers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerUnknownMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPacketsIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPacketsOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxRebinds"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxUnknownClients"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxInErrors"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxInDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxRenewAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxRebindAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxRenewNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxRebindNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxOutErrors"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxOutDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxOtherRequests"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsPhysAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsInfinite"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsExpireTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsLeaseInterval"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsLeaseStartTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsInitialLeaseStartTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolDomainName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetworkIpAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetworkMask"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetBiosNodeType"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolLeaseTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryDnsServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryDnsServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryNetBiosNameServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryNetBiosNameServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryDefaultRouter"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryDefaultRouter"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolLinkName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolHighUtilThreshold"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolAbatedUtilThreshold"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolUtilPct"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolTrapEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolInUse"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSize"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSharedInUse"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerAttributesMode"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSnmpTrap"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerInhibitRoaming"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerReservesEntryPoolName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerReservesEntryPhysAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerReservesEntryRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemServerEntryRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestDropped"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseDropped"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestBad"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseBad"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestDeleted"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemPacketsIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemPacketsOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemPacketsDropped"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceMemUsage"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceNumBindings"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxDiscovers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxRenews"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxDeclines"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxReleases"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxInforms"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxOffers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceUnknownMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfacePacketsIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfacePacketsOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceLimit"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceClientCount"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceDeniedLogins"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceDeniedTotal"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfacePacketsOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxRebinds"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxUnknownClients"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxInErrors"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxInDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxRenewAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxRebindAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxRenewNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxRebindNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxOutErrors"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxOutDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxOtherRequests"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerPoolTrapGroup2": {
+    "name": "juniDhcpLocalServerPoolTrapGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2.15",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolHighAddrUtil"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolAbatedAddrUtil"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNoAddresses"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerHealth"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolGroupHighAddrUtil"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolGroupAbatedAddrUtil"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolGroupNoAddresses"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerInterfaceLimitExceeded"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerInterfaceLimitAbated"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerDuplicateClient"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerTrapGroup": {
+    "name": "juniDhcpLocalServerTrapGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2.16",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolHighAddrUtil"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolAbatedAddrUtil"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNoAddresses"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerHealth"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolGroupHighAddrUtil"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolGroupAbatedAddrUtil"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolGroupNoAddresses"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerInterfaceLimitExceeded"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerInterfaceLimitAbated"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerDuplicateClient"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDhcpRelayGroup6": {
+    "name": "juniDhcpRelayGroup6",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayUnknownMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentInfoAlreadyPresents"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayGatewayAddrSpoofs"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentCircuitIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentRemoteIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentHostnameEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentVrnameEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentExcludeSubIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentTrustAllEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentInfoAlreadyPresentForwards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayServerRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentGiaddrOverrides"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentOptionOverrides"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayDiscoverDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayPacketDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayUnknownRequestMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayUnknownReplyMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayDuplicateRequestDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayPacketsTransmitted"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayPacketsReceived"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayUnknownXidDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayDroppedStaleRequestDiscards"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpRelayGroup7": {
+    "name": "juniDhcpRelayGroup7",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayUnknownMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentInfoAlreadyPresents"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayGatewayAddrSpoofs"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentCircuitIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentRemoteIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentHostnameEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentVrnameEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentExcludeSubIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentTrustAllEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentInfoAlreadyPresentForwards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayServerRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayLayer2UnicastReplies"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpRelayGroup8": {
+    "name": "juniDhcpRelayGroup8",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayUnknownMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentInfoAlreadyPresents"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayGatewayAddrSpoofs"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentCircuitIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentRemoteIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentHostnameEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentVrnameEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentExcludeSubIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentTrustAllEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentInfoAlreadyPresentForwards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayServerRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentGiaddrOverrides"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentOptionOverrides"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayDiscoverDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayPacketDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayUnknownRequestMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayUnknownReplyMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayDuplicateRequestDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayPacketsTransmitted"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayPacketsReceived"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayUnknownXidDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayDroppedStaleRequestDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayLayer2UnicastReplies"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpRelayGroup9": {
+    "name": "juniDhcpRelayGroup9",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayUnknownMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentInfoAlreadyPresents"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayGatewayAddrSpoofs"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentCircuitIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentRemoteIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentHostnameEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentVrnameEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentExcludeSubIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentTrustAllEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentInfoAlreadyPresentForwards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayServerRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentGiaddrOverrides"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentOptionOverrides"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayDiscoverDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayPacketDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayUnknownRequestMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayUnknownReplyMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayDuplicateRequestDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayPacketsTransmitted"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayPacketsReceived"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayUnknownXidDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayDroppedStaleRequestDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayLayer2UnicastReplies"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayGiaddrSelectsInterface"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentVendorSpecificSuboption"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpLocalServerGroup7": {
+    "name": "juniDhcpLocalServerGroup7",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerMemUsage"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerNumBindings"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxDiscovers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxAccepts"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxRenews"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxDeclines"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxReleases"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxInforms"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxOffers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerUnknownMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPacketsIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPacketsOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxRebinds"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxUnknownClients"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxInErrors"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxInDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxRenewAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxRebindAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxRenewNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxRebindNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxOutErrors"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxOutDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxOtherRequests"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsPhysAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsInfinite"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsExpireTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsLeaseInterval"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsLeaseStartTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsInitialLeaseStartTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolDomainName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetworkIpAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetworkMask"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetBiosNodeType"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolLeaseTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryDnsServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryDnsServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryNetBiosNameServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryNetBiosNameServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryDefaultRouter"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryDefaultRouter"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolLinkName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolHighUtilThreshold"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolAbatedUtilThreshold"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolUtilPct"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolTrapEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolInUse"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSize"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSharedInUse"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerAttributesMode"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSnmpTrap"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerInhibitRoaming"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerUniqueClientIds"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerReservesEntryPoolName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerReservesEntryPhysAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerReservesEntryRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemServerEntryRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestDropped"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseDropped"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestBad"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemResponseBad"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemRequestDeleted"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemPacketsIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemPacketsOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerCableModemPacketsDropped"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceMemUsage"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceNumBindings"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxDiscovers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxRenews"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxDeclines"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxReleases"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxInforms"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxOffers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceUnknownMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfacePacketsIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfacePacketsOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceLimit"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceClientCount"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceDeniedLogins"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceDeniedTotal"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfacePacketsOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxRebinds"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxUnknownClients"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxInErrors"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxInDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxRenewAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxRebindAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxRenewNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxRebindNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxOutErrors"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxOutDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxOtherRequests"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDhcpRelayGroup10": {
+    "name": "juniDhcpRelayGroup10",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayUnknownMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentInfoAlreadyPresents"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayGatewayAddrSpoofs"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentCircuitIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentRemoteIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentHostnameEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentVrnameEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentExcludeSubIdEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentTrustAllEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentInfoAlreadyPresentForwards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayServerRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentGiaddrOverrides"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentOptionOverrides"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayDiscoverDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayPacketDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayUnknownRequestMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayUnknownReplyMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayDuplicateRequestDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayPacketsTransmitted"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayPacketsReceived"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayUnknownXidDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayDroppedStaleRequestDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayLayer2UnicastReplies"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayGiaddrSelectsInterface"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayAgentVendorSpecificSuboption"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpRelayBroadcastFlagReplies"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDhcpLocalServerGroup8": {
+    "name": "juniDhcpLocalServerGroup8",
+    "oid": "1.3.6.1.4.1.4874.2.2.22.4.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerMemUsage"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerNumBindings"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxDiscovers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxAccepts"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxRenews"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxDeclines"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxReleases"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxInforms"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxOffers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerUnknownMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPacketsIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPacketsOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxRebinds"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxUnknownClients"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxInErrors"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxInDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxRenewAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxRebindAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxRenewNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxRebindNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxOutErrors"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerTxOutDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerRxOtherRequests"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsPhysAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsInfinite"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsExpireTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsLeaseInterval"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsLeaseStartTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerBindingsInitialLeaseStartTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolDomainName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetworkIpAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetworkMask"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolNetBiosNodeType"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolLeaseTime"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryDnsServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryDnsServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryNetBiosNameServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryNetBiosNameServer"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolPrimaryDefaultRouter"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSecondaryDefaultRouter"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolLinkName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolHighUtilThreshold"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolAbatedUtilThreshold"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolUtilPct"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolTrapEnable"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolInUse"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSize"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerPoolSharedInUse"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerAttributesMode"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSnmpTrap"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerInhibitRoaming"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerUniqueClientIds"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerReservesEntryPoolName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerReservesEntryPhysAddress"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerReservesEntryRowStatus"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceMemUsage"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceNumBindings"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxDiscovers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxRenews"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxDeclines"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxReleases"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxInforms"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxOffers"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceUnknownMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceBadMessages"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfacePacketsIn"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfacePacketsOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceName"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceLimit"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceClientCount"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceDeniedLogins"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceDeniedTotal"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfacePacketsOut"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxRebinds"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxUnknownClients"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxInErrors"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxInDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxRenewAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxRebindAcks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxRenewNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxRebindNaks"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxOutErrors"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceTxOutDiscards"
+      },
+      {
+        "module": "Juniper-DHCP-MIB",
+        "object": "juniDhcpLocalServerSubInterfaceRxOtherRequests"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-DHCP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-DHCP-MIB"
+  }
+}

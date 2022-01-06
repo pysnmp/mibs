@@ -1,0 +1,189 @@
+{
+  "imports": {
+    "class": "imports",
+    "RAPID-CITY": [
+      "rcBayStack"
+    ],
+    "RC-MLT-MIB": [
+      "rcMltId"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter64",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "rcBayStackMIB": {
+    "name": "rcBayStackMIB",
+    "oid": "1.3.6.1.4.1.2272.40.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-09-29 00:00",
+        "description": "Version 6: Fixed IMPORTS, RAPID-CITY-MIB to RAPID-CITY"
+      },
+      {
+        "revision": "2004-07-20 00:00",
+        "description": "Version 5: Added version info"
+      }
+    ]
+  },
+  "rcBayStackObjects": {
+    "name": "rcBayStackObjects",
+    "oid": "1.3.6.1.4.1.2272.40.1.1",
+    "class": "objectidentity"
+  },
+  "rcBayStackTraps": {
+    "name": "rcBayStackTraps",
+    "oid": "1.3.6.1.4.1.2272.40.1.21",
+    "class": "objectidentity"
+  },
+  "rcBayStackTraps0": {
+    "name": "rcBayStackTraps0",
+    "oid": "1.3.6.1.4.1.2272.40.1.21.0",
+    "class": "objectidentity"
+  },
+  "rcBayStackTftpExt": {
+    "name": "rcBayStackTftpExt",
+    "oid": "1.3.6.1.4.1.2272.40.1.1.1",
+    "class": "objectidentity"
+  },
+  "rcBayStackTftpAction": {
+    "name": "rcBayStackTftpAction",
+    "oid": "1.3.6.1.4.1.2272.40.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "downloadSshPublicKeys": 2,
+          "deleteSshDsaAuthKey": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcBayStackSshSessionTable": {
+    "name": "rcBayStackSshSessionTable",
+    "oid": "1.3.6.1.4.1.2272.40.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcBayStackSshSessionEntry": {
+    "name": "rcBayStackSshSessionEntry",
+    "oid": "1.3.6.1.4.1.2272.40.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAPID-CITY-BAY-STACK",
+        "object": "rcBayStackSshSessionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rcBayStackSshSessionId": {
+    "name": "rcBayStackSshSessionId",
+    "oid": "1.3.6.1.4.1.2272.40.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcBayStackSshSessionIp": {
+    "name": "rcBayStackSshSessionIp",
+    "oid": "1.3.6.1.4.1.2272.40.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcBayStackSshExt": {
+    "name": "rcBayStackSshExt",
+    "oid": "1.3.6.1.4.1.2272.40.1.1.3",
+    "class": "objectidentity"
+  },
+  "rcBayStackSshDsaHostKeyStatus": {
+    "name": "rcBayStackSshDsaHostKeyStatus",
+    "oid": "1.3.6.1.4.1.2272.40.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notGenerated": 1,
+          "generated": 2,
+          "generating": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcMltConfigError": {
+    "name": "rcMltConfigError",
+    "oid": "1.3.6.1.4.1.2272.40.1.21.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RC-MLT-MIB",
+        "object": "rcMltId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-CITY-BAY-STACK",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:14 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RAPID-CITY-BAY-STACK"
+  }
+}

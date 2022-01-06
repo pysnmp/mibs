@@ -1,0 +1,926 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifAlias",
+      "InterfaceIndex"
+    ],
+    "NBS-MIB": [
+      "WritableU64",
+      "nbs"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "Integer32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "nbsFecpmMib": {
+    "name": "nbsFecpmMib",
+    "oid": "1.3.6.1.4.1.629.223",
+    "class": "moduleidentity"
+  },
+  "nbsFecpmThresholdsGrp": {
+    "name": "nbsFecpmThresholdsGrp",
+    "oid": "1.3.6.1.4.1.629.223.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsFecpmCurrentGrp": {
+    "name": "nbsFecpmCurrentGrp",
+    "oid": "1.3.6.1.4.1.629.223.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsFecpmHistoricGrp": {
+    "name": "nbsFecpmHistoricGrp",
+    "oid": "1.3.6.1.4.1.629.223.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsFecpmRunningGrp": {
+    "name": "nbsFecpmRunningGrp",
+    "oid": "1.3.6.1.4.1.629.223.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsFecStatsGrp": {
+    "name": "nbsFecStatsGrp",
+    "oid": "1.3.6.1.4.1.629.223.90",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsFecpmEventsGrp": {
+    "name": "nbsFecpmEventsGrp",
+    "oid": "1.3.6.1.4.1.629.223.100",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsFecpmTraps": {
+    "name": "nbsFecpmTraps",
+    "oid": "1.3.6.1.4.1.629.223.100.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsFecpmThresholdsTable": {
+    "name": "nbsFecpmThresholdsTable",
+    "oid": "1.3.6.1.4.1.629.223.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsFecpmThresholdsEntry": {
+    "name": "nbsFecpmThresholdsEntry",
+    "oid": "1.3.6.1.4.1.629.223.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecpmThresholdsIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecpmThresholdsInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsFecpmThresholdsIfIndex": {
+    "name": "nbsFecpmThresholdsIfIndex",
+    "oid": "1.3.6.1.4.1.629.223.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmThresholdsInterval": {
+    "name": "nbsFecpmThresholdsInterval",
+    "oid": "1.3.6.1.4.1.629.223.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "quarterHour": 1,
+          "twentyfourHour": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmThresholdsBitErrCor": {
+    "name": "nbsFecpmThresholdsBitErrCor",
+    "oid": "1.3.6.1.4.1.629.223.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WritableU64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsFecpmThresholdsByteErrCor": {
+    "name": "nbsFecpmThresholdsByteErrCor",
+    "oid": "1.3.6.1.4.1.629.223.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WritableU64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsFecpmThresholdsCorBit0to1": {
+    "name": "nbsFecpmThresholdsCorBit0to1",
+    "oid": "1.3.6.1.4.1.629.223.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WritableU64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsFecpmThresholdsCorBit1to0": {
+    "name": "nbsFecpmThresholdsCorBit1to0",
+    "oid": "1.3.6.1.4.1.629.223.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WritableU64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsFecpmThresholdsUncorWords": {
+    "name": "nbsFecpmThresholdsUncorWords",
+    "oid": "1.3.6.1.4.1.629.223.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WritableU64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsFecpmCurrentSysDate": {
+    "name": "nbsFecpmCurrentSysDate",
+    "oid": "1.3.6.1.4.1.629.223.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmCurrentSysTime": {
+    "name": "nbsFecpmCurrentSysTime",
+    "oid": "1.3.6.1.4.1.629.223.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmCurrentTable": {
+    "name": "nbsFecpmCurrentTable",
+    "oid": "1.3.6.1.4.1.629.223.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsFecpmCurrentEntry": {
+    "name": "nbsFecpmCurrentEntry",
+    "oid": "1.3.6.1.4.1.629.223.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecpmCurrentIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecpmCurrentInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsFecpmCurrentIfIndex": {
+    "name": "nbsFecpmCurrentIfIndex",
+    "oid": "1.3.6.1.4.1.629.223.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmCurrentInterval": {
+    "name": "nbsFecpmCurrentInterval",
+    "oid": "1.3.6.1.4.1.629.223.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "quarterHour": 1,
+          "twentyfourHour": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmCurrentDate": {
+    "name": "nbsFecpmCurrentDate",
+    "oid": "1.3.6.1.4.1.629.223.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmCurrentTime": {
+    "name": "nbsFecpmCurrentTime",
+    "oid": "1.3.6.1.4.1.629.223.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmCurrentBitErrCor": {
+    "name": "nbsFecpmCurrentBitErrCor",
+    "oid": "1.3.6.1.4.1.629.223.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmCurrentByteErrCor": {
+    "name": "nbsFecpmCurrentByteErrCor",
+    "oid": "1.3.6.1.4.1.629.223.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmCurrentCorBit0to1": {
+    "name": "nbsFecpmCurrentCorBit0to1",
+    "oid": "1.3.6.1.4.1.629.223.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmCurrentCorBit1to0": {
+    "name": "nbsFecpmCurrentCorBit1to0",
+    "oid": "1.3.6.1.4.1.629.223.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmCurrentUncorWords": {
+    "name": "nbsFecpmCurrentUncorWords",
+    "oid": "1.3.6.1.4.1.629.223.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmHistoricTable": {
+    "name": "nbsFecpmHistoricTable",
+    "oid": "1.3.6.1.4.1.629.223.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsFecpmHistoricEntry": {
+    "name": "nbsFecpmHistoricEntry",
+    "oid": "1.3.6.1.4.1.629.223.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecpmHistoricIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecpmHistoricInterval",
+        "implied": 0
+      },
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecpmHistoricSample",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsFecpmHistoricIfIndex": {
+    "name": "nbsFecpmHistoricIfIndex",
+    "oid": "1.3.6.1.4.1.629.223.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmHistoricInterval": {
+    "name": "nbsFecpmHistoricInterval",
+    "oid": "1.3.6.1.4.1.629.223.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "quarterHour": 1,
+          "twentyfourHour": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsFecpmHistoricSample": {
+    "name": "nbsFecpmHistoricSample",
+    "oid": "1.3.6.1.4.1.629.223.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsFecpmHistoricDate": {
+    "name": "nbsFecpmHistoricDate",
+    "oid": "1.3.6.1.4.1.629.223.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmHistoricTime": {
+    "name": "nbsFecpmHistoricTime",
+    "oid": "1.3.6.1.4.1.629.223.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmHistoricBitErrCor": {
+    "name": "nbsFecpmHistoricBitErrCor",
+    "oid": "1.3.6.1.4.1.629.223.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmHistoricByteErrCor": {
+    "name": "nbsFecpmHistoricByteErrCor",
+    "oid": "1.3.6.1.4.1.629.223.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmHistoricCorBit0to1": {
+    "name": "nbsFecpmHistoricCorBit0to1",
+    "oid": "1.3.6.1.4.1.629.223.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmHistoricCorBit1to0": {
+    "name": "nbsFecpmHistoricCorBit1to0",
+    "oid": "1.3.6.1.4.1.629.223.3.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmHistoricUncorWords": {
+    "name": "nbsFecpmHistoricUncorWords",
+    "oid": "1.3.6.1.4.1.629.223.3.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmRunningTable": {
+    "name": "nbsFecpmRunningTable",
+    "oid": "1.3.6.1.4.1.629.223.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsFecpmRunningEntry": {
+    "name": "nbsFecpmRunningEntry",
+    "oid": "1.3.6.1.4.1.629.223.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecpmRunningIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsFecpmRunningIfIndex": {
+    "name": "nbsFecpmRunningIfIndex",
+    "oid": "1.3.6.1.4.1.629.223.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmRunningDate": {
+    "name": "nbsFecpmRunningDate",
+    "oid": "1.3.6.1.4.1.629.223.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmRunningTime": {
+    "name": "nbsFecpmRunningTime",
+    "oid": "1.3.6.1.4.1.629.223.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmRunningBitErrCor": {
+    "name": "nbsFecpmRunningBitErrCor",
+    "oid": "1.3.6.1.4.1.629.223.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmRunningByteErrCor": {
+    "name": "nbsFecpmRunningByteErrCor",
+    "oid": "1.3.6.1.4.1.629.223.4.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmRunningCorBit0to1": {
+    "name": "nbsFecpmRunningCorBit0to1",
+    "oid": "1.3.6.1.4.1.629.223.4.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmRunningCorBit1to0": {
+    "name": "nbsFecpmRunningCorBit1to0",
+    "oid": "1.3.6.1.4.1.629.223.4.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmRunningUncorWords": {
+    "name": "nbsFecpmRunningUncorWords",
+    "oid": "1.3.6.1.4.1.629.223.4.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecStatsTable": {
+    "name": "nbsFecStatsTable",
+    "oid": "1.3.6.1.4.1.629.223.90.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsFecStatsEntry": {
+    "name": "nbsFecStatsEntry",
+    "oid": "1.3.6.1.4.1.629.223.90.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecStatsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsFecStatsIfIndex": {
+    "name": "nbsFecStatsIfIndex",
+    "oid": "1.3.6.1.4.1.629.223.90.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecStatsDate": {
+    "name": "nbsFecStatsDate",
+    "oid": "1.3.6.1.4.1.629.223.90.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecStatsTime": {
+    "name": "nbsFecStatsTime",
+    "oid": "1.3.6.1.4.1.629.223.90.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecStatsSpan": {
+    "name": "nbsFecStatsSpan",
+    "oid": "1.3.6.1.4.1.629.223.90.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecStatsState": {
+    "name": "nbsFecStatsState",
+    "oid": "1.3.6.1.4.1.629.223.90.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "counting": 2,
+          "clearing": 3,
+          "stopped": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsFecStatsBitErrCor": {
+    "name": "nbsFecStatsBitErrCor",
+    "oid": "1.3.6.1.4.1.629.223.90.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecStatsByteErrCor": {
+    "name": "nbsFecStatsByteErrCor",
+    "oid": "1.3.6.1.4.1.629.223.90.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecStatsCorBit0to1": {
+    "name": "nbsFecStatsCorBit0to1",
+    "oid": "1.3.6.1.4.1.629.223.90.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecStatsCorBit1to0": {
+    "name": "nbsFecStatsCorBit1to0",
+    "oid": "1.3.6.1.4.1.629.223.90.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecStatsUncorWords": {
+    "name": "nbsFecStatsUncorWords",
+    "oid": "1.3.6.1.4.1.629.223.90.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFecpmTrapsBitErrCor": {
+    "name": "nbsFecpmTrapsBitErrCor",
+    "oid": "1.3.6.1.4.1.629.223.100.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecpmCurrentIfIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAlias"
+      },
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecpmCurrentInterval"
+      },
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecpmCurrentBitErrCor"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsFecpmTrapsByteErrCor": {
+    "name": "nbsFecpmTrapsByteErrCor",
+    "oid": "1.3.6.1.4.1.629.223.100.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecpmCurrentIfIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAlias"
+      },
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecpmCurrentInterval"
+      },
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecpmCurrentByteErrCor"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsFecpmTrapsCorBit0to1": {
+    "name": "nbsFecpmTrapsCorBit0to1",
+    "oid": "1.3.6.1.4.1.629.223.100.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecpmCurrentIfIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAlias"
+      },
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecpmCurrentInterval"
+      },
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecpmCurrentCorBit0to1"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsFecpmTrapsCorBit1to0": {
+    "name": "nbsFecpmTrapsCorBit1to0",
+    "oid": "1.3.6.1.4.1.629.223.100.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecpmCurrentIfIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAlias"
+      },
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecpmCurrentInterval"
+      },
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecpmCurrentCorBit1to0"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsFecpmTrapsUncorWords": {
+    "name": "nbsFecpmTrapsUncorWords",
+    "oid": "1.3.6.1.4.1.629.223.100.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecpmCurrentIfIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAlias"
+      },
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecpmCurrentInterval"
+      },
+      {
+        "module": "NBS-FECPM-MIB",
+        "object": "nbsFecpmCurrentUncorWords"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-FECPM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:42:12 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NBS-FECPM-MIB"
+  }
+}

@@ -1,0 +1,1651 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "PhysicalIndex"
+    ],
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "iso",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "hh3cFlash": {
+    "name": "hh3cFlash",
+    "oid": "1.3.6.1.4.1.25506.2.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-01-20 08:08",
+        "description": "Added copy(8) to hh3cFlhOperType."
+      },
+      {
+        "revision": "2014-08-11 03:03",
+        "description": "Added mkdir(6), rmdir(7) to hh3cFlhOperType, added hh3cFlhFileType to hh3cFlhFileEntry, modified description of hh3cFlhFileName, hh3cFlhOperProtocol, hh3cFlhOperSourceFile and Hh3cFlashOperationStatus to support directory operation."
+      },
+      {
+        "revision": "2013-05-23 00:00",
+        "description": "Add hh3cFlhHCSize, hh3cFlhPartHCSpace, hh3cFlhPartHCSpaceFree and hh3cFlhFileHCSize to replace hh3cFlhSize, hh3cFlhPartSpace, hh3cFlhPartSpaceFree and hh3cFlhFileSize."
+      },
+      {
+        "revision": "2012-06-26 00:00",
+        "description": "Add hh3cFlhPartBootable and hh3cFlhPartPathForGlobalOpt."
+      },
+      {
+        "revision": "2011-10-13 00:00",
+        "description": "Modify syntax of hh3cFlhName and hh3cFlhPartName."
+      },
+      {
+        "revision": "2010-10-30 00:00",
+        "description": "Deprecated hh3cFlhOperServerAddress, added enum in Hh3cFlashOperationStatus, added hh3cFlhOperSrvAddrType, hh3cFlhOperSrvAddrRev and hh3cFlhOperSrvVPNName."
+      },
+      {
+        "revision": "2010-06-05 00:00",
+        "description": "Add hh3cFlhOperFailReason and hh3cFlhKbyteSize."
+      },
+      {
+        "revision": "2009-05-05 00:00",
+        "description": "Add hh3cFlhOperServerPort."
+      },
+      {
+        "revision": "2006-03-03 00:00",
+        "description": "Correct some error words which are obvious clerical error."
+      },
+      {
+        "revision": "2005-08-18 00:00",
+        "description": "Change the value range of hh3cFlhFileIndex from (1..32) to (1..2147483647)."
+      },
+      {
+        "revision": "2005-06-06 00:00",
+        "description": "Add enum value in SYNTAX of hh3cFlhOperProtocol. Adjust file format."
+      },
+      {
+        "revision": "2005-01-11 08:00",
+        "description": "Add 'rename' operation type for hh3cFlhOperType."
+      },
+      {
+        "revision": "2005-01-11 00:00",
+        "description": "File description updated."
+      },
+      {
+        "revision": "2004-11-22 00:00",
+        "description": "Modify the SYNTAX of hh3cFlhSupportNum and hh3cFlhIndex."
+      },
+      {
+        "revision": "2004-10-12 00:00",
+        "description": "Fix hh3cFlhMIBCompliance MODULE name to HH3C-FLASH-MAN-MIB."
+      },
+      {
+        "revision": "2004-08-19 00:00",
+        "description": "Modify the DESCRIPTION of hh3cFlhMinPartitionSize."
+      },
+      {
+        "revision": "2004-07-15 00:00",
+        "description": "Add some Hh3cFlashOperationStatus types: opAuthFail(17), opTimeout(18), opDeleteFileOpenError(20), opDeleteInvalidDevice(21), opDeleteInvalidFunction(22), opDeleteOperationError(23), opDeleteInvalidFileName(24), opDeleteDeviceBusy(25), opDeleteParaError(26), opDeleteInvalidPath(27)"
+      },
+      {
+        "revision": "2004-06-15 00:00",
+        "description": "add delete(4) to hh3cFlhOperType."
+      },
+      {
+        "revision": "2002-12-20 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "Hh3cFlashOperationStatus": {
+    "name": "Hh3cFlashOperationStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opInProgress": 1,
+          "opSuccess": 2,
+          "opInvalid": 3,
+          "opInvalidProtocol": 4,
+          "opInvalidSourceName": 5,
+          "opInvalidDestName": 6,
+          "opInvalidServerAddress": 7,
+          "opDeviceBusy": 8,
+          "opDeviceOpenError": 9,
+          "opDeviceError": 10,
+          "opDeviceNotProgrammable": 11,
+          "opDeviceFull": 12,
+          "opFileOpenError": 13,
+          "opFileTransferError": 14,
+          "opFileChecksumError": 15,
+          "opNoMemory": 16,
+          "opAuthFail": 17,
+          "opTimeout": 18,
+          "opUnknownFailure": 19,
+          "opDeleteFileOpenError": 20,
+          "opDeleteInvalidDevice": 21,
+          "opDeleteInvalidFunction": 22,
+          "opDeleteOperationError": 23,
+          "opDeleteInvalidFileName": 24,
+          "opDeleteDeviceBusy": 25,
+          "opDeleteParaError": 26,
+          "opDeleteInvalidPath": 27,
+          "opDeleteFileNotExistInSlave": 28,
+          "opDeleteFileFailedInSlave": 29,
+          "opSlaveFull": 30,
+          "opCopyToSlaveFailure": 31
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cFlashPartitionUpgradeMode": {
+    "name": "Hh3cFlashPartitionUpgradeMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "rxbootFLH": 2,
+          "direct": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cFlashPartitionStatus": {
+    "name": "Hh3cFlashPartitionStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "readOnly": 1,
+          "runFromFlash": 2,
+          "readWrite": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cFlashManMIBObjects": {
+    "name": "hh3cFlashManMIBObjects",
+    "oid": "1.3.6.1.4.1.25506.2.5.1",
+    "class": "objectidentity"
+  },
+  "hh3cFlashDevice": {
+    "name": "hh3cFlashDevice",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cFlhSupportNum": {
+    "name": "hh3cFlhSupportNum",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlashTable": {
+    "name": "hh3cFlashTable",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFlashEntry": {
+    "name": "hh3cFlashEntry",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlhIndex": {
+    "name": "hh3cFlhIndex",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhSize": {
+    "name": "hh3cFlhSize",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "hh3cFlhPos": {
+    "name": "hh3cFlhPos",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhName": {
+    "name": "hh3cFlhName",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhChipNum": {
+    "name": "hh3cFlhChipNum",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhDescr": {
+    "name": "hh3cFlhDescr",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhInitTime": {
+    "name": "hh3cFlhInitTime",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhRemovable": {
+    "name": "hh3cFlhRemovable",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhPartitionBool": {
+    "name": "hh3cFlhPartitionBool",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cFlhMinPartitionSize": {
+    "name": "hh3cFlhMinPartitionSize",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhMaxPartitions": {
+    "name": "hh3cFlhMaxPartitions",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhPartitionNum": {
+    "name": "hh3cFlhPartitionNum",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhKbyteSize": {
+    "name": "hh3cFlhKbyteSize",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhHCSize": {
+    "name": "hh3cFlhHCSize",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlashChips": {
+    "name": "hh3cFlashChips",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.3",
+    "class": "objectidentity"
+  },
+  "hh3cFlhChipTable": {
+    "name": "hh3cFlhChipTable",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFlhChipEntry": {
+    "name": "hh3cFlhChipEntry",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhChipSerialNo",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlhChipSerialNo": {
+    "name": "hh3cFlhChipSerialNo",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFlhChipID": {
+    "name": "hh3cFlhChipID",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhChipDescr": {
+    "name": "hh3cFlhChipDescr",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhChipWriteTimesLimit": {
+    "name": "hh3cFlhChipWriteTimesLimit",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhChipWriteTimes": {
+    "name": "hh3cFlhChipWriteTimes",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhChipEraseTimesLimit": {
+    "name": "hh3cFlhChipEraseTimesLimit",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhChipEraseTimes": {
+    "name": "hh3cFlhChipEraseTimes",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlashPartitions": {
+    "name": "hh3cFlashPartitions",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4",
+    "class": "objectidentity"
+  },
+  "hh3cFlhPartitionTable": {
+    "name": "hh3cFlhPartitionTable",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFlhPartitionEntry": {
+    "name": "hh3cFlhPartitionEntry",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhPartIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlhPartIndex": {
+    "name": "hh3cFlhPartIndex",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFlhPartFirstChip": {
+    "name": "hh3cFlhPartFirstChip",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhPartLastChip": {
+    "name": "hh3cFlhPartLastChip",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhPartSpace": {
+    "name": "hh3cFlhPartSpace",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "hh3cFlhPartSpaceFree": {
+    "name": "hh3cFlhPartSpaceFree",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "hh3cFlhPartFileNum": {
+    "name": "hh3cFlhPartFileNum",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhPartChecksumMethod": {
+    "name": "hh3cFlhPartChecksumMethod",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "simpleChecksum": 1,
+          "undefined": 2,
+          "simpleCRC": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhPartStatus": {
+    "name": "hh3cFlhPartStatus",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cFlashPartitionStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhPartUpgradeMode": {
+    "name": "hh3cFlhPartUpgradeMode",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cFlashPartitionUpgradeMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhPartName": {
+    "name": "hh3cFlhPartName",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhPartRequireErase": {
+    "name": "hh3cFlhPartRequireErase",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhPartFileNameLen": {
+    "name": "hh3cFlhPartFileNameLen",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhPartBootable": {
+    "name": "hh3cFlhPartBootable",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhPartPathForGlobalOpt": {
+    "name": "hh3cFlhPartPathForGlobalOpt",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cFlhPartHCSpace": {
+    "name": "hh3cFlhPartHCSpace",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhPartHCSpaceFree": {
+    "name": "hh3cFlhPartHCSpaceFree",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhFiles": {
+    "name": "hh3cFlhFiles",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.2",
+    "class": "objectidentity"
+  },
+  "hh3cFlhFileTable": {
+    "name": "hh3cFlhFileTable",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFlhFileEntry": {
+    "name": "hh3cFlhFileEntry",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhPartIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlhFileIndex": {
+    "name": "hh3cFlhFileIndex",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFlhFileName": {
+    "name": "hh3cFlhFileName",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhFileSize": {
+    "name": "hh3cFlhFileSize",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "hh3cFlhFileStatus": {
+    "name": "hh3cFlhFileStatus",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deleted": 1,
+          "invalidChecksum": 2,
+          "valid": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhFileChecksum": {
+    "name": "hh3cFlhFileChecksum",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhFileHCSize": {
+    "name": "hh3cFlhFileHCSize",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhFileType": {
+    "name": "hh3cFlhFileType",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.1.4.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "file": 1,
+          "directory": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlashOperate": {
+    "name": "hh3cFlashOperate",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cFlhOpTable": {
+    "name": "hh3cFlhOpTable",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFlhOpEntry": {
+    "name": "hh3cFlhOpEntry",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhOperIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlhOperIndex": {
+    "name": "hh3cFlhOperIndex",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFlhOperType": {
+    "name": "hh3cFlhOperType",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "net2FlashWithErase": 1,
+          "net2FlashWithoutErase": 2,
+          "flash2Net": 3,
+          "delete": 4,
+          "rename": 5,
+          "mkdir": 6,
+          "rmdir": 7,
+          "copy": 8
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFlhOperProtocol": {
+    "name": "hh3cFlhOperProtocol",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 1,
+          "tftp": 2,
+          "clusterftp": 3,
+          "clustertftp": 4,
+          "sftp": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ftp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFlhOperServerAddress": {
+    "name": "hh3cFlhOperServerAddress",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "FFFFFFFF",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "hh3cFlhOperServerUser": {
+    "name": "hh3cFlhOperServerUser",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFlhOperPassword": {
+    "name": "hh3cFlhOperPassword",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFlhOperSourceFile": {
+    "name": "hh3cFlhOperSourceFile",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFlhOperDestinationFile": {
+    "name": "hh3cFlhOperDestinationFile",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFlhOperStatus": {
+    "name": "hh3cFlhOperStatus",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cFlashOperationStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhOperEndNotification": {
+    "name": "hh3cFlhOperEndNotification",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFlhOperProgress": {
+    "name": "hh3cFlhOperProgress",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhOperRowStatus": {
+    "name": "hh3cFlhOperRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFlhOperServerPort": {
+    "name": "hh3cFlhOperServerPort",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFlhOperFailReason": {
+    "name": "hh3cFlhOperFailReason",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlhOperSrvAddrType": {
+    "name": "hh3cFlhOperSrvAddrType",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFlhOperSrvAddrRev": {
+    "name": "hh3cFlhOperSrvAddrRev",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFlhOperSrvVPNName": {
+    "name": "hh3cFlhOperSrvVPNName",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFlashNotification": {
+    "name": "hh3cFlashNotification",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.3",
+    "class": "objectidentity"
+  },
+  "hh3cFlhOperNotification": {
+    "name": "hh3cFlhOperNotification",
+    "oid": "1.3.6.1.4.1.25506.2.5.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlashMIBConformance": {
+    "name": "hh3cFlashMIBConformance",
+    "oid": "1.3.6.1.4.1.25506.2.5.2",
+    "class": "objectidentity"
+  },
+  "hh3cFlhMIBCompliances": {
+    "name": "hh3cFlhMIBCompliances",
+    "oid": "1.3.6.1.4.1.25506.2.5.2.1",
+    "class": "objectidentity"
+  },
+  "hh3cFlhMIBCompliance": {
+    "name": "hh3cFlhMIBCompliance",
+    "oid": "1.3.6.1.4.1.25506.2.5.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hh3cFlhGroup",
+        "module": "HH3C-FLASH-MAN-MIB"
+      },
+      {
+        "object": "hh3cFlhPartitionGroup",
+        "module": "HH3C-FLASH-MAN-MIB"
+      },
+      {
+        "object": "hh3cFlhFileGroup",
+        "module": "HH3C-FLASH-MAN-MIB"
+      },
+      {
+        "object": "hh3cFlhOperationGroup",
+        "module": "HH3C-FLASH-MAN-MIB"
+      },
+      {
+        "object": "hh3cFlhNotificationGroup",
+        "module": "HH3C-FLASH-MAN-MIB"
+      },
+      {
+        "object": "hh3cFlhChipGroup",
+        "module": "HH3C-FLASH-MAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlashMIBGroups": {
+    "name": "hh3cFlashMIBGroups",
+    "oid": "1.3.6.1.4.1.25506.2.5.2.2",
+    "class": "objectidentity"
+  },
+  "hh3cFlhGroup": {
+    "name": "hh3cFlhGroup",
+    "oid": "1.3.6.1.4.1.25506.2.5.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhSupportNum"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhSize"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhPos"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhName"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhChipNum"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhDescr"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhInitTime"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhRemovable"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhPartitionBool"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhMinPartitionSize"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhMaxPartitions"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhPartitionNum"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhIndex"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhKbyteSize"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlhChipGroup": {
+    "name": "hh3cFlhChipGroup",
+    "oid": "1.3.6.1.4.1.25506.2.5.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhChipID"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhChipDescr"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhChipWriteTimesLimit"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhChipWriteTimes"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhChipEraseTimesLimit"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhChipEraseTimes"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlhPartitionGroup": {
+    "name": "hh3cFlhPartitionGroup",
+    "oid": "1.3.6.1.4.1.25506.2.5.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhPartFirstChip"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhPartLastChip"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhPartSpace"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhPartSpaceFree"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhPartFileNum"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhPartChecksumMethod"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhPartStatus"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhPartUpgradeMode"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhPartName"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhPartRequireErase"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhPartFileNameLen"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhPartBootable"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhPartPathForGlobalOpt"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlhFileGroup": {
+    "name": "hh3cFlhFileGroup",
+    "oid": "1.3.6.1.4.1.25506.2.5.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhFileName"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhFileSize"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhFileStatus"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhFileChecksum"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlhOperationGroup": {
+    "name": "hh3cFlhOperationGroup",
+    "oid": "1.3.6.1.4.1.25506.2.5.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhOperType"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhOperProtocol"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhOperServerAddress"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhOperServerUser"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhOperPassword"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhOperSourceFile"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhOperDestinationFile"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhOperStatus"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhOperEndNotification"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhOperProgress"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhOperRowStatus"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhOperServerPort"
+      },
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhOperFailReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlhNotificationGroup": {
+    "name": "hh3cFlhNotificationGroup",
+    "oid": "1.3.6.1.4.1.25506.2.5.2.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HH3C-FLASH-MAN-MIB",
+        "object": "hh3cFlhOperNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-FLASH-MAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-FLASH-MAN-MIB"
+  }
+}

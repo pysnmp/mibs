@@ -1,0 +1,1094 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADVA-MIB": [
+      "fsp150cm"
+    ],
+    "CM-COMMON-MIB": [
+      "PerfCounter64"
+    ],
+    "CM-ENTITY-MIB": [
+      "slotIndex",
+      "neIndex",
+      "shelfIndex"
+    ],
+    "CM-FACILITY-MIB": [
+      "cmEthernetNetPortEntry",
+      "cmEthernetAccPortEntry"
+    ],
+    "CM-PERFORMANCE-MIB": [
+      "cmEthernetAccPortStatsEntry",
+      "cmEthernetNetPortHistoryEntry",
+      "cmEthernetNetPortStatsEntry",
+      "cmEthernetAccPortHistoryEntry"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "VariablePointer"
+    ]
+  },
+  "f3POPMMib": {
+    "name": "f3POPMMib",
+    "oid": "1.3.6.1.4.1.2544.1.12.16",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-10-10 00:00",
+        "description": "Notes from release 201110100000Z, (1)Added following variables for clearing POPM alarms f3EthernetAccPortPOPMonitorClearAction, f3EthernetNetPortPOPMonitorClearAction Notes from release 201109060000Z, (1)Initial MIB version for release FSP150CM 3.4."
+      }
+    ]
+  },
+  "f3POPMObjects": {
+    "name": "f3POPMObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.1",
+    "class": "objectidentity"
+  },
+  "f3POPMPerfObjects": {
+    "name": "f3POPMPerfObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2",
+    "class": "objectidentity"
+  },
+  "f3POPMConformance": {
+    "name": "f3POPMConformance",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.3",
+    "class": "objectidentity"
+  },
+  "POPMGlitchRejectionLevel": {
+    "name": "POPMGlitchRejectionLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "low": 2,
+          "medium": 3,
+          "high": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "POPMState": {
+    "name": "POPMState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 1,
+          "inoperable": 2,
+          "not-available": 3,
+          "calibrating": 4,
+          "monitoring": 5,
+          "paused": 6,
+          "inhibited-R": 7,
+          "inhibited-NR": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "POPMClearAlarmsAction": {
+    "name": "POPMClearAlarmsAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "clear": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMonitorTable": {
+    "name": "f3EthernetAccPortPOPMonitorTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMonitorEntry": {
+    "name": "f3EthernetAccPortPOPMonitorEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f3EthernetAccPortPOPMonitorEntry",
+      "module": "F3-POPM-MIB",
+      "object": "cmEthernetAccPortEntry"
+    },
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMonitorEnabled": {
+    "name": "f3EthernetAccPortPOPMonitorEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMonitorOperRangeHi": {
+    "name": "f3EthernetAccPortPOPMonitorOperRangeHi",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMonitorOperRangeLow": {
+    "name": "f3EthernetAccPortPOPMonitorOperRangeLow",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMonitorVariance": {
+    "name": "f3EthernetAccPortPOPMonitorVariance",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMonitorWindowSize": {
+    "name": "f3EthernetAccPortPOPMonitorWindowSize",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMonitorGlitchRejectionLevel": {
+    "name": "f3EthernetAccPortPOPMonitorGlitchRejectionLevel",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "POPMGlitchRejectionLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMonitorState": {
+    "name": "f3EthernetAccPortPOPMonitorState",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "POPMState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMonitorClearAction": {
+    "name": "f3EthernetAccPortPOPMonitorClearAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "POPMClearAlarmsAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMonitorTable": {
+    "name": "f3EthernetNetPortPOPMonitorTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMonitorEntry": {
+    "name": "f3EthernetNetPortPOPMonitorEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f3EthernetNetPortPOPMonitorEntry",
+      "module": "F3-POPM-MIB",
+      "object": "cmEthernetNetPortEntry"
+    },
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMonitorEnabled": {
+    "name": "f3EthernetNetPortPOPMonitorEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMonitorOperRangeHi": {
+    "name": "f3EthernetNetPortPOPMonitorOperRangeHi",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMonitorOperRangeLow": {
+    "name": "f3EthernetNetPortPOPMonitorOperRangeLow",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMonitorVariance": {
+    "name": "f3EthernetNetPortPOPMonitorVariance",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMonitorWindowSize": {
+    "name": "f3EthernetNetPortPOPMonitorWindowSize",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMonitorGlitchRejectionLevel": {
+    "name": "f3EthernetNetPortPOPMonitorGlitchRejectionLevel",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "POPMGlitchRejectionLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMonitorState": {
+    "name": "f3EthernetNetPortPOPMonitorState",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "POPMState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMonitorClearAction": {
+    "name": "f3EthernetNetPortPOPMonitorClearAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "POPMClearAlarmsAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMStatsTable": {
+    "name": "f3EthernetAccPortPOPMStatsTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMStatsEntry": {
+    "name": "f3EthernetAccPortPOPMStatsEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f3EthernetAccPortPOPMStatsEntry",
+      "module": "F3-POPM-MIB",
+      "object": "cmEthernetAccPortStatsEntry"
+    },
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMStatsOPR": {
+    "name": "f3EthernetAccPortPOPMStatsOPR",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMStatsAOPR": {
+    "name": "f3EthernetAccPortPOPMStatsAOPR",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMStatsOPRVar": {
+    "name": "f3EthernetAccPortPOPMStatsOPRVar",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMStatsOPRMaxVar": {
+    "name": "f3EthernetAccPortPOPMStatsOPRMaxVar",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMStatsOPRGlitchRejects": {
+    "name": "f3EthernetAccPortPOPMStatsOPRGlitchRejects",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMStatsOPRRTR": {
+    "name": "f3EthernetAccPortPOPMStatsOPRRTR",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMStatsOPROOR": {
+    "name": "f3EthernetAccPortPOPMStatsOPROOR",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMStatsOPROOV": {
+    "name": "f3EthernetAccPortPOPMStatsOPROOV",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMHistoryTable": {
+    "name": "f3EthernetAccPortPOPMHistoryTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMHistoryEntry": {
+    "name": "f3EthernetAccPortPOPMHistoryEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f3EthernetAccPortPOPMHistoryEntry",
+      "module": "F3-POPM-MIB",
+      "object": "cmEthernetAccPortHistoryEntry"
+    },
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMHistoryOPR": {
+    "name": "f3EthernetAccPortPOPMHistoryOPR",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMHistoryAOPR": {
+    "name": "f3EthernetAccPortPOPMHistoryAOPR",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMHistoryOPRVar": {
+    "name": "f3EthernetAccPortPOPMHistoryOPRVar",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMHistoryOPRMaxVar": {
+    "name": "f3EthernetAccPortPOPMHistoryOPRMaxVar",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMHistoryOPRGlitchRejects": {
+    "name": "f3EthernetAccPortPOPMHistoryOPRGlitchRejects",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMHistoryOPRRTR": {
+    "name": "f3EthernetAccPortPOPMHistoryOPRRTR",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMHistoryOPROOR": {
+    "name": "f3EthernetAccPortPOPMHistoryOPROOR",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetAccPortPOPMHistoryOPROOV": {
+    "name": "f3EthernetAccPortPOPMHistoryOPROOV",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMStatsTable": {
+    "name": "f3EthernetNetPortPOPMStatsTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMStatsEntry": {
+    "name": "f3EthernetNetPortPOPMStatsEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f3EthernetNetPortPOPMStatsEntry",
+      "module": "F3-POPM-MIB",
+      "object": "cmEthernetNetPortStatsEntry"
+    },
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMStatsOPR": {
+    "name": "f3EthernetNetPortPOPMStatsOPR",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMStatsAOPR": {
+    "name": "f3EthernetNetPortPOPMStatsAOPR",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMStatsOPRVar": {
+    "name": "f3EthernetNetPortPOPMStatsOPRVar",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMStatsOPRMaxVar": {
+    "name": "f3EthernetNetPortPOPMStatsOPRMaxVar",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMStatsOPRGlitchRejects": {
+    "name": "f3EthernetNetPortPOPMStatsOPRGlitchRejects",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMStatsOPRRTR": {
+    "name": "f3EthernetNetPortPOPMStatsOPRRTR",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMStatsOPROOR": {
+    "name": "f3EthernetNetPortPOPMStatsOPROOR",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMStatsOPROOV": {
+    "name": "f3EthernetNetPortPOPMStatsOPROOV",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMHistoryTable": {
+    "name": "f3EthernetNetPortPOPMHistoryTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMHistoryEntry": {
+    "name": "f3EthernetNetPortPOPMHistoryEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f3EthernetNetPortPOPMHistoryEntry",
+      "module": "F3-POPM-MIB",
+      "object": "cmEthernetNetPortHistoryEntry"
+    },
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMHistoryOPR": {
+    "name": "f3EthernetNetPortPOPMHistoryOPR",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMHistoryAOPR": {
+    "name": "f3EthernetNetPortPOPMHistoryAOPR",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMHistoryOPRVar": {
+    "name": "f3EthernetNetPortPOPMHistoryOPRVar",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMHistoryOPRMaxVar": {
+    "name": "f3EthernetNetPortPOPMHistoryOPRMaxVar",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMHistoryOPRGlitchRejects": {
+    "name": "f3EthernetNetPortPOPMHistoryOPRGlitchRejects",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMHistoryOPRRTR": {
+    "name": "f3EthernetNetPortPOPMHistoryOPRRTR",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMHistoryOPROOR": {
+    "name": "f3EthernetNetPortPOPMHistoryOPROOR",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EthernetNetPortPOPMHistoryOPROOV": {
+    "name": "f3EthernetNetPortPOPMHistoryOPROOV",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3POPMCompliances": {
+    "name": "f3POPMCompliances",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.3.1",
+    "class": "objectidentity"
+  },
+  "f3POPMGroups": {
+    "name": "f3POPMGroups",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.3.2",
+    "class": "objectidentity"
+  },
+  "f3POPMCompliance": {
+    "name": "f3POPMCompliance",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "f3POPMFacilityGroup",
+        "module": "F3-POPM-MIB"
+      },
+      {
+        "object": "f3POPMStatsGroup",
+        "module": "F3-POPM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "f3POPMFacilityGroup": {
+    "name": "f3POPMFacilityGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMonitorEnabled"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMonitorOperRangeHi"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMonitorOperRangeLow"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMonitorVariance"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMonitorWindowSize"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMonitorGlitchRejectionLevel"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMonitorState"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMonitorClearAction"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMonitorEnabled"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMonitorOperRangeHi"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMonitorOperRangeLow"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMonitorVariance"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMonitorWindowSize"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMonitorGlitchRejectionLevel"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMonitorState"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMonitorClearAction"
+      }
+    ],
+    "status": "current"
+  },
+  "f3POPMStatsGroup": {
+    "name": "f3POPMStatsGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.16.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMStatsOPR"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMStatsAOPR"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMStatsOPRVar"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMStatsOPRMaxVar"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMStatsOPRGlitchRejects"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMStatsOPRRTR"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMStatsOPROOR"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMStatsOPROOV"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMHistoryOPR"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMHistoryAOPR"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMHistoryOPRVar"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMHistoryOPRMaxVar"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMHistoryOPRGlitchRejects"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMHistoryOPRRTR"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMHistoryOPROOR"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetAccPortPOPMHistoryOPROOV"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMStatsOPR"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMStatsAOPR"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMStatsOPRVar"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMStatsOPRMaxVar"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMStatsOPRGlitchRejects"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMStatsOPRRTR"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMStatsOPROOR"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMStatsOPROOV"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMHistoryOPR"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMHistoryAOPR"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMHistoryOPRVar"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMHistoryOPRMaxVar"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMHistoryOPRGlitchRejects"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMHistoryOPRRTR"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMHistoryOPROOR"
+      },
+      {
+        "module": "F3-POPM-MIB",
+        "object": "f3EthernetNetPortPOPMHistoryOPROOV"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-POPM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "F3-POPM-MIB"
+  }
+}

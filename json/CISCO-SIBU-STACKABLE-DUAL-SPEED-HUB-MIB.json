@@ -1,0 +1,997 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "SNMP-REPEATER-MIB": [
+      "rptrPortIndex",
+      "rptrGroupIndex",
+      "rptrPortGroupIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "PhysAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSibuStackableDualSpeedHubMIB": {
+    "name": "ciscoSibuStackableDualSpeedHubMIB",
+    "oid": "1.3.6.1.4.1.9.10.44",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1998-10-23 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSibuStackableDualSpeedHubMIBObjects": {
+    "name": "ciscoSibuStackableDualSpeedHubMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.44.1",
+    "class": "objectidentity"
+  },
+  "cssSystem": {
+    "name": "cssSystem",
+    "oid": "1.3.6.1.4.1.9.10.44.1.1",
+    "class": "objectidentity"
+  },
+  "cssGroup": {
+    "name": "cssGroup",
+    "oid": "1.3.6.1.4.1.9.10.44.1.2",
+    "class": "objectidentity"
+  },
+  "cssRepeaterPort": {
+    "name": "cssRepeaterPort",
+    "oid": "1.3.6.1.4.1.9.10.44.1.3",
+    "class": "objectidentity"
+  },
+  "cssSwitchPort": {
+    "name": "cssSwitchPort",
+    "oid": "1.3.6.1.4.1.9.10.44.1.4",
+    "class": "objectidentity"
+  },
+  "HubNumber": {
+    "name": "HubNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cssSystemLinkTraps": {
+    "name": "cssSystemLinkTraps",
+    "oid": "1.3.6.1.4.1.9.10.44.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssGroupTable": {
+    "name": "cssGroupTable",
+    "oid": "1.3.6.1.4.1.9.10.44.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssGroupEntry": {
+    "name": "cssGroupEntry",
+    "oid": "1.3.6.1.4.1.9.10.44.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cssGroupID": {
+    "name": "cssGroupID",
+    "oid": "1.3.6.1.4.1.9.10.44.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HubNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssGroupType": {
+    "name": "cssGroupType",
+    "oid": "1.3.6.1.4.1.9.10.44.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cisco1538MDS": 1,
+          "cisco1538UDS": 2,
+          "wsC412M": 3,
+          "wsC412": 4,
+          "wsC424M": 5,
+          "wsC424": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssGroupSerialNo": {
+    "name": "cssGroupSerialNo",
+    "oid": "1.3.6.1.4.1.9.10.44.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssGroupBoardRevision": {
+    "name": "cssGroupBoardRevision",
+    "oid": "1.3.6.1.4.1.9.10.44.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssGroupAgentBootVersion": {
+    "name": "cssGroupAgentBootVersion",
+    "oid": "1.3.6.1.4.1.9.10.44.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssGroupAgentFirmwareVersion": {
+    "name": "cssGroupAgentFirmwareVersion",
+    "oid": "1.3.6.1.4.1.9.10.44.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssGroupAgentStatus": {
+    "name": "cssGroupAgentStatus",
+    "oid": "1.3.6.1.4.1.9.10.44.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notPresent": 1,
+          "primary": 2,
+          "backup": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssGroupAgentPhysAddress": {
+    "name": "cssGroupAgentPhysAddress",
+    "oid": "1.3.6.1.4.1.9.10.44.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssGroupInternalPowerState": {
+    "name": "cssGroupInternalPowerState",
+    "oid": "1.3.6.1.4.1.9.10.44.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssGroupRedundantPowerState": {
+    "name": "cssGroupRedundantPowerState",
+    "oid": "1.3.6.1.4.1.9.10.44.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "healthy": 2,
+          "faulty": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssGroupReset": {
+    "name": "cssGroupReset",
+    "oid": "1.3.6.1.4.1.9.10.44.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noReset": 1,
+          "reset": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noReset",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssGroupConfigDefaultReset": {
+    "name": "cssGroupConfigDefaultReset",
+    "oid": "1.3.6.1.4.1.9.10.44.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noReset": 1,
+          "reset": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noReset",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssGroupIsolatedState": {
+    "name": "cssGroupIsolatedState",
+    "oid": "1.3.6.1.4.1.9.10.44.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "isolated": 1,
+          "attached": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssRepeaterPortTable": {
+    "name": "cssRepeaterPortTable",
+    "oid": "1.3.6.1.4.1.9.10.44.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssRepeaterPortEntry": {
+    "name": "cssRepeaterPortEntry",
+    "oid": "1.3.6.1.4.1.9.10.44.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrPortGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cssRepeaterPortName": {
+    "name": "cssRepeaterPortName",
+    "oid": "1.3.6.1.4.1.9.10.44.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssRepeaterPortControllerRevision": {
+    "name": "cssRepeaterPortControllerRevision",
+    "oid": "1.3.6.1.4.1.9.10.44.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssRepeaterPortSpeedAdmin": {
+    "name": "cssRepeaterPortSpeedAdmin",
+    "oid": "1.3.6.1.4.1.9.10.44.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tenMbps": 1,
+          "oneHundredMbps": 2,
+          "autoNegotiate": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "autoNegotiate",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssRepeaterPortSpeedStatus": {
+    "name": "cssRepeaterPortSpeedStatus",
+    "oid": "1.3.6.1.4.1.9.10.44.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tenMbps": 1,
+          "oneHundredMbps": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssRepeaterPortLinkStatus": {
+    "name": "cssRepeaterPortLinkStatus",
+    "oid": "1.3.6.1.4.1.9.10.44.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "link": 1,
+          "noLink": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssSwitchPortTable": {
+    "name": "cssSwitchPortTable",
+    "oid": "1.3.6.1.4.1.9.10.44.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssSwitchPortEntry": {
+    "name": "cssSwitchPortEntry",
+    "oid": "1.3.6.1.4.1.9.10.44.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssSwitchPortModuleID",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssSwitchPortPortID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cssSwitchPortModuleID": {
+    "name": "cssSwitchPortModuleID",
+    "oid": "1.3.6.1.4.1.9.10.44.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssSwitchPortPortID": {
+    "name": "cssSwitchPortPortID",
+    "oid": "1.3.6.1.4.1.9.10.44.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssSwitchPortName": {
+    "name": "cssSwitchPortName",
+    "oid": "1.3.6.1.4.1.9.10.44.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssSwitchPortType": {
+    "name": "cssSwitchPortType",
+    "oid": "1.3.6.1.4.1.9.10.44.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wsX4001": 1,
+          "wsX4002": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssSwitchPortControllerRevision": {
+    "name": "cssSwitchPortControllerRevision",
+    "oid": "1.3.6.1.4.1.9.10.44.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssSwitchPortState": {
+    "name": "cssSwitchPortState",
+    "oid": "1.3.6.1.4.1.9.10.44.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssSwitchPortDuplexAdmin": {
+    "name": "cssSwitchPortDuplexAdmin",
+    "oid": "1.3.6.1.4.1.9.10.44.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fullDuplex": 1,
+          "halfDuplex": 2,
+          "autoNegotiate": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "autoNegotiate",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssSwitchPortDuplexStatus": {
+    "name": "cssSwitchPortDuplexStatus",
+    "oid": "1.3.6.1.4.1.9.10.44.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fullDuplex": 1,
+          "halfDuplex": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssSwitchPortSpeedAdmin": {
+    "name": "cssSwitchPortSpeedAdmin",
+    "oid": "1.3.6.1.4.1.9.10.44.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tenMbps": 1,
+          "oneHundredMbps": 2,
+          "autoNegotiate": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "autoNegotiate",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssSwitchPortSpeedStatus": {
+    "name": "cssSwitchPortSpeedStatus",
+    "oid": "1.3.6.1.4.1.9.10.44.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tenMbps": 1,
+          "oneHundredMbps": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssSwitchPortLinkStatus": {
+    "name": "cssSwitchPortLinkStatus",
+    "oid": "1.3.6.1.4.1.9.10.44.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "link": 1,
+          "noLink": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSibuStackableDualSpeedHubNotifications": {
+    "name": "ciscoSibuStackableDualSpeedHubNotifications",
+    "oid": "1.3.6.1.4.1.9.10.44.2",
+    "class": "objectidentity"
+  },
+  "ciscoSibuStackableDualSpeedHubNotificationsPrefix": {
+    "name": "ciscoSibuStackableDualSpeedHubNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.9.10.44.2.0",
+    "class": "objectidentity"
+  },
+  "ciscoSibuStackableDualSpeedHubRptrPortLinkChange": {
+    "name": "ciscoSibuStackableDualSpeedHubRptrPortLinkChange",
+    "oid": "1.3.6.1.4.1.9.10.44.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssRepeaterPortLinkStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSibuStackableDualSpeedHubSwitchPortLinkChange": {
+    "name": "ciscoSibuStackableDualSpeedHubSwitchPortLinkChange",
+    "oid": "1.3.6.1.4.1.9.10.44.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssSwitchPortLinkStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSibuStackableDualSpeedHubMIBComformance": {
+    "name": "ciscoSibuStackableDualSpeedHubMIBComformance",
+    "oid": "1.3.6.1.4.1.9.10.44.3",
+    "class": "objectidentity"
+  },
+  "ciscoSibuStackableDualSpeedHubMIBCompliances": {
+    "name": "ciscoSibuStackableDualSpeedHubMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.44.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoSibuStackableDualSpeedHubMIBGroups": {
+    "name": "ciscoSibuStackableDualSpeedHubMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.44.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoSibuStackableDualSpeedHubCompliance": {
+    "name": "ciscoSibuStackableDualSpeedHubCompliance",
+    "oid": "1.3.6.1.4.1.9.10.44.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSibuStackableDualSpeedHubGroup",
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB"
+      },
+      {
+        "object": "ciscoSibuStackableDualSpeedHubRepeaterPortGroup",
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB"
+      },
+      {
+        "object": "ciscoSibuStackableDualSpeedHubSwitchPortGroup",
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSibuStackableDualSpeedHubGroup": {
+    "name": "ciscoSibuStackableDualSpeedHubGroup",
+    "oid": "1.3.6.1.4.1.9.10.44.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssSystemLinkTraps"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssGroupID"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssGroupType"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssGroupSerialNo"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssGroupBoardRevision"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssGroupAgentBootVersion"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssGroupAgentFirmwareVersion"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssGroupAgentStatus"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssGroupAgentPhysAddress"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssGroupInternalPowerState"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssGroupRedundantPowerState"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssGroupReset"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssGroupConfigDefaultReset"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssGroupIsolatedState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSibuStackableDualSpeedHubRepeaterPortGroup": {
+    "name": "ciscoSibuStackableDualSpeedHubRepeaterPortGroup",
+    "oid": "1.3.6.1.4.1.9.10.44.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssRepeaterPortName"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssRepeaterPortControllerRevision"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssRepeaterPortSpeedAdmin"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssRepeaterPortSpeedStatus"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssRepeaterPortLinkStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSibuStackableDualSpeedHubSwitchPortGroup": {
+    "name": "ciscoSibuStackableDualSpeedHubSwitchPortGroup",
+    "oid": "1.3.6.1.4.1.9.10.44.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssSwitchPortModuleID"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssSwitchPortPortID"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssSwitchPortName"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssSwitchPortType"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssSwitchPortControllerRevision"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssSwitchPortState"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssSwitchPortDuplexAdmin"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssSwitchPortDuplexStatus"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssSwitchPortSpeedAdmin"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssSwitchPortSpeedStatus"
+      },
+      {
+        "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+        "object": "cssSwitchPortLinkStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB"
+  }
+}

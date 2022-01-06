@@ -1,0 +1,1618 @@
+{
+  "imports": {
+    "class": "imports",
+    "LINKSYS-BRIDGEMIBOBJECTS-MIB": [
+      "VlanList1",
+      "VlanList3",
+      "VlanList2",
+      "VlanList4"
+    ],
+    "LINKSYS-MIB": [
+      "rnd"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "Counter32",
+      "iso",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "rsDHCP": {
+    "name": "rsDHCP",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-10-18 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "rsDhcpMibVersion": {
+    "name": "rsDhcpMibVersion",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpRelayMaximalNumberOfNonIpVlans": {
+    "name": "rlDhcpRelayMaximalNumberOfNonIpVlans",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpRelayCurrentNumberOfNonIpVlans": {
+    "name": "rlDhcpRelayCurrentNumberOfNonIpVlans",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpRelayEnable": {
+    "name": "rlDhcpRelayEnable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpRelayExists": {
+    "name": "rlDhcpRelayExists",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpRelayNextServerTable": {
+    "name": "rlDhcpRelayNextServerTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.27",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlDhcpRelayNextServerEntry": {
+    "name": "rlDhcpRelayNextServerEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.27.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-DHCP-MIB",
+        "object": "rlDhcpRelayNextServerIpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlDhcpRelayNextServerIpAddr": {
+    "name": "rlDhcpRelayNextServerIpAddr",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.27.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpRelayNextServerSecThreshold": {
+    "name": "rlDhcpRelayNextServerSecThreshold",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.27.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpRelayNextServerRowStatus": {
+    "name": "rlDhcpRelayNextServerRowStatus",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.27.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpRelayInterfaceTable": {
+    "name": "rlDhcpRelayInterfaceTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.28",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlDhcpRelayInterfaceEntry": {
+    "name": "rlDhcpRelayInterfaceEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.28.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-DHCP-MIB",
+        "object": "rlDhcpRelayInterfaceIfindex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlDhcpRelayInterfaceIfindex": {
+    "name": "rlDhcpRelayInterfaceIfindex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.28.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpRelayInterfaceUseGiaddr": {
+    "name": "rlDhcpRelayInterfaceUseGiaddr",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.28.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpRelayInterfaceRowStatus": {
+    "name": "rlDhcpRelayInterfaceRowStatus",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.28.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpRelayInterfaceListTable": {
+    "name": "rlDhcpRelayInterfaceListTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.29",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlDhcpRelayInterfaceListEntry": {
+    "name": "rlDhcpRelayInterfaceListEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.29.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-DHCP-MIB",
+        "object": "rlDhcpRelayInterfaceListIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlDhcpRelayInterfaceListIndex": {
+    "name": "rlDhcpRelayInterfaceListIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.29.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpRelayInterfaceListPortList": {
+    "name": "rlDhcpRelayInterfaceListPortList",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.29.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpRelayInterfaceListVlanId1To1024": {
+    "name": "rlDhcpRelayInterfaceListVlanId1To1024",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.29.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList1",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpRelayInterfaceListVlanId1025To2048": {
+    "name": "rlDhcpRelayInterfaceListVlanId1025To2048",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.29.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList2",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpRelayInterfaceListVlanId2049To3072": {
+    "name": "rlDhcpRelayInterfaceListVlanId2049To3072",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.29.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList3",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpRelayInterfaceListVlanId3073To4094": {
+    "name": "rlDhcpRelayInterfaceListVlanId3073To4094",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.29.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList4",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvEnable": {
+    "name": "rlDhcpSrvEnable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvExists": {
+    "name": "rlDhcpSrvExists",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvDbLocation": {
+    "name": "rlDhcpSrvDbLocation",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nvram": 1,
+          "flash": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "flash",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "rlDhcpSrvMaxNumOfClients": {
+    "name": "rlDhcpSrvMaxNumOfClients",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvDbNumOfActiveEntries": {
+    "name": "rlDhcpSrvDbNumOfActiveEntries",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvDbErase": {
+    "name": "rlDhcpSrvDbErase",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rlDhcpSrvProbeEnable": {
+    "name": "rlDhcpSrvProbeEnable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvProbeTimeout": {
+    "name": "rlDhcpSrvProbeTimeout",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 300,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvProbeRetries": {
+    "name": "rlDhcpSrvProbeRetries",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvDefaultNetworkPoolName": {
+    "name": "rlDhcpSrvDefaultNetworkPoolName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvIpAddrTable": {
+    "name": "rlDhcpSrvIpAddrTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.45",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlDhcpSrvIpAddrEntry": {
+    "name": "rlDhcpSrvIpAddrEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.45.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-DHCP-MIB",
+        "object": "rlDhcpSrvIpAddrIpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlDhcpSrvIpAddrIpAddr": {
+    "name": "rlDhcpSrvIpAddrIpAddr",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.45.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvIpAddrIpNetMask": {
+    "name": "rlDhcpSrvIpAddrIpNetMask",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.45.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvIpAddrIdentifier": {
+    "name": "rlDhcpSrvIpAddrIdentifier",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.45.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvIpAddrIdentifierType": {
+    "name": "rlDhcpSrvIpAddrIdentifierType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.45.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "physAddr": 1,
+          "clientId": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "clientId",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvIpAddrClnHostName": {
+    "name": "rlDhcpSrvIpAddrClnHostName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.45.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvIpAddrMechanism": {
+    "name": "rlDhcpSrvIpAddrMechanism",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.45.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "automatic": 2,
+          "dynamic": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "manual",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvIpAddrAgeTime": {
+    "name": "rlDhcpSrvIpAddrAgeTime",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.45.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvIpAddrPoolName": {
+    "name": "rlDhcpSrvIpAddrPoolName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.45.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvIpAddrConfParamsName": {
+    "name": "rlDhcpSrvIpAddrConfParamsName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.45.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvIpAddrRowStatus": {
+    "name": "rlDhcpSrvIpAddrRowStatus",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.45.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvIpAddrLeaseTime": {
+    "name": "rlDhcpSrvIpAddrLeaseTime",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.45.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 86400,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvIpAddrState": {
+    "name": "rlDhcpSrvIpAddrState",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.45.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pre-allocated": 1,
+          "valid": 2,
+          "expired": 3,
+          "declined": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "valid",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvIpAddrOptionParamsName": {
+    "name": "rlDhcpSrvIpAddrOptionParamsName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.45.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvDynamicTable": {
+    "name": "rlDhcpSrvDynamicTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.46",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlDhcpSrvDynamicEntry": {
+    "name": "rlDhcpSrvDynamicEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.46.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-DHCP-MIB",
+        "object": "rlDhcpSrvDynamicPoolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlDhcpSrvDynamicPoolName": {
+    "name": "rlDhcpSrvDynamicPoolName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.46.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvDynamicIpAddrFrom": {
+    "name": "rlDhcpSrvDynamicIpAddrFrom",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.46.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvDynamicIpAddrTo": {
+    "name": "rlDhcpSrvDynamicIpAddrTo",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.46.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvDynamicIpNetMask": {
+    "name": "rlDhcpSrvDynamicIpNetMask",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.46.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvDynamicLeaseTime": {
+    "name": "rlDhcpSrvDynamicLeaseTime",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.46.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 86400,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvDynamicProbeEnable": {
+    "name": "rlDhcpSrvDynamicProbeEnable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.46.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvDynamicTotalNumOfAddr": {
+    "name": "rlDhcpSrvDynamicTotalNumOfAddr",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.46.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvDynamicFreeNumOfAddr": {
+    "name": "rlDhcpSrvDynamicFreeNumOfAddr",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.46.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvDynamicConfParamsName": {
+    "name": "rlDhcpSrvDynamicConfParamsName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.46.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvDynamicRowStatus": {
+    "name": "rlDhcpSrvDynamicRowStatus",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.46.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvDynamicAvailableNumOfAddr": {
+    "name": "rlDhcpSrvDynamicAvailableNumOfAddr",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.46.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvDynamicNumOfPreallocatedAddr": {
+    "name": "rlDhcpSrvDynamicNumOfPreallocatedAddr",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.46.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvDynamicNumOfValidAddr": {
+    "name": "rlDhcpSrvDynamicNumOfValidAddr",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.46.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvDynamicNumOfExpiredAddr": {
+    "name": "rlDhcpSrvDynamicNumOfExpiredAddr",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.46.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvDynamicNumOfDeclinedAddr": {
+    "name": "rlDhcpSrvDynamicNumOfDeclinedAddr",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.46.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvDynamicOptionParamsName": {
+    "name": "rlDhcpSrvDynamicOptionParamsName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.46.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvConfParamsTable": {
+    "name": "rlDhcpSrvConfParamsTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.47",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlDhcpSrvConfParamsEntry": {
+    "name": "rlDhcpSrvConfParamsEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.47.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-DHCP-MIB",
+        "object": "rlDhcpSrvConfParamsName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlDhcpSrvConfParamsName": {
+    "name": "rlDhcpSrvConfParamsName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.47.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvConfParamsNextServerIp": {
+    "name": "rlDhcpSrvConfParamsNextServerIp",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.47.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvConfParamsNextServerName": {
+    "name": "rlDhcpSrvConfParamsNextServerName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.47.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvConfParamsBootfileName": {
+    "name": "rlDhcpSrvConfParamsBootfileName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.47.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvConfParamsRoutersList": {
+    "name": "rlDhcpSrvConfParamsRoutersList",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.47.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvConfParamsTimeSrvList": {
+    "name": "rlDhcpSrvConfParamsTimeSrvList",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.47.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvConfParamsDnsList": {
+    "name": "rlDhcpSrvConfParamsDnsList",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.47.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvConfParamsDomainName": {
+    "name": "rlDhcpSrvConfParamsDomainName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.47.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvConfParamsNetbiosNameList": {
+    "name": "rlDhcpSrvConfParamsNetbiosNameList",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.47.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvConfParamsNetbiosNodeType": {
+    "name": "rlDhcpSrvConfParamsNetbiosNodeType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.47.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "b-node": 1,
+          "p-node": 2,
+          "m-node": 4,
+          "h-node": 8
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "h-node",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvConfParamsCommunity": {
+    "name": "rlDhcpSrvConfParamsCommunity",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.47.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "public",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rlDhcpSrvConfParamsNmsIp": {
+    "name": "rlDhcpSrvConfParamsNmsIp",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.47.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rlDhcpSrvConfParamsOptionsList": {
+    "name": "rlDhcpSrvConfParamsOptionsList",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.47.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rlDhcpSrvConfParamsRowStatus": {
+    "name": "rlDhcpSrvConfParamsRowStatus",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.47.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvNumOfNetworkPools": {
+    "name": "rlDhcpSrvNumOfNetworkPools",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvNumOfExcludedPools": {
+    "name": "rlDhcpSrvNumOfExcludedPools",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvNumOfHostPools": {
+    "name": "rlDhcpSrvNumOfHostPools",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvNumOfDynamicEntries": {
+    "name": "rlDhcpSrvNumOfDynamicEntries",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvNumOfUsedEntries": {
+    "name": "rlDhcpSrvNumOfUsedEntries",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvNumOfPreAllocatedEntries": {
+    "name": "rlDhcpSrvNumOfPreAllocatedEntries",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvNumOfExpiredEntries": {
+    "name": "rlDhcpSrvNumOfExpiredEntries",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvNumOfDeclinedEntries": {
+    "name": "rlDhcpSrvNumOfDeclinedEntries",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvNumOfAutomaticEntries": {
+    "name": "rlDhcpSrvNumOfAutomaticEntries",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "RlDhcpSrvOptionTypeEnum": {
+    "name": "RlDhcpSrvOptionTypeEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "boolean": 1,
+          "integer": 2,
+          "ascii": 3,
+          "ip": 4,
+          "hex": 5,
+          "ip-list": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlDhcpSrvOptionParamsTable": {
+    "name": "rlDhcpSrvOptionParamsTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.57",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlDhcpSrvOptionParamsEntry": {
+    "name": "rlDhcpSrvOptionParamsEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.57.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-DHCP-MIB",
+        "object": "rlDhcpSrvOptionParamsName",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-DHCP-MIB",
+        "object": "rlDhcpSrvOptionParamsCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlDhcpSrvOptionParamsName": {
+    "name": "rlDhcpSrvOptionParamsName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.57.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvOptionParamsCode": {
+    "name": "rlDhcpSrvOptionParamsCode",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.57.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvOptionParamsType": {
+    "name": "rlDhcpSrvOptionParamsType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.57.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlDhcpSrvOptionTypeEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvOptionParamsOrigString": {
+    "name": "rlDhcpSrvOptionParamsOrigString",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.57.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvOptionParamsDescription": {
+    "name": "rlDhcpSrvOptionParamsDescription",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.57.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvOptionParamsRowStatus": {
+    "name": "rlDhcpSrvOptionParamsRowStatus",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.57.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDhcpSrvAuxOptionTable": {
+    "name": "rlDhcpSrvAuxOptionTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.58",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlDhcpSrvAuxOptionEntry": {
+    "name": "rlDhcpSrvAuxOptionEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.58.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-DHCP-MIB",
+        "object": "rlDhcpSrvAuxOptionCode",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-DHCP-MIB",
+        "object": "rlDhcpSrvAuxOptionType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlDhcpSrvAuxOptionCode": {
+    "name": "rlDhcpSrvAuxOptionCode",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.58.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvAuxOptionType": {
+    "name": "rlDhcpSrvAuxOptionType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.58.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlDhcpSrvOptionTypeEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvAuxOptionMinVal": {
+    "name": "rlDhcpSrvAuxOptionMinVal",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.58.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpSrvAuxOptionMaxVal": {
+    "name": "rlDhcpSrvAuxOptionMaxVal",
+    "oid": "1.3.6.1.4.1.3955.1000.201.38.58.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-DHCP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:41:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "LINKSYS-DHCP-MIB"
+  }
+}

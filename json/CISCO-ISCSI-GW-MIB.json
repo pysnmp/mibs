@@ -1,0 +1,3099 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-ISCSI-MIB": [
+      "cIscsiSessionAttributesEntry",
+      "cIscsiInstanceAttributesEntry",
+      "cIscsiNodeAttributesEntry",
+      "cIscsiInstIndex"
+    ],
+    "CISCO-SCSI-MIB": [
+      "ciscoScsiLuEntry",
+      "ScsiLUNOrZero",
+      "ScsiName"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-ST-TC": [
+      "FcNameId",
+      "VsanIndex",
+      "FcNameIdOrZero"
+    ],
+    "CISCO-TC": [
+      "CiscoPort",
+      "ListIndexOrZero",
+      "ListIndex"
+    ],
+    "CISCO-ZS-MIB": [
+      "FcList"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoIscsiGwMIB": {
+    "name": "ciscoIscsiGwMIB",
+    "oid": "1.3.6.1.4.1.9.9.317",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-04-29 00:00",
+        "description": "Added new table ciscsiConnectionStatsTable. Added new group cigConnectionStatsGroup. Added new objects to IscsiIfEntry - iscsiIfNumNormalConnections iscsiIfNumDiscovConnections iscsiIfTcpCWMEnable iscsiIfTcpCWMBurstSize iscsiIfTcpMaxJitter Added new objects to Iscsi2FcNodeEntry - iscsi2FcTargetUserName iscsi2FcTargetPassword Added new objects - iscsiTargetUserName and iscsiTargetPassword to ciScsiConfig, global Scsi configuration."
+      },
+      {
+        "revision": "2004-11-16 00:00",
+        "description": "Added new objects iscsiIfTcpRndTrpTimeEst. Added new group cigIscsiIfGroupRev4. Added new object iscsiIfTcpLocalTcpPort. Deprecated iscsiIfTcpLocalPort. Added a new compliance ciscoiScsiGwMIBCompliance4."
+      },
+      {
+        "revision": "2003-12-08 00:00",
+        "description": "Added new objects iscsiIfIntrIdentificationMode, iscsiIntrIdentificationMode and iscsiInitiatorIdleTimeout. Added a new compliance ciscoiScsiGwMIBCompliance3."
+      },
+      {
+        "revision": "2003-11-14 00:00",
+        "description": "Added new objects iscsiAuthMethod,iscsi2FcNodeAuthUser, iscsiIfForwardingMode, and iscsiIfIntrProxyMode. Added new compliance ciscoiScsiGwMIBCompliance1. Added new table iscsiGigEIfTable and new comformance group cigIscsiGigEIfGroup. Added new objects fc2IscsiNodeTrespassMode and fc2IscsiNodeRevertToPrimaryPort to fc2IscsiNodeTable."
+      },
+      {
+        "revision": "2003-08-18 00:00",
+        "description": "Added a new table iscsiSessionAttributesExtTable. Added iscsiIfTable. Added scsiLuExtRemoteSecLun to scsiLyExtTable. Added new object iscsi2FcNodeFcAddrAssignment to iscsi2FcNodeTable. Changed MAX-ACCESS of iscsi2FcNodeDiscovered to read-create. Added a MIN-ACCESS to to this object to be backward compatible. Added new conformance groups cigLuConfigurationGroupRev1 and cigConfigurationGroupRev1. Also added a new compliance ciscoiScsiGwMIBCompliance1."
+      },
+      {
+        "revision": "2003-05-22 00:00",
+        "description": "Fixed the MIB compile errors during MIB release."
+      },
+      {
+        "revision": "2003-04-10 00:00",
+        "description": "Changed the syntax of CIscsiTargetDomains to BITS from INTEGER. Added a new table iscsiImprtExprtTgtsConfTable instead of the two scalar objects iscsiImportTargets and iscsiExportTargets. Added two new objects iscsi2FcNodeDiscovered and fc2IscsiNodeDiscovered to iscsi2FcNodeTable and fc2IscsiNodeTable respectively. Added new object fc2IscsiNodeAllIntrAccessAllowed. Changed the range of iscsi2FcPortNumFCAddr to 0-64 from 0-255."
+      },
+      {
+        "revision": "2003-02-11 00:00",
+        "description": "Added an enumeration 'none' to the CIscsiTargetDomains TC. Changed the DESCRIPTION of iscsiImportTargets and iscsiExportTargets to reflect this change."
+      },
+      {
+        "revision": "2002-10-05 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoiScsiGwMIBNotifications": {
+    "name": "ciscoiScsiGwMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.317.0",
+    "class": "objectidentity"
+  },
+  "ciscoiScsiGwMIBObjects": {
+    "name": "ciscoiScsiGwMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.317.1",
+    "class": "objectidentity"
+  },
+  "ciscoiScsiGwMIBConformance": {
+    "name": "ciscoiScsiGwMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.317.2",
+    "class": "objectidentity"
+  },
+  "ciScsiConfig": {
+    "name": "ciScsiConfig",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1",
+    "class": "objectidentity"
+  },
+  "ciScsiStatistics": {
+    "name": "ciScsiStatistics",
+    "oid": "1.3.6.1.4.1.9.9.317.1.2",
+    "class": "objectidentity"
+  },
+  "CIscsiTargetDomains": {
+    "name": "CIscsiTargetDomains",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "fibreChannel": 0
+      }
+    },
+    "status": "current"
+  },
+  "CIscsiNodeRoles": {
+    "name": "CIscsiNodeRoles",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "targetTypeNode": 0,
+        "initiatorTypeNode": 1
+      }
+    },
+    "status": "current"
+  },
+  "IscsiName": {
+    "name": "IscsiName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 223
+          }
+        ]
+      }
+    },
+    "displayhint": "223a",
+    "status": "current"
+  },
+  "IscsiAuthMethod": {
+    "name": "IscsiAuthMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "none": 0,
+        "chap": 1
+      }
+    },
+    "status": "current"
+  },
+  "CIscsiIntrIdentificationMode": {
+    "name": "CIscsiIntrIdentificationMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "name": 1,
+          "ipaddress": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "iscsiImprtExprtTgtsConfTable": {
+    "name": "iscsiImprtExprtTgtsConfTable",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iscsiImprtExprtTgtsConfEntry": {
+    "name": "iscsiImprtExprtTgtsConfEntry",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "iscsiImprtExprtTgtsConfEntry",
+      "module": "CISCO-ISCSI-GW-MIB",
+      "object": "cIscsiInstanceAttributesEntry"
+    },
+    "status": "current"
+  },
+  "iscsiImprtExprtTgtsConfImport": {
+    "name": "iscsiImprtExprtTgtsConfImport",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIscsiTargetDomains",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiImprtExprtTgtsConfExport": {
+    "name": "iscsiImprtExprtTgtsConfExport",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIscsiTargetDomains",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiAuthMethod": {
+    "name": "iscsiAuthMethod",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IscsiAuthMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsi2FcNodeTable": {
+    "name": "iscsi2FcNodeTable",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iscsi2FcNodeEntry": {
+    "name": "iscsi2FcNodeEntry",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iscsi2FcNodeIndex": {
+    "name": "iscsi2FcNodeIndex",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iscsi2FcNodeName": {
+    "name": "iscsi2FcNodeName",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IscsiName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iscsi2FcNodeRole": {
+    "name": "iscsi2FcNodeRole",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIscsiNodeRoles",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iscsi2FcNodePersistentFCAddr": {
+    "name": "iscsi2FcNodePersistentFCAddr",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iscsi2FcPortPersistentFCAddr": {
+    "name": "iscsi2FcPortPersistentFCAddr",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iscsi2FcPortNumFCAddr": {
+    "name": "iscsi2FcPortNumFCAddr",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iscsi2FcNodeFCAddr": {
+    "name": "iscsi2FcNodeFCAddr",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iscsi2FcPortFCAddrListIndex": {
+    "name": "iscsi2FcPortFCAddrListIndex",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ListIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iscsi2FcNodeVsanList2k": {
+    "name": "iscsi2FcNodeVsanList2k",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iscsi2FcNodeVsanList4k": {
+    "name": "iscsi2FcNodeVsanList4k",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iscsi2FcNodeDiscovered": {
+    "name": "iscsi2FcNodeDiscovered",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iscsi2FcNodeRowStatus": {
+    "name": "iscsi2FcNodeRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iscsi2FcNodeFcAddrAssignment": {
+    "name": "iscsi2FcNodeFcAddrAssignment",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iscsi2FcNodeAuthUser": {
+    "name": "iscsi2FcNodeAuthUser",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iscsi2FcTargetUserName": {
+    "name": "iscsi2FcTargetUserName",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iscsi2FcTargetPassword": {
+    "name": "iscsi2FcTargetPassword",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fc2IscsiNodeTable": {
+    "name": "fc2IscsiNodeTable",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fc2IscsiNodeEntry": {
+    "name": "fc2IscsiNodeEntry",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "fc2IscsiNodeEntry",
+      "module": "CISCO-ISCSI-GW-MIB",
+      "object": "cIscsiNodeAttributesEntry"
+    },
+    "status": "current"
+  },
+  "fc2IscsiNodeRole": {
+    "name": "fc2IscsiNodeRole",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIscsiNodeRoles",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fc2IscsiNodeName": {
+    "name": "fc2IscsiNodeName",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IscsiName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fc2IscsiPortFCAddrListIndex": {
+    "name": "fc2IscsiPortFCAddrListIndex",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ListIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fc2IscsiNodePermitListIndex": {
+    "name": "fc2IscsiNodePermitListIndex",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ListIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fc2IscsiNodeAdvIntfListIndex": {
+    "name": "fc2IscsiNodeAdvIntfListIndex",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ListIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fc2IscsiNodeAllIntrAccessAllowed": {
+    "name": "fc2IscsiNodeAllIntrAccessAllowed",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fc2IscsiNodeDiscovered": {
+    "name": "fc2IscsiNodeDiscovered",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fc2IscsiNodeRowStatus": {
+    "name": "fc2IscsiNodeRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fc2IscsiNodeTrespassMode": {
+    "name": "fc2IscsiNodeTrespassMode",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fc2IscsiNodeRevertToPrimaryPort": {
+    "name": "fc2IscsiNodeRevertToPrimaryPort",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcAddressListTable": {
+    "name": "fcAddressListTable",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcAddressListEntry": {
+    "name": "fcAddressListEntry",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fcAddressListIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fcAddressIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcAddressListIndex": {
+    "name": "fcAddressListIndex",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ListIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcAddressIndex": {
+    "name": "fcAddressIndex",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcAddress": {
+    "name": "fcAddress",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcSecondaryAddress": {
+    "name": "fcSecondaryAddress",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcAddressRowStatus": {
+    "name": "fcAddressRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iscsiNodeNameListTable": {
+    "name": "iscsiNodeNameListTable",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iscsiNodeNameListEntry": {
+    "name": "iscsiNodeNameListEntry",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiNodeNameListIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiNodeNameIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iscsiNodeNameListIndex": {
+    "name": "iscsiNodeNameListIndex",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ListIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iscsiNodeNameIndex": {
+    "name": "iscsiNodeNameIndex",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iscsiNodeName": {
+    "name": "iscsiNodeName",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IscsiName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iscsiNodeNameRowStatus": {
+    "name": "iscsiNodeNameRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nodeAdvIntfListTable": {
+    "name": "nodeAdvIntfListTable",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nodeAdvIntfListEntry": {
+    "name": "nodeAdvIntfListEntry",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "nodeAdvIntfListIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "nodeAdvIntfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nodeAdvIntfListIndex": {
+    "name": "nodeAdvIntfListIndex",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nodeAdvIntfIndex": {
+    "name": "nodeAdvIntfIndex",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nodeAdvIntfIfIndex": {
+    "name": "nodeAdvIntfIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nodeAdvIntfIfRowStatus": {
+    "name": "nodeAdvIntfIfRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "scsiLuExtTable": {
+    "name": "scsiLuExtTable",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiLuExtEntry": {
+    "name": "scsiLuExtEntry",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "scsiLuExtEntry",
+      "module": "CISCO-ISCSI-GW-MIB",
+      "object": "ciscoScsiLuEntry"
+    },
+    "status": "current"
+  },
+  "scsiLuExtRemotePortFcAddress": {
+    "name": "scsiLuExtRemotePortFcAddress",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "scsiLuExtRemotePortSecFcAddress": {
+    "name": "scsiLuExtRemotePortSecFcAddress",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "scsiLuExtLocalTargetAddress": {
+    "name": "scsiLuExtLocalTargetAddress",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "scsiLuExtRemoteLun": {
+    "name": "scsiLuExtRemoteLun",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiLUNOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "scsiLuExtLocalLun": {
+    "name": "scsiLuExtLocalLun",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiLUNOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "scsiLuExtRowStatus": {
+    "name": "scsiLuExtRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "scsiLuExtRemoteSecLun": {
+    "name": "scsiLuExtRemoteSecLun",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiLUNOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iscsiIfTable": {
+    "name": "iscsiIfTable",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iscsiIfEntry": {
+    "name": "iscsiIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iscsiIfTcpKeepAliveTimeout": {
+    "name": "iscsiIfTcpKeepAliveTimeout",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiIfTcpMaxBandwidth": {
+    "name": "iscsiIfTcpMaxBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1000,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiIfTcpMaxRetransmissions": {
+    "name": "iscsiIfTcpMaxRetransmissions",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiIfTcpMinRetransmitTime": {
+    "name": "iscsiIfTcpMinRetransmitTime",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 250,
+            "max": 5000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiIfTcpPMTUEnable": {
+    "name": "iscsiIfTcpPMTUEnable",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiIfTcpQOS": {
+    "name": "iscsiIfTcpQOS",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiIfTcpSACKEnable": {
+    "name": "iscsiIfTcpSACKEnable",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiIfTcpSendBufferSize": {
+    "name": "iscsiIfTcpSendBufferSize",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8192
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiIfTcpMinBandwidth": {
+    "name": "iscsiIfTcpMinBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1000,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiIfTcpPMTUResetTimeout": {
+    "name": "iscsiIfTcpPMTUResetTimeout",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiIfTcpLocalPort": {
+    "name": "iscsiIfTcpLocalPort",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "iscsiIfForwardingMode": {
+    "name": "iscsiIfForwardingMode",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "passThrough": 1,
+          "storeAndForward": 2,
+          "cutThrough": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiIfIntrProxyMode": {
+    "name": "iscsiIfIntrProxyMode",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiIfIntrProxyModeNodeFcAddr": {
+    "name": "iscsiIfIntrProxyModeNodeFcAddr",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiIfIntrProxyModePortFcAddr": {
+    "name": "iscsiIfIntrProxyModePortFcAddr",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiIfIntrProxyModeFcAddrAsgnmt": {
+    "name": "iscsiIfIntrProxyModeFcAddrAsgnmt",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiIfIntrIdentificationMode": {
+    "name": "iscsiIfIntrIdentificationMode",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIscsiIntrIdentificationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiIfTcpRndTrpTimeEst": {
+    "name": "iscsiIfTcpRndTrpTimeEst",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 300000
+          }
+        ]
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiIfTcpLocalTcpPort": {
+    "name": "iscsiIfTcpLocalTcpPort",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiIfNumNormalConnections": {
+    "name": "iscsiIfNumNormalConnections",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iscsiIfNumDiscovConnections": {
+    "name": "iscsiIfNumDiscovConnections",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iscsiIfTcpCWMEnable": {
+    "name": "iscsiIfTcpCWMEnable",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiIfTcpCWMBurstSize": {
+    "name": "iscsiIfTcpCWMBurstSize",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiIfTcpMaxJitter": {
+    "name": "iscsiIfTcpMaxJitter",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.9.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiGigEIfTable": {
+    "name": "iscsiGigEIfTable",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iscsiGigEIfEntry": {
+    "name": "iscsiGigEIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iscsiGigEIfAuthMethod": {
+    "name": "iscsiGigEIfAuthMethod",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IscsiAuthMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiGigEIfIsnsServerProfileName": {
+    "name": "iscsiGigEIfIsnsServerProfileName",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiGigEIfIscsiSessions": {
+    "name": "iscsiGigEIfIscsiSessions",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iscsiInitiatorIdleTimeout": {
+    "name": "iscsiInitiatorIdleTimeout",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiIntrIdentificationMode": {
+    "name": "iscsiIntrIdentificationMode",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIscsiIntrIdentificationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiTargetUserName": {
+    "name": "iscsiTargetUserName",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiTargetPassword": {
+    "name": "iscsiTargetPassword",
+    "oid": "1.3.6.1.4.1.9.9.317.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iscsiSessionAttributesExtTable": {
+    "name": "iscsiSessionAttributesExtTable",
+    "oid": "1.3.6.1.4.1.9.9.317.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iscsiSessionAttributesExtEntry": {
+    "name": "iscsiSessionAttributesExtEntry",
+    "oid": "1.3.6.1.4.1.9.9.317.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "iscsiSessionAttributesExtEntry",
+      "module": "CISCO-ISCSI-GW-MIB",
+      "object": "cIscsiSessionAttributesEntry"
+    },
+    "status": "current"
+  },
+  "iscsiSsnVsan": {
+    "name": "iscsiSsnVsan",
+    "oid": "1.3.6.1.4.1.9.9.317.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscsiConnectionStatsTable": {
+    "name": "ciscsiConnectionStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.317.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscsiConnectionStatsEntry": {
+    "name": "ciscsiConnectionStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.317.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "cIscsiStatsNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "cIscsiStatsSessionIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "cIscsiStatsConnectionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiStatsNodeIndex": {
+    "name": "cIscsiStatsNodeIndex",
+    "oid": "1.3.6.1.4.1.9.9.317.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiStatsSessionIndex": {
+    "name": "cIscsiStatsSessionIndex",
+    "oid": "1.3.6.1.4.1.9.9.317.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiStatsConnectionIndex": {
+    "name": "cIscsiStatsConnectionIndex",
+    "oid": "1.3.6.1.4.1.9.9.317.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiStatsConnectionRxBytes": {
+    "name": "cIscsiStatsConnectionRxBytes",
+    "oid": "1.3.6.1.4.1.9.9.317.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiStatsConnectionTxBytes": {
+    "name": "cIscsiStatsConnectionTxBytes",
+    "oid": "1.3.6.1.4.1.9.9.317.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiStatsIpSecInUse": {
+    "name": "cIscsiStatsIpSecInUse",
+    "oid": "1.3.6.1.4.1.9.9.317.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoiScsiGwMIBCompliances": {
+    "name": "ciscoiScsiGwMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.317.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoiScsiGwMIBGroups": {
+    "name": "ciscoiScsiGwMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.317.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoiScsiGwMIBCompliance": {
+    "name": "ciscoiScsiGwMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.317.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cigConfigurationGroup",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigLuConfigurationGroup",
+        "module": "CISCO-ISCSI-GW-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoiScsiGwMIBCompliance1": {
+    "name": "ciscoiScsiGwMIBCompliance1",
+    "oid": "1.3.6.1.4.1.9.9.317.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cigConfigurationGroupRev1",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigSessionStatsGroup",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigIscsiIfGroup",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigLuConfigurationGroupRev1",
+        "module": "CISCO-ISCSI-GW-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoiScsiGwMIBCompliance2": {
+    "name": "ciscoiScsiGwMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.317.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cigConfigurationGroupRev2",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigSessionStatsGroup",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigIscsiIfGroupRev1",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigIscsiAuthGroup",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigIscsiGigEIfGroup",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigLuConfigurationGroupRev1",
+        "module": "CISCO-ISCSI-GW-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoiScsiGwMIBCompliance3": {
+    "name": "ciscoiScsiGwMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.317.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cigConfigurationGroupRev3",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigSessionStatsGroup",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigIscsiIfGroupRev3",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigIscsiAuthGroup",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigIscsiGigEIfGroup",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigLuConfigurationGroupRev1",
+        "module": "CISCO-ISCSI-GW-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoiScsiGwMIBCompliance4": {
+    "name": "ciscoiScsiGwMIBCompliance4",
+    "oid": "1.3.6.1.4.1.9.9.317.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cigConfigurationGroupRev3",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigSessionStatsGroup",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigIscsiIfGroupRev4",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigIscsiAuthGroup",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigIscsiGigEIfGroup",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigLuConfigurationGroupRev1",
+        "module": "CISCO-ISCSI-GW-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoiScsiGwMIBCompliance5": {
+    "name": "ciscoiScsiGwMIBCompliance5",
+    "oid": "1.3.6.1.4.1.9.9.317.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cigConfigurationGroupRev3",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigConfigurationGroupSup1",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigSessionStatsGroup",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigIscsiIfGroupRev4",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigIscsiIfGroupSup1",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigIscsiAuthGroup",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigIscsiAuthGroupSup1",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigIscsiGigEIfGroup",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigConnectionStatsGroup",
+        "module": "CISCO-ISCSI-GW-MIB"
+      },
+      {
+        "object": "cigLuConfigurationGroupRev1",
+        "module": "CISCO-ISCSI-GW-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cigConfigurationGroup": {
+    "name": "cigConfigurationGroup",
+    "oid": "1.3.6.1.4.1.9.9.317.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiImprtExprtTgtsConfImport"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiImprtExprtTgtsConfExport"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeName"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeRole"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodePersistentFCAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcPortPersistentFCAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcPortNumFCAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeFCAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcPortFCAddrListIndex"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeVsanList2k"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeVsanList4k"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeDiscovered"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeRowStatus"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeRole"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeName"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiPortFCAddrListIndex"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodePermitListIndex"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeAdvIntfListIndex"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeAllIntrAccessAllowed"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeDiscovered"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeRowStatus"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fcAddress"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fcSecondaryAddress"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fcAddressRowStatus"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiNodeName"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiNodeNameRowStatus"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "nodeAdvIntfIfIndex"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "nodeAdvIntfIfRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cigLuConfigurationGroup": {
+    "name": "cigLuConfigurationGroup",
+    "oid": "1.3.6.1.4.1.9.9.317.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "scsiLuExtRemotePortFcAddress"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "scsiLuExtRemotePortSecFcAddress"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "scsiLuExtLocalTargetAddress"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "scsiLuExtRemoteLun"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "scsiLuExtLocalLun"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "scsiLuExtRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cigSessionStatsGroup": {
+    "name": "cigSessionStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.317.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiSsnVsan"
+      }
+    ],
+    "status": "current"
+  },
+  "cigConfigurationGroupRev1": {
+    "name": "cigConfigurationGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.317.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiImprtExprtTgtsConfImport"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiImprtExprtTgtsConfExport"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeName"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeRole"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodePersistentFCAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcPortPersistentFCAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcPortNumFCAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeFCAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcPortFCAddrListIndex"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeVsanList2k"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeVsanList4k"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeDiscovered"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeRowStatus"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeFcAddrAssignment"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeRole"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeName"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiPortFCAddrListIndex"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodePermitListIndex"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeAdvIntfListIndex"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeAllIntrAccessAllowed"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeDiscovered"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeRowStatus"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fcAddress"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fcSecondaryAddress"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fcAddressRowStatus"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiNodeName"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiNodeNameRowStatus"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "nodeAdvIntfIfIndex"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "nodeAdvIntfIfRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cigLuConfigurationGroupRev1": {
+    "name": "cigLuConfigurationGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.317.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "scsiLuExtRemotePortFcAddress"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "scsiLuExtRemotePortSecFcAddress"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "scsiLuExtLocalTargetAddress"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "scsiLuExtRemoteLun"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "scsiLuExtLocalLun"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "scsiLuExtRowStatus"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "scsiLuExtRemoteSecLun"
+      }
+    ],
+    "status": "current"
+  },
+  "cigIscsiIfGroup": {
+    "name": "cigIscsiIfGroup",
+    "oid": "1.3.6.1.4.1.9.9.317.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpKeepAliveTimeout"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpMaxBandwidth"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpMaxRetransmissions"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpMinRetransmitTime"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpPMTUEnable"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpQOS"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpSACKEnable"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpSendBufferSize"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpMinBandwidth"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpPMTUResetTimeout"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpLocalPort"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cigIscsiIfGroupRev1": {
+    "name": "cigIscsiIfGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.317.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpKeepAliveTimeout"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpMaxBandwidth"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpMaxRetransmissions"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpMinRetransmitTime"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpPMTUEnable"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpQOS"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpSACKEnable"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpSendBufferSize"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpMinBandwidth"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpPMTUResetTimeout"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpLocalPort"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfForwardingMode"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfIntrProxyMode"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfIntrProxyModeNodeFcAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfIntrProxyModePortFcAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfIntrProxyModeFcAddrAsgnmt"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cigIscsiAuthGroup": {
+    "name": "cigIscsiAuthGroup",
+    "oid": "1.3.6.1.4.1.9.9.317.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiAuthMethod"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeAuthUser"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiGigEIfAuthMethod"
+      }
+    ],
+    "status": "current"
+  },
+  "cigConfigurationGroupRev2": {
+    "name": "cigConfigurationGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.317.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiImprtExprtTgtsConfImport"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiImprtExprtTgtsConfExport"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeName"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeRole"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodePersistentFCAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcPortPersistentFCAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcPortNumFCAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeFCAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcPortFCAddrListIndex"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeVsanList2k"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeVsanList4k"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeDiscovered"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeRowStatus"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeFcAddrAssignment"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeRole"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeName"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiPortFCAddrListIndex"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodePermitListIndex"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeAdvIntfListIndex"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeAllIntrAccessAllowed"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeDiscovered"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeRowStatus"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeTrespassMode"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeRevertToPrimaryPort"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fcAddress"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fcSecondaryAddress"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fcAddressRowStatus"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiNodeName"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiNodeNameRowStatus"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "nodeAdvIntfIfIndex"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "nodeAdvIntfIfRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cigIscsiGigEIfGroup": {
+    "name": "cigIscsiGigEIfGroup",
+    "oid": "1.3.6.1.4.1.9.9.317.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiGigEIfIsnsServerProfileName"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiGigEIfIscsiSessions"
+      }
+    ],
+    "status": "current"
+  },
+  "cigIscsiIfGroupRev2": {
+    "name": "cigIscsiIfGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.317.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpKeepAliveTimeout"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpMaxBandwidth"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpMaxRetransmissions"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpMinRetransmitTime"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpPMTUEnable"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpQOS"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpSACKEnable"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpSendBufferSize"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpMinBandwidth"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpPMTUResetTimeout"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpLocalPort"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfForwardingMode"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfIntrProxyMode"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfIntrProxyModeNodeFcAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfIntrProxyModePortFcAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfIntrProxyModeFcAddrAsgnmt"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cigConfigurationGroupRev3": {
+    "name": "cigConfigurationGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.317.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiImprtExprtTgtsConfImport"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiImprtExprtTgtsConfExport"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeName"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeRole"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodePersistentFCAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcPortPersistentFCAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcPortNumFCAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeFCAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcPortFCAddrListIndex"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeVsanList2k"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeVsanList4k"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeDiscovered"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeRowStatus"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcNodeFcAddrAssignment"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeRole"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeName"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiPortFCAddrListIndex"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodePermitListIndex"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeAdvIntfListIndex"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeAllIntrAccessAllowed"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeDiscovered"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeRowStatus"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeTrespassMode"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fc2IscsiNodeRevertToPrimaryPort"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fcAddress"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fcSecondaryAddress"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "fcAddressRowStatus"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiNodeName"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiNodeNameRowStatus"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "nodeAdvIntfIfIndex"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "nodeAdvIntfIfRowStatus"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiInitiatorIdleTimeout"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIntrIdentificationMode"
+      }
+    ],
+    "status": "current"
+  },
+  "cigIscsiIfGroupRev3": {
+    "name": "cigIscsiIfGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.317.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpKeepAliveTimeout"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpMaxBandwidth"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpMaxRetransmissions"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpMinRetransmitTime"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpPMTUEnable"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpQOS"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpSACKEnable"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpSendBufferSize"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpMinBandwidth"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpPMTUResetTimeout"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpLocalPort"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfForwardingMode"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfIntrProxyMode"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfIntrProxyModeNodeFcAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfIntrProxyModePortFcAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfIntrProxyModeFcAddrAsgnmt"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfIntrIdentificationMode"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cigIscsiIfGroupRev4": {
+    "name": "cigIscsiIfGroupRev4",
+    "oid": "1.3.6.1.4.1.9.9.317.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpKeepAliveTimeout"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpMaxBandwidth"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpMaxRetransmissions"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpMinRetransmitTime"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpPMTUEnable"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpQOS"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpSACKEnable"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpSendBufferSize"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpMinBandwidth"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpPMTUResetTimeout"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfForwardingMode"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfIntrProxyMode"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfIntrProxyModeNodeFcAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfIntrProxyModePortFcAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfIntrProxyModeFcAddrAsgnmt"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfIntrIdentificationMode"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpLocalTcpPort"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpRndTrpTimeEst"
+      }
+    ],
+    "status": "current"
+  },
+  "cigIscsiIfGroupSup1": {
+    "name": "cigIscsiIfGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.317.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfNumNormalConnections"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfNumDiscovConnections"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpCWMEnable"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpCWMBurstSize"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiIfTcpMaxJitter"
+      }
+    ],
+    "status": "current"
+  },
+  "cigConnectionStatsGroup": {
+    "name": "cigConnectionStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.317.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "cIscsiStatsConnectionTxBytes"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "cIscsiStatsConnectionRxBytes"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "cIscsiStatsIpSecInUse"
+      }
+    ],
+    "status": "current"
+  },
+  "cigConfigurationGroupSup1": {
+    "name": "cigConfigurationGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.317.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiTargetUserName"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsiTargetPassword"
+      }
+    ],
+    "status": "current"
+  },
+  "cigIscsiAuthGroupSup1": {
+    "name": "cigIscsiAuthGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.317.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcTargetUserName"
+      },
+      {
+        "module": "CISCO-ISCSI-GW-MIB",
+        "object": "iscsi2FcTargetPassword"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ISCSI-GW-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ISCSI-GW-MIB"
+  }
+}

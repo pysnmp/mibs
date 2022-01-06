@@ -1,0 +1,578 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-SMI": [
+      "cienaCesConfig",
+      "cienaCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaCesRmonMIB": {
+    "name": "cienaCesRmonMIB",
+    "oid": "1.3.6.1.4.1.1271.2.1.34",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-11-11 00:00",
+        "description": "Initial creation."
+      }
+    ]
+  },
+  "cienaCesRmonMIBObjects": {
+    "name": "cienaCesRmonMIBObjects",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1",
+    "class": "objectidentity"
+  },
+  "cienaCesRmon": {
+    "name": "cienaCesRmon",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesRmonTransfer": {
+    "name": "cienaCesRmonTransfer",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesRmonAutoConfigure": {
+    "name": "cienaCesRmonAutoConfigure",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.2",
+    "class": "objectidentity"
+  },
+  "cienaCesRmonMIBNotificationPrefix": {
+    "name": "cienaCesRmonMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.2",
+    "class": "objectidentity"
+  },
+  "cienaCesRmonMIBNotifications": {
+    "name": "cienaCesRmonMIBNotifications",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.2.0",
+    "class": "objectidentity"
+  },
+  "cienaCesRmonMIBConformance": {
+    "name": "cienaCesRmonMIBConformance",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.3",
+    "class": "objectidentity"
+  },
+  "cienaCesRmonsMIBCompliances": {
+    "name": "cienaCesRmonsMIBCompliances",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.3.1",
+    "class": "objectidentity"
+  },
+  "cienaCesRmonMIBGroups": {
+    "name": "cienaCesRmonMIBGroups",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.3.2",
+    "class": "objectidentity"
+  },
+  "cienaCesRmonTransferServerTable": {
+    "name": "cienaCesRmonTransferServerTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesRmonTransferServerEntry": {
+    "name": "cienaCesRmonTransferServerEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-RMON-MIB",
+        "object": "cienaCesRmonTransferServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesRmonTransferServerIndex": {
+    "name": "cienaCesRmonTransferServerIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRmonTransferServerServer": {
+    "name": "cienaCesRmonTransferServerServer",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesRmonTransferServerLastRemoteName": {
+    "name": "cienaCesRmonTransferServerLastRemoteName",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRmonTransferServerLastPushTime": {
+    "name": "cienaCesRmonTransferServerLastPushTime",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRmonTransferServerLastPushStatus": {
+    "name": "cienaCesRmonTransferServerLastPushStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRmonTransferServerXftpTransferMode": {
+    "name": "cienaCesRmonTransferServerXftpTransferMode",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tftp": 1,
+          "ftp": 2,
+          "sftp": 3,
+          "defaultTftp": 4,
+          "defaultFtp": 5,
+          "defaultSftp": 6,
+          "default": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesRmonTransferServerXftpLoginId": {
+    "name": "cienaCesRmonTransferServerXftpLoginId",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesRmonTransferServerXftpPassword": {
+    "name": "cienaCesRmonTransferServerXftpPassword",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesRmonTransferServerXftpSecret": {
+    "name": "cienaCesRmonTransferServerXftpSecret",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 259
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesRmonTransferName": {
+    "name": "cienaCesRmonTransferName",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesRmonTransferRemoteDir": {
+    "name": "cienaCesRmonTransferRemoteDir",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesRmonTransferInterval": {
+    "name": "cienaCesRmonTransferInterval",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3600,
+            "max": 31536000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesRmonTransferUserFilesKept": {
+    "name": "cienaCesRmonTransferUserFilesKept",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesRmonTransferMaxFiles": {
+    "name": "cienaCesRmonTransferMaxFiles",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRmonTransferPushRecentFiles": {
+    "name": "cienaCesRmonTransferPushRecentFiles",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesRmonTransferState": {
+    "name": "cienaCesRmonTransferState",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesRmonHistAutoConfigState": {
+    "name": "cienaCesRmonHistAutoConfigState",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesRmonHistAutoConfigFileLogging": {
+    "name": "cienaCesRmonHistAutoConfigFileLogging",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesRmonHistAutoConfigInterval": {
+    "name": "cienaCesRmonHistAutoConfigInterval",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesRmonHistAutoConfigNumBuckets": {
+    "name": "cienaCesRmonHistAutoConfigNumBuckets",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesRmonHistAutoConfigOwner": {
+    "name": "cienaCesRmonHistAutoConfigOwner",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesRmonHistAutoConfigStatistics": {
+    "name": "cienaCesRmonHistAutoConfigStatistics",
+    "oid": "1.3.6.1.4.1.1271.2.1.34.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "basicTx": 1,
+          "basicRx": 2,
+          "basicRxBasicTx": 3,
+          "basicError": 4,
+          "basicTxBasicError": 5,
+          "basicRxBasicError": 6,
+          "basicAll": 7,
+          "txAll": 9,
+          "txAllBasicRx": 10,
+          "txAllBasicError": 13,
+          "rxAllBasicRx": 18,
+          "rxAllBasicError": 22,
+          "errorAll": 36,
+          "basicTxErrorAll": 37,
+          "basicRxErrorAll": 38,
+          "basicRxBasicTxErroAll": 39,
+          "txAllErrorAll": 45,
+          "txAllRxBasicErrorAll": 47,
+          "rxTxAll": 51,
+          "rxAllErrorAll": 54,
+          "rxAllTxBasicErrorAll": 55,
+          "allStatsNoStandard": 63,
+          "standardRmon": 71,
+          "standardRxAll": 87,
+          "standardTxAll": 79,
+          "standardRxAllTxAll": 95,
+          "standardErrorAll": 103,
+          "standardTxAllErrorAll": 111,
+          "standardRxAllErrorAll": 119,
+          "allStatsWithStandard": 127
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-RMON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-CES-RMON-MIB"
+  }
+}

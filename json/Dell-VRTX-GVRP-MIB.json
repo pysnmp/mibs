@@ -1,0 +1,577 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "dot1dBasePort"
+    ],
+    "Dell-VRTX-MIB": [
+      "rnd"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval"
+    ]
+  },
+  "rlGvrp": {
+    "name": "rlGvrp",
+    "oid": "1.3.6.1.4.1.89.64",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-01-02 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "rlPortGvrpTimersTable": {
+    "name": "rlPortGvrpTimersTable",
+    "oid": "1.3.6.1.4.1.89.64.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPortGvrpTimersEntry": {
+    "name": "rlPortGvrpTimersEntry",
+    "oid": "1.3.6.1.4.1.89.64.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPortGvrpJoinTime": {
+    "name": "rlPortGvrpJoinTime",
+    "oid": "1.3.6.1.4.1.89.64.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPortGvrpLeaveTime": {
+    "name": "rlPortGvrpLeaveTime",
+    "oid": "1.3.6.1.4.1.89.64.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPortGvrpLeaveAllTime": {
+    "name": "rlPortGvrpLeaveAllTime",
+    "oid": "1.3.6.1.4.1.89.64.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPortGvrpOverrideGarp": {
+    "name": "rlPortGvrpOverrideGarp",
+    "oid": "1.3.6.1.4.1.89.64.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlGvrpSupported": {
+    "name": "rlGvrpSupported",
+    "oid": "1.3.6.1.4.1.89.64.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlGvrpMibVersion": {
+    "name": "rlGvrpMibVersion",
+    "oid": "1.3.6.1.4.1.89.64.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortGvrpStatisticsTable": {
+    "name": "rlPortGvrpStatisticsTable",
+    "oid": "1.3.6.1.4.1.89.64.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPortGvrpStatisticsEntry": {
+    "name": "rlPortGvrpStatisticsEntry",
+    "oid": "1.3.6.1.4.1.89.64.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPortGvrpStatisticsRJE": {
+    "name": "rlPortGvrpStatisticsRJE",
+    "oid": "1.3.6.1.4.1.89.64.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortGvrpStatisticsRJIn": {
+    "name": "rlPortGvrpStatisticsRJIn",
+    "oid": "1.3.6.1.4.1.89.64.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortGvrpStatisticsREmp": {
+    "name": "rlPortGvrpStatisticsREmp",
+    "oid": "1.3.6.1.4.1.89.64.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortGvrpStatisticsRLIn": {
+    "name": "rlPortGvrpStatisticsRLIn",
+    "oid": "1.3.6.1.4.1.89.64.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortGvrpStatisticsRLE": {
+    "name": "rlPortGvrpStatisticsRLE",
+    "oid": "1.3.6.1.4.1.89.64.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortGvrpStatisticsRLA": {
+    "name": "rlPortGvrpStatisticsRLA",
+    "oid": "1.3.6.1.4.1.89.64.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortGvrpStatisticsSJE": {
+    "name": "rlPortGvrpStatisticsSJE",
+    "oid": "1.3.6.1.4.1.89.64.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortGvrpStatisticsSJIn": {
+    "name": "rlPortGvrpStatisticsSJIn",
+    "oid": "1.3.6.1.4.1.89.64.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortGvrpStatisticsSEmp": {
+    "name": "rlPortGvrpStatisticsSEmp",
+    "oid": "1.3.6.1.4.1.89.64.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortGvrpStatisticsSLIn": {
+    "name": "rlPortGvrpStatisticsSLIn",
+    "oid": "1.3.6.1.4.1.89.64.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortGvrpStatisticsSLE": {
+    "name": "rlPortGvrpStatisticsSLE",
+    "oid": "1.3.6.1.4.1.89.64.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortGvrpStatisticsSLA": {
+    "name": "rlPortGvrpStatisticsSLA",
+    "oid": "1.3.6.1.4.1.89.64.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortGvrpStatisticsClear": {
+    "name": "rlPortGvrpStatisticsClear",
+    "oid": "1.3.6.1.4.1.89.64.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "activate": 1,
+          "passive": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "passive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPortGvrpErrorStatisticsTable": {
+    "name": "rlPortGvrpErrorStatisticsTable",
+    "oid": "1.3.6.1.4.1.89.64.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPortGvrpErrorStatisticsEntry": {
+    "name": "rlPortGvrpErrorStatisticsEntry",
+    "oid": "1.3.6.1.4.1.89.64.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPortGvrpErrorStatisticsInvProt": {
+    "name": "rlPortGvrpErrorStatisticsInvProt",
+    "oid": "1.3.6.1.4.1.89.64.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortGvrpErrorStatisticsInvAtyp": {
+    "name": "rlPortGvrpErrorStatisticsInvAtyp",
+    "oid": "1.3.6.1.4.1.89.64.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortGvrpErrorStatisticsInvAval": {
+    "name": "rlPortGvrpErrorStatisticsInvAval",
+    "oid": "1.3.6.1.4.1.89.64.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortGvrpErrorStatisticsInvPlen": {
+    "name": "rlPortGvrpErrorStatisticsInvPlen",
+    "oid": "1.3.6.1.4.1.89.64.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortGvrpErrorStatisticsInvAlen": {
+    "name": "rlPortGvrpErrorStatisticsInvAlen",
+    "oid": "1.3.6.1.4.1.89.64.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortGvrpErrorStatisticsInvEvent": {
+    "name": "rlPortGvrpErrorStatisticsInvEvent",
+    "oid": "1.3.6.1.4.1.89.64.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortGvrpErrorStatisticsClear": {
+    "name": "rlPortGvrpErrorStatisticsClear",
+    "oid": "1.3.6.1.4.1.89.64.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "activate": 1,
+          "passive": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "passive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPortGvrpApplicantStatusTable": {
+    "name": "rlPortGvrpApplicantStatusTable",
+    "oid": "1.3.6.1.4.1.89.64.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPortGvrpApplicantStatusEntry": {
+    "name": "rlPortGvrpApplicantStatusEntry",
+    "oid": "1.3.6.1.4.1.89.64.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPortGvrpApplicantStatusValue": {
+    "name": "rlPortGvrpApplicantStatusValue",
+    "oid": "1.3.6.1.4.1.89.64.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "participant": 1,
+          "nonParticipant": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "participant",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPortGvrpRegistrationModeTable": {
+    "name": "rlPortGvrpRegistrationModeTable",
+    "oid": "1.3.6.1.4.1.89.64.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPortGvrpRegistrationModeEntry": {
+    "name": "rlPortGvrpRegistrationModeEntry",
+    "oid": "1.3.6.1.4.1.89.64.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPortGvrpRegistrationModeForbidden": {
+    "name": "rlPortGvrpRegistrationModeForbidden",
+    "oid": "1.3.6.1.4.1.89.64.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-VRTX-GVRP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:14 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Dell-VRTX-GVRP-MIB"
+  }
+}

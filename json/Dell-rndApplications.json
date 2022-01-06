@@ -1,0 +1,1684 @@
+{
+  "imports": {
+    "class": "imports",
+    "Dell-MIB": [
+      "rnd"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "rndApplications": {
+    "name": "rndApplications",
+    "oid": "1.3.6.1.4.1.89.35",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-06-01 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "rndMidLevelManagement": {
+    "name": "rndMidLevelManagement",
+    "oid": "1.3.6.1.4.1.89.35.2",
+    "class": "objectidentity"
+  },
+  "rndAlarmOptions": {
+    "name": "rndAlarmOptions",
+    "oid": "1.3.6.1.4.1.89.35.2.2",
+    "class": "objectidentity"
+  },
+  "rndAlarmEnabling": {
+    "name": "rndAlarmEnabling",
+    "oid": "1.3.6.1.4.1.89.35.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndAlarmInterval": {
+    "name": "rndAlarmInterval",
+    "oid": "1.3.6.1.4.1.89.35.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndMonitoredElementsTable": {
+    "name": "rndMonitoredElementsTable",
+    "oid": "1.3.6.1.4.1.89.35.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rndMonitoredElementEntry": {
+    "name": "rndMonitoredElementEntry",
+    "oid": "1.3.6.1.4.1.89.35.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-rndApplications",
+        "object": "rndMonitoredElementAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rndMonitoredElementAddress": {
+    "name": "rndMonitoredElementAddress",
+    "oid": "1.3.6.1.4.1.89.35.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rndMonitoredElementCommunity": {
+    "name": "rndMonitoredElementCommunity",
+    "oid": "1.3.6.1.4.1.89.35.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndMonitoredElementLabel": {
+    "name": "rndMonitoredElementLabel",
+    "oid": "1.3.6.1.4.1.89.35.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndDefaultPollingInterval": {
+    "name": "rndDefaultPollingInterval",
+    "oid": "1.3.6.1.4.1.89.35.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndDefaultLogFile": {
+    "name": "rndDefaultLogFile",
+    "oid": "1.3.6.1.4.1.89.35.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndMonitoredElementStatus": {
+    "name": "rndMonitoredElementStatus",
+    "oid": "1.3.6.1.4.1.89.35.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndMonitoringTable": {
+    "name": "rndMonitoringTable",
+    "oid": "1.3.6.1.4.1.89.35.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rndMonitoringEntry": {
+    "name": "rndMonitoringEntry",
+    "oid": "1.3.6.1.4.1.89.35.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-rndApplications",
+        "object": "rndMonitoredElement",
+        "implied": 0
+      },
+      {
+        "module": "Dell-rndApplications",
+        "object": "rndMonitoredObjectInstanceLabel",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "rndMonitoredElement": {
+    "name": "rndMonitoredElement",
+    "oid": "1.3.6.1.4.1.89.35.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rndMonitoredObjectInstanceLabel": {
+    "name": "rndMonitoredObjectInstanceLabel",
+    "oid": "1.3.6.1.4.1.89.35.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rndMonitoredObjectName": {
+    "name": "rndMonitoredObjectName",
+    "oid": "1.3.6.1.4.1.89.35.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndMonitoredObjectIdentifier": {
+    "name": "rndMonitoredObjectIdentifier",
+    "oid": "1.3.6.1.4.1.89.35.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndMonitoredObjectInstance": {
+    "name": "rndMonitoredObjectInstance",
+    "oid": "1.3.6.1.4.1.89.35.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndMonitoredObjectSyntax": {
+    "name": "rndMonitoredObjectSyntax",
+    "oid": "1.3.6.1.4.1.89.35.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "integer": 1,
+          "octet-string": 2,
+          "ip-address": 3,
+          "object-identifier": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndMonitoringInterval": {
+    "name": "rndMonitoringInterval",
+    "oid": "1.3.6.1.4.1.89.35.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndAlarmMaxTreshold": {
+    "name": "rndAlarmMaxTreshold",
+    "oid": "1.3.6.1.4.1.89.35.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndAlarmMinTreshold": {
+    "name": "rndAlarmMinTreshold",
+    "oid": "1.3.6.1.4.1.89.35.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndMonitoringLogfile": {
+    "name": "rndMonitoringLogfile",
+    "oid": "1.3.6.1.4.1.89.35.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndMonitoringEntryStatus": {
+    "name": "rndMonitoringEntryStatus",
+    "oid": "1.3.6.1.4.1.89.35.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndMonitoredIntegerInstance": {
+    "name": "rndMonitoredIntegerInstance",
+    "oid": "1.3.6.1.4.1.89.35.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndMibFilesTable": {
+    "name": "rndMibFilesTable",
+    "oid": "1.3.6.1.4.1.89.35.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rndMibFileEntry": {
+    "name": "rndMibFileEntry",
+    "oid": "1.3.6.1.4.1.89.35.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-rndApplications",
+        "object": "rndMibFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rndMibFileIndex": {
+    "name": "rndMibFileIndex",
+    "oid": "1.3.6.1.4.1.89.35.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rndMibFilePath": {
+    "name": "rndMibFilePath",
+    "oid": "1.3.6.1.4.1.89.35.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndMibFileRefresh": {
+    "name": "rndMibFileRefresh",
+    "oid": "1.3.6.1.4.1.89.35.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndMibFileEntryStatus": {
+    "name": "rndMibFileEntryStatus",
+    "oid": "1.3.6.1.4.1.89.35.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndHardwareConfiguration": {
+    "name": "rndHardwareConfiguration",
+    "oid": "1.3.6.1.4.1.89.35.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndEraseSimulatedConfiguration": {
+    "name": "rndEraseSimulatedConfiguration",
+    "oid": "1.3.6.1.4.1.89.35.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eraseSimulatedConfiguration": 1,
+          "simulatedConfigurationPresent": 2,
+          "simulatedConfigurationErased": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndDeleteValuesTable": {
+    "name": "rndDeleteValuesTable",
+    "oid": "1.3.6.1.4.1.89.35.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rndDeleteValuesEntry": {
+    "name": "rndDeleteValuesEntry",
+    "oid": "1.3.6.1.4.1.89.35.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-rndApplications",
+        "object": "rndRowStatusVariableName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "rndRowStatusVariableName": {
+    "name": "rndRowStatusVariableName",
+    "oid": "1.3.6.1.4.1.89.35.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndRowStatusObjectId": {
+    "name": "rndRowStatusObjectId",
+    "oid": "1.3.6.1.4.1.89.35.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndRowDeleteValue": {
+    "name": "rndRowDeleteValue",
+    "oid": "1.3.6.1.4.1.89.35.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndDeleteValueEntryStatus": {
+    "name": "rndDeleteValueEntryStatus",
+    "oid": "1.3.6.1.4.1.89.35.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpTesting": {
+    "name": "snmpTesting",
+    "oid": "1.3.6.1.4.1.89.35.2.9",
+    "class": "objectidentity"
+  },
+  "rndSimulatedVariablesTable": {
+    "name": "rndSimulatedVariablesTable",
+    "oid": "1.3.6.1.4.1.89.35.2.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rndSimulatedVariablesEntry": {
+    "name": "rndSimulatedVariablesEntry",
+    "oid": "1.3.6.1.4.1.89.35.2.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-rndApplications",
+        "object": "rndSimulatedVariableEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rndSimulatedVariableEntryIndex": {
+    "name": "rndSimulatedVariableEntryIndex",
+    "oid": "1.3.6.1.4.1.89.35.2.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rndSimulatedVariableObjectId": {
+    "name": "rndSimulatedVariableObjectId",
+    "oid": "1.3.6.1.4.1.89.35.2.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndNotSupportedField": {
+    "name": "rndNotSupportedField",
+    "oid": "1.3.6.1.4.1.89.35.2.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rndSimulatedVariableEntryStatus": {
+    "name": "rndSimulatedVariableEntryStatus",
+    "oid": "1.3.6.1.4.1.89.35.2.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndSnmpTestPassword": {
+    "name": "rndSnmpTestPassword",
+    "oid": "1.3.6.1.4.1.89.35.2.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndSnmpTests": {
+    "name": "rndSnmpTests",
+    "oid": "1.3.6.1.4.1.89.35.2.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noSimulation": 1,
+          "simulateSetFailure": 2,
+          "simulateAppGet": 3,
+          "simulateAppGetNext": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndSimulateUndo": {
+    "name": "rndSimulateUndo",
+    "oid": "1.3.6.1.4.1.89.35.2.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSnmpServTestRequest": {
+    "name": "rlSnmpServTestRequest",
+    "oid": "1.3.6.1.4.1.89.35.2.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSnmpServTestResponse": {
+    "name": "rlSnmpServTestResponse",
+    "oid": "1.3.6.1.4.1.89.35.2.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSnmpServCreateTestPool": {
+    "name": "rlSnmpServCreateTestPool",
+    "oid": "1.3.6.1.4.1.89.35.2.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "create": 1,
+          "no-create": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSnmpServITCbindClients": {
+    "name": "rlSnmpServITCbindClients",
+    "oid": "1.3.6.1.4.1.89.35.2.9.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSnmpTestSimulatedVariables": {
+    "name": "rlSnmpTestSimulatedVariables",
+    "oid": "1.3.6.1.4.1.89.35.2.9.9",
+    "class": "objectidentity"
+  },
+  "rlTstBasicRateTable": {
+    "name": "rlTstBasicRateTable",
+    "oid": "1.3.6.1.4.1.89.35.2.9.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlTstBasicRateEntry": {
+    "name": "rlTstBasicRateEntry",
+    "oid": "1.3.6.1.4.1.89.35.2.9.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlTstBasicRateIfType": {
+    "name": "rlTstBasicRateIfType",
+    "oid": "1.3.6.1.4.1.89.35.2.9.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "isdns": 75,
+          "isdnu": 76
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTstBasicRateLineTopology": {
+    "name": "rlTstBasicRateLineTopology",
+    "oid": "1.3.6.1.4.1.89.35.2.9.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pointToPoint": 1,
+          "pointToMultipoint": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTstBasicRateIfMode": {
+    "name": "rlTstBasicRateIfMode",
+    "oid": "1.3.6.1.4.1.89.35.2.9.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "te": 1,
+          "nt": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTstBasicRateSignalMode": {
+    "name": "rlTstBasicRateSignalMode",
+    "oid": "1.3.6.1.4.1.89.35.2.9.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlMibTree": {
+    "name": "rlMibTree",
+    "oid": "1.3.6.1.4.1.89.35.2.10",
+    "class": "objectidentity"
+  },
+  "rlMibTreeTable": {
+    "name": "rlMibTreeTable",
+    "oid": "1.3.6.1.4.1.89.35.2.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlMibTreeEntry": {
+    "name": "rlMibTreeEntry",
+    "oid": "1.3.6.1.4.1.89.35.2.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-rndApplications",
+        "object": "rlMibTreeFather",
+        "implied": 0
+      },
+      {
+        "module": "Dell-rndApplications",
+        "object": "rlMibTreeSonIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlMibTreeFather": {
+    "name": "rlMibTreeFather",
+    "oid": "1.3.6.1.4.1.89.35.2.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlMibTreeSonIndex": {
+    "name": "rlMibTreeSonIndex",
+    "oid": "1.3.6.1.4.1.89.35.2.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlMibTreeSon": {
+    "name": "rlMibTreeSon",
+    "oid": "1.3.6.1.4.1.89.35.2.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlMibTreeSonObjectId": {
+    "name": "rlMibTreeSonObjectId",
+    "oid": "1.3.6.1.4.1.89.35.2.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlMibTreeGrandFather": {
+    "name": "rlMibTreeGrandFather",
+    "oid": "1.3.6.1.4.1.89.35.2.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlMibInstances": {
+    "name": "rlMibInstances",
+    "oid": "1.3.6.1.4.1.89.35.2.11",
+    "class": "objectidentity"
+  },
+  "rlMibTableInstancesInfoTable": {
+    "name": "rlMibTableInstancesInfoTable",
+    "oid": "1.3.6.1.4.1.89.35.2.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlMibTableInstancesInfoEntry": {
+    "name": "rlMibTableInstancesInfoEntry",
+    "oid": "1.3.6.1.4.1.89.35.2.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-rndApplications",
+        "object": "rlMibTableInstancesInfoTableName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "rlMibTableInstancesInfoTableName": {
+    "name": "rlMibTableInstancesInfoTableName",
+    "oid": "1.3.6.1.4.1.89.35.2.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlMibTableInstancesInfoNumOfInstances": {
+    "name": "rlMibTableInstancesInfoNumOfInstances",
+    "oid": "1.3.6.1.4.1.89.35.2.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsPingMIB": {
+    "name": "rsPingMIB",
+    "oid": "1.3.6.1.4.1.89.35.4",
+    "class": "objectidentity"
+  },
+  "PingCompletionStatus": {
+    "name": "PingCompletionStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "timeout": 2,
+          "net-unreachable": 3,
+          "host-unreachable": 4,
+          "protocol-unreachable": 5,
+          "time-to-live-exceeded": 6,
+          "reassembly-time-exceeded": 7,
+          "unable-to-send": 8,
+          "bad-reply-data": 9,
+          "incomplete": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rsPingTable": {
+    "name": "rsPingTable",
+    "oid": "1.3.6.1.4.1.89.35.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsPingEntry": {
+    "name": "rsPingEntry",
+    "oid": "1.3.6.1.4.1.89.35.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-rndApplications",
+        "object": "rsPingAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsPingAddress": {
+    "name": "rsPingAddress",
+    "oid": "1.3.6.1.4.1.89.35.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsPingPacketCount": {
+    "name": "rsPingPacketCount",
+    "oid": "1.3.6.1.4.1.89.35.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsPingPacketSize": {
+    "name": "rsPingPacketSize",
+    "oid": "1.3.6.1.4.1.89.35.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsPingPacketTimeout": {
+    "name": "rsPingPacketTimeout",
+    "oid": "1.3.6.1.4.1.89.35.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsPingDelay": {
+    "name": "rsPingDelay",
+    "oid": "1.3.6.1.4.1.89.35.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsPingTrapOnCompletion": {
+    "name": "rsPingTrapOnCompletion",
+    "oid": "1.3.6.1.4.1.89.35.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsPingSentPackets": {
+    "name": "rsPingSentPackets",
+    "oid": "1.3.6.1.4.1.89.35.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsPingReceivedPackets": {
+    "name": "rsPingReceivedPackets",
+    "oid": "1.3.6.1.4.1.89.35.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsPingMinReturnTime": {
+    "name": "rsPingMinReturnTime",
+    "oid": "1.3.6.1.4.1.89.35.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsPingAvgReturnTime": {
+    "name": "rsPingAvgReturnTime",
+    "oid": "1.3.6.1.4.1.89.35.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsPingMaxReturnTime": {
+    "name": "rsPingMaxReturnTime",
+    "oid": "1.3.6.1.4.1.89.35.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsPingCompletionStatus": {
+    "name": "rsPingCompletionStatus",
+    "oid": "1.3.6.1.4.1.89.35.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PingCompletionStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsPingTimeStamp": {
+    "name": "rsPingTimeStamp",
+    "oid": "1.3.6.1.4.1.89.35.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 19,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsPingEntryStatus": {
+    "name": "rsPingEntryStatus",
+    "oid": "1.3.6.1.4.1.89.35.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsPingInetTable": {
+    "name": "rsPingInetTable",
+    "oid": "1.3.6.1.4.1.89.35.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsPingInetEntry": {
+    "name": "rsPingInetEntry",
+    "oid": "1.3.6.1.4.1.89.35.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-rndApplications",
+        "object": "rsPingInetAddressType",
+        "implied": 0
+      },
+      {
+        "module": "Dell-rndApplications",
+        "object": "rsPingInetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsPingInetAddressType": {
+    "name": "rsPingInetAddressType",
+    "oid": "1.3.6.1.4.1.89.35.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsPingInetAddress": {
+    "name": "rsPingInetAddress",
+    "oid": "1.3.6.1.4.1.89.35.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsPingInetPacketCount": {
+    "name": "rsPingInetPacketCount",
+    "oid": "1.3.6.1.4.1.89.35.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsPingInetPacketSize": {
+    "name": "rsPingInetPacketSize",
+    "oid": "1.3.6.1.4.1.89.35.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsPingInetPacketTimeout": {
+    "name": "rsPingInetPacketTimeout",
+    "oid": "1.3.6.1.4.1.89.35.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsPingInetDelay": {
+    "name": "rsPingInetDelay",
+    "oid": "1.3.6.1.4.1.89.35.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsPingInetTrapOnCompletion": {
+    "name": "rsPingInetTrapOnCompletion",
+    "oid": "1.3.6.1.4.1.89.35.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsPingInetSentPackets": {
+    "name": "rsPingInetSentPackets",
+    "oid": "1.3.6.1.4.1.89.35.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsPingInetReceivedPackets": {
+    "name": "rsPingInetReceivedPackets",
+    "oid": "1.3.6.1.4.1.89.35.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsPingInetMinReturnTime": {
+    "name": "rsPingInetMinReturnTime",
+    "oid": "1.3.6.1.4.1.89.35.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsPingInetAvgReturnTime": {
+    "name": "rsPingInetAvgReturnTime",
+    "oid": "1.3.6.1.4.1.89.35.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsPingInetMaxReturnTime": {
+    "name": "rsPingInetMaxReturnTime",
+    "oid": "1.3.6.1.4.1.89.35.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsPingInetCompletionStatus": {
+    "name": "rsPingInetCompletionStatus",
+    "oid": "1.3.6.1.4.1.89.35.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PingCompletionStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsPingInetTimeStamp": {
+    "name": "rsPingInetTimeStamp",
+    "oid": "1.3.6.1.4.1.89.35.4.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 19,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsPingInetEntryStatus": {
+    "name": "rsPingInetEntryStatus",
+    "oid": "1.3.6.1.4.1.89.35.4.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsPingInetSourceAddr": {
+    "name": "rsPingInetSourceAddr",
+    "oid": "1.3.6.1.4.1.89.35.4.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsPowerSupplyRedundacy": {
+    "name": "rsPowerSupplyRedundacy",
+    "oid": "1.3.6.1.4.1.89.35.5",
+    "class": "objectidentity"
+  },
+  "rsPowerSupplyRedundacyTable": {
+    "name": "rsPowerSupplyRedundacyTable",
+    "oid": "1.3.6.1.4.1.89.35.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsPowerSupplyRedundacyEntry": {
+    "name": "rsPowerSupplyRedundacyEntry",
+    "oid": "1.3.6.1.4.1.89.35.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-rndApplications",
+        "object": "rsPowerSupplyRedundacyReNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsPowerSupplyRedundacyReNumber": {
+    "name": "rsPowerSupplyRedundacyReNumber",
+    "oid": "1.3.6.1.4.1.89.35.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsPowerSupplyRedundacyStatus": {
+    "name": "rsPowerSupplyRedundacyStatus",
+    "oid": "1.3.6.1.4.1.89.35.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notExist": 1,
+          "existButNotWorking": 2,
+          "bothWorking": 3,
+          "internalOnlyWorking": 4,
+          "externalOnlyWorking": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsNvram": {
+    "name": "rsNvram",
+    "oid": "1.3.6.1.4.1.89.35.6",
+    "class": "objectidentity"
+  },
+  "rsEraseNvramAfterReset": {
+    "name": "rsEraseNvramAfterReset",
+    "oid": "1.3.6.1.4.1.89.35.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsNvramApplTable": {
+    "name": "rsNvramApplTable",
+    "oid": "1.3.6.1.4.1.89.35.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsNvramApplEntry": {
+    "name": "rsNvramApplEntry",
+    "oid": "1.3.6.1.4.1.89.35.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-rndApplications",
+        "object": "rsNvramApplIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsNvramApplIndex": {
+    "name": "rsNvramApplIndex",
+    "oid": "1.3.6.1.4.1.89.35.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsNvramApplName": {
+    "name": "rsNvramApplName",
+    "oid": "1.3.6.1.4.1.89.35.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-rndApplications",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:14 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Dell-rndApplications"
+  }
+}

@@ -1,0 +1,1893 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1VirtualChassisManager"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "Bits",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "MacAddress"
+    ]
+  },
+  "alcatelIND1VirtualChassisMIB": {
+    "name": "alcatelIND1VirtualChassisMIB",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-05-25 00:00",
+        "description": "Addressing discrepancies with Alcatel Standard."
+      }
+    ]
+  },
+  "alcatelIND1VirtualChassisMIBNotifications": {
+    "name": "alcatelIND1VirtualChassisMIBNotifications",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1VirtualChassisMIBObjects": {
+    "name": "alcatelIND1VirtualChassisMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1VirtualChassisMIBConformance": {
+    "name": "alcatelIND1VirtualChassisMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1VirtualChassisMIBVCSP": {
+    "name": "alcatelIND1VirtualChassisMIBVCSP",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1VirtualChassisMIBGroups": {
+    "name": "alcatelIND1VirtualChassisMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1VirtualChassisMIBCompliances": {
+    "name": "alcatelIND1VirtualChassisMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "VirtualOperChassisId": {
+    "name": "VirtualOperChassisId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "VirtualConfigChassisId": {
+    "name": "VirtualConfigChassisId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "VirtualChassisHelloInterval": {
+    "name": "VirtualChassisHelloInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "VirtualChassisControlVlan": {
+    "name": "VirtualChassisControlVlan",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "VirtualChassisCmmSlot": {
+    "name": "VirtualChassisCmmSlot",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notPresent": 0,
+          "cmmSlot1": 65,
+          "cmmSlot2": 66
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VirtualChassisNiSlot": {
+    "name": "VirtualChassisNiSlot",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "VirtualChassisVflId": {
+    "name": "VirtualChassisVflId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "VirtualChassisConsistency": {
+    "name": "VirtualChassisConsistency",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inconsistent": 0,
+          "consistent": 1,
+          "na": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VirtualChassisRole": {
+    "name": "VirtualChassisRole",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unassigned": 0,
+          "master": 1,
+          "slave": 2,
+          "inconsistent": 3,
+          "startuperror": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VirtualChassisStatus": {
+    "name": "VirtualChassisStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 0,
+          "running": 1,
+          "invalidChassisId": 2,
+          "helloDown": 3,
+          "duplicateChassisId": 4,
+          "mismatchImage": 5,
+          "mismatchChassisType": 6,
+          "mismatchHelloInterval": 7,
+          "mismatchControlVlan": 8,
+          "mismatchGroup": 9,
+          "mismatchLicenseConfig": 10,
+          "invalidLicense": 11,
+          "splitTopology": 12,
+          "commandShutdown": 13,
+          "failureShutdown": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VirtualChassisGroup": {
+    "name": "VirtualChassisGroup",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "VirtualChassisPriority": {
+    "name": "VirtualChassisPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "VirtualChassisSlotResetStatus": {
+    "name": "VirtualChassisSlotResetStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supported": 0,
+          "split": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VirtualChassisType": {
+    "name": "VirtualChassisType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "rushmore": 1,
+          "tor": 2,
+          "shasta": 3,
+          "medora": 4,
+          "everest": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VirtualChassisVflSpeedType": {
+    "name": "VirtualChassisVflSpeedType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unassigned": 0,
+          "unknown": 1,
+          "mismatch": 2,
+          "tenGB": 3,
+          "fortyGB": 4,
+          "twentyOneGB": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VirtualChassisVflMode": {
+    "name": "VirtualChassisVflMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "auto": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "virtualChassisLocalInfo": {
+    "name": "virtualChassisLocalInfo",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.1",
+    "class": "objectidentity"
+  },
+  "virtualChassisLocalInfoChasId": {
+    "name": "virtualChassisLocalInfoChasId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualOperChassisId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisGlobalTable": {
+    "name": "virtualChassisGlobalTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "virtualChassisGlobalEntry": {
+    "name": "virtualChassisGlobalEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisOperChasId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "virtualChassisOperChasId": {
+    "name": "virtualChassisOperChasId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualOperChassisId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "virtualChassisConfigChassisId": {
+    "name": "virtualChassisConfigChassisId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualConfigChassisId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "virtualChassisRole": {
+    "name": "virtualChassisRole",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisPreviousRole": {
+    "name": "virtualChassisPreviousRole",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisStatus": {
+    "name": "virtualChassisStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisOperPriority": {
+    "name": "virtualChassisOperPriority",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisConfigPriority": {
+    "name": "virtualChassisConfigPriority",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisPriority",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "virtualChassisGroup": {
+    "name": "virtualChassisGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisGroup",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "virtualChassisMac": {
+    "name": "virtualChassisMac",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisUpTime": {
+    "name": "virtualChassisUpTime",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisDesigNI": {
+    "name": "virtualChassisDesigNI",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisNiSlot",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisPriCmm": {
+    "name": "virtualChassisPriCmm",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisCmmSlot",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisSecCmm": {
+    "name": "virtualChassisSecCmm",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisCmmSlot",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisOperHelloInterval": {
+    "name": "virtualChassisOperHelloInterval",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisHelloInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "virtualChassisOperControlVlan": {
+    "name": "virtualChassisOperControlVlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisControlVlan",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisConfigHelloInterval": {
+    "name": "virtualChassisConfigHelloInterval",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisHelloInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "virtualChassisConfigControlVlan": {
+    "name": "virtualChassisConfigControlVlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisControlVlan",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4094,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "virtualChassisType": {
+    "name": "virtualChassisType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisLicense": {
+    "name": "virtualChassisLicense",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisOperChasIdConsis": {
+    "name": "virtualChassisOperChasIdConsis",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisConfigChasIdConsis": {
+    "name": "virtualChassisConfigChasIdConsis",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisOperControlVlanConsis": {
+    "name": "virtualChassisOperControlVlanConsis",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisConfigControlVlanConsis": {
+    "name": "virtualChassisConfigControlVlanConsis",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisOperHelloIntervalConsis": {
+    "name": "virtualChassisOperHelloIntervalConsis",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisConfigHelloIntervalConsis": {
+    "name": "virtualChassisConfigHelloIntervalConsis",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "virtualChassisChassisTypeConsis": {
+    "name": "virtualChassisChassisTypeConsis",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisGroupConsis": {
+    "name": "virtualChassisGroupConsis",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisLicenseConsis": {
+    "name": "virtualChassisLicenseConsis",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisGlobalConsis": {
+    "name": "virtualChassisGlobalConsis",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisNumOfNeighbor": {
+    "name": "virtualChassisNumOfNeighbor",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisNumOfDirectNeighbor": {
+    "name": "virtualChassisNumOfDirectNeighbor",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisVflMode": {
+    "name": "virtualChassisVflMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisVflMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "static",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "virtualChassisNeighborTable": {
+    "name": "virtualChassisNeighborTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "virtualChassisNeighborEntry": {
+    "name": "virtualChassisNeighborEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisOperChasId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisNeighborChasId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "virtualChassisNeighborChasId": {
+    "name": "virtualChassisNeighborChasId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualOperChassisId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "virtualChassisNeighborShortestPath": {
+    "name": "virtualChassisNeighborShortestPath",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisNeighborIsDirect": {
+    "name": "virtualChassisNeighborIsDirect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisChassisResetListTable": {
+    "name": "virtualChassisChassisResetListTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "virtualChassisChassisResetListEntry": {
+    "name": "virtualChassisChassisResetListEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisOperChasId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "virtualChassisChassisResetList": {
+    "name": "virtualChassisChassisResetList",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisSlotResetStatusTable": {
+    "name": "virtualChassisSlotResetStatusTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "virtualChassisSlotResetStatusEntry": {
+    "name": "virtualChassisSlotResetStatusEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisOperChasId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisSlotNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "virtualChassisSlotNum": {
+    "name": "virtualChassisSlotNum",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisNiSlot",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "virtualChassisSlotResetStatus": {
+    "name": "virtualChassisSlotResetStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisSlotResetStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisVflTable": {
+    "name": "virtualChassisVflTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "virtualChassisVflEntry": {
+    "name": "virtualChassisVflEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisOperChasId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "virtualChassisVflId": {
+    "name": "virtualChassisVflId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisVflId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "virtualChassisVflDefaultVlan": {
+    "name": "virtualChassisVflDefaultVlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "virtualChassisVflOperStatus": {
+    "name": "virtualChassisVflOperStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisVflPrimaryPort": {
+    "name": "virtualChassisVflPrimaryPort",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisVflActivePortNum": {
+    "name": "virtualChassisVflActivePortNum",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisVflConfigPortNum": {
+    "name": "virtualChassisVflConfigPortNum",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisVflRowStatus": {
+    "name": "virtualChassisVflRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "virtualChassisVflDirectNeighborChasId": {
+    "name": "virtualChassisVflDirectNeighborChasId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualOperChassisId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisVflSpeedType": {
+    "name": "virtualChassisVflSpeedType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualChassisVflSpeedType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisVflMemberPortTable": {
+    "name": "virtualChassisVflMemberPortTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "virtualChassisVflMemberPortEntry": {
+    "name": "virtualChassisVflMemberPortEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisOperChasId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflMemberPortIfindex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "virtualChassisVflMemberPortIfindex": {
+    "name": "virtualChassisVflMemberPortIfindex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "virtualChassisVflMemberPortIsPrimay": {
+    "name": "virtualChassisVflMemberPortIsPrimay",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisVflMemberPortOperStatus": {
+    "name": "virtualChassisVflMemberPortOperStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisVflMemberPortRowStatus": {
+    "name": "virtualChassisVflMemberPortRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "virtualChassisTrapInfo": {
+    "name": "virtualChassisTrapInfo",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.8",
+    "class": "objectidentity"
+  },
+  "virtualChassisDiagnostic": {
+    "name": "virtualChassisDiagnostic",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "duplexMode": 1,
+          "speed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisUpgradeCompleteStatus": {
+    "name": "virtualChassisUpgradeCompleteStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "failure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisAutoVflPortTable": {
+    "name": "virtualChassisAutoVflPortTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "virtualChassisAutoVflPortEntry": {
+    "name": "virtualChassisAutoVflPortEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisAutoVflPortIfindex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "virtualChassisAutoVflPortIfindex": {
+    "name": "virtualChassisAutoVflPortIfindex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "virtualChassisAutoVflIfindex": {
+    "name": "virtualChassisAutoVflIfindex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisAutoVflPortMemberStatus": {
+    "name": "virtualChassisAutoVflPortMemberStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "unassigned": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualChassisAutoVflPortRowStatus": {
+    "name": "virtualChassisAutoVflPortRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "virtualChassisStatusChange": {
+    "name": "virtualChassisStatusChange",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisOperChasId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "virtualChassisRoleChange": {
+    "name": "virtualChassisRoleChange",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisOperChasId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisRole"
+      }
+    ],
+    "status": "current"
+  },
+  "virtualChassisVflStatusChange": {
+    "name": "virtualChassisVflStatusChange",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisOperChasId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "virtualChassisVflMemberPortStatusChange": {
+    "name": "virtualChassisVflMemberPortStatusChange",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisOperChasId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflMemberPortIfindex"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflMemberPortOperStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "virtualChassisVflMemberPortJoinFailure": {
+    "name": "virtualChassisVflMemberPortJoinFailure",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisOperChasId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflMemberPortIfindex"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisDiagnostic"
+      }
+    ],
+    "status": "current"
+  },
+  "virtualChassisUpgradeComplete": {
+    "name": "virtualChassisUpgradeComplete",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisUpgradeCompleteStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "virtualChassisVflSpeedTypeChange": {
+    "name": "virtualChassisVflSpeedTypeChange",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisOperChasId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflSpeedType"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1VirtualChassisMIBCompliance": {
+    "name": "alcatelIND1VirtualChassisMIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "virtualChassisLocalInfoGroup",
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB"
+      },
+      {
+        "object": "virtualChassisGlobalGroup",
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB"
+      },
+      {
+        "object": "virtualChassisNeighborGroup",
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB"
+      },
+      {
+        "object": "virtualChassisChassisResetListGroup",
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB"
+      },
+      {
+        "object": "virtualChassisSlotRestStatusGroup",
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB"
+      },
+      {
+        "object": "virtualChassisVflGroup",
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB"
+      },
+      {
+        "object": "virtualChassisVflMemberPortGroup",
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "virtualChassisLocalInfoGroup": {
+    "name": "virtualChassisLocalInfoGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisLocalInfoChasId"
+      }
+    ],
+    "status": "current"
+  },
+  "virtualChassisGlobalGroup": {
+    "name": "virtualChassisGlobalGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisConfigChassisId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisRole"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisPreviousRole"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisOperPriority"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisConfigPriority"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisGroup"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisMac"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisUpTime"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisDesigNI"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisPriCmm"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisSecCmm"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisOperHelloInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisOperControlVlan"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisConfigHelloInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisConfigControlVlan"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisType"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisLicense"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisOperChasIdConsis"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisConfigChasIdConsis"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisOperControlVlanConsis"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisConfigControlVlanConsis"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisOperHelloIntervalConsis"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisConfigHelloIntervalConsis"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisChassisTypeConsis"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisGroupConsis"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisLicenseConsis"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisGlobalConsis"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisNumOfNeighbor"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisNumOfDirectNeighbor"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflMode"
+      }
+    ],
+    "status": "current"
+  },
+  "virtualChassisNeighborGroup": {
+    "name": "virtualChassisNeighborGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisNeighborShortestPath"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisNeighborIsDirect"
+      }
+    ],
+    "status": "current"
+  },
+  "virtualChassisChassisResetListGroup": {
+    "name": "virtualChassisChassisResetListGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisChassisResetList"
+      }
+    ],
+    "status": "current"
+  },
+  "virtualChassisSlotRestStatusGroup": {
+    "name": "virtualChassisSlotRestStatusGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisSlotResetStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "virtualChassisVflGroup": {
+    "name": "virtualChassisVflGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflDefaultVlan"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflOperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflPrimaryPort"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflActivePortNum"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflConfigPortNum"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflDirectNeighborChasId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflSpeedType"
+      }
+    ],
+    "status": "current"
+  },
+  "virtualChassisVflMemberPortGroup": {
+    "name": "virtualChassisVflMemberPortGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflMemberPortIsPrimay"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflMemberPortOperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflMemberPortRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "virtualChassisTrapInfoGroup": {
+    "name": "virtualChassisTrapInfoGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisDiagnostic"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisUpgradeCompleteStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "virtualChassisTrapOBJGroup": {
+    "name": "virtualChassisTrapOBJGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.2.1.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisStatusChange"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisRoleChange"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflStatusChange"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflMemberPortStatusChange"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflMemberPortJoinFailure"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisUpgradeComplete"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisVflSpeedTypeChange"
+      }
+    ],
+    "status": "current"
+  },
+  "virtualChassisAutoVflPortGroup": {
+    "name": "virtualChassisAutoVflPortGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.69.1.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisAutoVflIfindex"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisAutoVflPortMemberStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisAutoVflPortRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/aos7/ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:46 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB"
+  }
+}

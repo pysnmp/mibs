@@ -1,0 +1,219 @@
+{
+  "imports": {
+    "class": "imports",
+    "NETSCREEN-SMI": [
+      "netscreenSetting",
+      "netscreenSettingMibModule"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "netscreenSetUrlFilterMibModule": {
+    "name": "netscreenSetUrlFilterMibModule",
+    "oid": "1.3.6.1.4.1.3224.7.0.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-05-03 00:00",
+        "description": "Modified copyright and contact information"
+      },
+      {
+        "revision": "2004-03-03 00:00",
+        "description": "Converted to SMIv2 by Longview Software"
+      },
+      {
+        "revision": "2003-11-12 00:00",
+        "description": "Correct spelling mistake"
+      },
+      {
+        "revision": "2001-09-28 00:00",
+        "description": "No Comment"
+      },
+      {
+        "revision": "2001-05-27 00:00",
+        "description": "Creation Date"
+      }
+    ]
+  },
+  "nsSetURLFilter": {
+    "name": "nsSetURLFilter",
+    "oid": "1.3.6.1.4.1.3224.7.4",
+    "class": "objectidentity"
+  },
+  "nsSetUrlFilterViaWebsense": {
+    "name": "nsSetUrlFilterViaWebsense",
+    "oid": "1.3.6.1.4.1.3224.7.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsSetUrlServerName": {
+    "name": "nsSetUrlServerName",
+    "oid": "1.3.6.1.4.1.3224.7.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsSetUrlServerPort": {
+    "name": "nsSetUrlServerPort",
+    "oid": "1.3.6.1.4.1.3224.7.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsSetUrlCommTimeout": {
+    "name": "nsSetUrlCommTimeout",
+    "oid": "1.3.6.1.4.1.3224.7.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsSetUrlServerStatus": {
+    "name": "nsSetUrlServerStatus",
+    "oid": "1.3.6.1.4.1.3224.7.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "running": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsSetUrlSerLostHdlWay": {
+    "name": "nsSetUrlSerLostHdlWay",
+    "oid": "1.3.6.1.4.1.3224.7.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "block-all": 0,
+          "permit-all": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsSetUrlBlockMsgType": {
+    "name": "nsSetUrlBlockMsgType",
+    "oid": "1.3.6.1.4.1.3224.7.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "websense": 0,
+          "netscreen": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsSetUrlNsBlockMsg": {
+    "name": "nsSetUrlNsBlockMsg",
+    "oid": "1.3.6.1.4.1.3224.7.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 220
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-SET-URL-FILTER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NETSCREEN-SET-URL-FILTER-MIB"
+  }
+}

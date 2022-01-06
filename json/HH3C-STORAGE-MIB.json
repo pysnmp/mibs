@@ -1,0 +1,1329 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalName",
+      "entPhysicalDescr",
+      "entPhysicalIndex",
+      "PhysicalIndex"
+    ],
+    "HH3C-DISK-MIB": [
+      "hh3cDiskPowerOffReason"
+    ],
+    "HH3C-ENTITY-EXT-MIB": [
+      "hh3cEntityExtPhysicalIndex",
+      "hh3cEntityExtTemperature",
+      "hh3cEntityExtCriticalLowerTemperatureThreshold",
+      "hh3cEntityExtOperStatus",
+      "hh3cEntityExtShutdownLowerTemperatureThreshold"
+    ],
+    "HH3C-RAID-MIB": [
+      "hh3cRaidHideState",
+      "hh3cRaidUuid",
+      "hh3cRaidName",
+      "hh3cRaidRunState"
+    ],
+    "HH3C-STORAGE-REF-MIB": [
+      "Hh3cStorageLedStateType",
+      "Hh3cStorageCapableState",
+      "hh3cStorageRef",
+      "Hh3cStorageActionType",
+      "Hh3cSoftwareInfoString",
+      "Hh3cWwpnListType",
+      "Hh3cStorageEnableState"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cStorageMIB": {
+    "name": "hh3cStorageMIB",
+    "oid": "1.3.6.1.4.1.25506.10.1",
+    "class": "moduleidentity"
+  },
+  "hh3cStorageMibObjects": {
+    "name": "hh3cStorageMibObjects",
+    "oid": "1.3.6.1.4.1.25506.10.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cStorageServerInfo": {
+    "name": "hh3cStorageServerInfo",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cStoragePhysicalInfo": {
+    "name": "hh3cStoragePhysicalInfo",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cStorageServerCapability": {
+    "name": "hh3cStorageServerCapability",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cRaidCapability": {
+    "name": "hh3cRaidCapability",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cStorageCapableState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFcCapability": {
+    "name": "hh3cFcCapability",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cStorageCapableState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNasCapability": {
+    "name": "hh3cNasCapability",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cStorageCapableState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cAdaptiveRepCapability": {
+    "name": "hh3cAdaptiveRepCapability",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cStorageCapableState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRemoteRepCapability": {
+    "name": "hh3cRemoteRepCapability",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cStorageCapableState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSafeCacheCapability": {
+    "name": "hh3cSafeCacheCapability",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cStorageCapableState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSyncMirrorCapability": {
+    "name": "hh3cSyncMirrorCapability",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cStorageCapableState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cAsyncMirrorCapability": {
+    "name": "hh3cAsyncMirrorCapability",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cStorageCapableState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cTimeMarkCapability": {
+    "name": "hh3cTimeMarkCapability",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cStorageCapableState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSseCapability": {
+    "name": "hh3cSseCapability",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cStorageCapableState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cStorageTargetConfig": {
+    "name": "hh3cStorageTargetConfig",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "hh3ciSCSITargetEnable": {
+    "name": "hh3ciSCSITargetEnable",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cStorageEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cFcTargetEnable": {
+    "name": "hh3cFcTargetEnable",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cStorageEnableState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cStorageServerPhysInfo": {
+    "name": "hh3cStorageServerPhysInfo",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.1.3",
+    "class": "objectidentity"
+  },
+  "hh3cServerLocationLedState": {
+    "name": "hh3cServerLocationLedState",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cStorageLedStateType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cServerResetButtonState": {
+    "name": "hh3cServerResetButtonState",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cStorageEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cServerPowerButtonState": {
+    "name": "hh3cServerPowerButtonState",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cStorageEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cServerPowerState": {
+    "name": "hh3cServerPowerState",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "online": 1,
+          "onlinebypass": 2,
+          "onbattery": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDeuTable": {
+    "name": "hh3cDeuTable",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDeuEntry": {
+    "name": "hh3cDeuEntry",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cDeuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDeuIndex": {
+    "name": "hh3cDeuIndex",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDeuIDLed": {
+    "name": "hh3cDeuIDLed",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cStorageLedStateType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDeuDiskScan": {
+    "name": "hh3cDeuDiskScan",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cStorageActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cStorageInterfaceTable": {
+    "name": "hh3cStorageInterfaceTable",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cStorageInterfaceEntry": {
+    "name": "hh3cStorageInterfaceEntry",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cStorageInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cStorageInterfaceIndex": {
+    "name": "hh3cStorageInterfaceIndex",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cStorageInterfaceGateway": {
+    "name": "hh3cStorageInterfaceGateway",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cStorageInterfaceGatewayType": {
+    "name": "hh3cStorageInterfaceGatewayType",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cStorageInterfaceMTU": {
+    "name": "hh3cStorageInterfaceMTU",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mtu1": 1500,
+          "mtu2": 9000
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cBondingTable": {
+    "name": "hh3cBondingTable",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cBondingEntry": {
+    "name": "hh3cBondingEntry",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cBondingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cBondingIndex": {
+    "name": "hh3cBondingIndex",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cBondingPortList": {
+    "name": "hh3cBondingPortList",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cScsiAdapterTable": {
+    "name": "hh3cScsiAdapterTable",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cScsiAdapterEntry": {
+    "name": "hh3cScsiAdapterEntry",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cAdapterNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cAdapterNumber": {
+    "name": "hh3cAdapterNumber",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cAdapterDesc": {
+    "name": "hh3cAdapterDesc",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cAdapterType": {
+    "name": "hh3cAdapterType",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "scsi": 1,
+          "fc": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFcAdapterMode": {
+    "name": "hh3cFcAdapterMode",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initiator": 1,
+          "target": 2,
+          "dual": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFcAdapterInitiatorWwpnName": {
+    "name": "hh3cFcAdapterInitiatorWwpnName",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cWwpnListType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFcAdapterTargetWwpnName": {
+    "name": "hh3cFcAdapterTargetWwpnName",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cWwpnListType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFcAdapterPortState": {
+    "name": "hh3cFcAdapterPortState",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linkup": 1,
+          "linkdown": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFcAdapterModeSwitch": {
+    "name": "hh3cFcAdapterModeSwitch",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cStorageEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cExtVoltageTable": {
+    "name": "hh3cExtVoltageTable",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cExtVoltageEntry": {
+    "name": "hh3cExtVoltageEntry",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltagePhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cExtVoltagePhysicalIndex": {
+    "name": "hh3cExtVoltagePhysicalIndex",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cExtVoltagePhysicalName": {
+    "name": "hh3cExtVoltagePhysicalName",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cExtVoltage": {
+    "name": "hh3cExtVoltage",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cExtVoltageLowThreshold": {
+    "name": "hh3cExtVoltageLowThreshold",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cExtVoltageHighThreshold": {
+    "name": "hh3cExtVoltageHighThreshold",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cExtCriticalVoltageLowThreshold": {
+    "name": "hh3cExtCriticalVoltageLowThreshold",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cExtCriticalVoltageHighThreshold": {
+    "name": "hh3cExtCriticalVoltageHighThreshold",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cExtShutdownVoltageLowThreshold": {
+    "name": "hh3cExtShutdownVoltageLowThreshold",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cExtShutdownVoltageHighThreshold": {
+    "name": "hh3cExtShutdownVoltageHighThreshold",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cStorageTraps": {
+    "name": "hh3cStorageTraps",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3",
+    "class": "objectidentity"
+  },
+  "hh3cStorageTrapsPrefix": {
+    "name": "hh3cStorageTrapsPrefix",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0",
+    "class": "objectidentity"
+  },
+  "hh3cStorageTrapsObjects": {
+    "name": "hh3cStorageTrapsObjects",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.1",
+    "class": "objectidentity"
+  },
+  "hh3cSoftwareInfoString": {
+    "name": "hh3cSoftwareInfoString",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cSoftwareInfoString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cStorCriticalLowerTemperatureThresholdNotification": {
+    "name": "hh3cStorCriticalLowerTemperatureThresholdNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtTemperature"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCriticalLowerTemperatureThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cStorTemperatureTooLow": {
+    "name": "hh3cStorTemperatureTooLow",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtTemperature"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtShutdownLowerTemperatureThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cExtVoltageLowThresholdNotification": {
+    "name": "hh3cExtVoltageLowThresholdNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltagePhysicalIndex"
+      },
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltagePhysicalName"
+      },
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltage"
+      },
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltageLowThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cExtVoltageHighThresholdNotification": {
+    "name": "hh3cExtVoltageHighThresholdNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltagePhysicalIndex"
+      },
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltagePhysicalName"
+      },
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltage"
+      },
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltageHighThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cExtCriticalVoltageLowThresholdNotification": {
+    "name": "hh3cExtCriticalVoltageLowThresholdNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltagePhysicalIndex"
+      },
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltagePhysicalName"
+      },
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltage"
+      },
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtCriticalVoltageLowThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cExtCriticalVoltageHighThresholdNotification": {
+    "name": "hh3cExtCriticalVoltageHighThresholdNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltagePhysicalIndex"
+      },
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltagePhysicalName"
+      },
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltage"
+      },
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtCriticalVoltageHighThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cExtVoltageTooLow": {
+    "name": "hh3cExtVoltageTooLow",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltagePhysicalIndex"
+      },
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltagePhysicalName"
+      },
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltage"
+      },
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtShutdownVoltageLowThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cExtVoltageTooHigh": {
+    "name": "hh3cExtVoltageTooHigh",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltagePhysicalIndex"
+      },
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltagePhysicalName"
+      },
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltage"
+      },
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtShutdownVoltageHighThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cExtBatteryStateNotification": {
+    "name": "hh3cExtBatteryStateNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDiskIOErrorNotification": {
+    "name": "hh3cDiskIOErrorNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRaidCreateNotification": {
+    "name": "hh3cRaidCreateNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidUuid"
+      },
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRaidDeleteNotification": {
+    "name": "hh3cRaidDeleteNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidUuid"
+      },
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRaidHideStateNotification": {
+    "name": "hh3cRaidHideStateNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidUuid"
+      },
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidName"
+      },
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidHideState"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRaidRunStateNotification": {
+    "name": "hh3cRaidRunStateNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidUuid"
+      },
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidName"
+      },
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidRunState"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRaidImportNotification": {
+    "name": "hh3cRaidImportNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidUuid"
+      },
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRaidRebuildStartNotification": {
+    "name": "hh3cRaidRebuildStartNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidUuid"
+      },
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRaidRebuildFinishNotification": {
+    "name": "hh3cRaidRebuildFinishNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidUuid"
+      },
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRaidRebuildPauseNotification": {
+    "name": "hh3cRaidRebuildPauseNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidUuid"
+      },
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRaidRebuildInterruptNotification": {
+    "name": "hh3cRaidRebuildInterruptNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidUuid"
+      },
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSoftwareModuleFailNotification": {
+    "name": "hh3cSoftwareModuleFailNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cSoftwareInfoString"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRaidBatteryExpiredNotification": {
+    "name": "hh3cRaidBatteryExpiredNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.21",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hh3cRaidBatteryWillExpireNotification": {
+    "name": "hh3cRaidBatteryWillExpireNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.22",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hh3cLvOnlineFailNotification": {
+    "name": "hh3cLvOnlineFailNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidUuid"
+      },
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLvOfflineFailNotification": {
+    "name": "hh3cLvOfflineFailNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidUuid"
+      },
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRaidRunNotification": {
+    "name": "hh3cRaidRunNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidUuid"
+      },
+      {
+        "module": "HH3C-RAID-MIB",
+        "object": "hh3cRaidName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cExtVoltageNormal": {
+    "name": "hh3cExtVoltageNormal",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltagePhysicalIndex"
+      },
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltagePhysicalName"
+      },
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltage"
+      },
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltageLowThreshold"
+      },
+      {
+        "module": "HH3C-STORAGE-MIB",
+        "object": "hh3cExtVoltageHighThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDiskPowerOnNotification": {
+    "name": "hh3cDiskPowerOnNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDiskPowerOffNotification": {
+    "name": "hh3cDiskPowerOffNotification",
+    "oid": "1.3.6.1.4.1.25506.10.1.1.3.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      },
+      {
+        "module": "HH3C-DISK-MIB",
+        "object": "hh3cDiskPowerOffReason"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-STORAGE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-STORAGE-MIB"
+  }
+}

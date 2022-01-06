@@ -1,0 +1,1684 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoRowOperStatus"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoCallResourcePoolMIB": {
+    "name": "ciscoCallResourcePoolMIB",
+    "oid": "1.3.6.1.4.1.9.9.124",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-11-18 00:00",
+        "description": "Updated the imports such that Unsigned32 is imported from SNMPv2-SMI instead of CISCO-TC. Changed the syntax of ccrpCDCallType and ccrpCPResourceCallType from OCTET STRING(SIZE(1)) to BITS."
+      },
+      {
+        "revision": "1998-11-13 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "CcrpPhoneNumber": {
+    "name": "CcrpPhoneNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CcrpPhoneNumberPattern": {
+    "name": "CcrpPhoneNumberPattern",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "PhysicalPosition": {
+    "name": "PhysicalPosition",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "cCallResourcePoolMIBObjects": {
+    "name": "cCallResourcePoolMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.124.1",
+    "class": "objectidentity"
+  },
+  "ccrpConfiguration": {
+    "name": "ccrpConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1",
+    "class": "objectidentity"
+  },
+  "ccrpGeneralConfig": {
+    "name": "ccrpGeneralConfig",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.1",
+    "class": "objectidentity"
+  },
+  "ccrpDnisConfig": {
+    "name": "ccrpDnisConfig",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.2",
+    "class": "objectidentity"
+  },
+  "ccrpCallDiscriminatorConfig": {
+    "name": "ccrpCallDiscriminatorConfig",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.3",
+    "class": "objectidentity"
+  },
+  "ccrpResourceConfig": {
+    "name": "ccrpResourceConfig",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.4",
+    "class": "objectidentity"
+  },
+  "ccrpCustomerProfileConfig": {
+    "name": "ccrpCustomerProfileConfig",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.5",
+    "class": "objectidentity"
+  },
+  "ccrpStatistics": {
+    "name": "ccrpStatistics",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2",
+    "class": "objectidentity"
+  },
+  "ccrpCPStatistics": {
+    "name": "ccrpCPStatistics",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.1",
+    "class": "objectidentity"
+  },
+  "ccrpDnisStatistics": {
+    "name": "ccrpDnisStatistics",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.2",
+    "class": "objectidentity"
+  },
+  "ccrpCDStatistics": {
+    "name": "ccrpCDStatistics",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.3",
+    "class": "objectidentity"
+  },
+  "ccrpNoCPCallTreatment": {
+    "name": "ccrpNoCPCallTreatment",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAnswer": 1,
+          "busy": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noAnswer",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccrpNoResourceCallTreatment": {
+    "name": "ccrpNoResourceCallTreatment",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "channelNotAvailable": 1,
+          "busy": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "channelNotAvailable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccrpDnisGroupTable": {
+    "name": "ccrpDnisGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpDnisGroupEntry": {
+    "name": "ccrpDnisGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpDnisGroupName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpDnisGroupMember",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ccrpDnisGroupName": {
+    "name": "ccrpDnisGroupName",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpDnisGroupMember": {
+    "name": "ccrpDnisGroupMember",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcrpPhoneNumberPattern",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpDnisGroupRowStatus": {
+    "name": "ccrpDnisGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccrpDnisGroupCallTypeTable": {
+    "name": "ccrpDnisGroupCallTypeTable",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpDnisGroupCallTypeEntry": {
+    "name": "ccrpDnisGroupCallTypeEntry",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpDnisGroupName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ccrpDnisGroupCallType": {
+    "name": "ccrpDnisGroupCallType",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "digital": 1,
+          "speech": 2,
+          "undefined": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "undefined",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccrpDnisGroupCallTypeOperStatus": {
+    "name": "ccrpDnisGroupCallTypeOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoRowOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpDnisGroupCallTypeRowStatus": {
+    "name": "ccrpDnisGroupCallTypeRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccrpCallDiscriminatorTable": {
+    "name": "ccrpCallDiscriminatorTable",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpCallDiscriminatorEntry": {
+    "name": "ccrpCallDiscriminatorEntry",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCDName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ccrpCDName": {
+    "name": "ccrpCDName",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpCDCallType": {
+    "name": "ccrpCDCallType",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "digital": 0,
+        "speech": 1,
+        "v110": 2,
+        "v120": 3
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccrpCDRowStatus": {
+    "name": "ccrpCDRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccrpCDDiscriminatedGrpTable": {
+    "name": "ccrpCDDiscriminatedGrpTable",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpCDDiscriminatedGrpEntry": {
+    "name": "ccrpCDDiscriminatedGrpEntry",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCDName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCDDiscriminatedGroupName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCDDiscriminatedGroupType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccrpCDDiscriminatedGroupName": {
+    "name": "ccrpCDDiscriminatedGroupName",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpCDDiscriminatedGroupType": {
+    "name": "ccrpCDDiscriminatedGroupType",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dnis": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpCDDiscriminatedGroupOperStatus": {
+    "name": "ccrpCDDiscriminatedGroupOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoRowOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpCDDiscriminatedGroupRowStatus": {
+    "name": "ccrpCDDiscriminatedGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccrpResourceTable": {
+    "name": "ccrpResourceTable",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpResourceEntry": {
+    "name": "ccrpResourceEntry",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpResourceName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ccrpResourceName": {
+    "name": "ccrpResourceName",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpResourcePortBased": {
+    "name": "ccrpResourcePortBased",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccrpResourceLimit": {
+    "name": "ccrpResourceLimit",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccrpResourceGroupOperStatus": {
+    "name": "ccrpResourceGroupOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoRowOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpResourceGroupRowStatus": {
+    "name": "ccrpResourceGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccrpResourceRangeTable": {
+    "name": "ccrpResourceRangeTable",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpResourceRangeEntry": {
+    "name": "ccrpResourceRangeEntry",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpResourceName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpResourceRangeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccrpResourceRangeIndex": {
+    "name": "ccrpResourceRangeIndex",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpResourceRangeStartPort": {
+    "name": "ccrpResourceRangeStartPort",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalPosition",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccrpResourceRangeEndPort": {
+    "name": "ccrpResourceRangeEndPort",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalPosition",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccrpResourceRangeOperStatus": {
+    "name": "ccrpResourceRangeOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoRowOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpResourceRangeRowStatus": {
+    "name": "ccrpResourceRangeRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccrpCustomerProfileTable": {
+    "name": "ccrpCustomerProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpCustomerProfileEntry": {
+    "name": "ccrpCustomerProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ccrpCPName": {
+    "name": "ccrpCPName",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpCPSessionLimit": {
+    "name": "ccrpCPSessionLimit",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccrpCPOverflow": {
+    "name": "ccrpCPOverflow",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccrpCPRowStatus": {
+    "name": "ccrpCPRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccrpCPDnisGrpTable": {
+    "name": "ccrpCPDnisGrpTable",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpCPDnisGrpEntry": {
+    "name": "ccrpCPDnisGrpEntry",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpDnisGroupName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ccrpCPDnisGroupOperStatus": {
+    "name": "ccrpCPDnisGroupOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoRowOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpCPDnisGroupRowStatus": {
+    "name": "ccrpCPDnisGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccrpCPResourceGrpTable": {
+    "name": "ccrpCPResourceGrpTable",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpCPResourceGrpEntry": {
+    "name": "ccrpCPResourceGrpEntry",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpResourceName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPResourceCallType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccrpCPResourceCallType": {
+    "name": "ccrpCPResourceCallType",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "digital": 0,
+        "speech": 1,
+        "v110": 2,
+        "v120": 3
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpCPResourceServiceProfileName": {
+    "name": "ccrpCPResourceServiceProfileName",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccrpCPResourceOperStatus": {
+    "name": "ccrpCPResourceOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoRowOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpCPResourceRowStatus": {
+    "name": "ccrpCPResourceRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccrpCPVGTable": {
+    "name": "ccrpCPVGTable",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpCPVGEntry": {
+    "name": "ccrpCPVGEntry",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPVGName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ccrpCPVGName": {
+    "name": "ccrpCPVGName",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpCPVGOperStatus": {
+    "name": "ccrpCPVGOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoRowOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpCPVGRowStatus": {
+    "name": "ccrpCPVGRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.124.1.1.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccrpCPStatisticsTable": {
+    "name": "ccrpCPStatisticsTable",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpCPStatisticsEntry": {
+    "name": "ccrpCPStatisticsEntry",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ccrpCPStatisticsEntry",
+      "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+      "object": "ccrpCustomerProfileEntry"
+    },
+    "status": "current"
+  },
+  "ccrpCPActiveSessions": {
+    "name": "ccrpCPActiveSessions",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpCPActiveOverflowSessions": {
+    "name": "ccrpCPActiveOverflowSessions",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpCPTotalSessions": {
+    "name": "ccrpCPTotalSessions",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpCPTotalOverflowSessions": {
+    "name": "ccrpCPTotalOverflowSessions",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpCPNumberOverflowState": {
+    "name": "ccrpCPNumberOverflowState",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpCPNumberMaxState": {
+    "name": "ccrpCPNumberMaxState",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpCPOverflowTime": {
+    "name": "ccrpCPOverflowTime",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpCPMaxStateTime": {
+    "name": "ccrpCPMaxStateTime",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpCPPeakActiveSessions": {
+    "name": "ccrpCPPeakActiveSessions",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpCPOverflowRejected": {
+    "name": "ccrpCPOverflowRejected",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "call attempts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpCPResourceRejected": {
+    "name": "ccrpCPResourceRejected",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "call attempts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpDnisStatisticsTableMaxEntries": {
+    "name": "ccrpDnisStatisticsTableMaxEntries",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccrpDnisStatisticsTableSystemMax": {
+    "name": "ccrpDnisStatisticsTableSystemMax",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpDnisStatisticsTableLengthExceeded": {
+    "name": "ccrpDnisStatisticsTableLengthExceeded",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpDnisStatisticsTable": {
+    "name": "ccrpDnisStatisticsTable",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpDnisStatisticsEntry": {
+    "name": "ccrpDnisStatisticsEntry",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpDnisStatisticsDnisNumber",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ccrpDnisStatisticsDnisNumber": {
+    "name": "ccrpDnisStatisticsDnisNumber",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcrpPhoneNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpDnisStatisticsGroupName": {
+    "name": "ccrpDnisStatisticsGroupName",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpDnisActiveSessions": {
+    "name": "ccrpDnisActiveSessions",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpDnisTotalSessions": {
+    "name": "ccrpDnisTotalSessions",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpDnisPeakActiveSessions": {
+    "name": "ccrpDnisPeakActiveSessions",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpDnisCallTypeRejected": {
+    "name": "ccrpDnisCallTypeRejected",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpCDStatisticsTable": {
+    "name": "ccrpCDStatisticsTable",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrpCDStatisticsEntry": {
+    "name": "ccrpCDStatisticsEntry",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ccrpCDStatisticsEntry",
+      "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+      "object": "ccrpCallDiscriminatorEntry"
+    },
+    "status": "current"
+  },
+  "ccrpCDRejected": {
+    "name": "ccrpCDRejected",
+    "oid": "1.3.6.1.4.1.9.9.124.1.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrpMIBNotificationPrefix": {
+    "name": "ccrpMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.124.2",
+    "class": "objectidentity"
+  },
+  "ccrpMIBConformance": {
+    "name": "ccrpMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.124.3",
+    "class": "objectidentity"
+  },
+  "ccrpMIBCompliances": {
+    "name": "ccrpMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.124.3.1",
+    "class": "objectidentity"
+  },
+  "ccrpMIBGroups": {
+    "name": "ccrpMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.124.3.2",
+    "class": "objectidentity"
+  },
+  "ccrpMIBCompliance": {
+    "name": "ccrpMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.124.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccrpGeneralConfigGroup",
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB"
+      },
+      {
+        "object": "ccrpDnisConfigGroup",
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB"
+      },
+      {
+        "object": "ccrpCDConfigGroup",
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB"
+      },
+      {
+        "object": "ccrpResourceConfigGroup",
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB"
+      },
+      {
+        "object": "ccrpCPConfigGroup",
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB"
+      },
+      {
+        "object": "ccrpCPStatisticsGroup",
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB"
+      },
+      {
+        "object": "ccrpDnisStatisticsGroup",
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB"
+      },
+      {
+        "object": "ccrpCDStatisticsGroup",
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ccrpGeneralConfigGroup": {
+    "name": "ccrpGeneralConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.124.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpNoCPCallTreatment"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpNoResourceCallTreatment"
+      }
+    ],
+    "status": "current"
+  },
+  "ccrpDnisConfigGroup": {
+    "name": "ccrpDnisConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.124.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpDnisGroupRowStatus"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpDnisGroupCallType"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpDnisGroupCallTypeOperStatus"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpDnisGroupCallTypeRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ccrpCDConfigGroup": {
+    "name": "ccrpCDConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.124.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCDCallType"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCDRowStatus"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCDDiscriminatedGroupOperStatus"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCDDiscriminatedGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ccrpResourceConfigGroup": {
+    "name": "ccrpResourceConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.124.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpResourcePortBased"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpResourceLimit"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpResourceGroupOperStatus"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpResourceGroupRowStatus"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpResourceRangeStartPort"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpResourceRangeEndPort"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpResourceRangeOperStatus"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpResourceRangeRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ccrpCPConfigGroup": {
+    "name": "ccrpCPConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.124.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPSessionLimit"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPOverflow"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPRowStatus"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPDnisGroupOperStatus"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPDnisGroupRowStatus"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPResourceServiceProfileName"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPResourceOperStatus"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPResourceRowStatus"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPVGOperStatus"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPVGRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ccrpCPStatisticsGroup": {
+    "name": "ccrpCPStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.124.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPActiveSessions"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPActiveOverflowSessions"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPTotalSessions"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPTotalOverflowSessions"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPNumberOverflowState"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPNumberMaxState"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPOverflowTime"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPMaxStateTime"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPPeakActiveSessions"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPOverflowRejected"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCPResourceRejected"
+      }
+    ],
+    "status": "current"
+  },
+  "ccrpDnisStatisticsGroup": {
+    "name": "ccrpDnisStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.124.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpDnisStatisticsTableMaxEntries"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpDnisStatisticsTableSystemMax"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpDnisStatisticsTableLengthExceeded"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpDnisStatisticsGroupName"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpDnisActiveSessions"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpDnisTotalSessions"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpDnisPeakActiveSessions"
+      },
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpDnisCallTypeRejected"
+      }
+    ],
+    "status": "current"
+  },
+  "ccrpCDStatisticsGroup": {
+    "name": "ccrpCDStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.124.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-RESOURCE-POOL-MIB",
+        "object": "ccrpCDRejected"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CALL-RESOURCE-POOL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CALL-RESOURCE-POOL-MIB"
+  }
+}

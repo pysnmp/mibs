@@ -1,0 +1,232 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "dlinkSwArpSpoofingPreventMIB": {
+    "name": "dlinkSwArpSpoofingPreventMIB",
+    "oid": "1.3.6.1.4.1.171.14.76",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-07-05 00:00",
+        "description": "added dAspLoggingEnabled, dAspLoggingGroup and dAspCompliance2. deprecated dAspCompliance"
+      },
+      {
+        "revision": "2013-07-18 00:00",
+        "description": "This is the first version of the MIB file."
+      }
+    ]
+  },
+  "dAspMIBNotifications": {
+    "name": "dAspMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.76.0",
+    "class": "objectidentity"
+  },
+  "dAspMIBObjects": {
+    "name": "dAspMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.76.1",
+    "class": "objectidentity"
+  },
+  "dAspMIBConformance": {
+    "name": "dAspMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.76.2",
+    "class": "objectidentity"
+  },
+  "dAspGatewayTable": {
+    "name": "dAspGatewayTable",
+    "oid": "1.3.6.1.4.1.171.14.76.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAspGatewayEntry": {
+    "name": "dAspGatewayEntry",
+    "oid": "1.3.6.1.4.1.171.14.76.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ASP-MIB",
+        "object": "dAspGatewayIP",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-ASP-MIB",
+        "object": "dAspGatewayMAC",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAspGatewayIP": {
+    "name": "dAspGatewayIP",
+    "oid": "1.3.6.1.4.1.171.14.76.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAspGatewayMAC": {
+    "name": "dAspGatewayMAC",
+    "oid": "1.3.6.1.4.1.171.14.76.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAspActivePortList": {
+    "name": "dAspActivePortList",
+    "oid": "1.3.6.1.4.1.171.14.76.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAspGatewayRowStatus": {
+    "name": "dAspGatewayRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.76.1.1.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAspLoggingEnabled": {
+    "name": "dAspLoggingEnabled",
+    "oid": "1.3.6.1.4.1.171.14.76.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dAspMIBCompliances": {
+    "name": "dAspMIBCompliances",
+    "oid": "1.3.6.1.4.1.171.14.76.2.1",
+    "class": "objectidentity"
+  },
+  "dAspCompliance": {
+    "name": "dAspCompliance",
+    "oid": "1.3.6.1.4.1.171.14.76.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dAspMgtGroup",
+        "module": "DLINKSW-ASP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dAspCompliance2": {
+    "name": "dAspCompliance2",
+    "oid": "1.3.6.1.4.1.171.14.76.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dAspMgtGroup",
+        "module": "DLINKSW-ASP-MIB"
+      },
+      {
+        "object": "dAspLoggingGroup",
+        "module": "DLINKSW-ASP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dAspMIBGroups": {
+    "name": "dAspMIBGroups",
+    "oid": "1.3.6.1.4.1.171.14.76.2.2",
+    "class": "objectidentity"
+  },
+  "dAspMgtGroup": {
+    "name": "dAspMgtGroup",
+    "oid": "1.3.6.1.4.1.171.14.76.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-ASP-MIB",
+        "object": "dAspActivePortList"
+      },
+      {
+        "module": "DLINKSW-ASP-MIB",
+        "object": "dAspGatewayRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dAspLoggingGroup": {
+    "name": "dAspLoggingGroup",
+    "oid": "1.3.6.1.4.1.171.14.76.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-ASP-MIB",
+        "object": "dAspLoggingEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-ASP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-ASP-MIB"
+  }
+}

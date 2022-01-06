@@ -1,0 +1,1346 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoURLStringOrEmpty",
+      "Cisco2KVlanList",
+      "TimeIntervalMin"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoSmartInstallMIB": {
+    "name": "ciscoSmartInstallMIB",
+    "oid": "1.3.6.1.4.1.9.9.725",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-04-30 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSmartInstallMIBNotifs": {
+    "name": "ciscoSmartInstallMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.725.0",
+    "class": "objectidentity"
+  },
+  "ciscoSmartInstallMIBObjects": {
+    "name": "ciscoSmartInstallMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.725.1",
+    "class": "objectidentity"
+  },
+  "ciscoSmartInstallMIBConform": {
+    "name": "ciscoSmartInstallMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.725.2",
+    "class": "objectidentity"
+  },
+  "csiGlobalConfig": {
+    "name": "csiGlobalConfig",
+    "oid": "1.3.6.1.4.1.9.9.725.1.1",
+    "class": "objectidentity"
+  },
+  "csiProfile": {
+    "name": "csiProfile",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2",
+    "class": "objectidentity"
+  },
+  "csiDeviceInfo": {
+    "name": "csiDeviceInfo",
+    "oid": "1.3.6.1.4.1.9.9.725.1.3",
+    "class": "objectidentity"
+  },
+  "csiNotifObjects": {
+    "name": "csiNotifObjects",
+    "oid": "1.3.6.1.4.1.9.9.725.1.4",
+    "class": "objectidentity"
+  },
+  "csiOperationMode": {
+    "name": "csiOperationMode",
+    "oid": "1.3.6.1.4.1.9.9.725.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "basic": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csiDirectorIpAddressType": {
+    "name": "csiDirectorIpAddressType",
+    "oid": "1.3.6.1.4.1.9.9.725.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csiDirectorIpAddress": {
+    "name": "csiDirectorIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.725.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csiManagementVlan": {
+    "name": "csiManagementVlan",
+    "oid": "1.3.6.1.4.1.9.9.725.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiManagementVlansFirst2K": {
+    "name": "csiManagementVlansFirst2K",
+    "oid": "1.3.6.1.4.1.9.9.725.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Cisco2KVlanList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csiManagementVlansSecond2K": {
+    "name": "csiManagementVlansSecond2K",
+    "oid": "1.3.6.1.4.1.9.9.725.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Cisco2KVlanList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csiBackup": {
+    "name": "csiBackup",
+    "oid": "1.3.6.1.4.1.9.9.725.1.1.7",
+    "class": "objectidentity"
+  },
+  "csiJoinWindow": {
+    "name": "csiJoinWindow",
+    "oid": "1.3.6.1.4.1.9.9.725.1.1.8",
+    "class": "objectidentity"
+  },
+  "csiBackupHostUrl": {
+    "name": "csiBackupHostUrl",
+    "oid": "1.3.6.1.4.1.9.9.725.1.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoURLStringOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csiBackupEnable": {
+    "name": "csiBackupEnable",
+    "oid": "1.3.6.1.4.1.9.9.725.1.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csiJoinWindowConfigOperationMode": {
+    "name": "csiJoinWindowConfigOperationMode",
+    "oid": "1.3.6.1.4.1.9.9.725.1.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "closed": 1,
+          "auto": 2,
+          "manual": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csiJoinWindowPeriodNextFreeIndex": {
+    "name": "csiJoinWindowPeriodNextFreeIndex",
+    "oid": "1.3.6.1.4.1.9.9.725.1.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiJoinWindowPeriodTable": {
+    "name": "csiJoinWindowPeriodTable",
+    "oid": "1.3.6.1.4.1.9.9.725.1.1.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csiJoinWindowPeriodEntry": {
+    "name": "csiJoinWindowPeriodEntry",
+    "oid": "1.3.6.1.4.1.9.9.725.1.1.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiJoinWindowPeriodIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csiJoinWindowPeriodIndex": {
+    "name": "csiJoinWindowPeriodIndex",
+    "oid": "1.3.6.1.4.1.9.9.725.1.1.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csiJoinWindowPeriodStartTime": {
+    "name": "csiJoinWindowPeriodStartTime",
+    "oid": "1.3.6.1.4.1.9.9.725.1.1.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiJoinWindowPeriodInterval": {
+    "name": "csiJoinWindowPeriodInterval",
+    "oid": "1.3.6.1.4.1.9.9.725.1.1.8.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalMin",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiJoinWindowPeriodRecurrencePattern": {
+    "name": "csiJoinWindowPeriodRecurrencePattern",
+    "oid": "1.3.6.1.4.1.9.9.725.1.1.8.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "daily": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiJoinWindowPeriodExpirationDate": {
+    "name": "csiJoinWindowPeriodExpirationDate",
+    "oid": "1.3.6.1.4.1.9.9.725.1.1.8.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiJoinWindowPeriodStorageType": {
+    "name": "csiJoinWindowPeriodStorageType",
+    "oid": "1.3.6.1.4.1.9.9.725.1.1.8.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiJoinWindowPeriodRowStatus": {
+    "name": "csiJoinWindowPeriodRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.725.1.1.8.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiImageFileUrl": {
+    "name": "csiImageFileUrl",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoURLStringOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csiConfigFileUrl": {
+    "name": "csiConfigFileUrl",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoURLStringOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csiHostnamePrefix": {
+    "name": "csiHostnamePrefix",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csiProfileNextFreeIndex": {
+    "name": "csiProfileNextFreeIndex",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiProfileTable": {
+    "name": "csiProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csiProfileEntry": {
+    "name": "csiProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csiProfileIndex": {
+    "name": "csiProfileIndex",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csiProfileGroupName": {
+    "name": "csiProfileGroupName",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiProfileImageUrl": {
+    "name": "csiProfileImageUrl",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoURLStringOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiProfileImageTwoUrl": {
+    "name": "csiProfileImageTwoUrl",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoURLStringOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiProfileConfigUrl": {
+    "name": "csiProfileConfigUrl",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoURLStringOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiProfileStorageType": {
+    "name": "csiProfileStorageType",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiProfileRowStatus": {
+    "name": "csiProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiMatchTable": {
+    "name": "csiMatchTable",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csiMatchEntry": {
+    "name": "csiMatchEntry",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiProfileIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiMatchIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csiMatchIndex": {
+    "name": "csiMatchIndex",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csiMatchGroupType": {
+    "name": "csiMatchGroupType",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "mac": 2,
+          "connectivity": 3,
+          "product": 4,
+          "stack": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiMatchMacAddress": {
+    "name": "csiMatchMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiMatchHostAddressType": {
+    "name": "csiMatchHostAddressType",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiMatchHostAddress": {
+    "name": "csiMatchHostAddress",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiMatchHostInterface": {
+    "name": "csiMatchHostInterface",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiMatchProductId": {
+    "name": "csiMatchProductId",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiMatchSwitchNum": {
+    "name": "csiMatchSwitchNum",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiMatchSwitchProductId": {
+    "name": "csiMatchSwitchProductId",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiMatchStorageType": {
+    "name": "csiMatchStorageType",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiMatchRowStatus": {
+    "name": "csiMatchRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.725.1.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiDeviceTable": {
+    "name": "csiDeviceTable",
+    "oid": "1.3.6.1.4.1.9.9.725.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csiDeviceEntry": {
+    "name": "csiDeviceEntry",
+    "oid": "1.3.6.1.4.1.9.9.725.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDeviceNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csiDeviceNum": {
+    "name": "csiDeviceNum",
+    "oid": "1.3.6.1.4.1.9.9.725.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csiDeviceMacAddress": {
+    "name": "csiDeviceMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.725.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiDeviceAddressType": {
+    "name": "csiDeviceAddressType",
+    "oid": "1.3.6.1.4.1.9.9.725.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiDeviceAddress": {
+    "name": "csiDeviceAddress",
+    "oid": "1.3.6.1.4.1.9.9.725.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiDeviceName": {
+    "name": "csiDeviceName",
+    "oid": "1.3.6.1.4.1.9.9.725.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiDeviceBackupConfigFileName": {
+    "name": "csiDeviceBackupConfigFileName",
+    "oid": "1.3.6.1.4.1.9.9.725.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiDeviceImageVersion": {
+    "name": "csiDeviceImageVersion",
+    "oid": "1.3.6.1.4.1.9.9.725.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiDevicePlatform": {
+    "name": "csiDevicePlatform",
+    "oid": "1.3.6.1.4.1.9.9.725.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiDeviceSerialNum": {
+    "name": "csiDeviceSerialNum",
+    "oid": "1.3.6.1.4.1.9.9.725.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiDeviceStatus": {
+    "name": "csiDeviceStatus",
+    "oid": "1.3.6.1.4.1.9.9.725.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiNotifEnable": {
+    "name": "csiNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.725.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "operationModeChange": 0,
+        "deviceAdded": 1,
+        "deviceLost": 2,
+        "fileLoadFailed": 3
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csiNotifOperationType": {
+    "name": "csiNotifOperationType",
+    "oid": "1.3.6.1.4.1.9.9.725.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "downloadConfig": 2,
+          "downloadImage": 3,
+          "uploadConfig": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiNotifOperationResult": {
+    "name": "csiNotifOperationResult",
+    "oid": "1.3.6.1.4.1.9.9.725.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiOperationModeChange": {
+    "name": "csiOperationModeChange",
+    "oid": "1.3.6.1.4.1.9.9.725.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiOperationMode"
+      }
+    ],
+    "status": "current"
+  },
+  "csiDeviceAdded": {
+    "name": "csiDeviceAdded",
+    "oid": "1.3.6.1.4.1.9.9.725.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDeviceName"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDeviceAddressType"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDeviceAddress"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDeviceMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "csiDeviceLost": {
+    "name": "csiDeviceLost",
+    "oid": "1.3.6.1.4.1.9.9.725.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDeviceName"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDeviceAddressType"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDeviceAddress"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDeviceMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "csiFileLoadFailed": {
+    "name": "csiFileLoadFailed",
+    "oid": "1.3.6.1.4.1.9.9.725.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDeviceName"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDeviceAddressType"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDeviceAddress"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDeviceMacAddress"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiNotifOperationType"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiNotifOperationResult"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSmartInstallCompliances": {
+    "name": "ciscoSmartInstallCompliances",
+    "oid": "1.3.6.1.4.1.9.9.725.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoSmartInstallGroups": {
+    "name": "ciscoSmartInstallGroups",
+    "oid": "1.3.6.1.4.1.9.9.725.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoSmartInstallCompliance": {
+    "name": "ciscoSmartInstallCompliance",
+    "oid": "1.3.6.1.4.1.9.9.725.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSmartInstallGlobalConfigGroup",
+        "module": "CISCO-SMART-INSTALL-MIB"
+      },
+      {
+        "object": "ciscoSmartInstallDeviceInformationGroup",
+        "module": "CISCO-SMART-INSTALL-MIB"
+      },
+      {
+        "object": "ciscoSmartInstallConfigBackupGroup",
+        "module": "CISCO-SMART-INSTALL-MIB"
+      },
+      {
+        "object": "ciscoSmartInstallJoinWindowGroup",
+        "module": "CISCO-SMART-INSTALL-MIB"
+      },
+      {
+        "object": "ciscoSmartInstallProfileGroup",
+        "module": "CISCO-SMART-INSTALL-MIB"
+      },
+      {
+        "object": "ciscoSmartInstallNotificationEnableGroup",
+        "module": "CISCO-SMART-INSTALL-MIB"
+      },
+      {
+        "object": "ciscoSmartInstallNotificationsGroup",
+        "module": "CISCO-SMART-INSTALL-MIB"
+      },
+      {
+        "object": "ciscoSmartInstallNotifyVarsGroup",
+        "module": "CISCO-SMART-INSTALL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSmartInstallGlobalConfigGroup": {
+    "name": "ciscoSmartInstallGlobalConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.725.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiOperationMode"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDirectorIpAddressType"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDirectorIpAddress"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiManagementVlan"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiManagementVlansFirst2K"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiManagementVlansSecond2K"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSmartInstallConfigBackupGroup": {
+    "name": "ciscoSmartInstallConfigBackupGroup",
+    "oid": "1.3.6.1.4.1.9.9.725.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiBackupEnable"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiBackupHostUrl"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSmartInstallJoinWindowGroup": {
+    "name": "ciscoSmartInstallJoinWindowGroup",
+    "oid": "1.3.6.1.4.1.9.9.725.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiJoinWindowConfigOperationMode"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiJoinWindowPeriodNextFreeIndex"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiJoinWindowPeriodStartTime"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiJoinWindowPeriodInterval"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiJoinWindowPeriodRecurrencePattern"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiJoinWindowPeriodExpirationDate"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiJoinWindowPeriodRowStatus"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiJoinWindowPeriodStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSmartInstallProfileGroup": {
+    "name": "ciscoSmartInstallProfileGroup",
+    "oid": "1.3.6.1.4.1.9.9.725.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiImageFileUrl"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiConfigFileUrl"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiHostnamePrefix"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiProfileNextFreeIndex"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiProfileGroupName"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiProfileImageUrl"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiProfileImageTwoUrl"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiProfileConfigUrl"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiProfileStorageType"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiProfileRowStatus"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiMatchGroupType"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiMatchProductId"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiMatchSwitchNum"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiMatchSwitchProductId"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiMatchHostAddressType"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiMatchHostAddress"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiMatchHostInterface"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiMatchMacAddress"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiMatchStorageType"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiMatchRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSmartInstallDeviceInformationGroup": {
+    "name": "ciscoSmartInstallDeviceInformationGroup",
+    "oid": "1.3.6.1.4.1.9.9.725.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDeviceMacAddress"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDeviceAddressType"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDeviceAddress"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDeviceName"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDeviceBackupConfigFileName"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDeviceImageVersion"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDevicePlatform"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDeviceSerialNum"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDeviceStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSmartInstallNotificationEnableGroup": {
+    "name": "ciscoSmartInstallNotificationEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.725.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSmartInstallNotificationsGroup": {
+    "name": "ciscoSmartInstallNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.725.2.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiOperationModeChange"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDeviceAdded"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiDeviceLost"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiFileLoadFailed"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSmartInstallNotifyVarsGroup": {
+    "name": "ciscoSmartInstallNotifyVarsGroup",
+    "oid": "1.3.6.1.4.1.9.9.725.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiNotifOperationType"
+      },
+      {
+        "module": "CISCO-SMART-INSTALL-MIB",
+        "object": "csiNotifOperationResult"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SMART-INSTALL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SMART-INSTALL-MIB"
+  }
+}

@@ -1,0 +1,1145 @@
+{
+  "imports": {
+    "class": "imports",
+    "MCAFEE-SMI": [
+      "mcafeeGATEWAY"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "TRAP-TYPE",
+      "Bits",
+      "Counter64",
+      "IpAddress",
+      "mib-2",
+      "Integer32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "enterprises",
+      "MibIdentifier",
+      "Gauge32",
+      "iso",
+      "Counter32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "PhysAddress"
+    ]
+  },
+  "mwg": {
+    "name": "mwg",
+    "oid": "1.3.6.1.4.1.1230.2.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-11-10 00:00",
+        "description": "Add memory consumption value"
+      },
+      {
+        "revision": "2014-10-07 00:00",
+        "description": "Fix trap notification enums"
+      },
+      {
+        "revision": "2013-05-21 00:00",
+        "description": "Add values for performance measurement"
+      },
+      {
+        "revision": "2011-12-01 00:00",
+        "description": "Mark stBadReputation as obsolete"
+      },
+      {
+        "revision": "2011-01-11 00:00",
+        "description": "Add some more statistical values and descriptions"
+      },
+      {
+        "revision": "2010-04-26 00:00",
+        "description": "Add build number to version information"
+      },
+      {
+        "revision": "2010-02-19 00:00",
+        "description": "Minor RFC related compatiblility changes in the mib"
+      },
+      {
+        "revision": "2009-10-13 00:00",
+        "description": "Initial version"
+      }
+    ]
+  },
+  "mwgInfo": {
+    "name": "mwgInfo",
+    "oid": "1.3.6.1.4.1.1230.2.7.1",
+    "class": "objectidentity"
+  },
+  "mwgStatistics": {
+    "name": "mwgStatistics",
+    "oid": "1.3.6.1.4.1.1230.2.7.2",
+    "class": "objectidentity"
+  },
+  "mwgTraps": {
+    "name": "mwgTraps",
+    "oid": "1.3.6.1.4.1.1230.2.7.4",
+    "class": "objectidentity"
+  },
+  "mwgContent": {
+    "name": "mwgContent",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.1",
+    "class": "objectidentity"
+  },
+  "mwgHttp": {
+    "name": "mwgHttp",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.2",
+    "class": "objectidentity"
+  },
+  "mwgHttps": {
+    "name": "mwgHttps",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.3",
+    "class": "objectidentity"
+  },
+  "mwgFTP": {
+    "name": "mwgFTP",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.4",
+    "class": "objectidentity"
+  },
+  "mwgMiscellaneous": {
+    "name": "mwgMiscellaneous",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.5",
+    "class": "objectidentity"
+  },
+  "kProductName": {
+    "name": "kProductName",
+    "oid": "1.3.6.1.4.1.1230.2.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "kCompanyName": {
+    "name": "kCompanyName",
+    "oid": "1.3.6.1.4.1.1230.2.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "kProductVersion": {
+    "name": "kProductVersion",
+    "oid": "1.3.6.1.4.1.1230.2.7.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "kMajorVersion": {
+    "name": "kMajorVersion",
+    "oid": "1.3.6.1.4.1.1230.2.7.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "kMinorVersion": {
+    "name": "kMinorVersion",
+    "oid": "1.3.6.1.4.1.1230.2.7.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "kMicroVersion": {
+    "name": "kMicroVersion",
+    "oid": "1.3.6.1.4.1.1230.2.7.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "kHotfixVersion": {
+    "name": "kHotfixVersion",
+    "oid": "1.3.6.1.4.1.1230.2.7.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "kCustomVersion": {
+    "name": "kCustomVersion",
+    "oid": "1.3.6.1.4.1.1230.2.7.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "kRevision": {
+    "name": "kRevision",
+    "oid": "1.3.6.1.4.1.1230.2.7.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "kBuildNumber": {
+    "name": "kBuildNumber",
+    "oid": "1.3.6.1.4.1.1230.2.7.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwgEngineVersions": {
+    "name": "mwgEngineVersions",
+    "oid": "1.3.6.1.4.1.1230.2.7.1.20",
+    "class": "objectidentity"
+  },
+  "pAMEngineVersion": {
+    "name": "pAMEngineVersion",
+    "oid": "1.3.6.1.4.1.1230.2.7.1.20.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pAMSignatureVersion": {
+    "name": "pAMSignatureVersion",
+    "oid": "1.3.6.1.4.1.1230.2.7.1.20.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pMFEEngineVersion": {
+    "name": "pMFEEngineVersion",
+    "oid": "1.3.6.1.4.1.1230.2.7.1.20.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pMFEDATVersion": {
+    "name": "pMFEDATVersion",
+    "oid": "1.3.6.1.4.1.1230.2.7.1.20.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pAMProactiveVersion": {
+    "name": "pAMProactiveVersion",
+    "oid": "1.3.6.1.4.1.1230.2.7.1.20.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pTSDBVersion": {
+    "name": "pTSDBVersion",
+    "oid": "1.3.6.1.4.1.1230.2.7.1.20.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stBadReputation": {
+    "name": "stBadReputation",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "stMalwareDetected": {
+    "name": "stMalwareDetected",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stConnectionsLegitimate": {
+    "name": "stConnectionsLegitimate",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stBlockedByAntiMalware": {
+    "name": "stBlockedByAntiMalware",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stConnectionsBlocked": {
+    "name": "stConnectionsBlocked",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stBlockedByMediaFilter": {
+    "name": "stBlockedByMediaFilter",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stBlockedByURLFilter": {
+    "name": "stBlockedByURLFilter",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stMimeType": {
+    "name": "stMimeType",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stCategories": {
+    "name": "stCategories",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stCategoriesTable": {
+    "name": "stCategoriesTable",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stCategoriesEntry": {
+    "name": "stCategoriesEntry",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MCAFEE-MWG-MIB",
+        "object": "stCategoryName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stCategoryName": {
+    "name": "stCategoryName",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stCategoryCount": {
+    "name": "stCategoryCount",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stHttpRequests": {
+    "name": "stHttpRequests",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stHttpTraffic": {
+    "name": "stHttpTraffic",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stHttpBytesFromClient": {
+    "name": "stHttpBytesFromClient",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stHttpBytesFromServer": {
+    "name": "stHttpBytesFromServer",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stHttpBytesToClient": {
+    "name": "stHttpBytesToClient",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stHttpBytesToServer": {
+    "name": "stHttpBytesToServer",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stHttpsRequests": {
+    "name": "stHttpsRequests",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stHttpsTraffic": {
+    "name": "stHttpsTraffic",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stHttpsBytesFromClient": {
+    "name": "stHttpsBytesFromClient",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stHttpsBytesFromServer": {
+    "name": "stHttpsBytesFromServer",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stHttpsBytesToClient": {
+    "name": "stHttpsBytesToClient",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stHttpsBytesToServer": {
+    "name": "stHttpsBytesToServer",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stFtpTraffic": {
+    "name": "stFtpTraffic",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stFtpBytesFromClient": {
+    "name": "stFtpBytesFromClient",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stFtpBytesFromServer": {
+    "name": "stFtpBytesFromServer",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stFtpBytesToClient": {
+    "name": "stFtpBytesToClient",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stFtpBytesToServer": {
+    "name": "stFtpBytesToServer",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stCPULoad": {
+    "name": "stCPULoad",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stClientCount": {
+    "name": "stClientCount",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stConnectedSockets": {
+    "name": "stConnectedSockets",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stCPULoadRaw": {
+    "name": "stCPULoadRaw",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stCPUIOWait": {
+    "name": "stCPUIOWait",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stResolveHostViaDNS": {
+    "name": "stResolveHostViaDNS",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stTimeConsumedByRuleEngine": {
+    "name": "stTimeConsumedByRuleEngine",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stTimeForTransaction": {
+    "name": "stTimeForTransaction",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stHandleConnectToServer": {
+    "name": "stHandleConnectToServer",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stFirstSentFirstReceivedClient": {
+    "name": "stFirstSentFirstReceivedClient",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stLastSentLastReceivedClient": {
+    "name": "stLastSentLastReceivedClient",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stFirstSentFirstReceivedServer": {
+    "name": "stFirstSentFirstReceivedServer",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stLastSentLastReceivedServer": {
+    "name": "stLastSentLastReceivedServer",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stLastSentFirstReceivedServer": {
+    "name": "stLastSentFirstReceivedServer",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stMemConsumed": {
+    "name": "stMemConsumed",
+    "oid": "1.3.6.1.4.1.1230.2.7.2.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trSystem": {
+    "name": "trSystem",
+    "oid": "1.3.6.1.4.1.1230.2.7.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MCAFEE-MWG-MIB",
+        "object": "notifyOrigin"
+      },
+      {
+        "module": "MCAFEE-MWG-MIB",
+        "object": "notifyOriginName"
+      },
+      {
+        "module": "MCAFEE-MWG-MIB",
+        "object": "notifySeverity"
+      },
+      {
+        "module": "MCAFEE-MWG-MIB",
+        "object": "notifyReason"
+      },
+      {
+        "module": "MCAFEE-MWG-MIB",
+        "object": "notifyReasonString"
+      },
+      {
+        "module": "MCAFEE-MWG-MIB",
+        "object": "notifyAffectedHost"
+      },
+      {
+        "module": "MCAFEE-MWG-MIB",
+        "object": "notifyAdditional"
+      }
+    ],
+    "status": "current"
+  },
+  "trApplication": {
+    "name": "trApplication",
+    "oid": "1.3.6.1.4.1.1230.2.7.4.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MCAFEE-MWG-MIB",
+        "object": "notifyOrigin"
+      },
+      {
+        "module": "MCAFEE-MWG-MIB",
+        "object": "notifyOriginName"
+      },
+      {
+        "module": "MCAFEE-MWG-MIB",
+        "object": "notifySeverity"
+      },
+      {
+        "module": "MCAFEE-MWG-MIB",
+        "object": "notifyReason"
+      },
+      {
+        "module": "MCAFEE-MWG-MIB",
+        "object": "notifyReasonString"
+      },
+      {
+        "module": "MCAFEE-MWG-MIB",
+        "object": "notifyAffectedHost"
+      },
+      {
+        "module": "MCAFEE-MWG-MIB",
+        "object": "notifyAdditional"
+      }
+    ],
+    "status": "current"
+  },
+  "trUser": {
+    "name": "trUser",
+    "oid": "1.3.6.1.4.1.1230.2.7.4.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MCAFEE-MWG-MIB",
+        "object": "notifyReason"
+      },
+      {
+        "module": "MCAFEE-MWG-MIB",
+        "object": "notifyReasonString"
+      },
+      {
+        "module": "MCAFEE-MWG-MIB",
+        "object": "notifyAffectedHost"
+      },
+      {
+        "module": "MCAFEE-MWG-MIB",
+        "object": "notifyAdditional"
+      }
+    ],
+    "status": "current"
+  },
+  "mwgTrapVariables": {
+    "name": "mwgTrapVariables",
+    "oid": "1.3.6.1.4.1.1230.2.7.4.10",
+    "class": "objectidentity"
+  },
+  "notifyOrigin": {
+    "name": "notifyOrigin",
+    "oid": "1.3.6.1.4.1.1230.2.7.4.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "notifyOriginName": {
+    "name": "notifyOriginName",
+    "oid": "1.3.6.1.4.1.1230.2.7.4.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "notifySeverity": {
+    "name": "notifySeverity",
+    "oid": "1.3.6.1.4.1.1230.2.7.4.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergency": 0,
+          "alert": 1,
+          "critical": 2,
+          "error": 3,
+          "warning": 4,
+          "notice": 5,
+          "info": 6,
+          "debug": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "notifyReason": {
+    "name": "notifyReason",
+    "oid": "1.3.6.1.4.1.1230.2.7.4.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "notifyReasonString": {
+    "name": "notifyReasonString",
+    "oid": "1.3.6.1.4.1.1230.2.7.4.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "notifyAffectedHost": {
+    "name": "notifyAffectedHost",
+    "oid": "1.3.6.1.4.1.1230.2.7.4.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "notifyAdditional": {
+    "name": "notifyAdditional",
+    "oid": "1.3.6.1.4.1.1230.2.7.4.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mcafee/MCAFEE-MWG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:41:42 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MCAFEE-MWG-MIB"
+  }
+}

@@ -1,0 +1,634 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfTotalCount",
+      "PerfCurrentCount",
+      "PerfIntervalCount"
+    ],
+    "SL-NE-MIB": [
+      "sitelight"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "slEdfa": {
+    "name": "slEdfa",
+    "oid": "1.3.6.1.4.1.4515.1.9",
+    "class": "moduleidentity"
+  },
+  "edfaConfig": {
+    "name": "edfaConfig",
+    "oid": "1.3.6.1.4.1.4515.1.9.1",
+    "class": "objectidentity"
+  },
+  "edfaTraps": {
+    "name": "edfaTraps",
+    "oid": "1.3.6.1.4.1.4515.1.9.2",
+    "class": "objectidentity"
+  },
+  "edfaTraps0": {
+    "name": "edfaTraps0",
+    "oid": "1.3.6.1.4.1.4515.1.9.2.0",
+    "class": "objectidentity"
+  },
+  "edfaConfigTable": {
+    "name": "edfaConfigTable",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "edfaConfigEntry": {
+    "name": "edfaConfigEntry",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-EDFA-MIB",
+        "object": "edfaIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "edfaIfIndex": {
+    "name": "edfaIfIndex",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaPumpTemp": {
+    "name": "edfaPumpTemp",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaRxPower": {
+    "name": "edfaRxPower",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaPumpAdminStatus": {
+    "name": "edfaPumpAdminStatus",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "restart": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "edfaPumpOperStatus": {
+    "name": "edfaPumpOperStatus",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "restart": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaStatus": {
+    "name": "edfaStatus",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaVoa": {
+    "name": "edfaVoa",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaAutomaticMode": {
+    "name": "edfaAutomaticMode",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "edfaAdminControlMode": {
+    "name": "edfaAdminControlMode",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apc": 1,
+          "agc": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "edfaOperControlMode": {
+    "name": "edfaOperControlMode",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apc": 1,
+          "agc": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaAdminGain": {
+    "name": "edfaAdminGain",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "edfaOperGain": {
+    "name": "edfaOperGain",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaAdminOutputPower": {
+    "name": "edfaAdminOutputPower",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "edfaOperOutputPower": {
+    "name": "edfaOperOutputPower",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaChannelsNumber": {
+    "name": "edfaChannelsNumber",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaTotalChannelsNumber": {
+    "name": "edfaTotalChannelsNumber",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaEyeSafetyMode": {
+    "name": "edfaEyeSafetyMode",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "edfaShutDownLipEnable": {
+    "name": "edfaShutDownLipEnable",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "edfaAutoPowerUpLipEnable": {
+    "name": "edfaAutoPowerUpLipEnable",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "edfaMaxGain": {
+    "name": "edfaMaxGain",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaGainInFrom": {
+    "name": "edfaGainInFrom",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaGainInTo": {
+    "name": "edfaGainInTo",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaGainOutFrom": {
+    "name": "edfaGainOutFrom",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaGainOutTo": {
+    "name": "edfaGainOutTo",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaPowerInFrom": {
+    "name": "edfaPowerInFrom",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaPowerInTo": {
+    "name": "edfaPowerInTo",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaPowerOutFrom": {
+    "name": "edfaPowerOutFrom",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaPowerOutTo": {
+    "name": "edfaPowerOutTo",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaFromChannel": {
+    "name": "edfaFromChannel",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaToChannel": {
+    "name": "edfaToChannel",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaOscChannel": {
+    "name": "edfaOscChannel",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaRedBlueType": {
+    "name": "edfaRedBlueType",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "red": 1,
+          "blue": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaRole": {
+    "name": "edfaRole",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "booster": 1,
+          "boosterInline": 2,
+          "preamp": 3,
+          "inline": 4,
+          "raman": 5,
+          "other": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaFreeDescription": {
+    "name": "edfaFreeDescription",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "edfaConfigSafetyThreshold": {
+    "name": "edfaConfigSafetyThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.9.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "edfaStatusChange": {
+    "name": "edfaStatusChange",
+    "oid": "1.3.6.1.4.1.4515.1.9.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-EDFA-MIB",
+        "object": "edfaIfIndex"
+      },
+      {
+        "module": "SL-EDFA-MIB",
+        "object": "edfaStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "edfaControlModeChange": {
+    "name": "edfaControlModeChange",
+    "oid": "1.3.6.1.4.1.4515.1.9.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-EDFA-MIB",
+        "object": "edfaIfIndex"
+      },
+      {
+        "module": "SL-EDFA-MIB",
+        "object": "edfaOperControlMode"
+      }
+    ],
+    "status": "current"
+  },
+  "edfaStatusChange0": {
+    "name": "edfaStatusChange0",
+    "oid": "1.3.6.1.4.1.4515.1.9.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-EDFA-MIB",
+        "object": "edfaIfIndex"
+      },
+      {
+        "module": "SL-EDFA-MIB",
+        "object": "edfaStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "edfaControlModeChange0": {
+    "name": "edfaControlModeChange0",
+    "oid": "1.3.6.1.4.1.4515.1.9.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-EDFA-MIB",
+        "object": "edfaIfIndex"
+      },
+      {
+        "module": "SL-EDFA-MIB",
+        "object": "edfaOperControlMode"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-EDFA.mib",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:54 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SL-EDFA-MIB"
+  }
+}

@@ -1,0 +1,2308 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "enterprises",
+      "MibIdentifier",
+      "Counter32",
+      "iso",
+      "Unsigned32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter64",
+      "TRAP-TYPE",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "delta": {
+    "name": "delta",
+    "oid": "1.3.6.1.4.1.2254",
+    "class": "objectidentity"
+  },
+  "ups": {
+    "name": "ups",
+    "oid": "1.3.6.1.4.1.2254.2",
+    "class": "objectidentity"
+  },
+  "upsv4": {
+    "name": "upsv4",
+    "oid": "1.3.6.1.4.1.2254.2.4",
+    "class": "objectidentity"
+  },
+  "dupsIdent": {
+    "name": "dupsIdent",
+    "oid": "1.3.6.1.4.1.2254.2.4.1",
+    "class": "objectidentity"
+  },
+  "dupsControl": {
+    "name": "dupsControl",
+    "oid": "1.3.6.1.4.1.2254.2.4.2",
+    "class": "objectidentity"
+  },
+  "dupsConfig": {
+    "name": "dupsConfig",
+    "oid": "1.3.6.1.4.1.2254.2.4.3",
+    "class": "objectidentity"
+  },
+  "dupsInput": {
+    "name": "dupsInput",
+    "oid": "1.3.6.1.4.1.2254.2.4.4",
+    "class": "objectidentity"
+  },
+  "dupsOutput": {
+    "name": "dupsOutput",
+    "oid": "1.3.6.1.4.1.2254.2.4.5",
+    "class": "objectidentity"
+  },
+  "dupsBypass": {
+    "name": "dupsBypass",
+    "oid": "1.3.6.1.4.1.2254.2.4.6",
+    "class": "objectidentity"
+  },
+  "dupsBattery": {
+    "name": "dupsBattery",
+    "oid": "1.3.6.1.4.1.2254.2.4.7",
+    "class": "objectidentity"
+  },
+  "dupsTest": {
+    "name": "dupsTest",
+    "oid": "1.3.6.1.4.1.2254.2.4.8",
+    "class": "objectidentity"
+  },
+  "dupsAlarm": {
+    "name": "dupsAlarm",
+    "oid": "1.3.6.1.4.1.2254.2.4.9",
+    "class": "objectidentity"
+  },
+  "dupsEnvironment": {
+    "name": "dupsEnvironment",
+    "oid": "1.3.6.1.4.1.2254.2.4.10",
+    "class": "objectidentity"
+  },
+  "dupsTraps": {
+    "name": "dupsTraps",
+    "oid": "1.3.6.1.4.1.2254.2.4.20",
+    "class": "objectidentity"
+  },
+  "dupsIdentManufacturer": {
+    "name": "dupsIdentManufacturer",
+    "oid": "1.3.6.1.4.1.2254.2.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsIdentModel": {
+    "name": "dupsIdentModel",
+    "oid": "1.3.6.1.4.1.2254.2.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsIdentUPSSoftwareVersion": {
+    "name": "dupsIdentUPSSoftwareVersion",
+    "oid": "1.3.6.1.4.1.2254.2.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsIdentAgentSoftwareVersion": {
+    "name": "dupsIdentAgentSoftwareVersion",
+    "oid": "1.3.6.1.4.1.2254.2.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsIdentName": {
+    "name": "dupsIdentName",
+    "oid": "1.3.6.1.4.1.2254.2.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsAttachedDevices": {
+    "name": "dupsAttachedDevices",
+    "oid": "1.3.6.1.4.1.2254.2.4.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsRatingOutputVA": {
+    "name": "dupsRatingOutputVA",
+    "oid": "1.3.6.1.4.1.2254.2.4.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsRatingOutputVoltage": {
+    "name": "dupsRatingOutputVoltage",
+    "oid": "1.3.6.1.4.1.2254.2.4.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsRatingOutputFrequency": {
+    "name": "dupsRatingOutputFrequency",
+    "oid": "1.3.6.1.4.1.2254.2.4.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsRatingInputVoltage": {
+    "name": "dupsRatingInputVoltage",
+    "oid": "1.3.6.1.4.1.2254.2.4.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsRatingInputFrequency": {
+    "name": "dupsRatingInputFrequency",
+    "oid": "1.3.6.1.4.1.2254.2.4.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsRatingBatteryVoltage": {
+    "name": "dupsRatingBatteryVoltage",
+    "oid": "1.3.6.1.4.1.2254.2.4.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsLowTransferVoltUpBound": {
+    "name": "dupsLowTransferVoltUpBound",
+    "oid": "1.3.6.1.4.1.2254.2.4.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "Volt",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsLowTransferVoltLowBound": {
+    "name": "dupsLowTransferVoltLowBound",
+    "oid": "1.3.6.1.4.1.2254.2.4.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "Volt",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsHighTransferVoltUpBound": {
+    "name": "dupsHighTransferVoltUpBound",
+    "oid": "1.3.6.1.4.1.2254.2.4.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "Volt",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsHighTransferVoltLowBound": {
+    "name": "dupsHighTransferVoltLowBound",
+    "oid": "1.3.6.1.4.1.2254.2.4.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "Volt",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsLowBattTime": {
+    "name": "dupsLowBattTime",
+    "oid": "1.3.6.1.4.1.2254.2.4.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsOutletRelays": {
+    "name": "dupsOutletRelays",
+    "oid": "1.3.6.1.4.1.2254.2.4.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsType": {
+    "name": "dupsType",
+    "oid": "1.3.6.1.4.1.2254.2.4.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on-line": 1,
+          "off-line": 2,
+          "line-interactive": 3,
+          "3phase": 4,
+          "splite-phase": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsShutdownType": {
+    "name": "dupsShutdownType",
+    "oid": "1.3.6.1.4.1.2254.2.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "output": 1,
+          "system": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsAutoReboot": {
+    "name": "dupsAutoReboot",
+    "oid": "1.3.6.1.4.1.2254.2.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsShutdownAction": {
+    "name": "dupsShutdownAction",
+    "oid": "1.3.6.1.4.1.2254.2.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsRestartAction": {
+    "name": "dupsRestartAction",
+    "oid": "1.3.6.1.4.1.2254.2.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsSetOutletRelay": {
+    "name": "dupsSetOutletRelay",
+    "oid": "1.3.6.1.4.1.2254.2.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsRelayOffDelay": {
+    "name": "dupsRelayOffDelay",
+    "oid": "1.3.6.1.4.1.2254.2.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsRelayOnDelay": {
+    "name": "dupsRelayOnDelay",
+    "oid": "1.3.6.1.4.1.2254.2.4.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsConfigBuzzerAlarm": {
+    "name": "dupsConfigBuzzerAlarm",
+    "oid": "1.3.6.1.4.1.2254.2.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "silence": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsConfigBuzzerState": {
+    "name": "dupsConfigBuzzerState",
+    "oid": "1.3.6.1.4.1.2254.2.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsConfigSensitivity": {
+    "name": "dupsConfigSensitivity",
+    "oid": "1.3.6.1.4.1.2254.2.4.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "reduced": 1,
+          "low": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsConfigLowVoltageTransferPoint": {
+    "name": "dupsConfigLowVoltageTransferPoint",
+    "oid": "1.3.6.1.4.1.2254.2.4.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "Volt",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsConfigHighVoltageTransferPoint": {
+    "name": "dupsConfigHighVoltageTransferPoint",
+    "oid": "1.3.6.1.4.1.2254.2.4.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "Volt",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsConfigShutdownOSDelay": {
+    "name": "dupsConfigShutdownOSDelay",
+    "oid": "1.3.6.1.4.1.2254.2.4.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "Second",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsConfigUPSBootDelay": {
+    "name": "dupsConfigUPSBootDelay",
+    "oid": "1.3.6.1.4.1.2254.2.4.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "Second",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsConfigExternalBatteryPack": {
+    "name": "dupsConfigExternalBatteryPack",
+    "oid": "1.3.6.1.4.1.2254.2.4.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsInputNumLines": {
+    "name": "dupsInputNumLines",
+    "oid": "1.3.6.1.4.1.2254.2.4.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsInputFrequency1": {
+    "name": "dupsInputFrequency1",
+    "oid": "1.3.6.1.4.1.2254.2.4.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsInputVoltage1": {
+    "name": "dupsInputVoltage1",
+    "oid": "1.3.6.1.4.1.2254.2.4.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsInputCurrent1": {
+    "name": "dupsInputCurrent1",
+    "oid": "1.3.6.1.4.1.2254.2.4.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsInputFrequency2": {
+    "name": "dupsInputFrequency2",
+    "oid": "1.3.6.1.4.1.2254.2.4.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsInputVoltage2": {
+    "name": "dupsInputVoltage2",
+    "oid": "1.3.6.1.4.1.2254.2.4.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsInputCurrent2": {
+    "name": "dupsInputCurrent2",
+    "oid": "1.3.6.1.4.1.2254.2.4.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsInputFrequency3": {
+    "name": "dupsInputFrequency3",
+    "oid": "1.3.6.1.4.1.2254.2.4.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsInputVoltage3": {
+    "name": "dupsInputVoltage3",
+    "oid": "1.3.6.1.4.1.2254.2.4.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsInputCurrent3": {
+    "name": "dupsInputCurrent3",
+    "oid": "1.3.6.1.4.1.2254.2.4.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsOutputSource": {
+    "name": "dupsOutputSource",
+    "oid": "1.3.6.1.4.1.2254.2.4.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "battery": 1,
+          "bypass": 2,
+          "reducing": 3,
+          "boosting": 4,
+          "manualBypass": 5,
+          "other": 6,
+          "none": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsOutputFrequency": {
+    "name": "dupsOutputFrequency",
+    "oid": "1.3.6.1.4.1.2254.2.4.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1 Hertz",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsOutputNumLines": {
+    "name": "dupsOutputNumLines",
+    "oid": "1.3.6.1.4.1.2254.2.4.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsOutputVoltage1": {
+    "name": "dupsOutputVoltage1",
+    "oid": "1.3.6.1.4.1.2254.2.4.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsOutputCurrent1": {
+    "name": "dupsOutputCurrent1",
+    "oid": "1.3.6.1.4.1.2254.2.4.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsOutputPower1": {
+    "name": "dupsOutputPower1",
+    "oid": "1.3.6.1.4.1.2254.2.4.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsOutputLoad1": {
+    "name": "dupsOutputLoad1",
+    "oid": "1.3.6.1.4.1.2254.2.4.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsOutputVoltage2": {
+    "name": "dupsOutputVoltage2",
+    "oid": "1.3.6.1.4.1.2254.2.4.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsOutputCurrent2": {
+    "name": "dupsOutputCurrent2",
+    "oid": "1.3.6.1.4.1.2254.2.4.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsOutputPower2": {
+    "name": "dupsOutputPower2",
+    "oid": "1.3.6.1.4.1.2254.2.4.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsOutputLoad2": {
+    "name": "dupsOutputLoad2",
+    "oid": "1.3.6.1.4.1.2254.2.4.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsOutputVoltage3": {
+    "name": "dupsOutputVoltage3",
+    "oid": "1.3.6.1.4.1.2254.2.4.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsOutputCurrent3": {
+    "name": "dupsOutputCurrent3",
+    "oid": "1.3.6.1.4.1.2254.2.4.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsOutputPower3": {
+    "name": "dupsOutputPower3",
+    "oid": "1.3.6.1.4.1.2254.2.4.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsOutputLoad3": {
+    "name": "dupsOutputLoad3",
+    "oid": "1.3.6.1.4.1.2254.2.4.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsBypassFrequency": {
+    "name": "dupsBypassFrequency",
+    "oid": "1.3.6.1.4.1.2254.2.4.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1 Hertz",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsBypassNumLines": {
+    "name": "dupsBypassNumLines",
+    "oid": "1.3.6.1.4.1.2254.2.4.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsBypassVoltage1": {
+    "name": "dupsBypassVoltage1",
+    "oid": "1.3.6.1.4.1.2254.2.4.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsBypassCurrent1": {
+    "name": "dupsBypassCurrent1",
+    "oid": "1.3.6.1.4.1.2254.2.4.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsBypassPower1": {
+    "name": "dupsBypassPower1",
+    "oid": "1.3.6.1.4.1.2254.2.4.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsBypassVoltage2": {
+    "name": "dupsBypassVoltage2",
+    "oid": "1.3.6.1.4.1.2254.2.4.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsBypassCurrent2": {
+    "name": "dupsBypassCurrent2",
+    "oid": "1.3.6.1.4.1.2254.2.4.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsBypassPower2": {
+    "name": "dupsBypassPower2",
+    "oid": "1.3.6.1.4.1.2254.2.4.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsBypassVoltage3": {
+    "name": "dupsBypassVoltage3",
+    "oid": "1.3.6.1.4.1.2254.2.4.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsBypassCurrent3": {
+    "name": "dupsBypassCurrent3",
+    "oid": "1.3.6.1.4.1.2254.2.4.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsBypassPower3": {
+    "name": "dupsBypassPower3",
+    "oid": "1.3.6.1.4.1.2254.2.4.6.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsBatteryCondiction": {
+    "name": "dupsBatteryCondiction",
+    "oid": "1.3.6.1.4.1.2254.2.4.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 0,
+          "weak": 1,
+          "replace": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsBatteryStatus": {
+    "name": "dupsBatteryStatus",
+    "oid": "1.3.6.1.4.1.2254.2.4.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "low": 1,
+          "depleted": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsBatteryCharge": {
+    "name": "dupsBatteryCharge",
+    "oid": "1.3.6.1.4.1.2254.2.4.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "floating": 0,
+          "charging": 1,
+          "resting": 2,
+          "discharging": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsSecondsOnBattery": {
+    "name": "dupsSecondsOnBattery",
+    "oid": "1.3.6.1.4.1.2254.2.4.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsBatteryEstimatedTime": {
+    "name": "dupsBatteryEstimatedTime",
+    "oid": "1.3.6.1.4.1.2254.2.4.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsBatteryVoltage": {
+    "name": "dupsBatteryVoltage",
+    "oid": "1.3.6.1.4.1.2254.2.4.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1 Volt DC",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsBatteryCurrent": {
+    "name": "dupsBatteryCurrent",
+    "oid": "1.3.6.1.4.1.2254.2.4.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1 Amp DC",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsBatteryCapacity": {
+    "name": "dupsBatteryCapacity",
+    "oid": "1.3.6.1.4.1.2254.2.4.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsTemperature": {
+    "name": "dupsTemperature",
+    "oid": "1.3.6.1.4.1.2254.2.4.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsLastReplaceDate": {
+    "name": "dupsLastReplaceDate",
+    "oid": "1.3.6.1.4.1.2254.2.4.7.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsNextReplaceDate": {
+    "name": "dupsNextReplaceDate",
+    "oid": "1.3.6.1.4.1.2254.2.4.7.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsTestType": {
+    "name": "dupsTestType",
+    "oid": "1.3.6.1.4.1.2254.2.4.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abort": 0,
+          "generalTest": 1,
+          "batteryTest": 2,
+          "testFor10sec": 3,
+          "testUntilBattlow": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsTestResultsSummary": {
+    "name": "dupsTestResultsSummary",
+    "oid": "1.3.6.1.4.1.2254.2.4.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noTestsInitiated": 0,
+          "donePass": 1,
+          "inProgress": 2,
+          "generalTestFail": 3,
+          "batteryTestFail": 4,
+          "deepBatteryTestFail": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsTestResultsDetail": {
+    "name": "dupsTestResultsDetail",
+    "oid": "1.3.6.1.4.1.2254.2.4.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmDisconnect": {
+    "name": "dupsAlarmDisconnect",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmPowerFail": {
+    "name": "dupsAlarmPowerFail",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmBatteryLow": {
+    "name": "dupsAlarmBatteryLow",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmLoadWarning": {
+    "name": "dupsAlarmLoadWarning",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmLoadSeverity": {
+    "name": "dupsAlarmLoadSeverity",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmLoadOnBypass": {
+    "name": "dupsAlarmLoadOnBypass",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmUPSFault": {
+    "name": "dupsAlarmUPSFault",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmBatteryGroundFault": {
+    "name": "dupsAlarmBatteryGroundFault",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmTestInProgress": {
+    "name": "dupsAlarmTestInProgress",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmBatteryTestFail": {
+    "name": "dupsAlarmBatteryTestFail",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmFuseFailure": {
+    "name": "dupsAlarmFuseFailure",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmOutputOverload": {
+    "name": "dupsAlarmOutputOverload",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmOutputOverCurrent": {
+    "name": "dupsAlarmOutputOverCurrent",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmInverterAbnormal": {
+    "name": "dupsAlarmInverterAbnormal",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmRectifierAbnormal": {
+    "name": "dupsAlarmRectifierAbnormal",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmReserveAbnormal": {
+    "name": "dupsAlarmReserveAbnormal",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmLoadOnReserve": {
+    "name": "dupsAlarmLoadOnReserve",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmOverTemperature": {
+    "name": "dupsAlarmOverTemperature",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmOutputBad": {
+    "name": "dupsAlarmOutputBad",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmBypassBad": {
+    "name": "dupsAlarmBypassBad",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmUPSOff": {
+    "name": "dupsAlarmUPSOff",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmChargerFail": {
+    "name": "dupsAlarmChargerFail",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmFanFail": {
+    "name": "dupsAlarmFanFail",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmEconomicMode": {
+    "name": "dupsAlarmEconomicMode",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmOutputOff": {
+    "name": "dupsAlarmOutputOff",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmSmartShutdown": {
+    "name": "dupsAlarmSmartShutdown",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmEmergencyPowerOff": {
+    "name": "dupsAlarmEmergencyPowerOff",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmUPSShutdown": {
+    "name": "dupsAlarmUPSShutdown",
+    "oid": "1.3.6.1.4.1.2254.2.4.9.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsEnvTemperature": {
+    "name": "dupsEnvTemperature",
+    "oid": "1.3.6.1.4.1.2254.2.4.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsEnvHumidity": {
+    "name": "dupsEnvHumidity",
+    "oid": "1.3.6.1.4.1.2254.2.4.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsEnvSetTemperatureLimit": {
+    "name": "dupsEnvSetTemperatureLimit",
+    "oid": "1.3.6.1.4.1.2254.2.4.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsEnvSetHumidityLimit": {
+    "name": "dupsEnvSetHumidityLimit",
+    "oid": "1.3.6.1.4.1.2254.2.4.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsEnvSetEnvRelay1": {
+    "name": "dupsEnvSetEnvRelay1",
+    "oid": "1.3.6.1.4.1.2254.2.4.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normalOpen": 0,
+          "normalClose": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsEnvSetEnvRelay2": {
+    "name": "dupsEnvSetEnvRelay2",
+    "oid": "1.3.6.1.4.1.2254.2.4.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normalOpen": 0,
+          "normalClose": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsEnvSetEnvRelay3": {
+    "name": "dupsEnvSetEnvRelay3",
+    "oid": "1.3.6.1.4.1.2254.2.4.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normalOpen": 0,
+          "normalClose": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsEnvSetEnvRelay4": {
+    "name": "dupsEnvSetEnvRelay4",
+    "oid": "1.3.6.1.4.1.2254.2.4.10.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normalOpen": 0,
+          "normalClose": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dupsAlarmOverEnvTemperature": {
+    "name": "dupsAlarmOverEnvTemperature",
+    "oid": "1.3.6.1.4.1.2254.2.4.10.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmOverEnvHumidity": {
+    "name": "dupsAlarmOverEnvHumidity",
+    "oid": "1.3.6.1.4.1.2254.2.4.10.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmEnvRelay1": {
+    "name": "dupsAlarmEnvRelay1",
+    "oid": "1.3.6.1.4.1.2254.2.4.10.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmEnvRelay2": {
+    "name": "dupsAlarmEnvRelay2",
+    "oid": "1.3.6.1.4.1.2254.2.4.10.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmEnvRelay3": {
+    "name": "dupsAlarmEnvRelay3",
+    "oid": "1.3.6.1.4.1.2254.2.4.10.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsAlarmEnvRelay4": {
+    "name": "dupsAlarmEnvRelay4",
+    "oid": "1.3.6.1.4.1.2254.2.4.10.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dupsCommunicationLost": {
+    "name": "dupsCommunicationLost",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.1",
+    "class": "notificationtype"
+  },
+  "dupsCommunicationEstablished": {
+    "name": "dupsCommunicationEstablished",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.2",
+    "class": "notificationtype"
+  },
+  "dupsPowerFail": {
+    "name": "dupsPowerFail",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.3",
+    "class": "notificationtype"
+  },
+  "dupsPowerRestored": {
+    "name": "dupsPowerRestored",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.4",
+    "class": "notificationtype"
+  },
+  "dupsLowBattery": {
+    "name": "dupsLowBattery",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.5",
+    "class": "notificationtype"
+  },
+  "dupsReturnFromLowBattery": {
+    "name": "dupsReturnFromLowBattery",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.6",
+    "class": "notificationtype"
+  },
+  "dupsLoadWarning": {
+    "name": "dupsLoadWarning",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.7",
+    "class": "notificationtype"
+  },
+  "dupsNoLongerLoadWarning": {
+    "name": "dupsNoLongerLoadWarning",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.8",
+    "class": "notificationtype"
+  },
+  "dupsLoadSeverity": {
+    "name": "dupsLoadSeverity",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.9",
+    "class": "notificationtype"
+  },
+  "dupsNoLongerLoadSeverity": {
+    "name": "dupsNoLongerLoadSeverity",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.10",
+    "class": "notificationtype"
+  },
+  "dupsLoadOnBypass": {
+    "name": "dupsLoadOnBypass",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.11",
+    "class": "notificationtype"
+  },
+  "dupsNoLongerLoadOnBypass": {
+    "name": "dupsNoLongerLoadOnBypass",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.12",
+    "class": "notificationtype"
+  },
+  "dupsUPSFault": {
+    "name": "dupsUPSFault",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.13",
+    "class": "notificationtype"
+  },
+  "dupsReturnFromUPSFault": {
+    "name": "dupsReturnFromUPSFault",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.14",
+    "class": "notificationtype"
+  },
+  "dupsBatteryGroundFault": {
+    "name": "dupsBatteryGroundFault",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.15",
+    "class": "notificationtype"
+  },
+  "dupsNoLongerBatteryFault": {
+    "name": "dupsNoLongerBatteryFault",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.16",
+    "class": "notificationtype"
+  },
+  "dupsTestInProgress": {
+    "name": "dupsTestInProgress",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.17",
+    "class": "notificationtype"
+  },
+  "dupsBatteryTestFail": {
+    "name": "dupsBatteryTestFail",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.18",
+    "class": "notificationtype"
+  },
+  "dupsFuseFailure": {
+    "name": "dupsFuseFailure",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.19",
+    "class": "notificationtype"
+  },
+  "dupsFuseRecovered": {
+    "name": "dupsFuseRecovered",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.20",
+    "class": "notificationtype"
+  },
+  "dupsOutputOverload": {
+    "name": "dupsOutputOverload",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.21",
+    "class": "notificationtype"
+  },
+  "dupsNoLongerOverload": {
+    "name": "dupsNoLongerOverload",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.22",
+    "class": "notificationtype"
+  },
+  "dupsOutputOverCurrent": {
+    "name": "dupsOutputOverCurrent",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.23",
+    "class": "notificationtype"
+  },
+  "dupsNoLongerOutputOverCurrent": {
+    "name": "dupsNoLongerOutputOverCurrent",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.24",
+    "class": "notificationtype"
+  },
+  "dupsInverterAbnormal": {
+    "name": "dupsInverterAbnormal",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.25",
+    "class": "notificationtype"
+  },
+  "dupsInverterRecovered": {
+    "name": "dupsInverterRecovered",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.26",
+    "class": "notificationtype"
+  },
+  "dupsRectifierAbnormal": {
+    "name": "dupsRectifierAbnormal",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.27",
+    "class": "notificationtype"
+  },
+  "dupsRectifierRecovered": {
+    "name": "dupsRectifierRecovered",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.28",
+    "class": "notificationtype"
+  },
+  "dupsReserveAbnormal": {
+    "name": "dupsReserveAbnormal",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.29",
+    "class": "notificationtype"
+  },
+  "dupsReserveRecovered": {
+    "name": "dupsReserveRecovered",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.30",
+    "class": "notificationtype"
+  },
+  "dupsLoadOnReserve": {
+    "name": "dupsLoadOnReserve",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.31",
+    "class": "notificationtype"
+  },
+  "dupsNoLongerLoadOnReserve": {
+    "name": "dupsNoLongerLoadOnReserve",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.32",
+    "class": "notificationtype"
+  },
+  "dupsEnvOverTemperature": {
+    "name": "dupsEnvOverTemperature",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.33",
+    "class": "notificationtype"
+  },
+  "dupsNoLongerEnvOverTemperature": {
+    "name": "dupsNoLongerEnvOverTemperature",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.34",
+    "class": "notificationtype"
+  },
+  "dupsEnvOverHumidity": {
+    "name": "dupsEnvOverHumidity",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.35",
+    "class": "notificationtype"
+  },
+  "dupsNoLongerEnvOverHumidity": {
+    "name": "dupsNoLongerEnvOverHumidity",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.36",
+    "class": "notificationtype"
+  },
+  "dupsEnvRelay1Alarm": {
+    "name": "dupsEnvRelay1Alarm",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.37",
+    "class": "notificationtype"
+  },
+  "dupsEnvRelay1Normal": {
+    "name": "dupsEnvRelay1Normal",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.38",
+    "class": "notificationtype"
+  },
+  "dupsEnvRelay2Alarm": {
+    "name": "dupsEnvRelay2Alarm",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.39",
+    "class": "notificationtype"
+  },
+  "dupsEnvRelay2Normal": {
+    "name": "dupsEnvRelay2Normal",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.40",
+    "class": "notificationtype"
+  },
+  "dupsEnvRelay3Alarm": {
+    "name": "dupsEnvRelay3Alarm",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.41",
+    "class": "notificationtype"
+  },
+  "dupsEnvRelay3Normal": {
+    "name": "dupsEnvRelay3Normal",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.42",
+    "class": "notificationtype"
+  },
+  "dupsEnvRelay4Alarm": {
+    "name": "dupsEnvRelay4Alarm",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.43",
+    "class": "notificationtype"
+  },
+  "dupsEnvRelay4Normal": {
+    "name": "dupsEnvRelay4Normal",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.44",
+    "class": "notificationtype"
+  },
+  "dupsSmartShutdown": {
+    "name": "dupsSmartShutdown",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.45",
+    "class": "notificationtype"
+  },
+  "dupsCancelShutdown": {
+    "name": "dupsCancelShutdown",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.46",
+    "class": "notificationtype"
+  },
+  "dupsTestCompleted": {
+    "name": "dupsTestCompleted",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.47",
+    "class": "notificationtype"
+  },
+  "dupsEPOON": {
+    "name": "dupsEPOON",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.48",
+    "class": "notificationtype"
+  },
+  "dupsEPOOFF": {
+    "name": "dupsEPOOFF",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.49",
+    "class": "notificationtype"
+  },
+  "dupsOverTemperature": {
+    "name": "dupsOverTemperature",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.50",
+    "class": "notificationtype"
+  },
+  "dupsNormalTemperature": {
+    "name": "dupsNormalTemperature",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.51",
+    "class": "notificationtype"
+  },
+  "dupsBattReplace": {
+    "name": "dupsBattReplace",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.52",
+    "class": "notificationtype"
+  },
+  "dupsReturnFromBattReplace": {
+    "name": "dupsReturnFromBattReplace",
+    "oid": "1.3.6.1.4.1.2254.2.4.200.53",
+    "class": "notificationtype"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/delta/DeltaUPS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DeltaUPS-MIB"
+  }
+}

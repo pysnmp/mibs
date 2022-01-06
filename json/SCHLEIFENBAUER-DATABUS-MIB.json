@@ -1,0 +1,3347 @@
+{
+  "imports": {
+    "class": "imports",
+    "SCHLEIFENBAUER-SMI": [
+      "schleifenbauerMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "schleifenbauerDatabusMIB": {
+    "name": "schleifenbauerDatabusMIB",
+    "oid": "1.3.6.1.4.1.31034.12.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-04-28 00:00",
+        "description": "1. Added performance monitoring registers 2. Added sdbDevStUsbMode register 3. Added sdbDevIdDeviceType register 4. Added sdbDevIdLocateUnit"
+      },
+      {
+        "revision": "2017-03-06 00:00",
+        "description": "Renamed Deci prefix of custom TEXTUAL-CONVENTIONs to Centi"
+      },
+      {
+        "revision": "2016-10-21 00:00",
+        "description": "1. Added sdbDevSsOutletVoltageDropAlert object. 2. Added sdbDevStAutoResetAlerts object. 3. Added sdbDevStExtendedNames object. 4. Added sdbDevSsOutletVoltageDropAlertDetected object."
+      },
+      {
+        "revision": "2016-06-16 00:00",
+        "description": "1. Fixed incorrect range of sdbDevIdIndex."
+      },
+      {
+        "revision": "2016-05-10 00:00",
+        "description": "1. Added sdbDevOutMtPowerVoltAmpere object. 2. Added sdbDevOutMtPowerWatt object."
+      },
+      {
+        "revision": "2016-03-24 00:00",
+        "description": "1. Added sdbMgmtStsRingState object. 2. Added sdbMgmtStsBreachIndex object. 3. Added sdbMgmtStsRingStateChanged notification."
+      },
+      {
+        "revision": "2016-02-19 00:00",
+        "description": "1. Fixed incorrect description of sdbDevIdIndex. 2. Fixed description of sdbDevSsSensorChangeAlertDetected. Removed sdbDevSnsType from description."
+      },
+      {
+        "revision": "2015-10-23 00:00",
+        "description": "The initial revision of this MIB module"
+      }
+    ]
+  },
+  "CentiValue": {
+    "name": "CentiValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 327680
+          }
+        ]
+      }
+    },
+    "displayhint": "d-2",
+    "status": "current"
+  },
+  "KiloWattHour": {
+    "name": "KiloWattHour",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "CentiAmpere": {
+    "name": "CentiAmpere",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 327680
+          }
+        ]
+      }
+    },
+    "displayhint": "d-2",
+    "status": "current"
+  },
+  "CentiCelsius": {
+    "name": "CentiCelsius",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9900
+          }
+        ]
+      }
+    },
+    "displayhint": "d-2",
+    "status": "current"
+  },
+  "CentiPercent": {
+    "name": "CentiPercent",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "displayhint": "d-2",
+    "status": "current"
+  },
+  "CentiVolt": {
+    "name": "CentiVolt",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 327680
+          }
+        ]
+      }
+    },
+    "displayhint": "d-2",
+    "status": "current"
+  },
+  "MilliSecond": {
+    "name": "MilliSecond",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Second": {
+    "name": "Second",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "sdbMIBNotifications": {
+    "name": "sdbMIBNotifications",
+    "oid": "1.3.6.1.4.1.31034.12.1.0",
+    "class": "objectidentity"
+  },
+  "sdbMIBObjects": {
+    "name": "sdbMIBObjects",
+    "oid": "1.3.6.1.4.1.31034.12.1.1",
+    "class": "objectidentity"
+  },
+  "sdbMIBConformance": {
+    "name": "sdbMIBConformance",
+    "oid": "1.3.6.1.4.1.31034.12.1.2",
+    "class": "objectidentity"
+  },
+  "sdbMgmt": {
+    "name": "sdbMgmt",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.1",
+    "class": "objectidentity"
+  },
+  "sdbDevice": {
+    "name": "sdbDevice",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2",
+    "class": "objectidentity"
+  },
+  "sdbMgmtStatus": {
+    "name": "sdbMgmtStatus",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "sdbMgmtControl": {
+    "name": "sdbMgmtControl",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "sdbDevIdentification": {
+    "name": "sdbDevIdentification",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "sdbDevConfiguration": {
+    "name": "sdbDevConfiguration",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "sdbDevSystemStatus": {
+    "name": "sdbDevSystemStatus",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.3",
+    "class": "objectidentity"
+  },
+  "sdbDevReset": {
+    "name": "sdbDevReset",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.4",
+    "class": "objectidentity"
+  },
+  "sdbDevSettings": {
+    "name": "sdbDevSettings",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.5",
+    "class": "objectidentity"
+  },
+  "sdbDevInput": {
+    "name": "sdbDevInput",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.6",
+    "class": "objectidentity"
+  },
+  "sdbDevOutlet": {
+    "name": "sdbDevOutlet",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7",
+    "class": "objectidentity"
+  },
+  "sdbDevSensor": {
+    "name": "sdbDevSensor",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.8",
+    "class": "objectidentity"
+  },
+  "sdbDevPerformance": {
+    "name": "sdbDevPerformance",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.9",
+    "class": "objectidentity"
+  },
+  "sdbMIBCompliances": {
+    "name": "sdbMIBCompliances",
+    "oid": "1.3.6.1.4.1.31034.12.1.2.1",
+    "class": "objectidentity"
+  },
+  "sdbMIBGroups": {
+    "name": "sdbMIBGroups",
+    "oid": "1.3.6.1.4.1.31034.12.1.2.2",
+    "class": "objectidentity"
+  },
+  "sdbMgmtStsDevices": {
+    "name": "sdbMgmtStsDevices",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbMgmtStsAddressableDevices": {
+    "name": "sdbMgmtStsAddressableDevices",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbMgmtStsNewDevices": {
+    "name": "sdbMgmtStsNewDevices",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbMgmtStsDuplicateDevices": {
+    "name": "sdbMgmtStsDuplicateDevices",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbMgmtStsRingState": {
+    "name": "sdbMgmtStsRingState",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 0,
+          "closed": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbMgmtStsRingBreachIndex": {
+    "name": "sdbMgmtStsRingBreachIndex",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbMgmtCtrlScan": {
+    "name": "sdbMgmtCtrlScan",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "scan": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbMgmtCtrlRenumberAllFromN": {
+    "name": "sdbMgmtCtrlRenumberAllFromN",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbMgmtCtrlRenumberZeros": {
+    "name": "sdbMgmtCtrlRenumberZeros",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "renumber": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbMgmtCtrlDevicesTable": {
+    "name": "sdbMgmtCtrlDevicesTable",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdbMgmtCtrlDevicesEntry": {
+    "name": "sdbMgmtCtrlDevicesEntry",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbMgmtCtrlDevIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdbMgmtCtrlDevIndex": {
+    "name": "sdbMgmtCtrlDevIndex",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdbMgmtCtrlDevUnitAddress": {
+    "name": "sdbMgmtCtrlDevUnitAddress",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbMgmtCtrlDevHardwareAddress": {
+    "name": "sdbMgmtCtrlDevHardwareAddress",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 17,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbMgmtCtrlDevIsNew": {
+    "name": "sdbMgmtCtrlDevIsNew",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbMgmtCtrlDevIsDuplicate": {
+    "name": "sdbMgmtCtrlDevIsDuplicate",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevIdTable": {
+    "name": "sdbDevIdTable",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdbDevIdEntry": {
+    "name": "sdbDevIdEntry",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdbDevIdSPDMVersion": {
+    "name": "sdbDevIdSPDMVersion",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevIdFirmwareVersion": {
+    "name": "sdbDevIdFirmwareVersion",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevIdBuildNumber": {
+    "name": "sdbDevIdBuildNumber",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevIdSalesOrderNumber": {
+    "name": "sdbDevIdSalesOrderNumber",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevIdProductId": {
+    "name": "sdbDevIdProductId",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevIdSerialNumber": {
+    "name": "sdbDevIdSerialNumber",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevIdHardwareAddress": {
+    "name": "sdbDevIdHardwareAddress",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 17,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevIdMacAddress": {
+    "name": "sdbDevIdMacAddress",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 17,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevIdUnitAddress": {
+    "name": "sdbDevIdUnitAddress",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevIdName": {
+    "name": "sdbDevIdName",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevIdLocation": {
+    "name": "sdbDevIdLocation",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevIdVanityTag": {
+    "name": "sdbDevIdVanityTag",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevIdIndex": {
+    "name": "sdbDevIdIndex",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdbDevIdDeviceType": {
+    "name": "sdbDevIdDeviceType",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pdu": 0,
+          "dpm": 1,
+          "hpdu-G3": 2,
+          "dpm27e": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevIdLocateUnit": {
+    "name": "sdbDevIdLocateUnit",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevCfTable": {
+    "name": "sdbDevCfTable",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdbDevCfEntry": {
+    "name": "sdbDevCfEntry",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdbDevCfPhases": {
+    "name": "sdbDevCfPhases",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 1
+          },
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevCfOutletsTotal": {
+    "name": "sdbDevCfOutletsTotal",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevCfOutletsSwitched": {
+    "name": "sdbDevCfOutletsSwitched",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevCfOutletsMetered": {
+    "name": "sdbDevCfOutletsMetered",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevCfSensors": {
+    "name": "sdbDevCfSensors",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevCfMaximumLoad": {
+    "name": "sdbDevCfMaximumLoad",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "units": "A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevSsTable": {
+    "name": "sdbDevSsTable",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdbDevSsEntry": {
+    "name": "sdbDevSsEntry",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdbDevSsDeviceStatusCode": {
+    "name": "sdbDevSsDeviceStatusCode",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevSsTemperatureAlert": {
+    "name": "sdbDevSsTemperatureAlert",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevSsInputCurrentAlert": {
+    "name": "sdbDevSsInputCurrentAlert",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevSsOutletCurrentAlert": {
+    "name": "sdbDevSsOutletCurrentAlert",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevSsInputVoltageAlert": {
+    "name": "sdbDevSsInputVoltageAlert",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevSsOutletCurrentDropAlert": {
+    "name": "sdbDevSsOutletCurrentDropAlert",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevSsInputCurrentDropAlert": {
+    "name": "sdbDevSsInputCurrentDropAlert",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevSsSensorChangeAlert": {
+    "name": "sdbDevSsSensorChangeAlert",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevSsOutletVoltageDropAlert": {
+    "name": "sdbDevSsOutletVoltageDropAlert",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevRsTable": {
+    "name": "sdbDevRsTable",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdbDevRsEntry": {
+    "name": "sdbDevRsEntry",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdbDevRsReboot": {
+    "name": "sdbDevRsReboot",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "reboot": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevRsResetAlerts": {
+    "name": "sdbDevRsResetAlerts",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevRsZeroInputKWhSubtotal": {
+    "name": "sdbDevRsZeroInputKWhSubtotal",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "zero": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevRsZeroOutletKWhSubtotal": {
+    "name": "sdbDevRsZeroOutletKWhSubtotal",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "zero": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevRsResetPeaksAndDips": {
+    "name": "sdbDevRsResetPeaksAndDips",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevStTable": {
+    "name": "sdbDevStTable",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdbDevStEntry": {
+    "name": "sdbDevStEntry",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdbDevStAutoResetAlerts": {
+    "name": "sdbDevStAutoResetAlerts",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevStExtendedNames": {
+    "name": "sdbDevStExtendedNames",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevStPeakDuration": {
+    "name": "sdbDevStPeakDuration",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliSecond",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "ms",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevStFixedOutletDelay": {
+    "name": "sdbDevStFixedOutletDelay",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliSecond",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "ms",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevStPowerSaverMode": {
+    "name": "sdbDevStPowerSaverMode",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Second",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 10,
+            "max": 10
+          },
+          {
+            "min": 60,
+            "max": 60
+          },
+          {
+            "min": 120,
+            "max": 120
+          },
+          {
+            "min": 240,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "units": "s",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevStOutletPowerUpMode": {
+    "name": "sdbDevStOutletPowerUpMode",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "sameState": 1,
+          "sameStateDelayed": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevStMaximumTemperature": {
+    "name": "sdbDevStMaximumTemperature",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevStDisplayOrientation": {
+    "name": "sdbDevStDisplayOrientation",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noDisplay": 0,
+          "verticalDisplayOnTop": 1,
+          "verticalDisplayUpsideDown": 2,
+          "horizontalDisplayAtLeft": 3,
+          "horizontalDisplayAtRight": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevStLocalAlertReset": {
+    "name": "sdbDevStLocalAlertReset",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAllowed": 0,
+          "allowed": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevStCurrentDropDetection": {
+    "name": "sdbDevStCurrentDropDetection",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "inputsOnly": 1,
+          "outletsOnly": 2,
+          "inputsAndOutlets": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevStUsbMode": {
+    "name": "sdbDevStUsbMode",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "usbDisabled": 0,
+          "onlyFirmwareUpdates": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevInTable": {
+    "name": "sdbDevInTable",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdbDevInEntry": {
+    "name": "sdbDevInEntry",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevInIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdbDevInIndex": {
+    "name": "sdbDevInIndex",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdbDevInKWhTotal": {
+    "name": "sdbDevInKWhTotal",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "KiloWattHour",
+      "class": "type"
+    },
+    "units": "kWh",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevInKWhSubtotal": {
+    "name": "sdbDevInKWhSubtotal",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "KiloWattHour",
+      "class": "type"
+    },
+    "units": "kWh",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevInPowerFactor": {
+    "name": "sdbDevInPowerFactor",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CentiPercent",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevInActualCurrent": {
+    "name": "sdbDevInActualCurrent",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CentiAmpere",
+      "class": "type"
+    },
+    "units": "A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevInPeakCurrent": {
+    "name": "sdbDevInPeakCurrent",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CentiAmpere",
+      "class": "type"
+    },
+    "units": "A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevInActualVoltage": {
+    "name": "sdbDevInActualVoltage",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CentiVolt",
+      "class": "type"
+    },
+    "units": "V",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevInMinVoltage": {
+    "name": "sdbDevInMinVoltage",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CentiVolt",
+      "class": "type"
+    },
+    "units": "V",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevInPowerVoltAmpere": {
+    "name": "sdbDevInPowerVoltAmpere",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 327680
+          }
+        ]
+      }
+    },
+    "units": "VA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevInPowerWatt": {
+    "name": "sdbDevInPowerWatt",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 327680
+          }
+        ]
+      }
+    },
+    "units": "W",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevInMaxAmps": {
+    "name": "sdbDevInMaxAmps",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CentiAmpere",
+      "class": "type"
+    },
+    "units": "A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevInCTRatio": {
+    "name": "sdbDevInCTRatio",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevInName": {
+    "name": "sdbDevInName",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevInZeroKWhSubtotal": {
+    "name": "sdbDevInZeroKWhSubtotal",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "zero": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevOutTable": {
+    "name": "sdbDevOutTable",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdbDevOutEntry": {
+    "name": "sdbDevOutEntry",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevOutIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdbDevOutIndex": {
+    "name": "sdbDevOutIndex",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdbDevOutName": {
+    "name": "sdbDevOutName",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevOutMtTable": {
+    "name": "sdbDevOutMtTable",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdbDevOutMtEntry": {
+    "name": "sdbDevOutMtEntry",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevOutMtIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdbDevOutMtIndex": {
+    "name": "sdbDevOutMtIndex",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdbDevOutMtKWhTotal": {
+    "name": "sdbDevOutMtKWhTotal",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "KiloWattHour",
+      "class": "type"
+    },
+    "units": "kWh",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevOutMtKWhSubtotal": {
+    "name": "sdbDevOutMtKWhSubtotal",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "KiloWattHour",
+      "class": "type"
+    },
+    "units": "kWh",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevOutMtPowerFactor": {
+    "name": "sdbDevOutMtPowerFactor",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CentiPercent",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevOutMtActualCurrent": {
+    "name": "sdbDevOutMtActualCurrent",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CentiAmpere",
+      "class": "type"
+    },
+    "units": "A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevOutMtPeakCurrent": {
+    "name": "sdbDevOutMtPeakCurrent",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CentiAmpere",
+      "class": "type"
+    },
+    "units": "A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevOutMtActualVoltage": {
+    "name": "sdbDevOutMtActualVoltage",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CentiVolt",
+      "class": "type"
+    },
+    "units": "V",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevOutMtMaxAmps": {
+    "name": "sdbDevOutMtMaxAmps",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CentiAmpere",
+      "class": "type"
+    },
+    "units": "A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevOutMtCTRatio": {
+    "name": "sdbDevOutMtCTRatio",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevOutMtPowerVoltAmpere": {
+    "name": "sdbDevOutMtPowerVoltAmpere",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 327680
+          }
+        ]
+      }
+    },
+    "units": "VA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevOutMtPowerWatt": {
+    "name": "sdbDevOutMtPowerWatt",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 327680
+          }
+        ]
+      }
+    },
+    "units": "W",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevOutSwTable": {
+    "name": "sdbDevOutSwTable",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdbDevOutSwEntry": {
+    "name": "sdbDevOutSwEntry",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevOutSwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdbDevOutSwIndex": {
+    "name": "sdbDevOutSwIndex",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdbDevOutSwCurrentState": {
+    "name": "sdbDevOutSwCurrentState",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevOutSwScheduled": {
+    "name": "sdbDevOutSwScheduled",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "scheduled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevOutSwUnlock": {
+    "name": "sdbDevOutSwUnlock",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "locked": 0,
+          "unlocked": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevOutSwIndividualOutletDelay": {
+    "name": "sdbDevOutSwIndividualOutletDelay",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Second",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "s",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevOutSwReboot": {
+    "name": "sdbDevOutSwReboot",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.7.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "reboot": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevMeasuresTable": {
+    "name": "sdbDevMeasuresTable",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdbDevMeasuresEntry": {
+    "name": "sdbDevMeasuresEntry",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdbDevMsIntTemperature": {
+    "name": "sdbDevMsIntTemperature",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CentiCelsius",
+      "class": "type"
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevMsExtTemperature": {
+    "name": "sdbDevMsExtTemperature",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CentiCelsius",
+      "class": "type"
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevMsIntTemperaturePeak": {
+    "name": "sdbDevMsIntTemperaturePeak",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CentiCelsius",
+      "class": "type"
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevMsExtTemperaturePeak": {
+    "name": "sdbDevMsExtTemperaturePeak",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CentiCelsius",
+      "class": "type"
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevSnsTable": {
+    "name": "sdbDevSnsTable",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdbDevSnsEntry": {
+    "name": "sdbDevSnsEntry",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevSnsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdbDevSnsIndex": {
+    "name": "sdbDevSnsIndex",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdbDevSnsType": {
+    "name": "sdbDevSnsType",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevSnsValue": {
+    "name": "sdbDevSnsValue",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CentiValue",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 327680
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevSnsName": {
+    "name": "sdbDevSnsName",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevPerformanceTable": {
+    "name": "sdbDevPerformanceTable",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdbDevPerformanceEntry": {
+    "name": "sdbDevPerformanceEntry",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevPerformanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdbDevPerformanceIndex": {
+    "name": "sdbDevPerformanceIndex",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdbDevPerformanceValue": {
+    "name": "sdbDevPerformanceValue",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevPerformanceMax": {
+    "name": "sdbDevPerformanceMax",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevPerformanceLimit": {
+    "name": "sdbDevPerformanceLimit",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevPerformanceName": {
+    "name": "sdbDevPerformanceName",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevPerformanceResetTable": {
+    "name": "sdbDevPerformanceResetTable",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdbDevPerformanceResetEntry": {
+    "name": "sdbDevPerformanceResetEntry",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdbDevPerformanceResetReason": {
+    "name": "sdbDevPerformanceResetReason",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdbDevResetUptime": {
+    "name": "sdbDevResetUptime",
+    "oid": "1.3.6.1.4.1.31034.12.1.1.2.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdbDevSsDeviceStatusCodeChanged": {
+    "name": "sdbDevSsDeviceStatusCodeChanged",
+    "oid": "1.3.6.1.4.1.31034.12.1.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "sdbDevSsTemperatureAlertDetected": {
+    "name": "sdbDevSsTemperatureAlertDetected",
+    "oid": "1.3.6.1.4.1.31034.12.1.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "sdbDevSsInputCurrentAlertDetected": {
+    "name": "sdbDevSsInputCurrentAlertDetected",
+    "oid": "1.3.6.1.4.1.31034.12.1.0.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "sdbDevSsOutletCurrentAlertDetected": {
+    "name": "sdbDevSsOutletCurrentAlertDetected",
+    "oid": "1.3.6.1.4.1.31034.12.1.0.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "sdbDevSsInputVoltageAlertDetected": {
+    "name": "sdbDevSsInputVoltageAlertDetected",
+    "oid": "1.3.6.1.4.1.31034.12.1.0.5",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "sdbDevSsOutletCurrentDropAlertDetected": {
+    "name": "sdbDevSsOutletCurrentDropAlertDetected",
+    "oid": "1.3.6.1.4.1.31034.12.1.0.6",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "sdbDevSsInputCurrentDropAlertDetected": {
+    "name": "sdbDevSsInputCurrentDropAlertDetected",
+    "oid": "1.3.6.1.4.1.31034.12.1.0.7",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "sdbDevSsSensorChangeAlertDetected": {
+    "name": "sdbDevSsSensorChangeAlertDetected",
+    "oid": "1.3.6.1.4.1.31034.12.1.0.8",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "sdbMgmtStsRingStateChanged": {
+    "name": "sdbMgmtStsRingStateChanged",
+    "oid": "1.3.6.1.4.1.31034.12.1.0.9",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "sdbDevSsOutletVoltageDropAlertDetected": {
+    "name": "sdbDevSsOutletVoltageDropAlertDetected",
+    "oid": "1.3.6.1.4.1.31034.12.1.0.10",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "sdbMIBCompliance": {
+    "name": "sdbMIBCompliance",
+    "oid": "1.3.6.1.4.1.31034.12.1.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "sdbMIBNotificationGroup",
+        "module": "SCHLEIFENBAUER-DATABUS-MIB"
+      },
+      {
+        "object": "sdbMIBDevSensorGroup",
+        "module": "SCHLEIFENBAUER-DATABUS-MIB"
+      },
+      {
+        "object": "sdbMIBDevOutGroup",
+        "module": "SCHLEIFENBAUER-DATABUS-MIB"
+      },
+      {
+        "object": "sdbMIBDevOutMtGroup",
+        "module": "SCHLEIFENBAUER-DATABUS-MIB"
+      },
+      {
+        "object": "sdbMIBDevOutSwGroup",
+        "module": "SCHLEIFENBAUER-DATABUS-MIB"
+      },
+      {
+        "object": "sdbMIBDevInGroup",
+        "module": "SCHLEIFENBAUER-DATABUS-MIB"
+      },
+      {
+        "object": "sdbMIBDevStGroup",
+        "module": "SCHLEIFENBAUER-DATABUS-MIB"
+      },
+      {
+        "object": "sdbMIBDevSsGroup",
+        "module": "SCHLEIFENBAUER-DATABUS-MIB"
+      },
+      {
+        "object": "sdbMIBDevCfGroup",
+        "module": "SCHLEIFENBAUER-DATABUS-MIB"
+      },
+      {
+        "object": "sdbMIBDevIdGroup",
+        "module": "SCHLEIFENBAUER-DATABUS-MIB"
+      },
+      {
+        "object": "sdbMIBDevRsGroup",
+        "module": "SCHLEIFENBAUER-DATABUS-MIB"
+      },
+      {
+        "object": "sdbMIBMgmtStatusGroup",
+        "module": "SCHLEIFENBAUER-DATABUS-MIB"
+      },
+      {
+        "object": "sdbMIBMgmtControlGroup",
+        "module": "SCHLEIFENBAUER-DATABUS-MIB"
+      },
+      {
+        "object": "sdbMIBDevPerformanceGroup",
+        "module": "SCHLEIFENBAUER-DATABUS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "sdbMIBNotificationGroup": {
+    "name": "sdbMIBNotificationGroup",
+    "oid": "1.3.6.1.4.1.31034.12.1.2.2.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevSsDeviceStatusCodeChanged"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevSsTemperatureAlertDetected"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevSsInputCurrentAlertDetected"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevSsOutletCurrentAlertDetected"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevSsInputVoltageAlertDetected"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevSsOutletCurrentDropAlertDetected"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevSsInputCurrentDropAlertDetected"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevSsSensorChangeAlertDetected"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbMgmtStsRingStateChanged"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevSsOutletVoltageDropAlertDetected"
+      }
+    ],
+    "status": "current"
+  },
+  "sdbMIBDevIdGroup": {
+    "name": "sdbMIBDevIdGroup",
+    "oid": "1.3.6.1.4.1.31034.12.1.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdSPDMVersion"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdFirmwareVersion"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdSalesOrderNumber"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdProductId"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdSerialNumber"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdHardwareAddress"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdUnitAddress"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdName"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdLocation"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdVanityTag"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdMacAddress"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdBuildNumber"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdDeviceType"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevIdLocateUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "sdbMIBDevCfGroup": {
+    "name": "sdbMIBDevCfGroup",
+    "oid": "1.3.6.1.4.1.31034.12.1.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevCfPhases"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevCfOutletsTotal"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevCfOutletsSwitched"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevCfOutletsMetered"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevCfMaximumLoad"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevCfSensors"
+      }
+    ],
+    "status": "current"
+  },
+  "sdbMIBDevSsGroup": {
+    "name": "sdbMIBDevSsGroup",
+    "oid": "1.3.6.1.4.1.31034.12.1.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevSsDeviceStatusCode"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevSsTemperatureAlert"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevSsInputCurrentAlert"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevSsOutletCurrentAlert"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevSsInputVoltageAlert"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevSsOutletCurrentDropAlert"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevSsInputCurrentDropAlert"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevSsSensorChangeAlert"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevSsOutletVoltageDropAlert"
+      }
+    ],
+    "status": "current"
+  },
+  "sdbMIBDevRsGroup": {
+    "name": "sdbMIBDevRsGroup",
+    "oid": "1.3.6.1.4.1.31034.12.1.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevRsResetAlerts"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevRsResetPeaksAndDips"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevRsReboot"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevRsZeroInputKWhSubtotal"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevRsZeroOutletKWhSubtotal"
+      }
+    ],
+    "status": "current"
+  },
+  "sdbMIBDevStGroup": {
+    "name": "sdbMIBDevStGroup",
+    "oid": "1.3.6.1.4.1.31034.12.1.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevStAutoResetAlerts"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevStExtendedNames"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevStPeakDuration"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevStLocalAlertReset"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevStFixedOutletDelay"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevStPowerSaverMode"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevStOutletPowerUpMode"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevStMaximumTemperature"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevStDisplayOrientation"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevStCurrentDropDetection"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevStUsbMode"
+      }
+    ],
+    "status": "current"
+  },
+  "sdbMIBDevInGroup": {
+    "name": "sdbMIBDevInGroup",
+    "oid": "1.3.6.1.4.1.31034.12.1.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevInKWhTotal"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevInKWhSubtotal"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevInPowerFactor"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevInActualCurrent"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevInPeakCurrent"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevInActualVoltage"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevInMinVoltage"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevInPowerVoltAmpere"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevInPowerWatt"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevInMaxAmps"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevInCTRatio"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevInName"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevInZeroKWhSubtotal"
+      }
+    ],
+    "status": "current"
+  },
+  "sdbMIBDevOutGroup": {
+    "name": "sdbMIBDevOutGroup",
+    "oid": "1.3.6.1.4.1.31034.12.1.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevOutName"
+      }
+    ],
+    "status": "current"
+  },
+  "sdbMIBDevOutMtGroup": {
+    "name": "sdbMIBDevOutMtGroup",
+    "oid": "1.3.6.1.4.1.31034.12.1.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevOutMtKWhTotal"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevOutMtKWhSubtotal"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevOutMtPowerFactor"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevOutMtActualCurrent"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevOutMtPeakCurrent"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevOutMtActualVoltage"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevOutMtMaxAmps"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevOutMtCTRatio"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevOutMtPowerVoltAmpere"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevOutMtPowerWatt"
+      }
+    ],
+    "status": "current"
+  },
+  "sdbMIBDevOutSwGroup": {
+    "name": "sdbMIBDevOutSwGroup",
+    "oid": "1.3.6.1.4.1.31034.12.1.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevOutSwCurrentState"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevOutSwScheduled"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevOutSwUnlock"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevOutSwIndividualOutletDelay"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevOutSwReboot"
+      }
+    ],
+    "status": "current"
+  },
+  "sdbMIBDevSensorGroup": {
+    "name": "sdbMIBDevSensorGroup",
+    "oid": "1.3.6.1.4.1.31034.12.1.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevSnsType"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevSnsValue"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevSnsName"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevMsIntTemperature"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevMsExtTemperature"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevMsIntTemperaturePeak"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevMsExtTemperaturePeak"
+      }
+    ],
+    "status": "current"
+  },
+  "sdbMIBMgmtStatusGroup": {
+    "name": "sdbMIBMgmtStatusGroup",
+    "oid": "1.3.6.1.4.1.31034.12.1.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbMgmtStsDevices"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbMgmtStsAddressableDevices"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbMgmtStsNewDevices"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbMgmtStsDuplicateDevices"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbMgmtStsRingState"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbMgmtStsRingBreachIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "sdbMIBMgmtControlGroup": {
+    "name": "sdbMIBMgmtControlGroup",
+    "oid": "1.3.6.1.4.1.31034.12.1.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbMgmtCtrlScan"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbMgmtCtrlRenumberAllFromN"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbMgmtCtrlRenumberZeros"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbMgmtCtrlDevUnitAddress"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbMgmtCtrlDevHardwareAddress"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbMgmtCtrlDevIsNew"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbMgmtCtrlDevIsDuplicate"
+      }
+    ],
+    "status": "current"
+  },
+  "sdbMIBDevPerformanceGroup": {
+    "name": "sdbMIBDevPerformanceGroup",
+    "oid": "1.3.6.1.4.1.31034.12.1.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevPerformanceValue"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevPerformanceMax"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevPerformanceLimit"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevPerformanceName"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevPerformanceResetReason"
+      },
+      {
+        "module": "SCHLEIFENBAUER-DATABUS-MIB",
+        "object": "sdbDevResetUptime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/schleifenbauer/SCHLEIFENBAUER-DATABUS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SCHLEIFENBAUER-DATABUS-MIB"
+  }
+}

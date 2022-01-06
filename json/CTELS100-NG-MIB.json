@@ -1,0 +1,1043 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "mgmt",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "Integer32",
+      "Gauge32",
+      "IpAddress",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Bits",
+      "MibIdentifier",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "mib_2": {
+    "name": "mib_2",
+    "oid": "1.3.6.1.2.1",
+    "class": "objectidentity"
+  },
+  "cabletron": {
+    "name": "cabletron",
+    "oid": "1.3.6.1.4.1.52",
+    "class": "objectidentity"
+  },
+  "els100": {
+    "name": "els100",
+    "oid": "1.3.6.1.4.1.52.1011",
+    "class": "objectidentity"
+  },
+  "els100SystemConfig": {
+    "name": "els100SystemConfig",
+    "oid": "1.3.6.1.4.1.52.1011.1",
+    "class": "objectidentity"
+  },
+  "els100Switch": {
+    "name": "els100Switch",
+    "oid": "1.3.6.1.4.1.52.1011.3",
+    "class": "objectidentity"
+  },
+  "els100SysSerialno": {
+    "name": "els100SysSerialno",
+    "oid": "1.3.6.1.4.1.52.1011.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "els100SysTftpIPAddress": {
+    "name": "els100SysTftpIPAddress",
+    "oid": "1.3.6.1.4.1.52.1011.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SysTftpFilename": {
+    "name": "els100SysTftpFilename",
+    "oid": "1.3.6.1.4.1.52.1011.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SysPowerupCount": {
+    "name": "els100SysPowerupCount",
+    "oid": "1.3.6.1.4.1.52.1011.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "els100SysBrcastCutoffRate": {
+    "name": "els100SysBrcastCutoffRate",
+    "oid": "1.3.6.1.4.1.52.1011.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SysGatewayIPAddress": {
+    "name": "els100SysGatewayIPAddress",
+    "oid": "1.3.6.1.4.1.52.1011.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SysTftpStartDownload": {
+    "name": "els100SysTftpStartDownload",
+    "oid": "1.3.6.1.4.1.52.1011.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "download": 1,
+          "noDownload": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SysBootPDhcpEnable": {
+    "name": "els100SysBootPDhcpEnable",
+    "oid": "1.3.6.1.4.1.52.1011.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SysReset": {
+    "name": "els100SysReset",
+    "oid": "1.3.6.1.4.1.52.1011.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noReset": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SysSyslogServer": {
+    "name": "els100SysSyslogServer",
+    "oid": "1.3.6.1.4.1.52.1011.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SysLowestSyslogSeverity": {
+    "name": "els100SysLowestSyslogSeverity",
+    "oid": "1.3.6.1.4.1.52.1011.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergency": 0,
+          "alert": 1,
+          "critical": 2,
+          "error": 3,
+          "warning": 4,
+          "notice": 5,
+          "info": 6,
+          "debug": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SysComPortEnable": {
+    "name": "els100SysComPortEnable",
+    "oid": "1.3.6.1.4.1.52.1011.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SysBoardID": {
+    "name": "els100SysBoardID",
+    "oid": "1.3.6.1.4.1.52.1011.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "els100PortTable": {
+    "name": "els100PortTable",
+    "oid": "1.3.6.1.4.1.52.1011.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "els100PortEntry": {
+    "name": "els100PortEntry",
+    "oid": "1.3.6.1.4.1.52.1011.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTELS100-NG-MIB",
+        "object": "els100Port",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "els100Port": {
+    "name": "els100Port",
+    "oid": "1.3.6.1.4.1.52.1011.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "els100PortStatus": {
+    "name": "els100PortStatus",
+    "oid": "1.3.6.1.4.1.52.1011.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "els100PortDuplexStatus": {
+    "name": "els100PortDuplexStatus",
+    "oid": "1.3.6.1.4.1.52.1011.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "half": 1,
+          "full": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100PortForwardedFrames": {
+    "name": "els100PortForwardedFrames",
+    "oid": "1.3.6.1.4.1.52.1011.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "els100PortRcvdLocalFrames": {
+    "name": "els100PortRcvdLocalFrames",
+    "oid": "1.3.6.1.4.1.52.1011.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "els100PortName": {
+    "name": "els100PortName",
+    "oid": "1.3.6.1.4.1.52.1011.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100PortEnable": {
+    "name": "els100PortEnable",
+    "oid": "1.3.6.1.4.1.52.1011.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100PortSpeed": {
+    "name": "els100PortSpeed",
+    "oid": "1.3.6.1.4.1.52.1011.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tenMbps": 1,
+          "oneHundredMbps": 2,
+          "oneThousandMbps": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100PortAutonegEnable": {
+    "name": "els100PortAutonegEnable",
+    "oid": "1.3.6.1.4.1.52.1011.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100PortFlowControlEnable": {
+    "name": "els100PortFlowControlEnable",
+    "oid": "1.3.6.1.4.1.52.1011.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100PortType": {
+    "name": "els100PortType",
+    "oid": "1.3.6.1.4.1.52.1011.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ieee10BaseT": 2,
+          "ieee100BaseTx": 3,
+          "ieee100BaseFx-MM": 4,
+          "ieee100BaseFx-SM": 5,
+          "ieee1000BaseCx": 6,
+          "ieee1000BaseLx": 7,
+          "ieee1000BaseSx": 8,
+          "ieee1000BaseT": 9,
+          "ieee1000BaseX": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "els100SwitchIPAddress": {
+    "name": "els100SwitchIPAddress",
+    "oid": "1.3.6.1.4.1.52.1011.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchSubnetMask": {
+    "name": "els100SwitchSubnetMask",
+    "oid": "1.3.6.1.4.1.52.1011.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100ActiveAgingTime": {
+    "name": "els100ActiveAgingTime",
+    "oid": "1.3.6.1.4.1.52.1011.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchSTPStatus": {
+    "name": "els100SwitchSTPStatus",
+    "oid": "1.3.6.1.4.1.52.1011.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchManager": {
+    "name": "els100SwitchManager",
+    "oid": "1.3.6.1.4.1.52.1011.3.6",
+    "class": "objectidentity"
+  },
+  "els100SwitchTrapRcvr1": {
+    "name": "els100SwitchTrapRcvr1",
+    "oid": "1.3.6.1.4.1.52.1011.3.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchTrapCommunity1": {
+    "name": "els100SwitchTrapCommunity1",
+    "oid": "1.3.6.1.4.1.52.1011.3.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchTrapRcvr2": {
+    "name": "els100SwitchTrapRcvr2",
+    "oid": "1.3.6.1.4.1.52.1011.3.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchTrapCommunity2": {
+    "name": "els100SwitchTrapCommunity2",
+    "oid": "1.3.6.1.4.1.52.1011.3.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchTrapRcvr3": {
+    "name": "els100SwitchTrapRcvr3",
+    "oid": "1.3.6.1.4.1.52.1011.3.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchTrapCommunity3": {
+    "name": "els100SwitchTrapCommunity3",
+    "oid": "1.3.6.1.4.1.52.1011.3.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchTrapRcvr4": {
+    "name": "els100SwitchTrapRcvr4",
+    "oid": "1.3.6.1.4.1.52.1011.3.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchTrapCommunity4": {
+    "name": "els100SwitchTrapCommunity4",
+    "oid": "1.3.6.1.4.1.52.1011.3.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchPortMirroringStatus": {
+    "name": "els100SwitchPortMirroringStatus",
+    "oid": "1.3.6.1.4.1.52.1011.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchMirroredPort": {
+    "name": "els100SwitchMirroredPort",
+    "oid": "1.3.6.1.4.1.52.1011.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchMirroringPort": {
+    "name": "els100SwitchMirroringPort",
+    "oid": "1.3.6.1.4.1.52.1011.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchXmitMirrorEnable": {
+    "name": "els100SwitchXmitMirrorEnable",
+    "oid": "1.3.6.1.4.1.52.1011.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchRcvMirrorEnable": {
+    "name": "els100SwitchRcvMirrorEnable",
+    "oid": "1.3.6.1.4.1.52.1011.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchVlanEnable": {
+    "name": "els100SwitchVlanEnable",
+    "oid": "1.3.6.1.4.1.52.1011.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchVlanConfigTable": {
+    "name": "els100SwitchVlanConfigTable",
+    "oid": "1.3.6.1.4.1.52.1011.3.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "els100SwitchVlanEntry": {
+    "name": "els100SwitchVlanEntry",
+    "oid": "1.3.6.1.4.1.52.1011.3.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTELS100-NG-MIB",
+        "object": "els100SwitchVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "els100SwitchVlanId": {
+    "name": "els100SwitchVlanId",
+    "oid": "1.3.6.1.4.1.52.1011.3.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchVlanName": {
+    "name": "els100SwitchVlanName",
+    "oid": "1.3.6.1.4.1.52.1011.3.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchVlanPorts": {
+    "name": "els100SwitchVlanPorts",
+    "oid": "1.3.6.1.4.1.52.1011.3.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchVlanEgressPorts": {
+    "name": "els100SwitchVlanEgressPorts",
+    "oid": "1.3.6.1.4.1.52.1011.3.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchVlanStatus": {
+    "name": "els100SwitchVlanStatus",
+    "oid": "1.3.6.1.4.1.52.1011.3.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchVlanPortTable": {
+    "name": "els100SwitchVlanPortTable",
+    "oid": "1.3.6.1.4.1.52.1011.3.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "els100SwitchVlanPortEntry": {
+    "name": "els100SwitchVlanPortEntry",
+    "oid": "1.3.6.1.4.1.52.1011.3.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTELS100-NG-MIB",
+        "object": "els100SwitchVlanPortId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "els100SwitchVlanPortId": {
+    "name": "els100SwitchVlanPortId",
+    "oid": "1.3.6.1.4.1.52.1011.3.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "els100SwitchVlanPvid": {
+    "name": "els100SwitchVlanPvid",
+    "oid": "1.3.6.1.4.1.52.1011.3.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchVlanPortType": {
+    "name": "els100SwitchVlanPortType",
+    "oid": "1.3.6.1.4.1.52.1011.3.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hybrid": 1,
+          "access": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchPriorityEnable": {
+    "name": "els100SwitchPriorityEnable",
+    "oid": "1.3.6.1.4.1.52.1011.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchPriorityThreshold": {
+    "name": "els100SwitchPriorityThreshold",
+    "oid": "1.3.6.1.4.1.52.1011.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchPriorityPortTable": {
+    "name": "els100SwitchPriorityPortTable",
+    "oid": "1.3.6.1.4.1.52.1011.3.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "els100SwitchPriorityPortEntry": {
+    "name": "els100SwitchPriorityPortEntry",
+    "oid": "1.3.6.1.4.1.52.1011.3.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTELS100-NG-MIB",
+        "object": "els100SwitchPriorityPortId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "els100SwitchPriorityPortId": {
+    "name": "els100SwitchPriorityPortId",
+    "oid": "1.3.6.1.4.1.52.1011.3.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "els100SwitchPriorityDefault": {
+    "name": "els100SwitchPriorityDefault",
+    "oid": "1.3.6.1.4.1.52.1011.3.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "els100SwitchSpanningTreeStandby": {
+    "name": "els100SwitchSpanningTreeStandby",
+    "oid": "1.3.6.1.4.1.52.1011.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTELS100-NG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CTELS100-NG-MIB"
+  }
+}

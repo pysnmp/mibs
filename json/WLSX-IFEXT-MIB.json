@@ -1,0 +1,1152 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARUBA-MIB": [
+      "wlsxEnterpriseMibModules"
+    ],
+    "ARUBA-TC": [
+      "ArubaEnableValue",
+      "ArubaDot1dState",
+      "ArubaPoeState",
+      "ArubaVlanValidRange",
+      "ArubaOperStateValue",
+      "ArubaPortDuplex",
+      "ArubaIfType",
+      "ArubaPortType",
+      "ArubaPortSpeed",
+      "ArubaPortMode"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "snmpModules",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "IpAddress",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter32",
+      "TimeTicks",
+      "Integer32",
+      "iso",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "RowStatus",
+      "StorageType",
+      "TestAndIncr",
+      "TruthValue",
+      "MacAddress",
+      "TDomain",
+      "DisplayString",
+      "TAddress",
+      "PhysAddress"
+    ]
+  },
+  "wlsxIfExtMIB": {
+    "name": "wlsxIfExtMIB",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-08-14 17:45",
+        "description": "Deprecated wlsxIfExtPortTable and added new table wlsxIfExtNPortTable"
+      },
+      {
+        "revision": "1910-01-26 18:06",
+        "description": "The initial revision."
+      }
+    ]
+  },
+  "wlsxIfExtGroup": {
+    "name": "wlsxIfExtGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1",
+    "class": "objectidentity"
+  },
+  "wlsxIfExtPortTable": {
+    "name": "wlsxIfExtPortTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "wlsxIfExtPortEntry": {
+    "name": "wlsxIfExtPortEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-IFEXT-MIB",
+        "object": "ifExtSlotNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-IFEXT-MIB",
+        "object": "ifExtPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ifExtSlotNumber": {
+    "name": "ifExtSlotNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "ifExtPortNumber": {
+    "name": "ifExtPortNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "ifExtPortIfIndex": {
+    "name": "ifExtPortIfIndex",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ifExtAdminState": {
+    "name": "ifExtAdminState",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ifExtOperState": {
+    "name": "ifExtOperState",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ifExtPoeState": {
+    "name": "ifExtPoeState",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaPoeState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ifExtIsTrusted": {
+    "name": "ifExtIsTrusted",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ifExtDot1DState": {
+    "name": "ifExtDot1DState",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaDot1dState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ifExtMode": {
+    "name": "ifExtMode",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaPortMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ifExtAccessVlanId": {
+    "name": "ifExtAccessVlanId",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaVlanValidRange",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ifExtTrunkNativeVlanId": {
+    "name": "ifExtTrunkNativeVlanId",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaVlanValidRange",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ifExtTrunkIsAllowedAll": {
+    "name": "ifExtTrunkIsAllowedAll",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ifExtTrunkAllowedVlanList": {
+    "name": "ifExtTrunkAllowedVlanList",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ifExtIngressACLName": {
+    "name": "ifExtIngressACLName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ifExtEgressACLName": {
+    "name": "ifExtEgressACLName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ifExtSessionACLName": {
+    "name": "ifExtSessionACLName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ifExtXsecVlan": {
+    "name": "ifExtXsecVlan",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaVlanValidRange",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ifExtIsMonitoring": {
+    "name": "ifExtIsMonitoring",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ifExtIsMux": {
+    "name": "ifExtIsMux",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ifExtUserSlotNumber": {
+    "name": "ifExtUserSlotNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ifExtUserPortNumber": {
+    "name": "ifExtUserPortNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ifExtPortSpeed": {
+    "name": "ifExtPortSpeed",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaPortSpeed",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ifExtPortDuplex": {
+    "name": "ifExtPortDuplex",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaPortDuplex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ifExtPortType": {
+    "name": "ifExtPortType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaPortType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ifExtDescr": {
+    "name": "ifExtDescr",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ifExtUserModuleNumber": {
+    "name": "ifExtUserModuleNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "wlsxIfExtVlanTable": {
+    "name": "wlsxIfExtVlanTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxIfExtVlanEntry": {
+    "name": "wlsxIfExtVlanEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-IFEXT-MIB",
+        "object": "ifExtVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ifExtVlanId": {
+    "name": "ifExtVlanId",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaVlanValidRange",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifExtVlanName": {
+    "name": "ifExtVlanName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ifExtVlanStatus": {
+    "name": "ifExtVlanStatus",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wlsxIfExtVlanMemberTable": {
+    "name": "wlsxIfExtVlanMemberTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxIfExtVlanMemberEntry": {
+    "name": "wlsxIfExtVlanMemberEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-IFEXT-MIB",
+        "object": "ifExtVlanId",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ifExtVlanMemberStatus": {
+    "name": "ifExtVlanMemberStatus",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ifExtVlanMemberSlot": {
+    "name": "ifExtVlanMemberSlot",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifExtVlanMemberPort": {
+    "name": "ifExtVlanMemberPort",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifExtVlanMemberType": {
+    "name": "ifExtVlanMemberType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaIfType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxIfExtVlanInterfaceTable": {
+    "name": "wlsxIfExtVlanInterfaceTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxIfExtVlanInterfaceEntry": {
+    "name": "wlsxIfExtVlanInterfaceEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-IFEXT-MIB",
+        "object": "ifExtVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ifExtVlanInterfaceIfIndex": {
+    "name": "ifExtVlanInterfaceIfIndex",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ifExtVlanInterfaceDescription": {
+    "name": "ifExtVlanInterfaceDescription",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ifExtVlanInterfaceBWContract": {
+    "name": "ifExtVlanInterfaceBWContract",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ifExtVlanInterfaceAdminState": {
+    "name": "ifExtVlanInterfaceAdminState",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ifExtVlanInterfaceOperState": {
+    "name": "ifExtVlanInterfaceOperState",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaOperStateValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ifExtVlanInterfaceIpAddress": {
+    "name": "ifExtVlanInterfaceIpAddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ifExtVlanInterfaceIpMask": {
+    "name": "ifExtVlanInterfaceIpMask",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ifExtVlanInterfaceIsLocalArp": {
+    "name": "ifExtVlanInterfaceIsLocalArp",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ifExtVlanInterfaceStatus": {
+    "name": "ifExtVlanInterfaceStatus",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ifExtVlanInterfaceIpRouting": {
+    "name": "ifExtVlanInterfaceIpRouting",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ifExtVlanInterfaceIpNatInside": {
+    "name": "ifExtVlanInterfaceIpNatInside",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ifExtVlanInterfaceIpIgmpSnooping": {
+    "name": "ifExtVlanInterfaceIpIgmpSnooping",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wlsxIfExtNPortTable": {
+    "name": "wlsxIfExtNPortTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxIfExtNPortEntry": {
+    "name": "wlsxIfExtNPortEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-IFEXT-MIB",
+        "object": "ifExtNSlotNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-IFEXT-MIB",
+        "object": "ifExtNModuleNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-IFEXT-MIB",
+        "object": "ifExtNPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ifExtNSlotNumber": {
+    "name": "ifExtNSlotNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifExtNModuleNumber": {
+    "name": "ifExtNModuleNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifExtNPortNumber": {
+    "name": "ifExtNPortNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifExtNPortIfIndex": {
+    "name": "ifExtNPortIfIndex",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifExtNAdminState": {
+    "name": "ifExtNAdminState",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ifExtNOperState": {
+    "name": "ifExtNOperState",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifExtNPoeState": {
+    "name": "ifExtNPoeState",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaPoeState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ifExtNIsTrusted": {
+    "name": "ifExtNIsTrusted",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ifExtNDot1DState": {
+    "name": "ifExtNDot1DState",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaDot1dState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ifExtNMode": {
+    "name": "ifExtNMode",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaPortMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ifExtNAccessVlanId": {
+    "name": "ifExtNAccessVlanId",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaVlanValidRange",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ifExtNTrunkNativeVlanId": {
+    "name": "ifExtNTrunkNativeVlanId",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaVlanValidRange",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ifExtNTrunkIsAllowedAll": {
+    "name": "ifExtNTrunkIsAllowedAll",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ifExtNTrunkAllowedVlanList": {
+    "name": "ifExtNTrunkAllowedVlanList",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ifExtNIngressACLName": {
+    "name": "ifExtNIngressACLName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ifExtNEgressACLName": {
+    "name": "ifExtNEgressACLName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ifExtNSessionACLName": {
+    "name": "ifExtNSessionACLName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ifExtNXsecVlan": {
+    "name": "ifExtNXsecVlan",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaVlanValidRange",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ifExtNIsMonitoring": {
+    "name": "ifExtNIsMonitoring",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ifExtNIsMux": {
+    "name": "ifExtNIsMux",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ifExtNPortSpeed": {
+    "name": "ifExtNPortSpeed",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaPortSpeed",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifExtNPortDuplex": {
+    "name": "ifExtNPortDuplex",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaPortDuplex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifExtNPortType": {
+    "name": "ifExtNPortType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaPortType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifExtNDescr": {
+    "name": "ifExtNDescr",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.3.1.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-IFEXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:25 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "WLSX-IFEXT-MIB"
+  }
+}

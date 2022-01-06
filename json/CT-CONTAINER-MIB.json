@@ -1,0 +1,680 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-MIB-NAMES": [
+      "ctChassis2"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "contType": {
+    "name": "contType",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.1",
+    "class": "objectidentity"
+  },
+  "contLogical": {
+    "name": "contLogical",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.2",
+    "class": "objectidentity"
+  },
+  "contPhysical": {
+    "name": "contPhysical",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.3",
+    "class": "objectidentity"
+  },
+  "contResource": {
+    "name": "contResource",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.4",
+    "class": "objectidentity"
+  },
+  "contCommStr": {
+    "name": "contCommStr",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.5",
+    "class": "objectidentity"
+  },
+  "contAddress": {
+    "name": "contAddress",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.6",
+    "class": "objectidentity"
+  },
+  "contTypeID": {
+    "name": "contTypeID",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.7",
+    "class": "objectidentity"
+  },
+  "contTypeDevice": {
+    "name": "contTypeDevice",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contTypePhysicalEntries": {
+    "name": "contTypePhysicalEntries",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contTypePhysicalChanges": {
+    "name": "contTypePhysicalChanges",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contTypeLogicalChanges": {
+    "name": "contTypeLogicalChanges",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contTypeSerialNumber": {
+    "name": "contTypeSerialNumber",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contTypeContainingDevice": {
+    "name": "contTypeContainingDevice",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contTypeContainingPhysicalEntries": {
+    "name": "contTypeContainingPhysicalEntries",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contTypeContainingPhysicalEntryID": {
+    "name": "contTypeContainingPhysicalEntryID",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contTypeContainingSerialNumber": {
+    "name": "contTypeContainingSerialNumber",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contLogicalEntryTable": {
+    "name": "contLogicalEntryTable",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "contLogicalEntry": {
+    "name": "contLogicalEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CT-CONTAINER-MIB",
+        "object": "contLogicalEntryID",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "contLogicalEntryID": {
+    "name": "contLogicalEntryID",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contLogicalEntryType": {
+    "name": "contLogicalEntryType",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contLogicalEntryName": {
+    "name": "contLogicalEntryName",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contLogicalEntryVersion": {
+    "name": "contLogicalEntryVersion",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contLogicalEntryROCommStr": {
+    "name": "contLogicalEntryROCommStr",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contLogicalEntryRWCommStr": {
+    "name": "contLogicalEntryRWCommStr",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contLogicalEntrySUCommStr": {
+    "name": "contLogicalEntrySUCommStr",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contLogicalEntryAdminStatus": {
+    "name": "contLogicalEntryAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 3,
+          "disable": 7,
+          "reset": 9
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "contLogicalEntryOperStatus": {
+    "name": "contLogicalEntryOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "invalid": 2,
+          "enabled": 3,
+          "testing": 4,
+          "operational": 5,
+          "error": 6,
+          "disabled": 7,
+          "delete": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contPhysicalEntryTable": {
+    "name": "contPhysicalEntryTable",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "contPhysicalEntry": {
+    "name": "contPhysicalEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CT-CONTAINER-MIB",
+        "object": "contPhysicalEntryID",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "contPhysicalEntryID": {
+    "name": "contPhysicalEntryID",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contPhysicalEntries": {
+    "name": "contPhysicalEntries",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contPhysicalEntryClass": {
+    "name": "contPhysicalEntryClass",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contPhysicalEntryType": {
+    "name": "contPhysicalEntryType",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contPhysicalEntryTimeStamp": {
+    "name": "contPhysicalEntryTimeStamp",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contPhysicalEntryStatus": {
+    "name": "contPhysicalEntryStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "powerOff": 2,
+          "busy": 3,
+          "crippled": 4,
+          "operational": 5,
+          "error": 6,
+          "testing": 7,
+          "booting": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contLogicalToPhysicalMapTable": {
+    "name": "contLogicalToPhysicalMapTable",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "contLogicalToPhysicalMapEntry": {
+    "name": "contLogicalToPhysicalMapEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CT-CONTAINER-MIB",
+        "object": "contPhysicalEntryID",
+        "implied": 0
+      },
+      {
+        "module": "CT-CONTAINER-MIB",
+        "object": "contLogicalEntryID",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "contPhysicalEntryMapID": {
+    "name": "contPhysicalEntryMapID",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contLogicalEntryMapID": {
+    "name": "contLogicalEntryMapID",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contResourceTable": {
+    "name": "contResourceTable",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "contResourceEntry": {
+    "name": "contResourceEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CT-CONTAINER-MIB",
+        "object": "contResourceID",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "contResourceID": {
+    "name": "contResourceID",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contResourceType": {
+    "name": "contResourceType",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contResourceMibPointer": {
+    "name": "contResourceMibPointer",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contROCommStr": {
+    "name": "contROCommStr",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "contRWCommStr": {
+    "name": "contRWCommStr",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "contSUCommStr": {
+    "name": "contSUCommStr",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "contNetAddressTable": {
+    "name": "contNetAddressTable",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "contNetAddressEntry": {
+    "name": "contNetAddressEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CT-CONTAINER-MIB",
+        "object": "contNetAddressIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "contNetAddressIndex": {
+    "name": "contNetAddressIndex",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contNetAddressNetworkType": {
+    "name": "contNetAddressNetworkType",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "contNetAddress": {
+    "name": "contNetAddress",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "contNetAddressMask": {
+    "name": "contNetAddressMask",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "contUnknownTypeID": {
+    "name": "contUnknownTypeID",
+    "oid": "1.3.6.1.4.1.52.4.1.1.9.7.1",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CT-CONTAINER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CT-CONTAINER-MIB"
+  }
+}

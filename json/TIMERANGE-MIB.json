@@ -1,0 +1,330 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlink-common-mgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "swTimeRangeMIB": {
+    "name": "swTimeRangeMIB",
+    "oid": "1.3.6.1.4.1.171.12.50",
+    "class": "moduleidentity"
+  },
+  "swTimeRangeCtrl": {
+    "name": "swTimeRangeCtrl",
+    "oid": "1.3.6.1.4.1.171.12.50.1",
+    "class": "objectidentity"
+  },
+  "swTimeRangeInfo": {
+    "name": "swTimeRangeInfo",
+    "oid": "1.3.6.1.4.1.171.12.50.2",
+    "class": "objectidentity"
+  },
+  "swTimeRangeMgmt": {
+    "name": "swTimeRangeMgmt",
+    "oid": "1.3.6.1.4.1.171.12.50.3",
+    "class": "objectidentity"
+  },
+  "swTimeRangeMgmtTable": {
+    "name": "swTimeRangeMgmtTable",
+    "oid": "1.3.6.1.4.1.171.12.50.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swTimeRangeMgmtEntry": {
+    "name": "swTimeRangeMgmtEntry",
+    "oid": "1.3.6.1.4.1.171.12.50.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMERANGE-MIB",
+        "object": "swTimeRangeMgmtRangeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swTimeRangeMgmtRangeName": {
+    "name": "swTimeRangeMgmtRangeName",
+    "oid": "1.3.6.1.4.1.171.12.50.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTimeRangeMgmtSelectDays": {
+    "name": "swTimeRangeMgmtSelectDays",
+    "oid": "1.3.6.1.4.1.171.12.50.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "swTimeRangeMgmtStartTime": {
+    "name": "swTimeRangeMgmtStartTime",
+    "oid": "1.3.6.1.4.1.171.12.50.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "swTimeRangeMgmtEndTime": {
+    "name": "swTimeRangeMgmtEndTime",
+    "oid": "1.3.6.1.4.1.171.12.50.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "swimeRangeMgmtStatus": {
+    "name": "swimeRangeMgmtStatus",
+    "oid": "1.3.6.1.4.1.171.12.50.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "swTimeRangeACLTable": {
+    "name": "swTimeRangeACLTable",
+    "oid": "1.3.6.1.4.1.171.12.50.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swTimeRangeACLEntry": {
+    "name": "swTimeRangeACLEntry",
+    "oid": "1.3.6.1.4.1.171.12.50.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMERANGE-MIB",
+        "object": "swTimeRangeACLProfileID",
+        "implied": 0
+      },
+      {
+        "module": "TIMERANGE-MIB",
+        "object": "swTimeRangeACLAccessID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swTimeRangeACLProfileID": {
+    "name": "swTimeRangeACLProfileID",
+    "oid": "1.3.6.1.4.1.171.12.50.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTimeRangeACLAccessID": {
+    "name": "swTimeRangeACLAccessID",
+    "oid": "1.3.6.1.4.1.171.12.50.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTimeRangeACLTimeRangeName": {
+    "name": "swTimeRangeACLTimeRangeName",
+    "oid": "1.3.6.1.4.1.171.12.50.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swTimeRangeCPUACLTable": {
+    "name": "swTimeRangeCPUACLTable",
+    "oid": "1.3.6.1.4.1.171.12.50.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swTimeRangeCPUACLEntry": {
+    "name": "swTimeRangeCPUACLEntry",
+    "oid": "1.3.6.1.4.1.171.12.50.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMERANGE-MIB",
+        "object": "swTimeRangeCPUACLProfileID",
+        "implied": 0
+      },
+      {
+        "module": "TIMERANGE-MIB",
+        "object": "swTimeRangeCPUACLAccessID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swTimeRangeCPUACLProfileID": {
+    "name": "swTimeRangeCPUACLProfileID",
+    "oid": "1.3.6.1.4.1.171.12.50.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTimeRangeCPUACLAccessID": {
+    "name": "swTimeRangeCPUACLAccessID",
+    "oid": "1.3.6.1.4.1.171.12.50.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTimeRangeCPUACLTimeRangeName": {
+    "name": "swTimeRangeCPUACLTimeRangeName",
+    "oid": "1.3.6.1.4.1.171.12.50.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/TIMERANGE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TIMERANGE-MIB"
+  }
+}

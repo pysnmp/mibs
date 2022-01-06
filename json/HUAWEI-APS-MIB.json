@@ -1,0 +1,423 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysUpTime"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hwApsMIB": {
+    "name": "hwApsMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.161",
+    "class": "moduleidentity"
+  },
+  "hwApsObjects": {
+    "name": "hwApsObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.1",
+    "class": "objectidentity"
+  },
+  "hwApsProtectionTable": {
+    "name": "hwApsProtectionTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwApsProtectionEntry": {
+    "name": "hwApsProtectionEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwApsIfIndex": {
+    "name": "hwApsIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwApsProtectionGroupNum": {
+    "name": "hwApsProtectionGroupNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwApsIfType": {
+    "name": "hwApsIfType",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "work": 1,
+          "protection": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwApsRestoreWaitTime": {
+    "name": "hwApsRestoreWaitTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwApsProtectSwitch": {
+    "name": "hwApsProtectSwitch",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lock": 1,
+          "force": 2,
+          "manual": 3,
+          "auto": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwApsWorkingIfType": {
+    "name": "hwApsWorkingIfType",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwApsRowStatus": {
+    "name": "hwApsRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwApsNotifications": {
+    "name": "hwApsNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.2",
+    "class": "objectidentity"
+  },
+  "hwApsProtectSwitchOver": {
+    "name": "hwApsProtectSwitchOver",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectionGroupNum"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsIfType"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsWorkingIfType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwApsProtectSwitchBackOver": {
+    "name": "hwApsProtectSwitchBackOver",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectionGroupNum"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsIfType"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsWorkingIfType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwApsProtectModeFail": {
+    "name": "hwApsProtectModeFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectionGroupNum"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsIfType"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsWorkingIfType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwApsProtectChnlFail": {
+    "name": "hwApsProtectChnlFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectionGroupNum"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsIfType"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsWorkingIfType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwApsProtectInvldK1K2Fail": {
+    "name": "hwApsProtectInvldK1K2Fail",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectionGroupNum"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsIfType"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsWorkingIfType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwApsProtectRemoteFail": {
+    "name": "hwApsProtectRemoteFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectionGroupNum"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsIfType"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsWorkingIfType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwApsConformance": {
+    "name": "hwApsConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.3",
+    "class": "objectidentity"
+  },
+  "hwApsCompliances": {
+    "name": "hwApsCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.3.1",
+    "class": "objectidentity"
+  },
+  "hwApsCompliance": {
+    "name": "hwApsCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwApsProtectionGroup",
+        "module": "HUAWEI-APS-MIB"
+      },
+      {
+        "object": "hwApsNotificationsGroup",
+        "module": "HUAWEI-APS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwApsGroups": {
+    "name": "hwApsGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.3.2",
+    "class": "objectidentity"
+  },
+  "hwApsProtectionGroup": {
+    "name": "hwApsProtectionGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectionGroupNum"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsIfType"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsRestoreWaitTime"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectSwitch"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsWorkingIfType"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwApsNotificationsGroup": {
+    "name": "hwApsNotificationsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectSwitchOver"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectSwitchBackOver"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectModeFail"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectChnlFail"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectInvldK1K2Fail"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectRemoteFail"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-APS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-APS-MIB"
+  }
+}

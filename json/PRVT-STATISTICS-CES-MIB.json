@@ -1,0 +1,2427 @@
+{
+  "imports": {
+    "class": "imports",
+    "DS1-MIB": [
+      "dsx1CurrentEntry",
+      "dsx1FarEndTotalEntry",
+      "dsx1FarEndCurrentEntry",
+      "dsx1TotalEntry",
+      "dsx1FarEndIntervalEntry",
+      "dsx1IntervalEntry"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "PRVT-SWITCH-MIB": [
+      "switch"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfTotalCount",
+      "PerfCurrentCount",
+      "PerfIntervalCount"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "SONET-MIB": [
+      "sonetLineIntervalEntry",
+      "sonetFarEndPathIntervalEntry",
+      "sonetPathIntervalEntry",
+      "sonetVTIntervalEntry",
+      "sonetFarEndVTCurrentEntry",
+      "sonetFarEndLineCurrentEntry",
+      "sonetFarEndVTIntervalEntry",
+      "sonetSectionIntervalEntry",
+      "sonetLineCurrentEntry",
+      "sonetVTCurrentEntry",
+      "sonetSectionCurrentEntry",
+      "sonetPathCurrentEntry",
+      "sonetFarEndLineIntervalEntry",
+      "sonetFarEndPathCurrentEntry"
+    ]
+  },
+  "prvtStatisticsCESMib": {
+    "name": "prvtStatisticsCESMib",
+    "oid": "1.3.6.1.4.1.738.1.5.114",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-04-07 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "prvtStatisticsNotifications": {
+    "name": "prvtStatisticsNotifications",
+    "oid": "1.3.6.1.4.1.738.1.5.114.0",
+    "class": "objectidentity"
+  },
+  "prvtStatisticsObjects": {
+    "name": "prvtStatisticsObjects",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1",
+    "class": "objectidentity"
+  },
+  "prvtStatisticsConformance": {
+    "name": "prvtStatisticsConformance",
+    "oid": "1.3.6.1.4.1.738.1.5.114.2",
+    "class": "objectidentity"
+  },
+  "prvtStatisticsDSx1": {
+    "name": "prvtStatisticsDSx1",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1",
+    "class": "objectidentity"
+  },
+  "prvtStatisticsSection": {
+    "name": "prvtStatisticsSection",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.2",
+    "class": "objectidentity"
+  },
+  "prvtStatisticsLine": {
+    "name": "prvtStatisticsLine",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3",
+    "class": "objectidentity"
+  },
+  "prvtStatisticsPath": {
+    "name": "prvtStatisticsPath",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4",
+    "class": "objectidentity"
+  },
+  "prvtStatisticsVt": {
+    "name": "prvtStatisticsVt",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5",
+    "class": "objectidentity"
+  },
+  "prvtDSx1CurrentTable": {
+    "name": "prvtDSx1CurrentTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtDSx1CurrentEntry": {
+    "name": "prvtDSx1CurrentEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtDSx1CurrentEntry",
+      "module": "PRVT-STATISTICS-CES-MIB",
+      "object": "dsx1CurrentEntry"
+    },
+    "status": "current"
+  },
+  "prvtDSx1CurrentBBEs": {
+    "name": "prvtDSx1CurrentBBEs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtDSx1CurrentLSESs": {
+    "name": "prvtDSx1CurrentLSESs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtDSx1CurrentPFCs": {
+    "name": "prvtDSx1CurrentPFCs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtDSx1IntervalTable": {
+    "name": "prvtDSx1IntervalTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtDSx1IntervalEntry": {
+    "name": "prvtDSx1IntervalEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtDSx1IntervalEntry",
+      "module": "PRVT-STATISTICS-CES-MIB",
+      "object": "dsx1IntervalEntry"
+    },
+    "status": "current"
+  },
+  "prvtDSx1IntervalBBEs": {
+    "name": "prvtDSx1IntervalBBEs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtDSx1IntervalLSESs": {
+    "name": "prvtDSx1IntervalLSESs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtDSx1IntervalPFCs": {
+    "name": "prvtDSx1IntervalPFCs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtDSx1TotalTable": {
+    "name": "prvtDSx1TotalTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtDSx1TotalEntry": {
+    "name": "prvtDSx1TotalEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtDSx1TotalEntry",
+      "module": "PRVT-STATISTICS-CES-MIB",
+      "object": "dsx1TotalEntry"
+    },
+    "status": "current"
+  },
+  "prvtDSx1TotalBBEs": {
+    "name": "prvtDSx1TotalBBEs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtDSx1TotalLSESs": {
+    "name": "prvtDSx1TotalLSESs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtDSx1TotalPFCs": {
+    "name": "prvtDSx1TotalPFCs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtDSx1FarEndCurrentTable": {
+    "name": "prvtDSx1FarEndCurrentTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtDSx1FarEndCurrentEntry": {
+    "name": "prvtDSx1FarEndCurrentEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtDSx1FarEndCurrentEntry",
+      "module": "PRVT-STATISTICS-CES-MIB",
+      "object": "dsx1FarEndCurrentEntry"
+    },
+    "status": "current"
+  },
+  "prvtFarEndDSx1CurrentBBEs": {
+    "name": "prvtFarEndDSx1CurrentBBEs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndDSx1CurrentPFCs": {
+    "name": "prvtFarEndDSx1CurrentPFCs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtDSx1FarEndIntervalTable": {
+    "name": "prvtDSx1FarEndIntervalTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtDSx1FarEndIntervalEntry": {
+    "name": "prvtDSx1FarEndIntervalEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtDSx1FarEndIntervalEntry",
+      "module": "PRVT-STATISTICS-CES-MIB",
+      "object": "dsx1FarEndIntervalEntry"
+    },
+    "status": "current"
+  },
+  "prvtFarEndDSx1IntervalBBEs": {
+    "name": "prvtFarEndDSx1IntervalBBEs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndDSx1IntervalPFCs": {
+    "name": "prvtFarEndDSx1IntervalPFCs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtDSx1FarEndTotalTable": {
+    "name": "prvtDSx1FarEndTotalTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtDSx1FarEndTotalEntry": {
+    "name": "prvtDSx1FarEndTotalEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtDSx1FarEndTotalEntry",
+      "module": "PRVT-STATISTICS-CES-MIB",
+      "object": "dsx1FarEndTotalEntry"
+    },
+    "status": "current"
+  },
+  "prvtFarEndDSx1TotalBBEs": {
+    "name": "prvtFarEndDSx1TotalBBEs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndDSx1TotalPFCs": {
+    "name": "prvtFarEndDSx1TotalPFCs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSectionCurrentTable": {
+    "name": "prvtSectionCurrentTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtSectionCurrentEntry": {
+    "name": "prvtSectionCurrentEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtSectionCurrentEntry",
+      "module": "PRVT-STATISTICS-CES-MIB",
+      "object": "sonetSectionCurrentEntry"
+    },
+    "status": "current"
+  },
+  "prvtSectionCurrentBBEs": {
+    "name": "prvtSectionCurrentBBEs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSectionCurrentESAs": {
+    "name": "prvtSectionCurrentESAs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSectionCurrentESBs": {
+    "name": "prvtSectionCurrentESBs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSectionCurrentUASs": {
+    "name": "prvtSectionCurrentUASs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSectionCurrentLOSSs": {
+    "name": "prvtSectionCurrentLOSSs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSectionCurrentOOFs": {
+    "name": "prvtSectionCurrentOOFs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSectionIntervalTable": {
+    "name": "prvtSectionIntervalTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtSectionIntervalEntry": {
+    "name": "prvtSectionIntervalEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtSectionIntervalEntry",
+      "module": "PRVT-STATISTICS-CES-MIB",
+      "object": "sonetSectionIntervalEntry"
+    },
+    "status": "current"
+  },
+  "prvtSectionIntervalBBEs": {
+    "name": "prvtSectionIntervalBBEs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSectionIntervalESAs": {
+    "name": "prvtSectionIntervalESAs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSectionIntervalESBs": {
+    "name": "prvtSectionIntervalESBs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSectionIntervalUASs": {
+    "name": "prvtSectionIntervalUASs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSectionIntervalLOSSs": {
+    "name": "prvtSectionIntervalLOSSs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSectionIntervalOOFs": {
+    "name": "prvtSectionIntervalOOFs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLineCurrentTable": {
+    "name": "prvtLineCurrentTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtLineCurrentEntry": {
+    "name": "prvtLineCurrentEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtLineCurrentEntry",
+      "module": "PRVT-STATISTICS-CES-MIB",
+      "object": "sonetLineCurrentEntry"
+    },
+    "status": "current"
+  },
+  "prvtLineCurrentFCs": {
+    "name": "prvtLineCurrentFCs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLineCurrentBBEs": {
+    "name": "prvtLineCurrentBBEs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLineCurrentESAs": {
+    "name": "prvtLineCurrentESAs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLineCurrentESBs": {
+    "name": "prvtLineCurrentESBs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLineCurrentLBCs": {
+    "name": "prvtLineCurrentLBCs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLineCurrentOPRs": {
+    "name": "prvtLineCurrentOPRs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prtvLineCurrentOPTs": {
+    "name": "prtvLineCurrentOPTs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLineCurrentAISs": {
+    "name": "prvtLineCurrentAISs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLineCurrentPSCs": {
+    "name": "prvtLineCurrentPSCs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLineCurrentPSDs": {
+    "name": "prvtLineCurrentPSDs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLineIntervalTable": {
+    "name": "prvtLineIntervalTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtLineIntervalEntry": {
+    "name": "prvtLineIntervalEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtLineIntervalEntry",
+      "module": "PRVT-STATISTICS-CES-MIB",
+      "object": "sonetLineIntervalEntry"
+    },
+    "status": "current"
+  },
+  "prvtLineIntervalFCs": {
+    "name": "prvtLineIntervalFCs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLineIntervalBBEs": {
+    "name": "prvtLineIntervalBBEs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLineIntervalESAs": {
+    "name": "prvtLineIntervalESAs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLineIntervalESBs": {
+    "name": "prvtLineIntervalESBs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLineIntervalLBCs": {
+    "name": "prvtLineIntervalLBCs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLineIntervalOPRs": {
+    "name": "prvtLineIntervalOPRs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prtvLineIntervalOPTs": {
+    "name": "prtvLineIntervalOPTs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLineIntevalAISs": {
+    "name": "prvtLineIntevalAISs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLineIntervalPSCs": {
+    "name": "prvtLineIntervalPSCs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLineIntervalPSDs": {
+    "name": "prvtLineIntervalPSDs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndLineCurrentTable": {
+    "name": "prvtFarEndLineCurrentTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtFarEndLineCurrentEntry": {
+    "name": "prvtFarEndLineCurrentEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtFarEndLineCurrentEntry",
+      "module": "PRVT-STATISTICS-CES-MIB",
+      "object": "sonetFarEndLineCurrentEntry"
+    },
+    "status": "current"
+  },
+  "prvtFarEndLineCurrentFCs": {
+    "name": "prvtFarEndLineCurrentFCs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndLineCurrentBBEs": {
+    "name": "prvtFarEndLineCurrentBBEs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndLineCurrentESAs": {
+    "name": "prvtFarEndLineCurrentESAs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndLineCurrentESBs": {
+    "name": "prvtFarEndLineCurrentESBs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndLineCurrentAISs": {
+    "name": "prvtFarEndLineCurrentAISs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndLineCurrentRFIs": {
+    "name": "prvtFarEndLineCurrentRFIs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndLineIntervalTable": {
+    "name": "prvtFarEndLineIntervalTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtFarEndLineIntervalEntry": {
+    "name": "prvtFarEndLineIntervalEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtFarEndLineIntervalEntry",
+      "module": "PRVT-STATISTICS-CES-MIB",
+      "object": "sonetFarEndLineIntervalEntry"
+    },
+    "status": "current"
+  },
+  "prvtFarEndLineIntervalFCs": {
+    "name": "prvtFarEndLineIntervalFCs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndLineIntervalBBEs": {
+    "name": "prvtFarEndLineIntervalBBEs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndLineIntervalESAs": {
+    "name": "prvtFarEndLineIntervalESAs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndLineIntervalESBs": {
+    "name": "prvtFarEndLineIntervalESBs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndLineIntervalAISs": {
+    "name": "prvtFarEndLineIntervalAISs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndLineIntervalRFIs": {
+    "name": "prvtFarEndLineIntervalRFIs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathCurrentTable": {
+    "name": "prvtPathCurrentTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtPathCurrentEntry": {
+    "name": "prvtPathCurrentEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtPathCurrentEntry",
+      "module": "PRVT-STATISTICS-CES-MIB",
+      "object": "sonetPathCurrentEntry"
+    },
+    "status": "current"
+  },
+  "prvtPathCurrentFCs": {
+    "name": "prvtPathCurrentFCs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathCurrentESAs": {
+    "name": "prvtPathCurrentESAs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathCurrentESBs": {
+    "name": "prvtPathCurrentESBs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathCurrentBBEs": {
+    "name": "prvtPathCurrentBBEs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathCurrentAISs": {
+    "name": "prvtPathCurrentAISs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathCurrentPPJCPGen": {
+    "name": "prvtPathCurrentPPJCPGen",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathCurrentNPJCPGen": {
+    "name": "prvtPathCurrentNPJCPGen",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathCurrentPPJCPDet": {
+    "name": "prvtPathCurrentPPJCPDet",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathCurrentNPJCPDet": {
+    "name": "prvtPathCurrentNPJCPDet",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathCurrentPJCSPDet": {
+    "name": "prvtPathCurrentPJCSPDet",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathCurrentPJCSPGen": {
+    "name": "prvtPathCurrentPJCSPGen",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathCurrentJCDiffP": {
+    "name": "prvtPathCurrentJCDiffP",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathIntervalTable": {
+    "name": "prvtPathIntervalTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtPathIntervalEntry": {
+    "name": "prvtPathIntervalEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtPathIntervalEntry",
+      "module": "PRVT-STATISTICS-CES-MIB",
+      "object": "sonetPathIntervalEntry"
+    },
+    "status": "current"
+  },
+  "prvtPathIntervalFCs": {
+    "name": "prvtPathIntervalFCs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathIntervalESAs": {
+    "name": "prvtPathIntervalESAs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathIntervalESBs": {
+    "name": "prvtPathIntervalESBs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathIntervalBBEs": {
+    "name": "prvtPathIntervalBBEs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathIntervalAISs": {
+    "name": "prvtPathIntervalAISs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathIntervalPPJCPGen": {
+    "name": "prvtPathIntervalPPJCPGen",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathIntervalNPJCPGen": {
+    "name": "prvtPathIntervalNPJCPGen",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathIntervalPPJCPDet": {
+    "name": "prvtPathIntervalPPJCPDet",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathIntervalNPJCPDet": {
+    "name": "prvtPathIntervalNPJCPDet",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathIntervalPJCSPDet": {
+    "name": "prvtPathIntervalPJCSPDet",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathIntervalPJCSPGen": {
+    "name": "prvtPathIntervalPJCSPGen",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtPathIntervalJCDiffP": {
+    "name": "prvtPathIntervalJCDiffP",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndPathCurrentTable": {
+    "name": "prvtFarEndPathCurrentTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtFarEndPathCurrentEntry": {
+    "name": "prvtFarEndPathCurrentEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtFarEndPathCurrentEntry",
+      "module": "PRVT-STATISTICS-CES-MIB",
+      "object": "sonetFarEndPathCurrentEntry"
+    },
+    "status": "current"
+  },
+  "prvtFarEndPathCurrentFCs": {
+    "name": "prvtFarEndPathCurrentFCs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndPathCurrentESAs": {
+    "name": "prvtFarEndPathCurrentESAs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndPathCurrentESBs": {
+    "name": "prvtFarEndPathCurrentESBs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndPathCurrentBBEs": {
+    "name": "prvtFarEndPathCurrentBBEs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndPathCurrentRFIs": {
+    "name": "prvtFarEndPathCurrentRFIs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndPathIntervalTable": {
+    "name": "prvtFarEndPathIntervalTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtFarEndPathIntervalEntry": {
+    "name": "prvtFarEndPathIntervalEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtFarEndPathIntervalEntry",
+      "module": "PRVT-STATISTICS-CES-MIB",
+      "object": "sonetFarEndPathIntervalEntry"
+    },
+    "status": "current"
+  },
+  "prvtFarEndPathIntervalFCs": {
+    "name": "prvtFarEndPathIntervalFCs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndPathIntervalESAs": {
+    "name": "prvtFarEndPathIntervalESAs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndPathIntervalESBs": {
+    "name": "prvtFarEndPathIntervalESBs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndPathIntervalBBEs": {
+    "name": "prvtFarEndPathIntervalBBEs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndPathIntervalRFIs": {
+    "name": "prvtFarEndPathIntervalRFIs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtCurrentTable": {
+    "name": "prvtVtCurrentTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtVtCurrentEntry": {
+    "name": "prvtVtCurrentEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtVtCurrentEntry",
+      "module": "PRVT-STATISTICS-CES-MIB",
+      "object": "sonetVTCurrentEntry"
+    },
+    "status": "current"
+  },
+  "prvtVtCurrentFCs": {
+    "name": "prvtVtCurrentFCs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtCurrentESAs": {
+    "name": "prvtVtCurrentESAs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtCurrentESBs": {
+    "name": "prvtVtCurrentESBs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtCurrentBBEs": {
+    "name": "prvtVtCurrentBBEs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtCurrentAISs": {
+    "name": "prvtVtCurrentAISs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtCurrentPPJCVGen": {
+    "name": "prvtVtCurrentPPJCVGen",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtCurrentNPJCVGen": {
+    "name": "prvtVtCurrentNPJCVGen",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtCurrentPPJCVDet": {
+    "name": "prvtVtCurrentPPJCVDet",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtCurrentNPJCVDet": {
+    "name": "prvtVtCurrentNPJCVDet",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtCurrentPJCSVDet": {
+    "name": "prvtVtCurrentPJCSVDet",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtCurrentPJCSVGen": {
+    "name": "prvtVtCurrentPJCSVGen",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtCurrentPJCSVPJCDiffV": {
+    "name": "prvtVtCurrentPJCSVPJCDiffV",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtIntervalTable": {
+    "name": "prvtVtIntervalTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtVtIntervalEntry": {
+    "name": "prvtVtIntervalEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtVtIntervalEntry",
+      "module": "PRVT-STATISTICS-CES-MIB",
+      "object": "sonetVTIntervalEntry"
+    },
+    "status": "current"
+  },
+  "prvtVtIntervalFCs": {
+    "name": "prvtVtIntervalFCs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtIntervalESAs": {
+    "name": "prvtVtIntervalESAs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtIntervalESBs": {
+    "name": "prvtVtIntervalESBs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtIntervalBBEs": {
+    "name": "prvtVtIntervalBBEs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtIntervalAISs": {
+    "name": "prvtVtIntervalAISs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtIntervalPPJCVGen": {
+    "name": "prvtVtIntervalPPJCVGen",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtIntervalNPJCVGen": {
+    "name": "prvtVtIntervalNPJCVGen",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtIntervalPPJCVDet": {
+    "name": "prvtVtIntervalPPJCVDet",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtIntervalNPJCVDet": {
+    "name": "prvtVtIntervalNPJCVDet",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtIntervalPJCSVDet": {
+    "name": "prvtVtIntervalPJCSVDet",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtIntervalPJCSVGen": {
+    "name": "prvtVtIntervalPJCSVGen",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtVtIntervalPJCSVPJCDiffV": {
+    "name": "prvtVtIntervalPJCSVPJCDiffV",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndVtCurrentTable": {
+    "name": "prvtFarEndVtCurrentTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtFarEndVtCurrentEntry": {
+    "name": "prvtFarEndVtCurrentEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtFarEndVtCurrentEntry",
+      "module": "PRVT-STATISTICS-CES-MIB",
+      "object": "sonetFarEndVTCurrentEntry"
+    },
+    "status": "current"
+  },
+  "prvtFarEndVtCurrentFCs": {
+    "name": "prvtFarEndVtCurrentFCs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndVtCurrentESAs": {
+    "name": "prvtFarEndVtCurrentESAs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndVtCurrentESBs": {
+    "name": "prvtFarEndVtCurrentESBs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndVtCurrentBBEs": {
+    "name": "prvtFarEndVtCurrentBBEs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndVtCurrentRFIs": {
+    "name": "prvtFarEndVtCurrentRFIs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndVtIntervalTable": {
+    "name": "prvtFarEndVtIntervalTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtFarEndVtIntervalEntry": {
+    "name": "prvtFarEndVtIntervalEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtFarEndVtIntervalEntry",
+      "module": "PRVT-STATISTICS-CES-MIB",
+      "object": "sonetFarEndVTIntervalEntry"
+    },
+    "status": "current"
+  },
+  "prvtFarEndVtIntervalFCs": {
+    "name": "prvtFarEndVtIntervalFCs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndVtIntervalESAs": {
+    "name": "prvtFarEndVtIntervalESAs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndVtIntervalESBs": {
+    "name": "prvtFarEndVtIntervalESBs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndVtIntervalBBEs": {
+    "name": "prvtFarEndVtIntervalBBEs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtFarEndVtIntervalRFIs": {
+    "name": "prvtFarEndVtIntervalRFIs",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "SonetLineAlarmType": {
+    "name": "SonetLineAlarmType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sonetAlarmLineMSAIS": 1,
+          "sonetAlarmLineLAIS": 2,
+          "sonetAlarmLineMSRDI": 3,
+          "sonetAlarmLineLRDI": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SonetSectionAlarmType": {
+    "name": "SonetSectionAlarmType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sonetAlarmSectionLOS": 5,
+          "sonetAlarmSectionLOF": 6,
+          "sonetAlarmSectionRSLOF": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SonetPathAlarmType": {
+    "name": "SonetPathAlarmType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sonetAlarmPathLOP": 8,
+          "sonetAlarmPathAIS": 9,
+          "sonetAlarmPathRDI": 10,
+          "sonetAlarmPathUNEQUIPPED": 11,
+          "sonetAlarmPathLABELMISMATCH": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SonetVTAlarmType": {
+    "name": "SonetVTAlarmType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sonetAlarmVtTULOP": 13,
+          "sonetAlarmVtVLOP": 14,
+          "sonetAlarmVtTUAIS": 15,
+          "sonetAlarmVtVAIS": 16,
+          "sonetAlarmVtLPRDI": 17,
+          "sonetAlarmVtVRDI": 18,
+          "sonetAlarmVtLPRFI": 19,
+          "sonetAlarmVtVRFI": 20,
+          "sonetAlarmVtLPUNEQUIPPED": 21,
+          "sonetAlarmVtVUNEQUIPPED": 22,
+          "sonetAlarmVtLPLBLMISMATCH": 23,
+          "sonetAlarmVtVLBLMISMATCH": 24
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SonetAlarmStatus": {
+    "name": "SonetAlarmStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sonetAlarmDown": 0,
+          "sonetAlarmUp": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "prvtSonetSectionAlarmsTable": {
+    "name": "prvtSonetSectionAlarmsTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtSonetSectionAlarmsEntry": {
+    "name": "prvtSonetSectionAlarmsEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSonetSectionAlarmType": {
+    "name": "prvtSonetSectionAlarmType",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SonetSectionAlarmType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "prvtSonetSectionAlarmStatus": {
+    "name": "prvtSonetSectionAlarmStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SonetAlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "prvtSonetLineAlarmsTable": {
+    "name": "prvtSonetLineAlarmsTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtSonetLineAlarmsEntry": {
+    "name": "prvtSonetLineAlarmsEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSonetLineAlarmType": {
+    "name": "prvtSonetLineAlarmType",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SonetLineAlarmType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "prvtSonetLineAlarmStatus": {
+    "name": "prvtSonetLineAlarmStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SonetAlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "prvtSonetPathAlarmsTable": {
+    "name": "prvtSonetPathAlarmsTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtSonetPathAlarmsEntry": {
+    "name": "prvtSonetPathAlarmsEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSonetPathAlarmType": {
+    "name": "prvtSonetPathAlarmType",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SonetPathAlarmType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "prvtSonetPathAlarmStatus": {
+    "name": "prvtSonetPathAlarmStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SonetAlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "prvtSonetVTAlarmsTable": {
+    "name": "prvtSonetVTAlarmsTable",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtSonetVTAlarmsEntry": {
+    "name": "prvtSonetVTAlarmsEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSonetVTAlarmType": {
+    "name": "prvtSonetVTAlarmType",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SonetVTAlarmType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "prvtSonetVTAlarmStatus": {
+    "name": "prvtSonetVTAlarmStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.114.1.5.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SonetAlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "prvtSonetSectionAlarms": {
+    "name": "prvtSonetSectionAlarms",
+    "oid": "1.3.6.1.4.1.738.1.5.114.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "PRVT-STATISTICS-CES-MIB",
+        "object": "prvtSonetSectionAlarmType"
+      },
+      {
+        "module": "PRVT-STATISTICS-CES-MIB",
+        "object": "prvtSonetSectionAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSonetLineAlarms": {
+    "name": "prvtSonetLineAlarms",
+    "oid": "1.3.6.1.4.1.738.1.5.114.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "PRVT-STATISTICS-CES-MIB",
+        "object": "prvtSonetLineAlarmType"
+      },
+      {
+        "module": "PRVT-STATISTICS-CES-MIB",
+        "object": "prvtSonetLineAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSonetPathAlarms": {
+    "name": "prvtSonetPathAlarms",
+    "oid": "1.3.6.1.4.1.738.1.5.114.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "PRVT-STATISTICS-CES-MIB",
+        "object": "prvtSonetPathAlarmType"
+      },
+      {
+        "module": "PRVT-STATISTICS-CES-MIB",
+        "object": "prvtSonetPathAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSonetVTAlarms": {
+    "name": "prvtSonetVTAlarms",
+    "oid": "1.3.6.1.4.1.738.1.5.114.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "PRVT-STATISTICS-CES-MIB",
+        "object": "prvtSonetVTAlarmType"
+      },
+      {
+        "module": "PRVT-STATISTICS-CES-MIB",
+        "object": "prvtSonetVTAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-STATISTICS-CES-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-STATISTICS-CES-MIB"
+  }
+}

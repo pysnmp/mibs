@@ -1,0 +1,4821 @@
+{
+  "imports": {
+    "class": "imports",
+    "PROTEON-MIB": [
+      "proElsSubSysEventMsg",
+      "proResMemHeapTotal",
+      "proResMemHeapNeverAlloc"
+    ],
+    "RFC1315-MIB": [
+      "frCircuitIfIndex",
+      "frCircuitDlci"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "MibIdentifier",
+      "IpAddress",
+      "Integer32",
+      "Unsigned32",
+      "iso",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "Gauge32",
+      "TRAP-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "ibm": {
+    "name": "ibm",
+    "oid": "1.3.6.1.4.1.2",
+    "class": "objectidentity"
+  },
+  "ibmProd": {
+    "name": "ibmProd",
+    "oid": "1.3.6.1.4.1.2.6",
+    "class": "objectidentity"
+  },
+  "ibmIROC": {
+    "name": "ibmIROC",
+    "oid": "1.3.6.1.4.1.2.6.119",
+    "class": "objectidentity"
+  },
+  "MacAddressNCIROC": {
+    "name": "MacAddressNCIROC",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    }
+  },
+  "ibmIROCadmin": {
+    "name": "ibmIROCadmin",
+    "oid": "1.3.6.1.4.1.2.6.119.1",
+    "class": "objectidentity"
+  },
+  "ibmIROCsystem": {
+    "name": "ibmIROCsystem",
+    "oid": "1.3.6.1.4.1.2.6.119.2",
+    "class": "objectidentity"
+  },
+  "ibmIROChardware": {
+    "name": "ibmIROChardware",
+    "oid": "1.3.6.1.4.1.2.6.119.3",
+    "class": "objectidentity"
+  },
+  "ibmIROCrouting": {
+    "name": "ibmIROCrouting",
+    "oid": "1.3.6.1.4.1.2.6.119.4",
+    "class": "objectidentity"
+  },
+  "ibmIROCswitching": {
+    "name": "ibmIROCswitching",
+    "oid": "1.3.6.1.4.1.2.6.119.5",
+    "class": "objectidentity"
+  },
+  "ibmIROCtraps": {
+    "name": "ibmIROCtraps",
+    "oid": "1.3.6.1.4.1.2.6.119.6",
+    "class": "objectidentity"
+  },
+  "ibmIROCconfig": {
+    "name": "ibmIROCconfig",
+    "oid": "1.3.6.1.4.1.2.6.119.7",
+    "class": "objectidentity"
+  },
+  "ibmIROCadminproducts": {
+    "name": "ibmIROCadminproducts",
+    "oid": "1.3.6.1.4.1.2.6.119.1.1",
+    "class": "objectidentity"
+  },
+  "ibmIROCadminOID": {
+    "name": "ibmIROCadminOID",
+    "oid": "1.3.6.1.4.1.2.6.119.1.2",
+    "class": "objectidentity"
+  },
+  "ibmIROCadminDebug": {
+    "name": "ibmIROCadminDebug",
+    "oid": "1.3.6.1.4.1.2.6.119.1.3",
+    "class": "objectidentity"
+  },
+  "ibmIROCadminSnmp": {
+    "name": "ibmIROCadminSnmp",
+    "oid": "1.3.6.1.4.1.2.6.119.1.4",
+    "class": "objectidentity"
+  },
+  "ibmIROCsystemInfo": {
+    "name": "ibmIROCsystemInfo",
+    "oid": "1.3.6.1.4.1.2.6.119.2.1",
+    "class": "objectidentity"
+  },
+  "ibmIROCcfgInfo": {
+    "name": "ibmIROCcfgInfo",
+    "oid": "1.3.6.1.4.1.2.6.119.2.2",
+    "class": "objectidentity"
+  },
+  "ibmIROCdumpInfo": {
+    "name": "ibmIROCdumpInfo",
+    "oid": "1.3.6.1.4.1.2.6.119.2.4",
+    "class": "objectidentity"
+  },
+  "ibmIROChardwareInfo": {
+    "name": "ibmIROChardwareInfo",
+    "oid": "1.3.6.1.4.1.2.6.119.3.1",
+    "class": "objectidentity"
+  },
+  "ibmIROCroutingppp": {
+    "name": "ibmIROCroutingppp",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2",
+    "class": "objectidentity"
+  },
+  "ibmIROCroutingdlsw": {
+    "name": "ibmIROCroutingdlsw",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3",
+    "class": "objectidentity"
+  },
+  "ibmIROCroutingfr": {
+    "name": "ibmIROCroutingfr",
+    "oid": "1.3.6.1.4.1.2.6.119.4.4",
+    "class": "objectidentity"
+  },
+  "ibmIROCroutingRlan": {
+    "name": "ibmIROCroutingRlan",
+    "oid": "1.3.6.1.4.1.2.6.119.4.5",
+    "class": "objectidentity"
+  },
+  "ibmIROCroutingDialOut": {
+    "name": "ibmIROCroutingDialOut",
+    "oid": "1.3.6.1.4.1.2.6.119.4.6",
+    "class": "objectidentity"
+  },
+  "ibmIROCroutingl2tp": {
+    "name": "ibmIROCroutingl2tp",
+    "oid": "1.3.6.1.4.1.2.6.119.4.7",
+    "class": "objectidentity"
+  },
+  "ibmCacheServer": {
+    "name": "ibmCacheServer",
+    "oid": "1.3.6.1.4.1.2.6.119.4.8",
+    "class": "objectidentity"
+  },
+  "ibmIROCroutingIpSec": {
+    "name": "ibmIROCroutingIpSec",
+    "oid": "1.3.6.1.4.1.2.6.119.4.9",
+    "class": "objectidentity"
+  },
+  "ibmIROCswhw": {
+    "name": "ibmIROCswhw",
+    "oid": "1.3.6.1.4.1.2.6.119.4.10",
+    "class": "objectidentity"
+  },
+  "ibmWanRestoralRerouteMIB": {
+    "name": "ibmWanRestoralRerouteMIB",
+    "oid": "1.3.6.1.4.1.2.6.119.4.11",
+    "class": "objectidentity"
+  },
+  "ibmBANMIB": {
+    "name": "ibmBANMIB",
+    "oid": "1.3.6.1.4.1.2.6.119.4.12",
+    "class": "objectidentity"
+  },
+  "ibmIROCrmon": {
+    "name": "ibmIROCrmon",
+    "oid": "1.3.6.1.4.1.2.6.119.4.13",
+    "class": "objectidentity"
+  },
+  "ibmIROCescon": {
+    "name": "ibmIROCescon",
+    "oid": "1.3.6.1.4.1.2.6.119.4.14",
+    "class": "objectidentity"
+  },
+  "ibmIROCVPNpolicy": {
+    "name": "ibmIROCVPNpolicy",
+    "oid": "1.3.6.1.4.1.2.6.119.4.15",
+    "class": "objectidentity"
+  },
+  "ibmIROCroutingvoice": {
+    "name": "ibmIROCroutingvoice",
+    "oid": "1.3.6.1.4.1.2.6.119.4.16",
+    "class": "objectidentity"
+  },
+  "ibmIROCroutinginterface": {
+    "name": "ibmIROCroutinginterface",
+    "oid": "1.3.6.1.4.1.2.6.119.4.17",
+    "class": "objectidentity"
+  },
+  "ibmIROCroutingtn3270e": {
+    "name": "ibmIROCroutingtn3270e",
+    "oid": "1.3.6.1.4.1.2.6.119.4.18",
+    "class": "objectidentity"
+  },
+  "ibmIROCroutingtcpip": {
+    "name": "ibmIROCroutingtcpip",
+    "oid": "1.3.6.1.4.1.2.6.119.4.20",
+    "class": "objectidentity"
+  },
+  "ibmIROCconfigAuth": {
+    "name": "ibmIROCconfigAuth",
+    "oid": "1.3.6.1.4.1.2.6.119.7.2",
+    "class": "objectidentity"
+  },
+  "ibmIROCconfigWrite": {
+    "name": "ibmIROCconfigWrite",
+    "oid": "1.3.6.1.4.1.2.6.119.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noaction": 1,
+          "write": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmIROCAgentDebug": {
+    "name": "ibmIROCAgentDebug",
+    "oid": "1.3.6.1.4.1.2.6.119.1.3.1",
+    "class": "objectidentity"
+  },
+  "agentMemUse": {
+    "name": "agentMemUse",
+    "oid": "1.3.6.1.4.1.2.6.119.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmIROCSnmpAuthFail": {
+    "name": "ibmIROCSnmpAuthFail",
+    "oid": "1.3.6.1.4.1.2.6.119.1.4.1",
+    "class": "objectidentity"
+  },
+  "authTrapSourceIPAddr": {
+    "name": "authTrapSourceIPAddr",
+    "oid": "1.3.6.1.4.1.2.6.119.1.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmSysDumpTable": {
+    "name": "ibmSysDumpTable",
+    "oid": "1.3.6.1.4.1.2.6.119.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmSysDumpEntry": {
+    "name": "ibmSysDumpEntry",
+    "oid": "1.3.6.1.4.1.2.6.119.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBMIROC-MIB",
+        "object": "ibmSysDumpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ibmSysDumpIndex": {
+    "name": "ibmSysDumpIndex",
+    "oid": "1.3.6.1.4.1.2.6.119.2.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmSysDumpFileName": {
+    "name": "ibmSysDumpFileName",
+    "oid": "1.3.6.1.4.1.2.6.119.2.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmSysDumpFileDate": {
+    "name": "ibmSysDumpFileDate",
+    "oid": "1.3.6.1.4.1.2.6.119.2.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmSysDumpBuild": {
+    "name": "ibmSysDumpBuild",
+    "oid": "1.3.6.1.4.1.2.6.119.2.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmSysDumpBuilder": {
+    "name": "ibmSysDumpBuilder",
+    "oid": "1.3.6.1.4.1.2.6.119.2.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmSysDumpBuildName": {
+    "name": "ibmSysDumpBuildName",
+    "oid": "1.3.6.1.4.1.2.6.119.2.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmSysDumpRetainName": {
+    "name": "ibmSysDumpRetainName",
+    "oid": "1.3.6.1.4.1.2.6.119.2.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmSysDumpProductNumber": {
+    "name": "ibmSysDumpProductNumber",
+    "oid": "1.3.6.1.4.1.2.6.119.2.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmSysDumpBuildDate": {
+    "name": "ibmSysDumpBuildDate",
+    "oid": "1.3.6.1.4.1.2.6.119.2.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmSysDumpFatalMsg1": {
+    "name": "ibmSysDumpFatalMsg1",
+    "oid": "1.3.6.1.4.1.2.6.119.2.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmSysDumpFatalMsg2": {
+    "name": "ibmSysDumpFatalMsg2",
+    "oid": "1.3.6.1.4.1.2.6.119.2.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmSysDumpFatalMsg3": {
+    "name": "ibmSysDumpFatalMsg3",
+    "oid": "1.3.6.1.4.1.2.6.119.2.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmSysDumpFatalMsg4": {
+    "name": "ibmSysDumpFatalMsg4",
+    "oid": "1.3.6.1.4.1.2.6.119.2.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmSysDumpFatalMsg5": {
+    "name": "ibmSysDumpFatalMsg5",
+    "oid": "1.3.6.1.4.1.2.6.119.2.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmSysDumpRemoteIPAddr": {
+    "name": "ibmSysDumpRemoteIPAddr",
+    "oid": "1.3.6.1.4.1.2.6.119.2.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmSysDumpRemotePath": {
+    "name": "ibmSysDumpRemotePath",
+    "oid": "1.3.6.1.4.1.2.6.119.2.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "platformType": {
+    "name": "platformType",
+    "oid": "1.3.6.1.4.1.2.6.119.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "plat-other": 1,
+          "plat-mss-8210": 2,
+          "plat-mss-blade": 3,
+          "plat-mss-client": 4,
+          "plat-2216-400": 5,
+          "plat-2210-1s4": 6,
+          "plat-2210-1s8": 7,
+          "plat-2210-1u4": 8,
+          "plat-2210-1u8": 9,
+          "plat-2210-24e": 10,
+          "plat-2210-24m": 11,
+          "plat-2210-24t": 12,
+          "plat-2210-14t": 13,
+          "plat-2210-125": 14,
+          "plat-2210-127": 15,
+          "plat-2210-121": 16,
+          "plat-2210-12t": 17,
+          "plat-2210-126": 18,
+          "plat-2210-128": 19,
+          "plat-2210-122": 20,
+          "plat-2210-12e": 21,
+          "plat-2220-200": 22,
+          "plat-3746-MAE": 23,
+          "plat-mss-domain-client": 24,
+          "plat-mss-8210V2": 25,
+          "plat-mss-bladeV2": 26,
+          "plat-netu-xx1": 27,
+          "plat-2212-10F": 28,
+          "plat-2212-10H": 29,
+          "plat-2212-40F": 30,
+          "plat-2212-40H": 31,
+          "plat-8371": 32,
+          "plat-8375": 33,
+          "plat-2212-15F": 34,
+          "plat-2212-15H": 35,
+          "plat-2212-45F": 36,
+          "plat-2212-45H": 37,
+          "plat-reserved1": 38,
+          "plat-reserved2": 39,
+          "plat-8275-RR": 40,
+          "plat-8371-8260B": 41,
+          "plat-reserved": 42
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "platformDRAMSize": {
+    "name": "platformDRAMSize",
+    "oid": "1.3.6.1.4.1.2.6.119.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "platformFLASHSize": {
+    "name": "platformFLASHSize",
+    "oid": "1.3.6.1.4.1.2.6.119.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "platformNVRAMSize": {
+    "name": "platformNVRAMSize",
+    "oid": "1.3.6.1.4.1.2.6.119.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "platformFeatureSlot": {
+    "name": "platformFeatureSlot",
+    "oid": "1.3.6.1.4.1.2.6.119.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "isdn-BRI-ST": 2,
+          "isdn-PRI-E1-120": 3,
+          "isdn-PRI-E1-75": 4,
+          "isdn-PRI-T1J1": 5,
+          "atm-155": 6,
+          "atm-25": 7,
+          "serial-wan-4port": 8,
+          "serial-wan-8port": 9,
+          "modem-4port": 10,
+          "modem-8port": 11,
+          "isdn-BRI-4port-ST": 12,
+          "isdn-BRI-4port-U": 13,
+          "isdn-voice-ST-FXO": 14,
+          "isdn-voice-ST-FXS": 15,
+          "isdn-voice-ST-EM": 16,
+          "isdn-voice-U-FXO": 17,
+          "isdn-voice-U-FXS": 18,
+          "isdn-voice-U-EM": 19
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppProtocolTable": {
+    "name": "pppProtocolTable",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppProtocolEntry": {
+    "name": "pppProtocolEntry",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBMIROC-MIB",
+        "object": "pppProtocolIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "IBMIROC-MIB",
+        "object": "pppProtocolId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppProtocolIfIndex": {
+    "name": "pppProtocolIfIndex",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppProtocolId": {
+    "name": "pppProtocolId",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "decnet": 2,
+          "ipx": 3,
+          "bridge": 4,
+          "appletalk": 5,
+          "osi": 6,
+          "appnhpr": 7,
+          "appnisr": 8,
+          "vines": 9,
+          "compression": 10,
+          "netbios": 11,
+          "netbios-forw": 12,
+          "bandwidth-allocation": 13,
+          "encryption": 14,
+          "ipv6": 15
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppProtocolRegistered": {
+    "name": "pppProtocolRegistered",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppProtocolState": {
+    "name": "pppProtocolState",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "closed": 1,
+          "listen": 2,
+          "requestSent": 3,
+          "ackReceived": 4,
+          "ackSent": 5,
+          "opened": 6,
+          "termSent": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppProtocolPreviousState": {
+    "name": "pppProtocolPreviousState",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "closed": 1,
+          "listen": 2,
+          "requestSent": 3,
+          "ackReceived": 4,
+          "ackSent": 5,
+          "opened": 6,
+          "termSent": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppProtocolLastTimeChange": {
+    "name": "pppProtocolLastTimeChange",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppProtocolCtlInRejects": {
+    "name": "pppProtocolCtlInRejects",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppProtocolCtlInOctets": {
+    "name": "pppProtocolCtlInOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppProtocolCtlInPkts": {
+    "name": "pppProtocolCtlInPkts",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppProtocolCtlOutOctets": {
+    "name": "pppProtocolCtlOutOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppProtocolCtlOutPkts": {
+    "name": "pppProtocolCtlOutPkts",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppProtocolDataInRejects": {
+    "name": "pppProtocolDataInRejects",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppProtocolDataInOctets": {
+    "name": "pppProtocolDataInOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppProtocolDataInPkts": {
+    "name": "pppProtocolDataInPkts",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppProtocolDataOutOctets": {
+    "name": "pppProtocolDataOutOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppProtocolDataOutPkts": {
+    "name": "pppProtocolDataOutPkts",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLinkErrTable": {
+    "name": "pppLinkErrTable",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppLinkErrEntry": {
+    "name": "pppLinkErrEntry",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBMIROC-MIB",
+        "object": "pppLinkErrIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppLinkErrIfIndex": {
+    "name": "pppLinkErrIfIndex",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLinkErrBadAddrs": {
+    "name": "pppLinkErrBadAddrs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLinkErrLastBadAddr": {
+    "name": "pppLinkErrLastBadAddr",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLinkErrBadCtrls": {
+    "name": "pppLinkErrBadCtrls",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLinkErrLastBadCtrl": {
+    "name": "pppLinkErrLastBadCtrl",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLinkErrUnkProtos": {
+    "name": "pppLinkErrUnkProtos",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLinkErrLastUnkProto": {
+    "name": "pppLinkErrLastUnkProto",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLinkErrInvProtos": {
+    "name": "pppLinkErrInvProtos",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLinkErrLastInvProto": {
+    "name": "pppLinkErrLastInvProto",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLinkErrConfigTOs": {
+    "name": "pppLinkErrConfigTOs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLinkErrTermTOs": {
+    "name": "pppLinkErrTermTOs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoTable": {
+    "name": "pppLCProtoTable",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppLCProtoEntry": {
+    "name": "pppLCProtoEntry",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBMIROC-MIB",
+        "object": "pppLCProtoIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppLCProtoIfIndex": {
+    "name": "pppLCProtoIfIndex",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoState": {
+    "name": "pppLCProtoState",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "closed": 1,
+          "listen": 2,
+          "requestSent": 3,
+          "ackReceived": 4,
+          "ackSent": 5,
+          "opened": 6,
+          "termSent": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoPreviousState": {
+    "name": "pppLCProtoPreviousState",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "closed": 1,
+          "listen": 2,
+          "requestSent": 3,
+          "ackReceived": 4,
+          "ackSent": 5,
+          "opened": 6,
+          "termSent": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoLastTimeChange": {
+    "name": "pppLCProtoLastTimeChange",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoOutPackets": {
+    "name": "pppLCProtoOutPackets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoOutOctets": {
+    "name": "pppLCProtoOutOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoOutCRs": {
+    "name": "pppLCProtoOutCRs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoOutCAs": {
+    "name": "pppLCProtoOutCAs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoOutCNs": {
+    "name": "pppLCProtoOutCNs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoOutCRejs": {
+    "name": "pppLCProtoOutCRejs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoOutTRs": {
+    "name": "pppLCProtoOutTRs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoOutTAs": {
+    "name": "pppLCProtoOutTAs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoOutCodeRejs": {
+    "name": "pppLCProtoOutCodeRejs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoOutEchoReqs": {
+    "name": "pppLCProtoOutEchoReqs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoOutEchoReps": {
+    "name": "pppLCProtoOutEchoReps",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoOutDiscReqs": {
+    "name": "pppLCProtoOutDiscReqs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoOutResetReqs": {
+    "name": "pppLCProtoOutResetReqs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoOutResetAcks": {
+    "name": "pppLCProtoOutResetAcks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoOutIdents": {
+    "name": "pppLCProtoOutIdents",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoOutTimeRemains": {
+    "name": "pppLCProtoOutTimeRemains",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoInRejects": {
+    "name": "pppLCProtoInRejects",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoInPackets": {
+    "name": "pppLCProtoInPackets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoInOctets": {
+    "name": "pppLCProtoInOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoInCRs": {
+    "name": "pppLCProtoInCRs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoInCAs": {
+    "name": "pppLCProtoInCAs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoInCNs": {
+    "name": "pppLCProtoInCNs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoInCRejs": {
+    "name": "pppLCProtoInCRejs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoInTRs": {
+    "name": "pppLCProtoInTRs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoInTAs": {
+    "name": "pppLCProtoInTAs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoInCodeRejs": {
+    "name": "pppLCProtoInCodeRejs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoInEchoReqs": {
+    "name": "pppLCProtoInEchoReqs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoInEchoReps": {
+    "name": "pppLCProtoInEchoReps",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoInDiscReqs": {
+    "name": "pppLCProtoInDiscReqs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoInResetReqs": {
+    "name": "pppLCProtoInResetReqs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoInResetAcks": {
+    "name": "pppLCProtoInResetAcks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoInIdents": {
+    "name": "pppLCProtoInIdents",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLCProtoInTimeRemains": {
+    "name": "pppLCProtoInTimeRemains",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.3.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppPAPTable": {
+    "name": "pppPAPTable",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppPAPEntry": {
+    "name": "pppPAPEntry",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBMIROC-MIB",
+        "object": "pppPAPIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppPAPIfIndex": {
+    "name": "pppPAPIfIndex",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppPAPInPackets": {
+    "name": "pppPAPInPackets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppPAPInOctets": {
+    "name": "pppPAPInOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppPAPInRequests": {
+    "name": "pppPAPInRequests",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppPAPInAcks": {
+    "name": "pppPAPInAcks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppPAPInNacks": {
+    "name": "pppPAPInNacks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppPAPOutPackets": {
+    "name": "pppPAPOutPackets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppPAPOutOctets": {
+    "name": "pppPAPOutOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppPAPOutRequests": {
+    "name": "pppPAPOutRequests",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppPAPOutAcks": {
+    "name": "pppPAPOutAcks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppPAPOutNacks": {
+    "name": "pppPAPOutNacks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCHAPTable": {
+    "name": "pppCHAPTable",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppCHAPEntry": {
+    "name": "pppCHAPEntry",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBMIROC-MIB",
+        "object": "pppCHAPIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppCHAPIfIndex": {
+    "name": "pppCHAPIfIndex",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCHAPInPackets": {
+    "name": "pppCHAPInPackets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCHAPInOctets": {
+    "name": "pppCHAPInOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCHAPInChallenges": {
+    "name": "pppCHAPInChallenges",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCHAPInResponses": {
+    "name": "pppCHAPInResponses",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCHAPInSuccesses": {
+    "name": "pppCHAPInSuccesses",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCHAPInFailures": {
+    "name": "pppCHAPInFailures",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCHAPOutPackets": {
+    "name": "pppCHAPOutPackets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCHAPOutOctets": {
+    "name": "pppCHAPOutOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCHAPOutChallenges": {
+    "name": "pppCHAPOutChallenges",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCHAPOutResponses": {
+    "name": "pppCHAPOutResponses",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCHAPOutSuccesses": {
+    "name": "pppCHAPOutSuccesses",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCHAPOutFailures": {
+    "name": "pppCHAPOutFailures",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppSPAPTable": {
+    "name": "pppSPAPTable",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppSPAPEntry": {
+    "name": "pppSPAPEntry",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBMIROC-MIB",
+        "object": "pppSPAPIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppSPAPIfIndex": {
+    "name": "pppSPAPIfIndex",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppSPAPInPackets": {
+    "name": "pppSPAPInPackets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppSPAPInOctets": {
+    "name": "pppSPAPInOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppSPAPInRequests": {
+    "name": "pppSPAPInRequests",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppSPAPInAcks": {
+    "name": "pppSPAPInAcks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppSPAPInNacks": {
+    "name": "pppSPAPInNacks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppSPAPInDialbacks": {
+    "name": "pppSPAPInDialbacks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppSPAPInPleaseAuthenticates": {
+    "name": "pppSPAPInPleaseAuthenticates",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppSPAPInChangePasswords": {
+    "name": "pppSPAPInChangePasswords",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppSPAPInAlerts": {
+    "name": "pppSPAPInAlerts",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppSPAPInAlertAcks": {
+    "name": "pppSPAPInAlertAcks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppSPAPOutPackets": {
+    "name": "pppSPAPOutPackets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppSPAPOutOctets": {
+    "name": "pppSPAPOutOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppSPAPOutRequests": {
+    "name": "pppSPAPOutRequests",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppSPAPOutAcks": {
+    "name": "pppSPAPOutAcks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppSPAPOutNacks": {
+    "name": "pppSPAPOutNacks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppSPAPOutDialbacks": {
+    "name": "pppSPAPOutDialbacks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppSPAPOutPleaseAuthenticates": {
+    "name": "pppSPAPOutPleaseAuthenticates",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppSPAPOutChangePasswords": {
+    "name": "pppSPAPOutChangePasswords",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppSPAPOutAlerts": {
+    "name": "pppSPAPOutAlerts",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppSPAPOutAlertAcks": {
+    "name": "pppSPAPOutAlertAcks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPTable": {
+    "name": "pppBAPTable",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppBAPEntry": {
+    "name": "pppBAPEntry",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBMIROC-MIB",
+        "object": "pppBAPIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppBAPIfIndex": {
+    "name": "pppBAPIfIndex",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPInCallReqs": {
+    "name": "pppBAPInCallReqs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPInCallAcks": {
+    "name": "pppBAPInCallAcks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPInCallNaks": {
+    "name": "pppBAPInCallNaks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPInCallRejs": {
+    "name": "pppBAPInCallRejs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPInCallBackReqs": {
+    "name": "pppBAPInCallBackReqs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPInCallBackAcks": {
+    "name": "pppBAPInCallBackAcks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPInCallBackNaks": {
+    "name": "pppBAPInCallBackNaks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPInCallBackRejs": {
+    "name": "pppBAPInCallBackRejs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPInDropReqs": {
+    "name": "pppBAPInDropReqs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPInDropAcks": {
+    "name": "pppBAPInDropAcks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPInDropNaks": {
+    "name": "pppBAPInDropNaks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPInDropRejs": {
+    "name": "pppBAPInDropRejs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPInStatSuccs": {
+    "name": "pppBAPInStatSuccs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPInStatFails": {
+    "name": "pppBAPInStatFails",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPOutCallReqs": {
+    "name": "pppBAPOutCallReqs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPOutCallAcks": {
+    "name": "pppBAPOutCallAcks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPOutCallNaks": {
+    "name": "pppBAPOutCallNaks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPOutCallRejs": {
+    "name": "pppBAPOutCallRejs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPOutCallBackReqs": {
+    "name": "pppBAPOutCallBackReqs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPOutCallBackAcks": {
+    "name": "pppBAPOutCallBackAcks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPOutCallBackNaks": {
+    "name": "pppBAPOutCallBackNaks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPOutCallBackRejs": {
+    "name": "pppBAPOutCallBackRejs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPOutDropReqs": {
+    "name": "pppBAPOutDropReqs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPOutDropAcks": {
+    "name": "pppBAPOutDropAcks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPOutDropNaks": {
+    "name": "pppBAPOutDropNaks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPOutDropRejs": {
+    "name": "pppBAPOutDropRejs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPOutStatSuccs": {
+    "name": "pppBAPOutStatSuccs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBAPOutStatFails": {
+    "name": "pppBAPOutStatFails",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.7.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCPTable": {
+    "name": "pppCPTable",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppCPEntry": {
+    "name": "pppCPEntry",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBMIROC-MIB",
+        "object": "pppCPIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppCPIfIndex": {
+    "name": "pppCPIfIndex",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCPInCompressedOctets": {
+    "name": "pppCPInCompressedOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCPInInCompressablePkts": {
+    "name": "pppCPInInCompressablePkts",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCPInDestroyeds": {
+    "name": "pppCPInDestroyeds",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCPInCopies": {
+    "name": "pppCPInCopies",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCPOutCompressedOctets": {
+    "name": "pppCPOutCompressedOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCPOutInCompressablePkts": {
+    "name": "pppCPOutInCompressablePkts",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCPOutDestroyeds": {
+    "name": "pppCPOutDestroyeds",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCPOutCopies": {
+    "name": "pppCPOutCopies",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCCPInResetReqs": {
+    "name": "pppCCPInResetReqs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCCPInResetAcks": {
+    "name": "pppCCPInResetAcks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCCPInDictResets": {
+    "name": "pppCCPInDictResets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCCPOutResetReqs": {
+    "name": "pppCCPOutResetReqs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCCPOutResetAcks": {
+    "name": "pppCCPOutResetAcks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCCPOutDictResets": {
+    "name": "pppCCPOutDictResets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCCPPacketDiscards": {
+    "name": "pppCCPPacketDiscards",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.8.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCCPOctetDiscards": {
+    "name": "pppCCPOctetDiscards",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.8.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppEPTable": {
+    "name": "pppEPTable",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppEPEntry": {
+    "name": "pppEPEntry",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBMIROC-MIB",
+        "object": "pppEPIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppEPIfIndex": {
+    "name": "pppEPIfIndex",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppEPInEncryptedOctets": {
+    "name": "pppEPInEncryptedOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppEPInDestroyeds": {
+    "name": "pppEPInDestroyeds",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppEPInCopies": {
+    "name": "pppEPInCopies",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppEPOutEncryptedOctets": {
+    "name": "pppEPOutEncryptedOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppEPOutDestroyeds": {
+    "name": "pppEPOutDestroyeds",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppEPOutCopies": {
+    "name": "pppEPOutCopies",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppECPInResetReqs": {
+    "name": "pppECPInResetReqs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppECPInResetAcks": {
+    "name": "pppECPInResetAcks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppECPInDictResets": {
+    "name": "pppECPInDictResets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppECPOutResetReqs": {
+    "name": "pppECPOutResetReqs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppECPOutResetAcks": {
+    "name": "pppECPOutResetAcks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppECPOutDictResets": {
+    "name": "pppECPOutDictResets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppECPPacketDiscards": {
+    "name": "pppECPPacketDiscards",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppECPOctetDiscards": {
+    "name": "pppECPOctetDiscards",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPTable": {
+    "name": "pppMSCHAPTable",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppMSCHAPEntry": {
+    "name": "pppMSCHAPEntry",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBMIROC-MIB",
+        "object": "pppMSCHAPIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppMSCHAPIfIndex": {
+    "name": "pppMSCHAPIfIndex",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPInPackets": {
+    "name": "pppMSCHAPInPackets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPInOctets": {
+    "name": "pppMSCHAPInOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPInChallenges": {
+    "name": "pppMSCHAPInChallenges",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPInResponses": {
+    "name": "pppMSCHAPInResponses",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPInSuccesses": {
+    "name": "pppMSCHAPInSuccesses",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPInFailures": {
+    "name": "pppMSCHAPInFailures",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPInChangePasswords": {
+    "name": "pppMSCHAPInChangePasswords",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPInRestrictedHoursFailures": {
+    "name": "pppMSCHAPInRestrictedHoursFailures",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPInAccountDisabledFailures": {
+    "name": "pppMSCHAPInAccountDisabledFailures",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPInPasswordExpiredFailures": {
+    "name": "pppMSCHAPInPasswordExpiredFailures",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPInNoPermissionFailures": {
+    "name": "pppMSCHAPInNoPermissionFailures",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPInAuthenticationFailures": {
+    "name": "pppMSCHAPInAuthenticationFailures",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPInChangePasswordFailures": {
+    "name": "pppMSCHAPInChangePasswordFailures",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPOutPackets": {
+    "name": "pppMSCHAPOutPackets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPOutOctets": {
+    "name": "pppMSCHAPOutOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPOutChallenges": {
+    "name": "pppMSCHAPOutChallenges",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPOutResponses": {
+    "name": "pppMSCHAPOutResponses",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPOutSuccesses": {
+    "name": "pppMSCHAPOutSuccesses",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPOutFailures": {
+    "name": "pppMSCHAPOutFailures",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPOutChangePasswords": {
+    "name": "pppMSCHAPOutChangePasswords",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPOutRestrictedHoursFailures": {
+    "name": "pppMSCHAPOutRestrictedHoursFailures",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPOutAccountDisabledFailures": {
+    "name": "pppMSCHAPOutAccountDisabledFailures",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPOutPasswordExpiredFailures": {
+    "name": "pppMSCHAPOutPasswordExpiredFailures",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPOutNoPermissionFailures": {
+    "name": "pppMSCHAPOutNoPermissionFailures",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPOutAuthenticationFailures": {
+    "name": "pppMSCHAPOutAuthenticationFailures",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMSCHAPOutChangePasswordFailures": {
+    "name": "pppMSCHAPOutChangePasswordFailures",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.10.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCBCPTable": {
+    "name": "pppCBCPTable",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppCBCPEntry": {
+    "name": "pppCBCPEntry",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBMIROC-MIB",
+        "object": "pppCBCPIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppCBCPIfIndex": {
+    "name": "pppCBCPIfIndex",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCBCPInPackets": {
+    "name": "pppCBCPInPackets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCBCPInOctets": {
+    "name": "pppCBCPInOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCBCPOutPackets": {
+    "name": "pppCBCPOutPackets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCBCPOutOctets": {
+    "name": "pppCBCPOutOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCBCPAttempts": {
+    "name": "pppCBCPAttempts",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppCBCPSuccess": {
+    "name": "pppCBCPSuccess",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppEAPTable": {
+    "name": "pppEAPTable",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppEAPEntry": {
+    "name": "pppEAPEntry",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBMIROC-MIB",
+        "object": "pppEAPIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppEAPIfIndex": {
+    "name": "pppEAPIfIndex",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppEAPInPackets": {
+    "name": "pppEAPInPackets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppEAPInOctets": {
+    "name": "pppEAPInOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppEAPInRequests": {
+    "name": "pppEAPInRequests",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppEAPInAcks": {
+    "name": "pppEAPInAcks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppEAPInNaks": {
+    "name": "pppEAPInNaks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppEAPOutPackets": {
+    "name": "pppEAPOutPackets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppEAPOutOctets": {
+    "name": "pppEAPOutOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppEAPOutRequests": {
+    "name": "pppEAPOutRequests",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppEAPOutAcks": {
+    "name": "pppEAPOutAcks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppEAPOutNaks": {
+    "name": "pppEAPOutNaks",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMPPETable": {
+    "name": "pppMPPETable",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppMPPEEntry": {
+    "name": "pppMPPEEntry",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBMIROC-MIB",
+        "object": "pppMPPEIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppMPPEIfIndex": {
+    "name": "pppMPPEIfIndex",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMPPEInPackets": {
+    "name": "pppMPPEInPackets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMPPEInOctets": {
+    "name": "pppMPPEInOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMPPEInDestroyed": {
+    "name": "pppMPPEInDestroyed",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMPPEOutPackets": {
+    "name": "pppMPPEOutPackets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMPPEOutOctets": {
+    "name": "pppMPPEOutOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppMPPEOutDestroyed": {
+    "name": "pppMPPEOutDestroyed",
+    "oid": "1.3.6.1.4.1.2.6.119.4.2.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswTConnGroupOperTable": {
+    "name": "ibmdlswTConnGroupOperTable",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmdlswTConnGroupOperEntry": {
+    "name": "ibmdlswTConnGroupOperEntry",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBMIROC-MIB",
+        "object": "ibmdlswTConnGroupOperIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ibmdlswTConnGroupOperIndex": {
+    "name": "ibmdlswTConnGroupOperIndex",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswTConnGroupOperRole": {
+    "name": "ibmdlswTConnGroupOperRole",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "peer": 1,
+          "client": 2,
+          "server": 3,
+          "readonly": 4,
+          "writeonly": 5,
+          "readwrite": 6,
+          "other": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswTConnGroupOperJoinTime": {
+    "name": "ibmdlswTConnGroupOperJoinTime",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswTConnGroupOperConfigIndex": {
+    "name": "ibmdlswTConnGroupOperConfigIndex",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswTConnGroupOperInDataPkts": {
+    "name": "ibmdlswTConnGroupOperInDataPkts",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswTConnGroupOperOutDataPkts": {
+    "name": "ibmdlswTConnGroupOperOutDataPkts",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswTConnGroupOperInDataOctets": {
+    "name": "ibmdlswTConnGroupOperInDataOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswTConnGroupOperOutDataOctets": {
+    "name": "ibmdlswTConnGroupOperOutDataOctets",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswTConnGroupOperInCntlPkts": {
+    "name": "ibmdlswTConnGroupOperInCntlPkts",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswTConnGroupOperOutCntlPkts": {
+    "name": "ibmdlswTConnGroupOperOutCntlPkts",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswTConnGroupOperCURexSents": {
+    "name": "ibmdlswTConnGroupOperCURexSents",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswTConnGroupOperICRexRcvds": {
+    "name": "ibmdlswTConnGroupOperICRexRcvds",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswTConnGroupOperCURexRcvds": {
+    "name": "ibmdlswTConnGroupOperCURexRcvds",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswTConnGroupOperICRexSents": {
+    "name": "ibmdlswTConnGroupOperICRexSents",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswTConnGroupOperNQexSents": {
+    "name": "ibmdlswTConnGroupOperNQexSents",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswTConnGroupOperNRexRcvds": {
+    "name": "ibmdlswTConnGroupOperNRexRcvds",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswTConnGroupOperNQexRcvds": {
+    "name": "ibmdlswTConnGroupOperNQexRcvds",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswTConnGroupOperNRexSents": {
+    "name": "ibmdlswTConnGroupOperNRexSents",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswQllcLsTable": {
+    "name": "ibmdlswQllcLsTable",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmdlswQllcLsEntry": {
+    "name": "ibmdlswQllcLsEntry",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBMIROC-MIB",
+        "object": "ibmdlswQllcLsIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "IBMIROC-MIB",
+        "object": "ibmdlswQllcLsQdomain",
+        "implied": 0
+      },
+      {
+        "module": "IBMIROC-MIB",
+        "object": "ibmdlswQllcLsQaddress",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ibmdlswQllcLsIfIndex": {
+    "name": "ibmdlswQllcLsIfIndex",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswQllcLsQdomain": {
+    "name": "ibmdlswQllcLsQdomain",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pvc": 1,
+          "svc": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswQllcLsQaddress": {
+    "name": "ibmdlswQllcLsQaddress",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmdlswQllcLsChannel": {
+    "name": "ibmdlswQllcLsChannel",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswQllcLsLocalMac": {
+    "name": "ibmdlswQllcLsLocalMac",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddressNCIROC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswQllcLsLocalSap": {
+    "name": "ibmdlswQllcLsLocalSap",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswQllcLsRemoteMac": {
+    "name": "ibmdlswQllcLsRemoteMac",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddressNCIROC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswQllcLsRemoteSap": {
+    "name": "ibmdlswQllcLsRemoteSap",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswQllcLsPuType": {
+    "name": "ibmdlswQllcLsPuType",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "type1": 1,
+          "type2": 2,
+          "type4": 4,
+          "type5": 5,
+          "other": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswQllcLsBlkNum": {
+    "name": "ibmdlswQllcLsBlkNum",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmdlswQllcLsIdNum": {
+    "name": "ibmdlswQllcLsIdNum",
+    "oid": "1.3.6.1.4.1.2.6.119.4.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 5,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frCLLMStatsTable": {
+    "name": "frCLLMStatsTable",
+    "oid": "1.3.6.1.4.1.2.6.119.4.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "frCLLMStatsEntry": {
+    "name": "frCLLMStatsEntry",
+    "oid": "1.3.6.1.4.1.2.6.119.4.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBMIROC-MIB",
+        "object": "frCLLMStatsIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "IBMIROC-MIB",
+        "object": "frCLLMStatsDlci",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "frCLLMStatsIfIndex": {
+    "name": "frCLLMStatsIfIndex",
+    "oid": "1.3.6.1.4.1.2.6.119.4.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frCLLMStatsDlci": {
+    "name": "frCLLMStatsDlci",
+    "oid": "1.3.6.1.4.1.2.6.119.4.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frCLLMStatsRcvds": {
+    "name": "frCLLMStatsRcvds",
+    "oid": "1.3.6.1.4.1.2.6.119.4.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frCLLMCauseTable": {
+    "name": "frCLLMCauseTable",
+    "oid": "1.3.6.1.4.1.2.6.119.4.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "frCLLMCauseEntry": {
+    "name": "frCLLMCauseEntry",
+    "oid": "1.3.6.1.4.1.2.6.119.4.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBMIROC-MIB",
+        "object": "frCLLMCauseIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "frCLLMCauseIfIndex": {
+    "name": "frCLLMCauseIfIndex",
+    "oid": "1.3.6.1.4.1.2.6.119.4.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frCLLMCauseCode": {
+    "name": "frCLLMCauseCode",
+    "oid": "1.3.6.1.4.1.2.6.119.4.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frSimpleObjs": {
+    "name": "frSimpleObjs",
+    "oid": "1.3.6.1.4.1.2.6.119.4.4.3",
+    "class": "objectidentity"
+  },
+  "frCLLMDlciList": {
+    "name": "frCLLMDlciList",
+    "oid": "1.3.6.1.4.1.2.6.119.4.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frTrapStateFECN": {
+    "name": "frTrapStateFECN",
+    "oid": "1.3.6.1.4.1.2.6.119.4.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frTrapStateBECN": {
+    "name": "frTrapStateBECN",
+    "oid": "1.3.6.1.4.1.2.6.119.4.4.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frTrapStateCLLM": {
+    "name": "frTrapStateCLLM",
+    "oid": "1.3.6.1.4.1.2.6.119.4.4.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmIROCfrBRS": {
+    "name": "ibmIROCfrBRS",
+    "oid": "1.3.6.1.4.1.2.6.119.4.4.4",
+    "class": "objectidentity"
+  },
+  "ibmIROCfrcircuit": {
+    "name": "ibmIROCfrcircuit",
+    "oid": "1.3.6.1.4.1.2.6.119.4.4.5",
+    "class": "objectidentity"
+  },
+  "tcpiprouteTabSize": {
+    "name": "tcpiprouteTabSize",
+    "oid": "1.3.6.1.4.1.2.6.119.4.20.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tcpiprouteTabUsed": {
+    "name": "tcpiprouteTabUsed",
+    "oid": "1.3.6.1.4.1.2.6.119.4.20.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tcpiprouteCacheSize": {
+    "name": "tcpiprouteCacheSize",
+    "oid": "1.3.6.1.4.1.2.6.119.4.20.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tcpiprouteCacheUsed": {
+    "name": "tcpiprouteCacheUsed",
+    "oid": "1.3.6.1.4.1.2.6.119.4.20.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tcpiprouteOverFlow": {
+    "name": "tcpiprouteOverFlow",
+    "oid": "1.3.6.1.4.1.2.6.119.4.20.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tcpiprouteNoReach": {
+    "name": "tcpiprouteNoReach",
+    "oid": "1.3.6.1.4.1.2.6.119.4.20.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tcpiprouteBadSubnet": {
+    "name": "tcpiprouteBadSubnet",
+    "oid": "1.3.6.1.4.1.2.6.119.4.20.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tcpiprouteBadNet": {
+    "name": "tcpiprouteBadNet",
+    "oid": "1.3.6.1.4.1.2.6.119.4.20.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tcpiprouteUnhBcast": {
+    "name": "tcpiprouteUnhBcast",
+    "oid": "1.3.6.1.4.1.2.6.119.4.20.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tcpiprouteUnhMcast": {
+    "name": "tcpiprouteUnhMcast",
+    "oid": "1.3.6.1.4.1.2.6.119.4.20.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tcpiprouteUnhDirBcast": {
+    "name": "tcpiprouteUnhDirBcast",
+    "oid": "1.3.6.1.4.1.2.6.119.4.20.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tcpiprouteUnhLLbcast": {
+    "name": "tcpiprouteUnhLLbcast",
+    "oid": "1.3.6.1.4.1.2.6.119.4.20.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tcpiprouteDiscFilt": {
+    "name": "tcpiprouteDiscFilt",
+    "oid": "1.3.6.1.4.1.2.6.119.4.20.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tcpiprouteMultRcvd": {
+    "name": "tcpiprouteMultRcvd",
+    "oid": "1.3.6.1.4.1.2.6.119.4.20.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tcpCurrConnections": {
+    "name": "tcpCurrConnections",
+    "oid": "1.3.6.1.4.1.2.6.119.4.20.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tcpMaxConnections": {
+    "name": "tcpMaxConnections",
+    "oid": "1.3.6.1.4.1.2.6.119.4.20.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "serverCurrConnections": {
+    "name": "serverCurrConnections",
+    "oid": "1.3.6.1.4.1.2.6.119.4.20.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "serverMaxConnections": {
+    "name": "serverMaxConnections",
+    "oid": "1.3.6.1.4.1.2.6.119.4.20.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmIROCtrapsfr": {
+    "name": "ibmIROCtrapsfr",
+    "oid": "1.3.6.1.4.1.2.6.119.6.1",
+    "class": "objectidentity"
+  },
+  "frrcvdFECN": {
+    "name": "frrcvdFECN",
+    "oid": "1.3.6.1.4.1.2.6.119.6.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RFC1315-MIB",
+        "object": "frCircuitIfIndex"
+      },
+      {
+        "module": "RFC1315-MIB",
+        "object": "frCircuitDlci"
+      }
+    ]
+  },
+  "frrcvdBECN": {
+    "name": "frrcvdBECN",
+    "oid": "1.3.6.1.4.1.2.6.119.6.10.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RFC1315-MIB",
+        "object": "frCircuitIfIndex"
+      },
+      {
+        "module": "RFC1315-MIB",
+        "object": "frCircuitDlci"
+      }
+    ]
+  },
+  "frrcvdCLLM": {
+    "name": "frrcvdCLLM",
+    "oid": "1.3.6.1.4.1.2.6.119.6.10.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBMIROC-MIB",
+        "object": "frCLLMCauseIfIndex"
+      },
+      {
+        "module": "IBMIROC-MIB",
+        "object": "frCLLMCauseCode"
+      },
+      {
+        "module": "IBMIROC-MIB",
+        "object": "frCLLMDlciList"
+      }
+    ]
+  },
+  "ibmIROCtrapssys": {
+    "name": "ibmIROCtrapssys",
+    "oid": "1.3.6.1.4.1.2.6.119.6.2",
+    "class": "objectidentity"
+  },
+  "mosMemLow": {
+    "name": "mosMemLow",
+    "oid": "1.3.6.1.4.1.2.6.119.6.20.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PROTEON-MIB",
+        "object": "proResMemHeapTotal"
+      },
+      {
+        "module": "PROTEON-MIB",
+        "object": "proResMemHeapNeverAlloc"
+      }
+    ]
+  },
+  "ibmIROCtrapsels": {
+    "name": "ibmIROCtrapsels",
+    "oid": "1.3.6.1.4.1.2.6.119.6.3",
+    "class": "objectidentity"
+  },
+  "elsTrap": {
+    "name": "elsTrap",
+    "oid": "1.3.6.1.4.1.2.6.119.6.30.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PROTEON-MIB",
+        "object": "proElsSubSysEventMsg"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBMIROC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:38:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IBMIROC-MIB"
+  }
+}

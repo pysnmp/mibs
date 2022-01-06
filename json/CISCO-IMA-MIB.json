@@ -1,0 +1,1151 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "IMA-MIB": [
+      "imaLinkIfIndex",
+      "MilliSeconds",
+      "imaGroupEntry",
+      "imaGroupIndex",
+      "imaLinkEntry"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoImaMIB": {
+    "name": "ciscoImaMIB",
+    "oid": "1.3.6.1.4.1.9.9.235",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-03-26 00:00",
+        "description": "(1) Added a new cimaFeatureTable indexed by entPhysicalIndex (2) Added following objects to cimaGroupTable: cimaGrpVerFallbackEnable cimaGrpAutoRestartMode cimaGrpRxImaIdExpected cimaGrpAutoRestartSyncState (3) Deprecated following objects: cimaGrpAlarmType cimaLinkAlarmType."
+      },
+      {
+        "revision": "2002-05-02 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoImaMIBObjects": {
+    "name": "ciscoImaMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.235.1",
+    "class": "objectidentity"
+  },
+  "CiscoImaGrpAlarmType": {
+    "name": "CiscoImaGrpAlarmType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cimaAlarmGroupStartupFe": 1,
+          "cimaAlarmGroupCfgAbort": 2,
+          "cimaAlarmGroupCfgAbortFe": 3,
+          "cimaAlarmGroupInsuffLinks": 4,
+          "cimaAlarmGroupInsuffLinksFe": 5,
+          "cimaAlarmGroupBlockedFe": 6,
+          "cimaAlarmGroupTimingSynch": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoImaLinkAlarmType": {
+    "name": "CiscoImaLinkAlarmType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cimaAlarmLinkLif": 1,
+          "cimaAlarmLinkLods": 2,
+          "cimaAlarmLinkRfi": 3,
+          "cimaAlarmLinkTxMisConnect": 4,
+          "cimaAlarmLinkRxMisConnect": 5,
+          "cimaAlarmLinkTxFault": 6,
+          "cimaAlarmLinkRxFault": 7,
+          "cimaAlarmLinkTxUnusableFe": 8,
+          "cimaAlarmLinkRxUnusableFe": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cimaGrpAlarmType": {
+    "name": "cimaGrpAlarmType",
+    "oid": "1.3.6.1.4.1.9.9.235.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoImaGrpAlarmType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cimaLinkAlarmType": {
+    "name": "cimaLinkAlarmType",
+    "oid": "1.3.6.1.4.1.9.9.235.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoImaLinkAlarmType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cimaGroupTable": {
+    "name": "cimaGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.235.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cimaGroupEntry": {
+    "name": "cimaGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.235.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cimaGroupEntry",
+      "module": "CISCO-IMA-MIB",
+      "object": "imaGroupEntry"
+    },
+    "status": "current"
+  },
+  "cimaGroupAccumulatedDelay": {
+    "name": "cimaGroupAccumulatedDelay",
+    "oid": "1.3.6.1.4.1.9.9.235.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliSeconds",
+      "class": "type"
+    },
+    "units": "millisecond",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cimaGroupClearAccDelay": {
+    "name": "cimaGroupClearAccDelay",
+    "oid": "1.3.6.1.4.1.9.9.235.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cimaStuffAndCellIndication": {
+    "name": "cimaStuffAndCellIndication",
+    "oid": "1.3.6.1.4.1.9.9.235.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "lsibit0": 0,
+        "lsibit1": 1,
+        "lsibit2": 2
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cimaGrpIntegrationUpTime": {
+    "name": "cimaGrpIntegrationUpTime",
+    "oid": "1.3.6.1.4.1.9.9.235.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliSeconds",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 400000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10000,
+        "format": "decimal"
+      }
+    },
+    "units": "millisecond",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cimaGrpIntegrationDownTime": {
+    "name": "cimaGrpIntegrationDownTime",
+    "oid": "1.3.6.1.4.1.9.9.235.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliSeconds",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2500,
+        "format": "decimal"
+      }
+    },
+    "units": "millisecond",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cimaGrpNumTxIcpCells": {
+    "name": "cimaGrpNumTxIcpCells",
+    "oid": "1.3.6.1.4.1.9.9.235.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "cells",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cimaGrpNumRxIcpCells": {
+    "name": "cimaGrpNumRxIcpCells",
+    "oid": "1.3.6.1.4.1.9.9.235.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "cells",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cimaGrpNumRxErrIcpCells": {
+    "name": "cimaGrpNumRxErrIcpCells",
+    "oid": "1.3.6.1.4.1.9.9.235.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "cells",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cimaGrpNumRxInvalidIcpCells": {
+    "name": "cimaGrpNumRxInvalidIcpCells",
+    "oid": "1.3.6.1.4.1.9.9.235.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "cells",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cimaGrpNumRxMissingIcpCells": {
+    "name": "cimaGrpNumRxMissingIcpCells",
+    "oid": "1.3.6.1.4.1.9.9.235.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "cells",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cimaGrpNumTxMissingIcpCells": {
+    "name": "cimaGrpNumTxMissingIcpCells",
+    "oid": "1.3.6.1.4.1.9.9.235.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "cells",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cimaGrpRestarting": {
+    "name": "cimaGrpRestarting",
+    "oid": "1.3.6.1.4.1.9.9.235.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cimaGrpNeVersion": {
+    "name": "cimaGrpNeVersion",
+    "oid": "1.3.6.1.4.1.9.9.235.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "others": 1,
+          "version10": 2,
+          "version11": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "version10",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cimaGrpMaxCellRate": {
+    "name": "cimaGrpMaxCellRate",
+    "oid": "1.3.6.1.4.1.9.9.235.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "cells per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cimaGrpVerFallbackEnable": {
+    "name": "cimaGrpVerFallbackEnable",
+    "oid": "1.3.6.1.4.1.9.9.235.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cimaGrpAutoRestartMode": {
+    "name": "cimaGrpAutoRestartMode",
+    "oid": "1.3.6.1.4.1.9.9.235.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "relearn": 2,
+          "reuse": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "reuse",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cimaGrpRxImaIdExpected": {
+    "name": "cimaGrpRxImaIdExpected",
+    "oid": "1.3.6.1.4.1.9.9.235.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cimaGrpAutoRestartSyncState": {
+    "name": "cimaGrpAutoRestartSyncState",
+    "oid": "1.3.6.1.4.1.9.9.235.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "inProgress": 2,
+          "loopbackSync": 3,
+          "tempSync": 4,
+          "feSync": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cimaLinkMappingTable": {
+    "name": "cimaLinkMappingTable",
+    "oid": "1.3.6.1.4.1.9.9.235.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cimaLinkMappingEntry": {
+    "name": "cimaLinkMappingEntry",
+    "oid": "1.3.6.1.4.1.9.9.235.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cimaLinkState": {
+    "name": "cimaLinkState",
+    "oid": "1.3.6.1.4.1.9.9.235.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "nonactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cimaLinkTable": {
+    "name": "cimaLinkTable",
+    "oid": "1.3.6.1.4.1.9.9.235.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cimaLinkEntry": {
+    "name": "cimaLinkEntry",
+    "oid": "1.3.6.1.4.1.9.9.235.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cimaLinkEntry",
+      "module": "CISCO-IMA-MIB",
+      "object": "imaLinkEntry"
+    },
+    "status": "current"
+  },
+  "cimaLinkLifIntUpTime": {
+    "name": "cimaLinkLifIntUpTime",
+    "oid": "1.3.6.1.4.1.9.9.235.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliSeconds",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 25000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2500,
+        "format": "decimal"
+      }
+    },
+    "units": "millisecond",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cimaLinkLifIntDownTime": {
+    "name": "cimaLinkLifIntDownTime",
+    "oid": "1.3.6.1.4.1.9.9.235.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliSeconds",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 25000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10000,
+        "format": "decimal"
+      }
+    },
+    "units": "millisecond",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cimaLinkLodsIntUpTime": {
+    "name": "cimaLinkLodsIntUpTime",
+    "oid": "1.3.6.1.4.1.9.9.235.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliSeconds",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 25000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2500,
+        "format": "decimal"
+      }
+    },
+    "units": "millisecond",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cimaLinkLodsIntDownTime": {
+    "name": "cimaLinkLodsIntDownTime",
+    "oid": "1.3.6.1.4.1.9.9.235.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliSeconds",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 25000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10000,
+        "format": "decimal"
+      }
+    },
+    "units": "millisecond",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cimaLinkNumTxIcpCells": {
+    "name": "cimaLinkNumTxIcpCells",
+    "oid": "1.3.6.1.4.1.9.9.235.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "cells",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cimaLinkNumRxIcpCells": {
+    "name": "cimaLinkNumRxIcpCells",
+    "oid": "1.3.6.1.4.1.9.9.235.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "cells",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cimaLinkNumRxErrIcpCells": {
+    "name": "cimaLinkNumRxErrIcpCells",
+    "oid": "1.3.6.1.4.1.9.9.235.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "cells",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cimaLinkNumRxInvalidIcpCells": {
+    "name": "cimaLinkNumRxInvalidIcpCells",
+    "oid": "1.3.6.1.4.1.9.9.235.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "cells",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cimaLinkNumRxMissingIcpCells": {
+    "name": "cimaLinkNumRxMissingIcpCells",
+    "oid": "1.3.6.1.4.1.9.9.235.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "cells",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cimaLinkNumTxMissingIcpCells": {
+    "name": "cimaLinkNumTxMissingIcpCells",
+    "oid": "1.3.6.1.4.1.9.9.235.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "cells",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cimaFeatureTable": {
+    "name": "cimaFeatureTable",
+    "oid": "1.3.6.1.4.1.9.9.235.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cimaFeatureEntry": {
+    "name": "cimaFeatureEntry",
+    "oid": "1.3.6.1.4.1.9.9.235.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cimaMaxImaGroupsSupported": {
+    "name": "cimaMaxImaGroupsSupported",
+    "oid": "1.3.6.1.4.1.9.9.235.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cimaConfiguredImaGroups": {
+    "name": "cimaConfiguredImaGroups",
+    "oid": "1.3.6.1.4.1.9.9.235.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cimaMinGrpTxImaId": {
+    "name": "cimaMinGrpTxImaId",
+    "oid": "1.3.6.1.4.1.9.9.235.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cimaMaxGrpTxImaId": {
+    "name": "cimaMaxGrpTxImaId",
+    "oid": "1.3.6.1.4.1.9.9.235.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cimaVerFallbackEnable": {
+    "name": "cimaVerFallbackEnable",
+    "oid": "1.3.6.1.4.1.9.9.235.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cimaAutoRestartEnable": {
+    "name": "cimaAutoRestartEnable",
+    "oid": "1.3.6.1.4.1.9.9.235.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoImaMIBConformance": {
+    "name": "ciscoImaMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.235.2",
+    "class": "objectidentity"
+  },
+  "ciscoImaMIBCompliances": {
+    "name": "ciscoImaMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.235.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoImaMIBGroups": {
+    "name": "ciscoImaMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.235.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoImaMIBCompliance": {
+    "name": "ciscoImaMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.235.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoImaGroupGroup",
+        "module": "CISCO-IMA-MIB"
+      },
+      {
+        "object": "ciscoImaLinkGroup",
+        "module": "CISCO-IMA-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoImaMIBCompliance1": {
+    "name": "ciscoImaMIBCompliance1",
+    "oid": "1.3.6.1.4.1.9.9.235.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoImaGroupGroup",
+        "module": "CISCO-IMA-MIB"
+      },
+      {
+        "object": "ciscoImaLinkGroup",
+        "module": "CISCO-IMA-MIB"
+      },
+      {
+        "object": "ciscoImaLinkMappingGroup",
+        "module": "CISCO-IMA-MIB"
+      },
+      {
+        "object": "ciscoImaFeatureGroup",
+        "module": "CISCO-IMA-MIB"
+      },
+      {
+        "object": "ciscoImaAutoRestartGroup",
+        "module": "CISCO-IMA-MIB"
+      },
+      {
+        "object": "ciscoImaVerFallbackSupportGroup",
+        "module": "CISCO-IMA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoImaGroupGroup": {
+    "name": "ciscoImaGroupGroup",
+    "oid": "1.3.6.1.4.1.9.9.235.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaGroupAccumulatedDelay"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaGroupClearAccDelay"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaStuffAndCellIndication"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaGrpIntegrationUpTime"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaGrpIntegrationDownTime"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaGrpNumTxIcpCells"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaGrpNumRxIcpCells"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaGrpNumRxErrIcpCells"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaGrpNumRxInvalidIcpCells"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaGrpNumRxMissingIcpCells"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaGrpNumTxMissingIcpCells"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaGrpRestarting"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaGrpNeVersion"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaGrpMaxCellRate"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoImaLinkGroup": {
+    "name": "ciscoImaLinkGroup",
+    "oid": "1.3.6.1.4.1.9.9.235.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaLinkLifIntUpTime"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaLinkLodsIntUpTime"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaLinkLifIntDownTime"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaLinkLodsIntDownTime"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaLinkNumTxIcpCells"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaLinkNumRxIcpCells"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaLinkNumRxErrIcpCells"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaLinkNumRxInvalidIcpCells"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaLinkNumRxMissingIcpCells"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaLinkNumTxMissingIcpCells"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoImaLinkMappingGroup": {
+    "name": "ciscoImaLinkMappingGroup",
+    "oid": "1.3.6.1.4.1.9.9.235.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaLinkState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoImaAlarmGroup": {
+    "name": "ciscoImaAlarmGroup",
+    "oid": "1.3.6.1.4.1.9.9.235.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaGrpAlarmType"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaLinkAlarmType"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoImaFeatureGroup": {
+    "name": "ciscoImaFeatureGroup",
+    "oid": "1.3.6.1.4.1.9.9.235.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaMaxImaGroupsSupported"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaConfiguredImaGroups"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaMinGrpTxImaId"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaMaxGrpTxImaId"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaVerFallbackEnable"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaAutoRestartEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoImaAutoRestartGroup": {
+    "name": "ciscoImaAutoRestartGroup",
+    "oid": "1.3.6.1.4.1.9.9.235.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaGrpAutoRestartMode"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaGrpRxImaIdExpected"
+      },
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaGrpAutoRestartSyncState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoImaVerFallbackSupportGroup": {
+    "name": "ciscoImaVerFallbackSupportGroup",
+    "oid": "1.3.6.1.4.1.9.9.235.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMA-MIB",
+        "object": "cimaGrpVerFallbackEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IMA-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IMA-MIB"
+  }
+}

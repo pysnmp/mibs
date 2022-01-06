@@ -1,0 +1,157 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "snmpModules",
+      "MODULE-IDENTITY",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "snmpMPDMIB": {
+    "name": "snmpMPDMIB",
+    "oid": "1.3.6.1.6.3.11",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-10-14 00:00",
+        "description": "Updated addresses, published as RFC 3412."
+      },
+      {
+        "revision": "1999-05-04 16:36",
+        "description": "Updated addresses, published as RFC 2572."
+      },
+      {
+        "revision": "1997-09-30 00:00",
+        "description": "Original version, published as RFC 2272."
+      }
+    ]
+  },
+  "snmpMPDAdmin": {
+    "name": "snmpMPDAdmin",
+    "oid": "1.3.6.1.6.3.11.1",
+    "class": "objectidentity"
+  },
+  "snmpMPDMIBObjects": {
+    "name": "snmpMPDMIBObjects",
+    "oid": "1.3.6.1.6.3.11.2",
+    "class": "objectidentity"
+  },
+  "snmpMPDMIBConformance": {
+    "name": "snmpMPDMIBConformance",
+    "oid": "1.3.6.1.6.3.11.3",
+    "class": "objectidentity"
+  },
+  "snmpMPDStats": {
+    "name": "snmpMPDStats",
+    "oid": "1.3.6.1.6.3.11.2.1",
+    "class": "objectidentity"
+  },
+  "snmpUnknownSecurityModels": {
+    "name": "snmpUnknownSecurityModels",
+    "oid": "1.3.6.1.6.3.11.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snmpInvalidMsgs": {
+    "name": "snmpInvalidMsgs",
+    "oid": "1.3.6.1.6.3.11.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snmpUnknownPDUHandlers": {
+    "name": "snmpUnknownPDUHandlers",
+    "oid": "1.3.6.1.6.3.11.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snmpMPDMIBCompliances": {
+    "name": "snmpMPDMIBCompliances",
+    "oid": "1.3.6.1.6.3.11.3.1",
+    "class": "objectidentity"
+  },
+  "snmpMPDMIBGroups": {
+    "name": "snmpMPDMIBGroups",
+    "oid": "1.3.6.1.6.3.11.3.2",
+    "class": "objectidentity"
+  },
+  "snmpMPDCompliance": {
+    "name": "snmpMPDCompliance",
+    "oid": "1.3.6.1.6.3.11.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "snmpMPDGroup",
+        "module": "SNMP-MPD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "snmpMPDGroup": {
+    "name": "snmpMPDGroup",
+    "oid": "1.3.6.1.6.3.11.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMP-MPD-MIB",
+        "object": "snmpUnknownSecurityModels"
+      },
+      {
+        "module": "SNMP-MPD-MIB",
+        "object": "snmpInvalidMsgs"
+      },
+      {
+        "module": "SNMP-MPD-MIB",
+        "object": "snmpUnknownPDUHandlers"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/SNMP-MPD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SNMP-MPD-MIB"
+  }
+}

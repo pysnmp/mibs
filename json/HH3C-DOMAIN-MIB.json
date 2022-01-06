@@ -1,0 +1,2425 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "IPV6-TC": [
+      "Ipv6AddressPrefix"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cDomain": {
+    "name": "hh3cDomain",
+    "oid": "1.3.6.1.4.1.25506.2.46",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2021-03-24 00:00",
+        "description": "Added hh3cDomainActiveWebServerUrl, hh3cUserWebServerDownAlarm, hh3cUserWebServerUpAlarm, hh3cUserWebServerChangeAlarm"
+      },
+      {
+        "revision": "2021-02-02 00:00",
+        "description": "Changed hh3cDomainUpStatTable"
+      },
+      {
+        "revision": "2020-11-20 00:00",
+        "description": "Added hh3cDomainUpStatTable"
+      },
+      {
+        "revision": "2020-07-03 00:00",
+        "description": "Changed hh3cDomainIPv4PoolUpperValue, hh3cDomainIPv4PoolLowerValue, hh3cDomainIPv4PoolUpperValue and hh3cDomainIPv6PoolLowerValue"
+      },
+      {
+        "revision": "2020-01-16 00:00",
+        "description": "1. Added hh3cDomainIpPoolGroupName, hh3cDomainIpv6PoolGroupName, hh3cDomainNdPrefixPoolName, hh3cDomainNdPrefixPoolGroupName, hh3cDomainIpv6Prefix, hh3cDomainIpv6PrefixLength, hh3cDomainNatBindingTable, hh3cDomainNatBindingUserGroupName, hh3cDomainNatBindingNatInstance and hh3cDomainNatBindingRowStatus 2. Changed the MAX-ACCESS attribute value of hh3cDomainName to read-only"
+      },
+      {
+        "revision": "2019-03-12 00:00",
+        "description": "1.Changed hh3cDomainInfoTable, hh3cDomainTraps 2.Added hh3cDomainIPv4PoolUpperValue, hh3cDomainIPv4PoolLowerValue, hh3cDomainIPv6PoolUpperValue, hh3cDomainIPv6PoolLowerValue 3.Modify hh3cUserIPAllocAlarm, hh3cUserIPAllocAlarmResume, hh3cUserIPLowerlimitWarningAlarm, hh3cUserIPLowerlimitWarningResume 4.hh3cUserIPv6AllocAlarm, hh3cUserIPv6AllocAlarmResume, hh3cUserIPv6LowlimitWarnAlarm, hh3cUserIPv6LowlimitWarnResum, hh3cUserNDRAPfAllocAlarm, hh3cUserNDRAPfAllocAlarmResume, hh3cUserNDRAPfLowlimitWarnAlarm, hh3cUserNDRAPfLowlimitWarnResume, hh3cUserPDPfAllocAlarm, hh3cUserPDPfAllocAlarmResume, hh3cUserPDPfLowlimitWarnAlarm, hh3cUserPDPfLowlimitWarnResume"
+      },
+      {
+        "revision": "2018-11-27 00:00",
+        "description": "Changed Hh3cDomainStatEntry, Hh3cDomainIPPoolStatEntry and hh3cDomainGlobalStat, added hh3cDomainTraps"
+      },
+      {
+        "revision": "2017-10-13 00:00",
+        "description": "Changed hh3cDomainGlobalStat and hh3cDomainStatTable"
+      },
+      {
+        "revision": "2017-06-03 00:00",
+        "description": "Added hh3cDomainGlobalStat, hh3cDomainStatTable, hh3cDomainIPPoolStatTable, hh3cDomainServiceType, hh3cDomainIpPoolName, and hh3cDomainIpv6PoolName"
+      },
+      {
+        "revision": "2013-11-25 00:00",
+        "description": "Changed the range of hh3cDomainDefault and hh3cDomainName"
+      },
+      {
+        "revision": "2013-04-25 00:00",
+        "description": "Deleted the range of hh3cDomainIdleCutMaxTime"
+      },
+      {
+        "revision": "2013-02-28 00:00",
+        "description": "Changed hh3cDomainSchemeAccessMode"
+      },
+      {
+        "revision": "2012-10-15 00:00",
+        "description": "Added enumeration value ldap(5) to object hh3cDomainSchemeMode"
+      },
+      {
+        "revision": "2012-05-20 00:00",
+        "description": "Added hh3cDomainIdleCutTime"
+      },
+      {
+        "revision": "2009-08-05 00:00",
+        "description": "Added enumeration value reserved(12) to object hh3cAccessModeofDomainScheme"
+      },
+      {
+        "revision": "2008-12-30 00:00",
+        "description": "Added hh3cDomainCurrentAccessNum"
+      },
+      {
+        "revision": "2008-11-25 00:00",
+        "description": "Added enumeration value vlanlist(3) to object hh3cDomainVlanAssignMode"
+      },
+      {
+        "revision": "2007-03-07 00:00",
+        "description": "Changed the SYNTAX of hh3cDomainName and hh3cDomainDefault"
+      },
+      {
+        "revision": "2006-03-27 00:00",
+        "description": "1. Modified the description of hh3cDomainSchemeRowStatus 2. Added hh3cDomainSchemeAAAType, hh3cDomainSchemeAAAName, and hh3cDomainSchemeAccessMode 3. Changed the value range for objects hh3cDomainAuthSchemeName and hh3cDomainAcctSchemeName"
+      },
+      {
+        "revision": "2005-06-30 00:00",
+        "description": "Updated the SMIv2 syntax of some MIB objects"
+      },
+      {
+        "revision": "2005-03-23 00:00",
+        "description": "The initial version, created"
+      }
+    ]
+  },
+  "Hh3cModeOfDomainScheme": {
+    "name": "Hh3cModeOfDomainScheme",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "local": 2,
+          "radius": 3,
+          "tacacs": 4,
+          "ldap": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cAAATypeDomainScheme": {
+    "name": "Hh3cAAATypeDomainScheme",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "accounting": 1,
+          "authentication": 2,
+          "authorization": 3,
+          "none": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cAccessModeofDomainScheme": {
+    "name": "Hh3cAccessModeofDomainScheme",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "login": 2,
+          "lanAccess": 3,
+          "portal": 4,
+          "ppp": 5,
+          "gcm": 6,
+          "dvpn": 7,
+          "dhcp": 8,
+          "voice": 9,
+          "superauthen": 10,
+          "command": 11,
+          "reserved": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cDomainControl": {
+    "name": "hh3cDomainControl",
+    "oid": "1.3.6.1.4.1.25506.2.46.1",
+    "class": "objectidentity"
+  },
+  "hh3cDomainDefault": {
+    "name": "hh3cDomainDefault",
+    "oid": "1.3.6.1.4.1.25506.2.46.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDomainTables": {
+    "name": "hh3cDomainTables",
+    "oid": "1.3.6.1.4.1.25506.2.46.2",
+    "class": "objectidentity"
+  },
+  "hh3cDomainInfoTable": {
+    "name": "hh3cDomainInfoTable",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDomainInfoEntry": {
+    "name": "hh3cDomainInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDomainName": {
+    "name": "hh3cDomainName",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainState": {
+    "name": "hh3cDomainState",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "block": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainMaxAccessNum": {
+    "name": "hh3cDomainMaxAccessNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainVlanAssignMode": {
+    "name": "hh3cDomainVlanAssignMode",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "integer": 1,
+          "string": 2,
+          "vlanlist": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainIdleCutEnable": {
+    "name": "hh3cDomainIdleCutEnable",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainIdleCutMaxTime": {
+    "name": "hh3cDomainIdleCutMaxTime",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainIdleCutMinFlow": {
+    "name": "hh3cDomainIdleCutMinFlow",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10240000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainMessengerEnable": {
+    "name": "hh3cDomainMessengerEnable",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainMessengerLimitTime": {
+    "name": "hh3cDomainMessengerLimitTime",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainMessengerSpanTime": {
+    "name": "hh3cDomainMessengerSpanTime",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainSelfServiceEnable": {
+    "name": "hh3cDomainSelfServiceEnable",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainSelfServiceURL": {
+    "name": "hh3cDomainSelfServiceURL",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainAccFailureAction": {
+    "name": "hh3cDomainAccFailureAction",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ignore": 1,
+          "reject": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainRowStatus": {
+    "name": "hh3cDomainRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainCurrentAccessNum": {
+    "name": "hh3cDomainCurrentAccessNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainIdleCutTime": {
+    "name": "hh3cDomainIdleCutTime",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainServiceType": {
+    "name": "hh3cDomainServiceType",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hsi": 1,
+          "stb": 2,
+          "voip": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainIpPoolName": {
+    "name": "hh3cDomainIpPoolName",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainIpv6PoolName": {
+    "name": "hh3cDomainIpv6PoolName",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainIPv4PoolUpperValue": {
+    "name": "hh3cDomainIPv4PoolUpperValue",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainIPv4PoolLowerValue": {
+    "name": "hh3cDomainIPv4PoolLowerValue",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainIPv6PoolUpperValue": {
+    "name": "hh3cDomainIPv6PoolUpperValue",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainIPv6PoolLowerValue": {
+    "name": "hh3cDomainIPv6PoolLowerValue",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainIpPoolGroupName": {
+    "name": "hh3cDomainIpPoolGroupName",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainIpv6PoolGroupName": {
+    "name": "hh3cDomainIpv6PoolGroupName",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainNdPrefixPoolName": {
+    "name": "hh3cDomainNdPrefixPoolName",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainNdPrefixPoolGroupName": {
+    "name": "hh3cDomainNdPrefixPoolGroupName",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainIpv6Prefix": {
+    "name": "hh3cDomainIpv6Prefix",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6AddressPrefix",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainIpv6PrefixLength": {
+    "name": "hh3cDomainIpv6PrefixLength",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainActiveWebServerUrl": {
+    "name": "hh3cDomainActiveWebServerUrl",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainSchemeTable": {
+    "name": "hh3cDomainSchemeTable",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDomainSchemeEntry": {
+    "name": "hh3cDomainSchemeEntry",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainSchemeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDomainSchemeIndex": {
+    "name": "hh3cDomainSchemeIndex",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDomainSchemeMode": {
+    "name": "hh3cDomainSchemeMode",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cModeOfDomainScheme",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainAuthSchemeName": {
+    "name": "hh3cDomainAuthSchemeName",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainAcctSchemeName": {
+    "name": "hh3cDomainAcctSchemeName",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainSchemeRowStatus": {
+    "name": "hh3cDomainSchemeRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainSchemeAAAType": {
+    "name": "hh3cDomainSchemeAAAType",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cAAATypeDomainScheme",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainSchemeAAAName": {
+    "name": "hh3cDomainSchemeAAAName",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainSchemeAccessMode": {
+    "name": "hh3cDomainSchemeAccessMode",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cAccessModeofDomainScheme",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainIpPoolTable": {
+    "name": "hh3cDomainIpPoolTable",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDomainIpPoolEntry": {
+    "name": "hh3cDomainIpPoolEntry",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIpPoolNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDomainIpPoolNum": {
+    "name": "hh3cDomainIpPoolNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDomainIpPoolLowIpAddrType": {
+    "name": "hh3cDomainIpPoolLowIpAddrType",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainIpPoolLowIpAddr": {
+    "name": "hh3cDomainIpPoolLowIpAddr",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainIpPoolLen": {
+    "name": "hh3cDomainIpPoolLen",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainIpPoolRowStatus": {
+    "name": "hh3cDomainIpPoolRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainStatTable": {
+    "name": "hh3cDomainStatTable",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDomainStatEntry": {
+    "name": "hh3cDomainStatEntry",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDomainAccessedNum": {
+    "name": "hh3cDomainAccessedNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainOnlineNum": {
+    "name": "hh3cDomainOnlineNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainOnlinePPPUser": {
+    "name": "hh3cDomainOnlinePPPUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainOnlineIPoEUser": {
+    "name": "hh3cDomainOnlineIPoEUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainOnlinePPPoEUser": {
+    "name": "hh3cDomainOnlinePPPoEUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainOnlinePPPoAUser": {
+    "name": "hh3cDomainOnlinePPPoAUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainOnlinePPPoFRUser": {
+    "name": "hh3cDomainOnlinePPPoFRUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainOnlineLacUser": {
+    "name": "hh3cDomainOnlineLacUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainOnlineLnsUser": {
+    "name": "hh3cDomainOnlineLnsUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainOnlineIPoEBindAuthUser": {
+    "name": "hh3cDomainOnlineIPoEBindAuthUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainOnlineIPoEWebAuthUser": {
+    "name": "hh3cDomainOnlineIPoEWebAuthUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainOnlineLeasedUser": {
+    "name": "hh3cDomainOnlineLeasedUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainOnlineIPv4User": {
+    "name": "hh3cDomainOnlineIPv4User",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainOnlineIPv6User": {
+    "name": "hh3cDomainOnlineIPv6User",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainOnlineDualStackUser": {
+    "name": "hh3cDomainOnlineDualStackUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainIPPoolStatTable": {
+    "name": "hh3cDomainIPPoolStatTable",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDomainIPPoolStatEntry": {
+    "name": "hh3cDomainIPPoolStatEntry",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDomainIPTotalNum": {
+    "name": "hh3cDomainIPTotalNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainIPUsedNum": {
+    "name": "hh3cDomainIPUsedNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainIPConflictNum": {
+    "name": "hh3cDomainIPConflictNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainIPExcludeNum": {
+    "name": "hh3cDomainIPExcludeNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainIPIdleNum": {
+    "name": "hh3cDomainIPIdleNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainIPUsedPercent": {
+    "name": "hh3cDomainIPUsedPercent",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainIPv6AddressTotalNum": {
+    "name": "hh3cDomainIPv6AddressTotalNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainIPv6AddressUsedNum": {
+    "name": "hh3cDomainIPv6AddressUsedNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainIPv6AddressFreeNum": {
+    "name": "hh3cDomainIPv6AddressFreeNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainIPv6AddressConflictNum": {
+    "name": "hh3cDomainIPv6AddressConflictNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainIPv6AddressExcludeNum": {
+    "name": "hh3cDomainIPv6AddressExcludeNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainIPv6AddressUsedPercent": {
+    "name": "hh3cDomainIPv6AddressUsedPercent",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainNDRAPrefixTotalNum": {
+    "name": "hh3cDomainNDRAPrefixTotalNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainNDRAPrefixUsedNum": {
+    "name": "hh3cDomainNDRAPrefixUsedNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainNDRAPrefixFreeNum": {
+    "name": "hh3cDomainNDRAPrefixFreeNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainNDRAPrefixConflictNum": {
+    "name": "hh3cDomainNDRAPrefixConflictNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainNDRAPrefixExcludeNum": {
+    "name": "hh3cDomainNDRAPrefixExcludeNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainNDRAPrefixUsedPercent": {
+    "name": "hh3cDomainNDRAPrefixUsedPercent",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainPDPrefixTotalNum": {
+    "name": "hh3cDomainPDPrefixTotalNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainPDPrefixUsedNum": {
+    "name": "hh3cDomainPDPrefixUsedNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainPDPrefixFreeNum": {
+    "name": "hh3cDomainPDPrefixFreeNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainPDPrefixConflictNum": {
+    "name": "hh3cDomainPDPrefixConflictNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainPDPrefixExcludeNum": {
+    "name": "hh3cDomainPDPrefixExcludeNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainPDPrefixUsedPercent": {
+    "name": "hh3cDomainPDPrefixUsedPercent",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainNatBindingTable": {
+    "name": "hh3cDomainNatBindingTable",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDomainNatBindingEntry": {
+    "name": "hh3cDomainNatBindingEntry",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainNatBindingUserGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDomainNatBindingUserGroupName": {
+    "name": "hh3cDomainNatBindingUserGroupName",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainNatBindingNatInstance": {
+    "name": "hh3cDomainNatBindingNatInstance",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainNatBindingRowStatus": {
+    "name": "hh3cDomainNatBindingRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDomainUpStatTable": {
+    "name": "hh3cDomainUpStatTable",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDomainUpStatEntry": {
+    "name": "hh3cDomainUpStatEntry",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainUpId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDomainUpId": {
+    "name": "hh3cDomainUpId",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1024,
+            "max": 2047
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDomainUpAccessedNum": {
+    "name": "hh3cDomainUpAccessedNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainUpOnlineNum": {
+    "name": "hh3cDomainUpOnlineNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainUpOnlinePPPUser": {
+    "name": "hh3cDomainUpOnlinePPPUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainUpOnlineIPoEUser": {
+    "name": "hh3cDomainUpOnlineIPoEUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainUpOnlinePPPoEUser": {
+    "name": "hh3cDomainUpOnlinePPPoEUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainUpOnlinePPPoAUser": {
+    "name": "hh3cDomainUpOnlinePPPoAUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainUpOnlinePPPoFRUser": {
+    "name": "hh3cDomainUpOnlinePPPoFRUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainUpOnlineLacUser": {
+    "name": "hh3cDomainUpOnlineLacUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainUpOnlineLnsUser": {
+    "name": "hh3cDomainUpOnlineLnsUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainUpOnlineIPoEBindAuthUser": {
+    "name": "hh3cDomainUpOnlineIPoEBindAuthUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainUpOnlineIPoEWebAuthUser": {
+    "name": "hh3cDomainUpOnlineIPoEWebAuthUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainUpOnlineLeasedUser": {
+    "name": "hh3cDomainUpOnlineLeasedUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainUpOnlineIPv4User": {
+    "name": "hh3cDomainUpOnlineIPv4User",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainUpOnlineIPv6User": {
+    "name": "hh3cDomainUpOnlineIPv6User",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainUpOnlineDualStackUser": {
+    "name": "hh3cDomainUpOnlineDualStackUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.2.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainGlobalStat": {
+    "name": "hh3cDomainGlobalStat",
+    "oid": "1.3.6.1.4.1.25506.2.46.3",
+    "class": "objectidentity"
+  },
+  "hh3cDomainGlobalAccessedNum": {
+    "name": "hh3cDomainGlobalAccessedNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainGlobalOnlineNum": {
+    "name": "hh3cDomainGlobalOnlineNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainGlobalOnlinePPPUser": {
+    "name": "hh3cDomainGlobalOnlinePPPUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainGlobalOnlineIPoEUser": {
+    "name": "hh3cDomainGlobalOnlineIPoEUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainGlobalOnlinePPPoEUser": {
+    "name": "hh3cDomainGlobalOnlinePPPoEUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainGlobalOnlinePPPoAUser": {
+    "name": "hh3cDomainGlobalOnlinePPPoAUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainGlobalOnlinePPPoFRUser": {
+    "name": "hh3cDomainGlobalOnlinePPPoFRUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainGlobalOnlineLacUser": {
+    "name": "hh3cDomainGlobalOnlineLacUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainGlobalOnlineLnsUser": {
+    "name": "hh3cDomainGlobalOnlineLnsUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainGlobalOnlineIPoEBindAuthUser": {
+    "name": "hh3cDomainGlobalOnlineIPoEBindAuthUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainGlobalOnlineIPoEWebAuthUser": {
+    "name": "hh3cDomainGlobalOnlineIPoEWebAuthUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainGlobalOnlineLeasedUser": {
+    "name": "hh3cDomainGlobalOnlineLeasedUser",
+    "oid": "1.3.6.1.4.1.25506.2.46.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainGlobalTotalIPv4OnlineNum": {
+    "name": "hh3cDomainGlobalTotalIPv4OnlineNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainGlobalTotalIPv6OnlineNum": {
+    "name": "hh3cDomainGlobalTotalIPv6OnlineNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainGlobalTotalDualStackOnlineNum": {
+    "name": "hh3cDomainGlobalTotalDualStackOnlineNum",
+    "oid": "1.3.6.1.4.1.25506.2.46.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDomainTraps": {
+    "name": "hh3cDomainTraps",
+    "oid": "1.3.6.1.4.1.25506.2.46.5",
+    "class": "objectidentity"
+  },
+  "hh3cDomainTrapsDefine": {
+    "name": "hh3cDomainTrapsDefine",
+    "oid": "1.3.6.1.4.1.25506.2.46.5.0",
+    "class": "objectidentity"
+  },
+  "hh3cUserIPAllocAlarm": {
+    "name": "hh3cUserIPAllocAlarm",
+    "oid": "1.3.6.1.4.1.25506.2.46.5.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPUsedPercent"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv4PoolUpperValue"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv4PoolLowerValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserIPAllocAlarmResume": {
+    "name": "hh3cUserIPAllocAlarmResume",
+    "oid": "1.3.6.1.4.1.25506.2.46.5.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPUsedPercent"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv4PoolUpperValue"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv4PoolLowerValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserIPLowerlimitWarningAlarm": {
+    "name": "hh3cUserIPLowerlimitWarningAlarm",
+    "oid": "1.3.6.1.4.1.25506.2.46.5.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPUsedPercent"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv4PoolUpperValue"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv4PoolLowerValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserIPLowerlimitWarningResume": {
+    "name": "hh3cUserIPLowerlimitWarningResume",
+    "oid": "1.3.6.1.4.1.25506.2.46.5.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPUsedPercent"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv4PoolUpperValue"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv4PoolLowerValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserIPv6AllocAlarm": {
+    "name": "hh3cUserIPv6AllocAlarm",
+    "oid": "1.3.6.1.4.1.25506.2.46.5.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6AddressUsedPercent"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolUpperValue"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolLowerValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserIPv6AllocAlarmResume": {
+    "name": "hh3cUserIPv6AllocAlarmResume",
+    "oid": "1.3.6.1.4.1.25506.2.46.5.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6AddressUsedPercent"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolUpperValue"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolLowerValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserIPv6LowlimitWarnAlarm": {
+    "name": "hh3cUserIPv6LowlimitWarnAlarm",
+    "oid": "1.3.6.1.4.1.25506.2.46.5.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6AddressUsedPercent"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolUpperValue"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolLowerValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserIPv6LowlimitWarnResume": {
+    "name": "hh3cUserIPv6LowlimitWarnResume",
+    "oid": "1.3.6.1.4.1.25506.2.46.5.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6AddressUsedPercent"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolUpperValue"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolLowerValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserNDRAPfAllocAlarm": {
+    "name": "hh3cUserNDRAPfAllocAlarm",
+    "oid": "1.3.6.1.4.1.25506.2.46.5.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainNDRAPrefixUsedPercent"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolUpperValue"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolLowerValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserNDRAPfAllocAlarmResume": {
+    "name": "hh3cUserNDRAPfAllocAlarmResume",
+    "oid": "1.3.6.1.4.1.25506.2.46.5.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainNDRAPrefixUsedPercent"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolUpperValue"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolLowerValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserNDRAPfLowlimitWarnAlarm": {
+    "name": "hh3cUserNDRAPfLowlimitWarnAlarm",
+    "oid": "1.3.6.1.4.1.25506.2.46.5.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainNDRAPrefixUsedPercent"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolUpperValue"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolLowerValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserNDRAPfLowlimitWarnResume": {
+    "name": "hh3cUserNDRAPfLowlimitWarnResume",
+    "oid": "1.3.6.1.4.1.25506.2.46.5.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainNDRAPrefixUsedPercent"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolUpperValue"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolLowerValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserPDPfAllocAlarm": {
+    "name": "hh3cUserPDPfAllocAlarm",
+    "oid": "1.3.6.1.4.1.25506.2.46.5.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainPDPrefixUsedPercent"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolUpperValue"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolLowerValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserPDPfAllocAlarmResume": {
+    "name": "hh3cUserPDPfAllocAlarmResume",
+    "oid": "1.3.6.1.4.1.25506.2.46.5.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainPDPrefixUsedPercent"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolUpperValue"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolLowerValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserPDPfLowlimitWarnAlarm": {
+    "name": "hh3cUserPDPfLowlimitWarnAlarm",
+    "oid": "1.3.6.1.4.1.25506.2.46.5.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainPDPrefixUsedPercent"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolUpperValue"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolLowerValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserPDPfLowlimitWarnResume": {
+    "name": "hh3cUserPDPfLowlimitWarnResume",
+    "oid": "1.3.6.1.4.1.25506.2.46.5.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainPDPrefixUsedPercent"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolUpperValue"
+      },
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainIPv6PoolLowerValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserWebServerDownAlarm": {
+    "name": "hh3cUserWebServerDownAlarm",
+    "oid": "1.3.6.1.4.1.25506.2.46.5.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainActiveWebServerUrl"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserWebServerUpAlarm": {
+    "name": "hh3cUserWebServerUpAlarm",
+    "oid": "1.3.6.1.4.1.25506.2.46.5.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainActiveWebServerUrl"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserWebServerChangeAlarm": {
+    "name": "hh3cUserWebServerChangeAlarm",
+    "oid": "1.3.6.1.4.1.25506.2.46.5.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DOMAIN-MIB",
+        "object": "hh3cDomainActiveWebServerUrl"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DOMAIN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-DOMAIN-MIB"
+  }
+}

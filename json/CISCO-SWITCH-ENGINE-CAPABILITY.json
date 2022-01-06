@@ -1,0 +1,241 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "AGENT-CAPABILITIES"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSwitchEngineCapability": {
+    "name": "ciscoSwitchEngineCapability",
+    "oid": "1.3.6.1.4.1.9.7.343",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-07-25 00:00",
+        "description": "Added capability statement cseCapNxOSV06R0104PN7k."
+      },
+      {
+        "revision": "2012-09-10 00:00",
+        "description": "Added capability statement cseCapV15R0101SYPCat6kPfc3, cseCapV15R0101SYPCat6kPfc4."
+      },
+      {
+        "revision": "2011-09-28 00:00",
+        "description": "Added capability statement cseCapV15R0001SYPCat6kPfc4."
+      },
+      {
+        "revision": "2010-11-11 00:00",
+        "description": "Added capability statement cseCapV12R0250SYPCat6KPfc4."
+      },
+      {
+        "revision": "2010-03-22 00:00",
+        "description": "Added capability statement cseCapV12R0233SXI4PCat6K."
+      },
+      {
+        "revision": "2008-10-30 00:00",
+        "description": "Added capability statement cseCapV12R0233SXIPCat6K. Added the following missing groups to previous releases: cse4kVlanGroup cseNDEReportGroup cseCefAdjacencyEncapGroup cseCefAdjacencyMTUGroup"
+      },
+      {
+        "revision": "2007-07-16 00:00",
+        "description": "Added capability statement cseCapV12R0233SXHPCat6K."
+      },
+      {
+        "revision": "2005-09-16 00:00",
+        "description": "Added capability statement cseCapV12R0218SXGPCat6K. Added variation for cseFlowIPFlowMask to cseCapV12R0119ECat6KPfc, cseCapV12R0119ECat6KPfc2, cseCapV12R0217SXCat6KPfc3 and cseCapV12R0218SXEPCat6K."
+      },
+      {
+        "revision": "2005-08-24 00:00",
+        "description": "Added capability statement cseCapCatOSV08R0501PCat6KPfc3 Added variation for cseFlowIPFlowMask to cseCapCatOSV08R0101Cat6KPfc, cseCapCatOSV08R0101Cat6KPfc2, cseCapCatOSV08R0101Cat6KPfc3, cseCapCatOSV08R0301Cat6KPfc2, cseCapCatOSV08R0301Cat6KPfc3 and cseCapCatOSV08R0401Cat6KPfc3."
+      },
+      {
+        "revision": "2004-12-22 00:00",
+        "description": "Added capability statement cseCapV12R0218SXEPCat6K."
+      },
+      {
+        "revision": "2004-06-14 00:00",
+        "description": "Added capability statement cseCapCatOSV08R0401Cat6KPfc3."
+      },
+      {
+        "revision": "2004-01-15 00:00",
+        "description": "Added capability statement cseCapCatOSV08R0301Cat6KPfc2 and cseCapCatOSV08R0301Cat6KPfc3."
+      },
+      {
+        "revision": "2003-12-04 00:00",
+        "description": "Fixed description for cseCapV12R0217SXCat6KPfc3 to match actual product release and added cseTcamUsageGroup to the INCLUDES section."
+      },
+      {
+        "revision": "2003-08-12 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cseCapCatOSV08R0101Cat6KPfc": {
+    "name": "cseCapCatOSV08R0101Cat6KPfc",
+    "oid": "1.3.6.1.4.1.9.7.343.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1) on Catalyst 6000/6500\n                    series devices with PFC card.",
+    "status": "current"
+  },
+  "cseCapCatOSV08R0101Cat6KPfc2": {
+    "name": "cseCapCatOSV08R0101Cat6KPfc2",
+    "oid": "1.3.6.1.4.1.9.7.343.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1) on Catalyst 6000/6500\n                    and Cisco 7600 series devices with PFC2 card.",
+    "status": "current"
+  },
+  "cseCapCatOSV08R0101Cat6KPfc3": {
+    "name": "cseCapCatOSV08R0101Cat6KPfc3",
+    "oid": "1.3.6.1.4.1.9.7.343.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1) on Catalyst 6000/6500\n                    and Cisco 7600 series devices with \n                    PFC3 card.",
+    "status": "current"
+  },
+  "cseCapV12R0119ECat6KPfc": {
+    "name": "cseCapV12R0119ECat6KPfc",
+    "oid": "1.3.6.1.4.1.9.7.343.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.1(19E) on Catalyst 6000/6500\n                    series devices with PFC card.",
+    "status": "current"
+  },
+  "cseCapV12R0119ECat6KPfc2": {
+    "name": "cseCapV12R0119ECat6KPfc2",
+    "oid": "1.3.6.1.4.1.9.7.343.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.1(19E) on Catalyst 6000/6500\n                    and Cisco 7600 series devices with \n                    PFC2 card.",
+    "status": "current"
+  },
+  "cseCapV12R0217SXCat6KPfc3": {
+    "name": "cseCapV12R0217SXCat6KPfc3",
+    "oid": "1.3.6.1.4.1.9.7.343.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(17SX) on Catalyst 6000/6500\n                    and Cisco 7600 series devices with \n                    PFC3 card.",
+    "status": "current"
+  },
+  "cseCapCatOSV08R0301Cat6KPfc2": {
+    "name": "cseCapCatOSV08R0301Cat6KPfc2",
+    "oid": "1.3.6.1.4.1.9.7.343.7",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1) on Catalyst 6000/6500\n                    and Cisco 7600 series devices with PFC2 card.",
+    "status": "current"
+  },
+  "cseCapCatOSV08R0301Cat6KPfc3": {
+    "name": "cseCapCatOSV08R0301Cat6KPfc3",
+    "oid": "1.3.6.1.4.1.9.7.343.8",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1) on Catalyst 6000/6500\n                    and Cisco 7600 series devices with \n                    PFC3 card.",
+    "status": "current"
+  },
+  "cseCapCatOSV08R0401Cat6KPfc3": {
+    "name": "cseCapCatOSV08R0401Cat6KPfc3",
+    "oid": "1.3.6.1.4.1.9.7.343.9",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.4(1) on Catalyst 6000/6500\n                    and Cisco 7600 series devices with \n                    PFC3 card.",
+    "status": "current"
+  },
+  "cseCapV12R0218SXEPCat6K": {
+    "name": "cseCapV12R0218SXEPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.343.10",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(18)SXE on Catalyst 6000/6500\n                    and Cisco 7600 series devices.",
+    "status": "current"
+  },
+  "cseCapCatOSV08R0501PCat6KPfc3": {
+    "name": "cseCapCatOSV08R0501PCat6KPfc3",
+    "oid": "1.3.6.1.4.1.9.7.343.11",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.5(1) on Catalyst 6000/6500\n                    and Cisco 7600 series devices with \n                    PFC3 card.",
+    "status": "current"
+  },
+  "cseCapV12R0233SXHPCat6K": {
+    "name": "cseCapV12R0233SXHPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.343.12",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXH on Catalyst 6000/6500\n                    series devices.",
+    "status": "current"
+  },
+  "cseCapV12R0233SXIPCat6K": {
+    "name": "cseCapV12R0233SXIPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.343.13",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI on Catalyst 6000/6500\n                    series devices.",
+    "status": "current"
+  },
+  "cseCapV12R0233SXI4PCat6K": {
+    "name": "cseCapV12R0233SXI4PCat6K",
+    "oid": "1.3.6.1.4.1.9.7.343.14",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI4 on Catalyst 6000/6500\n                    series devices.",
+    "status": "current"
+  },
+  "cseCapV12R0250SYPCat6KPfc4": {
+    "name": "cseCapV12R0250SYPCat6KPfc4",
+    "oid": "1.3.6.1.4.1.9.7.343.15",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(50)SY on Catalyst 6000/6500\n                    series devices for PFC4 card.",
+    "status": "current"
+  },
+  "cseCapV15R0001SYPCat6kPfc4": {
+    "name": "cseCapV15R0001SYPCat6kPfc4",
+    "oid": "1.3.6.1.4.1.9.7.343.16",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.0(1)SY on Catalyst 6000/6500\n                    series devices for PFC4 card.",
+    "status": "current"
+  },
+  "cseCapV15R0101SYPCat6kPfc3": {
+    "name": "cseCapV15R0101SYPCat6kPfc3",
+    "oid": "1.3.6.1.4.1.9.7.343.17",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.1(1)SY on Catalyst 6000/6500\n                    series devices with PFC3 card.",
+    "status": "current"
+  },
+  "cseCapV15R0101SYPCat6kPfc4": {
+    "name": "cseCapV15R0101SYPCat6kPfc4",
+    "oid": "1.3.6.1.4.1.9.7.343.18",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.1(1)SY on Catalyst 6000/6500\n                    series devices for PFC4 card.",
+    "status": "current"
+  },
+  "cseCapNxOSV06R0104PN7k": {
+    "name": "cseCapNxOSV06R0104PN7k",
+    "oid": "1.3.6.1.4.1.9.7.343.19",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco NX-OS 6.1(4) on Nexus 7000 series devices.",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SWITCH-ENGINE-CAPABILITY",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SWITCH-ENGINE-CAPABILITY"
+  }
+}

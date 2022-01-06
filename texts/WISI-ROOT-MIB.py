@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module WISI-ROOT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/wisi/WISI-ROOT-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:34:15 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:51:53 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-TimeTicks, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Bits, Counter64, iso, Gauge32, Unsigned32, IpAddress, ModuleIdentity, Integer32, enterprises, NotificationType, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Bits", "Counter64", "iso", "Gauge32", "Unsigned32", "IpAddress", "ModuleIdentity", "Integer32", "enterprises", "NotificationType", "Counter32")
+SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Gauge32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Counter32, MibIdentifier, enterprises, Counter64, NotificationType, Bits, iso, IpAddress, ObjectIdentity, TimeTicks, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Counter32", "MibIdentifier", "enterprises", "Counter64", "NotificationType", "Bits", "iso", "IpAddress", "ObjectIdentity", "TimeTicks", "Unsigned32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 wisi = MibIdentifier((1, 3, 6, 1, 4, 1, 7465))
 equipment = MibIdentifier((1, 3, 6, 1, 4, 1, 7465, 20))
@@ -24,4 +24,4 @@ headend = MibIdentifier((1, 3, 6, 1, 4, 1, 7465, 20, 2, 6))
 scrambler = MibIdentifier((1, 3, 6, 1, 4, 1, 7465, 20, 2, 7))
 remultiplexer = MibIdentifier((1, 3, 6, 1, 4, 1, 7465, 20, 2, 8))
 tangram = MibIdentifier((1, 3, 6, 1, 4, 1, 7465, 20, 2, 9))
-mibBuilder.exportSymbols("WISI-ROOT-MIB", hfc=hfc, devices=devices, tangram=tangram, configuration=configuration, remultiplexer=remultiplexer, compact=compact, common=common, headend=headend, transponders=transponders, scrambler=scrambler, wisi=wisi, ioBoards=ioBoards, equipment=equipment)
+mibBuilder.exportSymbols("WISI-ROOT-MIB", ioBoards=ioBoards, equipment=equipment, headend=headend, tangram=tangram, wisi=wisi, common=common, devices=devices, compact=compact, scrambler=scrambler, configuration=configuration, hfc=hfc, remultiplexer=remultiplexer, transponders=transponders)

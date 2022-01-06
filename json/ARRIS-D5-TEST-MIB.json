@@ -1,0 +1,765 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARRIS-MIB": [
+      "arrisD5UEQam"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "d5TestMIB": {
+    "name": "d5TestMIB",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-12-01 00:00",
+        "description": "Initial version"
+      }
+    ]
+  },
+  "D5TestState": {
+    "name": "D5TestState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "start": 1,
+          "stop": 2,
+          "startCategory": 3,
+          "startSlot": 4,
+          "startAll": 5,
+          "clearCategory": 6,
+          "clearSlot": 7,
+          "clearAll": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "D5TestStatus": {
+    "name": "D5TestStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "complete": 1,
+          "skipped": 2,
+          "notRun": 3,
+          "running": 4,
+          "stopped": 5,
+          "continuous": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "D5TestResult": {
+    "name": "D5TestResult",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "passed": 1,
+          "failed": 2,
+          "notAvailable": 3,
+          "incomplete": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "d5TestControl": {
+    "name": "d5TestControl",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.1",
+    "class": "objectidentity"
+  },
+  "d5TestControlSlot": {
+    "name": "d5TestControlSlot",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5TestControlCategory": {
+    "name": "d5TestControlCategory",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5TestControlNumber": {
+    "name": "d5TestControlNumber",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5TestControlState": {
+    "name": "d5TestControlState",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "D5TestState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5TestControlIterations": {
+    "name": "d5TestControlIterations",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5TestControlArg0": {
+    "name": "d5TestControlArg0",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5TestControlArg1": {
+    "name": "d5TestControlArg1",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5TestControlArg2": {
+    "name": "d5TestControlArg2",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5TestControlArg3": {
+    "name": "d5TestControlArg3",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5TestResultTable": {
+    "name": "d5TestResultTable",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "d5TestResultEntry": {
+    "name": "d5TestResultEntry",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARRIS-D5-TEST-MIB",
+        "object": "d5TestSlot",
+        "implied": 0
+      },
+      {
+        "module": "ARRIS-D5-TEST-MIB",
+        "object": "d5TestCategory",
+        "implied": 0
+      },
+      {
+        "module": "ARRIS-D5-TEST-MIB",
+        "object": "d5TestNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "d5TestSlot": {
+    "name": "d5TestSlot",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "d5TestCategory": {
+    "name": "d5TestCategory",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "d5TestNumber": {
+    "name": "d5TestNumber",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "d5TestDescr": {
+    "name": "d5TestDescr",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5TestStatus": {
+    "name": "d5TestStatus",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "D5TestStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5TestLastRunTime": {
+    "name": "d5TestLastRunTime",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5TestResult": {
+    "name": "d5TestResult",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "D5TestResult",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5TestResultVector0": {
+    "name": "d5TestResultVector0",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5TestResultVector1": {
+    "name": "d5TestResultVector1",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5TestResultVector2": {
+    "name": "d5TestResultVector2",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5TestResultVector3": {
+    "name": "d5TestResultVector3",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5TestResultVector4": {
+    "name": "d5TestResultVector4",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5TestResultVector5": {
+    "name": "d5TestResultVector5",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5TestResultVector6": {
+    "name": "d5TestResultVector6",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5TestResultVector7": {
+    "name": "d5TestResultVector7",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5TestResultVector8": {
+    "name": "d5TestResultVector8",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5TestResultVector9": {
+    "name": "d5TestResultVector9",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5TestResultVector10": {
+    "name": "d5TestResultVector10",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5TestResultVector11": {
+    "name": "d5TestResultVector11",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5TestResultVector12": {
+    "name": "d5TestResultVector12",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5TestResultVector13": {
+    "name": "d5TestResultVector13",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5TestResultVector14": {
+    "name": "d5TestResultVector14",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5TestResultVector15": {
+    "name": "d5TestResultVector15",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5TestMibConformance": {
+    "name": "d5TestMibConformance",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.99",
+    "class": "objectidentity"
+  },
+  "d5TestMibGroups": {
+    "name": "d5TestMibGroups",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.99.1",
+    "class": "objectidentity"
+  },
+  "d5TestMibGroup": {
+    "name": "d5TestMibGroup",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.99.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARRIS-D5-TEST-MIB",
+        "object": "d5TestControlSlot"
+      },
+      {
+        "module": "ARRIS-D5-TEST-MIB",
+        "object": "d5TestControlCategory"
+      },
+      {
+        "module": "ARRIS-D5-TEST-MIB",
+        "object": "d5TestControlNumber"
+      },
+      {
+        "module": "ARRIS-D5-TEST-MIB",
+        "object": "d5TestControlState"
+      },
+      {
+        "module": "ARRIS-D5-TEST-MIB",
+        "object": "d5TestControlIterations"
+      },
+      {
+        "module": "ARRIS-D5-TEST-MIB",
+        "object": "d5TestControlArg0"
+      },
+      {
+        "module": "ARRIS-D5-TEST-MIB",
+        "object": "d5TestControlArg1"
+      },
+      {
+        "module": "ARRIS-D5-TEST-MIB",
+        "object": "d5TestControlArg2"
+      },
+      {
+        "module": "ARRIS-D5-TEST-MIB",
+        "object": "d5TestControlArg3"
+      },
+      {
+        "module": "ARRIS-D5-TEST-MIB",
+        "object": "d5TestDescr"
+      },
+      {
+        "module": "ARRIS-D5-TEST-MIB",
+        "object": "d5TestStatus"
+      },
+      {
+        "module": "ARRIS-D5-TEST-MIB",
+        "object": "d5TestLastRunTime"
+      },
+      {
+        "module": "ARRIS-D5-TEST-MIB",
+        "object": "d5TestResult"
+      },
+      {
+        "module": "ARRIS-D5-TEST-MIB",
+        "object": "d5TestResultVector1"
+      },
+      {
+        "module": "ARRIS-D5-TEST-MIB",
+        "object": "d5TestResultVector2"
+      },
+      {
+        "module": "ARRIS-D5-TEST-MIB",
+        "object": "d5TestResultVector3"
+      },
+      {
+        "module": "ARRIS-D5-TEST-MIB",
+        "object": "d5TestResultVector4"
+      }
+    ],
+    "status": "current"
+  },
+  "d5TestMibCompliances": {
+    "name": "d5TestMibCompliances",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.99.2",
+    "class": "objectidentity"
+  },
+  "d5TestMibCompliance": {
+    "name": "d5TestMibCompliance",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.19.99.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "d5TestMibGroup",
+        "module": "ARRIS-D5-TEST-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/d5/ARRIS-D5-TEST-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ARRIS-D5-TEST-MIB"
+  }
+}

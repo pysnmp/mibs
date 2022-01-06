@@ -1,0 +1,1398 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "PRVT-SWITCH-MIB": [
+      "switch"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "prvtStatisticsHistoryMib": {
+    "name": "prvtStatisticsHistoryMib",
+    "oid": "1.3.6.1.4.1.738.1.5.140",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-02-03 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "prvtStatisticsHistoryNotifications": {
+    "name": "prvtStatisticsHistoryNotifications",
+    "oid": "1.3.6.1.4.1.738.1.5.140.0",
+    "class": "objectidentity"
+  },
+  "prvtStatisticsHistoryObjects": {
+    "name": "prvtStatisticsHistoryObjects",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1",
+    "class": "objectidentity"
+  },
+  "prvtStatisticsHistoryConformance": {
+    "name": "prvtStatisticsHistoryConformance",
+    "oid": "1.3.6.1.4.1.738.1.5.140.2",
+    "class": "objectidentity"
+  },
+  "prvtStatisticsHistoryCfg": {
+    "name": "prvtStatisticsHistoryCfg",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.1",
+    "class": "objectidentity"
+  },
+  "prvtStatHistDailySnapshotData": {
+    "name": "prvtStatHistDailySnapshotData",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2",
+    "class": "objectidentity"
+  },
+  "prvtStatHistAdminStatus": {
+    "name": "prvtStatHistAdminStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStatHistGetInterval": {
+    "name": "prvtStatHistGetInterval",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interval15min": 1,
+          "interval30min": 2,
+          "interval60min": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "interval15min",
+        "format": "enum"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStatHistWriteInterval": {
+    "name": "prvtStatHistWriteInterval",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interval1h": 1,
+          "interval6h": 2,
+          "interval12h": 3,
+          "interval24h": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "interval1h",
+        "format": "enum"
+      }
+    },
+    "units": "hours",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStatHistPath": {
+    "name": "prvtStatHistPath",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "/var/stats",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStatisticsHistoryIntCfgTable": {
+    "name": "prvtStatisticsHistoryIntCfgTable",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtStatisticsHistoryIntCfgEntry": {
+    "name": "prvtStatisticsHistoryIntCfgEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtStatHistIntAdminStatus": {
+    "name": "prvtStatHistIntAdminStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStatHistDailySnapshotAdminStatus": {
+    "name": "prvtStatHistDailySnapshotAdminStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistDailySnapshotGetInterval": {
+    "name": "prvtStatHistDailySnapshotGetInterval",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interval15min": 1,
+          "interval30min": 2,
+          "interval60min": 3
+        }
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistDailySnapshotWriteInterval": {
+    "name": "prvtStatHistDailySnapshotWriteInterval",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interval1h": 1,
+          "interval6h": 2,
+          "interval12h": 3,
+          "interval24h": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "interval1h",
+        "format": "enum"
+      }
+    },
+    "units": "hours",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistDailySnapshotPath": {
+    "name": "prvtStatHistDailySnapshotPath",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatisticsHistoryDataTable": {
+    "name": "prvtStatisticsHistoryDataTable",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtStatisticsHistoryDataEntry": {
+    "name": "prvtStatisticsHistoryDataEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtStatHistInterval": {
+    "name": "prvtStatHistInterval",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtStatHistLast5secInPkts": {
+    "name": "prvtStatHistLast5secInPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistLast1minInPkts": {
+    "name": "prvtStatHistLast1minInPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistLast5minInPkts": {
+    "name": "prvtStatHistLast5minInPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistLast5secOutPkts": {
+    "name": "prvtStatHistLast5secOutPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistLast1minOutPkts": {
+    "name": "prvtStatHistLast1minOutPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistLast5minOutPkts": {
+    "name": "prvtStatHistLast5minOutPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistLast5secInBps": {
+    "name": "prvtStatHistLast5secInBps",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistLast1minInBps": {
+    "name": "prvtStatHistLast1minInBps",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistLast5minInBps": {
+    "name": "prvtStatHistLast5minInBps",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistLast5secOutBps": {
+    "name": "prvtStatHistLast5secOutBps",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistLast1minOutBps": {
+    "name": "prvtStatHistLast1minOutBps",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistLast5minOutBps": {
+    "name": "prvtStatHistLast5minOutBps",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistEtherStatsDropEvents": {
+    "name": "prvtStatHistEtherStatsDropEvents",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistEtherStatsPkts": {
+    "name": "prvtStatHistEtherStatsPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistEtherStatsBroadcastPkts": {
+    "name": "prvtStatHistEtherStatsBroadcastPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistEtherStatsMulticastPkts": {
+    "name": "prvtStatHistEtherStatsMulticastPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistEtherStatsCRCAlignErrors": {
+    "name": "prvtStatHistEtherStatsCRCAlignErrors",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistEtherStatsUndersizePkts": {
+    "name": "prvtStatHistEtherStatsUndersizePkts",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistEtherStatsOversizePkts": {
+    "name": "prvtStatHistEtherStatsOversizePkts",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistEtherStatsFragments": {
+    "name": "prvtStatHistEtherStatsFragments",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistEtherStatsJabbers": {
+    "name": "prvtStatHistEtherStatsJabbers",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistEtherStatsCollisions": {
+    "name": "prvtStatHistEtherStatsCollisions",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistEtherStatsDroppedFrames": {
+    "name": "prvtStatHistEtherStatsDroppedFrames",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistEtherStatsHighCapacityOverflowPkts": {
+    "name": "prvtStatHistEtherStatsHighCapacityOverflowPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistEtherStatsHighCapacityOverflowOctets": {
+    "name": "prvtStatHistEtherStatsHighCapacityOverflowOctets",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistEtherStatsHighCapacityPkts": {
+    "name": "prvtStatHistEtherStatsHighCapacityPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistEtherStatsHighCapacityOctets": {
+    "name": "prvtStatHistEtherStatsHighCapacityOctets",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistEtherStatsHighCapacityPkts64Octets": {
+    "name": "prvtStatHistEtherStatsHighCapacityPkts64Octets",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistEtherStatsHighCapacityPkts65to127Octets": {
+    "name": "prvtStatHistEtherStatsHighCapacityPkts65to127Octets",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistEtherStatsHighCapacityPkts128to255Octets": {
+    "name": "prvtStatHistEtherStatsHighCapacityPkts128to255Octets",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistEtherStatsHighCapacityPkts256to511Octets": {
+    "name": "prvtStatHistEtherStatsHighCapacityPkts256to511Octets",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistEtherStatsHighCapacityPkts512to1023Octets": {
+    "name": "prvtStatHistEtherStatsHighCapacityPkts512to1023Octets",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistEtherStatsHighCapacityPkts1024to1518Octets": {
+    "name": "prvtStatHistEtherStatsHighCapacityPkts1024to1518Octets",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistDot3StatsAlignmentErrors": {
+    "name": "prvtStatHistDot3StatsAlignmentErrors",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistDot3StatsFCSErrors": {
+    "name": "prvtStatHistDot3StatsFCSErrors",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistDot3StatsSingleCollisionFrames": {
+    "name": "prvtStatHistDot3StatsSingleCollisionFrames",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistDot3StatsMultipleCollisionFrames": {
+    "name": "prvtStatHistDot3StatsMultipleCollisionFrames",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistDot3StatsSQETestErrors": {
+    "name": "prvtStatHistDot3StatsSQETestErrors",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistDot3StatsDeferredTransmissions": {
+    "name": "prvtStatHistDot3StatsDeferredTransmissions",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistDot3StatsLateCollisions": {
+    "name": "prvtStatHistDot3StatsLateCollisions",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistDot3StatsExcessiveCollisions": {
+    "name": "prvtStatHistDot3StatsExcessiveCollisions",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistDot3StatsInternalMacTransmitErrors": {
+    "name": "prvtStatHistDot3StatsInternalMacTransmitErrors",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistDot3StatsCarrierSenseErrors": {
+    "name": "prvtStatHistDot3StatsCarrierSenseErrors",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistDot3StatsFrameTooLongs": {
+    "name": "prvtStatHistDot3StatsFrameTooLongs",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistDot3StatsInternalMacReceiveErrors": {
+    "name": "prvtStatHistDot3StatsInternalMacReceiveErrors",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistIfInDiscards": {
+    "name": "prvtStatHistIfInDiscards",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistIfInErrors": {
+    "name": "prvtStatHistIfInErrors",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistIfInUnknownProtos": {
+    "name": "prvtStatHistIfInUnknownProtos",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistIfOutDiscards": {
+    "name": "prvtStatHistIfOutDiscards",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistIfOutErrors": {
+    "name": "prvtStatHistIfOutErrors",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistIfHCInOctets": {
+    "name": "prvtStatHistIfHCInOctets",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistIfHCInUcastPkts": {
+    "name": "prvtStatHistIfHCInUcastPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistIfHCInMulticastPkts": {
+    "name": "prvtStatHistIfHCInMulticastPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistIfHCInBroadcastPkts": {
+    "name": "prvtStatHistIfHCInBroadcastPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistIfHCOutOctets": {
+    "name": "prvtStatHistIfHCOutOctets",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistIfHCOutUcastPkts": {
+    "name": "prvtStatHistIfHCOutUcastPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistIfHCOutMulticastPkts": {
+    "name": "prvtStatHistIfHCOutMulticastPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistIfHCOutBroadcastPkts": {
+    "name": "prvtStatHistIfHCOutBroadcastPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatHistValidInterval": {
+    "name": "prvtStatHistValidInterval",
+    "oid": "1.3.6.1.4.1.738.1.5.140.1.2.5.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatisticsHistoryCompliances": {
+    "name": "prvtStatisticsHistoryCompliances",
+    "oid": "1.3.6.1.4.1.738.1.5.140.2.1",
+    "class": "objectidentity"
+  },
+  "prvtStatisticsHistoryGroups": {
+    "name": "prvtStatisticsHistoryGroups",
+    "oid": "1.3.6.1.4.1.738.1.5.140.2.2",
+    "class": "objectidentity"
+  },
+  "prvtStatisticsHistoryIntCfgGroup": {
+    "name": "prvtStatisticsHistoryIntCfgGroup",
+    "oid": "1.3.6.1.4.1.738.1.5.140.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistIntAdminStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtStatisticsHistoryDataGroup": {
+    "name": "prvtStatisticsHistoryDataGroup",
+    "oid": "1.3.6.1.4.1.738.1.5.140.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistLast5secInPkts"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistLast1minInPkts"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistLast5minInPkts"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistLast5secOutPkts"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistLast1minOutPkts"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistLast5minOutPkts"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistLast5secInBps"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistLast1minInBps"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistLast5minInBps"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistLast5secOutBps"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistLast1minOutBps"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistLast5minOutBps"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistEtherStatsDropEvents"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistEtherStatsPkts"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistEtherStatsBroadcastPkts"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistEtherStatsMulticastPkts"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistEtherStatsCRCAlignErrors"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistEtherStatsUndersizePkts"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistEtherStatsOversizePkts"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistEtherStatsFragments"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistEtherStatsJabbers"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistEtherStatsCollisions"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistEtherStatsDroppedFrames"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistEtherStatsHighCapacityOverflowPkts"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistEtherStatsHighCapacityOverflowOctets"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistEtherStatsHighCapacityPkts"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistEtherStatsHighCapacityOctets"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistEtherStatsHighCapacityPkts64Octets"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistEtherStatsHighCapacityPkts65to127Octets"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistEtherStatsHighCapacityPkts128to255Octets"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistEtherStatsHighCapacityPkts256to511Octets"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistEtherStatsHighCapacityPkts512to1023Octets"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistEtherStatsHighCapacityPkts1024to1518Octets"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistDot3StatsAlignmentErrors"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistDot3StatsFCSErrors"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistDot3StatsSingleCollisionFrames"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistDot3StatsMultipleCollisionFrames"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistDot3StatsSQETestErrors"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistDot3StatsDeferredTransmissions"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistDot3StatsLateCollisions"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistDot3StatsExcessiveCollisions"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistDot3StatsInternalMacTransmitErrors"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistDot3StatsCarrierSenseErrors"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistDot3StatsFrameTooLongs"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistDot3StatsInternalMacReceiveErrors"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistIfInDiscards"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistIfInErrors"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistIfInUnknownProtos"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistIfOutDiscards"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistIfOutErrors"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistIfHCInOctets"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistIfHCInUcastPkts"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistIfHCInMulticastPkts"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistIfHCInBroadcastPkts"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistIfHCOutOctets"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistIfHCOutUcastPkts"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistIfHCOutMulticastPkts"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistIfHCOutBroadcastPkts"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistValidInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtStatisticsHistoryCfgGroup": {
+    "name": "prvtStatisticsHistoryCfgGroup",
+    "oid": "1.3.6.1.4.1.738.1.5.140.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistAdminStatus"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistGetInterval"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistWriteInterval"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistPath"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtStatHistDailySnapshotDataGroup": {
+    "name": "prvtStatHistDailySnapshotDataGroup",
+    "oid": "1.3.6.1.4.1.738.1.5.140.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistDailySnapshotAdminStatus"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistDailySnapshotGetInterval"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistDailySnapshotWriteInterval"
+      },
+      {
+        "module": "PRVT-STATISTICSHISTORY-MIB",
+        "object": "prvtStatHistDailySnapshotPath"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtStatisticsHistoryCompliance": {
+    "name": "prvtStatisticsHistoryCompliance",
+    "oid": "1.3.6.1.4.1.738.1.5.140.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "prvtStatisticsHistoryIntCfgGroup",
+        "module": "PRVT-STATISTICSHISTORY-MIB"
+      },
+      {
+        "object": "prvtStatisticsHistoryDataGroup",
+        "module": "PRVT-STATISTICSHISTORY-MIB"
+      },
+      {
+        "object": "prvtStatisticsHistoryCfgGroup",
+        "module": "PRVT-STATISTICSHISTORY-MIB"
+      },
+      {
+        "object": "prvtStatHistDailySnapshotDataGroup",
+        "module": "PRVT-STATISTICSHISTORY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-STATISTICSHISTORY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-STATISTICSHISTORY-MIB"
+  }
+}

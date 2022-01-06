@@ -1,0 +1,5179 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-TIMETRA-GLOBAL-MIB": [
+      "tmnxSRConfs",
+      "tmnxSRNotifyPrefix",
+      "tmnxSRObjs",
+      "timetraSRMIBModules"
+    ],
+    "ALCATEL-IND1-TIMETRA-TC-MIB": [
+      "TNamedItemOrEmpty",
+      "TNamedItem",
+      "TmnxVRtrMplsLspID",
+      "TmnxActionType",
+      "TmnxOperState",
+      "TmnxAdminState"
+    ],
+    "ALCATEL-IND1-TIMETRA-VRTR-MIB": [
+      "vRtrID",
+      "vRtrIfIndex"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6"
+    ],
+    "MPLS-LSR-MIB": [
+      "MplsLSPID",
+      "MplsLabel",
+      "mplsXCLspId"
+    ],
+    "MPLS-TE-MIB": [
+      "mplsTunnelIngressLSRId",
+      "mplsTunnelIndex",
+      "mplsTunnelInstance",
+      "mplsTunnelARHopEntry"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter64",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "IpAddress",
+      "Unsigned32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TestAndIncr",
+      "TimeStamp",
+      "RowPointer",
+      "RowStatus",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval"
+    ]
+  },
+  "timetraMplsMIBModule": {
+    "name": "timetraMplsMIBModule",
+    "oid": "1.3.6.1.4.1.6527.1.1.3.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1908-01-01 00:00",
+        "description": "Rev 6.0 01 Jan 2008 00:00 6.0 release of the TIMETRA-MPLS-MIB."
+      },
+      {
+        "revision": "1907-01-01 00:00",
+        "description": "Rev 5.0 01 Jan 2007 00:00 5.0 release of the TIMETRA-MPLS-MIB."
+      },
+      {
+        "revision": "1906-03-23 00:00",
+        "description": "Rev 4.0 23 Mar 2006 00:00 4.0 release of the TIMETRA-MPLS-MIB."
+      },
+      {
+        "revision": "1905-08-31 00:00",
+        "description": "Rev 3.0 31 Aug 2005 00:00 3.0 release of the TIMETRA-MPLS-MIB."
+      },
+      {
+        "revision": "1905-01-24 00:00",
+        "description": "Rev 2.1 24 Jan 2005 00:00 2.1 release of the TIMETRA-MPLS-MIB."
+      },
+      {
+        "revision": "1904-01-15 00:00",
+        "description": "Rev 2.0 15 Jan 2004 00:00 2.0 release of the TIMETRA-MPLS-MIB."
+      },
+      {
+        "revision": "1903-08-15 00:00",
+        "description": "Rev 1.2 15 Aug 2003 00:00 1.2 release of the TIMETRA-MPLS-MIB."
+      },
+      {
+        "revision": "1900-09-07 00:00",
+        "description": "Rev 1.0 20 Jan 2003 00:00 1.0 Release of the TIMETRA-MPLS-MIB."
+      },
+      {
+        "revision": "1900-08-14 00:00",
+        "description": "Rev 0.1 14 Aug 2000 00:00 Initial version of the TIMETRA-MPLS-MIB."
+      }
+    ]
+  },
+  "tmnxMplsObjs": {
+    "name": "tmnxMplsObjs",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6",
+    "class": "objectidentity"
+  },
+  "tmnxMplsConformance": {
+    "name": "tmnxMplsConformance",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6",
+    "class": "objectidentity"
+  },
+  "tmnxMplsNotifyPrefix": {
+    "name": "tmnxMplsNotifyPrefix",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.6",
+    "class": "objectidentity"
+  },
+  "tmnxMplsNotifications": {
+    "name": "tmnxMplsNotifications",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.6.0",
+    "class": "objectidentity"
+  },
+  "TmnxMplsLspFailCode": {
+    "name": "TmnxMplsLspFailCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 0,
+          "admissionControlError": 1,
+          "noRouteToDestination": 2,
+          "trafficControlSystemError": 3,
+          "routingError": 4,
+          "noResourcesAvailable": 5,
+          "badNode": 6,
+          "routingLoop": 7,
+          "labelAllocationError": 8,
+          "badL3PID": 9,
+          "tunnelLocallyRepaired": 10,
+          "unknownObjectClass": 11,
+          "unknownCType": 12,
+          "noEgressMplsInterface": 13,
+          "noEgressRsvpInterface": 14,
+          "looseHopsInFRRLsp": 15,
+          "unknown": 16,
+          "retryExceeded": 17,
+          "noCspfRouteOwner": 18,
+          "noCspfRouteToDestination": 19,
+          "hopLimitExceeded": 20,
+          "looseHopsInManualBypassLsp": 21,
+          "emptyPathInManualBypassLsp": 22,
+          "lspFlowControlled": 23,
+          "srlgSecondaryNotDisjoint": 24,
+          "srlgPrimaryCspfDisabled": 25,
+          "srlgPrimaryPathDown": 26
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMplsLabelOwner": {
+    "name": "TmnxMplsLabelOwner",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "rsvp": 1,
+          "tldp": 2,
+          "ildp": 3,
+          "svcmgr": 4,
+          "bgp": 5,
+          "mirror": 6,
+          "static": 7,
+          "vprn": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMplsOperDownReasonCode": {
+    "name": "TmnxMplsOperDownReasonCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "operUp": 0,
+          "adminDown": 1,
+          "noResources": 2,
+          "systemIpDown": 3,
+          "iomFailure": 4,
+          "clearDown": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "vRtrMplsLspTable": {
+    "name": "vRtrMplsLspTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsLspEntry": {
+    "name": "vRtrMplsLspEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-VRTR-MIB",
+        "object": "vRtrID",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrMplsLspIndex": {
+    "name": "vRtrMplsLspIndex",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxVRtrMplsLspID",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vRtrMplsLspRowStatus": {
+    "name": "vRtrMplsLspRowStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspLastChange": {
+    "name": "vRtrMplsLspLastChange",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspName": {
+    "name": "vRtrMplsLspName",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItemOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspAdminState": {
+    "name": "vRtrMplsLspAdminState",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxAdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "inService",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspOperState": {
+    "name": "vRtrMplsLspOperState",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspFromAddr": {
+    "name": "vRtrMplsLspFromAddr",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspToAddr": {
+    "name": "vRtrMplsLspToAddr",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspType": {
+    "name": "vRtrMplsLspType",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "dynamic": 2,
+          "static": 3,
+          "bypass-only": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "dynamic",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspOutSegIndx": {
+    "name": "vRtrMplsLspOutSegIndx",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspRetryTimer": {
+    "name": "vRtrMplsLspRetryTimer",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspRetryLimit": {
+    "name": "vRtrMplsLspRetryLimit",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspMetric": {
+    "name": "vRtrMplsLspMetric",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspDecrementTtl": {
+    "name": "vRtrMplsLspDecrementTtl",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspCspf": {
+    "name": "vRtrMplsLspCspf",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspFastReroute": {
+    "name": "vRtrMplsLspFastReroute",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspFRHopLimit": {
+    "name": "vRtrMplsLspFRHopLimit",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 16,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspFRBandwidth": {
+    "name": "vRtrMplsLspFRBandwidth",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "mega-bits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspClassOfService": {
+    "name": "vRtrMplsLspClassOfService",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItemOrEmpty",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspSetupPriority": {
+    "name": "vRtrMplsLspSetupPriority",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspHoldPriority": {
+    "name": "vRtrMplsLspHoldPriority",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspRecord": {
+    "name": "vRtrMplsLspRecord",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspPreference": {
+    "name": "vRtrMplsLspPreference",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspBandwidth": {
+    "name": "vRtrMplsLspBandwidth",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "mega-bits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspBwProtect": {
+    "name": "vRtrMplsLspBwProtect",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspHopLimit": {
+    "name": "vRtrMplsLspHopLimit",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspNegotiatedMTU": {
+    "name": "vRtrMplsLspNegotiatedMTU",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspRsvpResvStyle": {
+    "name": "vRtrMplsLspRsvpResvStyle",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "se": 1,
+          "ff": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "se",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspRsvpAdspec": {
+    "name": "vRtrMplsLspRsvpAdspec",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspFRMethod": {
+    "name": "vRtrMplsLspFRMethod",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oneToOneBackup": 1,
+          "facilityBackup": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "oneToOneBackup",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspFRNodeProtect": {
+    "name": "vRtrMplsLspFRNodeProtect",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspAdminGroupInclude": {
+    "name": "vRtrMplsLspAdminGroupInclude",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspAdminGroupExclude": {
+    "name": "vRtrMplsLspAdminGroupExclude",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspAdaptive": {
+    "name": "vRtrMplsLspAdaptive",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspInheritance": {
+    "name": "vRtrMplsLspInheritance",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspOptimizeTimer": {
+    "name": "vRtrMplsLspOptimizeTimer",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspOperFastReroute": {
+    "name": "vRtrMplsLspOperFastReroute",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspFRObject": {
+    "name": "vRtrMplsLspFRObject",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspHoldTimer": {
+    "name": "vRtrMplsLspHoldTimer",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspCspfTeMetricEnabled": {
+    "name": "vRtrMplsLspCspfTeMetricEnabled",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspStatTable": {
+    "name": "vRtrMplsLspStatTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsLspStatEntry": {
+    "name": "vRtrMplsLspStatEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "vRtrMplsLspStatEntry",
+      "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+      "object": "vRtrMplsLspEntry"
+    },
+    "status": "current"
+  },
+  "vRtrMplsLspOctets": {
+    "name": "vRtrMplsLspOctets",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspPackets": {
+    "name": "vRtrMplsLspPackets",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspAge": {
+    "name": "vRtrMplsLspAge",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspTimeUp": {
+    "name": "vRtrMplsLspTimeUp",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspTimeDown": {
+    "name": "vRtrMplsLspTimeDown",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspPrimaryTimeUp": {
+    "name": "vRtrMplsLspPrimaryTimeUp",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspTransitions": {
+    "name": "vRtrMplsLspTransitions",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspLastTransition": {
+    "name": "vRtrMplsLspLastTransition",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspPathChanges": {
+    "name": "vRtrMplsLspPathChanges",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspLastPathChange": {
+    "name": "vRtrMplsLspLastPathChange",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspConfiguredPaths": {
+    "name": "vRtrMplsLspConfiguredPaths",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspStandbyPaths": {
+    "name": "vRtrMplsLspStandbyPaths",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspOperationalPaths": {
+    "name": "vRtrMplsLspOperationalPaths",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspPathTableSpinlock": {
+    "name": "vRtrMplsLspPathTableSpinlock",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vRtrMplsLspPathTable": {
+    "name": "vRtrMplsLspPathTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsLspPathEntry": {
+    "name": "vRtrMplsLspPathEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-VRTR-MIB",
+        "object": "vRtrID",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspIndex",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-MIB",
+        "object": "mplsTunnelIndex",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-MIB",
+        "object": "mplsTunnelInstance",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-MIB",
+        "object": "mplsTunnelIngressLSRId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrMplsLspPathRowStatus": {
+    "name": "vRtrMplsLspPathRowStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspPathLastChange": {
+    "name": "vRtrMplsLspPathLastChange",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspPathType": {
+    "name": "vRtrMplsLspPathType",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "primary": 2,
+          "standby": 3,
+          "secondary": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspPathCos": {
+    "name": "vRtrMplsLspPathCos",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspPathProperties": {
+    "name": "vRtrMplsLspPathProperties",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "record-route": 0,
+        "adaptive": 1,
+        "cspf": 2,
+        "mergeable": 3,
+        "fast-reroute": 4
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspPathBandwidth": {
+    "name": "vRtrMplsLspPathBandwidth",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "mega-bits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspPathBwProtect": {
+    "name": "vRtrMplsLspPathBwProtect",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspPathState": {
+    "name": "vRtrMplsLspPathState",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "active": 2,
+          "inactive": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspPathPreference": {
+    "name": "vRtrMplsLspPathPreference",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspPathCosSource": {
+    "name": "vRtrMplsLspPathCosSource",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspPathClassOfService": {
+    "name": "vRtrMplsLspPathClassOfService",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItemOrEmpty",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspPathSetupPriority": {
+    "name": "vRtrMplsLspPathSetupPriority",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspPathHoldPriority": {
+    "name": "vRtrMplsLspPathHoldPriority",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspPathRecord": {
+    "name": "vRtrMplsLspPathRecord",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "record": 1,
+          "noRecord": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "record",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspPathHopLimit": {
+    "name": "vRtrMplsLspPathHopLimit",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspPathSharing": {
+    "name": "vRtrMplsLspPathSharing",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspPathAdminState": {
+    "name": "vRtrMplsLspPathAdminState",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxAdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "inService",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspPathOperState": {
+    "name": "vRtrMplsLspPathOperState",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspPathInheritance": {
+    "name": "vRtrMplsLspPathInheritance",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspPathLspId": {
+    "name": "vRtrMplsLspPathLspId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLSPID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspPathRetryTimeRemaining": {
+    "name": "vRtrMplsLspPathRetryTimeRemaining",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspPathTunnelARHopListIndex": {
+    "name": "vRtrMplsLspPathTunnelARHopListIndex",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspPathNegotiatedMTU": {
+    "name": "vRtrMplsLspPathNegotiatedMTU",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspPathFailCode": {
+    "name": "vRtrMplsLspPathFailCode",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxMplsLspFailCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspPathFailNodeAddr": {
+    "name": "vRtrMplsLspPathFailNodeAddr",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspPathAdminGroupInclude": {
+    "name": "vRtrMplsLspPathAdminGroupInclude",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspPathAdminGroupExclude": {
+    "name": "vRtrMplsLspPathAdminGroupExclude",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspPathAdaptive": {
+    "name": "vRtrMplsLspPathAdaptive",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspPathOptimizeTimer": {
+    "name": "vRtrMplsLspPathOptimizeTimer",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspPathNextOptimize": {
+    "name": "vRtrMplsLspPathNextOptimize",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspPathOperBandwidth": {
+    "name": "vRtrMplsLspPathOperBandwidth",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "mega-bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspPathMBBState": {
+    "name": "vRtrMplsLspPathMBBState",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "success": 2,
+          "inProgress": 3,
+          "fail": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspPathResignal": {
+    "name": "vRtrMplsLspPathResignal",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspPathTunnelCRHopListIndex": {
+    "name": "vRtrMplsLspPathTunnelCRHopListIndex",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspPathOperMTU": {
+    "name": "vRtrMplsLspPathOperMTU",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspPathRecordLabel": {
+    "name": "vRtrMplsLspPathRecordLabel",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.4.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "record": 1,
+          "noRecord": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "record",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLspPathStatTable": {
+    "name": "vRtrMplsLspPathStatTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsLspPathStatEntry": {
+    "name": "vRtrMplsLspPathStatEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "vRtrMplsLspPathStatEntry",
+      "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+      "object": "vRtrMplsLspPathEntry"
+    },
+    "status": "current"
+  },
+  "vRtrMplsLspPathTimeUp": {
+    "name": "vRtrMplsLspPathTimeUp",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspPathTimeDown": {
+    "name": "vRtrMplsLspPathTimeDown",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspPathRetryAttempts": {
+    "name": "vRtrMplsLspPathRetryAttempts",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspPathTransitionCount": {
+    "name": "vRtrMplsLspPathTransitionCount",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLspPathCspfQueries": {
+    "name": "vRtrMplsLspPathCspfQueries",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsXCTable": {
+    "name": "vRtrMplsXCTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsXCEntry": {
+    "name": "vRtrMplsXCEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-LSR-MIB",
+        "object": "mplsXCLspId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrMplsXCIndex": {
+    "name": "vRtrMplsXCIndex",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsInSegmentIfIndex": {
+    "name": "vRtrMplsInSegmentIfIndex",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsInSegmentLabel": {
+    "name": "vRtrMplsInSegmentLabel",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsOutSegmentIndex": {
+    "name": "vRtrMplsOutSegmentIndex",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsERHopTunnelIndex": {
+    "name": "vRtrMplsERHopTunnelIndex",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsARHopTunnelIndex": {
+    "name": "vRtrMplsARHopTunnelIndex",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsRsvpSessionIndex": {
+    "name": "vRtrMplsRsvpSessionIndex",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsXCFailCode": {
+    "name": "vRtrMplsXCFailCode",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxMplsLspFailCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsXCCHopTableIndex": {
+    "name": "vRtrMplsXCCHopTableIndex",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsGeneralTable": {
+    "name": "vRtrMplsGeneralTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsGeneralEntry": {
+    "name": "vRtrMplsGeneralEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-VRTR-MIB",
+        "object": "vRtrID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrMplsGeneralLastChange": {
+    "name": "vRtrMplsGeneralLastChange",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsGeneralAdminState": {
+    "name": "vRtrMplsGeneralAdminState",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxAdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "inService",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsGeneralOperState": {
+    "name": "vRtrMplsGeneralOperState",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsGeneralPropagateTtl": {
+    "name": "vRtrMplsGeneralPropagateTtl",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsGeneralTE": {
+    "name": "vRtrMplsGeneralTE",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "bgp": 2,
+          "bgpigp": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsGeneralNewLspIndex": {
+    "name": "vRtrMplsGeneralNewLspIndex",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsGeneralOptimizeTimer": {
+    "name": "vRtrMplsGeneralOptimizeTimer",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsGeneralFRObject": {
+    "name": "vRtrMplsGeneralFRObject",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsGeneralResignalTimer": {
+    "name": "vRtrMplsGeneralResignalTimer",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 30,
+            "max": 10080
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsGeneralHoldTimer": {
+    "name": "vRtrMplsGeneralHoldTimer",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsGeneralDynamicBypass": {
+    "name": "vRtrMplsGeneralDynamicBypass",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsGeneralNextResignal": {
+    "name": "vRtrMplsGeneralNextResignal",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsGeneralOperDownReason": {
+    "name": "vRtrMplsGeneralOperDownReason",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxMplsOperDownReasonCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsGeneralSrlgFrr": {
+    "name": "vRtrMplsGeneralSrlgFrr",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsGeneralSrlgFrrStrict": {
+    "name": "vRtrMplsGeneralSrlgFrrStrict",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsGeneralStatTable": {
+    "name": "vRtrMplsGeneralStatTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsGeneralStatEntry": {
+    "name": "vRtrMplsGeneralStatEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "vRtrMplsGeneralStatEntry",
+      "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+      "object": "vRtrMplsGeneralEntry"
+    },
+    "status": "current"
+  },
+  "vRtrMplsGeneralStaticLspOriginate": {
+    "name": "vRtrMplsGeneralStaticLspOriginate",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsGeneralStaticLspTransit": {
+    "name": "vRtrMplsGeneralStaticLspTransit",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsGeneralStaticLspTerminate": {
+    "name": "vRtrMplsGeneralStaticLspTerminate",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsGeneralDynamicLspOriginate": {
+    "name": "vRtrMplsGeneralDynamicLspOriginate",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsGeneralDynamicLspTransit": {
+    "name": "vRtrMplsGeneralDynamicLspTransit",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsGeneralDynamicLspTerminate": {
+    "name": "vRtrMplsGeneralDynamicLspTerminate",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsGeneralDetourLspOriginate": {
+    "name": "vRtrMplsGeneralDetourLspOriginate",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsGeneralDetourLspTransit": {
+    "name": "vRtrMplsGeneralDetourLspTransit",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsGeneralDetourLspTerminate": {
+    "name": "vRtrMplsGeneralDetourLspTerminate",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsIfTable": {
+    "name": "vRtrMplsIfTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsIfEntry": {
+    "name": "vRtrMplsIfEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-VRTR-MIB",
+        "object": "vRtrID",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-VRTR-MIB",
+        "object": "vRtrIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrMplsIfAdminState": {
+    "name": "vRtrMplsIfAdminState",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxAdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "outOfService",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsIfOperState": {
+    "name": "vRtrMplsIfOperState",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsIfAdminGroup": {
+    "name": "vRtrMplsIfAdminGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsIfTeMetric": {
+    "name": "vRtrMplsIfTeMetric",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsIfStatTable": {
+    "name": "vRtrMplsIfStatTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsIfStatEntry": {
+    "name": "vRtrMplsIfStatEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "vRtrMplsIfStatEntry",
+      "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+      "object": "vRtrMplsIfEntry"
+    },
+    "status": "current"
+  },
+  "vRtrMplsIfTxPktCount": {
+    "name": "vRtrMplsIfTxPktCount",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsIfRxPktCount": {
+    "name": "vRtrMplsIfRxPktCount",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsIfTxOctetCount": {
+    "name": "vRtrMplsIfTxOctetCount",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsIfRxOctetCount": {
+    "name": "vRtrMplsIfRxOctetCount",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsTunnelARHopTable": {
+    "name": "vRtrMplsTunnelARHopTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsTunnelARHopEntry": {
+    "name": "vRtrMplsTunnelARHopEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "vRtrMplsTunnelARHopEntry",
+      "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+      "object": "mplsTunnelARHopEntry"
+    },
+    "status": "current"
+  },
+  "vRtrMplsTunnelARHopProtection": {
+    "name": "vRtrMplsTunnelARHopProtection",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "localAvailable": 0,
+        "localInUse": 1,
+        "bandwidthProtected": 2,
+        "nodeProtected": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsTunnelARHopRecordLabel": {
+    "name": "vRtrMplsTunnelARHopRecordLabel",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsTunnelARHopRouterId": {
+    "name": "vRtrMplsTunnelARHopRouterId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsTunnelCHopTable": {
+    "name": "vRtrMplsTunnelCHopTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsTunnelCHopEntry": {
+    "name": "vRtrMplsTunnelCHopEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsTunnelCHopListIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsTunnelCHopIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrMplsTunnelCHopListIndex": {
+    "name": "vRtrMplsTunnelCHopListIndex",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsTunnelCHopIndex": {
+    "name": "vRtrMplsTunnelCHopIndex",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsTunnelCHopAddrType": {
+    "name": "vRtrMplsTunnelCHopAddrType",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipV4": 1,
+          "ipV6": 2,
+          "asNumber": 3,
+          "lspid": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ipV4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsTunnelCHopIpv4Addr": {
+    "name": "vRtrMplsTunnelCHopIpv4Addr",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsTunnelCHopIpv4PrefixLen": {
+    "name": "vRtrMplsTunnelCHopIpv4PrefixLen",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsTunnelCHopIpv6Addr": {
+    "name": "vRtrMplsTunnelCHopIpv6Addr",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsTunnelCHopIpv6PrefixLen": {
+    "name": "vRtrMplsTunnelCHopIpv6PrefixLen",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsTunnelCHopAsNumber": {
+    "name": "vRtrMplsTunnelCHopAsNumber",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsTunnelCHopLspId": {
+    "name": "vRtrMplsTunnelCHopLspId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLSPID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsTunnelCHopStrictOrLoose": {
+    "name": "vRtrMplsTunnelCHopStrictOrLoose",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "strict": 1,
+          "loose": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsAdminGroupTable": {
+    "name": "vRtrMplsAdminGroupTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsAdminGroupEntry": {
+    "name": "vRtrMplsAdminGroupEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-VRTR-MIB",
+        "object": "vRtrID",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsAdminGroupName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrMplsAdminGroupName": {
+    "name": "vRtrMplsAdminGroupName",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsAdminGroupRowStatus": {
+    "name": "vRtrMplsAdminGroupRowStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsAdminGroupValue": {
+    "name": "vRtrMplsAdminGroupValue",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsFSGroupTable": {
+    "name": "vRtrMplsFSGroupTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsFSGroupEntry": {
+    "name": "vRtrMplsFSGroupEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-VRTR-MIB",
+        "object": "vRtrID",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsFSGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrMplsFSGroupName": {
+    "name": "vRtrMplsFSGroupName",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsFSGroupRowStatus": {
+    "name": "vRtrMplsFSGroupRowStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsFSGroupCost": {
+    "name": "vRtrMplsFSGroupCost",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsFSGroupParamsTable": {
+    "name": "vRtrMplsFSGroupParamsTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsFSGroupParamsEntry": {
+    "name": "vRtrMplsFSGroupParamsEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-VRTR-MIB",
+        "object": "vRtrID",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsFSGroupName",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsFSGroupParamsFromAddr",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsFSGroupParamsToAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrMplsFSGroupParamsFromAddr": {
+    "name": "vRtrMplsFSGroupParamsFromAddr",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsFSGroupParamsToAddr": {
+    "name": "vRtrMplsFSGroupParamsToAddr",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsFSGroupParamsRowStatus": {
+    "name": "vRtrMplsFSGroupParamsRowStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsLabelRangeTable": {
+    "name": "vRtrMplsLabelRangeTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsLabelRangeEntry": {
+    "name": "vRtrMplsLabelRangeEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLabelType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrMplsLabelType": {
+    "name": "vRtrMplsLabelType",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "staticLsp": 1,
+          "staticSvc": 2,
+          "dynamic": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsLabelRangeMin": {
+    "name": "vRtrMplsLabelRangeMin",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLabelRangeMax": {
+    "name": "vRtrMplsLabelRangeMax",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLabelRangeAging": {
+    "name": "vRtrMplsLabelRangeAging",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsLabelRangeAvailable": {
+    "name": "vRtrMplsLabelRangeAvailable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsStaticLSPLabelTable": {
+    "name": "vRtrMplsStaticLSPLabelTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsStaticLSPLabelEntry": {
+    "name": "vRtrMplsStaticLSPLabelEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsStaticLSPLabel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrMplsStaticLSPLabel": {
+    "name": "vRtrMplsStaticLSPLabel",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLabel",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 32,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsStaticLSPLabelOwner": {
+    "name": "vRtrMplsStaticLSPLabelOwner",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxMplsLabelOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsStaticSvcLabelTable": {
+    "name": "vRtrMplsStaticSvcLabelTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsStaticSvcLabelEntry": {
+    "name": "vRtrMplsStaticSvcLabelEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsStaticSvcLabel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrMplsStaticSvcLabel": {
+    "name": "vRtrMplsStaticSvcLabel",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLabel",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2048,
+            "max": 18431
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsStaticSvcLabelOwner": {
+    "name": "vRtrMplsStaticSvcLabelOwner",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxMplsLabelOwner",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsSrlgGrpTableLastChanged": {
+    "name": "vRtrMplsSrlgGrpTableLastChanged",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsSrlgGrpTable": {
+    "name": "vRtrMplsSrlgGrpTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsSrlgGrpEntry": {
+    "name": "vRtrMplsSrlgGrpEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-VRTR-MIB",
+        "object": "vRtrID",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsSrlgGrpName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrMplsSrlgGrpName": {
+    "name": "vRtrMplsSrlgGrpName",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsSrlgGrpRowStatus": {
+    "name": "vRtrMplsSrlgGrpRowStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsSrlgGrpLastChanged": {
+    "name": "vRtrMplsSrlgGrpLastChanged",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsSrlgGrpValue": {
+    "name": "vRtrMplsSrlgGrpValue",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsIfSrlgGrpTblLastChanged": {
+    "name": "vRtrMplsIfSrlgGrpTblLastChanged",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrMplsIfSrlgGrpTable": {
+    "name": "vRtrMplsIfSrlgGrpTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsIfSrlgGrpEntry": {
+    "name": "vRtrMplsIfSrlgGrpEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-VRTR-MIB",
+        "object": "vRtrID",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-VRTR-MIB",
+        "object": "vRtrIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsIfSrlgGrpName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrMplsIfSrlgGrpName": {
+    "name": "vRtrMplsIfSrlgGrpName",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrMplsIfSrlgGrpRowStatus": {
+    "name": "vRtrMplsIfSrlgGrpRowStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrMplsIfSrlgGrpLastChanged": {
+    "name": "vRtrMplsIfSrlgGrpLastChanged",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxMplsNotificationlObjects": {
+    "name": "tmnxMplsNotificationlObjects",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.16",
+    "class": "objectidentity"
+  },
+  "vRtrMplsLspNotificationReasonCode": {
+    "name": "vRtrMplsLspNotificationReasonCode",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.16.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 0,
+          "noPathIsOperational": 1
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vRtrMplsLspPathNotificationReasonCode": {
+    "name": "vRtrMplsLspPathNotificationReasonCode",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.16.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxMplsLspFailCode",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vRtrMplsNotifyRow": {
+    "name": "vRtrMplsNotifyRow",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.6.16.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vRtrMplsStateChange": {
+    "name": "vRtrMplsStateChange",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.6.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-VRTR-MIB",
+        "object": "vRtrID"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrMplsIfStateChange": {
+    "name": "vRtrMplsIfStateChange",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.6.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-VRTR-MIB",
+        "object": "vRtrID"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-VRTR-MIB",
+        "object": "vRtrIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsIfAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsIfOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrMplsLspUp": {
+    "name": "vRtrMplsLspUp",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.6.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-VRTR-MIB",
+        "object": "vRtrID"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrMplsLspDown": {
+    "name": "vRtrMplsLspDown",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.6.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-VRTR-MIB",
+        "object": "vRtrID"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspOperState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspNotificationReasonCode"
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrMplsLspPathUp": {
+    "name": "vRtrMplsLspPathUp",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.6.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-VRTR-MIB",
+        "object": "vRtrID"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspIndex"
+      },
+      {
+        "module": "MPLS-TE-MIB",
+        "object": "mplsTunnelIndex"
+      },
+      {
+        "module": "MPLS-TE-MIB",
+        "object": "mplsTunnelInstance"
+      },
+      {
+        "module": "MPLS-TE-MIB",
+        "object": "mplsTunnelIngressLSRId"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrMplsLspPathDown": {
+    "name": "vRtrMplsLspPathDown",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.6.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-VRTR-MIB",
+        "object": "vRtrID"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspIndex"
+      },
+      {
+        "module": "MPLS-TE-MIB",
+        "object": "mplsTunnelIndex"
+      },
+      {
+        "module": "MPLS-TE-MIB",
+        "object": "mplsTunnelInstance"
+      },
+      {
+        "module": "MPLS-TE-MIB",
+        "object": "mplsTunnelIngressLSRId"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathOperState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathNotificationReasonCode"
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrMplsLspPathRerouted": {
+    "name": "vRtrMplsLspPathRerouted",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.6.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrMplsLspPathResignaled": {
+    "name": "vRtrMplsLspPathResignaled",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.6.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxMplsCompliances": {
+    "name": "tmnxMplsCompliances",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6.1",
+    "class": "objectidentity"
+  },
+  "tmnxMplsGroups": {
+    "name": "tmnxMplsGroups",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6.2",
+    "class": "objectidentity"
+  },
+  "tmnxMplsV3v0Compliance": {
+    "name": "tmnxMplsV3v0Compliance",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "tmnxMplsGlobalR2r1Group",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsLspR2r1Group",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsLspPathGroup",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsXCGroup",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsIfGroup",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsTunnelARHopGroup",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsTunnelCHopGroup",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsAdminGroupGroup",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsNotificationR2r1Group",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsLabelRangeGroup",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "tmnxMplsV5v0Compliance": {
+    "name": "tmnxMplsV5v0Compliance",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "tmnxMplsGlobalV5v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsLspV5v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsLspPathGroup",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsXCGroup",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsIfGroup",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsTunnelARHopGroup",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsTunnelCHopGroup",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsAdminGroupGroup",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsNotificationR2r1Group",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsLabelRangeGroup",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "tmnxMplsV6v0Compliance": {
+    "name": "tmnxMplsV6v0Compliance",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "tmnxMplsGlobalV6v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsLspV5v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsLspPathGroup",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsXCGroup",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsIfGroup",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsTunnelARHopGroup",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsTunnelCHopGroup",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsAdminGroupGroup",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsNotificationR2r1Group",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsLabelRangeGroup",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsSrlgV6v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsIfV6v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      },
+      {
+        "object": "tmnxMplsLspV6v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxMplsLspPathGroup": {
+    "name": "tmnxMplsLspPathGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathTableSpinlock"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathLastChange"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathType"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathCos"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathProperties"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathBandwidth"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathBwProtect"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathPreference"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathCosSource"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathClassOfService"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathSetupPriority"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathHoldPriority"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathRecord"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathHopLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathSharing"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathOperState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathInheritance"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathLspId"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathRetryTimeRemaining"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathTunnelARHopListIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathNegotiatedMTU"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathFailCode"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathFailNodeAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathAdminGroupInclude"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathAdminGroupExclude"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathAdaptive"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathOptimizeTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathNextOptimize"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathOperBandwidth"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathMBBState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathResignal"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathTunnelCRHopListIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathOperMTU"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathRecordLabel"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathTimeUp"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathTimeDown"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathRetryAttempts"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathTransitionCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathCspfQueries"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxMplsXCGroup": {
+    "name": "tmnxMplsXCGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsXCIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsInSegmentIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsInSegmentLabel"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsOutSegmentIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsERHopTunnelIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsARHopTunnelIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsRsvpSessionIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsXCFailCode"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsXCCHopTableIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxMplsIfGroup": {
+    "name": "tmnxMplsIfGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsIfAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsIfOperState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsIfAdminGroup"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsIfTxPktCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsIfRxPktCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsIfTxOctetCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsIfRxOctetCount"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxMplsTunnelARHopGroup": {
+    "name": "tmnxMplsTunnelARHopGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsTunnelARHopProtection"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsTunnelARHopRecordLabel"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsTunnelARHopRouterId"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxMplsTunnelCHopGroup": {
+    "name": "tmnxMplsTunnelCHopGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsTunnelCHopAddrType"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsTunnelCHopIpv4Addr"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsTunnelCHopIpv4PrefixLen"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsTunnelCHopIpv6Addr"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsTunnelCHopIpv6PrefixLen"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsTunnelCHopAsNumber"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsTunnelCHopLspId"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsTunnelCHopStrictOrLoose"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxMplsAdminGroupGroup": {
+    "name": "tmnxMplsAdminGroupGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsAdminGroupRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsAdminGroupValue"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxMplsFSGroupGroup": {
+    "name": "tmnxMplsFSGroupGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsFSGroupRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsFSGroupCost"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsFSGroupParamsRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxMplsNotifyObjsGroup": {
+    "name": "tmnxMplsNotifyObjsGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspNotificationReasonCode"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathNotificationReasonCode"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsNotifyRow"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxMplsGlobalR2r1Group": {
+    "name": "tmnxMplsGlobalR2r1Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralLastChange"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralOperState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralPropagateTtl"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralTE"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralNewLspIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralOptimizeTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralFRObject"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralResignalTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralStaticLspOriginate"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralStaticLspTransit"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralStaticLspTerminate"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralDynamicLspOriginate"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralDynamicLspTransit"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralDynamicLspTerminate"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralDetourLspOriginate"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralDetourLspTransit"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralDetourLspTerminate"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "tmnxMplsLspR2r1Group": {
+    "name": "tmnxMplsLspR2r1Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspLastChange"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspName"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspOperState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspFromAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspToAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspType"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspOutSegIndx"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspRetryTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspRetryLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspMetric"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspDecrementTtl"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspCspf"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspFastReroute"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspFRHopLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspFRBandwidth"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspClassOfService"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspSetupPriority"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspHoldPriority"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspRecord"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPreference"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspBandwidth"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspBwProtect"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspHopLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspNegotiatedMTU"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspRsvpResvStyle"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspRsvpAdspec"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspFRMethod"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspFRNodeProtect"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspAdminGroupInclude"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspAdminGroupExclude"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspAdaptive"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspInheritance"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspOptimizeTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspOperFastReroute"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspFRObject"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspOctets"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPackets"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspAge"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspTimeUp"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspTimeDown"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPrimaryTimeUp"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspTransitions"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspLastTransition"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathChanges"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspLastPathChange"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspConfiguredPaths"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspStandbyPaths"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspOperationalPaths"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "tmnxMplsNotificationR2r1Group": {
+    "name": "tmnxMplsNotificationR2r1Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6.2.14",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsStateChange"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsIfStateChange"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspUp"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspDown"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathUp"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathDown"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathRerouted"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathResignaled"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxMplsLabelRangeGroup": {
+    "name": "tmnxMplsLabelRangeGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLabelRangeMin"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLabelRangeMax"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLabelRangeAging"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLabelRangeAvailable"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsStaticLSPLabelOwner"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsStaticSvcLabelOwner"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxMplsGlobalV5v0Group": {
+    "name": "tmnxMplsGlobalV5v0Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralLastChange"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralOperState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralPropagateTtl"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralTE"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralNewLspIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralOptimizeTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralFRObject"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralResignalTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralStaticLspOriginate"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralStaticLspTransit"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralStaticLspTerminate"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralDynamicLspOriginate"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralDynamicLspTransit"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralDynamicLspTerminate"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralDetourLspOriginate"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralDetourLspTransit"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralDetourLspTerminate"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralHoldTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralDynamicBypass"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "tmnxMplsLspV5v0Group": {
+    "name": "tmnxMplsLspV5v0Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspLastChange"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspName"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspOperState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspFromAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspToAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspType"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspOutSegIndx"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspRetryTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspRetryLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspMetric"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspDecrementTtl"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspCspf"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspFastReroute"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspFRHopLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspFRBandwidth"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspClassOfService"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspSetupPriority"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspHoldPriority"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspRecord"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPreference"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspBandwidth"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspBwProtect"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspHopLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspNegotiatedMTU"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspRsvpResvStyle"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspRsvpAdspec"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspFRMethod"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspFRNodeProtect"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspAdminGroupInclude"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspAdminGroupExclude"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspAdaptive"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspInheritance"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspOptimizeTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspOperFastReroute"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspFRObject"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspOctets"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPackets"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspAge"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspTimeUp"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspTimeDown"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPrimaryTimeUp"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspTransitions"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspLastTransition"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspPathChanges"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspLastPathChange"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspConfiguredPaths"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspStandbyPaths"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspOperationalPaths"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspHoldTimer"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxMplsGlobalV6v0Group": {
+    "name": "tmnxMplsGlobalV6v0Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralLastChange"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralOperState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralPropagateTtl"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralTE"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralNewLspIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralOptimizeTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralFRObject"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralResignalTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralStaticLspOriginate"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralStaticLspTransit"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralStaticLspTerminate"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralDynamicLspOriginate"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralDynamicLspTransit"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralDynamicLspTerminate"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralDetourLspOriginate"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralDetourLspTransit"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralDetourLspTerminate"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralHoldTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralDynamicBypass"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralNextResignal"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralOperDownReason"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralSrlgFrr"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsGeneralSrlgFrrStrict"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxMplsSrlgV6v0Group": {
+    "name": "tmnxMplsSrlgV6v0Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsSrlgGrpTableLastChanged"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsSrlgGrpRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsSrlgGrpLastChanged"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsSrlgGrpValue"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsIfSrlgGrpTblLastChanged"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsIfSrlgGrpRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsIfSrlgGrpLastChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxMplsIfV6v0Group": {
+    "name": "tmnxMplsIfV6v0Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsIfTeMetric"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxMplsLspV6v0Group": {
+    "name": "tmnxMplsLspV6v0Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.6.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB",
+        "object": "vRtrMplsLspCspfTeMetricEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/aos7/ALCATEL-IND1-TIMETRA-MPLS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:05 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"
+  }
+}

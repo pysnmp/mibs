@@ -1,0 +1,480 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3crmonExtend"
+    ],
+    "IF-MIB": [
+      "OwnerString"
+    ],
+    "RMON-MIB": [
+      "EntryStatus"
+    ],
+    "RMON2-MIB": [
+      "trapDestIndex",
+      "trapDestEntry"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cperformance": {
+    "name": "hh3cperformance",
+    "oid": "1.3.6.1.4.1.25506.8.4.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-03-15 00:00",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hh3cprialarmTable": {
+    "name": "hh3cprialarmTable",
+    "oid": "1.3.6.1.4.1.25506.8.4.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cprialarmEntry": {
+    "name": "hh3cprialarmEntry",
+    "oid": "1.3.6.1.4.1.25506.8.4.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-RMON-EXT-MIB",
+        "object": "hh3cprialarmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cprialarmIndex": {
+    "name": "hh3cprialarmIndex",
+    "oid": "1.3.6.1.4.1.25506.8.4.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cprialarmInterval": {
+    "name": "hh3cprialarmInterval",
+    "oid": "1.3.6.1.4.1.25506.8.4.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cprialarmVariable": {
+    "name": "hh3cprialarmVariable",
+    "oid": "1.3.6.1.4.1.25506.8.4.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cprialarmSympol": {
+    "name": "hh3cprialarmSympol",
+    "oid": "1.3.6.1.4.1.25506.8.4.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cprialarmSampleType": {
+    "name": "hh3cprialarmSampleType",
+    "oid": "1.3.6.1.4.1.25506.8.4.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absoluteValue": 1,
+          "deltaValue": 2,
+          "speedValue": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cprialarmValue": {
+    "name": "hh3cprialarmValue",
+    "oid": "1.3.6.1.4.1.25506.8.4.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cprialarmStartupAlarm": {
+    "name": "hh3cprialarmStartupAlarm",
+    "oid": "1.3.6.1.4.1.25506.8.4.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "risingAlarm": 1,
+          "fallingAlarm": 2,
+          "risingOrFallingAlarm": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cprialarmRisingThreshold": {
+    "name": "hh3cprialarmRisingThreshold",
+    "oid": "1.3.6.1.4.1.25506.8.4.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cprialarmFallingThreshold": {
+    "name": "hh3cprialarmFallingThreshold",
+    "oid": "1.3.6.1.4.1.25506.8.4.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cprialarmRisingEventIndex": {
+    "name": "hh3cprialarmRisingEventIndex",
+    "oid": "1.3.6.1.4.1.25506.8.4.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cprialarmFallingEventIndex": {
+    "name": "hh3cprialarmFallingEventIndex",
+    "oid": "1.3.6.1.4.1.25506.8.4.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cprialarmStatCycle": {
+    "name": "hh3cprialarmStatCycle",
+    "oid": "1.3.6.1.4.1.25506.8.4.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cprialarmStatType": {
+    "name": "hh3cprialarmStatType",
+    "oid": "1.3.6.1.4.1.25506.8.4.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forever": 1,
+          "during": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cprialarmOwner": {
+    "name": "hh3cprialarmOwner",
+    "oid": "1.3.6.1.4.1.25506.8.4.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cprialarmStatus": {
+    "name": "hh3cprialarmStatus",
+    "oid": "1.3.6.1.4.1.25506.8.4.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntryStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3crmonEnableTable": {
+    "name": "hh3crmonEnableTable",
+    "oid": "1.3.6.1.4.1.25506.8.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3crmonEnableEntry": {
+    "name": "hh3crmonEnableEntry",
+    "oid": "1.3.6.1.4.1.25506.8.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-RMON-EXT-MIB",
+        "object": "hh3crmonEnableIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3crmonEnableIfIndex": {
+    "name": "hh3crmonEnableIfIndex",
+    "oid": "1.3.6.1.4.1.25506.8.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3crmonEnableStatus": {
+    "name": "hh3crmonEnableStatus",
+    "oid": "1.3.6.1.4.1.25506.8.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cTrapDestTable": {
+    "name": "hh3cTrapDestTable",
+    "oid": "1.3.6.1.4.1.25506.8.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cTrapDestEntry": {
+    "name": "hh3cTrapDestEntry",
+    "oid": "1.3.6.1.4.1.25506.8.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "hh3cTrapDestEntry",
+      "module": "HH3C-RMON-EXT-MIB",
+      "object": "trapDestEntry"
+    },
+    "status": "current"
+  },
+  "hh3cTrapDestVersion": {
+    "name": "hh3cTrapDestVersion",
+    "oid": "1.3.6.1.4.1.25506.8.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "snmpv1": 1,
+          "snmpv2": 2,
+          "snmpv3andauthen": 3,
+          "snmpv3andnoauthen": 4,
+          "snmpv3andpriv": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "snmpv1",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3crmonExtendEventsV2": {
+    "name": "hh3crmonExtendEventsV2",
+    "oid": "1.3.6.1.4.1.25506.8.4.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hh3cpririsingAlarm": {
+    "name": "hh3cpririsingAlarm",
+    "oid": "1.3.6.1.4.1.25506.8.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RMON-EXT-MIB",
+        "object": "hh3cprialarmIndex"
+      },
+      {
+        "module": "HH3C-RMON-EXT-MIB",
+        "object": "hh3cprialarmSympol"
+      },
+      {
+        "module": "HH3C-RMON-EXT-MIB",
+        "object": "hh3cprialarmSampleType"
+      },
+      {
+        "module": "HH3C-RMON-EXT-MIB",
+        "object": "hh3cprialarmValue"
+      },
+      {
+        "module": "HH3C-RMON-EXT-MIB",
+        "object": "hh3cprialarmRisingThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cprifallingAlarm": {
+    "name": "hh3cprifallingAlarm",
+    "oid": "1.3.6.1.4.1.25506.8.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RMON-EXT-MIB",
+        "object": "hh3cprialarmIndex"
+      },
+      {
+        "module": "HH3C-RMON-EXT-MIB",
+        "object": "hh3cprialarmSympol"
+      },
+      {
+        "module": "HH3C-RMON-EXT-MIB",
+        "object": "hh3cprialarmSampleType"
+      },
+      {
+        "module": "HH3C-RMON-EXT-MIB",
+        "object": "hh3cprialarmValue"
+      },
+      {
+        "module": "HH3C-RMON-EXT-MIB",
+        "object": "hh3cprialarmFallingThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-RMON-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-RMON-EXT-MIB"
+  }
+}

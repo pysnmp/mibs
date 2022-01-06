@@ -1,0 +1,885 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "IEEE8021-TC-MIB": [
+      "IEEE8021BridgePortNumber"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "MacAddress",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfEvb": {
+    "name": "hpnicfEvb",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-12-21 12:00",
+        "description": "Created by Guo Xiangbin."
+      }
+    ]
+  },
+  "hpnicfEvbSysObjects": {
+    "name": "hpnicfEvbSysObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.1",
+    "class": "objectidentity"
+  },
+  "hpnicfEvbPortObjects": {
+    "name": "hpnicfEvbPortObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2",
+    "class": "objectidentity"
+  },
+  "hpnicfFlex10Objects": {
+    "name": "hpnicfFlex10Objects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.3",
+    "class": "objectidentity"
+  },
+  "hpnicfEvbSetResult": {
+    "name": "hpnicfEvbSetResult",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "processing": 2,
+          "success": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEvbDefaultManagerTable": {
+    "name": "hpnicfEvbDefaultManagerTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEvbDefaultManagerEntry": {
+    "name": "hpnicfEvbDefaultManagerEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-EVB-MIB",
+        "object": "hpnicfEvbManagerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEvbManagerIndex": {
+    "name": "hpnicfEvbManagerIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEvbManagerType": {
+    "name": "hpnicfEvbManagerType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2,
+          "name": 3,
+          "local": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfEvbManagerID": {
+    "name": "hpnicfEvbManagerID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfEvbManagerPort": {
+    "name": "hpnicfEvbManagerPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8080,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfEvbManagerRowStatus": {
+    "name": "hpnicfEvbManagerRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfEvbPortConfigTable": {
+    "name": "hpnicfEvbPortConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEvbPortConfigEntry": {
+    "name": "hpnicfEvbPortConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-EVB-MIB",
+        "object": "hpnicfEvbPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEvbPortNumber": {
+    "name": "hpnicfEvbPortNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEvbRWD": {
+    "name": "hpnicfEvbRWD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 15,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEvbRKA": {
+    "name": "hpnicfEvbRKA",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 14,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEvbSchannelConfigTable": {
+    "name": "hpnicfEvbSchannelConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEvbSchannelConfigEntry": {
+    "name": "hpnicfEvbSchannelConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-EVB-MIB",
+        "object": "hpnicfEvbPortNumber",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVB-MIB",
+        "object": "hpnicfEvbSchannelID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEvbSchannelID": {
+    "name": "hpnicfEvbSchannelID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEvbSchannelSVLAN": {
+    "name": "hpnicfEvbSchannelSVLAN",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfEvbMacLearningStatus": {
+    "name": "hpnicfEvbMacLearningStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEvbRRStatus": {
+    "name": "hpnicfEvbRRStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEvbSchannelRowStatus": {
+    "name": "hpnicfEvbSchannelRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfEvbVSIConfigTable": {
+    "name": "hpnicfEvbVSIConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEvbVSIConfigEntry": {
+    "name": "hpnicfEvbVSIConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-EVB-MIB",
+        "object": "hpnicfEvbSBPPortNumber",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVB-MIB",
+        "object": "hpnicfEvbVSILocalID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEvbSBPPortNumber": {
+    "name": "hpnicfEvbSBPPortNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEvbVSILocalID": {
+    "name": "hpnicfEvbVSILocalID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEvbVSICommand": {
+    "name": "hpnicfEvbVSICommand",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "preAssociate": 1,
+          "preAssociateWithRsrcReservation": 2,
+          "associate": 3,
+          "deAssociate": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfEvbVSIIfIndex": {
+    "name": "hpnicfEvbVSIIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEvbVSIIsActive": {
+    "name": "hpnicfEvbVSIIsActive",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEvbVSIRowStatus": {
+    "name": "hpnicfEvbVSIRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfEvbVSIFilterConfigTable": {
+    "name": "hpnicfEvbVSIFilterConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEvbVSIFilterConfigEntry": {
+    "name": "hpnicfEvbVSIFilterConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-EVB-MIB",
+        "object": "hpnicfEvbSBPPortNumber",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVB-MIB",
+        "object": "hpnicfEvbVSILocalID",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVB-MIB",
+        "object": "hpnicfEvbGroupID",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVB-MIB",
+        "object": "hpnicfEvbVSIMac",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVB-MIB",
+        "object": "hpnicfEvbVSIVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEvbGroupID": {
+    "name": "hpnicfEvbGroupID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEvbVSIMac": {
+    "name": "hpnicfEvbVSIMac",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEvbVSIVlanId": {
+    "name": "hpnicfEvbVSIVlanId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEvbVSIFilterRowStatus": {
+    "name": "hpnicfEvbVSIFilterRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfFlex10PortConfigTable": {
+    "name": "hpnicfFlex10PortConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfFlex10PortConfigEntry": {
+    "name": "hpnicfFlex10PortConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-EVB-MIB",
+        "object": "hpnicfFlex10PortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfFlex10PortNumber": {
+    "name": "hpnicfFlex10PortNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfFlex10PortEnableStatus": {
+    "name": "hpnicfFlex10PortEnableStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfFlex10RemoteSchannelTable": {
+    "name": "hpnicfFlex10RemoteSchannelTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfFlex10RemoteSchannelEntry": {
+    "name": "hpnicfFlex10RemoteSchannelEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-EVB-MIB",
+        "object": "hpnicfFlex10PortNumber",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVB-MIB",
+        "object": "hpnicfEvbSchannelID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfFlex10RemSchDesFormat": {
+    "name": "hpnicfFlex10RemSchDesFormat",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "format0": 0,
+        "format1": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfFlex10RemSchTerminationType": {
+    "name": "hpnicfFlex10RemSchTerminationType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfFlex10RemSchTerminationCap": {
+    "name": "hpnicfFlex10RemSchTerminationCap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ethernet": 0,
+        "fCOE": 1,
+        "iSCSI": 2,
+        "roCEE": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfFlex10RemSchTrafficClass": {
+    "name": "hpnicfFlex10RemSchTrafficClass",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "class0": 0,
+        "class1": 1,
+        "class2": 2,
+        "class3": 3,
+        "class4": 4,
+        "class5": 5,
+        "class6": 6,
+        "class7": 7
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfFlex10RemSchCir": {
+    "name": "hpnicfFlex10RemSchCir",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "mbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfFlex10RemSchPir": {
+    "name": "hpnicfFlex10RemSchPir",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "mbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfFlex10RemSchConnectionID": {
+    "name": "hpnicfFlex10RemSchConnectionID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfFlex10SchannelLinkCtlTable": {
+    "name": "hpnicfFlex10SchannelLinkCtlTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfFlex10SchannelLinkCtlEntry": {
+    "name": "hpnicfFlex10SchannelLinkCtlEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-EVB-MIB",
+        "object": "hpnicfFlex10PortNumber",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVB-MIB",
+        "object": "hpnicfEvbSchannelID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfFlex10SchannelSVID": {
+    "name": "hpnicfFlex10SchannelSVID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfFlex10SchannelLocalStatus": {
+    "name": "hpnicfFlex10SchannelLocalStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfFlex10SchannelRemoteStatus": {
+    "name": "hpnicfFlex10SchannelRemoteStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.134.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-EVB-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:35 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-EVB-MIB"
+  }
+}

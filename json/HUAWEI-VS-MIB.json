@@ -1,0 +1,248 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwVsMIB": {
+    "name": "hwVsMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.255",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-08-17 18:41",
+        "description": "Modify the description."
+      },
+      {
+        "revision": "2017-05-18 10:00",
+        "description": "HwVSEntry MIB objects hwVSStatus, hwVSCPUUsage, hwVSMemoryUsedSize, and hwVSMemoryTotalSize were added."
+      },
+      {
+        "revision": "2014-10-21 10:00",
+        "description": "Modify the Index of hwVSTable."
+      }
+    ]
+  },
+  "hwVSObjects": {
+    "name": "hwVSObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.255.1",
+    "class": "objectidentity"
+  },
+  "hwVSTable": {
+    "name": "hwVSTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.255.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVSEntry": {
+    "name": "hwVSEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.255.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-VS-MIB",
+        "object": "hwVSVsId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwVSVsId": {
+    "name": "hwVSVsId",
+    "oid": "1.3.6.1.4.1.2011.5.25.255.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVSVsName": {
+    "name": "hwVSVsName",
+    "oid": "1.3.6.1.4.1.2011.5.25.255.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVSStatus": {
+    "name": "hwVSStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.255.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "stop": 2,
+          "restoring": 3,
+          "shutdowning": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVSCPUUsage": {
+    "name": "hwVSCPUUsage",
+    "oid": "1.3.6.1.4.1.2011.5.25.255.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVSMemoryUsedSize": {
+    "name": "hwVSMemoryUsedSize",
+    "oid": "1.3.6.1.4.1.2011.5.25.255.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVSMemoryTotalSize": {
+    "name": "hwVSMemoryTotalSize",
+    "oid": "1.3.6.1.4.1.2011.5.25.255.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVSConformance": {
+    "name": "hwVSConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.255.2",
+    "class": "objectidentity"
+  },
+  "hwVSGroups": {
+    "name": "hwVSGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.255.2.1",
+    "class": "objectidentity"
+  },
+  "hwVSCompliances": {
+    "name": "hwVSCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.255.2.2",
+    "class": "objectidentity"
+  },
+  "hwVSConformance2": {
+    "name": "hwVSConformance2",
+    "oid": "1.3.6.1.4.1.2011.5.25.255.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwVSBasicGroup",
+        "module": "HUAWEI-VS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVSBasicGroup": {
+    "name": "hwVSBasicGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.255.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VS-MIB",
+        "object": "hwVSVsName"
+      },
+      {
+        "module": "HUAWEI-VS-MIB",
+        "object": "hwVSStatus"
+      },
+      {
+        "module": "HUAWEI-VS-MIB",
+        "object": "hwVSCPUUsage"
+      },
+      {
+        "module": "HUAWEI-VS-MIB",
+        "object": "hwVSMemoryUsedSize"
+      },
+      {
+        "module": "HUAWEI-VS-MIB",
+        "object": "hwVSMemoryTotalSize"
+      },
+      {
+        "module": "HUAWEI-VS-MIB",
+        "object": "hwVSType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVSType": {
+    "name": "hwVSType",
+    "oid": "1.3.6.1.4.1.2011.5.25.255.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-VS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-VS-MIB"
+  }
+}

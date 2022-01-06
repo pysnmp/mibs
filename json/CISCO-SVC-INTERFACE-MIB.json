@@ -1,0 +1,1783 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-ST-TC": [
+      "FcNameId",
+      "VsanIndex"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoSvcInterfaceMIB": {
+    "name": "ciscoSvcInterfaceMIB",
+    "oid": "1.3.6.1.4.1.9.9.378",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-09-21 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSvcInterfaceMIBObjects": {
+    "name": "ciscoSvcInterfaceMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.378.1",
+    "class": "objectidentity"
+  },
+  "ciscoSvcInterfaceMIBTrapPrefix": {
+    "name": "ciscoSvcInterfaceMIBTrapPrefix",
+    "oid": "1.3.6.1.4.1.9.9.378.2",
+    "class": "objectidentity"
+  },
+  "cSvcInterfaceConfiguration": {
+    "name": "cSvcInterfaceConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1",
+    "class": "objectidentity"
+  },
+  "cSvcInterfaceTrapObjects": {
+    "name": "cSvcInterfaceTrapObjects",
+    "oid": "1.3.6.1.4.1.9.9.378.1.2",
+    "class": "objectidentity"
+  },
+  "NportType": {
+    "name": "NportType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "csiNportTable": {
+    "name": "csiNportTable",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csiNportEntry": {
+    "name": "csiNportEntry",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNportIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNportType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNportVsanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csiNportIfIndex": {
+    "name": "csiNportIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csiNportType": {
+    "name": "csiNportType",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NportType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csiNportVsanId": {
+    "name": "csiNportVsanId",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csiNportPwwn": {
+    "name": "csiNportPwwn",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiNportFcid": {
+    "name": "csiNportFcid",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiNportState": {
+    "name": "csiNportState",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiNportDownReason": {
+    "name": "csiNportDownReason",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "adminDown": 2,
+          "ifSoftwareDown": 3,
+          "lineCardSwDown": 4,
+          "vsanDown": 5,
+          "inRemovalState": 6,
+          "ifHardwareDown": 7,
+          "uninitialized": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiNportRowStatus": {
+    "name": "csiNportRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csiSessionTable": {
+    "name": "csiSessionTable",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csiSessionEntry": {
+    "name": "csiSessionEntry",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionVsanId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csiSessionIfIndex": {
+    "name": "csiSessionIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csiSessionType": {
+    "name": "csiSessionType",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NportType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csiSessionVsanId": {
+    "name": "csiSessionVsanId",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csiSessionId": {
+    "name": "csiSessionId",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csiSessionNportPwwn": {
+    "name": "csiSessionNportPwwn",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionPeerPwwn": {
+    "name": "csiSessionPeerPwwn",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionPeerNwwn": {
+    "name": "csiSessionPeerNwwn",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionPeerFcid": {
+    "name": "csiSessionPeerFcid",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiInterfaceStatsTable": {
+    "name": "csiInterfaceStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csiInterfaceStatsEntry": {
+    "name": "csiInterfaceStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNportIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csiInterfaceInFrames": {
+    "name": "csiInterfaceInFrames",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiInterfaceInFrameRate": {
+    "name": "csiInterfaceInFrameRate",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiInterfaceInBytes": {
+    "name": "csiInterfaceInBytes",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiInterfaceInBytesRate": {
+    "name": "csiInterfaceInBytesRate",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiInterfaceOutFrames": {
+    "name": "csiInterfaceOutFrames",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiInterfaceOutFrameRate": {
+    "name": "csiInterfaceOutFrameRate",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiInterfaceOutBytes": {
+    "name": "csiInterfaceOutBytes",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiInterfaceOutBytesRate": {
+    "name": "csiInterfaceOutBytesRate",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiNportStatsTable": {
+    "name": "csiNportStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csiNportStatsEntry": {
+    "name": "csiNportStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNportIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNportType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNportVsanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csiNportSessions": {
+    "name": "csiNportSessions",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiNportInFrames": {
+    "name": "csiNportInFrames",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiNportInFrameRate": {
+    "name": "csiNportInFrameRate",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiNportInBytes": {
+    "name": "csiNportInBytes",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiNportInBytesRate": {
+    "name": "csiNportInBytesRate",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiNportOutFrames": {
+    "name": "csiNportOutFrames",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiNportOutFrameRate": {
+    "name": "csiNportOutFrameRate",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiNportOutBytes": {
+    "name": "csiNportOutBytes",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiNportOutBytesRate": {
+    "name": "csiNportOutBytesRate",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionStatsTable": {
+    "name": "csiSessionStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csiSessionStatsEntry": {
+    "name": "csiSessionStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionVsanId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csiSessionInELSFrames": {
+    "name": "csiSessionInELSFrames",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionInBLSFrames": {
+    "name": "csiSessionInBLSFrames",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionInFCPCmds": {
+    "name": "csiSessionInFCPCmds",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionInFCPXferRdys": {
+    "name": "csiSessionInFCPXferRdys",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionInFCPDataFrames": {
+    "name": "csiSessionInFCPDataFrames",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionInFCPStatus": {
+    "name": "csiSessionInFCPStatus",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionInFCPDataBytes": {
+    "name": "csiSessionInFCPDataBytes",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionInFCPOverRuns": {
+    "name": "csiSessionInFCPOverRuns",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionInFCPUnderRuns": {
+    "name": "csiSessionInFCPUnderRuns",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionInAborts": {
+    "name": "csiSessionInAborts",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionOutELSFrames": {
+    "name": "csiSessionOutELSFrames",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionOutBLSFrames": {
+    "name": "csiSessionOutBLSFrames",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionOutFCPCmds": {
+    "name": "csiSessionOutFCPCmds",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionOutFCPXferRdys": {
+    "name": "csiSessionOutFCPXferRdys",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionOutFCPDataFrames": {
+    "name": "csiSessionOutFCPDataFrames",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionOutFCPStatus": {
+    "name": "csiSessionOutFCPStatus",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionOutFCPDataBytes": {
+    "name": "csiSessionOutFCPDataBytes",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionOutFCPOverRuns": {
+    "name": "csiSessionOutFCPOverRuns",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionOutFCPUnderRuns": {
+    "name": "csiSessionOutFCPUnderRuns",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionOutAborts": {
+    "name": "csiSessionOutAborts",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionOpenXchanges": {
+    "name": "csiSessionOpenXchanges",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionInBadFc2Drops": {
+    "name": "csiSessionInBadFc2Drops",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionInBadFcPDrops": {
+    "name": "csiSessionInBadFcPDrops",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiSessionInFCPDataExcess": {
+    "name": "csiSessionInFCPDataExcess",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiInterfaceNwwnTable": {
+    "name": "csiInterfaceNwwnTable",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csiInterfaceNwwnEntry": {
+    "name": "csiInterfaceNwwnEntry",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNportIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csiInterfaceNwwn": {
+    "name": "csiInterfaceNwwn",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csiInterfaceOperStateCause": {
+    "name": "csiInterfaceOperStateCause",
+    "oid": "1.3.6.1.4.1.9.9.378.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csiErrorId": {
+    "name": "csiErrorId",
+    "oid": "1.3.6.1.4.1.9.9.378.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "csiErrorSeqNumber": {
+    "name": "csiErrorSeqNumber",
+    "oid": "1.3.6.1.4.1.9.9.378.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "csiSlotNumber": {
+    "name": "csiSlotNumber",
+    "oid": "1.3.6.1.4.1.9.9.378.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "csiPortNumber": {
+    "name": "csiPortNumber",
+    "oid": "1.3.6.1.4.1.9.9.378.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "csiObjName": {
+    "name": "csiObjName",
+    "oid": "1.3.6.1.4.1.9.9.378.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "csiErrorText": {
+    "name": "csiErrorText",
+    "oid": "1.3.6.1.4.1.9.9.378.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "csiMachineType": {
+    "name": "csiMachineType",
+    "oid": "1.3.6.1.4.1.9.9.378.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "csiCardSerialNo": {
+    "name": "csiCardSerialNo",
+    "oid": "1.3.6.1.4.1.9.9.378.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "csiSwVersion": {
+    "name": "csiSwVersion",
+    "oid": "1.3.6.1.4.1.9.9.378.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "csiSwitchName": {
+    "name": "csiSwitchName",
+    "oid": "1.3.6.1.4.1.9.9.378.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "csiClusterName": {
+    "name": "csiClusterName",
+    "oid": "1.3.6.1.4.1.9.9.378.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "csiNodeName": {
+    "name": "csiNodeName",
+    "oid": "1.3.6.1.4.1.9.9.378.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "csiMIBTraps": {
+    "name": "csiMIBTraps",
+    "oid": "1.3.6.1.4.1.9.9.378.2.0",
+    "class": "objectidentity"
+  },
+  "csiErrorTrap": {
+    "name": "csiErrorTrap",
+    "oid": "1.3.6.1.4.1.9.9.378.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiErrorId"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiErrorSeqNumber"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSlotNumber"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiPortNumber"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiObjName"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiErrorText"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiMachineType"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiCardSerialNo"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSwVersion"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSwitchName"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiClusterName"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNodeName"
+      }
+    ],
+    "status": "current"
+  },
+  "csiWarningTrap": {
+    "name": "csiWarningTrap",
+    "oid": "1.3.6.1.4.1.9.9.378.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiErrorId"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiErrorSeqNumber"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSlotNumber"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiPortNumber"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiObjName"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiErrorText"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiMachineType"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiCardSerialNo"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSwVersion"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSwitchName"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiClusterName"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNodeName"
+      }
+    ],
+    "status": "current"
+  },
+  "csiInformationTrap": {
+    "name": "csiInformationTrap",
+    "oid": "1.3.6.1.4.1.9.9.378.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiErrorId"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiErrorSeqNumber"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSlotNumber"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiPortNumber"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiObjName"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiErrorText"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiMachineType"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiCardSerialNo"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSwVersion"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSwitchName"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiClusterName"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNodeName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSvcMIBConformance": {
+    "name": "ciscoSvcMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.378.3",
+    "class": "objectidentity"
+  },
+  "ciscoSvcMIBCompliances": {
+    "name": "ciscoSvcMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.378.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoSvcMIBGroups": {
+    "name": "ciscoSvcMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.378.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoSvcMIBCompliance": {
+    "name": "ciscoSvcMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.378.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "csiNportGroup",
+        "module": "CISCO-SVC-INTERFACE-MIB"
+      },
+      {
+        "object": "csiSessionGroup",
+        "module": "CISCO-SVC-INTERFACE-MIB"
+      },
+      {
+        "object": "csiInterfaceStatsGroup",
+        "module": "CISCO-SVC-INTERFACE-MIB"
+      },
+      {
+        "object": "csiNportStatsGroup",
+        "module": "CISCO-SVC-INTERFACE-MIB"
+      },
+      {
+        "object": "csiSessionStatsGroup",
+        "module": "CISCO-SVC-INTERFACE-MIB"
+      },
+      {
+        "object": "csiInterfaceNwwnGroup",
+        "module": "CISCO-SVC-INTERFACE-MIB"
+      },
+      {
+        "object": "csiNotifObjectsGroup",
+        "module": "CISCO-SVC-INTERFACE-MIB"
+      },
+      {
+        "object": "cefcMgmtNotificationsGroup",
+        "module": "CISCO-SVC-INTERFACE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "csiNportGroup": {
+    "name": "csiNportGroup",
+    "oid": "1.3.6.1.4.1.9.9.378.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNportPwwn"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNportFcid"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNportState"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNportDownReason"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNportRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "csiSessionGroup": {
+    "name": "csiSessionGroup",
+    "oid": "1.3.6.1.4.1.9.9.378.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionNportPwwn"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionPeerPwwn"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionPeerNwwn"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionPeerFcid"
+      }
+    ],
+    "status": "current"
+  },
+  "csiInterfaceStatsGroup": {
+    "name": "csiInterfaceStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.378.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiInterfaceInFrames"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiInterfaceInFrameRate"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiInterfaceInBytes"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiInterfaceInBytesRate"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiInterfaceOutFrames"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiInterfaceOutFrameRate"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiInterfaceOutBytes"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiInterfaceOutBytesRate"
+      }
+    ],
+    "status": "current"
+  },
+  "csiNportStatsGroup": {
+    "name": "csiNportStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.378.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNportSessions"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNportInFrames"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNportInFrameRate"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNportInBytes"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNportInBytesRate"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNportOutFrames"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNportOutFrameRate"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNportOutBytes"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNportOutBytesRate"
+      }
+    ],
+    "status": "current"
+  },
+  "csiSessionStatsGroup": {
+    "name": "csiSessionStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.378.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionInELSFrames"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionInBLSFrames"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionInFCPCmds"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionInFCPXferRdys"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionInFCPDataFrames"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionInFCPStatus"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionInFCPDataBytes"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionInFCPOverRuns"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionInFCPUnderRuns"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionInAborts"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionOutELSFrames"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionOutBLSFrames"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionOutFCPCmds"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionOutFCPXferRdys"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionOutFCPDataFrames"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionOutFCPStatus"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionOutFCPDataBytes"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionOutFCPOverRuns"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionOutFCPUnderRuns"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionOutAborts"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionOpenXchanges"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionInBadFc2Drops"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionInBadFcPDrops"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSessionInFCPDataExcess"
+      }
+    ],
+    "status": "current"
+  },
+  "csiInterfaceNwwnGroup": {
+    "name": "csiInterfaceNwwnGroup",
+    "oid": "1.3.6.1.4.1.9.9.378.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiInterfaceNwwn"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiInterfaceOperStateCause"
+      }
+    ],
+    "status": "current"
+  },
+  "csiNotifObjectsGroup": {
+    "name": "csiNotifObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.9.378.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiErrorId"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiErrorSeqNumber"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSlotNumber"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiPortNumber"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiObjName"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiErrorText"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiMachineType"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiCardSerialNo"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSwVersion"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiSwitchName"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiClusterName"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiNodeName"
+      }
+    ],
+    "status": "current"
+  },
+  "cefcMgmtNotificationsGroup": {
+    "name": "cefcMgmtNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.378.3.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiErrorTrap"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiWarningTrap"
+      },
+      {
+        "module": "CISCO-SVC-INTERFACE-MIB",
+        "object": "csiInformationTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SVC-INTERFACE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SVC-INTERFACE-MIB"
+  }
+}

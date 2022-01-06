@@ -1,0 +1,3915 @@
+{
+  "imports": {
+    "class": "imports",
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "JUNIPER-SMI": [
+      "jnxMibs",
+      "jnxCosNotifications"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxCos": {
+    "name": "jnxCos",
+    "oid": "1.3.6.1.4.1.2636.3.15",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-09-17 00:00",
+        "description": "Added Ingress Rate Limit stats"
+      },
+      {
+        "revision": "2014-11-07 00:00",
+        "description": "Added Queue Depth stats"
+      },
+      {
+        "revision": "2013-05-20 00:00",
+        "description": "Modified the max range for JnxCosFcIdentifier from 7 to 15."
+      },
+      {
+        "revision": "1970-01-01 00:00",
+        "description": "Added Rate Limit stats"
+      },
+      {
+        "revision": "2009-10-29 00:00",
+        "description": "Added new trap jnxCosOutOfDedicatedQueues Added new trap jnxCosAlmostOutOfDedicatedQueues"
+      },
+      {
+        "revision": "2007-12-31 00:00",
+        "description": "Added jnxCosIngressQstatTable"
+      },
+      {
+        "revision": "2006-10-31 00:00",
+        "description": "Added jnxCosInvQstatTable"
+      },
+      {
+        "revision": "2003-06-13 00:00",
+        "description": "Deprecated jnxCosIfqStatsTable. Added new table jnxCosQstatTable. Added new object jnxCosFcQueueNr."
+      },
+      {
+        "revision": "2002-09-09 00:00",
+        "description": "Added 'jnxCosFcIdTable' table."
+      },
+      {
+        "revision": "2002-01-10 00:00",
+        "description": "Initial Version"
+      }
+    ]
+  },
+  "JnxCosAdminString": {
+    "name": "JnxCosAdminString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "JnxCosFcIdentifier": {
+    "name": "JnxCosFcIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "jnxCosIfqStatsTable": {
+    "name": "jnxCosIfqStatsTable",
+    "oid": "1.3.6.1.4.1.2636.3.15.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxCosIfqStatsEntry": {
+    "name": "jnxCosIfqStatsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosIfqIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosIfqFc",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxCosIfqIfIndex": {
+    "name": "jnxCosIfqIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxCosIfqFc": {
+    "name": "jnxCosIfqFc",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxCosAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxCosIfqQedPkts": {
+    "name": "jnxCosIfqQedPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqQedPktRate": {
+    "name": "jnxCosIfqQedPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqQedBytes": {
+    "name": "jnxCosIfqQedBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqQedByteRate": {
+    "name": "jnxCosIfqQedByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqTxedPkts": {
+    "name": "jnxCosIfqTxedPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqTxedPktRate": {
+    "name": "jnxCosIfqTxedPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqTxedBytes": {
+    "name": "jnxCosIfqTxedBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqTxedByteRate": {
+    "name": "jnxCosIfqTxedByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqTailDropPkts": {
+    "name": "jnxCosIfqTailDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqTailDropPktRate": {
+    "name": "jnxCosIfqTailDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqTotalRedDropPkts": {
+    "name": "jnxCosIfqTotalRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqTotalRedDropPktRate": {
+    "name": "jnxCosIfqTotalRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqLpNonTcpRedDropPkts": {
+    "name": "jnxCosIfqLpNonTcpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqLpNonTcpRedDropPktRate": {
+    "name": "jnxCosIfqLpNonTcpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqLpTcpRedDropPkts": {
+    "name": "jnxCosIfqLpTcpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqLpTcpRedDropPktRate": {
+    "name": "jnxCosIfqLpTcpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqHpNonTcpRedDropPkts": {
+    "name": "jnxCosIfqHpNonTcpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqHpNonTcpRedDropPktRate": {
+    "name": "jnxCosIfqHpNonTcpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqHpTcpRedDropPkts": {
+    "name": "jnxCosIfqHpTcpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqHpTcpRedDropPktRate": {
+    "name": "jnxCosIfqHpTcpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqTotalRedDropBytes": {
+    "name": "jnxCosIfqTotalRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqTotalRedDropByteRate": {
+    "name": "jnxCosIfqTotalRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqLpNonTcpRedDropBytes": {
+    "name": "jnxCosIfqLpNonTcpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqLpNonTcpRedDropByteRate": {
+    "name": "jnxCosIfqLpNonTcpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqLpTcpRedDropBytes": {
+    "name": "jnxCosIfqLpTcpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqLpTcpRedDropByteRate": {
+    "name": "jnxCosIfqLpTcpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqHpNonTcpRedDropBytes": {
+    "name": "jnxCosIfqHpNonTcpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqHpNonTcpRedDropByteRate": {
+    "name": "jnxCosIfqHpNonTcpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqHpTcpRedDropBytes": {
+    "name": "jnxCosIfqHpTcpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosIfqHpTcpRedDropByteRate": {
+    "name": "jnxCosIfqHpTcpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxCosFcTable": {
+    "name": "jnxCosFcTable",
+    "oid": "1.3.6.1.4.1.2636.3.15.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosFcEntry": {
+    "name": "jnxCosFcEntry",
+    "oid": "1.3.6.1.4.1.2636.3.15.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosFcName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxCosFcName": {
+    "name": "jnxCosFcName",
+    "oid": "1.3.6.1.4.1.2636.3.15.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxCosAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosFcQueueNr": {
+    "name": "jnxCosFcQueueNr",
+    "oid": "1.3.6.1.4.1.2636.3.15.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosRestrictedQNr": {
+    "name": "jnxCosRestrictedQNr",
+    "oid": "1.3.6.1.4.1.2636.3.15.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosFcIdTable": {
+    "name": "jnxCosFcIdTable",
+    "oid": "1.3.6.1.4.1.2636.3.15.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosFcIdEntry": {
+    "name": "jnxCosFcIdEntry",
+    "oid": "1.3.6.1.4.1.2636.3.15.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosFcId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxCosFcId": {
+    "name": "jnxCosFcId",
+    "oid": "1.3.6.1.4.1.2636.3.15.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxCosFcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosFcIdToFcName": {
+    "name": "jnxCosFcIdToFcName",
+    "oid": "1.3.6.1.4.1.2636.3.15.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxCosAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosFcFabricPriority": {
+    "name": "jnxCosFcFabricPriority",
+    "oid": "1.3.6.1.4.1.2636.3.15.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatTable": {
+    "name": "jnxCosQstatTable",
+    "oid": "1.3.6.1.4.1.2636.3.15.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosQstatEntry": {
+    "name": "jnxCosQstatEntry",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosQstatIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosQstatQueueNr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxCosQstatIfIndex": {
+    "name": "jnxCosQstatIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosQstatQueueNr": {
+    "name": "jnxCosQstatQueueNr",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosQstatQedPkts": {
+    "name": "jnxCosQstatQedPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatQedPktRate": {
+    "name": "jnxCosQstatQedPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatQedBytes": {
+    "name": "jnxCosQstatQedBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatQedByteRate": {
+    "name": "jnxCosQstatQedByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatTxedPkts": {
+    "name": "jnxCosQstatTxedPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatTxedPktRate": {
+    "name": "jnxCosQstatTxedPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatTxedBytes": {
+    "name": "jnxCosQstatTxedBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatTxedByteRate": {
+    "name": "jnxCosQstatTxedByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatTailDropPkts": {
+    "name": "jnxCosQstatTailDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatTailDropPktRate": {
+    "name": "jnxCosQstatTailDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatTotalRedDropPkts": {
+    "name": "jnxCosQstatTotalRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatTotalRedDropPktRate": {
+    "name": "jnxCosQstatTotalRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatLpNonTcpRedDropPkts": {
+    "name": "jnxCosQstatLpNonTcpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatLpNonTcpRDropPktRate": {
+    "name": "jnxCosQstatLpNonTcpRDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatLpTcpRedDropPkts": {
+    "name": "jnxCosQstatLpTcpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatLpTcpRedDropPktRate": {
+    "name": "jnxCosQstatLpTcpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatHpNonTcpRedDropPkts": {
+    "name": "jnxCosQstatHpNonTcpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatHpNonTcpRDropPktRate": {
+    "name": "jnxCosQstatHpNonTcpRDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatHpTcpRedDropPkts": {
+    "name": "jnxCosQstatHpTcpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatHpTcpRedDropPktRate": {
+    "name": "jnxCosQstatHpTcpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatTotalRedDropBytes": {
+    "name": "jnxCosQstatTotalRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatTotalRedDropByteRate": {
+    "name": "jnxCosQstatTotalRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatLpNonTcpRedDropBytes": {
+    "name": "jnxCosQstatLpNonTcpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatLpNonTcpRDropByteRate": {
+    "name": "jnxCosQstatLpNonTcpRDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatLpTcpRedDropBytes": {
+    "name": "jnxCosQstatLpTcpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatLpTcpRedDropByteRate": {
+    "name": "jnxCosQstatLpTcpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatHpNonTcpRedDropBytes": {
+    "name": "jnxCosQstatHpNonTcpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatHpNonTcpRDropByteRate": {
+    "name": "jnxCosQstatHpNonTcpRDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatHpTcpRedDropBytes": {
+    "name": "jnxCosQstatHpTcpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatHpTcpRedDropByteRate": {
+    "name": "jnxCosQstatHpTcpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatLpRedDropPkts": {
+    "name": "jnxCosQstatLpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatLpRedDropPktRate": {
+    "name": "jnxCosQstatLpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatMLpRedDropPkts": {
+    "name": "jnxCosQstatMLpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatMLpRedDropPktRate": {
+    "name": "jnxCosQstatMLpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatMHpRedDropPkts": {
+    "name": "jnxCosQstatMHpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatMHpRedDropPktRate": {
+    "name": "jnxCosQstatMHpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatHpRedDropPkts": {
+    "name": "jnxCosQstatHpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatHpRedDropPktRate": {
+    "name": "jnxCosQstatHpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatLpRedDropBytes": {
+    "name": "jnxCosQstatLpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatLpRedDropByteRate": {
+    "name": "jnxCosQstatLpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatMLpRedDropBytes": {
+    "name": "jnxCosQstatMLpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatMLpRedDropByteRate": {
+    "name": "jnxCosQstatMLpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatMHpRedDropBytes": {
+    "name": "jnxCosQstatMHpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatMHpRedDropByteRate": {
+    "name": "jnxCosQstatMHpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatHpRedDropBytes": {
+    "name": "jnxCosQstatHpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatHpRedDropByteRate": {
+    "name": "jnxCosQstatHpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatRateLimitDropPkts": {
+    "name": "jnxCosQstatRateLimitDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatRateLimitDropPktRate": {
+    "name": "jnxCosQstatRateLimitDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatRateLimitDropBytes": {
+    "name": "jnxCosQstatRateLimitDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatRateLimitDropByteRate": {
+    "name": "jnxCosQstatRateLimitDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatTotalDropPkts": {
+    "name": "jnxCosQstatTotalDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatTotalDropPktRate": {
+    "name": "jnxCosQstatTotalDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatTotalDropBytes": {
+    "name": "jnxCosQstatTotalDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatTotalDropByteRate": {
+    "name": "jnxCosQstatTotalDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatDepthAverage": {
+    "name": "jnxCosQstatDepthAverage",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatDepthCurrent": {
+    "name": "jnxCosQstatDepthCurrent",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatDepthPeak": {
+    "name": "jnxCosQstatDepthPeak",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQstatDepthMax": {
+    "name": "jnxCosQstatDepthMax",
+    "oid": "1.3.6.1.4.1.2636.3.15.4.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "JnxCosIfstatFlags": {
+    "name": "JnxCosIfstatFlags",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "perRedDropProfileValid": 0,
+        "triColorConfiguredAndCapable": 1,
+        "triColorConfiguredAndNotCapable": 2
+      }
+    },
+    "status": "current"
+  },
+  "jnxCosIfstatFlagTable": {
+    "name": "jnxCosIfstatFlagTable",
+    "oid": "1.3.6.1.4.1.2636.3.15.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosIfstatFlagEntry": {
+    "name": "jnxCosIfstatFlagEntry",
+    "oid": "1.3.6.1.4.1.2636.3.15.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxCosIfIndex": {
+    "name": "jnxCosIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.15.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosIfstatFlags": {
+    "name": "jnxCosIfstatFlags",
+    "oid": "1.3.6.1.4.1.2636.3.15.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxCosIfstatFlags",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatTable": {
+    "name": "jnxCosInvQstatTable",
+    "oid": "1.3.6.1.4.1.2636.3.15.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosInvQstatEntry": {
+    "name": "jnxCosInvQstatEntry",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosInvQstatQueueNr",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosInvQstatIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxCosInvQstatQueueNr": {
+    "name": "jnxCosInvQstatQueueNr",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosInvQstatIfIndex": {
+    "name": "jnxCosInvQstatIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosInvQstatQedPkts": {
+    "name": "jnxCosInvQstatQedPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatQedPktRate": {
+    "name": "jnxCosInvQstatQedPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatQedBytes": {
+    "name": "jnxCosInvQstatQedBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatQedByteRate": {
+    "name": "jnxCosInvQstatQedByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatTxedPkts": {
+    "name": "jnxCosInvQstatTxedPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatTxedPktRate": {
+    "name": "jnxCosInvQstatTxedPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatTxedBytes": {
+    "name": "jnxCosInvQstatTxedBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatTxedByteRate": {
+    "name": "jnxCosInvQstatTxedByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatTailDropPkts": {
+    "name": "jnxCosInvQstatTailDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatTailDropPktRate": {
+    "name": "jnxCosInvQstatTailDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatTotalRedDropPkts": {
+    "name": "jnxCosInvQstatTotalRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatTotalRedDropPktRate": {
+    "name": "jnxCosInvQstatTotalRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatLpNonTcpRedDropPkts": {
+    "name": "jnxCosInvQstatLpNonTcpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatLpNonTcpRDropPktRate": {
+    "name": "jnxCosInvQstatLpNonTcpRDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatLpTcpRedDropPkts": {
+    "name": "jnxCosInvQstatLpTcpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatLpTcpRedDropPktRate": {
+    "name": "jnxCosInvQstatLpTcpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatHpNonTcpRedDropPkts": {
+    "name": "jnxCosInvQstatHpNonTcpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatHpNonTcpRDropPktRate": {
+    "name": "jnxCosInvQstatHpNonTcpRDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatHpTcpRedDropPkts": {
+    "name": "jnxCosInvQstatHpTcpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatHpTcpRedDropPktRate": {
+    "name": "jnxCosInvQstatHpTcpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatTotalRedDropBytes": {
+    "name": "jnxCosInvQstatTotalRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatTotalRedDropByteRate": {
+    "name": "jnxCosInvQstatTotalRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatLpNonTcpRedDropBytes": {
+    "name": "jnxCosInvQstatLpNonTcpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatLpNonTcpRDropByteRate": {
+    "name": "jnxCosInvQstatLpNonTcpRDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatLpTcpRedDropBytes": {
+    "name": "jnxCosInvQstatLpTcpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatLpTcpRedDropByteRate": {
+    "name": "jnxCosInvQstatLpTcpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatHpNonTcpRedDropBytes": {
+    "name": "jnxCosInvQstatHpNonTcpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatHpNonTcpRDropByteRate": {
+    "name": "jnxCosInvQstatHpNonTcpRDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatHpTcpRedDropBytes": {
+    "name": "jnxCosInvQstatHpTcpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatHpTcpRedDropByteRate": {
+    "name": "jnxCosInvQstatHpTcpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatLpRedDropPkts": {
+    "name": "jnxCosInvQstatLpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatLpRedDropPktRate": {
+    "name": "jnxCosInvQstatLpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatMLpRedDropPkts": {
+    "name": "jnxCosInvQstatMLpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatMLpRedDropPktRate": {
+    "name": "jnxCosInvQstatMLpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatMHpRedDropPkts": {
+    "name": "jnxCosInvQstatMHpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatMHpRedDropPktRate": {
+    "name": "jnxCosInvQstatMHpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatHpRedDropPkts": {
+    "name": "jnxCosInvQstatHpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatHpRedDropPktRate": {
+    "name": "jnxCosInvQstatHpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatLpRedDropBytes": {
+    "name": "jnxCosInvQstatLpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatLpRedDropByteRate": {
+    "name": "jnxCosInvQstatLpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatMLpRedDropBytes": {
+    "name": "jnxCosInvQstatMLpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatMLpRedDropByteRate": {
+    "name": "jnxCosInvQstatMLpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatMHpRedDropBytes": {
+    "name": "jnxCosInvQstatMHpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatMHpRedDropByteRate": {
+    "name": "jnxCosInvQstatMHpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatHpRedDropBytes": {
+    "name": "jnxCosInvQstatHpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosInvQstatHpRedDropByteRate": {
+    "name": "jnxCosInvQstatHpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.6.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatTable": {
+    "name": "jnxCosIngressQstatTable",
+    "oid": "1.3.6.1.4.1.2636.3.15.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosIngressQstatEntry": {
+    "name": "jnxCosIngressQstatEntry",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosIngressQstatIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosIngressQstatQueueNr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxCosIngressQstatIfIndex": {
+    "name": "jnxCosIngressQstatIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosIngressQstatQueueNr": {
+    "name": "jnxCosIngressQstatQueueNr",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosIngressQstatQedPkts": {
+    "name": "jnxCosIngressQstatQedPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatQedPktRate": {
+    "name": "jnxCosIngressQstatQedPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatQedBytes": {
+    "name": "jnxCosIngressQstatQedBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatQedByteRate": {
+    "name": "jnxCosIngressQstatQedByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatTxedPkts": {
+    "name": "jnxCosIngressQstatTxedPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatTxedPktRate": {
+    "name": "jnxCosIngressQstatTxedPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatTxedBytes": {
+    "name": "jnxCosIngressQstatTxedBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatTxedByteRate": {
+    "name": "jnxCosIngressQstatTxedByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatTailDropPkts": {
+    "name": "jnxCosIngressQstatTailDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatTailDropPktRate": {
+    "name": "jnxCosIngressQstatTailDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatTotalRedDropPkts": {
+    "name": "jnxCosIngressQstatTotalRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatTotalRedDropPktRate": {
+    "name": "jnxCosIngressQstatTotalRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatLpNonTcpRedDropPkts": {
+    "name": "jnxCosIngressQstatLpNonTcpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatLpNonTcpRDropPktRate": {
+    "name": "jnxCosIngressQstatLpNonTcpRDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatLpTcpRedDropPkts": {
+    "name": "jnxCosIngressQstatLpTcpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatLpTcpRedDropPktRate": {
+    "name": "jnxCosIngressQstatLpTcpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatHpNonTcpRedDropPkts": {
+    "name": "jnxCosIngressQstatHpNonTcpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatHpNonTcpRDropPktRate": {
+    "name": "jnxCosIngressQstatHpNonTcpRDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatHpTcpRedDropPkts": {
+    "name": "jnxCosIngressQstatHpTcpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatHpTcpRedDropPktRate": {
+    "name": "jnxCosIngressQstatHpTcpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatTotalRedDropBytes": {
+    "name": "jnxCosIngressQstatTotalRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatTotalRedDropByteRate": {
+    "name": "jnxCosIngressQstatTotalRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatLpNonTcpRedDropBytes": {
+    "name": "jnxCosIngressQstatLpNonTcpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatLpNonTcpRDropByteRate": {
+    "name": "jnxCosIngressQstatLpNonTcpRDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatLpTcpRedDropBytes": {
+    "name": "jnxCosIngressQstatLpTcpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatLpTcpRedDropByteRate": {
+    "name": "jnxCosIngressQstatLpTcpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatHpNonTcpRedDropBytes": {
+    "name": "jnxCosIngressQstatHpNonTcpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatHpNonTcpRDropByteRate": {
+    "name": "jnxCosIngressQstatHpNonTcpRDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatHpTcpRedDropBytes": {
+    "name": "jnxCosIngressQstatHpTcpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatHpTcpRedDropByteRate": {
+    "name": "jnxCosIngressQstatHpTcpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatLpRedDropPkts": {
+    "name": "jnxCosIngressQstatLpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatLpRedDropPktRate": {
+    "name": "jnxCosIngressQstatLpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatMLpRedDropPkts": {
+    "name": "jnxCosIngressQstatMLpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatMLpRedDropPktRate": {
+    "name": "jnxCosIngressQstatMLpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatMHpRedDropPkts": {
+    "name": "jnxCosIngressQstatMHpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatMHpRedDropPktRate": {
+    "name": "jnxCosIngressQstatMHpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatHpRedDropPkts": {
+    "name": "jnxCosIngressQstatHpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatHpRedDropPktRate": {
+    "name": "jnxCosIngressQstatHpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatLpRedDropBytes": {
+    "name": "jnxCosIngressQstatLpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatLpRedDropByteRate": {
+    "name": "jnxCosIngressQstatLpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatMLpRedDropBytes": {
+    "name": "jnxCosIngressQstatMLpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatMLpRedDropByteRate": {
+    "name": "jnxCosIngressQstatMLpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatMHpRedDropBytes": {
+    "name": "jnxCosIngressQstatMHpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatMHpRedDropByteRate": {
+    "name": "jnxCosIngressQstatMHpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatHpRedDropBytes": {
+    "name": "jnxCosIngressQstatHpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatHpRedDropByteRate": {
+    "name": "jnxCosIngressQstatHpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatDepthAverage": {
+    "name": "jnxCosIngressQstatDepthAverage",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatDepthCurrent": {
+    "name": "jnxCosIngressQstatDepthCurrent",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatDepthPeak": {
+    "name": "jnxCosIngressQstatDepthPeak",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatDepthMax": {
+    "name": "jnxCosIngressQstatDepthMax",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatRateLimitDropPkts": {
+    "name": "jnxCosIngressQstatRateLimitDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatRateLimitDropPktRate": {
+    "name": "jnxCosIngressQstatRateLimitDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatRateLimitDropBytes": {
+    "name": "jnxCosIngressQstatRateLimitDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIngressQstatRateLimitDropByteRate": {
+    "name": "jnxCosIngressQstatRateLimitDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.7.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosNotifyVars": {
+    "name": "jnxCosNotifyVars",
+    "oid": "1.3.6.1.4.1.2636.3.15.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxCosInterfaceName": {
+    "name": "jnxCosInterfaceName",
+    "oid": "1.3.6.1.4.1.2636.3.15.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxCosFpcIndex": {
+    "name": "jnxCosFpcIndex",
+    "oid": "1.3.6.1.4.1.2636.3.15.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosPfeIndex": {
+    "name": "jnxCosPfeIndex",
+    "oid": "1.3.6.1.4.1.2636.3.15.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosQueueIndex": {
+    "name": "jnxCosQueueIndex",
+    "oid": "1.3.6.1.4.1.2636.3.15.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosNotificationsPrefix": {
+    "name": "jnxCosNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.2636.4.17.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxCosOutOfDedicatedQueues": {
+    "name": "jnxCosOutOfDedicatedQueues",
+    "oid": "1.3.6.1.4.1.2636.4.17.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxCosAlmostOutOfDedicatedQueues": {
+    "name": "jnxCosAlmostOutOfDedicatedQueues",
+    "oid": "1.3.6.1.4.1.2636.4.17.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxCosFabricQueueOverflow": {
+    "name": "jnxCosFabricQueueOverflow",
+    "oid": "1.3.6.1.4.1.2636.4.17.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosFpcIndex"
+      },
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosPfeIndex"
+      },
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosQueueIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxCosWanQueueOverflow": {
+    "name": "jnxCosWanQueueOverflow",
+    "oid": "1.3.6.1.4.1.2636.4.17.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosFpcIndex"
+      },
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosInterfaceName"
+      },
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosQueueIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxCosFabricQueueOverflowCleared": {
+    "name": "jnxCosFabricQueueOverflowCleared",
+    "oid": "1.3.6.1.4.1.2636.4.17.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosFpcIndex"
+      },
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosPfeIndex"
+      },
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosQueueIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxCosWanQueueOverflowCleared": {
+    "name": "jnxCosWanQueueOverflowCleared",
+    "oid": "1.3.6.1.4.1.2636.4.17.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosFpcIndex"
+      },
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosInterfaceName"
+      },
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosQueueIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxCosIfTable": {
+    "name": "jnxCosIfTable",
+    "oid": "1.3.6.1.4.1.2636.3.15.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosIfEntry": {
+    "name": "jnxCosIfEntry",
+    "oid": "1.3.6.1.4.1.2636.3.15.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosIfIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxCosIfIdx": {
+    "name": "jnxCosIfIdx",
+    "oid": "1.3.6.1.4.1.2636.3.15.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetDescr": {
+    "name": "jnxCosIfsetDescr",
+    "oid": "1.3.6.1.4.1.2636.3.15.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatTable": {
+    "name": "jnxCosIfsetQstatTable",
+    "oid": "1.3.6.1.4.1.2636.3.15.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatEntry": {
+    "name": "jnxCosIfsetQstatEntry",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosIfsetQstatChildIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosIfsetQstatQueueNr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxCosIfsetQstatChildIfIndex": {
+    "name": "jnxCosIfsetQstatChildIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatQueueNr": {
+    "name": "jnxCosIfsetQstatQueueNr",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatQedPkts": {
+    "name": "jnxCosIfsetQstatQedPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatQedPktRate": {
+    "name": "jnxCosIfsetQstatQedPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatQedBytes": {
+    "name": "jnxCosIfsetQstatQedBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatQedByteRate": {
+    "name": "jnxCosIfsetQstatQedByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatTxedPkts": {
+    "name": "jnxCosIfsetQstatTxedPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatTxedPktRate": {
+    "name": "jnxCosIfsetQstatTxedPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatTxedBytes": {
+    "name": "jnxCosIfsetQstatTxedBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatTxedByteRate": {
+    "name": "jnxCosIfsetQstatTxedByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatTailDropPkts": {
+    "name": "jnxCosIfsetQstatTailDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatTailDropPktRate": {
+    "name": "jnxCosIfsetQstatTailDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatTotalRedDropPkts": {
+    "name": "jnxCosIfsetQstatTotalRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatTotalRedDropPktRate": {
+    "name": "jnxCosIfsetQstatTotalRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatLpNonTcpRedDropPkts": {
+    "name": "jnxCosIfsetQstatLpNonTcpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatLpNonTcpRDropPktRate": {
+    "name": "jnxCosIfsetQstatLpNonTcpRDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatLpTcpRedDropPkts": {
+    "name": "jnxCosIfsetQstatLpTcpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatLpTcpRedDropPktRate": {
+    "name": "jnxCosIfsetQstatLpTcpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatHpNonTcpRedDropPkts": {
+    "name": "jnxCosIfsetQstatHpNonTcpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatHpNonTcpRDropPktRate": {
+    "name": "jnxCosIfsetQstatHpNonTcpRDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatHpTcpRedDropPkts": {
+    "name": "jnxCosIfsetQstatHpTcpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatHpTcpRedDropPktRate": {
+    "name": "jnxCosIfsetQstatHpTcpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatTotalRedDropBytes": {
+    "name": "jnxCosIfsetQstatTotalRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatTotalRedDropByteRate": {
+    "name": "jnxCosIfsetQstatTotalRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatLpNonTcpRedDropBytes": {
+    "name": "jnxCosIfsetQstatLpNonTcpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatLpNonTcpRDropByteRate": {
+    "name": "jnxCosIfsetQstatLpNonTcpRDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatLpTcpRedDropBytes": {
+    "name": "jnxCosIfsetQstatLpTcpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatLpTcpRedDropByteRate": {
+    "name": "jnxCosIfsetQstatLpTcpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatHpNonTcpRedDropBytes": {
+    "name": "jnxCosIfsetQstatHpNonTcpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatHpNonTcpRDropByteRate": {
+    "name": "jnxCosIfsetQstatHpNonTcpRDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatHpTcpRedDropBytes": {
+    "name": "jnxCosIfsetQstatHpTcpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatHpTcpRedDropByteRate": {
+    "name": "jnxCosIfsetQstatHpTcpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatLpRedDropPkts": {
+    "name": "jnxCosIfsetQstatLpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatLpRedDropPktRate": {
+    "name": "jnxCosIfsetQstatLpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatMLpRedDropPkts": {
+    "name": "jnxCosIfsetQstatMLpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatMLpRedDropPktRate": {
+    "name": "jnxCosIfsetQstatMLpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatMHpRedDropPkts": {
+    "name": "jnxCosIfsetQstatMHpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatMHpRedDropPktRate": {
+    "name": "jnxCosIfsetQstatMHpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatHpRedDropPkts": {
+    "name": "jnxCosIfsetQstatHpRedDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatHpRedDropPktRate": {
+    "name": "jnxCosIfsetQstatHpRedDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatLpRedDropBytes": {
+    "name": "jnxCosIfsetQstatLpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatLpRedDropByteRate": {
+    "name": "jnxCosIfsetQstatLpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatMLpRedDropBytes": {
+    "name": "jnxCosIfsetQstatMLpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatMLpRedDropByteRate": {
+    "name": "jnxCosIfsetQstatMLpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatMHpRedDropBytes": {
+    "name": "jnxCosIfsetQstatMHpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatMHpRedDropByteRate": {
+    "name": "jnxCosIfsetQstatMHpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatHpRedDropBytes": {
+    "name": "jnxCosIfsetQstatHpRedDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatHpRedDropByteRate": {
+    "name": "jnxCosIfsetQstatHpRedDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatRateLimitDropPkts": {
+    "name": "jnxCosIfsetQstatRateLimitDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatRateLimitDropPktRate": {
+    "name": "jnxCosIfsetQstatRateLimitDropPktRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatRateLimitDropBytes": {
+    "name": "jnxCosIfsetQstatRateLimitDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosIfsetQstatRateLimitDropByteRate": {
+    "name": "jnxCosIfsetQstatRateLimitDropByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.15.10.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosPfcPriorityTable": {
+    "name": "jnxCosPfcPriorityTable",
+    "oid": "1.3.6.1.4.1.2636.3.15.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosPfcPriorityEntry": {
+    "name": "jnxCosPfcPriorityEntry",
+    "oid": "1.3.6.1.4.1.2636.3.15.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosPfcIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosPfcPriorityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxCosPfcIfIndex": {
+    "name": "jnxCosPfcIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.15.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosPfcPriorityIndex": {
+    "name": "jnxCosPfcPriorityIndex",
+    "oid": "1.3.6.1.4.1.2636.3.15.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosPfcPriorityRequestsTx": {
+    "name": "jnxCosPfcPriorityRequestsTx",
+    "oid": "1.3.6.1.4.1.2636.3.15.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosPfcPriorityRequestsRx": {
+    "name": "jnxCosPfcPriorityRequestsRx",
+    "oid": "1.3.6.1.4.1.2636.3.15.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosWatchdogTxQueueTable": {
+    "name": "jnxCosWatchdogTxQueueTable",
+    "oid": "1.3.6.1.4.1.2636.3.15.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosWatchdogTxQueueEntry": {
+    "name": "jnxCosWatchdogTxQueueEntry",
+    "oid": "1.3.6.1.4.1.2636.3.15.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosWatchdogIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-COS-MIB",
+        "object": "jnxCosWatchdogTxQueueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxCosWatchdogIfIndex": {
+    "name": "jnxCosWatchdogIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.15.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosWatchdogTxQueueId": {
+    "name": "jnxCosWatchdogTxQueueId",
+    "oid": "1.3.6.1.4.1.2636.3.15.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCosWatchdogTxQueueStuckCount": {
+    "name": "jnxCosWatchdogTxQueueStuckCount",
+    "oid": "1.3.6.1.4.1.2636.3.15.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosWatchdogTxQueueRecoveredCount": {
+    "name": "jnxCosWatchdogTxQueueRecoveredCount",
+    "oid": "1.3.6.1.4.1.2636.3.15.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosWatchdogTotalPktDrop": {
+    "name": "jnxCosWatchdogTotalPktDrop",
+    "oid": "1.3.6.1.4.1.2636.3.15.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCosWatchdogLastPktDrop": {
+    "name": "jnxCosWatchdogLastPktDrop",
+    "oid": "1.3.6.1.4.1.2636.3.15.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-COS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-COS-MIB"
+  }
+}

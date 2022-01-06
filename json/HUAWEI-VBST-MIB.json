@@ -1,0 +1,457 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalName"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwVbstMIB": {
+    "name": "hwVbstMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.323",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-07-04 00:00",
+        "description": "V1.04, Updated to include support for VBST."
+      },
+      {
+        "revision": "2017-03-14 03:05",
+        "description": "V1.03, Updated to include support for VBST."
+      },
+      {
+        "revision": "2017-02-16 03:05",
+        "description": "V1.02, Updated to include support for VBST."
+      },
+      {
+        "revision": "2015-11-18 14:10",
+        "description": "V1.01, Updated to include support for VBST."
+      },
+      {
+        "revision": "2010-08-11 16:00",
+        "description": "V1.00, initial version."
+      }
+    ]
+  },
+  "hwVbstObjects": {
+    "name": "hwVbstObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.1",
+    "class": "objectidentity"
+  },
+  "hwVbstMaxTrunkNum": {
+    "name": "hwVbstMaxTrunkNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwVbstMaxPVNum": {
+    "name": "hwVbstMaxPVNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwVbstMaxVlanNum": {
+    "name": "hwVbstMaxVlanNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwVbstVlanNum": {
+    "name": "hwVbstVlanNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwVbstTrapPort": {
+    "name": "hwVbstTrapPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwVbstTrapVlan": {
+    "name": "hwVbstTrapVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwVbstMaxTrunkPVNum": {
+    "name": "hwVbstMaxTrunkPVNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwVbstConflictDescription": {
+    "name": "hwVbstConflictDescription",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwVbstNotifications": {
+    "name": "hwVbstNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.2",
+    "class": "objectidentity"
+  },
+  "hwVbstTrunkNumExceeded": {
+    "name": "hwVbstTrunkNumExceeded",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstMaxTrunkNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVbstTrunkNumResumed": {
+    "name": "hwVbstTrunkNumResumed",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstMaxTrunkNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVbstPVNumExceeded": {
+    "name": "hwVbstPVNumExceeded",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstMaxPVNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVbstPVNumResumed": {
+    "name": "hwVbstPVNumResumed",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstMaxPVNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVbstVlanNumExceeded": {
+    "name": "hwVbstVlanNumExceeded",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstMaxVlanNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVbstVlanNumResumed": {
+    "name": "hwVbstVlanNumResumed",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstMaxVlanNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVbstInvalidPV": {
+    "name": "hwVbstInvalidPV",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstVlanNum"
+      },
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstTrapPort"
+      },
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstTrapVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVbstTrunkPVNumExceeded": {
+    "name": "hwVbstTrunkPVNumExceeded",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstMaxTrunkPVNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVbstTrunkPVNumResumed": {
+    "name": "hwVbstTrunkPVNumResumed",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.2.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstMaxTrunkPVNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVbstRspanCfgConflict": {
+    "name": "hwVbstRspanCfgConflict",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.2.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstConflictDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVbstConformance": {
+    "name": "hwVbstConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.3",
+    "class": "objectidentity"
+  },
+  "hwVbstGroups": {
+    "name": "hwVbstGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.3.1",
+    "class": "objectidentity"
+  },
+  "hwVbstObjectGroup": {
+    "name": "hwVbstObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstMaxTrunkNum"
+      },
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstMaxPVNum"
+      },
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstMaxVlanNum"
+      },
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstVlanNum"
+      },
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstTrapPort"
+      },
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstTrapVlan"
+      },
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstMaxTrunkPVNum"
+      },
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstConflictDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVbstNotificationGroup": {
+    "name": "hwVbstNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.3.1.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstTrunkNumExceeded"
+      },
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstTrunkNumResumed"
+      },
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstPVNumExceeded"
+      },
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstPVNumResumed"
+      },
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstVlanNumExceeded"
+      },
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstVlanNumResumed"
+      },
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstInvalidPV"
+      },
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstTrunkPVNumExceeded"
+      },
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstTrunkPVNumResumed"
+      },
+      {
+        "module": "HUAWEI-VBST-MIB",
+        "object": "hwVbstRspanCfgConflict"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVbstCompliances": {
+    "name": "hwVbstCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.3.2",
+    "class": "objectidentity"
+  },
+  "hwVbstCompliance": {
+    "name": "hwVbstCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.323.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwVbstObjectGroup",
+        "module": "HUAWEI-VBST-MIB"
+      },
+      {
+        "object": "hwVbstNotificationGroup",
+        "module": "HUAWEI-VBST-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-VBST-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-VBST-MIB"
+  }
+}

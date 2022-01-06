@@ -1,0 +1,933 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "MDS-ORBIT-SMI-MIB": [
+      "mdsInterfaces"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "Bits",
+      "MibIdentifier",
+      "TimeTicks",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "mdsIfCellMIB": {
+    "name": "mdsIfCellMIB",
+    "oid": "1.3.6.1.4.1.4130.10.2.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-12-23 00:00",
+        "description": "Added fwRequired mIfCellModemState."
+      },
+      {
+        "revision": "2019-10-11 00:00",
+        "description": "Added 4Gd-lte modem types."
+      },
+      {
+        "revision": "2018-05-16 00:00",
+        "description": "Updated conformance statments based on smilint."
+      },
+      {
+        "revision": "2018-02-28 00:00",
+        "description": "Added 4Gy/z modem types and firmware status table."
+      },
+      {
+        "revision": "2016-10-11 00:00",
+        "description": "Added EZ1 (band 31) modem type."
+      },
+      {
+        "revision": "2016-02-25 00:00",
+        "description": "Added more status parameters."
+      },
+      {
+        "revision": "2015-09-15 00:00",
+        "description": "Reordered sim state enum."
+      },
+      {
+        "revision": "2015-08-03 00:00",
+        "description": "Added unknown sim state."
+      },
+      {
+        "revision": "2015-07-23 00:00",
+        "description": "Add 4GP (band 26) modem type. Also, added LTE RSRP/RSRQ."
+      },
+      {
+        "revision": "2015-01-29 00:00",
+        "description": "Add sprint modem type."
+      },
+      {
+        "revision": "2014-11-25 00:00",
+        "description": "Add modem type and firmware package information."
+      },
+      {
+        "revision": "2014-10-20 00:00",
+        "description": "Removed hyphens from enumerations."
+      },
+      {
+        "revision": "2013-04-22 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "mIfCellMIBObjects": {
+    "name": "mIfCellMIBObjects",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1",
+    "class": "objectidentity"
+  },
+  "mIfCellConfig": {
+    "name": "mIfCellConfig",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.1",
+    "class": "objectidentity"
+  },
+  "mIfCellStatus": {
+    "name": "mIfCellStatus",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2",
+    "class": "objectidentity"
+  },
+  "mIfCellFwStatus": {
+    "name": "mIfCellFwStatus",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.3",
+    "class": "objectidentity"
+  },
+  "UnsignedByte": {
+    "name": "UnsignedByte",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "SimSlotState": {
+    "name": "SimSlotState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInserted": 0,
+          "inserted": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "mIfCellStatusTable": {
+    "name": "mIfCellStatusTable",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mIfCellStatusEntry": {
+    "name": "mIfCellStatusEntry",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mIfCellImsi": {
+    "name": "mIfCellImsi",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellImei": {
+    "name": "mIfCellImei",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellIccid": {
+    "name": "mIfCellIccid",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellMdn": {
+    "name": "mIfCellMdn",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellApn": {
+    "name": "mIfCellApn",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellAppSwVersion": {
+    "name": "mIfCellAppSwVersion",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellModemSwVersion": {
+    "name": "mIfCellModemSwVersion",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellSimState": {
+    "name": "mIfCellSimState",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInserted": 0,
+          "locked": 1,
+          "ready": 2,
+          "failed": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notInserted",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellModemState": {
+    "name": "mIfCellModemState",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "notRegistered": 1,
+          "searching": 2,
+          "registrationDenied": 3,
+          "idle": 4,
+          "connected": 5,
+          "fwRequired": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellRoamingState": {
+    "name": "mIfCellRoamingState",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "home": 1,
+          "roaming": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellServiceState": {
+    "name": "mIfCellServiceState",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "gprs": 1,
+          "edge": 2,
+          "umts": 3,
+          "hsdpa": 4,
+          "hsupa": 5,
+          "hspaPlus": 6,
+          "is95a": 7,
+          "is95b": 8,
+          "onexRtt": 9,
+          "evdoRev0": 10,
+          "evdoReva": 11,
+          "evdoRevb": 12,
+          "evdoEhrpd": 13,
+          "lte": 14
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellRssi": {
+    "name": "mIfCellRssi",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellRsrp": {
+    "name": "mIfCellRsrp",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellRsrq": {
+    "name": "mIfCellRsrq",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellSnr": {
+    "name": "mIfCellSnr",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellEcio": {
+    "name": "mIfCellEcio",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellModemType": {
+    "name": "mIfCellModemType",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "typeUnknown": 0,
+          "typeE4VLteNaVerizon": 1,
+          "type3G1GsmGlobal": 2,
+          "typeE4xLteEmea": 3,
+          "type4GxLteNa": 4,
+          "type4GPLteNa": 5,
+          "typeEZ1LteEmea": 6,
+          "type4GyLteNaEu": 7,
+          "type4GzLteApac": 8,
+          "type4GaLteGlobal": 9,
+          "type4GbLteAmericas": 10,
+          "type4GcLteEu": 11,
+          "type4GdLteGlobal": 12
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "typeUnknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellModemPackageVersion": {
+    "name": "mIfCellModemPackageVersion",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellTac": {
+    "name": "mIfCellTac",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellGlobalCellId": {
+    "name": "mIfCellGlobalCellId",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellPhysicalCellId": {
+    "name": "mIfCellPhysicalCellId",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellBand": {
+    "name": "mIfCellBand",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellBandwidth": {
+    "name": "mIfCellBandwidth",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bwUnknown": 0,
+          "bw1dot4Mhz": 1,
+          "bw3Mhz": 2,
+          "bw5Mhz": 3,
+          "bw10Mhz": 4,
+          "bw15Mhz": 5,
+          "bw20Mhz": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellTxChan": {
+    "name": "mIfCellTxChan",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellRxChan": {
+    "name": "mIfCellRxChan",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellEmmState": {
+    "name": "mIfCellEmmState",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emmUnknown": 0,
+          "emmDeregistered": 1,
+          "emmRegInitiated": 2,
+          "emmRegistered": 3,
+          "emmTauInitiated": 4,
+          "emmSrInitiated": 5,
+          "emmDeregInitiated": 6,
+          "emmInvalid": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellRrcState": {
+    "name": "mIfCellRrcState",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rrcUnknown": 0,
+          "rrcIdle": 1,
+          "rrcWaiting": 2,
+          "rrcConnected": 3,
+          "rrcReleasing": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellActiveSimSlot": {
+    "name": "mIfCellActiveSimSlot",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "simA": 0,
+          "simB": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "simA",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellSimASlotState": {
+    "name": "mIfCellSimASlotState",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SimSlotState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notInserted",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellSimBSlotState": {
+    "name": "mIfCellSimBSlotState",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SimSlotState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notInserted",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellFwStatusTable": {
+    "name": "mIfCellFwStatusTable",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mIfCellFwStatusEntry": {
+    "name": "mIfCellFwStatusEntry",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellFwId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mIfCellFwId": {
+    "name": "mIfCellFwId",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedByte",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellFwVersion": {
+    "name": "mIfCellFwVersion",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfCellFwActive": {
+    "name": "mIfCellFwActive",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdsIfCellMIBConformance": {
+    "name": "mdsIfCellMIBConformance",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.3",
+    "class": "objectidentity"
+  },
+  "mdsIfCellMIBCompliances": {
+    "name": "mdsIfCellMIBCompliances",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.3.1",
+    "class": "objectidentity"
+  },
+  "mdsIfCellMIBGroups": {
+    "name": "mdsIfCellMIBGroups",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.3.2",
+    "class": "objectidentity"
+  },
+  "mIfCellCompliance": {
+    "name": "mIfCellCompliance",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mIfCellStatusGroup",
+        "module": "MDS-IF-CELL-MIB"
+      },
+      {
+        "object": "mIfCellFwStatusGroup",
+        "module": "MDS-IF-CELL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mIfCellStatusGroup": {
+    "name": "mIfCellStatusGroup",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellImsi"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellImei"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellIccid"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellMdn"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellApn"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellAppSwVersion"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellModemSwVersion"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellSimState"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellModemState"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellRoamingState"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellServiceState"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellRssi"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellRsrp"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellRsrq"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellSnr"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellEcio"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellModemType"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellModemPackageVersion"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellTac"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellGlobalCellId"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellPhysicalCellId"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellBand"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellBandwidth"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellTxChan"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellRxChan"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellEmmState"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellRrcState"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellActiveSimSlot"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellSimASlotState"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellSimBSlotState"
+      }
+    ],
+    "status": "current"
+  },
+  "mIfCellFwStatusGroup": {
+    "name": "mIfCellFwStatusGroup",
+    "oid": "1.3.6.1.4.1.4130.10.2.1.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellFwId"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellFwVersion"
+      },
+      {
+        "module": "MDS-IF-CELL-MIB",
+        "object": "mIfCellFwActive"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gemds/MDS-IF-CELL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:32:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MDS-IF-CELL-MIB"
+  }
+}

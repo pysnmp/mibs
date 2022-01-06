@@ -1,0 +1,7456 @@
+{
+  "imports": {
+    "class": "imports",
+    "IANAifType-MIB": [
+      "IANAifType"
+    ],
+    "SNA-NAU-MIB": [
+      "snanauMIB"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "VariablePointer",
+      "RowPointer"
+    ]
+  },
+  "appnMIB": {
+    "name": "appnMIB",
+    "oid": "1.3.6.1.2.1.34.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1998-07-15 18:00",
+        "description": "Minor editorial fixes; new value 'none(5)' added to the enumeration for the appnLocalTgBranchLinkType object."
+      },
+      {
+        "revision": "1998-05-26 18:00",
+        "description": "Post-RFC 2155 conformance definitions added, appnNodeLsCounterType and appnNodeBrNn objects added, appnNodeMibVersion object deprecated."
+      },
+      {
+        "revision": "1997-07-31 18:00",
+        "description": "Branch network node (Branch Extender) objects added."
+      },
+      {
+        "revision": "1997-03-31 18:00",
+        "description": "MLTG objects added."
+      },
+      {
+        "revision": "1997-03-20 12:00",
+        "description": "RFC 2155 (Proposed Standard)"
+      }
+    ]
+  },
+  "SnaNodeIdentification": {
+    "name": "SnaNodeIdentification",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SnaControlPointName": {
+    "name": "SnaControlPointName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SnaClassOfServiceName": {
+    "name": "SnaClassOfServiceName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SnaModeName": {
+    "name": "SnaModeName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SnaSenseData": {
+    "name": "SnaSenseData",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "DisplayableDlcAddress": {
+    "name": "DisplayableDlcAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AppnNodeCounter": {
+    "name": "AppnNodeCounter",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "AppnPortCounter": {
+    "name": "AppnPortCounter",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "AppnLinkStationCounter": {
+    "name": "AppnLinkStationCounter",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "AppnTopologyEntryTimeLeft": {
+    "name": "AppnTopologyEntryTimeLeft",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AppnTgDlcData": {
+    "name": "AppnTgDlcData",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AppnTgEffectiveCapacity": {
+    "name": "AppnTgEffectiveCapacity",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AppnTgSecurity": {
+    "name": "AppnTgSecurity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonsecure": 1,
+          "publicSwitchedNetwork": 32,
+          "undergroundCable": 64,
+          "secureConduit": 96,
+          "guardedConduit": 128,
+          "encrypted": 160,
+          "guardedRadiation": 192
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AppnTgDelay": {
+    "name": "AppnTgDelay",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "appnObjects": {
+    "name": "appnObjects",
+    "oid": "1.3.6.1.2.1.34.4.1",
+    "class": "objectidentity"
+  },
+  "appnNode": {
+    "name": "appnNode",
+    "oid": "1.3.6.1.2.1.34.4.1.1",
+    "class": "objectidentity"
+  },
+  "appnGeneralInfoAndCaps": {
+    "name": "appnGeneralInfoAndCaps",
+    "oid": "1.3.6.1.2.1.34.4.1.1.1",
+    "class": "objectidentity"
+  },
+  "appnNnUniqueInfoAndCaps": {
+    "name": "appnNnUniqueInfoAndCaps",
+    "oid": "1.3.6.1.2.1.34.4.1.1.2",
+    "class": "objectidentity"
+  },
+  "appnEnUniqueCaps": {
+    "name": "appnEnUniqueCaps",
+    "oid": "1.3.6.1.2.1.34.4.1.1.3",
+    "class": "objectidentity"
+  },
+  "appnPortInformation": {
+    "name": "appnPortInformation",
+    "oid": "1.3.6.1.2.1.34.4.1.1.4",
+    "class": "objectidentity"
+  },
+  "appnLinkStationInformation": {
+    "name": "appnLinkStationInformation",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5",
+    "class": "objectidentity"
+  },
+  "appnVrnInfo": {
+    "name": "appnVrnInfo",
+    "oid": "1.3.6.1.2.1.34.4.1.1.6",
+    "class": "objectidentity"
+  },
+  "appnNodeCpName": {
+    "name": "appnNodeCpName",
+    "oid": "1.3.6.1.2.1.34.4.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaControlPointName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeId": {
+    "name": "appnNodeId",
+    "oid": "1.3.6.1.2.1.34.4.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaNodeIdentification",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeType": {
+    "name": "appnNodeType",
+    "oid": "1.3.6.1.2.1.34.4.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "networkNode": 1,
+          "endNode": 2,
+          "t21len": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeUpTime": {
+    "name": "appnNodeUpTime",
+    "oid": "1.3.6.1.2.1.34.4.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "hundredths of a second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeParallelTg": {
+    "name": "appnNodeParallelTg",
+    "oid": "1.3.6.1.2.1.34.4.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeAdaptiveBindPacing": {
+    "name": "appnNodeAdaptiveBindPacing",
+    "oid": "1.3.6.1.2.1.34.4.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeHprSupport": {
+    "name": "appnNodeHprSupport",
+    "oid": "1.3.6.1.2.1.34.4.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noHprSupport": 1,
+          "hprBaseOnly": 2,
+          "rtpTower": 3,
+          "controlFlowsOverRtpTower": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeMaxSessPerRtpConn": {
+    "name": "appnNodeMaxSessPerRtpConn",
+    "oid": "1.3.6.1.2.1.34.4.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeHprIntRteSetups": {
+    "name": "appnNodeHprIntRteSetups",
+    "oid": "1.3.6.1.2.1.34.4.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnNodeCounter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeHprIntRteRejects": {
+    "name": "appnNodeHprIntRteRejects",
+    "oid": "1.3.6.1.2.1.34.4.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnNodeCounter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeHprOrgRteSetups": {
+    "name": "appnNodeHprOrgRteSetups",
+    "oid": "1.3.6.1.2.1.34.4.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnNodeCounter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeHprOrgRteRejects": {
+    "name": "appnNodeHprOrgRteRejects",
+    "oid": "1.3.6.1.2.1.34.4.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnNodeCounter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeHprEndRteSetups": {
+    "name": "appnNodeHprEndRteSetups",
+    "oid": "1.3.6.1.2.1.34.4.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnNodeCounter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeHprEndRteRejects": {
+    "name": "appnNodeHprEndRteRejects",
+    "oid": "1.3.6.1.2.1.34.4.1.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnNodeCounter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeCounterDisconTime": {
+    "name": "appnNodeCounterDisconTime",
+    "oid": "1.3.6.1.2.1.34.4.1.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeLsCounterType": {
+    "name": "appnNodeLsCounterType",
+    "oid": "1.3.6.1.2.1.34.4.1.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "noAnr": 2,
+          "anrForLocalNces": 3,
+          "allAnr": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeBrNn": {
+    "name": "appnNodeBrNn",
+    "oid": "1.3.6.1.2.1.34.4.1.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeNnCentralDirectory": {
+    "name": "appnNodeNnCentralDirectory",
+    "oid": "1.3.6.1.2.1.34.4.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeNnTreeCache": {
+    "name": "appnNodeNnTreeCache",
+    "oid": "1.3.6.1.2.1.34.4.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noCache": 1,
+          "cacheNoIncrUpdate": 2,
+          "cacheWithIncrUpdate": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeNnRouteAddResist": {
+    "name": "appnNodeNnRouteAddResist",
+    "oid": "1.3.6.1.2.1.34.4.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeNnIsr": {
+    "name": "appnNodeNnIsr",
+    "oid": "1.3.6.1.2.1.34.4.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeNnFrsn": {
+    "name": "appnNodeNnFrsn",
+    "oid": "1.3.6.1.2.1.34.4.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeNnPeriBorderSup": {
+    "name": "appnNodeNnPeriBorderSup",
+    "oid": "1.3.6.1.2.1.34.4.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeNnInterchangeSup": {
+    "name": "appnNodeNnInterchangeSup",
+    "oid": "1.3.6.1.2.1.34.4.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeNnExteBorderSup": {
+    "name": "appnNodeNnExteBorderSup",
+    "oid": "1.3.6.1.2.1.34.4.1.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeNnSafeStoreFreq": {
+    "name": "appnNodeNnSafeStoreFreq",
+    "oid": "1.3.6.1.2.1.34.4.1.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "units": "TDUs",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "appnNodeNnRsn": {
+    "name": "appnNodeNnRsn",
+    "oid": "1.3.6.1.2.1.34.4.1.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeNnCongested": {
+    "name": "appnNodeNnCongested",
+    "oid": "1.3.6.1.2.1.34.4.1.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeNnIsrDepleted": {
+    "name": "appnNodeNnIsrDepleted",
+    "oid": "1.3.6.1.2.1.34.4.1.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeNnQuiescing": {
+    "name": "appnNodeNnQuiescing",
+    "oid": "1.3.6.1.2.1.34.4.1.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeNnGateway": {
+    "name": "appnNodeNnGateway",
+    "oid": "1.3.6.1.2.1.34.4.1.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeEnModeCosMap": {
+    "name": "appnNodeEnModeCosMap",
+    "oid": "1.3.6.1.2.1.34.4.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeEnNnServer": {
+    "name": "appnNodeEnNnServer",
+    "oid": "1.3.6.1.2.1.34.4.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNodeEnLuSearch": {
+    "name": "appnNodeEnLuSearch",
+    "oid": "1.3.6.1.2.1.34.4.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnPortTable": {
+    "name": "appnPortTable",
+    "oid": "1.3.6.1.2.1.34.4.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnPortEntry": {
+    "name": "appnPortEntry",
+    "oid": "1.3.6.1.2.1.34.4.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnPortName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appnPortName": {
+    "name": "appnPortName",
+    "oid": "1.3.6.1.2.1.34.4.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnPortCommand": {
+    "name": "appnPortCommand",
+    "oid": "1.3.6.1.2.1.34.4.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deactivate": 1,
+          "activate": 2,
+          "recycle": 3,
+          "ready": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "appnPortOperState": {
+    "name": "appnPortOperState",
+    "oid": "1.3.6.1.2.1.34.4.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "pendactive": 2,
+          "active": 3,
+          "pendinact": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnPortDlcType": {
+    "name": "appnPortDlcType",
+    "oid": "1.3.6.1.2.1.34.4.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAifType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnPortPortType": {
+    "name": "appnPortPortType",
+    "oid": "1.3.6.1.2.1.34.4.1.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "leased": 1,
+          "switched": 2,
+          "sharedAccessFacilities": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnPortSIMRIM": {
+    "name": "appnPortSIMRIM",
+    "oid": "1.3.6.1.2.1.34.4.1.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnPortLsRole": {
+    "name": "appnPortLsRole",
+    "oid": "1.3.6.1.2.1.34.4.1.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2,
+          "negotiable": 3,
+          "abm": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnPortNegotLs": {
+    "name": "appnPortNegotLs",
+    "oid": "1.3.6.1.2.1.34.4.1.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnPortDynamicLinkSupport": {
+    "name": "appnPortDynamicLinkSupport",
+    "oid": "1.3.6.1.2.1.34.4.1.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnPortMaxRcvBtuSize": {
+    "name": "appnPortMaxRcvBtuSize",
+    "oid": "1.3.6.1.2.1.34.4.1.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 99,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnPortMaxIframeWindow": {
+    "name": "appnPortMaxIframeWindow",
+    "oid": "1.3.6.1.2.1.34.4.1.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "I-frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnPortDefLsGoodXids": {
+    "name": "appnPortDefLsGoodXids",
+    "oid": "1.3.6.1.2.1.34.4.1.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnPortCounter",
+      "class": "type"
+    },
+    "units": "XID exchanges",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnPortDefLsBadXids": {
+    "name": "appnPortDefLsBadXids",
+    "oid": "1.3.6.1.2.1.34.4.1.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnPortCounter",
+      "class": "type"
+    },
+    "units": "XID exchanges",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnPortDynLsGoodXids": {
+    "name": "appnPortDynLsGoodXids",
+    "oid": "1.3.6.1.2.1.34.4.1.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnPortCounter",
+      "class": "type"
+    },
+    "units": "XID exchanges",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnPortDynLsBadXids": {
+    "name": "appnPortDynLsBadXids",
+    "oid": "1.3.6.1.2.1.34.4.1.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnPortCounter",
+      "class": "type"
+    },
+    "units": "XID exchanges",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnPortSpecific": {
+    "name": "appnPortSpecific",
+    "oid": "1.3.6.1.2.1.34.4.1.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnPortDlcLocalAddr": {
+    "name": "appnPortDlcLocalAddr",
+    "oid": "1.3.6.1.2.1.34.4.1.1.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayableDlcAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnPortCounterDisconTime": {
+    "name": "appnPortCounterDisconTime",
+    "oid": "1.3.6.1.2.1.34.4.1.1.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsTable": {
+    "name": "appnLsTable",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnLsEntry": {
+    "name": "appnLsEntry",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appnLsName": {
+    "name": "appnLsName",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnLsCommand": {
+    "name": "appnLsCommand",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deactivate": 1,
+          "activate": 2,
+          "recycle": 3,
+          "ready": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "appnLsOperState": {
+    "name": "appnLsOperState",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "sentConnectOut": 2,
+          "pendXidExch": 3,
+          "sendActAs": 4,
+          "sendSetMode": 5,
+          "otherPendingActive": 6,
+          "active": 7,
+          "sentDeactAsOrd": 8,
+          "sentDiscOrd": 9,
+          "sentDiscImmed": 10,
+          "otherPendingInact": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsPortName": {
+    "name": "appnLsPortName",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsDlcType": {
+    "name": "appnLsDlcType",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAifType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsDynamic": {
+    "name": "appnLsDynamic",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsAdjCpName": {
+    "name": "appnLsAdjCpName",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsAdjNodeType": {
+    "name": "appnLsAdjNodeType",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "networkNode": 1,
+          "endNode": 2,
+          "t21len": 4,
+          "unknown": 255
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsTgNum": {
+    "name": "appnLsTgNum",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsLimResource": {
+    "name": "appnLsLimResource",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsActOnDemand": {
+    "name": "appnLsActOnDemand",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsMigration": {
+    "name": "appnLsMigration",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsPartnerNodeId": {
+    "name": "appnLsPartnerNodeId",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaNodeIdentification",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsCpCpSessionSupport": {
+    "name": "appnLsCpCpSessionSupport",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsMaxSendBtuSize": {
+    "name": "appnLsMaxSendBtuSize",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 99,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsInXidBytes": {
+    "name": "appnLsInXidBytes",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnLinkStationCounter",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsInMsgBytes": {
+    "name": "appnLsInMsgBytes",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnLinkStationCounter",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsInXidFrames": {
+    "name": "appnLsInXidFrames",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnLinkStationCounter",
+      "class": "type"
+    },
+    "units": "XID frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsInMsgFrames": {
+    "name": "appnLsInMsgFrames",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnLinkStationCounter",
+      "class": "type"
+    },
+    "units": "I-frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsOutXidBytes": {
+    "name": "appnLsOutXidBytes",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnLinkStationCounter",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsOutMsgBytes": {
+    "name": "appnLsOutMsgBytes",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnLinkStationCounter",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsOutXidFrames": {
+    "name": "appnLsOutXidFrames",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnLinkStationCounter",
+      "class": "type"
+    },
+    "units": "XID frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsOutMsgFrames": {
+    "name": "appnLsOutMsgFrames",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnLinkStationCounter",
+      "class": "type"
+    },
+    "units": "I-frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsEchoRsps": {
+    "name": "appnLsEchoRsps",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnLinkStationCounter",
+      "class": "type"
+    },
+    "units": "echo responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsCurrentDelay": {
+    "name": "appnLsCurrentDelay",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsMaxDelay": {
+    "name": "appnLsMaxDelay",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsMinDelay": {
+    "name": "appnLsMinDelay",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsMaxDelayTime": {
+    "name": "appnLsMaxDelayTime",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsGoodXids": {
+    "name": "appnLsGoodXids",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnLinkStationCounter",
+      "class": "type"
+    },
+    "units": "XID exchanges",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsBadXids": {
+    "name": "appnLsBadXids",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnLinkStationCounter",
+      "class": "type"
+    },
+    "units": "XID exchanges",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsSpecific": {
+    "name": "appnLsSpecific",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsActiveTime": {
+    "name": "appnLsActiveTime",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hundredths of a second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsCurrentStateTime": {
+    "name": "appnLsCurrentStateTime",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "hundredths of a second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsHprSup": {
+    "name": "appnLsHprSup",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noHprSupport": 1,
+          "hprBaseOnly": 2,
+          "rtpTower": 3,
+          "controlFlowsOverRtpTower": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsErrRecoSup": {
+    "name": "appnLsErrRecoSup",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsForAnrLabel": {
+    "name": "appnLsForAnrLabel",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsRevAnrLabel": {
+    "name": "appnLsRevAnrLabel",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsCpCpNceId": {
+    "name": "appnLsCpCpNceId",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsRouteNceId": {
+    "name": "appnLsRouteNceId",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsBfNceId": {
+    "name": "appnLsBfNceId",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsLocalAddr": {
+    "name": "appnLsLocalAddr",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayableDlcAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsRemoteAddr": {
+    "name": "appnLsRemoteAddr",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayableDlcAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsRemoteLsName": {
+    "name": "appnLsRemoteLsName",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsCounterDisconTime": {
+    "name": "appnLsCounterDisconTime",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsMltgMember": {
+    "name": "appnLsMltgMember",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsStatusTable": {
+    "name": "appnLsStatusTable",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnLsStatusEntry": {
+    "name": "appnLsStatusEntry",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appnLsStatusIndex": {
+    "name": "appnLsStatusIndex",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnLsStatusTime": {
+    "name": "appnLsStatusTime",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsStatusLsName": {
+    "name": "appnLsStatusLsName",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsStatusCpName": {
+    "name": "appnLsStatusCpName",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsStatusPartnerId": {
+    "name": "appnLsStatusPartnerId",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaNodeIdentification",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsStatusTgNum": {
+    "name": "appnLsStatusTgNum",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsStatusGeneralSense": {
+    "name": "appnLsStatusGeneralSense",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaSenseData",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsStatusRetry": {
+    "name": "appnLsStatusRetry",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsStatusEndSense": {
+    "name": "appnLsStatusEndSense",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaSenseData",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsStatusXidLocalSense": {
+    "name": "appnLsStatusXidLocalSense",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaSenseData",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsStatusXidRemoteSense": {
+    "name": "appnLsStatusXidRemoteSense",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaSenseData",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsStatusXidByteInError": {
+    "name": "appnLsStatusXidByteInError",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsStatusXidBitInError": {
+    "name": "appnLsStatusXidBitInError",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsStatusDlcType": {
+    "name": "appnLsStatusDlcType",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAifType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsStatusLocalAddr": {
+    "name": "appnLsStatusLocalAddr",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayableDlcAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsStatusRemoteAddr": {
+    "name": "appnLsStatusRemoteAddr",
+    "oid": "1.3.6.1.2.1.34.4.1.1.5.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayableDlcAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnVrnTable": {
+    "name": "appnVrnTable",
+    "oid": "1.3.6.1.2.1.34.4.1.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnVrnEntry": {
+    "name": "appnVrnEntry",
+    "oid": "1.3.6.1.2.1.34.4.1.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnVrnName",
+        "implied": 0
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnVrnTgNum",
+        "implied": 0
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnVrnPortName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appnVrnName": {
+    "name": "appnVrnName",
+    "oid": "1.3.6.1.2.1.34.4.1.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaControlPointName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnVrnTgNum": {
+    "name": "appnVrnTgNum",
+    "oid": "1.3.6.1.2.1.34.4.1.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnVrnPortName": {
+    "name": "appnVrnPortName",
+    "oid": "1.3.6.1.2.1.34.4.1.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNn": {
+    "name": "appnNn",
+    "oid": "1.3.6.1.2.1.34.4.1.2",
+    "class": "objectidentity"
+  },
+  "appnNnTopo": {
+    "name": "appnNnTopo",
+    "oid": "1.3.6.1.2.1.34.4.1.2.1",
+    "class": "objectidentity"
+  },
+  "appnNnTopology": {
+    "name": "appnNnTopology",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2",
+    "class": "objectidentity"
+  },
+  "appnNnTopoMaxNodes": {
+    "name": "appnNnTopoMaxNodes",
+    "oid": "1.3.6.1.2.1.34.4.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "node entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTopoCurNumNodes": {
+    "name": "appnNnTopoCurNumNodes",
+    "oid": "1.3.6.1.2.1.34.4.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "node entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTopoNodePurges": {
+    "name": "appnNnTopoNodePurges",
+    "oid": "1.3.6.1.2.1.34.4.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnNodeCounter",
+      "class": "type"
+    },
+    "units": "node entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTopoTgPurges": {
+    "name": "appnNnTopoTgPurges",
+    "oid": "1.3.6.1.2.1.34.4.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnNodeCounter",
+      "class": "type"
+    },
+    "units": "TG entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTopoTotalTduWars": {
+    "name": "appnNnTopoTotalTduWars",
+    "oid": "1.3.6.1.2.1.34.4.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnNodeCounter",
+      "class": "type"
+    },
+    "units": "TDU wars",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTopologyFRTable": {
+    "name": "appnNnTopologyFRTable",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnNnTopologyFREntry": {
+    "name": "appnNnTopologyFREntry",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRFrsn",
+        "implied": 0
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appnNnNodeFRFrsn": {
+    "name": "appnNnNodeFRFrsn",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnNnNodeFRName": {
+    "name": "appnNnNodeFRName",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaControlPointName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnNnNodeFREntryTimeLeft": {
+    "name": "appnNnNodeFREntryTimeLeft",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnTopologyEntryTimeLeft",
+      "class": "type"
+    },
+    "units": "days",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnNodeFRType": {
+    "name": "appnNnNodeFRType",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "networkNode": 1,
+          "virtualRoutingNode": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnNodeFRRsn": {
+    "name": "appnNnNodeFRRsn",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnNodeFRRouteAddResist": {
+    "name": "appnNnNodeFRRouteAddResist",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnNodeFRCongested": {
+    "name": "appnNnNodeFRCongested",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnNodeFRIsrDepleted": {
+    "name": "appnNnNodeFRIsrDepleted",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnNodeFRQuiescing": {
+    "name": "appnNnNodeFRQuiescing",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnNodeFRGateway": {
+    "name": "appnNnNodeFRGateway",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnNodeFRCentralDirectory": {
+    "name": "appnNnNodeFRCentralDirectory",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnNodeFRIsr": {
+    "name": "appnNnNodeFRIsr",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnNodeFRGarbageCollect": {
+    "name": "appnNnNodeFRGarbageCollect",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnNodeFRHprSupport": {
+    "name": "appnNnNodeFRHprSupport",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noHprSupport": 1,
+          "hprBaseOnly": 2,
+          "rtpTower": 3,
+          "controlFlowsOverRtpTower": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnNodeFRPeriBorderSup": {
+    "name": "appnNnNodeFRPeriBorderSup",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnNodeFRInterchangeSup": {
+    "name": "appnNnNodeFRInterchangeSup",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnNodeFRExteBorderSup": {
+    "name": "appnNnNodeFRExteBorderSup",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnNodeFRBranchAwareness": {
+    "name": "appnNnNodeFRBranchAwareness",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTgTopologyFRTable": {
+    "name": "appnNnTgTopologyFRTable",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnNnTgTopologyFREntry": {
+    "name": "appnNnTgTopologyFREntry",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRFrsn",
+        "implied": 0
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFROwner",
+        "implied": 0
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRDest",
+        "implied": 0
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appnNnTgFRFrsn": {
+    "name": "appnNnTgFRFrsn",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnNnTgFROwner": {
+    "name": "appnNnTgFROwner",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaControlPointName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnNnTgFRDest": {
+    "name": "appnNnTgFRDest",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaControlPointName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnNnTgFRNum": {
+    "name": "appnNnTgFRNum",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnNnTgFREntryTimeLeft": {
+    "name": "appnNnTgFREntryTimeLeft",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnTopologyEntryTimeLeft",
+      "class": "type"
+    },
+    "units": "days",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTgFRDestVirtual": {
+    "name": "appnNnTgFRDestVirtual",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTgFRDlcData": {
+    "name": "appnNnTgFRDlcData",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnTgDlcData",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTgFRRsn": {
+    "name": "appnNnTgFRRsn",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTgFROperational": {
+    "name": "appnNnTgFROperational",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTgFRQuiescing": {
+    "name": "appnNnTgFRQuiescing",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTgFRCpCpSession": {
+    "name": "appnNnTgFRCpCpSession",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supportedUnknownStatus": 1,
+          "supportedActive": 2,
+          "notSupported": 3,
+          "supportedNotActive": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTgFREffCap": {
+    "name": "appnNnTgFREffCap",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnTgEffectiveCapacity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTgFRConnCost": {
+    "name": "appnNnTgFRConnCost",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTgFRByteCost": {
+    "name": "appnNnTgFRByteCost",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTgFRSecurity": {
+    "name": "appnNnTgFRSecurity",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnTgSecurity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTgFRDelay": {
+    "name": "appnNnTgFRDelay",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnTgDelay",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTgFRUsr1": {
+    "name": "appnNnTgFRUsr1",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTgFRUsr2": {
+    "name": "appnNnTgFRUsr2",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTgFRUsr3": {
+    "name": "appnNnTgFRUsr3",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTgFRGarbageCollect": {
+    "name": "appnNnTgFRGarbageCollect",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTgFRSubareaNum": {
+    "name": "appnNnTgFRSubareaNum",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTgFRHprSup": {
+    "name": "appnNnTgFRHprSup",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTgFRDestHprTrans": {
+    "name": "appnNnTgFRDestHprTrans",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTgFRTypeIndicator": {
+    "name": "appnNnTgFRTypeIndicator",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "appnOrBfTg": 2,
+          "interchangeTg": 3,
+          "virtualRouteTg": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTgFRIntersubnet": {
+    "name": "appnNnTgFRIntersubnet",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTgFRMltgLinkType": {
+    "name": "appnNnTgFRMltgLinkType",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnNnTgFRBranchTg": {
+    "name": "appnNnTgFRBranchTg",
+    "oid": "1.3.6.1.2.1.34.4.1.2.2.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalTopology": {
+    "name": "appnLocalTopology",
+    "oid": "1.3.6.1.2.1.34.4.1.3",
+    "class": "objectidentity"
+  },
+  "appnLocalTgTable": {
+    "name": "appnLocalTgTable",
+    "oid": "1.3.6.1.2.1.34.4.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnLocalTgEntry": {
+    "name": "appnLocalTgEntry",
+    "oid": "1.3.6.1.2.1.34.4.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgDest",
+        "implied": 0
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appnLocalTgDest": {
+    "name": "appnLocalTgDest",
+    "oid": "1.3.6.1.2.1.34.4.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaControlPointName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnLocalTgNum": {
+    "name": "appnLocalTgNum",
+    "oid": "1.3.6.1.2.1.34.4.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnLocalTgDestVirtual": {
+    "name": "appnLocalTgDestVirtual",
+    "oid": "1.3.6.1.2.1.34.4.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalTgDlcData": {
+    "name": "appnLocalTgDlcData",
+    "oid": "1.3.6.1.2.1.34.4.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnTgDlcData",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalTgPortName": {
+    "name": "appnLocalTgPortName",
+    "oid": "1.3.6.1.2.1.34.4.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalTgQuiescing": {
+    "name": "appnLocalTgQuiescing",
+    "oid": "1.3.6.1.2.1.34.4.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalTgOperational": {
+    "name": "appnLocalTgOperational",
+    "oid": "1.3.6.1.2.1.34.4.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalTgCpCpSession": {
+    "name": "appnLocalTgCpCpSession",
+    "oid": "1.3.6.1.2.1.34.4.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supportedUnknownStatus": 1,
+          "supportedActive": 2,
+          "notSupported": 3,
+          "supportedNotActive": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalTgEffCap": {
+    "name": "appnLocalTgEffCap",
+    "oid": "1.3.6.1.2.1.34.4.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnTgEffectiveCapacity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalTgConnCost": {
+    "name": "appnLocalTgConnCost",
+    "oid": "1.3.6.1.2.1.34.4.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalTgByteCost": {
+    "name": "appnLocalTgByteCost",
+    "oid": "1.3.6.1.2.1.34.4.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalTgSecurity": {
+    "name": "appnLocalTgSecurity",
+    "oid": "1.3.6.1.2.1.34.4.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnTgSecurity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalTgDelay": {
+    "name": "appnLocalTgDelay",
+    "oid": "1.3.6.1.2.1.34.4.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnTgDelay",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalTgUsr1": {
+    "name": "appnLocalTgUsr1",
+    "oid": "1.3.6.1.2.1.34.4.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalTgUsr2": {
+    "name": "appnLocalTgUsr2",
+    "oid": "1.3.6.1.2.1.34.4.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalTgUsr3": {
+    "name": "appnLocalTgUsr3",
+    "oid": "1.3.6.1.2.1.34.4.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalTgHprSup": {
+    "name": "appnLocalTgHprSup",
+    "oid": "1.3.6.1.2.1.34.4.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noHprSupport": 1,
+          "hprBaseOnly": 2,
+          "rtpTower": 3,
+          "controlFlowsOverRtpTower": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalTgIntersubnet": {
+    "name": "appnLocalTgIntersubnet",
+    "oid": "1.3.6.1.2.1.34.4.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalTgMltgLinkType": {
+    "name": "appnLocalTgMltgLinkType",
+    "oid": "1.3.6.1.2.1.34.4.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalTgBranchLinkType": {
+    "name": "appnLocalTgBranchLinkType",
+    "oid": "1.3.6.1.2.1.34.4.1.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "uplink": 2,
+          "downlink": 3,
+          "downlinkToBranchNetworkNode": 4,
+          "none": 5,
+          "unknown": 255
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalEnTgTable": {
+    "name": "appnLocalEnTgTable",
+    "oid": "1.3.6.1.2.1.34.4.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnLocalEnTgEntry": {
+    "name": "appnLocalEnTgEntry",
+    "oid": "1.3.6.1.2.1.34.4.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgOrigin",
+        "implied": 0
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgDest",
+        "implied": 0
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appnLocalEnTgOrigin": {
+    "name": "appnLocalEnTgOrigin",
+    "oid": "1.3.6.1.2.1.34.4.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaControlPointName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnLocalEnTgDest": {
+    "name": "appnLocalEnTgDest",
+    "oid": "1.3.6.1.2.1.34.4.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaControlPointName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnLocalEnTgNum": {
+    "name": "appnLocalEnTgNum",
+    "oid": "1.3.6.1.2.1.34.4.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnLocalEnTgEntryTimeLeft": {
+    "name": "appnLocalEnTgEntryTimeLeft",
+    "oid": "1.3.6.1.2.1.34.4.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnTopologyEntryTimeLeft",
+      "class": "type"
+    },
+    "units": "days",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalEnTgDestVirtual": {
+    "name": "appnLocalEnTgDestVirtual",
+    "oid": "1.3.6.1.2.1.34.4.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalEnTgDlcData": {
+    "name": "appnLocalEnTgDlcData",
+    "oid": "1.3.6.1.2.1.34.4.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnTgDlcData",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalEnTgOperational": {
+    "name": "appnLocalEnTgOperational",
+    "oid": "1.3.6.1.2.1.34.4.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalEnTgCpCpSession": {
+    "name": "appnLocalEnTgCpCpSession",
+    "oid": "1.3.6.1.2.1.34.4.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supportedUnknownStatus": 1,
+          "supportedActive": 2,
+          "notSupported": 3,
+          "supportedNotActive": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalEnTgEffCap": {
+    "name": "appnLocalEnTgEffCap",
+    "oid": "1.3.6.1.2.1.34.4.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnTgEffectiveCapacity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalEnTgConnCost": {
+    "name": "appnLocalEnTgConnCost",
+    "oid": "1.3.6.1.2.1.34.4.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalEnTgByteCost": {
+    "name": "appnLocalEnTgByteCost",
+    "oid": "1.3.6.1.2.1.34.4.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalEnTgSecurity": {
+    "name": "appnLocalEnTgSecurity",
+    "oid": "1.3.6.1.2.1.34.4.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnTgSecurity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalEnTgDelay": {
+    "name": "appnLocalEnTgDelay",
+    "oid": "1.3.6.1.2.1.34.4.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnTgDelay",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalEnTgUsr1": {
+    "name": "appnLocalEnTgUsr1",
+    "oid": "1.3.6.1.2.1.34.4.1.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalEnTgUsr2": {
+    "name": "appnLocalEnTgUsr2",
+    "oid": "1.3.6.1.2.1.34.4.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalEnTgUsr3": {
+    "name": "appnLocalEnTgUsr3",
+    "oid": "1.3.6.1.2.1.34.4.1.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLocalEnTgMltgLinkType": {
+    "name": "appnLocalEnTgMltgLinkType",
+    "oid": "1.3.6.1.2.1.34.4.1.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnDir": {
+    "name": "appnDir",
+    "oid": "1.3.6.1.2.1.34.4.1.4",
+    "class": "objectidentity"
+  },
+  "appnDirPerf": {
+    "name": "appnDirPerf",
+    "oid": "1.3.6.1.2.1.34.4.1.4.1",
+    "class": "objectidentity"
+  },
+  "appnDirMaxCaches": {
+    "name": "appnDirMaxCaches",
+    "oid": "1.3.6.1.2.1.34.4.1.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "directory entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnDirCurCaches": {
+    "name": "appnDirCurCaches",
+    "oid": "1.3.6.1.2.1.34.4.1.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "directory entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnDirCurHomeEntries": {
+    "name": "appnDirCurHomeEntries",
+    "oid": "1.3.6.1.2.1.34.4.1.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "directory entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnDirRegEntries": {
+    "name": "appnDirRegEntries",
+    "oid": "1.3.6.1.2.1.34.4.1.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "directory entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnDirInLocates": {
+    "name": "appnDirInLocates",
+    "oid": "1.3.6.1.2.1.34.4.1.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnNodeCounter",
+      "class": "type"
+    },
+    "units": "Locate messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnDirInBcastLocates": {
+    "name": "appnDirInBcastLocates",
+    "oid": "1.3.6.1.2.1.34.4.1.4.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnNodeCounter",
+      "class": "type"
+    },
+    "units": "Locate messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnDirOutLocates": {
+    "name": "appnDirOutLocates",
+    "oid": "1.3.6.1.2.1.34.4.1.4.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnNodeCounter",
+      "class": "type"
+    },
+    "units": "Locate messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnDirOutBcastLocates": {
+    "name": "appnDirOutBcastLocates",
+    "oid": "1.3.6.1.2.1.34.4.1.4.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnNodeCounter",
+      "class": "type"
+    },
+    "units": "Locate messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnDirNotFoundLocates": {
+    "name": "appnDirNotFoundLocates",
+    "oid": "1.3.6.1.2.1.34.4.1.4.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnNodeCounter",
+      "class": "type"
+    },
+    "units": "Locate messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnDirNotFoundBcastLocates": {
+    "name": "appnDirNotFoundBcastLocates",
+    "oid": "1.3.6.1.2.1.34.4.1.4.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnNodeCounter",
+      "class": "type"
+    },
+    "units": "Locate messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnDirLocateOutstands": {
+    "name": "appnDirLocateOutstands",
+    "oid": "1.3.6.1.2.1.34.4.1.4.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Locate messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnDirTable": {
+    "name": "appnDirTable",
+    "oid": "1.3.6.1.2.1.34.4.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnDirEntry": {
+    "name": "appnDirEntry",
+    "oid": "1.3.6.1.2.1.34.4.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnDirLuName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appnDirLuName": {
+    "name": "appnDirLuName",
+    "oid": "1.3.6.1.2.1.34.4.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnDirNnServerName": {
+    "name": "appnDirNnServerName",
+    "oid": "1.3.6.1.2.1.34.4.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaControlPointName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnDirLuOwnerName": {
+    "name": "appnDirLuOwnerName",
+    "oid": "1.3.6.1.2.1.34.4.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaControlPointName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnDirLuLocation": {
+    "name": "appnDirLuLocation",
+    "oid": "1.3.6.1.2.1.34.4.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "domain": 2,
+          "xdomain": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnDirType": {
+    "name": "appnDirType",
+    "oid": "1.3.6.1.2.1.34.4.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "home": 1,
+          "cache": 2,
+          "registered": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnDirApparentLuOwnerName": {
+    "name": "appnDirApparentLuOwnerName",
+    "oid": "1.3.6.1.2.1.34.4.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCos": {
+    "name": "appnCos",
+    "oid": "1.3.6.1.2.1.34.4.1.5",
+    "class": "objectidentity"
+  },
+  "appnCosModeTable": {
+    "name": "appnCosModeTable",
+    "oid": "1.3.6.1.2.1.34.4.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnCosModeEntry": {
+    "name": "appnCosModeEntry",
+    "oid": "1.3.6.1.2.1.34.4.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosModeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appnCosModeName": {
+    "name": "appnCosModeName",
+    "oid": "1.3.6.1.2.1.34.4.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaModeName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnCosModeCosName": {
+    "name": "appnCosModeCosName",
+    "oid": "1.3.6.1.2.1.34.4.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaClassOfServiceName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCosNameTable": {
+    "name": "appnCosNameTable",
+    "oid": "1.3.6.1.2.1.34.4.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnCosNameEntry": {
+    "name": "appnCosNameEntry",
+    "oid": "1.3.6.1.2.1.34.4.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appnCosName": {
+    "name": "appnCosName",
+    "oid": "1.3.6.1.2.1.34.4.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaClassOfServiceName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnCosTransPriority": {
+    "name": "appnCosTransPriority",
+    "oid": "1.3.6.1.2.1.34.4.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "medium": 2,
+          "high": 3,
+          "network": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCosNodeRowTable": {
+    "name": "appnCosNodeRowTable",
+    "oid": "1.3.6.1.2.1.34.4.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnCosNodeRowEntry": {
+    "name": "appnCosNodeRowEntry",
+    "oid": "1.3.6.1.2.1.34.4.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosNodeRowName",
+        "implied": 0
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosNodeRowIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appnCosNodeRowName": {
+    "name": "appnCosNodeRowName",
+    "oid": "1.3.6.1.2.1.34.4.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaClassOfServiceName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnCosNodeRowIndex": {
+    "name": "appnCosNodeRowIndex",
+    "oid": "1.3.6.1.2.1.34.4.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnCosNodeRowWgt": {
+    "name": "appnCosNodeRowWgt",
+    "oid": "1.3.6.1.2.1.34.4.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCosNodeRowResistMin": {
+    "name": "appnCosNodeRowResistMin",
+    "oid": "1.3.6.1.2.1.34.4.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCosNodeRowResistMax": {
+    "name": "appnCosNodeRowResistMax",
+    "oid": "1.3.6.1.2.1.34.4.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCosNodeRowMinCongestAllow": {
+    "name": "appnCosNodeRowMinCongestAllow",
+    "oid": "1.3.6.1.2.1.34.4.1.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCosNodeRowMaxCongestAllow": {
+    "name": "appnCosNodeRowMaxCongestAllow",
+    "oid": "1.3.6.1.2.1.34.4.1.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCosTgRowTable": {
+    "name": "appnCosTgRowTable",
+    "oid": "1.3.6.1.2.1.34.4.1.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnCosTgRowEntry": {
+    "name": "appnCosTgRowEntry",
+    "oid": "1.3.6.1.2.1.34.4.1.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosTgRowName",
+        "implied": 0
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosTgRowIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appnCosTgRowName": {
+    "name": "appnCosTgRowName",
+    "oid": "1.3.6.1.2.1.34.4.1.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaClassOfServiceName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnCosTgRowIndex": {
+    "name": "appnCosTgRowIndex",
+    "oid": "1.3.6.1.2.1.34.4.1.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnCosTgRowWgt": {
+    "name": "appnCosTgRowWgt",
+    "oid": "1.3.6.1.2.1.34.4.1.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCosTgRowEffCapMin": {
+    "name": "appnCosTgRowEffCapMin",
+    "oid": "1.3.6.1.2.1.34.4.1.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnTgEffectiveCapacity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCosTgRowEffCapMax": {
+    "name": "appnCosTgRowEffCapMax",
+    "oid": "1.3.6.1.2.1.34.4.1.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnTgEffectiveCapacity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCosTgRowConnCostMin": {
+    "name": "appnCosTgRowConnCostMin",
+    "oid": "1.3.6.1.2.1.34.4.1.5.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCosTgRowConnCostMax": {
+    "name": "appnCosTgRowConnCostMax",
+    "oid": "1.3.6.1.2.1.34.4.1.5.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCosTgRowByteCostMin": {
+    "name": "appnCosTgRowByteCostMin",
+    "oid": "1.3.6.1.2.1.34.4.1.5.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCosTgRowByteCostMax": {
+    "name": "appnCosTgRowByteCostMax",
+    "oid": "1.3.6.1.2.1.34.4.1.5.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCosTgRowSecurityMin": {
+    "name": "appnCosTgRowSecurityMin",
+    "oid": "1.3.6.1.2.1.34.4.1.5.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnTgSecurity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCosTgRowSecurityMax": {
+    "name": "appnCosTgRowSecurityMax",
+    "oid": "1.3.6.1.2.1.34.4.1.5.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnTgSecurity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCosTgRowDelayMin": {
+    "name": "appnCosTgRowDelayMin",
+    "oid": "1.3.6.1.2.1.34.4.1.5.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnTgDelay",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCosTgRowDelayMax": {
+    "name": "appnCosTgRowDelayMax",
+    "oid": "1.3.6.1.2.1.34.4.1.5.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppnTgDelay",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCosTgRowUsr1Min": {
+    "name": "appnCosTgRowUsr1Min",
+    "oid": "1.3.6.1.2.1.34.4.1.5.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCosTgRowUsr1Max": {
+    "name": "appnCosTgRowUsr1Max",
+    "oid": "1.3.6.1.2.1.34.4.1.5.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCosTgRowUsr2Min": {
+    "name": "appnCosTgRowUsr2Min",
+    "oid": "1.3.6.1.2.1.34.4.1.5.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCosTgRowUsr2Max": {
+    "name": "appnCosTgRowUsr2Max",
+    "oid": "1.3.6.1.2.1.34.4.1.5.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCosTgRowUsr3Min": {
+    "name": "appnCosTgRowUsr3Min",
+    "oid": "1.3.6.1.2.1.34.4.1.5.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnCosTgRowUsr3Max": {
+    "name": "appnCosTgRowUsr3Max",
+    "oid": "1.3.6.1.2.1.34.4.1.5.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnSessIntermediate": {
+    "name": "appnSessIntermediate",
+    "oid": "1.3.6.1.2.1.34.4.1.6",
+    "class": "objectidentity"
+  },
+  "appnIsInGlobal": {
+    "name": "appnIsInGlobal",
+    "oid": "1.3.6.1.2.1.34.4.1.6.1",
+    "class": "objectidentity"
+  },
+  "appnIsInGlobeCtrAdminStatus": {
+    "name": "appnIsInGlobeCtrAdminStatus",
+    "oid": "1.3.6.1.2.1.34.4.1.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 1,
+          "active": 2,
+          "ready": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "appnIsInGlobeCtrOperStatus": {
+    "name": "appnIsInGlobeCtrOperStatus",
+    "oid": "1.3.6.1.2.1.34.4.1.6.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInGlobeCtrStatusTime": {
+    "name": "appnIsInGlobeCtrStatusTime",
+    "oid": "1.3.6.1.2.1.34.4.1.6.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "hundredths of a second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInGlobeRscv": {
+    "name": "appnIsInGlobeRscv",
+    "oid": "1.3.6.1.2.1.34.4.1.6.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "appnIsInGlobeRscvTime": {
+    "name": "appnIsInGlobeRscvTime",
+    "oid": "1.3.6.1.2.1.34.4.1.6.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "hundredths of a second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInGlobeActSess": {
+    "name": "appnIsInGlobeActSess",
+    "oid": "1.3.6.1.2.1.34.4.1.6.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInGlobeHprBfActSess": {
+    "name": "appnIsInGlobeHprBfActSess",
+    "oid": "1.3.6.1.2.1.34.4.1.6.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInTable": {
+    "name": "appnIsInTable",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnIsInEntry": {
+    "name": "appnIsInEntry",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInFqCpName",
+        "implied": 0
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInPcid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appnIsInFqCpName": {
+    "name": "appnIsInFqCpName",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaControlPointName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnIsInPcid": {
+    "name": "appnIsInPcid",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnIsInSessState": {
+    "name": "appnIsInSessState",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "pendactive": 2,
+          "active": 3,
+          "pendinact": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "appnIsInPriLuName": {
+    "name": "appnIsInPriLuName",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInSecLuName": {
+    "name": "appnIsInSecLuName",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInModeName": {
+    "name": "appnIsInModeName",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaModeName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInCosName": {
+    "name": "appnIsInCosName",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaClassOfServiceName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInTransPriority": {
+    "name": "appnIsInTransPriority",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "medium": 2,
+          "high": 3,
+          "network": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInSessType": {
+    "name": "appnIsInSessType",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "lu62": 2,
+          "lu0thru3": 3,
+          "lu62dlur": 4,
+          "lu0thru3dlur": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInSessUpTime": {
+    "name": "appnIsInSessUpTime",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "hundredths of a second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInCtrUpTime": {
+    "name": "appnIsInCtrUpTime",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "hundredths of a second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInP2SFmdPius": {
+    "name": "appnIsInP2SFmdPius",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "path information units (PIUs)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInS2PFmdPius": {
+    "name": "appnIsInS2PFmdPius",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "path information units (PIUs)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInP2SNonFmdPius": {
+    "name": "appnIsInP2SNonFmdPius",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "path information units (PIUs)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInS2PNonFmdPius": {
+    "name": "appnIsInS2PNonFmdPius",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "path information units (PIUs)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInP2SFmdBytes": {
+    "name": "appnIsInP2SFmdBytes",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInS2PFmdBytes": {
+    "name": "appnIsInS2PFmdBytes",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInP2SNonFmdBytes": {
+    "name": "appnIsInP2SNonFmdBytes",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInS2PNonFmdBytes": {
+    "name": "appnIsInS2PNonFmdBytes",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInPsAdjCpName": {
+    "name": "appnIsInPsAdjCpName",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaControlPointName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInPsAdjTgNum": {
+    "name": "appnIsInPsAdjTgNum",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInPsSendMaxBtuSize": {
+    "name": "appnIsInPsSendMaxBtuSize",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 99,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInPsSendPacingType": {
+    "name": "appnIsInPsSendPacingType",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 1,
+          "adaptive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInPsSendRpc": {
+    "name": "appnIsInPsSendRpc",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "message units (MUs)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInPsSendNxWndwSize": {
+    "name": "appnIsInPsSendNxWndwSize",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "message units (MUs)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInPsRecvPacingType": {
+    "name": "appnIsInPsRecvPacingType",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 1,
+          "adaptive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInPsRecvRpc": {
+    "name": "appnIsInPsRecvRpc",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "message units (MUs)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInPsRecvNxWndwSize": {
+    "name": "appnIsInPsRecvNxWndwSize",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "message units (MUs)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInSsAdjCpName": {
+    "name": "appnIsInSsAdjCpName",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaControlPointName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInSsAdjTgNum": {
+    "name": "appnIsInSsAdjTgNum",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInSsSendMaxBtuSize": {
+    "name": "appnIsInSsSendMaxBtuSize",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 99,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInSsSendPacingType": {
+    "name": "appnIsInSsSendPacingType",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 1,
+          "adaptive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInSsSendRpc": {
+    "name": "appnIsInSsSendRpc",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "message units (MUs)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInSsSendNxWndwSize": {
+    "name": "appnIsInSsSendNxWndwSize",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "message units (MUs)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInSsRecvPacingType": {
+    "name": "appnIsInSsRecvPacingType",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 1,
+          "adaptive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInSsRecvRpc": {
+    "name": "appnIsInSsRecvRpc",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "message units (MUs)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInSsRecvNxWndwSize": {
+    "name": "appnIsInSsRecvNxWndwSize",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "message units (MUs)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInRouteInfo": {
+    "name": "appnIsInRouteInfo",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInRtpNceId": {
+    "name": "appnIsInRtpNceId",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsInRtpTcid": {
+    "name": "appnIsInRtpTcid",
+    "oid": "1.3.6.1.2.1.34.4.1.6.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnIsRtpTable": {
+    "name": "appnIsRtpTable",
+    "oid": "1.3.6.1.2.1.34.4.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnIsRtpEntry": {
+    "name": "appnIsRtpEntry",
+    "oid": "1.3.6.1.2.1.34.4.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsRtpNceId",
+        "implied": 0
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsRtpTcid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appnIsRtpNceId": {
+    "name": "appnIsRtpNceId",
+    "oid": "1.3.6.1.2.1.34.4.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnIsRtpTcid": {
+    "name": "appnIsRtpTcid",
+    "oid": "1.3.6.1.2.1.34.4.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appnIsRtpSessions": {
+    "name": "appnIsRtpSessions",
+    "oid": "1.3.6.1.2.1.34.4.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnTraps": {
+    "name": "appnTraps",
+    "oid": "1.3.6.1.2.1.34.4.2",
+    "class": "objectidentity"
+  },
+  "alertTrap": {
+    "name": "alertTrap",
+    "oid": "1.3.6.1.2.1.34.4.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "alertIdNumber"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "affectedObject"
+      }
+    ],
+    "status": "current"
+  },
+  "alertIdNumber": {
+    "name": "alertIdNumber",
+    "oid": "1.3.6.1.2.1.34.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "affectedObject": {
+    "name": "affectedObject",
+    "oid": "1.3.6.1.2.1.34.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "appnConformance": {
+    "name": "appnConformance",
+    "oid": "1.3.6.1.2.1.34.4.3",
+    "class": "objectidentity"
+  },
+  "appnCompliances": {
+    "name": "appnCompliances",
+    "oid": "1.3.6.1.2.1.34.4.3.1",
+    "class": "objectidentity"
+  },
+  "appnGroups": {
+    "name": "appnGroups",
+    "oid": "1.3.6.1.2.1.34.4.3.2",
+    "class": "objectidentity"
+  },
+  "appnCompliance2": {
+    "name": "appnCompliance2",
+    "oid": "1.3.6.1.2.1.34.4.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "appnGeneralConfGroup2",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnPortConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnLinkConfGroup2",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnLocalTgConfGroup2",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnDirTableConfGroup2",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnNnUniqueConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnEnUniqueConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnVrnConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnNnTopoConfGroup2",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnLocalEnTopoConfGroup2",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnLocalDirPerfConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnCosConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnIntSessConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnHprBaseConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnHprRtpConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnHprCtrlFlowsRtpConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnHprBfConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnTrapConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnTrapNotifGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnBrNnConfGroup",
+        "module": "APPN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "appnGeneralConfGroup2": {
+    "name": "appnGeneralConfGroup2",
+    "oid": "1.3.6.1.2.1.34.4.3.2.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeCpName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeId"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeType"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeUpTime"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeParallelTg"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeAdaptiveBindPacing"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeHprSupport"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeCounterDisconTime"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeLsCounterType"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeBrNn"
+      }
+    ],
+    "status": "current"
+  },
+  "appnPortConfGroup": {
+    "name": "appnPortConfGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnPortCommand"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnPortOperState"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnPortDlcType"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnPortPortType"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnPortSIMRIM"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnPortLsRole"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnPortNegotLs"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnPortDynamicLinkSupport"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnPortMaxRcvBtuSize"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnPortMaxIframeWindow"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnPortDefLsGoodXids"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnPortDefLsBadXids"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnPortDynLsGoodXids"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnPortDynLsBadXids"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnPortSpecific"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnPortDlcLocalAddr"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnPortCounterDisconTime"
+      }
+    ],
+    "status": "current"
+  },
+  "appnLinkConfGroup2": {
+    "name": "appnLinkConfGroup2",
+    "oid": "1.3.6.1.2.1.34.4.3.2.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsCommand"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsOperState"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsPortName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsDlcType"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsDynamic"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsAdjCpName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsAdjNodeType"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsTgNum"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsLimResource"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsActOnDemand"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsMigration"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsPartnerNodeId"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsCpCpSessionSupport"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsMaxSendBtuSize"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsInXidBytes"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsInMsgBytes"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsInXidFrames"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsInMsgFrames"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsOutXidBytes"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsOutMsgBytes"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsOutXidFrames"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsOutMsgFrames"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsEchoRsps"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsCurrentDelay"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsMaxDelay"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsMinDelay"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsMaxDelayTime"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsGoodXids"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsBadXids"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsSpecific"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsActiveTime"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsCurrentStateTime"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsHprSup"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsLocalAddr"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsRemoteAddr"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsRemoteLsName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusTime"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusLsName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusCpName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusPartnerId"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusTgNum"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusGeneralSense"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusRetry"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusEndSense"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusXidLocalSense"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusXidRemoteSense"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusXidByteInError"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusXidBitInError"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusDlcType"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusLocalAddr"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusRemoteAddr"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsCounterDisconTime"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsMltgMember"
+      }
+    ],
+    "status": "current"
+  },
+  "appnLocalTgConfGroup2": {
+    "name": "appnLocalTgConfGroup2",
+    "oid": "1.3.6.1.2.1.34.4.3.2.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgDestVirtual"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgDlcData"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgPortName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgQuiescing"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgOperational"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgCpCpSession"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgEffCap"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgConnCost"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgByteCost"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgSecurity"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgDelay"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgUsr1"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgUsr2"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgUsr3"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgHprSup"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgIntersubnet"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgMltgLinkType"
+      }
+    ],
+    "status": "current"
+  },
+  "appnDirTableConfGroup2": {
+    "name": "appnDirTableConfGroup2",
+    "oid": "1.3.6.1.2.1.34.4.3.2.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnDirNnServerName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnDirLuOwnerName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnDirLuLocation"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnDirType"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnDirApparentLuOwnerName"
+      }
+    ],
+    "status": "current"
+  },
+  "appnNnUniqueConfGroup": {
+    "name": "appnNnUniqueConfGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeNnCentralDirectory"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeNnTreeCache"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeNnRouteAddResist"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeNnIsr"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeNnFrsn"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeNnPeriBorderSup"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeNnInterchangeSup"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeNnExteBorderSup"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeNnSafeStoreFreq"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeNnRsn"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeNnCongested"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeNnIsrDepleted"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeNnQuiescing"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeNnGateway"
+      }
+    ],
+    "status": "current"
+  },
+  "appnEnUniqueConfGroup": {
+    "name": "appnEnUniqueConfGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeEnModeCosMap"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeEnNnServer"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeEnLuSearch"
+      }
+    ],
+    "status": "current"
+  },
+  "appnVrnConfGroup": {
+    "name": "appnVrnConfGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnVrnPortName"
+      }
+    ],
+    "status": "current"
+  },
+  "appnNnTopoConfGroup2": {
+    "name": "appnNnTopoConfGroup2",
+    "oid": "1.3.6.1.2.1.34.4.3.2.30",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTopoMaxNodes"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTopoCurNumNodes"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTopoNodePurges"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTopoTgPurges"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTopoTotalTduWars"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFREntryTimeLeft"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRType"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRRsn"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRRouteAddResist"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRCongested"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRIsrDepleted"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRQuiescing"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRGateway"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRCentralDirectory"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRIsr"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRGarbageCollect"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRHprSupport"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRPeriBorderSup"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRInterchangeSup"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRExteBorderSup"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRBranchAwareness"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFREntryTimeLeft"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRDestVirtual"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRDlcData"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRRsn"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFROperational"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRQuiescing"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRCpCpSession"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFREffCap"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRConnCost"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRByteCost"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRSecurity"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRDelay"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRUsr1"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRUsr2"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRUsr3"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRGarbageCollect"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRSubareaNum"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRHprSup"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRDestHprTrans"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRTypeIndicator"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRIntersubnet"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRMltgLinkType"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRBranchTg"
+      }
+    ],
+    "status": "current"
+  },
+  "appnLocalEnTopoConfGroup2": {
+    "name": "appnLocalEnTopoConfGroup2",
+    "oid": "1.3.6.1.2.1.34.4.3.2.31",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgEntryTimeLeft"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgDestVirtual"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgDlcData"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgOperational"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgCpCpSession"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgEffCap"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgConnCost"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgByteCost"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgSecurity"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgDelay"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgUsr1"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgUsr2"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgUsr3"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgMltgLinkType"
+      }
+    ],
+    "status": "current"
+  },
+  "appnLocalDirPerfConfGroup": {
+    "name": "appnLocalDirPerfConfGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnDirMaxCaches"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnDirCurCaches"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnDirCurHomeEntries"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnDirRegEntries"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnDirInLocates"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnDirInBcastLocates"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnDirOutLocates"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnDirOutBcastLocates"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnDirNotFoundLocates"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnDirNotFoundBcastLocates"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnDirLocateOutstands"
+      }
+    ],
+    "status": "current"
+  },
+  "appnCosConfGroup": {
+    "name": "appnCosConfGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosModeCosName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosTransPriority"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosNodeRowWgt"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosNodeRowResistMin"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosNodeRowResistMax"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosNodeRowMinCongestAllow"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosNodeRowMaxCongestAllow"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosTgRowWgt"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosTgRowEffCapMin"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosTgRowEffCapMax"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosTgRowConnCostMin"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosTgRowConnCostMax"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosTgRowByteCostMin"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosTgRowByteCostMax"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosTgRowSecurityMin"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosTgRowSecurityMax"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosTgRowDelayMin"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosTgRowDelayMax"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosTgRowUsr1Min"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosTgRowUsr1Max"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosTgRowUsr2Min"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosTgRowUsr2Max"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosTgRowUsr3Min"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnCosTgRowUsr3Max"
+      }
+    ],
+    "status": "current"
+  },
+  "appnIntSessConfGroup": {
+    "name": "appnIntSessConfGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInGlobeCtrAdminStatus"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInGlobeCtrOperStatus"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInGlobeCtrStatusTime"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInGlobeRscv"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInGlobeRscvTime"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInGlobeActSess"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInSessState"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInPriLuName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInSecLuName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInModeName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInCosName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInTransPriority"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInSessType"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInSessUpTime"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInCtrUpTime"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInP2SFmdPius"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInS2PFmdPius"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInP2SNonFmdPius"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInS2PNonFmdPius"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInP2SFmdBytes"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInS2PFmdBytes"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInP2SNonFmdBytes"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInS2PNonFmdBytes"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInPsAdjCpName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInPsAdjTgNum"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInPsSendMaxBtuSize"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInPsSendPacingType"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInPsSendRpc"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInPsSendNxWndwSize"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInPsRecvPacingType"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInPsRecvRpc"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInPsRecvNxWndwSize"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInSsAdjCpName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInSsAdjTgNum"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInSsSendMaxBtuSize"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInSsSendPacingType"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInSsSendRpc"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInSsSendNxWndwSize"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInSsRecvPacingType"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInSsRecvRpc"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInSsRecvNxWndwSize"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInRouteInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "appnHprBaseConfGroup": {
+    "name": "appnHprBaseConfGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeHprIntRteSetups"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeHprIntRteRejects"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsErrRecoSup"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsForAnrLabel"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsRevAnrLabel"
+      }
+    ],
+    "status": "current"
+  },
+  "appnHprRtpConfGroup": {
+    "name": "appnHprRtpConfGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeMaxSessPerRtpConn"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeHprOrgRteSetups"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeHprOrgRteRejects"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeHprEndRteSetups"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeHprEndRteRejects"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsBfNceId"
+      }
+    ],
+    "status": "current"
+  },
+  "appnHprCtrlFlowsRtpConfGroup": {
+    "name": "appnHprCtrlFlowsRtpConfGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsCpCpNceId"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsRouteNceId"
+      }
+    ],
+    "status": "current"
+  },
+  "appnHprBfConfGroup": {
+    "name": "appnHprBfConfGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInGlobeHprBfActSess"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInRtpNceId"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInRtpTcid"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsRtpSessions"
+      }
+    ],
+    "status": "current"
+  },
+  "appnTrapConfGroup": {
+    "name": "appnTrapConfGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "alertIdNumber"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "affectedObject"
+      }
+    ],
+    "status": "current"
+  },
+  "appnTrapNotifGroup": {
+    "name": "appnTrapNotifGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.19",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "alertTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "appnBrNnConfGroup": {
+    "name": "appnBrNnConfGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeEnNnServer"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeEnLuSearch"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgBranchLinkType"
+      }
+    ],
+    "status": "current"
+  },
+  "appnNodeMibVersion": {
+    "name": "appnNodeMibVersion",
+    "oid": "1.3.6.1.2.1.34.4.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 11,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "appnCompliance": {
+    "name": "appnCompliance",
+    "oid": "1.3.6.1.2.1.34.4.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "appnGeneralConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnPortConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnLinkConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnLocalTgConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnDirTableConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnNnUniqueConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnEnUniqueConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnVrnConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnNnTopoConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnLocalEnTopoConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnLocalDirPerfConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnCosConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnIntSessConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnHprBaseConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnHprRtpConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnHprCtrlFlowsRtpConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnHprBfConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnTrapConfGroup",
+        "module": "APPN-MIB"
+      },
+      {
+        "object": "appnTrapNotifGroup",
+        "module": "APPN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "appnGeneralConfGroup": {
+    "name": "appnGeneralConfGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeCpName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeMibVersion"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeId"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeType"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeUpTime"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeParallelTg"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeAdaptiveBindPacing"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeHprSupport"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNodeCounterDisconTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "appnLinkConfGroup": {
+    "name": "appnLinkConfGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsCommand"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsOperState"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsPortName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsDlcType"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsDynamic"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsAdjCpName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsAdjNodeType"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsTgNum"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsLimResource"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsActOnDemand"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsMigration"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsPartnerNodeId"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsCpCpSessionSupport"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsMaxSendBtuSize"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsInXidBytes"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsInMsgBytes"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsInXidFrames"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsInMsgFrames"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsOutXidBytes"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsOutMsgBytes"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsOutXidFrames"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsOutMsgFrames"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsEchoRsps"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsCurrentDelay"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsMaxDelay"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsMinDelay"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsMaxDelayTime"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsGoodXids"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsBadXids"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsSpecific"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsActiveTime"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsCurrentStateTime"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsHprSup"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsLocalAddr"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsRemoteAddr"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsRemoteLsName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusTime"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusLsName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusCpName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusPartnerId"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusTgNum"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusGeneralSense"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusRetry"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusEndSense"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusXidLocalSense"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusXidRemoteSense"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusXidByteInError"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusXidBitInError"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusDlcType"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusLocalAddr"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsStatusRemoteAddr"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsCounterDisconTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "appnLocalTgConfGroup": {
+    "name": "appnLocalTgConfGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgDestVirtual"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgDlcData"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgPortName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgQuiescing"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgOperational"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgCpCpSession"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgEffCap"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgConnCost"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgByteCost"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgSecurity"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgDelay"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgUsr1"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgUsr2"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgUsr3"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgHprSup"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgIntersubnet"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "appnDirTableConfGroup": {
+    "name": "appnDirTableConfGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnDirNnServerName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnDirLuOwnerName"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnDirLuLocation"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnDirType"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "appnNnTopoConfGroup": {
+    "name": "appnNnTopoConfGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTopoMaxNodes"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTopoCurNumNodes"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTopoNodePurges"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTopoTgPurges"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTopoTotalTduWars"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFREntryTimeLeft"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRType"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRRsn"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRRouteAddResist"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRCongested"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRIsrDepleted"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRQuiescing"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRGateway"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRCentralDirectory"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRIsr"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRGarbageCollect"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRHprSupport"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRPeriBorderSup"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRInterchangeSup"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnNodeFRExteBorderSup"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFREntryTimeLeft"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRDestVirtual"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRDlcData"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRRsn"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFROperational"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRQuiescing"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRCpCpSession"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFREffCap"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRConnCost"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRByteCost"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRSecurity"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRDelay"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRUsr1"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRUsr2"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRUsr3"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRGarbageCollect"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRSubareaNum"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRHprSup"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRDestHprTrans"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRTypeIndicator"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnNnTgFRIntersubnet"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "appnLocalEnTopoConfGroup": {
+    "name": "appnLocalEnTopoConfGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgEntryTimeLeft"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgDestVirtual"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgDlcData"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgOperational"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgCpCpSession"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgEffCap"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgConnCost"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgByteCost"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgSecurity"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgDelay"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgUsr1"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgUsr2"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalEnTgUsr3"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/APPN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "APPN-MIB"
+  }
+}

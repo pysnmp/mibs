@@ -1,0 +1,547 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-IP-ROUTER-MIB": [
+      "nwIpComponents",
+      "nwIpClientServices",
+      "nwIpMibs",
+      "nwIpRouter"
+    ],
+    "ROUTER-OIDS": [
+      "nwRtrProtoSuites"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "PhysAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ctDhcp": {
+    "name": "ctDhcp",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2",
+    "class": "objectidentity"
+  },
+  "ctDhcpServerStats": {
+    "name": "ctDhcpServerStats",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.1",
+    "class": "objectidentity"
+  },
+  "ctDhcpInterfaceConfig": {
+    "name": "ctDhcpInterfaceConfig",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.2",
+    "class": "objectidentity"
+  },
+  "ctDhcpClientStatusTable": {
+    "name": "ctDhcpClientStatusTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.3",
+    "class": "objectidentity"
+  },
+  "ctDhcpAdminStatus": {
+    "name": "ctDhcpAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctDhcpOperStatus": {
+    "name": "ctDhcpOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctDhcpDiscovers": {
+    "name": "ctDhcpDiscovers",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctDhcpOffers": {
+    "name": "ctDhcpOffers",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctDhcpRequests": {
+    "name": "ctDhcpRequests",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctDhcpDeclines": {
+    "name": "ctDhcpDeclines",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctDhcpReleases": {
+    "name": "ctDhcpReleases",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctDhcpAcks": {
+    "name": "ctDhcpAcks",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctDhcpNaks": {
+    "name": "ctDhcpNaks",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctDhcpOtherServers": {
+    "name": "ctDhcpOtherServers",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctDhcpProtocolErrors": {
+    "name": "ctDhcpProtocolErrors",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctDhcpServerTime": {
+    "name": "ctDhcpServerTime",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctDhcpNoOfActiveClients": {
+    "name": "ctDhcpNoOfActiveClients",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctDhcpReclaimIP": {
+    "name": "ctDhcpReclaimIP",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctDhcpServerIfTable": {
+    "name": "ctDhcpServerIfTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctDhcpServerIfEntry": {
+    "name": "ctDhcpServerIfEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-DHCP-MIB",
+        "object": "ctDhcpIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctDhcpIfIndex": {
+    "name": "ctDhcpIfIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctDhcpIfAdminStatus": {
+    "name": "ctDhcpIfAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctDhcpIfOperStatus": {
+    "name": "ctDhcpIfOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2,
+          "invalid-config": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctDhcpIfServerAddress": {
+    "name": "ctDhcpIfServerAddress",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctDhcpIfNetworkAddress": {
+    "name": "ctDhcpIfNetworkAddress",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctDhcpIfSubnetMask": {
+    "name": "ctDhcpIfSubnetMask",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctDhcpIfLowestaddress": {
+    "name": "ctDhcpIfLowestaddress",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctDhcpIfHighestAddress": {
+    "name": "ctDhcpIfHighestAddress",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctDhcpIfAddressesUsed": {
+    "name": "ctDhcpIfAddressesUsed",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctDhcpIfAddressesFree": {
+    "name": "ctDhcpIfAddressesFree",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctDhcpIfLeasePeriod": {
+    "name": "ctDhcpIfLeasePeriod",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctDhcpIfDefaultGateway": {
+    "name": "ctDhcpIfDefaultGateway",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctDhcpIfDomainNameServer": {
+    "name": "ctDhcpIfDomainNameServer",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctDhcpIfDomainName": {
+    "name": "ctDhcpIfDomainName",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctDhcpIfWINServer": {
+    "name": "ctDhcpIfWINServer",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctDhcpClientStatsTable": {
+    "name": "ctDhcpClientStatsTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctDhcpClientStatsEntry": {
+    "name": "ctDhcpClientStatsEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-DHCP-MIB",
+        "object": "ctDhcpClientStatsID",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctDhcpClientStatsID": {
+    "name": "ctDhcpClientStatsID",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctDhcpClientName": {
+    "name": "ctDhcpClientName",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctDhcpClientIP": {
+    "name": "ctDhcpClientIP",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctDhcpClientID": {
+    "name": "ctDhcpClientID",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctDhcpEndOfLease": {
+    "name": "ctDhcpEndOfLease",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-DHCP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CTRON-DHCP-MIB"
+  }
+}

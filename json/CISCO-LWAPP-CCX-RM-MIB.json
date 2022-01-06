@@ -1,0 +1,653 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-LWAPP-AP-MIB": [
+      "cLApSysMacAddress",
+      "cLApDot11IfEntry",
+      "cLApDot11IfSlotId"
+    ],
+    "CISCO-LWAPP-WLAN-MIB": [
+      "cLWlanConfigEntry"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeInterval",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoLwappCcxRmMIB": {
+    "name": "ciscoLwappCcxRmMIB",
+    "oid": "1.3.6.1.4.1.9.9.520",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-02-21 00:00",
+        "description": "Added ciscoLwappCcxRmDot11aConfigGroupVer1, ciscoLwappCcxRmDot11bConfigGroupVer1, and ciscoLwappCcxRmApIfConfigGroupVer1. Deprecated ciscoLwappCcxRmDot11aConfigGroup, ciscoLwappCcxRmDot11bConfigGroup, and ciscoLwappCcxRmApIfConfigGroup. Added ciscoLwappCcxRmMIBComplianceVer1 and deprecated ciscoLwappCcxRmMIBCompliance."
+      },
+      {
+        "revision": "2006-04-11 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappCcxRmMIBNotifs": {
+    "name": "ciscoLwappCcxRmMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.520.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappCcxRmMIBObjects": {
+    "name": "ciscoLwappCcxRmMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.520.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappCcxRmMIBConform": {
+    "name": "ciscoLwappCcxRmMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.520.2",
+    "class": "objectidentity"
+  },
+  "clcrDot11aConfigGlobal": {
+    "name": "clcrDot11aConfigGlobal",
+    "oid": "1.3.6.1.4.1.9.9.520.1.1",
+    "class": "objectidentity"
+  },
+  "clcrDot11bConfigGlobal": {
+    "name": "clcrDot11bConfigGlobal",
+    "oid": "1.3.6.1.4.1.9.9.520.1.2",
+    "class": "objectidentity"
+  },
+  "clcrApIfConfig": {
+    "name": "clcrApIfConfig",
+    "oid": "1.3.6.1.4.1.9.9.520.1.3",
+    "class": "objectidentity"
+  },
+  "clcrClientMeasurementReport": {
+    "name": "clcrClientMeasurementReport",
+    "oid": "1.3.6.1.4.1.9.9.520.1.4",
+    "class": "objectidentity"
+  },
+  "clcrWlanConfig": {
+    "name": "clcrWlanConfig",
+    "oid": "1.3.6.1.4.1.9.9.520.1.5",
+    "class": "objectidentity"
+  },
+  "clcrdot11aBeaconEnabled": {
+    "name": "clcrdot11aBeaconEnabled",
+    "oid": "1.3.6.1.4.1.9.9.520.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcrdot11aBeaconInterval": {
+    "name": "clcrdot11aBeaconInterval",
+    "oid": "1.3.6.1.4.1.9.9.520.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 6000,
+            "max": 3240000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6000,
+        "format": "decimal"
+      }
+    },
+    "units": "hundredths-seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "clcrdot11aBeaconIntvl": {
+    "name": "clcrdot11aBeaconIntvl",
+    "oid": "1.3.6.1.4.1.9.9.520.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "units": "hundredths-seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcrdot11bBeaconEnabled": {
+    "name": "clcrdot11bBeaconEnabled",
+    "oid": "1.3.6.1.4.1.9.9.520.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcrdot11bBeaconInterval": {
+    "name": "clcrdot11bBeaconInterval",
+    "oid": "1.3.6.1.4.1.9.9.520.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 6000,
+            "max": 3240000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6000,
+        "format": "decimal"
+      }
+    },
+    "units": "hundredths-seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "clcrdot11bBeaconIntvl": {
+    "name": "clcrdot11bBeaconIntvl",
+    "oid": "1.3.6.1.4.1.9.9.520.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "units": "hundredths-seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcrAPIfTable": {
+    "name": "clcrAPIfTable",
+    "oid": "1.3.6.1.4.1.9.9.520.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clcrAPIfEntry": {
+    "name": "clcrAPIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.520.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "clcrAPIfEntry",
+      "module": "CISCO-LWAPP-CCX-RM-MIB",
+      "object": "cLApDot11IfEntry"
+    },
+    "status": "current"
+  },
+  "clcrAPIfOverrideGlobal": {
+    "name": "clcrAPIfOverrideGlobal",
+    "oid": "1.3.6.1.4.1.9.9.520.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcrAPIfBeaconEnabled": {
+    "name": "clcrAPIfBeaconEnabled",
+    "oid": "1.3.6.1.4.1.9.9.520.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcrAPIfBeaconInterval": {
+    "name": "clcrAPIfBeaconInterval",
+    "oid": "1.3.6.1.4.1.9.9.520.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 6000,
+            "max": 3240000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6000,
+        "format": "decimal"
+      }
+    },
+    "units": "hundredths-seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "clcrAPIfBeaconIntvl": {
+    "name": "clcrAPIfBeaconIntvl",
+    "oid": "1.3.6.1.4.1.9.9.520.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "units": "hundredths-seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcrClientBeaconReportTable": {
+    "name": "clcrClientBeaconReportTable",
+    "oid": "1.3.6.1.4.1.9.9.520.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clcrClientBeaconReportEntry": {
+    "name": "clcrClientBeaconReportEntry",
+    "oid": "1.3.6.1.4.1.9.9.520.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-CCX-RM-MIB",
+        "object": "clcrClientMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApSysMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApDot11IfSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clcrClientMacAddress": {
+    "name": "clcrClientMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.520.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clcrClientRxPowerSignal": {
+    "name": "clcrClientRxPowerSignal",
+    "oid": "1.3.6.1.4.1.9.9.520.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -90,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcrClientTimeStamp": {
+    "name": "clcrClientTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.520.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcrWlanTable": {
+    "name": "clcrWlanTable",
+    "oid": "1.3.6.1.4.1.9.9.520.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clcrWlanEntry": {
+    "name": "clcrWlanEntry",
+    "oid": "1.3.6.1.4.1.9.9.520.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "clcrWlanEntry",
+      "module": "CISCO-LWAPP-CCX-RM-MIB",
+      "object": "cLWlanConfigEntry"
+    },
+    "status": "current"
+  },
+  "clcrVersionIESupport": {
+    "name": "clcrVersionIESupport",
+    "oid": "1.3.6.1.4.1.9.9.520.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcrAironetIESupport": {
+    "name": "clcrAironetIESupport",
+    "oid": "1.3.6.1.4.1.9.9.520.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoLwappCcxRmMIBCompliances": {
+    "name": "ciscoLwappCcxRmMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.520.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappCcxRmMIBGroups": {
+    "name": "ciscoLwappCcxRmMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.520.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappCcxRmMIBCompliance": {
+    "name": "ciscoLwappCcxRmMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.520.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappCcxRmDot11aConfigGroup",
+        "module": "CISCO-LWAPP-CCX-RM-MIB"
+      },
+      {
+        "object": "ciscoLwappCcxRmDot11bConfigGroup",
+        "module": "CISCO-LWAPP-CCX-RM-MIB"
+      },
+      {
+        "object": "ciscoLwappCcxRmApIfConfigGroup",
+        "module": "CISCO-LWAPP-CCX-RM-MIB"
+      },
+      {
+        "object": "ciscoLwappCcxRmBeaconReportGroup",
+        "module": "CISCO-LWAPP-CCX-RM-MIB"
+      },
+      {
+        "object": "ciscoLwappCcxRmD11WlanConfigGroup",
+        "module": "CISCO-LWAPP-CCX-RM-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappCcxRmMIBComplianceVer1": {
+    "name": "ciscoLwappCcxRmMIBComplianceVer1",
+    "oid": "1.3.6.1.4.1.9.9.520.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappCcxRmDot11aConfigGroupVer1",
+        "module": "CISCO-LWAPP-CCX-RM-MIB"
+      },
+      {
+        "object": "ciscoLwappCcxRmDot11bConfigGroupVer1",
+        "module": "CISCO-LWAPP-CCX-RM-MIB"
+      },
+      {
+        "object": "ciscoLwappCcxRmApIfConfigGroupVer1",
+        "module": "CISCO-LWAPP-CCX-RM-MIB"
+      },
+      {
+        "object": "ciscoLwappCcxRmBeaconReportGroup",
+        "module": "CISCO-LWAPP-CCX-RM-MIB"
+      },
+      {
+        "object": "ciscoLwappCcxRmD11WlanConfigGroup",
+        "module": "CISCO-LWAPP-CCX-RM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappCcxRmDot11aConfigGroup": {
+    "name": "ciscoLwappCcxRmDot11aConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.520.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CCX-RM-MIB",
+        "object": "clcrdot11aBeaconEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-CCX-RM-MIB",
+        "object": "clcrdot11aBeaconInterval"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappCcxRmDot11bConfigGroup": {
+    "name": "ciscoLwappCcxRmDot11bConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.520.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CCX-RM-MIB",
+        "object": "clcrdot11bBeaconEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-CCX-RM-MIB",
+        "object": "clcrdot11bBeaconInterval"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappCcxRmApIfConfigGroup": {
+    "name": "ciscoLwappCcxRmApIfConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.520.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CCX-RM-MIB",
+        "object": "clcrAPIfOverrideGlobal"
+      },
+      {
+        "module": "CISCO-LWAPP-CCX-RM-MIB",
+        "object": "clcrAPIfBeaconEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-CCX-RM-MIB",
+        "object": "clcrAPIfBeaconInterval"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappCcxRmBeaconReportGroup": {
+    "name": "ciscoLwappCcxRmBeaconReportGroup",
+    "oid": "1.3.6.1.4.1.9.9.520.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CCX-RM-MIB",
+        "object": "clcrClientRxPowerSignal"
+      },
+      {
+        "module": "CISCO-LWAPP-CCX-RM-MIB",
+        "object": "clcrClientTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappCcxRmD11WlanConfigGroup": {
+    "name": "ciscoLwappCcxRmD11WlanConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.520.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CCX-RM-MIB",
+        "object": "clcrVersionIESupport"
+      },
+      {
+        "module": "CISCO-LWAPP-CCX-RM-MIB",
+        "object": "clcrAironetIESupport"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappCcxRmDot11aConfigGroupVer1": {
+    "name": "ciscoLwappCcxRmDot11aConfigGroupVer1",
+    "oid": "1.3.6.1.4.1.9.9.520.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CCX-RM-MIB",
+        "object": "clcrdot11aBeaconEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-CCX-RM-MIB",
+        "object": "clcrdot11aBeaconIntvl"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappCcxRmDot11bConfigGroupVer1": {
+    "name": "ciscoLwappCcxRmDot11bConfigGroupVer1",
+    "oid": "1.3.6.1.4.1.9.9.520.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CCX-RM-MIB",
+        "object": "clcrdot11bBeaconEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-CCX-RM-MIB",
+        "object": "clcrdot11bBeaconIntvl"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappCcxRmApIfConfigGroupVer1": {
+    "name": "ciscoLwappCcxRmApIfConfigGroupVer1",
+    "oid": "1.3.6.1.4.1.9.9.520.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CCX-RM-MIB",
+        "object": "clcrAPIfOverrideGlobal"
+      },
+      {
+        "module": "CISCO-LWAPP-CCX-RM-MIB",
+        "object": "clcrAPIfBeaconEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-CCX-RM-MIB",
+        "object": "clcrAPIfBeaconIntvl"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-CCX-RM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-CCX-RM-MIB"
+  }
+}

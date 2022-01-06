@@ -1,0 +1,1151 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniPacketMirrorMIB": {
+    "name": "juniPacketMirrorMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.77",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-10-28 09:40",
+        "description": "Added support for additional mirror trigger types."
+      },
+      {
+        "revision": "2006-07-19 20:57",
+        "description": "Added new traps for LAES-2006-014R1 LI specification."
+      },
+      {
+        "revision": "2005-06-30 18:03",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "juniPacketMirrorTrapEnables": {
+    "name": "juniPacketMirrorTrapEnables",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.2",
+    "class": "objectidentity"
+  },
+  "juniPacketMirrorTraps": {
+    "name": "juniPacketMirrorTraps",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3",
+    "class": "objectidentity"
+  },
+  "juniPacketMirrorTrapPrefix": {
+    "name": "juniPacketMirrorTrapPrefix",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.0",
+    "class": "objectidentity"
+  },
+  "juniPacketMirrorTrapEnable": {
+    "name": "juniPacketMirrorTrapEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPacketMirrorRadiusBasedMirroringFailure": {
+    "name": "juniPacketMirrorRadiusBasedMirroringFailure",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorDateAndTime"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorConfigurationSource"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTriggerType"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTrigger"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorRouterId"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorUserName"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorIdentifier"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorSessionIdentifier"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorErrorCause"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorApplicationName"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorErrorString"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPacketMirrorCliTriggerBasedMirroringFailure": {
+    "name": "juniPacketMirrorCliTriggerBasedMirroringFailure",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorDateAndTime"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorConfigurationSource"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTriggerType"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTrigger"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorRouterId"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorPolicyName"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorPolicyId"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorErrorCause"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorApplicationName"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorErrorString"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPacketMirrorInterfaceDeleted": {
+    "name": "juniPacketMirrorInterfaceDeleted",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorDateAndTime"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorConfigurationSource"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTriggerType"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTrigger"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorRouterId"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorIdentifier"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorSessionIdentifier"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorPolicyName"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorPolicyId"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorDirection"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPacketMirrorAnalyzerUnreachable": {
+    "name": "juniPacketMirrorAnalyzerUnreachable",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorDateAndTime"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorAnalyzerAddress"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorRouterId"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPacketMirrorSessionStart": {
+    "name": "juniPacketMirrorSessionStart",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorDateAndTime"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorConfigurationSource"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTriggerType"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTrigger"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorRouterId"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorIdentifier"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorSessionIdentifier"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorPolicyName"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorPolicyId"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorDirection"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTargetIpAddress"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorAnalyzerAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPacketMirrorSessionEnd": {
+    "name": "juniPacketMirrorSessionEnd",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorDateAndTime"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorConfigurationSource"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTriggerType"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTrigger"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorRouterId"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorIdentifier"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorSessionIdentifier"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorPolicyName"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorPolicyId"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorDirection"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTargetIpAddress"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorAnalyzerAddress"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTerminationReason"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPacketMirrorInterfaceSessionActivated": {
+    "name": "juniPacketMirrorInterfaceSessionActivated",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorDateAndTime"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorConfigurationSource"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTriggerType"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTrigger"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorRouterId"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorIdentifier"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorSessionIdentifier"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorPolicyName"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorPolicyId"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorDirection"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTargetIpAddress"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorAnalyzerAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPacketMirrorInterfaceSessionDeactivated": {
+    "name": "juniPacketMirrorInterfaceSessionDeactivated",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorDateAndTime"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorConfigurationSource"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTriggerType"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTrigger"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorRouterId"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorIdentifier"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorSessionIdentifier"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorPolicyName"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorPolicyId"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorDirection"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTargetIpAddress"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorAnalyzerAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPacketMirrorSessionReject": {
+    "name": "juniPacketMirrorSessionReject",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorDateAndTime"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorConfigurationSource"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTriggerType"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTrigger"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorRouterId"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorIdentifier"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorSessionIdentifier"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorPolicyName"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorPolicyId"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorDirection"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPacketMirrorSessionFailed": {
+    "name": "juniPacketMirrorSessionFailed",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorDateAndTime"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorConfigurationSource"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTriggerType"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTrigger"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorRouterId"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorIdentifier"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorSessionIdentifier"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorPolicyName"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorPolicyId"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorDirection"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTargetIpAddress"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorAnalyzerAddress"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTerminationReason"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPacketMirrorNotificationObjects": {
+    "name": "juniPacketMirrorNotificationObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.1",
+    "class": "objectidentity"
+  },
+  "juniPacketMirrorIdentifier": {
+    "name": "juniPacketMirrorIdentifier",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniPacketMirrorSessionIdentifier": {
+    "name": "juniPacketMirrorSessionIdentifier",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniPacketMirrorTrigger": {
+    "name": "juniPacketMirrorTrigger",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniPacketMirrorTriggerType": {
+    "name": "juniPacketMirrorTriggerType",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interfaceString": 0,
+          "ipAddress": 1,
+          "nasPortId": 2,
+          "username": 3,
+          "callingStationId": 4,
+          "acctSessionId": 5,
+          "dhcpOption82": 6,
+          "agentCircuitId": 7,
+          "agentRemoteId": 8
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniPacketMirrorConfigurationSource": {
+    "name": "juniPacketMirrorConfigurationSource",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "radiusLogin": 0,
+          "radiusCoa": 1,
+          "cliTrigger": 2,
+          "cliStatic": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniPacketMirrorErrorCause": {
+    "name": "juniPacketMirrorErrorCause",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "genericFailure": 0,
+          "noResourcesAvailable": 1,
+          "memoryExhausted": 2,
+          "noSuchName": 3,
+          "invalidAnalyzerAddress": 4,
+          "noSuchUserOrInterface": 5,
+          "featureNotSupported": 6,
+          "missingOrInvalidAttribute": 7,
+          "routerMismatch": 8,
+          "nameLengthExceeded": 9
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniPacketMirrorErrorString": {
+    "name": "juniPacketMirrorErrorString",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniPacketMirrorApplicationName": {
+    "name": "juniPacketMirrorApplicationName",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "policyManager": 0
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniPacketMirrorAnalyzerAddress": {
+    "name": "juniPacketMirrorAnalyzerAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniPacketMirrorUserName": {
+    "name": "juniPacketMirrorUserName",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniPacketMirrorPolicyName": {
+    "name": "juniPacketMirrorPolicyName",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniPacketMirrorPolicyId": {
+    "name": "juniPacketMirrorPolicyId",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniPacketMirrorDateAndTime": {
+    "name": "juniPacketMirrorDateAndTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniPacketMirrorRouterId": {
+    "name": "juniPacketMirrorRouterId",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniPacketMirrorDirection": {
+    "name": "juniPacketMirrorDirection",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ingress": 0,
+          "egress": 1
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniPacketMirrorTargetIpAddress": {
+    "name": "juniPacketMirrorTargetIpAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniPacketMirrorTerminationReason": {
+    "name": "juniPacketMirrorTerminationReason",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.3.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "genericFailure": 0,
+          "userRequest": 1,
+          "lostCarrier": 2,
+          "lostService": 3,
+          "idleTimeout": 4,
+          "sessionTimeout": 5,
+          "adminReset": 6,
+          "adminReboot": 7,
+          "portError": 8,
+          "nasError": 9,
+          "nasRequest0": 10,
+          "nasReboot1": 11,
+          "portUnneeded": 12,
+          "portPreempted": 13,
+          "portSuspended": 14,
+          "serviceUnavailable": 15,
+          "callback": 16,
+          "userError": 17,
+          "hostRequest": 18,
+          "supplicantRestart": 19,
+          "reauthenticationFailure": 20,
+          "portReinitialized": 21,
+          "portAdministrativelyDisabled": 22
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniPacketMirrorConformance": {
+    "name": "juniPacketMirrorConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.4",
+    "class": "objectidentity"
+  },
+  "juniPacketMirrorCompliances": {
+    "name": "juniPacketMirrorCompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.4.1",
+    "class": "objectidentity"
+  },
+  "juniPacketMirrorGroups": {
+    "name": "juniPacketMirrorGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.4.2",
+    "class": "objectidentity"
+  },
+  "juniPacketMirrorCompliance": {
+    "name": "juniPacketMirrorCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPacketMirrorNotificationGroup",
+        "module": "Juniper-PACKET-MIRROR-MIB"
+      },
+      {
+        "object": "juniPacketMirrorNotificationObjectsGroup",
+        "module": "Juniper-PACKET-MIRROR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPacketMirrorNotificationGroup": {
+    "name": "juniPacketMirrorNotificationGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.4.2.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorRadiusBasedMirroringFailure"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorCliTriggerBasedMirroringFailure"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorInterfaceDeleted"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorAnalyzerUnreachable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniPacketMirrorNotificationObjectsGroup": {
+    "name": "juniPacketMirrorNotificationObjectsGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorIdentifier"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorSessionIdentifier"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTrigger"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTriggerType"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorConfigurationSource"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorErrorCause"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorErrorString"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorApplicationName"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorAnalyzerAddress"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorUserName"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorPolicyName"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorPolicyId"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorDateAndTime"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorRouterId"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorDirection"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniPacketMirrorNotificationGroup2": {
+    "name": "juniPacketMirrorNotificationGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.4.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorRadiusBasedMirroringFailure"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorCliTriggerBasedMirroringFailure"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorInterfaceDeleted"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorAnalyzerUnreachable"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorSessionStart"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorSessionEnd"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorInterfaceSessionActivated"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorInterfaceSessionDeactivated"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorSessionReject"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorSessionFailed"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPacketMirrorNotificationObjectsGroup2": {
+    "name": "juniPacketMirrorNotificationObjectsGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.77.4.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorIdentifier"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorSessionIdentifier"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTrigger"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTriggerType"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorConfigurationSource"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorErrorCause"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorErrorString"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorApplicationName"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorAnalyzerAddress"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorUserName"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorPolicyName"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorPolicyId"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorDateAndTime"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorRouterId"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorDirection"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTargetIpAddress"
+      },
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "object": "juniPacketMirrorTerminationReason"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-PACKET-MIRROR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-PACKET-MIRROR-MIB"
+  }
+}

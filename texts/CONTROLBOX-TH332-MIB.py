@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module CONTROLBOX-TH332-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/controlbox/CONTROLBOX-TH332-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:32:12 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:25:04 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
 SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, Bits, Unsigned32, TimeTicks, Gauge32, NotificationType, enterprises, Counter64, IpAddress, Counter32, MibIdentifier, iso, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Bits", "Unsigned32", "TimeTicks", "Gauge32", "NotificationType", "enterprises", "Counter64", "IpAddress", "Counter32", "MibIdentifier", "iso", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, TimeTicks, ObjectIdentity, Integer32, enterprises, Gauge32, Bits, Unsigned32, ModuleIdentity, MibIdentifier, iso, Counter32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "TimeTicks", "ObjectIdentity", "Integer32", "enterprises", "Gauge32", "Bits", "Unsigned32", "ModuleIdentity", "MibIdentifier", "iso", "Counter32", "Counter64")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 th332 = ModuleIdentity((1, 3, 6, 1, 4, 1, 17095, 2))
 th332.setRevisions(('2015-03-23 00:00',))
@@ -56,4 +56,4 @@ if mibBuilder.loadTexts: humidityState.setDescription('Current himidity state')
 dewpointState = MibScalar((1, 3, 6, 1, 4, 1, 17095, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("normal", 0), ("alert", 1)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: dewpointState.setStatus('current')
 if mibBuilder.loadTexts: dewpointState.setDescription('Current dew point state')
-mibBuilder.exportSymbols("CONTROLBOX-TH332-MIB", control=control, humidityTrap=humidityTrap, temperature=temperature, deviceName=deviceName, humidityState=humidityState, PYSNMP_MODULE_ID=th332, dewpoint=dewpoint, dewpointTrap=dewpointTrap, temperatureState=temperatureState, trapNotifications=trapNotifications, humidity=humidity, controlbox=controlbox, temperatureTrap=temperatureTrap, th332=th332, dewpointState=dewpointState, deviceID=deviceID)
+mibBuilder.exportSymbols("CONTROLBOX-TH332-MIB", controlbox=controlbox, PYSNMP_MODULE_ID=th332, temperature=temperature, th332=th332, temperatureTrap=temperatureTrap, trapNotifications=trapNotifications, humidityState=humidityState, dewpointState=dewpointState, humidity=humidity, humidityTrap=humidityTrap, control=control, deviceID=deviceID, deviceName=deviceName, dewpoint=dewpoint, temperatureState=temperatureState, dewpointTrap=dewpointTrap)

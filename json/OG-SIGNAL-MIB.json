@@ -1,0 +1,263 @@
+{
+  "imports": {
+    "class": "imports",
+    "OG-SMI-MIB": [
+      "ogMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Counter32",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "ogSignalMib": {
+    "name": "ogSignalMib",
+    "oid": "1.3.6.1.4.1.25049.10.11",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-08-11 00:00",
+        "description": "Renamed from OPENGEAR-SIGNAL-MIB to OG-SIGNAL-MIB to fix naming discrepancy."
+      },
+      {
+        "revision": "2010-03-22 11:27",
+        "description": "Syntax corrections by Opengear Inc."
+      },
+      {
+        "revision": "2008-11-27 11:40",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "ogSignalMibObjects": {
+    "name": "ogSignalMibObjects",
+    "oid": "1.3.6.1.4.1.25049.10.11.10",
+    "class": "objectidentity"
+  },
+  "ogsgnlEvent": {
+    "name": "ogsgnlEvent",
+    "oid": "1.3.6.1.4.1.25049.10.11.10.1",
+    "class": "objectidentity"
+  },
+  "ogsgnlEventTable": {
+    "name": "ogsgnlEventTable",
+    "oid": "1.3.6.1.4.1.25049.10.11.10.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ogsgnlEventEntry": {
+    "name": "ogsgnlEventEntry",
+    "oid": "1.3.6.1.4.1.25049.10.11.10.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OG-SIGNAL-MIB",
+        "object": "ogsgnlEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ogsgnlEventIndex": {
+    "name": "ogsgnlEventIndex",
+    "oid": "1.3.6.1.4.1.25049.10.11.10.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ogsgnlEventType": {
+    "name": "ogsgnlEventType",
+    "oid": "1.3.6.1.4.1.25049.10.11.10.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogsgnlEventState": {
+    "name": "ogsgnlEventState",
+    "oid": "1.3.6.1.4.1.25049.10.11.10.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogsgnlEventPortNumber": {
+    "name": "ogsgnlEventPortNumber",
+    "oid": "1.3.6.1.4.1.25049.10.11.10.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogsgnlEventPortLabel": {
+    "name": "ogsgnlEventPortLabel",
+    "oid": "1.3.6.1.4.1.25049.10.11.10.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogSignalMibNotificationPrefix": {
+    "name": "ogSignalMibNotificationPrefix",
+    "oid": "1.3.6.1.4.1.25049.10.11.2",
+    "class": "objectidentity"
+  },
+  "ogsgnlMibNotifications": {
+    "name": "ogsgnlMibNotifications",
+    "oid": "1.3.6.1.4.1.25049.10.11.2.0",
+    "class": "objectidentity"
+  },
+  "ogsgnlEventOccurred": {
+    "name": "ogsgnlEventOccurred",
+    "oid": "1.3.6.1.4.1.25049.10.11.2.0.200",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OG-SIGNAL-MIB",
+        "object": "ogsgnlEventType"
+      },
+      {
+        "module": "OG-SIGNAL-MIB",
+        "object": "ogsgnlEventState"
+      },
+      {
+        "module": "OG-SIGNAL-MIB",
+        "object": "ogsgnlEventPortNumber"
+      },
+      {
+        "module": "OG-SIGNAL-MIB",
+        "object": "ogsgnlEventPortLabel"
+      }
+    ],
+    "status": "current"
+  },
+  "ogSignalMibConformance": {
+    "name": "ogSignalMibConformance",
+    "oid": "1.3.6.1.4.1.25049.10.11.3",
+    "class": "objectidentity"
+  },
+  "ogSignalMibCompliances": {
+    "name": "ogSignalMibCompliances",
+    "oid": "1.3.6.1.4.1.25049.10.11.3.1",
+    "class": "objectidentity"
+  },
+  "ogSignalMibGroups": {
+    "name": "ogSignalMibGroups",
+    "oid": "1.3.6.1.4.1.25049.10.11.3.2",
+    "class": "objectidentity"
+  },
+  "ogSignalMibCompliance": {
+    "name": "ogSignalMibCompliance",
+    "oid": "1.3.6.1.4.1.25049.10.11.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ogSignalMibGroup",
+        "module": "OG-SIGNAL-MIB"
+      },
+      {
+        "object": "ogsgnlNotificationsGroup",
+        "module": "OG-SIGNAL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ogSignalMibGroup": {
+    "name": "ogSignalMibGroup",
+    "oid": "1.3.6.1.4.1.25049.10.11.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OG-SIGNAL-MIB",
+        "object": "ogsgnlEventType"
+      },
+      {
+        "module": "OG-SIGNAL-MIB",
+        "object": "ogsgnlEventState"
+      },
+      {
+        "module": "OG-SIGNAL-MIB",
+        "object": "ogsgnlEventPortNumber"
+      },
+      {
+        "module": "OG-SIGNAL-MIB",
+        "object": "ogsgnlEventPortLabel"
+      }
+    ],
+    "status": "current"
+  },
+  "ogsgnlNotificationsGroup": {
+    "name": "ogsgnlNotificationsGroup",
+    "oid": "1.3.6.1.4.1.25049.10.11.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "OG-SIGNAL-MIB",
+        "object": "ogsgnlEventOccurred"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/opengear/OG-SIGNAL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "OG-SIGNAL-MIB"
+  }
+}

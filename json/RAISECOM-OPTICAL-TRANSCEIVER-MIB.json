@@ -1,0 +1,3194 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "RAISECOM-BASE-MIB": [
+      "raisecomAgent"
+    ],
+    "RAISECOM-COMMON-MANAGEMENT-MIB": [
+      "raisecomNotificationLocation"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "SWITCH-TC": [
+      "ClearVar"
+    ]
+  },
+  "raisecomOpticalTransceiver": {
+    "name": "raisecomOpticalTransceiver",
+    "oid": "1.3.6.1.4.1.8886.1.18",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-05-19 00:00",
+        "description": "The initial revision of this MIB."
+      }
+    ]
+  },
+  "EnableVar": {
+    "name": "EnableVar",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OpticalParameterType": {
+    "name": "OpticalParameterType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transceiverTemperature": 1,
+          "txbiasCurrent": 2,
+          "txPower": 3,
+          "rxPower": 4,
+          "laserTemperature": 5,
+          "p5V0supplyVoltage": 6,
+          "p3V3supplyVoltage": 7,
+          "p1V8supplyVoltage": 8,
+          "n5V2supplyVoltage": 9,
+          "apdBiasVoltage": 10,
+          "p5V0supplyCurrent": 11,
+          "p3V3supplyCurrent": 12,
+          "p1V8supplyCurrent": 13,
+          "n5V2supplyCurrent": 14,
+          "tecCurrent": 15,
+          "laserWavelength": 16
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OpticalParameterValue": {
+    "name": "OpticalParameterValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000000,
+            "max": -1000000
+          },
+          {
+            "min": -40000,
+            "max": 6553600
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "OpticalPMPeriod": {
+    "name": "OpticalPMPeriod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fifteenMin": 1,
+          "twentyFourHour": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverGlobalEnable": {
+    "name": "raisecomOpticalTransceiverGlobalEnable",
+    "oid": "1.3.6.1.4.1.8886.1.18.1",
+    "class": "objectidentity"
+  },
+  "raisecomOpticalTransceiverNotifyEnable": {
+    "name": "raisecomOpticalTransceiverNotifyEnable",
+    "oid": "1.3.6.1.4.1.8886.1.18.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverDDMEnable": {
+    "name": "raisecomOpticalTransceiverDDMEnable",
+    "oid": "1.3.6.1.4.1.8886.1.18.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverCheckPwdEnable": {
+    "name": "raisecomOpticalTransceiverCheckPwdEnable",
+    "oid": "1.3.6.1.4.1.8886.1.18.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverPollInterval": {
+    "name": "raisecomOpticalTransceiverPollInterval",
+    "oid": "1.3.6.1.4.1.8886.1.18.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverObjects": {
+    "name": "raisecomOpticalTransceiverObjects",
+    "oid": "1.3.6.1.4.1.8886.1.18.2",
+    "class": "objectidentity"
+  },
+  "raisecomOpticalTransceiverInfoGroup": {
+    "name": "raisecomOpticalTransceiverInfoGroup",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1",
+    "class": "objectidentity"
+  },
+  "raisecomOpticalTransceiverDDMGroup": {
+    "name": "raisecomOpticalTransceiverDDMGroup",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.2",
+    "class": "objectidentity"
+  },
+  "raisecomOpticalTransceiverPMGroup": {
+    "name": "raisecomOpticalTransceiverPMGroup",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.3",
+    "class": "objectidentity"
+  },
+  "raisecomOpticalTransceiverStatusGroup": {
+    "name": "raisecomOpticalTransceiverStatusGroup",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.4",
+    "class": "objectidentity"
+  },
+  "raisecomOpticalTransceiverInfoTable": {
+    "name": "raisecomOpticalTransceiverInfoTable",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverInfoEntry": {
+    "name": "raisecomOpticalTransceiverInfoEntry",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverType": {
+    "name": "raisecomOpticalTransceiverType",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "gbic": 2,
+          "soldered": 3,
+          "sfp": 4,
+          "xbi": 5,
+          "xenpak": 6,
+          "xfp": 7,
+          "xff": 8,
+          "xfp-e": 9,
+          "xpak": 10,
+          "x2": 11,
+          "sfpj": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverConnectorType": {
+    "name": "raisecomOpticalTransceiverConnectorType",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "sc": 1,
+          "db9": 2,
+          "hssdc": 3,
+          "bnc-tnc": 4,
+          "fiber-coaxial-head": 5,
+          "fiber-jack": 6,
+          "lc": 7,
+          "mt-rj": 8,
+          "mu": 9,
+          "sg": 10,
+          "fiber-pigtail": 11,
+          "mpo-parallel-optic": 12,
+          "hssdcII": 20,
+          "copper": 21,
+          "rj45": 22
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverVendorName": {
+    "name": "raisecomOpticalTransceiverVendorName",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverVendorPN": {
+    "name": "raisecomOpticalTransceiverVendorPN",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverVendorSN": {
+    "name": "raisecomOpticalTransceiverVendorSN",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverMediaType": {
+    "name": "raisecomOpticalTransceiverMediaType",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "single-mode": 1,
+          "multi-modeE50": 2,
+          "multi-mode50": 3,
+          "multi-mode625": 4,
+          "copper": 5,
+          "single-modeKm": 6,
+          "multi-modeOM3": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTransmissionDistance": {
+    "name": "raisecomOpticalTransceiverTransmissionDistance",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverAbility": {
+    "name": "raisecomOpticalTransceiverAbility",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverDDM": {
+    "name": "raisecomOpticalTransceiverDDM",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverCalibrationType": {
+    "name": "raisecomOpticalTransceiverCalibrationType",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "internal": 2,
+          "external": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverRSSI": {
+    "name": "raisecomOpticalTransceiverRSSI",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverVendorRev": {
+    "name": "raisecomOpticalTransceiverVendorRev",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverBRMax": {
+    "name": "raisecomOpticalTransceiverBRMax",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverBRMin": {
+    "name": "raisecomOpticalTransceiverBRMin",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverWavelengthContrl": {
+    "name": "raisecomOpticalTransceiverWavelengthContrl",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverWavelength": {
+    "name": "raisecomOpticalTransceiverWavelength",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverWaveTolerance": {
+    "name": "raisecomOpticalTransceiverWaveTolerance",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverCompatibility": {
+    "name": "raisecomOpticalTransceiverCompatibility",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverPowerDissipation": {
+    "name": "raisecomOpticalTransceiverPowerDissipation",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "p1W5": 1,
+          "p2W5": 2,
+          "p3W5": 3,
+          "exceed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverCDR": {
+    "name": "raisecomOpticalTransceiverCDR",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverRefClock": {
+    "name": "raisecomOpticalTransceiverRefClock",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "required": 1,
+          "notrequired": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTransmitterType": {
+    "name": "raisecomOpticalTransceiverTransmitterType",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vcsel850nm": 1,
+          "vcsel1310nm": 2,
+          "vcsel1550nm": 3,
+          "fp1310nm": 4,
+          "dfb1310nm": 5,
+          "dfb1550nm": 6,
+          "eml1310nm": 7,
+          "eml1550nm": 8,
+          "copper-others": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverCooled": {
+    "name": "raisecomOpticalTransceiverCooled",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cooled": 1,
+          "uncooled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTunalbe": {
+    "name": "raisecomOpticalTransceiverTunalbe",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tunable": 1,
+          "untunable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverDetectorType": {
+    "name": "raisecomOpticalTransceiverDetectorType",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pin": 1,
+          "apd": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverLineLoopBack": {
+    "name": "raisecomOpticalTransceiverLineLoopBack",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverXFILoopBack": {
+    "name": "raisecomOpticalTransceiverXFILoopBack",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverVps": {
+    "name": "raisecomOpticalTransceiverVps",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTxDis": {
+    "name": "raisecomOpticalTransceiverTxDis",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverStandby": {
+    "name": "raisecomOpticalTransceiverStandby",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverInVpsLowPower": {
+    "name": "raisecomOpticalTransceiverInVpsLowPower",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverOutVpsLowPower": {
+    "name": "raisecomOpticalTransceiverOutVpsLowPower",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverFEC": {
+    "name": "raisecomOpticalTransceiverFEC",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverCMU": {
+    "name": "raisecomOpticalTransceiverCMU",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverBR": {
+    "name": "raisecomOpticalTransceiverBR",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "bitrate-125Mbps": 1,
+          "bitrate-155Mbps": 2,
+          "bitrate-622Mbps": 6,
+          "bitrate-1DOT25Gbps": 13,
+          "bitrate-2DOT5Gbps": 19
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverDDMTable": {
+    "name": "raisecomOpticalTransceiverDDMTable",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverDDMEntry": {
+    "name": "raisecomOpticalTransceiverDDMEntry",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverParameterType": {
+    "name": "raisecomOpticalTransceiverParameterType",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverParameterValue": {
+    "name": "raisecomOpticalTransceiverParameterValue",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverParamHighAlarmThresh": {
+    "name": "raisecomOpticalTransceiverParamHighAlarmThresh",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverParamHighWarningThresh": {
+    "name": "raisecomOpticalTransceiverParamHighWarningThresh",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverParamLowAlarmThresh": {
+    "name": "raisecomOpticalTransceiverParamLowAlarmThresh",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverParamLowWarningThresh": {
+    "name": "raisecomOpticalTransceiverParamLowWarningThresh",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverParamAlarmStatus": {
+    "name": "raisecomOpticalTransceiverParamAlarmStatus",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "normal": 1,
+          "high-alarm": 2,
+          "high-warning": 3,
+          "low-alarm": 4,
+          "low-warning": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverParamAlarmLastValue": {
+    "name": "raisecomOpticalTransceiverParamAlarmLastValue",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverParamAlarmLastChange": {
+    "name": "raisecomOpticalTransceiverParamAlarmLastChange",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverDDM15MinValidIntervals": {
+    "name": "raisecomOpticalTransceiverDDM15MinValidIntervals",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverDDM24HrValidIntervals": {
+    "name": "raisecomOpticalTransceiverDDM24HrValidIntervals",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverDDMValidStatus": {
+    "name": "raisecomOpticalTransceiverDDMValidStatus",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverPMCurrentTable": {
+    "name": "raisecomOpticalTransceiverPMCurrentTable",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverPMCurrentEntry": {
+    "name": "raisecomOpticalTransceiverPMCurrentEntry",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverPMCurrentPeriod",
+        "implied": 0
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverPMCurrentParamType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverPMCurrentPeriod": {
+    "name": "raisecomOpticalTransceiverPMCurrentPeriod",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalPMPeriod",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverPMCurrentParamType": {
+    "name": "raisecomOpticalTransceiverPMCurrentParamType",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverPMCurrentMaxParam": {
+    "name": "raisecomOpticalTransceiverPMCurrentMaxParam",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverPMCurrentMinParam": {
+    "name": "raisecomOpticalTransceiverPMCurrentMinParam",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverPMCurrentMeanParam": {
+    "name": "raisecomOpticalTransceiverPMCurrentMeanParam",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverPMIntervalTable": {
+    "name": "raisecomOpticalTransceiverPMIntervalTable",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverPMIntervalEntry": {
+    "name": "raisecomOpticalTransceiverPMIntervalEntry",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverPMIntervalPeriod",
+        "implied": 0
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverPMIntervalNumber",
+        "implied": 0
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverPMIntervalParamType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverPMIntervalPeriod": {
+    "name": "raisecomOpticalTransceiverPMIntervalPeriod",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalPMPeriod",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverPMIntervalNumber": {
+    "name": "raisecomOpticalTransceiverPMIntervalNumber",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverPMIntervalParamType": {
+    "name": "raisecomOpticalTransceiverPMIntervalParamType",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverPMIntervalMaxParam": {
+    "name": "raisecomOpticalTransceiverPMIntervalMaxParam",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverPMIntervalMinParam": {
+    "name": "raisecomOpticalTransceiverPMIntervalMinParam",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverPMIntervalMeanParam": {
+    "name": "raisecomOpticalTransceiverPMIntervalMeanParam",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverCurrentStatusTable": {
+    "name": "raisecomOpticalTransceiverCurrentStatusTable",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverCurrentStatusEntry": {
+    "name": "raisecomOpticalTransceiverCurrentStatusEntry",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverHwInfoAbsStatus": {
+    "name": "raisecomOpticalTransceiverHwInfoAbsStatus",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absent": 1,
+          "present": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverHwInfoNRStatus": {
+    "name": "raisecomOpticalTransceiverHwInfoNRStatus",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "notready": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverHwInfoRxLosStatus": {
+    "name": "raisecomOpticalTransceiverHwInfoRxLosStatus",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "loss": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverHwInfoStandby": {
+    "name": "raisecomOpticalTransceiverHwInfoStandby",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "standby": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverHwInfoLaser": {
+    "name": "raisecomOpticalTransceiverHwInfoLaser",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverWaveLengthError": {
+    "name": "raisecomOpticalTransceiverWaveLengthError",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverUserWaveLength": {
+    "name": "raisecomOpticalTransceiverUserWaveLength",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3276800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverUserDataRate": {
+    "name": "raisecomOpticalTransceiverUserDataRate",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 9500,
+            "max": 12500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverUserLineLoopBack": {
+    "name": "raisecomOpticalTransceiverUserLineLoopBack",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "lineLoopback": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverUserXFILoopBack": {
+    "name": "raisecomOpticalTransceiverUserXFILoopBack",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "xfiLoopback": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverPortNotifyEnable": {
+    "name": "raisecomOpticalTransceiverPortNotifyEnable",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverPortDDMEnable": {
+    "name": "raisecomOpticalTransceiverPortDDMEnable",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverPortCheckPwdEnable": {
+    "name": "raisecomOpticalTransceiverPortCheckPwdEnable",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTxFaultCount": {
+    "name": "raisecomOpticalTransceiverTxFaultCount",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTxFaultCountClear": {
+    "name": "raisecomOpticalTransceiverTxFaultCountClear",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClearVar",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverSpecificationCheckStatus": {
+    "name": "raisecomOpticalTransceiverSpecificationCheckStatus",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "accord": 1,
+          "not-accord": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTxFaultStatus": {
+    "name": "raisecomOpticalTransceiverTxFaultStatus",
+    "oid": "1.3.6.1.4.1.8886.1.18.2.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "tx-fault": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverNotifications": {
+    "name": "raisecomOpticalTransceiverNotifications",
+    "oid": "1.3.6.1.4.1.8886.1.18.3",
+    "class": "objectidentity"
+  },
+  "raisecomOpticalTransceiverAbsentTrap": {
+    "name": "raisecomOpticalTransceiverAbsentTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverHwInfoAbsStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverPresentTrap": {
+    "name": "raisecomOpticalTransceiverPresentTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverHwInfoAbsStatus"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverSpecificationCheckStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverNRAlarmTrap": {
+    "name": "raisecomOpticalTransceiverNRAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverHwInfoNRStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverNRNormalTrap": {
+    "name": "raisecomOpticalTransceiverNRNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverHwInfoNRStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverRxLosAlarmTrap": {
+    "name": "raisecomOpticalTransceiverRxLosAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverHwInfoRxLosStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverRxLosNormaTrap": {
+    "name": "raisecomOpticalTransceiverRxLosNormaTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.3.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverHwInfoRxLosStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverCheckPwdFailureTrap": {
+    "name": "raisecomOpticalTransceiverCheckPwdFailureTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.3.7",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverCheckPwdSucceedTrap": {
+    "name": "raisecomOpticalTransceiverCheckPwdSucceedTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.3.8",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverParamAlarmTrap": {
+    "name": "raisecomOpticalTransceiverParamAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.3.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverParamAlarmNormalTrap": {
+    "name": "raisecomOpticalTransceiverParamAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.3.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverParamWarningTrap": {
+    "name": "raisecomOpticalTransceiverParamWarningTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.3.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverParamWarningNormalTrap": {
+    "name": "raisecomOpticalTransceiverParamWarningNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.3.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverLaserBackLightAlarmTrap": {
+    "name": "raisecomOpticalTransceiverLaserBackLightAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.3.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverLaserBackLightAlarmNormalTrap": {
+    "name": "raisecomOpticalTransceiverLaserBackLightAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.3.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverLaserLifeAlarmTrap": {
+    "name": "raisecomOpticalTransceiverLaserLifeAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.3.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverLaserLifeAlarmNormalTrap": {
+    "name": "raisecomOpticalTransceiverLaserLifeAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.3.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverParamLowAlarmTrap": {
+    "name": "raisecomOpticalTransceiverParamLowAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.3.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverParamLowAlarmNormalTrap": {
+    "name": "raisecomOpticalTransceiverParamLowAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.3.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverParamLowWarningTrap": {
+    "name": "raisecomOpticalTransceiverParamLowWarningTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.3.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverParamLowWarningNormalTrap": {
+    "name": "raisecomOpticalTransceiverParamLowWarningNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.3.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverParamNotifications": {
+    "name": "raisecomOpticalTransceiverParamNotifications",
+    "oid": "1.3.6.1.4.1.8886.1.18.4",
+    "class": "objectidentity"
+  },
+  "raisecomOpticalTransceiverTemperatureAlarmTrap": {
+    "name": "raisecomOpticalTransceiverTemperatureAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTemperatureAlarmNormalTrap": {
+    "name": "raisecomOpticalTransceiverTemperatureAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTemperatureWarningTrap": {
+    "name": "raisecomOpticalTransceiverTemperatureWarningTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTemperatureWarningNormalTrap": {
+    "name": "raisecomOpticalTransceiverTemperatureWarningNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTxbiasCurrentAlarmTrap": {
+    "name": "raisecomOpticalTransceiverTxbiasCurrentAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTxbiasCurrentAlarmNormalTrap": {
+    "name": "raisecomOpticalTransceiverTxbiasCurrentAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTxbiasCurrentWarningTrap": {
+    "name": "raisecomOpticalTransceiverTxbiasCurrentWarningTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTxbiasCurrentWarningNormalTrap": {
+    "name": "raisecomOpticalTransceiverTxbiasCurrentWarningNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTxPowerAlarmTrap": {
+    "name": "raisecomOpticalTransceiverTxPowerAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTxPowerAlarmNormalTrap": {
+    "name": "raisecomOpticalTransceiverTxPowerAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTxPowerWarningTrap": {
+    "name": "raisecomOpticalTransceiverTxPowerWarningTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTxPowerWarningNormalTrap": {
+    "name": "raisecomOpticalTransceiverTxPowerWarningNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverRxPowerAlarmTrap": {
+    "name": "raisecomOpticalTransceiverRxPowerAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverRxPowerWarningTrap": {
+    "name": "raisecomOpticalTransceiverRxPowerWarningTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverRxPowerWarningNormalTrap": {
+    "name": "raisecomOpticalTransceiverRxPowerWarningNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverRxPowerAlarmNormalTrap": {
+    "name": "raisecomOpticalTransceiverRxPowerAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverLaserTemperatureAlarmTrap": {
+    "name": "raisecomOpticalTransceiverLaserTemperatureAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverLaserTemperatureWarningTrap": {
+    "name": "raisecomOpticalTransceiverLaserTemperatureWarningTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverLaserTemperatureWarningNormalTrap": {
+    "name": "raisecomOpticalTransceiverLaserTemperatureWarningNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverLaserTemperatureAlarmNormalTrap": {
+    "name": "raisecomOpticalTransceiverLaserTemperatureAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP5V0supplyVoltageAlarmTrap": {
+    "name": "raisecomOpticalTransceiverP5V0supplyVoltageAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP5V0supplyVoltageWarningTrap": {
+    "name": "raisecomOpticalTransceiverP5V0supplyVoltageWarningTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP5V0supplyVoltageWarningNormalTrap": {
+    "name": "raisecomOpticalTransceiverP5V0supplyVoltageWarningNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP5V0supplyVoltageAlarmNormalTrap": {
+    "name": "raisecomOpticalTransceiverP5V0supplyVoltageAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP3V3supplyVoltageAlarmTrap": {
+    "name": "raisecomOpticalTransceiverP3V3supplyVoltageAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP3V3supplyVoltageWarningTrap": {
+    "name": "raisecomOpticalTransceiverP3V3supplyVoltageWarningTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP3V3supplyVoltageWarningNormalTrap": {
+    "name": "raisecomOpticalTransceiverP3V3supplyVoltageWarningNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP3V3supplyVoltageAlarmNormalTrap": {
+    "name": "raisecomOpticalTransceiverP3V3supplyVoltageAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP1V8supplyVoltageAlarmTrap": {
+    "name": "raisecomOpticalTransceiverP1V8supplyVoltageAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP1V8supplyVoltageWarningTrap": {
+    "name": "raisecomOpticalTransceiverP1V8supplyVoltageWarningTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP1V8supplyVoltageWarningNormalTrap": {
+    "name": "raisecomOpticalTransceiverP1V8supplyVoltageWarningNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP1V8supplyVoltageAlarmNormalTrap": {
+    "name": "raisecomOpticalTransceiverP1V8supplyVoltageAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverN5V2supplyVoltageAlarmTrap": {
+    "name": "raisecomOpticalTransceiverN5V2supplyVoltageAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverN5V2supplyVoltageWarningTrap": {
+    "name": "raisecomOpticalTransceiverN5V2supplyVoltageWarningTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverN5V2supplyVoltageWarningNormalTrap": {
+    "name": "raisecomOpticalTransceiverN5V2supplyVoltageWarningNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverN5V2supplyVoltageAlarmNormalTrap": {
+    "name": "raisecomOpticalTransceiverN5V2supplyVoltageAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverApdBiasVoltageAlarmTrap": {
+    "name": "raisecomOpticalTransceiverApdBiasVoltageAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverApdBiasVoltageWarningTrap": {
+    "name": "raisecomOpticalTransceiverApdBiasVoltageWarningTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverApdBiasVoltageWarningNormalTrap": {
+    "name": "raisecomOpticalTransceiverApdBiasVoltageWarningNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverApdBiasVoltageAlarmNormalTrap": {
+    "name": "raisecomOpticalTransceiverApdBiasVoltageAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP5V0supplyCurrentAlarmTrap": {
+    "name": "raisecomOpticalTransceiverP5V0supplyCurrentAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP5V0supplyCurrentWarningTrap": {
+    "name": "raisecomOpticalTransceiverP5V0supplyCurrentWarningTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP5V0supplyCurrentWarningNormalTrap": {
+    "name": "raisecomOpticalTransceiverP5V0supplyCurrentWarningNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP5V0supplyCurrentAlarmNormalTrap": {
+    "name": "raisecomOpticalTransceiverP5V0supplyCurrentAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP3V3supplyCurrentAlarmTrap": {
+    "name": "raisecomOpticalTransceiverP3V3supplyCurrentAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP3V3supplyCurrentWarningTrap": {
+    "name": "raisecomOpticalTransceiverP3V3supplyCurrentWarningTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP3V3supplyCurrentWarningNormalTrap": {
+    "name": "raisecomOpticalTransceiverP3V3supplyCurrentWarningNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.47",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP3V3supplyCurrentAlarmNormalTrap": {
+    "name": "raisecomOpticalTransceiverP3V3supplyCurrentAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.48",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP1V8supplyCurrentAlarmTrap": {
+    "name": "raisecomOpticalTransceiverP1V8supplyCurrentAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.49",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP1V8supplyCurrentWarningTrap": {
+    "name": "raisecomOpticalTransceiverP1V8supplyCurrentWarningTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.50",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP1V8supplyCurrentWarningNormalTrap": {
+    "name": "raisecomOpticalTransceiverP1V8supplyCurrentWarningNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.51",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverP1V8supplyCurrentAlarmNormalTrap": {
+    "name": "raisecomOpticalTransceiverP1V8supplyCurrentAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.52",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverN5V2supplyCurrentAlarmTrap": {
+    "name": "raisecomOpticalTransceiverN5V2supplyCurrentAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.53",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverN5V2supplyCurrentWarningTrap": {
+    "name": "raisecomOpticalTransceiverN5V2supplyCurrentWarningTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.54",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverN5V2supplyCurrentWarningNormalTrap": {
+    "name": "raisecomOpticalTransceiverN5V2supplyCurrentWarningNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.55",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverN5V2supplyCurrentAlarmNormalTrap": {
+    "name": "raisecomOpticalTransceiverN5V2supplyCurrentAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.56",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTecCurrentAlarmTrap": {
+    "name": "raisecomOpticalTransceiverTecCurrentAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.57",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTecCurrentWarningTrap": {
+    "name": "raisecomOpticalTransceiverTecCurrentWarningTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.58",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTecCurrentWarningNormalTrap": {
+    "name": "raisecomOpticalTransceiverTecCurrentWarningNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.59",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTecCurrentAlarmNormalTrap": {
+    "name": "raisecomOpticalTransceiverTecCurrentAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.60",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverLaserWavelengthAlarmTrap": {
+    "name": "raisecomOpticalTransceiverLaserWavelengthAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.61",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverLaserWavelengthWarningTrap": {
+    "name": "raisecomOpticalTransceiverLaserWavelengthWarningTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.62",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverLaserWavelengthWarningNormalTrap": {
+    "name": "raisecomOpticalTransceiverLaserWavelengthWarningNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.63",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverLaserWavelengthAlarmNormalTrap": {
+    "name": "raisecomOpticalTransceiverLaserWavelengthAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.64",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-COMMON-MANAGEMENT-MIB",
+        "object": "raisecomNotificationLocation"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTxFaultTrap": {
+    "name": "raisecomOpticalTransceiverTxFaultTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.65",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverTxFaultStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalTransceiverTxNormalTrap": {
+    "name": "raisecomOpticalTransceiverTxNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.18.4.66",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+        "object": "raisecomOpticalTransceiverTxFaultStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/raisecom/RAISECOM-OPTICAL-TRANSCEIVER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB"
+  }
+}

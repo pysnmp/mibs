@@ -1,0 +1,619 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "dlinkSwIpv6SourceGuardMIB": {
+    "name": "dlinkSwIpv6SourceGuardMIB",
+    "oid": "1.3.6.1.4.1.171.14.145",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-07-18 00:00",
+        "description": "This is the first version of the MIB file. "
+      }
+    ]
+  },
+  "dIpv6sgNotifications": {
+    "name": "dIpv6sgNotifications",
+    "oid": "1.3.6.1.4.1.171.14.145.0",
+    "class": "objectidentity"
+  },
+  "dIpv6sgObjects": {
+    "name": "dIpv6sgObjects",
+    "oid": "1.3.6.1.4.1.171.14.145.1",
+    "class": "objectidentity"
+  },
+  "dIpv6sgConformance": {
+    "name": "dIpv6sgConformance",
+    "oid": "1.3.6.1.4.1.171.14.145.2",
+    "class": "objectidentity"
+  },
+  "dIpv6sgPolicy": {
+    "name": "dIpv6sgPolicy",
+    "oid": "1.3.6.1.4.1.171.14.145.1.1",
+    "class": "objectidentity"
+  },
+  "dIpv6sgInterface": {
+    "name": "dIpv6sgInterface",
+    "oid": "1.3.6.1.4.1.171.14.145.1.2",
+    "class": "objectidentity"
+  },
+  "dIpv6sgBindings": {
+    "name": "dIpv6sgBindings",
+    "oid": "1.3.6.1.4.1.171.14.145.1.3",
+    "class": "objectidentity"
+  },
+  "dIpv6sgPolicyNumber": {
+    "name": "dIpv6sgPolicyNumber",
+    "oid": "1.3.6.1.4.1.171.14.145.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpv6sgPolicyTable": {
+    "name": "dIpv6sgPolicyTable",
+    "oid": "1.3.6.1.4.1.171.14.145.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpv6sgPolicyEntry": {
+    "name": "dIpv6sgPolicyEntry",
+    "oid": "1.3.6.1.4.1.171.14.145.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IPV6-SRC-GUARD-MIB",
+        "object": "dIpv6sgPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpv6sgPolicyName": {
+    "name": "dIpv6sgPolicyName",
+    "oid": "1.3.6.1.4.1.171.14.145.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpv6sgPolicyDenyAutoConfig": {
+    "name": "dIpv6sgPolicyDenyAutoConfig",
+    "oid": "1.3.6.1.4.1.171.14.145.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpv6sgPolicyPermitLinkLocal": {
+    "name": "dIpv6sgPolicyPermitLinkLocal",
+    "oid": "1.3.6.1.4.1.171.14.145.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpv6sgPolicyRowStatus": {
+    "name": "dIpv6sgPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.145.1.1.2.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpv6sgIfConfigTable": {
+    "name": "dIpv6sgIfConfigTable",
+    "oid": "1.3.6.1.4.1.171.14.145.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpv6sgIfConfigEntry": {
+    "name": "dIpv6sgIfConfigEntry",
+    "oid": "1.3.6.1.4.1.171.14.145.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpv6sgIfEnabled": {
+    "name": "dIpv6sgIfEnabled",
+    "oid": "1.3.6.1.4.1.171.14.145.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpv6sgIfAttachTable": {
+    "name": "dIpv6sgIfAttachTable",
+    "oid": "1.3.6.1.4.1.171.14.145.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpv6sgIfAttachEntry": {
+    "name": "dIpv6sgIfAttachEntry",
+    "oid": "1.3.6.1.4.1.171.14.145.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpv6sgIfAttachPolicy": {
+    "name": "dIpv6sgIfAttachPolicy",
+    "oid": "1.3.6.1.4.1.171.14.145.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpv6sgIfAttachRowStatus": {
+    "name": "dIpv6sgIfAttachRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.145.1.2.2.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpv6sgStaticBindingsTable": {
+    "name": "dIpv6sgStaticBindingsTable",
+    "oid": "1.3.6.1.4.1.171.14.145.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpv6sgStaticBindingsEntry": {
+    "name": "dIpv6sgStaticBindingsEntry",
+    "oid": "1.3.6.1.4.1.171.14.145.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IPV6-SRC-GUARD-MIB",
+        "object": "dIpv6sgStaticBindingsVlan",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IPV6-SRC-GUARD-MIB",
+        "object": "dIpv6sgStaticBindingsMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IPV6-SRC-GUARD-MIB",
+        "object": "dIpv6sgStaticBindingsIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IPV6-SRC-GUARD-MIB",
+        "object": "dIpv6sgStaticBindingsInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpv6sgStaticBindingsVlan": {
+    "name": "dIpv6sgStaticBindingsVlan",
+    "oid": "1.3.6.1.4.1.171.14.145.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpv6sgStaticBindingsMacAddress": {
+    "name": "dIpv6sgStaticBindingsMacAddress",
+    "oid": "1.3.6.1.4.1.171.14.145.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpv6sgStaticBindingsIpAddress": {
+    "name": "dIpv6sgStaticBindingsIpAddress",
+    "oid": "1.3.6.1.4.1.171.14.145.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpv6sgStaticBindingsInterface": {
+    "name": "dIpv6sgStaticBindingsInterface",
+    "oid": "1.3.6.1.4.1.171.14.145.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpv6sgStaticBindingsRowStatus": {
+    "name": "dIpv6sgStaticBindingsRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.145.1.3.1.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpv6sgBindingsTable": {
+    "name": "dIpv6sgBindingsTable",
+    "oid": "1.3.6.1.4.1.171.14.145.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpv6sgBindingsEntry": {
+    "name": "dIpv6sgBindingsEntry",
+    "oid": "1.3.6.1.4.1.171.14.145.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IPV6-SRC-GUARD-MIB",
+        "object": "dIpv6sgBindingsOwner",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IPV6-SRC-GUARD-MIB",
+        "object": "dIpv6sgBindingsIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IPV6-SRC-GUARD-MIB",
+        "object": "dIpv6sgBindingsMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IPV6-SRC-GUARD-MIB",
+        "object": "dIpv6sgBindingsInterface",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IPV6-SRC-GUARD-MIB",
+        "object": "dIpv6sgBindingsVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpv6sgBindingsOwner": {
+    "name": "dIpv6sgBindingsOwner",
+    "oid": "1.3.6.1.4.1.171.14.145.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "ndp": 2,
+          "dhcp": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpv6sgBindingsIpAddress": {
+    "name": "dIpv6sgBindingsIpAddress",
+    "oid": "1.3.6.1.4.1.171.14.145.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpv6sgBindingsMacAddress": {
+    "name": "dIpv6sgBindingsMacAddress",
+    "oid": "1.3.6.1.4.1.171.14.145.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpv6sgBindingsInterface": {
+    "name": "dIpv6sgBindingsInterface",
+    "oid": "1.3.6.1.4.1.171.14.145.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpv6sgBindingsVlan": {
+    "name": "dIpv6sgBindingsVlan",
+    "oid": "1.3.6.1.4.1.171.14.145.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpv6sgBindingsTimeleft": {
+    "name": "dIpv6sgBindingsTimeleft",
+    "oid": "1.3.6.1.4.1.171.14.145.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpv6sgMIBCompliances": {
+    "name": "dIpv6sgMIBCompliances",
+    "oid": "1.3.6.1.4.1.171.14.145.2.1",
+    "class": "objectidentity"
+  },
+  "dIpv6sgMIBGroups": {
+    "name": "dIpv6sgMIBGroups",
+    "oid": "1.3.6.1.4.1.171.14.145.2.2",
+    "class": "objectidentity"
+  },
+  "dIpv6sgMIBCompliance": {
+    "name": "dIpv6sgMIBCompliance",
+    "oid": "1.3.6.1.4.1.171.14.145.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dIpv6sgIfConfigGroup",
+        "module": "DLINKSW-IPV6-SRC-GUARD-MIB"
+      },
+      {
+        "object": "dIpv6sgPolicyGroup",
+        "module": "DLINKSW-IPV6-SRC-GUARD-MIB"
+      },
+      {
+        "object": "dIpv6sgIfAttachGroup",
+        "module": "DLINKSW-IPV6-SRC-GUARD-MIB"
+      },
+      {
+        "object": "dIpv6sgStaticBindingsGroup",
+        "module": "DLINKSW-IPV6-SRC-GUARD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpv6sgIfConfigGroup": {
+    "name": "dIpv6sgIfConfigGroup",
+    "oid": "1.3.6.1.4.1.171.14.145.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IPV6-SRC-GUARD-MIB",
+        "object": "dIpv6sgIfEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpv6sgBindingsGroup": {
+    "name": "dIpv6sgBindingsGroup",
+    "oid": "1.3.6.1.4.1.171.14.145.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IPV6-SRC-GUARD-MIB",
+        "object": "dIpv6sgBindingsTimeleft"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpv6sgPolicyGroup": {
+    "name": "dIpv6sgPolicyGroup",
+    "oid": "1.3.6.1.4.1.171.14.145.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IPV6-SRC-GUARD-MIB",
+        "object": "dIpv6sgPolicyNumber"
+      },
+      {
+        "module": "DLINKSW-IPV6-SRC-GUARD-MIB",
+        "object": "dIpv6sgPolicyDenyAutoConfig"
+      },
+      {
+        "module": "DLINKSW-IPV6-SRC-GUARD-MIB",
+        "object": "dIpv6sgPolicyPermitLinkLocal"
+      },
+      {
+        "module": "DLINKSW-IPV6-SRC-GUARD-MIB",
+        "object": "dIpv6sgPolicyRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpv6sgIfAttachGroup": {
+    "name": "dIpv6sgIfAttachGroup",
+    "oid": "1.3.6.1.4.1.171.14.145.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IPV6-SRC-GUARD-MIB",
+        "object": "dIpv6sgIfAttachPolicy"
+      },
+      {
+        "module": "DLINKSW-IPV6-SRC-GUARD-MIB",
+        "object": "dIpv6sgIfAttachRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpv6sgStaticBindingsGroup": {
+    "name": "dIpv6sgStaticBindingsGroup",
+    "oid": "1.3.6.1.4.1.171.14.145.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IPV6-SRC-GUARD-MIB",
+        "object": "dIpv6sgStaticBindingsRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-IPV6-SRC-GUARD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-IPV6-SRC-GUARD-MIB"
+  }
+}

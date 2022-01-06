@@ -1,0 +1,437 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-IETF-PW-MIB": [
+      "cpwVcIndex"
+    ],
+    "CISCO-IETF-PW-TC-MIB": [
+      "CpwVcVlanCfg"
+    ],
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "experimental",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "cpwVcEnetMIB": {
+    "name": "cpwVcEnetMIB",
+    "oid": "1.3.6.1.4.1.9.10.108",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-22 12:00",
+        "description": " Submited as draft-pwe3-enet-mib-00. Changes from previous version: 1) Alignment with draft-pwe3-ethernet-encap-00.txt: removing 'rangeVLAN' mode and the associated objects. 2) Relaxing requirement on value of pwVcEnetPortVlan in port mode. "
+      },
+      {
+        "revision": "2002-08-20 12:00",
+        "description": "Changes from previous version: 1) Add pwVcEnetVcIfIndex - Option for VC as ifIndex. 2) Change counters to 64 bits. 3) Add mode for adding/removing VLAN fields between PW and CE bound interface. 4) Referencing draft-martini instead of draft-so. 5) Editorial changes for some description clauses. 6) MPLS PRI mapping table to be independent (not augmented). 7) Adapt descriptions and rules of use to dratf-ietf-pwe3-Ethernet-encap-00. "
+      },
+      {
+        "revision": "2002-02-03 12:00",
+        "description": "initial revision as -00 draft"
+      }
+    ]
+  },
+  "cpwVcEnetNotifications": {
+    "name": "cpwVcEnetNotifications",
+    "oid": "1.3.6.1.4.1.9.10.108.0",
+    "class": "objectidentity"
+  },
+  "cpwVcEnetObjects": {
+    "name": "cpwVcEnetObjects",
+    "oid": "1.3.6.1.4.1.9.10.108.1",
+    "class": "objectidentity"
+  },
+  "cpwVcEnetConformance": {
+    "name": "cpwVcEnetConformance",
+    "oid": "1.3.6.1.4.1.9.10.108.2",
+    "class": "objectidentity"
+  },
+  "cpwVcEnetTable": {
+    "name": "cpwVcEnetTable",
+    "oid": "1.3.6.1.4.1.9.10.108.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcEnetEntry": {
+    "name": "cpwVcEnetEntry",
+    "oid": "1.3.6.1.4.1.9.10.108.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PW-ENET-MIB",
+        "object": "cpwVcEnetPwVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcEnetPwVlan": {
+    "name": "cpwVcEnetPwVlan",
+    "oid": "1.3.6.1.4.1.9.10.108.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwVcVlanCfg",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcEnetVlanMode": {
+    "name": "cpwVcEnetVlanMode",
+    "oid": "1.3.6.1.4.1.9.10.108.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "portBased": 1,
+          "noChange": 2,
+          "changeVlan": 3,
+          "addVlan": 4,
+          "removeVlan": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noChange",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcEnetPortVlan": {
+    "name": "cpwVcEnetPortVlan",
+    "oid": "1.3.6.1.4.1.9.10.108.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwVcVlanCfg",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4097,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcEnetVcIfIndex": {
+    "name": "cpwVcEnetVcIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.108.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcEnetPortIfIndex": {
+    "name": "cpwVcEnetPortIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.108.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcEnetRowStatus": {
+    "name": "cpwVcEnetRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.108.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcEnetStorageType": {
+    "name": "cpwVcEnetStorageType",
+    "oid": "1.3.6.1.4.1.9.10.108.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcEnetMplsPriMappingTable": {
+    "name": "cpwVcEnetMplsPriMappingTable",
+    "oid": "1.3.6.1.4.1.9.10.108.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcEnetMplsPriMappingTableEntry": {
+    "name": "cpwVcEnetMplsPriMappingTableEntry",
+    "oid": "1.3.6.1.4.1.9.10.108.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcEnetMplsPriMapping": {
+    "name": "cpwVcEnetMplsPriMapping",
+    "oid": "1.3.6.1.4.1.9.10.108.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "pri000": 0,
+        "pri001": 1,
+        "pri010": 2,
+        "pri011": 3,
+        "pri100": 4,
+        "pri101": 5,
+        "pri110": 6,
+        "pri111": 7,
+        "untagged": 8
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcEnetMplsPriMappingRowStatus": {
+    "name": "cpwVcEnetMplsPriMappingRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.108.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcEnetMplsPriMappingStorageType": {
+    "name": "cpwVcEnetMplsPriMappingStorageType",
+    "oid": "1.3.6.1.4.1.9.10.108.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcEnetStatsTable": {
+    "name": "cpwVcEnetStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.108.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcEnetStatsEntry": {
+    "name": "cpwVcEnetStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.108.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcEnetStatsIllegalVlan": {
+    "name": "cpwVcEnetStatsIllegalVlan",
+    "oid": "1.3.6.1.4.1.9.10.108.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcEnetStatsIllegalLength": {
+    "name": "cpwVcEnetStatsIllegalLength",
+    "oid": "1.3.6.1.4.1.9.10.108.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcEnetGroups": {
+    "name": "cpwVcEnetGroups",
+    "oid": "1.3.6.1.4.1.9.10.108.2.1",
+    "class": "objectidentity"
+  },
+  "cpwVcEnetCompliances": {
+    "name": "cpwVcEnetCompliances",
+    "oid": "1.3.6.1.4.1.9.10.108.2.2",
+    "class": "objectidentity"
+  },
+  "cpwVcEnetModuleCompliance": {
+    "name": "cpwVcEnetModuleCompliance",
+    "oid": "1.3.6.1.4.1.9.10.108.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpwVcEnetGroup",
+        "module": "CISCO-IETF-PW-ENET-MIB"
+      },
+      {
+        "object": "cpwVcStatsGroup",
+        "module": "CISCO-IETF-PW-ENET-MIB"
+      },
+      {
+        "object": "cpwVcEnetMplsPriGroup",
+        "module": "CISCO-IETF-PW-ENET-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcEnetGroup": {
+    "name": "cpwVcEnetGroup",
+    "oid": "1.3.6.1.4.1.9.10.108.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PW-ENET-MIB",
+        "object": "cpwVcEnetVlanMode"
+      },
+      {
+        "module": "CISCO-IETF-PW-ENET-MIB",
+        "object": "cpwVcEnetPortVlan"
+      },
+      {
+        "module": "CISCO-IETF-PW-ENET-MIB",
+        "object": "cpwVcEnetPortIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-PW-ENET-MIB",
+        "object": "cpwVcEnetVcIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-PW-ENET-MIB",
+        "object": "cpwVcEnetRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-PW-ENET-MIB",
+        "object": "cpwVcEnetStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcStatsGroup": {
+    "name": "cpwVcStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.108.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PW-ENET-MIB",
+        "object": "cpwVcEnetStatsIllegalVlan"
+      },
+      {
+        "module": "CISCO-IETF-PW-ENET-MIB",
+        "object": "cpwVcEnetStatsIllegalLength"
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcEnetMplsPriGroup": {
+    "name": "cpwVcEnetMplsPriGroup",
+    "oid": "1.3.6.1.4.1.9.10.108.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PW-ENET-MIB",
+        "object": "cpwVcEnetMplsPriMapping"
+      },
+      {
+        "module": "CISCO-IETF-PW-ENET-MIB",
+        "object": "cpwVcEnetMplsPriMappingRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-PW-ENET-MIB",
+        "object": "cpwVcEnetMplsPriMappingStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-PW-ENET-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IETF-PW-ENET-MIB"
+  }
+}

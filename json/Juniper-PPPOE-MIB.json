@@ -1,0 +1,3108 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "Juniper-TC": [
+      "JuniNextIfIndex",
+      "JuniEnable"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "Counter64",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniPPPoEMIB": {
+    "name": "juniPPPoEMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.18",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-11-27 10:23",
+        "description": "Added juniPPPoEServiceNameTableUnknownAction object."
+      },
+      {
+        "revision": "2008-06-18 09:42",
+        "description": "Added juniPPPoEMaxSessionVsa object."
+      },
+      {
+        "revision": "2005-08-03 20:58",
+        "description": "Added Interface Lockout configuration and state support."
+      },
+      {
+        "revision": "2005-05-18 12:01",
+        "description": "Added MTU control object."
+      },
+      {
+        "revision": "2004-06-09 20:58",
+        "description": "Added PADR Remote Circuit Id Capture support."
+      },
+      {
+        "revision": "2003-03-10 18:30",
+        "description": "Added separate PADI and PADR invalid session counters and obsoleted existing combined invalid session counter. Added invalid length and invalid tag length counters. Added ServiceName table support."
+      },
+      {
+        "revision": "2002-10-02 20:12",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2002-10-01 18:27",
+        "description": "Added PADN counter."
+      },
+      {
+        "revision": "2002-08-16 21:46",
+        "description": "Added PADI flag support."
+      },
+      {
+        "revision": "2001-06-19 14:27",
+        "description": "Added AC-NAME and duplicate MAC address indicator objects."
+      },
+      {
+        "revision": "2001-03-21 15:00",
+        "description": "Deprecated profile support, which is now in a separate module. Made corrections to MOTM and URL ranges (should allow zero length) and to read-write objects that should be read-create because they are in tables that permit row creation. Fixed upper bound of juniPPPoEIfMaxNumSessions. Fixed conformance definitions."
+      },
+      {
+        "revision": "2001-02-12 00:00",
+        "description": "Added interface summary statistics under juniPPPoESummary node."
+      },
+      {
+        "revision": "2000-10-25 00:00",
+        "description": "Added profile support and new sub-interface objects."
+      },
+      {
+        "revision": "1999-05-13 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "JuniPPPoEServiceNameAction": {
+    "name": "JuniPPPoEServiceNameAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 0,
+          "terminate": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "juniPPPoEObjects": {
+    "name": "juniPPPoEObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1",
+    "class": "objectidentity"
+  },
+  "juniPPPoEIfLayer": {
+    "name": "juniPPPoEIfLayer",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1",
+    "class": "objectidentity"
+  },
+  "juniPPPoESubIfLayer": {
+    "name": "juniPPPoESubIfLayer",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.2",
+    "class": "objectidentity"
+  },
+  "juniPPPoEGlobal": {
+    "name": "juniPPPoEGlobal",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.3",
+    "class": "objectidentity"
+  },
+  "juniPPPoEProfile": {
+    "name": "juniPPPoEProfile",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.4",
+    "class": "objectidentity"
+  },
+  "juniPPPoESummary": {
+    "name": "juniPPPoESummary",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.5",
+    "class": "objectidentity"
+  },
+  "juniPPPoEServices": {
+    "name": "juniPPPoEServices",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.6",
+    "class": "objectidentity"
+  },
+  "juniPPPoENextIfIndex": {
+    "name": "juniPPPoENextIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNextIfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEIfTable": {
+    "name": "juniPPPoEIfTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPPPoEIfEntry": {
+    "name": "juniPPPoEIfEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniPPPoEIfIfIndex": {
+    "name": "juniPPPoEIfIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEIfMaxNumSessions": {
+    "name": "juniPPPoEIfMaxNumSessions",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65335
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPPPoEIfRowStatus": {
+    "name": "juniPPPoEIfRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPPPoEIfLowerIfIndex": {
+    "name": "juniPPPoEIfLowerIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPPPoEIfAcName": {
+    "name": "juniPPPoEIfAcName",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPPPoEIfDupProtect": {
+    "name": "juniPPPoEIfDupProtect",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPPPoEIfPADIFlag": {
+    "name": "juniPPPoEIfPADIFlag",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPPPoEIfAutoconfig": {
+    "name": "juniPPPoEIfAutoconfig",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPPPoEIfServiceNameTable": {
+    "name": "juniPPPoEIfServiceNameTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPPPoEIfPadrRemoteCircuitIdCapture": {
+    "name": "juniPPPoEIfPadrRemoteCircuitIdCapture",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPPPoEIfMtu": {
+    "name": "juniPPPoEIfMtu",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          },
+          {
+            "min": 2,
+            "max": 2
+          },
+          {
+            "min": 66,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1494,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPPPoEIfLockoutMin": {
+    "name": "juniPPPoEIfLockoutMin",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPPPoEIfLockoutMax": {
+    "name": "juniPPPoEIfLockoutMax",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPPPoEMaxSessionVsa": {
+    "name": "juniPPPoEMaxSessionVsa",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "override": 1,
+          "ignore": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ignore",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPPPoEIfStatsTable": {
+    "name": "juniPPPoEIfStatsTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPPPoEIfStatsEntry": {
+    "name": "juniPPPoEIfStatsEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniPPPoEIfStatsRxPADI": {
+    "name": "juniPPPoEIfStatsRxPADI",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEIfStatsTxPADO": {
+    "name": "juniPPPoEIfStatsTxPADO",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEIfStatsRxPADR": {
+    "name": "juniPPPoEIfStatsRxPADR",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEIfStatsTxPADS": {
+    "name": "juniPPPoEIfStatsTxPADS",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEIfStatsRxPADT": {
+    "name": "juniPPPoEIfStatsRxPADT",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEIfStatsTxPADT": {
+    "name": "juniPPPoEIfStatsTxPADT",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEIfStatsRxInvVersion": {
+    "name": "juniPPPoEIfStatsRxInvVersion",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEIfStatsRxInvCode": {
+    "name": "juniPPPoEIfStatsRxInvCode",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEIfStatsRxInvTags": {
+    "name": "juniPPPoEIfStatsRxInvTags",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEIfStatsRxInvSession": {
+    "name": "juniPPPoEIfStatsRxInvSession",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniPPPoEIfStatsRxInvTypes": {
+    "name": "juniPPPoEIfStatsRxInvTypes",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEIfStatsRxInvPackets": {
+    "name": "juniPPPoEIfStatsRxInvPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEIfStatsRxInsufficientResources": {
+    "name": "juniPPPoEIfStatsRxInsufficientResources",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEIfStatsTxPADM": {
+    "name": "juniPPPoEIfStatsTxPADM",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEIfStatsTxPADN": {
+    "name": "juniPPPoEIfStatsTxPADN",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEIfStatsRxInvTagLength": {
+    "name": "juniPPPoEIfStatsRxInvTagLength",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEIfStatsRxInvLength": {
+    "name": "juniPPPoEIfStatsRxInvLength",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEIfStatsRxInvPadISession": {
+    "name": "juniPPPoEIfStatsRxInvPadISession",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEIfStatsRxInvPadRSession": {
+    "name": "juniPPPoEIfStatsRxInvPadRSession",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEIfLockoutTable": {
+    "name": "juniPPPoEIfLockoutTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPPPoEIfLockoutEntry": {
+    "name": "juniPPPoEIfLockoutEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfLockoutClientAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniPPPoEIfLockoutClientAddress": {
+    "name": "juniPPPoEIfLockoutClientAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPPPoEIfLockoutTime": {
+    "name": "juniPPPoEIfLockoutTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEIfLockoutElapsedTime": {
+    "name": "juniPPPoEIfLockoutElapsedTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEIfLockoutNextTime": {
+    "name": "juniPPPoEIfLockoutNextTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoESubIfNextIfIndex": {
+    "name": "juniPPPoESubIfNextIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNextIfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoESubIfTable": {
+    "name": "juniPPPoESubIfTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPPPoESubIfEntry": {
+    "name": "juniPPPoESubIfEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESubIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniPPPoESubIfIndex": {
+    "name": "juniPPPoESubIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPPPoESubIfRowStatus": {
+    "name": "juniPPPoESubIfRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPPPoESubIfLowerIfIndex": {
+    "name": "juniPPPoESubIfLowerIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPPPoESubIfId": {
+    "name": "juniPPPoESubIfId",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPPPoESubIfSessionId": {
+    "name": "juniPPPoESubIfSessionId",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoESubIfMotm": {
+    "name": "juniPPPoESubIfMotm",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPPPoESubIfUrl": {
+    "name": "juniPPPoESubIfUrl",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPPPoEGlobalMotm": {
+    "name": "juniPPPoEGlobalMotm",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPPPoEServiceNameTableNextIndex": {
+    "name": "juniPPPoEServiceNameTableNextIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEServiceNameTableTable": {
+    "name": "juniPPPoEServiceNameTableTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPPPoEServiceNameTableEntry": {
+    "name": "juniPPPoEServiceNameTableEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEServiceNameTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniPPPoEServiceNameTableIndex": {
+    "name": "juniPPPoEServiceNameTableIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPPPoEServiceNameTableName": {
+    "name": "juniPPPoEServiceNameTableName",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPPPoEServiceNameTableEmptyAction": {
+    "name": "juniPPPoEServiceNameTableEmptyAction",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniPPPoEServiceNameAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPPPoEServiceNameTableRowStatus": {
+    "name": "juniPPPoEServiceNameTableRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPPPoEServiceNameTableUnknownAction": {
+    "name": "juniPPPoEServiceNameTableUnknownAction",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniPPPoEServiceNameAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPPPoEServiceNameTable": {
+    "name": "juniPPPoEServiceNameTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPPPoEServiceNameEntry": {
+    "name": "juniPPPoEServiceNameEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEServiceNameTableIndex",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEServiceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniPPPoEServiceName": {
+    "name": "juniPPPoEServiceName",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPPPoEServiceNameAction": {
+    "name": "juniPPPoEServiceNameAction",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniPPPoEServiceNameAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPPPoEServiceNameRowStatus": {
+    "name": "juniPPPoEServiceNameRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPPPoEProfileTable": {
+    "name": "juniPPPoEProfileTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "juniPPPoEProfileEntry": {
+    "name": "juniPPPoEProfileEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniPPPoEProfileIndex": {
+    "name": "juniPPPoEProfileIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "juniPPPoEProfileRowStatus": {
+    "name": "juniPPPoEProfileRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniPPPoEProfileMotm": {
+    "name": "juniPPPoEProfileMotm",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniPPPoEProfileUrl": {
+    "name": "juniPPPoEProfileUrl",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniPPPoEMajorInterfaceCount": {
+    "name": "juniPPPoEMajorInterfaceCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoESummaryMajorIfAdminUp": {
+    "name": "juniPPPoESummaryMajorIfAdminUp",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoESummaryMajorIfAdminDown": {
+    "name": "juniPPPoESummaryMajorIfAdminDown",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoESummaryMajorIfOperUp": {
+    "name": "juniPPPoESummaryMajorIfOperUp",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoESummaryMajorIfOperDown": {
+    "name": "juniPPPoESummaryMajorIfOperDown",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoESummaryMajorIfLowerLayerDown": {
+    "name": "juniPPPoESummaryMajorIfLowerLayerDown",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoESummaryMajorIfNotPresent": {
+    "name": "juniPPPoESummaryMajorIfNotPresent",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoESummarySubInterfaceCount": {
+    "name": "juniPPPoESummarySubInterfaceCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoESummarySubIfAdminUp": {
+    "name": "juniPPPoESummarySubIfAdminUp",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoESummarySubIfAdminDown": {
+    "name": "juniPPPoESummarySubIfAdminDown",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoESummarySubIfOperUp": {
+    "name": "juniPPPoESummarySubIfOperUp",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoESummarySubIfOperDown": {
+    "name": "juniPPPoESummarySubIfOperDown",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoESummarySubIfLowerLayerDown": {
+    "name": "juniPPPoESummarySubIfLowerLayerDown",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoESummarySubIfNotPresent": {
+    "name": "juniPPPoESummarySubIfNotPresent",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.1.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPPPoEConformance": {
+    "name": "juniPPPoEConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4",
+    "class": "objectidentity"
+  },
+  "juniPPPoECompliances": {
+    "name": "juniPPPoECompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.5",
+    "class": "objectidentity"
+  },
+  "juniPPPoEGroups": {
+    "name": "juniPPPoEGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.4",
+    "class": "objectidentity"
+  },
+  "juniPPPoECompliance": {
+    "name": "juniPPPoECompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.5.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPPPoEGroup",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESubIfGroup",
+        "module": "Juniper-PPPOE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPPPoECompliance2": {
+    "name": "juniPPPoECompliance2",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.5.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPPPoEGroup2",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESubIfGroup2",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoEProfileGroup",
+        "module": "Juniper-PPPOE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPPPoECompliance3": {
+    "name": "juniPPPoECompliance3",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.5.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPPPoEGroup2",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESubIfGroup2",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoEProfileGroup",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESummaryGroup",
+        "module": "Juniper-PPPOE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPPPoECompliance4": {
+    "name": "juniPPPoECompliance4",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.5.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPPPoEGroup2",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESubIfGroup2",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESummaryGroup",
+        "module": "Juniper-PPPOE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPPPoECompliance5": {
+    "name": "juniPPPoECompliance5",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.5.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPPPoEGroup3",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESubIfGroup2",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESummaryGroup",
+        "module": "Juniper-PPPOE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPPPoECompliance6": {
+    "name": "juniPPPoECompliance6",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.5.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPPPoEGroup4",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESubIfGroup2",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESummaryGroup",
+        "module": "Juniper-PPPOE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPPPoECompliance7": {
+    "name": "juniPPPoECompliance7",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.5.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPPPoEGroup5",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESubIfGroup2",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESummaryGroup",
+        "module": "Juniper-PPPOE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPPPoECompliance8": {
+    "name": "juniPPPoECompliance8",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.5.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPPPoEGroup6",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESubIfGroup2",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESummaryGroup",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoEServiceNameTableGroup",
+        "module": "Juniper-PPPOE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPPPoECompliance9": {
+    "name": "juniPPPoECompliance9",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.5.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPPPoEGroup7",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESubIfGroup2",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESummaryGroup",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoEServiceNameTableGroup",
+        "module": "Juniper-PPPOE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPPPoECompliance10": {
+    "name": "juniPPPoECompliance10",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.5.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPPPoEGroup8",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESubIfGroup2",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESummaryGroup",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoEServiceNameTableGroup",
+        "module": "Juniper-PPPOE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPPPoECompliance11": {
+    "name": "juniPPPoECompliance11",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.5.11",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPPPoEGroup9",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESubIfGroup2",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESummaryGroup",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoEServiceNameTableGroup",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoELockoutTableGroup",
+        "module": "Juniper-PPPOE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPPPoECompliance12": {
+    "name": "juniPPPoECompliance12",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.5.12",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPPPoEGroup10",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESubIfGroup2",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESummaryGroup",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoEServiceNameTableGroup",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoELockoutTableGroup",
+        "module": "Juniper-PPPOE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPPPoECompliance13": {
+    "name": "juniPPPoECompliance13",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.5.13",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPPPoEGroup10",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESubIfGroup2",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoESummaryGroup",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoEServiceNameTableGroup1",
+        "module": "Juniper-PPPOE-MIB"
+      },
+      {
+        "object": "juniPPPoELockoutTableGroup",
+        "module": "Juniper-PPPOE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPPPoEGroup": {
+    "name": "juniPPPoEGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.4.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoENextIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfMaxNumSessions"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfRowStatus"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADI"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADO"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADR"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADS"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADT"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADT"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvVersion"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvCode"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTags"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvSession"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTypes"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvPackets"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInsufficientResources"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPPPoESubIfGroup": {
+    "name": "juniPPPoESubIfGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.4.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESubIfNextIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESubIfRowStatus"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESubIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESubIfId"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESubIfSessionId"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPPPoEProfileGroup": {
+    "name": "juniPPPoEProfileGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.4.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEProfileRowStatus"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEProfileUrl"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEProfileMotm"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniPPPoEGroup2": {
+    "name": "juniPPPoEGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.4.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoENextIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfMaxNumSessions"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfRowStatus"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADI"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADO"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADR"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADS"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADT"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADT"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvVersion"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvCode"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTags"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvSession"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTypes"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvPackets"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInsufficientResources"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADM"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEGlobalMotm"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPPPoESubIfGroup2": {
+    "name": "juniPPPoESubIfGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.4.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESubIfNextIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESubIfRowStatus"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESubIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESubIfId"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESubIfSessionId"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESubIfUrl"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESubIfMotm"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPPPoESummaryGroup": {
+    "name": "juniPPPoESummaryGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.4.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEMajorInterfaceCount"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESummaryMajorIfAdminUp"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESummaryMajorIfAdminDown"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESummaryMajorIfOperUp"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESummaryMajorIfOperDown"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESummaryMajorIfNotPresent"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESummaryMajorIfLowerLayerDown"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESummarySubInterfaceCount"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESummarySubIfAdminUp"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESummarySubIfAdminDown"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESummarySubIfOperUp"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESummarySubIfOperDown"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESummarySubIfNotPresent"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoESummarySubIfLowerLayerDown"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPPPoEGroup3": {
+    "name": "juniPPPoEGroup3",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.4.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoENextIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfMaxNumSessions"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfRowStatus"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfAcName"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfDupProtect"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADI"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADO"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADR"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADS"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADT"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADT"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvVersion"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvCode"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTags"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvSession"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTypes"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvPackets"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInsufficientResources"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADM"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEGlobalMotm"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPPPoEGroup4": {
+    "name": "juniPPPoEGroup4",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.4.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoENextIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfMaxNumSessions"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfRowStatus"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfAcName"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfDupProtect"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfPADIFlag"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfAutoconfig"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADI"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADO"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADR"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADS"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADT"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADT"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvVersion"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvCode"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTags"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvSession"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTypes"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvPackets"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInsufficientResources"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADM"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEGlobalMotm"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPPPoEGroup5": {
+    "name": "juniPPPoEGroup5",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.4.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoENextIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfMaxNumSessions"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfRowStatus"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfAcName"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfDupProtect"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfPADIFlag"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfAutoconfig"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADI"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADO"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADR"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADS"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADT"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADT"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvVersion"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvCode"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTags"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvSession"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTypes"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvPackets"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInsufficientResources"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADM"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADN"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEGlobalMotm"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPPPoEGroup6": {
+    "name": "juniPPPoEGroup6",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.4.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoENextIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfMaxNumSessions"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfRowStatus"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfAcName"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfDupProtect"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfPADIFlag"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfAutoconfig"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfServiceNameTable"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADI"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADO"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADR"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADS"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADT"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADT"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvVersion"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvCode"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTags"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTagLength"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvLength"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTypes"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvPackets"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInsufficientResources"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADM"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADN"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvPadISession"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvPadRSession"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEGlobalMotm"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPPPoEServiceNameTableGroup": {
+    "name": "juniPPPoEServiceNameTableGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.4.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEServiceNameTableNextIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEServiceNameTableName"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEServiceNameTableEmptyAction"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEServiceNameTableRowStatus"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEServiceNameAction"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEServiceNameRowStatus"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPPPoEGroup7": {
+    "name": "juniPPPoEGroup7",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.4.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoENextIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfMaxNumSessions"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfRowStatus"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfAcName"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfDupProtect"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfPADIFlag"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfAutoconfig"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfServiceNameTable"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfPadrRemoteCircuitIdCapture"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADI"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADO"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADR"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADS"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADT"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADT"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvVersion"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvCode"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTags"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTagLength"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvLength"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTypes"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvPackets"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInsufficientResources"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADM"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADN"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvPadISession"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvPadRSession"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEGlobalMotm"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPPPoEGroup8": {
+    "name": "juniPPPoEGroup8",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.4.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoENextIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfMaxNumSessions"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfRowStatus"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfAcName"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfDupProtect"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfPADIFlag"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfAutoconfig"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfServiceNameTable"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfPadrRemoteCircuitIdCapture"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfMtu"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADI"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADO"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADR"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADS"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADT"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADT"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvVersion"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvCode"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTags"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTagLength"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvLength"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTypes"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvPackets"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInsufficientResources"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADM"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADN"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvPadISession"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvPadRSession"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEGlobalMotm"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPPPoELockoutTableGroup": {
+    "name": "juniPPPoELockoutTableGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.4.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfLockoutTime"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfLockoutElapsedTime"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfLockoutNextTime"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPPPoEGroup9": {
+    "name": "juniPPPoEGroup9",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.4.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoENextIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfMaxNumSessions"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfRowStatus"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfAcName"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfDupProtect"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfPADIFlag"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfAutoconfig"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfServiceNameTable"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfPadrRemoteCircuitIdCapture"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfMtu"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfLockoutMin"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfLockoutMax"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADI"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADO"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADR"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADS"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADT"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADT"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvVersion"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvCode"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTags"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTagLength"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvLength"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTypes"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvPackets"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInsufficientResources"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADM"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADN"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvPadISession"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvPadRSession"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEGlobalMotm"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPPPoEGroup10": {
+    "name": "juniPPPoEGroup10",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.4.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoENextIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfMaxNumSessions"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfRowStatus"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfAcName"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfDupProtect"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfPADIFlag"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfAutoconfig"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfServiceNameTable"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfPadrRemoteCircuitIdCapture"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfMtu"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfLockoutMin"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfLockoutMax"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEMaxSessionVsa"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADI"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADO"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADR"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADS"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxPADT"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADT"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvVersion"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvCode"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTags"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTagLength"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvLength"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvTypes"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvPackets"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInsufficientResources"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADM"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsTxPADN"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvPadISession"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEIfStatsRxInvPadRSession"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEGlobalMotm"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPPPoEServiceNameTableGroup1": {
+    "name": "juniPPPoEServiceNameTableGroup1",
+    "oid": "1.3.6.1.4.1.4874.2.2.18.4.4.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEServiceNameTableNextIndex"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEServiceNameTableName"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEServiceNameTableEmptyAction"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEServiceNameTableRowStatus"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEServiceNameAction"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEServiceNameRowStatus"
+      },
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "object": "juniPPPoEServiceNameTableUnknownAction"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-PPPOE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-PPPOE-MIB"
+  }
+}

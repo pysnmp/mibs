@@ -1,0 +1,2386 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifDescr",
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ],
+    "SONET-MIB": [
+      "sonetLineCurrentStatus",
+      "sonetPathCurrentStatus",
+      "sonetVTCurrentStatus",
+      "sonetPathCurrentEntry",
+      "sonetSectionCurrentStatus"
+    ]
+  },
+  "ciscoSonetMIB": {
+    "name": "ciscoSonetMIB",
+    "oid": "1.3.6.1.4.1.9.9.126",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-03-07 00:00",
+        "description": "(1) Added enumerations e3(8) and vtStructured(9) in object cspSonetPathPayload. (2) Added table csAu4Tug3Config to configure the VC(Virtual Container) related properties of a TUG-3 within a AU-4 paths."
+      },
+      {
+        "revision": "2002-06-14 00:00",
+        "description": "(1)Added following objects to cspConfigTable: cspTributaryMappingType cspSignallingTransportMode cspTributaryGroupingType (2)Added an optional ciscoSonetPathConfMIBGroup1 for the above objects."
+      },
+      {
+        "revision": "2002-05-22 00:00",
+        "description": "(1) Added cspConfigTable which augments sonetPathCurrentTable. (2) Added the Notifications - ciscoSonetSectionStatusChange, ciscoSonetLineStatusChange, ciscoSonetPathStatusChange, ciscoSonetVTStatusChange and the object - csNotificationsEnabled. (3) Changed the Module-Compliance and made ciscoSonetStatsMIBGroup and ciscoSonetApsMIBGroup1 groups as optional"
+      },
+      {
+        "revision": "2001-10-17 00:00",
+        "description": "(1) Added CsApsLineFailureCode, CsApsLineFailureStatus, and CsApsLineSwitchReason TEXTUAL-CONVENTION. (2) Added csApsSwitchReason, csApsFailureStatus, and csApsPrimarySection columnar objects to CsApsConfigEntry. (3) Added csApsModeMismatch enumeration to CsApsLineFailureCode. (4) Added csApsNoSwitch enumeration to CsApsLineSwitchReason. (5) Changed descriptions for csApsWorkingIndex, and csApsProtectionIndex specifically related to ITU G.783 AnnexB protocol support. (6) Add objects csConfigRDIVType and csConfigRDIPType in table csConfigTable. (7) Add enum sonetSts3(9) for obj csConfigType. (8) Add table csVTConfigTable augmenting the table csConfigTable. The table csVTVonfigTable contains the following objects: csTributaryType csTributaryMappingType csTributaryFramingType csSignallingTransportMode csTributaryGroupingType"
+      },
+      {
+        "revision": "2000-07-12 00:00",
+        "description": "Made following changes (1) Added enumeration csApsNone(3) to csApsActiveLine object and updated the description. (2) Added enumerations sonetSts192c(7) and sonetStm64(8) to csConfigType object and updated the descripton. (3) Fixed description of csConfigType object."
+      },
+      {
+        "revision": "1999-03-08 00:00",
+        "description": "Initial version of the MIB."
+      }
+    ]
+  },
+  "ciscoSonetMIBNotifs": {
+    "name": "ciscoSonetMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.126.0",
+    "class": "objectidentity"
+  },
+  "ciscoSonetMIBObjects": {
+    "name": "ciscoSonetMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.126.1",
+    "class": "objectidentity"
+  },
+  "csConfig": {
+    "name": "csConfig",
+    "oid": "1.3.6.1.4.1.9.9.126.1.1",
+    "class": "objectidentity"
+  },
+  "csApsConfig": {
+    "name": "csApsConfig",
+    "oid": "1.3.6.1.4.1.9.9.126.1.2",
+    "class": "objectidentity"
+  },
+  "csSection": {
+    "name": "csSection",
+    "oid": "1.3.6.1.4.1.9.9.126.1.3",
+    "class": "objectidentity"
+  },
+  "csLine": {
+    "name": "csLine",
+    "oid": "1.3.6.1.4.1.9.9.126.1.4",
+    "class": "objectidentity"
+  },
+  "csPath": {
+    "name": "csPath",
+    "oid": "1.3.6.1.4.1.9.9.126.1.5",
+    "class": "objectidentity"
+  },
+  "csStats": {
+    "name": "csStats",
+    "oid": "1.3.6.1.4.1.9.9.126.1.6",
+    "class": "objectidentity"
+  },
+  "cspConfig": {
+    "name": "cspConfig",
+    "oid": "1.3.6.1.4.1.9.9.126.1.7",
+    "class": "objectidentity"
+  },
+  "csNotifications": {
+    "name": "csNotifications",
+    "oid": "1.3.6.1.4.1.9.9.126.1.8",
+    "class": "objectidentity"
+  },
+  "csAu4Tug3Config": {
+    "name": "csAu4Tug3Config",
+    "oid": "1.3.6.1.4.1.9.9.126.1.9",
+    "class": "objectidentity"
+  },
+  "CsApsLineFailureCode": {
+    "name": "CsApsLineFailureCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "csApsChannelMismatch": 1,
+          "csApsProtectionByteFail": 2,
+          "csApsFEProtectionFailure": 3,
+          "csApsModeMismatch": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CsApsLineFailureStatus": {
+    "name": "CsApsLineFailureStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "noApsLineFailure": 0,
+        "csApsChannelMismatchBit": 1,
+        "csApsProtectionByteFailBit": 2,
+        "csApsFEProtectionFailureBit": 3,
+        "csApsModeMismatchBit": 4
+      }
+    },
+    "status": "current"
+  },
+  "CsApsLineSwitchReason": {
+    "name": "CsApsLineSwitchReason",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "csApsOther": 1,
+          "csApsRevertive": 2,
+          "csApsManual": 3,
+          "csApsSignalDefectLow": 4,
+          "csApsSignalDefectHigh": 5,
+          "csApsSignalFailureLow": 6,
+          "csApsSignalFailureHigh": 7,
+          "csApsForceSwitch": 8,
+          "csApsLockOut": 9,
+          "csApsNoSwitch": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "csConfigTable": {
+    "name": "csConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.126.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csConfigEntry": {
+    "name": "csConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.126.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csConfigLoopbackType": {
+    "name": "csConfigLoopbackType",
+    "oid": "1.3.6.1.4.1.9.9.126.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noLoopback": 1,
+          "lineLocal": 2,
+          "lineRemote": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noLoopback",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csConfigXmtClockSource": {
+    "name": "csConfigXmtClockSource",
+    "oid": "1.3.6.1.4.1.9.9.126.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loopTiming": 1,
+          "localTiming": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "localTiming",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csConfigFrameScramble": {
+    "name": "csConfigFrameScramble",
+    "oid": "1.3.6.1.4.1.9.9.126.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csConfigType": {
+    "name": "csConfigType",
+    "oid": "1.3.6.1.4.1.9.9.126.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sonetSts3c": 1,
+          "sonetStm1": 2,
+          "sonetSts12c": 3,
+          "sonetStm4": 4,
+          "sonetSts48c": 5,
+          "sonetStm16": 6,
+          "sonetSts192c": 7,
+          "sonetStm64": 8,
+          "sonetSts3": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csConfigRDIVType": {
+    "name": "csConfigRDIVType",
+    "oid": "1.3.6.1.4.1.9.9.126.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "onebit": 1,
+          "threebit": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "onebit",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csConfigRDIPType": {
+    "name": "csConfigRDIPType",
+    "oid": "1.3.6.1.4.1.9.9.126.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "onebit": 1,
+          "threebit": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "onebit",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csVTConfigTable": {
+    "name": "csVTConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.126.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csVTConfigEntry": {
+    "name": "csVTConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.126.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "csVTConfigEntry",
+      "module": "CISCO-SONET-MIB",
+      "object": "csConfigEntry"
+    },
+    "status": "current"
+  },
+  "csTributaryType": {
+    "name": "csTributaryType",
+    "oid": "1.3.6.1.4.1.9.9.126.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vt15vc11": 1,
+          "vt2vc12": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csTributaryMappingType": {
+    "name": "csTributaryMappingType",
+    "oid": "1.3.6.1.4.1.9.9.126.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "asynchronous": 1,
+          "byteSynchronous": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csTributaryFramingType": {
+    "name": "csTributaryFramingType",
+    "oid": "1.3.6.1.4.1.9.9.126.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "dsx1D4": 2,
+          "dsx1ESF": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csSignallingTransportMode": {
+    "name": "csSignallingTransportMode",
+    "oid": "1.3.6.1.4.1.9.9.126.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "signallingTransferMode": 2,
+          "clearMode": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csTributaryGroupingType": {
+    "name": "csTributaryGroupingType",
+    "oid": "1.3.6.1.4.1.9.9.126.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "au3Grouping": 2,
+          "au4Grouping": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csApsConfigTable": {
+    "name": "csApsConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.126.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csApsConfigEntry": {
+    "name": "csApsConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.126.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsWorkingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csApsWorkingIndex": {
+    "name": "csApsWorkingIndex",
+    "oid": "1.3.6.1.4.1.9.9.126.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csApsProtectionIndex": {
+    "name": "csApsProtectionIndex",
+    "oid": "1.3.6.1.4.1.9.9.126.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csApsEnable": {
+    "name": "csApsEnable",
+    "oid": "1.3.6.1.4.1.9.9.126.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "csApsDisabled": 1,
+          "csApsEnabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csApsArchMode": {
+    "name": "csApsArchMode",
+    "oid": "1.3.6.1.4.1.9.9.126.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "onePlusOne": 1,
+          "oneToOne": 2,
+          "anexBOnePlusOne": 3,
+          "ycableOnePlusOneNok1k2": 4,
+          "straightOnePlusOneNok1k2": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csApsActiveLine": {
+    "name": "csApsActiveLine",
+    "oid": "1.3.6.1.4.1.9.9.126.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "csApsWorkingLine": 1,
+          "csApsProtectionLine": 2,
+          "csApsNone": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csApsSigFaultBER": {
+    "name": "csApsSigFaultBER",
+    "oid": "1.3.6.1.4.1.9.9.126.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csApsSigDegradeBER": {
+    "name": "csApsSigDegradeBER",
+    "oid": "1.3.6.1.4.1.9.9.126.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csApsWaitToRestore": {
+    "name": "csApsWaitToRestore",
+    "oid": "1.3.6.1.4.1.9.9.126.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csApsDirection": {
+    "name": "csApsDirection",
+    "oid": "1.3.6.1.4.1.9.9.126.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uniDirectional": 1,
+          "biDirectional": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csApsRevertive": {
+    "name": "csApsRevertive",
+    "oid": "1.3.6.1.4.1.9.9.126.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonrevertive": 1,
+          "revertive": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csApsDirectionOperational": {
+    "name": "csApsDirectionOperational",
+    "oid": "1.3.6.1.4.1.9.9.126.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uniDirectional": 1,
+          "biDirectional": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csApsArchModeOperational": {
+    "name": "csApsArchModeOperational",
+    "oid": "1.3.6.1.4.1.9.9.126.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "onePlusOne": 1,
+          "oneToOne": 2,
+          "anexBOnePlusOne": 3,
+          "ycableOnePlusOneNok1k2": 4,
+          "straightOnePlusOneNok1k2": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csApsChannelProtocol": {
+    "name": "csApsChannelProtocol",
+    "oid": "1.3.6.1.4.1.9.9.126.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bellcore": 1,
+          "itu": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csApsFailureStatus": {
+    "name": "csApsFailureStatus",
+    "oid": "1.3.6.1.4.1.9.9.126.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CsApsLineFailureStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csApsSwitchReason": {
+    "name": "csApsSwitchReason",
+    "oid": "1.3.6.1.4.1.9.9.126.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CsApsLineSwitchReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csApsPrimarySection": {
+    "name": "csApsPrimarySection",
+    "oid": "1.3.6.1.4.1.9.9.126.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "workingSection1": 1,
+          "workingSection2": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csApsLineFailureCode": {
+    "name": "csApsLineFailureCode",
+    "oid": "1.3.6.1.4.1.9.9.126.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CsApsLineFailureCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csApsLineSwitchReason": {
+    "name": "csApsLineSwitchReason",
+    "oid": "1.3.6.1.4.1.9.9.126.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CsApsLineSwitchReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssTotalTable": {
+    "name": "cssTotalTable",
+    "oid": "1.3.6.1.4.1.9.9.126.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssTotalEntry": {
+    "name": "cssTotalEntry",
+    "oid": "1.3.6.1.4.1.9.9.126.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cssTotalESs": {
+    "name": "cssTotalESs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "errored seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssTotalSESs": {
+    "name": "cssTotalSESs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "severely errored seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssTotalSEFSs": {
+    "name": "cssTotalSEFSs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "severely errored framing seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssTotalCVs": {
+    "name": "cssTotalCVs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "coding violations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssTraceTable": {
+    "name": "cssTraceTable",
+    "oid": "1.3.6.1.4.1.9.9.126.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssTraceEntry": {
+    "name": "cssTraceEntry",
+    "oid": "1.3.6.1.4.1.9.9.126.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cssTraceToTransmit": {
+    "name": "cssTraceToTransmit",
+    "oid": "1.3.6.1.4.1.9.9.126.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 64,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssTraceToExpect": {
+    "name": "cssTraceToExpect",
+    "oid": "1.3.6.1.4.1.9.9.126.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 64,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssTraceFailure": {
+    "name": "cssTraceFailure",
+    "oid": "1.3.6.1.4.1.9.9.126.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssTraceReceived": {
+    "name": "cssTraceReceived",
+    "oid": "1.3.6.1.4.1.9.9.126.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 64,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cslTotalTable": {
+    "name": "cslTotalTable",
+    "oid": "1.3.6.1.4.1.9.9.126.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cslTotalEntry": {
+    "name": "cslTotalEntry",
+    "oid": "1.3.6.1.4.1.9.9.126.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cslTotalESs": {
+    "name": "cslTotalESs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "errored seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cslTotalSESs": {
+    "name": "cslTotalSESs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "severely errored seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cslTotalCVs": {
+    "name": "cslTotalCVs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "coding violations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cslTotalUASs": {
+    "name": "cslTotalUASs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "unavailable seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cslFarEndTotalTable": {
+    "name": "cslFarEndTotalTable",
+    "oid": "1.3.6.1.4.1.9.9.126.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cslFarEndTotalEntry": {
+    "name": "cslFarEndTotalEntry",
+    "oid": "1.3.6.1.4.1.9.9.126.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cslFarEndTotalESs": {
+    "name": "cslFarEndTotalESs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "errored seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cslFarEndTotalSESs": {
+    "name": "cslFarEndTotalSESs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "severely errored seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cslFarEndTotalCVs": {
+    "name": "cslFarEndTotalCVs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "coding violations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cslFarEndTotalUASs": {
+    "name": "cslFarEndTotalUASs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "unavailable seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTotalTable": {
+    "name": "cspTotalTable",
+    "oid": "1.3.6.1.4.1.9.9.126.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cspTotalEntry": {
+    "name": "cspTotalEntry",
+    "oid": "1.3.6.1.4.1.9.9.126.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cspTotalESs": {
+    "name": "cspTotalESs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "errored seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTotalSESs": {
+    "name": "cspTotalSESs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "severely errored seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTotalCVs": {
+    "name": "cspTotalCVs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "coding violations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTotalUASs": {
+    "name": "cspTotalUASs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "unavailable seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspFarEndTotalTable": {
+    "name": "cspFarEndTotalTable",
+    "oid": "1.3.6.1.4.1.9.9.126.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cspFarEndTotalEntry": {
+    "name": "cspFarEndTotalEntry",
+    "oid": "1.3.6.1.4.1.9.9.126.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cspFarEndTotalESs": {
+    "name": "cspFarEndTotalESs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "errored seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspFarEndTotalSESs": {
+    "name": "cspFarEndTotalSESs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "severely errored seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspFarEndTotalCVs": {
+    "name": "cspFarEndTotalCVs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "coding violations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspFarEndTotalUASs": {
+    "name": "cspFarEndTotalUASs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "unavailable seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTraceTable": {
+    "name": "cspTraceTable",
+    "oid": "1.3.6.1.4.1.9.9.126.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cspTraceEntry": {
+    "name": "cspTraceEntry",
+    "oid": "1.3.6.1.4.1.9.9.126.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cspTraceToTransmit": {
+    "name": "cspTraceToTransmit",
+    "oid": "1.3.6.1.4.1.9.9.126.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 64,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cspTraceToExpect": {
+    "name": "cspTraceToExpect",
+    "oid": "1.3.6.1.4.1.9.9.126.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 64,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cspTraceFailure": {
+    "name": "cspTraceFailure",
+    "oid": "1.3.6.1.4.1.9.9.126.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspTraceReceived": {
+    "name": "cspTraceReceived",
+    "oid": "1.3.6.1.4.1.9.9.126.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 64,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csStatsTable": {
+    "name": "csStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.126.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csStatsEntry": {
+    "name": "csStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.126.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cssLOSs": {
+    "name": "cssLOSs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "loss of signals",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssLOFs": {
+    "name": "cssLOFs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "loss of frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cslAISs": {
+    "name": "cslAISs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "alarm indication signals",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cslRFIs": {
+    "name": "cslRFIs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "remote failure indications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspAISs": {
+    "name": "cspAISs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "alarm indication signals",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspRFIs": {
+    "name": "cspRFIs",
+    "oid": "1.3.6.1.4.1.9.9.126.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "remote failure indications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cspConfigTable": {
+    "name": "cspConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.126.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cspConfigEntry": {
+    "name": "cspConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.126.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cspConfigEntry",
+      "module": "CISCO-SONET-MIB",
+      "object": "sonetPathCurrentEntry"
+    },
+    "status": "current"
+  },
+  "cspSonetPathPayload": {
+    "name": "cspSonetPathPayload",
+    "oid": "1.3.6.1.4.1.9.9.126.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unequipped": 1,
+          "unspecified": 2,
+          "ds3": 3,
+          "vt15vc11": 4,
+          "vt2vc12": 5,
+          "atmCell": 6,
+          "hdlcFr": 7,
+          "e3": 8,
+          "vtStructured": 9
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cspTributaryMappingType": {
+    "name": "cspTributaryMappingType",
+    "oid": "1.3.6.1.4.1.9.9.126.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "asynchronous": 1,
+          "byteSynchronous": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cspSignallingTransportMode": {
+    "name": "cspSignallingTransportMode",
+    "oid": "1.3.6.1.4.1.9.9.126.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "signallingTransferMode": 2,
+          "clearMode": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cspTributaryGroupingType": {
+    "name": "cspTributaryGroupingType",
+    "oid": "1.3.6.1.4.1.9.9.126.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "au3Grouping": 2,
+          "au4Grouping": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csAu4Tug3ConfigTable": {
+    "name": "csAu4Tug3ConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.126.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csAu4Tug3ConfigEntry": {
+    "name": "csAu4Tug3ConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.126.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csAu4Tug3",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csAu4Tug3": {
+    "name": "csAu4Tug3",
+    "oid": "1.3.6.1.4.1.9.9.126.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csAu4Tug3Payload": {
+    "name": "csAu4Tug3Payload",
+    "oid": "1.3.6.1.4.1.9.9.126.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "vc11": 2,
+          "vc12": 3,
+          "tu3ds3": 4,
+          "tu3e3": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "vc11",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csNotificationsEnabled": {
+    "name": "csNotificationsEnabled",
+    "oid": "1.3.6.1.4.1.9.9.126.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoSonetSectionStatusChange": {
+    "name": "ciscoSonetSectionStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.126.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SONET-MIB",
+        "object": "sonetSectionCurrentStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetLineStatusChange": {
+    "name": "ciscoSonetLineStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.126.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SONET-MIB",
+        "object": "sonetLineCurrentStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetPathStatusChange": {
+    "name": "ciscoSonetPathStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.126.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SONET-MIB",
+        "object": "sonetPathCurrentStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetVTStatusChange": {
+    "name": "ciscoSonetVTStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.126.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SONET-MIB",
+        "object": "sonetVTCurrentStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetMIBConformance": {
+    "name": "ciscoSonetMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.126.3",
+    "class": "objectidentity"
+  },
+  "ciscoSonetMIBCompliances": {
+    "name": "ciscoSonetMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.126.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoSonetMIBGroups": {
+    "name": "ciscoSonetMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.126.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoSonetMIBCompliance": {
+    "name": "ciscoSonetMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.126.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSonetConfMIBGroup",
+        "module": "CISCO-SONET-MIB"
+      },
+      {
+        "object": "ciscoSonetStatsMIBGroup",
+        "module": "CISCO-SONET-MIB"
+      },
+      {
+        "object": "ciscoSonetTraceMIBGroup",
+        "module": "CISCO-SONET-MIB"
+      },
+      {
+        "object": "ciscoSonetApsMIBGroup",
+        "module": "CISCO-SONET-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSonetMIBCompliance1": {
+    "name": "ciscoSonetMIBCompliance1",
+    "oid": "1.3.6.1.4.1.9.9.126.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSonetConfMIBGroup1",
+        "module": "CISCO-SONET-MIB"
+      },
+      {
+        "object": "ciscoSonetStatsMIBGroup",
+        "module": "CISCO-SONET-MIB"
+      },
+      {
+        "object": "ciscoSonetTraceMIBGroup",
+        "module": "CISCO-SONET-MIB"
+      },
+      {
+        "object": "ciscoSonetApsMIBGroup1",
+        "module": "CISCO-SONET-MIB"
+      },
+      {
+        "object": "ciscoSonetVTConfMIBGroup",
+        "module": "CISCO-SONET-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSonetMIBCompliance2": {
+    "name": "ciscoSonetMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.126.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSonetConfMIBGroup1",
+        "module": "CISCO-SONET-MIB"
+      },
+      {
+        "object": "ciscoSonetTraceMIBGroup",
+        "module": "CISCO-SONET-MIB"
+      },
+      {
+        "object": "ciscoSonetNotifEnableGroup",
+        "module": "CISCO-SONET-MIB"
+      },
+      {
+        "object": "ciscoSonetSectionNotifGroup",
+        "module": "CISCO-SONET-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSonetMIBCompliance3": {
+    "name": "ciscoSonetMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.126.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSonetConfMIBGroup1",
+        "module": "CISCO-SONET-MIB"
+      },
+      {
+        "object": "ciscoSonetTraceMIBGroup",
+        "module": "CISCO-SONET-MIB"
+      },
+      {
+        "object": "ciscoSonetNotifEnableGroup",
+        "module": "CISCO-SONET-MIB"
+      },
+      {
+        "object": "ciscoSonetSectionNotifGroup",
+        "module": "CISCO-SONET-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetConfMIBGroup": {
+    "name": "ciscoSonetConfMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.126.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csConfigLoopbackType"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csConfigXmtClockSource"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csConfigFrameScramble"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csConfigType"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSonetStatsMIBGroup": {
+    "name": "ciscoSonetStatsMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.126.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cssTotalESs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cssTotalSESs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cssTotalSEFSs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cssTotalCVs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cssLOSs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cssLOFs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cslAISs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cslRFIs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cspAISs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cspRFIs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cslTotalESs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cslTotalSESs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cslTotalCVs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cslTotalUASs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cslFarEndTotalESs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cslFarEndTotalSESs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cslFarEndTotalCVs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cslFarEndTotalUASs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cspTotalESs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cspTotalSESs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cspTotalCVs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cspTotalUASs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cspFarEndTotalESs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cspFarEndTotalSESs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cspFarEndTotalCVs"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cspFarEndTotalUASs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetTraceMIBGroup": {
+    "name": "ciscoSonetTraceMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.126.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cssTraceToTransmit"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cssTraceToExpect"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cssTraceFailure"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cssTraceReceived"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cspTraceToTransmit"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cspTraceToExpect"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cspTraceFailure"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cspTraceReceived"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetApsMIBGroup": {
+    "name": "ciscoSonetApsMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.126.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsProtectionIndex"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsEnable"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsArchMode"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsActiveLine"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsSigFaultBER"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsSigDegradeBER"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsWaitToRestore"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsDirection"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsRevertive"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsLineFailureCode"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsLineSwitchReason"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsDirectionOperational"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsArchModeOperational"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsChannelProtocol"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSonetApsMIBGroup1": {
+    "name": "ciscoSonetApsMIBGroup1",
+    "oid": "1.3.6.1.4.1.9.9.126.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsProtectionIndex"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsEnable"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsArchMode"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsActiveLine"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsSigFaultBER"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsSigDegradeBER"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsWaitToRestore"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsDirection"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsRevertive"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsLineFailureCode"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsLineSwitchReason"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsDirectionOperational"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsArchModeOperational"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsChannelProtocol"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsFailureStatus"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsSwitchReason"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csApsPrimarySection"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetConfMIBGroup1": {
+    "name": "ciscoSonetConfMIBGroup1",
+    "oid": "1.3.6.1.4.1.9.9.126.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csConfigLoopbackType"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csConfigXmtClockSource"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csConfigFrameScramble"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csConfigType"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csConfigRDIPType"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csConfigRDIVType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetVTConfMIBGroup": {
+    "name": "ciscoSonetVTConfMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.126.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csTributaryType"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csTributaryMappingType"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csTributaryFramingType"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csSignallingTransportMode"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csTributaryGroupingType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetPathConfMIBGroup": {
+    "name": "ciscoSonetPathConfMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.126.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cspSonetPathPayload"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetNotifEnableGroup": {
+    "name": "ciscoSonetNotifEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.126.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csNotificationsEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetSectionNotifGroup": {
+    "name": "ciscoSonetSectionNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.126.3.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "ciscoSonetSectionStatusChange"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetLineNotifGroup": {
+    "name": "ciscoSonetLineNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.126.3.2.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "ciscoSonetLineStatusChange"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetPathNotifGroup": {
+    "name": "ciscoSonetPathNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.126.3.2.12",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "ciscoSonetPathStatusChange"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetVTNotifGroup": {
+    "name": "ciscoSonetVTNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.126.3.2.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "ciscoSonetVTStatusChange"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetPathConfMIBGroup1": {
+    "name": "ciscoSonetPathConfMIBGroup1",
+    "oid": "1.3.6.1.4.1.9.9.126.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cspTributaryMappingType"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cspSignallingTransportMode"
+      },
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "cspTributaryGroupingType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetAu4Tug3Group": {
+    "name": "ciscoSonetAu4Tug3Group",
+    "oid": "1.3.6.1.4.1.9.9.126.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SONET-MIB",
+        "object": "csAu4Tug3Payload"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SONET-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SONET-MIB"
+  }
+}

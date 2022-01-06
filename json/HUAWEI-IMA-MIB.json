@@ -1,0 +1,1307 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "enterprises",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "hwImaMIB": {
+    "name": "hwImaMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.176",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-02-17 00:00",
+        "description": "V2.11, modify the description of hwImaNotifications."
+      }
+    ]
+  },
+  "hwImaMibObjects": {
+    "name": "hwImaMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1",
+    "class": "objectidentity"
+  },
+  "hwImaMibConformance": {
+    "name": "hwImaMibConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.2",
+    "class": "objectidentity"
+  },
+  "hwImaNotifications": {
+    "name": "hwImaNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.3",
+    "class": "objectidentity"
+  },
+  "MilliSeconds": {
+    "name": "MilliSeconds",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "ImaGroupState": {
+    "name": "ImaGroupState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notConfigured": 1,
+          "startUp": 2,
+          "startUpAck": 3,
+          "configAbortUnsupportedM": 4,
+          "configAbortIncompatibleSymmetry": 5,
+          "configAbortOther": 6,
+          "insufficientLinks": 7,
+          "blocked": 8,
+          "operational": 9,
+          "configAbortUnsupportedImaVersion": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ImaGroupSymmetry": {
+    "name": "ImaGroupSymmetry",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "symmetricOperation": 1,
+          "asymmetricOperation": 2,
+          "asymmetricConfiguration": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ImaFrameLength": {
+    "name": "ImaFrameLength",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "m32": 1,
+          "m64": 2,
+          "m128": 3,
+          "m256": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ImaLinkState": {
+    "name": "ImaLinkState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInGroup": 1,
+          "unusableNoGivenReason": 2,
+          "unusableFault": 3,
+          "unusableMisconnected": 4,
+          "unusableInhibited": 5,
+          "unusableFailed": 6,
+          "usable": 7,
+          "active": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hwImaGroupTable": {
+    "name": "hwImaGroupTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwImaGroupEntry": {
+    "name": "hwImaGroupEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwImaGroupIfIndex": {
+    "name": "hwImaGroupIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwImaGroupNeState": {
+    "name": "hwImaGroupNeState",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaGroupState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwImaGroupFeState": {
+    "name": "hwImaGroupFeState",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaGroupState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwImaGroupSymmetry": {
+    "name": "hwImaGroupSymmetry",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaGroupSymmetry",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "symmetricOperation",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwImaGroupMinNumTxLinks": {
+    "name": "hwImaGroupMinNumTxLinks",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwImaGroupMinNumRxLinks": {
+    "name": "hwImaGroupMinNumRxLinks",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwImaGroupTxTimingRefLink": {
+    "name": "hwImaGroupTxTimingRefLink",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwImaGroupRxTimingRefLink": {
+    "name": "hwImaGroupRxTimingRefLink",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwImaGroupTxImaId": {
+    "name": "hwImaGroupTxImaId",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwImaGroupRxImaId": {
+    "name": "hwImaGroupRxImaId",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwImaGroupTxFrameLength": {
+    "name": "hwImaGroupTxFrameLength",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaFrameLength",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "m128",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwImaGroupRxFrameLength": {
+    "name": "hwImaGroupRxFrameLength",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaFrameLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwImaGroupDiffDelayMax": {
+    "name": "hwImaGroupDiffDelayMax",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliSeconds",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 25,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 25,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwImaGroupAlphaValue": {
+    "name": "hwImaGroupAlphaValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwImaGroupBetaValue": {
+    "name": "hwImaGroupBetaValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwImaGroupGammaValue": {
+    "name": "hwImaGroupGammaValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwImaGroupNumTxActLinks": {
+    "name": "hwImaGroupNumTxActLinks",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwImaGroupNumRxActLinks": {
+    "name": "hwImaGroupNumRxActLinks",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwImaGroupTxOamLabelValue": {
+    "name": "hwImaGroupTxOamLabelValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwImaGroupRxOamLabelValue": {
+    "name": "hwImaGroupRxOamLabelValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwImaGroupFirstLinkIfIndex": {
+    "name": "hwImaGroupFirstLinkIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwImaGroupName": {
+    "name": "hwImaGroupName",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwImaGroupTxClock": {
+    "name": "hwImaGroupTxClock",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwImaGroupRxClock": {
+    "name": "hwImaGroupRxClock",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwImaLinkTable": {
+    "name": "hwImaLinkTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwImaLinkEntry": {
+    "name": "hwImaLinkEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwImaLinkIfIndex": {
+    "name": "hwImaLinkIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwImaLinkGroupIfIndex": {
+    "name": "hwImaLinkGroupIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwImaLinkNeTxState": {
+    "name": "hwImaLinkNeTxState",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaLinkState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwImaLinkNeRxState": {
+    "name": "hwImaLinkNeRxState",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaLinkState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwImaLinkFeTxState": {
+    "name": "hwImaLinkFeTxState",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaLinkState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwImaLinkFeRxState": {
+    "name": "hwImaLinkFeRxState",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaLinkState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwImaLinkRowStatus": {
+    "name": "hwImaLinkRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwImaLinkName": {
+    "name": "hwImaLinkName",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.2.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwImaAlarmTable": {
+    "name": "hwImaAlarmTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwImaAlarmEntry": {
+    "name": "hwImaAlarmEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaAlarmIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwImaAlarmIfIndex": {
+    "name": "hwImaAlarmIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwImaGroupNeDownEn": {
+    "name": "hwImaGroupNeDownEn",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwImaGroupFeDownEn": {
+    "name": "hwImaGroupFeDownEn",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwImaGroupTxClkMismatchEn": {
+    "name": "hwImaGroupTxClkMismatchEn",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwImaLinkLifEn": {
+    "name": "hwImaLinkLifEn",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwImaLinkLodsEn": {
+    "name": "hwImaLinkLodsEn",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwImaLinkRfiEn": {
+    "name": "hwImaLinkRfiEn",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwImaLinkFeTxUnusableEn": {
+    "name": "hwImaLinkFeTxUnusableEn",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwImaLinkFeRxUnusableEn": {
+    "name": "hwImaLinkFeRxUnusableEn",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIMAAllEn": {
+    "name": "hwIMAAllEn",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwImaMibGroups": {
+    "name": "hwImaMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.2.1",
+    "class": "objectidentity"
+  },
+  "hwImaMibCompliances": {
+    "name": "hwImaMibCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.2.2",
+    "class": "objectidentity"
+  },
+  "hwImaMibCompliance": {
+    "name": "hwImaMibCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwImaGroupGroup",
+        "module": "HUAWEI-IMA-MIB"
+      },
+      {
+        "object": "hwImaLinkGroup",
+        "module": "HUAWEI-IMA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwImaGroupGroup": {
+    "name": "hwImaGroupGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupIfIndex"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupNeState"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupFeState"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupSymmetry"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupMinNumTxLinks"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupMinNumRxLinks"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupTxTimingRefLink"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupRxTimingRefLink"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupTxImaId"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupRxImaId"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupTxFrameLength"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupRxFrameLength"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupDiffDelayMax"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupAlphaValue"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupBetaValue"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupGammaValue"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupNumTxActLinks"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupNumRxActLinks"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupTxOamLabelValue"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupRxOamLabelValue"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupFirstLinkIfIndex"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupName"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupTxClock"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupRxClock"
+      }
+    ],
+    "status": "current"
+  },
+  "hwImaLinkGroup": {
+    "name": "hwImaLinkGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkGroupIfIndex"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkNeTxState"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkNeRxState"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkFeTxState"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkFeRxState"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwImaGroupAlarmTrapGroup": {
+    "name": "hwImaGroupAlarmTrapGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.2.1.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupNeDownAlarm"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupNeDownAlarmResume"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupFeDownAlarm"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupFeDownAlarmResume"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupTxClkMismatch"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupTxClkMismatchResume"
+      }
+    ],
+    "status": "current"
+  },
+  "hwImaLinkAlarmTrapGroup": {
+    "name": "hwImaLinkAlarmTrapGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.2.1.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkLifAlarm"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkLifAlarmResume"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkLodsAlarm"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkLodsAlarmResume"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkRfiAlarm"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkRfiAlarmResume"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkFeTxUnusableAlarm"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkFeTxUnusableAlarmResume"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkFeRxUnusableAlarm"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkFeRxUnusableAlarmResume"
+      }
+    ],
+    "status": "current"
+  },
+  "hwImaGroupNeDownAlarm": {
+    "name": "hwImaGroupNeDownAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwImaGroupNeDownAlarmResume": {
+    "name": "hwImaGroupNeDownAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwImaGroupFeDownAlarm": {
+    "name": "hwImaGroupFeDownAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwImaGroupFeDownAlarmResume": {
+    "name": "hwImaGroupFeDownAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwImaGroupTxClkMismatch": {
+    "name": "hwImaGroupTxClkMismatch",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwImaGroupTxClkMismatchResume": {
+    "name": "hwImaGroupTxClkMismatchResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.3.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwImaLinkLifAlarm": {
+    "name": "hwImaLinkLifAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.3.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwImaLinkLifAlarmResume": {
+    "name": "hwImaLinkLifAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.3.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwImaLinkLodsAlarm": {
+    "name": "hwImaLinkLodsAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.3.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwImaLinkLodsAlarmResume": {
+    "name": "hwImaLinkLodsAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.3.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwImaLinkRfiAlarm": {
+    "name": "hwImaLinkRfiAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.3.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwImaLinkRfiAlarmResume": {
+    "name": "hwImaLinkRfiAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.3.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwImaLinkFeTxUnusableAlarm": {
+    "name": "hwImaLinkFeTxUnusableAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.3.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwImaLinkFeTxUnusableAlarmResume": {
+    "name": "hwImaLinkFeTxUnusableAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.3.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwImaLinkFeRxUnusableAlarm": {
+    "name": "hwImaLinkFeRxUnusableAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.3.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwImaLinkFeRxUnusableAlarmResume": {
+    "name": "hwImaLinkFeRxUnusableAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.3.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-IMA-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-IMA-MIB"
+  }
+}

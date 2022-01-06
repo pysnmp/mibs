@@ -1,0 +1,422 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "STORMSHIELD-SMI-MIB": [
+      "snsNotifications",
+      "stormshieldMIB"
+    ]
+  },
+  "snsAlarm": {
+    "name": "snsAlarm",
+    "oid": "1.3.6.1.4.1.11256.1.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-02-20 00:00",
+        "description": "Initial"
+      }
+    ]
+  },
+  "snsATable": {
+    "name": "snsATable",
+    "oid": "1.3.6.1.4.1.11256.1.5.0",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snsAEntry": {
+    "name": "snsAEntry",
+    "oid": "1.3.6.1.4.1.11256.1.5.0.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STORMSHIELD-ALARM-MIB",
+        "object": "snsAIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snsAIndex": {
+    "name": "snsAIndex",
+    "oid": "1.3.6.1.4.1.11256.1.5.0.1.0",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snsATime": {
+    "name": "snsATime",
+    "oid": "1.3.6.1.4.1.11256.1.5.0.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsASif": {
+    "name": "snsASif",
+    "oid": "1.3.6.1.4.1.11256.1.5.0.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsADif": {
+    "name": "snsADif",
+    "oid": "1.3.6.1.4.1.11256.1.5.0.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsAProto": {
+    "name": "snsAProto",
+    "oid": "1.3.6.1.4.1.11256.1.5.0.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsASaddr": {
+    "name": "snsASaddr",
+    "oid": "1.3.6.1.4.1.11256.1.5.0.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsADaddr": {
+    "name": "snsADaddr",
+    "oid": "1.3.6.1.4.1.11256.1.5.0.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsASport": {
+    "name": "snsASport",
+    "oid": "1.3.6.1.4.1.11256.1.5.0.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsADport": {
+    "name": "snsADport",
+    "oid": "1.3.6.1.4.1.11256.1.5.0.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsASname": {
+    "name": "snsASname",
+    "oid": "1.3.6.1.4.1.11256.1.5.0.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsADname": {
+    "name": "snsADname",
+    "oid": "1.3.6.1.4.1.11256.1.5.0.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsAMessage": {
+    "name": "snsAMessage",
+    "oid": "1.3.6.1.4.1.11256.1.5.0.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsAicmpTable": {
+    "name": "snsAicmpTable",
+    "oid": "1.3.6.1.4.1.11256.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snsAicmpEntry": {
+    "name": "snsAicmpEntry",
+    "oid": "1.3.6.1.4.1.11256.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STORMSHIELD-ALARM-MIB",
+        "object": "snsAicmpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snsAicmpIndex": {
+    "name": "snsAicmpIndex",
+    "oid": "1.3.6.1.4.1.11256.1.5.1.1.0",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snsAicmpTime": {
+    "name": "snsAicmpTime",
+    "oid": "1.3.6.1.4.1.11256.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsAicmpSif": {
+    "name": "snsAicmpSif",
+    "oid": "1.3.6.1.4.1.11256.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsAicmpDif": {
+    "name": "snsAicmpDif",
+    "oid": "1.3.6.1.4.1.11256.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsAicmpSaddr": {
+    "name": "snsAicmpSaddr",
+    "oid": "1.3.6.1.4.1.11256.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsAicmpDaddr": {
+    "name": "snsAicmpDaddr",
+    "oid": "1.3.6.1.4.1.11256.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsAicmpType": {
+    "name": "snsAicmpType",
+    "oid": "1.3.6.1.4.1.11256.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsAicmpCode": {
+    "name": "snsAicmpCode",
+    "oid": "1.3.6.1.4.1.11256.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsAicmpSname": {
+    "name": "snsAicmpSname",
+    "oid": "1.3.6.1.4.1.11256.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsAicmpDname": {
+    "name": "snsAicmpDname",
+    "oid": "1.3.6.1.4.1.11256.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsAicmpMessage": {
+    "name": "snsAicmpMessage",
+    "oid": "1.3.6.1.4.1.11256.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsNotification": {
+    "name": "snsNotification",
+    "oid": "1.3.6.1.4.1.11256.1.6.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "STORMSHIELD-ALARM-MIB",
+        "object": "snsATime"
+      },
+      {
+        "module": "STORMSHIELD-ALARM-MIB",
+        "object": "snsASif"
+      },
+      {
+        "module": "STORMSHIELD-ALARM-MIB",
+        "object": "snsASaddr"
+      },
+      {
+        "module": "STORMSHIELD-ALARM-MIB",
+        "object": "snsADaddr"
+      },
+      {
+        "module": "STORMSHIELD-ALARM-MIB",
+        "object": "snsAMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-ALARM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "STORMSHIELD-ALARM-MIB"
+  }
+}

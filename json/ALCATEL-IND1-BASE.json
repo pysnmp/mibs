@@ -1,0 +1,710 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "alcatelIND1BaseMIB": {
+    "name": "alcatelIND1BaseMIB",
+    "oid": "1.3.6.1.4.1.6486.800",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-04-02 00:08",
+        "description": "The latest version of this MIB Module."
+      }
+    ]
+  },
+  "alcatel": {
+    "name": "alcatel",
+    "oid": "1.3.6.1.4.1.6486",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1Management": {
+    "name": "alcatelIND1Management",
+    "oid": "1.3.6.1.4.1.6486.800.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "managementIND1Hardware": {
+    "name": "managementIND1Hardware",
+    "oid": "1.3.6.1.4.1.6486.800.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "managementIND1Software": {
+    "name": "managementIND1Software",
+    "oid": "1.3.6.1.4.1.6486.800.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "managementIND1Notifications": {
+    "name": "managementIND1Notifications",
+    "oid": "1.3.6.1.4.1.6486.800.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "managementIND1AgentCapabilities": {
+    "name": "managementIND1AgentCapabilities",
+    "oid": "1.3.6.1.4.1.6486.800.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hardwareIND1Entities": {
+    "name": "hardwareIND1Entities",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hardwareIND1Devices": {
+    "name": "hardwareIND1Devices",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softwareIND1Entities": {
+    "name": "softwareIND1Entities",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softwareIND1Services": {
+    "name": "softwareIND1Services",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "notificationIND1Entities": {
+    "name": "notificationIND1Entities",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "notificationIND1Traps": {
+    "name": "notificationIND1Traps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aipAMAPTraps": {
+    "name": "aipAMAPTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aipGMAPTraps": {
+    "name": "aipGMAPTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "policyManagerTraps": {
+    "name": "policyManagerTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "chassisTraps": {
+    "name": "chassisTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "healthMonTraps": {
+    "name": "healthMonTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cmmEsmDrvTraps": {
+    "name": "cmmEsmDrvTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "spanningTreeTraps": {
+    "name": "spanningTreeTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "portMirroringMonitoringTraps": {
+    "name": "portMirroringMonitoringTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "sourceLearningTraps": {
+    "name": "sourceLearningTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "slbTraps": {
+    "name": "slbTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "switchMgtTraps": {
+    "name": "switchMgtTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "trapMgrTraps": {
+    "name": "trapMgrTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "groupmobilityTraps": {
+    "name": "groupmobilityTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lnkaggTraps": {
+    "name": "lnkaggTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "trafficEventTraps": {
+    "name": "trafficEventTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "atmTraps": {
+    "name": "atmTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "pethTraps": {
+    "name": "pethTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wccpTraps": {
+    "name": "wccpTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alaNMSTraps": {
+    "name": "alaNMSTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alaNetSecTraps": {
+    "name": "alaNetSecTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alaAaaTraps": {
+    "name": "alaAaaTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alaLbdTraps": {
+    "name": "alaLbdTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alaDhcpClientTraps": {
+    "name": "alaDhcpClientTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hardentIND1Physical": {
+    "name": "hardentIND1Physical",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hardentIND1System": {
+    "name": "hardentIND1System",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hardentIND1Chassis": {
+    "name": "hardentIND1Chassis",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hardentIND1Pcam": {
+    "name": "hardentIND1Pcam",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1SnmpAgt": {
+    "name": "softentIND1SnmpAgt",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1TrapMgr": {
+    "name": "softentIND1TrapMgr",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1VlanMgt": {
+    "name": "softentIND1VlanMgt",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1GroupMobility": {
+    "name": "softentIND1GroupMobility",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Port": {
+    "name": "softentIND1Port",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Sesmgr": {
+    "name": "softentIND1Sesmgr",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1MacAddress": {
+    "name": "softentIND1MacAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Aip": {
+    "name": "softentIND1Aip",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Routing": {
+    "name": "softentIND1Routing",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Confmgr": {
+    "name": "softentIND1Confmgr",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1VlanStp": {
+    "name": "softentIND1VlanStp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1LnkAgg": {
+    "name": "softentIND1LnkAgg",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Policy": {
+    "name": "softentIND1Policy",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1AAA": {
+    "name": "softentIND1AAA",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Health": {
+    "name": "softentIND1Health",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1WebMgt": {
+    "name": "softentIND1WebMgt",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Ipms": {
+    "name": "softentIND1Ipms",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1PortMirroringMonitoring": {
+    "name": "softentIND1PortMirroringMonitoring",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Slb": {
+    "name": "softentIND1Slb",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Dot1Q": {
+    "name": "softentIND1Dot1Q",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1QoS": {
+    "name": "softentIND1QoS",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Ip": {
+    "name": "softentIND1Ip",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1StackMgr": {
+    "name": "softentIND1StackMgr",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Partmgr": {
+    "name": "softentIND1Partmgr",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.25",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Ntp": {
+    "name": "softentIND1Ntp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1InLinePower": {
+    "name": "softentIND1InLinePower",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.27",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Vrrp": {
+    "name": "softentIND1Vrrp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Ipv6": {
+    "name": "softentIND1Ipv6",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Dot1X": {
+    "name": "softentIND1Dot1X",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Sonet": {
+    "name": "softentIND1Sonet",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.31",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Atm": {
+    "name": "softentIND1Atm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.32",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1PortMapping": {
+    "name": "softentIND1PortMapping",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.33",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Igmp": {
+    "name": "softentIND1Igmp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Mld": {
+    "name": "softentIND1Mld",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Gvrp": {
+    "name": "softentIND1Gvrp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1VlanStackingMgt": {
+    "name": "softentIND1VlanStackingMgt",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Wccp": {
+    "name": "softentIND1Wccp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.38",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Ssh": {
+    "name": "softentIND1Ssh",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.39",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1EthernetOam": {
+    "name": "softentIND1EthernetOam",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.40",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1IPMVlanMgt": {
+    "name": "softentIND1IPMVlanMgt",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1IPsec": {
+    "name": "softentIND1IPsec",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Udld": {
+    "name": "softentIND1Udld",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1BFD": {
+    "name": "softentIND1BFD",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Erp": {
+    "name": "softentIND1Erp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.46",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1NetSec": {
+    "name": "softentIND1NetSec",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.48",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1eService": {
+    "name": "softentIND1eService",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1serviceMgr": {
+    "name": "softentIND1serviceMgr",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Dot3Oam": {
+    "name": "softentIND1Dot3Oam",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1MplsFrr": {
+    "name": "softentIND1MplsFrr",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1LicenseManager": {
+    "name": "softentIND1LicenseManager",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Saa": {
+    "name": "softentIND1Saa",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.55",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Lbd": {
+    "name": "softentIND1Lbd",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.56",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1Mvrp": {
+    "name": "softentIND1Mvrp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1LldpMed": {
+    "name": "softentIND1LldpMed",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "softentIND1DhcpSrv": {
+    "name": "softentIND1DhcpSrv",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routingIND1Tm": {
+    "name": "routingIND1Tm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routingIND1Iprm": {
+    "name": "routingIND1Iprm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routingIND1Rip": {
+    "name": "routingIND1Rip",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routingIND1Ospf": {
+    "name": "routingIND1Ospf",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routingIND1Bgp": {
+    "name": "routingIND1Bgp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routingIND1Pim": {
+    "name": "routingIND1Pim",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routingIND1Dvmrp": {
+    "name": "routingIND1Dvmrp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routingIND1Ipx": {
+    "name": "routingIND1Ipx",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routingIND1UdpRelay": {
+    "name": "routingIND1UdpRelay",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routingIND1Ipmrm": {
+    "name": "routingIND1Ipmrm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routingIND1RDP": {
+    "name": "routingIND1RDP",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routingIND1Ripng": {
+    "name": "routingIND1Ripng",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routingIND1Ospf3": {
+    "name": "routingIND1Ospf3",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routingIND1ISIS": {
+    "name": "routingIND1ISIS",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routingIND1Vrf": {
+    "name": "routingIND1Vrf",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "serventIND1Aqe": {
+    "name": "serventIND1Aqe",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-BASE",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:05 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-BASE"
+  }
+}

@@ -1,0 +1,5289 @@
+{
+  "imports": {
+    "class": "imports",
+    "ACCEDIAN-SMI": [
+      "acdMibs"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "DateAndTime"
+    ]
+  },
+  "acdCfm": {
+    "name": "acdCfm",
+    "oid": "1.3.6.1.4.1.22420.2.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-12-21 01:00",
+        "description": "Add support for ETH-SLM Tx/Rx PDU counters."
+      },
+      {
+        "revision": "2011-12-20 01:00",
+        "description": "Add support for ETH-CSF Tx/Rx PDU counters."
+      },
+      {
+        "revision": "2011-09-21 01:00",
+        "description": "Add support for CFM Stack Table."
+      },
+      {
+        "revision": "2011-03-30 01:00",
+        "description": "Add support for Instantaneous values."
+      },
+      {
+        "revision": "2009-11-01 01:00",
+        "description": "Add support for extended packet loss ratio."
+      },
+      {
+        "revision": "2009-02-23 01:00",
+        "description": "Add support for extended packet loss ratio."
+      },
+      {
+        "revision": "2008-05-01 01:00",
+        "description": "Initial version of MIB module ACD-CFM-MIB."
+      }
+    ]
+  },
+  "acdCfmNotifications": {
+    "name": "acdCfmNotifications",
+    "oid": "1.3.6.1.4.1.22420.2.7.0",
+    "class": "objectidentity"
+  },
+  "acdCfmMIBObjects": {
+    "name": "acdCfmMIBObjects",
+    "oid": "1.3.6.1.4.1.22420.2.7.1",
+    "class": "objectidentity"
+  },
+  "acdCfmConformance": {
+    "name": "acdCfmConformance",
+    "oid": "1.3.6.1.4.1.22420.2.7.2",
+    "class": "objectidentity"
+  },
+  "acdCfmDelayMeasurement": {
+    "name": "acdCfmDelayMeasurement",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1",
+    "class": "objectidentity"
+  },
+  "acdCfmPacketLoss": {
+    "name": "acdCfmPacketLoss",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2",
+    "class": "objectidentity"
+  },
+  "acdCfmMep": {
+    "name": "acdCfmMep",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3",
+    "class": "objectidentity"
+  },
+  "acdCfmStack": {
+    "name": "acdCfmStack",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.4",
+    "class": "objectidentity"
+  },
+  "acdCfmSlm": {
+    "name": "acdCfmSlm",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5",
+    "class": "objectidentity"
+  },
+  "acdCfmDmCfgTable": {
+    "name": "acdCfmDmCfgTable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmDmCfgEntry": {
+    "name": "acdCfmDmCfgEntry",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmDmCfgID": {
+    "name": "acdCfmDmCfgID",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmDmCfgRowStatus": {
+    "name": "acdCfmDmCfgRowStatus",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdCfmDmCfgMepIdx": {
+    "name": "acdCfmDmCfgMepIdx",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdCfmDmCfgRemoteMepId": {
+    "name": "acdCfmDmCfgRemoteMepId",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdCfmDmCfgPriority": {
+    "name": "acdCfmDmCfgPriority",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdCfmDmCfgEnable": {
+    "name": "acdCfmDmCfgEnable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdCfmDmCfgInterval": {
+    "name": "acdCfmDmCfgInterval",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdCfmDmCfgRefPeriod": {
+    "name": "acdCfmDmCfgRefPeriod",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdCfmDmCfgOneWayDelayEnable": {
+    "name": "acdCfmDmCfgOneWayDelayEnable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdCfmDmCfgOneWayDelayMax": {
+    "name": "acdCfmDmCfgOneWayDelayMax",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdCfmDmCfgOneWayDelayThresh": {
+    "name": "acdCfmDmCfgOneWayDelayThresh",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdCfmDmCfgOneWayAvgDelayThresh": {
+    "name": "acdCfmDmCfgOneWayAvgDelayThresh",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdCfmDmCfgOneWayDvEnable": {
+    "name": "acdCfmDmCfgOneWayDvEnable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdCfmDmCfgOneWayDvMax": {
+    "name": "acdCfmDmCfgOneWayDvMax",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdCfmDmCfgOneWayDvThresh": {
+    "name": "acdCfmDmCfgOneWayDvThresh",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdCfmDmCfgOneWayAvgDvThresh": {
+    "name": "acdCfmDmCfgOneWayAvgDvThresh",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdCfmDmCfgTwoWayDelayEnable": {
+    "name": "acdCfmDmCfgTwoWayDelayEnable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdCfmDmCfgTwoWayDelayMax": {
+    "name": "acdCfmDmCfgTwoWayDelayMax",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdCfmDmCfgTwoWayDelayThresh": {
+    "name": "acdCfmDmCfgTwoWayDelayThresh",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 40,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdCfmDmCfgTwoWayAvgDelayThresh": {
+    "name": "acdCfmDmCfgTwoWayAvgDelayThresh",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdCfmDmCfgTwoWayDvEnable": {
+    "name": "acdCfmDmCfgTwoWayDvEnable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdCfmDmCfgTwoWayDvMax": {
+    "name": "acdCfmDmCfgTwoWayDvMax",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdCfmDmCfgTwoWayDvThresh": {
+    "name": "acdCfmDmCfgTwoWayDvThresh",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdCfmDmCfgTwoWayAvgDvThresh": {
+    "name": "acdCfmDmCfgTwoWayAvgDvThresh",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDelayTable": {
+    "name": "acdCfmResultOneWayDelayTable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDelayEntry": {
+    "name": "acdCfmResultOneWayDelayEntry",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDelayID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmResultOneWayDelayID": {
+    "name": "acdCfmResultOneWayDelayID",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDelayPeriodIndex": {
+    "name": "acdCfmResultOneWayDelayPeriodIndex",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDelayIntervalStart": {
+    "name": "acdCfmResultOneWayDelayIntervalStart",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDelayValid": {
+    "name": "acdCfmResultOneWayDelayValid",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDelayAlert": {
+    "name": "acdCfmResultOneWayDelayAlert",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDelayAvgAlert": {
+    "name": "acdCfmResultOneWayDelayAvgAlert",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDelaySamples": {
+    "name": "acdCfmResultOneWayDelaySamples",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDelayMinValue": {
+    "name": "acdCfmResultOneWayDelayMinValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDelayMaxValue": {
+    "name": "acdCfmResultOneWayDelayMaxValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDelayAvgValue": {
+    "name": "acdCfmResultOneWayDelayAvgValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDelayThreshExc": {
+    "name": "acdCfmResultOneWayDelayThreshExc",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDelayInstValue": {
+    "name": "acdCfmResultOneWayDelayInstValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDvTable": {
+    "name": "acdCfmResultOneWayDvTable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDvEntry": {
+    "name": "acdCfmResultOneWayDvEntry",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDvID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmResultOneWayDvID": {
+    "name": "acdCfmResultOneWayDvID",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDvPeriodIndex": {
+    "name": "acdCfmResultOneWayDvPeriodIndex",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDvIntervalStart": {
+    "name": "acdCfmResultOneWayDvIntervalStart",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDvValid": {
+    "name": "acdCfmResultOneWayDvValid",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDvAlert": {
+    "name": "acdCfmResultOneWayDvAlert",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDvAvgAlert": {
+    "name": "acdCfmResultOneWayDvAvgAlert",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDvSamples": {
+    "name": "acdCfmResultOneWayDvSamples",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDvMinValue": {
+    "name": "acdCfmResultOneWayDvMinValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDvMaxValue": {
+    "name": "acdCfmResultOneWayDvMaxValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDvAvgValue": {
+    "name": "acdCfmResultOneWayDvAvgValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDvThreshExc": {
+    "name": "acdCfmResultOneWayDvThreshExc",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultOneWayDvInstValue": {
+    "name": "acdCfmResultOneWayDvInstValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDelayTable": {
+    "name": "acdCfmResultTwoWayDelayTable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDelayEntry": {
+    "name": "acdCfmResultTwoWayDelayEntry",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDelayID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDelayID": {
+    "name": "acdCfmResultTwoWayDelayID",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDelayPeriodIndex": {
+    "name": "acdCfmResultTwoWayDelayPeriodIndex",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDelayIntervalStart": {
+    "name": "acdCfmResultTwoWayDelayIntervalStart",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDelayValid": {
+    "name": "acdCfmResultTwoWayDelayValid",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDelayAlert": {
+    "name": "acdCfmResultTwoWayDelayAlert",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDelayAvgAlert": {
+    "name": "acdCfmResultTwoWayDelayAvgAlert",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDelaySamples": {
+    "name": "acdCfmResultTwoWayDelaySamples",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDelayMinValue": {
+    "name": "acdCfmResultTwoWayDelayMinValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDelayMaxValue": {
+    "name": "acdCfmResultTwoWayDelayMaxValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDelayAvgValue": {
+    "name": "acdCfmResultTwoWayDelayAvgValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDelayThreshExc": {
+    "name": "acdCfmResultTwoWayDelayThreshExc",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDelayInstValue": {
+    "name": "acdCfmResultTwoWayDelayInstValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDvTable": {
+    "name": "acdCfmResultTwoWayDvTable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDvEntry": {
+    "name": "acdCfmResultTwoWayDvEntry",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDvID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDvID": {
+    "name": "acdCfmResultTwoWayDvID",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDvPeriodIndex": {
+    "name": "acdCfmResultTwoWayDvPeriodIndex",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDvIntervalStart": {
+    "name": "acdCfmResultTwoWayDvIntervalStart",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDvValid": {
+    "name": "acdCfmResultTwoWayDvValid",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDvAlert": {
+    "name": "acdCfmResultTwoWayDvAlert",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDvAvgAlert": {
+    "name": "acdCfmResultTwoWayDvAvgAlert",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDvSamples": {
+    "name": "acdCfmResultTwoWayDvSamples",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDvMinValue": {
+    "name": "acdCfmResultTwoWayDvMinValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDvMaxValue": {
+    "name": "acdCfmResultTwoWayDvMaxValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDvAvgValue": {
+    "name": "acdCfmResultTwoWayDvAvgValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDvThreshExc": {
+    "name": "acdCfmResultTwoWayDvThreshExc",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDvInstValue": {
+    "name": "acdCfmResultTwoWayDvInstValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDelayTable": {
+    "name": "acdCfmHistResultOneWayDelayTable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDelayEntry": {
+    "name": "acdCfmHistResultOneWayDelayEntry",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultOneWayDelayID",
+        "implied": 0
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultOneWayDelaySampleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDelayID": {
+    "name": "acdCfmHistResultOneWayDelayID",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDelaySampleIndex": {
+    "name": "acdCfmHistResultOneWayDelaySampleIndex",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDelayStatus": {
+    "name": "acdCfmHistResultOneWayDelayStatus",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDelayDuration": {
+    "name": "acdCfmHistResultOneWayDelayDuration",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDelayIntervalEnd": {
+    "name": "acdCfmHistResultOneWayDelayIntervalEnd",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDelaySamples": {
+    "name": "acdCfmHistResultOneWayDelaySamples",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDelayMinValue": {
+    "name": "acdCfmHistResultOneWayDelayMinValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDelayMaxValue": {
+    "name": "acdCfmHistResultOneWayDelayMaxValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDelayAvgValue": {
+    "name": "acdCfmHistResultOneWayDelayAvgValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDelayThreshExc": {
+    "name": "acdCfmHistResultOneWayDelayThreshExc",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDvTable": {
+    "name": "acdCfmHistResultOneWayDvTable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDvEntry": {
+    "name": "acdCfmHistResultOneWayDvEntry",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultOneWayDvID",
+        "implied": 0
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultOneWayDvSampleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDvID": {
+    "name": "acdCfmHistResultOneWayDvID",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDvSampleIndex": {
+    "name": "acdCfmHistResultOneWayDvSampleIndex",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDvStatus": {
+    "name": "acdCfmHistResultOneWayDvStatus",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDvDuration": {
+    "name": "acdCfmHistResultOneWayDvDuration",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDvIntervalEnd": {
+    "name": "acdCfmHistResultOneWayDvIntervalEnd",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDvSamples": {
+    "name": "acdCfmHistResultOneWayDvSamples",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDvMinValue": {
+    "name": "acdCfmHistResultOneWayDvMinValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDvMaxValue": {
+    "name": "acdCfmHistResultOneWayDvMaxValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDvAvgValue": {
+    "name": "acdCfmHistResultOneWayDvAvgValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDvThreshExc": {
+    "name": "acdCfmHistResultOneWayDvThreshExc",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDelayTable": {
+    "name": "acdCfmHistResultTwoWayDelayTable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDelayEntry": {
+    "name": "acdCfmHistResultTwoWayDelayEntry",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultTwoWayDelayID",
+        "implied": 0
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultTwoWayDelaySampleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDelayID": {
+    "name": "acdCfmHistResultTwoWayDelayID",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDelaySampleIndex": {
+    "name": "acdCfmHistResultTwoWayDelaySampleIndex",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDelayStatus": {
+    "name": "acdCfmHistResultTwoWayDelayStatus",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDelayDuration": {
+    "name": "acdCfmHistResultTwoWayDelayDuration",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDelayIntervalEnd": {
+    "name": "acdCfmHistResultTwoWayDelayIntervalEnd",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDelaySamples": {
+    "name": "acdCfmHistResultTwoWayDelaySamples",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDelayMinValue": {
+    "name": "acdCfmHistResultTwoWayDelayMinValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDelayMaxValue": {
+    "name": "acdCfmHistResultTwoWayDelayMaxValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDelayAvgValue": {
+    "name": "acdCfmHistResultTwoWayDelayAvgValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDelayThreshExc": {
+    "name": "acdCfmHistResultTwoWayDelayThreshExc",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDvTable": {
+    "name": "acdCfmHistResultTwoWayDvTable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDvEntry": {
+    "name": "acdCfmHistResultTwoWayDvEntry",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultTwoWayDvID",
+        "implied": 0
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultTwoWayDvSampleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDvID": {
+    "name": "acdCfmHistResultTwoWayDvID",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDvSampleIndex": {
+    "name": "acdCfmHistResultTwoWayDvSampleIndex",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDvStatus": {
+    "name": "acdCfmHistResultTwoWayDvStatus",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDvDuration": {
+    "name": "acdCfmHistResultTwoWayDvDuration",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDvIntervalEnd": {
+    "name": "acdCfmHistResultTwoWayDvIntervalEnd",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDvSamples": {
+    "name": "acdCfmHistResultTwoWayDvSamples",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDvMinValue": {
+    "name": "acdCfmHistResultTwoWayDvMinValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDvMaxValue": {
+    "name": "acdCfmHistResultTwoWayDvMaxValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDvAvgValue": {
+    "name": "acdCfmHistResultTwoWayDvAvgValue",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDvThreshExc": {
+    "name": "acdCfmHistResultTwoWayDvThreshExc",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmPktLossCfgTable": {
+    "name": "acdCfmPktLossCfgTable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmPktLossCfgEntry": {
+    "name": "acdCfmPktLossCfgEntry",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmPktLossCfgID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmPktLossCfgID": {
+    "name": "acdCfmPktLossCfgID",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmPktLossCfgRowStatus": {
+    "name": "acdCfmPktLossCfgRowStatus",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdCfmPktLossCfgMepIdx": {
+    "name": "acdCfmPktLossCfgMepIdx",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdCfmPktLossCfgRemoteMepId": {
+    "name": "acdCfmPktLossCfgRemoteMepId",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdCfmPktLossCfgPriority": {
+    "name": "acdCfmPktLossCfgPriority",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdCfmPktLossCfgEnable": {
+    "name": "acdCfmPktLossCfgEnable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdCfmPktLossCfgInterval": {
+    "name": "acdCfmPktLossCfgInterval",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdCfmPktLossCfgRefPeriod": {
+    "name": "acdCfmPktLossCfgRefPeriod",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdCfmPktLossCfgThresh": {
+    "name": "acdCfmPktLossCfgThresh",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdCfmPktLossCfgRatioThresh": {
+    "name": "acdCfmPktLossCfgRatioThresh",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdCfmResultPktLossTable": {
+    "name": "acdCfmResultPktLossTable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmResultPktLossEntry": {
+    "name": "acdCfmResultPktLossEntry",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultPktLossID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmResultPktLossID": {
+    "name": "acdCfmResultPktLossID",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmResultPktLossPeriodIndex": {
+    "name": "acdCfmResultPktLossPeriodIndex",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultPktLossIntervalStart": {
+    "name": "acdCfmResultPktLossIntervalStart",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultPktLossValid": {
+    "name": "acdCfmResultPktLossValid",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultPktLossAlert": {
+    "name": "acdCfmResultPktLossAlert",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultPktLossSamples": {
+    "name": "acdCfmResultPktLossSamples",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultPktLossOverflowSamples": {
+    "name": "acdCfmResultPktLossOverflowSamples",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultPktLossHCSamples": {
+    "name": "acdCfmResultPktLossHCSamples",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultPktLossNbrLoss": {
+    "name": "acdCfmResultPktLossNbrLoss",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultPktLossOverflowNbrLoss": {
+    "name": "acdCfmResultPktLossOverflowNbrLoss",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultPktLossHCNbrLoss": {
+    "name": "acdCfmResultPktLossHCNbrLoss",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultPktLossNbrGaps": {
+    "name": "acdCfmResultPktLossNbrGaps",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultPktLossOverflowNbrGaps": {
+    "name": "acdCfmResultPktLossOverflowNbrGaps",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultPktLossHCNbrGaps": {
+    "name": "acdCfmResultPktLossHCNbrGaps",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultPktLossLargestGap": {
+    "name": "acdCfmResultPktLossLargestGap",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultPktLossOverflowLargestGap": {
+    "name": "acdCfmResultPktLossOverflowLargestGap",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultPktLossHCLargestGap": {
+    "name": "acdCfmResultPktLossHCLargestGap",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmResultPktLossRatio": {
+    "name": "acdCfmResultPktLossRatio",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultPktLossTable": {
+    "name": "acdCfmHistResultPktLossTable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmHistResultPktLossEntry": {
+    "name": "acdCfmHistResultPktLossEntry",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultPktLossID",
+        "implied": 0
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultPktLossSampleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmHistResultPktLossID": {
+    "name": "acdCfmHistResultPktLossID",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmHistResultPktLossSampleIndex": {
+    "name": "acdCfmHistResultPktLossSampleIndex",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmHistResultPktLossStatus": {
+    "name": "acdCfmHistResultPktLossStatus",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultPktLossDuration": {
+    "name": "acdCfmHistResultPktLossDuration",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultPktLossIntervalEnd": {
+    "name": "acdCfmHistResultPktLossIntervalEnd",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultPktLossSamples": {
+    "name": "acdCfmHistResultPktLossSamples",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultPktLossOverflowSamples": {
+    "name": "acdCfmHistResultPktLossOverflowSamples",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultPktLossHCSamples": {
+    "name": "acdCfmHistResultPktLossHCSamples",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultPktLossNbrLoss": {
+    "name": "acdCfmHistResultPktLossNbrLoss",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultPktLossOverflowNbrLoss": {
+    "name": "acdCfmHistResultPktLossOverflowNbrLoss",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultPktLossHCNbrLoss": {
+    "name": "acdCfmHistResultPktLossHCNbrLoss",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultPktLossNbrGaps": {
+    "name": "acdCfmHistResultPktLossNbrGaps",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultPktLossOverflowNbrGaps": {
+    "name": "acdCfmHistResultPktLossOverflowNbrGaps",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultPktLossHCNbrGaps": {
+    "name": "acdCfmHistResultPktLossHCNbrGaps",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultPktLossLargestGap": {
+    "name": "acdCfmHistResultPktLossLargestGap",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultPktLossOverflowLargestGap": {
+    "name": "acdCfmHistResultPktLossOverflowLargestGap",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultPktLossHCLargestGap": {
+    "name": "acdCfmHistResultPktLossHCLargestGap",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmHistResultPktLossRatio": {
+    "name": "acdCfmHistResultPktLossRatio",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmCfgTable": {
+    "name": "acdCfmSlmCfgTable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmSlmCfgEntry": {
+    "name": "acdCfmSlmCfgEntry",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmCfgID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmSlmCfgID": {
+    "name": "acdCfmSlmCfgID",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmSlmCfgRowStatus": {
+    "name": "acdCfmSlmCfgRowStatus",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmCfgMepIdx": {
+    "name": "acdCfmSlmCfgMepIdx",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmCfgRemoteMepId": {
+    "name": "acdCfmSlmCfgRemoteMepId",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmCfgPriority": {
+    "name": "acdCfmSlmCfgPriority",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmCfgState": {
+    "name": "acdCfmSlmCfgState",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmCfgInterval": {
+    "name": "acdCfmSlmCfgInterval",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmCfgRefPeriod": {
+    "name": "acdCfmSlmCfgRefPeriod",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmCfgNearEndThresh": {
+    "name": "acdCfmSlmCfgNearEndThresh",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmCfgFarEndThresh": {
+    "name": "acdCfmSlmCfgFarEndThresh",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmCfgName": {
+    "name": "acdCfmSlmCfgName",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "new",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmResultTable": {
+    "name": "acdCfmSlmResultTable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmSlmResultEntry": {
+    "name": "acdCfmSlmResultEntry",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmResultID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmSlmResultID": {
+    "name": "acdCfmSlmResultID",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmSlmResultPeriodIndex": {
+    "name": "acdCfmSlmResultPeriodIndex",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmResultIntervalStart": {
+    "name": "acdCfmSlmResultIntervalStart",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmResultValid": {
+    "name": "acdCfmSlmResultValid",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmResultNearEndAlert": {
+    "name": "acdCfmSlmResultNearEndAlert",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmResultFarEndAlert": {
+    "name": "acdCfmSlmResultFarEndAlert",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmResultTxSlm": {
+    "name": "acdCfmSlmResultTxSlm",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmResultRxSlr": {
+    "name": "acdCfmSlmResultRxSlr",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmResultRemoteRxSlm": {
+    "name": "acdCfmSlmResultRemoteRxSlm",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmResultNearEndNbrLoss": {
+    "name": "acdCfmSlmResultNearEndNbrLoss",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmResultFarEndNbrLoss": {
+    "name": "acdCfmSlmResultFarEndNbrLoss",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmResultNearEndRatio": {
+    "name": "acdCfmSlmResultNearEndRatio",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmResultFarEndRatio": {
+    "name": "acdCfmSlmResultFarEndRatio",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmResultNbrGaps": {
+    "name": "acdCfmSlmResultNbrGaps",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmResultLargestGap": {
+    "name": "acdCfmSlmResultLargestGap",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmHistResultTable": {
+    "name": "acdCfmSlmHistResultTable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmSlmHistResultEntry": {
+    "name": "acdCfmSlmHistResultEntry",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmHistResultInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmHistResultID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmSlmHistResultID": {
+    "name": "acdCfmSlmHistResultID",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmSlmHistResultPeriodIndex": {
+    "name": "acdCfmSlmHistResultPeriodIndex",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmHistResultIntervalEnd": {
+    "name": "acdCfmSlmHistResultIntervalEnd",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmHistResultTxSlm": {
+    "name": "acdCfmSlmHistResultTxSlm",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmHistResultRxSlr": {
+    "name": "acdCfmSlmHistResultRxSlr",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmHistResultRemoteRxSlm": {
+    "name": "acdCfmSlmHistResultRemoteRxSlm",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmHistResultNearEndRatio": {
+    "name": "acdCfmSlmHistResultNearEndRatio",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmHistResultFarEndRatio": {
+    "name": "acdCfmSlmHistResultFarEndRatio",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmHistResultNbrGaps": {
+    "name": "acdCfmSlmHistResultNbrGaps",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmHistResultLargestGap": {
+    "name": "acdCfmSlmHistResultLargestGap",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmSlmHistResultInstanceIndex": {
+    "name": "acdCfmSlmHistResultInstanceIndex",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.5.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxTable": {
+    "name": "acdCfmMepStatsTxTable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxEntry": {
+    "name": "acdCfmMepStatsTxEntry",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmMepStatsTxID": {
+    "name": "acdCfmMepStatsTxID",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxCcmPdu": {
+    "name": "acdCfmMepStatsTxCcmPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxLbmPdu": {
+    "name": "acdCfmMepStatsTxLbmPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxLbrPdu": {
+    "name": "acdCfmMepStatsTxLbrPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxLtmPdu": {
+    "name": "acdCfmMepStatsTxLtmPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxLtrPdu": {
+    "name": "acdCfmMepStatsTxLtrPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxAisPdu": {
+    "name": "acdCfmMepStatsTxAisPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxLckPdu": {
+    "name": "acdCfmMepStatsTxLckPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxTstPdu": {
+    "name": "acdCfmMepStatsTxTstPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxLinearApsPdu": {
+    "name": "acdCfmMepStatsTxLinearApsPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxRingApsPdu": {
+    "name": "acdCfmMepStatsTxRingApsPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxMccPdu": {
+    "name": "acdCfmMepStatsTxMccPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxLmmPdu": {
+    "name": "acdCfmMepStatsTxLmmPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxLmrPdu": {
+    "name": "acdCfmMepStatsTxLmrPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsTx1dmPdu": {
+    "name": "acdCfmMepStatsTx1dmPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxDmmPdu": {
+    "name": "acdCfmMepStatsTxDmmPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxDmrPdu": {
+    "name": "acdCfmMepStatsTxDmrPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxExmPdu": {
+    "name": "acdCfmMepStatsTxExmPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxExrPdu": {
+    "name": "acdCfmMepStatsTxExrPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxVsmPdu": {
+    "name": "acdCfmMepStatsTxVsmPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxVsrPdu": {
+    "name": "acdCfmMepStatsTxVsrPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxCsfPdu": {
+    "name": "acdCfmMepStatsTxCsfPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxSlmPdu": {
+    "name": "acdCfmMepStatsTxSlmPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsTxSlrPdu": {
+    "name": "acdCfmMepStatsTxSlrPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxTable": {
+    "name": "acdCfmMepStatsRxTable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxEntry": {
+    "name": "acdCfmMepStatsRxEntry",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmMepStatsRxID": {
+    "name": "acdCfmMepStatsRxID",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxCcmPdu": {
+    "name": "acdCfmMepStatsRxCcmPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxLbmPdu": {
+    "name": "acdCfmMepStatsRxLbmPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxLbrPdu": {
+    "name": "acdCfmMepStatsRxLbrPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxLtmPdu": {
+    "name": "acdCfmMepStatsRxLtmPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxLtrPdu": {
+    "name": "acdCfmMepStatsRxLtrPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxAisPdu": {
+    "name": "acdCfmMepStatsRxAisPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxLckPdu": {
+    "name": "acdCfmMepStatsRxLckPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxTstPdu": {
+    "name": "acdCfmMepStatsRxTstPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxLinearApsPdu": {
+    "name": "acdCfmMepStatsRxLinearApsPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxRingApsPdu": {
+    "name": "acdCfmMepStatsRxRingApsPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxMccPdu": {
+    "name": "acdCfmMepStatsRxMccPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxLmmPdu": {
+    "name": "acdCfmMepStatsRxLmmPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxLmrPdu": {
+    "name": "acdCfmMepStatsRxLmrPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRx1dmPdu": {
+    "name": "acdCfmMepStatsRx1dmPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxDmmPdu": {
+    "name": "acdCfmMepStatsRxDmmPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxDmrPdu": {
+    "name": "acdCfmMepStatsRxDmrPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxExmPdu": {
+    "name": "acdCfmMepStatsRxExmPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxExrPdu": {
+    "name": "acdCfmMepStatsRxExrPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxVsmPdu": {
+    "name": "acdCfmMepStatsRxVsmPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxVsrPdu": {
+    "name": "acdCfmMepStatsRxVsrPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxCcmSeqErrors": {
+    "name": "acdCfmMepStatsRxCcmSeqErrors",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxLtrUnexpectedPdu": {
+    "name": "acdCfmMepStatsRxLtrUnexpectedPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxLtrMacErrors": {
+    "name": "acdCfmMepStatsRxLtrMacErrors",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxLbrOooErrors": {
+    "name": "acdCfmMepStatsRxLbrOooErrors",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxLbrUnexpectedPdu": {
+    "name": "acdCfmMepStatsRxLbrUnexpectedPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxLbrDataErrors": {
+    "name": "acdCfmMepStatsRxLbrDataErrors",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxCsfPdu": {
+    "name": "acdCfmMepStatsRxCsfPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxSlmPdu": {
+    "name": "acdCfmMepStatsRxSlmPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepStatsRxSlrPdu": {
+    "name": "acdCfmMepStatsRxSlrPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepDmStatsTable": {
+    "name": "acdCfmMepDmStatsTable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmMepDmStatsEntry": {
+    "name": "acdCfmMepDmStatsEntry",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepDmStatsID",
+        "implied": 0
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepDmStatsPriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmMepDmStatsID": {
+    "name": "acdCfmMepDmStatsID",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmMepDmStatsPriority": {
+    "name": "acdCfmMepDmStatsPriority",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmMepDmStatsTxDmmPdu": {
+    "name": "acdCfmMepDmStatsTxDmmPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepDmStatsRxDmmPdu": {
+    "name": "acdCfmMepDmStatsRxDmmPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepDmStatsTxDmrPdu": {
+    "name": "acdCfmMepDmStatsTxDmrPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmMepDmStatsRxDmrPdu": {
+    "name": "acdCfmMepDmStatsRxDmrPdu",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmStackTable": {
+    "name": "acdCfmStackTable",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmStackEntry": {
+    "name": "acdCfmStackEntry",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMdIdx",
+        "implied": 0
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMaIdx",
+        "implied": 0
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmMdIdx": {
+    "name": "acdCfmMdIdx",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmMaIdx": {
+    "name": "acdCfmMaIdx",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmMepID": {
+    "name": "acdCfmMepID",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdCfmMepIdx": {
+    "name": "acdCfmMepIdx",
+    "oid": "1.3.6.1.4.1.22420.2.7.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdCfmCompliances": {
+    "name": "acdCfmCompliances",
+    "oid": "1.3.6.1.4.1.22420.2.7.2.1",
+    "class": "objectidentity"
+  },
+  "acdCfmGroups": {
+    "name": "acdCfmGroups",
+    "oid": "1.3.6.1.4.1.22420.2.7.2.2",
+    "class": "objectidentity"
+  },
+  "acdCfmDmCfgGroup": {
+    "name": "acdCfmDmCfgGroup",
+    "oid": "1.3.6.1.4.1.22420.2.7.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgRowStatus"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgMepIdx"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgRemoteMepId"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgPriority"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgEnable"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgInterval"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgRefPeriod"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgOneWayDelayEnable"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgOneWayDelayMax"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgOneWayDelayThresh"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgOneWayAvgDelayThresh"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgOneWayDvEnable"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgOneWayDvMax"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgOneWayDvThresh"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgOneWayAvgDvThresh"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgTwoWayDelayEnable"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgTwoWayDelayMax"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgTwoWayDelayThresh"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgTwoWayAvgDelayThresh"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgTwoWayDvEnable"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgTwoWayDvMax"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgTwoWayDvThresh"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmDmCfgTwoWayAvgDvThresh"
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmResultOneWayDelayGroup": {
+    "name": "acdCfmResultOneWayDelayGroup",
+    "oid": "1.3.6.1.4.1.22420.2.7.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDelayPeriodIndex"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDelayIntervalStart"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDelayValid"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDelayAlert"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDelayAvgAlert"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDelaySamples"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDelayMinValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDelayMaxValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDelayAvgValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDelayThreshExc"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDelayInstValue"
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmResultOneWayDvGroup": {
+    "name": "acdCfmResultOneWayDvGroup",
+    "oid": "1.3.6.1.4.1.22420.2.7.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDvPeriodIndex"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDvIntervalStart"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDvValid"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDvAlert"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDvAvgAlert"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDvSamples"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDvMinValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDvMaxValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDvAvgValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDvThreshExc"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultOneWayDvInstValue"
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDelayGroup": {
+    "name": "acdCfmResultTwoWayDelayGroup",
+    "oid": "1.3.6.1.4.1.22420.2.7.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDelayPeriodIndex"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDelayIntervalStart"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDelayValid"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDelayAlert"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDelayAvgAlert"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDelaySamples"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDelayMinValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDelayMaxValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDelayAvgValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDelayThreshExc"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDelayInstValue"
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmResultTwoWayDvGroup": {
+    "name": "acdCfmResultTwoWayDvGroup",
+    "oid": "1.3.6.1.4.1.22420.2.7.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDvPeriodIndex"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDvIntervalStart"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDvValid"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDvAlert"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDvAvgAlert"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDvSamples"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDvMinValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDvMaxValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDvAvgValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDvThreshExc"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultTwoWayDvInstValue"
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDelayGroup": {
+    "name": "acdCfmHistResultOneWayDelayGroup",
+    "oid": "1.3.6.1.4.1.22420.2.7.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultOneWayDelayStatus"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultOneWayDelayDuration"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultOneWayDelayIntervalEnd"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultOneWayDelaySamples"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultOneWayDelayMinValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultOneWayDelayMaxValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultOneWayDelayAvgValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultOneWayDelayThreshExc"
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmHistResultOneWayDvGroup": {
+    "name": "acdCfmHistResultOneWayDvGroup",
+    "oid": "1.3.6.1.4.1.22420.2.7.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultOneWayDvStatus"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultOneWayDvDuration"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultOneWayDvIntervalEnd"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultOneWayDvSamples"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultOneWayDvMinValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultOneWayDvMaxValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultOneWayDvAvgValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultOneWayDvThreshExc"
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDelayGroup": {
+    "name": "acdCfmHistResultTwoWayDelayGroup",
+    "oid": "1.3.6.1.4.1.22420.2.7.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultTwoWayDelayStatus"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultTwoWayDelayDuration"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultTwoWayDelayIntervalEnd"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultTwoWayDelaySamples"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultTwoWayDelayMinValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultTwoWayDelayMaxValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultTwoWayDelayAvgValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultTwoWayDelayThreshExc"
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmHistResultTwoWayDvGroup": {
+    "name": "acdCfmHistResultTwoWayDvGroup",
+    "oid": "1.3.6.1.4.1.22420.2.7.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultTwoWayDvStatus"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultTwoWayDvDuration"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultTwoWayDvIntervalEnd"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultTwoWayDvSamples"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultTwoWayDvMinValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultTwoWayDvMaxValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultTwoWayDvAvgValue"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultTwoWayDvThreshExc"
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmPktLossCfgGroup": {
+    "name": "acdCfmPktLossCfgGroup",
+    "oid": "1.3.6.1.4.1.22420.2.7.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmPktLossCfgRowStatus"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmPktLossCfgMepIdx"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmPktLossCfgRemoteMepId"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmPktLossCfgPriority"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmPktLossCfgEnable"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmPktLossCfgInterval"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmPktLossCfgRefPeriod"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmPktLossCfgThresh"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmPktLossCfgRatioThresh"
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmResultPktLossGroup": {
+    "name": "acdCfmResultPktLossGroup",
+    "oid": "1.3.6.1.4.1.22420.2.7.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultPktLossPeriodIndex"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultPktLossIntervalStart"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultPktLossValid"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultPktLossAlert"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultPktLossSamples"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultPktLossOverflowSamples"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultPktLossHCSamples"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultPktLossNbrLoss"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultPktLossOverflowNbrLoss"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultPktLossHCNbrLoss"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultPktLossNbrGaps"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultPktLossOverflowNbrGaps"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultPktLossHCNbrGaps"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultPktLossLargestGap"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultPktLossOverflowLargestGap"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultPktLossHCLargestGap"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmResultPktLossRatio"
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmHistResultPktLossGroup": {
+    "name": "acdCfmHistResultPktLossGroup",
+    "oid": "1.3.6.1.4.1.22420.2.7.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultPktLossStatus"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultPktLossDuration"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultPktLossIntervalEnd"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultPktLossSamples"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultPktLossOverflowSamples"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultPktLossHCSamples"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultPktLossNbrLoss"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultPktLossOverflowNbrLoss"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultPktLossHCNbrLoss"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultPktLossNbrGaps"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultPktLossOverflowNbrGaps"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultPktLossHCNbrGaps"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultPktLossLargestGap"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultPktLossOverflowLargestGap"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultPktLossHCLargestGap"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmHistResultPktLossRatio"
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmMepStatsTxGroup": {
+    "name": "acdCfmMepStatsTxGroup",
+    "oid": "1.3.6.1.4.1.22420.2.7.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxCcmPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxLbmPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxLbrPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxLtmPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxLtrPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxAisPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxLckPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxTstPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxLinearApsPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxRingApsPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxMccPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxLmmPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxLmrPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTx1dmPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxDmmPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxDmrPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxExmPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxExrPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxVsmPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxVsrPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxCsfPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxSlmPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxSlrPdu"
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmMepStatsRxGroup": {
+    "name": "acdCfmMepStatsRxGroup",
+    "oid": "1.3.6.1.4.1.22420.2.7.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxCcmPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxLbmPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxLbrPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxLtmPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxLtrPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxAisPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxLckPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxTstPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxLinearApsPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxRingApsPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxMccPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxLmmPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxLmrPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRx1dmPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxDmmPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxDmrPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxExmPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxExrPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxVsmPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxVsrPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxCcmSeqErrors"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxLtrUnexpectedPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxLtrMacErrors"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxLbrOooErrors"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxLbrUnexpectedPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxLbrDataErrors"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxCsfPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxSlrPdu"
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmMepDmStatsGroup": {
+    "name": "acdCfmMepDmStatsGroup",
+    "oid": "1.3.6.1.4.1.22420.2.7.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepDmStatsTxDmmPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepDmStatsRxDmmPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepDmStatsTxDmrPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepDmStatsRxDmrPdu"
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmMepStackGroup": {
+    "name": "acdCfmMepStackGroup",
+    "oid": "1.3.6.1.4.1.22420.2.7.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepIdx"
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmMepSlmStatsGroup": {
+    "name": "acdCfmMepSlmStatsGroup",
+    "oid": "1.3.6.1.4.1.22420.2.7.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxSlmPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxSlmPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsTxSlrPdu"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmMepStatsRxSlrPdu"
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmSlmCfgGroup": {
+    "name": "acdCfmSlmCfgGroup",
+    "oid": "1.3.6.1.4.1.22420.2.7.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmCfgRowStatus"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmCfgMepIdx"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmCfgRemoteMepId"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmCfgPriority"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmCfgState"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmCfgInterval"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmCfgRefPeriod"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmCfgNearEndThresh"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmCfgFarEndThresh"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmCfgName"
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmSlmResultGroup": {
+    "name": "acdCfmSlmResultGroup",
+    "oid": "1.3.6.1.4.1.22420.2.7.2.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmResultPeriodIndex"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmResultIntervalStart"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmResultValid"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmResultNearEndAlert"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmResultFarEndAlert"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmResultTxSlm"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmResultRxSlr"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmResultRemoteRxSlm"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmResultNearEndNbrLoss"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmResultFarEndNbrLoss"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmResultNearEndRatio"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmResultFarEndRatio"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmResultNbrGaps"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmResultLargestGap"
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmSlmHistResultGroup": {
+    "name": "acdCfmSlmHistResultGroup",
+    "oid": "1.3.6.1.4.1.22420.2.7.2.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmHistResultPeriodIndex"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmHistResultIntervalEnd"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmHistResultTxSlm"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmHistResultRxSlr"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmHistResultRemoteRxSlm"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmHistResultNearEndRatio"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmHistResultFarEndRatio"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmHistResultNbrGaps"
+      },
+      {
+        "module": "ACD-CFM-MIB",
+        "object": "acdCfmSlmHistResultLargestGap"
+      }
+    ],
+    "status": "current"
+  },
+  "acdCfmCompliance": {
+    "name": "acdCfmCompliance",
+    "oid": "1.3.6.1.4.1.22420.2.7.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "acdCfmDmCfgGroup",
+        "module": "ACD-CFM-MIB"
+      },
+      {
+        "object": "acdCfmResultOneWayDelayGroup",
+        "module": "ACD-CFM-MIB"
+      },
+      {
+        "object": "acdCfmResultOneWayDvGroup",
+        "module": "ACD-CFM-MIB"
+      },
+      {
+        "object": "acdCfmResultTwoWayDelayGroup",
+        "module": "ACD-CFM-MIB"
+      },
+      {
+        "object": "acdCfmResultTwoWayDvGroup",
+        "module": "ACD-CFM-MIB"
+      },
+      {
+        "object": "acdCfmHistResultOneWayDelayGroup",
+        "module": "ACD-CFM-MIB"
+      },
+      {
+        "object": "acdCfmHistResultOneWayDvGroup",
+        "module": "ACD-CFM-MIB"
+      },
+      {
+        "object": "acdCfmHistResultTwoWayDelayGroup",
+        "module": "ACD-CFM-MIB"
+      },
+      {
+        "object": "acdCfmHistResultTwoWayDvGroup",
+        "module": "ACD-CFM-MIB"
+      },
+      {
+        "object": "acdCfmPktLossCfgGroup",
+        "module": "ACD-CFM-MIB"
+      },
+      {
+        "object": "acdCfmResultPktLossGroup",
+        "module": "ACD-CFM-MIB"
+      },
+      {
+        "object": "acdCfmHistResultPktLossGroup",
+        "module": "ACD-CFM-MIB"
+      },
+      {
+        "object": "acdCfmMepStatsTxGroup",
+        "module": "ACD-CFM-MIB"
+      },
+      {
+        "object": "acdCfmMepStatsRxGroup",
+        "module": "ACD-CFM-MIB"
+      },
+      {
+        "object": "acdCfmMepDmStatsGroup",
+        "module": "ACD-CFM-MIB"
+      },
+      {
+        "object": "acdCfmMepStackGroup",
+        "module": "ACD-CFM-MIB"
+      },
+      {
+        "object": "acdCfmMepSlmStatsGroup",
+        "module": "ACD-CFM-MIB"
+      },
+      {
+        "object": "acdCfmSlmCfgGroup",
+        "module": "ACD-CFM-MIB"
+      },
+      {
+        "object": "acdCfmSlmResultGroup",
+        "module": "ACD-CFM-MIB"
+      },
+      {
+        "object": "acdCfmSlmHistResultGroup",
+        "module": "ACD-CFM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/accedian/ACD-CFM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:03 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ACD-CFM-MIB"
+  }
+}

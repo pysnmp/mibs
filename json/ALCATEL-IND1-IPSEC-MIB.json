@@ -1,0 +1,1632 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1IPsec"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "alcatelIND1IPsecMIB": {
+    "name": "alcatelIND1IPsecMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-07-02 00:00",
+        "description": "The latest version of this MIB Module."
+      }
+    ]
+  },
+  "alcatelIND1IPsecMIBObjects": {
+    "name": "alcatelIND1IPsecMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1",
+    "class": "objectidentity"
+  },
+  "IPsecName": {
+    "name": "IPsecName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "displayhint": "20a",
+    "status": "current"
+  },
+  "IPsecDescription": {
+    "name": "IPsecDescription",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "displayhint": "200a",
+    "status": "current"
+  },
+  "IPsecPortNumber": {
+    "name": "IPsecPortNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "IPsecPrefixLength": {
+    "name": "IPsecPrefixLength",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "IPsecULProtocol": {
+    "name": "IPsecULProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "IPsecAdminState": {
+    "name": "IPsecAdminState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IPsecSAType": {
+    "name": "IPsecSAType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ah": 2,
+          "esp": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IPsecESPAlgorithm": {
+    "name": "IPsecESPAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "descbc": 2,
+          "des3cbc": 3,
+          "null": 11,
+          "aescbc": 12,
+          "aesctr": 13
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IPsecAHAlgorithm": {
+    "name": "IPsecAHAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "hmacmd5": 2,
+          "hmacsha1": 3,
+          "aesxcbcmac": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IPsecOperationalState": {
+    "name": "IPsecOperationalState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "dnspending": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "alaIPsecConfig": {
+    "name": "alaIPsecConfig",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1",
+    "class": "objectidentity"
+  },
+  "alaIPsecSecurityKeyTable": {
+    "name": "alaIPsecSecurityKeyTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIPsecSecurityKeyEntry": {
+    "name": "alaIPsecSecurityKeyEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityKeyID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIPsecSecurityKeyID": {
+    "name": "alaIPsecSecurityKeyID",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIPsecSecurityKeyCurrent": {
+    "name": "alaIPsecSecurityKeyCurrent",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIPsecSecurityKeyNew": {
+    "name": "alaIPsecSecurityKeyNew",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIPsecStatisticsTable": {
+    "name": "alaIPsecStatisticsTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIPsecStatisticsEntry": {
+    "name": "alaIPsecStatisticsEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecStatisticsProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIPsecStatisticsProtocol": {
+    "name": "alaIPsecStatisticsProtocol",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv6": 6
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIPsecStatisticsInSuccessful": {
+    "name": "alaIPsecStatisticsInSuccessful",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIPsecStatisticsInPolicyViolation": {
+    "name": "alaIPsecStatisticsInPolicyViolation",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIPsecStatisticsInNoSA": {
+    "name": "alaIPsecStatisticsInNoSA",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIPsecStatisticsInUnknownSPI": {
+    "name": "alaIPsecStatisticsInUnknownSPI",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIPsecStatisticsInAHReplay": {
+    "name": "alaIPsecStatisticsInAHReplay",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIPsecStatisticsInESPReplay": {
+    "name": "alaIPsecStatisticsInESPReplay",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIPsecStatisticsInAHAuthenticationSuccess": {
+    "name": "alaIPsecStatisticsInAHAuthenticationSuccess",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIPsecStatisticsInAHAuthenticationFail": {
+    "name": "alaIPsecStatisticsInAHAuthenticationFail",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIPsecStatisticsInESPAuthenticationSuccess": {
+    "name": "alaIPsecStatisticsInESPAuthenticationSuccess",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIPsecStatisticsInESPAuthenticationFail": {
+    "name": "alaIPsecStatisticsInESPAuthenticationFail",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIPsecStatisticsInBadPacket": {
+    "name": "alaIPsecStatisticsInBadPacket",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIPsecStatisticsInNoMemory": {
+    "name": "alaIPsecStatisticsInNoMemory",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIPsecStatisticsOutSuccessful": {
+    "name": "alaIPsecStatisticsOutSuccessful",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIPsecStatisticsOutPolicyViolation": {
+    "name": "alaIPsecStatisticsOutPolicyViolation",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIPsecStatisticsOutNoSA": {
+    "name": "alaIPsecStatisticsOutNoSA",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIPsecStatisticsOutBadPacket": {
+    "name": "alaIPsecStatisticsOutBadPacket",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIPsecStatisticsOutNoMemory": {
+    "name": "alaIPsecStatisticsOutNoMemory",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIPsecStatisticsInDiscarded": {
+    "name": "alaIPsecStatisticsInDiscarded",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIPsecStatisticsOutDiscarded": {
+    "name": "alaIPsecStatisticsOutDiscarded",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyTable": {
+    "name": "alaIPsecSecurityPolicyTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyEntry": {
+    "name": "alaIPsecSecurityPolicyEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicyID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyID": {
+    "name": "alaIPsecSecurityPolicyID",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicySourceType": {
+    "name": "alaIPsecSecurityPolicySourceType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicySource": {
+    "name": "alaIPsecSecurityPolicySource",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicySourcePrefixLength": {
+    "name": "alaIPsecSecurityPolicySourcePrefixLength",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPsecPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicySourcePort": {
+    "name": "alaIPsecSecurityPolicySourcePort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPsecPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyDestinationType": {
+    "name": "alaIPsecSecurityPolicyDestinationType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyDestination": {
+    "name": "alaIPsecSecurityPolicyDestination",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyDestinationPrefixLength": {
+    "name": "alaIPsecSecurityPolicyDestinationPrefixLength",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPsecPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyDestinationPort": {
+    "name": "alaIPsecSecurityPolicyDestinationPort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPsecPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyULProtocol": {
+    "name": "alaIPsecSecurityPolicyULProtocol",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPsecULProtocol",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyICMPv6Type": {
+    "name": "alaIPsecSecurityPolicyICMPv6Type",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyDirection": {
+    "name": "alaIPsecSecurityPolicyDirection",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in": 1,
+          "out": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyName": {
+    "name": "alaIPsecSecurityPolicyName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPsecName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyDescription": {
+    "name": "alaIPsecSecurityPolicyDescription",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPsecDescription",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyAction": {
+    "name": "alaIPsecSecurityPolicyAction",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 0,
+          "none": 1,
+          "ipsec": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ipsec",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyAdminState": {
+    "name": "alaIPsecSecurityPolicyAdminState",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPsecAdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyOperationalState": {
+    "name": "alaIPsecSecurityPolicyOperationalState",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPsecOperationalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyPriority": {
+    "name": "alaIPsecSecurityPolicyPriority",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyRowStatus": {
+    "name": "alaIPsecSecurityPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyRuleTable": {
+    "name": "alaIPsecSecurityPolicyRuleTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyRuleEntry": {
+    "name": "alaIPsecSecurityPolicyRuleEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicyID",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicyRuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyRuleIndex": {
+    "name": "alaIPsecSecurityPolicyRuleIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyRuleProtocol": {
+    "name": "alaIPsecSecurityPolicyRuleProtocol",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ah": 1,
+          "esp": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyRuleMode": {
+    "name": "alaIPsecSecurityPolicyRuleMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transport": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyRuleRowStatus": {
+    "name": "alaIPsecSecurityPolicyRuleRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSAConfigTable": {
+    "name": "alaIPsecSAConfigTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIPsecSAConfigEntry": {
+    "name": "alaIPsecSAConfigEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSAConfigID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIPsecSAConfigID": {
+    "name": "alaIPsecSAConfigID",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIPsecSAConfigType": {
+    "name": "alaIPsecSAConfigType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPsecSAType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSAConfigSourceType": {
+    "name": "alaIPsecSAConfigSourceType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSAConfigSource": {
+    "name": "alaIPsecSAConfigSource",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSAConfigDestinationType": {
+    "name": "alaIPsecSAConfigDestinationType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSAConfigDestination": {
+    "name": "alaIPsecSAConfigDestination",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSAConfigSPI": {
+    "name": "alaIPsecSAConfigSPI",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSAConfigName": {
+    "name": "alaIPsecSAConfigName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPsecName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSAConfigDescription": {
+    "name": "alaIPsecSAConfigDescription",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPsecDescription",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSAConfigEncryptionAlgorithm": {
+    "name": "alaIPsecSAConfigEncryptionAlgorithm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPsecESPAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSAConfigEncryptionKeyLength": {
+    "name": "alaIPsecSAConfigEncryptionKeyLength",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bits",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSAConfigAuthenticationAlgorithm": {
+    "name": "alaIPsecSAConfigAuthenticationAlgorithm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPsecAHAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSAConfigAdminState": {
+    "name": "alaIPsecSAConfigAdminState",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPsecAdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecSAConfigOperationalState": {
+    "name": "alaIPsecSAConfigOperationalState",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPsecOperationalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIPsecSAConfigRowStatus": {
+    "name": "alaIPsecSAConfigRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecKeyTable": {
+    "name": "alaIPsecKeyTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIPsecKeyEntry": {
+    "name": "alaIPsecKeyEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecKeyID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIPsecKeyID": {
+    "name": "alaIPsecKeyID",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIPsecKeyType": {
+    "name": "alaIPsecKeyType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "saAuthentication": 1,
+          "saEncryption": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecKeyName": {
+    "name": "alaIPsecKeyName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecKey": {
+    "name": "alaIPsecKey",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecKeyEncrypted": {
+    "name": "alaIPsecKeyEncrypted",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPsecKeyRowStatus": {
+    "name": "alaIPsecKeyRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alcatelIND1IPsecMIBConformance": {
+    "name": "alcatelIND1IPsecMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.2",
+    "class": "objectidentity"
+  },
+  "alcatelIND1IPsecMIBCompliances": {
+    "name": "alcatelIND1IPsecMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.2.1",
+    "class": "objectidentity"
+  },
+  "alcatelIND1IPsecMIBGroups": {
+    "name": "alcatelIND1IPsecMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.2.2",
+    "class": "objectidentity"
+  },
+  "alaIPsecCompliance": {
+    "name": "alaIPsecCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alaIPsecConfigGroup",
+        "module": "ALCATEL-IND1-IPSEC-MIB"
+      },
+      {
+        "object": "alaIPsecSecurityPolicyGroup",
+        "module": "ALCATEL-IND1-IPSEC-MIB"
+      },
+      {
+        "object": "alaIPsecSAConfigGroup",
+        "module": "ALCATEL-IND1-IPSEC-MIB"
+      },
+      {
+        "object": "alaIPsecKeyGroup",
+        "module": "ALCATEL-IND1-IPSEC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIPsecConfigGroup": {
+    "name": "alaIPsecConfigGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityKeyCurrent"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityKeyNew"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecStatisticsInSuccessful"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecStatisticsInPolicyViolation"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecStatisticsInNoSA"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecStatisticsInUnknownSPI"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecStatisticsInAHReplay"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecStatisticsInESPReplay"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecStatisticsInAHAuthenticationSuccess"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecStatisticsInAHAuthenticationFail"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecStatisticsInESPAuthenticationSuccess"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecStatisticsInESPAuthenticationFail"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecStatisticsInBadPacket"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecStatisticsInNoMemory"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecStatisticsOutSuccessful"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecStatisticsOutPolicyViolation"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecStatisticsOutNoSA"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecStatisticsOutBadPacket"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecStatisticsOutNoMemory"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecStatisticsInDiscarded"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecStatisticsOutDiscarded"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIPsecSecurityPolicyGroup": {
+    "name": "alaIPsecSecurityPolicyGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicySource"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicySourceType"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicySourcePrefixLength"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicySourcePort"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicyDestination"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicyDestinationType"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicyDestinationPrefixLength"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicyDestinationPort"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicyULProtocol"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicyICMPv6Type"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicyDirection"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicyName"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicyDescription"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicyAction"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicyAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicyOperationalState"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicyPriority"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicyRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicyRuleProtocol"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicyRuleMode"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSecurityPolicyRuleRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIPsecSAConfigGroup": {
+    "name": "alaIPsecSAConfigGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSAConfigType"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSAConfigSource"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSAConfigSourceType"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSAConfigDestination"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSAConfigDestinationType"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSAConfigSPI"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSAConfigName"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSAConfigDescription"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSAConfigEncryptionAlgorithm"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSAConfigEncryptionKeyLength"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSAConfigAuthenticationAlgorithm"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSAConfigAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSAConfigOperationalState"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecSAConfigRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIPsecKeyGroup": {
+    "name": "alaIPsecKeyGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.43.1.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecKeyType"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecKeyName"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecKey"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecKeyEncrypted"
+      },
+      {
+        "module": "ALCATEL-IND1-IPSEC-MIB",
+        "object": "alaIPsecKeyRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-IPSEC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:05 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-IPSEC-MIB"
+  }
+}

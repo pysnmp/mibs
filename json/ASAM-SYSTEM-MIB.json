@@ -1,0 +1,2560 @@
+{
+  "imports": {
+    "class": "imports",
+    "ASAM-EQUIP-MIB": [
+      "EqptSlotIndex"
+    ],
+    "ASAM-TC-MIB": [
+      "NetworkTimeInMiliSeconds",
+      "NetworkTimeInSeconds"
+    ],
+    "BRIDGE-MIB": [
+      "MacAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "IpAddress",
+      "Unsigned32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DateAndTime"
+    ],
+    "SYSTEM-MIB": [
+      "asam"
+    ]
+  },
+  "asamSystemMIB": {
+    "name": "asamSystemMIB",
+    "oid": "1.3.6.1.4.1.637.61.1.9",
+    "class": "objectidentity"
+  },
+  "asamSysBootpInfo": {
+    "name": "asamSysBootpInfo",
+    "oid": "1.3.6.1.4.1.637.61.1.9.2",
+    "class": "objectidentity"
+  },
+  "asamSystemMigration": {
+    "name": "asamSystemMigration",
+    "oid": "1.3.6.1.4.1.637.61.1.9.11",
+    "class": "objectidentity"
+  },
+  "asamSystemClockSelect": {
+    "name": "asamSystemClockSelect",
+    "oid": "1.3.6.1.4.1.637.61.1.9.12",
+    "class": "objectidentity"
+  },
+  "asamSystemLicenseMgmt": {
+    "name": "asamSystemLicenseMgmt",
+    "oid": "1.3.6.1.4.1.637.61.1.9.17",
+    "class": "objectidentity"
+  },
+  "asamSysMacAdresses": {
+    "name": "asamSysMacAdresses",
+    "oid": "1.3.6.1.4.1.637.61.1.9.22",
+    "class": "objectidentity"
+  },
+  "asamCraftLogin": {
+    "name": "asamCraftLogin",
+    "oid": "1.3.6.1.4.1.637.61.1.9.25",
+    "class": "objectidentity"
+  },
+  "asamAccessLoopIdSyntax": {
+    "name": "asamAccessLoopIdSyntax",
+    "oid": "1.3.6.1.4.1.637.61.1.9.26",
+    "class": "objectidentity"
+  },
+  "environmentMonitorRelay": {
+    "name": "environmentMonitorRelay",
+    "oid": "1.3.6.1.4.1.637.61.1.9.27",
+    "class": "objectidentity"
+  },
+  "swVersion": {
+    "name": "swVersion",
+    "oid": "1.3.6.1.4.1.637.61.1.9.28",
+    "class": "objectidentity"
+  },
+  "systemMonitor": {
+    "name": "systemMonitor",
+    "oid": "1.3.6.1.4.1.637.61.1.9.29",
+    "class": "objectidentity"
+  },
+  "asamRelayIdSyntax": {
+    "name": "asamRelayIdSyntax",
+    "oid": "1.3.6.1.4.1.637.61.1.9.58",
+    "class": "objectidentity"
+  },
+  "asamSystemIpAtmVcVpi": {
+    "name": "asamSystemIpAtmVcVpi",
+    "oid": "1.3.6.1.4.1.637.61.1.9.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamSystemIpAtmVcVci": {
+    "name": "asamSystemIpAtmVcVci",
+    "oid": "1.3.6.1.4.1.637.61.1.9.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamSystemID": {
+    "name": "asamSystemID",
+    "oid": "1.3.6.1.4.1.637.61.1.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamSysStatusBitMap": {
+    "name": "asamSysStatusBitMap",
+    "oid": "1.3.6.1.4.1.637.61.1.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamSysStatusClearBitMap": {
+    "name": "asamSysStatusClearBitMap",
+    "oid": "1.3.6.1.4.1.637.61.1.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "mandatory"
+  },
+  "asamSysStatusSetBitMap": {
+    "name": "asamSysStatusSetBitMap",
+    "oid": "1.3.6.1.4.1.637.61.1.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "obsolete"
+  },
+  "asamAWSnumberOfSets": {
+    "name": "asamAWSnumberOfSets",
+    "oid": "1.3.6.1.4.1.637.61.1.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "asamDiskStatusBitMap": {
+    "name": "asamDiskStatusBitMap",
+    "oid": "1.3.6.1.4.1.637.61.1.9.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "asamShutdownBitMap": {
+    "name": "asamShutdownBitMap",
+    "oid": "1.3.6.1.4.1.637.61.1.9.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamNetworkPosition": {
+    "name": "asamNetworkPosition",
+    "oid": "1.3.6.1.4.1.637.61.1.9.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "asamMigrationStatus": {
+    "name": "asamMigrationStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.9.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "migrating": 2,
+          "rollBackPossible": 3,
+          "forceRollBack": 4,
+          "removeRollBackDatabase": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "asamMibVersion": {
+    "name": "asamMibVersion",
+    "oid": "1.3.6.1.4.1.637.61.1.9.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 28
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamSystemInitProgress": {
+    "name": "asamSystemInitProgress",
+    "oid": "1.3.6.1.4.1.637.61.1.9.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamPnPEnable": {
+    "name": "asamPnPEnable",
+    "oid": "1.3.6.1.4.1.637.61.1.9.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamLicenseNumberOfChanges": {
+    "name": "asamLicenseNumberOfChanges",
+    "oid": "1.3.6.1.4.1.637.61.1.9.17.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamSystemLicenseMgmtTable": {
+    "name": "asamSystemLicenseMgmtTable",
+    "oid": "1.3.6.1.4.1.637.61.1.9.17.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asamSystemLicenseMgmtEntry": {
+    "name": "asamSystemLicenseMgmtEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.9.17.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-SYSTEM-MIB",
+        "object": "licenseFeatureIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "licenseFeatureIndex": {
+    "name": "licenseFeatureIndex",
+    "oid": "1.3.6.1.4.1.637.61.1.9.17.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "licenseCounter": {
+    "name": "licenseCounter",
+    "oid": "1.3.6.1.4.1.637.61.1.9.17.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemMaxLtLinkSpeed": {
+    "name": "systemMaxLtLinkSpeed",
+    "oid": "1.3.6.1.4.1.637.61.1.9.17.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "onegbps": 1,
+          "twodot5gbps": 2,
+          "tengbps": 10,
+          "twentygbps": 20,
+          "fortygbps": 40
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "systemMac": {
+    "name": "systemMac",
+    "oid": "1.3.6.1.4.1.637.61.1.9.22.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lanxBaseMac": {
+    "name": "lanxBaseMac",
+    "oid": "1.3.6.1.4.1.637.61.1.9.22.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lanxRangeMac": {
+    "name": "lanxRangeMac",
+    "oid": "1.3.6.1.4.1.637.61.1.9.22.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outbandManMac": {
+    "name": "outbandManMac",
+    "oid": "1.3.6.1.4.1.637.61.1.9.22.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamSuperuserAuthByRadius": {
+    "name": "asamSuperuserAuthByRadius",
+    "oid": "1.3.6.1.4.1.637.61.1.9.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "timeZoneOffset": {
+    "name": "timeZoneOffset",
+    "oid": "1.3.6.1.4.1.637.61.1.9.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -780,
+            "max": 840
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamCraftLoginStatus": {
+    "name": "asamCraftLoginStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.9.25.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamPortNumberingMethodSystem": {
+    "name": "asamPortNumberingMethodSystem",
+    "oid": "1.3.6.1.4.1.637.61.1.9.26.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "logicalSlotId": 1,
+          "positionBasedSlotId": 2,
+          "typeBasedSlotId": 3,
+          "legacyPositionBasedSlotId": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamAccessLoopAtmBasedDslSyntax": {
+    "name": "asamAccessLoopAtmBasedDslSyntax",
+    "oid": "1.3.6.1.4.1.637.61.1.9.26.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamAccessLoopEthBasedDslSyntax": {
+    "name": "asamAccessLoopEthBasedDslSyntax",
+    "oid": "1.3.6.1.4.1.637.61.1.9.26.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamAccessLoopEthBasedPonSyntax": {
+    "name": "asamAccessLoopEthBasedPonSyntax",
+    "oid": "1.3.6.1.4.1.637.61.1.9.26.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamAccessLoopEthBasedEPonSyntax": {
+    "name": "asamAccessLoopEthBasedEPonSyntax",
+    "oid": "1.3.6.1.4.1.637.61.1.9.26.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamAccessLoopEthBasedNgpon2Syntax": {
+    "name": "asamAccessLoopEthBasedNgpon2Syntax",
+    "oid": "1.3.6.1.4.1.637.61.1.9.26.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamAccessLoopNtPortSyntax": {
+    "name": "asamAccessLoopNtPortSyntax",
+    "oid": "1.3.6.1.4.1.637.61.1.9.26.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "environmentMonitorRelayMode": {
+    "name": "environmentMonitorRelayMode",
+    "oid": "1.3.6.1.4.1.637.61.1.9.27.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "swEtsiVersion": {
+    "name": "swEtsiVersion",
+    "oid": "1.3.6.1.4.1.637.61.1.9.28.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "swAnsiVersion": {
+    "name": "swAnsiVersion",
+    "oid": "1.3.6.1.4.1.637.61.1.9.28.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpuLoadTable": {
+    "name": "cpuLoadTable",
+    "oid": "1.3.6.1.4.1.637.61.1.9.29.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asamRelayAtmBasedDslSyntax": {
+    "name": "asamRelayAtmBasedDslSyntax",
+    "oid": "1.3.6.1.4.1.637.61.1.9.58.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamRelayEthBasedDslSyntax": {
+    "name": "asamRelayEthBasedDslSyntax",
+    "oid": "1.3.6.1.4.1.637.61.1.9.58.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamRelayNtPortSyntax": {
+    "name": "asamRelayNtPortSyntax",
+    "oid": "1.3.6.1.4.1.637.61.1.9.58.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpuLoadEntry": {
+    "name": "cpuLoadEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.9.29.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-SYSTEM-MIB",
+        "object": "slotId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "slotId": {
+    "name": "slotId",
+    "oid": "1.3.6.1.4.1.637.61.1.9.29.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "startMonitorTime": {
+    "name": "startMonitorTime",
+    "oid": "1.3.6.1.4.1.637.61.1.9.29.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NetworkTimeInSeconds",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpuLoadDetail": {
+    "name": "cpuLoadDetail",
+    "oid": "1.3.6.1.4.1.637.61.1.9.29.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 180,
+            "max": 180
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpuLoadAverage": {
+    "name": "cpuLoadAverage",
+    "oid": "1.3.6.1.4.1.637.61.1.9.29.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "operateStatus": {
+    "name": "operateStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.9.29.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "stop": 2,
+          "proceeding": 3,
+          "idle": 4,
+          "not-operational": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "memUsageTable": {
+    "name": "memUsageTable",
+    "oid": "1.3.6.1.4.1.637.61.1.9.29.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "memUsageEntry": {
+    "name": "memUsageEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.9.29.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-SYSTEM-MIB",
+        "object": "slotId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "totalMemSize": {
+    "name": "totalMemSize",
+    "oid": "1.3.6.1.4.1.637.61.1.9.29.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "memAbsoluteUsage": {
+    "name": "memAbsoluteUsage",
+    "oid": "1.3.6.1.4.1.637.61.1.9.29.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamSystemAccessOperatorID": {
+    "name": "asamSystemAccessOperatorID",
+    "oid": "1.3.6.1.4.1.637.61.1.9.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamSystemActivatedCDE": {
+    "name": "asamSystemActivatedCDE",
+    "oid": "1.3.6.1.4.1.637.61.1.9.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamSystemPortAddressingMode": {
+    "name": "asamSystemPortAddressingMode",
+    "oid": "1.3.6.1.4.1.637.61.1.9.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sequential": 1,
+          "slotBased": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "peripheralMgntMacFilterTable": {
+    "name": "peripheralMgntMacFilterTable",
+    "oid": "1.3.6.1.4.1.637.61.1.9.36",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "peripheralMgntMacFilterEntry": {
+    "name": "peripheralMgntMacFilterEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.9.36.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-SYSTEM-MIB",
+        "object": "peripheralMgntMacFilterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "peripheralMgntMacFilterIndex": {
+    "name": "peripheralMgntMacFilterIndex",
+    "oid": "1.3.6.1.4.1.637.61.1.9.36.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "peripheralMgntMacFilterMacRangeFirst": {
+    "name": "peripheralMgntMacFilterMacRangeFirst",
+    "oid": "1.3.6.1.4.1.637.61.1.9.36.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "peripheralMgntMacFilterMacRangeLast": {
+    "name": "peripheralMgntMacFilterMacRangeLast",
+    "oid": "1.3.6.1.4.1.637.61.1.9.36.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamLiSeparate": {
+    "name": "asamLiSeparate",
+    "oid": "1.3.6.1.4.1.637.61.1.9.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamSystemALSState": {
+    "name": "asamSystemALSState",
+    "oid": "1.3.6.1.4.1.637.61.1.9.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamSystemCustomerId": {
+    "name": "asamSystemCustomerId",
+    "oid": "1.3.6.1.4.1.637.61.1.9.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamSystemAutoSwitchAtmPtm": {
+    "name": "asamSystemAutoSwitchAtmPtm",
+    "oid": "1.3.6.1.4.1.637.61.1.9.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamSystemAutoSwitchVdslStepUpDelay": {
+    "name": "asamSystemAutoSwitchVdslStepUpDelay",
+    "oid": "1.3.6.1.4.1.637.61.1.9.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamSystemUplinkMode": {
+    "name": "asamSystemUplinkMode",
+    "oid": "1.3.6.1.4.1.637.61.1.9.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "ptp": 2,
+          "gpon": 3,
+          "bonded": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamSystemCurrentUplinkMode": {
+    "name": "asamSystemCurrentUplinkMode",
+    "oid": "1.3.6.1.4.1.637.61.1.9.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ptp": 1,
+          "gpon": 2,
+          "bonded": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamSystemVoiceOswp": {
+    "name": "asamSystemVoiceOswp",
+    "oid": "1.3.6.1.4.1.637.61.1.9.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "novoice": 0,
+          "h248": 1,
+          "sip": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "sip",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamSystemActivatedCDEExtended": {
+    "name": "asamSystemActivatedCDEExtended",
+    "oid": "1.3.6.1.4.1.637.61.1.9.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamSuperuserAuthByTacacsPlus": {
+    "name": "asamSuperuserAuthByTacacsPlus",
+    "oid": "1.3.6.1.4.1.637.61.1.9.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamExternalLedsStatus": {
+    "name": "asamExternalLedsStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.9.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamSystemMirrorVoice": {
+    "name": "asamSystemMirrorVoice",
+    "oid": "1.3.6.1.4.1.637.61.1.9.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "ingress": 2,
+          "egress": 3,
+          "both": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "techSupport": {
+    "name": "techSupport",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53",
+    "class": "objectidentity"
+  },
+  "asamTechSupportEnableDisable": {
+    "name": "asamTechSupportEnableDisable",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "TechSupportSessionId": {
+    "name": "TechSupportSessionId",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    }
+  },
+  "TechSupportSessionType": {
+    "name": "TechSupportSessionType",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "crashLog": 1,
+          "boardOnDemand": 2,
+          "ifIndexOnDemand": 3
+        }
+      }
+    }
+  },
+  "asamTechSupportPurgeFiles": {
+    "name": "asamTechSupportPurgeFiles",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "purge": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noAction",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamTechSupportOnDemandFreeSessionId": {
+    "name": "asamTechSupportOnDemandFreeSessionId",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TechSupportSessionId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamTechSupportActionTable": {
+    "name": "asamTechSupportActionTable",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asamTechSupportActionEntry": {
+    "name": "asamTechSupportActionEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-SYSTEM-MIB",
+        "object": "asamTechSupportActionId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "asamTechSupportActionId": {
+    "name": "asamTechSupportActionId",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamTechSupportActionEvent": {
+    "name": "asamTechSupportActionEvent",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "generate": 1,
+          "clear": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "generate",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamTechSupportActionSessionId": {
+    "name": "asamTechSupportActionSessionId",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TechSupportSessionId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamTechSupportActionType": {
+    "name": "asamTechSupportActionType",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TechSupportSessionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamTechSupportActionObject": {
+    "name": "asamTechSupportActionObject",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamTechSupportActionServerIP": {
+    "name": "asamTechSupportActionServerIP",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamTechSupportActionFile": {
+    "name": "asamTechSupportActionFile",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamTechSupportSessionTable": {
+    "name": "asamTechSupportSessionTable",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asamTechSupportSessionEntry": {
+    "name": "asamTechSupportSessionEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-SYSTEM-MIB",
+        "object": "asamTechSupportSessionId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "asamTechSupportSessionId": {
+    "name": "asamTechSupportSessionId",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TechSupportSessionId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asamTechSupportSessionType": {
+    "name": "asamTechSupportSessionType",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TechSupportSessionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamTechSupportSessionObject": {
+    "name": "asamTechSupportSessionObject",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamTechSupportSessionServerIP": {
+    "name": "asamTechSupportSessionServerIP",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamTechSupportSessionFile": {
+    "name": "asamTechSupportSessionFile",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamTechSupportSessionStatus": {
+    "name": "asamTechSupportSessionStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "busy": 1,
+          "failed": 2,
+          "done": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamTechSupportSessionError": {
+    "name": "asamTechSupportSessionError",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-error": 1,
+          "conv-error": 2,
+          "send-ping": 3,
+          "ts-not-avail": 4,
+          "inv-ping-resp": 5,
+          "send-gen": 6,
+          "gen-timeout": 7,
+          "inv-gen-resp": 8,
+          "send-info": 9,
+          "info-timeout": 10,
+          "inv-info-resp": 11,
+          "request-data": 12,
+          "data-timeout": 13,
+          "inv-data-resp": 14,
+          "res-acquiring": 15,
+          "res-acq-timeout": 16,
+          "incomplete": 17,
+          "res-not-avai": 18,
+          "disk-file-error": 19,
+          "encrytion-error": 20
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamTechSupportSessionSize": {
+    "name": "asamTechSupportSessionSize",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamTechSupportSessionTime": {
+    "name": "asamTechSupportSessionTime",
+    "oid": "1.3.6.1.4.1.637.61.1.9.53.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NetworkTimeInSeconds",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamSystemScalingMode": {
+    "name": "asamSystemScalingMode",
+    "oid": "1.3.6.1.4.1.637.61.1.9.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "l2plus": 1,
+          "l3plusHost": 2,
+          "l3plusLPM": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamSystemOperationalScalingMode": {
+    "name": "asamSystemOperationalScalingMode",
+    "oid": "1.3.6.1.4.1.637.61.1.9.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "l2plus": 1,
+          "l3plusHost": 2,
+          "l3plusLPM": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamSystemZTPState": {
+    "name": "asamSystemZTPState",
+    "oid": "1.3.6.1.4.1.637.61.1.9.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamSystemRFOverlayModule": {
+    "name": "asamSystemRFOverlayModule",
+    "oid": "1.3.6.1.4.1.637.61.1.9.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamSystemArpPollingInterval": {
+    "name": "asamSystemArpPollingInterval",
+    "oid": "1.3.6.1.4.1.637.61.1.9.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamUplinkOutbandMgntIpAddress": {
+    "name": "asamUplinkOutbandMgntIpAddress",
+    "oid": "1.3.6.1.4.1.637.61.1.9.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamUplinkOutbandMgntNetMask": {
+    "name": "asamUplinkOutbandMgntNetMask",
+    "oid": "1.3.6.1.4.1.637.61.1.9.61",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamDstRecurringConfTable": {
+    "name": "asamDstRecurringConfTable",
+    "oid": "1.3.6.1.4.1.637.61.1.9.62",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asamDstRecurringConfEntry": {
+    "name": "asamDstRecurringConfEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.9.62.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-SYSTEM-MIB",
+        "object": "asamDstRecurringZoneIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "asamDstRecurringZoneIndex": {
+    "name": "asamDstRecurringZoneIndex",
+    "oid": "1.3.6.1.4.1.637.61.1.9.62.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -780,
+            "max": 840
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asamDstConfStartWeekDay": {
+    "name": "asamDstConfStartWeekDay",
+    "oid": "1.3.6.1.4.1.637.61.1.9.62.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sunday": 0,
+          "monday": 1,
+          "tuesday": 2,
+          "wednesday": 3,
+          "thursday": 4,
+          "friday": 5,
+          "saturday": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "sunday",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamDstConfStartWeek": {
+    "name": "asamDstConfStartWeek",
+    "oid": "1.3.6.1.4.1.637.61.1.9.62.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "first": 0,
+          "second": 1,
+          "third": 2,
+          "fourth": 3,
+          "last": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "first",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamDstConfStartMonth": {
+    "name": "asamDstConfStartMonth",
+    "oid": "1.3.6.1.4.1.637.61.1.9.62.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "january": 0,
+          "february": 1,
+          "march": 2,
+          "april": 3,
+          "may": 4,
+          "june": 5,
+          "july": 6,
+          "august": 7,
+          "september": 8,
+          "october": 9,
+          "november": 10,
+          "december": 11
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "january",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamDstConfStartHour": {
+    "name": "asamDstConfStartHour",
+    "oid": "1.3.6.1.4.1.637.61.1.9.62.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamDstConfStartMinute": {
+    "name": "asamDstConfStartMinute",
+    "oid": "1.3.6.1.4.1.637.61.1.9.62.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamDstConfEndWeekDay": {
+    "name": "asamDstConfEndWeekDay",
+    "oid": "1.3.6.1.4.1.637.61.1.9.62.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sunday": 0,
+          "monday": 1,
+          "tuesday": 2,
+          "wednesday": 3,
+          "thursday": 4,
+          "friday": 5,
+          "saturday": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "sunday",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamDstConfEndWeek": {
+    "name": "asamDstConfEndWeek",
+    "oid": "1.3.6.1.4.1.637.61.1.9.62.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "first": 0,
+          "second": 1,
+          "third": 2,
+          "fourth": 3,
+          "last": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "first",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamDstConfEndMonth": {
+    "name": "asamDstConfEndMonth",
+    "oid": "1.3.6.1.4.1.637.61.1.9.62.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "january": 0,
+          "february": 1,
+          "march": 2,
+          "april": 3,
+          "may": 4,
+          "june": 5,
+          "july": 6,
+          "august": 7,
+          "september": 8,
+          "october": 9,
+          "november": 10,
+          "december": 11
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "january",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamDstConfEndHour": {
+    "name": "asamDstConfEndHour",
+    "oid": "1.3.6.1.4.1.637.61.1.9.62.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamDstConfEndMinute": {
+    "name": "asamDstConfEndMinute",
+    "oid": "1.3.6.1.4.1.637.61.1.9.62.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamDstRecurringAdjustment": {
+    "name": "asamDstRecurringAdjustment",
+    "oid": "1.3.6.1.4.1.637.61.1.9.62.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamDstRecurringIsAffectedSrc": {
+    "name": "asamDstRecurringIsAffectedSrc",
+    "oid": "1.3.6.1.4.1.637.61.1.9.62.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamDstRecurringRowStatus": {
+    "name": "asamDstRecurringRowStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.9.62.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamDstDateConfTable": {
+    "name": "asamDstDateConfTable",
+    "oid": "1.3.6.1.4.1.637.61.1.9.63",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asamDstDateConfEntry": {
+    "name": "asamDstDateConfEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.9.63.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-SYSTEM-MIB",
+        "object": "asamDstDateZoneIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "asamDstDateZoneIndex": {
+    "name": "asamDstDateZoneIndex",
+    "oid": "1.3.6.1.4.1.637.61.1.9.63.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -780,
+            "max": 840
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asamDstConfStartDate": {
+    "name": "asamDstConfStartDate",
+    "oid": "1.3.6.1.4.1.637.61.1.9.63.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamDstConfEndDate": {
+    "name": "asamDstConfEndDate",
+    "oid": "1.3.6.1.4.1.637.61.1.9.63.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamDstDateAdjustment": {
+    "name": "asamDstDateAdjustment",
+    "oid": "1.3.6.1.4.1.637.61.1.9.63.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamDstDateIsAffectedSrc": {
+    "name": "asamDstDateIsAffectedSrc",
+    "oid": "1.3.6.1.4.1.637.61.1.9.63.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamDstDateRowStatus": {
+    "name": "asamDstDateRowStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.9.63.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamDstEnableDisable": {
+    "name": "asamDstEnableDisable",
+    "oid": "1.3.6.1.4.1.637.61.1.9.64",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamDstIsAffected": {
+    "name": "asamDstIsAffected",
+    "oid": "1.3.6.1.4.1.637.61.1.9.65",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "affected": 1,
+          "notAffected": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notAffected",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamSystemBSNAPState": {
+    "name": "asamSystemBSNAPState",
+    "oid": "1.3.6.1.4.1.637.61.1.9.66",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamSystemBSNAPServerIP": {
+    "name": "asamSystemBSNAPServerIP",
+    "oid": "1.3.6.1.4.1.637.61.1.9.67",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamSystemBSNAPServerPort": {
+    "name": "asamSystemBSNAPServerPort",
+    "oid": "1.3.6.1.4.1.637.61.1.9.68",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ASAM-SYSTEM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ASAM-SYSTEM-MIB"
+  }
+}

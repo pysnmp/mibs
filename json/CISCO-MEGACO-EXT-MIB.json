@@ -1,0 +1,5202 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-ATM-TRUNK-MIB": [
+      "Counter32SinceReset"
+    ],
+    "CISCO-IETF-MEGACO-MIB": [
+      "cmedGatewayId",
+      "cmedTerminationsEntry",
+      "cmedGatewayStatsEntry",
+      "cmedGatewayConfigEntry",
+      "cmedGatewayLinkId"
+    ],
+    "CISCO-MEDIA-GATEWAY-MIB": [
+      "CCallControlProfileIndex",
+      "CCallControlProfileIndexOrZero"
+    ],
+    "CISCO-MGC-MIB": [
+      "CMgcGroupIndex"
+    ],
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "CISCO-TC": [
+      "CiscoPort"
+    ],
+    "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB": [
+      "CvcSpeechCoderRate"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoMegacoExtMIB": {
+    "name": "ciscoMegacoExtMIB",
+    "oid": "1.3.6.1.4.1.9.10.104",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-08-29 12:00",
+        "description": " Added new objects to cmedxGatewayConfigTable cmedxGatewayDomainName, cmedxGatewayCmbDnAndPortInMID."
+      },
+      {
+        "revision": "2006-04-21 12:00",
+        "description": "Deprecated the following object: cmedxGatewayProvisionRespTime Added new objects to cmedxGatewayConfigTable cmedxGatewayMgProvisionRspTime, cmedxGatewayMgcProvisionRspTime, cmedxGatewayMgOrigPendLimit, cmedxGatewayMgcOrigPendLimit for ETSI TISPAN compliance. Added new objects to cmedxCommandStatsTable cmedxCmdNumAddPendings, cmedxCmdNumSubtractPendings, cmedxCmdNumMovePendings, cmedxCmdNumModifyPendings, cmedxCmdNumAuditValPendings, cmedxCmdNumAuditCapPendings, cmedxCmdNumNotifyPendings, cmedxCmdNumSrvChgFromMgcPendings, cmedxCmdNumSrvChgFromMgPendings, cmedxCmdTotalPendings. "
+      },
+      {
+        "revision": "2005-11-03 12:00",
+        "description": "Added new values from pkgGRI to pkgXnq to CH248Packages. Added new objects to cmedxCallReduceControlTable cmedxCrrNotifyState, cmedxCrrNotifyEnabled. cmedxCurrentCallState Added new objects to cmedxProfileTable cmedxProfileComfortNoiseGenerate Added new objects to cmedxCommandStatsTable cmedxCmdTotalFails, cmedxCmdTotalSucceeds, cmedxCmdTotal. Added the following tables - cmedxOverloadControlTable, cmedxCommandProcStatsTable, cmedxOverloadStatsTable, cmedxOverloadResourceStatsTable Added the following objects to cmedxGatewayConfigTable: cmedxGatewaySctpAssocId, cmedxGatewaySrvChgProfile, cmedxGatewaySrvChgProfileVer, cmedxGatewayMsgTokenType."
+      },
+      {
+        "revision": "2005-04-25 12:00",
+        "description": "Added 6 more packet ids in CH248Packages: pkgBCAS (20), pkgRBS (21), pkgOSES (22), pkgAMET (23), pkgBCASAddr (24), pkgCASBlock (25) to handle the CAS state of the gateway link."
+      },
+      {
+        "revision": "2004-06-03 12:00",
+        "description": "(a) Note: There is a typo in the MIB. The UNITS of the object cmedxGatewayInactivityTime has been changed to '10 milliseconds'. (b) Added two new objects, cmedxGatewayAdminAction cmedxGatewayServiceState to handle the service state of the gateway link. (c) Added four new objects, cmedxProfileOriginatingCotTx cmedxProfileOriginatingCotRx cmedxProfileTerminatingCotTx cmedxProfileTerminatingCotRx to handle COT. (d) Added pktLLTR(19) to CH248Packages TC. (e) Added 3 new objects, cmedxGatewayDynamicTpktVersion cmedxGatewayMaxCommandMsgSize cmedxGatewayMaxReplyMsgSize for TCP layer and the maximum size of command and reply message of H248. "
+      },
+      {
+        "revision": "2003-10-13 12:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoMegacoExtMIBNotifications": {
+    "name": "ciscoMegacoExtMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.10.104.0",
+    "class": "objectidentity"
+  },
+  "ciscoMegacoExtMIBObjects": {
+    "name": "ciscoMegacoExtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.104.1",
+    "class": "objectidentity"
+  },
+  "cmedxConfig": {
+    "name": "cmedxConfig",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1",
+    "class": "objectidentity"
+  },
+  "cmedxStats": {
+    "name": "cmedxStats",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2",
+    "class": "objectidentity"
+  },
+  "CH248Packages": {
+    "name": "CH248Packages",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "pkgG": 0,
+        "pkgRoot": 1,
+        "pkgToneGen": 2,
+        "pkgToneDet": 3,
+        "pkgDG": 4,
+        "pkgDD": 5,
+        "pkgCG": 6,
+        "pkgCD": 7,
+        "pkgCT": 8,
+        "pkgNT": 9,
+        "pkgRTP": 10,
+        "pkgTDMC": 11,
+        "pkgAN": 12,
+        "pkgBCG": 13,
+        "pkgXCG": 14,
+        "pkgSrvTn": 15,
+        "pkgXsrvTn": 16,
+        "pkgChp": 17,
+        "pkgIT": 18,
+        "pkgLLTR": 19,
+        "pkgBCAS": 20,
+        "pkgRBS": 21,
+        "pkgOSES": 22,
+        "pkgAMET": 23,
+        "pkgBCASAddr": 24,
+        "pkgCASBlock": 25,
+        "pkgGRI": 26,
+        "rtcpxr": 27,
+        "xrbm": 28,
+        "qac": 29,
+        "pkgDS": 30,
+        "pkgETerm": 31,
+        "pkgXnq": 32,
+        "pkgCTYP": 33,
+        "pkgIPFAX": 34
+      }
+    },
+    "status": "current"
+  },
+  "CMedxCotTones": {
+    "name": "CMedxCotTones",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "co1": 1,
+          "co2": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cmedxGatewayConfigTable": {
+    "name": "cmedxGatewayConfigTable",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedxGatewayConfigEntry": {
+    "name": "cmedxGatewayConfigEntry",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cmedxGatewayConfigEntry",
+      "module": "CISCO-MEGACO-EXT-MIB",
+      "object": "cmedGatewayConfigEntry"
+    },
+    "status": "current"
+  },
+  "cmedxGatewayMgcGroupIndex": {
+    "name": "cmedxGatewayMgcGroupIndex",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CMgcGroupIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayIpAddressIndex": {
+    "name": "cmedxGatewayIpAddressIndex",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayAssociationId": {
+    "name": "cmedxGatewayAssociationId",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxGatewayMaxContexts": {
+    "name": "cmedxGatewayMaxContexts",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayMaxTermsInContext": {
+    "name": "cmedxGatewayMaxTermsInContext",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayMgExecTime": {
+    "name": "cmedxGatewayMgExecTime",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayMgcExecTime": {
+    "name": "cmedxGatewayMgcExecTime",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayProvisionRespTime": {
+    "name": "cmedxGatewayProvisionRespTime",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cmedxGatewayNumConnRetries": {
+    "name": "cmedxGatewayNumConnRetries",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 11,
+        "format": "decimal"
+      }
+    },
+    "units": "times",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayMaxWaitingDelay": {
+    "name": "cmedxGatewayMaxWaitingDelay",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayRestartDelay": {
+    "name": "cmedxGatewayRestartDelay",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayRespRetentionTime": {
+    "name": "cmedxGatewayRespRetentionTime",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayInitialRtt": {
+    "name": "cmedxGatewayInitialRtt",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayInactivityTime": {
+    "name": "cmedxGatewayInactivityTime",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "10 milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayHeaderAddrType": {
+    "name": "cmedxGatewayHeaderAddrType",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayDownServiceDelay": {
+    "name": "cmedxGatewayDownServiceDelay",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayActiveMgcAddress": {
+    "name": "cmedxGatewayActiveMgcAddress",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxGatewayActiveMgcDomain": {
+    "name": "cmedxGatewayActiveMgcDomain",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxGatewayActiveMgcPortNum": {
+    "name": "cmedxGatewayActiveMgcPortNum",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxGatewayStateChangeReason": {
+    "name": "cmedxGatewayStateChangeReason",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mgcDirected": 1,
+          "mgDirected": 2,
+          "mgcNotReachable": 3,
+          "numRetriesExpired": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxGatewayStateChangeMethod": {
+    "name": "cmedxGatewayStateChangeMethod",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "graceful": 2,
+          "forced": 3,
+          "handoff": 4,
+          "failover": 5,
+          "restart": 6,
+          "disconnect": 7,
+          "cancelGraceful": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxGatewayAdminAction": {
+    "name": "cmedxGatewayAdminAction",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "downForceful": 2,
+          "downGraceful": 3,
+          "cancelGraceful": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "downForceful",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayServiceState": {
+    "name": "cmedxGatewayServiceState",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inService": 1,
+          "pendingIs": 2,
+          "outOfService": 3,
+          "pendingFoos": 4,
+          "pendingGoos": 5,
+          "mgcDirectOos": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxGatewayDynamicTpktVersion": {
+    "name": "cmedxGatewayDynamicTpktVersion",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayMaxCommandMsgSize": {
+    "name": "cmedxGatewayMaxCommandMsgSize",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "units": "Kbyte",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayMaxReplyMsgSize": {
+    "name": "cmedxGatewayMaxReplyMsgSize",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 250,
+        "format": "decimal"
+      }
+    },
+    "units": "Kbyte",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewaySctpAssocId": {
+    "name": "cmedxGatewaySctpAssocId",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxGatewaySrvChgProfile": {
+    "name": "cmedxGatewaySrvChgProfile",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "CISCO_TGW",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewaySrvChgProfileVer": {
+    "name": "cmedxGatewaySrvChgProfileVer",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayMsgTokenType": {
+    "name": "cmedxGatewayMsgTokenType",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "shortFormat": 1,
+          "longFormat": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "shortFormat",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayMgProvisionRspTime": {
+    "name": "cmedxGatewayMgProvisionRspTime",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayMgcProvisionRspTime": {
+    "name": "cmedxGatewayMgcProvisionRspTime",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayMgOrigPendLimit": {
+    "name": "cmedxGatewayMgOrigPendLimit",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayMgcOrigPendLimit": {
+    "name": "cmedxGatewayMgcOrigPendLimit",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayDomainName": {
+    "name": "cmedxGatewayDomainName",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxGatewayCmbDnAndPortInMID": {
+    "name": "cmedxGatewayCmbDnAndPortInMID",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxTerminationTypeTable": {
+    "name": "cmedxTerminationTypeTable",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedxTerminationTypeEntry": {
+    "name": "cmedxTerminationTypeEntry",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxTermTypeId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxTermTypeId": {
+    "name": "cmedxTermTypeId",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedxTermType": {
+    "name": "cmedxTermType",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "scn": 2,
+          "pdnRtp": 3,
+          "pdnAtmAal1": 4,
+          "pdnAtmAal2": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "pdnRtp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxTermTypeProfileId": {
+    "name": "cmedxTermTypeProfileId",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CCallControlProfileIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxTermTypePkgIds": {
+    "name": "cmedxTermTypePkgIds",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CH248Packages",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxTermTypeRowStatus": {
+    "name": "cmedxTermTypeRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileTable": {
+    "name": "cmedxProfileTable",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedxProfileEntry": {
+    "name": "cmedxProfileEntry",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxProfileIndex": {
+    "name": "cmedxProfileIndex",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CCallControlProfileIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedxProfilePlayCpToneInterDur": {
+    "name": "cmedxProfilePlayCpToneInterDur",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileDtmfDigitOnDur": {
+    "name": "cmedxProfileDtmfDigitOnDur",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 40,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileDtmfPauseDur": {
+    "name": "cmedxProfileDtmfPauseDur",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 40,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileCot1Frequency": {
+    "name": "cmedxProfileCot1Frequency",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2010,
+        "format": "decimal"
+      }
+    },
+    "units": "Hz",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileCot2Frequency": {
+    "name": "cmedxProfileCot2Frequency",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1780,
+        "format": "decimal"
+      }
+    },
+    "units": "Hz",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileInitiateCotDur": {
+    "name": "cmedxProfileInitiateCotDur",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileRespCotMethod": {
+    "name": "cmedxProfileRespCotMethod",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loopback": 1,
+          "transponder": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "loopback",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileDetectLongCpToneDur": {
+    "name": "cmedxProfileDetectLongCpToneDur",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileDetectLongDigitDur": {
+    "name": "cmedxProfileDetectLongDigitDur",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileEchoCancelEnabled": {
+    "name": "cmedxProfileEchoCancelEnabled",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileEchoCancelTail": {
+    "name": "cmedxProfileEchoCancelTail",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "echoCanceller8ms": 1,
+          "echoCanceller16ms": 2,
+          "echoCanceller24ms": 3,
+          "echoCanceller32ms": 4,
+          "echoCanceller64ms": 5,
+          "echoCanceller128ms": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "echoCanceller8ms",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileInGainControl": {
+    "name": "cmedxProfileInGainControl",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -6,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileOutAttnControl": {
+    "name": "cmedxProfileOutAttnControl",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileVoIpVadEnabled": {
+    "name": "cmedxProfileVoIpVadEnabled",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileVoIpVadTimer": {
+    "name": "cmedxProfileVoIpVadTimer",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileVoAal2VadTimer": {
+    "name": "cmedxProfileVoAal2VadTimer",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileAtmBearerType": {
+    "name": "cmedxProfileAtmBearerType",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bearerSvc": 1,
+          "bearerPvc": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "bearerSvc",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileAtmAalPartialFill": {
+    "name": "cmedxProfileAtmAalPartialFill",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 47,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileAtmAalType": {
+    "name": "cmedxProfileAtmAalType",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "aal1": 2,
+          "aal1Sdt": 3,
+          "aal1Udt": 4,
+          "aal2": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "aal1Sdt",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileSuppressBearerDigit": {
+    "name": "cmedxProfileSuppressBearerDigit",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileRowStatus": {
+    "name": "cmedxProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileOriginatingCotTx": {
+    "name": "cmedxProfileOriginatingCotTx",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CMedxCotTones",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileOriginatingCotRx": {
+    "name": "cmedxProfileOriginatingCotRx",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CMedxCotTones",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileTerminatingCotTx": {
+    "name": "cmedxProfileTerminatingCotTx",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CMedxCotTones",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileTerminatingCotRx": {
+    "name": "cmedxProfileTerminatingCotRx",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CMedxCotTones",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxProfileComfortNoiseGenerate": {
+    "name": "cmedxProfileComfortNoiseGenerate",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "simple": 2,
+          "g711A2": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "simple",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedxCallReduceControlTable": {
+    "name": "cmedxCallReduceControlTable",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedxCallReduceControlEntry": {
+    "name": "cmedxCallReduceControlEntry",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxCallCongEnabled": {
+    "name": "cmedxCallCongEnabled",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmedxCallRenotifInterval": {
+    "name": "cmedxCallRenotifInterval",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmedxCRRNumOfLevel": {
+    "name": "cmedxCRRNumOfLevel",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmedxCurrentCRR": {
+    "name": "cmedxCurrentCRR",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCrrNotifyState": {
+    "name": "cmedxCrrNotifyState",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCrrNotifyEnabled": {
+    "name": "cmedxCrrNotifyEnabled",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCurrentCallState": {
+    "name": "cmedxCurrentCallState",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acceptCall": 1,
+          "dropCall": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCallReduceLevelTable": {
+    "name": "cmedxCallReduceLevelTable",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedxCallReduceLevelEntry": {
+    "name": "cmedxCallReduceLevelEntry",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCallReduceLevelNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxCallReduceLevelNum": {
+    "name": "cmedxCallReduceLevelNum",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedxCallReduceRate": {
+    "name": "cmedxCallReduceRate",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmedxOverloadControlTable": {
+    "name": "cmedxOverloadControlTable",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedxOverloadControlEntry": {
+    "name": "cmedxOverloadControlEntry",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxOverloadControlEnabled": {
+    "name": "cmedxOverloadControlEnabled",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmedxOverloadNotifyState": {
+    "name": "cmedxOverloadNotifyState",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxOverloadNotifyEnabled": {
+    "name": "cmedxOverloadNotifyEnabled",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCodecNegotiationTable": {
+    "name": "cmedxCodecNegotiationTable",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedxCodecNegotiationEntry": {
+    "name": "cmedxCodecNegotiationEntry",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCodecNegotiationCodec",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxCodecNegotiationCodec": {
+    "name": "cmedxCodecNegotiationCodec",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcSpeechCoderRate",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedxCodecNegotiationPreference": {
+    "name": "cmedxCodecNegotiationPreference",
+    "oid": "1.3.6.1.4.1.9.10.104.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmedxGatewayStatsTable": {
+    "name": "cmedxGatewayStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedxGatewayStatsEntry": {
+    "name": "cmedxGatewayStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cmedxGatewayStatsEntry",
+      "module": "CISCO-MEGACO-EXT-MIB",
+      "object": "cmedGatewayStatsEntry"
+    },
+    "status": "current"
+  },
+  "cmedxGatewayLastEvent": {
+    "name": "cmedxGatewayLastEvent",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCommandStatsTable": {
+    "name": "cmedxCommandStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedxCommandStatsEntry": {
+    "name": "cmedxCommandStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayLinkId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxCmdNumAddFails": {
+    "name": "cmedxCmdNumAddFails",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumAddSucceeds": {
+    "name": "cmedxCmdNumAddSucceeds",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumSubtractFails": {
+    "name": "cmedxCmdNumSubtractFails",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumSubtractSucceeds": {
+    "name": "cmedxCmdNumSubtractSucceeds",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumMoveFails": {
+    "name": "cmedxCmdNumMoveFails",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumMoveSucceeds": {
+    "name": "cmedxCmdNumMoveSucceeds",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumModifyFails": {
+    "name": "cmedxCmdNumModifyFails",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumModifySucceeds": {
+    "name": "cmedxCmdNumModifySucceeds",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumAuditValFails": {
+    "name": "cmedxCmdNumAuditValFails",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumAuditValSucceeds": {
+    "name": "cmedxCmdNumAuditValSucceeds",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumAuditCapFails": {
+    "name": "cmedxCmdNumAuditCapFails",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumAuditCapSucceeds": {
+    "name": "cmedxCmdNumAuditCapSucceeds",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumNotifyFails": {
+    "name": "cmedxCmdNumNotifyFails",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumNotifySucceeds": {
+    "name": "cmedxCmdNumNotifySucceeds",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumSrvChgFromMgcFails": {
+    "name": "cmedxCmdNumSrvChgFromMgcFails",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumSrvChgFromMgcSucceeds": {
+    "name": "cmedxCmdNumSrvChgFromMgcSucceeds",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumSrvChgFromMgFails": {
+    "name": "cmedxCmdNumSrvChgFromMgFails",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumSrvChgFromMgSucceeds": {
+    "name": "cmedxCmdNumSrvChgFromMgSucceeds",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdTotalFails": {
+    "name": "cmedxCmdTotalFails",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdTotalSucceeds": {
+    "name": "cmedxCmdTotalSucceeds",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdTotal": {
+    "name": "cmedxCmdTotal",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumAddPendings": {
+    "name": "cmedxCmdNumAddPendings",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumSubtractPendings": {
+    "name": "cmedxCmdNumSubtractPendings",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumMovePendings": {
+    "name": "cmedxCmdNumMovePendings",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumModifyPendings": {
+    "name": "cmedxCmdNumModifyPendings",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumAuditValPendings": {
+    "name": "cmedxCmdNumAuditValPendings",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumAuditCapPendings": {
+    "name": "cmedxCmdNumAuditCapPendings",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumNotifyPendings": {
+    "name": "cmedxCmdNumNotifyPendings",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumSrvChgFromMgcPendings": {
+    "name": "cmedxCmdNumSrvChgFromMgcPendings",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumSrvChgFromMgPendings": {
+    "name": "cmedxCmdNumSrvChgFromMgPendings",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdTotalPendings": {
+    "name": "cmedxCmdTotalPendings",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxContextStatsTable": {
+    "name": "cmedxContextStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedxContextStatsEntry": {
+    "name": "cmedxContextStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayLinkId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxCntxNumActiveContexts": {
+    "name": "cmedxCntxNumActiveContexts",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCntxPeakNumActiveContexts": {
+    "name": "cmedxCntxPeakNumActiveContexts",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCntxNumContextAllocated": {
+    "name": "cmedxCntxNumContextAllocated",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCntxNumContextFreed": {
+    "name": "cmedxCntxNumContextFreed",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCntxShortestContextLife": {
+    "name": "cmedxCntxShortestContextLife",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCntxAverageContextLife": {
+    "name": "cmedxCntxAverageContextLife",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCntxLongestContextLife": {
+    "name": "cmedxCntxLongestContextLife",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCntxNumCntxMoreThan2Terms": {
+    "name": "cmedxCntxNumCntxMoreThan2Terms",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxPhysicalTermStatsTable": {
+    "name": "cmedxPhysicalTermStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedxPhysicalTermStatsEntry": {
+    "name": "cmedxPhysicalTermStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cmedxPhysicalTermStatsEntry",
+      "module": "CISCO-MEGACO-EXT-MIB",
+      "object": "cmedTerminationsEntry"
+    },
+    "status": "current"
+  },
+  "cmedxPhyTermStatsNumAdds": {
+    "name": "cmedxPhyTermStatsNumAdds",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxPhyTermStatsNumFailures": {
+    "name": "cmedxPhyTermStatsNumFailures",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxPhyTermStatsOosFromMgcs": {
+    "name": "cmedxPhyTermStatsOosFromMgcs",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxPhyTermStatsOosFromOams": {
+    "name": "cmedxPhyTermStatsOosFromOams",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxEphemeralTermStatsTable": {
+    "name": "cmedxEphemeralTermStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedxEphemeralTermStatsEntry": {
+    "name": "cmedxEphemeralTermStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxEphTermStatsType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxEphTermStatsType": {
+    "name": "cmedxEphTermStatsType",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "scn": 2,
+          "pdnRtp": 3,
+          "pdnAtmAal1": 4,
+          "pdnAtmAal2": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedxEphTermStatsNumAdds": {
+    "name": "cmedxEphTermStatsNumAdds",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxEphTermStatsNumFailures": {
+    "name": "cmedxEphTermStatsNumFailures",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCommandProcStatsTable": {
+    "name": "cmedxCommandProcStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedxCommandProcStatsEntry": {
+    "name": "cmedxCommandProcStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayLinkId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxCmdPhyTermAddRespTimeMin": {
+    "name": "cmedxCmdPhyTermAddRespTimeMin",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdPhyTermAddRespTimeMax": {
+    "name": "cmedxCmdPhyTermAddRespTimeMax",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdPhyTermAddRespTimeAvg": {
+    "name": "cmedxCmdPhyTermAddRespTimeAvg",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdPhyTermAddRespTimeCount": {
+    "name": "cmedxCmdPhyTermAddRespTimeCount",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdPhyTermModRespTimeMin": {
+    "name": "cmedxCmdPhyTermModRespTimeMin",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdPhyTermModRespTimeMax": {
+    "name": "cmedxCmdPhyTermModRespTimeMax",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdPhyTermModRespTimeAvg": {
+    "name": "cmedxCmdPhyTermModRespTimeAvg",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdPhyTermModRespTimeCount": {
+    "name": "cmedxCmdPhyTermModRespTimeCount",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdPhyTermSubRespTimeMin": {
+    "name": "cmedxCmdPhyTermSubRespTimeMin",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdPhyTermSubRespTimeMax": {
+    "name": "cmedxCmdPhyTermSubRespTimeMax",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdPhyTermSubRespTimeAvg": {
+    "name": "cmedxCmdPhyTermSubRespTimeAvg",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdPhyTermSubRespTimeCount": {
+    "name": "cmedxCmdPhyTermSubRespTimeCount",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdEphTermAddRespTimeMin": {
+    "name": "cmedxCmdEphTermAddRespTimeMin",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdEphTermAddRespTimeMax": {
+    "name": "cmedxCmdEphTermAddRespTimeMax",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdEphTermAddRespTimeAvg": {
+    "name": "cmedxCmdEphTermAddRespTimeAvg",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdEphTermAddRespTimeCount": {
+    "name": "cmedxCmdEphTermAddRespTimeCount",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdEphTermModRespTimeMin": {
+    "name": "cmedxCmdEphTermModRespTimeMin",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdEphTermModRespTimeMax": {
+    "name": "cmedxCmdEphTermModRespTimeMax",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdEphTermModRespTimeAvg": {
+    "name": "cmedxCmdEphTermModRespTimeAvg",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdEphTermModRespTimeCount": {
+    "name": "cmedxCmdEphTermModRespTimeCount",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdEphTermSubRespTimeMin": {
+    "name": "cmedxCmdEphTermSubRespTimeMin",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdEphTermSubRespTimeMax": {
+    "name": "cmedxCmdEphTermSubRespTimeMax",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdEphTermSubRespTimeAvg": {
+    "name": "cmedxCmdEphTermSubRespTimeAvg",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdEphTermSubRespTimeCount": {
+    "name": "cmedxCmdEphTermSubRespTimeCount",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdNumInProgCmds": {
+    "name": "cmedxCmdNumInProgCmds",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdMaxInProgCmds": {
+    "name": "cmedxCmdMaxInProgCmds",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxCmdSinceLastReset": {
+    "name": "cmedxCmdSinceLastReset",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.6.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxOverloadStatsTable": {
+    "name": "cmedxOverloadStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedxOverloadStatsEntry": {
+    "name": "cmedxOverloadStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxOverloadEnterCounts": {
+    "name": "cmedxOverloadEnterCounts",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxOverloadExitCounts": {
+    "name": "cmedxOverloadExitCounts",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxOverloadCurrentState": {
+    "name": "cmedxOverloadCurrentState",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "overload": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxOverloadLastResetTime": {
+    "name": "cmedxOverloadLastResetTime",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxOverloadCountersClear": {
+    "name": "cmedxOverloadCountersClear",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmedxOverloadResourceStatsTable": {
+    "name": "cmedxOverloadResourceStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedxOverloadResourceStatsEntry": {
+    "name": "cmedxOverloadResourceStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxOverloadRsResourceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxOverloadRsResourceIndex": {
+    "name": "cmedxOverloadRsResourceIndex",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedxOverloadRsHighCounts": {
+    "name": "cmedxOverloadRsHighCounts",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxOverloadRsMedCounts": {
+    "name": "cmedxOverloadRsMedCounts",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxOverloadRsLowCounts": {
+    "name": "cmedxOverloadRsLowCounts",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxOverloadContributorCounts": {
+    "name": "cmedxOverloadContributorCounts",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxOverloadRsLastResetTime": {
+    "name": "cmedxOverloadRsLastResetTime",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxOverloadRsCountersClear": {
+    "name": "cmedxOverloadRsCountersClear",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmedxEphemeralTermStatsInfoTable": {
+    "name": "cmedxEphemeralTermStatsInfoTable",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedxEphemeralTermStatsInfoEntry": {
+    "name": "cmedxEphemeralTermStatsInfoEntry",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxEphTermInfoStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxEphTermInfoStatsIndex": {
+    "name": "cmedxEphTermInfoStatsIndex",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedxEphTermInfoStatsIndexType": {
+    "name": "cmedxEphTermInfoStatsIndexType",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bpvc": 1,
+          "gw": 2,
+          "vgw": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxEphTermInfoNumTerm": {
+    "name": "cmedxEphTermInfoNumTerm",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxEphTermInfoNumInUsed": {
+    "name": "cmedxEphTermInfoNumInUsed",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxEphTermInfoMaxNumInUsed": {
+    "name": "cmedxEphTermInfoMaxNumInUsed",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxEphTermInfoMinDuration": {
+    "name": "cmedxEphTermInfoMinDuration",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxEphTermInfoMaxDuration": {
+    "name": "cmedxEphTermInfoMaxDuration",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxEphTermInfoAvgDuration": {
+    "name": "cmedxEphTermInfoAvgDuration",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxEphTermInfoCounterClear": {
+    "name": "cmedxEphTermInfoCounterClear",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmedxEphTermInfoSinceLastClear": {
+    "name": "cmedxEphTermInfoSinceLastClear",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxEphTermInfoSinceLastReset": {
+    "name": "cmedxEphTermInfoSinceLastReset",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxEphTermIndexInfo": {
+    "name": "cmedxEphTermIndexInfo",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedxEphTermInfoNumFreed": {
+    "name": "cmedxEphTermInfoNumFreed",
+    "oid": "1.3.6.1.4.1.9.10.104.1.2.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoMegacoExtConformance": {
+    "name": "ciscoMegacoExtConformance",
+    "oid": "1.3.6.1.4.1.9.10.104.2",
+    "class": "objectidentity"
+  },
+  "cmedxCompliances": {
+    "name": "cmedxCompliances",
+    "oid": "1.3.6.1.4.1.9.10.104.2.1",
+    "class": "objectidentity"
+  },
+  "cmedxGroups": {
+    "name": "cmedxGroups",
+    "oid": "1.3.6.1.4.1.9.10.104.2.2",
+    "class": "objectidentity"
+  },
+  "cmedxCompliance": {
+    "name": "cmedxCompliance",
+    "oid": "1.3.6.1.4.1.9.10.104.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmedxConfigGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxStatsGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxCallReduceRateGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxCodecNegotiationGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cmedxComplianceRev1": {
+    "name": "cmedxComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.10.104.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmedxConfigGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxStatsGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxCallReduceRateGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxCodecNegotiationGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxConfigExtGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxServiceStateGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cmedxComplianceRev2": {
+    "name": "cmedxComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.10.104.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmedxConfigGroupRev1",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxStatsGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxCallReduceRateGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxCodecNegotiationGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxConfigExtGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxServiceStateGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxCallReduceRateNotifyGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxOverloadControlGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxOverloadStatsGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxStatsExtGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxEphemeralTermStatsGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cmedxComplianceRev3": {
+    "name": "cmedxComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.10.104.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmedxConfigGroupRev2",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxStatsGroupRev1",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxCallReduceRateGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxCodecNegotiationGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxConfigExtGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxServiceStateGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxCallReduceRateNotifyGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxOverloadControlGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxOverloadStatsGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxStatsExtGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxEphemeralTermStatsGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cmedxComplianceRev4": {
+    "name": "cmedxComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.10.104.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmedxConfigGroupRev2",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxStatsGroupRev1",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxCallReduceRateGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxConfigDomainInfoGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxCodecNegotiationGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxConfigExtGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxServiceStateGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxCallReduceRateNotifyGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxOverloadControlGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxOverloadStatsGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxStatsExtGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      },
+      {
+        "object": "cmedxEphemeralTermStatsGroup",
+        "module": "CISCO-MEGACO-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxConfigGroup": {
+    "name": "cmedxConfigGroup",
+    "oid": "1.3.6.1.4.1.9.10.104.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMgcGroupIndex"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayIpAddressIndex"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayAssociationId"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMaxContexts"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMaxTermsInContext"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMgExecTime"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMgcExecTime"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayProvisionRespTime"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayNumConnRetries"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMaxWaitingDelay"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayRestartDelay"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayRespRetentionTime"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayInitialRtt"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayInactivityTime"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayHeaderAddrType"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayDownServiceDelay"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayActiveMgcAddress"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayActiveMgcDomain"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayActiveMgcPortNum"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayStateChangeReason"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayStateChangeMethod"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxTermType"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxTermTypeProfileId"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxTermTypePkgIds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxTermTypeRowStatus"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfilePlayCpToneInterDur"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileDtmfDigitOnDur"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileDtmfPauseDur"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileCot1Frequency"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileCot2Frequency"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileInitiateCotDur"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileRespCotMethod"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileDetectLongCpToneDur"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileDetectLongDigitDur"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileEchoCancelEnabled"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileEchoCancelTail"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileInGainControl"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileOutAttnControl"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileVoIpVadEnabled"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileVoIpVadTimer"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileVoAal2VadTimer"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileAtmBearerType"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileAtmAalPartialFill"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileAtmAalType"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileSuppressBearerDigit"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cmedxStatsGroup": {
+    "name": "cmedxStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.104.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayLastEvent"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumAddFails"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumAddSucceeds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumSubtractFails"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumSubtractSucceeds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumMoveFails"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumMoveSucceeds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumModifyFails"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumModifySucceeds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumAuditValFails"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumAuditValSucceeds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumAuditCapFails"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumAuditCapSucceeds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumNotifyFails"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumNotifySucceeds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumSrvChgFromMgcFails"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumSrvChgFromMgcSucceeds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumSrvChgFromMgFails"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumSrvChgFromMgSucceeds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCntxNumActiveContexts"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCntxPeakNumActiveContexts"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCntxNumContextAllocated"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCntxNumContextFreed"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCntxShortestContextLife"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCntxAverageContextLife"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCntxLongestContextLife"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCntxNumCntxMoreThan2Terms"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxPhyTermStatsNumAdds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxPhyTermStatsNumFailures"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxPhyTermStatsOosFromMgcs"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxPhyTermStatsOosFromOams"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxEphTermStatsNumAdds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxEphTermStatsNumFailures"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cmedxCallReduceRateGroup": {
+    "name": "cmedxCallReduceRateGroup",
+    "oid": "1.3.6.1.4.1.9.10.104.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCallCongEnabled"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCallRenotifInterval"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCRRNumOfLevel"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCurrentCRR"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCallReduceRate"
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxCodecNegotiationGroup": {
+    "name": "cmedxCodecNegotiationGroup",
+    "oid": "1.3.6.1.4.1.9.10.104.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCodecNegotiationPreference"
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxConfigExtGroup": {
+    "name": "cmedxConfigExtGroup",
+    "oid": "1.3.6.1.4.1.9.10.104.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayDynamicTpktVersion"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMaxCommandMsgSize"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMaxReplyMsgSize"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileOriginatingCotTx"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileOriginatingCotRx"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileTerminatingCotTx"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileTerminatingCotRx"
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxServiceStateGroup": {
+    "name": "cmedxServiceStateGroup",
+    "oid": "1.3.6.1.4.1.9.10.104.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayAdminAction"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayServiceState"
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxConfigGroupRev1": {
+    "name": "cmedxConfigGroupRev1",
+    "oid": "1.3.6.1.4.1.9.10.104.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMgcGroupIndex"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayIpAddressIndex"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayAssociationId"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMaxContexts"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMaxTermsInContext"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMgExecTime"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMgcExecTime"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayProvisionRespTime"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayNumConnRetries"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMaxWaitingDelay"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayRestartDelay"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayRespRetentionTime"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayInitialRtt"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayInactivityTime"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayHeaderAddrType"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayDownServiceDelay"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayActiveMgcAddress"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayActiveMgcDomain"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayActiveMgcPortNum"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayStateChangeReason"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayStateChangeMethod"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxTermType"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxTermTypeProfileId"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxTermTypePkgIds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxTermTypeRowStatus"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfilePlayCpToneInterDur"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileDtmfDigitOnDur"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileDtmfPauseDur"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileCot1Frequency"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileCot2Frequency"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileInitiateCotDur"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileRespCotMethod"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileDetectLongCpToneDur"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileDetectLongDigitDur"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileEchoCancelEnabled"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileEchoCancelTail"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileInGainControl"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileOutAttnControl"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileVoIpVadEnabled"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileVoIpVadTimer"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileVoAal2VadTimer"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileAtmBearerType"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileAtmAalPartialFill"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileAtmAalType"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileSuppressBearerDigit"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileRowStatus"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileComfortNoiseGenerate"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewaySctpAssocId"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewaySrvChgProfile"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewaySrvChgProfileVer"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMsgTokenType"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cmedxCallReduceRateNotifyGroup": {
+    "name": "cmedxCallReduceRateNotifyGroup",
+    "oid": "1.3.6.1.4.1.9.10.104.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCrrNotifyState"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCrrNotifyEnabled"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCurrentCallState"
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxOverloadControlGroup": {
+    "name": "cmedxOverloadControlGroup",
+    "oid": "1.3.6.1.4.1.9.10.104.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxOverloadControlEnabled"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxOverloadNotifyState"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxOverloadNotifyEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxOverloadStatsGroup": {
+    "name": "cmedxOverloadStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.104.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxOverloadEnterCounts"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxOverloadExitCounts"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxOverloadCurrentState"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxOverloadLastResetTime"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxOverloadCountersClear"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxOverloadRsHighCounts"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxOverloadRsMedCounts"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxOverloadRsLowCounts"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxOverloadContributorCounts"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxOverloadRsLastResetTime"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxOverloadRsCountersClear"
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxStatsExtGroup": {
+    "name": "cmedxStatsExtGroup",
+    "oid": "1.3.6.1.4.1.9.10.104.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdTotalFails"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdTotalSucceeds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdTotal"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdTotalPendings"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdPhyTermAddRespTimeMin"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdPhyTermAddRespTimeMax"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdPhyTermAddRespTimeAvg"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdPhyTermAddRespTimeCount"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdPhyTermModRespTimeMin"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdPhyTermModRespTimeMax"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdPhyTermModRespTimeAvg"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdPhyTermModRespTimeCount"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdPhyTermSubRespTimeMin"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdPhyTermSubRespTimeMax"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdPhyTermSubRespTimeAvg"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdPhyTermSubRespTimeCount"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdEphTermAddRespTimeMin"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdEphTermAddRespTimeMax"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdEphTermAddRespTimeAvg"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdEphTermAddRespTimeCount"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdEphTermModRespTimeMin"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdEphTermModRespTimeMax"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdEphTermModRespTimeAvg"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdEphTermModRespTimeCount"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdEphTermSubRespTimeMin"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdEphTermSubRespTimeMax"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdEphTermSubRespTimeAvg"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdEphTermSubRespTimeCount"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumInProgCmds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdMaxInProgCmds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdSinceLastReset"
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxEphemeralTermStatsGroup": {
+    "name": "cmedxEphemeralTermStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.104.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxEphTermInfoStatsIndexType"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxEphTermInfoNumTerm"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxEphTermInfoNumInUsed"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxEphTermInfoMaxNumInUsed"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxEphTermInfoMinDuration"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxEphTermInfoMaxDuration"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxEphTermInfoAvgDuration"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxEphTermInfoCounterClear"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxEphTermInfoSinceLastClear"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxEphTermInfoSinceLastReset"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxEphTermIndexInfo"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxEphTermInfoNumFreed"
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxConfigGroupRev2": {
+    "name": "cmedxConfigGroupRev2",
+    "oid": "1.3.6.1.4.1.9.10.104.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMgcGroupIndex"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayIpAddressIndex"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayAssociationId"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMaxContexts"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMaxTermsInContext"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMgExecTime"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMgcExecTime"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayNumConnRetries"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMaxWaitingDelay"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayRestartDelay"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayRespRetentionTime"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayInitialRtt"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayInactivityTime"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayHeaderAddrType"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayDownServiceDelay"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayActiveMgcAddress"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayActiveMgcDomain"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayActiveMgcPortNum"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayStateChangeReason"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayStateChangeMethod"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxTermType"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxTermTypeProfileId"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxTermTypePkgIds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxTermTypeRowStatus"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfilePlayCpToneInterDur"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileDtmfDigitOnDur"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileDtmfPauseDur"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileCot1Frequency"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileCot2Frequency"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileInitiateCotDur"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileRespCotMethod"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileDetectLongCpToneDur"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileDetectLongDigitDur"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileEchoCancelEnabled"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileEchoCancelTail"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileInGainControl"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileOutAttnControl"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileVoIpVadEnabled"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileVoIpVadTimer"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileVoAal2VadTimer"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileAtmBearerType"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileAtmAalPartialFill"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileAtmAalType"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileSuppressBearerDigit"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileRowStatus"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxProfileComfortNoiseGenerate"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewaySctpAssocId"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewaySrvChgProfile"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewaySrvChgProfileVer"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMsgTokenType"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMgProvisionRspTime"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMgcProvisionRspTime"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMgOrigPendLimit"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayMgcOrigPendLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxStatsGroupRev1": {
+    "name": "cmedxStatsGroupRev1",
+    "oid": "1.3.6.1.4.1.9.10.104.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayLastEvent"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumAddFails"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumAddSucceeds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumSubtractFails"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumSubtractSucceeds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumMoveFails"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumMoveSucceeds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumModifyFails"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumModifySucceeds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumAuditValFails"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumAuditValSucceeds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumAuditCapFails"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumAuditCapSucceeds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumNotifyFails"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumNotifySucceeds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumSrvChgFromMgcFails"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumSrvChgFromMgcSucceeds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumSrvChgFromMgFails"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumSrvChgFromMgSucceeds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCntxNumActiveContexts"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCntxPeakNumActiveContexts"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCntxNumContextAllocated"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCntxNumContextFreed"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCntxShortestContextLife"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCntxAverageContextLife"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCntxLongestContextLife"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCntxNumCntxMoreThan2Terms"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxPhyTermStatsNumAdds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxPhyTermStatsNumFailures"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxPhyTermStatsOosFromMgcs"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxPhyTermStatsOosFromOams"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxEphTermStatsNumAdds"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxEphTermStatsNumFailures"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumAddPendings"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumSubtractPendings"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumMovePendings"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumModifyPendings"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumAuditValPendings"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumAuditCapPendings"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumNotifyPendings"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumSrvChgFromMgcPendings"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxCmdNumSrvChgFromMgPendings"
+      }
+    ],
+    "status": "current"
+  },
+  "cmedxConfigDomainInfoGroup": {
+    "name": "cmedxConfigDomainInfoGroup",
+    "oid": "1.3.6.1.4.1.9.10.104.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayDomainName"
+      },
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "object": "cmedxGatewayCmbDnAndPortInMID"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MEGACO-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-MEGACO-EXT-MIB"
+  }
+}

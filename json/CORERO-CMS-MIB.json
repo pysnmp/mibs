@@ -1,0 +1,1182 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "iso",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Integer32",
+      "Counter32",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
+      "TimeStamp",
+      "TestAndIncr"
+    ]
+  },
+  "coreroCMSMIB": {
+    "name": "coreroCMSMIB",
+    "oid": "1.3.6.1.4.1.41036.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-06-16 00:00",
+        "description": "Added interface error counts."
+      },
+      {
+        "revision": "2016-01-28 00:00",
+        "description": "Added Protection Group Interface statistics."
+      },
+      {
+        "revision": "2014-04-24 00:00",
+        "description": "First version."
+      }
+    ]
+  },
+  "corero": {
+    "name": "corero",
+    "oid": "1.3.6.1.4.1.41036",
+    "class": "objectidentity"
+  },
+  "coreroCMSMIBObjects": {
+    "name": "coreroCMSMIBObjects",
+    "oid": "1.3.6.1.4.1.41036.4.1",
+    "class": "objectidentity"
+  },
+  "coreroCMSMIBConformance": {
+    "name": "coreroCMSMIBConformance",
+    "oid": "1.3.6.1.4.1.41036.4.2",
+    "class": "objectidentity"
+  },
+  "UnsignedShort": {
+    "name": "UnsignedShort",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "ConfdString": {
+    "name": "ConfdString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "displayhint": "1t",
+    "status": "current"
+  },
+  "String": {
+    "name": "String",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "displayhint": "1t",
+    "status": "current"
+  },
+  "TYPE_CMS_MODULE_STATE": {
+    "name": "TYPE-CMS-MODULE-STATE",
+    "class": "textualconvention",
+    "type": {
+      "type": "String",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "defense": {
+    "name": "defense",
+    "oid": "1.3.6.1.4.1.41036.4.1.1",
+    "class": "objectidentity"
+  },
+  "defenseStatus": {
+    "name": "defenseStatus",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.1",
+    "class": "objectidentity"
+  },
+  "defenseStatusThreatAwareness": {
+    "name": "defenseStatusThreatAwareness",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "excessivePacketsFromBadClients": {
+    "name": "excessivePacketsFromBadClients",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "excessiveProxySetupRate": {
+    "name": "excessiveProxySetupRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "excessiveNewIpAddresses": {
+    "name": "excessiveNewIpAddresses",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "excessiveAddressTableUsage": {
+    "name": "excessiveAddressTableUsage",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "excessiveTcpSetupRate": {
+    "name": "excessiveTcpSetupRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "excessiveNonTcpSetupRate": {
+    "name": "excessiveNonTcpSetupRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "excessiveFailedProxyRate": {
+    "name": "excessiveFailedProxyRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "defenseStatistics": {
+    "name": "defenseStatistics",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2",
+    "class": "objectidentity"
+  },
+  "defenseBlockRateStatistics": {
+    "name": "defenseBlockRateStatistics",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "allRulesBlockRate": {
+    "name": "allRulesBlockRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemIssueBlockRate": {
+    "name": "systemIssueBlockRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "networkAccessRestrictionBlockRate": {
+    "name": "networkAccessRestrictionBlockRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "networkRateLimitBlockRate": {
+    "name": "networkRateLimitBlockRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "networkProtocolValidationBlockRate": {
+    "name": "networkProtocolValidationBlockRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "networkIntegrityAnalysisBlockRate": {
+    "name": "networkIntegrityAnalysisBlockRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "applicationAccessRestrictionBlockRate": {
+    "name": "applicationAccessRestrictionBlockRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "applicationRateLimitBlockRate": {
+    "name": "applicationRateLimitBlockRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "applicationProtocolValidationBlockRate": {
+    "name": "applicationProtocolValidationBlockRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "applicationIntegrityAnalysisBlockRate": {
+    "name": "applicationIntegrityAnalysisBlockRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "defenseSetupRateStatistics": {
+    "name": "defenseSetupRateStatistics",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "tcpSetupRate": {
+    "name": "tcpSetupRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nonTcpSetupRate": {
+    "name": "nonTcpSetupRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "udpSetupRate": {
+    "name": "udpSetupRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpSetupRate": {
+    "name": "icmpSetupRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "otherIpSetupRate": {
+    "name": "otherIpSetupRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "defenseUsageStatistics": {
+    "name": "defenseUsageStatistics",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.3",
+    "class": "objectidentity"
+  },
+  "inUseFlows": {
+    "name": "inUseFlows",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inUseTcpFlows": {
+    "name": "inUseTcpFlows",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inUseUdpFlows": {
+    "name": "inUseUdpFlows",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inUseIcmpFlows": {
+    "name": "inUseIcmpFlows",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inUseOtherFlows": {
+    "name": "inUseOtherFlows",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totalProxySetups": {
+    "name": "totalProxySetups",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "totalProxyFailedSetups": {
+    "name": "totalProxyFailedSetups",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "defenseInterfaceStatistics": {
+    "name": "defenseInterfaceStatistics",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4",
+    "class": "objectidentity"
+  },
+  "externalPortPacketReceiveRate": {
+    "name": "externalPortPacketReceiveRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "externalPortBitReceiveRate": {
+    "name": "externalPortBitReceiveRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "externalPortPacketTransmitRate": {
+    "name": "externalPortPacketTransmitRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "externalPortBitTransmitRate": {
+    "name": "externalPortBitTransmitRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalPortPacketReceiveRate": {
+    "name": "internalPortPacketReceiveRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalPortBitReceiveRate": {
+    "name": "internalPortBitReceiveRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalPortPacketTransmitRate": {
+    "name": "internalPortPacketTransmitRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalPortBitTransmitRate": {
+    "name": "internalPortBitTransmitRate",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "externalPortReceivedPackets": {
+    "name": "externalPortReceivedPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "externalPortTransmittedPackets": {
+    "name": "externalPortTransmittedPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "externalPortReceivedBytes": {
+    "name": "externalPortReceivedBytes",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "externalPortTransmittedBytes": {
+    "name": "externalPortTransmittedBytes",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalPortReceivedPackets": {
+    "name": "internalPortReceivedPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalPortTransmittedPackets": {
+    "name": "internalPortTransmittedPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalPortReceivedBytes": {
+    "name": "internalPortReceivedBytes",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalPortTransmittedBytes": {
+    "name": "internalPortTransmittedBytes",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "externalPortReceivedBadCrcPackets": {
+    "name": "externalPortReceivedBadCrcPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalPortReceivedBadCrcPackets": {
+    "name": "internalPortReceivedBadCrcPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "externalPortReceivedOversizedPackets": {
+    "name": "externalPortReceivedOversizedPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalPortReceivedOversizedPackets": {
+    "name": "internalPortReceivedOversizedPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "externalPortReceivedJabberPackets": {
+    "name": "externalPortReceivedJabberPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalPortReceivedJabberPackets": {
+    "name": "internalPortReceivedJabberPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "externalPortTransmitErrorPackets": {
+    "name": "externalPortTransmitErrorPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalPortTransmitErrorPackets": {
+    "name": "internalPortTransmitErrorPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.4.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "defenseIpAddressStatistics": {
+    "name": "defenseIpAddressStatistics",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.5",
+    "class": "objectidentity"
+  },
+  "inUseAddresses": {
+    "name": "inUseAddresses",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inUseTrustedAddresses": {
+    "name": "inUseTrustedAddresses",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inUseSuspiciousAddresses": {
+    "name": "inUseSuspiciousAddresses",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inUseMaliciousAddresses": {
+    "name": "inUseMaliciousAddresses",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inUseUnclassifiedAddresses": {
+    "name": "inUseUnclassifiedAddresses",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.2.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "protectionGroupStatistics": {
+    "name": "protectionGroupStatistics",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.3",
+    "class": "objectidentity"
+  },
+  "protectionGroupTable": {
+    "name": "protectionGroupTable",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "protectionGroupEntry": {
+    "name": "protectionGroupEntry",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CORERO-CMS-MIB",
+        "object": "pgName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pgName": {
+    "name": "pgName",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pgExternalPortReceivedPackets": {
+    "name": "pgExternalPortReceivedPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pgExternalPortTransmittedPackets": {
+    "name": "pgExternalPortTransmittedPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pgExternalPortReceivedBytes": {
+    "name": "pgExternalPortReceivedBytes",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pgExternalPortTransmittedBytes": {
+    "name": "pgExternalPortTransmittedBytes",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pgInternalPortReceivedPackets": {
+    "name": "pgInternalPortReceivedPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pgInternalPortTransmittedPackets": {
+    "name": "pgInternalPortTransmittedPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pgInternalPortReceivedBytes": {
+    "name": "pgInternalPortReceivedBytes",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pgInternalPortTransmittedBytes": {
+    "name": "pgInternalPortTransmittedBytes",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pgExternalPortReceivedBadCrcPackets": {
+    "name": "pgExternalPortReceivedBadCrcPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pgInternalPortReceivedBadCrcPackets": {
+    "name": "pgInternalPortReceivedBadCrcPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pgExternalPortReceivedOversizedPackets": {
+    "name": "pgExternalPortReceivedOversizedPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pgInternalPortReceivedOversizedPackets": {
+    "name": "pgInternalPortReceivedOversizedPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pgExternalPortReceivedJabberPackets": {
+    "name": "pgExternalPortReceivedJabberPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pgInternalPortReceivedJabberPackets": {
+    "name": "pgInternalPortReceivedJabberPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pgExternalPortTransmitErrorPackets": {
+    "name": "pgExternalPortTransmitErrorPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pgInternalPortTransmitErrorPackets": {
+    "name": "pgInternalPortTransmitErrorPackets",
+    "oid": "1.3.6.1.4.1.41036.4.1.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coreroCMSMIBCompliances": {
+    "name": "coreroCMSMIBCompliances",
+    "oid": "1.3.6.1.4.1.41036.4.2.1",
+    "class": "objectidentity"
+  },
+  "coreroCMSMIBGroups": {
+    "name": "coreroCMSMIBGroups",
+    "oid": "1.3.6.1.4.1.41036.4.2.2",
+    "class": "objectidentity"
+  },
+  "coreroCMSMIBCompliance": {
+    "name": "coreroCMSMIBCompliance",
+    "oid": "1.3.6.1.4.1.41036.4.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "defenseGroup",
+        "module": "CORERO-CMS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "defenseGroup": {
+    "name": "defenseGroup",
+    "oid": "1.3.6.1.4.1.41036.4.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CORERO-CMS-MIB",
+        "object": "defenseStatus"
+      },
+      {
+        "module": "CORERO-CMS-MIB",
+        "object": "defenseStatistics"
+      },
+      {
+        "module": "CORERO-CMS-MIB",
+        "object": "protectionGroupStatistics"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/corero/CORERO-CMS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CORERO-CMS-MIB"
+  }
+}

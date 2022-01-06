@@ -1,0 +1,1229 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "BridgeId",
+      "MacAddress",
+      "Timeout"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "TRAP-TYPE",
+      "MibIdentifier",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus",
+      "PhysAddress"
+    ]
+  },
+  "zyxel": {
+    "name": "zyxel",
+    "oid": "1.3.6.1.4.1.890",
+    "class": "objectidentity"
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.890.1",
+    "class": "objectidentity"
+  },
+  "accessSwitch": {
+    "name": "accessSwitch",
+    "oid": "1.3.6.1.4.1.890.1.5",
+    "class": "objectidentity"
+  },
+  "accessSwitchCommon": {
+    "name": "accessSwitchCommon",
+    "oid": "1.3.6.1.4.1.890.1.5.1",
+    "class": "objectidentity"
+  },
+  "accessSwitchMgnt": {
+    "name": "accessSwitchMgnt",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1",
+    "class": "objectidentity"
+  },
+  "accessSwitchStats": {
+    "name": "accessSwitchStats",
+    "oid": "1.3.6.1.4.1.890.1.5.1.2",
+    "class": "objectidentity"
+  },
+  "asMacStats": {
+    "name": "asMacStats",
+    "oid": "1.3.6.1.4.1.890.1.5.1.2.1",
+    "class": "objectidentity"
+  },
+  "accessSwitchSystemCurrentStatus": {
+    "name": "accessSwitchSystemCurrentStatus",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchProblemCause": {
+    "name": "accessSwitchProblemCause",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchSystemTemperature": {
+    "name": "accessSwitchSystemTemperature",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchFanRpmTable": {
+    "name": "accessSwitchFanRpmTable",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "accessSwitchFanRpmEntry": {
+    "name": "accessSwitchFanRpmEntry",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchFanRpmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "accessSwitchFanRpmIndex": {
+    "name": "accessSwitchFanRpmIndex",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchFanRpmCurValue": {
+    "name": "accessSwitchFanRpmCurValue",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchFanRpmMaxValue": {
+    "name": "accessSwitchFanRpmMaxValue",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchFanRpmMinValue": {
+    "name": "accessSwitchFanRpmMinValue",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchFanRpmLowThresh": {
+    "name": "accessSwitchFanRpmLowThresh",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchFanRpmDescr": {
+    "name": "accessSwitchFanRpmDescr",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchVoltageTable": {
+    "name": "accessSwitchVoltageTable",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "accessSwitchVoltageEntry": {
+    "name": "accessSwitchVoltageEntry",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchVoltageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "accessSwitchVoltageIndex": {
+    "name": "accessSwitchVoltageIndex",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchVoltageCurValue": {
+    "name": "accessSwitchVoltageCurValue",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchVoltageMaxValue": {
+    "name": "accessSwitchVoltageMaxValue",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchVoltageMinValue": {
+    "name": "accessSwitchVoltageMinValue",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchVoltageNominalValue": {
+    "name": "accessSwitchVoltageNominalValue",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchVoltageLowThresh": {
+    "name": "accessSwitchVoltageLowThresh",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchVoltageDescr": {
+    "name": "accessSwitchVoltageDescr",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchSysTempTable": {
+    "name": "accessSwitchSysTempTable",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "accessSwitchSysTempEntry": {
+    "name": "accessSwitchSysTempEntry",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchSysTempIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "accessSwitchSysTempIndex": {
+    "name": "accessSwitchSysTempIndex",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchSysTempCurValue": {
+    "name": "accessSwitchSysTempCurValue",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchSysTempMaxValue": {
+    "name": "accessSwitchSysTempMaxValue",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchSysTempMinValue": {
+    "name": "accessSwitchSysTempMinValue",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchSysTempHighThresh": {
+    "name": "accessSwitchSysTempHighThresh",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchSysTempDescr": {
+    "name": "accessSwitchSysTempDescr",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchMaintenance": {
+    "name": "accessSwitchMaintenance",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "accessSwitchMaintenancePort": {
+    "name": "accessSwitchMaintenancePort",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "accessSwitchMaxNumOfStaticVlans": {
+    "name": "accessSwitchMaxNumOfStaticVlans",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ASSlotNum": {
+    "name": "ASSlotNum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "slot1": 1,
+          "slot2": 2
+        }
+      }
+    }
+  },
+  "ASModuleType": {
+    "name": "ASModuleType",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aes-100": 1,
+          "aes-100-1": 2,
+          "aam1008-61": 3,
+          "aam1008-63": 4,
+          "sam1008": 5
+        }
+      }
+    }
+  },
+  "acccessSwitchChassisId": {
+    "name": "acccessSwitchChassisId",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "accessSwitchSlotId": {
+    "name": "accessSwitchSlotId",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ASSlotNum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "accessSwitchModuleType": {
+    "name": "accessSwitchModuleType",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ASModuleType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchFWVersion": {
+    "name": "accessSwitchFWVersion",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchDriverVersion": {
+    "name": "accessSwitchDriverVersion",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchModemCodeVersion": {
+    "name": "accessSwitchModemCodeVersion",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessSwitchDSLConfOps": {
+    "name": "accessSwitchDSLConfOps",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "accessSwitchDSLConfTarget": {
+    "name": "accessSwitchDSLConfTarget",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "accessSwitchDSLConfProfileName": {
+    "name": "accessSwitchDSLConfProfileName",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "accessSwitchDSLConfMode": {
+    "name": "accessSwitchDSLConfMode",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asPacketForwardingTable": {
+    "name": "asPacketForwardingTable",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asPacketForwardingEntry": {
+    "name": "asPacketForwardingEntry",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "asPacketForwardingPortList": {
+    "name": "asPacketForwardingPortList",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asDhcpRelayEnable": {
+    "name": "asDhcpRelayEnable",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asDhcpRelayOption82Enable": {
+    "name": "asDhcpRelayOption82Enable",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asDhcpRelayOption82Info": {
+    "name": "asDhcpRelayOption82Info",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asMaxNumOfDhcpServers": {
+    "name": "asMaxNumOfDhcpServers",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asDhcpServerTable": {
+    "name": "asDhcpServerTable",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asDhcpServerEntry": {
+    "name": "asDhcpServerEntry",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "asDhcpServerIp",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "asDhcpServerIp": {
+    "name": "asDhcpServerIp",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asDhcpServerRowStatus": {
+    "name": "asDhcpServerRowStatus",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asMaxNumberOfRadiusServers": {
+    "name": "asMaxNumberOfRadiusServers",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asRadiusServerTable": {
+    "name": "asRadiusServerTable",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.29",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asRadiusServerEntry": {
+    "name": "asRadiusServerEntry",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.29.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "asRadiusServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "asRadiusServerIndex": {
+    "name": "asRadiusServerIndex",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.29.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asRadiusServerIp": {
+    "name": "asRadiusServerIp",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.29.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asRadiusServerPort": {
+    "name": "asRadiusServerPort",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.29.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asRadiusSharedSecret": {
+    "name": "asRadiusSharedSecret",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.29.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asRadiusServerRowStatus": {
+    "name": "asRadiusServerRowStatus",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.29.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asDot1xEnable": {
+    "name": "asDot1xEnable",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asDot1xPortTable": {
+    "name": "asDot1xPortTable",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.31",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asDot1xPortEntry": {
+    "name": "asDot1xPortEntry",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.31.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "asDot1xPortEnable": {
+    "name": "asDot1xPortEnable",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.31.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asDot1xPortControl": {
+    "name": "asDot1xPortControl",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.31.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "forceAuth": 2,
+          "forceUnAuth": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asDot1xPortReAuthEnable": {
+    "name": "asDot1xPortReAuthEnable",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.31.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asDot1xPortReAuthPeriod": {
+    "name": "asDot1xPortReAuthPeriod",
+    "oid": "1.3.6.1.4.1.890.1.5.1.1.31.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asMacDisplayTarget": {
+    "name": "asMacDisplayTarget",
+    "oid": "1.3.6.1.4.1.890.1.5.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "asMacTable": {
+    "name": "asMacTable",
+    "oid": "1.3.6.1.4.1.890.1.5.1.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "asMacEntry": {
+    "name": "asMacEntry",
+    "oid": "1.3.6.1.4.1.890.1.5.1.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "asMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "asMacAddress": {
+    "name": "asMacAddress",
+    "oid": "1.3.6.1.4.1.890.1.5.1.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "asMacPort": {
+    "name": "asMacPort",
+    "oid": "1.3.6.1.4.1.890.1.5.1.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "asMacStatus": {
+    "name": "asMacStatus",
+    "oid": "1.3.6.1.4.1.890.1.5.1.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "invalid": 2,
+          "learned": 3,
+          "self": 4,
+          "mgmt": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reboot": {
+    "name": "reboot",
+    "oid": "1.3.6.1.4.1.890.1.50.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchProblemCause"
+      }
+    ]
+  },
+  "systemShutdown": {
+    "name": "systemShutdown",
+    "oid": "1.3.6.1.4.1.890.1.50.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchProblemCause"
+      }
+    ]
+  },
+  "overheat": {
+    "name": "overheat",
+    "oid": "1.3.6.1.4.1.890.1.50.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchSysTempIndex"
+      },
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchSysTempCurValue"
+      },
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchSystemCurrentStatus"
+      }
+    ]
+  },
+  "overheatOver": {
+    "name": "overheatOver",
+    "oid": "1.3.6.1.4.1.890.1.50.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchSysTempIndex"
+      },
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchSysTempCurValue"
+      },
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchSystemCurrentStatus"
+      }
+    ]
+  },
+  "errLog": {
+    "name": "errLog",
+    "oid": "1.3.6.1.4.1.890.1.50.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchProblemCause"
+      }
+    ]
+  },
+  "fanRpmLow": {
+    "name": "fanRpmLow",
+    "oid": "1.3.6.1.4.1.890.1.50.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchFanRpmIndex"
+      },
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchFanRpmCurValue"
+      },
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchSystemCurrentStatus"
+      }
+    ]
+  },
+  "fanRpmNormal": {
+    "name": "fanRpmNormal",
+    "oid": "1.3.6.1.4.1.890.1.50.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchFanRpmIndex"
+      },
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchFanRpmCurValue"
+      },
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchSystemCurrentStatus"
+      }
+    ]
+  },
+  "voltageOutOfRange": {
+    "name": "voltageOutOfRange",
+    "oid": "1.3.6.1.4.1.890.1.50.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchVoltageIndex"
+      },
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchVoltageCurValue"
+      },
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchSystemCurrentStatus"
+      }
+    ]
+  },
+  "voltageNormal": {
+    "name": "voltageNormal",
+    "oid": "1.3.6.1.4.1.890.1.50.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchVoltageIndex"
+      },
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchVoltageCurValue"
+      },
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchSystemCurrentStatus"
+      }
+    ]
+  },
+  "systemMaintenanceFailure": {
+    "name": "systemMaintenanceFailure",
+    "oid": "1.3.6.1.4.1.890.1.50.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchProblemCause"
+      }
+    ]
+  },
+  "configChange": {
+    "name": "configChange",
+    "oid": "1.3.6.1.4.1.890.1.50.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchProblemCause"
+      }
+    ]
+  },
+  "thermalSensorFailure": {
+    "name": "thermalSensorFailure",
+    "oid": "1.3.6.1.4.1.890.1.50.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ZYXEL-AS-MIB",
+        "object": "accessSwitchProblemCause"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/zyxel/ZYXEL-AS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:29 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ZYXEL-AS-MIB"
+  }
+}

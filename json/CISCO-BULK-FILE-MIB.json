@@ -1,0 +1,975 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "zeroDotZero",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoBulkFileMIB": {
+    "name": "ciscoBulkFileMIB",
+    "oid": "1.3.6.1.4.1.9.9.81",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-06-10 00:00",
+        "description": "Added enum 'forcedCreate' for object 'cbfDefineFileNow' for forced creation of configuration files."
+      },
+      {
+        "revision": "2002-05-15 00:00",
+        "description": "Added default values for all read-write objects in table to simplify creation of table rows."
+      },
+      {
+        "revision": "2001-08-22 00:00",
+        "description": "Modified description of objects cbfDefineObjectTableInstance and cbfDefineObjectLastPolledInst in cbfDefineObjectTable to accept/represent Full OIDs instead of partial OIDs."
+      },
+      {
+        "revision": "2001-08-01 00:00",
+        "description": "Enhanced the MIB for selective row transfer from MIBS. Added a notification to indicate bulk file creation or error(during creation of the file). Added object cbfDefineFileNotifyOnCompletion to cbfDefineFileTable. Added the objects cbfDefineObjectTableInstance, cbfDefineObjectLastPolledInst and cbfDefineObjectNumEntries to cbfDefineObjectTable. Added cbfDefineFileCompletion notification."
+      },
+      {
+        "revision": "2001-06-26 17:00",
+        "description": "Added the following enumerations variantBERWithCksum(4) and variantBinWithCksum(5) in cbfDefineFileFormat"
+      },
+      {
+        "revision": "1998-10-29 17:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoBulkFileMIBObjects": {
+    "name": "ciscoBulkFileMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.81.1",
+    "class": "objectidentity"
+  },
+  "cbfDefine": {
+    "name": "cbfDefine",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1",
+    "class": "objectidentity"
+  },
+  "cbfStatus": {
+    "name": "cbfStatus",
+    "oid": "1.3.6.1.4.1.9.9.81.1.2",
+    "class": "objectidentity"
+  },
+  "cbfDefineMaxFiles": {
+    "name": "cbfDefineMaxFiles",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cbfDefineFiles": {
+    "name": "cbfDefineFiles",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbfDefineHighFiles": {
+    "name": "cbfDefineHighFiles",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbfDefineFilesRefused": {
+    "name": "cbfDefineFilesRefused",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbfDefineMaxObjects": {
+    "name": "cbfDefineMaxObjects",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cbfDefineObjects": {
+    "name": "cbfDefineObjects",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbfDefineHighObjects": {
+    "name": "cbfDefineHighObjects",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbfDefineObjectsRefused": {
+    "name": "cbfDefineObjectsRefused",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbfDefineFileTable": {
+    "name": "cbfDefineFileTable",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbfDefineFileEntry": {
+    "name": "cbfDefineFileEntry",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cbfDefineFileIndex": {
+    "name": "cbfDefineFileIndex",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbfDefineFileName": {
+    "name": "cbfDefineFileName",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cbfDefineFileStorage": {
+    "name": "cbfDefineFileStorage",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ephemeral": 1,
+          "volatile": 2,
+          "permanent": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ephemeral",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cbfDefineFileFormat": {
+    "name": "cbfDefineFileFormat",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standardBER": 1,
+          "bulkBinary": 2,
+          "bulkASCII": 3,
+          "variantBERWithCksum": 4,
+          "variantBinWithCksum": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "bulkBinary",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cbfDefineFileNow": {
+    "name": "cbfDefineFileNow",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 1,
+          "ready": 2,
+          "create": 3,
+          "running": 4,
+          "forcedCreate": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notActive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cbfDefineFileEntryStatus": {
+    "name": "cbfDefineFileEntryStatus",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cbfDefineFileNotifyOnCompletion": {
+    "name": "cbfDefineFileNotifyOnCompletion",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cbfDefineObjectTable": {
+    "name": "cbfDefineObjectTable",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbfDefineObjectEntry": {
+    "name": "cbfDefineObjectEntry",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineFileIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineObjectIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cbfDefineObjectIndex": {
+    "name": "cbfDefineObjectIndex",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbfDefineObjectClass": {
+    "name": "cbfDefineObjectClass",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "object": 1,
+          "lexicalTable": 2,
+          "leastCpuTable": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "leastCpuTable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cbfDefineObjectID": {
+    "name": "cbfDefineObjectID",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cbfDefineObjectEntryStatus": {
+    "name": "cbfDefineObjectEntryStatus",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cbfDefineObjectTableInstance": {
+    "name": "cbfDefineObjectTableInstance",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cbfDefineObjectNumEntries": {
+    "name": "cbfDefineObjectNumEntries",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cbfDefineObjectLastPolledInst": {
+    "name": "cbfDefineObjectLastPolledInst",
+    "oid": "1.3.6.1.4.1.9.9.81.1.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbfStatusMaxFiles": {
+    "name": "cbfStatusMaxFiles",
+    "oid": "1.3.6.1.4.1.9.9.81.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cbfStatusFiles": {
+    "name": "cbfStatusFiles",
+    "oid": "1.3.6.1.4.1.9.9.81.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbfStatusHighFiles": {
+    "name": "cbfStatusHighFiles",
+    "oid": "1.3.6.1.4.1.9.9.81.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbfStatusFilesBumped": {
+    "name": "cbfStatusFilesBumped",
+    "oid": "1.3.6.1.4.1.9.9.81.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbfStatusFileTable": {
+    "name": "cbfStatusFileTable",
+    "oid": "1.3.6.1.4.1.9.9.81.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbfStatusFileEntry": {
+    "name": "cbfStatusFileEntry",
+    "oid": "1.3.6.1.4.1.9.9.81.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineFileIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfStatusFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cbfStatusFileIndex": {
+    "name": "cbfStatusFileIndex",
+    "oid": "1.3.6.1.4.1.9.9.81.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbfStatusFileState": {
+    "name": "cbfStatusFileState",
+    "oid": "1.3.6.1.4.1.9.9.81.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "ready": 2,
+          "emptied": 3,
+          "noSpace": 4,
+          "badName": 5,
+          "writeErr": 6,
+          "noMem": 7,
+          "buffErr": 8,
+          "aborted": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbfStatusFileCompletionTime": {
+    "name": "cbfStatusFileCompletionTime",
+    "oid": "1.3.6.1.4.1.9.9.81.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbfStatusFileEntryStatus": {
+    "name": "cbfStatusFileEntryStatus",
+    "oid": "1.3.6.1.4.1.9.9.81.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoBulkFileMIBNotificationPrefix": {
+    "name": "ciscoBulkFileMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.81.2",
+    "class": "objectidentity"
+  },
+  "ciscoBulkFileMIBNotifications": {
+    "name": "ciscoBulkFileMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.81.2.0",
+    "class": "objectidentity"
+  },
+  "cbfDefineFileCompletion": {
+    "name": "cbfDefineFileCompletion",
+    "oid": "1.3.6.1.4.1.9.9.81.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfStatusFileState"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfStatusFileCompletionTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBulkFileMIBConformance": {
+    "name": "ciscoBulkFileMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.81.3",
+    "class": "objectidentity"
+  },
+  "ciscoBulkFileMIBCompliances": {
+    "name": "ciscoBulkFileMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.81.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoBulkFileMIBGroups": {
+    "name": "ciscoBulkFileMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.81.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoBulkFileMIBCompliance": {
+    "name": "ciscoBulkFileMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.81.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoBulkFileDefineGroup",
+        "module": "CISCO-BULK-FILE-MIB"
+      },
+      {
+        "object": "ciscoBulkFileStatusGroup",
+        "module": "CISCO-BULK-FILE-MIB"
+      },
+      {
+        "object": "ciscoBulkFileNotiGroup",
+        "module": "CISCO-BULK-FILE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoBulkFileMIBComplianceRev1": {
+    "name": "ciscoBulkFileMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.81.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoBulkFileDefineGroupRev1",
+        "module": "CISCO-BULK-FILE-MIB"
+      },
+      {
+        "object": "ciscoBulkFileStatusGroup",
+        "module": "CISCO-BULK-FILE-MIB"
+      },
+      {
+        "object": "ciscoBulkFileNotiGroup",
+        "module": "CISCO-BULK-FILE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBulkFileDefineGroup": {
+    "name": "ciscoBulkFileDefineGroup",
+    "oid": "1.3.6.1.4.1.9.9.81.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineMaxFiles"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineFiles"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineHighFiles"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineFilesRefused"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineMaxObjects"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineObjects"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineHighObjects"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineObjectsRefused"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineFileName"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineFileStorage"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineFileFormat"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineFileNow"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineFileEntryStatus"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineFileNotifyOnCompletion"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineObjectClass"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineObjectID"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineObjectEntryStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoBulkFileStatusGroup": {
+    "name": "ciscoBulkFileStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.81.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfStatusMaxFiles"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfStatusFiles"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfStatusHighFiles"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfStatusFilesBumped"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfStatusFileState"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfStatusFileCompletionTime"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfStatusFileEntryStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBulkFileNotiGroup": {
+    "name": "ciscoBulkFileNotiGroup",
+    "oid": "1.3.6.1.4.1.9.9.81.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineFileCompletion"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBulkFileDefineGroupRev1": {
+    "name": "ciscoBulkFileDefineGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.81.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineMaxFiles"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineFiles"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineHighFiles"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineFilesRefused"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineMaxObjects"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineObjects"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineHighObjects"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineObjectsRefused"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineFileName"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineFileStorage"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineFileFormat"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineFileNow"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineFileEntryStatus"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineFileNotifyOnCompletion"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineObjectClass"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineObjectID"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineObjectEntryStatus"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineObjectTableInstance"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineObjectNumEntries"
+      },
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "object": "cbfDefineObjectLastPolledInst"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-BULK-FILE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-BULK-FILE-MIB"
+  }
+}

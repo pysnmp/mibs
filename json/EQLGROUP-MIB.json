@@ -1,0 +1,6099 @@
+{
+  "imports": {
+    "class": "imports",
+    "EQUALLOGIC-SMI": [
+      "equalLogic"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "enterprises",
+      "TimeTicks",
+      "Counter32",
+      "Integer32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowPointer"
+    ]
+  },
+  "eqlgroupModule": {
+    "name": "eqlgroupModule",
+    "oid": "1.3.6.1.4.1.12740.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-06 00:00",
+        "description": "Initial revision"
+      }
+    ]
+  },
+  "eqlgroupObjects": {
+    "name": "eqlgroupObjects",
+    "oid": "1.3.6.1.4.1.12740.1.1",
+    "class": "objectidentity"
+  },
+  "eqlgroupNotifications": {
+    "name": "eqlgroupNotifications",
+    "oid": "1.3.6.1.4.1.12740.1.2",
+    "class": "objectidentity"
+  },
+  "eqlgroupConformance": {
+    "name": "eqlgroupConformance",
+    "oid": "1.3.6.1.4.1.12740.1.3",
+    "class": "objectidentity"
+  },
+  "UTFString": {
+    "name": "UTFString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "t",
+    "status": "current"
+  },
+  "AdminAccountPrivilegeType": {
+    "name": "AdminAccountPrivilegeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "global-admin": 0,
+          "pool-admin": 1,
+          "pool-admin-group-read": 2,
+          "volume-admin": 3
+        }
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "AdminAccountType": {
+    "name": "AdminAccountType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "read-write": 1,
+          "read-only": 2
+        }
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "eqlStorageGroupTable": {
+    "name": "eqlStorageGroupTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlStorageGroupEntry": {
+    "name": "eqlStorageGroupEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlGroupId": {
+    "name": "eqlGroupId",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlGroupIsSingleSubnet": {
+    "name": "eqlGroupIsSingleSubnet",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "single-subnet": 1,
+          "multi-subnet": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "single-subnet",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupDefaultGatewayIpAddress": {
+    "name": "eqlGroupDefaultGatewayIpAddress",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "eqlGroupDefaultMask": {
+    "name": "eqlGroupDefaultMask",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupDefaultRoutingProtocol": {
+    "name": "eqlGroupDefaultRoutingProtocol",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "rip": 2,
+          "ospf": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupIsStorageOptimization": {
+    "name": "eqlGroupIsStorageOptimization",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "capacity": 1,
+          "performance": 2,
+          "raid5": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "capacity",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupDiskAddWaitTime": {
+    "name": "eqlGroupDiskAddWaitTime",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupDefaultLanguage": {
+    "name": "eqlGroupDefaultLanguage",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "eqlGroupDefaultSnapshotSize": {
+    "name": "eqlGroupDefaultSnapshotSize",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupDefaultSnapshotWarningLevel": {
+    "name": "eqlGroupDefaultSnapshotWarningLevel",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupDefaultSnapshotDeletePolicy": {
+    "name": "eqlGroupDefaultSnapshotDeletePolicy",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "make-volume-offline": 1,
+          "delete-oldest": 2,
+          "stop-snapshots": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "delete-oldest",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupTimeZone": {
+    "name": "eqlGroupTimeZone",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hst": 1,
+          "ast": 2,
+          "pst": 3,
+          "pnt": 4,
+          "mst": 5,
+          "cst": 6,
+          "est": 7,
+          "iet": 8,
+          "prt": 9,
+          "gmt": 10,
+          "ect": 11,
+          "eet": 12,
+          "eat": 13,
+          "met": 14,
+          "net": 15,
+          "plt": 16,
+          "ist": 17,
+          "bst": 18,
+          "vst": 19,
+          "ctt": 20,
+          "jst": 21,
+          "act": 22,
+          "aet": 23,
+          "sst": 24,
+          "nst": 25,
+          "mit": 26,
+          "cnt": 27,
+          "agt": 28,
+          "bet": 29,
+          "cat": 30,
+          "europe-Andorra": 31,
+          "asia-Dubai": 32,
+          "asia-Kabul": 33,
+          "america-Antigua": 34,
+          "america-Anguilla": 35,
+          "europe-Tirane": 36,
+          "asia-Yerevan": 37,
+          "america-Curacao": 38,
+          "africa-Luanda": 39,
+          "antarctica-McMurdo": 40,
+          "antarctica-South-Pole": 41,
+          "antarctica-Rothera": 42,
+          "antarctica-Palmer": 43,
+          "antarctica-Mawson": 44,
+          "antarctica-Davis": 45,
+          "antarctica-Casey": 46,
+          "antarctica-Vostok": 47,
+          "antarctica-DumontDUrville": 48,
+          "antarctica-Syowa": 49,
+          "america-Argentina-Buenos-Aires": 50,
+          "america-Argentina-Cordoba": 51,
+          "america-Argentina-Jujuy": 52,
+          "america-Argentina-Tucuman": 53,
+          "america-Argentina-Catamarca": 54,
+          "america-Argentina-La-Rioja": 55,
+          "america-Argentina-San-Juan": 56,
+          "america-Argentina-Mendoza": 57,
+          "america-Argentina-Rio-Gallegos": 58,
+          "america-Argentina-Ushuaia": 59,
+          "pacific-Pago-Pago": 60,
+          "europe-Vienna": 61,
+          "australia-Lord-Howe": 62,
+          "australia-Hobart": 63,
+          "australia-Currie": 64,
+          "australia-Melbourne": 65,
+          "australia-Sydney": 66,
+          "australia-Broken-Hill": 67,
+          "australia-Brisbane": 68,
+          "australia-Lindeman": 69,
+          "australia-Adelaide": 70,
+          "australia-Darwin": 71,
+          "australia-Perth": 72,
+          "america-Aruba": 73,
+          "europe-Mariehamn": 74,
+          "asia-Baku": 75,
+          "europe-Sarajevo": 76,
+          "america-Barbados": 77,
+          "asia-Dhaka": 78,
+          "europe-Brussels": 79,
+          "africa-Ouagadougou": 80,
+          "europe-Sofia": 81,
+          "asia-Bahrain": 82,
+          "africa-Bujumbura": 83,
+          "africa-Porto-Novo": 84,
+          "atlantic-Bermuda": 85,
+          "asia-Brunei": 86,
+          "america-La-Paz": 87,
+          "america-Noronha": 88,
+          "america-Belem": 89,
+          "america-Fortaleza": 90,
+          "america-Recife": 91,
+          "america-Araguaina": 92,
+          "america-Maceio": 93,
+          "america-Bahia": 94,
+          "america-Sao-Paulo": 95,
+          "america-Campo-Grande": 96,
+          "america-Cuiaba": 97,
+          "america-Porto-Velho": 98,
+          "america-Boa-Vista": 99,
+          "america-Manaus": 100,
+          "america-Eirunepe": 101,
+          "america-Rio-Branco": 102,
+          "america-Nassau": 103,
+          "asia-Thimphu": 104,
+          "africa-Gaborone": 105,
+          "europe-Minsk": 106,
+          "america-Belize": 107,
+          "america-St-Johns": 108,
+          "america-Halifax": 109,
+          "america-Glace-Bay": 110,
+          "america-Moncton": 111,
+          "america-Goose-Bay": 112,
+          "america-Blanc-Sablon": 113,
+          "america-Montreal": 114,
+          "america-Toronto": 115,
+          "america-Nipigon": 116,
+          "america-Thunder-Bay": 117,
+          "america-Pangnirtung": 118,
+          "america-Iqaluit": 119,
+          "america-Atikokan": 120,
+          "america-Rankin-Inlet": 121,
+          "america-Winnipeg": 122,
+          "america-Rainy-River": 123,
+          "america-Cambridge-Bay": 124,
+          "america-Regina": 125,
+          "america-Swift-Current": 126,
+          "america-Edmonton": 127,
+          "america-Yellowknife": 128,
+          "america-Inuvik": 129,
+          "america-Dawson-Creek": 130,
+          "america-Vancouver": 131,
+          "america-Whitehorse": 132,
+          "america-Dawson": 133,
+          "indian-Cocos": 134,
+          "africa-Kinshasa": 135,
+          "africa-Lubumbashi": 136,
+          "africa-Bangui": 137,
+          "africa-Brazzaville": 138,
+          "europe-Zurich": 139,
+          "africa-Abidjan": 140,
+          "pacific-Rarotonga": 141,
+          "america-Santiago": 142,
+          "pacific-Easter": 143,
+          "africa-Douala": 144,
+          "asia-Shanghai": 145,
+          "asia-Harbin": 146,
+          "asia-Chongqing": 147,
+          "asia-Urumqi": 148,
+          "asia-Kashgar": 149,
+          "america-Bogota": 150,
+          "america-Costa-Rica": 151,
+          "america-Havana": 152,
+          "atlantic-Cape-Verde": 153,
+          "indian-Christmas": 154,
+          "asia-Nicosia": 155,
+          "europe-Prague": 156,
+          "europe-Berlin": 157,
+          "africa-Djibouti": 158,
+          "europe-Copenhagen": 159,
+          "america-Dominica": 160,
+          "america-Santo-Domingo": 161,
+          "africa-Algiers": 162,
+          "america-Guayaquil": 163,
+          "pacific-Galapagos": 164,
+          "europe-Tallinn": 165,
+          "africa-Cairo": 166,
+          "africa-El-Aaiun": 167,
+          "africa-Asmara": 168,
+          "europe-Madrid": 169,
+          "africa-Ceuta": 170,
+          "atlantic-Canary": 171,
+          "africa-Addis-Ababa": 172,
+          "europe-Helsinki": 173,
+          "pacific-Fiji": 174,
+          "atlantic-Stanley": 175,
+          "pacific-Truk": 176,
+          "pacific-Ponape": 177,
+          "pacific-Kosrae": 178,
+          "atlantic-Faroe": 179,
+          "europe-Paris": 180,
+          "africa-Libreville": 181,
+          "europe-London": 182,
+          "america-Grenada": 183,
+          "asia-Tbilisi": 184,
+          "america-Cayenne": 185,
+          "europe-Guernsey": 186,
+          "africa-Accra": 187,
+          "europe-Gibraltar": 188,
+          "america-Godthab": 189,
+          "america-Danmarkshavn": 190,
+          "america-Scoresbysund": 191,
+          "america-Thule": 192,
+          "africa-Banjul": 193,
+          "africa-Conakry": 194,
+          "america-Guadeloupe": 195,
+          "africa-Malabo": 196,
+          "europe-Athens": 197,
+          "atlantic-South-Georgia": 198,
+          "america-Guatemala": 199,
+          "pacific-Guam": 200,
+          "africa-Bissau": 201,
+          "america-Guyana": 202,
+          "asia-Hong-Kong": 203,
+          "america-Tegucigalpa": 204,
+          "europe-Zagreb": 205,
+          "america-Port-au-Prince": 206,
+          "europe-Budapest": 207,
+          "asia-Jakarta": 208,
+          "asia-Pontianak": 209,
+          "asia-Makassar": 210,
+          "asia-Jayapura": 211,
+          "europe-Dublin": 212,
+          "asia-Jerusalem": 213,
+          "europe-Isle-of-Man": 214,
+          "asia-Calcutta": 215,
+          "indian-Chagos": 216,
+          "asia-Baghdad": 217,
+          "asia-Tehran": 218,
+          "atlantic-Reykjavik": 219,
+          "europe-Rome": 220,
+          "europe-Jersey": 221,
+          "america-Jamaica": 222,
+          "asia-Amman": 223,
+          "asia-Tokyo": 224,
+          "africa-Nairobi": 225,
+          "asia-Bishkek": 226,
+          "asia-Phnom-Penh": 227,
+          "pacific-Tarawa": 228,
+          "pacific-Enderbury": 229,
+          "pacific-Kiritimati": 230,
+          "indian-Comoro": 231,
+          "america-St-Kitts": 232,
+          "asia-Pyongyang": 233,
+          "asia-Seoul": 234,
+          "asia-Kuwait": 235,
+          "america-Cayman": 236,
+          "asia-Almaty": 237,
+          "asia-Qyzylorda": 238,
+          "asia-Aqtobe": 239,
+          "asia-Aqtau": 240,
+          "asia-Oral": 241,
+          "asia-Vientiane": 242,
+          "asia-Beirut": 243,
+          "america-St-Lucia": 244,
+          "europe-Vaduz": 245,
+          "asia-Colombo": 246,
+          "africa-Monrovia": 247,
+          "africa-Maseru": 248,
+          "europe-Vilnius": 249,
+          "europe-Luxembourg": 250,
+          "europe-Riga": 251,
+          "africa-Tripoli": 252,
+          "africa-Casablanca": 253,
+          "europe-Monaco": 254,
+          "europe-Chisinau": 255,
+          "europe-Podgorica": 256,
+          "indian-Antananarivo": 257,
+          "pacific-Majuro": 258,
+          "pacific-Kwajalein": 259,
+          "europe-Skopje": 260,
+          "africa-Bamako": 261,
+          "asia-Rangoon": 262,
+          "asia-Ulaanbaatar": 263,
+          "asia-Hovd": 264,
+          "asia-Choibalsan": 265,
+          "asia-Macau": 266,
+          "pacific-Saipan": 267,
+          "america-Martinique": 268,
+          "africa-Nouakchott": 269,
+          "america-Montserrat": 270,
+          "europe-Malta": 271,
+          "indian-Mauritius": 272,
+          "indian-Maldives": 273,
+          "africa-Blantyre": 274,
+          "america-Mexico-City": 275,
+          "america-Cancun": 276,
+          "america-Merida": 277,
+          "america-Monterrey": 278,
+          "america-Mazatlan": 279,
+          "america-Chihuahua": 280,
+          "america-Hermosillo": 281,
+          "america-Tijuana": 282,
+          "asia-Kuala-Lumpur": 283,
+          "asia-Kuching": 284,
+          "africa-Maputo": 285,
+          "africa-Windhoek": 286,
+          "pacific-Noumea": 287,
+          "africa-Niamey": 288,
+          "pacific-Norfolk": 289,
+          "africa-Lagos": 290,
+          "america-Managua": 291,
+          "europe-Amsterdam": 292,
+          "europe-Oslo": 293,
+          "asia-Katmandu": 294,
+          "pacific-Nauru": 295,
+          "pacific-Niue": 296,
+          "pacific-Auckland": 297,
+          "pacific-Chatham": 298,
+          "asia-Muscat": 299,
+          "america-Panama": 300,
+          "america-Lima": 301,
+          "pacific-Tahiti": 302,
+          "pacific-Marquesas": 303,
+          "pacific-Gambier": 304,
+          "pacific-Port-Moresby": 305,
+          "asia-Manila": 306,
+          "asia-Karachi": 307,
+          "europe-Warsaw": 308,
+          "america-Miquelon": 309,
+          "pacific-Pitcairn": 310,
+          "america-Puerto-Rico": 311,
+          "asia-Gaza": 312,
+          "europe-Lisbon": 313,
+          "atlantic-Madeira": 314,
+          "atlantic-Azores": 315,
+          "pacific-Palau": 316,
+          "america-Asuncion": 317,
+          "asia-Qatar": 318,
+          "indian-Reunion": 319,
+          "europe-Bucharest": 320,
+          "europe-Belgrade": 321,
+          "europe-Kaliningrad": 322,
+          "europe-Moscow": 323,
+          "europe-Volgograd": 324,
+          "europe-Samara": 325,
+          "asia-Yekaterinburg": 326,
+          "asia-Omsk": 327,
+          "asia-Novosibirsk": 328,
+          "asia-Krasnoyarsk": 329,
+          "asia-Irkutsk": 330,
+          "asia-Yakutsk": 331,
+          "asia-Vladivostok": 332,
+          "asia-Sakhalin": 333,
+          "asia-Magadan": 334,
+          "asia-Kamchatka": 335,
+          "asia-Anadyr": 336,
+          "africa-Kigali": 337,
+          "asia-Riyadh": 338,
+          "pacific-Guadalcanal": 339,
+          "indian-Mahe": 340,
+          "africa-Khartoum": 341,
+          "europe-Stockholm": 342,
+          "asia-Singapore": 343,
+          "atlantic-St-Helena": 344,
+          "europe-Ljubljana": 345,
+          "arctic-Longyearbyen": 346,
+          "atlantic-Jan-Mayen": 347,
+          "europe-Bratislava": 348,
+          "africa-Freetown": 349,
+          "europe-San-Marino": 350,
+          "africa-Dakar": 351,
+          "africa-Mogadishu": 352,
+          "america-Paramaribo": 353,
+          "africa-Sao-Tome": 354,
+          "america-El-Salvador": 355,
+          "asia-Damascus": 356,
+          "africa-Mbabane": 357,
+          "america-Grand-Turk": 358,
+          "africa-Ndjamena": 359,
+          "indian-Kerguelen": 360,
+          "africa-Lome": 361,
+          "asia-Bangkok": 362,
+          "asia-Dushanbe": 363,
+          "pacific-Fakaofo": 364,
+          "asia-Dili": 365,
+          "asia-Ashgabat": 366,
+          "africa-Tunis": 367,
+          "pacific-Tongatapu": 368,
+          "europe-Istanbul": 369,
+          "america-Port-of-Spain": 370,
+          "pacific-Funafuti": 371,
+          "asia-Taipei": 372,
+          "africa-Dar-es-Salaam": 373,
+          "europe-Kiev": 374,
+          "europe-Uzhgorod": 375,
+          "europe-Zaporozhye": 376,
+          "europe-Simferopol": 377,
+          "africa-Kampala": 378,
+          "pacific-Johnston": 379,
+          "pacific-Midway": 380,
+          "pacific-Wake": 381,
+          "america-New-York": 382,
+          "america-Detroit": 383,
+          "america-Kentucky-Louisville": 384,
+          "america-Kentucky-Monticello": 385,
+          "america-Indiana-Indianapolis": 386,
+          "america-Indiana-Marengo": 387,
+          "america-Indiana-Knox": 388,
+          "america-Indiana-Vevay": 389,
+          "america-Chicago": 390,
+          "america-Indiana-Vincennes": 391,
+          "america-Indiana-Petersburg": 392,
+          "america-Menominee": 393,
+          "america-North-Dakota-Center": 394,
+          "america-North-Dakota-New-Salem": 395,
+          "america-Denver": 396,
+          "america-Boise": 397,
+          "america-Shiprock": 398,
+          "america-Phoenix": 399,
+          "america-Los-Angeles": 400,
+          "america-Anchorage": 401,
+          "america-Juneau": 402,
+          "america-Yakutat": 403,
+          "america-Nome": 404,
+          "america-Adak": 405,
+          "pacific-Honolulu": 406,
+          "america-Montevideo": 407,
+          "asia-Samarkand": 408,
+          "asia-Tashkent": 409,
+          "europe-Vatican": 410,
+          "america-St-Vincent": 411,
+          "america-Caracas": 412,
+          "america-Tortola": 413,
+          "america-St-Thomas": 414,
+          "asia-Saigon": 415,
+          "pacific-Efate": 416,
+          "pacific-Wallis": 417,
+          "pacific-Apia": 418,
+          "asia-Aden": 419,
+          "indian-Mayotte": 420,
+          "africa-Johannesburg": 421,
+          "africa-Lusaka": 422,
+          "africa-Harare": 423,
+          "australia-Eucla": 424,
+          "america-Indiana-Tell-City": 425,
+          "america-Indiana-Winamac": 426,
+          "america-Resolute": 427,
+          "america-Marigot": 428,
+          "asia-Kolkata": 429,
+          "asia-Ho-Chi-Minh": 430,
+          "america-St-Barthelemy": 431,
+          "america-Argentina-San-Luis": 432,
+          "america-Santarem": 433,
+          "america-Argentina-Salta": 434,
+          "asia-Kathmandu": 435,
+          "america-Ojinaga": 436,
+          "america-Santa-Isabel": 437,
+          "asia-Novokuznetsk": 438,
+          "america-Matamoros": 439,
+          "antarctica-Macquarie": 440,
+          "america-Bahia-Banderas": 441,
+          "pacific-Pohnpei": 442,
+          "pacific-Chuuk": 443,
+          "america-North-Dakota-Beulah": 444,
+          "america-Metlakatla": 445,
+          "america-Sitka": 446,
+          "america-Kralendijk": 447,
+          "america-Lower-Princes": 448,
+          "africa-Juba": 449,
+          "asia-Hebron": 450,
+          "europe-Tiraspol": 451,
+          "america-Creston": 452,
+          "asia-Khandyga": 453,
+          "europe-Busingen": 454,
+          "asia-Ust-Nera": 455
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "est",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupLogLevel": {
+    "name": "eqlGroupLogLevel",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupDescription": {
+    "name": "eqlGroupDescription",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTFString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupIscsiNamePrefix": {
+    "name": "eqlGroupIscsiNamePrefix",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "iqn.2001-04.com.equallogic.",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupDefaultAliasToVolumeName": {
+    "name": "eqlGroupDefaultAliasToVolumeName",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupEmailSrcDomain": {
+    "name": "eqlGroupEmailSrcDomain",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupName": {
+    "name": "eqlGroupName",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupIpAddr": {
+    "name": "eqlGroupIpAddr",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupEnableWebAccessSSL": {
+    "name": "eqlGroupEnableWebAccessSSL",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupEnableWebAccessUnsecure": {
+    "name": "eqlGroupEnableWebAccessUnsecure",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupEnableCliAccessSSH": {
+    "name": "eqlGroupEnableCliAccessSSH",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupEnableCliAccessUnsecure": {
+    "name": "eqlGroupEnableCliAccessUnsecure",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupEnableEmailNotifications": {
+    "name": "eqlGroupEnableEmailNotifications",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupEnableSNMPTraps": {
+    "name": "eqlGroupEnableSNMPTraps",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupEnableSyslog": {
+    "name": "eqlGroupEnableSyslog",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupEmailPriorityMask": {
+    "name": "eqlGroupEmailPriorityMask",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupSNMPPriorityMask": {
+    "name": "eqlGroupSNMPPriorityMask",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "eqlGroupSysLogPriorityMask": {
+    "name": "eqlGroupSysLogPriorityMask",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupDefaultSite": {
+    "name": "eqlGroupDefaultSite",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupPasswd1": {
+    "name": "eqlGroupPasswd1",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupPasswd2": {
+    "name": "eqlGroupPasswd2",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlGroupRowStatus": {
+    "name": "eqlGroupRowStatus",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupObjectReuseScrub": {
+    "name": "eqlGroupObjectReuseScrub",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "eqlGroupEnableSSH": {
+    "name": "eqlGroupEnableSSH",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "eqlGroupEnableTelnet": {
+    "name": "eqlGroupEnableTelnet",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "eqlGroupEnableFTP": {
+    "name": "eqlGroupEnableFTP",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupEmailSrcUserName": {
+    "name": "eqlGroupEmailSrcUserName",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupSyslogFacility": {
+    "name": "eqlGroupSyslogFacility",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "kern": 1,
+          "user": 2,
+          "mail": 3,
+          "daemon": 4,
+          "auth": 5,
+          "syslog": 6,
+          "lpr": 7,
+          "news": 8,
+          "uucp": 9,
+          "cron": 10,
+          "authpriv": 11,
+          "ftp": 12,
+          "local0": 17,
+          "local1": 18,
+          "local2": 19,
+          "local3": 20,
+          "local4": 21,
+          "local5": 22,
+          "local6": 23,
+          "local7": 24
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupEnableCLB": {
+    "name": "eqlGroupEnableCLB",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupEnableVolBal": {
+    "name": "eqlGroupEnableVolBal",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupDiscoveryFilter": {
+    "name": "eqlGroupDiscoveryFilter",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupEmailSupportContact": {
+    "name": "eqlGroupEmailSupportContact",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupReplicationWindowSize": {
+    "name": "eqlGroupReplicationWindowSize",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 72,
+        "format": "decimal"
+      }
+    },
+    "units": "KB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupConfigurationFlags": {
+    "name": "eqlGroupConfigurationFlags",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "cluster-pr-flag": 0,
+        "ignore-group-conn": 1,
+        "array-restart-flag": 2,
+        "repl-use-jumbos": 3,
+        "force-SCSI-QErr-OldBehavior": 4,
+        "dcb-disable": 5,
+        "lldp-vlanidneg-disable": 6,
+        "mpio-dynamic-scaling-mask0": 7,
+        "unmap-disable": 8,
+        "mpio-dynamic-scaling-mask1": 9,
+        "volume-fix-run": 10,
+        "sacl-disable": 11,
+        "flag12": 12,
+        "flag13": 13,
+        "flag14": 14,
+        "flag15": 15,
+        "flag16": 16,
+        "flag17": 17,
+        "flag18": 18,
+        "flag19": 19,
+        "flag20": 20,
+        "flag21": 21,
+        "flag22": 22,
+        "flag23": 23,
+        "flag24": 24,
+        "flag25": 25,
+        "flag26": 26,
+        "flag27": 27,
+        "flag28": 28,
+        "flag29": 29,
+        "flag30": 30,
+        "flag31": 31
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupISCSIPortalGrpTag": {
+    "name": "eqlGroupISCSIPortalGrpTag",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notConfigured": 0,
+          "configuredAndSetToZero": 8,
+          "configuredAndSetToOne": 9
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notConfigured",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlGroupMaxConcurrentReplicas": {
+    "name": "eqlGroupMaxConcurrentReplicas",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 16,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupDefaultThinWarn": {
+    "name": "eqlGroupDefaultThinWarn",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupDefaultThinMaxGrow": {
+    "name": "eqlGroupDefaultThinMaxGrow",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupDefaultMgmtGatewayIpAddressType": {
+    "name": "eqlGroupDefaultMgmtGatewayIpAddressType",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupDefaultMgmtGatewayIpAddress": {
+    "name": "eqlGroupDefaultMgmtGatewayIpAddress",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupInet6AddrType": {
+    "name": "eqlGroupInet6AddrType",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupInet6Addr": {
+    "name": "eqlGroupInet6Addr",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupInetAddrType": {
+    "name": "eqlGroupInetAddrType",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupInetAddr": {
+    "name": "eqlGroupInetAddr",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupSupportSlowSwitch": {
+    "name": "eqlGroupSupportSlowSwitch",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "automatic": 1,
+          "on": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupProfileIndex": {
+    "name": "eqlGroupProfileIndex",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlGroupEnableSSHProtocolV1": {
+    "name": "eqlGroupEnableSSHProtocolV1",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupEnableStandbyButton": {
+    "name": "eqlGroupEnableStandbyButton",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupLDAPLoginAuthEnable": {
+    "name": "eqlGroupLDAPLoginAuthEnable",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupApplianceDiscovery": {
+    "name": "eqlGroupApplianceDiscovery",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discover": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "discover",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupDefaultDcbVlanId": {
+    "name": "eqlGroupDefaultDcbVlanId",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupThermalShutdownOverride": {
+    "name": "eqlGroupThermalShutdownOverride",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupEnableLegacyCryptos": {
+    "name": "eqlGroupEnableLegacyCryptos",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 0,
+          "disabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupMaxReplSegments": {
+    "name": "eqlGroupMaxReplSegments",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupEnableVolumeRecovery": {
+    "name": "eqlGroupEnableVolumeRecovery",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupSessionIdleTimeout": {
+    "name": "eqlGroupSessionIdleTimeout",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupSessionIdleTimeoutEnable": {
+    "name": "eqlGroupSessionIdleTimeoutEnable",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupSessionBannerEnable": {
+    "name": "eqlGroupSessionBannerEnable",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupDefaultVolSnapshotBorrowEnabled": {
+    "name": "eqlGroupDefaultVolSnapshotBorrowEnabled",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupRecoveryLifeTimeEnable": {
+    "name": "eqlGroupRecoveryLifeTimeEnable",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupRecoveryLifeTime": {
+    "name": "eqlGroupRecoveryLifeTime",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupTimeProtocol": {
+    "name": "eqlGroupTimeProtocol",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupRecoveryTrimmerFreq": {
+    "name": "eqlGroupRecoveryTrimmerFreq",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 86400,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupUpdateEnable": {
+    "name": "eqlGroupUpdateEnable",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 0,
+          "disabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupUpdateLast": {
+    "name": "eqlGroupUpdateLast",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupDefaultSectorSize": {
+    "name": "eqlGroupDefaultSectorSize",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sector-size-512-bytes": 0,
+          "sector-size-4096-bytes": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "sector-size-512-bytes",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupCompressionScanFreq": {
+    "name": "eqlGroupCompressionScanFreq",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupRunCompressionScan": {
+    "name": "eqlGroupRunCompressionScan",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 0,
+          "disabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupMonitorReminderTimestamp": {
+    "name": "eqlGroupMonitorReminderTimestamp",
+    "oid": "1.3.6.1.4.1.12740.1.1.1.1.82",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusTable": {
+    "name": "eqlStorageGroupStatusTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusEntry": {
+    "name": "eqlStorageGroupStatusEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlStorageGroupStatusPoolSpace": {
+    "name": "eqlStorageGroupStatusPoolSpace",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusPoolSpaceUsed": {
+    "name": "eqlStorageGroupStatusPoolSpaceUsed",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusTotalMembersOnLine": {
+    "name": "eqlStorageGroupStatusTotalMembersOnLine",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusPoolSpaceReserved": {
+    "name": "eqlStorageGroupStatusPoolSpaceReserved",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusReservedSpaceInUse": {
+    "name": "eqlStorageGroupStatusReservedSpaceInUse",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "MB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusDateAndTime": {
+    "name": "eqlStorageGroupStatusDateAndTime",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusSnapshotsInUse": {
+    "name": "eqlStorageGroupStatusSnapshotsInUse",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusVolumesInUse": {
+    "name": "eqlStorageGroupStatusVolumesInUse",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusSnapshotsOnline": {
+    "name": "eqlStorageGroupStatusSnapshotsOnline",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusVolumesOnline": {
+    "name": "eqlStorageGroupStatusVolumesOnline",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusSnapshotCount": {
+    "name": "eqlStorageGroupStatusSnapshotCount",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusVolumeCount": {
+    "name": "eqlStorageGroupStatusVolumeCount",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusMemberCount": {
+    "name": "eqlStorageGroupStatusMemberCount",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusMembersInUse": {
+    "name": "eqlStorageGroupStatusMembersInUse",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusFreeSpace": {
+    "name": "eqlStorageGroupStatusFreeSpace",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "MB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusPoolSpaceDelegated": {
+    "name": "eqlStorageGroupStatusPoolSpaceDelegated",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "MB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusDelegatedUsedSpace": {
+    "name": "eqlStorageGroupStatusDelegatedUsedSpace",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "MB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusReplReserveSpace": {
+    "name": "eqlStorageGroupStatusReplReserveSpace",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "MB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusReplReserveInUse": {
+    "name": "eqlStorageGroupStatusReplReserveInUse",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "MB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusVolumeSpaceSubscribed": {
+    "name": "eqlStorageGroupStatusVolumeSpaceSubscribed",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "MB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusVolumeSpaceAllocated": {
+    "name": "eqlStorageGroupStatusVolumeSpaceAllocated",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "MB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusFailbackSpace": {
+    "name": "eqlStorageGroupStatusFailbackSpace",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "MB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusThinProvFreeSpace": {
+    "name": "eqlStorageGroupStatusThinProvFreeSpace",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "MB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusConnectionCount": {
+    "name": "eqlStorageGroupStatusConnectionCount",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusSnapReserveSpaceFree": {
+    "name": "eqlStorageGroupStatusSnapReserveSpaceFree",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "MB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusReplReserveSpaceFree": {
+    "name": "eqlStorageGroupStatusReplReserveSpaceFree",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "MB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusGroupId": {
+    "name": "eqlStorageGroupStatusGroupId",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusVirtualVolumeCount": {
+    "name": "eqlStorageGroupStatusVirtualVolumeCount",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusVirtualVolumesOnline": {
+    "name": "eqlStorageGroupStatusVirtualVolumesOnline",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusVirtualVolumesInUse": {
+    "name": "eqlStorageGroupStatusVirtualVolumesInUse",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusVirtualVolumeSpaceSubscribed": {
+    "name": "eqlStorageGroupStatusVirtualVolumeSpaceSubscribed",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "MB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatsTotalSpaceBorrowing": {
+    "name": "eqlStorageGroupStatsTotalSpaceBorrowing",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "MB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusStorageContainerCount": {
+    "name": "eqlStorageGroupStatusStorageContainerCount",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusStorageContainerVolumeCount": {
+    "name": "eqlStorageGroupStatusStorageContainerVolumeCount",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusStorageContainerSnapCount": {
+    "name": "eqlStorageGroupStatusStorageContainerSnapCount",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusStorageContainerVolumesOnline": {
+    "name": "eqlStorageGroupStatusStorageContainerVolumesOnline",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusStorageContainerSpaceReserved": {
+    "name": "eqlStorageGroupStatusStorageContainerSpaceReserved",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "MB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusCompressedSpaceUsed": {
+    "name": "eqlStorageGroupStatusCompressedSpaceUsed",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "MB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusVirtualSpaceSize": {
+    "name": "eqlStorageGroupStatusVirtualSpaceSize",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "MB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusReplicationSnapCount": {
+    "name": "eqlStorageGroupStatusReplicationSnapCount",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupStatusStorageContainerVolumesBound": {
+    "name": "eqlStorageGroupStatusStorageContainerVolumesBound",
+    "oid": "1.3.6.1.4.1.12740.1.1.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupSiteTable": {
+    "name": "eqlStorageGroupSiteTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlStorageGroupSiteEntry": {
+    "name": "eqlStorageGroupSiteEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupSiteIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlGroupSiteIndex": {
+    "name": "eqlGroupSiteIndex",
+    "oid": "1.3.6.1.4.1.12740.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlGroupSiteName": {
+    "name": "eqlGroupSiteName",
+    "oid": "1.3.6.1.4.1.12740.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTFString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupSiteDescription": {
+    "name": "eqlGroupSiteDescription",
+    "oid": "1.3.6.1.4.1.12740.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTFString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupSiteContactEmail": {
+    "name": "eqlGroupSiteContactEmail",
+    "oid": "1.3.6.1.4.1.12740.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupSiteContactPhone": {
+    "name": "eqlGroupSiteContactPhone",
+    "oid": "1.3.6.1.4.1.12740.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupSiteContactMobile": {
+    "name": "eqlGroupSiteContactMobile",
+    "oid": "1.3.6.1.4.1.12740.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupSiteRowStatus": {
+    "name": "eqlGroupSiteRowStatus",
+    "oid": "1.3.6.1.4.1.12740.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupDnsServerTable": {
+    "name": "eqlStorageGroupDnsServerTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlStorageGroupDnsServerEntry": {
+    "name": "eqlStorageGroupDnsServerEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupDnsServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlGroupDnsServerIndex": {
+    "name": "eqlGroupDnsServerIndex",
+    "oid": "1.3.6.1.4.1.12740.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlGroupDnsServerIpAddress": {
+    "name": "eqlGroupDnsServerIpAddress",
+    "oid": "1.3.6.1.4.1.12740.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupDnsServerRowStatus": {
+    "name": "eqlGroupDnsServerRowStatus",
+    "oid": "1.3.6.1.4.1.12740.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupDnsServerInetAddressType": {
+    "name": "eqlGroupDnsServerInetAddressType",
+    "oid": "1.3.6.1.4.1.12740.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupDnsServerInetAddress": {
+    "name": "eqlGroupDnsServerInetAddress",
+    "oid": "1.3.6.1.4.1.12740.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupDnsServerConfigState": {
+    "name": "eqlGroupDnsServerConfigState",
+    "oid": "1.3.6.1.4.1.12740.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "startConfig": 0,
+          "inProgress": 1,
+          "endConfig": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "startConfig",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupNtpServerTable": {
+    "name": "eqlStorageGroupNtpServerTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlStorageGroupNtpServerEntry": {
+    "name": "eqlStorageGroupNtpServerEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupNtpServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlGroupNtpServerIndex": {
+    "name": "eqlGroupNtpServerIndex",
+    "oid": "1.3.6.1.4.1.12740.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlGroupNtpServerIpAddress": {
+    "name": "eqlGroupNtpServerIpAddress",
+    "oid": "1.3.6.1.4.1.12740.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupNtpServerRowStatus": {
+    "name": "eqlGroupNtpServerRowStatus",
+    "oid": "1.3.6.1.4.1.12740.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupNtpServerPort": {
+    "name": "eqlGroupNtpServerPort",
+    "oid": "1.3.6.1.4.1.12740.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupNtpServerInetAddressType": {
+    "name": "eqlGroupNtpServerInetAddressType",
+    "oid": "1.3.6.1.4.1.12740.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupNtpServerInetAddress": {
+    "name": "eqlGroupNtpServerInetAddress",
+    "oid": "1.3.6.1.4.1.12740.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupChapServerTable": {
+    "name": "eqlStorageGroupChapServerTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlStorageGroupChapServerEntry": {
+    "name": "eqlStorageGroupChapServerEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupChapServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlGroupChapServerIndex": {
+    "name": "eqlGroupChapServerIndex",
+    "oid": "1.3.6.1.4.1.12740.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlGroupChapServerIpAddress": {
+    "name": "eqlGroupChapServerIpAddress",
+    "oid": "1.3.6.1.4.1.12740.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupChapServerRowStatus": {
+    "name": "eqlGroupChapServerRowStatus",
+    "oid": "1.3.6.1.4.1.12740.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupChapServerPort": {
+    "name": "eqlGroupChapServerPort",
+    "oid": "1.3.6.1.4.1.12740.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupChapServerRADIUSSecret": {
+    "name": "eqlGroupChapServerRADIUSSecret",
+    "oid": "1.3.6.1.4.1.12740.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupChapServerInetAddressType": {
+    "name": "eqlGroupChapServerInetAddressType",
+    "oid": "1.3.6.1.4.1.12740.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupChapServerInetAddress": {
+    "name": "eqlGroupChapServerInetAddress",
+    "oid": "1.3.6.1.4.1.12740.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupSMTPServerTable": {
+    "name": "eqlStorageGroupSMTPServerTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlStorageGroupSMTPServerEntry": {
+    "name": "eqlStorageGroupSMTPServerEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupSMTPServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlGroupSMTPServerIndex": {
+    "name": "eqlGroupSMTPServerIndex",
+    "oid": "1.3.6.1.4.1.12740.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlGroupSMTPServerIpAddress": {
+    "name": "eqlGroupSMTPServerIpAddress",
+    "oid": "1.3.6.1.4.1.12740.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupSMTPServerRowStatus": {
+    "name": "eqlGroupSMTPServerRowStatus",
+    "oid": "1.3.6.1.4.1.12740.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupSMTPServerPort": {
+    "name": "eqlGroupSMTPServerPort",
+    "oid": "1.3.6.1.4.1.12740.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupSMTPServerInetAddressType": {
+    "name": "eqlGroupSMTPServerInetAddressType",
+    "oid": "1.3.6.1.4.1.12740.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupSMTPServerInetAddress": {
+    "name": "eqlGroupSMTPServerInetAddress",
+    "oid": "1.3.6.1.4.1.12740.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupSysLogServerTable": {
+    "name": "eqlStorageGroupSysLogServerTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlStorageGroupSysLogServerEntry": {
+    "name": "eqlStorageGroupSysLogServerEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupSysLogServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlGroupSysLogServerIndex": {
+    "name": "eqlGroupSysLogServerIndex",
+    "oid": "1.3.6.1.4.1.12740.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlGroupSysLogServerIpAddress": {
+    "name": "eqlGroupSysLogServerIpAddress",
+    "oid": "1.3.6.1.4.1.12740.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupSysLogServerRowStatus": {
+    "name": "eqlGroupSysLogServerRowStatus",
+    "oid": "1.3.6.1.4.1.12740.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupSysLogServerInetAddressType": {
+    "name": "eqlGroupSysLogServerInetAddressType",
+    "oid": "1.3.6.1.4.1.12740.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupSysLogServerInetAddress": {
+    "name": "eqlGroupSysLogServerInetAddress",
+    "oid": "1.3.6.1.4.1.12740.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupAlertEmailTable": {
+    "name": "eqlStorageGroupAlertEmailTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlStorageGroupAlertEmailEntry": {
+    "name": "eqlStorageGroupAlertEmailEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupAlertEmailIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlGroupAlertEmailIndex": {
+    "name": "eqlGroupAlertEmailIndex",
+    "oid": "1.3.6.1.4.1.12740.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlGroupAlertEmailAddress": {
+    "name": "eqlGroupAlertEmailAddress",
+    "oid": "1.3.6.1.4.1.12740.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupAlertEmailRowStatus": {
+    "name": "eqlGroupAlertEmailRowStatus",
+    "oid": "1.3.6.1.4.1.12740.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountTable": {
+    "name": "eqlStorageGroupAdminAccountTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountEntry": {
+    "name": "eqlStorageGroupAdminAccountEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlStorageGroupAdminAccountIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountIndex": {
+    "name": "eqlStorageGroupAdminAccountIndex",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountRowStatus": {
+    "name": "eqlStorageGroupAdminAccountRowStatus",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountName": {
+    "name": "eqlStorageGroupAdminAccountName",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountPassword": {
+    "name": "eqlStorageGroupAdminAccountPassword",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountDescription": {
+    "name": "eqlStorageGroupAdminAccountDescription",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTFString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountType": {
+    "name": "eqlStorageGroupAdminAccountType",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminAccountType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "read-write",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountContact": {
+    "name": "eqlStorageGroupAdminAccountContact",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountEmail": {
+    "name": "eqlStorageGroupAdminAccountEmail",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountPhone": {
+    "name": "eqlStorageGroupAdminAccountPhone",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountMobile": {
+    "name": "eqlStorageGroupAdminAccountMobile",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountStatus": {
+    "name": "eqlStorageGroupAdminAccountStatus",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountCliFlags": {
+    "name": "eqlStorageGroupAdminAccountCliFlags",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountGuiFlags": {
+    "name": "eqlStorageGroupAdminAccountGuiFlags",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountPollInterval": {
+    "name": "eqlStorageGroupAdminAccountPollInterval",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountAuthType": {
+    "name": "eqlStorageGroupAdminAccountAuthType",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 0,
+          "radius": 1,
+          "ldap": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "local",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountRecentLogin": {
+    "name": "eqlStorageGroupAdminAccountRecentLogin",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountClass": {
+    "name": "eqlStorageGroupAdminAccountClass",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountPrivilege": {
+    "name": "eqlStorageGroupAdminAccountPrivilege",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminAccountPrivilegeType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "global-admin",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountSnmpKey": {
+    "name": "eqlStorageGroupAdminAccountSnmpKey",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountSnmpKey2": {
+    "name": "eqlStorageGroupAdminAccountSnmpKey2",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountCHAPPassword": {
+    "name": "eqlStorageGroupAdminAccountCHAPPassword",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountKey": {
+    "name": "eqlStorageGroupAdminAccountKey",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountAdGroupName": {
+    "name": "eqlStorageGroupAdminAccountAdGroupName",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountSNMPPrivProt": {
+    "name": "eqlStorageGroupAdminAccountSNMPPrivProt",
+    "oid": "1.3.6.1.4.1.12740.1.1.10.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "des": 0,
+          "aes128": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "des",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupiSNSServerTable": {
+    "name": "eqlStorageGroupiSNSServerTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlStorageGroupiSNSServerEntry": {
+    "name": "eqlStorageGroupiSNSServerEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupiSNSServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlGroupiSNSServerIndex": {
+    "name": "eqlGroupiSNSServerIndex",
+    "oid": "1.3.6.1.4.1.12740.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlGroupiSNSServerRowStatus": {
+    "name": "eqlGroupiSNSServerRowStatus",
+    "oid": "1.3.6.1.4.1.12740.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupiSNSServerIpAddress": {
+    "name": "eqlGroupiSNSServerIpAddress",
+    "oid": "1.3.6.1.4.1.12740.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupiSNSServerPort": {
+    "name": "eqlGroupiSNSServerPort",
+    "oid": "1.3.6.1.4.1.12740.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupiSNSServerInetAddressType": {
+    "name": "eqlGroupiSNSServerInetAddressType",
+    "oid": "1.3.6.1.4.1.12740.1.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupiSNSServerInetAddress": {
+    "name": "eqlGroupiSNSServerInetAddress",
+    "oid": "1.3.6.1.4.1.12740.1.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupCompatibilityTable": {
+    "name": "eqlGroupCompatibilityTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlGroupCompatibilityEntry": {
+    "name": "eqlGroupCompatibilityEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "eqlGroupCompatibilityEntry",
+      "module": "EQLGROUP-MIB",
+      "object": "eqlStorageGroupEntry"
+    },
+    "status": "current"
+  },
+  "eqlGroupCurrentCompLevel": {
+    "name": "eqlGroupCurrentCompLevel",
+    "oid": "1.3.6.1.4.1.12740.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupCollectionTable": {
+    "name": "eqlStorageGroupCollectionTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlStorageGroupCollectionEntry": {
+    "name": "eqlStorageGroupCollectionEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlGrpNoofVolCollections": {
+    "name": "eqlGrpNoofVolCollections",
+    "oid": "1.3.6.1.4.1.12740.1.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlGrpNoofSnapCollections": {
+    "name": "eqlGrpNoofSnapCollections",
+    "oid": "1.3.6.1.4.1.12740.1.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlGrpNoofOrphanSnapCollections": {
+    "name": "eqlGrpNoofOrphanSnapCollections",
+    "oid": "1.3.6.1.4.1.12740.1.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRADIUSTable": {
+    "name": "eqlRADIUSTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlRADIUSEntry": {
+    "name": "eqlRADIUSEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlRADIUSSecret": {
+    "name": "eqlRADIUSSecret",
+    "oid": "1.3.6.1.4.1.12740.1.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlRADIUSLoginAuthEnable": {
+    "name": "eqlRADIUSLoginAuthEnable",
+    "oid": "1.3.6.1.4.1.12740.1.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlRADIUSAuthRecvTimeout": {
+    "name": "eqlRADIUSAuthRecvTimeout",
+    "oid": "1.3.6.1.4.1.12740.1.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlRADIUSAuthMaxRetries": {
+    "name": "eqlRADIUSAuthMaxRetries",
+    "oid": "1.3.6.1.4.1.12740.1.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlRADIUSLoginAcctEnable": {
+    "name": "eqlRADIUSLoginAcctEnable",
+    "oid": "1.3.6.1.4.1.12740.1.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlRADIUSAcctRecvTimeout": {
+    "name": "eqlRADIUSAcctRecvTimeout",
+    "oid": "1.3.6.1.4.1.12740.1.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlRADIUSAcctMaxRetries": {
+    "name": "eqlRADIUSAcctMaxRetries",
+    "oid": "1.3.6.1.4.1.12740.1.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlRADIUSiscsiAuthEnable": {
+    "name": "eqlRADIUSiscsiAuthEnable",
+    "oid": "1.3.6.1.4.1.12740.1.1.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlLocaliscsiAuthEnable": {
+    "name": "eqlLocaliscsiAuthEnable",
+    "oid": "1.3.6.1.4.1.12740.1.1.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlRADIUSRequireAdminAttrEnable": {
+    "name": "eqlRADIUSRequireAdminAttrEnable",
+    "oid": "1.3.6.1.4.1.12740.1.1.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlRADIUSAcctServerTable": {
+    "name": "eqlRADIUSAcctServerTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlRADIUSAcctServerEntry": {
+    "name": "eqlRADIUSAcctServerEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlRADIUSAcctServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlRADIUSAcctServerIndex": {
+    "name": "eqlRADIUSAcctServerIndex",
+    "oid": "1.3.6.1.4.1.12740.1.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlRADIUSAcctServerIpAddress": {
+    "name": "eqlRADIUSAcctServerIpAddress",
+    "oid": "1.3.6.1.4.1.12740.1.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlRADIUSAcctServerPort": {
+    "name": "eqlRADIUSAcctServerPort",
+    "oid": "1.3.6.1.4.1.12740.1.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlRADIUSAcctServerRowStatus": {
+    "name": "eqlRADIUSAcctServerRowStatus",
+    "oid": "1.3.6.1.4.1.12740.1.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlRADIUSAcctServerSecret": {
+    "name": "eqlRADIUSAcctServerSecret",
+    "oid": "1.3.6.1.4.1.12740.1.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlRADIUSAcctServerInetAddressType": {
+    "name": "eqlRADIUSAcctServerInetAddressType",
+    "oid": "1.3.6.1.4.1.12740.1.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlRADIUSAcctServerInetAddress": {
+    "name": "eqlRADIUSAcctServerInetAddress",
+    "oid": "1.3.6.1.4.1.12740.1.1.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlUserSessionTable": {
+    "name": "eqlUserSessionTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlUserSessionEntry": {
+    "name": "eqlUserSessionEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlUserSessionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlUserSessionIndex": {
+    "name": "eqlUserSessionIndex",
+    "oid": "1.3.6.1.4.1.12740.1.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlUserSessionAdminAccountIndex": {
+    "name": "eqlUserSessionAdminAccountIndex",
+    "oid": "1.3.6.1.4.1.12740.1.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlUserSessionStart": {
+    "name": "eqlUserSessionStart",
+    "oid": "1.3.6.1.4.1.12740.1.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlUserSessionProtocol": {
+    "name": "eqlUserSessionProtocol",
+    "oid": "1.3.6.1.4.1.12740.1.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "root": 0,
+          "console": 1,
+          "telnet": 2,
+          "ssh": 3,
+          "gui": 4,
+          "gui-ssl": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlUserSessionRemoteAddress": {
+    "name": "eqlUserSessionRemoteAddress",
+    "oid": "1.3.6.1.4.1.12740.1.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlUserSessionLocalAddress": {
+    "name": "eqlUserSessionLocalAddress",
+    "oid": "1.3.6.1.4.1.12740.1.1.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlUserSessionRemoteInetAddressType": {
+    "name": "eqlUserSessionRemoteInetAddressType",
+    "oid": "1.3.6.1.4.1.12740.1.1.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlUserSessionRemoteInetAddress": {
+    "name": "eqlUserSessionRemoteInetAddress",
+    "oid": "1.3.6.1.4.1.12740.1.1.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlUserSessionLocalInetAddressType": {
+    "name": "eqlUserSessionLocalInetAddressType",
+    "oid": "1.3.6.1.4.1.12740.1.1.16.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlUserSessionLocalInetAddress": {
+    "name": "eqlUserSessionLocalInetAddress",
+    "oid": "1.3.6.1.4.1.12740.1.1.16.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlRecordVersionTable": {
+    "name": "eqlRecordVersionTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlRecordVersionEntry": {
+    "name": "eqlRecordVersionEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlRecordVersionTableType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlRecordVersionTableType": {
+    "name": "eqlRecordVersionTableType",
+    "oid": "1.3.6.1.4.1.12740.1.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlRecordVersionMin": {
+    "name": "eqlRecordVersionMin",
+    "oid": "1.3.6.1.4.1.12740.1.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlRecordVersionMax": {
+    "name": "eqlRecordVersionMax",
+    "oid": "1.3.6.1.4.1.12740.1.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlGroupTaskTable": {
+    "name": "eqlGroupTaskTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlGroupTaskEntry": {
+    "name": "eqlGroupTaskEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupTaskIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlGroupTaskIndex": {
+    "name": "eqlGroupTaskIndex",
+    "oid": "1.3.6.1.4.1.12740.1.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlGroupTaskRowStatus": {
+    "name": "eqlGroupTaskRowStatus",
+    "oid": "1.3.6.1.4.1.12740.1.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupTaskType": {
+    "name": "eqlGroupTaskType",
+    "oid": "1.3.6.1.4.1.12740.1.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "resync": 1,
+          "failback": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupTaskContext": {
+    "name": "eqlGroupTaskContext",
+    "oid": "1.3.6.1.4.1.12740.1.1.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupTaskNumSubTasks": {
+    "name": "eqlGroupTaskNumSubTasks",
+    "oid": "1.3.6.1.4.1.12740.1.1.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupTaskSubTaskInProgress": {
+    "name": "eqlGroupTaskSubTaskInProgress",
+    "oid": "1.3.6.1.4.1.12740.1.1.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "primaryVolumeOffline": 10001,
+          "primaryVolumeReplicationCancel": 10002,
+          "primaryVolumeDemote": 10003,
+          "recoveryVolumeReplicationConfigure": 10004,
+          "recoveryVolumeCreateReplica": 10005,
+          "recoveryVolumeDisableSchedules": 20001,
+          "recoveryVolumeOffline": 20002,
+          "recoveryVolumeFinalReplication": 20003,
+          "recoveryVolumeDemote": 20004,
+          "primaryVolumePromote": 20005
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupTaskSubtaskStatus": {
+    "name": "eqlGroupTaskSubtaskStatus",
+    "oid": "1.3.6.1.4.1.12740.1.1.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupTaskStatus": {
+    "name": "eqlGroupTaskStatus",
+    "oid": "1.3.6.1.4.1.12740.1.1.18.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "user-action-required": 1,
+          "in-progress": 2,
+          "complete": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupTaskUserAction": {
+    "name": "eqlGroupTaskUserAction",
+    "oid": "1.3.6.1.4.1.12740.1.1.18.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "retry": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupTaskStartTime": {
+    "name": "eqlGroupTaskStartTime",
+    "oid": "1.3.6.1.4.1.12740.1.1.18.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupTaskReplication": {
+    "name": "eqlGroupTaskReplication",
+    "oid": "1.3.6.1.4.1.12740.1.1.18.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "network": 2,
+          "noreplication": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "network",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupProfileTable": {
+    "name": "eqlStorageGroupProfileTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlStorageGroupProfileEntry": {
+    "name": "eqlStorageGroupProfileEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlStorageGroupProfileVersion": {
+    "name": "eqlStorageGroupProfileVersion",
+    "oid": "1.3.6.1.4.1.12740.1.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupProfileWeight": {
+    "name": "eqlStorageGroupProfileWeight",
+    "oid": "1.3.6.1.4.1.12740.1.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupProfileMaxMembers": {
+    "name": "eqlStorageGroupProfileMaxMembers",
+    "oid": "1.3.6.1.4.1.12740.1.1.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupProfileMaxVolumes": {
+    "name": "eqlStorageGroupProfileMaxVolumes",
+    "oid": "1.3.6.1.4.1.12740.1.1.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupProfileMaxSnapsPerGroup": {
+    "name": "eqlStorageGroupProfileMaxSnapsPerGroup",
+    "oid": "1.3.6.1.4.1.12740.1.1.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupProfileMaxSnapsPerVolume": {
+    "name": "eqlStorageGroupProfileMaxSnapsPerVolume",
+    "oid": "1.3.6.1.4.1.12740.1.1.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupProfileMaxReplicasPerVolume": {
+    "name": "eqlStorageGroupProfileMaxReplicasPerVolume",
+    "oid": "1.3.6.1.4.1.12740.1.1.20.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupProfileMaxReplVolumes": {
+    "name": "eqlStorageGroupProfileMaxReplVolumes",
+    "oid": "1.3.6.1.4.1.12740.1.1.20.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupProfileMaxConnections": {
+    "name": "eqlStorageGroupProfileMaxConnections",
+    "oid": "1.3.6.1.4.1.12740.1.1.20.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupProfileMaxPartners": {
+    "name": "eqlStorageGroupProfileMaxPartners",
+    "oid": "1.3.6.1.4.1.12740.1.1.20.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupProfileMaxConnWarning": {
+    "name": "eqlStorageGroupProfileMaxConnWarning",
+    "oid": "1.3.6.1.4.1.12740.1.1.20.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupProfileMaxSyncReplVolumes": {
+    "name": "eqlStorageGroupProfileMaxSyncReplVolumes",
+    "oid": "1.3.6.1.4.1.12740.1.1.20.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountKeyTable": {
+    "name": "eqlStorageGroupAdminAccountKeyTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountKeyEntry": {
+    "name": "eqlStorageGroupAdminAccountKeyEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlStorageGroupAdminAccountKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlStorageGroupAdminAccountIndexValue": {
+    "name": "eqlStorageGroupAdminAccountIndexValue",
+    "oid": "1.3.6.1.4.1.12740.1.1.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupChapAccountTable": {
+    "name": "eqlStorageGroupChapAccountTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlStorageGroupChapAccountEntry": {
+    "name": "eqlStorageGroupChapAccountEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlStorageGroupChapAccountIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlStorageGroupChapAccountIndex": {
+    "name": "eqlStorageGroupChapAccountIndex",
+    "oid": "1.3.6.1.4.1.12740.1.1.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlStorageGroupChapAccountRowStatus": {
+    "name": "eqlStorageGroupChapAccountRowStatus",
+    "oid": "1.3.6.1.4.1.12740.1.1.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupChapAccountAdminAccountKey": {
+    "name": "eqlStorageGroupChapAccountAdminAccountKey",
+    "oid": "1.3.6.1.4.1.12740.1.1.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupChapAccountPublic": {
+    "name": "eqlStorageGroupChapAccountPublic",
+    "oid": "1.3.6.1.4.1.12740.1.1.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlLDAPServerTable": {
+    "name": "eqlLDAPServerTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlLDAPServerEntry": {
+    "name": "eqlLDAPServerEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlLDAPServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlLDAPServerIndex": {
+    "name": "eqlLDAPServerIndex",
+    "oid": "1.3.6.1.4.1.12740.1.1.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlLDAPServerBaseDN": {
+    "name": "eqlLDAPServerBaseDN",
+    "oid": "1.3.6.1.4.1.12740.1.1.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlLDAPServerSecureProtocol": {
+    "name": "eqlLDAPServerSecureProtocol",
+    "oid": "1.3.6.1.4.1.12740.1.1.24.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "tls": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlLDAPServerInetAddressType": {
+    "name": "eqlLDAPServerInetAddressType",
+    "oid": "1.3.6.1.4.1.12740.1.1.24.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlLDAPServerInetAddress": {
+    "name": "eqlLDAPServerInetAddress",
+    "oid": "1.3.6.1.4.1.12740.1.1.24.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlLDAPServerPort": {
+    "name": "eqlLDAPServerPort",
+    "oid": "1.3.6.1.4.1.12740.1.1.24.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlLDAPServerAnonymousAccess": {
+    "name": "eqlLDAPServerAnonymousAccess",
+    "oid": "1.3.6.1.4.1.12740.1.1.24.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlLDAPServerBindDN": {
+    "name": "eqlLDAPServerBindDN",
+    "oid": "1.3.6.1.4.1.12740.1.1.24.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlLDAPServerBindPassword": {
+    "name": "eqlLDAPServerBindPassword",
+    "oid": "1.3.6.1.4.1.12740.1.1.24.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlLDAPServerRowStatus": {
+    "name": "eqlLDAPServerRowStatus",
+    "oid": "1.3.6.1.4.1.12740.1.1.24.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlLdapLoginAccessTable": {
+    "name": "eqlLdapLoginAccessTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlLdapLoginAccessEntry": {
+    "name": "eqlLdapLoginAccessEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlLdapLoginAccessType",
+        "implied": 0
+      },
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlLdapLoginAccessName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlLdapLoginAccessName": {
+    "name": "eqlLdapLoginAccessName",
+    "oid": "1.3.6.1.4.1.12740.1.1.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlLdapLoginAccessType": {
+    "name": "eqlLdapLoginAccessType",
+    "oid": "1.3.6.1.4.1.12740.1.1.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "adGroup": 1,
+          "ldapUser": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "adGroup",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlLdapLoginAccessAccountPrivilege": {
+    "name": "eqlLdapLoginAccessAccountPrivilege",
+    "oid": "1.3.6.1.4.1.12740.1.1.25.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminAccountPrivilegeType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlLdapLoginAccessAccountType": {
+    "name": "eqlLdapLoginAccessAccountType",
+    "oid": "1.3.6.1.4.1.12740.1.1.25.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminAccountType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlLdapLoginAccessRowStatus": {
+    "name": "eqlLdapLoginAccessRowStatus",
+    "oid": "1.3.6.1.4.1.12740.1.1.25.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlLdapLoginAccessAdDomainName": {
+    "name": "eqlLdapLoginAccessAdDomainName",
+    "oid": "1.3.6.1.4.1.12740.1.1.25.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupDnsSuffixTable": {
+    "name": "eqlStorageGroupDnsSuffixTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.26",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlStorageGroupDnsSuffixEntry": {
+    "name": "eqlStorageGroupDnsSuffixEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.26.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupDnsSuffixIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlGroupDnsSuffixIndex": {
+    "name": "eqlGroupDnsSuffixIndex",
+    "oid": "1.3.6.1.4.1.12740.1.1.26.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlGroupDnsSuffixRowStatus": {
+    "name": "eqlGroupDnsSuffixRowStatus",
+    "oid": "1.3.6.1.4.1.12740.1.1.26.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupDnsSuffixString": {
+    "name": "eqlGroupDnsSuffixString",
+    "oid": "1.3.6.1.4.1.12740.1.1.26.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupDnsSuffixConfigState": {
+    "name": "eqlGroupDnsSuffixConfigState",
+    "oid": "1.3.6.1.4.1.12740.1.1.26.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "startConfig": 0,
+          "inProgress": 1,
+          "endConfig": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "startConfig",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupSnmpTable": {
+    "name": "eqlStorageGroupSnmpTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.27",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlStorageGroupSnmpEntry": {
+    "name": "eqlStorageGroupSnmpEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.27.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlStorageGroupSnmpRowStatus": {
+    "name": "eqlStorageGroupSnmpRowStatus",
+    "oid": "1.3.6.1.4.1.12740.1.1.27.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupSnmpManagersList": {
+    "name": "eqlStorageGroupSnmpManagersList",
+    "oid": "1.3.6.1.4.1.12740.1.1.27.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlStorageGroupSnmpTrapCommunity": {
+    "name": "eqlStorageGroupSnmpTrapCommunity",
+    "oid": "1.3.6.1.4.1.12740.1.1.27.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupSessionBannerTable": {
+    "name": "eqlGroupSessionBannerTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.28",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlGroupSessionBannerEntry": {
+    "name": "eqlGroupSessionBannerEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.28.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlGroupSessionBannerRowStatus": {
+    "name": "eqlGroupSessionBannerRowStatus",
+    "oid": "1.3.6.1.4.1.12740.1.1.28.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupSessionBannerText": {
+    "name": "eqlGroupSessionBannerText",
+    "oid": "1.3.6.1.4.1.12740.1.1.28.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlGroupSingleSignOnStatusTable": {
+    "name": "eqlGroupSingleSignOnStatusTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.29",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlGroupSingleSignOnStatusEntry": {
+    "name": "eqlGroupSingleSignOnStatusEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.29.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlGroupSingleSignOnStatus": {
+    "name": "eqlGroupSingleSignOnStatus",
+    "oid": "1.3.6.1.4.1.12740.1.1.29.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-ready": 0,
+          "ready": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlGroupSingleSignOnRegGroupName": {
+    "name": "eqlGroupSingleSignOnRegGroupName",
+    "oid": "1.3.6.1.4.1.12740.1.1.29.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlGroupSingleSignOnKrbRealm": {
+    "name": "eqlGroupSingleSignOnKrbRealm",
+    "oid": "1.3.6.1.4.1.12740.1.1.29.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlNextAvailableIndexTable": {
+    "name": "eqlNextAvailableIndexTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.30",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlNextAvailableIndexEntry": {
+    "name": "eqlNextAvailableIndexEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.30.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlNextAvailableIndexTableType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlNextAvailableIndexTableType": {
+    "name": "eqlNextAvailableIndexTableType",
+    "oid": "1.3.6.1.4.1.12740.1.1.30.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlNextAvailableIndexValue": {
+    "name": "eqlNextAvailableIndexValue",
+    "oid": "1.3.6.1.4.1.12740.1.1.30.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStorageGroupSnmpReadOnlyCommunityTable": {
+    "name": "eqlStorageGroupSnmpReadOnlyCommunityTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.31",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlStorageGroupSnmpReadOnlyCommunityEntry": {
+    "name": "eqlStorageGroupSnmpReadOnlyCommunityEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.31.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlStorageGroupSnmpReadOnlyCommunity": {
+    "name": "eqlStorageGroupSnmpReadOnlyCommunity",
+    "oid": "1.3.6.1.4.1.12740.1.1.31.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlEULAAcceptInfoTable": {
+    "name": "eqlEULAAcceptInfoTable",
+    "oid": "1.3.6.1.4.1.12740.1.1.32",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlEULAAcceptInfoEntry": {
+    "name": "eqlEULAAcceptInfoEntry",
+    "oid": "1.3.6.1.4.1.12740.1.1.32.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlEULAAcceptInfoFirmwareType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlEULAAcceptInfoFirmwareType": {
+    "name": "eqlEULAAcceptInfoFirmwareType",
+    "oid": "1.3.6.1.4.1.12740.1.1.32.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "peer-storage-array": 1,
+          "fluidfs-nas": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlEULAAcceptInfoRowStatus": {
+    "name": "eqlEULAAcceptInfoRowStatus",
+    "oid": "1.3.6.1.4.1.12740.1.1.32.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlEULAAcceptInfoAccountName": {
+    "name": "eqlEULAAcceptInfoAccountName",
+    "oid": "1.3.6.1.4.1.12740.1.1.32.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlEULAAcceptInfoEULAVersion": {
+    "name": "eqlEULAAcceptInfoEULAVersion",
+    "oid": "1.3.6.1.4.1.12740.1.1.32.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlEULAAcceptInfoTimestamp": {
+    "name": "eqlEULAAcceptInfoTimestamp",
+    "oid": "1.3.6.1.4.1.12740.1.1.32.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLGROUP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:25 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "EQLGROUP-MIB"
+  }
+}

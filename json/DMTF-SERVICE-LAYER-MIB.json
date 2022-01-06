@@ -1,0 +1,566 @@
+{
+  "imports": {
+    "class": "imports",
+    "DMTF-DMI-MIB": [
+      "dmiEventSeverity",
+      "DmiString",
+      "dmiEventStateKey",
+      "DmiDate",
+      "dmiEventSystem",
+      "dmiEventAssociatedGroup",
+      "dmiEventSubSystem",
+      "dmiCompId",
+      "dmiEventDateTime"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "DmiCounter": {
+    "name": "DmiCounter",
+    "class": "type",
+    "type": {
+      "type": "Counter32",
+      "class": "type"
+    }
+  },
+  "DmiCounter64": {
+    "name": "DmiCounter64",
+    "class": "type",
+    "type": {
+      "type": "Counter64",
+      "class": "type"
+    }
+  },
+  "DmiGauge": {
+    "name": "DmiGauge",
+    "class": "type",
+    "type": {
+      "type": "Gauge32",
+      "class": "type"
+    }
+  },
+  "DmiInteger": {
+    "name": "DmiInteger",
+    "class": "type",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    }
+  },
+  "DmiOctetstring": {
+    "name": "DmiOctetstring",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "DmiCompId": {
+    "name": "DmiCompId",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "DmiGroupId": {
+    "name": "DmiGroupId",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "dmtf": {
+    "name": "dmtf",
+    "oid": "1.3.6.1.4.1.412",
+    "class": "objectidentity"
+  },
+  "dmtfStdMifs": {
+    "name": "dmtfStdMifs",
+    "oid": "1.3.6.1.4.1.412.2",
+    "class": "objectidentity"
+  },
+  "dmtfDynOids": {
+    "name": "dmtfDynOids",
+    "oid": "1.3.6.1.4.1.412.3",
+    "class": "objectidentity"
+  },
+  "dmtfServiceLayerMIF": {
+    "name": "dmtfServiceLayerMIF",
+    "oid": "1.3.6.1.4.1.412.2.1",
+    "class": "moduleidentity"
+  },
+  "dmtfComponentIDTable": {
+    "name": "dmtfComponentIDTable",
+    "oid": "1.3.6.1.4.1.412.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmtfComponentIDEntry": {
+    "name": "dmtfComponentIDEntry",
+    "oid": "1.3.6.1.4.1.412.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-SERVICE-LAYER-MIB",
+        "object": "DmiCompId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-SERVICE-LAYER-MIB",
+        "object": "DmiGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "manufacturer": {
+    "name": "manufacturer",
+    "oid": "1.3.6.1.4.1.412.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "product": {
+    "name": "product",
+    "oid": "1.3.6.1.4.1.412.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "version": {
+    "name": "version",
+    "oid": "1.3.6.1.4.1.412.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serialNumber": {
+    "name": "serialNumber",
+    "oid": "1.3.6.1.4.1.412.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "installation": {
+    "name": "installation",
+    "oid": "1.3.6.1.4.1.412.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiDate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "verify": {
+    "name": "verify",
+    "oid": "1.3.6.1.4.1.412.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "anErrorOccurredCheckStatusCode": 0,
+          "thisComponentDoesNotExist": 1,
+          "verificationIsNotSupported": 2,
+          "reserved": 3,
+          "thisComponentExistsButTheFunctionalityIsUntested": 4,
+          "thisComponentExistsButTheFunctionalityIsUnknown": 5,
+          "thisComponentExistsAndIsNotFunctioningCorrectly": 6,
+          "thisComponentExistsAndIsFunctioningCorrectly": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmtfSPIndicationSubscriptionTable": {
+    "name": "dmtfSPIndicationSubscriptionTable",
+    "oid": "1.3.6.1.4.1.412.2.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmtfSPIndicationSubscriptionEntry": {
+    "name": "dmtfSPIndicationSubscriptionEntry",
+    "oid": "1.3.6.1.4.1.412.2.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-SERVICE-LAYER-MIB",
+        "object": "DmiCompId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-SERVICE-LAYER-MIB",
+        "object": "DmiGroupId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-SERVICE-LAYER-MIB",
+        "object": "subscriberRPCType",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-SERVICE-LAYER-MIB",
+        "object": "subscriberTransportType",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-SERVICE-LAYER-MIB",
+        "object": "subscriberAddressing",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-SERVICE-LAYER-MIB",
+        "object": "subscriberID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmtfSPIndicationSubscriptionState": {
+    "name": "dmtfSPIndicationSubscriptionState",
+    "oid": "1.3.6.1.4.1.412.2.1.3.1.0",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "notReady": 3,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "subscriberRPCType": {
+    "name": "subscriberRPCType",
+    "oid": "1.3.6.1.4.1.412.2.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "subscriberTransportType": {
+    "name": "subscriberTransportType",
+    "oid": "1.3.6.1.4.1.412.2.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "subscriberAddressing": {
+    "name": "subscriberAddressing",
+    "oid": "1.3.6.1.4.1.412.2.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "subscriberID": {
+    "name": "subscriberID",
+    "oid": "1.3.6.1.4.1.412.2.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "subscriptionExpirationWarningDateStamp": {
+    "name": "subscriptionExpirationWarningDateStamp",
+    "oid": "1.3.6.1.4.1.412.2.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiDate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "subscriptionExpirationDateStamp": {
+    "name": "subscriptionExpirationDateStamp",
+    "oid": "1.3.6.1.4.1.412.2.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiDate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "indicationFailureThreshold": {
+    "name": "indicationFailureThreshold",
+    "oid": "1.3.6.1.4.1.412.2.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmtfSPFilterInformationTable": {
+    "name": "dmtfSPFilterInformationTable",
+    "oid": "1.3.6.1.4.1.412.2.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmtfSPFilterInformationEntry": {
+    "name": "dmtfSPFilterInformationEntry",
+    "oid": "1.3.6.1.4.1.412.2.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-SERVICE-LAYER-MIB",
+        "object": "DmiCompId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-SERVICE-LAYER-MIB",
+        "object": "DmiGroupId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-SERVICE-LAYER-MIB",
+        "object": "subscriberRPCType",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-SERVICE-LAYER-MIB",
+        "object": "subscriberTransportType",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-SERVICE-LAYER-MIB",
+        "object": "subscriberAddressing",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-SERVICE-LAYER-MIB",
+        "object": "subscriberID",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-SERVICE-LAYER-MIB",
+        "object": "componentID",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-SERVICE-LAYER-MIB",
+        "object": "groupClassString",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmtfSPFilterInformationState": {
+    "name": "dmtfSPFilterInformationState",
+    "oid": "1.3.6.1.4.1.412.2.1.4.1.0",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "notReady": 3,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "subscriberRPCType2": {
+    "name": "subscriberRPCType2",
+    "oid": "1.3.6.1.4.1.412.2.1.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "subscriberTransportType2": {
+    "name": "subscriberTransportType2",
+    "oid": "1.3.6.1.4.1.412.2.1.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "subscriberAddressing2": {
+    "name": "subscriberAddressing2",
+    "oid": "1.3.6.1.4.1.412.2.1.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "subscriberID2": {
+    "name": "subscriberID2",
+    "oid": "1.3.6.1.4.1.412.2.1.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "componentID": {
+    "name": "componentID",
+    "oid": "1.3.6.1.4.1.412.2.1.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupClassString": {
+    "name": "groupClassString",
+    "oid": "1.3.6.1.4.1.412.2.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventSeverity": {
+    "name": "eventSeverity",
+    "oid": "1.3.6.1.4.1.412.2.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "monitor": 1,
+          "information": 2,
+          "oK": 4,
+          "nonCritical-1": 8,
+          "critical": 16,
+          "nonRecoverable": 32
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DMTF-SERVICE-LAYER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DMTF-SERVICE-LAYER-MIB"
+  }
+}

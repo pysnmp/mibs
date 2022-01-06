@@ -1,0 +1,5762 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalName",
+      "PhysicalIndex",
+      "entPhysicalIndex"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "DisplayString",
+      "RowPointer"
+    ]
+  },
+  "huaweiSystemManMIB": {
+    "name": "huaweiSystemManMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.19",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-08-17 00:00",
+        "description": "modify description of hwSysDelayReboot,hwPatchErrorTrap,hwPatchUpdateTrap."
+      },
+      {
+        "revision": "2017-04-05 00:00",
+        "description": "modify HWPatchErrorType."
+      },
+      {
+        "revision": "2017-01-25 00:00",
+        "description": "modify TrustStartup."
+      },
+      {
+        "revision": "2017-01-25 00:00",
+        "description": "modify hwCodeSign for software code signature."
+      },
+      {
+        "revision": "2016-12-20 00:00",
+        "description": "add hwCodeSign for software code signature."
+      },
+      {
+        "revision": "2016-09-08 00:00",
+        "description": "Add hwTpmStaticMeasureAlarm for TrustStartup."
+      },
+      {
+        "revision": "2015-03-10 00:00",
+        "description": "Modified hwPatchFailReason for patch."
+      },
+      {
+        "revision": "2015-01-12 00:00",
+        "description": "Add hwSysEvmTraps for evm."
+      },
+      {
+        "revision": "2014-09-15 00:00",
+        "description": "Modified hwSysRebootReason. Add new reboot reason."
+      },
+      {
+        "revision": "2014-09-12 00:00",
+        "description": "Modified hwSysCfgFileName description. hwSysCfgFileName is a string of 5 to 64 characters."
+      },
+      {
+        "revision": "2014-09-03 00:00",
+        "description": "Add two hwIssuState: issuRollBackByUserCancel, issuRollBackByExceptional to hwIssuState."
+      },
+      {
+        "revision": "2014-07-28 00:00",
+        "description": "Add one hwPatchErrorCode : patchMisoperation to hwPatchErrorType ."
+      },
+      {
+        "revision": "2014-07-23 00:00",
+        "description": "Modified hwPatchFailReason for patch."
+      },
+      {
+        "revision": "2014-07-08 00:00",
+        "description": " Add hwSysWlanApUpgradeAssistantPackageNotMatchNotify for wlan ap upgrade."
+      },
+      {
+        "revision": "2014-06-03 00:00",
+        "description": "Modified hwSystemBoardExlude/hwSystemBoardExludeClear to hwSystemBoardExclude/hwSystemBoardExcludeClear."
+      },
+      {
+        "revision": "2014-05-22 00:00",
+        "description": "Add nodes for android upgrade."
+      },
+      {
+        "revision": "2014-03-27 00:00",
+        "description": "Add nodes for wlan ap upgrade."
+      },
+      {
+        "revision": "2014-03-18 00:00",
+        "description": "Add hwIssuPatchFile leaf into HwSysUpgradeEntry."
+      },
+      {
+        "revision": "2014-03-17 00:00",
+        "description": "Add two trap nodes hwSystemBoardExlude and hwSystemBoardExludeClear to huaweiSystemManMIBNotifications Table."
+      },
+      {
+        "revision": "2013-10-21 00:00",
+        "description": "Add two trap nodes hwSysPafChangeNotification and hwSysLicenseChangeNotification to huaweiSystemManMIBNotifications Table."
+      }
+    ]
+  },
+  "HWPatchErrorType": {
+    "name": "HWPatchErrorType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initNoMemory": 1,
+          "initMemProtectFail": 2,
+          "fetchInputIsNull": 5,
+          "fetchFlagNotSame": 6,
+          "fetchProgVerInvalid": 7,
+          "fetchProgCrcInvalid": 8,
+          "fetchPatNoInvalid": 9,
+          "fetchTotalNumInvalid": 10,
+          "fetchUnitCrcInvalid": 11,
+          "fetchFuncNumTooMany": 12,
+          "fetchTypeInvalid": 13,
+          "fetchCommonAfterTemp": 14,
+          "fetchLengthNotSuited": 15,
+          "fetchCodeAddrNotSuited": 16,
+          "fetchDataAddrNotSuited": 17,
+          "fetchBaseAddrNotSuited": 18,
+          "fetchCodeLenOverflow": 19,
+          "fetchDataLenOverflow": 20,
+          "fetchOldAfterIndependent": 103,
+          "fetchUpdateDependency": 104,
+          "chgproChangeModeFailed": 30,
+          "activeNumInvalid": 40,
+          "activeHasBeenActived": 41,
+          "activeNotExist": 42,
+          "activeStateInvalid": 43,
+          "activeCodeAddrNotSuited": 44,
+          "activeDataAddrNotSuited": 45,
+          "activeBaseAddrNotSuited": 46,
+          "activeFormatUnknown": 47,
+          "runNumInvalid": 55,
+          "runHasInRunning": 56,
+          "runNotActive": 57,
+          "runIdleState": 58,
+          "runBadState": 59,
+          "deactNumInvalid": 70,
+          "deactRunOrActive": 71,
+          "deactRunningState": 72,
+          "deactBadState": 73,
+          "removeNumInvalid": 80,
+          "removeHasInIdle": 81,
+          "removeBadStatus": 82,
+          "caclcrcFileCrcInvalid": 90,
+          "caclcrcUnitCrcInvalid": 91,
+          "caclcrcOutputIsNull": 92,
+          "caclcrcNumInvalid": 93,
+          "caclcrcBadUnitCrc": 95,
+          "showNumInvalid": 100,
+          "showCodeLenIsZero": 101,
+          "showDataLenIsZero": 102,
+          "addlistBadParam": 105,
+          "addlistMemAllocFail": 106,
+          "depToListBadParamDep": 107,
+          "depToListBadParamList": 108,
+          "depToListMemFreeFail": 109,
+          "depToListAddItemFail": 110,
+          "listToDepBadParamDep": 111,
+          "listToDepBadParamList": 112,
+          "listToDepBadParamDepCount": 113,
+          "updateDepBadParam": 114,
+          "updateDepMemAllocFail": 115,
+          "updateDepDepToListFail": 116,
+          "updateDepToInterFail": 117,
+          "updateDepFromInterFail": 118,
+          "updateDepListToDepFail": 119,
+          "depToInterBadParam": 120,
+          "depToInterInvalidNo": 121,
+          "depToInterAddFail": 122,
+          "interToDepBadParam": 123,
+          "interToDepAppendFail": 124,
+          "appendListBadParam": 125,
+          "appendListAddFail": 126,
+          "indActiveBadParam": 127,
+          "indActiveAlreadyActive": 128,
+          "indActiveListFail": 129,
+          "indActiveListGenFail": 130,
+          "indActiveListAppendFail": 131,
+          "indActiveMemFreeFail": 132,
+          "indActiveDepIdle": 133,
+          "indActiveDepInvalid": 134,
+          "indActiveCodeAddrNotSuited": 135,
+          "indActiveDataAddrNotSuited": 136,
+          "indActiveBaseAddrNotSuited": 137,
+          "indActiveNotLoaded": 138,
+          "indActiveFuncFail": 139,
+          "indPatchFileNoInd": 140,
+          "indRunFail": 141,
+          "indDeactiveFail": 142,
+          "indRemoveFail": 143,
+          "indGetDepOfPara": 144,
+          "indGetDepOnPara": 145,
+          "indGetDepOnFail": 146,
+          "fetchBufferPara": 147,
+          "fetchBufferFail": 148,
+          "getStatePara": 149,
+          "indActiveAlreadyRunning": 150,
+          "indFreeListInputNull": 151,
+          "indFreeListMemFreeErr": 152,
+          "indBitTblToArrayInputNull": 153,
+          "indBitTblToArrayFreeFail": 154,
+          "indBitTblToArrayAllocFail": 155,
+          "indBitTblToArrayBitsetMore": 156,
+          "indBitTblToArrayBitsetLess": 157,
+          "listToDepBadParamAllocFail": 158,
+          "listToDepBadParamFreeFail": 159,
+          "indDeactiveFreeNull": 160,
+          "indRemoveFreeFail": 161,
+          "getInfoBufNull": 162,
+          "getInfoOutputNull": 163,
+          "getInfoFlagNotSame": 164,
+          "getInfoProgCrcInvalid": 165,
+          "getInfoFileCrcInvalid": 166,
+          "getInfoUnitCrcInvalid": 167,
+          "indPatchOpNotconfig": 169,
+          "normalOpNotconfig": 170,
+          "indDeactiveDeative": 173,
+          "indDeactiveRunning": 174,
+          "indDeactiveInvalid": 176,
+          "indRunDeactive": 177,
+          "indRunRunning": 178,
+          "indRunIdle": 179,
+          "indRunInvalid": 180,
+          "indActiveIdle": 171,
+          "indActiveInvalid": 172,
+          "indFetchActive": 183,
+          "indFetchRunning": 185,
+          "indFetchDeactive": 184,
+          "indFetchInvalid": 186,
+          "indRemoveIdle": 181,
+          "indRemoveInvalid": 182,
+          "patchFileNotExist": 187,
+          "patchRestoreFailed": 188,
+          "patchPackageError": 189,
+          "patchMisoperation": 190,
+          "patchSystemUnstable": 191,
+          "unknown": 65535
+        }
+      }
+    },
+    "status": "current"
+  },
+  "huaweiSystemManMIBObjects": {
+    "name": "huaweiSystemManMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1",
+    "class": "objectidentity"
+  },
+  "hwSysClock": {
+    "name": "hwSysClock",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.1",
+    "class": "objectidentity"
+  },
+  "hwSysLocalClock": {
+    "name": "hwSysLocalClock",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysCurrent": {
+    "name": "hwSysCurrent",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.2",
+    "class": "objectidentity"
+  },
+  "hwSysCurTable": {
+    "name": "hwSysCurTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysCurEntry": {
+    "name": "hwSysCurEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCurEntPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysCurEntPhysicalIndex": {
+    "name": "hwSysCurEntPhysicalIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysCurCFGFileIndex": {
+    "name": "hwSysCurCFGFileIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysCurImageIndex": {
+    "name": "hwSysCurImageIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysCurPafFileIndex": {
+    "name": "hwSysCurPafFileIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysCurLicenseIndex": {
+    "name": "hwSysCurLicenseIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysCurPatchFileIndex": {
+    "name": "hwSysCurPatchFileIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysCurVoiceFileIndex": {
+    "name": "hwSysCurVoiceFileIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysReload": {
+    "name": "hwSysReload",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3",
+    "class": "objectidentity"
+  },
+  "hwSysReloadSchedule": {
+    "name": "hwSysReloadSchedule",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "hwSysReloadAction": {
+    "name": "hwSysReloadAction",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reloadUnavailable": 1,
+          "reloadOnSchedule": 2,
+          "reloadAtOnce": 3,
+          "reloadCancel": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSysReloadScheduleTable": {
+    "name": "hwSysReloadScheduleTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysReloadScheduleEntry": {
+    "name": "hwSysReloadScheduleEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadScheduleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysReloadScheduleIndex": {
+    "name": "hwSysReloadScheduleIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysReloadEntity": {
+    "name": "hwSysReloadEntity",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSysReloadCfgFile": {
+    "name": "hwSysReloadCfgFile",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSysReloadImage": {
+    "name": "hwSysReloadImage",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSysReloadReason": {
+    "name": "hwSysReloadReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSysReloadScheduleTime": {
+    "name": "hwSysReloadScheduleTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSysReloadRowStatus": {
+    "name": "hwSysReloadRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSysReloadPafFile": {
+    "name": "hwSysReloadPafFile",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSysReloadLicenseFile": {
+    "name": "hwSysReloadLicenseFile",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSysReloadPatchFile": {
+    "name": "hwSysReloadPatchFile",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSysReloadPatchState": {
+    "name": "hwSysReloadPatchState",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "run": 1,
+          "unused": 255
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSysReloadOperateDestType": {
+    "name": "hwSysReloadOperateDestType",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "slave": 2,
+          "chassis": 3,
+          "unused": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSysReloadOperateDestIndex": {
+    "name": "hwSysReloadOperateDestIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSysReloadVoiceFile": {
+    "name": "hwSysReloadVoiceFile",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSysReloadAndroidFile": {
+    "name": "hwSysReloadAndroidFile",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSysReboot": {
+    "name": "hwSysReboot",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 1,
+          "rebootWholeRoute": 2,
+          "rebootSlave": 3,
+          "slaveSwitch": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSysSlaveSwitchEnable": {
+    "name": "hwSysSlaveSwitchEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSysLatestRebootErrorInfo": {
+    "name": "hwSysLatestRebootErrorInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysSlaveSwitchTable": {
+    "name": "hwSysSlaveSwitchTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysSlaveSwitchEntry": {
+    "name": "hwSysSlaveSwitchEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveSwitchIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysSlaveSwitchIndex": {
+    "name": "hwSysSlaveSwitchIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysSlaveSwitchChassisNum": {
+    "name": "hwSysSlaveSwitchChassisNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSysSlaveSwitchOperType": {
+    "name": "hwSysSlaveSwitchOperType",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 1,
+          "slaveSwitch": 2,
+          "slaveSwitchLock": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSysSlaveSwitchEnableStatus": {
+    "name": "hwSysSlaveSwitchEnableStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSysSlaveSwitchSrc": {
+    "name": "hwSysSlaveSwitchSrc",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSysSlaveSwitchDst": {
+    "name": "hwSysSlaveSwitchDst",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSysDelayReboot": {
+    "name": "hwSysDelayReboot",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSysImage": {
+    "name": "hwSysImage",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.4",
+    "class": "objectidentity"
+  },
+  "hwSysImageNum": {
+    "name": "hwSysImageNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysImageTable": {
+    "name": "hwSysImageTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysImageEntry": {
+    "name": "hwSysImageEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysImageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysImageIndex": {
+    "name": "hwSysImageIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysImageName": {
+    "name": "hwSysImageName",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysImageSize": {
+    "name": "hwSysImageSize",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysImageLocation": {
+    "name": "hwSysImageLocation",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysImageVersion": {
+    "name": "hwSysImageVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysImageReason": {
+    "name": "hwSysImageReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysCFGFile": {
+    "name": "hwSysCFGFile",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.5",
+    "class": "objectidentity"
+  },
+  "hwSysCFGFileNum": {
+    "name": "hwSysCFGFileNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysCFGFileTable": {
+    "name": "hwSysCFGFileTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysCFGFileEntry": {
+    "name": "hwSysCFGFileEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCFGFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysCFGFileIndex": {
+    "name": "hwSysCFGFileIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysCFGFileName": {
+    "name": "hwSysCFGFileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysCFGFileSize": {
+    "name": "hwSysCFGFileSize",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysCFGFileLocation": {
+    "name": "hwSysCFGFileLocation",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysCFGFileReason": {
+    "name": "hwSysCFGFileReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysPafFile": {
+    "name": "hwSysPafFile",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.6",
+    "class": "objectidentity"
+  },
+  "hwSysPafFileNum": {
+    "name": "hwSysPafFileNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysPafFileTable": {
+    "name": "hwSysPafFileTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysPafFileEntry": {
+    "name": "hwSysPafFileEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysPafFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysPafFileIndex": {
+    "name": "hwSysPafFileIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysPafFileName": {
+    "name": "hwSysPafFileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysPafFileSize": {
+    "name": "hwSysPafFileSize",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysPafFileLocation": {
+    "name": "hwSysPafFileLocation",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysPafFileVersion": {
+    "name": "hwSysPafFileVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysLicenseFile": {
+    "name": "hwSysLicenseFile",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.7",
+    "class": "objectidentity"
+  },
+  "hwSysLicenseFileNum": {
+    "name": "hwSysLicenseFileNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysLicenseFileTable": {
+    "name": "hwSysLicenseFileTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysLicenseFileEntry": {
+    "name": "hwSysLicenseFileEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysLicenseFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysLicenseFileIndex": {
+    "name": "hwSysLicenseFileIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysLicenseFileName": {
+    "name": "hwSysLicenseFileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysLicenseFileSize": {
+    "name": "hwSysLicenseFileSize",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysLicenseFileLocation": {
+    "name": "hwSysLicenseFileLocation",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatch": {
+    "name": "hwPatch",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8",
+    "class": "objectidentity"
+  },
+  "hwPatchBase": {
+    "name": "hwPatchBase",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.1",
+    "class": "objectidentity"
+  },
+  "hwPatchFileNum": {
+    "name": "hwPatchFileNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchRecordReset": {
+    "name": "hwPatchRecordReset",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 1,
+          "resetPatchHistory": 2,
+          "resetPatchError": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPatchHistoryTableMax": {
+    "name": "hwPatchHistoryTableMax",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPatchTrapEnble": {
+    "name": "hwPatchTrapEnble",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPatchErrorTableMax": {
+    "name": "hwPatchErrorTableMax",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPatchId": {
+    "name": "hwPatchId",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchLatestId": {
+    "name": "hwPatchLatestId",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchFailReason": {
+    "name": "hwPatchFailReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "patchOpenErr": 1,
+          "getPatchErr": 2,
+          "patchSpaceShortage": 3,
+          "patchConflict": 4,
+          "versionErr": 5,
+          "synchronizePatchPackageError": 8,
+          "patchConfigInconsistError": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchFileTable": {
+    "name": "hwPatchFileTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPatchFileEntry": {
+    "name": "hwPatchFileEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPatchFileIndex": {
+    "name": "hwPatchFileIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPatchFileName": {
+    "name": "hwPatchFileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchFileSize": {
+    "name": "hwPatchFileSize",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchFileLocation": {
+    "name": "hwPatchFileLocation",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchFileVersion": {
+    "name": "hwPatchFileVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLoadPatchTable": {
+    "name": "hwLoadPatchTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwLoadPatchEntry": {
+    "name": "hwLoadPatchEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPatchLoadDestType": {
+    "name": "hwPatchLoadDestType",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "slave": 2,
+          "slot": 3,
+          "chassis": 4,
+          "unused": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPatchLoadDestIndex": {
+    "name": "hwPatchLoadDestIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPatchLoadState": {
+    "name": "hwPatchLoadState",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loading": 1,
+          "success": 2,
+          "failure": 3,
+          "none": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLoadPatchRowState": {
+    "name": "hwLoadPatchRowState",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.4.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPatchInfo": {
+    "name": "hwPatchInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5",
+    "class": "objectidentity"
+  },
+  "hwPatchTable": {
+    "name": "hwPatchTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPatchEntry": {
+    "name": "hwPatchEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPatchSlotIndex": {
+    "name": "hwPatchSlotIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPatchIndex": {
+    "name": "hwPatchIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPatchUsedFileName": {
+    "name": "hwPatchUsedFileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchVersion": {
+    "name": "hwPatchVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchDescription": {
+    "name": "hwPatchDescription",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchProgramVersion": {
+    "name": "hwPatchProgramVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchFuncNum": {
+    "name": "hwPatchFuncNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchTextLen": {
+    "name": "hwPatchTextLen",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchDataLen": {
+    "name": "hwPatchDataLen",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchType": {
+    "name": "hwPatchType",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hotCommon": 1,
+          "hotTemporary": 2,
+          "coolCommon": 3,
+          "coolTemporary": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchBuildTime": {
+    "name": "hwPatchBuildTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchActiveTime": {
+    "name": "hwPatchActiveTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchAdminStatus": {
+    "name": "hwPatchAdminStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "run": 1,
+          "active": 2,
+          "deactive": 3,
+          "delete": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPatchOperateState": {
+    "name": "hwPatchOperateState",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "patchRunning": 1,
+          "patchActive": 2,
+          "patchDeactive": 3,
+          "patchDeleting": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchOperateDestType": {
+    "name": "hwPatchOperateDestType",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "slave": 2,
+          "slot": 3,
+          "chassis": 4,
+          "unused": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPatchOperateDestIndex": {
+    "name": "hwPatchOperateDestIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPatchStateTable": {
+    "name": "hwPatchStateTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPatchStateEntry": {
+    "name": "hwPatchStateEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPatchNumMax": {
+    "name": "hwPatchNumMax",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchIdleNum": {
+    "name": "hwPatchIdleNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchTextMax": {
+    "name": "hwPatchTextMax",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchDataMax": {
+    "name": "hwPatchDataMax",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchStateTextUsed": {
+    "name": "hwPatchStateTextUsed",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchStateDataUsed": {
+    "name": "hwPatchStateDataUsed",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchStateTotalPatchNum": {
+    "name": "hwPatchStateTotalPatchNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchStateTempPatchNum": {
+    "name": "hwPatchStateTempPatchNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchStateCommonPatchNum": {
+    "name": "hwPatchStateCommonPatchNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchStateRuningPatchNum": {
+    "name": "hwPatchStateRuningPatchNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchStateActivePatchNum": {
+    "name": "hwPatchStateActivePatchNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchStateDeactivePatchNum": {
+    "name": "hwPatchStateDeactivePatchNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchHistoryTable": {
+    "name": "hwPatchHistoryTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPatchHistoryEntry": {
+    "name": "hwPatchHistoryEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPatchHistoryIndex": {
+    "name": "hwPatchHistoryIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPatchHistoryProgrameVersion": {
+    "name": "hwPatchHistoryProgrameVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchHistoryVersion": {
+    "name": "hwPatchHistoryVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSlotId": {
+    "name": "hwSlotId",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchBeginIndex": {
+    "name": "hwPatchBeginIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchEndIndex": {
+    "name": "hwPatchEndIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchHistoryAction": {
+    "name": "hwPatchHistoryAction",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "active": 2,
+          "deactive": 3,
+          "delete": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchHistoryBeginTime": {
+    "name": "hwPatchHistoryBeginTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchHistoryEndTime": {
+    "name": "hwPatchHistoryEndTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchErrorTable": {
+    "name": "hwPatchErrorTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPatchErrorEntry": {
+    "name": "hwPatchErrorEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchErrorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPatchErrorIndex": {
+    "name": "hwPatchErrorIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPatchErrorSlot": {
+    "name": "hwPatchErrorSlot",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchErrorPatchFileName": {
+    "name": "hwPatchErrorPatchFileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchErrorPatchIndex": {
+    "name": "hwPatchErrorPatchIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchErrorCode": {
+    "name": "hwPatchErrorCode",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWPatchErrorType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBootRom": {
+    "name": "hwBootRom",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11",
+    "class": "objectidentity"
+  },
+  "hwBootRomTable": {
+    "name": "hwBootRomTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBootRomEntry": {
+    "name": "hwBootRomEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBootRomIndex": {
+    "name": "hwBootRomIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBootRomBootDevice": {
+    "name": "hwBootRomBootDevice",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBootRomProcessorNo": {
+    "name": "hwBootRomProcessorNo",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBootRomHostName": {
+    "name": "hwBootRomHostName",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBootRomFileName": {
+    "name": "hwBootRomFileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBootRomIpOnEthernet": {
+    "name": "hwBootRomIpOnEthernet",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBootRomIpOnBackPlane": {
+    "name": "hwBootRomIpOnBackPlane",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBootRomHostIp": {
+    "name": "hwBootRomHostIp",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBootRomGatewayIp": {
+    "name": "hwBootRomGatewayIp",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBootRomUserName": {
+    "name": "hwBootRomUserName",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBootRomPassword": {
+    "name": "hwBootRomPassword",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBootRomTargetName": {
+    "name": "hwBootRomTargetName",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBootRomStartupScript": {
+    "name": "hwBootRomStartupScript",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBootRomXModemBaudRate": {
+    "name": "hwBootRomXModemBaudRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBootRomVersion": {
+    "name": "hwBootRomVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysUpgrade": {
+    "name": "hwSysUpgrade",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.12",
+    "class": "objectidentity"
+  },
+  "hwSysUpgradeTable": {
+    "name": "hwSysUpgradeTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysUpgradeEntry": {
+    "name": "hwSysUpgradeEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwIssuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIssuIndex": {
+    "name": "hwIssuIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIssuMode": {
+    "name": "hwIssuMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "issuUpgrade": 1,
+          "issuPrecheck": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIssuImageFile": {
+    "name": "hwIssuImageFile",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIssuPafFile": {
+    "name": "hwIssuPafFile",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.12.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIssuLicenseFile": {
+    "name": "hwIssuLicenseFile",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.12.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIssuPatchFile": {
+    "name": "hwIssuPatchFile",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.12.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 5,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIssuState": {
+    "name": "hwIssuState",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noIssuUpgrading": 1,
+          "issuUpgrading": 2,
+          "issuExceptional": 3,
+          "issuRollBackByUserCancel": 4,
+          "issuRollBackByExceptional": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIssuConditionCheck": {
+    "name": "hwIssuConditionCheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "notRealtimeBackup": 2,
+          "slotAbnormal": 3,
+          "configurationChange": 4,
+          "otherAbnormal": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysSourceIndex": {
+    "name": "hwSysSourceIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.13",
+    "class": "objectidentity"
+  },
+  "hwSysSourceIndexTable": {
+    "name": "hwSysSourceIndexTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.13.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysSourceIndexEntry": {
+    "name": "hwSysSourceIndexEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.13.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysFileType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysFileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysFileType": {
+    "name": "hwSysFileType",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.13.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "image": 1,
+          "config": 2,
+          "paf": 3,
+          "license": 4,
+          "patch": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysFileName": {
+    "name": "hwSysFileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.13.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 110
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysFileIndex": {
+    "name": "hwSysFileIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.13.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysRebootInfo": {
+    "name": "hwSysRebootInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.14",
+    "class": "objectidentity"
+  },
+  "hwSysRebootTimes": {
+    "name": "hwSysRebootTimes",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysRebootRecordTable": {
+    "name": "hwSysRebootRecordTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.14.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysRebootRecordEntry": {
+    "name": "hwSysRebootRecordEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.14.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysRebootRecordIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysRebootRecordIndex": {
+    "name": "hwSysRebootRecordIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.14.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysRebootReason": {
+    "name": "hwSysRebootReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.14.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "powerOff": 2,
+          "unknown": 3,
+          "schedule": 4,
+          "software": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysRebootTime": {
+    "name": "hwSysRebootTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.14.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysDeviceCheck": {
+    "name": "hwSysDeviceCheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.15",
+    "class": "objectidentity"
+  },
+  "hwSysDeviceCheckStart": {
+    "name": "hwSysDeviceCheckStart",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.15.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "checkStart": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSysDeviceCheckState": {
+    "name": "hwSysDeviceCheckState",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.15.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "done": 1,
+          "checking": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysSwitchoverState": {
+    "name": "hwSysSwitchoverState",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19",
+    "class": "objectidentity"
+  },
+  "hwSysSwitchoverStateTable": {
+    "name": "hwSysSwitchoverStateTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysSwitchoverStateEntry": {
+    "name": "hwSysSwitchoverStateEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSwitchoverStateIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysSwitchoverStateIndex": {
+    "name": "hwSysSwitchoverStateIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysSwitchoverSlotId": {
+    "name": "hwSysSwitchoverSlotId",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysSwitchoverBoardType": {
+    "name": "hwSysSwitchoverBoardType",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2,
+          "systemMaster": 3,
+          "systemSlave": 4,
+          "issuOldMaster": 5,
+          "issuNewMaster": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysSwitchoverInfo": {
+    "name": "hwSysSwitchoverInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 190
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysSwitchoverStateMultiTable": {
+    "name": "hwSysSwitchoverStateMultiTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysSwitchoverStateMultiEntry": {
+    "name": "hwSysSwitchoverStateMultiEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysMultiSwtStateIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysMultiSwtStateIndex": {
+    "name": "hwSysMultiSwtStateIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysMultiSwtChassisId": {
+    "name": "hwSysMultiSwtChassisId",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysMultiSwtSlotId": {
+    "name": "hwSysMultiSwtSlotId",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysMultiSwtBoardType": {
+    "name": "hwSysMultiSwtBoardType",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2,
+          "systemMaster": 3,
+          "systemSlave": 4,
+          "issuOldMaster": 5,
+          "issuNewMaster": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysMultiSwtInfo": {
+    "name": "hwSysMultiSwtInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 190
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysVoiceFile": {
+    "name": "hwSysVoiceFile",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.20",
+    "class": "objectidentity"
+  },
+  "hwSysVoiceFileNum": {
+    "name": "hwSysVoiceFileNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.20.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysVoiceFileTable": {
+    "name": "hwSysVoiceFileTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.20.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysVoiceFileEntry": {
+    "name": "hwSysVoiceFileEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.20.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysVoiceFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysVoiceFileIndex": {
+    "name": "hwSysVoiceFileIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.20.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysVoiceFileName": {
+    "name": "hwSysVoiceFileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.20.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysVoiceFileSize": {
+    "name": "hwSysVoiceFileSize",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.20.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysVoiceFileLocation": {
+    "name": "hwSysVoiceFileLocation",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.20.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysWlanApUpgrade": {
+    "name": "hwSysWlanApUpgrade",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24",
+    "class": "objectidentity"
+  },
+  "hwSysWlanApUpgradeCmd": {
+    "name": "hwSysWlanApUpgradeCmd",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.1",
+    "class": "objectidentity"
+  },
+  "hwSysWlanApUpgradeMode": {
+    "name": "hwSysWlanApUpgradeMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 1,
+          "sftp": 2,
+          "tftp": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSysWlanApUpgradeFileName": {
+    "name": "hwSysWlanApUpgradeFileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSysWlanApUpgradeServerIp": {
+    "name": "hwSysWlanApUpgradeServerIp",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSysWlanApUpgradeServerUserName": {
+    "name": "hwSysWlanApUpgradeServerUserName",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSysWlanApUpgradeServerPassword": {
+    "name": "hwSysWlanApUpgradeServerPassword",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSysWlanApUpgradeStatus": {
+    "name": "hwSysWlanApUpgradeStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.2",
+    "class": "objectidentity"
+  },
+  "hwSysWlanApUpgradeProgressStatus": {
+    "name": "hwSysWlanApUpgradeProgressStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "updating": 0,
+          "updateSuccessful": 1,
+          "updateFailed": 2,
+          "failToDownloadFile": 4,
+          "efsAndVersionMismatched": 5,
+          "invalidFileName": 6,
+          "efsAndApTypeMismatched": 7,
+          "fileContentError": 8,
+          "writingMemoryError": 9,
+          "noUpdateResult": 10
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSysWlanApUpgradeLoadProgress": {
+    "name": "hwSysWlanApUpgradeLoadProgress",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSysWlanApUpgradeStorageProgress": {
+    "name": "hwSysWlanApUpgradeStorageProgress",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSysWlanApUpgradeNotifications": {
+    "name": "hwSysWlanApUpgradeNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.3",
+    "class": "objectidentity"
+  },
+  "hwSysWlanApUpgradeBeginNotify": {
+    "name": "hwSysWlanApUpgradeBeginNotify",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.3.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwSysWlanApUpgradeResultNotify": {
+    "name": "hwSysWlanApUpgradeResultNotify",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeProgressStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysWlanApUpgradeUbootNotMatchNotify": {
+    "name": "hwSysWlanApUpgradeUbootNotMatchNotify",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.3.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwSysWlanApUpgradeAssistantPackageNotMatchNotify": {
+    "name": "hwSysWlanApUpgradeAssistantPackageNotMatchNotify",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.3.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwSysAndroidFile": {
+    "name": "hwSysAndroidFile",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.25",
+    "class": "objectidentity"
+  },
+  "hwSysAndroidFileNum": {
+    "name": "hwSysAndroidFileNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.25.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysAndroidFileTable": {
+    "name": "hwSysAndroidFileTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.25.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysAndroidFileEntry": {
+    "name": "hwSysAndroidFileEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.25.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysAndroidFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysAndroidFileIndex": {
+    "name": "hwSysAndroidFileIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.25.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSysAndroidFileName": {
+    "name": "hwSysAndroidFileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.25.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysAndroidFileSize": {
+    "name": "hwSysAndroidFileSize",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.25.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysAndroidFileLocation": {
+    "name": "hwSysAndroidFileLocation",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.25.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSysAndroidFileReason": {
+    "name": "hwSysAndroidFileReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.25.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTrustStartup": {
+    "name": "hwTrustStartup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.26",
+    "class": "objectidentity"
+  },
+  "hwTpmStatusTable": {
+    "name": "hwTpmStatusTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.26.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTpmStatusEntry": {
+    "name": "hwTpmStatusEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.26.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwTpmPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwTpmPhysicalIndex": {
+    "name": "hwTpmPhysicalIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.26.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTpmPhysicalName": {
+    "name": "hwTpmPhysicalName",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.26.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTpmVersion": {
+    "name": "hwTpmVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.26.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTpmManufacturer": {
+    "name": "hwTpmManufacturer",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.26.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTpmStatus": {
+    "name": "hwTpmStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.26.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSetTpmStatusRst": {
+    "name": "hwSetTpmStatusRst",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.26.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noSetting": 1,
+          "success": 2,
+          "failure": 3,
+          "setting": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTrustStartupReportTable": {
+    "name": "hwTrustStartupReportTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.26.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTrustStartupReportEntry": {
+    "name": "hwTrustStartupReportEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.26.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwTrustPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwTrustItemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrustPhysicalIndex": {
+    "name": "hwTrustPhysicalIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.26.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTrustItemIndex": {
+    "name": "hwTrustItemIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.26.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTrustPhysicalName": {
+    "name": "hwTrustPhysicalName",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.26.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTrustStartupReportItem": {
+    "name": "hwTrustStartupReportItem",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.26.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTpmPcr": {
+    "name": "hwTpmPcr",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.26.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTpmPcrBenchmark": {
+    "name": "hwTpmPcrBenchmark",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.26.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVerifyResult": {
+    "name": "hwVerifyResult",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.26.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "error": 2,
+          "unknown": 3,
+          "update": 4,
+          "okAndUpdate": 5,
+          "errorAndUpdate": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCodeSign": {
+    "name": "hwCodeSign",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.27",
+    "class": "objectidentity"
+  },
+  "hwSoftCrlInfoTable": {
+    "name": "hwSoftCrlInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.27.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSoftCrlInfoEntry": {
+    "name": "hwSoftCrlInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.27.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwCrlInfoIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwCrlInfoIndex": {
+    "name": "hwCrlInfoIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.27.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCrlSlotId": {
+    "name": "hwCrlSlotId",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.27.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCrlPublisher": {
+    "name": "hwCrlPublisher",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.27.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCrlIssueDate": {
+    "name": "hwCrlIssueDate",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.27.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCrlStatus": {
+    "name": "hwCrlStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.27.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "valid": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSoftCrlFileTable": {
+    "name": "hwSoftCrlFileTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.27.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSoftCrlFileEntry": {
+    "name": "hwSoftCrlFileEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.27.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwCrlFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwCrlFileIndex": {
+    "name": "hwCrlFileIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.27.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCrlFileName": {
+    "name": "hwCrlFileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.27.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 5,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSoftCrlLoadTable": {
+    "name": "hwSoftCrlLoadTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.27.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSoftCrlLoadEntry": {
+    "name": "hwSoftCrlLoadEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.27.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwCrlFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwCrlLoadAction": {
+    "name": "hwCrlLoadAction",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.27.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "load": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwCrlLoadRst": {
+    "name": "hwCrlLoadRst",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.27.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loadSuccess": 0,
+          "fileNotExist": 1,
+          "fileNotNew": 2,
+          "publisherNotSame": 3,
+          "nextStartupSoftwareCheckFailed": 4,
+          "crlLoadFailed": 5,
+          "crlFormatError": 6,
+          "loading": 7,
+          "crlNameInvalid": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "huaweiSystemManMIBNotifications": {
+    "name": "huaweiSystemManMIBNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2",
+    "class": "objectidentity"
+  },
+  "hwSysClockChangedNotification": {
+    "name": "hwSysClockChangedNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysLocalClock"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysReloadNotification": {
+    "name": "hwSysReloadNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadImage"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadCfgFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadReason"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadScheduleTime"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadAction"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadPafFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadLicenseFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadPatchFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadAndroidFile"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysMasterHDError": {
+    "name": "hwSysMasterHDError",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwSysSlaveHDError": {
+    "name": "hwSysSlaveHDError",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwPatchTrap": {
+    "name": "hwPatchTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.5",
+    "class": "objectidentity"
+  },
+  "hwPatchErrorTrap": {
+    "name": "hwPatchErrorTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.5.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchErrorSlot"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchErrorPatchIndex"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchErrorCode"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchErrorPatchFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPatchActiveOverTimeTrap": {
+    "name": "hwPatchActiveOverTimeTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.5.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchOperateState"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPatchMalfunctionComebackTrap": {
+    "name": "hwPatchMalfunctionComebackTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.5.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchOperateState"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPatchUpdateTrap": {
+    "name": "hwPatchUpdateTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.5.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchVersion"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchType"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchOperateState"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysMasterCfcardError": {
+    "name": "hwSysMasterCfcardError",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.6",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwSysSlaveCfcardError": {
+    "name": "hwSysSlaveCfcardError",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.7",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwSysSlaveSwitchSuccessNotification": {
+    "name": "hwSysSlaveSwitchSuccessNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveSwitchChassisNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveSwitchSrc"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveSwitchDst"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysSlaveSwitchFailNotification": {
+    "name": "hwSysSlaveSwitchFailNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveSwitchChassisNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysIssuNotification": {
+    "name": "hwSysIssuNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwIssuState"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwIssuConditionCheck"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPatchInstallFail": {
+    "name": "hwPatchInstallFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchUsedFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchVersion"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFailReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPatchInstallFailClear": {
+    "name": "hwPatchInstallFailClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchUsedFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchVersion"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFailReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSumUpgradeSuccess": {
+    "name": "hwSumUpgradeSuccess",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysImageVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysCfgFileErrorNotification": {
+    "name": "hwSysCfgFileErrorNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCFGFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCFGFileReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysImageErrorNotification": {
+    "name": "hwSysImageErrorNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysImageName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysImageName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysImageReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysPafChangeNotification": {
+    "name": "hwSysPafChangeNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadEntity"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysPafFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysLicenseChangeNotification": {
+    "name": "hwSysLicenseChangeNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadEntity"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysLicenseFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSystemBoardExclude": {
+    "name": "hwSystemBoardExclude",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSystemBoardExcludeClear": {
+    "name": "hwSystemBoardExcludeClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysEvmTraps": {
+    "name": "hwSysEvmTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.20",
+    "class": "objectidentity"
+  },
+  "hwSysEvmTrapsObject": {
+    "name": "hwSysEvmTrapsObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.20.1",
+    "class": "objectidentity"
+  },
+  "hwSysEvmRoleName": {
+    "name": "hwSysEvmRoleName",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.20.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSysEvmDownloadFileName": {
+    "name": "hwSysEvmDownloadFileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.20.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSysEvmInstallFileName": {
+    "name": "hwSysEvmInstallFileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.20.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSysEvmNotifications": {
+    "name": "hwSysEvmNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.20.2",
+    "class": "objectidentity"
+  },
+  "hwEvmVmAbnormalRunNotification": {
+    "name": "hwEvmVmAbnormalRunNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.20.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysEvmRoleName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEvmVmNotRunningNotification": {
+    "name": "hwEvmVmNotRunningNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.20.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysEvmRoleName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEvmVmAbnormalRestartNotification": {
+    "name": "hwEvmVmAbnormalRestartNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.20.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysEvmRoleName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEvmDownloadFailedNotification": {
+    "name": "hwEvmDownloadFailedNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.20.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysEvmDownloadFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEvmInstallFailedNotification": {
+    "name": "hwEvmInstallFailedNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.20.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysEvmInstallFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTpmStaticMeasureAlarm": {
+    "name": "hwTpmStaticMeasureAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwTrustPhysicalName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwTrustStartupReportItem"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTpmStaticMeasureAlarmClear": {
+    "name": "hwTpmStaticMeasureAlarmClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwTrustPhysicalName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwTrustStartupReportItem"
+      }
+    ],
+    "status": "current"
+  },
+  "huaweiSystemManMIBConformance": {
+    "name": "huaweiSystemManMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3",
+    "class": "objectidentity"
+  },
+  "huaweiSystemManMIBCompliances": {
+    "name": "huaweiSystemManMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.1",
+    "class": "objectidentity"
+  },
+  "huaweiSystemManMIBCompliance": {
+    "name": "huaweiSystemManMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "huaweiSysClockGroup",
+        "module": "HUAWEI-SYS-MAN-MIB"
+      },
+      {
+        "object": "huaweiSysReloadGroup",
+        "module": "HUAWEI-SYS-MAN-MIB"
+      },
+      {
+        "object": "huaweiSysImageGroup",
+        "module": "HUAWEI-SYS-MAN-MIB"
+      },
+      {
+        "object": "huaweiSysCFGFileGroup",
+        "module": "HUAWEI-SYS-MAN-MIB"
+      },
+      {
+        "object": "huaweiSystemManNotificationGroup",
+        "module": "HUAWEI-SYS-MAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "huaweiSystemManMIBGroups": {
+    "name": "huaweiSystemManMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2",
+    "class": "objectidentity"
+  },
+  "huaweiSysClockGroup": {
+    "name": "huaweiSysClockGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysLocalClock"
+      }
+    ],
+    "status": "current"
+  },
+  "huaweiSysReloadGroup": {
+    "name": "huaweiSysReloadGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadSchedule"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadAction"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadImage"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadCfgFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadReason"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadPatchFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadLicenseFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadPafFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadPatchState"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysLatestRebootErrorInfo"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadScheduleTime"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadEntity"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadRowStatus"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadOperateDestType"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadOperateDestIndex"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveSwitchChassisNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveSwitchOperType"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveSwitchEnableStatus"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysDelayReboot"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadAndroidFile"
+      }
+    ],
+    "status": "current"
+  },
+  "huaweiSysImageGroup": {
+    "name": "huaweiSysImageGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysImageNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysImageName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysImageSize"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysImageLocation"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysImageVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "huaweiSysCFGFileGroup": {
+    "name": "huaweiSysCFGFileGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCFGFileNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCFGFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCFGFileSize"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCFGFileLocation"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysCurGroup": {
+    "name": "hwSysCurGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCurCFGFileIndex"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCurImageIndex"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCurPafFileIndex"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCurLicenseIndex"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCurPatchFileIndex"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCurVoiceFileIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "huaweiSystemManNotificationGroup": {
+    "name": "huaweiSystemManNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysClockChangedNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveSwitchSuccessNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveSwitchFailNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysIssuNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchInstallFail"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchInstallFailClear"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSumUpgradeSuccess"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCfgFileErrorNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysImageErrorNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysPafChangeNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysLicenseChangeNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSystemBoardExclude"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSystemBoardExcludeClear"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwEvmVmAbnormalRunNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwEvmVmNotRunningNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwEvmVmAbnormalRestartNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwEvmDownloadFailedNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwEvmInstallFailedNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "huaweiSystemHDNotificationGroup": {
+    "name": "huaweiSystemHDNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysMasterHDError"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveHDError"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPatchLoadGroup": {
+    "name": "hwPatchLoadGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchLoadDestType"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchLoadDestIndex"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwLoadPatchRowState"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPatchTrapsGrop": {
+    "name": "hwPatchTrapsGrop",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchErrorTrap"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchActiveOverTimeTrap"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchMalfunctionComebackTrap"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchUpdateTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPatchInfoGroup": {
+    "name": "hwPatchInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchDescription"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFuncNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchTextLen"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchDataLen"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchType"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchAdminStatus"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchStateTempPatchNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchStateCommonPatchNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchStateRuningPatchNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchStateActivePatchNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchStateDeactivePatchNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchHistoryVersion"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchStateTotalPatchNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchStateDataUsed"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchStateTextUsed"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchDataMax"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchTextMax"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchIdleNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchNumMax"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchActiveTime"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchBuildTime"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchVersion"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchHistoryProgrameVersion"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchUsedFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchErrorTableMax"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchHistoryTableMax"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchRecordReset"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchProgramVersion"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchOperateState"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchErrorSlot"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchErrorPatchIndex"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchErrorCode"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchHistoryBeginTime"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchHistoryEndTime"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchHistoryAction"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchEndIndex"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchTrapEnble"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchBeginIndex"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchId"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchLatestId"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSlotId"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchErrorPatchFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFailReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPatchFileGroup": {
+    "name": "hwPatchFileGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFileSize"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFileLocation"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFileVersion"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFileNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysPafFileGroup": {
+    "name": "hwSysPafFileGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysPafFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysPafFileSize"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysPafFileLocation"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysPafFileVersion"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysPafFileNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysPafLicenseGroup": {
+    "name": "hwSysPafLicenseGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysLicenseFileNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysLicenseFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysLicenseFileSize"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysLicenseFileLocation"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysRebootAndSwitchGrop": {
+    "name": "hwSysRebootAndSwitchGrop",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReboot"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveSwitchEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBootRomGroup": {
+    "name": "hwBootRomGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomBootDevice"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomHostName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomIpOnEthernet"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomIpOnBackPlane"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomHostIp"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomGatewayIp"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomUserName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomPassword"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomTargetName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomStartupScript"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomXModemBaudRate"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomVersion"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomProcessorNo"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSystemCfcardNotificationGroup": {
+    "name": "hwSystemCfcardNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.17",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysMasterCfcardError"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveCfcardError"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysUpgradeGroup": {
+    "name": "hwSysUpgradeGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwIssuMode"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwIssuImageFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwIssuPafFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwIssuLicenseFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwIssuPatchFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwIssuState"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwIssuConditionCheck"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysRebootInfoGroup": {
+    "name": "hwSysRebootInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysRebootTimes"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysRebootReason"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysRebootTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysDeviceCheckGroup": {
+    "name": "hwSysDeviceCheckGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysDeviceCheckStart"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysDeviceCheckState"
+      }
+    ],
+    "status": "current"
+  },
+  "huaweiSysVoiceFileGroup": {
+    "name": "huaweiSysVoiceFileGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysVoiceFileNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysVoiceFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysVoiceFileSize"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysVoiceFileLocation"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysWlanApUpgradeCmdGroup": {
+    "name": "hwSysWlanApUpgradeCmdGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeMode"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeServerIp"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeServerUserName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeServerPassword"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysWlanApUpgradeStatusGroup": {
+    "name": "hwSysWlanApUpgradeStatusGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeProgressStatus"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeLoadProgress"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeStorageProgress"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysWlanApUpgradeNotificationsGroup": {
+    "name": "hwSysWlanApUpgradeNotificationsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.24",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeBeginNotify"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeResultNotify"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeUbootNotMatchNotify"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeAssistantPackageNotMatchNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "huaweiSysAndroidFileGroup": {
+    "name": "huaweiSysAndroidFileGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysAndroidFileNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysAndroidFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysAndroidFileSize"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysAndroidFileLocation"
+      }
+    ],
+    "status": "current"
+  },
+  "huaweihwSysEvmTrapsObjectGroup": {
+    "name": "huaweihwSysEvmTrapsObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysEvmRoleName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysEvmDownloadFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysEvmInstallFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-SYS-MAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-SYS-MAN-MIB"
+  }
+}

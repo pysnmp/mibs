@@ -1,0 +1,3050 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoInetAddressMask",
+      "Unsigned64",
+      "CiscoNetworkAddress",
+      "TimeIntervalSec",
+      "CiscoAlarmSeverity"
+    ],
+    "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectId",
+      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectDn"
+    ],
+    "CISCO-UNIFIED-COMPUTING-TC-MIB": [
+      "CucsExtpolRegistryFsmTaskItem",
+      "CucsFsmCompletion",
+      "CucsExtpolConnProtocol",
+      "CucsExtpolState",
+      "CucsExtpolProviderFsmTaskItem",
+      "CucsExtpolRegistryFsmCurrentFsm",
+      "CucsExtpolRegistryFsmStageName",
+      "CucsExtpolAppCapability",
+      "CucsExtpolEpFsmStageName",
+      "CucsExtpolEpFsmCurrentFsm",
+      "CucsExtpolProviderFsmStageName",
+      "CucsExtpolProviderFsmCurrentFsm",
+      "CucsExtpolSuspendState",
+      "CucsExtpolEpFsmTaskItem",
+      "CucsExtpolConnectorOperState",
+      "CucsFsmFlags",
+      "CucsFsmFsmStageStatus",
+      "CucsConditionRemoteInvRslt",
+      "CucsExtpolConnType"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6",
+      "InetAddressIPv4"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "RowPointer",
+      "TimeInterval",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cucsExtpolObjects": {
+    "name": "cucsExtpolObjects",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62",
+    "class": "moduleidentity"
+  },
+  "cucsExtpolClientTable": {
+    "name": "cucsExtpolClientTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolClientEntry": {
+    "name": "cucsExtpolClientEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EXTPOL-MIB",
+        "object": "cucsExtpolClientInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsExtpolClientInstanceId": {
+    "name": "cucsExtpolClientInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolClientDn": {
+    "name": "cucsExtpolClientDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolClientRn": {
+    "name": "cucsExtpolClientRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolClientCapability": {
+    "name": "cucsExtpolClientCapability",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolAppCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolClientDescr": {
+    "name": "cucsExtpolClientDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolClientGuid": {
+    "name": "cucsExtpolClientGuid",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolClientHost": {
+    "name": "cucsExtpolClientHost",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolClientId": {
+    "name": "cucsExtpolClientId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolClientInterest": {
+    "name": "cucsExtpolClientInterest",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolAppCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolClientIp": {
+    "name": "cucsExtpolClientIp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolClientLastPollTs": {
+    "name": "cucsExtpolClientLastPollTs",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolClientName": {
+    "name": "cucsExtpolClientName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolClientOperState": {
+    "name": "cucsExtpolClientOperState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolConnectorOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolClientOwner": {
+    "name": "cucsExtpolClientOwner",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolClientSite": {
+    "name": "cucsExtpolClientSite",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolClientSuspendState": {
+    "name": "cucsExtpolClientSuspendState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolSuspendState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolClientType": {
+    "name": "cucsExtpolClientType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolConnType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolClientVersion": {
+    "name": "cucsExtpolClientVersion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolClientGracePeriodUsed": {
+    "name": "cucsExtpolClientGracePeriodUsed",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolClientLicState": {
+    "name": "cucsExtpolClientLicState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolClientConnProtocol": {
+    "name": "cucsExtpolClientConnProtocol",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolConnProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolClientIpv6": {
+    "name": "cucsExtpolClientIpv6",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolClientContTable": {
+    "name": "cucsExtpolClientContTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolClientContEntry": {
+    "name": "cucsExtpolClientContEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EXTPOL-MIB",
+        "object": "cucsExtpolClientContInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsExtpolClientContInstanceId": {
+    "name": "cucsExtpolClientContInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolClientContDn": {
+    "name": "cucsExtpolClientContDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolClientContRn": {
+    "name": "cucsExtpolClientContRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolClientContGenNum": {
+    "name": "cucsExtpolClientContGenNum",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolControllerTable": {
+    "name": "cucsExtpolControllerTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolControllerEntry": {
+    "name": "cucsExtpolControllerEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EXTPOL-MIB",
+        "object": "cucsExtpolControllerInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsExtpolControllerInstanceId": {
+    "name": "cucsExtpolControllerInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolControllerDn": {
+    "name": "cucsExtpolControllerDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolControllerRn": {
+    "name": "cucsExtpolControllerRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolControllerCapability": {
+    "name": "cucsExtpolControllerCapability",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolAppCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolControllerHost": {
+    "name": "cucsExtpolControllerHost",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolControllerId": {
+    "name": "cucsExtpolControllerId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolControllerInterest": {
+    "name": "cucsExtpolControllerInterest",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolAppCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolControllerIp": {
+    "name": "cucsExtpolControllerIp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolControllerLastPollTs": {
+    "name": "cucsExtpolControllerLastPollTs",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolControllerName": {
+    "name": "cucsExtpolControllerName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolControllerOperState": {
+    "name": "cucsExtpolControllerOperState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolConnectorOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolControllerType": {
+    "name": "cucsExtpolControllerType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolConnType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolControllerVersion": {
+    "name": "cucsExtpolControllerVersion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolControllerConnProtocol": {
+    "name": "cucsExtpolControllerConnProtocol",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolConnProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolControllerIpv6": {
+    "name": "cucsExtpolControllerIpv6",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolControllerContTable": {
+    "name": "cucsExtpolControllerContTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolControllerContEntry": {
+    "name": "cucsExtpolControllerContEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EXTPOL-MIB",
+        "object": "cucsExtpolControllerContInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsExtpolControllerContInstanceId": {
+    "name": "cucsExtpolControllerContInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolControllerContDn": {
+    "name": "cucsExtpolControllerContDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolControllerContRn": {
+    "name": "cucsExtpolControllerContRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolControllerContGenNum": {
+    "name": "cucsExtpolControllerContGenNum",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpTable": {
+    "name": "cucsExtpolEpTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolEpEntry": {
+    "name": "cucsExtpolEpEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EXTPOL-MIB",
+        "object": "cucsExtpolEpInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsExtpolEpInstanceId": {
+    "name": "cucsExtpolEpInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolEpDn": {
+    "name": "cucsExtpolEpDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpRn": {
+    "name": "cucsExtpolEpRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmDescr": {
+    "name": "cucsExtpolEpFsmDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmPrev": {
+    "name": "cucsExtpolEpFsmPrev",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmProgr": {
+    "name": "cucsExtpolEpFsmProgr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmRmtInvErrCode": {
+    "name": "cucsExtpolEpFsmRmtInvErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmRmtInvErrDescr": {
+    "name": "cucsExtpolEpFsmRmtInvErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmRmtInvRslt": {
+    "name": "cucsExtpolEpFsmRmtInvRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmStageDescr": {
+    "name": "cucsExtpolEpFsmStageDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmStamp": {
+    "name": "cucsExtpolEpFsmStamp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmStatus": {
+    "name": "cucsExtpolEpFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmTry": {
+    "name": "cucsExtpolEpFsmTry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmTable": {
+    "name": "cucsExtpolEpFsmTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmEntry": {
+    "name": "cucsExtpolEpFsmEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EXTPOL-MIB",
+        "object": "cucsExtpolEpFsmInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsExtpolEpFsmInstanceId": {
+    "name": "cucsExtpolEpFsmInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmDn": {
+    "name": "cucsExtpolEpFsmDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmRn": {
+    "name": "cucsExtpolEpFsmRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmCompletionTime": {
+    "name": "cucsExtpolEpFsmCompletionTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmCurrentFsm": {
+    "name": "cucsExtpolEpFsmCurrentFsm",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolEpFsmCurrentFsm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmDescrData": {
+    "name": "cucsExtpolEpFsmDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmFsmStatus": {
+    "name": "cucsExtpolEpFsmFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmProgress": {
+    "name": "cucsExtpolEpFsmProgress",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmRmtErrCode": {
+    "name": "cucsExtpolEpFsmRmtErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmRmtErrDescr": {
+    "name": "cucsExtpolEpFsmRmtErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmRmtRslt": {
+    "name": "cucsExtpolEpFsmRmtRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmStageTable": {
+    "name": "cucsExtpolEpFsmStageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmStageEntry": {
+    "name": "cucsExtpolEpFsmStageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EXTPOL-MIB",
+        "object": "cucsExtpolEpFsmStageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsExtpolEpFsmStageInstanceId": {
+    "name": "cucsExtpolEpFsmStageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmStageDn": {
+    "name": "cucsExtpolEpFsmStageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmStageRn": {
+    "name": "cucsExtpolEpFsmStageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmStageDescrData": {
+    "name": "cucsExtpolEpFsmStageDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmStageLastUpdateTime": {
+    "name": "cucsExtpolEpFsmStageLastUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmStageName": {
+    "name": "cucsExtpolEpFsmStageName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolEpFsmStageName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmStageOrder": {
+    "name": "cucsExtpolEpFsmStageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmStageRetry": {
+    "name": "cucsExtpolEpFsmStageRetry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmStageStageStatus": {
+    "name": "cucsExtpolEpFsmStageStageStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmTaskTable": {
+    "name": "cucsExtpolEpFsmTaskTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmTaskEntry": {
+    "name": "cucsExtpolEpFsmTaskEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EXTPOL-MIB",
+        "object": "cucsExtpolEpFsmTaskInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsExtpolEpFsmTaskInstanceId": {
+    "name": "cucsExtpolEpFsmTaskInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmTaskDn": {
+    "name": "cucsExtpolEpFsmTaskDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmTaskRn": {
+    "name": "cucsExtpolEpFsmTaskRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmTaskCompletion": {
+    "name": "cucsExtpolEpFsmTaskCompletion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmCompletion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmTaskFlags": {
+    "name": "cucsExtpolEpFsmTaskFlags",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFlags",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmTaskItem": {
+    "name": "cucsExtpolEpFsmTaskItem",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolEpFsmTaskItem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolEpFsmTaskSeqId": {
+    "name": "cucsExtpolEpFsmTaskSeqId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderTable": {
+    "name": "cucsExtpolProviderTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolProviderEntry": {
+    "name": "cucsExtpolProviderEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EXTPOL-MIB",
+        "object": "cucsExtpolProviderInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsExtpolProviderInstanceId": {
+    "name": "cucsExtpolProviderInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolProviderDn": {
+    "name": "cucsExtpolProviderDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderRn": {
+    "name": "cucsExtpolProviderRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderCapability": {
+    "name": "cucsExtpolProviderCapability",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolAppCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderHost": {
+    "name": "cucsExtpolProviderHost",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderId": {
+    "name": "cucsExtpolProviderId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderInterest": {
+    "name": "cucsExtpolProviderInterest",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolAppCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderIp": {
+    "name": "cucsExtpolProviderIp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderLastPollTs": {
+    "name": "cucsExtpolProviderLastPollTs",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderName": {
+    "name": "cucsExtpolProviderName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderOperState": {
+    "name": "cucsExtpolProviderOperState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolConnectorOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderType": {
+    "name": "cucsExtpolProviderType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolConnType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderVersion": {
+    "name": "cucsExtpolProviderVersion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmDescr": {
+    "name": "cucsExtpolProviderFsmDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmPrev": {
+    "name": "cucsExtpolProviderFsmPrev",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmProgr": {
+    "name": "cucsExtpolProviderFsmProgr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmRmtInvErrCode": {
+    "name": "cucsExtpolProviderFsmRmtInvErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmRmtInvErrDescr": {
+    "name": "cucsExtpolProviderFsmRmtInvErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmRmtInvRslt": {
+    "name": "cucsExtpolProviderFsmRmtInvRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmStageDescr": {
+    "name": "cucsExtpolProviderFsmStageDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmStamp": {
+    "name": "cucsExtpolProviderFsmStamp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmStatus": {
+    "name": "cucsExtpolProviderFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmTry": {
+    "name": "cucsExtpolProviderFsmTry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderConnProtocol": {
+    "name": "cucsExtpolProviderConnProtocol",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolConnProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderIpv6": {
+    "name": "cucsExtpolProviderIpv6",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.9.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderContTable": {
+    "name": "cucsExtpolProviderContTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolProviderContEntry": {
+    "name": "cucsExtpolProviderContEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EXTPOL-MIB",
+        "object": "cucsExtpolProviderContInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsExtpolProviderContInstanceId": {
+    "name": "cucsExtpolProviderContInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolProviderContDn": {
+    "name": "cucsExtpolProviderContDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderContRn": {
+    "name": "cucsExtpolProviderContRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderContGenNum": {
+    "name": "cucsExtpolProviderContGenNum",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmTable": {
+    "name": "cucsExtpolProviderFsmTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmEntry": {
+    "name": "cucsExtpolProviderFsmEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EXTPOL-MIB",
+        "object": "cucsExtpolProviderFsmInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmInstanceId": {
+    "name": "cucsExtpolProviderFsmInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmDn": {
+    "name": "cucsExtpolProviderFsmDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmRn": {
+    "name": "cucsExtpolProviderFsmRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmCompletionTime": {
+    "name": "cucsExtpolProviderFsmCompletionTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmCurrentFsm": {
+    "name": "cucsExtpolProviderFsmCurrentFsm",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolProviderFsmCurrentFsm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmDescrData": {
+    "name": "cucsExtpolProviderFsmDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmFsmStatus": {
+    "name": "cucsExtpolProviderFsmFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmProgress": {
+    "name": "cucsExtpolProviderFsmProgress",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmRmtErrCode": {
+    "name": "cucsExtpolProviderFsmRmtErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.16.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmRmtErrDescr": {
+    "name": "cucsExtpolProviderFsmRmtErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.16.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmRmtRslt": {
+    "name": "cucsExtpolProviderFsmRmtRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.16.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmStageTable": {
+    "name": "cucsExtpolProviderFsmStageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmStageEntry": {
+    "name": "cucsExtpolProviderFsmStageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EXTPOL-MIB",
+        "object": "cucsExtpolProviderFsmStageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmStageInstanceId": {
+    "name": "cucsExtpolProviderFsmStageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmStageDn": {
+    "name": "cucsExtpolProviderFsmStageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmStageRn": {
+    "name": "cucsExtpolProviderFsmStageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmStageDescrData": {
+    "name": "cucsExtpolProviderFsmStageDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmStageLastUpdateTime": {
+    "name": "cucsExtpolProviderFsmStageLastUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmStageName": {
+    "name": "cucsExtpolProviderFsmStageName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolProviderFsmStageName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmStageOrder": {
+    "name": "cucsExtpolProviderFsmStageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmStageRetry": {
+    "name": "cucsExtpolProviderFsmStageRetry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.17.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmStageStageStatus": {
+    "name": "cucsExtpolProviderFsmStageStageStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.17.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmTaskTable": {
+    "name": "cucsExtpolProviderFsmTaskTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmTaskEntry": {
+    "name": "cucsExtpolProviderFsmTaskEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EXTPOL-MIB",
+        "object": "cucsExtpolProviderFsmTaskInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmTaskInstanceId": {
+    "name": "cucsExtpolProviderFsmTaskInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmTaskDn": {
+    "name": "cucsExtpolProviderFsmTaskDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmTaskRn": {
+    "name": "cucsExtpolProviderFsmTaskRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmTaskCompletion": {
+    "name": "cucsExtpolProviderFsmTaskCompletion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmCompletion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmTaskFlags": {
+    "name": "cucsExtpolProviderFsmTaskFlags",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFlags",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmTaskItem": {
+    "name": "cucsExtpolProviderFsmTaskItem",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolProviderFsmTaskItem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolProviderFsmTaskSeqId": {
+    "name": "cucsExtpolProviderFsmTaskSeqId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryTable": {
+    "name": "cucsExtpolRegistryTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolRegistryEntry": {
+    "name": "cucsExtpolRegistryEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EXTPOL-MIB",
+        "object": "cucsExtpolRegistryInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsExtpolRegistryInstanceId": {
+    "name": "cucsExtpolRegistryInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolRegistryDn": {
+    "name": "cucsExtpolRegistryDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryRn": {
+    "name": "cucsExtpolRegistryRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryCapability": {
+    "name": "cucsExtpolRegistryCapability",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolAppCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmDescr": {
+    "name": "cucsExtpolRegistryFsmDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmPrev": {
+    "name": "cucsExtpolRegistryFsmPrev",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmProgr": {
+    "name": "cucsExtpolRegistryFsmProgr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmRmtInvErrCode": {
+    "name": "cucsExtpolRegistryFsmRmtInvErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmRmtInvErrDescr": {
+    "name": "cucsExtpolRegistryFsmRmtInvErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmRmtInvRslt": {
+    "name": "cucsExtpolRegistryFsmRmtInvRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmStageDescr": {
+    "name": "cucsExtpolRegistryFsmStageDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmStamp": {
+    "name": "cucsExtpolRegistryFsmStamp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmStatus": {
+    "name": "cucsExtpolRegistryFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmTry": {
+    "name": "cucsExtpolRegistryFsmTry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryGenNum": {
+    "name": "cucsExtpolRegistryGenNum",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryGuid": {
+    "name": "cucsExtpolRegistryGuid",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryHost": {
+    "name": "cucsExtpolRegistryHost",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryId": {
+    "name": "cucsExtpolRegistryId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryIdCount": {
+    "name": "cucsExtpolRegistryIdCount",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryInterest": {
+    "name": "cucsExtpolRegistryInterest",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolAppCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryIp": {
+    "name": "cucsExtpolRegistryIp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryLastPollTs": {
+    "name": "cucsExtpolRegistryLastPollTs",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryName": {
+    "name": "cucsExtpolRegistryName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryOperState": {
+    "name": "cucsExtpolRegistryOperState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolConnectorOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryType": {
+    "name": "cucsExtpolRegistryType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolConnType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryVersion": {
+    "name": "cucsExtpolRegistryVersion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryConnProtocol": {
+    "name": "cucsExtpolRegistryConnProtocol",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolConnProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryIpv6": {
+    "name": "cucsExtpolRegistryIpv6",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.11.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmTable": {
+    "name": "cucsExtpolRegistryFsmTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmEntry": {
+    "name": "cucsExtpolRegistryFsmEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EXTPOL-MIB",
+        "object": "cucsExtpolRegistryFsmInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmInstanceId": {
+    "name": "cucsExtpolRegistryFsmInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmDn": {
+    "name": "cucsExtpolRegistryFsmDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmRn": {
+    "name": "cucsExtpolRegistryFsmRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmCompletionTime": {
+    "name": "cucsExtpolRegistryFsmCompletionTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmCurrentFsm": {
+    "name": "cucsExtpolRegistryFsmCurrentFsm",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolRegistryFsmCurrentFsm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmDescrData": {
+    "name": "cucsExtpolRegistryFsmDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmFsmStatus": {
+    "name": "cucsExtpolRegistryFsmFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmProgress": {
+    "name": "cucsExtpolRegistryFsmProgress",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmRmtErrCode": {
+    "name": "cucsExtpolRegistryFsmRmtErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmRmtErrDescr": {
+    "name": "cucsExtpolRegistryFsmRmtErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmRmtRslt": {
+    "name": "cucsExtpolRegistryFsmRmtRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmStageTable": {
+    "name": "cucsExtpolRegistryFsmStageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmStageEntry": {
+    "name": "cucsExtpolRegistryFsmStageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EXTPOL-MIB",
+        "object": "cucsExtpolRegistryFsmStageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmStageInstanceId": {
+    "name": "cucsExtpolRegistryFsmStageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmStageDn": {
+    "name": "cucsExtpolRegistryFsmStageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmStageRn": {
+    "name": "cucsExtpolRegistryFsmStageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmStageDescrData": {
+    "name": "cucsExtpolRegistryFsmStageDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmStageLastUpdateTime": {
+    "name": "cucsExtpolRegistryFsmStageLastUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmStageName": {
+    "name": "cucsExtpolRegistryFsmStageName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolRegistryFsmStageName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmStageOrder": {
+    "name": "cucsExtpolRegistryFsmStageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmStageRetry": {
+    "name": "cucsExtpolRegistryFsmStageRetry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmStageStageStatus": {
+    "name": "cucsExtpolRegistryFsmStageStageStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmTaskTable": {
+    "name": "cucsExtpolRegistryFsmTaskTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmTaskEntry": {
+    "name": "cucsExtpolRegistryFsmTaskEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EXTPOL-MIB",
+        "object": "cucsExtpolRegistryFsmTaskInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmTaskInstanceId": {
+    "name": "cucsExtpolRegistryFsmTaskInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmTaskDn": {
+    "name": "cucsExtpolRegistryFsmTaskDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmTaskRn": {
+    "name": "cucsExtpolRegistryFsmTaskRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmTaskCompletion": {
+    "name": "cucsExtpolRegistryFsmTaskCompletion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmCompletion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmTaskFlags": {
+    "name": "cucsExtpolRegistryFsmTaskFlags",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFlags",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmTaskItem": {
+    "name": "cucsExtpolRegistryFsmTaskItem",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolRegistryFsmTaskItem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolRegistryFsmTaskSeqId": {
+    "name": "cucsExtpolRegistryFsmTaskSeqId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolSystemContextTable": {
+    "name": "cucsExtpolSystemContextTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolSystemContextEntry": {
+    "name": "cucsExtpolSystemContextEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EXTPOL-MIB",
+        "object": "cucsExtpolSystemContextInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsExtpolSystemContextInstanceId": {
+    "name": "cucsExtpolSystemContextInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsExtpolSystemContextDn": {
+    "name": "cucsExtpolSystemContextDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolSystemContextRn": {
+    "name": "cucsExtpolSystemContextRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolSystemContextCapability": {
+    "name": "cucsExtpolSystemContextCapability",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolAppCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolSystemContextDescr": {
+    "name": "cucsExtpolSystemContextDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolSystemContextGuid": {
+    "name": "cucsExtpolSystemContextGuid",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolSystemContextId": {
+    "name": "cucsExtpolSystemContextId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolSystemContextInterest": {
+    "name": "cucsExtpolSystemContextInterest",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolAppCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolSystemContextIp": {
+    "name": "cucsExtpolSystemContextIp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolSystemContextName": {
+    "name": "cucsExtpolSystemContextName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.15.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolSystemContextOwner": {
+    "name": "cucsExtpolSystemContextOwner",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.15.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolSystemContextSite": {
+    "name": "cucsExtpolSystemContextSite",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.15.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolSystemContextType": {
+    "name": "cucsExtpolSystemContextType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.15.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsExtpolConnType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolSystemContextVersion": {
+    "name": "cucsExtpolSystemContextVersion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.15.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolSystemContextIpv6addr": {
+    "name": "cucsExtpolSystemContextIpv6addr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.15.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsExtpolSystemContextModel": {
+    "name": "cucsExtpolSystemContextModel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.62.15.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-EXTPOL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-UNIFIED-COMPUTING-EXTPOL-MIB"
+  }
+}

@@ -1,0 +1,1540 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-LWAPP-AP-MIB": [
+      "cLApSysMacAddress",
+      "cLApName"
+    ],
+    "CISCO-LWAPP-MESH-MIB": [
+      "clMeshNodeBackhaul",
+      "clMeshNeighborMacAddress"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeInterval",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoLwappMeshStatsMIB": {
+    "name": "ciscoLwappMeshStatsMIB",
+    "oid": "1.3.6.1.4.1.9.9.617",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-09-01 00:00",
+        "description": "Added following new objects to clMeshNodeStatsTable: clMeshNodeSecBackhaulCount, clMeshNodeAssociationCount. Added the following new tables: clMeshNeighStatsTable, clMeshAccessClassTable, clMeshDataRateStatsTable Added following objects to ciscoLwappMeshStatsMIBConfigObjects clMeshNodeSecBackhaulChangeNotifEnabled, clMeshNodeExcessiveAssociationNotifEnabled, clMeshNodeExcessiveAssociationThreshold. Added following new notification object. clMeshInitiatingApName Added following new notifications. ciscoLwappMeshExcessiveAssociation, ciscoLwappMeshSecBackhaulChange. Added following new Groups. ciscoLwappMeshNeighStatsGroup, ciscoLwappMeshStatsNotifObjsGroup, ciscoLwappMeshAccessClassGroup, ciscoLwappMeshDataRateStatsGroup, ciscoLwappMeshNodeStatsGroupSup1 is a supplement to ciscoLwappMeshNodeStatsGroup, ciscoLwappMeshStatsConfigObjsGroupSup1 is a supplement to ciscoLwappMeshStatsConfigObjsGroup. Added ciscoLwappMeshStatsNotifsGroupSup1, which supplements ciscoLwappMeshStatsNotifsGroup. Added ciscoLwappMeshStatsMIBComplianceR01, which deprecates ciscoLwappMeshStatsMIBCompliance."
+      },
+      {
+        "revision": "2007-03-12 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappMeshStatsMIBNotifs": {
+    "name": "ciscoLwappMeshStatsMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.617.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappMeshStatsMIBObjects": {
+    "name": "ciscoLwappMeshStatsMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.617.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappMeshStatsMIBConfigObjects": {
+    "name": "ciscoLwappMeshStatsMIBConfigObjects",
+    "oid": "1.3.6.1.4.1.9.9.617.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappMeshStatsMIBConform": {
+    "name": "ciscoLwappMeshStatsMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.617.3",
+    "class": "objectidentity"
+  },
+  "ciscoLwappMeshNodeStats": {
+    "name": "ciscoLwappMeshNodeStats",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappMeshNeighStats": {
+    "name": "ciscoLwappMeshNeighStats",
+    "oid": "1.3.6.1.4.1.9.9.617.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappMeshStatsMIBNotifObjects": {
+    "name": "ciscoLwappMeshStatsMIBNotifObjects",
+    "oid": "1.3.6.1.4.1.9.9.617.1.3",
+    "class": "objectidentity"
+  },
+  "ciscoLwappMeshAccessClass": {
+    "name": "ciscoLwappMeshAccessClass",
+    "oid": "1.3.6.1.4.1.9.9.617.1.4",
+    "class": "objectidentity"
+  },
+  "ciscoLwappMeshDataRateStats": {
+    "name": "ciscoLwappMeshDataRateStats",
+    "oid": "1.3.6.1.4.1.9.9.617.1.5",
+    "class": "objectidentity"
+  },
+  "clMeshNodeStatsTable": {
+    "name": "clMeshNodeStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clMeshNodeStatsEntry": {
+    "name": "clMeshNodeStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApSysMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clMeshNodeMalformedNeighPkts": {
+    "name": "clMeshNodeMalformedNeighPkts",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodePoorNeighSnrPkts": {
+    "name": "clMeshNodePoorNeighSnrPkts",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeExcludedPkts": {
+    "name": "clMeshNodeExcludedPkts",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeRxNeighReq": {
+    "name": "clMeshNodeRxNeighReq",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeRxNeighRsp": {
+    "name": "clMeshNodeRxNeighRsp",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeTxNeighReq": {
+    "name": "clMeshNodeTxNeighReq",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeTxNeighRsp": {
+    "name": "clMeshNodeTxNeighRsp",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeParentChanges": {
+    "name": "clMeshNodeParentChanges",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "parent-switches",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeSecBackhaulCount": {
+    "name": "clMeshNodeSecBackhaulCount",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeAssociationCount": {
+    "name": "clMeshNodeAssociationCount",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodePktQueueStatsTable": {
+    "name": "clMeshNodePktQueueStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clMeshNodePktQueueStatsEntry": {
+    "name": "clMeshNodePktQueueStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApSysMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodePktQueueIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clMeshNodePktQueueIndex": {
+    "name": "clMeshNodePktQueueIndex",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "silver": 1,
+          "gold": 2,
+          "platinum": 3,
+          "bronze": 4,
+          "management": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clMeshNodePktQueueAvg": {
+    "name": "clMeshNodePktQueueAvg",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodePktQueuePeak": {
+    "name": "clMeshNodePktQueuePeak",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodePktQueuePktsDropped": {
+    "name": "clMeshNodePktQueuePktsDropped",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodePktQueueTimeStamp": {
+    "name": "clMeshNodePktQueueTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodePktQueueSize": {
+    "name": "clMeshNodePktQueueSize",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeSecStatsTable": {
+    "name": "clMeshNodeSecStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clMeshNodeSecStatsEntry": {
+    "name": "clMeshNodeSecStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApSysMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clMeshNodeSecTxPkts": {
+    "name": "clMeshNodeSecTxPkts",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeSecRxPkts": {
+    "name": "clMeshNodeSecRxPkts",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeAssocReqFailures": {
+    "name": "clMeshNodeAssocReqFailures",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeAssocReqTimeouts": {
+    "name": "clMeshNodeAssocReqTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeAssocReqSuccess": {
+    "name": "clMeshNodeAssocReqSuccess",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeAuthReqFailures": {
+    "name": "clMeshNodeAuthReqFailures",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeAuthReqTimeouts": {
+    "name": "clMeshNodeAuthReqTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeAuthReqSuccess": {
+    "name": "clMeshNodeAuthReqSuccess",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeReassocReqFailures": {
+    "name": "clMeshNodeReassocReqFailures",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeReassocReqTimeouts": {
+    "name": "clMeshNodeReassocReqTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeReassocReqSuccess": {
+    "name": "clMeshNodeReassocReqSuccess",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeReauthReqFailures": {
+    "name": "clMeshNodeReauthReqFailures",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeReauthReqTimeouts": {
+    "name": "clMeshNodeReauthReqTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeReauthReqSuccess": {
+    "name": "clMeshNodeReauthReqSuccess",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeUnknownAssocReq": {
+    "name": "clMeshNodeUnknownAssocReq",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeInvalidAssocReq": {
+    "name": "clMeshNodeInvalidAssocReq",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeUnknownReauthReq": {
+    "name": "clMeshNodeUnknownReauthReq",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeInvalidReauthReq": {
+    "name": "clMeshNodeInvalidReauthReq",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeUnknownReassocReq": {
+    "name": "clMeshNodeUnknownReassocReq",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeInvalidReassocReq": {
+    "name": "clMeshNodeInvalidReassocReq",
+    "oid": "1.3.6.1.4.1.9.9.617.1.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNeighStatsTable": {
+    "name": "clMeshNeighStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.617.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clMeshNeighStatsEntry": {
+    "name": "clMeshNeighStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.617.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApSysMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-MIB",
+        "object": "clMeshNeighborMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clMeshNeighAsParentTxPkts": {
+    "name": "clMeshNeighAsParentTxPkts",
+    "oid": "1.3.6.1.4.1.9.9.617.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNeighAsParentRxPkts": {
+    "name": "clMeshNeighAsParentRxPkts",
+    "oid": "1.3.6.1.4.1.9.9.617.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNeighTotalTxPkts": {
+    "name": "clMeshNeighTotalTxPkts",
+    "oid": "1.3.6.1.4.1.9.9.617.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNeighSuccessTxPkts": {
+    "name": "clMeshNeighSuccessTxPkts",
+    "oid": "1.3.6.1.4.1.9.9.617.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNeighRetriesTxPkts": {
+    "name": "clMeshNeighRetriesTxPkts",
+    "oid": "1.3.6.1.4.1.9.9.617.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNeighPoorSnrRxPkts": {
+    "name": "clMeshNeighPoorSnrRxPkts",
+    "oid": "1.3.6.1.4.1.9.9.617.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshAccessClassTable": {
+    "name": "clMeshAccessClassTable",
+    "oid": "1.3.6.1.4.1.9.9.617.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clMeshAccessClassEntry": {
+    "name": "clMeshAccessClassEntry",
+    "oid": "1.3.6.1.4.1.9.9.617.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApSysMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-MIB",
+        "object": "clMeshNeighborMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clMeshAccessClassTotalTxPkts": {
+    "name": "clMeshAccessClassTotalTxPkts",
+    "oid": "1.3.6.1.4.1.9.9.617.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshAccessClassSuccTxPkts": {
+    "name": "clMeshAccessClassSuccTxPkts",
+    "oid": "1.3.6.1.4.1.9.9.617.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshAccessClassRetryPkts": {
+    "name": "clMeshAccessClassRetryPkts",
+    "oid": "1.3.6.1.4.1.9.9.617.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshAccessClassRTSAttempts": {
+    "name": "clMeshAccessClassRTSAttempts",
+    "oid": "1.3.6.1.4.1.9.9.617.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshAccessClassRTSSuccess": {
+    "name": "clMeshAccessClassRTSSuccess",
+    "oid": "1.3.6.1.4.1.9.9.617.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshDataRateStatsTable": {
+    "name": "clMeshDataRateStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.617.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clMeshDataRateStatsEntry": {
+    "name": "clMeshDataRateStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.617.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApSysMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-MIB",
+        "object": "clMeshNeighborMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "cLMeshDataRateIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLMeshDataRateIndex": {
+    "name": "cLMeshDataRateIndex",
+    "oid": "1.3.6.1.4.1.9.9.617.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Mbps",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clMeshDataRateSuccTxPkts": {
+    "name": "clMeshDataRateSuccTxPkts",
+    "oid": "1.3.6.1.4.1.9.9.617.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshDataRateTxAttempts": {
+    "name": "clMeshDataRateTxAttempts",
+    "oid": "1.3.6.1.4.1.9.9.617.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clMeshNodeQueueOverflowNotifEnabled": {
+    "name": "clMeshNodeQueueOverflowNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.617.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clMeshNodeStatsTimeInterval": {
+    "name": "clMeshNodeStatsTimeInterval",
+    "oid": "1.3.6.1.4.1.9.9.617.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 18000,
+            "max": 90000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 18000,
+        "format": "decimal"
+      }
+    },
+    "units": "hundredths-seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clMeshNodeSecBackhaulChangeNotifEnabled": {
+    "name": "clMeshNodeSecBackhaulChangeNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.617.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clMeshNodeExcessiveAssociationNotifEnabled": {
+    "name": "clMeshNodeExcessiveAssociationNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.617.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clMeshNodeExcessiveAssociationThreshold": {
+    "name": "clMeshNodeExcessiveAssociationThreshold",
+    "oid": "1.3.6.1.4.1.9.9.617.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 25,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clMeshInitiatingApName": {
+    "name": "clMeshInitiatingApName",
+    "oid": "1.3.6.1.4.1.9.9.617.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoLwappMeshQueueOverflow": {
+    "name": "ciscoLwappMeshQueueOverflow",
+    "oid": "1.3.6.1.4.1.9.9.617.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApName"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodePktQueuePeak"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodePktQueuePktsDropped"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMeshExcessiveAssociation": {
+    "name": "ciscoLwappMeshExcessiveAssociation",
+    "oid": "1.3.6.1.4.1.9.9.617.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApName"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeAssociationCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMeshSecBackhaulChange": {
+    "name": "ciscoLwappMeshSecBackhaulChange",
+    "oid": "1.3.6.1.4.1.9.9.617.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshInitiatingApName"
+      },
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApName"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-MIB",
+        "object": "clMeshNodeBackhaul"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeSecBackhaulCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMeshStatsMIBCompliances": {
+    "name": "ciscoLwappMeshStatsMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.617.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappMeshStatsMIBGroups": {
+    "name": "ciscoLwappMeshStatsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.617.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappMeshStatsMIBCompliance": {
+    "name": "ciscoLwappMeshStatsMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.617.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappMeshNodeStatsGroup",
+        "module": "CISCO-LWAPP-MESH-STATS-MIB"
+      },
+      {
+        "object": "ciscoLwappMeshNodePktQueueStatsGroup",
+        "module": "CISCO-LWAPP-MESH-STATS-MIB"
+      },
+      {
+        "object": "ciscoLwappMeshNodeSecStatsGroup",
+        "module": "CISCO-LWAPP-MESH-STATS-MIB"
+      },
+      {
+        "object": "ciscoLwappMeshStatsConfigObjsGroup",
+        "module": "CISCO-LWAPP-MESH-STATS-MIB"
+      },
+      {
+        "object": "ciscoLwappMeshStatsNotifsGroup",
+        "module": "CISCO-LWAPP-MESH-STATS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappMeshStatsMIBComplianceR01": {
+    "name": "ciscoLwappMeshStatsMIBComplianceR01",
+    "oid": "1.3.6.1.4.1.9.9.617.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappMeshNodeStatsGroup",
+        "module": "CISCO-LWAPP-MESH-STATS-MIB"
+      },
+      {
+        "object": "ciscoLwappMeshNodePktQueueStatsGroup",
+        "module": "CISCO-LWAPP-MESH-STATS-MIB"
+      },
+      {
+        "object": "ciscoLwappMeshNodeSecStatsGroup",
+        "module": "CISCO-LWAPP-MESH-STATS-MIB"
+      },
+      {
+        "object": "ciscoLwappMeshStatsConfigObjsGroup",
+        "module": "CISCO-LWAPP-MESH-STATS-MIB"
+      },
+      {
+        "object": "ciscoLwappMeshStatsNotifsGroup",
+        "module": "CISCO-LWAPP-MESH-STATS-MIB"
+      },
+      {
+        "object": "ciscoLwappMeshNeighStatsGroup",
+        "module": "CISCO-LWAPP-MESH-STATS-MIB"
+      },
+      {
+        "object": "ciscoLwappMeshStatsNotifObjsGroup",
+        "module": "CISCO-LWAPP-MESH-STATS-MIB"
+      },
+      {
+        "object": "ciscoLwappMeshAccessClassGroup",
+        "module": "CISCO-LWAPP-MESH-STATS-MIB"
+      },
+      {
+        "object": "ciscoLwappMeshDataRateStatsGroup",
+        "module": "CISCO-LWAPP-MESH-STATS-MIB"
+      },
+      {
+        "object": "ciscoLwappMeshNodeStatsGroupSup1",
+        "module": "CISCO-LWAPP-MESH-STATS-MIB"
+      },
+      {
+        "object": "ciscoLwappMeshStatsConfigObjsGroupSup1",
+        "module": "CISCO-LWAPP-MESH-STATS-MIB"
+      },
+      {
+        "object": "ciscoLwappMeshStatsNotifsGroupSup1",
+        "module": "CISCO-LWAPP-MESH-STATS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMeshNodeStatsGroup": {
+    "name": "ciscoLwappMeshNodeStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.617.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeMalformedNeighPkts"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodePoorNeighSnrPkts"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeExcludedPkts"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeRxNeighReq"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeRxNeighRsp"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeTxNeighReq"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeTxNeighRsp"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeParentChanges"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMeshNodePktQueueStatsGroup": {
+    "name": "ciscoLwappMeshNodePktQueueStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.617.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodePktQueueAvg"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodePktQueuePeak"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodePktQueuePktsDropped"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodePktQueueTimeStamp"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodePktQueueSize"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMeshNodeSecStatsGroup": {
+    "name": "ciscoLwappMeshNodeSecStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.617.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeSecTxPkts"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeSecRxPkts"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeAssocReqFailures"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeAssocReqTimeouts"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeAssocReqSuccess"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeAuthReqFailures"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeAuthReqTimeouts"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeAuthReqSuccess"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeReassocReqFailures"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeReassocReqTimeouts"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeReassocReqSuccess"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeReauthReqFailures"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeReauthReqTimeouts"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeReauthReqSuccess"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeUnknownAssocReq"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeInvalidAssocReq"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeUnknownReauthReq"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeInvalidReauthReq"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeUnknownReassocReq"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeInvalidReassocReq"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMeshStatsConfigObjsGroup": {
+    "name": "ciscoLwappMeshStatsConfigObjsGroup",
+    "oid": "1.3.6.1.4.1.9.9.617.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeQueueOverflowNotifEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeStatsTimeInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMeshStatsNotifsGroup": {
+    "name": "ciscoLwappMeshStatsNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.617.3.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "ciscoLwappMeshQueueOverflow"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMeshNeighStatsGroup": {
+    "name": "ciscoLwappMeshNeighStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.617.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNeighAsParentTxPkts"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNeighAsParentRxPkts"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNeighTotalTxPkts"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNeighSuccessTxPkts"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNeighRetriesTxPkts"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNeighPoorSnrRxPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMeshStatsNotifObjsGroup": {
+    "name": "ciscoLwappMeshStatsNotifObjsGroup",
+    "oid": "1.3.6.1.4.1.9.9.617.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshInitiatingApName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMeshAccessClassGroup": {
+    "name": "ciscoLwappMeshAccessClassGroup",
+    "oid": "1.3.6.1.4.1.9.9.617.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshAccessClassTotalTxPkts"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshAccessClassSuccTxPkts"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshAccessClassRetryPkts"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshAccessClassRTSAttempts"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshAccessClassRTSSuccess"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMeshDataRateStatsGroup": {
+    "name": "ciscoLwappMeshDataRateStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.617.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshDataRateSuccTxPkts"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshDataRateTxAttempts"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMeshNodeStatsGroupSup1": {
+    "name": "ciscoLwappMeshNodeStatsGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.617.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeSecBackhaulCount"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeAssociationCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMeshStatsConfigObjsGroupSup1": {
+    "name": "ciscoLwappMeshStatsConfigObjsGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.617.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeSecBackhaulChangeNotifEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeExcessiveAssociationNotifEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeExcessiveAssociationThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMeshStatsNotifsGroupSup1": {
+    "name": "ciscoLwappMeshStatsNotifsGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.617.3.2.12",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "ciscoLwappMeshExcessiveAssociation"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "ciscoLwappMeshSecBackhaulChange"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-MESH-STATS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-MESH-STATS-MIB"
+  }
+}

@@ -1,0 +1,1733 @@
+{
+  "imports": {
+    "class": "imports",
+    "IANAifType-MIB": [
+      "IANAifType"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "snmpTraps"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "mib-2",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
+      "TruthValue",
+      "RowStatus",
+      "AutonomousType",
+      "PhysAddress"
+    ]
+  },
+  "ifMIB": {
+    "name": "ifMIB",
+    "oid": "1.3.6.1.2.1.31",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-06-14 00:00",
+        "description": "Clarifications agreed upon by the Interfaces MIB WG, and published as RFC 2863."
+      },
+      {
+        "revision": "1996-02-28 21:55",
+        "description": "Revisions made by the Interfaces MIB WG, and published in RFC 2233."
+      },
+      {
+        "revision": "1993-11-08 21:55",
+        "description": "Initial revision, published as part of RFC 1573."
+      }
+    ]
+  },
+  "ifMIBObjects": {
+    "name": "ifMIBObjects",
+    "oid": "1.3.6.1.2.1.31.1",
+    "class": "objectidentity"
+  },
+  "interfaces": {
+    "name": "interfaces",
+    "oid": "1.3.6.1.2.1.2",
+    "class": "objectidentity"
+  },
+  "OwnerString": {
+    "name": "OwnerString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "deprecated"
+  },
+  "InterfaceIndex": {
+    "name": "InterfaceIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "InterfaceIndexOrZero": {
+    "name": "InterfaceIndexOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "ifNumber": {
+    "name": "ifNumber",
+    "oid": "1.3.6.1.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifTableLastChange": {
+    "name": "ifTableLastChange",
+    "oid": "1.3.6.1.2.1.31.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifTable": {
+    "name": "ifTable",
+    "oid": "1.3.6.1.2.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifEntry": {
+    "name": "ifEntry",
+    "oid": "1.3.6.1.2.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ifIndex": {
+    "name": "ifIndex",
+    "oid": "1.3.6.1.2.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifDescr": {
+    "name": "ifDescr",
+    "oid": "1.3.6.1.2.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifType": {
+    "name": "ifType",
+    "oid": "1.3.6.1.2.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAifType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifMtu": {
+    "name": "ifMtu",
+    "oid": "1.3.6.1.2.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifSpeed": {
+    "name": "ifSpeed",
+    "oid": "1.3.6.1.2.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifPhysAddress": {
+    "name": "ifPhysAddress",
+    "oid": "1.3.6.1.2.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifAdminStatus": {
+    "name": "ifAdminStatus",
+    "oid": "1.3.6.1.2.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ifOperStatus": {
+    "name": "ifOperStatus",
+    "oid": "1.3.6.1.2.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3,
+          "unknown": 4,
+          "dormant": 5,
+          "notPresent": 6,
+          "lowerLayerDown": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifLastChange": {
+    "name": "ifLastChange",
+    "oid": "1.3.6.1.2.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifInOctets": {
+    "name": "ifInOctets",
+    "oid": "1.3.6.1.2.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifInUcastPkts": {
+    "name": "ifInUcastPkts",
+    "oid": "1.3.6.1.2.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifInNUcastPkts": {
+    "name": "ifInNUcastPkts",
+    "oid": "1.3.6.1.2.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ifInDiscards": {
+    "name": "ifInDiscards",
+    "oid": "1.3.6.1.2.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifInErrors": {
+    "name": "ifInErrors",
+    "oid": "1.3.6.1.2.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifInUnknownProtos": {
+    "name": "ifInUnknownProtos",
+    "oid": "1.3.6.1.2.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifOutOctets": {
+    "name": "ifOutOctets",
+    "oid": "1.3.6.1.2.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifOutUcastPkts": {
+    "name": "ifOutUcastPkts",
+    "oid": "1.3.6.1.2.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifOutNUcastPkts": {
+    "name": "ifOutNUcastPkts",
+    "oid": "1.3.6.1.2.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ifOutDiscards": {
+    "name": "ifOutDiscards",
+    "oid": "1.3.6.1.2.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifOutErrors": {
+    "name": "ifOutErrors",
+    "oid": "1.3.6.1.2.1.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifOutQLen": {
+    "name": "ifOutQLen",
+    "oid": "1.3.6.1.2.1.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ifSpecific": {
+    "name": "ifSpecific",
+    "oid": "1.3.6.1.2.1.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ifXTable": {
+    "name": "ifXTable",
+    "oid": "1.3.6.1.2.1.31.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifXEntry": {
+    "name": "ifXEntry",
+    "oid": "1.3.6.1.2.1.31.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ifXEntry",
+      "module": "IF-MIB",
+      "object": "ifEntry"
+    },
+    "status": "current"
+  },
+  "ifName": {
+    "name": "ifName",
+    "oid": "1.3.6.1.2.1.31.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifInMulticastPkts": {
+    "name": "ifInMulticastPkts",
+    "oid": "1.3.6.1.2.1.31.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifInBroadcastPkts": {
+    "name": "ifInBroadcastPkts",
+    "oid": "1.3.6.1.2.1.31.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifOutMulticastPkts": {
+    "name": "ifOutMulticastPkts",
+    "oid": "1.3.6.1.2.1.31.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifOutBroadcastPkts": {
+    "name": "ifOutBroadcastPkts",
+    "oid": "1.3.6.1.2.1.31.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifHCInOctets": {
+    "name": "ifHCInOctets",
+    "oid": "1.3.6.1.2.1.31.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifHCInUcastPkts": {
+    "name": "ifHCInUcastPkts",
+    "oid": "1.3.6.1.2.1.31.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifHCInMulticastPkts": {
+    "name": "ifHCInMulticastPkts",
+    "oid": "1.3.6.1.2.1.31.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifHCInBroadcastPkts": {
+    "name": "ifHCInBroadcastPkts",
+    "oid": "1.3.6.1.2.1.31.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifHCOutOctets": {
+    "name": "ifHCOutOctets",
+    "oid": "1.3.6.1.2.1.31.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifHCOutUcastPkts": {
+    "name": "ifHCOutUcastPkts",
+    "oid": "1.3.6.1.2.1.31.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifHCOutMulticastPkts": {
+    "name": "ifHCOutMulticastPkts",
+    "oid": "1.3.6.1.2.1.31.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifHCOutBroadcastPkts": {
+    "name": "ifHCOutBroadcastPkts",
+    "oid": "1.3.6.1.2.1.31.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifLinkUpDownTrapEnable": {
+    "name": "ifLinkUpDownTrapEnable",
+    "oid": "1.3.6.1.2.1.31.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ifHighSpeed": {
+    "name": "ifHighSpeed",
+    "oid": "1.3.6.1.2.1.31.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifPromiscuousMode": {
+    "name": "ifPromiscuousMode",
+    "oid": "1.3.6.1.2.1.31.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ifConnectorPresent": {
+    "name": "ifConnectorPresent",
+    "oid": "1.3.6.1.2.1.31.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifAlias": {
+    "name": "ifAlias",
+    "oid": "1.3.6.1.2.1.31.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ifCounterDiscontinuityTime": {
+    "name": "ifCounterDiscontinuityTime",
+    "oid": "1.3.6.1.2.1.31.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifStackTable": {
+    "name": "ifStackTable",
+    "oid": "1.3.6.1.2.1.31.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifStackEntry": {
+    "name": "ifStackEntry",
+    "oid": "1.3.6.1.2.1.31.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifStackHigherLayer",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifStackLowerLayer",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ifStackHigherLayer": {
+    "name": "ifStackHigherLayer",
+    "oid": "1.3.6.1.2.1.31.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifStackLowerLayer": {
+    "name": "ifStackLowerLayer",
+    "oid": "1.3.6.1.2.1.31.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifStackStatus": {
+    "name": "ifStackStatus",
+    "oid": "1.3.6.1.2.1.31.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ifStackLastChange": {
+    "name": "ifStackLastChange",
+    "oid": "1.3.6.1.2.1.31.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifRcvAddressTable": {
+    "name": "ifRcvAddressTable",
+    "oid": "1.3.6.1.2.1.31.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifRcvAddressEntry": {
+    "name": "ifRcvAddressEntry",
+    "oid": "1.3.6.1.2.1.31.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifRcvAddressAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ifRcvAddressAddress": {
+    "name": "ifRcvAddressAddress",
+    "oid": "1.3.6.1.2.1.31.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifRcvAddressStatus": {
+    "name": "ifRcvAddressStatus",
+    "oid": "1.3.6.1.2.1.31.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ifRcvAddressType": {
+    "name": "ifRcvAddressType",
+    "oid": "1.3.6.1.2.1.31.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "volatile": 2,
+          "nonVolatile": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkDown": {
+    "name": "linkDown",
+    "oid": "1.3.6.1.6.3.1.1.5.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAdminStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "linkUp": {
+    "name": "linkUp",
+    "oid": "1.3.6.1.6.3.1.1.5.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAdminStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ifConformance": {
+    "name": "ifConformance",
+    "oid": "1.3.6.1.2.1.31.2",
+    "class": "objectidentity"
+  },
+  "ifGroups": {
+    "name": "ifGroups",
+    "oid": "1.3.6.1.2.1.31.2.1",
+    "class": "objectidentity"
+  },
+  "ifCompliances": {
+    "name": "ifCompliances",
+    "oid": "1.3.6.1.2.1.31.2.2",
+    "class": "objectidentity"
+  },
+  "ifCompliance3": {
+    "name": "ifCompliance3",
+    "oid": "1.3.6.1.2.1.31.2.2.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ifGeneralInformationGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "linkUpDownNotificationsGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifFixedLengthGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifHCFixedLengthGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifPacketGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifHCPacketGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifVHCPacketGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifCounterDiscontinuityGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifRcvAddressGroup",
+        "module": "IF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ifGeneralInformationGroup": {
+    "name": "ifGeneralInformationGroup",
+    "oid": "1.3.6.1.2.1.31.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifType"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifSpeed"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifPhysAddress"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAdminStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOperStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifLastChange"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifLinkUpDownTrapEnable"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifConnectorPresent"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifHighSpeed"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifNumber"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAlias"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifTableLastChange"
+      }
+    ],
+    "status": "current"
+  },
+  "ifFixedLengthGroup": {
+    "name": "ifFixedLengthGroup",
+    "oid": "1.3.6.1.2.1.31.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifInOctets"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutOctets"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInUnknownProtos"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInErrors"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "ifHCFixedLengthGroup": {
+    "name": "ifHCFixedLengthGroup",
+    "oid": "1.3.6.1.2.1.31.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifHCInOctets"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifHCOutOctets"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInOctets"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutOctets"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInUnknownProtos"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInErrors"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "ifPacketGroup": {
+    "name": "ifPacketGroup",
+    "oid": "1.3.6.1.2.1.31.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifInOctets"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutOctets"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInUnknownProtos"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInErrors"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutErrors"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifMtu"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInUcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInMulticastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInBroadcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInDiscards"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutUcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutMulticastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutBroadcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutDiscards"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifPromiscuousMode"
+      }
+    ],
+    "status": "current"
+  },
+  "ifHCPacketGroup": {
+    "name": "ifHCPacketGroup",
+    "oid": "1.3.6.1.2.1.31.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifHCInOctets"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifHCOutOctets"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInOctets"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutOctets"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInUnknownProtos"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInErrors"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutErrors"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifMtu"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInUcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInMulticastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInBroadcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInDiscards"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutUcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutMulticastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutBroadcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutDiscards"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifPromiscuousMode"
+      }
+    ],
+    "status": "current"
+  },
+  "ifVHCPacketGroup": {
+    "name": "ifVHCPacketGroup",
+    "oid": "1.3.6.1.2.1.31.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifHCInUcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifHCInMulticastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifHCInBroadcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifHCOutUcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifHCOutMulticastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifHCOutBroadcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifHCInOctets"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifHCOutOctets"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInOctets"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutOctets"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInUnknownProtos"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInErrors"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutErrors"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifMtu"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInUcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInMulticastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInBroadcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInDiscards"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutUcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutMulticastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutBroadcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutDiscards"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifPromiscuousMode"
+      }
+    ],
+    "status": "current"
+  },
+  "ifRcvAddressGroup": {
+    "name": "ifRcvAddressGroup",
+    "oid": "1.3.6.1.2.1.31.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifRcvAddressStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifRcvAddressType"
+      }
+    ],
+    "status": "current"
+  },
+  "ifStackGroup2": {
+    "name": "ifStackGroup2",
+    "oid": "1.3.6.1.2.1.31.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifStackStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifStackLastChange"
+      }
+    ],
+    "status": "current"
+  },
+  "ifCounterDiscontinuityGroup": {
+    "name": "ifCounterDiscontinuityGroup",
+    "oid": "1.3.6.1.2.1.31.2.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifCounterDiscontinuityTime"
+      }
+    ],
+    "status": "current"
+  },
+  "linkUpDownNotificationsGroup": {
+    "name": "linkUpDownNotificationsGroup",
+    "oid": "1.3.6.1.2.1.31.2.1.14",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "linkUp"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "linkDown"
+      }
+    ],
+    "status": "current"
+  },
+  "ifTestTable": {
+    "name": "ifTestTable",
+    "oid": "1.3.6.1.2.1.31.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "ifTestEntry": {
+    "name": "ifTestEntry",
+    "oid": "1.3.6.1.2.1.31.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ifTestEntry",
+      "module": "IF-MIB",
+      "object": "ifEntry"
+    },
+    "status": "deprecated"
+  },
+  "ifTestId": {
+    "name": "ifTestId",
+    "oid": "1.3.6.1.2.1.31.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ifTestStatus": {
+    "name": "ifTestStatus",
+    "oid": "1.3.6.1.2.1.31.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInUse": 1,
+          "inUse": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ifTestType": {
+    "name": "ifTestType",
+    "oid": "1.3.6.1.2.1.31.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ifTestResult": {
+    "name": "ifTestResult",
+    "oid": "1.3.6.1.2.1.31.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "success": 2,
+          "inProgress": 3,
+          "notSupported": 4,
+          "unAbleToRun": 5,
+          "aborted": 6,
+          "failed": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ifTestCode": {
+    "name": "ifTestCode",
+    "oid": "1.3.6.1.2.1.31.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ifTestOwner": {
+    "name": "ifTestOwner",
+    "oid": "1.3.6.1.2.1.31.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ifGeneralGroup": {
+    "name": "ifGeneralGroup",
+    "oid": "1.3.6.1.2.1.31.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifType"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifSpeed"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifPhysAddress"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAdminStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOperStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifLastChange"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifLinkUpDownTrapEnable"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifConnectorPresent"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifHighSpeed"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ifTestGroup": {
+    "name": "ifTestGroup",
+    "oid": "1.3.6.1.2.1.31.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifTestId"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifTestStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifTestType"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifTestResult"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifTestCode"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifTestOwner"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ifStackGroup": {
+    "name": "ifStackGroup",
+    "oid": "1.3.6.1.2.1.31.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifStackStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ifOldObjectsGroup": {
+    "name": "ifOldObjectsGroup",
+    "oid": "1.3.6.1.2.1.31.2.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifInNUcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutNUcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutQLen"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifSpecific"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ifCompliance": {
+    "name": "ifCompliance",
+    "oid": "1.3.6.1.2.1.31.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ifGeneralGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifStackGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifFixedLengthGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifHCFixedLengthGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifPacketGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifHCPacketGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifTestGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifRcvAddressGroup",
+        "module": "IF-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ifCompliance2": {
+    "name": "ifCompliance2",
+    "oid": "1.3.6.1.2.1.31.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ifGeneralInformationGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifStackGroup2",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifCounterDiscontinuityGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifFixedLengthGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifHCFixedLengthGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifPacketGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifHCPacketGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifRcvAddressGroup",
+        "module": "IF-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IF-MIB"
+  }
+}

@@ -1,0 +1,3688 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-L2IF-MIB": [
+      "VlanList"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IANA-ADDRESS-FAMILY-NUMBERS-MIB": [
+      "AddressFamilyNumbers"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrNone",
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "MacAddress"
+    ],
+    "TRANSPORT-ADDRESS-MIB": [
+      "TransportAddress",
+      "TransportDomain"
+    ]
+  },
+  "hwMinMMIB": {
+    "name": "hwMinMMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1",
+    "class": "moduleidentity"
+  },
+  "HWAdminStatus": {
+    "name": "HWAdminStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HWOperStatus": {
+    "name": "HWOperStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HwDot1agCfmCcmInterval": {
+    "name": "HwDot1agCfmCcmInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "intervalInvalid": 1,
+          "interval300Hz": 2,
+          "interval10ms": 3,
+          "interval100ms": 4,
+          "interval1s": 5,
+          "interval10s": 6,
+          "interval1min": 7,
+          "interval10min": 8,
+          "interval20ms": 9,
+          "interval30ms": 10,
+          "interval50ms": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HwDot1agCfmRelayActionFieldValue": {
+    "name": "HwDot1agCfmRelayActionFieldValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rlyHit": 1,
+          "rlyFdb": 2,
+          "rlyMpdb": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HwLldpChassisIdSubtype": {
+    "name": "HwLldpChassisIdSubtype",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "chassisComponent": 1,
+          "interfaceAlias": 2,
+          "portComponent": 3,
+          "macAddress": 4,
+          "networkAddress": 5,
+          "interfaceName": 6,
+          "local": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HwLldpChassisId": {
+    "name": "HwLldpChassisId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "HwLldpPortIdSubtype": {
+    "name": "HwLldpPortIdSubtype",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interfaceAlias": 1,
+          "portComponent": 2,
+          "macAddress": 3,
+          "networkAddress": 4,
+          "interfaceName": 5,
+          "agentCircuitId": 6,
+          "local": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HwLldpPortId": {
+    "name": "HwLldpPortId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "HwLldpManAddrIfSubtype": {
+    "name": "HwLldpManAddrIfSubtype",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ifIndex": 2,
+          "systemPortNumber": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HwLldpManAddress": {
+    "name": "HwLldpManAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "HwDot1agCfmIngressActionFieldValue": {
+    "name": "HwDot1agCfmIngressActionFieldValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ingOk": 1,
+          "ingDown": 2,
+          "ingBlocked": 3,
+          "ingVid": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HwDot1agCfmEgressActionFieldValue": {
+    "name": "HwDot1agCfmEgressActionFieldValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "egrOK": 1,
+          "egrDown": 2,
+          "egrBlocked": 3,
+          "egrVid": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HWApsInterval": {
+    "name": "HWApsInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apsInterval3dot3ms": 1,
+          "apsInterval5ms": 2,
+          "apsInterval10ms": 3,
+          "apsInterval15ms": 4,
+          "apsInterval20ms": 5,
+          "apsInterval30ms": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HWProtectMode": {
+    "name": "HWProtectMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "onePlusOneBidirectional": 1,
+          "onePlusOneUnidirectional": 2,
+          "oneToOne": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HWSwitchOperation": {
+    "name": "HWSwitchOperation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "lock": 2,
+          "force": 3,
+          "manual": 4,
+          "null": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HWProtectProtocol": {
+    "name": "HWProtectProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "protocolAps": 1,
+          "protocolOam": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HWServiceType": {
+    "name": "HWServiceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "p2p": 1,
+          "mp2mp": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HWInterfaceType": {
+    "name": "HWInterfaceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transparent": 1,
+          "oneToOne": 2,
+          "bundling": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HWProcessBehavior": {
+    "name": "HWProcessBehavior",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 1,
+          "forward": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HWStaticMacFwdType": {
+    "name": "HWStaticMacFwdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "blackhole": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HwDot1agCfmMepIdOrZero": {
+    "name": "HwDot1agCfmMepIdOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "hwMINM": {
+    "name": "hwMINM",
+    "oid": "1.3.6.1.4.1.2011.5.25.133",
+    "class": "objectidentity"
+  },
+  "hwMinMObjects": {
+    "name": "hwMinMObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1",
+    "class": "objectidentity"
+  },
+  "hwMinMSystemObjects": {
+    "name": "hwMinMSystemObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.1",
+    "class": "objectidentity"
+  },
+  "hwMinMVirtualMac": {
+    "name": "hwMinMVirtualMac",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMinMMacTnlBVlanListLow": {
+    "name": "hwMinMMacTnlBVlanListLow",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMinMMacTnlBVlanListHigh": {
+    "name": "hwMinMMacTnlBVlanListHigh",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMinMTrapEnable": {
+    "name": "hwMinMTrapEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMinMMacTnlObjects": {
+    "name": "hwMinMMacTnlObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2",
+    "class": "objectidentity"
+  },
+  "hwMinMMacTnlCfgObjects": {
+    "name": "hwMinMMacTnlCfgObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "hwMinMMacTnlIndexNext": {
+    "name": "hwMinMMacTnlIndexNext",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlCfgTable": {
+    "name": "hwMinMMacTnlCfgTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMinMMacTnlCfgEntry": {
+    "name": "hwMinMMacTnlCfgEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMMacTnlIndex": {
+    "name": "hwMinMMacTnlIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMinMMacTnlName": {
+    "name": "hwMinMMacTnlName",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlDMac": {
+    "name": "hwMinMMacTnlDMac",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlBVlanID": {
+    "name": "hwMinMMacTnlBVlanID",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlBVlanType": {
+    "name": "hwMinMMacTnlBVlanType",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlPriorityValue": {
+    "name": "hwMinMMacTnlPriorityValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlOutgoingIfIndex": {
+    "name": "hwMinMMacTnlOutgoingIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlSplitHorizonEnable": {
+    "name": "hwMinMMacTnlSplitHorizonEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlAdminStatus": {
+    "name": "hwMinMMacTnlAdminStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWAdminStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlOperStatus": {
+    "name": "hwMinMMacTnlOperStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlDescription": {
+    "name": "hwMinMMacTnlDescription",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlStatisticsReset": {
+    "name": "hwMinMMacTnlStatisticsReset",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlPriorityTrustITag": {
+    "name": "hwMinMMacTnlPriorityTrustITag",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlDeiTrustIDei": {
+    "name": "hwMinMMacTnlDeiTrustIDei",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlDeiValue": {
+    "name": "hwMinMMacTnlDeiValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlRowStatus": {
+    "name": "hwMinMMacTnlRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlStatisticsTable": {
+    "name": "hwMinMMacTnlStatisticsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMinMMacTnlStatisticsEntry": {
+    "name": "hwMinMMacTnlStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMMacTnlInPackets": {
+    "name": "hwMinMMacTnlInPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlInBytes": {
+    "name": "hwMinMMacTnlInBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlOutPackets": {
+    "name": "hwMinMMacTnlOutPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlOutBytes": {
+    "name": "hwMinMMacTnlOutBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMacTnlNameToIndexMappingTable": {
+    "name": "hwMacTnlNameToIndexMappingTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMacTnlNameToIndexMappingEntry": {
+    "name": "hwMacTnlNameToIndexMappingEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMacTnlName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMacTnlName": {
+    "name": "hwMacTnlName",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMacTnlIndex": {
+    "name": "hwMacTnlIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlOamObjects": {
+    "name": "hwMinMMacTnlOamObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "hwMinMMacTnlCCTable": {
+    "name": "hwMinMMacTnlCCTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMinMMacTnlCCEntry": {
+    "name": "hwMinMMacTnlCCEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMMacTnlCfmEnable": {
+    "name": "hwMinMMacTnlCfmEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlCCInterval": {
+    "name": "hwMinMMacTnlCCInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwDot1agCfmCcmInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlSomeRMepCcmDefect": {
+    "name": "hwMinMMacTnlSomeRMepCcmDefect",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlSomeRdiDefect": {
+    "name": "hwMinMMacTnlSomeRdiDefect",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlCcReceiveEnabled": {
+    "name": "hwMinMMacTnlCcReceiveEnabled",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlCCRowStatus": {
+    "name": "hwMinMMacTnlCCRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlLbTable": {
+    "name": "hwMinMMacTnlLbTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMinMMacTnlLbEntry": {
+    "name": "hwMinMMacTnlLbEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMMacTnlLbmEnable": {
+    "name": "hwMinMMacTnlLbmEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlLbmTimeStamp": {
+    "name": "hwMinMMacTnlLbmTimeStamp",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlLbmTimeOut": {
+    "name": "hwMinMMacTnlLbmTimeOut",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlLbmTimes": {
+    "name": "hwMinMMacTnlLbmTimes",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlLbmSize": {
+    "name": "hwMinMMacTnlLbmSize",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 64,
+            "max": 1480
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 64,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlLbrIn": {
+    "name": "hwMinMMacTnlLbrIn",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlLbmResult": {
+    "name": "hwMinMMacTnlLbmResult",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlLbRowStatus": {
+    "name": "hwMinMMacTnlLbRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlLbResultTable": {
+    "name": "hwMinMMacTnlLbResultTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMinMMacTnlLbResultEntry": {
+    "name": "hwMinMMacTnlLbResultEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMMacTnlMacPingRTTMin": {
+    "name": "hwMinMMacTnlMacPingRTTMin",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlMacPingRTTMax": {
+    "name": "hwMinMMacTnlMacPingRTTMax",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlMacPingRTTAvg": {
+    "name": "hwMinMMacTnlMacPingRTTAvg",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlMacPingPacketLossRatio": {
+    "name": "hwMinMMacTnlMacPingPacketLossRatio",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtmTable": {
+    "name": "hwMinMMacTnlLtmTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtmEntry": {
+    "name": "hwMinMMacTnlLtmEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMMacTnlLtmEnable": {
+    "name": "hwMinMMacTnlLtmEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtmTimeStamp": {
+    "name": "hwMinMMacTnlLtmTimeStamp",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtmTimeOut": {
+    "name": "hwMinMMacTnlLtmTimeOut",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtmTtl": {
+    "name": "hwMinMMacTnlLtmTtl",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 64,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtmFlags": {
+    "name": "hwMinMMacTnlLtmFlags",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "useFDBonly": 0
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "useFDBonly": 0
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtmSeqNumber": {
+    "name": "hwMinMMacTnlLtmSeqNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtmEgressIdentifier": {
+    "name": "hwMinMMacTnlLtmEgressIdentifier",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtmResult": {
+    "name": "hwMinMMacTnlLtmResult",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtmRowStatus": {
+    "name": "hwMinMMacTnlLtmRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.4.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtrTable": {
+    "name": "hwMinMMacTnlLtrTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtrEntry": {
+    "name": "hwMinMMacTnlLtrEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrSeqNumber",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrReceiveOrder",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMMacTnlLtrSeqNumber": {
+    "name": "hwMinMMacTnlLtrSeqNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtrReceiveOrder": {
+    "name": "hwMinMMacTnlLtrReceiveOrder",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtrTtl": {
+    "name": "hwMinMMacTnlLtrTtl",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtrForwarded": {
+    "name": "hwMinMMacTnlLtrForwarded",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtrLastEgressIdentifier": {
+    "name": "hwMinMMacTnlLtrLastEgressIdentifier",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtrNextEgressIdentifier": {
+    "name": "hwMinMMacTnlLtrNextEgressIdentifier",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtrRelay": {
+    "name": "hwMinMMacTnlLtrRelay",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwDot1agCfmRelayActionFieldValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtrIngress": {
+    "name": "hwMinMMacTnlLtrIngress",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwDot1agCfmIngressActionFieldValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtrIngressMac": {
+    "name": "hwMinMMacTnlLtrIngressMac",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtrIngressPortIdSubtype": {
+    "name": "hwMinMMacTnlLtrIngressPortIdSubtype",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwLldpPortIdSubtype",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtrIngressPortId": {
+    "name": "hwMinMMacTnlLtrIngressPortId",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwLldpPortId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtrEgress": {
+    "name": "hwMinMMacTnlLtrEgress",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwDot1agCfmEgressActionFieldValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtrEgressMac": {
+    "name": "hwMinMMacTnlLtrEgressMac",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtrEgressPortIdSubtype": {
+    "name": "hwMinMMacTnlLtrEgressPortIdSubtype",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwLldpPortIdSubtype",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtrEgressPortId": {
+    "name": "hwMinMMacTnlLtrEgressPortId",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwLldpPortId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMMacTnlApsObjects": {
+    "name": "hwMinMMacTnlApsObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3",
+    "class": "objectidentity"
+  },
+  "hwMinMMacTnlApsCfgTable": {
+    "name": "hwMinMMacTnlApsCfgTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMinMMacTnlApsCfgEntry": {
+    "name": "hwMinMMacTnlApsCfgEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMProtectMacTnlIndex": {
+    "name": "hwMinMProtectMacTnlIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMProtectMacTnlName": {
+    "name": "hwMinMProtectMacTnlName",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMProtectMacTnlDMac": {
+    "name": "hwMinMProtectMacTnlDMac",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMProtectMacTnlBVlanID": {
+    "name": "hwMinMProtectMacTnlBVlanID",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMProtectApsSwitchMode": {
+    "name": "hwMinMProtectApsSwitchMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWProtectMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMProtectProtocolApsEnable": {
+    "name": "hwMinMProtectProtocolApsEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMProtectApsFastInterval": {
+    "name": "hwMinMProtectApsFastInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWApsInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMProtectHoldoffTime": {
+    "name": "hwMinMProtectHoldoffTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMProtectRevMode": {
+    "name": "hwMinMProtectRevMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMProtectRevWtrTime": {
+    "name": "hwMinMProtectRevWtrTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMProtectSwitchOperation": {
+    "name": "hwMinMProtectSwitchOperation",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWSwitchOperation",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMProtectProtocol": {
+    "name": "hwMinMProtectProtocol",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWProtectProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMProtectRowStatus": {
+    "name": "hwMinMProtectRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIObjects": {
+    "name": "hwMinMSIObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3",
+    "class": "objectidentity"
+  },
+  "hwMinMSIIndexNext": {
+    "name": "hwMinMSIIndexNext",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMSICfgTable": {
+    "name": "hwMinMSICfgTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMinMSICfgEntry": {
+    "name": "hwMinMSICfgEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMSIIndex": {
+    "name": "hwMinMSIIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMinMSIID": {
+    "name": "hwMinMSIID",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777216
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIName": {
+    "name": "hwMinMSIName",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIServiceType": {
+    "name": "hwMinMSIServiceType",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWServiceType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIPriorityTrust8021p": {
+    "name": "hwMinMSIPriorityTrust8021p",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIPriorityValue": {
+    "name": "hwMinMSIPriorityValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIInterfaceType": {
+    "name": "hwMinMSIInterfaceType",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWInterfaceType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIAdminStatus": {
+    "name": "hwMinMSIAdminStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWAdminStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIOperStatus": {
+    "name": "hwMinMSIOperStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMSIMacLearningEnable": {
+    "name": "hwMinMSIMacLearningEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIMacLimitAction": {
+    "name": "hwMinMSIMacLimitAction",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWProcessBehavior",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIMacLimitAlarm": {
+    "name": "hwMinMSIMacLimitAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIMacLimitMaxinum": {
+    "name": "hwMinMSIMacLimitMaxinum",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 131072
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIL2CtrlProProcess": {
+    "name": "hwMinMSIL2CtrlProProcess",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "all": 0,
+        "stp": 1,
+        "lldp": 2,
+        "lacp": 3,
+        "dot3ah": 4,
+        "dot1ag": 5
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "all": 0
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIUnknownUnicastEnbale": {
+    "name": "hwMinMSIUnknownUnicastEnbale",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIMulticastEnable": {
+    "name": "hwMinMSIMulticastEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIBroadcastEnable": {
+    "name": "hwMinMSIBroadcastEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIDescription": {
+    "name": "hwMinMSIDescription",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIStatisticsEnable": {
+    "name": "hwMinMSIStatisticsEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMinMSIStatisticsReset": {
+    "name": "hwMinMSIStatisticsReset",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIFcsTransparentEnable": {
+    "name": "hwMinMSIFcsTransparentEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIIngressPriorityValue": {
+    "name": "hwMinMSIIngressPriorityValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIEgressPriorityTrustBTag": {
+    "name": "hwMinMSIEgressPriorityTrustBTag",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIIngressDeiValue": {
+    "name": "hwMinMSIIngressDeiValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIEgressDeiTrustBDei": {
+    "name": "hwMinMSIEgressDeiTrustBDei",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIIsolateAll": {
+    "name": "hwMinMSIIsolateAll",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIRowStatus": {
+    "name": "hwMinMSIRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIMappingTable": {
+    "name": "hwMinMSIMappingTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMinMSIMappingEntry": {
+    "name": "hwMinMSIMappingEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMappingIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMappingVlanPriority",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMappingGlobalVlanID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMSIMappingIfIndex": {
+    "name": "hwMinMSIMappingIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMinMSIMappingVlanPriority": {
+    "name": "hwMinMSIMappingVlanPriority",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMinMSIMappingGlobalVlanID": {
+    "name": "hwMinMSIMappingGlobalVlanID",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMinMSIMappingVlanListLow": {
+    "name": "hwMinMSIMappingVlanListLow",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIMappingVlanListHigh": {
+    "name": "hwMinMSIMappingVlanListHigh",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIMappingUserIsolate": {
+    "name": "hwMinMSIMappingUserIsolate",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIMappingRowStatus": {
+    "name": "hwMinMSIMappingRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.3.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIBindMacTnlTable": {
+    "name": "hwMinMSIBindMacTnlTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMinMSIBindMacTnlEntry": {
+    "name": "hwMinMSIBindMacTnlEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIBindMacTnlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMSIBindMacTnlIndex": {
+    "name": "hwMinMSIBindMacTnlIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMinMSIBindMacTnlRowStatus": {
+    "name": "hwMinMSIBindMacTnlRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.4.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIStatisticsTable": {
+    "name": "hwMinMSIStatisticsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMinMSIStatisticsEntry": {
+    "name": "hwMinMSIStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMSIInPackets": {
+    "name": "hwMinMSIInPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMSIInBytes": {
+    "name": "hwMinMSIInBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMSIOutPackets": {
+    "name": "hwMinMSIOutPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMSIOutBytes": {
+    "name": "hwMinMSIOutBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMSIStaticMacFwdTable": {
+    "name": "hwMinMSIStaticMacFwdTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMinMSIStaticMacFwdEntry": {
+    "name": "hwMinMSIStaticMacFwdEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIStaticMacFwdCDMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMSIStaticMacFwdCDMac": {
+    "name": "hwMinMSIStaticMacFwdCDMac",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMinMSIStaticMacFwdMacTnlName": {
+    "name": "hwMinMSIStaticMacFwdMacTnlName",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIStaticMacFwdOutgoingIfIndex": {
+    "name": "hwMinMSIStaticMacFwdOutgoingIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIStaticMacFwdVlanID": {
+    "name": "hwMinMSIStaticMacFwdVlanID",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIStaticMacFwdType": {
+    "name": "hwMinMSIStaticMacFwdType",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWStaticMacFwdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinMSIStaticMacFwdRowStatus": {
+    "name": "hwMinMSIStaticMacFwdRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.6.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSINameToIndexMappingTable": {
+    "name": "hwSINameToIndexMappingTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSINameToIndexMappingEntry": {
+    "name": "hwSINameToIndexMappingEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwSIName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSIName": {
+    "name": "hwSIName",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSIIndex": {
+    "name": "hwSIIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinMNotifications": {
+    "name": "hwMinMNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.2",
+    "class": "objectidentity"
+  },
+  "hwMinMMacTnlUp": {
+    "name": "hwMinMMacTnlUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlDMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlBVlanID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMMacTnlDown": {
+    "name": "hwMinMMacTnlDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlDMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlBVlanID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMSIUp": {
+    "name": "hwMinMSIUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMSIDown": {
+    "name": "hwMinMSIDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMMacTnlCCFaultAlarm": {
+    "name": "hwMinMMacTnlCCFaultAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlDMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlBVlanID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlSomeRMepCcmDefect"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlSomeRdiDefect"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMMacTnlSwitch": {
+    "name": "hwMinMMacTnlSwitch",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlDMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlBVlanID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectMacTnlName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectMacTnlDMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectMacTnlBVlanID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectSwitchOperation"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMMacTnlRevertive": {
+    "name": "hwMinMMacTnlRevertive",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlDMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlBVlanID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectMacTnlName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectMacTnlDMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectMacTnlBVlanID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectSwitchOperation"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMSIMacLimitNumRaisingThreshold": {
+    "name": "hwMinMSIMacLimitNumRaisingThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMacLimitMaxinum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMConformance": {
+    "name": "hwMinMConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.3",
+    "class": "objectidentity"
+  },
+  "hwMinMGroups": {
+    "name": "hwMinMGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.3.1",
+    "class": "objectidentity"
+  },
+  "hwMinMSystemGroup": {
+    "name": "hwMinMSystemGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMVirtualMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlBVlanListLow"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlBVlanListHigh"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMTrapEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMMacTnlCfgGroup": {
+    "name": "hwMinMMacTnlCfgGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMVirtualMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlBVlanListLow"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlBVlanListHigh"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlIndexNext"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlDMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlBVlanID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlBVlanType"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlPriorityValue"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlOutgoingIfIndex"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlSplitHorizonEnable"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlOperStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlDescription"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlRowStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMacTnlIndex"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlStatisticsReset"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlPriorityTrustITag"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlDeiTrustIDei"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlDeiValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMMacTnlStatisticsGroup": {
+    "name": "hwMinMMacTnlStatisticsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlInPackets"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlInBytes"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlOutPackets"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlOutBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMMacTnlOAMGroup": {
+    "name": "hwMinMMacTnlOAMGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlCfmEnable"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlCCInterval"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlSomeRMepCcmDefect"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlSomeRdiDefect"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlCcReceiveEnabled"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlCCRowStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLbmEnable"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLbmTimeStamp"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLbmTimeOut"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLbmTimes"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLbmSize"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLbrIn"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlMacPingRTTMin"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlMacPingRTTMax"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlMacPingRTTAvg"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlMacPingPacketLossRatio"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLbmResult"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLbRowStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtmEnable"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtmTimeStamp"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtmTimeOut"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtmTtl"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtmFlags"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtmSeqNumber"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtmEgressIdentifier"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtmResult"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtmRowStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrTtl"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrForwarded"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrLastEgressIdentifier"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrNextEgressIdentifier"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrRelay"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrIngress"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrIngressMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrIngressPortIdSubtype"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrIngressPortId"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrEgress"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrEgressMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrEgressPortIdSubtype"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrEgressPortId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMMacTnlApsGroup": {
+    "name": "hwMinMMacTnlApsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.3.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectMacTnlName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectApsSwitchMode"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectProtocolApsEnable"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectApsFastInterval"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectHoldoffTime"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectRevMode"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectRevWtrTime"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectSwitchOperation"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectProtocol"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectMacTnlDMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectMacTnlBVlanID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectRowStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectMacTnlIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMSICfgGroup": {
+    "name": "hwMinMSICfgGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.3.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIIndexNext"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIServiceType"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIPriorityTrust8021p"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIPriorityValue"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIInterfaceType"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIOperStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMacLearningEnable"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMacLimitAction"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMacLimitAlarm"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMacLimitMaxinum"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIL2CtrlProProcess"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIUnknownUnicastEnbale"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMulticastEnable"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIBroadcastEnable"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIDescription"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIRowStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIStaticMacFwdOutgoingIfIndex"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIStaticMacFwdVlanID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIStaticMacFwdType"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIFcsTransparentEnable"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIStaticMacFwdRowStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwSIIndex"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIBindMacTnlRowStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIStaticMacFwdMacTnlName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMappingVlanListLow"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMappingVlanListHigh"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMappingUserIsolate"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIIngressPriorityValue"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIEgressPriorityTrustBTag"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIIngressDeiValue"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIEgressDeiTrustBDei"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIIsolateAll"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMappingRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMSIStatisticsGroup": {
+    "name": "hwMinMSIStatisticsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.3.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIInPackets"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIInBytes"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIOutPackets"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIOutBytes"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIStatisticsReset"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIStatisticsEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMNotificationGroup": {
+    "name": "hwMinMNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.3.1.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlUp"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlDown"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIUp"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIDown"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlCCFaultAlarm"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlSwitch"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlRevertive"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMacLimitNumRaisingThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMCompliances": {
+    "name": "hwMinMCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.3.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwMinMSystemGroup",
+        "module": "HUAWEI-MINM-MIB"
+      },
+      {
+        "object": "hwMinMMacTnlCfgGroup",
+        "module": "HUAWEI-MINM-MIB"
+      },
+      {
+        "object": "hwMinMMacTnlOAMGroup",
+        "module": "HUAWEI-MINM-MIB"
+      },
+      {
+        "object": "hwMinMMacTnlApsGroup",
+        "module": "HUAWEI-MINM-MIB"
+      },
+      {
+        "object": "hwMinMSICfgGroup",
+        "module": "HUAWEI-MINM-MIB"
+      },
+      {
+        "object": "hwMinMMacTnlStatisticsGroup",
+        "module": "HUAWEI-MINM-MIB"
+      },
+      {
+        "object": "hwMinMSIStatisticsGroup",
+        "module": "HUAWEI-MINM-MIB"
+      },
+      {
+        "object": "hwMinMNotificationGroup",
+        "module": "HUAWEI-MINM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-MINM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-MINM-MIB"
+  }
+}

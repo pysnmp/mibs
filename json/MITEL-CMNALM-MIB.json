@@ -1,0 +1,335 @@
+{
+  "imports": {
+    "class": "imports",
+    "MITEL-MIB": [
+      "mitelConfCompliances",
+      "mitelIdentification",
+      "mitelPropCommon",
+      "mitelConfGroups"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Counter64",
+      "IpAddress",
+      "iso",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "mitelCmnAlarms": {
+    "name": "mitelCmnAlarms",
+    "oid": "1.3.6.1.4.1.1027.4.9.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-02-11 12:00",
+        "description": "The MITEL Alarms-Specific Common MIB module."
+      },
+      {
+        "revision": "2005-02-21 21:34",
+        "description": "Added the mitelAlmActiveTblIndex to the mitelNotifActiveAlarm."
+      },
+      {
+        "revision": "2004-02-23 00:00",
+        "description": "MITEL Alarms-Specific Common MIB Version 1.0.0.1 - Draft"
+      }
+    ]
+  },
+  "ItuPerceivedSeverity": {
+    "name": "ItuPerceivedSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "indeterminate": 2,
+          "critical": 3,
+          "major": 4,
+          "minor": 5,
+          "warning": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MitelCmnAlarmThresholdType": {
+    "name": "MitelCmnAlarmThresholdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "percentage": 1,
+          "absoluteValue": 2,
+          "indeterminate": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "mitelCmnAlmObjects": {
+    "name": "mitelCmnAlmObjects",
+    "oid": "1.3.6.1.4.1.1027.4.9.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mitelCmnAlmNotifications": {
+    "name": "mitelCmnAlmNotifications",
+    "oid": "1.3.6.1.4.1.1027.4.9.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mitelCmnAlmConformance": {
+    "name": "mitelCmnAlmConformance",
+    "oid": "1.3.6.1.4.1.1027.4.9.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mitelAlmSystem": {
+    "name": "mitelAlmSystem",
+    "oid": "1.3.6.1.4.1.1027.4.9.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mitelAlmSysSeverity": {
+    "name": "mitelAlmSysSeverity",
+    "oid": "1.3.6.1.4.1.1027.4.9.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ItuPerceivedSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mitelAlmSysSeverityDetectTime": {
+    "name": "mitelAlmSysSeverityDetectTime",
+    "oid": "1.3.6.1.4.1.1027.4.9.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mitelAlmSysSeverityDescr": {
+    "name": "mitelAlmSysSeverityDescr",
+    "oid": "1.3.6.1.4.1.1027.4.9.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mitelAlmActiveTable": {
+    "name": "mitelAlmActiveTable",
+    "oid": "1.3.6.1.4.1.1027.4.9.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mitelAlmActiveTableEntry": {
+    "name": "mitelAlmActiveTableEntry",
+    "oid": "1.3.6.1.4.1.1027.4.9.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MITEL-CMNALM-MIB",
+        "object": "mitelAlmActiveTblIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mitelAlmActiveTblIndex": {
+    "name": "mitelAlmActiveTblIndex",
+    "oid": "1.3.6.1.4.1.1027.4.9.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mitelAlmActiveTblClass": {
+    "name": "mitelAlmActiveTblClass",
+    "oid": "1.3.6.1.4.1.1027.4.9.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mitelAlmActiveTblType": {
+    "name": "mitelAlmActiveTblType",
+    "oid": "1.3.6.1.4.1.1027.4.9.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mitelAlmActiveTblTypeName": {
+    "name": "mitelAlmActiveTblTypeName",
+    "oid": "1.3.6.1.4.1.1027.4.9.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mitelAlmActiveTblSeverity": {
+    "name": "mitelAlmActiveTblSeverity",
+    "oid": "1.3.6.1.4.1.1027.4.9.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ItuPerceivedSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mitelAlmActiveTblSeverityDetectTime": {
+    "name": "mitelAlmActiveTblSeverityDetectTime",
+    "oid": "1.3.6.1.4.1.1027.4.9.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mitelAlmActiveTblThresholdType": {
+    "name": "mitelAlmActiveTblThresholdType",
+    "oid": "1.3.6.1.4.1.1027.4.9.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MitelCmnAlarmThresholdType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mitelAlmActiveTblThresholdValue": {
+    "name": "mitelAlmActiveTblThresholdValue",
+    "oid": "1.3.6.1.4.1.1027.4.9.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mitelAlmActiveTblDescr": {
+    "name": "mitelAlmActiveTblDescr",
+    "oid": "1.3.6.1.4.1.1027.4.9.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mitelNotifActiveAlarm": {
+    "name": "mitelNotifActiveAlarm",
+    "oid": "1.3.6.1.4.1.1027.4.9.1.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MITEL-CMNALM-MIB",
+        "object": "mitelAlmSysSeverity"
+      },
+      {
+        "module": "MITEL-CMNALM-MIB",
+        "object": "mitelAlmSysSeverityDetectTime"
+      },
+      {
+        "module": "MITEL-CMNALM-MIB",
+        "object": "mitelAlmActiveTblIndex"
+      },
+      {
+        "module": "MITEL-CMNALM-MIB",
+        "object": "mitelAlmActiveTblClass"
+      },
+      {
+        "module": "MITEL-CMNALM-MIB",
+        "object": "mitelAlmActiveTblType"
+      },
+      {
+        "module": "MITEL-CMNALM-MIB",
+        "object": "mitelAlmActiveTblTypeName"
+      },
+      {
+        "module": "MITEL-CMNALM-MIB",
+        "object": "mitelAlmActiveTblSeverity"
+      },
+      {
+        "module": "MITEL-CMNALM-MIB",
+        "object": "mitelAlmActiveTblThresholdType"
+      },
+      {
+        "module": "MITEL-CMNALM-MIB",
+        "object": "mitelAlmActiveTblThresholdValue"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mitel/MITEL-CMNALM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:41:59 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MITEL-CMNALM-MIB"
+  }
+}

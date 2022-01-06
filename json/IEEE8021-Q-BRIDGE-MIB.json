@@ -1,0 +1,2492 @@
+{
+  "imports": {
+    "class": "imports",
+    "IEEE8021-BRIDGE-MIB": [
+      "ieee8021BridgeBasePortEntry",
+      "ieee8021BridgeBasePortComponentId",
+      "ieee8021BridgeBasePort"
+    ],
+    "IEEE8021-TC-MIB": [
+      "IEEE8021VlanIndex",
+      "IEEE8021BridgePortNumberOrZero",
+      "ieee802dot1mibs",
+      "IEEE8021VlanIndexOrWildcard",
+      "IEEE8021BridgePortNumber",
+      "IEEE8021PortAcceptableFrameTypes",
+      "IEEE8021PbbComponentIdentifier"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList",
+      "VlanId"
+    ],
+    "RMON2-MIB": [
+      "TimeFilter"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus",
+      "StorageType"
+    ]
+  },
+  "ieee8021QBridgeMib": {
+    "name": "ieee8021QBridgeMib",
+    "oid": "1.3.111.2.802.1.1.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-12-12 00:00",
+        "description": "Addition of the VID Translation MIB Subtree for 802.1aq"
+      },
+      {
+        "revision": "2011-02-27 00:00",
+        "description": "Minor edits to contact information etc. as part of 2011 revision of IEEE Std 802.1Q."
+      },
+      {
+        "revision": "2008-10-15 00:00",
+        "description": "Initial version, derived from RFC 4363."
+      }
+    ]
+  },
+  "ieee8021QBridgeMibObjects": {
+    "name": "ieee8021QBridgeMibObjects",
+    "oid": "1.3.111.2.802.1.1.4.1",
+    "class": "objectidentity"
+  },
+  "ieee8021QBridgeBase": {
+    "name": "ieee8021QBridgeBase",
+    "oid": "1.3.111.2.802.1.1.4.1.1",
+    "class": "objectidentity"
+  },
+  "ieee8021QBridgeTp": {
+    "name": "ieee8021QBridgeTp",
+    "oid": "1.3.111.2.802.1.1.4.1.2",
+    "class": "objectidentity"
+  },
+  "ieee8021QBridgeStatic": {
+    "name": "ieee8021QBridgeStatic",
+    "oid": "1.3.111.2.802.1.1.4.1.3",
+    "class": "objectidentity"
+  },
+  "ieee8021QBridgeVlan": {
+    "name": "ieee8021QBridgeVlan",
+    "oid": "1.3.111.2.802.1.1.4.1.4",
+    "class": "objectidentity"
+  },
+  "ieee8021QBridgeProtocol": {
+    "name": "ieee8021QBridgeProtocol",
+    "oid": "1.3.111.2.802.1.1.4.1.5",
+    "class": "objectidentity"
+  },
+  "ieee8021QBridgeVIDX": {
+    "name": "ieee8021QBridgeVIDX",
+    "oid": "1.3.111.2.802.1.1.4.1.6",
+    "class": "objectidentity"
+  },
+  "ieee8021QBridgeTable": {
+    "name": "ieee8021QBridgeTable",
+    "oid": "1.3.111.2.802.1.1.4.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeEntry": {
+    "name": "ieee8021QBridgeEntry",
+    "oid": "1.3.111.2.802.1.1.4.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeComponentId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeComponentId": {
+    "name": "ieee8021QBridgeComponentId",
+    "oid": "1.3.111.2.802.1.1.4.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanVersionNumber": {
+    "name": "ieee8021QBridgeVlanVersionNumber",
+    "oid": "1.3.111.2.802.1.1.4.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version1": 1,
+          "version2": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgeMaxVlanId": {
+    "name": "ieee8021QBridgeMaxVlanId",
+    "oid": "1.3.111.2.802.1.1.4.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgeMaxSupportedVlans": {
+    "name": "ieee8021QBridgeMaxSupportedVlans",
+    "oid": "1.3.111.2.802.1.1.4.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "vlans",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgeNumVlans": {
+    "name": "ieee8021QBridgeNumVlans",
+    "oid": "1.3.111.2.802.1.1.4.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "vlans",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgeMvrpEnabledStatus": {
+    "name": "ieee8021QBridgeMvrpEnabledStatus",
+    "oid": "1.3.111.2.802.1.1.4.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021QBridgeCVlanPortTable": {
+    "name": "ieee8021QBridgeCVlanPortTable",
+    "oid": "1.3.111.2.802.1.1.4.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeCVlanPortEntry": {
+    "name": "ieee8021QBridgeCVlanPortEntry",
+    "oid": "1.3.111.2.802.1.1.4.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeCVlanPortComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeCVlanPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeCVlanPortComponentId": {
+    "name": "ieee8021QBridgeCVlanPortComponentId",
+    "oid": "1.3.111.2.802.1.1.4.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeCVlanPortNumber": {
+    "name": "ieee8021QBridgeCVlanPortNumber",
+    "oid": "1.3.111.2.802.1.1.4.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeCVlanPortRowStatus": {
+    "name": "ieee8021QBridgeCVlanPortRowStatus",
+    "oid": "1.3.111.2.802.1.1.4.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeFdbTable": {
+    "name": "ieee8021QBridgeFdbTable",
+    "oid": "1.3.111.2.802.1.1.4.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeFdbEntry": {
+    "name": "ieee8021QBridgeFdbEntry",
+    "oid": "1.3.111.2.802.1.1.4.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeFdbComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeFdbId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeFdbComponentId": {
+    "name": "ieee8021QBridgeFdbComponentId",
+    "oid": "1.3.111.2.802.1.1.4.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeFdbId": {
+    "name": "ieee8021QBridgeFdbId",
+    "oid": "1.3.111.2.802.1.1.4.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeFdbDynamicCount": {
+    "name": "ieee8021QBridgeFdbDynamicCount",
+    "oid": "1.3.111.2.802.1.1.4.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "database entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgeFdbLearnedEntryDiscards": {
+    "name": "ieee8021QBridgeFdbLearnedEntryDiscards",
+    "oid": "1.3.111.2.802.1.1.4.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "database entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgeFdbAgingTime": {
+    "name": "ieee8021QBridgeFdbAgingTime",
+    "oid": "1.3.111.2.802.1.1.4.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021QBridgeTpFdbTable": {
+    "name": "ieee8021QBridgeTpFdbTable",
+    "oid": "1.3.111.2.802.1.1.4.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeTpFdbEntry": {
+    "name": "ieee8021QBridgeTpFdbEntry",
+    "oid": "1.3.111.2.802.1.1.4.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeFdbComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeFdbId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeTpFdbAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeTpFdbAddress": {
+    "name": "ieee8021QBridgeTpFdbAddress",
+    "oid": "1.3.111.2.802.1.1.4.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeTpFdbPort": {
+    "name": "ieee8021QBridgeTpFdbPort",
+    "oid": "1.3.111.2.802.1.1.4.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumberOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgeTpFdbStatus": {
+    "name": "ieee8021QBridgeTpFdbStatus",
+    "oid": "1.3.111.2.802.1.1.4.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "invalid": 2,
+          "learned": 3,
+          "self": 4,
+          "mgmt": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgeTpGroupTable": {
+    "name": "ieee8021QBridgeTpGroupTable",
+    "oid": "1.3.111.2.802.1.1.4.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeTpGroupEntry": {
+    "name": "ieee8021QBridgeTpGroupEntry",
+    "oid": "1.3.111.2.802.1.1.4.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanCurrentComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeTpGroupAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeTpGroupAddress": {
+    "name": "ieee8021QBridgeTpGroupAddress",
+    "oid": "1.3.111.2.802.1.1.4.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeTpGroupEgressPorts": {
+    "name": "ieee8021QBridgeTpGroupEgressPorts",
+    "oid": "1.3.111.2.802.1.1.4.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgeTpGroupLearnt": {
+    "name": "ieee8021QBridgeTpGroupLearnt",
+    "oid": "1.3.111.2.802.1.1.4.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgeForwardAllTable": {
+    "name": "ieee8021QBridgeForwardAllTable",
+    "oid": "1.3.111.2.802.1.1.4.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeForwardAllEntry": {
+    "name": "ieee8021QBridgeForwardAllEntry",
+    "oid": "1.3.111.2.802.1.1.4.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanCurrentComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeForwardAllVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeForwardAllVlanIndex": {
+    "name": "ieee8021QBridgeForwardAllVlanIndex",
+    "oid": "1.3.111.2.802.1.1.4.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021VlanIndexOrWildcard",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeForwardAllPorts": {
+    "name": "ieee8021QBridgeForwardAllPorts",
+    "oid": "1.3.111.2.802.1.1.4.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgeForwardAllStaticPorts": {
+    "name": "ieee8021QBridgeForwardAllStaticPorts",
+    "oid": "1.3.111.2.802.1.1.4.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021QBridgeForwardAllForbiddenPorts": {
+    "name": "ieee8021QBridgeForwardAllForbiddenPorts",
+    "oid": "1.3.111.2.802.1.1.4.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021QBridgeForwardUnregisteredTable": {
+    "name": "ieee8021QBridgeForwardUnregisteredTable",
+    "oid": "1.3.111.2.802.1.1.4.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeForwardUnregisteredEntry": {
+    "name": "ieee8021QBridgeForwardUnregisteredEntry",
+    "oid": "1.3.111.2.802.1.1.4.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanCurrentComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeForwardUnregisteredVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeForwardUnregisteredVlanIndex": {
+    "name": "ieee8021QBridgeForwardUnregisteredVlanIndex",
+    "oid": "1.3.111.2.802.1.1.4.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021VlanIndexOrWildcard",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeForwardUnregisteredPorts": {
+    "name": "ieee8021QBridgeForwardUnregisteredPorts",
+    "oid": "1.3.111.2.802.1.1.4.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgeForwardUnregisteredStaticPorts": {
+    "name": "ieee8021QBridgeForwardUnregisteredStaticPorts",
+    "oid": "1.3.111.2.802.1.1.4.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021QBridgeForwardUnregisteredForbiddenPorts": {
+    "name": "ieee8021QBridgeForwardUnregisteredForbiddenPorts",
+    "oid": "1.3.111.2.802.1.1.4.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021QBridgeStaticUnicastTable": {
+    "name": "ieee8021QBridgeStaticUnicastTable",
+    "oid": "1.3.111.2.802.1.1.4.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeStaticUnicastEntry": {
+    "name": "ieee8021QBridgeStaticUnicastEntry",
+    "oid": "1.3.111.2.802.1.1.4.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeStaticUnicastComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeStaticUnicastVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeStaticUnicastAddress",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeStaticUnicastReceivePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeStaticUnicastComponentId": {
+    "name": "ieee8021QBridgeStaticUnicastComponentId",
+    "oid": "1.3.111.2.802.1.1.4.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeStaticUnicastVlanIndex": {
+    "name": "ieee8021QBridgeStaticUnicastVlanIndex",
+    "oid": "1.3.111.2.802.1.1.4.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021VlanIndexOrWildcard",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeStaticUnicastAddress": {
+    "name": "ieee8021QBridgeStaticUnicastAddress",
+    "oid": "1.3.111.2.802.1.1.4.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeStaticUnicastReceivePort": {
+    "name": "ieee8021QBridgeStaticUnicastReceivePort",
+    "oid": "1.3.111.2.802.1.1.4.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumberOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeStaticUnicastStaticEgressPorts": {
+    "name": "ieee8021QBridgeStaticUnicastStaticEgressPorts",
+    "oid": "1.3.111.2.802.1.1.4.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeStaticUnicastForbiddenEgressPorts": {
+    "name": "ieee8021QBridgeStaticUnicastForbiddenEgressPorts",
+    "oid": "1.3.111.2.802.1.1.4.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeStaticUnicastStorageType": {
+    "name": "ieee8021QBridgeStaticUnicastStorageType",
+    "oid": "1.3.111.2.802.1.1.4.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeStaticUnicastRowStatus": {
+    "name": "ieee8021QBridgeStaticUnicastRowStatus",
+    "oid": "1.3.111.2.802.1.1.4.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeStaticMulticastTable": {
+    "name": "ieee8021QBridgeStaticMulticastTable",
+    "oid": "1.3.111.2.802.1.1.4.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeStaticMulticastEntry": {
+    "name": "ieee8021QBridgeStaticMulticastEntry",
+    "oid": "1.3.111.2.802.1.1.4.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanCurrentComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeStaticMulticastAddress",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeStaticMulticastReceivePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeStaticMulticastAddress": {
+    "name": "ieee8021QBridgeStaticMulticastAddress",
+    "oid": "1.3.111.2.802.1.1.4.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeStaticMulticastReceivePort": {
+    "name": "ieee8021QBridgeStaticMulticastReceivePort",
+    "oid": "1.3.111.2.802.1.1.4.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumberOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeStaticMulticastStaticEgressPorts": {
+    "name": "ieee8021QBridgeStaticMulticastStaticEgressPorts",
+    "oid": "1.3.111.2.802.1.1.4.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeStaticMulticastForbiddenEgressPorts": {
+    "name": "ieee8021QBridgeStaticMulticastForbiddenEgressPorts",
+    "oid": "1.3.111.2.802.1.1.4.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeStaticMulticastStorageType": {
+    "name": "ieee8021QBridgeStaticMulticastStorageType",
+    "oid": "1.3.111.2.802.1.1.4.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeStaticMulticastRowStatus": {
+    "name": "ieee8021QBridgeStaticMulticastRowStatus",
+    "oid": "1.3.111.2.802.1.1.4.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanNumDeletes": {
+    "name": "ieee8021QBridgeVlanNumDeletes",
+    "oid": "1.3.111.2.802.1.1.4.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "vlan deletions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanCurrentTable": {
+    "name": "ieee8021QBridgeVlanCurrentTable",
+    "oid": "1.3.111.2.802.1.1.4.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanCurrentEntry": {
+    "name": "ieee8021QBridgeVlanCurrentEntry",
+    "oid": "1.3.111.2.802.1.1.4.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanCurrentComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanTimeMark": {
+    "name": "ieee8021QBridgeVlanTimeMark",
+    "oid": "1.3.111.2.802.1.1.4.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeFilter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanCurrentComponentId": {
+    "name": "ieee8021QBridgeVlanCurrentComponentId",
+    "oid": "1.3.111.2.802.1.1.4.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanIndex": {
+    "name": "ieee8021QBridgeVlanIndex",
+    "oid": "1.3.111.2.802.1.1.4.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanFdbId": {
+    "name": "ieee8021QBridgeVlanFdbId",
+    "oid": "1.3.111.2.802.1.1.4.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanCurrentEgressPorts": {
+    "name": "ieee8021QBridgeVlanCurrentEgressPorts",
+    "oid": "1.3.111.2.802.1.1.4.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanCurrentUntaggedPorts": {
+    "name": "ieee8021QBridgeVlanCurrentUntaggedPorts",
+    "oid": "1.3.111.2.802.1.1.4.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanStatus": {
+    "name": "ieee8021QBridgeVlanStatus",
+    "oid": "1.3.111.2.802.1.1.4.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "permanent": 2,
+          "dynamicMvrp": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanCreationTime": {
+    "name": "ieee8021QBridgeVlanCreationTime",
+    "oid": "1.3.111.2.802.1.1.4.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanStaticTable": {
+    "name": "ieee8021QBridgeVlanStaticTable",
+    "oid": "1.3.111.2.802.1.1.4.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanStaticEntry": {
+    "name": "ieee8021QBridgeVlanStaticEntry",
+    "oid": "1.3.111.2.802.1.1.4.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanStaticComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanStaticVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanStaticComponentId": {
+    "name": "ieee8021QBridgeVlanStaticComponentId",
+    "oid": "1.3.111.2.802.1.1.4.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanStaticVlanIndex": {
+    "name": "ieee8021QBridgeVlanStaticVlanIndex",
+    "oid": "1.3.111.2.802.1.1.4.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanStaticName": {
+    "name": "ieee8021QBridgeVlanStaticName",
+    "oid": "1.3.111.2.802.1.1.4.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanStaticEgressPorts": {
+    "name": "ieee8021QBridgeVlanStaticEgressPorts",
+    "oid": "1.3.111.2.802.1.1.4.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanForbiddenEgressPorts": {
+    "name": "ieee8021QBridgeVlanForbiddenEgressPorts",
+    "oid": "1.3.111.2.802.1.1.4.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanStaticUntaggedPorts": {
+    "name": "ieee8021QBridgeVlanStaticUntaggedPorts",
+    "oid": "1.3.111.2.802.1.1.4.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanStaticRowStatus": {
+    "name": "ieee8021QBridgeVlanStaticRowStatus",
+    "oid": "1.3.111.2.802.1.1.4.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeNextFreeLocalVlanTable": {
+    "name": "ieee8021QBridgeNextFreeLocalVlanTable",
+    "oid": "1.3.111.2.802.1.1.4.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeNextFreeLocalVlanEntry": {
+    "name": "ieee8021QBridgeNextFreeLocalVlanEntry",
+    "oid": "1.3.111.2.802.1.1.4.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeNextFreeLocalVlanComponentId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeNextFreeLocalVlanComponentId": {
+    "name": "ieee8021QBridgeNextFreeLocalVlanComponentId",
+    "oid": "1.3.111.2.802.1.1.4.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeNextFreeLocalVlanIndex": {
+    "name": "ieee8021QBridgeNextFreeLocalVlanIndex",
+    "oid": "1.3.111.2.802.1.1.4.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4096,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgePortVlanTable": {
+    "name": "ieee8021QBridgePortVlanTable",
+    "oid": "1.3.111.2.802.1.1.4.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgePortVlanEntry": {
+    "name": "ieee8021QBridgePortVlanEntry",
+    "oid": "1.3.111.2.802.1.1.4.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ieee8021QBridgePortVlanEntry",
+      "module": "IEEE8021-Q-BRIDGE-MIB",
+      "object": "ieee8021BridgeBasePortEntry"
+    },
+    "status": "current"
+  },
+  "ieee8021QBridgePvid": {
+    "name": "ieee8021QBridgePvid",
+    "oid": "1.3.111.2.802.1.1.4.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021VlanIndex",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021QBridgePortAcceptableFrameTypes": {
+    "name": "ieee8021QBridgePortAcceptableFrameTypes",
+    "oid": "1.3.111.2.802.1.1.4.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PortAcceptableFrameTypes",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "admitAll",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021QBridgePortIngressFiltering": {
+    "name": "ieee8021QBridgePortIngressFiltering",
+    "oid": "1.3.111.2.802.1.1.4.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021QBridgePortMvrpEnabledStatus": {
+    "name": "ieee8021QBridgePortMvrpEnabledStatus",
+    "oid": "1.3.111.2.802.1.1.4.1.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021QBridgePortMvrpFailedRegistrations": {
+    "name": "ieee8021QBridgePortMvrpFailedRegistrations",
+    "oid": "1.3.111.2.802.1.1.4.1.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "failed MVRP registrations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgePortMvrpLastPduOrigin": {
+    "name": "ieee8021QBridgePortMvrpLastPduOrigin",
+    "oid": "1.3.111.2.802.1.1.4.1.4.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgePortRestrictedVlanRegistration": {
+    "name": "ieee8021QBridgePortRestrictedVlanRegistration",
+    "oid": "1.3.111.2.802.1.1.4.1.4.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021QBridgePortVlanStatisticsTable": {
+    "name": "ieee8021QBridgePortVlanStatisticsTable",
+    "oid": "1.3.111.2.802.1.1.4.1.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgePortVlanStatisticsEntry": {
+    "name": "ieee8021QBridgePortVlanStatisticsEntry",
+    "oid": "1.3.111.2.802.1.1.4.1.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePortComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePort",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeTpVlanPortInFrames": {
+    "name": "ieee8021QBridgeTpVlanPortInFrames",
+    "oid": "1.3.111.2.802.1.1.4.1.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgeTpVlanPortOutFrames": {
+    "name": "ieee8021QBridgeTpVlanPortOutFrames",
+    "oid": "1.3.111.2.802.1.1.4.1.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgeTpVlanPortInDiscards": {
+    "name": "ieee8021QBridgeTpVlanPortInDiscards",
+    "oid": "1.3.111.2.802.1.1.4.1.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021QBridgeLearningConstraintsTable": {
+    "name": "ieee8021QBridgeLearningConstraintsTable",
+    "oid": "1.3.111.2.802.1.1.4.1.4.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeLearningConstraintsEntry": {
+    "name": "ieee8021QBridgeLearningConstraintsEntry",
+    "oid": "1.3.111.2.802.1.1.4.1.4.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeLearningConstraintsComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeLearningConstraintsVlan",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeLearningConstraintsSet",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeLearningConstraintsComponentId": {
+    "name": "ieee8021QBridgeLearningConstraintsComponentId",
+    "oid": "1.3.111.2.802.1.1.4.1.4.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeLearningConstraintsVlan": {
+    "name": "ieee8021QBridgeLearningConstraintsVlan",
+    "oid": "1.3.111.2.802.1.1.4.1.4.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeLearningConstraintsSet": {
+    "name": "ieee8021QBridgeLearningConstraintsSet",
+    "oid": "1.3.111.2.802.1.1.4.1.4.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeLearningConstraintsType": {
+    "name": "ieee8021QBridgeLearningConstraintsType",
+    "oid": "1.3.111.2.802.1.1.4.1.4.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "independent": 1,
+          "shared": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeLearningConstraintsStatus": {
+    "name": "ieee8021QBridgeLearningConstraintsStatus",
+    "oid": "1.3.111.2.802.1.1.4.1.4.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeLearningConstraintDefaultsTable": {
+    "name": "ieee8021QBridgeLearningConstraintDefaultsTable",
+    "oid": "1.3.111.2.802.1.1.4.1.4.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeLearningConstraintDefaultsEntry": {
+    "name": "ieee8021QBridgeLearningConstraintDefaultsEntry",
+    "oid": "1.3.111.2.802.1.1.4.1.4.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeLearningConstraintDefaultsComponentId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeLearningConstraintDefaultsComponentId": {
+    "name": "ieee8021QBridgeLearningConstraintDefaultsComponentId",
+    "oid": "1.3.111.2.802.1.1.4.1.4.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeLearningConstraintDefaultsSet": {
+    "name": "ieee8021QBridgeLearningConstraintDefaultsSet",
+    "oid": "1.3.111.2.802.1.1.4.1.4.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021QBridgeLearningConstraintDefaultsType": {
+    "name": "ieee8021QBridgeLearningConstraintDefaultsType",
+    "oid": "1.3.111.2.802.1.1.4.1.4.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "independent": 1,
+          "shared": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021QBridgeProtocolGroupTable": {
+    "name": "ieee8021QBridgeProtocolGroupTable",
+    "oid": "1.3.111.2.802.1.1.4.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeProtocolGroupEntry": {
+    "name": "ieee8021QBridgeProtocolGroupEntry",
+    "oid": "1.3.111.2.802.1.1.4.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeProtocolGroupComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeProtocolTemplateFrameType",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeProtocolTemplateProtocolValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeProtocolGroupComponentId": {
+    "name": "ieee8021QBridgeProtocolGroupComponentId",
+    "oid": "1.3.111.2.802.1.1.4.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeProtocolTemplateFrameType": {
+    "name": "ieee8021QBridgeProtocolTemplateFrameType",
+    "oid": "1.3.111.2.802.1.1.4.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet": 1,
+          "rfc1042": 2,
+          "snap8021H": 3,
+          "snapOther": 4,
+          "llcOther": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeProtocolTemplateProtocolValue": {
+    "name": "ieee8021QBridgeProtocolTemplateProtocolValue",
+    "oid": "1.3.111.2.802.1.1.4.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          },
+          {
+            "min": 5,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeProtocolGroupId": {
+    "name": "ieee8021QBridgeProtocolGroupId",
+    "oid": "1.3.111.2.802.1.1.4.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeProtocolGroupRowStatus": {
+    "name": "ieee8021QBridgeProtocolGroupRowStatus",
+    "oid": "1.3.111.2.802.1.1.4.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeProtocolPortTable": {
+    "name": "ieee8021QBridgeProtocolPortTable",
+    "oid": "1.3.111.2.802.1.1.4.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeProtocolPortEntry": {
+    "name": "ieee8021QBridgeProtocolPortEntry",
+    "oid": "1.3.111.2.802.1.1.4.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePortComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePort",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeProtocolPortGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeProtocolPortGroupId": {
+    "name": "ieee8021QBridgeProtocolPortGroupId",
+    "oid": "1.3.111.2.802.1.1.4.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeProtocolPortGroupVid": {
+    "name": "ieee8021QBridgeProtocolPortGroupVid",
+    "oid": "1.3.111.2.802.1.1.4.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeProtocolPortRowStatus": {
+    "name": "ieee8021QBridgeProtocolPortRowStatus",
+    "oid": "1.3.111.2.802.1.1.4.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeVIDXTable": {
+    "name": "ieee8021QBridgeVIDXTable",
+    "oid": "1.3.111.2.802.1.1.4.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeVIDXEntry": {
+    "name": "ieee8021QBridgeVIDXEntry",
+    "oid": "1.3.111.2.802.1.1.4.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePortComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePort",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVIDXLocalVid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeVIDXLocalVid": {
+    "name": "ieee8021QBridgeVIDXLocalVid",
+    "oid": "1.3.111.2.802.1.1.4.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeVIDXRelayVid": {
+    "name": "ieee8021QBridgeVIDXRelayVid",
+    "oid": "1.3.111.2.802.1.1.4.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeVIDXRowStatus": {
+    "name": "ieee8021QBridgeVIDXRowStatus",
+    "oid": "1.3.111.2.802.1.1.4.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeEgressVidXTable": {
+    "name": "ieee8021QBridgeEgressVidXTable",
+    "oid": "1.3.111.2.802.1.1.4.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeEgressVidXEntry": {
+    "name": "ieee8021QBridgeEgressVidXEntry",
+    "oid": "1.3.111.2.802.1.1.4.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021BridgeBaseEgressPortComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021BridgeEgressBasePort",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeEgressVidXRelayVid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeEgressVidXRelayVid": {
+    "name": "ieee8021QBridgeEgressVidXRelayVid",
+    "oid": "1.3.111.2.802.1.1.4.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021QBridgeEgressVidXLocalVid": {
+    "name": "ieee8021QBridgeEgressVidXLocalVid",
+    "oid": "1.3.111.2.802.1.1.4.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeEgressVidXRowStatus": {
+    "name": "ieee8021QBridgeEgressVidXRowStatus",
+    "oid": "1.3.111.2.802.1.1.4.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021QBridgeConformance": {
+    "name": "ieee8021QBridgeConformance",
+    "oid": "1.3.111.2.802.1.1.4.2",
+    "class": "objectidentity"
+  },
+  "ieee8021QBridgeGroups": {
+    "name": "ieee8021QBridgeGroups",
+    "oid": "1.3.111.2.802.1.1.4.2.1",
+    "class": "objectidentity"
+  },
+  "ieee8021QBridgeCompliances": {
+    "name": "ieee8021QBridgeCompliances",
+    "oid": "1.3.111.2.802.1.1.4.2.2",
+    "class": "objectidentity"
+  },
+  "ieee8021QBridgeBaseGroup": {
+    "name": "ieee8021QBridgeBaseGroup",
+    "oid": "1.3.111.2.802.1.1.4.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanVersionNumber"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeMaxVlanId"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeMaxSupportedVlans"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeNumVlans"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeMvrpEnabledStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeFdbUnicastGroup": {
+    "name": "ieee8021QBridgeFdbUnicastGroup",
+    "oid": "1.3.111.2.802.1.1.4.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeFdbDynamicCount"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeFdbLearnedEntryDiscards"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeFdbAgingTime"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeTpFdbPort"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeTpFdbStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeFdbMulticastGroup": {
+    "name": "ieee8021QBridgeFdbMulticastGroup",
+    "oid": "1.3.111.2.802.1.1.4.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeTpGroupEgressPorts"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeTpGroupLearnt"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeServiceRequirementsGroup": {
+    "name": "ieee8021QBridgeServiceRequirementsGroup",
+    "oid": "1.3.111.2.802.1.1.4.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeForwardAllPorts"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeForwardAllStaticPorts"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeForwardAllForbiddenPorts"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeForwardUnregisteredPorts"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeForwardUnregisteredStaticPorts"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeForwardUnregisteredForbiddenPorts"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeFdbStaticGroup": {
+    "name": "ieee8021QBridgeFdbStaticGroup",
+    "oid": "1.3.111.2.802.1.1.4.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeStaticUnicastStaticEgressPorts"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeStaticUnicastForbiddenEgressPorts"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeStaticUnicastStorageType"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeStaticUnicastRowStatus"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeStaticMulticastStaticEgressPorts"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeStaticMulticastForbiddenEgressPorts"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeStaticMulticastStorageType"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeStaticMulticastRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanGroup": {
+    "name": "ieee8021QBridgeVlanGroup",
+    "oid": "1.3.111.2.802.1.1.4.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanNumDeletes"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanFdbId"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanCurrentEgressPorts"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanCurrentUntaggedPorts"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanStatus"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanCreationTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanStaticGroup": {
+    "name": "ieee8021QBridgeVlanStaticGroup",
+    "oid": "1.3.111.2.802.1.1.4.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanStaticName"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanStaticEgressPorts"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanForbiddenEgressPorts"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanStaticUntaggedPorts"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanStaticRowStatus"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeNextFreeLocalVlanIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeVlanStatisticsGroup": {
+    "name": "ieee8021QBridgeVlanStatisticsGroup",
+    "oid": "1.3.111.2.802.1.1.4.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeTpVlanPortInFrames"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeTpVlanPortOutFrames"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeTpVlanPortInDiscards"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeLearningConstraintsGroup": {
+    "name": "ieee8021QBridgeLearningConstraintsGroup",
+    "oid": "1.3.111.2.802.1.1.4.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeLearningConstraintsType"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeLearningConstraintsStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeLearningConstraintDefaultGroup": {
+    "name": "ieee8021QBridgeLearningConstraintDefaultGroup",
+    "oid": "1.3.111.2.802.1.1.4.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeLearningConstraintDefaultsSet"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeLearningConstraintDefaultsType"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeClassificationDeviceGroup": {
+    "name": "ieee8021QBridgeClassificationDeviceGroup",
+    "oid": "1.3.111.2.802.1.1.4.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeProtocolGroupId"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeProtocolGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeClassificationPortGroup": {
+    "name": "ieee8021QBridgeClassificationPortGroup",
+    "oid": "1.3.111.2.802.1.1.4.2.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeProtocolPortGroupVid"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeProtocolPortRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgePortGroup2": {
+    "name": "ieee8021QBridgePortGroup2",
+    "oid": "1.3.111.2.802.1.1.4.2.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgePvid"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgePortAcceptableFrameTypes"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgePortIngressFiltering"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgePortMvrpEnabledStatus"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgePortMvrpFailedRegistrations"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgePortMvrpLastPduOrigin"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgePortRestrictedVlanRegistration"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeCVlanPortGroup": {
+    "name": "ieee8021QBridgeCVlanPortGroup",
+    "oid": "1.3.111.2.802.1.1.4.2.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeCVlanPortRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeVIDXGroup": {
+    "name": "ieee8021QBridgeVIDXGroup",
+    "oid": "1.3.111.2.802.1.1.4.2.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVIDXRelayVid"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVIDXRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeEgressVIDXGroup": {
+    "name": "ieee8021QBridgeEgressVIDXGroup",
+    "oid": "1.3.111.2.802.1.1.4.2.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeEgressVidXLocalVid"
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeEgressVidXRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021QBridgeCompliance": {
+    "name": "ieee8021QBridgeCompliance",
+    "oid": "1.3.111.2.802.1.1.4.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ieee8021QBridgeBaseGroup",
+        "module": "IEEE8021-Q-BRIDGE-MIB"
+      },
+      {
+        "object": "ieee8021QBridgeVlanGroup",
+        "module": "IEEE8021-Q-BRIDGE-MIB"
+      },
+      {
+        "object": "ieee8021QBridgeVlanStaticGroup",
+        "module": "IEEE8021-Q-BRIDGE-MIB"
+      },
+      {
+        "object": "ieee8021QBridgePortGroup2",
+        "module": "IEEE8021-Q-BRIDGE-MIB"
+      },
+      {
+        "object": "ieee8021QBridgeFdbUnicastGroup",
+        "module": "IEEE8021-Q-BRIDGE-MIB"
+      },
+      {
+        "object": "ieee8021QBridgeFdbMulticastGroup",
+        "module": "IEEE8021-Q-BRIDGE-MIB"
+      },
+      {
+        "object": "ieee8021QBridgeServiceRequirementsGroup",
+        "module": "IEEE8021-Q-BRIDGE-MIB"
+      },
+      {
+        "object": "ieee8021QBridgeFdbStaticGroup",
+        "module": "IEEE8021-Q-BRIDGE-MIB"
+      },
+      {
+        "object": "ieee8021QBridgeVlanStatisticsGroup",
+        "module": "IEEE8021-Q-BRIDGE-MIB"
+      },
+      {
+        "object": "ieee8021QBridgeLearningConstraintsGroup",
+        "module": "IEEE8021-Q-BRIDGE-MIB"
+      },
+      {
+        "object": "ieee8021QBridgeLearningConstraintDefaultGroup",
+        "module": "IEEE8021-Q-BRIDGE-MIB"
+      },
+      {
+        "object": "ieee8021QBridgeClassificationDeviceGroup",
+        "module": "IEEE8021-Q-BRIDGE-MIB"
+      },
+      {
+        "object": "ieee8021QBridgeClassificationPortGroup",
+        "module": "IEEE8021-Q-BRIDGE-MIB"
+      },
+      {
+        "object": "ieee8021QBridgeCVlanPortGroup",
+        "module": "IEEE8021-Q-BRIDGE-MIB"
+      },
+      {
+        "object": "ieee8021QBridgeVIDXGroup",
+        "module": "IEEE8021-Q-BRIDGE-MIB"
+      },
+      {
+        "object": "ieee8021QBridgeEgressVIDXGroup",
+        "module": "IEEE8021-Q-BRIDGE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IEEE8021-Q-BRIDGE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IEEE8021-Q-BRIDGE-MIB"
+  }
+}

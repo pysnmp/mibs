@@ -1,0 +1,4462 @@
+{
+  "imports": {
+    "class": "imports",
+    "GLOBAL-REG": [
+      "modules",
+      "orion"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "enterprises",
+      "MibIdentifier",
+      "Counter32",
+      "iso",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "orionBaseMibModule": {
+    "name": "orionBaseMibModule",
+    "oid": "1.3.6.1.4.1.20246.2.1.1.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-04-27 12:00",
+        "description": "Rev V5.0 - ORION V5.10 - Add Multi-Stage temperature compensation - Add dcBoD and dcEnableUsTempComp"
+      },
+      {
+        "revision": "2012-01-26 14:15",
+        "description": "Rev V2.1 - ORION V5.0 - changed product name from PSC3 to Orion"
+      },
+      {
+        "revision": "2011-06-20 07:34",
+        "description": "Rev V2.0 - PSC 3 V3.20 - hour meter functionality added"
+      },
+      {
+        "revision": "2011-02-10 09:01",
+        "description": "Rev V1.9 - PSC 3 V3.10 - dcPowerSystem can be negativ now - added limits for DefaultLog and EventProcessing table - added dcResendActiveAlarmTraps in deschMiscGroup"
+      },
+      {
+        "revision": "2010-06-16 10:27",
+        "description": "Rev V1.8 - PSC 3 V2.70 - new rectifier types added - resend active alarm traps feature added - measurement table added - battery test result enum extended"
+      },
+      {
+        "revision": "2010-02-24 10:46",
+        "description": "Rev V1.7 - PSC 3 V2.60 - Critical alarm trap added - Float Charge, Battery Test, Equalize, Boost Charge, ,System Voltage Supervision and Event Control Charge parameter added - Rectifier Group table added - Rectifier power limitation and efficiency cycling parameter added - LVD table added - Default Log event configuration table added - Event Processing event configuration table added - Loss of Backup time parameter added"
+      },
+      {
+        "revision": "2009-09-04 09:52",
+        "description": "Rev V1.6 - PSC 3 V2.50 - Generic Alarm table added - Trap Destination table added"
+      },
+      {
+        "revision": "2008-02-21 14:39",
+        "description": "Rev V1.5 - PSC V2.20 - support of write access - added battery parameters"
+      },
+      {
+        "revision": "2008-01-18 08:35",
+        "description": "Rev V1.4 - PSC 3 V2.10 - added event controlled charge state"
+      },
+      {
+        "revision": "2006-07-27 10:26",
+        "description": "Rev V1.3 - PSC 3 V1.70 - corrected Oid comment for dcStartTemp, dcStopTemp and dcTotalBatteryCapacity"
+      },
+      {
+        "revision": "2006-03-02 08:55",
+        "description": "Rev V1.2 - added various parameters. - added additional TRAP parameter."
+      },
+      {
+        "revision": "2006-02-23 09:32",
+        "description": "Rev V1.1 - PSC 3 V1.60 - extended dcChargeState with new sepCharge state."
+      },
+      {
+        "revision": "2005-06-03 11:07",
+        "description": "Rev V1.0 - PSC 3 V1.5 and older - added dcCurrentLimit parameter. - renamed module. - increased dcSoftwareVersion string size. - added recharge state to dcChargeState parameter. - added max. number of entries in comment for event history."
+      }
+    ]
+  },
+  "orionBaseMib": {
+    "name": "orionBaseMib",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1",
+    "class": "objectidentity"
+  },
+  "controllerConfs": {
+    "name": "controllerConfs",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "controllerGroups": {
+    "name": "controllerGroups",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "controllerCompl": {
+    "name": "controllerCompl",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "controllerObjects": {
+    "name": "controllerObjects",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "dcSystemInfo": {
+    "name": "dcSystemInfo",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "dcSystemAlarms": {
+    "name": "dcSystemAlarms",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "dcSystemMonitor": {
+    "name": "dcSystemMonitor",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.3",
+    "class": "objectidentity"
+  },
+  "dcRectifier": {
+    "name": "dcRectifier",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4",
+    "class": "objectidentity"
+  },
+  "dcRectifierFunctions": {
+    "name": "dcRectifierFunctions",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.6",
+    "class": "objectidentity"
+  },
+  "dcEfficiencyCycling": {
+    "name": "dcEfficiencyCycling",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.6.1",
+    "class": "objectidentity"
+  },
+  "dcPowerLimitation": {
+    "name": "dcPowerLimitation",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.6.2",
+    "class": "objectidentity"
+  },
+  "dcBattery": {
+    "name": "dcBattery",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5",
+    "class": "objectidentity"
+  },
+  "dcFloatCharge": {
+    "name": "dcFloatCharge",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.1",
+    "class": "objectidentity"
+  },
+  "dcBatteryTest": {
+    "name": "dcBatteryTest",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.2",
+    "class": "objectidentity"
+  },
+  "dcBatteryTestParameter": {
+    "name": "dcBatteryTestParameter",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.2.1",
+    "class": "objectidentity"
+  },
+  "dcBatteryTestResults": {
+    "name": "dcBatteryTestResults",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.2.2",
+    "class": "objectidentity"
+  },
+  "dcBatteryParameter": {
+    "name": "dcBatteryParameter",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.3",
+    "class": "objectidentity"
+  },
+  "dcLossOfBackupTime": {
+    "name": "dcLossOfBackupTime",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.3.3",
+    "class": "objectidentity"
+  },
+  "dcEqualize": {
+    "name": "dcEqualize",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.4",
+    "class": "objectidentity"
+  },
+  "dcEqualizeParameter": {
+    "name": "dcEqualizeParameter",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.4.4",
+    "class": "objectidentity"
+  },
+  "dcBoostCharge": {
+    "name": "dcBoostCharge",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.5",
+    "class": "objectidentity"
+  },
+  "dcBoostChargeParameter": {
+    "name": "dcBoostChargeParameter",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.5.4",
+    "class": "objectidentity"
+  },
+  "dcSystemVoltageSupervision": {
+    "name": "dcSystemVoltageSupervision",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.6",
+    "class": "objectidentity"
+  },
+  "dcEvtCtrlCharge": {
+    "name": "dcEvtCtrlCharge",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.7",
+    "class": "objectidentity"
+  },
+  "dcEvtCtrlChargeParameter": {
+    "name": "dcEvtCtrlChargeParameter",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.7.3",
+    "class": "objectidentity"
+  },
+  "dcTempComp": {
+    "name": "dcTempComp",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.8",
+    "class": "objectidentity"
+  },
+  "dcTempSupervision": {
+    "name": "dcTempSupervision",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.9",
+    "class": "objectidentity"
+  },
+  "dcInputOutput": {
+    "name": "dcInputOutput",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.6",
+    "class": "objectidentity"
+  },
+  "dcMisc": {
+    "name": "dcMisc",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.7",
+    "class": "objectidentity"
+  },
+  "dcConfig": {
+    "name": "dcConfig",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.8",
+    "class": "objectidentity"
+  },
+  "dcMeasurement": {
+    "name": "dcMeasurement",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.9",
+    "class": "objectidentity"
+  },
+  "dcMeterPanel": {
+    "name": "dcMeterPanel",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.10",
+    "class": "objectidentity"
+  },
+  "controllerEvents": {
+    "name": "controllerEvents",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.3",
+    "class": "objectidentity"
+  },
+  "controllerEventObjects": {
+    "name": "controllerEventObjects",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.3.1",
+    "class": "objectidentity"
+  },
+  "controllerEventsV2": {
+    "name": "controllerEventsV2",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.3.1.0",
+    "class": "objectidentity"
+  },
+  "dcSiteName": {
+    "name": "dcSiteName",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcSystemName": {
+    "name": "dcSystemName",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcSystemDateTime": {
+    "name": "dcSystemDateTime",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 19,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcSoftwareVersion": {
+    "name": "dcSoftwareVersion",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 10,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcNumberUrgentAlarms": {
+    "name": "dcNumberUrgentAlarms",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcNumberNonUrgentAlarms": {
+    "name": "dcNumberNonUrgentAlarms",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcMainsFailureAlarm": {
+    "name": "dcMainsFailureAlarm",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcUrgentAlarmIdentifier": {
+    "name": "dcUrgentAlarmIdentifier",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcUrgentAlarmValue": {
+    "name": "dcUrgentAlarmValue",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "indeterminate": 2,
+          "true": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcNonUrgentAlarmIdentifier": {
+    "name": "dcNonUrgentAlarmIdentifier",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcNonUrgentAlarmValue": {
+    "name": "dcNonUrgentAlarmValue",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "indeterminate": 2,
+          "true": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcUrgentAlarmName": {
+    "name": "dcUrgentAlarmName",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 35
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcNonUrgentAlarmName": {
+    "name": "dcNonUrgentAlarmName",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 35
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcNumberCriticalAlarms": {
+    "name": "dcNumberCriticalAlarms",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcCriticalAlarmIdentifier": {
+    "name": "dcCriticalAlarmIdentifier",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcCriticalAlarmValue": {
+    "name": "dcCriticalAlarmValue",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "indeterminate": 2,
+          "true": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcCriticalAlarmName": {
+    "name": "dcCriticalAlarmName",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 35
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcSystemVoltage": {
+    "name": "dcSystemVoltage",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "10 mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcLoadCurrent": {
+    "name": "dcLoadCurrent",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "100 mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcBatteryCurrent": {
+    "name": "dcBatteryCurrent",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "100 mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcBatteryTemperature": {
+    "name": "dcBatteryTemperature",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcChargeState": {
+    "name": "dcChargeState",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "float": 1,
+          "discharge": 2,
+          "equalize": 3,
+          "boost": 4,
+          "battTest": 5,
+          "recharge": 6,
+          "sepCharge": 7,
+          "evCtrlCharge": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcCurrentLimit": {
+    "name": "dcCurrentLimit",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcRectifierCurrent": {
+    "name": "dcRectifierCurrent",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "100 mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcSystemPower": {
+    "name": "dcSystemPower",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1 W",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcNumberRectifiers": {
+    "name": "dcNumberRectifiers",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcNumberRectifiersFailure": {
+    "name": "dcNumberRectifiersFailure",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcNumberRectifiersOkay": {
+    "name": "dcNumberRectifiersOkay",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcEfficiencyCyclingEnabled": {
+    "name": "dcEfficiencyCyclingEnabled",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcLimitSwitchingTimes": {
+    "name": "dcLimitSwitchingTimes",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.6.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcForceSwitchingOncePerMonth": {
+    "name": "dcForceSwitchingOncePerMonth",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.6.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcMaximumLoadStep": {
+    "name": "dcMaximumLoadStep",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.6.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1 W",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcMinimumLoadStep": {
+    "name": "dcMinimumLoadStep",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.6.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1 W",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcUsys20": {
+    "name": "dcUsys20",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "10 mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBatteryTestUsupport": {
+    "name": "dcBatteryTestUsupport",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "10 mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBatteryTestDuration": {
+    "name": "dcBatteryTestDuration",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "minute",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBatteryTestInterval": {
+    "name": "dcBatteryTestInterval",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "days",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBatteryTestDischargeCurrent": {
+    "name": "dcBatteryTestDischargeCurrent",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "100 mA",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBatteryTestMinDuration": {
+    "name": "dcBatteryTestMinDuration",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBatteryTestVoltageWithinUfloat": {
+    "name": "dcBatteryTestVoltageWithinUfloat",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "10 mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBatteryTestVoltageWithinUfloatPeriod": {
+    "name": "dcBatteryTestVoltageWithinUfloatPeriod",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "days",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBatteryTestTempFrom": {
+    "name": "dcBatteryTestTempFrom",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 C",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBatteryTestTempTo": {
+    "name": "dcBatteryTestTempTo",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 C",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBatteryTestIntervalEnabled": {
+    "name": "dcBatteryTestIntervalEnabled",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBatteryTestStartTimeFrom": {
+    "name": "dcBatteryTestStartTimeFrom",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBatteryTestStartTimeTo": {
+    "name": "dcBatteryTestStartTimeTo",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBatteryTestDateTime": {
+    "name": "dcBatteryTestDateTime",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 19,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcBatteryTestResult": {
+    "name": "dcBatteryTestResult",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "failed": 2,
+          "aborted": 3,
+          "loadFailure": 4,
+          "okay": 5,
+          "abortedManual": 6,
+          "abortedEvCtrlCharge": 7,
+          "abortedInhibitEv": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcBatteryTestEndVoltage": {
+    "name": "dcBatteryTestEndVoltage",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "10 mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcBatteryTestControl": {
+    "name": "dcBatteryTestControl",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "stop": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBatteryTestStatus": {
+    "name": "dcBatteryTestStatus",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "starting": 2,
+          "stopping": 3,
+          "constantCurrent": 4,
+          "timeBased": 5,
+          "energyBased": 6,
+          "recovery": 7,
+          "realLoad": 8,
+          "stop": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcBatteryTestFailureEvent": {
+    "name": "dcBatteryTestFailureEvent",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBatteryTestType": {
+    "name": "dcBatteryTestType",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "constantCurrent": 2,
+          "realLoad": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcTotalBatteryCapacity": {
+    "name": "dcTotalBatteryCapacity",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "100 mAh",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcLossOfBackupTimeEnabled": {
+    "name": "dcLossOfBackupTimeEnabled",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcLossOfBackupTimeStatus": {
+    "name": "dcLossOfBackupTimeStatus",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "ok": 2,
+          "occured": 3,
+          "fail": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcExpectedBackupTime": {
+    "name": "dcExpectedBackupTime",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcEqualizeControl": {
+    "name": "dcEqualizeControl",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "stop": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcEqualizeStatus": {
+    "name": "dcEqualizeStatus",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "starting": 2,
+          "stopping": 3,
+          "preparing": 4,
+          "cooking": 5,
+          "recovering": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcEqualizeEnabled": {
+    "name": "dcEqualizeEnabled",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcEqualizeVoltage": {
+    "name": "dcEqualizeVoltage",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.4.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "10 mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcEqualizeDuration": {
+    "name": "dcEqualizeDuration",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.4.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcEqualizeUseBattRoomFanEnabled": {
+    "name": "dcEqualizeUseBattRoomFanEnabled",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.4.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcEqualizeLeadTime": {
+    "name": "dcEqualizeLeadTime",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.4.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcEqualizeTimeLag": {
+    "name": "dcEqualizeTimeLag",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.4.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcEqualizeInterval": {
+    "name": "dcEqualizeInterval",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.4.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "days",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcEqualizeStartTimeIntervalFrom": {
+    "name": "dcEqualizeStartTimeIntervalFrom",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.4.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcEqualizeStartTimeIntervalTo": {
+    "name": "dcEqualizeStartTimeIntervalTo",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.4.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcEqualizeInhibitAfterBoost": {
+    "name": "dcEqualizeInhibitAfterBoost",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.4.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBoostChargeControl": {
+    "name": "dcBoostChargeControl",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "stop": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBoostChargeStatus": {
+    "name": "dcBoostChargeStatus",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "starting": 2,
+          "stopping": 3,
+          "cooking": 4,
+          "recovering": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcBoostChargeType": {
+    "name": "dcBoostChargeType",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "currentBased": 2,
+          "timeBased": 3,
+          "energyBased": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBoostChargeVoltage": {
+    "name": "dcBoostChargeVoltage",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.5.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "10 mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBoostChargeMaxDuration": {
+    "name": "dcBoostChargeMaxDuration",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.5.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBoostChargeUseBattRoomFanEnabled": {
+    "name": "dcBoostChargeUseBattRoomFanEnabled",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.5.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBoostChargeTimeLag": {
+    "name": "dcBoostChargeTimeLag",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.5.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBoostChargeIstart": {
+    "name": "dcBoostChargeIstart",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.5.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "100 mA",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBoostChargeIstop": {
+    "name": "dcBoostChargeIstop",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.5.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "100 mA",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBoostChargeInhibitTime": {
+    "name": "dcBoostChargeInhibitTime",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.5.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcUaMax": {
+    "name": "dcUaMax",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "10 mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcUaMin": {
+    "name": "dcUaMin",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "10 mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcUsMax": {
+    "name": "dcUsMax",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "10 mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcUsMin": {
+    "name": "dcUsMin",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "10 mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBoD": {
+    "name": "dcBoD",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "10 mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcHysteresis": {
+    "name": "dcHysteresis",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "10 mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcSuppressUaLowEnabled": {
+    "name": "dcSuppressUaLowEnabled",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcSuppressUsLowEnabled": {
+    "name": "dcSuppressUsLowEnabled",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcEnableUsTempComp": {
+    "name": "dcEnableUsTempComp",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcEvtCtrlChargeStatus": {
+    "name": "dcEvtCtrlChargeStatus",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "voltageControlled": 2,
+          "noBatteryCharge": 3,
+          "currentLimitation": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcEvtCtrlChargeType": {
+    "name": "dcEvtCtrlChargeType",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "voltageControlled": 2,
+          "noBatteryCharge": 3,
+          "currentLimitation": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcEvtCtrlChargeVoltage": {
+    "name": "dcEvtCtrlChargeVoltage",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.7.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "10 mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcEvtCtrlChargeTempCompEnabled": {
+    "name": "dcEvtCtrlChargeTempCompEnabled",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.7.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcEvtCtrlChargeMaxIBatt": {
+    "name": "dcEvtCtrlChargeMaxIBatt",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.7.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "100 mA",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcTempCompType": {
+    "name": "dcTempCompType",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "linear": 2,
+          "multi-stage": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcSlope": {
+    "name": "dcSlope",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "-1 mV/C",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcStartTemp": {
+    "name": "dcStartTemp",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 C",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcStopTemp": {
+    "name": "dcStopTemp",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 C",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcMaxVoltage": {
+    "name": "dcMaxVoltage",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "10 mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcLowStopVoltage": {
+    "name": "dcLowStopVoltage",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "10 mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcLowStartTemp": {
+    "name": "dcLowStartTemp",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 C",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcLowTempSlope": {
+    "name": "dcLowTempSlope",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "-1 mV/C",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcHighStartTemp": {
+    "name": "dcHighStartTemp",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 C",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcHighTempSlope": {
+    "name": "dcHighTempSlope",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.8.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "-1 mV/C",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcHighStopVoltage": {
+    "name": "dcHighStopVoltage",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.8.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "10 mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcRunawayTemp": {
+    "name": "dcRunawayTemp",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.8.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 C",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcRunawayVoltage": {
+    "name": "dcRunawayVoltage",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.8.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "10 mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcHighTemp": {
+    "name": "dcHighTemp",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 C",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcHighTempHyst": {
+    "name": "dcHighTempHyst",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 C",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcFileProcessingStatus": {
+    "name": "dcFileProcessingStatus",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "inProgress": 2,
+          "successful": 3,
+          "error": 4,
+          "unknown": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcResendActiveAlarmTraps": {
+    "name": "dcResendActiveAlarmTraps",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "resend": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcEventProcessingEventSelected": {
+    "name": "dcEventProcessingEventSelected",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcEventHistoryTable": {
+    "name": "dcEventHistoryTable",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcEventHistoryEntry": {
+    "name": "dcEventHistoryEntry",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEventHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dcEventHistoryIndex": {
+    "name": "dcEventHistoryIndex",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcEventHistoryTimestamp": {
+    "name": "dcEventHistoryTimestamp",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 19,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcEventHistoryMessage": {
+    "name": "dcEventHistoryMessage",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcAlarmTable": {
+    "name": "dcAlarmTable",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcAlarmEntry": {
+    "name": "dcAlarmEntry",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcAlarmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dcAlarmIndex": {
+    "name": "dcAlarmIndex",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcAlarmEventCategory": {
+    "name": "dcAlarmEventCategory",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "urgent": 2,
+          "nonUrgent": 3,
+          "critical": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcAlarmEventName": {
+    "name": "dcAlarmEventName",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 35
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcAlarmEventIdentifier": {
+    "name": "dcAlarmEventIdentifier",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcAlarmEventValue": {
+    "name": "dcAlarmEventValue",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "true": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcGenericAlarmTable": {
+    "name": "dcGenericAlarmTable",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcGenericAlarmEntry": {
+    "name": "dcGenericAlarmEntry",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcGenericAlarmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dcGenericAlarmIndex": {
+    "name": "dcGenericAlarmIndex",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcGenericAlarmEventName": {
+    "name": "dcGenericAlarmEventName",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 35
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcGenericAlarmEventIdentifier": {
+    "name": "dcGenericAlarmEventIdentifier",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcGenericAlarmEventValue": {
+    "name": "dcGenericAlarmEventValue",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.2.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "true": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcRectifierTable": {
+    "name": "dcRectifierTable",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcRectifierEntry": {
+    "name": "dcRectifierEntry",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcRectifierIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dcRectifierIndex": {
+    "name": "dcRectifierIndex",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcRectifierIdentifier": {
+    "name": "dcRectifierIdentifier",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcRectifierStatus": {
+    "name": "dcRectifierStatus",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "off": 2,
+          "on": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcRectifierGroupTable": {
+    "name": "dcRectifierGroupTable",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcRectifierGroupEntry": {
+    "name": "dcRectifierGroupEntry",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcRectifierGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dcRectifierGroupIndex": {
+    "name": "dcRectifierGroupIndex",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcRectifierGroupName": {
+    "name": "dcRectifierGroupName",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcRectifierGroupRectifierType": {
+    "name": "dcRectifierGroupRectifierType",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown48V": 1,
+          "fR48V2000W": 2,
+          "dPR1200B48": 3,
+          "dPR1500B48": 4,
+          "dPR600B48": 5,
+          "dPR7200B48": 6,
+          "fR48to60V2000W": 7,
+          "unknown24V": 8,
+          "unknown60V": 9,
+          "dPR600B60": 10,
+          "dPR3500B48": 11,
+          "dPR3500B24": 12,
+          "dPR300B48": 13,
+          "dPR1600B48": 14,
+          "dPR2700B48": 15,
+          "dPR2400B48": 16,
+          "dPR4000B48": 17,
+          "dPR2900B48": 18,
+          "dPR4000B48to60": 19,
+          "dPR850B48": 20,
+          "dPR2000B48": 21
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcRectifierGroupDefaultVoltage": {
+    "name": "dcRectifierGroupDefaultVoltage",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "10 mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcRectifierGroupDefaultCurrentLimit": {
+    "name": "dcRectifierGroupDefaultCurrentLimit",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "100 mA",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcRectifierGroupDefaultPowerLimit": {
+    "name": "dcRectifierGroupDefaultPowerLimit",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1 W",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcRectifierGroupInputLowOff": {
+    "name": "dcRectifierGroupInputLowOff",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "10 mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcRectifierGroupInputLowOn": {
+    "name": "dcRectifierGroupInputLowOn",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "10 mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcRectifierGroupStartupVoltage": {
+    "name": "dcRectifierGroupStartupVoltage",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "10 mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcRectifierGroupStartupCurrentLimit": {
+    "name": "dcRectifierGroupStartupCurrentLimit",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "100 mA",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcRectifierGroupStartupPowerLimit": {
+    "name": "dcRectifierGroupStartupPowerLimit",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1 W",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcRectifierGroupStartupTimeLimit": {
+    "name": "dcRectifierGroupStartupTimeLimit",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "10 ms",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcRectifierGroupPowerupDelay": {
+    "name": "dcRectifierGroupPowerupDelay",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "10 ms",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcRectifierGroupPowerupTime": {
+    "name": "dcRectifierGroupPowerupTime",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "10 ms",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcRectifierGroupUmaxOff": {
+    "name": "dcRectifierGroupUmaxOff",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "10 mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcPowerLimitationTable": {
+    "name": "dcPowerLimitationTable",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.6.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcPowerLimitationEntry": {
+    "name": "dcPowerLimitationEntry",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.6.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcPowerLimitationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dcPowerLimitationIndex": {
+    "name": "dcPowerLimitationIndex",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.6.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcPowerLimitationEventName": {
+    "name": "dcPowerLimitationEventName",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.6.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 35
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcPowerLimitationStatus": {
+    "name": "dcPowerLimitationStatus",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.6.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "inactive": 2,
+          "powerLimit": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcPowerLimitationType": {
+    "name": "dcPowerLimitationType",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.6.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 1,
+          "fixedLimit": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcPowerLimitationLimit": {
+    "name": "dcPowerLimitationLimit",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.6.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1 W",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcPowerLimitationNoBatteryDischarge": {
+    "name": "dcPowerLimitationNoBatteryDischarge",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.4.6.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBatteryStringTable": {
+    "name": "dcBatteryStringTable",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcBatteryStringEntry": {
+    "name": "dcBatteryStringEntry",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryStringIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dcBatteryStringIndex": {
+    "name": "dcBatteryStringIndex",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcBatteryStringName": {
+    "name": "dcBatteryStringName",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcBatteryStringMaxIBatt": {
+    "name": "dcBatteryStringMaxIBatt",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "100 mA",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcBatteryStringCapacity": {
+    "name": "dcBatteryStringCapacity",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.5.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "100 mAh",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcControlEventTable": {
+    "name": "dcControlEventTable",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcControlEventEntry": {
+    "name": "dcControlEventEntry",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcControlEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dcControlEventIndex": {
+    "name": "dcControlEventIndex",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcControlEventName": {
+    "name": "dcControlEventName",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 35
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcControlEventIdentifier": {
+    "name": "dcControlEventIdentifier",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcControlEventValue": {
+    "name": "dcControlEventValue",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "true": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcTrapDestinationTable": {
+    "name": "dcTrapDestinationTable",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcTrapDestinationEntry": {
+    "name": "dcTrapDestinationEntry",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcTrapDestinationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dcTrapDestinationIndex": {
+    "name": "dcTrapDestinationIndex",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcTrapDestinationIp": {
+    "name": "dcTrapDestinationIp",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcTrapDestinationPort": {
+    "name": "dcTrapDestinationPort",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcDefaultLogEventTable": {
+    "name": "dcDefaultLogEventTable",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcDefaultLogEventEntry": {
+    "name": "dcDefaultLogEventEntry",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcDefaultLogEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dcDefaultLogEventIndex": {
+    "name": "dcDefaultLogEventIndex",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcDefaultLogEventName": {
+    "name": "dcDefaultLogEventName",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 35
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcDefaultLogEventLogged": {
+    "name": "dcDefaultLogEventLogged",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcEventProcessingEventTable": {
+    "name": "dcEventProcessingEventTable",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcEventProcessingEventEntry": {
+    "name": "dcEventProcessingEventEntry",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEventProcessingEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dcEventProcessingEventIndex": {
+    "name": "dcEventProcessingEventIndex",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcEventProcessingEventName": {
+    "name": "dcEventProcessingEventName",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 35
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcEventProcessingEventAssigned": {
+    "name": "dcEventProcessingEventAssigned",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcEventProcessingEventType": {
+    "name": "dcEventProcessingEventType",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "eventOR": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcLvdTable": {
+    "name": "dcLvdTable",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.8.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcLvdEntry": {
+    "name": "dcLvdEntry",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.8.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcLvdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dcLvdIndex": {
+    "name": "dcLvdIndex",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.8.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcLvdName": {
+    "name": "dcLvdName",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.8.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcLvdDisconnectDelay": {
+    "name": "dcLvdDisconnectDelay",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.8.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcMeasurementTable": {
+    "name": "dcMeasurementTable",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcMeasurementEntry": {
+    "name": "dcMeasurementEntry",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcMeasurementIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dcMeasurementIndex": {
+    "name": "dcMeasurementIndex",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcMeasurementName": {
+    "name": "dcMeasurementName",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcMeasurementValue": {
+    "name": "dcMeasurementValue",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcMeasurementScaleFactor": {
+    "name": "dcMeasurementScaleFactor",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcMeasurementUnit": {
+    "name": "dcMeasurementUnit",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "none": 2,
+          "voltDC": 3,
+          "voltAC": 4,
+          "ampere": 5,
+          "ampereHour": 6,
+          "degreeCelsius": 7,
+          "temperatureCoefficient": 8,
+          "watt": 9,
+          "wattHour": 10,
+          "seconds": 11,
+          "percent": 12,
+          "hertz": 13,
+          "voltAmpere": 14,
+          "voltAmpereReactive": 15,
+          "voltAmpereReactiveHour": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcMeterPanelEventTable": {
+    "name": "dcMeterPanelEventTable",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcMeterPanelEventEntry": {
+    "name": "dcMeterPanelEventEntry",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcMeterPanelEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dcMeterPanelEventIndex": {
+    "name": "dcMeterPanelEventIndex",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcMeterPanelEventName": {
+    "name": "dcMeterPanelEventName",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcMeterPanelEventValue": {
+    "name": "dcMeterPanelEventValue",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "indeterminate": 2,
+          "true": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcMeterPanelEventHourMeterValue": {
+    "name": "dcMeterPanelEventHourMeterValue",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.2.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemNonUrgentAlarm": {
+    "name": "systemNonUrgentAlarm",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.3.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcSystemDateTime"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcNumberNonUrgentAlarms"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcNonUrgentAlarmIdentifier"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcNonUrgentAlarmValue"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcNonUrgentAlarmName"
+      }
+    ],
+    "status": "current"
+  },
+  "systemUrgentAlarm": {
+    "name": "systemUrgentAlarm",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.3.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcSystemDateTime"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcNumberUrgentAlarms"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcUrgentAlarmIdentifier"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcUrgentAlarmValue"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcUrgentAlarmName"
+      }
+    ],
+    "status": "current"
+  },
+  "systemCriticalAlarm": {
+    "name": "systemCriticalAlarm",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.3.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcSystemDateTime"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcNumberCriticalAlarms"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcCriticalAlarmIdentifier"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcCriticalAlarmValue"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcCriticalAlarmName"
+      }
+    ],
+    "status": "current"
+  },
+  "systemInfoGroup": {
+    "name": "systemInfoGroup",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcSiteName"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcSystemName"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcSystemDateTime"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcSoftwareVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "systemAlarmGroup": {
+    "name": "systemAlarmGroup",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcNumberUrgentAlarms"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcNumberNonUrgentAlarms"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcMainsFailureAlarm"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcUrgentAlarmIdentifier"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcUrgentAlarmValue"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcNonUrgentAlarmIdentifier"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcNonUrgentAlarmValue"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcUrgentAlarmName"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcNonUrgentAlarmName"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcNumberCriticalAlarms"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcCriticalAlarmIdentifier"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcCriticalAlarmValue"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcCriticalAlarmName"
+      }
+    ],
+    "status": "current"
+  },
+  "systemMonitorGroup": {
+    "name": "systemMonitorGroup",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcSystemVoltage"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcLoadCurrent"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryCurrent"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryTemperature"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcChargeState"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcCurrentLimit"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcRectifierCurrent"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcSystemPower"
+      }
+    ],
+    "status": "current"
+  },
+  "rectifierGroup": {
+    "name": "rectifierGroup",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcNumberRectifiers"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcNumberRectifiersFailure"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcNumberRectifiersOkay"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEfficiencyCyclingEnabled"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcLimitSwitchingTimes"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcForceSwitchingOncePerMonth"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcMaximumLoadStep"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcMinimumLoadStep"
+      }
+    ],
+    "status": "current"
+  },
+  "eventHistoryTableGroup": {
+    "name": "eventHistoryTableGroup",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEventHistoryTimestamp"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEventHistoryMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "alarmTableGroup": {
+    "name": "alarmTableGroup",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcAlarmEventCategory"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcAlarmEventName"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcAlarmEventIdentifier"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcAlarmEventValue"
+      }
+    ],
+    "status": "current"
+  },
+  "rectifierTableGroup": {
+    "name": "rectifierTableGroup",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcRectifierIdentifier"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcRectifierStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "notificationsGroup": {
+    "name": "notificationsGroup",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.1.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "systemNonUrgentAlarm"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "systemUrgentAlarm"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "systemCriticalAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "genericAlarmTableGroup": {
+    "name": "genericAlarmTableGroup",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcGenericAlarmEventIdentifier"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcGenericAlarmEventName"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcGenericAlarmEventValue"
+      }
+    ],
+    "status": "current"
+  },
+  "batteryGroup": {
+    "name": "batteryGroup",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcUsys20"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcTempCompType"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcSlope"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcStartTemp"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcStopTemp"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcMaxVoltage"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcLowStopVoltage"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcLowStartTemp"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcLowTempSlope"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcHighStartTemp"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcHighTempSlope"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcHighStopVoltage"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcRunawayTemp"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcRunawayVoltage"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryTestUsupport"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryTestDuration"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryTestInterval"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryTestDischargeCurrent"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryTestMinDuration"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryTestVoltageWithinUfloat"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryTestVoltageWithinUfloatPeriod"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryTestTempFrom"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryTestTempTo"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryTestIntervalEnabled"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryTestStartTimeFrom"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryTestStartTimeTo"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryTestDateTime"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryTestResult"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryTestEndVoltage"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryTestControl"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryTestStatus"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryTestFailureEvent"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryTestType"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcTotalBatteryCapacity"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcLossOfBackupTimeEnabled"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcLossOfBackupTimeStatus"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcExpectedBackupTime"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEqualizeControl"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEqualizeStatus"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEqualizeEnabled"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEqualizeVoltage"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEqualizeDuration"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEqualizeUseBattRoomFanEnabled"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEqualizeLeadTime"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEqualizeTimeLag"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEqualizeInterval"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEqualizeStartTimeIntervalFrom"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEqualizeStartTimeIntervalTo"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEqualizeInhibitAfterBoost"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBoostChargeControl"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBoostChargeStatus"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBoostChargeType"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBoostChargeVoltage"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBoostChargeMaxDuration"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBoostChargeUseBattRoomFanEnabled"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBoostChargeTimeLag"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBoostChargeIstart"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBoostChargeIstop"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBoostChargeInhibitTime"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcUaMax"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcUaMin"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcUsMax"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcUsMin"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBoD"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcHysteresis"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcSuppressUaLowEnabled"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcSuppressUsLowEnabled"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEnableUsTempComp"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEvtCtrlChargeStatus"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEvtCtrlChargeType"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEvtCtrlChargeVoltage"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEvtCtrlChargeTempCompEnabled"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEvtCtrlChargeMaxIBatt"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcHighTemp"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcHighTempHyst"
+      }
+    ],
+    "status": "current"
+  },
+  "controlEventTableGroup": {
+    "name": "controlEventTableGroup",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcControlEventName"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcControlEventIdentifier"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcControlEventValue"
+      }
+    ],
+    "status": "current"
+  },
+  "trapDestinationTableGroup": {
+    "name": "trapDestinationTableGroup",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcTrapDestinationIp"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcTrapDestinationPort"
+      }
+    ],
+    "status": "current"
+  },
+  "miscGroup": {
+    "name": "miscGroup",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcFileProcessingStatus"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcResendActiveAlarmTraps"
+      }
+    ],
+    "status": "current"
+  },
+  "rectifierGroupTableGroup": {
+    "name": "rectifierGroupTableGroup",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcRectifierGroupName"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcRectifierGroupRectifierType"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcRectifierGroupDefaultVoltage"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcRectifierGroupDefaultCurrentLimit"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcRectifierGroupDefaultPowerLimit"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcRectifierGroupInputLowOff"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcRectifierGroupInputLowOn"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcRectifierGroupStartupVoltage"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcRectifierGroupStartupCurrentLimit"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcRectifierGroupStartupPowerLimit"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcRectifierGroupStartupTimeLimit"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcRectifierGroupPowerupDelay"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcRectifierGroupPowerupTime"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcRectifierGroupUmaxOff"
+      }
+    ],
+    "status": "current"
+  },
+  "batteryStringTableGroup": {
+    "name": "batteryStringTableGroup",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryStringName"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryStringMaxIBatt"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcBatteryStringCapacity"
+      }
+    ],
+    "status": "current"
+  },
+  "defaultLogEventTableGroup": {
+    "name": "defaultLogEventTableGroup",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcDefaultLogEventName"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcDefaultLogEventLogged"
+      }
+    ],
+    "status": "current"
+  },
+  "eventProcessingEventTableGroup": {
+    "name": "eventProcessingEventTableGroup",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.1.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEventProcessingEventName"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEventProcessingEventAssigned"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEventProcessingEventType"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcEventProcessingEventSelected"
+      }
+    ],
+    "status": "current"
+  },
+  "lvdTableGroup": {
+    "name": "lvdTableGroup",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.1.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcLvdName"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcLvdDisconnectDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "powerLimitationTableGroup": {
+    "name": "powerLimitationTableGroup",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.1.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcPowerLimitationEventName"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcPowerLimitationStatus"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcPowerLimitationType"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcPowerLimitationLimit"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcPowerLimitationNoBatteryDischarge"
+      }
+    ],
+    "status": "current"
+  },
+  "measurementTableGroup": {
+    "name": "measurementTableGroup",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.1.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcMeasurementName"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcMeasurementValue"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcMeasurementScaleFactor"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcMeasurementUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "meterPanelEventTableGroup": {
+    "name": "meterPanelEventTableGroup",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.1.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcMeterPanelEventName"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcMeterPanelEventValue"
+      },
+      {
+        "module": "ORION-BASE-MIB",
+        "object": "dcMeterPanelEventHourMeterValue"
+      }
+    ],
+    "status": "current"
+  },
+  "controllerBasicCompl": {
+    "name": "controllerBasicCompl",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1.1.1.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "systemInfoGroup",
+        "module": "ORION-BASE-MIB"
+      },
+      {
+        "object": "systemAlarmGroup",
+        "module": "ORION-BASE-MIB"
+      },
+      {
+        "object": "systemMonitorGroup",
+        "module": "ORION-BASE-MIB"
+      },
+      {
+        "object": "alarmTableGroup",
+        "module": "ORION-BASE-MIB"
+      },
+      {
+        "object": "notificationsGroup",
+        "module": "ORION-BASE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/delta/ORION-BASE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ORION-BASE-MIB"
+  }
+}

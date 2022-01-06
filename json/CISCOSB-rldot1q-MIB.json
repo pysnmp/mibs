@@ -1,0 +1,249 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOSB-BRIDGEMIBOBJECTS-MIB": [
+      "rlpBridgeMIBObjects"
+    ],
+    "CISCOSB-MIB": [
+      "switch001"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList",
+      "dot1qStaticUnicastEntry",
+      "dot1qTpFdbEntry"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "rlq_bridge_mib": {
+    "name": "rlq_bridge_mib",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.8",
+    "class": "moduleidentity"
+  },
+  "rldot1q": {
+    "name": "rldot1q",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.8",
+    "class": "objectidentity"
+  },
+  "rldot1qStaticUnicastTable": {
+    "name": "rldot1qStaticUnicastTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1qStaticUnicastEntry": {
+    "name": "rldot1qStaticUnicastEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "rldot1qStaticUnicastEntry",
+      "module": "CISCOSB-rldot1q-MIB",
+      "object": "dot1qStaticUnicastEntry"
+    },
+    "status": "current"
+  },
+  "rldot1qStaticUnicastAddressOwner": {
+    "name": "rldot1qStaticUnicastAddressOwner",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "learned": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "static",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1qTpFdbTable": {
+    "name": "rldot1qTpFdbTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1qTpFdbEntry": {
+    "name": "rldot1qTpFdbEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "rldot1qTpFdbEntry",
+      "module": "CISCOSB-rldot1q-MIB",
+      "object": "dot1qTpFdbEntry"
+    },
+    "status": "current"
+  },
+  "rldot1qTpFdbSubStatus": {
+    "name": "rldot1qTpFdbSubStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "dynamic-static": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1qTpFdbCountTable": {
+    "name": "rldot1qTpFdbCountTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1qTpFdbCountEntry": {
+    "name": "rldot1qTpFdbCountEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-rldot1q-MIB",
+        "object": "rldot1qTpFdbCountVlanTag",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-rldot1q-MIB",
+        "object": "rldot1qTpFdbCountPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-rldot1q-MIB",
+        "object": "rldot1qTpFdbCountType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1qTpFdbCountVlanTag": {
+    "name": "rldot1qTpFdbCountVlanTag",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1qTpFdbCountPort": {
+    "name": "rldot1qTpFdbCountPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1qTpFdbCountType": {
+    "name": "rldot1qTpFdbCountType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.8.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "invalid": 2,
+          "learned": 3,
+          "self": 4,
+          "mgmt": 5,
+          "multicast": 6,
+          "ipv4Host": 7,
+          "ipv6Host": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1qTpFdbCountCount": {
+    "name": "rldot1qTpFdbCountCount",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.8.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-rldot1q-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCOSB-rldot1q-MIB"
+  }
+}

@@ -1,0 +1,3367 @@
+{
+  "imports": {
+    "class": "imports",
+    "PRVT-SWITCH-MIB": [
+      "switch"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "prvtSaaMib": {
+    "name": "prvtSaaMib",
+    "oid": "1.3.6.1.4.1.738.1.5.130",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-03-25 00:00",
+        "description": "Add CountAllPriorities leaf to SAA Throughput tests."
+      },
+      {
+        "revision": "2014-05-16 00:00",
+        "description": "Add twamp tests."
+      },
+      {
+        "revision": "2011-10-20 00:00",
+        "description": "Add ethertype leaf to SAA Throughput tests."
+      },
+      {
+        "revision": "2011-02-07 00:00",
+        "description": "Add delays to SAA Throughput tests."
+      },
+      {
+        "revision": "2010-09-29 00:00",
+        "description": "Add name leaf to profile table."
+      },
+      {
+        "revision": "2010-09-27 00:00",
+        "description": "Add measurement units for prvtSaaY1731TestResultCompletionTime, fix range for prvtSaaY1731PmTestEncapValue."
+      },
+      {
+        "revision": "2010-09-13 00:00",
+        "description": "Add decription for percentile values for jitter and delay in case of outside 1-100 range."
+      },
+      {
+        "revision": "2010-08-24 00:00",
+        "description": "Fix prvtSaaY1731PmTestMonitorInterval range and default value."
+      },
+      {
+        "revision": "2010-05-05 00:00",
+        "description": "Add prvtSaaY1731LoopbackTestTable."
+      },
+      {
+        "revision": "2010-03-26 00:00",
+        "description": "Add prvtSaaY1731PmTestProfile description if retued value is 0."
+      },
+      {
+        "revision": "2010-03-18 00:00",
+        "description": "Add detailed description and measurement units on some test result leafs."
+      },
+      {
+        "revision": "2010-03-12 00:00",
+        "description": "Clarify description on several leafs."
+      },
+      {
+        "revision": "2010-01-11 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "prvtSaaNotifications": {
+    "name": "prvtSaaNotifications",
+    "oid": "1.3.6.1.4.1.738.1.5.130.0",
+    "class": "objectidentity"
+  },
+  "prvtSaaObjects": {
+    "name": "prvtSaaObjects",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1",
+    "class": "objectidentity"
+  },
+  "prvtSaaConformance": {
+    "name": "prvtSaaConformance",
+    "oid": "1.3.6.1.4.1.738.1.5.130.2",
+    "class": "objectidentity"
+  },
+  "prvtSaaTest": {
+    "name": "prvtSaaTest",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1",
+    "class": "objectidentity"
+  },
+  "prvtSaaTestResult": {
+    "name": "prvtSaaTestResult",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2",
+    "class": "objectidentity"
+  },
+  "prvtSaaProfiles": {
+    "name": "prvtSaaProfiles",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.3",
+    "class": "objectidentity"
+  },
+  "prvtSaaY1731PmTestTable": {
+    "name": "prvtSaaY1731PmTestTable",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestEntry": {
+    "name": "prvtSaaY1731PmTestEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestOwner",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestOwner": {
+    "name": "prvtSaaY1731PmTestOwner",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestName": {
+    "name": "prvtSaaY1731PmTestName",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestType": {
+    "name": "prvtSaaY1731PmTestType",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "frameloss": 1,
+          "framedelayAndDelayvariation": 2,
+          "framelossAndFramedelayAndDelayvariation": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestExecStatus": {
+    "name": "prvtSaaY1731PmTestExecStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notRunning": 1,
+          "running": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notRunning",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestEncapType": {
+    "name": "prvtSaaY1731PmTestEncapType",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "service": 2,
+          "vlan": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestEncapValue": {
+    "name": "prvtSaaY1731PmTestEncapValue",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestUserPort": {
+    "name": "prvtSaaY1731PmTestUserPort",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestUplinkPort": {
+    "name": "prvtSaaY1731PmTestUplinkPort",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestTargetMac": {
+    "name": "prvtSaaY1731PmTestTargetMac",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 17,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestCfmDomainLevel": {
+    "name": "prvtSaaY1731PmTestCfmDomainLevel",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestRemoteCfmMep": {
+    "name": "prvtSaaY1731PmTestRemoteCfmMep",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestProfile": {
+    "name": "prvtSaaY1731PmTestProfile",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestHistoryDepth": {
+    "name": "prvtSaaY1731PmTestHistoryDepth",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 96,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestPeriod": {
+    "name": "prvtSaaY1731PmTestPeriod",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestTimeout": {
+    "name": "prvtSaaY1731PmTestTimeout",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestMonitorInterval": {
+    "name": "prvtSaaY1731PmTestMonitorInterval",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestFrequency": {
+    "name": "prvtSaaY1731PmTestFrequency",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestClocksInSync": {
+    "name": "prvtSaaY1731PmTestClocksInSync",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestDelayMethod": {
+    "name": "prvtSaaY1731PmTestDelayMethod",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "average": 1,
+          "percentile": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestDelayPvalue": {
+    "name": "prvtSaaY1731PmTestDelayPvalue",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestJitterMethod": {
+    "name": "prvtSaaY1731PmTestJitterMethod",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "peakToPeak": 1,
+          "variance": 2,
+          "percentile": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestJitterPvalue": {
+    "name": "prvtSaaY1731PmTestJitterPvalue",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestPriority": {
+    "name": "prvtSaaY1731PmTestPriority",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestRowStatus": {
+    "name": "prvtSaaY1731PmTestRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestCCMAPSCount": {
+    "name": "prvtSaaY1731PmTestCCMAPSCount",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestLossMeasurementType": {
+    "name": "prvtSaaY1731PmTestLossMeasurementType",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lmm": 0,
+          "slm": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestSLMTransmit": {
+    "name": "prvtSaaY1731PmTestSLMTransmit",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestTestId": {
+    "name": "prvtSaaY1731PmTestTestId",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestDropEligible": {
+    "name": "prvtSaaY1731PmTestDropEligible",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestDataSize": {
+    "name": "prvtSaaY1731PmTestDataSize",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 64,
+            "max": 1518
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 64,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731PmTestCountAllPriorities": {
+    "name": "prvtSaaY1731PmTestCountAllPriorities",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestTable": {
+    "name": "prvtSaaRFC2544ThroughputTestTable",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestEntry": {
+    "name": "prvtSaaRFC2544ThroughputTestEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestOwner",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestOwner": {
+    "name": "prvtSaaRFC2544ThroughputTestOwner",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestName": {
+    "name": "prvtSaaRFC2544ThroughputTestName",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestType": {
+    "name": "prvtSaaRFC2544ThroughputTestType",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unidirectionalTestHead": 1,
+          "bidirectionalTestHead": 2,
+          "testTail": 3,
+          "testLoopback": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestExecStatus": {
+    "name": "prvtSaaRFC2544ThroughputTestExecStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notRunning": 1,
+          "running": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notRunning",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestSourceType": {
+    "name": "prvtSaaRFC2544ThroughputTestSourceType",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "mac": 1,
+          "mep": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestSource": {
+    "name": "prvtSaaRFC2544ThroughputTestSource",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestTargetType": {
+    "name": "prvtSaaRFC2544ThroughputTestTargetType",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "mac": 1,
+          "mep": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestTarget": {
+    "name": "prvtSaaRFC2544ThroughputTestTarget",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestTimeout": {
+    "name": "prvtSaaRFC2544ThroughputTestTimeout",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestCIR": {
+    "name": "prvtSaaRFC2544ThroughputTestCIR",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 64,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestCBS": {
+    "name": "prvtSaaRFC2544ThroughputTestCBS",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestBurstPercentage": {
+    "name": "prvtSaaRFC2544ThroughputTestBurstPercentage",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestDuration": {
+    "name": "prvtSaaRFC2544ThroughputTestDuration",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 180
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestMaxFrameloss": {
+    "name": "prvtSaaRFC2544ThroughputTestMaxFrameloss",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestCVLAN0": {
+    "name": "prvtSaaRFC2544ThroughputTestCVLAN0",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestCVLAN0Priority": {
+    "name": "prvtSaaRFC2544ThroughputTestCVLAN0Priority",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestCVLAN0DropEligible": {
+    "name": "prvtSaaRFC2544ThroughputTestCVLAN0DropEligible",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestSVLAN": {
+    "name": "prvtSaaRFC2544ThroughputTestSVLAN",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestSVLANPriority": {
+    "name": "prvtSaaRFC2544ThroughputTestSVLANPriority",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestSVLANDropEligible": {
+    "name": "prvtSaaRFC2544ThroughputTestSVLANDropEligible",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestPDUSize": {
+    "name": "prvtSaaRFC2544ThroughputTestPDUSize",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestACKTimeout": {
+    "name": "prvtSaaRFC2544ThroughputTestACKTimeout",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestLoopbackType": {
+    "name": "prvtSaaRFC2544ThroughputTestLoopbackType",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "macSwap": 1,
+          "oam": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestPaternType": {
+    "name": "prvtSaaRFC2544ThroughputTestPaternType",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "null": 1,
+          "nullCRC": 2,
+          "prbs": 3,
+          "prbsCRC": 4,
+          "none": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestRowStatus": {
+    "name": "prvtSaaRFC2544ThroughputTestRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ThroughputTestEthertype": {
+    "name": "prvtSaaRFC2544ThroughputTestEthertype",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "8902",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtSaaY1731LoopbackTestTable": {
+    "name": "prvtSaaY1731LoopbackTestTable",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtSaaY1731LoopbackTestEntry": {
+    "name": "prvtSaaY1731LoopbackTestEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731LoopbackTestEncapType",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731LoopbackTestEncapValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSaaY1731LoopbackTestEncapType": {
+    "name": "prvtSaaY1731LoopbackTestEncapType",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "service": 1,
+          "vlan": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtSaaY1731LoopbackTestEncapValue": {
+    "name": "prvtSaaY1731LoopbackTestEncapValue",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtSaaY1731LoopbackTestUserPort": {
+    "name": "prvtSaaY1731LoopbackTestUserPort",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731LoopbackTestUplinkPort": {
+    "name": "prvtSaaY1731LoopbackTestUplinkPort",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731LoopbackTestType": {
+    "name": "prvtSaaY1731LoopbackTestType",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "frameloss": 2,
+          "delayvariation": 3,
+          "framelossAndDelayvariation": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731LoopbackTestRowStatus": {
+    "name": "prvtSaaY1731LoopbackTestRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtSaaY1731LoopbackTestCCMAPSCount": {
+    "name": "prvtSaaY1731LoopbackTestCCMAPSCount",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731LoopbackTestCountAllPriorities": {
+    "name": "prvtSaaY1731LoopbackTestCountAllPriorities",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaY1731TestResultTable": {
+    "name": "prvtSaaY1731TestResultTable",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtSaaY1731TestResultEntry": {
+    "name": "prvtSaaY1731TestResultEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestOwner",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731TestResultIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSaaY1731TestResultIndex": {
+    "name": "prvtSaaY1731TestResultIndex",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtSaaY1731TestResultDelayNE": {
+    "name": "prvtSaaY1731TestResultDelayNE",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaY1731TestResultDelayFE": {
+    "name": "prvtSaaY1731TestResultDelayFE",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaY1731TestResultJitterNE": {
+    "name": "prvtSaaY1731TestResultJitterNE",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaY1731TestResultJitterFE": {
+    "name": "prvtSaaY1731TestResultJitterFE",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaY1731TestResultFrameLossNE": {
+    "name": "prvtSaaY1731TestResultFrameLossNE",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaY1731TestResultFrameLossFE": {
+    "name": "prvtSaaY1731TestResultFrameLossFE",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaY1731TestResultFramesSentNE": {
+    "name": "prvtSaaY1731TestResultFramesSentNE",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaY1731TestResultFramesSentFE": {
+    "name": "prvtSaaY1731TestResultFramesSentFE",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaY1731TestResultFramesRcvdNE": {
+    "name": "prvtSaaY1731TestResultFramesRcvdNE",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaY1731TestResultFramesRcvdFE": {
+    "name": "prvtSaaY1731TestResultFramesRcvdFE",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaY1731TestResultPacketsSent": {
+    "name": "prvtSaaY1731TestResultPacketsSent",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaY1731TestResultNoTimeouts": {
+    "name": "prvtSaaY1731TestResultNoTimeouts",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaY1731TestResultNoErrors": {
+    "name": "prvtSaaY1731TestResultNoErrors",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaY1731TestResultCompletionTime": {
+    "name": "prvtSaaY1731TestResultCompletionTime",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaRFC2544TestResultTable": {
+    "name": "prvtSaaRFC2544TestResultTable",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtSaaRFC2544TestResultEntry": {
+    "name": "prvtSaaRFC2544TestResultEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestOwner",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544TestResultIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSaaRFC2544TestResultIndex": {
+    "name": "prvtSaaRFC2544TestResultIndex",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtSaaRFC2544TestResultFrameSize": {
+    "name": "prvtSaaRFC2544TestResultFrameSize",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaRFC2544TestResultFrameLoss": {
+    "name": "prvtSaaRFC2544TestResultFrameLoss",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaRFC2544TestResultThroughput": {
+    "name": "prvtSaaRFC2544TestResultThroughput",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaRFC2544TestResultNetThroughput": {
+    "name": "prvtSaaRFC2544TestResultNetThroughput",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaRFC2544TestResultStatus": {
+    "name": "prvtSaaRFC2544TestResultStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvailable": 1,
+          "ready": 2,
+          "error": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaRFC2544TestResultDelayMinimum": {
+    "name": "prvtSaaRFC2544TestResultDelayMinimum",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaRFC2544TestResultDelayAverage": {
+    "name": "prvtSaaRFC2544TestResultDelayAverage",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaRFC2544TestResultDelayMaximum": {
+    "name": "prvtSaaRFC2544TestResultDelayMaximum",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtSaaProfileTable": {
+    "name": "prvtSaaProfileTable",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtSaaProfileEntry": {
+    "name": "prvtSaaProfileEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSaaProfileIndex": {
+    "name": "prvtSaaProfileIndex",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtSaaProfileDelayNE": {
+    "name": "prvtSaaProfileDelayNE",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaProfileDelayFE": {
+    "name": "prvtSaaProfileDelayFE",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaProfileJitterNE": {
+    "name": "prvtSaaProfileJitterNE",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaProfileJitterFE": {
+    "name": "prvtSaaProfileJitterFE",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaProfileFrameLossNE": {
+    "name": "prvtSaaProfileFrameLossNE",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaProfileFrameLossFE": {
+    "name": "prvtSaaProfileFrameLossFE",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSaaProfileRowStatus": {
+    "name": "prvtSaaProfileRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtSaaProfileName": {
+    "name": "prvtSaaProfileName",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtSaaRFC2544ProbeFailed": {
+    "name": "prvtSaaRFC2544ProbeFailed",
+    "oid": "1.3.6.1.4.1.738.1.5.130.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestType"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544TestResultStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSaaRFC2544ProbeSuccess": {
+    "name": "prvtSaaRFC2544ProbeSuccess",
+    "oid": "1.3.6.1.4.1.738.1.5.130.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestType"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544TestResultStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSaaRFC2544TestFinished": {
+    "name": "prvtSaaRFC2544TestFinished",
+    "oid": "1.3.6.1.4.1.738.1.5.130.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestExecStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSaaY1731DelayNEThreshold": {
+    "name": "prvtSaaY1731DelayNEThreshold",
+    "oid": "1.3.6.1.4.1.738.1.5.130.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731TestResultDelayNE"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaProfileDelayNE"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSaaY1731DelayFEThreshold": {
+    "name": "prvtSaaY1731DelayFEThreshold",
+    "oid": "1.3.6.1.4.1.738.1.5.130.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731TestResultDelayFE"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaProfileDelayFE"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSaaY1731JitterNEThreshold": {
+    "name": "prvtSaaY1731JitterNEThreshold",
+    "oid": "1.3.6.1.4.1.738.1.5.130.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731TestResultJitterNE"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaProfileJitterNE"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSaaY1731JitterFEThreshold": {
+    "name": "prvtSaaY1731JitterFEThreshold",
+    "oid": "1.3.6.1.4.1.738.1.5.130.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731TestResultJitterFE"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaProfileJitterFE"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSaaY1731FrLossNEThreshold": {
+    "name": "prvtSaaY1731FrLossNEThreshold",
+    "oid": "1.3.6.1.4.1.738.1.5.130.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731TestResultFrameLossNE"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaProfileFrameLossNE"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSaaY1731FrLossFEThreshold": {
+    "name": "prvtSaaY1731FrLossFEThreshold",
+    "oid": "1.3.6.1.4.1.738.1.5.130.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731TestResultFrameLossFE"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaProfileFrameLossFE"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSaaCompliances": {
+    "name": "prvtSaaCompliances",
+    "oid": "1.3.6.1.4.1.738.1.5.130.2.1",
+    "class": "objectidentity"
+  },
+  "prvtSaaGroups": {
+    "name": "prvtSaaGroups",
+    "oid": "1.3.6.1.4.1.738.1.5.130.2.2",
+    "class": "objectidentity"
+  },
+  "prvtSaaY1731TestGroup": {
+    "name": "prvtSaaY1731TestGroup",
+    "oid": "1.3.6.1.4.1.738.1.5.130.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestType"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestExecStatus"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestEncapType"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestEncapValue"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestUserPort"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestUplinkPort"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestTargetMac"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestCfmDomainLevel"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestRemoteCfmMep"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestProfile"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestHistoryDepth"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestPeriod"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestTimeout"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestMonitorInterval"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestFrequency"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestClocksInSync"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestDelayMethod"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestDelayPvalue"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestJitterMethod"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestJitterPvalue"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestPriority"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestCCMAPSCount"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestLossMeasurementType"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestSLMTransmit"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestTestId"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestDropEligible"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestDataSize"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestRowStatus"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731PmTestCountAllPriorities"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSaaRFC2544TestGroup": {
+    "name": "prvtSaaRFC2544TestGroup",
+    "oid": "1.3.6.1.4.1.738.1.5.130.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestType"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestExecStatus"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestSourceType"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestSource"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestTargetType"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestTarget"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestTimeout"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestCIR"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestCBS"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestBurstPercentage"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestDuration"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestMaxFrameloss"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestCVLAN0"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestCVLAN0Priority"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestCVLAN0DropEligible"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestSVLAN"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestSVLANPriority"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestSVLANDropEligible"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestPDUSize"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestACKTimeout"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestLoopbackType"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestPaternType"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestRowStatus"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ThroughputTestEthertype"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSaaY1731TestResultsGroup": {
+    "name": "prvtSaaY1731TestResultsGroup",
+    "oid": "1.3.6.1.4.1.738.1.5.130.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731TestResultDelayNE"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731TestResultDelayFE"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731TestResultJitterNE"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731TestResultJitterFE"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731TestResultFrameLossNE"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731TestResultFrameLossFE"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731TestResultFramesSentNE"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731TestResultFramesSentFE"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731TestResultFramesRcvdNE"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731TestResultFramesRcvdFE"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731TestResultPacketsSent"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731TestResultNoTimeouts"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731TestResultNoErrors"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731TestResultCompletionTime"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSaaRFC2544TestResultsGroup": {
+    "name": "prvtSaaRFC2544TestResultsGroup",
+    "oid": "1.3.6.1.4.1.738.1.5.130.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544TestResultFrameSize"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544TestResultFrameLoss"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544TestResultThroughput"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544TestResultNetThroughput"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544TestResultStatus"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544TestResultDelayMinimum"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544TestResultDelayAverage"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544TestResultDelayMaximum"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSaaProfilesGroup": {
+    "name": "prvtSaaProfilesGroup",
+    "oid": "1.3.6.1.4.1.738.1.5.130.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaProfileDelayNE"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaProfileDelayFE"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaProfileJitterNE"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaProfileJitterFE"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaProfileFrameLossNE"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaProfileFrameLossFE"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaProfileRowStatus"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaProfileName"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSaaNotificationsGroup": {
+    "name": "prvtSaaNotificationsGroup",
+    "oid": "1.3.6.1.4.1.738.1.5.130.2.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ProbeFailed"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544ProbeSuccess"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaRFC2544TestFinished"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731DelayNEThreshold"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731DelayFEThreshold"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731JitterNEThreshold"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731JitterFEThreshold"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731FrLossNEThreshold"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731FrLossFEThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSaaY1731LoopbackTestGroup": {
+    "name": "prvtSaaY1731LoopbackTestGroup",
+    "oid": "1.3.6.1.4.1.738.1.5.130.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731LoopbackTestUserPort"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731LoopbackTestUplinkPort"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731LoopbackTestType"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731LoopbackTestCCMAPSCount"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731LoopbackTestRowStatus"
+      },
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtSaaY1731LoopbackTestCountAllPriorities"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSaaCompliance": {
+    "name": "prvtSaaCompliance",
+    "oid": "1.3.6.1.4.1.738.1.5.130.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "prvtSaaY1731TestGroup",
+        "module": "PRVT-SAA-MIB"
+      },
+      {
+        "object": "prvtSaaRFC2544TestGroup",
+        "module": "PRVT-SAA-MIB"
+      },
+      {
+        "object": "prvtSaaY1731TestResultsGroup",
+        "module": "PRVT-SAA-MIB"
+      },
+      {
+        "object": "prvtSaaRFC2544TestResultsGroup",
+        "module": "PRVT-SAA-MIB"
+      },
+      {
+        "object": "prvtSaaProfilesGroup",
+        "module": "PRVT-SAA-MIB"
+      },
+      {
+        "object": "prvtSaaNotificationsGroup",
+        "module": "PRVT-SAA-MIB"
+      },
+      {
+        "object": "prvtSaaY1731LoopbackTestGroup",
+        "module": "PRVT-SAA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtTwampObjects": {
+    "name": "prvtTwampObjects",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4",
+    "class": "objectidentity"
+  },
+  "prvtTwampTest": {
+    "name": "prvtTwampTest",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.1",
+    "class": "objectidentity"
+  },
+  "prvtTwampServer": {
+    "name": "prvtTwampServer",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.2",
+    "class": "objectidentity"
+  },
+  "prvtTwampTestResult": {
+    "name": "prvtTwampTestResult",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.3",
+    "class": "objectidentity"
+  },
+  "PrvtTwampTestNameType": {
+    "name": "PrvtTwampTestNameType",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "32a",
+    "status": "current"
+  },
+  "PrvtTwampDecimalPercent": {
+    "name": "PrvtTwampDecimalPercent",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "displayhint": "3d.2d",
+    "status": "current"
+  },
+  "prvtTwampTestTable": {
+    "name": "prvtTwampTestTable",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtTwampTestEntry": {
+    "name": "prvtTwampTestEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtTwampTestName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtTwampTestName": {
+    "name": "prvtTwampTestName",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtTwampTestNameType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtTwampTestRowStatus": {
+    "name": "prvtTwampTestRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtTwampTestServer": {
+    "name": "prvtTwampTestServer",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtTwampTestSessionsCount": {
+    "name": "prvtTwampTestSessionsCount",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtTwampTestPackets": {
+    "name": "prvtTwampTestPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtTwampTestTimeout": {
+    "name": "prvtTwampTestTimeout",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 900,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtTwampTestDelay": {
+    "name": "prvtTwampTestDelay",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtTwampTestExecuteNow": {
+    "name": "prvtTwampTestExecuteNow",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtTwampClientTable": {
+    "name": "prvtTwampClientTable",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtTwampClientEntry": {
+    "name": "prvtTwampClientEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtTwampClientIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtTwampClientIp": {
+    "name": "prvtTwampClientIp",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtTwampClientRowStatus": {
+    "name": "prvtTwampClientRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtTwampServerInnactivity": {
+    "name": "prvtTwampServerInnactivity",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 900,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtTwampServerSessionInnactivity": {
+    "name": "prvtTwampServerSessionInnactivity",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 900,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtTwampServerMaxSessions": {
+    "name": "prvtTwampServerMaxSessions",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtTwampServerMaxParallelSessions": {
+    "name": "prvtTwampServerMaxParallelSessions",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtTwampServerShutdown": {
+    "name": "prvtTwampServerShutdown",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtTwampServerControlSessions": {
+    "name": "prvtTwampServerControlSessions",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTwampServerTestSessions": {
+    "name": "prvtTwampServerTestSessions",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTwampTestResultTable": {
+    "name": "prvtTwampTestResultTable",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtTwampTestResultEntry": {
+    "name": "prvtTwampTestResultEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SAA-MIB",
+        "object": "prvtTwampTestId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtTwampTestId": {
+    "name": "prvtTwampTestId",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTwampTestResultName": {
+    "name": "prvtTwampTestResultName",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtTwampTestNameType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTwampTestStartTime": {
+    "name": "prvtTwampTestStartTime",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTwampTestServerAddress": {
+    "name": "prvtTwampTestServerAddress",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTwampTestSessions": {
+    "name": "prvtTwampTestSessions",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTwampTestState": {
+    "name": "prvtTwampTestState",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 1,
+          "running": 2,
+          "stopped": 3,
+          "finished": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTwampTestRtt": {
+    "name": "prvtTwampTestRtt",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTwampTestMinRtt": {
+    "name": "prvtTwampTestMinRtt",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTwampTestMaxRtt": {
+    "name": "prvtTwampTestMaxRtt",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTwampTestPcktSent": {
+    "name": "prvtTwampTestPcktSent",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTwampTestPcktLost": {
+    "name": "prvtTwampTestPcktLost",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTwampTestPcktDrop": {
+    "name": "prvtTwampTestPcktDrop",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTwampTestVariation": {
+    "name": "prvtTwampTestVariation",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTwampTestVariationLow": {
+    "name": "prvtTwampTestVariationLow",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtTwampDecimalPercent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTwampTestVariationMiddle": {
+    "name": "prvtTwampTestVariationMiddle",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtTwampDecimalPercent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTwampTestVariationHigh": {
+    "name": "prvtTwampTestVariationHigh",
+    "oid": "1.3.6.1.4.1.738.1.5.130.1.4.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtTwampDecimalPercent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-SAA-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-SAA-MIB"
+  }
+}

@@ -1,0 +1,556 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "OwnerString"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoSaaApmMIB": {
+    "name": "ciscoSaaApmMIB",
+    "oid": "1.3.6.1.4.1.9.9.177",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-10-10 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "SaaApmOperErrorCode": {
+    "name": "SaaApmOperErrorCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 1,
+          "ftpDnldErr": 2,
+          "targetDown": 3,
+          "scriptErr": 4,
+          "socketErr": 5,
+          "internalErr": 6,
+          "digestErr": 7,
+          "fileHeaderErr": 8,
+          "fileFormatErr": 9,
+          "cacheFull": 10,
+          "lowMem": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SaaApmDataTransErrorCode": {
+    "name": "SaaApmDataTransErrorCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 1,
+          "ftpErr": 2,
+          "timeoutErr": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoSaaApmMIBObjects": {
+    "name": "ciscoSaaApmMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.177.1",
+    "class": "objectidentity"
+  },
+  "saaApmAppl": {
+    "name": "saaApmAppl",
+    "oid": "1.3.6.1.4.1.9.9.177.1.1",
+    "class": "objectidentity"
+  },
+  "saaApmCtrl": {
+    "name": "saaApmCtrl",
+    "oid": "1.3.6.1.4.1.9.9.177.1.2",
+    "class": "objectidentity"
+  },
+  "saaApmOper": {
+    "name": "saaApmOper",
+    "oid": "1.3.6.1.4.1.9.9.177.1.3",
+    "class": "objectidentity"
+  },
+  "saaApmApplMajorVersion": {
+    "name": "saaApmApplMajorVersion",
+    "oid": "1.3.6.1.4.1.9.9.177.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saaApmApplMinorVersion": {
+    "name": "saaApmApplMinorVersion",
+    "oid": "1.3.6.1.4.1.9.9.177.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saaApmApplMaxOper": {
+    "name": "saaApmApplMaxOper",
+    "oid": "1.3.6.1.4.1.9.9.177.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saaApmApplFreeMemLowWaterMark": {
+    "name": "saaApmApplFreeMemLowWaterMark",
+    "oid": "1.3.6.1.4.1.9.9.177.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saaApmApplOperCapacity": {
+    "name": "saaApmApplOperCapacity",
+    "oid": "1.3.6.1.4.1.9.9.177.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saaApmCtrlTable": {
+    "name": "saaApmCtrlTable",
+    "oid": "1.3.6.1.4.1.9.9.177.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saaApmCtrlEntry": {
+    "name": "saaApmCtrlEntry",
+    "oid": "1.3.6.1.4.1.9.9.177.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SAA-APM-MIB",
+        "object": "saaApmCtrlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saaApmCtrlIndex": {
+    "name": "saaApmCtrlIndex",
+    "oid": "1.3.6.1.4.1.9.9.177.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saaApmCtrlScriptCfgURL": {
+    "name": "saaApmCtrlScriptCfgURL",
+    "oid": "1.3.6.1.4.1.9.9.177.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "saaApmCtrlOwner": {
+    "name": "saaApmCtrlOwner",
+    "oid": "1.3.6.1.4.1.9.9.177.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "saaApmCtrlInitDataTrans": {
+    "name": "saaApmCtrlInitDataTrans",
+    "oid": "1.3.6.1.4.1.9.9.177.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "saaApmCtrlDataTransTime": {
+    "name": "saaApmCtrlDataTransTime",
+    "oid": "1.3.6.1.4.1.9.9.177.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saaApmCtrlDataTransStatus": {
+    "name": "saaApmCtrlDataTransStatus",
+    "oid": "1.3.6.1.4.1.9.9.177.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SaaApmDataTransErrorCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saaApmCtrlStatus": {
+    "name": "saaApmCtrlStatus",
+    "oid": "1.3.6.1.4.1.9.9.177.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "saaApmCtrlNvgen": {
+    "name": "saaApmCtrlNvgen",
+    "oid": "1.3.6.1.4.1.9.9.177.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "saaApmOperTable": {
+    "name": "saaApmOperTable",
+    "oid": "1.3.6.1.4.1.9.9.177.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saaApmOperEntry": {
+    "name": "saaApmOperEntry",
+    "oid": "1.3.6.1.4.1.9.9.177.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "saaApmOperEntry",
+      "module": "CISCO-SAA-APM-MIB",
+      "object": "saaApmCtrlEntry"
+    },
+    "status": "current"
+  },
+  "saaApmOperLastStartTime": {
+    "name": "saaApmOperLastStartTime",
+    "oid": "1.3.6.1.4.1.9.9.177.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saaApmOperLastEndTime": {
+    "name": "saaApmOperLastEndTime",
+    "oid": "1.3.6.1.4.1.9.9.177.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saaApmOperLastStatus": {
+    "name": "saaApmOperLastStatus",
+    "oid": "1.3.6.1.4.1.9.9.177.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SaaApmOperErrorCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSaaApmMIBNotifPrefix": {
+    "name": "ciscoSaaApmMIBNotifPrefix",
+    "oid": "1.3.6.1.4.1.9.9.177.2",
+    "class": "objectidentity"
+  },
+  "ciscoSaaApmMIBNotifs": {
+    "name": "ciscoSaaApmMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.177.2.0",
+    "class": "objectidentity"
+  },
+  "ciscoSaaApmMIBConformance": {
+    "name": "ciscoSaaApmMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.177.3",
+    "class": "objectidentity"
+  },
+  "ciscoSaaApmMIBCompliances": {
+    "name": "ciscoSaaApmMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.177.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoSaaApmMIBGroups": {
+    "name": "ciscoSaaApmMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.177.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoSaaApmMIBCompliance": {
+    "name": "ciscoSaaApmMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.177.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSaaApmApplGroup",
+        "module": "CISCO-SAA-APM-MIB"
+      },
+      {
+        "object": "ciscoSaaApmCtrlGroup",
+        "module": "CISCO-SAA-APM-MIB"
+      },
+      {
+        "object": "ciscoSaaApmOperGroup",
+        "module": "CISCO-SAA-APM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSaaApmApplGroup": {
+    "name": "ciscoSaaApmApplGroup",
+    "oid": "1.3.6.1.4.1.9.9.177.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SAA-APM-MIB",
+        "object": "saaApmApplMajorVersion"
+      },
+      {
+        "module": "CISCO-SAA-APM-MIB",
+        "object": "saaApmApplMinorVersion"
+      },
+      {
+        "module": "CISCO-SAA-APM-MIB",
+        "object": "saaApmApplMaxOper"
+      },
+      {
+        "module": "CISCO-SAA-APM-MIB",
+        "object": "saaApmApplFreeMemLowWaterMark"
+      },
+      {
+        "module": "CISCO-SAA-APM-MIB",
+        "object": "saaApmApplOperCapacity"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSaaApmCtrlGroup": {
+    "name": "ciscoSaaApmCtrlGroup",
+    "oid": "1.3.6.1.4.1.9.9.177.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SAA-APM-MIB",
+        "object": "saaApmCtrlScriptCfgURL"
+      },
+      {
+        "module": "CISCO-SAA-APM-MIB",
+        "object": "saaApmCtrlOwner"
+      },
+      {
+        "module": "CISCO-SAA-APM-MIB",
+        "object": "saaApmCtrlInitDataTrans"
+      },
+      {
+        "module": "CISCO-SAA-APM-MIB",
+        "object": "saaApmCtrlDataTransTime"
+      },
+      {
+        "module": "CISCO-SAA-APM-MIB",
+        "object": "saaApmCtrlDataTransStatus"
+      },
+      {
+        "module": "CISCO-SAA-APM-MIB",
+        "object": "saaApmCtrlStatus"
+      },
+      {
+        "module": "CISCO-SAA-APM-MIB",
+        "object": "saaApmCtrlNvgen"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSaaApmOperGroup": {
+    "name": "ciscoSaaApmOperGroup",
+    "oid": "1.3.6.1.4.1.9.9.177.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SAA-APM-MIB",
+        "object": "saaApmOperLastStartTime"
+      },
+      {
+        "module": "CISCO-SAA-APM-MIB",
+        "object": "saaApmOperLastEndTime"
+      },
+      {
+        "module": "CISCO-SAA-APM-MIB",
+        "object": "saaApmOperLastStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SAA-APM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SAA-APM-MIB"
+  }
+}

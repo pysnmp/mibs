@@ -1,0 +1,7270 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "transmission",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TruthValue",
+      "RowPointer",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "optIfMibModule": {
+    "name": "optIfMibModule",
+    "oid": "1.3.6.1.2.1.10.133",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-08-13 00:00",
+        "description": "Initial version, published as RFC 3591."
+      }
+    ]
+  },
+  "OptIfAcTI": {
+    "name": "OptIfAcTI",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 64,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "OptIfBitRateK": {
+    "name": "OptIfBitRateK",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "OptIfDEGM": {
+    "name": "OptIfDEGM",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "OptIfDEGThr": {
+    "name": "OptIfDEGThr",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "OptIfDirectionality": {
+    "name": "OptIfDirectionality",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sink": 1,
+          "source": 2,
+          "bidirectional": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OptIfSinkOrSource": {
+    "name": "OptIfSinkOrSource",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sink": 1,
+          "source": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OptIfExDAPI": {
+    "name": "OptIfExDAPI",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "OptIfExSAPI": {
+    "name": "OptIfExSAPI",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "OptIfIntervalNumber": {
+    "name": "OptIfIntervalNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "OptIfTIMDetMode": {
+    "name": "OptIfTIMDetMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "dapi": 2,
+          "sapi": 3,
+          "both": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OptIfTxTI": {
+    "name": "OptIfTxTI",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 64,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "optIfObjects": {
+    "name": "optIfObjects",
+    "oid": "1.3.6.1.2.1.10.133.1",
+    "class": "objectidentity"
+  },
+  "optIfConfs": {
+    "name": "optIfConfs",
+    "oid": "1.3.6.1.2.1.10.133.2",
+    "class": "objectidentity"
+  },
+  "optIfOTMn": {
+    "name": "optIfOTMn",
+    "oid": "1.3.6.1.2.1.10.133.1.1",
+    "class": "objectidentity"
+  },
+  "optIfPerfMon": {
+    "name": "optIfPerfMon",
+    "oid": "1.3.6.1.2.1.10.133.1.2",
+    "class": "objectidentity"
+  },
+  "optIfOTSn": {
+    "name": "optIfOTSn",
+    "oid": "1.3.6.1.2.1.10.133.1.3",
+    "class": "objectidentity"
+  },
+  "optIfOMSn": {
+    "name": "optIfOMSn",
+    "oid": "1.3.6.1.2.1.10.133.1.4",
+    "class": "objectidentity"
+  },
+  "optIfOChGroup": {
+    "name": "optIfOChGroup",
+    "oid": "1.3.6.1.2.1.10.133.1.5",
+    "class": "objectidentity"
+  },
+  "optIfOCh": {
+    "name": "optIfOCh",
+    "oid": "1.3.6.1.2.1.10.133.1.6",
+    "class": "objectidentity"
+  },
+  "optIfOTUk": {
+    "name": "optIfOTUk",
+    "oid": "1.3.6.1.2.1.10.133.1.7",
+    "class": "objectidentity"
+  },
+  "optIfODUk": {
+    "name": "optIfODUk",
+    "oid": "1.3.6.1.2.1.10.133.1.8",
+    "class": "objectidentity"
+  },
+  "optIfODUkT": {
+    "name": "optIfODUkT",
+    "oid": "1.3.6.1.2.1.10.133.1.9",
+    "class": "objectidentity"
+  },
+  "optIfGroups": {
+    "name": "optIfGroups",
+    "oid": "1.3.6.1.2.1.10.133.2.1",
+    "class": "objectidentity"
+  },
+  "optIfCompl": {
+    "name": "optIfCompl",
+    "oid": "1.3.6.1.2.1.10.133.2.2",
+    "class": "objectidentity"
+  },
+  "optIfOTMnTable": {
+    "name": "optIfOTMnTable",
+    "oid": "1.3.6.1.2.1.10.133.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOTMnEntry": {
+    "name": "optIfOTMnEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTMnOrder": {
+    "name": "optIfOTMnOrder",
+    "oid": "1.3.6.1.2.1.10.133.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTMnReduced": {
+    "name": "optIfOTMnReduced",
+    "oid": "1.3.6.1.2.1.10.133.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTMnBitRates": {
+    "name": "optIfOTMnBitRates",
+    "oid": "1.3.6.1.2.1.10.133.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bitRateK1": 0,
+        "bitRateK2": 1,
+        "bitRateK3": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTMnInterfaceType": {
+    "name": "optIfOTMnInterfaceType",
+    "oid": "1.3.6.1.2.1.10.133.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTMnTcmMax": {
+    "name": "optIfOTMnTcmMax",
+    "oid": "1.3.6.1.2.1.10.133.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTMnOpticalReach": {
+    "name": "optIfOTMnOpticalReach",
+    "oid": "1.3.6.1.2.1.10.133.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "intraOffice": 1,
+          "shortHaul": 2,
+          "longHaul": 3,
+          "veryLongHaul": 4,
+          "ultraLongHaul": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfPerfMonIntervalTable": {
+    "name": "optIfPerfMonIntervalTable",
+    "oid": "1.3.6.1.2.1.10.133.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfPerfMonIntervalEntry": {
+    "name": "optIfPerfMonIntervalEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfPerfMonCurrentTimeElapsed": {
+    "name": "optIfPerfMonCurrentTimeElapsed",
+    "oid": "1.3.6.1.2.1.10.133.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfPerfMonCurDayTimeElapsed": {
+    "name": "optIfPerfMonCurDayTimeElapsed",
+    "oid": "1.3.6.1.2.1.10.133.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfPerfMonIntervalNumIntervals": {
+    "name": "optIfPerfMonIntervalNumIntervals",
+    "oid": "1.3.6.1.2.1.10.133.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfPerfMonIntervalNumInvalidIntervals": {
+    "name": "optIfPerfMonIntervalNumInvalidIntervals",
+    "oid": "1.3.6.1.2.1.10.133.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnConfigTable": {
+    "name": "optIfOTSnConfigTable",
+    "oid": "1.3.6.1.2.1.10.133.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOTSnConfigEntry": {
+    "name": "optIfOTSnConfigEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTSnDirectionality": {
+    "name": "optIfOTSnDirectionality",
+    "oid": "1.3.6.1.2.1.10.133.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfDirectionality",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnAprStatus": {
+    "name": "optIfOTSnAprStatus",
+    "oid": "1.3.6.1.2.1.10.133.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnAprControl": {
+    "name": "optIfOTSnAprControl",
+    "oid": "1.3.6.1.2.1.10.133.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTSnTraceIdentifierTransmitted": {
+    "name": "optIfOTSnTraceIdentifierTransmitted",
+    "oid": "1.3.6.1.2.1.10.133.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfTxTI",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTSnDAPIExpected": {
+    "name": "optIfOTSnDAPIExpected",
+    "oid": "1.3.6.1.2.1.10.133.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfExDAPI",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTSnSAPIExpected": {
+    "name": "optIfOTSnSAPIExpected",
+    "oid": "1.3.6.1.2.1.10.133.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfExSAPI",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTSnTraceIdentifierAccepted": {
+    "name": "optIfOTSnTraceIdentifierAccepted",
+    "oid": "1.3.6.1.2.1.10.133.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfAcTI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnTIMDetMode": {
+    "name": "optIfOTSnTIMDetMode",
+    "oid": "1.3.6.1.2.1.10.133.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfTIMDetMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTSnTIMActEnabled": {
+    "name": "optIfOTSnTIMActEnabled",
+    "oid": "1.3.6.1.2.1.10.133.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTSnCurrentStatus": {
+    "name": "optIfOTSnCurrentStatus",
+    "oid": "1.3.6.1.2.1.10.133.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bdiP": 0,
+        "bdiO": 1,
+        "bdi": 2,
+        "tim": 3,
+        "losP": 4,
+        "losO": 5,
+        "los": 6
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkCurrentTable": {
+    "name": "optIfOTSnSinkCurrentTable",
+    "oid": "1.3.6.1.2.1.10.133.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOTSnSinkCurrentEntry": {
+    "name": "optIfOTSnSinkCurrentEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTSnSinkCurrentSuspectedFlag": {
+    "name": "optIfOTSnSinkCurrentSuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkCurrentInputPower": {
+    "name": "optIfOTSnSinkCurrentInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkCurrentLowInputPower": {
+    "name": "optIfOTSnSinkCurrentLowInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkCurrentHighInputPower": {
+    "name": "optIfOTSnSinkCurrentHighInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkCurrentLowerInputPowerThreshold": {
+    "name": "optIfOTSnSinkCurrentLowerInputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTSnSinkCurrentUpperInputPowerThreshold": {
+    "name": "optIfOTSnSinkCurrentUpperInputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTSnSinkCurrentOutputPower": {
+    "name": "optIfOTSnSinkCurrentOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkCurrentLowOutputPower": {
+    "name": "optIfOTSnSinkCurrentLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkCurrentHighOutputPower": {
+    "name": "optIfOTSnSinkCurrentHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkCurrentLowerOutputPowerThreshold": {
+    "name": "optIfOTSnSinkCurrentLowerOutputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTSnSinkCurrentUpperOutputPowerThreshold": {
+    "name": "optIfOTSnSinkCurrentUpperOutputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTSnSinkIntervalTable": {
+    "name": "optIfOTSnSinkIntervalTable",
+    "oid": "1.3.6.1.2.1.10.133.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOTSnSinkIntervalEntry": {
+    "name": "optIfOTSnSinkIntervalEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTSnSinkIntervalNumber": {
+    "name": "optIfOTSnSinkIntervalNumber",
+    "oid": "1.3.6.1.2.1.10.133.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfIntervalNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOTSnSinkIntervalSuspectedFlag": {
+    "name": "optIfOTSnSinkIntervalSuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkIntervalLastInputPower": {
+    "name": "optIfOTSnSinkIntervalLastInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkIntervalLowInputPower": {
+    "name": "optIfOTSnSinkIntervalLowInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkIntervalHighInputPower": {
+    "name": "optIfOTSnSinkIntervalHighInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkIntervalLastOutputPower": {
+    "name": "optIfOTSnSinkIntervalLastOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkIntervalLowOutputPower": {
+    "name": "optIfOTSnSinkIntervalLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkIntervalHighOutputPower": {
+    "name": "optIfOTSnSinkIntervalHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkCurDayTable": {
+    "name": "optIfOTSnSinkCurDayTable",
+    "oid": "1.3.6.1.2.1.10.133.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOTSnSinkCurDayEntry": {
+    "name": "optIfOTSnSinkCurDayEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTSnSinkCurDaySuspectedFlag": {
+    "name": "optIfOTSnSinkCurDaySuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkCurDayLowInputPower": {
+    "name": "optIfOTSnSinkCurDayLowInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkCurDayHighInputPower": {
+    "name": "optIfOTSnSinkCurDayHighInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkCurDayLowOutputPower": {
+    "name": "optIfOTSnSinkCurDayLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkCurDayHighOutputPower": {
+    "name": "optIfOTSnSinkCurDayHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkPrevDayTable": {
+    "name": "optIfOTSnSinkPrevDayTable",
+    "oid": "1.3.6.1.2.1.10.133.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOTSnSinkPrevDayEntry": {
+    "name": "optIfOTSnSinkPrevDayEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTSnSinkPrevDaySuspectedFlag": {
+    "name": "optIfOTSnSinkPrevDaySuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkPrevDayLastInputPower": {
+    "name": "optIfOTSnSinkPrevDayLastInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkPrevDayLowInputPower": {
+    "name": "optIfOTSnSinkPrevDayLowInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkPrevDayHighInputPower": {
+    "name": "optIfOTSnSinkPrevDayHighInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkPrevDayLastOutputPower": {
+    "name": "optIfOTSnSinkPrevDayLastOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkPrevDayLowOutputPower": {
+    "name": "optIfOTSnSinkPrevDayLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSinkPrevDayHighOutputPower": {
+    "name": "optIfOTSnSinkPrevDayHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcCurrentTable": {
+    "name": "optIfOTSnSrcCurrentTable",
+    "oid": "1.3.6.1.2.1.10.133.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOTSnSrcCurrentEntry": {
+    "name": "optIfOTSnSrcCurrentEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTSnSrcCurrentSuspectedFlag": {
+    "name": "optIfOTSnSrcCurrentSuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcCurrentOutputPower": {
+    "name": "optIfOTSnSrcCurrentOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcCurrentLowOutputPower": {
+    "name": "optIfOTSnSrcCurrentLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcCurrentHighOutputPower": {
+    "name": "optIfOTSnSrcCurrentHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcCurrentLowerOutputPowerThreshold": {
+    "name": "optIfOTSnSrcCurrentLowerOutputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.3.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTSnSrcCurrentUpperOutputPowerThreshold": {
+    "name": "optIfOTSnSrcCurrentUpperOutputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.3.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTSnSrcCurrentInputPower": {
+    "name": "optIfOTSnSrcCurrentInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcCurrentLowInputPower": {
+    "name": "optIfOTSnSrcCurrentLowInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcCurrentHighInputPower": {
+    "name": "optIfOTSnSrcCurrentHighInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcCurrentLowerInputPowerThreshold": {
+    "name": "optIfOTSnSrcCurrentLowerInputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.3.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTSnSrcCurrentUpperInputPowerThreshold": {
+    "name": "optIfOTSnSrcCurrentUpperInputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.3.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTSnSrcIntervalTable": {
+    "name": "optIfOTSnSrcIntervalTable",
+    "oid": "1.3.6.1.2.1.10.133.1.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOTSnSrcIntervalEntry": {
+    "name": "optIfOTSnSrcIntervalEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTSnSrcIntervalNumber": {
+    "name": "optIfOTSnSrcIntervalNumber",
+    "oid": "1.3.6.1.2.1.10.133.1.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfIntervalNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOTSnSrcIntervalSuspectedFlag": {
+    "name": "optIfOTSnSrcIntervalSuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcIntervalLastOutputPower": {
+    "name": "optIfOTSnSrcIntervalLastOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcIntervalLowOutputPower": {
+    "name": "optIfOTSnSrcIntervalLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcIntervalHighOutputPower": {
+    "name": "optIfOTSnSrcIntervalHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcIntervalLastInputPower": {
+    "name": "optIfOTSnSrcIntervalLastInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcIntervalLowInputPower": {
+    "name": "optIfOTSnSrcIntervalLowInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcIntervalHighInputPower": {
+    "name": "optIfOTSnSrcIntervalHighInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcCurDayTable": {
+    "name": "optIfOTSnSrcCurDayTable",
+    "oid": "1.3.6.1.2.1.10.133.1.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOTSnSrcCurDayEntry": {
+    "name": "optIfOTSnSrcCurDayEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTSnSrcCurDaySuspectedFlag": {
+    "name": "optIfOTSnSrcCurDaySuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcCurDayLowOutputPower": {
+    "name": "optIfOTSnSrcCurDayLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcCurDayHighOutputPower": {
+    "name": "optIfOTSnSrcCurDayHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcCurDayLowInputPower": {
+    "name": "optIfOTSnSrcCurDayLowInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcCurDayHighInputPower": {
+    "name": "optIfOTSnSrcCurDayHighInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcPrevDayTable": {
+    "name": "optIfOTSnSrcPrevDayTable",
+    "oid": "1.3.6.1.2.1.10.133.1.3.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOTSnSrcPrevDayEntry": {
+    "name": "optIfOTSnSrcPrevDayEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.3.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTSnSrcPrevDaySuspectedFlag": {
+    "name": "optIfOTSnSrcPrevDaySuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.3.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcPrevDayLastOutputPower": {
+    "name": "optIfOTSnSrcPrevDayLastOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcPrevDayLowOutputPower": {
+    "name": "optIfOTSnSrcPrevDayLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcPrevDayHighOutputPower": {
+    "name": "optIfOTSnSrcPrevDayHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcPrevDayLastInputPower": {
+    "name": "optIfOTSnSrcPrevDayLastInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcPrevDayLowInputPower": {
+    "name": "optIfOTSnSrcPrevDayLowInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTSnSrcPrevDayHighInputPower": {
+    "name": "optIfOTSnSrcPrevDayHighInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.3.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnConfigTable": {
+    "name": "optIfOMSnConfigTable",
+    "oid": "1.3.6.1.2.1.10.133.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOMSnConfigEntry": {
+    "name": "optIfOMSnConfigEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOMSnDirectionality": {
+    "name": "optIfOMSnDirectionality",
+    "oid": "1.3.6.1.2.1.10.133.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfDirectionality",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnCurrentStatus": {
+    "name": "optIfOMSnCurrentStatus",
+    "oid": "1.3.6.1.2.1.10.133.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ssfP": 0,
+        "ssfO": 1,
+        "ssf": 2,
+        "bdiP": 3,
+        "bdiO": 4,
+        "bdi": 5,
+        "losP": 6
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkCurrentTable": {
+    "name": "optIfOMSnSinkCurrentTable",
+    "oid": "1.3.6.1.2.1.10.133.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOMSnSinkCurrentEntry": {
+    "name": "optIfOMSnSinkCurrentEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOMSnSinkCurrentSuspectedFlag": {
+    "name": "optIfOMSnSinkCurrentSuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkCurrentAggregatedInputPower": {
+    "name": "optIfOMSnSinkCurrentAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkCurrentLowAggregatedInputPower": {
+    "name": "optIfOMSnSinkCurrentLowAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkCurrentHighAggregatedInputPower": {
+    "name": "optIfOMSnSinkCurrentHighAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkCurrentLowerInputPowerThreshold": {
+    "name": "optIfOMSnSinkCurrentLowerInputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOMSnSinkCurrentUpperInputPowerThreshold": {
+    "name": "optIfOMSnSinkCurrentUpperInputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOMSnSinkCurrentOutputPower": {
+    "name": "optIfOMSnSinkCurrentOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkCurrentLowOutputPower": {
+    "name": "optIfOMSnSinkCurrentLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkCurrentHighOutputPower": {
+    "name": "optIfOMSnSinkCurrentHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkCurrentLowerOutputPowerThreshold": {
+    "name": "optIfOMSnSinkCurrentLowerOutputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOMSnSinkCurrentUpperOutputPowerThreshold": {
+    "name": "optIfOMSnSinkCurrentUpperOutputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOMSnSinkIntervalTable": {
+    "name": "optIfOMSnSinkIntervalTable",
+    "oid": "1.3.6.1.2.1.10.133.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOMSnSinkIntervalEntry": {
+    "name": "optIfOMSnSinkIntervalEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOMSnSinkIntervalNumber": {
+    "name": "optIfOMSnSinkIntervalNumber",
+    "oid": "1.3.6.1.2.1.10.133.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfIntervalNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOMSnSinkIntervalSuspectedFlag": {
+    "name": "optIfOMSnSinkIntervalSuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkIntervalLastAggregatedInputPower": {
+    "name": "optIfOMSnSinkIntervalLastAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkIntervalLowAggregatedInputPower": {
+    "name": "optIfOMSnSinkIntervalLowAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkIntervalHighAggregatedInputPower": {
+    "name": "optIfOMSnSinkIntervalHighAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkIntervalLastOutputPower": {
+    "name": "optIfOMSnSinkIntervalLastOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkIntervalLowOutputPower": {
+    "name": "optIfOMSnSinkIntervalLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkIntervalHighOutputPower": {
+    "name": "optIfOMSnSinkIntervalHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkCurDayTable": {
+    "name": "optIfOMSnSinkCurDayTable",
+    "oid": "1.3.6.1.2.1.10.133.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOMSnSinkCurDayEntry": {
+    "name": "optIfOMSnSinkCurDayEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOMSnSinkCurDaySuspectedFlag": {
+    "name": "optIfOMSnSinkCurDaySuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkCurDayLowAggregatedInputPower": {
+    "name": "optIfOMSnSinkCurDayLowAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkCurDayHighAggregatedInputPower": {
+    "name": "optIfOMSnSinkCurDayHighAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkCurDayLowOutputPower": {
+    "name": "optIfOMSnSinkCurDayLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkCurDayHighOutputPower": {
+    "name": "optIfOMSnSinkCurDayHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkPrevDayTable": {
+    "name": "optIfOMSnSinkPrevDayTable",
+    "oid": "1.3.6.1.2.1.10.133.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOMSnSinkPrevDayEntry": {
+    "name": "optIfOMSnSinkPrevDayEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOMSnSinkPrevDaySuspectedFlag": {
+    "name": "optIfOMSnSinkPrevDaySuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkPrevDayLastAggregatedInputPower": {
+    "name": "optIfOMSnSinkPrevDayLastAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkPrevDayLowAggregatedInputPower": {
+    "name": "optIfOMSnSinkPrevDayLowAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkPrevDayHighAggregatedInputPower": {
+    "name": "optIfOMSnSinkPrevDayHighAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkPrevDayLastOutputPower": {
+    "name": "optIfOMSnSinkPrevDayLastOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkPrevDayLowOutputPower": {
+    "name": "optIfOMSnSinkPrevDayLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSinkPrevDayHighOutputPower": {
+    "name": "optIfOMSnSinkPrevDayHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcCurrentTable": {
+    "name": "optIfOMSnSrcCurrentTable",
+    "oid": "1.3.6.1.2.1.10.133.1.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOMSnSrcCurrentEntry": {
+    "name": "optIfOMSnSrcCurrentEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOMSnSrcCurrentSuspectedFlag": {
+    "name": "optIfOMSnSrcCurrentSuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcCurrentOutputPower": {
+    "name": "optIfOMSnSrcCurrentOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcCurrentLowOutputPower": {
+    "name": "optIfOMSnSrcCurrentLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcCurrentHighOutputPower": {
+    "name": "optIfOMSnSrcCurrentHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcCurrentLowerOutputPowerThreshold": {
+    "name": "optIfOMSnSrcCurrentLowerOutputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.4.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOMSnSrcCurrentUpperOutputPowerThreshold": {
+    "name": "optIfOMSnSrcCurrentUpperOutputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.4.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOMSnSrcCurrentAggregatedInputPower": {
+    "name": "optIfOMSnSrcCurrentAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcCurrentLowAggregatedInputPower": {
+    "name": "optIfOMSnSrcCurrentLowAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcCurrentHighAggregatedInputPower": {
+    "name": "optIfOMSnSrcCurrentHighAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcCurrentLowerInputPowerThreshold": {
+    "name": "optIfOMSnSrcCurrentLowerInputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.4.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOMSnSrcCurrentUpperInputPowerThreshold": {
+    "name": "optIfOMSnSrcCurrentUpperInputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.4.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOMSnSrcIntervalTable": {
+    "name": "optIfOMSnSrcIntervalTable",
+    "oid": "1.3.6.1.2.1.10.133.1.4.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOMSnSrcIntervalEntry": {
+    "name": "optIfOMSnSrcIntervalEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.4.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOMSnSrcIntervalNumber": {
+    "name": "optIfOMSnSrcIntervalNumber",
+    "oid": "1.3.6.1.2.1.10.133.1.4.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfIntervalNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOMSnSrcIntervalSuspectedFlag": {
+    "name": "optIfOMSnSrcIntervalSuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.4.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcIntervalLastOutputPower": {
+    "name": "optIfOMSnSrcIntervalLastOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcIntervalLowOutputPower": {
+    "name": "optIfOMSnSrcIntervalLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcIntervalHighOutputPower": {
+    "name": "optIfOMSnSrcIntervalHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcIntervalLastAggregatedInputPower": {
+    "name": "optIfOMSnSrcIntervalLastAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcIntervalLowAggregatedInputPower": {
+    "name": "optIfOMSnSrcIntervalLowAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcIntervalHighAggregatedInputPower": {
+    "name": "optIfOMSnSrcIntervalHighAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcCurDayTable": {
+    "name": "optIfOMSnSrcCurDayTable",
+    "oid": "1.3.6.1.2.1.10.133.1.4.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOMSnSrcCurDayEntry": {
+    "name": "optIfOMSnSrcCurDayEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.4.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOMSnSrcCurDaySuspectedFlag": {
+    "name": "optIfOMSnSrcCurDaySuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.4.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcCurDayLowOutputPower": {
+    "name": "optIfOMSnSrcCurDayLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcCurDayHighOutputPower": {
+    "name": "optIfOMSnSrcCurDayHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcCurDayLowAggregatedInputPower": {
+    "name": "optIfOMSnSrcCurDayLowAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcCurDayHighAggregatedInputPower": {
+    "name": "optIfOMSnSrcCurDayHighAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcPrevDayTable": {
+    "name": "optIfOMSnSrcPrevDayTable",
+    "oid": "1.3.6.1.2.1.10.133.1.4.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOMSnSrcPrevDayEntry": {
+    "name": "optIfOMSnSrcPrevDayEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.4.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOMSnSrcPrevDaySuspectedFlag": {
+    "name": "optIfOMSnSrcPrevDaySuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.4.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcPrevDayLastOutputPower": {
+    "name": "optIfOMSnSrcPrevDayLastOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcPrevDayLowOutputPower": {
+    "name": "optIfOMSnSrcPrevDayLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcPrevDayHighOutputPower": {
+    "name": "optIfOMSnSrcPrevDayHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcPrevDayLastAggregatedInputPower": {
+    "name": "optIfOMSnSrcPrevDayLastAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcPrevDayLowAggregatedInputPower": {
+    "name": "optIfOMSnSrcPrevDayLowAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOMSnSrcPrevDayHighAggregatedInputPower": {
+    "name": "optIfOMSnSrcPrevDayHighAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.4.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupConfigTable": {
+    "name": "optIfOChGroupConfigTable",
+    "oid": "1.3.6.1.2.1.10.133.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOChGroupConfigEntry": {
+    "name": "optIfOChGroupConfigEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChGroupDirectionality": {
+    "name": "optIfOChGroupDirectionality",
+    "oid": "1.3.6.1.2.1.10.133.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfDirectionality",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkCurrentTable": {
+    "name": "optIfOChGroupSinkCurrentTable",
+    "oid": "1.3.6.1.2.1.10.133.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOChGroupSinkCurrentEntry": {
+    "name": "optIfOChGroupSinkCurrentEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChGroupSinkCurrentSuspectedFlag": {
+    "name": "optIfOChGroupSinkCurrentSuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkCurrentAggregatedInputPower": {
+    "name": "optIfOChGroupSinkCurrentAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkCurrentLowAggregatedInputPower": {
+    "name": "optIfOChGroupSinkCurrentLowAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkCurrentHighAggregatedInputPower": {
+    "name": "optIfOChGroupSinkCurrentHighAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkCurrentLowerInputPowerThreshold": {
+    "name": "optIfOChGroupSinkCurrentLowerInputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOChGroupSinkCurrentUpperInputPowerThreshold": {
+    "name": "optIfOChGroupSinkCurrentUpperInputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOChGroupSinkCurrentOutputPower": {
+    "name": "optIfOChGroupSinkCurrentOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkCurrentLowOutputPower": {
+    "name": "optIfOChGroupSinkCurrentLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkCurrentHighOutputPower": {
+    "name": "optIfOChGroupSinkCurrentHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkCurrentLowerOutputPowerThreshold": {
+    "name": "optIfOChGroupSinkCurrentLowerOutputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOChGroupSinkCurrentUpperOutputPowerThreshold": {
+    "name": "optIfOChGroupSinkCurrentUpperOutputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOChGroupSinkIntervalTable": {
+    "name": "optIfOChGroupSinkIntervalTable",
+    "oid": "1.3.6.1.2.1.10.133.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOChGroupSinkIntervalEntry": {
+    "name": "optIfOChGroupSinkIntervalEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChGroupSinkIntervalNumber": {
+    "name": "optIfOChGroupSinkIntervalNumber",
+    "oid": "1.3.6.1.2.1.10.133.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfIntervalNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOChGroupSinkIntervalSuspectedFlag": {
+    "name": "optIfOChGroupSinkIntervalSuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkIntervalLastAggregatedInputPower": {
+    "name": "optIfOChGroupSinkIntervalLastAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkIntervalLowAggregatedInputPower": {
+    "name": "optIfOChGroupSinkIntervalLowAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkIntervalHighAggregatedInputPower": {
+    "name": "optIfOChGroupSinkIntervalHighAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkIntervalLastOutputPower": {
+    "name": "optIfOChGroupSinkIntervalLastOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkIntervalLowOutputPower": {
+    "name": "optIfOChGroupSinkIntervalLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkIntervalHighOutputPower": {
+    "name": "optIfOChGroupSinkIntervalHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkCurDayTable": {
+    "name": "optIfOChGroupSinkCurDayTable",
+    "oid": "1.3.6.1.2.1.10.133.1.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOChGroupSinkCurDayEntry": {
+    "name": "optIfOChGroupSinkCurDayEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChGroupSinkCurDaySuspectedFlag": {
+    "name": "optIfOChGroupSinkCurDaySuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkCurDayLowAggregatedInputPower": {
+    "name": "optIfOChGroupSinkCurDayLowAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkCurDayHighAggregatedInputPower": {
+    "name": "optIfOChGroupSinkCurDayHighAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkCurDayLowOutputPower": {
+    "name": "optIfOChGroupSinkCurDayLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkCurDayHighOutputPower": {
+    "name": "optIfOChGroupSinkCurDayHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkPrevDayTable": {
+    "name": "optIfOChGroupSinkPrevDayTable",
+    "oid": "1.3.6.1.2.1.10.133.1.5.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOChGroupSinkPrevDayEntry": {
+    "name": "optIfOChGroupSinkPrevDayEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.5.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChGroupSinkPrevDaySuspectedFlag": {
+    "name": "optIfOChGroupSinkPrevDaySuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.5.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkPrevDayLastAggregatedInputPower": {
+    "name": "optIfOChGroupSinkPrevDayLastAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkPrevDayLowAggregatedInputPower": {
+    "name": "optIfOChGroupSinkPrevDayLowAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkPrevDayHighAggregatedInputPower": {
+    "name": "optIfOChGroupSinkPrevDayHighAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkPrevDayLastOutputPower": {
+    "name": "optIfOChGroupSinkPrevDayLastOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkPrevDayLowOutputPower": {
+    "name": "optIfOChGroupSinkPrevDayLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSinkPrevDayHighOutputPower": {
+    "name": "optIfOChGroupSinkPrevDayHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcCurrentTable": {
+    "name": "optIfOChGroupSrcCurrentTable",
+    "oid": "1.3.6.1.2.1.10.133.1.5.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOChGroupSrcCurrentEntry": {
+    "name": "optIfOChGroupSrcCurrentEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.5.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChGroupSrcCurrentSuspectedFlag": {
+    "name": "optIfOChGroupSrcCurrentSuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.5.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcCurrentOutputPower": {
+    "name": "optIfOChGroupSrcCurrentOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcCurrentLowOutputPower": {
+    "name": "optIfOChGroupSrcCurrentLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcCurrentHighOutputPower": {
+    "name": "optIfOChGroupSrcCurrentHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcCurrentLowerOutputPowerThreshold": {
+    "name": "optIfOChGroupSrcCurrentLowerOutputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.5.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOChGroupSrcCurrentUpperOutputPowerThreshold": {
+    "name": "optIfOChGroupSrcCurrentUpperOutputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.5.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOChGroupSrcCurrentAggregatedInputPower": {
+    "name": "optIfOChGroupSrcCurrentAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcCurrentLowAggregatedInputPower": {
+    "name": "optIfOChGroupSrcCurrentLowAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcCurrentHighAggregatedInputPower": {
+    "name": "optIfOChGroupSrcCurrentHighAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcCurrentLowerInputPowerThreshold": {
+    "name": "optIfOChGroupSrcCurrentLowerInputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.5.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOChGroupSrcCurrentUpperInputPowerThreshold": {
+    "name": "optIfOChGroupSrcCurrentUpperInputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.5.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOChGroupSrcIntervalTable": {
+    "name": "optIfOChGroupSrcIntervalTable",
+    "oid": "1.3.6.1.2.1.10.133.1.5.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOChGroupSrcIntervalEntry": {
+    "name": "optIfOChGroupSrcIntervalEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.5.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChGroupSrcIntervalNumber": {
+    "name": "optIfOChGroupSrcIntervalNumber",
+    "oid": "1.3.6.1.2.1.10.133.1.5.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfIntervalNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOChGroupSrcIntervalSuspectedFlag": {
+    "name": "optIfOChGroupSrcIntervalSuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.5.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcIntervalLastOutputPower": {
+    "name": "optIfOChGroupSrcIntervalLastOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcIntervalLowOutputPower": {
+    "name": "optIfOChGroupSrcIntervalLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcIntervalHighOutputPower": {
+    "name": "optIfOChGroupSrcIntervalHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcIntervalLastAggregatedInputPower": {
+    "name": "optIfOChGroupSrcIntervalLastAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcIntervalLowAggregatedInputPower": {
+    "name": "optIfOChGroupSrcIntervalLowAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcIntervalHighAggregatedInputPower": {
+    "name": "optIfOChGroupSrcIntervalHighAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcCurDayTable": {
+    "name": "optIfOChGroupSrcCurDayTable",
+    "oid": "1.3.6.1.2.1.10.133.1.5.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOChGroupSrcCurDayEntry": {
+    "name": "optIfOChGroupSrcCurDayEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.5.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChGroupSrcCurDaySuspectedFlag": {
+    "name": "optIfOChGroupSrcCurDaySuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.5.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcCurDayLowOutputPower": {
+    "name": "optIfOChGroupSrcCurDayLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcCurDayHighOutputPower": {
+    "name": "optIfOChGroupSrcCurDayHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcCurDayLowAggregatedInputPower": {
+    "name": "optIfOChGroupSrcCurDayLowAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcCurDayHighAggregatedInputPower": {
+    "name": "optIfOChGroupSrcCurDayHighAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcPrevDayTable": {
+    "name": "optIfOChGroupSrcPrevDayTable",
+    "oid": "1.3.6.1.2.1.10.133.1.5.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOChGroupSrcPrevDayEntry": {
+    "name": "optIfOChGroupSrcPrevDayEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.5.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChGroupSrcPrevDaySuspectedFlag": {
+    "name": "optIfOChGroupSrcPrevDaySuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.5.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcPrevDayLastOutputPower": {
+    "name": "optIfOChGroupSrcPrevDayLastOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcPrevDayLowOutputPower": {
+    "name": "optIfOChGroupSrcPrevDayLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcPrevDayHighOutputPower": {
+    "name": "optIfOChGroupSrcPrevDayHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcPrevDayLastAggregatedInputPower": {
+    "name": "optIfOChGroupSrcPrevDayLastAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcPrevDayLowAggregatedInputPower": {
+    "name": "optIfOChGroupSrcPrevDayLowAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChGroupSrcPrevDayHighAggregatedInputPower": {
+    "name": "optIfOChGroupSrcPrevDayHighAggregatedInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.5.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChConfigTable": {
+    "name": "optIfOChConfigTable",
+    "oid": "1.3.6.1.2.1.10.133.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOChConfigEntry": {
+    "name": "optIfOChConfigEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChDirectionality": {
+    "name": "optIfOChDirectionality",
+    "oid": "1.3.6.1.2.1.10.133.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfDirectionality",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChCurrentStatus": {
+    "name": "optIfOChCurrentStatus",
+    "oid": "1.3.6.1.2.1.10.133.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "losP": 0,
+        "los": 1,
+        "oci": 2,
+        "ssfP": 3,
+        "ssfO": 4,
+        "ssf": 5
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSinkCurrentTable": {
+    "name": "optIfOChSinkCurrentTable",
+    "oid": "1.3.6.1.2.1.10.133.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOChSinkCurrentEntry": {
+    "name": "optIfOChSinkCurrentEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChSinkCurrentSuspectedFlag": {
+    "name": "optIfOChSinkCurrentSuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSinkCurrentInputPower": {
+    "name": "optIfOChSinkCurrentInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSinkCurrentLowInputPower": {
+    "name": "optIfOChSinkCurrentLowInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSinkCurrentHighInputPower": {
+    "name": "optIfOChSinkCurrentHighInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSinkCurrentLowerInputPowerThreshold": {
+    "name": "optIfOChSinkCurrentLowerInputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOChSinkCurrentUpperInputPowerThreshold": {
+    "name": "optIfOChSinkCurrentUpperInputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOChSinkIntervalTable": {
+    "name": "optIfOChSinkIntervalTable",
+    "oid": "1.3.6.1.2.1.10.133.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOChSinkIntervalEntry": {
+    "name": "optIfOChSinkIntervalEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSinkIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChSinkIntervalNumber": {
+    "name": "optIfOChSinkIntervalNumber",
+    "oid": "1.3.6.1.2.1.10.133.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfIntervalNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOChSinkIntervalSuspectedFlag": {
+    "name": "optIfOChSinkIntervalSuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSinkIntervalLastInputPower": {
+    "name": "optIfOChSinkIntervalLastInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSinkIntervalLowInputPower": {
+    "name": "optIfOChSinkIntervalLowInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSinkIntervalHighInputPower": {
+    "name": "optIfOChSinkIntervalHighInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.6.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSinkCurDayTable": {
+    "name": "optIfOChSinkCurDayTable",
+    "oid": "1.3.6.1.2.1.10.133.1.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOChSinkCurDayEntry": {
+    "name": "optIfOChSinkCurDayEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChSinkCurDaySuspectedFlag": {
+    "name": "optIfOChSinkCurDaySuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.6.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSinkCurDayLowInputPower": {
+    "name": "optIfOChSinkCurDayLowInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.6.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSinkCurDayHighInputPower": {
+    "name": "optIfOChSinkCurDayHighInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.6.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSinkPrevDayTable": {
+    "name": "optIfOChSinkPrevDayTable",
+    "oid": "1.3.6.1.2.1.10.133.1.6.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOChSinkPrevDayEntry": {
+    "name": "optIfOChSinkPrevDayEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.6.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChSinkPrevDaySuspectedFlag": {
+    "name": "optIfOChSinkPrevDaySuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.6.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSinkPrevDayLastInputPower": {
+    "name": "optIfOChSinkPrevDayLastInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.6.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSinkPrevDayLowInputPower": {
+    "name": "optIfOChSinkPrevDayLowInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.6.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSinkPrevDayHighInputPower": {
+    "name": "optIfOChSinkPrevDayHighInputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.6.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSrcCurrentTable": {
+    "name": "optIfOChSrcCurrentTable",
+    "oid": "1.3.6.1.2.1.10.133.1.6.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOChSrcCurrentEntry": {
+    "name": "optIfOChSrcCurrentEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.6.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChSrcCurrentSuspectedFlag": {
+    "name": "optIfOChSrcCurrentSuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.6.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSrcCurrentOutputPower": {
+    "name": "optIfOChSrcCurrentOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.6.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSrcCurrentLowOutputPower": {
+    "name": "optIfOChSrcCurrentLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.6.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSrcCurrentHighOutputPower": {
+    "name": "optIfOChSrcCurrentHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.6.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSrcCurrentLowerOutputPowerThreshold": {
+    "name": "optIfOChSrcCurrentLowerOutputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.6.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOChSrcCurrentUpperOutputPowerThreshold": {
+    "name": "optIfOChSrcCurrentUpperOutputPowerThreshold",
+    "oid": "1.3.6.1.2.1.10.133.1.6.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOChSrcIntervalTable": {
+    "name": "optIfOChSrcIntervalTable",
+    "oid": "1.3.6.1.2.1.10.133.1.6.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOChSrcIntervalEntry": {
+    "name": "optIfOChSrcIntervalEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.6.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSrcIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChSrcIntervalNumber": {
+    "name": "optIfOChSrcIntervalNumber",
+    "oid": "1.3.6.1.2.1.10.133.1.6.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfIntervalNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOChSrcIntervalSuspectedFlag": {
+    "name": "optIfOChSrcIntervalSuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.6.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSrcIntervalLastOutputPower": {
+    "name": "optIfOChSrcIntervalLastOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.6.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSrcIntervalLowOutputPower": {
+    "name": "optIfOChSrcIntervalLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.6.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSrcIntervalHighOutputPower": {
+    "name": "optIfOChSrcIntervalHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.6.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSrcCurDayTable": {
+    "name": "optIfOChSrcCurDayTable",
+    "oid": "1.3.6.1.2.1.10.133.1.6.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOChSrcCurDayEntry": {
+    "name": "optIfOChSrcCurDayEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.6.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChSrcCurDaySuspectedFlag": {
+    "name": "optIfOChSrcCurDaySuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.6.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSrcCurDayLowOutputPower": {
+    "name": "optIfOChSrcCurDayLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.6.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSrcCurDayHighOutputPower": {
+    "name": "optIfOChSrcCurDayHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.6.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSrcPrevDayTable": {
+    "name": "optIfOChSrcPrevDayTable",
+    "oid": "1.3.6.1.2.1.10.133.1.6.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOChSrcPrevDayEntry": {
+    "name": "optIfOChSrcPrevDayEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.6.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChSrcPrevDaySuspectedFlag": {
+    "name": "optIfOChSrcPrevDaySuspectedFlag",
+    "oid": "1.3.6.1.2.1.10.133.1.6.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSrcPrevDayLastOutputPower": {
+    "name": "optIfOChSrcPrevDayLastOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.6.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSrcPrevDayLowOutputPower": {
+    "name": "optIfOChSrcPrevDayLowOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.6.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOChSrcPrevDayHighOutputPower": {
+    "name": "optIfOChSrcPrevDayHighOutputPower",
+    "oid": "1.3.6.1.2.1.10.133.1.6.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTUkConfigTable": {
+    "name": "optIfOTUkConfigTable",
+    "oid": "1.3.6.1.2.1.10.133.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfOTUkConfigEntry": {
+    "name": "optIfOTUkConfigEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTUkDirectionality": {
+    "name": "optIfOTUkDirectionality",
+    "oid": "1.3.6.1.2.1.10.133.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfDirectionality",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTUkBitRateK": {
+    "name": "optIfOTUkBitRateK",
+    "oid": "1.3.6.1.2.1.10.133.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfBitRateK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTUkTraceIdentifierTransmitted": {
+    "name": "optIfOTUkTraceIdentifierTransmitted",
+    "oid": "1.3.6.1.2.1.10.133.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfTxTI",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTUkDAPIExpected": {
+    "name": "optIfOTUkDAPIExpected",
+    "oid": "1.3.6.1.2.1.10.133.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfExDAPI",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTUkSAPIExpected": {
+    "name": "optIfOTUkSAPIExpected",
+    "oid": "1.3.6.1.2.1.10.133.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfExSAPI",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTUkTraceIdentifierAccepted": {
+    "name": "optIfOTUkTraceIdentifierAccepted",
+    "oid": "1.3.6.1.2.1.10.133.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfAcTI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfOTUkTIMDetMode": {
+    "name": "optIfOTUkTIMDetMode",
+    "oid": "1.3.6.1.2.1.10.133.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfTIMDetMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTUkTIMActEnabled": {
+    "name": "optIfOTUkTIMActEnabled",
+    "oid": "1.3.6.1.2.1.10.133.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTUkDEGThr": {
+    "name": "optIfOTUkDEGThr",
+    "oid": "1.3.6.1.2.1.10.133.1.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfDEGThr",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTUkDEGM": {
+    "name": "optIfOTUkDEGM",
+    "oid": "1.3.6.1.2.1.10.133.1.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfDEGM",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTUkSinkAdaptActive": {
+    "name": "optIfOTUkSinkAdaptActive",
+    "oid": "1.3.6.1.2.1.10.133.1.7.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTUkSourceAdaptActive": {
+    "name": "optIfOTUkSourceAdaptActive",
+    "oid": "1.3.6.1.2.1.10.133.1.7.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTUkSinkFECEnabled": {
+    "name": "optIfOTUkSinkFECEnabled",
+    "oid": "1.3.6.1.2.1.10.133.1.7.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfOTUkCurrentStatus": {
+    "name": "optIfOTUkCurrentStatus",
+    "oid": "1.3.6.1.2.1.10.133.1.7.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "tim": 0,
+        "deg": 1,
+        "bdi": 2,
+        "ssf": 3,
+        "lof": 4,
+        "ais": 5,
+        "lom": 6
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfGCC0ConfigTable": {
+    "name": "optIfGCC0ConfigTable",
+    "oid": "1.3.6.1.2.1.10.133.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfGCC0ConfigEntry": {
+    "name": "optIfGCC0ConfigEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfGCC0Directionality",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfGCC0Directionality": {
+    "name": "optIfGCC0Directionality",
+    "oid": "1.3.6.1.2.1.10.133.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfDirectionality",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfGCC0Application": {
+    "name": "optIfGCC0Application",
+    "oid": "1.3.6.1.2.1.10.133.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfGCC0RowStatus": {
+    "name": "optIfGCC0RowStatus",
+    "oid": "1.3.6.1.2.1.10.133.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkConfigTable": {
+    "name": "optIfODUkConfigTable",
+    "oid": "1.3.6.1.2.1.10.133.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfODUkConfigEntry": {
+    "name": "optIfODUkConfigEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfODUkDirectionality": {
+    "name": "optIfODUkDirectionality",
+    "oid": "1.3.6.1.2.1.10.133.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfDirectionality",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfODUkBitRateK": {
+    "name": "optIfODUkBitRateK",
+    "oid": "1.3.6.1.2.1.10.133.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfBitRateK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfODUkTcmFieldsInUse": {
+    "name": "optIfODUkTcmFieldsInUse",
+    "oid": "1.3.6.1.2.1.10.133.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "tcmField1": 0,
+        "tcmField2": 1,
+        "tcmField3": 2,
+        "tcmField4": 3,
+        "tcmField5": 4,
+        "tcmField6": 5
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfODUkPositionSeqCurrentSize": {
+    "name": "optIfODUkPositionSeqCurrentSize",
+    "oid": "1.3.6.1.2.1.10.133.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfODUkTtpPresent": {
+    "name": "optIfODUkTtpPresent",
+    "oid": "1.3.6.1.2.1.10.133.1.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfODUkTtpConfigTable": {
+    "name": "optIfODUkTtpConfigTable",
+    "oid": "1.3.6.1.2.1.10.133.1.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfODUkTtpConfigEntry": {
+    "name": "optIfODUkTtpConfigEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfODUkTtpTraceIdentifierTransmitted": {
+    "name": "optIfODUkTtpTraceIdentifierTransmitted",
+    "oid": "1.3.6.1.2.1.10.133.1.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfTxTI",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfODUkTtpDAPIExpected": {
+    "name": "optIfODUkTtpDAPIExpected",
+    "oid": "1.3.6.1.2.1.10.133.1.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfExDAPI",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfODUkTtpSAPIExpected": {
+    "name": "optIfODUkTtpSAPIExpected",
+    "oid": "1.3.6.1.2.1.10.133.1.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfExSAPI",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfODUkTtpTraceIdentifierAccepted": {
+    "name": "optIfODUkTtpTraceIdentifierAccepted",
+    "oid": "1.3.6.1.2.1.10.133.1.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfAcTI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfODUkTtpTIMDetMode": {
+    "name": "optIfODUkTtpTIMDetMode",
+    "oid": "1.3.6.1.2.1.10.133.1.8.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfTIMDetMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfODUkTtpTIMActEnabled": {
+    "name": "optIfODUkTtpTIMActEnabled",
+    "oid": "1.3.6.1.2.1.10.133.1.8.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfODUkTtpDEGThr": {
+    "name": "optIfODUkTtpDEGThr",
+    "oid": "1.3.6.1.2.1.10.133.1.8.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfDEGThr",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfODUkTtpDEGM": {
+    "name": "optIfODUkTtpDEGM",
+    "oid": "1.3.6.1.2.1.10.133.1.8.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfDEGM",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optIfODUkTtpCurrentStatus": {
+    "name": "optIfODUkTtpCurrentStatus",
+    "oid": "1.3.6.1.2.1.10.133.1.8.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "oci": 0,
+        "lck": 1,
+        "tim": 2,
+        "deg": 3,
+        "bdi": 4,
+        "ssf": 5
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfODUkPositionSeqTable": {
+    "name": "optIfODUkPositionSeqTable",
+    "oid": "1.3.6.1.2.1.10.133.1.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfODUkPositionSeqEntry": {
+    "name": "optIfODUkPositionSeqEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkPositionSeqIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfODUkPositionSeqIndex": {
+    "name": "optIfODUkPositionSeqIndex",
+    "oid": "1.3.6.1.2.1.10.133.1.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfODUkPositionSeqPosition": {
+    "name": "optIfODUkPositionSeqPosition",
+    "oid": "1.3.6.1.2.1.10.133.1.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfODUkPositionSeqPointer": {
+    "name": "optIfODUkPositionSeqPointer",
+    "oid": "1.3.6.1.2.1.10.133.1.8.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfODUkNimConfigTable": {
+    "name": "optIfODUkNimConfigTable",
+    "oid": "1.3.6.1.2.1.10.133.1.8.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfODUkNimConfigEntry": {
+    "name": "optIfODUkNimConfigEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.8.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkNimDirectionality",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfODUkNimDirectionality": {
+    "name": "optIfODUkNimDirectionality",
+    "oid": "1.3.6.1.2.1.10.133.1.8.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfSinkOrSource",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfODUkNimDAPIExpected": {
+    "name": "optIfODUkNimDAPIExpected",
+    "oid": "1.3.6.1.2.1.10.133.1.8.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfExDAPI",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkNimSAPIExpected": {
+    "name": "optIfODUkNimSAPIExpected",
+    "oid": "1.3.6.1.2.1.10.133.1.8.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfExSAPI",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkNimTraceIdentifierAccepted": {
+    "name": "optIfODUkNimTraceIdentifierAccepted",
+    "oid": "1.3.6.1.2.1.10.133.1.8.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfAcTI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfODUkNimTIMDetMode": {
+    "name": "optIfODUkNimTIMDetMode",
+    "oid": "1.3.6.1.2.1.10.133.1.8.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfTIMDetMode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkNimTIMActEnabled": {
+    "name": "optIfODUkNimTIMActEnabled",
+    "oid": "1.3.6.1.2.1.10.133.1.8.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkNimDEGThr": {
+    "name": "optIfODUkNimDEGThr",
+    "oid": "1.3.6.1.2.1.10.133.1.8.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfDEGThr",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkNimDEGM": {
+    "name": "optIfODUkNimDEGM",
+    "oid": "1.3.6.1.2.1.10.133.1.8.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfDEGM",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkNimCurrentStatus": {
+    "name": "optIfODUkNimCurrentStatus",
+    "oid": "1.3.6.1.2.1.10.133.1.8.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "oci": 0,
+        "lck": 1,
+        "tim": 2,
+        "deg": 3,
+        "bdi": 4,
+        "ssf": 5
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfODUkNimRowStatus": {
+    "name": "optIfODUkNimRowStatus",
+    "oid": "1.3.6.1.2.1.10.133.1.8.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfGCC12ConfigTable": {
+    "name": "optIfGCC12ConfigTable",
+    "oid": "1.3.6.1.2.1.10.133.1.8.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfGCC12ConfigEntry": {
+    "name": "optIfGCC12ConfigEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.8.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfGCC12Codirectional",
+        "implied": 0
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfGCC12GCCAccess",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfGCC12Codirectional": {
+    "name": "optIfGCC12Codirectional",
+    "oid": "1.3.6.1.2.1.10.133.1.8.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfGCC12GCCAccess": {
+    "name": "optIfGCC12GCCAccess",
+    "oid": "1.3.6.1.2.1.10.133.1.8.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gcc1": 1,
+          "gcc2": 2,
+          "gcc1and2": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfGCC12GCCPassThrough": {
+    "name": "optIfGCC12GCCPassThrough",
+    "oid": "1.3.6.1.2.1.10.133.1.8.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfGCC12Application": {
+    "name": "optIfGCC12Application",
+    "oid": "1.3.6.1.2.1.10.133.1.8.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfGCC12RowStatus": {
+    "name": "optIfGCC12RowStatus",
+    "oid": "1.3.6.1.2.1.10.133.1.8.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkTConfigTable": {
+    "name": "optIfODUkTConfigTable",
+    "oid": "1.3.6.1.2.1.10.133.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfODUkTConfigEntry": {
+    "name": "optIfODUkTConfigEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTTcmField",
+        "implied": 0
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTCodirectional",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfODUkTTcmField": {
+    "name": "optIfODUkTTcmField",
+    "oid": "1.3.6.1.2.1.10.133.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfODUkTCodirectional": {
+    "name": "optIfODUkTCodirectional",
+    "oid": "1.3.6.1.2.1.10.133.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfODUkTTraceIdentifierTransmitted": {
+    "name": "optIfODUkTTraceIdentifierTransmitted",
+    "oid": "1.3.6.1.2.1.10.133.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfTxTI",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkTDAPIExpected": {
+    "name": "optIfODUkTDAPIExpected",
+    "oid": "1.3.6.1.2.1.10.133.1.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfExDAPI",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkTSAPIExpected": {
+    "name": "optIfODUkTSAPIExpected",
+    "oid": "1.3.6.1.2.1.10.133.1.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfExSAPI",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkTTraceIdentifierAccepted": {
+    "name": "optIfODUkTTraceIdentifierAccepted",
+    "oid": "1.3.6.1.2.1.10.133.1.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfAcTI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfODUkTTIMDetMode": {
+    "name": "optIfODUkTTIMDetMode",
+    "oid": "1.3.6.1.2.1.10.133.1.9.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfTIMDetMode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkTTIMActEnabled": {
+    "name": "optIfODUkTTIMActEnabled",
+    "oid": "1.3.6.1.2.1.10.133.1.9.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkTDEGThr": {
+    "name": "optIfODUkTDEGThr",
+    "oid": "1.3.6.1.2.1.10.133.1.9.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfDEGThr",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkTDEGM": {
+    "name": "optIfODUkTDEGM",
+    "oid": "1.3.6.1.2.1.10.133.1.9.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfDEGM",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkTSinkMode": {
+    "name": "optIfODUkTSinkMode",
+    "oid": "1.3.6.1.2.1.10.133.1.9.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "operational": 1,
+          "monitor": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkTSinkLockSignalAdminState": {
+    "name": "optIfODUkTSinkLockSignalAdminState",
+    "oid": "1.3.6.1.2.1.10.133.1.9.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "locked": 1,
+          "normal": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkTSourceLockSignalAdminState": {
+    "name": "optIfODUkTSourceLockSignalAdminState",
+    "oid": "1.3.6.1.2.1.10.133.1.9.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "locked": 1,
+          "normal": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkTCurrentStatus": {
+    "name": "optIfODUkTCurrentStatus",
+    "oid": "1.3.6.1.2.1.10.133.1.9.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "oci": 0,
+        "lck": 1,
+        "tim": 2,
+        "deg": 3,
+        "bdi": 4,
+        "ssf": 5
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfODUkTRowStatus": {
+    "name": "optIfODUkTRowStatus",
+    "oid": "1.3.6.1.2.1.10.133.1.9.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkTNimConfigTable": {
+    "name": "optIfODUkTNimConfigTable",
+    "oid": "1.3.6.1.2.1.10.133.1.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfODUkTNimConfigEntry": {
+    "name": "optIfODUkTNimConfigEntry",
+    "oid": "1.3.6.1.2.1.10.133.1.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTNimTcmField",
+        "implied": 0
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTNimDirectionality",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optIfODUkTNimTcmField": {
+    "name": "optIfODUkTNimTcmField",
+    "oid": "1.3.6.1.2.1.10.133.1.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfODUkTNimDirectionality": {
+    "name": "optIfODUkTNimDirectionality",
+    "oid": "1.3.6.1.2.1.10.133.1.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfSinkOrSource",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optIfODUkTNimDAPIExpected": {
+    "name": "optIfODUkTNimDAPIExpected",
+    "oid": "1.3.6.1.2.1.10.133.1.9.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfExDAPI",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkTNimSAPIExpected": {
+    "name": "optIfODUkTNimSAPIExpected",
+    "oid": "1.3.6.1.2.1.10.133.1.9.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfExSAPI",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkTNimTraceIdentifierAccepted": {
+    "name": "optIfODUkTNimTraceIdentifierAccepted",
+    "oid": "1.3.6.1.2.1.10.133.1.9.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfAcTI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfODUkTNimTIMDetMode": {
+    "name": "optIfODUkTNimTIMDetMode",
+    "oid": "1.3.6.1.2.1.10.133.1.9.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfTIMDetMode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkTNimTIMActEnabled": {
+    "name": "optIfODUkTNimTIMActEnabled",
+    "oid": "1.3.6.1.2.1.10.133.1.9.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkTNimDEGThr": {
+    "name": "optIfODUkTNimDEGThr",
+    "oid": "1.3.6.1.2.1.10.133.1.9.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfDEGThr",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkTNimDEGM": {
+    "name": "optIfODUkTNimDEGM",
+    "oid": "1.3.6.1.2.1.10.133.1.9.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptIfDEGM",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfODUkTNimCurrentStatus": {
+    "name": "optIfODUkTNimCurrentStatus",
+    "oid": "1.3.6.1.2.1.10.133.1.9.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "oci": 0,
+        "lck": 1,
+        "tim": 2,
+        "deg": 3,
+        "bdi": 4,
+        "ssf": 5
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optIfODUkTNimRowStatus": {
+    "name": "optIfODUkTNimRowStatus",
+    "oid": "1.3.6.1.2.1.10.133.1.9.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optIfOTMnGroup": {
+    "name": "optIfOTMnGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTMnOrder"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTMnReduced"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTMnBitRates"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTMnInterfaceType"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTMnTcmMax"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTMnOpticalReach"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfPerfMonGroup": {
+    "name": "optIfPerfMonGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfPerfMonCurrentTimeElapsed"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfPerfMonCurDayTimeElapsed"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfPerfMonIntervalNumIntervals"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfPerfMonIntervalNumInvalidIntervals"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTSnCommonGroup": {
+    "name": "optIfOTSnCommonGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnDirectionality"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTSnSourceGroupFull": {
+    "name": "optIfOTSnSourceGroupFull",
+    "oid": "1.3.6.1.2.1.10.133.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnTraceIdentifierTransmitted"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTSnAPRStatusGroup": {
+    "name": "optIfOTSnAPRStatusGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnAprStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTSnAPRControlGroup": {
+    "name": "optIfOTSnAPRControlGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnAprControl"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTSnSinkGroupBasic": {
+    "name": "optIfOTSnSinkGroupBasic",
+    "oid": "1.3.6.1.2.1.10.133.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnCurrentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTSnSinkGroupFull": {
+    "name": "optIfOTSnSinkGroupFull",
+    "oid": "1.3.6.1.2.1.10.133.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnDAPIExpected"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSAPIExpected"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnTraceIdentifierAccepted"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnTIMDetMode"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnTIMActEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTSnSinkPreOtnPMGroup": {
+    "name": "optIfOTSnSinkPreOtnPMGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkCurrentSuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkCurrentInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkCurrentLowInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkCurrentHighInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkCurrentOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkCurrentLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkCurrentHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkIntervalSuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkIntervalLastInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkIntervalLowInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkIntervalHighInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkIntervalLastOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkIntervalLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkIntervalHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkCurDaySuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkCurDayLowInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkCurDayHighInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkCurDayLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkCurDayHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkPrevDaySuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkPrevDayLastInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkPrevDayLowInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkPrevDayHighInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkPrevDayLastOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkPrevDayLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkPrevDayHighOutputPower"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTSnSinkPreOtnPMThresholdGroup": {
+    "name": "optIfOTSnSinkPreOtnPMThresholdGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkCurrentLowerInputPowerThreshold"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkCurrentUpperInputPowerThreshold"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkCurrentLowerOutputPowerThreshold"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSinkCurrentUpperOutputPowerThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTSnSourcePreOtnPMGroup": {
+    "name": "optIfOTSnSourcePreOtnPMGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcCurrentSuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcCurrentOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcCurrentLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcCurrentHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcCurrentInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcCurrentLowInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcCurrentHighInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcIntervalSuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcIntervalLastOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcIntervalLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcIntervalHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcIntervalLastInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcIntervalLowInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcIntervalHighInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcCurDaySuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcCurDayLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcCurDayHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcCurDayLowInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcCurDayHighInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcPrevDaySuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcPrevDayLastOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcPrevDayLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcPrevDayHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcPrevDayLastInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcPrevDayLowInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcPrevDayHighInputPower"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTSnSourcePreOtnPMThresholdGroup": {
+    "name": "optIfOTSnSourcePreOtnPMThresholdGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcCurrentLowerOutputPowerThreshold"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcCurrentUpperOutputPowerThreshold"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcCurrentLowerInputPowerThreshold"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTSnSrcCurrentUpperInputPowerThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOMSnCommonGroup": {
+    "name": "optIfOMSnCommonGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnDirectionality"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOMSnSinkGroupBasic": {
+    "name": "optIfOMSnSinkGroupBasic",
+    "oid": "1.3.6.1.2.1.10.133.2.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnCurrentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOMSnSinkPreOtnPMGroup": {
+    "name": "optIfOMSnSinkPreOtnPMGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkCurrentSuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkCurrentAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkCurrentLowAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkCurrentHighAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkCurrentOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkCurrentLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkCurrentHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkIntervalSuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkIntervalLastAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkIntervalLowAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkIntervalHighAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkIntervalLastOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkIntervalLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkIntervalHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkCurDaySuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkCurDayLowAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkCurDayHighAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkCurDayLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkCurDayHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkPrevDaySuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkPrevDayLastAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkPrevDayLowAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkPrevDayHighAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkPrevDayLastOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkPrevDayLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkPrevDayHighOutputPower"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOMSnSinkPreOtnPMThresholdGroup": {
+    "name": "optIfOMSnSinkPreOtnPMThresholdGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkCurrentLowerInputPowerThreshold"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkCurrentUpperInputPowerThreshold"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkCurrentLowerOutputPowerThreshold"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSinkCurrentUpperOutputPowerThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOMSnSourcePreOtnPMGroup": {
+    "name": "optIfOMSnSourcePreOtnPMGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcCurrentSuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcCurrentOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcCurrentLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcCurrentHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcCurrentAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcCurrentLowAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcCurrentHighAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcIntervalSuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcIntervalLastOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcIntervalLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcIntervalHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcIntervalLastAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcIntervalLowAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcIntervalHighAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcCurDaySuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcCurDayLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcCurDayHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcCurDayLowAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcCurDayHighAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcPrevDaySuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcPrevDayLastOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcPrevDayLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcPrevDayHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcPrevDayLastAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcPrevDayLowAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcPrevDayHighAggregatedInputPower"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOMSnSourcePreOtnPMThresholdGroup": {
+    "name": "optIfOMSnSourcePreOtnPMThresholdGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcCurrentLowerOutputPowerThreshold"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcCurrentUpperOutputPowerThreshold"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcCurrentLowerInputPowerThreshold"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOMSnSrcCurrentUpperInputPowerThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChGroupCommonGroup": {
+    "name": "optIfOChGroupCommonGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupDirectionality"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChGroupSinkPreOtnPMGroup": {
+    "name": "optIfOChGroupSinkPreOtnPMGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkCurrentSuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkCurrentAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkCurrentLowAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkCurrentHighAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkCurrentOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkCurrentLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkCurrentHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkIntervalSuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkIntervalLastAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkIntervalLowAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkIntervalHighAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkIntervalLastOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkIntervalLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkIntervalHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkCurDaySuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkCurDayLowAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkCurDayHighAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkCurDayLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkCurDayHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkPrevDaySuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkPrevDayLastAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkPrevDayLowAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkPrevDayHighAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkPrevDayLastOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkPrevDayLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkPrevDayHighOutputPower"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChGroupSinkPreOtnPMThresholdGroup": {
+    "name": "optIfOChGroupSinkPreOtnPMThresholdGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkCurrentLowerInputPowerThreshold"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkCurrentUpperInputPowerThreshold"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkCurrentLowerOutputPowerThreshold"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSinkCurrentUpperOutputPowerThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChGroupSourcePreOtnPMGroup": {
+    "name": "optIfOChGroupSourcePreOtnPMGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcCurrentSuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcCurrentOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcCurrentLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcCurrentHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcCurrentAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcCurrentLowAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcCurrentHighAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcIntervalSuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcIntervalLastOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcIntervalLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcIntervalHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcIntervalLastAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcIntervalLowAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcIntervalHighAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcCurDaySuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcCurDayLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcCurDayHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcCurDayLowAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcCurDayHighAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcPrevDaySuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcPrevDayLastOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcPrevDayLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcPrevDayHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcPrevDayLastAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcPrevDayLowAggregatedInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcPrevDayHighAggregatedInputPower"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChGroupSourcePreOtnPMThresholdGroup": {
+    "name": "optIfOChGroupSourcePreOtnPMThresholdGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcCurrentLowerOutputPowerThreshold"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcCurrentUpperOutputPowerThreshold"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcCurrentLowerInputPowerThreshold"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChGroupSrcCurrentUpperInputPowerThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChCommonGroup": {
+    "name": "optIfOChCommonGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChDirectionality"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChSinkGroupBasic": {
+    "name": "optIfOChSinkGroupBasic",
+    "oid": "1.3.6.1.2.1.10.133.2.1.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChCurrentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChSinkPreOtnPMGroup": {
+    "name": "optIfOChSinkPreOtnPMGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSinkCurrentSuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSinkCurrentInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSinkCurrentLowInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSinkCurrentHighInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSinkIntervalSuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSinkIntervalLastInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSinkIntervalLowInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSinkIntervalHighInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSinkCurDaySuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSinkCurDayLowInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSinkCurDayHighInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSinkPrevDaySuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSinkPrevDayLastInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSinkPrevDayLowInputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSinkPrevDayHighInputPower"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChSinkPreOtnPMThresholdGroup": {
+    "name": "optIfOChSinkPreOtnPMThresholdGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSinkCurrentLowerInputPowerThreshold"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSinkCurrentUpperInputPowerThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChSourcePreOtnPMGroup": {
+    "name": "optIfOChSourcePreOtnPMGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSrcCurrentSuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSrcCurrentOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSrcCurrentLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSrcCurrentHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSrcIntervalSuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSrcIntervalLastOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSrcIntervalLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSrcIntervalHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSrcCurDaySuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSrcCurDayLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSrcCurDayHighOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSrcPrevDaySuspectedFlag"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSrcPrevDayLastOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSrcPrevDayLowOutputPower"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSrcPrevDayHighOutputPower"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOChSourcePreOtnPMThresholdGroup": {
+    "name": "optIfOChSourcePreOtnPMThresholdGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSrcCurrentLowerOutputPowerThreshold"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOChSrcCurrentUpperOutputPowerThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTUkCommonGroup": {
+    "name": "optIfOTUkCommonGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.30",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTUkDirectionality"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTUkBitRateK"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTUkSourceGroup": {
+    "name": "optIfOTUkSourceGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.31",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTUkTraceIdentifierTransmitted"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTUkSourceAdaptActive"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfOTUkSinkGroup": {
+    "name": "optIfOTUkSinkGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.32",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTUkDAPIExpected"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTUkSAPIExpected"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTUkTraceIdentifierAccepted"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTUkTIMDetMode"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTUkTIMActEnabled"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTUkDEGThr"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTUkDEGM"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTUkSinkAdaptActive"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTUkSinkFECEnabled"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfOTUkCurrentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfGCC0Group": {
+    "name": "optIfGCC0Group",
+    "oid": "1.3.6.1.2.1.10.133.2.1.33",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfGCC0Application"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfGCC0RowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfODUkGroup": {
+    "name": "optIfODUkGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.34",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkDirectionality"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkBitRateK"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTcmFieldsInUse"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkPositionSeqCurrentSize"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkPositionSeqPosition"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkPositionSeqPointer"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTtpPresent"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfODUkTtpSourceGroup": {
+    "name": "optIfODUkTtpSourceGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.35",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTtpTraceIdentifierTransmitted"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfODUkTtpSinkGroup": {
+    "name": "optIfODUkTtpSinkGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.36",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTtpDAPIExpected"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTtpSAPIExpected"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTtpTraceIdentifierAccepted"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTtpTIMDetMode"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTtpTIMActEnabled"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTtpDEGThr"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTtpDEGM"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTtpCurrentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfODUkNimGroup": {
+    "name": "optIfODUkNimGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.37",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkNimDAPIExpected"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkNimSAPIExpected"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkNimTraceIdentifierAccepted"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkNimTIMDetMode"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkNimTIMActEnabled"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkNimDEGThr"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkNimDEGM"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkNimCurrentStatus"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkNimRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfGCC12Group": {
+    "name": "optIfGCC12Group",
+    "oid": "1.3.6.1.2.1.10.133.2.1.38",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfGCC12GCCPassThrough"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfGCC12Application"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfGCC12RowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfODUkTCommonGroup": {
+    "name": "optIfODUkTCommonGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.39",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfODUkTSourceGroup": {
+    "name": "optIfODUkTSourceGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.40",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTTraceIdentifierTransmitted"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTSourceLockSignalAdminState"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfODUkTSinkGroup": {
+    "name": "optIfODUkTSinkGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.41",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTDAPIExpected"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTSAPIExpected"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTTraceIdentifierAccepted"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTTIMDetMode"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTTIMActEnabled"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTDEGThr"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTDEGM"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTCurrentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfODUkTSinkGroupCtp": {
+    "name": "optIfODUkTSinkGroupCtp",
+    "oid": "1.3.6.1.2.1.10.133.2.1.42",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTSinkMode"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTSinkLockSignalAdminState"
+      }
+    ],
+    "status": "current"
+  },
+  "optIfODUkTNimGroup": {
+    "name": "optIfODUkTNimGroup",
+    "oid": "1.3.6.1.2.1.10.133.2.1.43",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTNimDAPIExpected"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTNimSAPIExpected"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTNimTraceIdentifierAccepted"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTNimTIMDetMode"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTNimTIMActEnabled"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTNimDEGThr"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTNimDEGM"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTNimCurrentStatus"
+      },
+      {
+        "module": "OPT-IF-MIB",
+        "object": "optIfODUkTNimRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/OPT-IF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "OPT-IF-MIB"
+  }
+}

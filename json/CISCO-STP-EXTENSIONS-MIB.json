@@ -1,0 +1,5192 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "dot1dStpPortEntry"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-VTP-MIB": [
+      "VlanIndex",
+      "vlanTrunkPortEntry",
+      "vtpVlanEditEntry",
+      "vtpVlanEntry"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoStpExtensionsMIB": {
+    "name": "ciscoStpExtensionsMIB",
+    "oid": "1.3.6.1.4.1.9.9.82",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-03-07 00:00",
+        "description": "Added one new value network(5) to stpxFastStartPortMode."
+      },
+      {
+        "revision": "2005-12-20 00:00",
+        "description": "Added bit value rstp(5) to stpxSMSTPortStatus and dispute(4) to stpxRPVSTPortStatus."
+      },
+      {
+        "revision": "2005-04-12 00:00",
+        "description": "Changed the description clauses of stpxMSTMaxHopCount and stpxMSTInstanceRemainingHopCount. Added StpxMSTConfigurationDigest textual convention. Deprecated stpxMSTGroup3 and added the following groups: stpxRSTPTransmitHoldCountGroup, stpxSMSTPortMSTModeGroup, stpxSMSTMaxHopCountGroup, stpxSMSTConfigDigestGroup and stpxMSTGroup4. Added bit dispute(4) into the BITS syntax of stpxSMSTPortStatus. Deprecated stpxMIBCompliance11 and added stpxMIBCompliance12."
+      },
+      {
+        "revision": "2004-07-21 00:00",
+        "description": "Added stpxPathCostOperModeGroup and changed the decription of stpxSpanningTreePathCostMode."
+      },
+      {
+        "revision": "2004-04-08 00:00",
+        "description": "Added stpxSMSTInstanceCISTGroup. Added 3 new bit values into the BITS syntax of stpxNotificationEnable: inconsistency(2), rootInconsistency(3), and loopInconsistency(4)."
+      },
+      {
+        "revision": "2004-01-14 00:00",
+        "description": "Deprecated stpxMSTGroup2 and stpxPreferredMSTInstancesGroup. Added stpxMSTGroup3, stpxSMSTGroup, stpxSMSTInstanceGroup, stpxSMSTInstanceEditGroup, stpxSMSTPortStatusGroup, stpxSMSTPortHelloTimeGroup. Added one new value master(7) to stpxMSTPortRoleValue and stpxRSTPPortRoleValue. Added 2 new unused bit value into the BITS syntax of stpxRPVSTPortStatus."
+      },
+      {
+        "revision": "2003-10-23 00:00",
+        "description": "Added stpxExtendedSysIDGroup, stpxNotificationEnableGroup, and stpxFastStartOperModeGroup."
+      },
+      {
+        "revision": "2002-07-11 00:00",
+        "description": "Added Rapid Spanning Tree Protocol support. Added stpxUplinkFastOperEnabled and stpxBackboneFastOperEnabled objects. Replaced stpxMSTPortAdminLinkType, stpxMSTPortOperLinkType, stpxMSTPortProtocolMigration with stpxRSTPPortAdminLinkType, stpxRSTPPortOperLinkType and stpxRSTPPortProtocolMigration defined in stpxRSTPPortTable. Replaced stpxMSTPortRoleTable with stpxRSTPPortRoleTable. Added stpxRPVSTPortTable."
+      },
+      {
+        "revision": "2001-12-06 00:00",
+        "description": "Added per port Bpdu Guard and Bpdu Filter mode configuration support. Modified the description of stpxUplinkFastEnabled and stpxUplinkStationLearningGenRate for MST support. "
+      },
+      {
+        "revision": "2001-09-14 00:00",
+        "description": "Added MST support, Loop Guard Global Default mode support and Fast Start Global Default mode support. Deprecated stpxFastStartPortEnable and stpxLoopGuardConfigEnabled objects. Changed description of stpxUplinkFastEnabled, stpxUplinkFastTransitions, stpxUplinkStationLearningGenRate, stpxUplinkStationLearningFrames objects for MST support."
+      },
+      {
+        "revision": "2001-06-20 00:00",
+        "description": "Added BPDU Skewing feature support and modified the SYNTAX clause of stpxUplinkStationLearningGenRate."
+      },
+      {
+        "revision": "2001-04-12 00:00",
+        "description": "Added PVST+ VLAN Configuration, MISTP to VLAN mapping, Loopguard, and Port Fast Start support."
+      },
+      {
+        "revision": "2000-05-23 00:00",
+        "description": "Added Long Spanning Tree Path Cost Mode support."
+      },
+      {
+        "revision": "2000-03-21 00:00",
+        "description": "Added Rootguard, 4k VLAN and MISTP support."
+      },
+      {
+        "revision": "1997-11-10 12:00",
+        "description": "Additional objects to support SSTP."
+      },
+      {
+        "revision": "1997-08-19 12:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "stpxObjects": {
+    "name": "stpxObjects",
+    "oid": "1.3.6.1.4.1.9.9.82.1",
+    "class": "objectidentity"
+  },
+  "stpxUplinkFastObjects": {
+    "name": "stpxUplinkFastObjects",
+    "oid": "1.3.6.1.4.1.9.9.82.1.1",
+    "class": "objectidentity"
+  },
+  "stpxVlanObjects": {
+    "name": "stpxVlanObjects",
+    "oid": "1.3.6.1.4.1.9.9.82.1.2",
+    "class": "objectidentity"
+  },
+  "stpxInconsistencyObjects": {
+    "name": "stpxInconsistencyObjects",
+    "oid": "1.3.6.1.4.1.9.9.82.1.3",
+    "class": "objectidentity"
+  },
+  "stpxBackboneFastObjects": {
+    "name": "stpxBackboneFastObjects",
+    "oid": "1.3.6.1.4.1.9.9.82.1.4",
+    "class": "objectidentity"
+  },
+  "stpxRootGuardObjects": {
+    "name": "stpxRootGuardObjects",
+    "oid": "1.3.6.1.4.1.9.9.82.1.5",
+    "class": "objectidentity"
+  },
+  "stpxSpanningTreeObjects": {
+    "name": "stpxSpanningTreeObjects",
+    "oid": "1.3.6.1.4.1.9.9.82.1.6",
+    "class": "objectidentity"
+  },
+  "stpxMISTPObjects": {
+    "name": "stpxMISTPObjects",
+    "oid": "1.3.6.1.4.1.9.9.82.1.7",
+    "class": "objectidentity"
+  },
+  "stpxLoopGuardObjects": {
+    "name": "stpxLoopGuardObjects",
+    "oid": "1.3.6.1.4.1.9.9.82.1.8",
+    "class": "objectidentity"
+  },
+  "stpxFastStartObjects": {
+    "name": "stpxFastStartObjects",
+    "oid": "1.3.6.1.4.1.9.9.82.1.9",
+    "class": "objectidentity"
+  },
+  "stpxBpduSkewingObjects": {
+    "name": "stpxBpduSkewingObjects",
+    "oid": "1.3.6.1.4.1.9.9.82.1.10",
+    "class": "objectidentity"
+  },
+  "stpxMSTObjects": {
+    "name": "stpxMSTObjects",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11",
+    "class": "objectidentity"
+  },
+  "stpxRSTPObjects": {
+    "name": "stpxRSTPObjects",
+    "oid": "1.3.6.1.4.1.9.9.82.1.12",
+    "class": "objectidentity"
+  },
+  "stpxRPVSTObjects": {
+    "name": "stpxRPVSTObjects",
+    "oid": "1.3.6.1.4.1.9.9.82.1.13",
+    "class": "objectidentity"
+  },
+  "stpxSMSTObjects": {
+    "name": "stpxSMSTObjects",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14",
+    "class": "objectidentity"
+  },
+  "stpxNotifications": {
+    "name": "stpxNotifications",
+    "oid": "1.3.6.1.4.1.9.9.82.2",
+    "class": "objectidentity"
+  },
+  "StpxMSTConfigurationDigest": {
+    "name": "StpxMSTConfigurationDigest",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "1x",
+    "status": "current"
+  },
+  "stpxUplinkFastEnabled": {
+    "name": "stpxUplinkFastEnabled",
+    "oid": "1.3.6.1.4.1.9.9.82.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxUplinkFastTransitions": {
+    "name": "stpxUplinkFastTransitions",
+    "oid": "1.3.6.1.4.1.9.9.82.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "transitions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxUplinkStationLearningGenRate": {
+    "name": "stpxUplinkStationLearningGenRate",
+    "oid": "1.3.6.1.4.1.9.9.82.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "units": "frames",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxUplinkStationLearningFrames": {
+    "name": "stpxUplinkStationLearningFrames",
+    "oid": "1.3.6.1.4.1.9.9.82.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxUplinkFastOperEnabled": {
+    "name": "stpxUplinkFastOperEnabled",
+    "oid": "1.3.6.1.4.1.9.9.82.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxPreferredVlansTable": {
+    "name": "stpxPreferredVlansTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxPreferredVlansEntry": {
+    "name": "stpxPreferredVlansEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "stpxPreferredVlansEntry",
+      "module": "CISCO-STP-EXTENSIONS-MIB",
+      "object": "vlanTrunkPortEntry"
+    },
+    "status": "current"
+  },
+  "stpxPreferredVlansMap": {
+    "name": "stpxPreferredVlansMap",
+    "oid": "1.3.6.1.4.1.9.9.82.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 128,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxPreferredVlansMap2k": {
+    "name": "stpxPreferredVlansMap2k",
+    "oid": "1.3.6.1.4.1.9.9.82.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxPreferredVlansMap3k": {
+    "name": "stpxPreferredVlansMap3k",
+    "oid": "1.3.6.1.4.1.9.9.82.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxPreferredVlansMap4k": {
+    "name": "stpxPreferredVlansMap4k",
+    "oid": "1.3.6.1.4.1.9.9.82.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxPVSTVlanTable": {
+    "name": "stpxPVSTVlanTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxPVSTVlanEntry": {
+    "name": "stpxPVSTVlanEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxPVSTVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stpxPVSTVlanIndex": {
+    "name": "stpxPVSTVlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxPVSTVlanEnable": {
+    "name": "stpxPVSTVlanEnable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxInconsistencyTable": {
+    "name": "stpxInconsistencyTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxInconsistencyEntry": {
+    "name": "stpxInconsistencyEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stpxVlanIndex": {
+    "name": "stpxVlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxPortIndex": {
+    "name": "stpxPortIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxInconsistentState": {
+    "name": "stpxInconsistentState",
+    "oid": "1.3.6.1.4.1.9.9.82.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "typeInconsistent": 0,
+        "pvidInconsistent": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxBackboneFastEnabled": {
+    "name": "stpxBackboneFastEnabled",
+    "oid": "1.3.6.1.4.1.9.9.82.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxBackboneFastInInferiorBPDUs": {
+    "name": "stpxBackboneFastInInferiorBPDUs",
+    "oid": "1.3.6.1.4.1.9.9.82.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxBackboneFastInRLQRequestPDUs": {
+    "name": "stpxBackboneFastInRLQRequestPDUs",
+    "oid": "1.3.6.1.4.1.9.9.82.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxBackboneFastInRLQResponsePDUs": {
+    "name": "stpxBackboneFastInRLQResponsePDUs",
+    "oid": "1.3.6.1.4.1.9.9.82.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxBackboneFastOutRLQRequestPDUs": {
+    "name": "stpxBackboneFastOutRLQRequestPDUs",
+    "oid": "1.3.6.1.4.1.9.9.82.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxBackboneFastOutRLQResponsePDUs": {
+    "name": "stpxBackboneFastOutRLQResponsePDUs",
+    "oid": "1.3.6.1.4.1.9.9.82.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxBackboneFastOperEnabled": {
+    "name": "stpxBackboneFastOperEnabled",
+    "oid": "1.3.6.1.4.1.9.9.82.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxRootGuardConfigTable": {
+    "name": "stpxRootGuardConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxRootGuardConfigEntry": {
+    "name": "stpxRootGuardConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxRootGuardConfigPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stpxRootGuardConfigPortIndex": {
+    "name": "stpxRootGuardConfigPortIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxRootGuardConfigEnabled": {
+    "name": "stpxRootGuardConfigEnabled",
+    "oid": "1.3.6.1.4.1.9.9.82.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxRootInconsistencyTable": {
+    "name": "stpxRootInconsistencyTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxRootInconsistencyEntry": {
+    "name": "stpxRootInconsistencyEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxRootInconsistencyIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxRootInconsistencyPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stpxRootInconsistencyIndex": {
+    "name": "stpxRootInconsistencyIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxRootInconsistencyPortIndex": {
+    "name": "stpxRootInconsistencyPortIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxRootInconsistencyState": {
+    "name": "stpxRootInconsistencyState",
+    "oid": "1.3.6.1.4.1.9.9.82.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxSpanningTreeType": {
+    "name": "stpxSpanningTreeType",
+    "oid": "1.3.6.1.4.1.9.9.82.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pvstPlus": 1,
+          "mistp": 2,
+          "mistpPvstPlus": 3,
+          "mst": 4,
+          "rapidPvstPlus": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "pvstPlus",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxSpanningTreePathCostMode": {
+    "name": "stpxSpanningTreePathCostMode",
+    "oid": "1.3.6.1.4.1.9.9.82.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "short": 1,
+          "long": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "short",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxLongStpPortPathCostTable": {
+    "name": "stpxLongStpPortPathCostTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxLongStpPortPathCostEntry": {
+    "name": "stpxLongStpPortPathCostEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "stpxLongStpPortPathCostEntry",
+      "module": "CISCO-STP-EXTENSIONS-MIB",
+      "object": "dot1dStpPortEntry"
+    },
+    "status": "current"
+  },
+  "stpxLongStpPortPathCost": {
+    "name": "stpxLongStpPortPathCost",
+    "oid": "1.3.6.1.4.1.9.9.82.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxExtendedSysIDAdminEnabled": {
+    "name": "stpxExtendedSysIDAdminEnabled",
+    "oid": "1.3.6.1.4.1.9.9.82.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxExtendedSysIDOperEnabled": {
+    "name": "stpxExtendedSysIDOperEnabled",
+    "oid": "1.3.6.1.4.1.9.9.82.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxNotificationEnable": {
+    "name": "stpxNotificationEnable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "newRoot": 0,
+        "topologyChange": 1,
+        "inconsistency": 2,
+        "rootInconsistency": 3,
+        "loopInconsistency": 4
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxSpanningTreePathCostOperMode": {
+    "name": "stpxSpanningTreePathCostOperMode",
+    "oid": "1.3.6.1.4.1.9.9.82.1.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "short": 1,
+          "long": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxMISTPInstanceNumber": {
+    "name": "stpxMISTPInstanceNumber",
+    "oid": "1.3.6.1.4.1.9.9.82.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxMISTPInstanceTable": {
+    "name": "stpxMISTPInstanceTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxMISTPInstanceEntry": {
+    "name": "stpxMISTPInstanceEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMISTPInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stpxMISTPInstanceIndex": {
+    "name": "stpxMISTPInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxMISTPInstanceEnable": {
+    "name": "stpxMISTPInstanceEnable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxMISTPInstanceVlansMapped": {
+    "name": "stpxMISTPInstanceVlansMapped",
+    "oid": "1.3.6.1.4.1.9.9.82.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxMISTPInstanceVlansMapped2k": {
+    "name": "stpxMISTPInstanceVlansMapped2k",
+    "oid": "1.3.6.1.4.1.9.9.82.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxMISTPInstanceVlansMapped3k": {
+    "name": "stpxMISTPInstanceVlansMapped3k",
+    "oid": "1.3.6.1.4.1.9.9.82.1.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxMISTPInstanceVlansMapped4k": {
+    "name": "stpxMISTPInstanceVlansMapped4k",
+    "oid": "1.3.6.1.4.1.9.9.82.1.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxVlanMISTPInstMapTable": {
+    "name": "stpxVlanMISTPInstMapTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxVlanMISTPInstMapEntry": {
+    "name": "stpxVlanMISTPInstMapEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "stpxVlanMISTPInstMapEntry",
+      "module": "CISCO-STP-EXTENSIONS-MIB",
+      "object": "vtpVlanEntry"
+    },
+    "status": "current"
+  },
+  "stpxVlanMISTPInstMapInstIndex": {
+    "name": "stpxVlanMISTPInstMapInstIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxVlanMISTPInstMapEditTable": {
+    "name": "stpxVlanMISTPInstMapEditTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.7.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxVlanMISTPInstMapEditEntry": {
+    "name": "stpxVlanMISTPInstMapEditEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.7.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "stpxVlanMISTPInstMapEditEntry",
+      "module": "CISCO-STP-EXTENSIONS-MIB",
+      "object": "vtpVlanEditEntry"
+    },
+    "status": "current"
+  },
+  "stpxVlanMISTPInstMapEditInstIndex": {
+    "name": "stpxVlanMISTPInstMapEditInstIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.7.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "stpxPreferredMISTPInstancesTable": {
+    "name": "stpxPreferredMISTPInstancesTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.7.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxPreferredMISTPInstancesEntry": {
+    "name": "stpxPreferredMISTPInstancesEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.7.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "stpxPreferredMISTPInstancesEntry",
+      "module": "CISCO-STP-EXTENSIONS-MIB",
+      "object": "vlanTrunkPortEntry"
+    },
+    "status": "current"
+  },
+  "stpxPreferredMISTPInstancesMap": {
+    "name": "stpxPreferredMISTPInstancesMap",
+    "oid": "1.3.6.1.4.1.9.9.82.1.7.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxLoopGuardConfigTable": {
+    "name": "stpxLoopGuardConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxLoopGuardConfigEntry": {
+    "name": "stpxLoopGuardConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxLoopGuardConfigPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stpxLoopGuardConfigPortIndex": {
+    "name": "stpxLoopGuardConfigPortIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxLoopGuardConfigEnabled": {
+    "name": "stpxLoopGuardConfigEnabled",
+    "oid": "1.3.6.1.4.1.9.9.82.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "stpxLoopGuardConfigMode": {
+    "name": "stpxLoopGuardConfigMode",
+    "oid": "1.3.6.1.4.1.9.9.82.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "default": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxLoopInconsistencyTable": {
+    "name": "stpxLoopInconsistencyTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxLoopInconsistencyEntry": {
+    "name": "stpxLoopInconsistencyEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxLoopInconsistencyIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxLoopInconsistencyPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stpxLoopInconsistencyIndex": {
+    "name": "stpxLoopInconsistencyIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxLoopInconsistencyPortIndex": {
+    "name": "stpxLoopInconsistencyPortIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxLoopInconsistencyState": {
+    "name": "stpxLoopInconsistencyState",
+    "oid": "1.3.6.1.4.1.9.9.82.1.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxLoopGuardGlobalDefaultMode": {
+    "name": "stpxLoopGuardGlobalDefaultMode",
+    "oid": "1.3.6.1.4.1.9.9.82.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxFastStartBpduGuardEnable": {
+    "name": "stpxFastStartBpduGuardEnable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxFastStartBpduFilterEnable": {
+    "name": "stpxFastStartBpduFilterEnable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxFastStartPortTable": {
+    "name": "stpxFastStartPortTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.9.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxFastStartPortEntry": {
+    "name": "stpxFastStartPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.9.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxFastStartPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stpxFastStartPortIndex": {
+    "name": "stpxFastStartPortIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.9.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxFastStartPortEnable": {
+    "name": "stpxFastStartPortEnable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.9.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "stpxFastStartPortMode": {
+    "name": "stpxFastStartPortMode",
+    "oid": "1.3.6.1.4.1.9.9.82.1.9.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "enableForTrunk": 3,
+          "default": 4,
+          "network": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxFastStartPortBpduGuardMode": {
+    "name": "stpxFastStartPortBpduGuardMode",
+    "oid": "1.3.6.1.4.1.9.9.82.1.9.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "default": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxFastStartPortBpduFilterMode": {
+    "name": "stpxFastStartPortBpduFilterMode",
+    "oid": "1.3.6.1.4.1.9.9.82.1.9.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "default": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxFastStartGlobalDefaultMode": {
+    "name": "stpxFastStartGlobalDefaultMode",
+    "oid": "1.3.6.1.4.1.9.9.82.1.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxFastStartOperModeTable": {
+    "name": "stpxFastStartOperModeTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.9.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxFastStartOperModeEntry": {
+    "name": "stpxFastStartOperModeEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.9.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxFastStartOperModeInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxFastStartOperModePortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stpxFastStartOperModeInstIndex": {
+    "name": "stpxFastStartOperModeInstIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.9.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxFastStartOperModePortIndex": {
+    "name": "stpxFastStartOperModePortIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.9.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxFastStartOperMode": {
+    "name": "stpxFastStartOperMode",
+    "oid": "1.3.6.1.4.1.9.9.82.1.9.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxBpduSkewingDetectionEnable": {
+    "name": "stpxBpduSkewingDetectionEnable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxBpduSkewingTable": {
+    "name": "stpxBpduSkewingTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxBpduSkewingEntry": {
+    "name": "stpxBpduSkewingEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxBpduSkewingInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxBpduSkewingPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stpxBpduSkewingInstanceIndex": {
+    "name": "stpxBpduSkewingInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxBpduSkewingPortIndex": {
+    "name": "stpxBpduSkewingPortIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxBpduSkewingLastSkewDuration": {
+    "name": "stpxBpduSkewingLastSkewDuration",
+    "oid": "1.3.6.1.4.1.9.9.82.1.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxBpduSkewingWorstSkewDuration": {
+    "name": "stpxBpduSkewingWorstSkewDuration",
+    "oid": "1.3.6.1.4.1.9.9.82.1.10.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxBpduSkewingWorstSkewTime": {
+    "name": "stpxBpduSkewingWorstSkewTime",
+    "oid": "1.3.6.1.4.1.9.9.82.1.10.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxMSTMaxInstanceNumber": {
+    "name": "stpxMSTMaxInstanceNumber",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "stpxMSTRegionName": {
+    "name": "stpxMSTRegionName",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxMSTRegionRevision": {
+    "name": "stpxMSTRegionRevision",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "stpxMSTInstanceTable": {
+    "name": "stpxMSTInstanceTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "stpxMSTInstanceEntry": {
+    "name": "stpxMSTInstanceEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "stpxMSTInstanceIndex": {
+    "name": "stpxMSTInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "stpxMSTInstanceVlansMapped": {
+    "name": "stpxMSTInstanceVlansMapped",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "stpxMSTInstanceVlansMapped2k": {
+    "name": "stpxMSTInstanceVlansMapped2k",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "stpxMSTInstanceVlansMapped3k": {
+    "name": "stpxMSTInstanceVlansMapped3k",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "stpxMSTInstanceVlansMapped4k": {
+    "name": "stpxMSTInstanceVlansMapped4k",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "stpxMSTInstanceRemainingHopCount": {
+    "name": "stpxMSTInstanceRemainingHopCount",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "stpxMSTRegionEditBufferStatus": {
+    "name": "stpxMSTRegionEditBufferStatus",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "released": 1,
+          "acquiredBySnmp": 2,
+          "acquiredByNonSnmp": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxMSTRegionEditBufferOperation": {
+    "name": "stpxMSTRegionEditBufferOperation",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "acquire": 2,
+          "releaseWithForce": 3,
+          "commit": 4,
+          "rollBack": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxMSTRegionEditName": {
+    "name": "stpxMSTRegionEditName",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxMSTRegionEditRevision": {
+    "name": "stpxMSTRegionEditRevision",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "stpxMSTInstanceEditTable": {
+    "name": "stpxMSTInstanceEditTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "stpxMSTInstanceEditEntry": {
+    "name": "stpxMSTInstanceEditEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTInstanceEditIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "stpxMSTInstanceEditIndex": {
+    "name": "stpxMSTInstanceEditIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "stpxMSTInstanceEditVlansMap": {
+    "name": "stpxMSTInstanceEditVlansMap",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "stpxMSTInstanceEditVlansMap2k": {
+    "name": "stpxMSTInstanceEditVlansMap2k",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "stpxMSTInstanceEditVlansMap3k": {
+    "name": "stpxMSTInstanceEditVlansMap3k",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "stpxMSTInstanceEditVlansMap4k": {
+    "name": "stpxMSTInstanceEditVlansMap4k",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "stpxPreferredMSTInstancesTable": {
+    "name": "stpxPreferredMSTInstancesTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "stpxPreferredMSTInstancesEntry": {
+    "name": "stpxPreferredMSTInstancesEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "stpxPreferredMSTInstancesEntry",
+      "module": "CISCO-STP-EXTENSIONS-MIB",
+      "object": "vlanTrunkPortEntry"
+    },
+    "status": "deprecated"
+  },
+  "stpxPreferredMSTInstancesMap": {
+    "name": "stpxPreferredMSTInstancesMap",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "stpxMSTPortTable": {
+    "name": "stpxMSTPortTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "stpxMSTPortEntry": {
+    "name": "stpxMSTPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "stpxMSTPortIndex": {
+    "name": "stpxMSTPortIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "stpxMSTPortAdminLinkType": {
+    "name": "stpxMSTPortAdminLinkType",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pointToPoint": 1,
+          "shared": 2,
+          "auto": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "stpxMSTPortOperLinkType": {
+    "name": "stpxMSTPortOperLinkType",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pointToPoint": 1,
+          "shared": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "stpxMSTPortProtocolMigration": {
+    "name": "stpxMSTPortProtocolMigration",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "stpxMSTPortStatus": {
+    "name": "stpxMSTPortStatus",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "edge": 0,
+        "boundary": 1,
+        "pvst": 2,
+        "stp": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "stpxMSTPortRoleTable": {
+    "name": "stpxMSTPortRoleTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "stpxMSTPortRoleEntry": {
+    "name": "stpxMSTPortRoleEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTPortRoleInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTPortRolePortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "stpxMSTPortRoleInstanceIndex": {
+    "name": "stpxMSTPortRoleInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "stpxMSTPortRolePortIndex": {
+    "name": "stpxMSTPortRolePortIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "stpxMSTPortRoleValue": {
+    "name": "stpxMSTPortRoleValue",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "root": 2,
+          "designated": 3,
+          "alternate": 4,
+          "backUp": 5,
+          "boundary": 6,
+          "master": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "stpxMSTMaxHopCount": {
+    "name": "stpxMSTMaxHopCount",
+    "oid": "1.3.6.1.4.1.9.9.82.1.11.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "stpxRSTPPortTable": {
+    "name": "stpxRSTPPortTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxRSTPPortEntry": {
+    "name": "stpxRSTPPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxRSTPPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stpxRSTPPortIndex": {
+    "name": "stpxRSTPPortIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxRSTPPortAdminLinkType": {
+    "name": "stpxRSTPPortAdminLinkType",
+    "oid": "1.3.6.1.4.1.9.9.82.1.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pointToPoint": 1,
+          "shared": 2,
+          "auto": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxRSTPPortOperLinkType": {
+    "name": "stpxRSTPPortOperLinkType",
+    "oid": "1.3.6.1.4.1.9.9.82.1.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pointToPoint": 1,
+          "shared": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxRSTPPortProtocolMigration": {
+    "name": "stpxRSTPPortProtocolMigration",
+    "oid": "1.3.6.1.4.1.9.9.82.1.12.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxRSTPPortRoleTable": {
+    "name": "stpxRSTPPortRoleTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.12.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxRSTPPortRoleEntry": {
+    "name": "stpxRSTPPortRoleEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.12.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxRSTPPortRoleInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxRSTPPortRolePortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stpxRSTPPortRoleInstanceIndex": {
+    "name": "stpxRSTPPortRoleInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.12.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxRSTPPortRolePortIndex": {
+    "name": "stpxRSTPPortRolePortIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.12.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxRSTPPortRoleValue": {
+    "name": "stpxRSTPPortRoleValue",
+    "oid": "1.3.6.1.4.1.9.9.82.1.12.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "root": 2,
+          "designated": 3,
+          "alternate": 4,
+          "backUp": 5,
+          "boundary": 6,
+          "master": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxRSTPTransmitHoldCount": {
+    "name": "stpxRSTPTransmitHoldCount",
+    "oid": "1.3.6.1.4.1.9.9.82.1.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxRPVSTPortTable": {
+    "name": "stpxRPVSTPortTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.13.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxRPVSTPortEntry": {
+    "name": "stpxRPVSTPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.13.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxRPVSTPortVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxRPVSTPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stpxRPVSTPortVlanIndex": {
+    "name": "stpxRPVSTPortVlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.13.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxRPVSTPortIndex": {
+    "name": "stpxRPVSTPortIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.13.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxRPVSTPortStatus": {
+    "name": "stpxRPVSTPortStatus",
+    "oid": "1.3.6.1.4.1.9.9.82.1.13.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "edge": 0,
+        "unused1": 1,
+        "unused2": 2,
+        "stp": 3,
+        "dispute": 4
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxSMSTMaxInstances": {
+    "name": "stpxSMSTMaxInstances",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxSMSTMaxInstanceID": {
+    "name": "stpxSMSTMaxInstanceID",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxSMSTRegionRevision": {
+    "name": "stpxSMSTRegionRevision",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxSMSTRegionEditRevision": {
+    "name": "stpxSMSTRegionEditRevision",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxSMSTInstanceTable": {
+    "name": "stpxSMSTInstanceTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxSMSTInstanceEntry": {
+    "name": "stpxSMSTInstanceEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stpxSMSTInstanceIndex": {
+    "name": "stpxSMSTInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxSMSTInstanceVlansMapped1k2k": {
+    "name": "stpxSMSTInstanceVlansMapped1k2k",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxSMSTInstanceVlansMapped3k4k": {
+    "name": "stpxSMSTInstanceVlansMapped3k4k",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxSMSTInstanceRemainingHopCount": {
+    "name": "stpxSMSTInstanceRemainingHopCount",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxSMSTInstanceCISTRegionalRoot": {
+    "name": "stpxSMSTInstanceCISTRegionalRoot",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxSMSTInstanceCISTIntRootCost": {
+    "name": "stpxSMSTInstanceCISTIntRootCost",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxSMSTInstanceEditTable": {
+    "name": "stpxSMSTInstanceEditTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxSMSTInstanceEditEntry": {
+    "name": "stpxSMSTInstanceEditEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTInstanceEditIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stpxSMSTInstanceEditIndex": {
+    "name": "stpxSMSTInstanceEditIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxSMSTInstanceEditVlansMap1k2k": {
+    "name": "stpxSMSTInstanceEditVlansMap1k2k",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "stpxSMSTInstanceEditVlansMap3k4k": {
+    "name": "stpxSMSTInstanceEditVlansMap3k4k",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "stpxSMSTInstanceEditRowStatus": {
+    "name": "stpxSMSTInstanceEditRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "stpxSMSTPortTable": {
+    "name": "stpxSMSTPortTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxSMSTPortEntry": {
+    "name": "stpxSMSTPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stpxSMSTPortIndex": {
+    "name": "stpxSMSTPortIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxSMSTPortStatus": {
+    "name": "stpxSMSTPortStatus",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "edge": 0,
+        "boundary": 1,
+        "pvst": 2,
+        "stp": 3,
+        "dispute": 4,
+        "rstp": 5
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxSMSTPortAdminHelloTime": {
+    "name": "stpxSMSTPortAdminHelloTime",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hundredth of seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxSMSTPortConfigedHelloTime": {
+    "name": "stpxSMSTPortConfigedHelloTime",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hundredth of seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxSMSTPortOperHelloTime": {
+    "name": "stpxSMSTPortOperHelloTime",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "hundredth of seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxSMSTPortAdminMSTMode": {
+    "name": "stpxSMSTPortAdminMSTMode",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "preStandard": 1,
+          "auto": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxSMSTPortOperMSTMode": {
+    "name": "stpxSMSTPortOperMSTMode",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "preStandard": 2,
+          "standard": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxSMSTMaxHopCount": {
+    "name": "stpxSMSTMaxHopCount",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpxSMSTConfigDigest": {
+    "name": "stpxSMSTConfigDigest",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StpxMSTConfigurationDigest",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxSMSTConfigPreStandardDigest": {
+    "name": "stpxSMSTConfigPreStandardDigest",
+    "oid": "1.3.6.1.4.1.9.9.82.1.14.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StpxMSTConfigurationDigest",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxNotificationsPrefix": {
+    "name": "stpxNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.9.9.82.2.0",
+    "class": "objectidentity"
+  },
+  "stpxInconsistencyUpdate": {
+    "name": "stpxInconsistencyUpdate",
+    "oid": "1.3.6.1.4.1.9.9.82.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxInconsistentState"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxRootInconsistencyUpdate": {
+    "name": "stpxRootInconsistencyUpdate",
+    "oid": "1.3.6.1.4.1.9.9.82.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxRootInconsistencyState"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSpanningTreeType"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxLoopInconsistencyUpdate": {
+    "name": "stpxLoopInconsistencyUpdate",
+    "oid": "1.3.6.1.4.1.9.9.82.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxLoopInconsistencyState"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSpanningTreeType"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxMIBConformance": {
+    "name": "stpxMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.82.3",
+    "class": "objectidentity"
+  },
+  "stpxMIBCompliances": {
+    "name": "stpxMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.82.3.1",
+    "class": "objectidentity"
+  },
+  "stpxMIBGroups": {
+    "name": "stpxMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2",
+    "class": "objectidentity"
+  },
+  "stpxMIBCompliance": {
+    "name": "stpxMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.82.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "stpxUplinkGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPreferredVlansGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "stpxMIBCompliance2": {
+    "name": "stpxMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.82.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "stpxUplinkGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPreferredVlansGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBackboneGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "stpxMIBCompliance3": {
+    "name": "stpxMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.82.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "stpxUplinkGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPreferredVlansGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBackboneGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRootGuardGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRootInconsistencyNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpx4kVlanGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSpanningTreeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMISTPGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "stpxMIBCompliance4": {
+    "name": "stpxMIBCompliance4",
+    "oid": "1.3.6.1.4.1.9.9.82.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "stpxUplinkGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPreferredVlansGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBackboneGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRootGuardGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRootInconsistencyNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpx4kVlanGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSpanningTreeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMISTPGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLongPathCostModeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "stpxMIBCompliance5": {
+    "name": "stpxMIBCompliance5",
+    "oid": "1.3.6.1.4.1.9.9.82.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "stpxUplinkGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPreferredVlansGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBackboneGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRootGuardGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRootInconsistencyNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpx4kVlanGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSpanningTreeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMISTPGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLongPathCostModeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPVSTVlanGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMISTPGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLoopGuardGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLoopInconsistencyNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxFastStartGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "stpxMIBCompliance6": {
+    "name": "stpxMIBCompliance6",
+    "oid": "1.3.6.1.4.1.9.9.82.3.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "stpxUplinkGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSstpGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPreferredVlansGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBackboneGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRootGuardGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRootInconsistencyNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpx4kVlanGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSpanningTreeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMISTPGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLongPathCostModeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPVSTVlanGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMISTPGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLoopInconsistencyNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBpduSkewingGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxFastStartGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLoopGuardGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMSTGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPreferredMSTInstancesGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "stpxMIBCompliance7": {
+    "name": "stpxMIBCompliance7",
+    "oid": "1.3.6.1.4.1.9.9.82.3.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "stpxUplinkGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSstpGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPreferredVlansGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBackboneGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRootGuardGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRootInconsistencyNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpx4kVlanGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSpanningTreeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMISTPGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLongPathCostModeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPVSTVlanGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMISTPGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLoopInconsistencyNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBpduSkewingGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxFastStartGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLoopGuardGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPreferredMSTInstancesGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxFastStartGroup3",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxUplinkGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBackboneGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMSTGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRSTPGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRPVSTGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "stpxMIBCompliance8": {
+    "name": "stpxMIBCompliance8",
+    "oid": "1.3.6.1.4.1.9.9.82.3.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "stpxUplinkGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSstpGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPreferredVlansGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBackboneGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRootGuardGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRootInconsistencyNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpx4kVlanGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSpanningTreeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMISTPGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLongPathCostModeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPVSTVlanGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMISTPGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLoopInconsistencyNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBpduSkewingGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxFastStartGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLoopGuardGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPreferredMSTInstancesGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxFastStartGroup3",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxUplinkGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBackboneGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMSTGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRSTPGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRPVSTGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxExtendedSysIDGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxNotificationEnableGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxFastStartOperModeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "stpxMIBCompliance9": {
+    "name": "stpxMIBCompliance9",
+    "oid": "1.3.6.1.4.1.9.9.82.3.1.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "stpxUplinkGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSstpGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPreferredVlansGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBackboneGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRootGuardGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRootInconsistencyNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpx4kVlanGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSpanningTreeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMISTPGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLongPathCostModeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPVSTVlanGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMISTPGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLoopInconsistencyNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBpduSkewingGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxFastStartGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLoopGuardGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxFastStartGroup3",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxUplinkGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBackboneGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRSTPGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRPVSTGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxExtendedSysIDGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxNotificationEnableGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxFastStartOperModeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMSTGroup3",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTInstanceGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTInstanceEditGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTPortStatusGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTPortHelloTimeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "stpxMIBCompliance10": {
+    "name": "stpxMIBCompliance10",
+    "oid": "1.3.6.1.4.1.9.9.82.3.1.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "stpxUplinkGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSstpGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPreferredVlansGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBackboneGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRootGuardGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRootInconsistencyNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpx4kVlanGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSpanningTreeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMISTPGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLongPathCostModeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPVSTVlanGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMISTPGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLoopInconsistencyNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBpduSkewingGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxFastStartGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLoopGuardGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxFastStartGroup3",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxUplinkGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBackboneGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRSTPGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRPVSTGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxExtendedSysIDGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxNotificationEnableGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxFastStartOperModeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMSTGroup3",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTInstanceGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTInstanceEditGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTPortStatusGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTPortHelloTimeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTInstanceCISTGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "stpxMIBCompliance11": {
+    "name": "stpxMIBCompliance11",
+    "oid": "1.3.6.1.4.1.9.9.82.3.1.11",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "stpxUplinkGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSstpGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPreferredVlansGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBackboneGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRootGuardGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRootInconsistencyNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpx4kVlanGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSpanningTreeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMISTPGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLongPathCostModeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPVSTVlanGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMISTPGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLoopInconsistencyNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBpduSkewingGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxFastStartGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLoopGuardGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxFastStartGroup3",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxUplinkGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBackboneGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRSTPGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRPVSTGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxExtendedSysIDGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxNotificationEnableGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxFastStartOperModeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMSTGroup3",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTInstanceGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTInstanceEditGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTPortStatusGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTPortHelloTimeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTInstanceCISTGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPathCostOperModeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "stpxMIBCompliance12": {
+    "name": "stpxMIBCompliance12",
+    "oid": "1.3.6.1.4.1.9.9.82.3.1.12",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "stpxUplinkGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSstpGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPreferredVlansGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBackboneGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRootGuardGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRootInconsistencyNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpx4kVlanGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSpanningTreeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMISTPGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLongPathCostModeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPVSTVlanGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMISTPGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLoopInconsistencyNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBpduSkewingGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxFastStartGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLoopGuardGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxFastStartGroup3",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxUplinkGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBackboneGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRSTPGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRSTPTransmitHoldCountGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRPVSTGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxExtendedSysIDGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxNotificationEnableGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxFastStartOperModeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMSTGroup4",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTMaxHopCountGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTInstanceGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTInstanceEditGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTPortStatusGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTPortHelloTimeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTInstanceCISTGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPathCostOperModeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTPortMSTModeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTConfigDigestGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxUplinkGroup": {
+    "name": "stpxUplinkGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxUplinkFastEnabled"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxUplinkFastTransitions"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxUplinkStationLearningGenRate"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxUplinkStationLearningFrames"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxPreferredVlansGroup": {
+    "name": "stpxPreferredVlansGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxPreferredVlansMap"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxSstpGroup": {
+    "name": "stpxSstpGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxInconsistentState"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxNotificationsGroup": {
+    "name": "stpxNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxInconsistencyUpdate"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxBackboneGroup": {
+    "name": "stpxBackboneGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxBackboneFastEnabled"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxBackboneFastInInferiorBPDUs"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxBackboneFastInRLQRequestPDUs"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxBackboneFastInRLQResponsePDUs"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxBackboneFastOutRLQRequestPDUs"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxBackboneFastOutRLQResponsePDUs"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxRootGuardGroup": {
+    "name": "stpxRootGuardGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxRootGuardConfigEnabled"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxRootInconsistencyState"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxRootInconsistencyNotificationsGroup": {
+    "name": "stpxRootInconsistencyNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxRootInconsistencyUpdate"
+      }
+    ],
+    "status": "current"
+  },
+  "stpx4kVlanGroup": {
+    "name": "stpx4kVlanGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxPreferredVlansMap2k"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxPreferredVlansMap3k"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxPreferredVlansMap4k"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxSpanningTreeGroup": {
+    "name": "stpxSpanningTreeGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSpanningTreeType"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxMISTPGroup": {
+    "name": "stpxMISTPGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMISTPInstanceNumber"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMISTPInstanceEnable"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxVlanMISTPInstMapInstIndex"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxVlanMISTPInstMapEditInstIndex"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxPreferredMISTPInstancesMap"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxLongPathCostModeGroup": {
+    "name": "stpxLongPathCostModeGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSpanningTreePathCostMode"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxLongStpPortPathCost"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxPVSTVlanGroup": {
+    "name": "stpxPVSTVlanGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxPVSTVlanEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxMISTPGroup2": {
+    "name": "stpxMISTPGroup2",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMISTPInstanceVlansMapped"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMISTPInstanceVlansMapped2k"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMISTPInstanceVlansMapped3k"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMISTPInstanceVlansMapped4k"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxLoopGuardGroup": {
+    "name": "stpxLoopGuardGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxLoopGuardConfigEnabled"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxLoopInconsistencyState"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "stpxLoopInconsistencyNotificationsGroup": {
+    "name": "stpxLoopInconsistencyNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.15",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxLoopInconsistencyUpdate"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxFastStartGroup": {
+    "name": "stpxFastStartGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxFastStartBpduGuardEnable"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxFastStartBpduFilterEnable"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxFastStartPortEnable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "stpxBpduSkewingGroup": {
+    "name": "stpxBpduSkewingGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxBpduSkewingDetectionEnable"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxBpduSkewingLastSkewDuration"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxBpduSkewingWorstSkewDuration"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxBpduSkewingWorstSkewTime"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxFastStartGroup2": {
+    "name": "stpxFastStartGroup2",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxFastStartBpduGuardEnable"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxFastStartBpduFilterEnable"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxFastStartPortMode"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxFastStartGlobalDefaultMode"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxLoopGuardGroup2": {
+    "name": "stpxLoopGuardGroup2",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxLoopInconsistencyState"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxLoopGuardConfigMode"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxLoopGuardGlobalDefaultMode"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxMSTGroup": {
+    "name": "stpxMSTGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTMaxInstanceNumber"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTRegionName"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTRegionRevision"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTInstanceVlansMapped"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTInstanceVlansMapped2k"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTInstanceVlansMapped3k"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTInstanceVlansMapped4k"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTInstanceRemainingHopCount"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTRegionEditBufferStatus"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTRegionEditBufferOperation"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTRegionEditName"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTRegionEditRevision"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTInstanceEditVlansMap"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTInstanceEditVlansMap2k"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTInstanceEditVlansMap3k"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTInstanceEditVlansMap4k"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTPortAdminLinkType"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTPortOperLinkType"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTPortProtocolMigration"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTPortStatus"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTPortRoleValue"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTMaxHopCount"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "stpxPreferredMSTInstancesGroup": {
+    "name": "stpxPreferredMSTInstancesGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxPreferredMSTInstancesMap"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "stpxFastStartGroup3": {
+    "name": "stpxFastStartGroup3",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxFastStartPortBpduGuardMode"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxFastStartPortBpduFilterMode"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxUplinkGroup2": {
+    "name": "stpxUplinkGroup2",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxUplinkFastOperEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxBackboneGroup2": {
+    "name": "stpxBackboneGroup2",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxBackboneFastOperEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxMSTGroup2": {
+    "name": "stpxMSTGroup2",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTMaxInstanceNumber"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTRegionName"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTRegionRevision"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTInstanceVlansMapped"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTInstanceVlansMapped2k"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTInstanceVlansMapped3k"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTInstanceVlansMapped4k"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTInstanceRemainingHopCount"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTRegionEditBufferStatus"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTRegionEditBufferOperation"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTRegionEditName"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTRegionEditRevision"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTInstanceEditVlansMap"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTInstanceEditVlansMap2k"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTInstanceEditVlansMap3k"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTInstanceEditVlansMap4k"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTPortStatus"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTMaxHopCount"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "stpxRSTPGroup": {
+    "name": "stpxRSTPGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxRSTPPortAdminLinkType"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxRSTPPortOperLinkType"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxRSTPPortProtocolMigration"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxRSTPPortRoleValue"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxRPVSTGroup": {
+    "name": "stpxRPVSTGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxRPVSTPortStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxExtendedSysIDGroup": {
+    "name": "stpxExtendedSysIDGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxExtendedSysIDAdminEnabled"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxExtendedSysIDOperEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxNotificationEnableGroup": {
+    "name": "stpxNotificationEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxNotificationEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxFastStartOperModeGroup": {
+    "name": "stpxFastStartOperModeGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.30",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxFastStartOperMode"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxMSTGroup3": {
+    "name": "stpxMSTGroup3",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.31",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTRegionName"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTRegionEditBufferStatus"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTRegionEditBufferOperation"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTRegionEditName"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTMaxHopCount"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "stpxSMSTGroup": {
+    "name": "stpxSMSTGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.32",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTMaxInstances"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTMaxInstanceID"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTRegionRevision"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTRegionEditRevision"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxSMSTInstanceGroup": {
+    "name": "stpxSMSTInstanceGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.33",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTInstanceVlansMapped1k2k"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTInstanceVlansMapped3k4k"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTInstanceRemainingHopCount"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxSMSTInstanceEditGroup": {
+    "name": "stpxSMSTInstanceEditGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.34",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTInstanceEditVlansMap1k2k"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTInstanceEditVlansMap3k4k"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTInstanceEditRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxSMSTPortStatusGroup": {
+    "name": "stpxSMSTPortStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.35",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTPortStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxSMSTPortHelloTimeGroup": {
+    "name": "stpxSMSTPortHelloTimeGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.36",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTPortAdminHelloTime"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTPortConfigedHelloTime"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTPortOperHelloTime"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxSMSTInstanceCISTGroup": {
+    "name": "stpxSMSTInstanceCISTGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.37",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTInstanceCISTRegionalRoot"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTInstanceCISTIntRootCost"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxPathCostOperModeGroup": {
+    "name": "stpxPathCostOperModeGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.38",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSpanningTreePathCostOperMode"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxRSTPTransmitHoldCountGroup": {
+    "name": "stpxRSTPTransmitHoldCountGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.39",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxRSTPTransmitHoldCount"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxSMSTPortMSTModeGroup": {
+    "name": "stpxSMSTPortMSTModeGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.40",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTPortAdminMSTMode"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTPortOperMSTMode"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxSMSTMaxHopCountGroup": {
+    "name": "stpxSMSTMaxHopCountGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.41",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTMaxHopCount"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxSMSTConfigDigestGroup": {
+    "name": "stpxSMSTConfigDigestGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.42",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTConfigDigest"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxSMSTConfigPreStandardDigest"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxMSTGroup4": {
+    "name": "stpxMSTGroup4",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.43",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTRegionName"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTRegionEditBufferStatus"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTRegionEditBufferOperation"
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMSTRegionEditName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-STP-EXTENSIONS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-STP-EXTENSIONS-MIB"
+  }
+}

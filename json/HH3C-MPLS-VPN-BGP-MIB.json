@@ -1,0 +1,685 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cMplsVpnBgp": {
+    "name": "hh3cMplsVpnBgp",
+    "oid": "1.3.6.1.4.1.25506.2.160",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-10-26 20:00",
+        "description": "Add hh3cMplsVpnVrfBgpNbrState in Hh3cMplsVpnVrfBgpNbrAddrEntry."
+      },
+      {
+        "revision": "2015-11-14 20:00",
+        "description": "Modified description of hh3cMplsVpnVrfBgpPAtrIpAddrPrefix, hh3cMplsVpnVrfConfMaxRts, hh3cMplsVpnVrfBgpPAtrPeerType, hh3cMplsVpnVrfBgpPAtrAtomicAggregate."
+      },
+      {
+        "revision": "2014-12-03 20:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "Hh3cMplsVpnId": {
+    "name": "Hh3cMplsVpnId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "displayhint": "31a",
+    "status": "current"
+  },
+  "Hh3cMplsVpnRtDistinguisher": {
+    "name": "Hh3cMplsVpnRtDistinguisher",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "displayhint": "256a",
+    "status": "current"
+  },
+  "hh3cMplsVpnObjects": {
+    "name": "hh3cMplsVpnObjects",
+    "oid": "1.3.6.1.4.1.25506.2.160.1",
+    "class": "objectidentity"
+  },
+  "hh3cMplsVpnConf": {
+    "name": "hh3cMplsVpnConf",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cMplsVpnVrfConfTable": {
+    "name": "hh3cMplsVpnVrfConfTable",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfConfEntry": {
+    "name": "hh3cMplsVpnVrfConfEntry",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MPLS-VPN-BGP-MIB",
+        "object": "hh3cMplsVpnVrfName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfName": {
+    "name": "hh3cMplsVpnVrfName",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cMplsVpnId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfRtDistinguisher": {
+    "name": "hh3cMplsVpnVrfRtDistinguisher",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cMplsVpnRtDistinguisher",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfNetPrefixType": {
+    "name": "hh3cMplsVpnVrfNetPrefixType",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "rip": 2,
+          "ospf": 3,
+          "isis": 4,
+          "bgp": 5,
+          "static": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfNetPrefix": {
+    "name": "hh3cMplsVpnVrfNetPrefix",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfIpRtRedistributeConn": {
+    "name": "hh3cMplsVpnVrfIpRtRedistributeConn",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfIpRtRedistributeStatic": {
+    "name": "hh3cMplsVpnVrfIpRtRedistributeStatic",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfIpRtRedistributeRip": {
+    "name": "hh3cMplsVpnVrfIpRtRedistributeRip",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfConfHighRtThreshold": {
+    "name": "hh3cMplsVpnVrfConfHighRtThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfConfIsWarnOnly": {
+    "name": "hh3cMplsVpnVrfConfIsWarnOnly",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfConfMaxRts": {
+    "name": "hh3cMplsVpnVrfConfMaxRts",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfConfRowStatus": {
+    "name": "hh3cMplsVpnVrfConfRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpNbrAddrTable": {
+    "name": "hh3cMplsVpnVrfBgpNbrAddrTable",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpNbrAddrEntry": {
+    "name": "hh3cMplsVpnVrfBgpNbrAddrEntry",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MPLS-VPN-BGP-MIB",
+        "object": "hh3cMplsVpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-MPLS-VPN-BGP-MIB",
+        "object": "hh3cMplsVpnVrfBgpNbrAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpNbrAddr": {
+    "name": "hh3cMplsVpnVrfBgpNbrAddr",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpNbrRole": {
+    "name": "hh3cMplsVpnVrfBgpNbrRole",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ce": 1,
+          "pe": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpNbrAsNumber": {
+    "name": "hh3cMplsVpnVrfBgpNbrAsNumber",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpNbrAdminStatus": {
+    "name": "hh3cMplsVpnVrfBgpNbrAdminStatus",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mplsVpnVrfBgpNbrSetUp": 1,
+          "mplsVpnVrfBgpNbrSetDown": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpNbrRowStatus": {
+    "name": "hh3cMplsVpnVrfBgpNbrRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpNbrState": {
+    "name": "hh3cMplsVpnVrfBgpNbrState",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "connect": 2,
+          "active": 3,
+          "opensent": 4,
+          "openconfirm": 5,
+          "established": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpNbrPrefixTable": {
+    "name": "hh3cMplsVpnVrfBgpNbrPrefixTable",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpNbrPrefixEntry": {
+    "name": "hh3cMplsVpnVrfBgpNbrPrefixEntry",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MPLS-VPN-BGP-MIB",
+        "object": "hh3cMplsVpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-MPLS-VPN-BGP-MIB",
+        "object": "hh3cMplsVpnVrfBgpPAtrPeer",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-MPLS-VPN-BGP-MIB",
+        "object": "hh3cMplsVpnVrfBgpPAtrIpAddrPrefixLen",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-MPLS-VPN-BGP-MIB",
+        "object": "hh3cMplsVpnVrfBgpPAtrIpAddrPrefix",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpPAtrPeer": {
+    "name": "hh3cMplsVpnVrfBgpPAtrPeer",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpPAtrIpAddrPrefixLen": {
+    "name": "hh3cMplsVpnVrfBgpPAtrIpAddrPrefixLen",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpPAtrIpAddrPrefix": {
+    "name": "hh3cMplsVpnVrfBgpPAtrIpAddrPrefix",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpPAtrPeerType": {
+    "name": "hh3cMplsVpnVrfBgpPAtrPeerType",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpPAtrOrigin": {
+    "name": "hh3cMplsVpnVrfBgpPAtrOrigin",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "igp": 1,
+          "egp": 2,
+          "incomplete": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpPAtrASPathSegment": {
+    "name": "hh3cMplsVpnVrfBgpPAtrASPathSegment",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpPAtrNextHop": {
+    "name": "hh3cMplsVpnVrfBgpPAtrNextHop",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpPAtrMultiExitDisc": {
+    "name": "hh3cMplsVpnVrfBgpPAtrMultiExitDisc",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpPAtrLocalPref": {
+    "name": "hh3cMplsVpnVrfBgpPAtrLocalPref",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpPAtrAtomicAggregate": {
+    "name": "hh3cMplsVpnVrfBgpPAtrAtomicAggregate",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lessSpecificRtNotSelected": 1,
+          "lessSpecificRtSelected": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpPAtrAggregatorAS": {
+    "name": "hh3cMplsVpnVrfBgpPAtrAggregatorAS",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpPAtrAggregatorAddr": {
+    "name": "hh3cMplsVpnVrfBgpPAtrAggregatorAddr",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpPAtrCalcLocalPref": {
+    "name": "hh3cMplsVpnVrfBgpPAtrCalcLocalPref",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpPAtrBest": {
+    "name": "hh3cMplsVpnVrfBgpPAtrBest",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsVpnVrfBgpPAtrUnknown": {
+    "name": "hh3cMplsVpnVrfBgpPAtrUnknown",
+    "oid": "1.3.6.1.4.1.25506.2.160.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-MPLS-VPN-BGP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-MPLS-VPN-BGP-MIB"
+  }
+}

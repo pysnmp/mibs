@@ -1,0 +1,218 @@
+{
+  "imports": {
+    "class": "imports",
+    "BASIS-MIB": [
+      "cardGeneric"
+    ],
+    "CISCOWAN-SMI": [
+      "ciscoWan"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoMgx82xxModuleRsrcPartMIB": {
+    "name": "ciscoMgx82xxModuleRsrcPartMIB",
+    "oid": "1.3.6.1.4.1.351.150.73",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-04-18 00:00",
+        "description": "Initial version of the MIB. The content of this MIB was originally available in CISCO-WAN-AXIPOP-MIB defined using SMIv1. The applicable objects from CISCO-WAN-AXIPOP-MIB are defined using SMIv2 in this MIB. Also the descriptions of some of the objects have been modified."
+      }
+    ]
+  },
+  "cardResourcePartition": {
+    "name": "cardResourcePartition",
+    "oid": "1.3.6.1.4.1.351.110.2.9",
+    "class": "objectidentity"
+  },
+  "cardLcnPartitionType": {
+    "name": "cardLcnPartitionType",
+    "oid": "1.3.6.1.4.1.351.110.2.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noPartition": 1,
+          "controllerBased": 2,
+          "portControllerBased": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noPartition",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cardResPartGrpTable": {
+    "name": "cardResPartGrpTable",
+    "oid": "1.3.6.1.4.1.351.110.2.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cardResPartGrpEntry": {
+    "name": "cardResPartGrpEntry",
+    "oid": "1.3.6.1.4.1.351.110.2.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-MODULE-RSRC-PART-MIB",
+        "object": "cardResPartCtrlrNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cardResPartCtrlrNum": {
+    "name": "cardResPartCtrlrNum",
+    "oid": "1.3.6.1.4.1.351.110.2.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "par": 1,
+          "pnni": 2,
+          "tag": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardResPartRowStatus": {
+    "name": "cardResPartRowStatus",
+    "oid": "1.3.6.1.4.1.351.110.2.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 1,
+          "del": 2,
+          "mod": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cardResPartNumOfLcnAvail": {
+    "name": "cardResPartNumOfLcnAvail",
+    "oid": "1.3.6.1.4.1.351.110.2.9.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmmRsrcPartMIBConformance": {
+    "name": "cmmRsrcPartMIBConformance",
+    "oid": "1.3.6.1.4.1.351.150.73.2",
+    "class": "objectidentity"
+  },
+  "cmmRsrcPartMIBCompliances": {
+    "name": "cmmRsrcPartMIBCompliances",
+    "oid": "1.3.6.1.4.1.351.150.73.2.1",
+    "class": "objectidentity"
+  },
+  "cmmRsrcPartMIBGroups": {
+    "name": "cmmRsrcPartMIBGroups",
+    "oid": "1.3.6.1.4.1.351.150.73.2.2",
+    "class": "objectidentity"
+  },
+  "cmmRsrcPartCompliance": {
+    "name": "cmmRsrcPartCompliance",
+    "oid": "1.3.6.1.4.1.351.150.73.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmmRsrcPartGroup",
+        "module": "CISCO-MGX82XX-MODULE-RSRC-PART-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cmmRsrcPartGroup": {
+    "name": "cmmRsrcPartGroup",
+    "oid": "1.3.6.1.4.1.351.150.73.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MGX82XX-MODULE-RSRC-PART-MIB",
+        "object": "cardLcnPartitionType"
+      },
+      {
+        "module": "CISCO-MGX82XX-MODULE-RSRC-PART-MIB",
+        "object": "cardResPartCtrlrNum"
+      },
+      {
+        "module": "CISCO-MGX82XX-MODULE-RSRC-PART-MIB",
+        "object": "cardResPartRowStatus"
+      },
+      {
+        "module": "CISCO-MGX82XX-MODULE-RSRC-PART-MIB",
+        "object": "cardResPartNumOfLcnAvail"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MGX82XX-MODULE-RSRC-PART-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-MGX82XX-MODULE-RSRC-PART-MIB"
+  }
+}

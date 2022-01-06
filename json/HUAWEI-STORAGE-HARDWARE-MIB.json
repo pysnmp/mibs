@@ -1,0 +1,3406 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "enterprises",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwStorage": {
+    "name": "hwStorage",
+    "oid": "1.3.6.1.4.1.34774.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-04-06 13:54",
+        "description": " "
+      }
+    ]
+  },
+  "NodeCodeString": {
+    "name": "NodeCodeString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 15,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "huaweistorage": {
+    "name": "huaweistorage",
+    "oid": "1.3.6.1.4.1.34774",
+    "class": "objectidentity"
+  },
+  "hwISM": {
+    "name": "hwISM",
+    "oid": "1.3.6.1.4.1.34774.4.1",
+    "class": "objectidentity"
+  },
+  "hwStorageDevice": {
+    "name": "hwStorageDevice",
+    "oid": "1.3.6.1.4.1.34774.4.1.23",
+    "class": "objectidentity"
+  },
+  "hwHardwareInfo": {
+    "name": "hwHardwareInfo",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5",
+    "class": "objectidentity"
+  },
+  "hwInfoDiskTable": {
+    "name": "hwInfoDiskTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwInfoDiskEntry": {
+    "name": "hwInfoDiskEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwInfoDiskID": {
+    "name": "hwInfoDiskID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskHealthStatus": {
+    "name": "hwInfoDiskHealthStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskRunningStatus": {
+    "name": "hwInfoDiskRunningStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskLocation": {
+    "name": "hwInfoDiskLocation",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskType": {
+    "name": "hwInfoDiskType",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskCapacity": {
+    "name": "hwInfoDiskCapacity",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskRole": {
+    "name": "hwInfoDiskRole",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskSpeed": {
+    "name": "hwInfoDiskSpeed",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskInterfaceBandwidth": {
+    "name": "hwInfoDiskInterfaceBandwidth",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskSectorSize": {
+    "name": "hwInfoDiskSectorSize",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskTemperature": {
+    "name": "hwInfoDiskTemperature",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskModel": {
+    "name": "hwInfoDiskModel",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskFirmwareVersion": {
+    "name": "hwInfoDiskFirmwareVersion",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskManufacturer": {
+    "name": "hwInfoDiskManufacturer",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskSerialNumber": {
+    "name": "hwInfoDiskSerialNumber",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskLightStatus": {
+    "name": "hwInfoDiskLightStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskDiskDomainID": {
+    "name": "hwInfoDiskDiskDomainID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskDiskDomainName": {
+    "name": "hwInfoDiskDiskDomainName",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskDiskDomainTierID": {
+    "name": "hwInfoDiskDiskDomainTierID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskCofferDisk": {
+    "name": "hwInfoDiskCofferDisk",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskRunTime": {
+    "name": "hwInfoDiskRunTime",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskProgress": {
+    "name": "hwInfoDiskProgress",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskBarCode": {
+    "name": "hwInfoDiskBarCode",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskCapacityUsage": {
+    "name": "hwInfoDiskCapacityUsage",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoDiskHealthMark": {
+    "name": "hwInfoDiskHealthMark",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoControllerTable": {
+    "name": "hwInfoControllerTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwInfoControllerEntry": {
+    "name": "hwInfoControllerEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoControllerID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwInfoControllerID": {
+    "name": "hwInfoControllerID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoControllerHealthStatus": {
+    "name": "hwInfoControllerHealthStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoControllerRunningStatus": {
+    "name": "hwInfoControllerRunningStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoControllerCPU": {
+    "name": "hwInfoControllerCPU",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoControllerLocation": {
+    "name": "hwInfoControllerLocation",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoControllerRole": {
+    "name": "hwInfoControllerRole",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoControllerCacheCapacity": {
+    "name": "hwInfoControllerCacheCapacity",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoControllerCPUUsage": {
+    "name": "hwInfoControllerCPUUsage",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoControllerMemoryUsage": {
+    "name": "hwInfoControllerMemoryUsage",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoControllerVoltage": {
+    "name": "hwInfoControllerVoltage",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoControllerSoftwareVersion": {
+    "name": "hwInfoControllerSoftwareVersion",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoControllerPCBVersion": {
+    "name": "hwInfoControllerPCBVersion",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoControllerSESVersion": {
+    "name": "hwInfoControllerSESVersion",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoControllerBMCVersion": {
+    "name": "hwInfoControllerBMCVersion",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoControllerLogicVersion": {
+    "name": "hwInfoControllerLogicVersion",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoControllerBIOSVersion": {
+    "name": "hwInfoControllerBIOSVersion",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoControllerElectronicLabel": {
+    "name": "hwInfoControllerElectronicLabel",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPowerTable": {
+    "name": "hwInfoPowerTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwInfoPowerEntry": {
+    "name": "hwInfoPowerEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPowerID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwInfoPowerID": {
+    "name": "hwInfoPowerID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPowerLocation": {
+    "name": "hwInfoPowerLocation",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPowerHealthStatus": {
+    "name": "hwInfoPowerHealthStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPowerRunningStatus": {
+    "name": "hwInfoPowerRunningStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPowerType": {
+    "name": "hwInfoPowerType",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPowerManufacturer": {
+    "name": "hwInfoPowerManufacturer",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPowerModle": {
+    "name": "hwInfoPowerModle",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPowerVersion": {
+    "name": "hwInfoPowerVersion",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPowerProduceDate": {
+    "name": "hwInfoPowerProduceDate",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPowerSerialNumber": {
+    "name": "hwInfoPowerSerialNumber",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFanTable": {
+    "name": "hwInfoFanTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwInfoFanEntry": {
+    "name": "hwInfoFanEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoFanID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwInfoFanID": {
+    "name": "hwInfoFanID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFanLocation": {
+    "name": "hwInfoFanLocation",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFanHealthStatus": {
+    "name": "hwInfoFanHealthStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFanRunningStatus": {
+    "name": "hwInfoFanRunningStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFanRunningLevel": {
+    "name": "hwInfoFanRunningLevel",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFanElectronicLabel": {
+    "name": "hwInfoFanElectronicLabel",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoBBUTable": {
+    "name": "hwInfoBBUTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwInfoBBUEntry": {
+    "name": "hwInfoBBUEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoBBUID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwInfoBBUID": {
+    "name": "hwInfoBBUID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoBBULocation": {
+    "name": "hwInfoBBULocation",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoBBUHealthStatus": {
+    "name": "hwInfoBBUHealthStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoBBURunningStatus": {
+    "name": "hwInfoBBURunningStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoBBUType": {
+    "name": "hwInfoBBUType",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoBBUCurrentVoltage": {
+    "name": "hwInfoBBUCurrentVoltage",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoBBUNumberOfDischarges": {
+    "name": "hwInfoBBUNumberOfDischarges",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoBBUFirmwareVersion": {
+    "name": "hwInfoBBUFirmwareVersion",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoBBUDeliveredOn": {
+    "name": "hwInfoBBUDeliveredOn",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoBBUOwningController": {
+    "name": "hwInfoBBUOwningController",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoBBUElectronicLabel": {
+    "name": "hwInfoBBUElectronicLabel",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoEnclosureTable": {
+    "name": "hwInfoEnclosureTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwInfoEnclosureEntry": {
+    "name": "hwInfoEnclosureEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoEnclosureID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwInfoEnclosureID": {
+    "name": "hwInfoEnclosureID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoEnclosureName": {
+    "name": "hwInfoEnclosureName",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoEnclosureLogicType": {
+    "name": "hwInfoEnclosureLogicType",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoEnclosureHealthStatus": {
+    "name": "hwInfoEnclosureHealthStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoEnclosureRunningStatus": {
+    "name": "hwInfoEnclosureRunningStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoEnclosureLocation": {
+    "name": "hwInfoEnclosureLocation",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoEnclosureType": {
+    "name": "hwInfoEnclosureType",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoEnclosureTemperature": {
+    "name": "hwInfoEnclosureTemperature",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoEnclosureSN": {
+    "name": "hwInfoEnclosureSN",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoEnclosureMAC": {
+    "name": "hwInfoEnclosureMAC",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoEnclosureHeight": {
+    "name": "hwInfoEnclosureHeight",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoEnclosureExpansionDepth": {
+    "name": "hwInfoEnclosureExpansionDepth",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoEnclosureElectronicLabel": {
+    "name": "hwInfoEnclosureElectronicLabel",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortComTable": {
+    "name": "hwInfoPortComTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwInfoPortComEntry": {
+    "name": "hwInfoPortComEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortComID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwInfoPortComID": {
+    "name": "hwInfoPortComID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortComLocation": {
+    "name": "hwInfoPortComLocation",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortComHealthStatus": {
+    "name": "hwInfoPortComHealthStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortComRunningStatus": {
+    "name": "hwInfoPortComRunningStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortComType": {
+    "name": "hwInfoPortComType",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortEthTable": {
+    "name": "hwInfoPortEthTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwInfoPortEthEntry": {
+    "name": "hwInfoPortEthEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortEthID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwInfoPortEthID": {
+    "name": "hwInfoPortEthID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortEthLocation": {
+    "name": "hwInfoPortEthLocation",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortEthHealthStatus": {
+    "name": "hwInfoPortEthHealthStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortEthRunningStatus": {
+    "name": "hwInfoPortEthRunningStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortEthType": {
+    "name": "hwInfoPortEthType",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortEthIPv4Address": {
+    "name": "hwInfoPortEthIPv4Address",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortEthSubnetMask": {
+    "name": "hwInfoPortEthSubnetMask",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortEthIPv4Gateway": {
+    "name": "hwInfoPortEthIPv4Gateway",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortEthIPv6Address": {
+    "name": "hwInfoPortEthIPv6Address",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortEthIPv6PrefixLength": {
+    "name": "hwInfoPortEthIPv6PrefixLength",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortEthIPv6Gateway": {
+    "name": "hwInfoPortEthIPv6Gateway",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortEthMAC": {
+    "name": "hwInfoPortEthMAC",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortEthRole": {
+    "name": "hwInfoPortEthRole",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortEthMode": {
+    "name": "hwInfoPortEthMode",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortEthMTU": {
+    "name": "hwInfoPortEthMTU",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortEthWorkingRate": {
+    "name": "hwInfoPortEthWorkingRate",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortEthBondName": {
+    "name": "hwInfoPortEthBondName",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortEthiSCSIPort": {
+    "name": "hwInfoPortEthiSCSIPort",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortEthiSCSIName": {
+    "name": "hwInfoPortEthiSCSIName",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortEthErrorPackets": {
+    "name": "hwInfoPortEthErrorPackets",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortEthLostPackages": {
+    "name": "hwInfoPortEthLostPackages",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortEthStartTime": {
+    "name": "hwInfoPortEthStartTime",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.8.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCTable": {
+    "name": "hwInfoPortFCTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwInfoPortFCEntry": {
+    "name": "hwInfoPortFCEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwInfoPortFCID": {
+    "name": "hwInfoPortFCID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCLocation": {
+    "name": "hwInfoPortFCLocation",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCHealthStatus": {
+    "name": "hwInfoPortFCHealthStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCRunningStatus": {
+    "name": "hwInfoPortFCRunningStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCType": {
+    "name": "hwInfoPortFCType",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCWorkingRate": {
+    "name": "hwInfoPortFCWorkingRate",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCConfiguredSpeed": {
+    "name": "hwInfoPortFCConfiguredSpeed",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCWWN": {
+    "name": "hwInfoPortFCWWN",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCRole": {
+    "name": "hwInfoPortFCRole",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCSFPStatus": {
+    "name": "hwInfoPortFCSFPStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCWorkingMode": {
+    "name": "hwInfoPortFCWorkingMode",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCConfiguredMode": {
+    "name": "hwInfoPortFCConfiguredMode",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCFloginDelayTimes": {
+    "name": "hwInfoPortFCFloginDelayTimes",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCLostSignals": {
+    "name": "hwInfoPortFCLostSignals",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCLinkErrorsCodes": {
+    "name": "hwInfoPortFCLinkErrorsCodes",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCLostSynchronizations": {
+    "name": "hwInfoPortFCLostSynchronizations",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.9.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCFailedConnections": {
+    "name": "hwInfoPortFCFailedConnections",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.9.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCStartTime": {
+    "name": "hwInfoPortFCStartTime",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.9.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCoETable": {
+    "name": "hwInfoPortFCoETable",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwInfoPortFCoEEntry": {
+    "name": "hwInfoPortFCoEEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCoEID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwInfoPortFCoEID": {
+    "name": "hwInfoPortFCoEID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCoELocation": {
+    "name": "hwInfoPortFCoELocation",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCoEHealthStatus": {
+    "name": "hwInfoPortFCoEHealthStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCoERunningStatus": {
+    "name": "hwInfoPortFCoERunningStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCoEType": {
+    "name": "hwInfoPortFCoEType",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCoEWorkingRate": {
+    "name": "hwInfoPortFCoEWorkingRate",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCoEWWN": {
+    "name": "hwInfoPortFCoEWWN",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCoERole": {
+    "name": "hwInfoPortFCoERole",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCoESFPStatus": {
+    "name": "hwInfoPortFCoESFPStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCoEErrorPackets": {
+    "name": "hwInfoPortFCoEErrorPackets",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCoELostPackets": {
+    "name": "hwInfoPortFCoELostPackets",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCoEOverFlowedPackets": {
+    "name": "hwInfoPortFCoEOverFlowedPackets",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortFCoEStartTime": {
+    "name": "hwInfoPortFCoEStartTime",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortPCIETable": {
+    "name": "hwInfoPortPCIETable",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwInfoPortPCIEEntry": {
+    "name": "hwInfoPortPCIEEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortPCIEID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwInfoPortPCIEID": {
+    "name": "hwInfoPortPCIEID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortPCIELocation": {
+    "name": "hwInfoPortPCIELocation",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortPCIEHealthStatus": {
+    "name": "hwInfoPortPCIEHealthStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortPCIERunningStatus": {
+    "name": "hwInfoPortPCIERunningStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortPCIESpeed": {
+    "name": "hwInfoPortPCIESpeed",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortPCIECurrentPeerPortID": {
+    "name": "hwInfoPortPCIECurrentPeerPortID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortPCIESuggestPeerPortID": {
+    "name": "hwInfoPortPCIESuggestPeerPortID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortPCIELostSignals": {
+    "name": "hwInfoPortPCIELostSignals",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortPCIEECRCError": {
+    "name": "hwInfoPortPCIEECRCError",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortPCIEBadTlp": {
+    "name": "hwInfoPortPCIEBadTlp",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortPCIEBalDllp": {
+    "name": "hwInfoPortPCIEBalDllp",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortPCIERecvError": {
+    "name": "hwInfoPortPCIERecvError",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortPCIEChipEccError": {
+    "name": "hwInfoPortPCIEChipEccError",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortPCIEStartTime": {
+    "name": "hwInfoPortPCIEStartTime",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortSASTable": {
+    "name": "hwInfoPortSASTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwInfoPortSASEntry": {
+    "name": "hwInfoPortSASEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortSASID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwInfoPortSASID": {
+    "name": "hwInfoPortSASID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortSASLocation": {
+    "name": "hwInfoPortSASLocation",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortSASHealthStatus": {
+    "name": "hwInfoPortSASHealthStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortSASRunningStatus": {
+    "name": "hwInfoPortSASRunningStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortSASType": {
+    "name": "hwInfoPortSASType",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortSASWorkingRate": {
+    "name": "hwInfoPortSASWorkingRate",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortSASWWN": {
+    "name": "hwInfoPortSASWWN",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortSASRole": {
+    "name": "hwInfoPortSASRole",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortSASInvalidDword": {
+    "name": "hwInfoPortSASInvalidDword",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortSASConsistErrors": {
+    "name": "hwInfoPortSASConsistErrors",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortSASLossOfDword": {
+    "name": "hwInfoPortSASLossOfDword",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortSASPHYResetErrors": {
+    "name": "hwInfoPortSASPHYResetErrors",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortSASStartTime": {
+    "name": "hwInfoPortSASStartTime",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoPortSASEnabled": {
+    "name": "hwInfoPortSASEnabled",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.12.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoInterfaceModuleTable": {
+    "name": "hwInfoInterfaceModuleTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwInfoInterfaceModuleEntry": {
+    "name": "hwInfoInterfaceModuleEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoInterfaceModuleID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwInfoInterfaceModuleID": {
+    "name": "hwInfoInterfaceModuleID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoInterfaceModuleLocation": {
+    "name": "hwInfoInterfaceModuleLocation",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoInterfaceModuleHealthStatus": {
+    "name": "hwInfoInterfaceModuleHealthStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoInterfaceModuleRunningStatus": {
+    "name": "hwInfoInterfaceModuleRunningStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoInterfaceModuleModel": {
+    "name": "hwInfoInterfaceModuleModel",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoInterfaceModuleLogicVersion": {
+    "name": "hwInfoInterfaceModuleLogicVersion",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoInterfaceModulePCBVersion": {
+    "name": "hwInfoInterfaceModulePCBVersion",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoInterfaceModuleElectronicLabel": {
+    "name": "hwInfoInterfaceModuleElectronicLabel",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoExpBoardTable": {
+    "name": "hwInfoExpBoardTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwInfoExpBoardEntry": {
+    "name": "hwInfoExpBoardEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoExpBoardID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwInfoExpBoardID": {
+    "name": "hwInfoExpBoardID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoExpBoardLocation": {
+    "name": "hwInfoExpBoardLocation",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoExpBoardHealthStatus": {
+    "name": "hwInfoExpBoardHealthStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoExpBoardRunningStatus": {
+    "name": "hwInfoExpBoardRunningStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoExpBoardModel": {
+    "name": "hwInfoExpBoardModel",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoExpBoardLogicVersion": {
+    "name": "hwInfoExpBoardLogicVersion",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoExpBoardPCBVersion": {
+    "name": "hwInfoExpBoardPCBVersion",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoExpBoardSESVersion": {
+    "name": "hwInfoExpBoardSESVersion",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoExpBoardELabel": {
+    "name": "hwInfoExpBoardELabel",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.5.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isoConformance": {
+    "name": "isoConformance",
+    "oid": "1.6",
+    "class": "objectidentity"
+  },
+  "isoGroups": {
+    "name": "isoGroups",
+    "oid": "1.6.1",
+    "class": "objectidentity"
+  },
+  "currentObjectGroup": {
+    "name": "currentObjectGroup",
+    "oid": "1.6.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortComID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortComLocation"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortComHealthStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortComRunningStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortComType"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortEthID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortEthLocation"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortEthHealthStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortEthRunningStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortEthType"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortEthIPv4Address"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortEthSubnetMask"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortEthIPv4Gateway"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortEthIPv6Address"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortEthIPv6PrefixLength"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortEthIPv6Gateway"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortEthMAC"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortEthRole"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortEthMode"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortEthMTU"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortEthWorkingRate"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortEthBondName"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortEthiSCSIPort"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortEthiSCSIName"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortEthErrorPackets"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortEthLostPackages"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCLocation"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCHealthStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCRunningStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCType"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCWorkingRate"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCConfiguredSpeed"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCWWN"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCRole"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCSFPStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCWorkingMode"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCConfiguredMode"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCFloginDelayTimes"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCLostSignals"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCLinkErrorsCodes"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCLostSynchronizations"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCFailedConnections"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCoEID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCoELocation"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCoEHealthStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCoERunningStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCoEType"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCoEWorkingRate"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCoEWWN"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCoERole"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCoESFPStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCoEErrorPackets"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCoELostPackets"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCoEOverFlowedPackets"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCoEStartTime"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortPCIEID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortPCIELocation"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortPCIEHealthStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortPCIERunningStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortPCIESpeed"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortPCIECurrentPeerPortID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortPCIESuggestPeerPortID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortPCIELostSignals"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortPCIEECRCError"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortPCIEBadTlp"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortPCIEBalDllp"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortPCIERecvError"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortPCIEChipEccError"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortSASID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortSASLocation"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortSASHealthStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortSASRunningStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortSASType"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortSASWorkingRate"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortSASWWN"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortSASRole"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortSASInvalidDword"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortSASConsistErrors"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortSASLossOfDword"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortSASPHYResetErrors"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortSASStartTime"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortSASEnabled"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoInterfaceModuleID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoInterfaceModuleLocation"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoInterfaceModuleHealthStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoInterfaceModuleRunningStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoInterfaceModuleModel"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoInterfaceModuleLogicVersion"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoInterfaceModulePCBVersion"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoInterfaceModuleElectronicLabel"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskHealthStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskRunningStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskType"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskCapacity"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskRole"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskSpeed"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskInterfaceBandwidth"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskSectorSize"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskTemperature"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskModel"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskFirmwareVersion"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskManufacturer"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskSerialNumber"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskLightStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskDiskDomainID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskDiskDomainName"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskDiskDomainTierID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskCofferDisk"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskRunTime"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskProgress"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskBarCode"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskCapacityUsage"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskHealthMark"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoControllerHealthStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoControllerRunningStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoControllerCPU"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoControllerRole"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoControllerCacheCapacity"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoControllerCPUUsage"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoControllerMemoryUsage"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoControllerVoltage"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoControllerSoftwareVersion"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoControllerPCBVersion"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoControllerSESVersion"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoControllerBMCVersion"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoControllerLogicVersion"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoControllerBIOSVersion"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoControllerElectronicLabel"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPowerHealthStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPowerRunningStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPowerManufacturer"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPowerProduceDate"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPowerSerialNumber"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoFanHealthStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoFanElectronicLabel"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoBBUHealthStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoBBURunningStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoBBUType"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoBBUNumberOfDischarges"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoBBUFirmwareVersion"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoBBUDeliveredOn"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoBBUOwningController"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoBBUElectronicLabel"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoEnclosureID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoEnclosureLogicType"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoEnclosureHealthStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoEnclosureRunningStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoEnclosureLocation"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoEnclosureType"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoEnclosureTemperature"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoEnclosureSN"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoEnclosureMAC"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoEnclosureHeight"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoEnclosureExpansionDepth"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoFanRunningStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoFanRunningLevel"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPowerModle"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPowerVersion"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoControllerID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPowerID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPowerType"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoBBUID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoControllerLocation"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoDiskLocation"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoEnclosureName"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoEnclosureElectronicLabel"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPowerLocation"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoFanLocation"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoBBULocation"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortFCStartTime"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortEthStartTime"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoPortPCIEStartTime"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoExpBoardID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoExpBoardLocation"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoExpBoardHealthStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoExpBoardRunningStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoExpBoardModel"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoExpBoardLogicVersion"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoExpBoardPCBVersion"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoExpBoardSESVersion"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoExpBoardELabel"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoBBUCurrentVoltage"
+      },
+      {
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB",
+        "object": "hwInfoFanID"
+      }
+    ],
+    "status": "current"
+  },
+  "isoCompliances": {
+    "name": "isoCompliances",
+    "oid": "1.6.2",
+    "class": "objectidentity"
+  },
+  "basicCompliance": {
+    "name": "basicCompliance",
+    "oid": "1.6.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "currentObjectGroup",
+        "module": "HUAWEI-STORAGE-HARDWARE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-STORAGE-HARDWARE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-STORAGE-HARDWARE-MIB"
+  }
+}

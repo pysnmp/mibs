@@ -1,0 +1,1451 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "Juniper-DOS-PROTECTION-MIB": [
+      "JuniDosProtectionPriorityType",
+      "JuniDosProtectionProtocolState",
+      "JuniDosProtectionScfdsTableOverflowState",
+      "JuniDosProtectionProtocolType"
+    ],
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "Juniper-TC": [
+      "JuniEnable"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "Counter64",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "juniDosProtectionPlatformMIB": {
+    "name": "juniDosProtectionPlatformMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.81",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-07-01 00:00",
+        "description": "Added dos-protection-group support and added MAC address to flow traps."
+      },
+      {
+        "revision": "2006-01-01 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "juniDosProtectionPlatformObjects": {
+    "name": "juniDosProtectionPlatformObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1",
+    "class": "objectidentity"
+  },
+  "juniDosProtectionPlatformScfdsGroup": {
+    "name": "juniDosProtectionPlatformScfdsGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1",
+    "class": "objectidentity"
+  },
+  "juniDosProtectionPlatformDpgGroup": {
+    "name": "juniDosProtectionPlatformDpgGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.2",
+    "class": "objectidentity"
+  },
+  "juniDosProtectionScfdsSlotProtocolTable": {
+    "name": "juniDosProtectionScfdsSlotProtocolTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotProtocolEntry": {
+    "name": "juniDosProtectionScfdsSlotProtocolEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotProtocolSlot",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotProtocolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotProtocolSlot": {
+    "name": "juniDosProtectionScfdsSlotProtocolSlot",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotProtocolIndex": {
+    "name": "juniDosProtectionScfdsSlotProtocolIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniDosProtectionProtocolType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotProtocolState": {
+    "name": "juniDosProtectionScfdsSlotProtocolState",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniDosProtectionProtocolState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotProtocolTransitions": {
+    "name": "juniDosProtectionScfdsSlotProtocolTransitions",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotFlowTable": {
+    "name": "juniDosProtectionScfdsSlotFlowTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniDosProtectionScfdsSlotFlowEntry": {
+    "name": "juniDosProtectionScfdsSlotFlowEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotFlowSlot",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotFlowIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotFlowGroupId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotFlowProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDosProtectionScfdsSlotFlowSlot": {
+    "name": "juniDosProtectionScfdsSlotFlowSlot",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniDosProtectionScfdsSlotFlowIfIndex": {
+    "name": "juniDosProtectionScfdsSlotFlowIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniDosProtectionScfdsSlotFlowGroupId": {
+    "name": "juniDosProtectionScfdsSlotFlowGroupId",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniDosProtectionScfdsSlotFlowProtocol": {
+    "name": "juniDosProtectionScfdsSlotFlowProtocol",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniDosProtectionProtocolType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniDosProtectionScfdsSlotFlowRate": {
+    "name": "juniDosProtectionScfdsSlotFlowRate",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniDosProtectionScfdsSlotFlowPeakRate": {
+    "name": "juniDosProtectionScfdsSlotFlowPeakRate",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniDosProtectionScfdsSlotFlowTimeFlagged": {
+    "name": "juniDosProtectionScfdsSlotFlowTimeFlagged",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniDosProtectionScfdsSlotFlowIngressSlot": {
+    "name": "juniDosProtectionScfdsSlotFlowIngressSlot",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniDosProtectionScfdsSlotFlowGroup": {
+    "name": "juniDosProtectionScfdsSlotFlowGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniDosProtectionScfdsSlotFlowClearEntry": {
+    "name": "juniDosProtectionScfdsSlotFlowClearEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "juniDosProtectionScfdsSlotFlowMacTable": {
+    "name": "juniDosProtectionScfdsSlotFlowMacTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotFlowMacEntry": {
+    "name": "juniDosProtectionScfdsSlotFlowMacEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotFlowMacSlot",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotFlowMacIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotFlowMacGroupId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotFlowMacProtocol",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotFlowMacSrcMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotFlowMacSlot": {
+    "name": "juniDosProtectionScfdsSlotFlowMacSlot",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotFlowMacIfIndex": {
+    "name": "juniDosProtectionScfdsSlotFlowMacIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotFlowMacGroupId": {
+    "name": "juniDosProtectionScfdsSlotFlowMacGroupId",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotFlowMacProtocol": {
+    "name": "juniDosProtectionScfdsSlotFlowMacProtocol",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniDosProtectionProtocolType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotFlowMacSrcMac": {
+    "name": "juniDosProtectionScfdsSlotFlowMacSrcMac",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotFlowMacRate": {
+    "name": "juniDosProtectionScfdsSlotFlowMacRate",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotFlowMacPeakRate": {
+    "name": "juniDosProtectionScfdsSlotFlowMacPeakRate",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotFlowMacTimeFlagged": {
+    "name": "juniDosProtectionScfdsSlotFlowMacTimeFlagged",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotFlowMacIngressSlot": {
+    "name": "juniDosProtectionScfdsSlotFlowMacIngressSlot",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotFlowMacGroup": {
+    "name": "juniDosProtectionScfdsSlotFlowMacGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotFlowMacClearEntry": {
+    "name": "juniDosProtectionScfdsSlotFlowMacClearEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotTable": {
+    "name": "juniDosProtectionScfdsSlotTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotEntry": {
+    "name": "juniDosProtectionScfdsSlotEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotFlowSlot",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotSlot": {
+    "name": "juniDosProtectionScfdsSlotSlot",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotClearAll": {
+    "name": "juniDosProtectionScfdsSlotClearAll",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotDiscontinuityTime": {
+    "name": "juniDosProtectionScfdsSlotDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotTableOverflowState": {
+    "name": "juniDosProtectionScfdsSlotTableOverflowState",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniDosProtectionScfdsTableOverflowState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotCurrentSuspiciousFlows": {
+    "name": "juniDosProtectionScfdsSlotCurrentSuspiciousFlows",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotNumberSuspiciousFlows": {
+    "name": "juniDosProtectionScfdsSlotNumberSuspiciousFlows",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotNumberSuspiciousFlowGroups": {
+    "name": "juniDosProtectionScfdsSlotNumberSuspiciousFlowGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotCurrentSuspiciousFlowGroups": {
+    "name": "juniDosProtectionScfdsSlotCurrentSuspiciousFlowGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotCurrentFalseNegativeFlows": {
+    "name": "juniDosProtectionScfdsSlotCurrentFalseNegativeFlows",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotNumberFalseNegativeFlows": {
+    "name": "juniDosProtectionScfdsSlotNumberFalseNegativeFlows",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSlotOverflows": {
+    "name": "juniDosProtectionScfdsSlotOverflows",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDosProtectionDpgSlotRateTable": {
+    "name": "juniDosProtectionDpgSlotRateTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDosProtectionDpgSlotRateEntry": {
+    "name": "juniDosProtectionDpgSlotRateEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionDpgSlotRateSlot",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionDpgSlotRateDpgName",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionDpgSlotRateProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniDosProtectionDpgSlotRateSlot": {
+    "name": "juniDosProtectionDpgSlotRateSlot",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDosProtectionDpgSlotRateDpgName": {
+    "name": "juniDosProtectionDpgSlotRateDpgName",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDosProtectionDpgSlotRateProtocol": {
+    "name": "juniDosProtectionDpgSlotRateProtocol",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniDosProtectionProtocolType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDosProtectionDpgSlotRateMinRate": {
+    "name": "juniDosProtectionDpgSlotRateMinRate",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDosProtectionDpgSlotRateMaxRate": {
+    "name": "juniDosProtectionDpgSlotRateMaxRate",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDosProtectionDpgSlotRateMinBurst": {
+    "name": "juniDosProtectionDpgSlotRateMinBurst",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDosProtectionDpgSlotRateMaxBurst": {
+    "name": "juniDosProtectionDpgSlotRateMaxBurst",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDosProtectionPlatformTraps": {
+    "name": "juniDosProtectionPlatformTraps",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.0",
+    "class": "objectidentity"
+  },
+  "juniDosProtectionPlatformTrapControl": {
+    "name": "juniDosProtectionPlatformTrapControl",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.2",
+    "class": "objectidentity"
+  },
+  "juniDosProtectionPlatformScfdsTraps": {
+    "name": "juniDosProtectionPlatformScfdsTraps",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.0.0",
+    "class": "objectidentity"
+  },
+  "juniDosProtectionScfdsSlot": {
+    "name": "juniDosProtectionScfdsSlot",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniDosProtectionPriority": {
+    "name": "juniDosProtectionPriority",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniDosProtectionPriorityType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniDosProtectionProtocol": {
+    "name": "juniDosProtectionProtocol",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniDosProtectionProtocolType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniDosProtectionIfIndex": {
+    "name": "juniDosProtectionIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniDosProtectionGroupId": {
+    "name": "juniDosProtectionGroupId",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniDosProtectionSrcPhysAddr": {
+    "name": "juniDosProtectionSrcPhysAddr",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsFlowRate": {
+    "name": "juniDosProtectionScfdsFlowRate",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSuspiciousControlFlow": {
+    "name": "juniDosProtectionScfdsSuspiciousControlFlow",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.0.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionIfIndex"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionProtocol"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDosProtectionScfdsNonSuspiciousControlFlow": {
+    "name": "juniDosProtectionScfdsNonSuspiciousControlFlow",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.0.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionIfIndex"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionProtocol"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDosProtectionScfdsSuspiciousControlFlowGroup": {
+    "name": "juniDosProtectionScfdsSuspiciousControlFlowGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.0.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlot"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionGroupId"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDosProtectionScfdsNonSuspiciousControlFlowGroup": {
+    "name": "juniDosProtectionScfdsNonSuspiciousControlFlowGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.0.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlot"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionGroupId"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDosProtectionScfdsTableFull": {
+    "name": "juniDosProtectionScfdsTableFull",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.0.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlot"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDosProtectionScfdsTableNotFull": {
+    "name": "juniDosProtectionScfdsTableNotFull",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.0.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlot"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDosProtectionScfdsGroupingInUse": {
+    "name": "juniDosProtectionScfdsGroupingInUse",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.0.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlot"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSuspiciousProtocol": {
+    "name": "juniDosProtectionScfdsSuspiciousProtocol",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.0.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlot"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDosProtectionScfdsNonSuspiciousProtocol": {
+    "name": "juniDosProtectionScfdsNonSuspiciousProtocol",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.0.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlot"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSuspiciousPriority": {
+    "name": "juniDosProtectionScfdsSuspiciousPriority",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.0.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlot"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDosProtectionScfdsNonSuspiciousPriority": {
+    "name": "juniDosProtectionScfdsNonSuspiciousPriority",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.0.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlot"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDosProtectionScfdsSuspiciousControlFlowMac": {
+    "name": "juniDosProtectionScfdsSuspiciousControlFlowMac",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.0.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionIfIndex"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionProtocol"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionSrcPhysAddr"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsFlowRate"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDosProtectionScfdsNonSuspiciousControlFlowMac": {
+    "name": "juniDosProtectionScfdsNonSuspiciousControlFlowMac",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.0.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionIfIndex"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionProtocol"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionSrcPhysAddr"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDosProtectionPlatformMIBConformance": {
+    "name": "juniDosProtectionPlatformMIBConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.4",
+    "class": "objectidentity"
+  },
+  "juniDosProtectionPlatformMIBCompliances": {
+    "name": "juniDosProtectionPlatformMIBCompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.4.1",
+    "class": "objectidentity"
+  },
+  "juniDosProtectionPlatformMIBGroups": {
+    "name": "juniDosProtectionPlatformMIBGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.4.2",
+    "class": "objectidentity"
+  },
+  "juniDosProtectionCompliance": {
+    "name": "juniDosProtectionCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniDosProtectionPlatformGroup",
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB"
+      },
+      {
+        "object": "juniDosProtectionPlatformNotificationGroup",
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDosProtectionCompliance2": {
+    "name": "juniDosProtectionCompliance2",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.4.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniDosProtectionPlatformGroup1",
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB"
+      },
+      {
+        "object": "juniDosProtectionPlatformNotificationGroup1",
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDosProtectionGroup": {
+    "name": "juniDosProtectionGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotProtocolState"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotProtocolTransitions"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotFlowRate"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotFlowPeakRate"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotFlowTimeFlagged"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotFlowClearEntry"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotFlowIngressSlot"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotFlowGroup"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotDiscontinuityTime"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotTableOverflowState"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotCurrentSuspiciousFlows"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotNumberSuspiciousFlows"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotNumberSuspiciousFlowGroups"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotCurrentSuspiciousFlowGroups"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotCurrentFalseNegativeFlows"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotNumberFalseNegativeFlows"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotOverflows"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDosProtectionNotificationGroup": {
+    "name": "juniDosProtectionNotificationGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.4.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSuspiciousControlFlow"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsNonSuspiciousControlFlow"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSuspiciousControlFlowGroup"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsNonSuspiciousControlFlowGroup"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsTableFull"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsTableNotFull"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsGroupingInUse"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSuspiciousProtocol"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsNonSuspiciousProtocol"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSuspiciousPriority"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsNonSuspiciousPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDosProtectionGroup1": {
+    "name": "juniDosProtectionGroup1",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotProtocolState"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotProtocolTransitions"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotFlowMacRate"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotFlowMacPeakRate"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotFlowMacTimeFlagged"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotFlowMacClearEntry"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotFlowMacIngressSlot"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotFlowMacGroup"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotDiscontinuityTime"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotTableOverflowState"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotCurrentSuspiciousFlows"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotNumberSuspiciousFlows"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotNumberSuspiciousFlowGroups"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotCurrentSuspiciousFlowGroups"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotCurrentFalseNegativeFlows"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotNumberFalseNegativeFlows"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSlotOverflows"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionDpgSlotRateMinRate"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionDpgSlotRateMaxRate"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionDpgSlotRateMinBurst"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionDpgSlotRateMaxBurst"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDosProtectionNotificationGroup1": {
+    "name": "juniDosProtectionNotificationGroup1",
+    "oid": "1.3.6.1.4.1.4874.2.2.81.4.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSuspiciousControlFlowMac"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsNonSuspiciousControlFlowMac"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSuspiciousControlFlowGroup"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsNonSuspiciousControlFlowGroup"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsTableFull"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsTableNotFull"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsGroupingInUse"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSuspiciousProtocol"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsNonSuspiciousProtocol"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsSuspiciousPriority"
+      },
+      {
+        "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB",
+        "object": "juniDosProtectionScfdsNonSuspiciousPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/broken/Juniper-DOS-PROTECTION-PLATFORM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-DOS-PROTECTION-PLATFORM-MIB"
+  }
+}

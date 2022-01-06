@@ -1,0 +1,380 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfTRNG2": {
+    "name": "hpnicfTRNG2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.121",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-03-08 00:00",
+        "description": "Modified to change node name from 'trng' to 'trange'."
+      },
+      {
+        "revision": "2012-05-14 00:00",
+        "description": "201205140000Z, --The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hpnicfTRNG2MibObjects": {
+    "name": "hpnicfTRNG2MibObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.121.1",
+    "class": "objectidentity"
+  },
+  "hpnicfTrangeCreateTimerangeTable": {
+    "name": "hpnicfTrangeCreateTimerangeTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.121.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfTrangeCreateTimerangeEntry": {
+    "name": "hpnicfTrangeCreateTimerangeEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.121.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-TRNG2-MIB",
+        "object": "hpnicfTrangeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfTrangeIndex": {
+    "name": "hpnicfTrangeIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.121.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfTrangeName": {
+    "name": "hpnicfTrangeName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.121.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfTrangeValidFlag": {
+    "name": "hpnicfTrangeValidFlag",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.121.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfTrangeCreateRowStatus": {
+    "name": "hpnicfTrangeCreateRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.121.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfTrangeAbsoluteTable": {
+    "name": "hpnicfTrangeAbsoluteTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.121.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfTrangeAbsoluteEntry": {
+    "name": "hpnicfTrangeAbsoluteEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.121.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-TRNG2-MIB",
+        "object": "hpnicfTrangeAbsoluteNameIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-TRNG2-MIB",
+        "object": "hpnicfTrangeAbsoluteSubIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfTrangeAbsoluteNameIndex": {
+    "name": "hpnicfTrangeAbsoluteNameIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.121.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfTrangeAbsoluteSubIndex": {
+    "name": "hpnicfTrangeAbsoluteSubIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.121.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfTrangeAbsoluteStartTime": {
+    "name": "hpnicfTrangeAbsoluteStartTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.121.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfTrangeAbsoluteEndTime": {
+    "name": "hpnicfTrangeAbsoluteEndTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.121.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfTrangeAbsolueRowStatus": {
+    "name": "hpnicfTrangeAbsolueRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.121.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfTrangePeriodicTable": {
+    "name": "hpnicfTrangePeriodicTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.121.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfTrangePeriodicEntry": {
+    "name": "hpnicfTrangePeriodicEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.121.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-TRNG2-MIB",
+        "object": "hpnicfTrangePeriodicNameIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-TRNG2-MIB",
+        "object": "hpnicfTrangePeriodicSubIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfTrangePeriodicNameIndex": {
+    "name": "hpnicfTrangePeriodicNameIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.121.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfTrangePeriodicSubIndex": {
+    "name": "hpnicfTrangePeriodicSubIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.121.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfTrangePeriodicDayOfWeek": {
+    "name": "hpnicfTrangePeriodicDayOfWeek",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.121.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "sunday": 0,
+        "monday": 1,
+        "tuesday": 2,
+        "wednesday": 3,
+        "thursday": 4,
+        "friday": 5,
+        "saturday": 6
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfTrangePeriodicStartTime": {
+    "name": "hpnicfTrangePeriodicStartTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.121.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfTrangePeriodicEndTime": {
+    "name": "hpnicfTrangePeriodicEndTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.121.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfTrangePeriodicRowStatus": {
+    "name": "hpnicfTrangePeriodicRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.121.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-TRNG2-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-TRNG2-MIB"
+  }
+}

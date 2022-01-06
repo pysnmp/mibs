@@ -1,0 +1,1249 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TestAndIncr",
+      "AutonomousType",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoIetfMegacoMIB": {
+    "name": "ciscoIetfMegacoMIB",
+    "oid": "1.3.6.1.4.1.9.10.99999",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-04-28 12:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoIetfMegacoMIBNotifs": {
+    "name": "ciscoIetfMegacoMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.10.99999.0",
+    "class": "objectidentity"
+  },
+  "ciscoIetfMegacoMIBObjects": {
+    "name": "ciscoIetfMegacoMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.99999.1",
+    "class": "objectidentity"
+  },
+  "cmedConfiguration": {
+    "name": "cmedConfiguration",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1",
+    "class": "objectidentity"
+  },
+  "cmedStatistics": {
+    "name": "cmedStatistics",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.2",
+    "class": "objectidentity"
+  },
+  "cmedConnections": {
+    "name": "cmedConnections",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.3",
+    "class": "objectidentity"
+  },
+  "cmedProperties": {
+    "name": "cmedProperties",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.4",
+    "class": "objectidentity"
+  },
+  "CMediaGatewayId": {
+    "name": "CMediaGatewayId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CMediaGatewayLinkId": {
+    "name": "CMediaGatewayLinkId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CMediaGatewayTermId": {
+    "name": "CMediaGatewayTermId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cmedLinkIdTable": {
+    "name": "cmedLinkIdTable",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedLinkIdEntry": {
+    "name": "cmedLinkIdEntry",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmedNextLinkId": {
+    "name": "cmedNextLinkId",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmedGatewayConfigTable": {
+    "name": "cmedGatewayConfigTable",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedGatewayConfigEntry": {
+    "name": "cmedGatewayConfigEntry",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayLinkId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmedGatewayId": {
+    "name": "cmedGatewayId",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CMediaGatewayId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedGatewayLinkId": {
+    "name": "cmedGatewayLinkId",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CMediaGatewayLinkId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedGatewayLinkName": {
+    "name": "cmedGatewayLinkName",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedGatewayIPAddress": {
+    "name": "cmedGatewayIPAddress",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedGatewayPort": {
+    "name": "cmedGatewayPort",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2944,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedGatewayEncodingScheme": {
+    "name": "cmedGatewayEncodingScheme",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "text": 1,
+          "binary": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "text",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedGatewayProtocol": {
+    "name": "cmedGatewayProtocol",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "other": 2,
+          "dss1Ip": 3,
+          "ipdc": 4,
+          "megacov1": 5,
+          "megacov2": 6,
+          "mgcp": 7
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedGatewaySigTptProtocol": {
+    "name": "cmedGatewaySigTptProtocol",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcp": 1,
+          "udp": 2,
+          "sctp": 3,
+          "other": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedGatewayAdminStatus": {
+    "name": "cmedGatewayAdminStatus",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedGatewayOperStatus": {
+    "name": "cmedGatewayOperStatus",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedGatewayLastStatusChange": {
+    "name": "cmedGatewayLastStatusChange",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedGatewayResetStatistics": {
+    "name": "cmedGatewayResetStatistics",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "other": 2,
+          "reset": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedGatewayRowStatus": {
+    "name": "cmedGatewayRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedGwyControllerTable": {
+    "name": "cmedGwyControllerTable",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedGwyControllerEntry": {
+    "name": "cmedGwyControllerEntry",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayLinkId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGwyControllerId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmedGwyControllerId": {
+    "name": "cmedGwyControllerId",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedGwyControllerIPAddress": {
+    "name": "cmedGwyControllerIPAddress",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmedGwyControllerPort": {
+    "name": "cmedGwyControllerPort",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmedGwyControllerAdminStatus": {
+    "name": "cmedGwyControllerAdminStatus",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmedGwyControllerOperStatus": {
+    "name": "cmedGwyControllerOperStatus",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "standby": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedGatewayStatsTable": {
+    "name": "cmedGatewayStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedGatewayStatsEntry": {
+    "name": "cmedGatewayStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayLinkId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmedNumInMessages": {
+    "name": "cmedNumInMessages",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedNumInOctets": {
+    "name": "cmedNumInOctets",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedNumOutMessages": {
+    "name": "cmedNumOutMessages",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedNumOutOctets": {
+    "name": "cmedNumOutOctets",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedNumErrors": {
+    "name": "cmedNumErrors",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedNumTimerRecovery": {
+    "name": "cmedNumTimerRecovery",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedTransportNumLosses": {
+    "name": "cmedTransportNumLosses",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedTransportNumSwitchover": {
+    "name": "cmedTransportNumSwitchover",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedTransportTotalNumAlarms": {
+    "name": "cmedTransportTotalNumAlarms",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedTransportLastEvent": {
+    "name": "cmedTransportLastEvent",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "other": 2,
+          "linkUp": 3,
+          "linkLoss": 4,
+          "persistentError": 5,
+          "linkShutdown": 6,
+          "switchOver": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedTransportLastEventTime": {
+    "name": "cmedTransportLastEventTime",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedLastStatisticsReset": {
+    "name": "cmedLastStatisticsReset",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedTermIdTable": {
+    "name": "cmedTermIdTable",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedTermIdEntry": {
+    "name": "cmedTermIdEntry",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmedNextTerminationId": {
+    "name": "cmedNextTerminationId",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmedTerminationsTable": {
+    "name": "cmedTerminationsTable",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedTerminationsEntry": {
+    "name": "cmedTerminationsEntry",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedTermId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmedTermId": {
+    "name": "cmedTermId",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CMediaGatewayTermId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedTermName": {
+    "name": "cmedTermName",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedTermAdminStatus": {
+    "name": "cmedTermAdminStatus",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inService": 1,
+          "outOfService": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedTermOperStatus": {
+    "name": "cmedTermOperStatus",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmedTermInterfaceIdentifier": {
+    "name": "cmedTermInterfaceIdentifier",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedTermPropertyProfileId": {
+    "name": "cmedTermPropertyProfileId",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedTermRowStatus": {
+    "name": "cmedTermRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedPropertyProfileTable": {
+    "name": "cmedPropertyProfileTable",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedPropertyProfileEntry": {
+    "name": "cmedPropertyProfileEntry",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedPropertyProfileId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedPropertyProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmedPropertyProfileId": {
+    "name": "cmedPropertyProfileId",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedPropertyProfileIndex": {
+    "name": "cmedPropertyProfileIndex",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmedPropertyProfileProperty": {
+    "name": "cmedPropertyProfileProperty",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmedPropertyProfileRowStatus": {
+    "name": "cmedPropertyProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.99999.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoIetfMegacoMIBConformance": {
+    "name": "ciscoIetfMegacoMIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.99999.3",
+    "class": "objectidentity"
+  },
+  "cmedCompliances": {
+    "name": "cmedCompliances",
+    "oid": "1.3.6.1.4.1.9.10.99999.3.1",
+    "class": "objectidentity"
+  },
+  "cmedConfigGroups": {
+    "name": "cmedConfigGroups",
+    "oid": "1.3.6.1.4.1.9.10.99999.3.2",
+    "class": "objectidentity"
+  },
+  "cmedCompliance": {
+    "name": "cmedCompliance",
+    "oid": "1.3.6.1.4.1.9.10.99999.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmedConfig",
+        "module": "CISCO-IETF-MEGACO-MIB"
+      },
+      {
+        "object": "cmedStatsGroup",
+        "module": "CISCO-IETF-MEGACO-MIB"
+      },
+      {
+        "object": "cmedGwyControllerGroup",
+        "module": "CISCO-IETF-MEGACO-MIB"
+      },
+      {
+        "object": "cmedNextIdGroup",
+        "module": "CISCO-IETF-MEGACO-MIB"
+      },
+      {
+        "object": "cmedTermGroup",
+        "module": "CISCO-IETF-MEGACO-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cmedConfig": {
+    "name": "cmedConfig",
+    "oid": "1.3.6.1.4.1.9.10.99999.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayLinkName"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayIPAddress"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayPort"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayEncodingScheme"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayProtocol"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewaySigTptProtocol"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayAdminStatus"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayOperStatus"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayLastStatusChange"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayResetStatistics"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGatewayRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cmedStatsGroup": {
+    "name": "cmedStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.99999.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedNumInMessages"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedNumInOctets"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedNumOutMessages"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedNumOutOctets"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedNumErrors"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedNumTimerRecovery"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedTransportNumLosses"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedTransportNumSwitchover"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedTransportTotalNumAlarms"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedTransportLastEvent"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedTransportLastEventTime"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedLastStatisticsReset"
+      }
+    ],
+    "status": "current"
+  },
+  "cmedGwyControllerGroup": {
+    "name": "cmedGwyControllerGroup",
+    "oid": "1.3.6.1.4.1.9.10.99999.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGwyControllerIPAddress"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGwyControllerPort"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGwyControllerAdminStatus"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedGwyControllerOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cmedNextIdGroup": {
+    "name": "cmedNextIdGroup",
+    "oid": "1.3.6.1.4.1.9.10.99999.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedNextTerminationId"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedNextLinkId"
+      }
+    ],
+    "status": "current"
+  },
+  "cmedTermGroup": {
+    "name": "cmedTermGroup",
+    "oid": "1.3.6.1.4.1.9.10.99999.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedTermName"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedTermAdminStatus"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedTermOperStatus"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedTermInterfaceIdentifier"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedTermPropertyProfileId"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedTermRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedPropertyProfileProperty"
+      },
+      {
+        "module": "CISCO-IETF-MEGACO-MIB",
+        "object": "cmedPropertyProfileRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-MEGACO-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IETF-MEGACO-MIB"
+  }
+}

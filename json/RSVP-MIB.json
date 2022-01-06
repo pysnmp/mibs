@@ -1,0 +1,2913 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "INTEGRATED-SERVICES-MIB": [
+      "MessageSize",
+      "Port",
+      "QosService",
+      "SessionNumber",
+      "SessionType",
+      "intSrvFlowStatus",
+      "BitRate",
+      "BurstSize",
+      "Protocol"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "mib-2",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeInterval",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "rsvp": {
+    "name": "rsvp",
+    "oid": "1.3.6.1.2.1.51",
+    "class": "moduleidentity"
+  },
+  "rsvpObjects": {
+    "name": "rsvpObjects",
+    "oid": "1.3.6.1.2.1.51.1",
+    "class": "objectidentity"
+  },
+  "rsvpGenObjects": {
+    "name": "rsvpGenObjects",
+    "oid": "1.3.6.1.2.1.51.2",
+    "class": "objectidentity"
+  },
+  "rsvpNotificationsPrefix": {
+    "name": "rsvpNotificationsPrefix",
+    "oid": "1.3.6.1.2.1.51.3",
+    "class": "objectidentity"
+  },
+  "rsvpConformance": {
+    "name": "rsvpConformance",
+    "oid": "1.3.6.1.2.1.51.4",
+    "class": "objectidentity"
+  },
+  "RsvpEncapsulation": {
+    "name": "RsvpEncapsulation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "udp": 2,
+          "both": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RefreshInterval": {
+    "name": "RefreshInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "rsvpSessionTable": {
+    "name": "rsvpSessionTable",
+    "oid": "1.3.6.1.2.1.51.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsvpSessionEntry": {
+    "name": "rsvpSessionEntry",
+    "oid": "1.3.6.1.2.1.51.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSessionNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsvpSessionNumber": {
+    "name": "rsvpSessionNumber",
+    "oid": "1.3.6.1.2.1.51.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SessionNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsvpSessionType": {
+    "name": "rsvpSessionType",
+    "oid": "1.3.6.1.2.1.51.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SessionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpSessionDestAddr": {
+    "name": "rsvpSessionDestAddr",
+    "oid": "1.3.6.1.2.1.51.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpSessionDestAddrLength": {
+    "name": "rsvpSessionDestAddrLength",
+    "oid": "1.3.6.1.2.1.51.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpSessionProtocol": {
+    "name": "rsvpSessionProtocol",
+    "oid": "1.3.6.1.2.1.51.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Protocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpSessionPort": {
+    "name": "rsvpSessionPort",
+    "oid": "1.3.6.1.2.1.51.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Port",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpSessionSenders": {
+    "name": "rsvpSessionSenders",
+    "oid": "1.3.6.1.2.1.51.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpSessionReceivers": {
+    "name": "rsvpSessionReceivers",
+    "oid": "1.3.6.1.2.1.51.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpSessionRequests": {
+    "name": "rsvpSessionRequests",
+    "oid": "1.3.6.1.2.1.51.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpBadPackets": {
+    "name": "rsvpBadPackets",
+    "oid": "1.3.6.1.2.1.51.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpSenderNewIndex": {
+    "name": "rsvpSenderNewIndex",
+    "oid": "1.3.6.1.2.1.51.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsvpSenderTable": {
+    "name": "rsvpSenderTable",
+    "oid": "1.3.6.1.2.1.51.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsvpSenderEntry": {
+    "name": "rsvpSenderEntry",
+    "oid": "1.3.6.1.2.1.51.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSessionNumber",
+        "implied": 0
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsvpSenderNumber": {
+    "name": "rsvpSenderNumber",
+    "oid": "1.3.6.1.2.1.51.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SessionNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsvpSenderType": {
+    "name": "rsvpSenderType",
+    "oid": "1.3.6.1.2.1.51.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SessionType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderDestAddr": {
+    "name": "rsvpSenderDestAddr",
+    "oid": "1.3.6.1.2.1.51.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderAddr": {
+    "name": "rsvpSenderAddr",
+    "oid": "1.3.6.1.2.1.51.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderDestAddrLength": {
+    "name": "rsvpSenderDestAddrLength",
+    "oid": "1.3.6.1.2.1.51.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderAddrLength": {
+    "name": "rsvpSenderAddrLength",
+    "oid": "1.3.6.1.2.1.51.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderProtocol": {
+    "name": "rsvpSenderProtocol",
+    "oid": "1.3.6.1.2.1.51.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Protocol",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderDestPort": {
+    "name": "rsvpSenderDestPort",
+    "oid": "1.3.6.1.2.1.51.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Port",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderPort": {
+    "name": "rsvpSenderPort",
+    "oid": "1.3.6.1.2.1.51.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Port",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderFlowId": {
+    "name": "rsvpSenderFlowId",
+    "oid": "1.3.6.1.2.1.51.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpSenderHopAddr": {
+    "name": "rsvpSenderHopAddr",
+    "oid": "1.3.6.1.2.1.51.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderHopLih": {
+    "name": "rsvpSenderHopLih",
+    "oid": "1.3.6.1.2.1.51.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderInterface": {
+    "name": "rsvpSenderInterface",
+    "oid": "1.3.6.1.2.1.51.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderTSpecRate": {
+    "name": "rsvpSenderTSpecRate",
+    "oid": "1.3.6.1.2.1.51.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BitRate",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderTSpecPeakRate": {
+    "name": "rsvpSenderTSpecPeakRate",
+    "oid": "1.3.6.1.2.1.51.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BitRate",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderTSpecBurst": {
+    "name": "rsvpSenderTSpecBurst",
+    "oid": "1.3.6.1.2.1.51.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BurstSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderTSpecMinTU": {
+    "name": "rsvpSenderTSpecMinTU",
+    "oid": "1.3.6.1.2.1.51.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MessageSize",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderTSpecMaxTU": {
+    "name": "rsvpSenderTSpecMaxTU",
+    "oid": "1.3.6.1.2.1.51.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MessageSize",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderInterval": {
+    "name": "rsvpSenderInterval",
+    "oid": "1.3.6.1.2.1.51.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RefreshInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderRSVPHop": {
+    "name": "rsvpSenderRSVPHop",
+    "oid": "1.3.6.1.2.1.51.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderLastChange": {
+    "name": "rsvpSenderLastChange",
+    "oid": "1.3.6.1.2.1.51.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpSenderPolicy": {
+    "name": "rsvpSenderPolicy",
+    "oid": "1.3.6.1.2.1.51.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderAdspecBreak": {
+    "name": "rsvpSenderAdspecBreak",
+    "oid": "1.3.6.1.2.1.51.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderAdspecHopCount": {
+    "name": "rsvpSenderAdspecHopCount",
+    "oid": "1.3.6.1.2.1.51.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderAdspecPathBw": {
+    "name": "rsvpSenderAdspecPathBw",
+    "oid": "1.3.6.1.2.1.51.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BitRate",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderAdspecMinLatency": {
+    "name": "rsvpSenderAdspecMinLatency",
+    "oid": "1.3.6.1.2.1.51.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderAdspecMtu": {
+    "name": "rsvpSenderAdspecMtu",
+    "oid": "1.3.6.1.2.1.51.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderAdspecGuaranteedSvc": {
+    "name": "rsvpSenderAdspecGuaranteedSvc",
+    "oid": "1.3.6.1.2.1.51.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderAdspecGuaranteedBreak": {
+    "name": "rsvpSenderAdspecGuaranteedBreak",
+    "oid": "1.3.6.1.2.1.51.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderAdspecGuaranteedCtot": {
+    "name": "rsvpSenderAdspecGuaranteedCtot",
+    "oid": "1.3.6.1.2.1.51.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderAdspecGuaranteedDtot": {
+    "name": "rsvpSenderAdspecGuaranteedDtot",
+    "oid": "1.3.6.1.2.1.51.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderAdspecGuaranteedCsum": {
+    "name": "rsvpSenderAdspecGuaranteedCsum",
+    "oid": "1.3.6.1.2.1.51.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderAdspecGuaranteedDsum": {
+    "name": "rsvpSenderAdspecGuaranteedDsum",
+    "oid": "1.3.6.1.2.1.51.1.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderAdspecGuaranteedHopCount": {
+    "name": "rsvpSenderAdspecGuaranteedHopCount",
+    "oid": "1.3.6.1.2.1.51.1.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderAdspecGuaranteedPathBw": {
+    "name": "rsvpSenderAdspecGuaranteedPathBw",
+    "oid": "1.3.6.1.2.1.51.1.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BitRate",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderAdspecGuaranteedMinLatency": {
+    "name": "rsvpSenderAdspecGuaranteedMinLatency",
+    "oid": "1.3.6.1.2.1.51.1.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderAdspecGuaranteedMtu": {
+    "name": "rsvpSenderAdspecGuaranteedMtu",
+    "oid": "1.3.6.1.2.1.51.1.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderAdspecCtrlLoadSvc": {
+    "name": "rsvpSenderAdspecCtrlLoadSvc",
+    "oid": "1.3.6.1.2.1.51.1.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderAdspecCtrlLoadBreak": {
+    "name": "rsvpSenderAdspecCtrlLoadBreak",
+    "oid": "1.3.6.1.2.1.51.1.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderAdspecCtrlLoadHopCount": {
+    "name": "rsvpSenderAdspecCtrlLoadHopCount",
+    "oid": "1.3.6.1.2.1.51.1.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderAdspecCtrlLoadPathBw": {
+    "name": "rsvpSenderAdspecCtrlLoadPathBw",
+    "oid": "1.3.6.1.2.1.51.1.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BitRate",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderAdspecCtrlLoadMinLatency": {
+    "name": "rsvpSenderAdspecCtrlLoadMinLatency",
+    "oid": "1.3.6.1.2.1.51.1.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderAdspecCtrlLoadMtu": {
+    "name": "rsvpSenderAdspecCtrlLoadMtu",
+    "oid": "1.3.6.1.2.1.51.1.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderStatus": {
+    "name": "rsvpSenderStatus",
+    "oid": "1.3.6.1.2.1.51.1.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpSenderTTL": {
+    "name": "rsvpSenderTTL",
+    "oid": "1.3.6.1.2.1.51.1.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpSenderOutInterfaceTable": {
+    "name": "rsvpSenderOutInterfaceTable",
+    "oid": "1.3.6.1.2.1.51.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsvpSenderOutInterfaceEntry": {
+    "name": "rsvpSenderOutInterfaceEntry",
+    "oid": "1.3.6.1.2.1.51.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSessionNumber",
+        "implied": 0
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderNumber",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsvpSenderOutInterfaceStatus": {
+    "name": "rsvpSenderOutInterfaceStatus",
+    "oid": "1.3.6.1.2.1.51.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvNewIndex": {
+    "name": "rsvpResvNewIndex",
+    "oid": "1.3.6.1.2.1.51.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsvpResvTable": {
+    "name": "rsvpResvTable",
+    "oid": "1.3.6.1.2.1.51.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsvpResvEntry": {
+    "name": "rsvpResvEntry",
+    "oid": "1.3.6.1.2.1.51.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSessionNumber",
+        "implied": 0
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsvpResvNumber": {
+    "name": "rsvpResvNumber",
+    "oid": "1.3.6.1.2.1.51.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SessionNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsvpResvType": {
+    "name": "rsvpResvType",
+    "oid": "1.3.6.1.2.1.51.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SessionType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvDestAddr": {
+    "name": "rsvpResvDestAddr",
+    "oid": "1.3.6.1.2.1.51.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvSenderAddr": {
+    "name": "rsvpResvSenderAddr",
+    "oid": "1.3.6.1.2.1.51.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvDestAddrLength": {
+    "name": "rsvpResvDestAddrLength",
+    "oid": "1.3.6.1.2.1.51.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvSenderAddrLength": {
+    "name": "rsvpResvSenderAddrLength",
+    "oid": "1.3.6.1.2.1.51.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvProtocol": {
+    "name": "rsvpResvProtocol",
+    "oid": "1.3.6.1.2.1.51.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Protocol",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvDestPort": {
+    "name": "rsvpResvDestPort",
+    "oid": "1.3.6.1.2.1.51.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Port",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvPort": {
+    "name": "rsvpResvPort",
+    "oid": "1.3.6.1.2.1.51.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Port",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvHopAddr": {
+    "name": "rsvpResvHopAddr",
+    "oid": "1.3.6.1.2.1.51.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvHopLih": {
+    "name": "rsvpResvHopLih",
+    "oid": "1.3.6.1.2.1.51.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvInterface": {
+    "name": "rsvpResvInterface",
+    "oid": "1.3.6.1.2.1.51.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvService": {
+    "name": "rsvpResvService",
+    "oid": "1.3.6.1.2.1.51.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosService",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvTSpecRate": {
+    "name": "rsvpResvTSpecRate",
+    "oid": "1.3.6.1.2.1.51.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BitRate",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvTSpecPeakRate": {
+    "name": "rsvpResvTSpecPeakRate",
+    "oid": "1.3.6.1.2.1.51.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BitRate",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvTSpecBurst": {
+    "name": "rsvpResvTSpecBurst",
+    "oid": "1.3.6.1.2.1.51.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BurstSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvTSpecMinTU": {
+    "name": "rsvpResvTSpecMinTU",
+    "oid": "1.3.6.1.2.1.51.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MessageSize",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvTSpecMaxTU": {
+    "name": "rsvpResvTSpecMaxTU",
+    "oid": "1.3.6.1.2.1.51.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MessageSize",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvRSpecRate": {
+    "name": "rsvpResvRSpecRate",
+    "oid": "1.3.6.1.2.1.51.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BitRate",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvRSpecSlack": {
+    "name": "rsvpResvRSpecSlack",
+    "oid": "1.3.6.1.2.1.51.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvInterval": {
+    "name": "rsvpResvInterval",
+    "oid": "1.3.6.1.2.1.51.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RefreshInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvScope": {
+    "name": "rsvpResvScope",
+    "oid": "1.3.6.1.2.1.51.1.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvShared": {
+    "name": "rsvpResvShared",
+    "oid": "1.3.6.1.2.1.51.1.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvExplicit": {
+    "name": "rsvpResvExplicit",
+    "oid": "1.3.6.1.2.1.51.1.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvRSVPHop": {
+    "name": "rsvpResvRSVPHop",
+    "oid": "1.3.6.1.2.1.51.1.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvLastChange": {
+    "name": "rsvpResvLastChange",
+    "oid": "1.3.6.1.2.1.51.1.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvPolicy": {
+    "name": "rsvpResvPolicy",
+    "oid": "1.3.6.1.2.1.51.1.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvStatus": {
+    "name": "rsvpResvStatus",
+    "oid": "1.3.6.1.2.1.51.1.4.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpResvTTL": {
+    "name": "rsvpResvTTL",
+    "oid": "1.3.6.1.2.1.51.1.4.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFlowId": {
+    "name": "rsvpResvFlowId",
+    "oid": "1.3.6.1.2.1.51.1.4.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdNewIndex": {
+    "name": "rsvpResvFwdNewIndex",
+    "oid": "1.3.6.1.2.1.51.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsvpResvFwdTable": {
+    "name": "rsvpResvFwdTable",
+    "oid": "1.3.6.1.2.1.51.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsvpResvFwdEntry": {
+    "name": "rsvpResvFwdEntry",
+    "oid": "1.3.6.1.2.1.51.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSessionNumber",
+        "implied": 0
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsvpResvFwdNumber": {
+    "name": "rsvpResvFwdNumber",
+    "oid": "1.3.6.1.2.1.51.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SessionNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsvpResvFwdType": {
+    "name": "rsvpResvFwdType",
+    "oid": "1.3.6.1.2.1.51.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SessionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdDestAddr": {
+    "name": "rsvpResvFwdDestAddr",
+    "oid": "1.3.6.1.2.1.51.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdSenderAddr": {
+    "name": "rsvpResvFwdSenderAddr",
+    "oid": "1.3.6.1.2.1.51.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdDestAddrLength": {
+    "name": "rsvpResvFwdDestAddrLength",
+    "oid": "1.3.6.1.2.1.51.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdSenderAddrLength": {
+    "name": "rsvpResvFwdSenderAddrLength",
+    "oid": "1.3.6.1.2.1.51.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdProtocol": {
+    "name": "rsvpResvFwdProtocol",
+    "oid": "1.3.6.1.2.1.51.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Protocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdDestPort": {
+    "name": "rsvpResvFwdDestPort",
+    "oid": "1.3.6.1.2.1.51.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Port",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdPort": {
+    "name": "rsvpResvFwdPort",
+    "oid": "1.3.6.1.2.1.51.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Port",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdHopAddr": {
+    "name": "rsvpResvFwdHopAddr",
+    "oid": "1.3.6.1.2.1.51.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdHopLih": {
+    "name": "rsvpResvFwdHopLih",
+    "oid": "1.3.6.1.2.1.51.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdInterface": {
+    "name": "rsvpResvFwdInterface",
+    "oid": "1.3.6.1.2.1.51.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdService": {
+    "name": "rsvpResvFwdService",
+    "oid": "1.3.6.1.2.1.51.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosService",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdTSpecRate": {
+    "name": "rsvpResvFwdTSpecRate",
+    "oid": "1.3.6.1.2.1.51.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BitRate",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdTSpecPeakRate": {
+    "name": "rsvpResvFwdTSpecPeakRate",
+    "oid": "1.3.6.1.2.1.51.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BitRate",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdTSpecBurst": {
+    "name": "rsvpResvFwdTSpecBurst",
+    "oid": "1.3.6.1.2.1.51.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BurstSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdTSpecMinTU": {
+    "name": "rsvpResvFwdTSpecMinTU",
+    "oid": "1.3.6.1.2.1.51.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MessageSize",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdTSpecMaxTU": {
+    "name": "rsvpResvFwdTSpecMaxTU",
+    "oid": "1.3.6.1.2.1.51.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MessageSize",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdRSpecRate": {
+    "name": "rsvpResvFwdRSpecRate",
+    "oid": "1.3.6.1.2.1.51.1.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BitRate",
+      "class": "type"
+    },
+    "units": "bytes per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdRSpecSlack": {
+    "name": "rsvpResvFwdRSpecSlack",
+    "oid": "1.3.6.1.2.1.51.1.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdInterval": {
+    "name": "rsvpResvFwdInterval",
+    "oid": "1.3.6.1.2.1.51.1.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RefreshInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdScope": {
+    "name": "rsvpResvFwdScope",
+    "oid": "1.3.6.1.2.1.51.1.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdShared": {
+    "name": "rsvpResvFwdShared",
+    "oid": "1.3.6.1.2.1.51.1.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdExplicit": {
+    "name": "rsvpResvFwdExplicit",
+    "oid": "1.3.6.1.2.1.51.1.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdRSVPHop": {
+    "name": "rsvpResvFwdRSVPHop",
+    "oid": "1.3.6.1.2.1.51.1.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdLastChange": {
+    "name": "rsvpResvFwdLastChange",
+    "oid": "1.3.6.1.2.1.51.1.5.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdPolicy": {
+    "name": "rsvpResvFwdPolicy",
+    "oid": "1.3.6.1.2.1.51.1.5.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdStatus": {
+    "name": "rsvpResvFwdStatus",
+    "oid": "1.3.6.1.2.1.51.1.5.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsvpResvFwdTTL": {
+    "name": "rsvpResvFwdTTL",
+    "oid": "1.3.6.1.2.1.51.1.5.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpResvFwdFlowId": {
+    "name": "rsvpResvFwdFlowId",
+    "oid": "1.3.6.1.2.1.51.1.5.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpIfTable": {
+    "name": "rsvpIfTable",
+    "oid": "1.3.6.1.2.1.51.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsvpIfEntry": {
+    "name": "rsvpIfEntry",
+    "oid": "1.3.6.1.2.1.51.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsvpIfUdpNbrs": {
+    "name": "rsvpIfUdpNbrs",
+    "oid": "1.3.6.1.2.1.51.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpIfIpNbrs": {
+    "name": "rsvpIfIpNbrs",
+    "oid": "1.3.6.1.2.1.51.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpIfNbrs": {
+    "name": "rsvpIfNbrs",
+    "oid": "1.3.6.1.2.1.51.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsvpIfRefreshBlockadeMultiple": {
+    "name": "rsvpIfRefreshBlockadeMultiple",
+    "oid": "1.3.6.1.2.1.51.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpIfRefreshMultiple": {
+    "name": "rsvpIfRefreshMultiple",
+    "oid": "1.3.6.1.2.1.51.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpIfTTL": {
+    "name": "rsvpIfTTL",
+    "oid": "1.3.6.1.2.1.51.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpIfRefreshInterval": {
+    "name": "rsvpIfRefreshInterval",
+    "oid": "1.3.6.1.2.1.51.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpIfRouteDelay": {
+    "name": "rsvpIfRouteDelay",
+    "oid": "1.3.6.1.2.1.51.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "units": "hundredths of a second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpIfEnabled": {
+    "name": "rsvpIfEnabled",
+    "oid": "1.3.6.1.2.1.51.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpIfUdpRequired": {
+    "name": "rsvpIfUdpRequired",
+    "oid": "1.3.6.1.2.1.51.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpIfStatus": {
+    "name": "rsvpIfStatus",
+    "oid": "1.3.6.1.2.1.51.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpNbrTable": {
+    "name": "rsvpNbrTable",
+    "oid": "1.3.6.1.2.1.51.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsvpNbrEntry": {
+    "name": "rsvpNbrEntry",
+    "oid": "1.3.6.1.2.1.51.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpNbrAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsvpNbrAddress": {
+    "name": "rsvpNbrAddress",
+    "oid": "1.3.6.1.2.1.51.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsvpNbrProtocol": {
+    "name": "rsvpNbrProtocol",
+    "oid": "1.3.6.1.2.1.51.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RsvpEncapsulation",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpNbrStatus": {
+    "name": "rsvpNbrStatus",
+    "oid": "1.3.6.1.2.1.51.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rsvpNotifications": {
+    "name": "rsvpNotifications",
+    "oid": "1.3.6.1.2.1.51.3.0",
+    "class": "objectidentity"
+  },
+  "newFlow": {
+    "name": "newFlow",
+    "oid": "1.3.6.1.2.1.51.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowStatus"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSessionDestAddr"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdStatus"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvStatus"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "lostFlow": {
+    "name": "lostFlow",
+    "oid": "1.3.6.1.2.1.51.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowStatus"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSessionDestAddr"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdStatus"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvStatus"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rsvpGroups": {
+    "name": "rsvpGroups",
+    "oid": "1.3.6.1.2.1.51.4.1",
+    "class": "objectidentity"
+  },
+  "rsvpCompliances": {
+    "name": "rsvpCompliances",
+    "oid": "1.3.6.1.2.1.51.4.2",
+    "class": "objectidentity"
+  },
+  "rsvpCompliance": {
+    "name": "rsvpCompliance",
+    "oid": "1.3.6.1.2.1.51.4.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "rsvpSessionGroup",
+        "module": "RSVP-MIB"
+      },
+      {
+        "object": "rsvpSenderGroup",
+        "module": "RSVP-MIB"
+      },
+      {
+        "object": "rsvpResvGroup",
+        "module": "RSVP-MIB"
+      },
+      {
+        "object": "rsvpIfGroup",
+        "module": "RSVP-MIB"
+      },
+      {
+        "object": "rsvpNbrGroup",
+        "module": "RSVP-MIB"
+      },
+      {
+        "object": "rsvpResvFwdGroup",
+        "module": "RSVP-MIB"
+      },
+      {
+        "object": "rsvpNotificationGroup",
+        "module": "RSVP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "rsvpSessionGroup": {
+    "name": "rsvpSessionGroup",
+    "oid": "1.3.6.1.2.1.51.4.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSessionType"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSessionDestAddr"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSessionDestAddrLength"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSessionProtocol"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSessionPort"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSessionSenders"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSessionReceivers"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSessionRequests"
+      }
+    ],
+    "status": "current"
+  },
+  "rsvpSenderGroup": {
+    "name": "rsvpSenderGroup",
+    "oid": "1.3.6.1.2.1.51.4.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderType"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderDestAddr"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderAddr"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderDestAddrLength"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderAddrLength"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderProtocol"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderDestPort"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderPort"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderHopAddr"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderHopLih"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderInterface"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderTSpecRate"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderTSpecPeakRate"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderTSpecBurst"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderTSpecMinTU"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderTSpecMaxTU"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderInterval"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderLastChange"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderStatus"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderRSVPHop"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderPolicy"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderAdspecBreak"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderAdspecHopCount"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderAdspecPathBw"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderAdspecMinLatency"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderAdspecMtu"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderAdspecGuaranteedSvc"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderAdspecGuaranteedBreak"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderAdspecGuaranteedCtot"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderAdspecGuaranteedDtot"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderAdspecGuaranteedCsum"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderAdspecGuaranteedDsum"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderAdspecGuaranteedHopCount"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderAdspecGuaranteedPathBw"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderAdspecGuaranteedMinLatency"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderAdspecGuaranteedMtu"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderAdspecCtrlLoadSvc"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderAdspecCtrlLoadBreak"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderAdspecCtrlLoadHopCount"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderAdspecCtrlLoadPathBw"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderAdspecCtrlLoadMinLatency"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderAdspecCtrlLoadMtu"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderNewIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "rsvpResvGroup": {
+    "name": "rsvpResvGroup",
+    "oid": "1.3.6.1.2.1.51.4.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvType"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvDestAddr"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvSenderAddr"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvDestAddrLength"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvSenderAddrLength"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvProtocol"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvDestPort"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvPort"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvHopAddr"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvHopLih"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvInterface"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvService"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvTSpecRate"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvTSpecBurst"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvTSpecPeakRate"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvTSpecMinTU"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvTSpecMaxTU"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvRSpecRate"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvRSpecSlack"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvInterval"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvScope"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvShared"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvExplicit"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvRSVPHop"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvLastChange"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvPolicy"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvStatus"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvNewIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "rsvpResvFwdGroup": {
+    "name": "rsvpResvFwdGroup",
+    "oid": "1.3.6.1.2.1.51.4.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdType"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdDestAddr"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdSenderAddr"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdDestAddrLength"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdSenderAddrLength"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdProtocol"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdDestPort"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdPort"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdHopAddr"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdHopLih"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdInterface"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdNewIndex"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdService"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdTSpecPeakRate"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdTSpecMinTU"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdTSpecMaxTU"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdTSpecRate"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdTSpecBurst"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdRSpecRate"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdRSpecSlack"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdInterval"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdScope"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdShared"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdExplicit"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdRSVPHop"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdLastChange"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdPolicy"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rsvpIfGroup": {
+    "name": "rsvpIfGroup",
+    "oid": "1.3.6.1.2.1.51.4.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpIfUdpNbrs"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpIfIpNbrs"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpIfNbrs"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpIfEnabled"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpIfUdpRequired"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpIfRefreshBlockadeMultiple"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpIfRefreshMultiple"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpIfRefreshInterval"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpIfTTL"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpIfRouteDelay"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpIfStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rsvpNbrGroup": {
+    "name": "rsvpNbrGroup",
+    "oid": "1.3.6.1.2.1.51.4.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpNbrProtocol"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpNbrStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rsvpNotificationGroup": {
+    "name": "rsvpNotificationGroup",
+    "oid": "1.3.6.1.2.1.51.4.1.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RSVP-MIB",
+        "object": "newFlow"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "lostFlow"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/RSVP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RSVP-MIB"
+  }
+}

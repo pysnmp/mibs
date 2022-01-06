@@ -1,0 +1,938 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "BridgeId",
+      "Timeout"
+    ],
+    "IEEE8021-TC-MIB": [
+      "IEEE8021PbbComponentIdentifier",
+      "IEEE8021BridgePortNumber",
+      "ieee802dot1mibs"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ieee8021SpanningTreeMib": {
+    "name": "ieee8021SpanningTreeMib",
+    "oid": "1.3.111.2.802.1.1.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-06-28 00:00",
+        "description": "Published as part of IEEE Std 802.1Q 2017 revision. Cross references updated and corrected."
+      },
+      {
+        "revision": "2014-12-15 00:00",
+        "description": "Published as part of IEEE Std 802.1Q 2014 revision. Cross references updated and corrected. ieee8021SpanningTreeRstpTxHoldCount default value changed to 6 to match Table 13-5."
+      },
+      {
+        "revision": "2011-03-24 00:00",
+        "description": "Minor edits to contact information and addition of fragile Bridge as part of 2011 revision of IEEE Std 802.1Q."
+      },
+      {
+        "revision": "2008-10-15 00:00",
+        "description": "Initial revision, derived from RFC 4188."
+      }
+    ]
+  },
+  "ieee8021SpanningTreeNotifications": {
+    "name": "ieee8021SpanningTreeNotifications",
+    "oid": "1.3.111.2.802.1.1.3.0",
+    "class": "objectidentity"
+  },
+  "ieee8021SpanningTreeObjects": {
+    "name": "ieee8021SpanningTreeObjects",
+    "oid": "1.3.111.2.802.1.1.3.1",
+    "class": "objectidentity"
+  },
+  "ieee8021SpanningTreeConformance": {
+    "name": "ieee8021SpanningTreeConformance",
+    "oid": "1.3.111.2.802.1.1.3.2",
+    "class": "objectidentity"
+  },
+  "ieee8021SpanningTreeTable": {
+    "name": "ieee8021SpanningTreeTable",
+    "oid": "1.3.111.2.802.1.1.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeEntry": {
+    "name": "ieee8021SpanningTreeEntry",
+    "oid": "1.3.111.2.802.1.1.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeComponentId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpanningTreeComponentId": {
+    "name": "ieee8021SpanningTreeComponentId",
+    "oid": "1.3.111.2.802.1.1.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeProtocolSpecification": {
+    "name": "ieee8021SpanningTreeProtocolSpecification",
+    "oid": "1.3.111.2.802.1.1.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "decLb100": 2,
+          "ieee8021d": 3,
+          "ieee8021q": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpanningTreePriority": {
+    "name": "ieee8021SpanningTreePriority",
+    "oid": "1.3.111.2.802.1.1.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeTimeSinceTopologyChange": {
+    "name": "ieee8021SpanningTreeTimeSinceTopologyChange",
+    "oid": "1.3.111.2.802.1.1.3.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeTopChanges": {
+    "name": "ieee8021SpanningTreeTopChanges",
+    "oid": "1.3.111.2.802.1.1.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "topology changes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeDesignatedRoot": {
+    "name": "ieee8021SpanningTreeDesignatedRoot",
+    "oid": "1.3.111.2.802.1.1.3.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeRootCost": {
+    "name": "ieee8021SpanningTreeRootCost",
+    "oid": "1.3.111.2.802.1.1.3.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeRootPort": {
+    "name": "ieee8021SpanningTreeRootPort",
+    "oid": "1.3.111.2.802.1.1.3.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeMaxAge": {
+    "name": "ieee8021SpanningTreeMaxAge",
+    "oid": "1.3.111.2.802.1.1.3.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeHelloTime": {
+    "name": "ieee8021SpanningTreeHelloTime",
+    "oid": "1.3.111.2.802.1.1.3.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeHoldTime": {
+    "name": "ieee8021SpanningTreeHoldTime",
+    "oid": "1.3.111.2.802.1.1.3.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeForwardDelay": {
+    "name": "ieee8021SpanningTreeForwardDelay",
+    "oid": "1.3.111.2.802.1.1.3.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeBridgeMaxAge": {
+    "name": "ieee8021SpanningTreeBridgeMaxAge",
+    "oid": "1.3.111.2.802.1.1.3.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 600,
+            "max": 4000
+          }
+        ]
+      }
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeBridgeHelloTime": {
+    "name": "ieee8021SpanningTreeBridgeHelloTime",
+    "oid": "1.3.111.2.802.1.1.3.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeBridgeForwardDelay": {
+    "name": "ieee8021SpanningTreeBridgeForwardDelay",
+    "oid": "1.3.111.2.802.1.1.3.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 400,
+            "max": 3000
+          }
+        ]
+      }
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeVersion": {
+    "name": "ieee8021SpanningTreeVersion",
+    "oid": "1.3.111.2.802.1.1.3.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stp": 0,
+          "rstp": 2,
+          "mstp": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeRstpTxHoldCount": {
+    "name": "ieee8021SpanningTreeRstpTxHoldCount",
+    "oid": "1.3.111.2.802.1.1.3.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SpanningTreePortTable": {
+    "name": "ieee8021SpanningTreePortTable",
+    "oid": "1.3.111.2.802.1.1.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpanningTreePortEntry": {
+    "name": "ieee8021SpanningTreePortEntry",
+    "oid": "1.3.111.2.802.1.1.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreePortComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpanningTreePortComponentId": {
+    "name": "ieee8021SpanningTreePortComponentId",
+    "oid": "1.3.111.2.802.1.1.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpanningTreePort": {
+    "name": "ieee8021SpanningTreePort",
+    "oid": "1.3.111.2.802.1.1.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpanningTreePortPriority": {
+    "name": "ieee8021SpanningTreePortPriority",
+    "oid": "1.3.111.2.802.1.1.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SpanningTreePortState": {
+    "name": "ieee8021SpanningTreePortState",
+    "oid": "1.3.111.2.802.1.1.3.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "blocking": 2,
+          "listening": 3,
+          "learning": 4,
+          "forwarding": 5,
+          "broken": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpanningTreePortEnabled": {
+    "name": "ieee8021SpanningTreePortEnabled",
+    "oid": "1.3.111.2.802.1.1.3.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SpanningTreePortPathCost": {
+    "name": "ieee8021SpanningTreePortPathCost",
+    "oid": "1.3.111.2.802.1.1.3.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SpanningTreePortDesignatedRoot": {
+    "name": "ieee8021SpanningTreePortDesignatedRoot",
+    "oid": "1.3.111.2.802.1.1.3.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpanningTreePortDesignatedCost": {
+    "name": "ieee8021SpanningTreePortDesignatedCost",
+    "oid": "1.3.111.2.802.1.1.3.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpanningTreePortDesignatedBridge": {
+    "name": "ieee8021SpanningTreePortDesignatedBridge",
+    "oid": "1.3.111.2.802.1.1.3.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpanningTreePortDesignatedPort": {
+    "name": "ieee8021SpanningTreePortDesignatedPort",
+    "oid": "1.3.111.2.802.1.1.3.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpanningTreePortForwardTransitions": {
+    "name": "ieee8021SpanningTreePortForwardTransitions",
+    "oid": "1.3.111.2.802.1.1.3.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "forwarding transitions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeRstpPortProtocolMigration": {
+    "name": "ieee8021SpanningTreeRstpPortProtocolMigration",
+    "oid": "1.3.111.2.802.1.1.3.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeRstpPortAdminEdgePort": {
+    "name": "ieee8021SpanningTreeRstpPortAdminEdgePort",
+    "oid": "1.3.111.2.802.1.1.3.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeRstpPortOperEdgePort": {
+    "name": "ieee8021SpanningTreeRstpPortOperEdgePort",
+    "oid": "1.3.111.2.802.1.1.3.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeRstpPortAdminPathCost": {
+    "name": "ieee8021SpanningTreeRstpPortAdminPathCost",
+    "oid": "1.3.111.2.802.1.1.3.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SpanningTreePortExtensionTable": {
+    "name": "ieee8021SpanningTreePortExtensionTable",
+    "oid": "1.3.111.2.802.1.1.3.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpanningTreePortExtensionEntry": {
+    "name": "ieee8021SpanningTreePortExtensionEntry",
+    "oid": "1.3.111.2.802.1.1.3.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ieee8021SpanningTreePortExtensionEntry",
+      "module": "IEEE8021-SPANNING-TREE-MIB",
+      "object": "ieee8021SpanningTreePortEntry"
+    },
+    "status": "current"
+  },
+  "ieee8021SpanningTreeRstpPortAutoEdgePort": {
+    "name": "ieee8021SpanningTreeRstpPortAutoEdgePort",
+    "oid": "1.3.111.2.802.1.1.3.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeRstpPortAutoIsolatePort": {
+    "name": "ieee8021SpanningTreeRstpPortAutoIsolatePort",
+    "oid": "1.3.111.2.802.1.1.3.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeRstpPortIsolatePort": {
+    "name": "ieee8021SpanningTreeRstpPortIsolatePort",
+    "oid": "1.3.111.2.802.1.1.3.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeNewRoot": {
+    "name": "ieee8021SpanningTreeNewRoot",
+    "oid": "1.3.111.2.802.1.1.3.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeTopologyChange": {
+    "name": "ieee8021SpanningTreeTopologyChange",
+    "oid": "1.3.111.2.802.1.1.3.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "ieee8021SpanningTreeCompliances": {
+    "name": "ieee8021SpanningTreeCompliances",
+    "oid": "1.3.111.2.802.1.1.3.2.1",
+    "class": "objectidentity"
+  },
+  "ieee8021SpanningTreeGroups": {
+    "name": "ieee8021SpanningTreeGroups",
+    "oid": "1.3.111.2.802.1.1.3.2.2",
+    "class": "objectidentity"
+  },
+  "ieee8021SpanningTreeGroup": {
+    "name": "ieee8021SpanningTreeGroup",
+    "oid": "1.3.111.2.802.1.1.3.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeProtocolSpecification"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreePriority"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeTimeSinceTopologyChange"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeTopChanges"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeDesignatedRoot"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeRootCost"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeRootPort"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeMaxAge"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeHelloTime"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeHoldTime"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeForwardDelay"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeBridgeMaxAge"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeBridgeHelloTime"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeBridgeForwardDelay"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpanningTreeRstpGroup": {
+    "name": "ieee8021SpanningTreeRstpGroup",
+    "oid": "1.3.111.2.802.1.1.3.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeRstpTxHoldCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpanningTreePortGroup": {
+    "name": "ieee8021SpanningTreePortGroup",
+    "oid": "1.3.111.2.802.1.1.3.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreePortPriority"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreePortState"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreePortEnabled"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreePortPathCost"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreePortDesignatedRoot"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreePortDesignatedCost"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreePortDesignatedBridge"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreePortDesignatedPort"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreePortForwardTransitions"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpanningTreeRstpPortGroup": {
+    "name": "ieee8021SpanningTreeRstpPortGroup",
+    "oid": "1.3.111.2.802.1.1.3.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeRstpPortProtocolMigration"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeRstpPortAdminEdgePort"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeRstpPortOperEdgePort"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeRstpPortAdminPathCost"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpanningTreeRstpFragileGroup": {
+    "name": "ieee8021SpanningTreeRstpFragileGroup",
+    "oid": "1.3.111.2.802.1.1.3.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeRstpPortAutoEdgePort"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeRstpPortAutoIsolatePort"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeRstpPortIsolatePort"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpanningTreeNotificationGroup": {
+    "name": "ieee8021SpanningTreeNotificationGroup",
+    "oid": "1.3.111.2.802.1.1.3.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeNewRoot"
+      },
+      {
+        "module": "IEEE8021-SPANNING-TREE-MIB",
+        "object": "ieee8021SpanningTreeTopologyChange"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpanningTreeCompliance": {
+    "name": "ieee8021SpanningTreeCompliance",
+    "oid": "1.3.111.2.802.1.1.3.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ieee8021SpanningTreeGroup",
+        "module": "IEEE8021-SPANNING-TREE-MIB"
+      },
+      {
+        "object": "ieee8021SpanningTreePortGroup",
+        "module": "IEEE8021-SPANNING-TREE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpanningTreeRstpCompliance": {
+    "name": "ieee8021SpanningTreeRstpCompliance",
+    "oid": "1.3.111.2.802.1.1.3.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ieee8021SpanningTreeGroup",
+        "module": "IEEE8021-SPANNING-TREE-MIB"
+      },
+      {
+        "object": "ieee8021SpanningTreeRstpGroup",
+        "module": "IEEE8021-SPANNING-TREE-MIB"
+      },
+      {
+        "object": "ieee8021SpanningTreePortGroup",
+        "module": "IEEE8021-SPANNING-TREE-MIB"
+      },
+      {
+        "object": "ieee8021SpanningTreeRstpPortGroup",
+        "module": "IEEE8021-SPANNING-TREE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IEEE8021-SPANNING-TREE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IEEE8021-SPANNING-TREE-MIB"
+  }
+}

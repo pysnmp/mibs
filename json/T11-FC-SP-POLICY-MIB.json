@@ -1,0 +1,3785 @@
+{
+  "imports": {
+    "class": "imports",
+    "FC-MGMT-MIB": [
+      "FcDomainIdOrZero",
+      "FcNameIdOrZero",
+      "fcmInstanceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetPortNumber",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "mib-2",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus",
+      "StorageType"
+    ],
+    "T11-FC-NAME-SERVER-MIB": [
+      "T11NsGs4RejectReasonCode"
+    ],
+    "T11-FC-SP-TC-MIB": [
+      "T11FcSpPolicyName",
+      "T11FcSpAlphaNumNameOrAbsent",
+      "T11FcSpPolicyNameType",
+      "T11FcSpHashCalculationStatus",
+      "T11FcSpPolicyHashValue",
+      "T11FcSpPolicyHashFormat",
+      "T11FcSpPolicyObjectType",
+      "T11FcSpAlphaNumName"
+    ],
+    "T11-TC-MIB": [
+      "T11FabricIndex"
+    ]
+  },
+  "t11FcSpPolicyMIB": {
+    "name": "t11FcSpPolicyMIB",
+    "oid": "1.3.6.1.2.1.178",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-08-20 00:00",
+        "description": "Initial version of this MIB module, published as RFC 5324."
+      }
+    ]
+  },
+  "t11FcSpPoMIBNotifications": {
+    "name": "t11FcSpPoMIBNotifications",
+    "oid": "1.3.6.1.2.1.178.0",
+    "class": "objectidentity"
+  },
+  "t11FcSpPoMIBObjects": {
+    "name": "t11FcSpPoMIBObjects",
+    "oid": "1.3.6.1.2.1.178.1",
+    "class": "objectidentity"
+  },
+  "t11FcSpPoMIBConformance": {
+    "name": "t11FcSpPoMIBConformance",
+    "oid": "1.3.6.1.2.1.178.2",
+    "class": "objectidentity"
+  },
+  "t11FcSpPoActive": {
+    "name": "t11FcSpPoActive",
+    "oid": "1.3.6.1.2.1.178.1.1",
+    "class": "objectidentity"
+  },
+  "t11FcSpPoOperations": {
+    "name": "t11FcSpPoOperations",
+    "oid": "1.3.6.1.2.1.178.1.2",
+    "class": "objectidentity"
+  },
+  "t11FcSpPoNonActive": {
+    "name": "t11FcSpPoNonActive",
+    "oid": "1.3.6.1.2.1.178.1.3",
+    "class": "objectidentity"
+  },
+  "t11FcSpPoStatistics": {
+    "name": "t11FcSpPoStatistics",
+    "oid": "1.3.6.1.2.1.178.1.4",
+    "class": "objectidentity"
+  },
+  "t11FcSpPoControl": {
+    "name": "t11FcSpPoControl",
+    "oid": "1.3.6.1.2.1.178.1.5",
+    "class": "objectidentity"
+  },
+  "t11FcSpPoTable": {
+    "name": "t11FcSpPoTable",
+    "oid": "1.3.6.1.2.1.178.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoEntry": {
+    "name": "t11FcSpPoEntry",
+    "oid": "1.3.6.1.2.1.178.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoFabricIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoFabricIndex": {
+    "name": "t11FcSpPoFabricIndex",
+    "oid": "1.3.6.1.2.1.178.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FabricIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoPolicySummaryObjName": {
+    "name": "t11FcSpPoPolicySummaryObjName",
+    "oid": "1.3.6.1.2.1.178.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpAlphaNumName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoAdminFabricName": {
+    "name": "t11FcSpPoAdminFabricName",
+    "oid": "1.3.6.1.2.1.178.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoActivatedTimeStamp": {
+    "name": "t11FcSpPoActivatedTimeStamp",
+    "oid": "1.3.6.1.2.1.178.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoSummaryTable": {
+    "name": "t11FcSpPoSummaryTable",
+    "oid": "1.3.6.1.2.1.178.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoSummaryEntry": {
+    "name": "t11FcSpPoSummaryEntry",
+    "oid": "1.3.6.1.2.1.178.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoSummaryPolicyNameType",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoSummaryPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoSummaryPolicyNameType": {
+    "name": "t11FcSpPoSummaryPolicyNameType",
+    "oid": "1.3.6.1.2.1.178.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpPolicyNameType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nodeName": 1,
+          "alphaNumericName": 7
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoSummaryPolicyName": {
+    "name": "t11FcSpPoSummaryPolicyName",
+    "oid": "1.3.6.1.2.1.178.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpPolicyName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoSummaryPolicyType": {
+    "name": "t11FcSpPoSummaryPolicyType",
+    "oid": "1.3.6.1.2.1.178.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpPolicyObjectType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoSummaryHashFormat": {
+    "name": "t11FcSpPoSummaryHashFormat",
+    "oid": "1.3.6.1.2.1.178.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpPolicyHashFormat",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoSummaryHashValue": {
+    "name": "t11FcSpPoSummaryHashValue",
+    "oid": "1.3.6.1.2.1.178.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpPolicyHashValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoSwMembTable": {
+    "name": "t11FcSpPoSwMembTable",
+    "oid": "1.3.6.1.2.1.178.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoSwMembEntry": {
+    "name": "t11FcSpPoSwMembEntry",
+    "oid": "1.3.6.1.2.1.178.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoSwMembSwitchNameType",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoSwMembSwitchName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoSwMembSwitchNameType": {
+    "name": "t11FcSpPoSwMembSwitchNameType",
+    "oid": "1.3.6.1.2.1.178.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpPolicyNameType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nodeName": 1,
+          "restrictedNodeName": 2,
+          "wildcard": 5,
+          "restrictedWildcard": 6
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoSwMembSwitchName": {
+    "name": "t11FcSpPoSwMembSwitchName",
+    "oid": "1.3.6.1.2.1.178.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoSwMembSwitchFlags": {
+    "name": "t11FcSpPoSwMembSwitchFlags",
+    "oid": "1.3.6.1.2.1.178.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "staticDomainID": 0,
+        "insistentDomainID": 1,
+        "serialPortsAccess": 2,
+        "physicalPortsAccess": 3,
+        "managerRole": 4
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoSwMembDomainID": {
+    "name": "t11FcSpPoSwMembDomainID",
+    "oid": "1.3.6.1.2.1.178.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcDomainIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoSwMembPolicyDataRole": {
+    "name": "t11FcSpPoSwMembPolicyDataRole",
+    "oid": "1.3.6.1.2.1.178.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "client": 1,
+          "autonomous": 2,
+          "server": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoSwMembAuthBehaviour": {
+    "name": "t11FcSpPoSwMembAuthBehaviour",
+    "oid": "1.3.6.1.2.1.178.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "mustAuthenticate": 0,
+        "rejectIsFailure": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoSwMembAttribute": {
+    "name": "t11FcSpPoSwMembAttribute",
+    "oid": "1.3.6.1.2.1.178.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpAlphaNumNameOrAbsent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoNoMembTable": {
+    "name": "t11FcSpPoNoMembTable",
+    "oid": "1.3.6.1.2.1.178.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNoMembEntry": {
+    "name": "t11FcSpPoNoMembEntry",
+    "oid": "1.3.6.1.2.1.178.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNoMembNodeNameType",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNoMembNodeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoNoMembNodeNameType": {
+    "name": "t11FcSpPoNoMembNodeNameType",
+    "oid": "1.3.6.1.2.1.178.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpPolicyNameType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nodeName": 1,
+          "restrictedNodeName": 2,
+          "portName": 3,
+          "restrictedPortName": 4,
+          "wildcard": 5,
+          "restrictedWildcard": 6
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNoMembNodeName": {
+    "name": "t11FcSpPoNoMembNodeName",
+    "oid": "1.3.6.1.2.1.178.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNoMembFlags": {
+    "name": "t11FcSpPoNoMembFlags",
+    "oid": "1.3.6.1.2.1.178.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "scsiEnclosureAccess": 0,
+        "authenticationRequired": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoNoMembCtAccessIndex": {
+    "name": "t11FcSpPoNoMembCtAccessIndex",
+    "oid": "1.3.6.1.2.1.178.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoNoMembAttribute": {
+    "name": "t11FcSpPoNoMembAttribute",
+    "oid": "1.3.6.1.2.1.178.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpAlphaNumNameOrAbsent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoCtDescrTable": {
+    "name": "t11FcSpPoCtDescrTable",
+    "oid": "1.3.6.1.2.1.178.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoCtDescrEntry": {
+    "name": "t11FcSpPoCtDescrEntry",
+    "oid": "1.3.6.1.2.1.178.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoCtDescrSpecifierIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoCtDescrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoCtDescrSpecifierIndex": {
+    "name": "t11FcSpPoCtDescrSpecifierIndex",
+    "oid": "1.3.6.1.2.1.178.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoCtDescrIndex": {
+    "name": "t11FcSpPoCtDescrIndex",
+    "oid": "1.3.6.1.2.1.178.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoCtDescrFlags": {
+    "name": "t11FcSpPoCtDescrFlags",
+    "oid": "1.3.6.1.2.1.178.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "allow": 0,
+        "gsTypeWildcard": 1,
+        "gsSubTypeWildcard": 2,
+        "readOnly": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoCtDescrGsType": {
+    "name": "t11FcSpPoCtDescrGsType",
+    "oid": "1.3.6.1.2.1.178.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoCtDescrGsSubType": {
+    "name": "t11FcSpPoCtDescrGsSubType",
+    "oid": "1.3.6.1.2.1.178.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoSwConnTable": {
+    "name": "t11FcSpPoSwConnTable",
+    "oid": "1.3.6.1.2.1.178.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoSwConnEntry": {
+    "name": "t11FcSpPoSwConnEntry",
+    "oid": "1.3.6.1.2.1.178.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoSwConnSwitchName",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoSwConnAllowedType",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoSwConnPortNameOrAll",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoSwConnAllowedIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoSwConnSwitchName": {
+    "name": "t11FcSpPoSwConnSwitchName",
+    "oid": "1.3.6.1.2.1.178.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoSwConnAllowedType": {
+    "name": "t11FcSpPoSwConnAllowedType",
+    "oid": "1.3.6.1.2.1.178.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switch": 1,
+          "node": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoSwConnPortNameOrAll": {
+    "name": "t11FcSpPoSwConnPortNameOrAll",
+    "oid": "1.3.6.1.2.1.178.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoSwConnAllowedIndex": {
+    "name": "t11FcSpPoSwConnAllowedIndex",
+    "oid": "1.3.6.1.2.1.178.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoSwConnAllowedNameType": {
+    "name": "t11FcSpPoSwConnAllowedNameType",
+    "oid": "1.3.6.1.2.1.178.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpPolicyNameType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nodeName": 1,
+          "restrictedNodeName": 2,
+          "portName": 3,
+          "restrictedPortName": 4,
+          "wildcard": 5,
+          "restrictedWildcard": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoSwConnAllowedName": {
+    "name": "t11FcSpPoSwConnAllowedName",
+    "oid": "1.3.6.1.2.1.178.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpPolicyName",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoIpMgmtTable": {
+    "name": "t11FcSpPoIpMgmtTable",
+    "oid": "1.3.6.1.2.1.178.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoIpMgmtEntry": {
+    "name": "t11FcSpPoIpMgmtEntry",
+    "oid": "1.3.6.1.2.1.178.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoIpMgmtEntryNameType",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoIpMgmtEntryNameLow",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoIpMgmtEntryNameHigh",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoIpMgmtEntryNameType": {
+    "name": "t11FcSpPoIpMgmtEntryNameType",
+    "oid": "1.3.6.1.2.1.178.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoIpMgmtEntryNameLow": {
+    "name": "t11FcSpPoIpMgmtEntryNameLow",
+    "oid": "1.3.6.1.2.1.178.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoIpMgmtEntryNameHigh": {
+    "name": "t11FcSpPoIpMgmtEntryNameHigh",
+    "oid": "1.3.6.1.2.1.178.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoIpMgmtWkpIndex": {
+    "name": "t11FcSpPoIpMgmtWkpIndex",
+    "oid": "1.3.6.1.2.1.178.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoIpMgmtAttribute": {
+    "name": "t11FcSpPoIpMgmtAttribute",
+    "oid": "1.3.6.1.2.1.178.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpAlphaNumNameOrAbsent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoWkpDescrTable": {
+    "name": "t11FcSpPoWkpDescrTable",
+    "oid": "1.3.6.1.2.1.178.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoWkpDescrEntry": {
+    "name": "t11FcSpPoWkpDescrEntry",
+    "oid": "1.3.6.1.2.1.178.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoWkpDescrSpecifierIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoWkpDescrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoWkpDescrSpecifierIndex": {
+    "name": "t11FcSpPoWkpDescrSpecifierIndex",
+    "oid": "1.3.6.1.2.1.178.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoWkpDescrIndex": {
+    "name": "t11FcSpPoWkpDescrIndex",
+    "oid": "1.3.6.1.2.1.178.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoWkpDescrFlags": {
+    "name": "t11FcSpPoWkpDescrFlags",
+    "oid": "1.3.6.1.2.1.178.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "allow": 0,
+        "wkpWildcard": 1,
+        "destPortWildcard": 2,
+        "readOnly": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoWkpDescrWkpNumber": {
+    "name": "t11FcSpPoWkpDescrWkpNumber",
+    "oid": "1.3.6.1.2.1.178.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoWkpDescrDestPort": {
+    "name": "t11FcSpPoWkpDescrDestPort",
+    "oid": "1.3.6.1.2.1.178.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoAttribTable": {
+    "name": "t11FcSpPoAttribTable",
+    "oid": "1.3.6.1.2.1.178.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoAttribEntry": {
+    "name": "t11FcSpPoAttribEntry",
+    "oid": "1.3.6.1.2.1.178.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoAttribName",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoAttribEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoAttribPartIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoAttribName": {
+    "name": "t11FcSpPoAttribName",
+    "oid": "1.3.6.1.2.1.178.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpAlphaNumName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoAttribEntryIndex": {
+    "name": "t11FcSpPoAttribEntryIndex",
+    "oid": "1.3.6.1.2.1.178.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoAttribPartIndex": {
+    "name": "t11FcSpPoAttribPartIndex",
+    "oid": "1.3.6.1.2.1.178.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoAttribType": {
+    "name": "t11FcSpPoAttribType",
+    "oid": "1.3.6.1.2.1.178.1.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoAttribValue": {
+    "name": "t11FcSpPoAttribValue",
+    "oid": "1.3.6.1.2.1.178.1.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoAttribExtension": {
+    "name": "t11FcSpPoAttribExtension",
+    "oid": "1.3.6.1.2.1.178.1.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoAuthProtTable": {
+    "name": "t11FcSpPoAuthProtTable",
+    "oid": "1.3.6.1.2.1.178.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoAuthProtEntry": {
+    "name": "t11FcSpPoAuthProtEntry",
+    "oid": "1.3.6.1.2.1.178.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoAttribName",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoAttribEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoAuthProtIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoAuthProtPartIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoAuthProtIdentifier": {
+    "name": "t11FcSpPoAuthProtIdentifier",
+    "oid": "1.3.6.1.2.1.178.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoAuthProtPartIndex": {
+    "name": "t11FcSpPoAuthProtPartIndex",
+    "oid": "1.3.6.1.2.1.178.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoAuthProtParams": {
+    "name": "t11FcSpPoAuthProtParams",
+    "oid": "1.3.6.1.2.1.178.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoOperTable": {
+    "name": "t11FcSpPoOperTable",
+    "oid": "1.3.6.1.2.1.178.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoOperEntry": {
+    "name": "t11FcSpPoOperEntry",
+    "oid": "1.3.6.1.2.1.178.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoFabricIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoOperActivate": {
+    "name": "t11FcSpPoOperActivate",
+    "oid": "1.3.6.1.2.1.178.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpAlphaNumName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FcSpPoOperDeActivate": {
+    "name": "t11FcSpPoOperDeActivate",
+    "oid": "1.3.6.1.2.1.178.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpAlphaNumName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FcSpPoOperResult": {
+    "name": "t11FcSpPoOperResult",
+    "oid": "1.3.6.1.2.1.178.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "activateSuccess": 1,
+          "badSummaryObject": 2,
+          "activateFailure": 3,
+          "deactivateSuccess": 4,
+          "deactivateFailure": 5,
+          "inProgress": 6,
+          "none": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoOperFailCause": {
+    "name": "t11FcSpPoOperFailCause",
+    "oid": "1.3.6.1.2.1.178.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoNaSummaryTable": {
+    "name": "t11FcSpPoNaSummaryTable",
+    "oid": "1.3.6.1.2.1.178.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaSummaryEntry": {
+    "name": "t11FcSpPoNaSummaryEntry",
+    "oid": "1.3.6.1.2.1.178.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSummaryName",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSummaryPolicyType",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSummaryPolicyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoNaSummaryName": {
+    "name": "t11FcSpPoNaSummaryName",
+    "oid": "1.3.6.1.2.1.178.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpAlphaNumName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaSummaryPolicyType": {
+    "name": "t11FcSpPoNaSummaryPolicyType",
+    "oid": "1.3.6.1.2.1.178.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpPolicyObjectType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaSummaryPolicyIndex": {
+    "name": "t11FcSpPoNaSummaryPolicyIndex",
+    "oid": "1.3.6.1.2.1.178.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaSummaryPolicyNameType": {
+    "name": "t11FcSpPoNaSummaryPolicyNameType",
+    "oid": "1.3.6.1.2.1.178.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpPolicyNameType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nodeName": 1,
+          "alphaNumericName": 7
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaSummaryPolicyName": {
+    "name": "t11FcSpPoNaSummaryPolicyName",
+    "oid": "1.3.6.1.2.1.178.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpPolicyName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaSummaryHashStatus": {
+    "name": "t11FcSpPoNaSummaryHashStatus",
+    "oid": "1.3.6.1.2.1.178.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpHashCalculationStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "stale",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaSummaryHashFormat": {
+    "name": "t11FcSpPoNaSummaryHashFormat",
+    "oid": "1.3.6.1.2.1.178.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpPolicyHashFormat",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000001",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoNaSummaryHashValue": {
+    "name": "t11FcSpPoNaSummaryHashValue",
+    "oid": "1.3.6.1.2.1.178.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpPolicyHashValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoNaSummaryRowStatus": {
+    "name": "t11FcSpPoNaSummaryRowStatus",
+    "oid": "1.3.6.1.2.1.178.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaSwListTable": {
+    "name": "t11FcSpPoNaSwListTable",
+    "oid": "1.3.6.1.2.1.178.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaSwListEntry": {
+    "name": "t11FcSpPoNaSwListEntry",
+    "oid": "1.3.6.1.2.1.178.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSwListName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoNaSwListName": {
+    "name": "t11FcSpPoNaSwListName",
+    "oid": "1.3.6.1.2.1.178.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpAlphaNumName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaSwListFabricName": {
+    "name": "t11FcSpPoNaSwListFabricName",
+    "oid": "1.3.6.1.2.1.178.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaSwListRowStatus": {
+    "name": "t11FcSpPoNaSwListRowStatus",
+    "oid": "1.3.6.1.2.1.178.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaSwMembTable": {
+    "name": "t11FcSpPoNaSwMembTable",
+    "oid": "1.3.6.1.2.1.178.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaSwMembEntry": {
+    "name": "t11FcSpPoNaSwMembEntry",
+    "oid": "1.3.6.1.2.1.178.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSwListName",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSwMembSwitchNameType",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSwMembSwitchName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoNaSwMembSwitchNameType": {
+    "name": "t11FcSpPoNaSwMembSwitchNameType",
+    "oid": "1.3.6.1.2.1.178.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpPolicyNameType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nodeName": 1,
+          "restrictedNodeName": 2,
+          "wildcard": 5,
+          "restrictedWildcard": 6
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaSwMembSwitchName": {
+    "name": "t11FcSpPoNaSwMembSwitchName",
+    "oid": "1.3.6.1.2.1.178.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaSwMembFlags": {
+    "name": "t11FcSpPoNaSwMembFlags",
+    "oid": "1.3.6.1.2.1.178.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "staticDomainID": 0,
+        "insistentDomainID": 1,
+        "serialPortsAccess": 2,
+        "physicalPortsAccess": 3,
+        "managerRole": 4
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaSwMembDomainID": {
+    "name": "t11FcSpPoNaSwMembDomainID",
+    "oid": "1.3.6.1.2.1.178.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcDomainIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaSwMembPolicyDataRole": {
+    "name": "t11FcSpPoNaSwMembPolicyDataRole",
+    "oid": "1.3.6.1.2.1.178.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "client": 1,
+          "autonomous": 2,
+          "server": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaSwMembAuthBehaviour": {
+    "name": "t11FcSpPoNaSwMembAuthBehaviour",
+    "oid": "1.3.6.1.2.1.178.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "mustAuthenticate": 0,
+        "rejectIsFailure": 1
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaSwMembAttribute": {
+    "name": "t11FcSpPoNaSwMembAttribute",
+    "oid": "1.3.6.1.2.1.178.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpAlphaNumNameOrAbsent",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaSwMembRowStatus": {
+    "name": "t11FcSpPoNaSwMembRowStatus",
+    "oid": "1.3.6.1.2.1.178.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaNoMembTable": {
+    "name": "t11FcSpPoNaNoMembTable",
+    "oid": "1.3.6.1.2.1.178.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaNoMembEntry": {
+    "name": "t11FcSpPoNaNoMembEntry",
+    "oid": "1.3.6.1.2.1.178.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaNoMembListName",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaNoMembNodeNameType",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaNoMembNodeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoNaNoMembListName": {
+    "name": "t11FcSpPoNaNoMembListName",
+    "oid": "1.3.6.1.2.1.178.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpAlphaNumName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaNoMembNodeNameType": {
+    "name": "t11FcSpPoNaNoMembNodeNameType",
+    "oid": "1.3.6.1.2.1.178.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpPolicyNameType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nodeName": 1,
+          "restrictedNodeName": 2,
+          "portName": 3,
+          "restrictedPortName": 4,
+          "wildcard": 5,
+          "restrictedWildcard": 6
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaNoMembNodeName": {
+    "name": "t11FcSpPoNaNoMembNodeName",
+    "oid": "1.3.6.1.2.1.178.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaNoMembFlags": {
+    "name": "t11FcSpPoNaNoMembFlags",
+    "oid": "1.3.6.1.2.1.178.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "scsiEnclosureAccess": 0,
+        "authenticationRequired": 1
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaNoMembCtAccessIndex": {
+    "name": "t11FcSpPoNaNoMembCtAccessIndex",
+    "oid": "1.3.6.1.2.1.178.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaNoMembAttribute": {
+    "name": "t11FcSpPoNaNoMembAttribute",
+    "oid": "1.3.6.1.2.1.178.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpAlphaNumNameOrAbsent",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaNoMembRowStatus": {
+    "name": "t11FcSpPoNaNoMembRowStatus",
+    "oid": "1.3.6.1.2.1.178.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaCtDescrTable": {
+    "name": "t11FcSpPoNaCtDescrTable",
+    "oid": "1.3.6.1.2.1.178.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaCtDescrEntry": {
+    "name": "t11FcSpPoNaCtDescrEntry",
+    "oid": "1.3.6.1.2.1.178.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaCtDescrSpecifierIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaCtDescrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoNaCtDescrSpecifierIndex": {
+    "name": "t11FcSpPoNaCtDescrSpecifierIndex",
+    "oid": "1.3.6.1.2.1.178.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaCtDescrIndex": {
+    "name": "t11FcSpPoNaCtDescrIndex",
+    "oid": "1.3.6.1.2.1.178.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaCtDescrFlags": {
+    "name": "t11FcSpPoNaCtDescrFlags",
+    "oid": "1.3.6.1.2.1.178.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "allow": 0,
+        "gsTypeWildcard": 1,
+        "gsSubTypeWildcard": 2,
+        "readOnly": 3
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaCtDescrGsType": {
+    "name": "t11FcSpPoNaCtDescrGsType",
+    "oid": "1.3.6.1.2.1.178.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaCtDescrGsSubType": {
+    "name": "t11FcSpPoNaCtDescrGsSubType",
+    "oid": "1.3.6.1.2.1.178.1.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaCtDescrRowStatus": {
+    "name": "t11FcSpPoNaCtDescrRowStatus",
+    "oid": "1.3.6.1.2.1.178.1.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaSwConnTable": {
+    "name": "t11FcSpPoNaSwConnTable",
+    "oid": "1.3.6.1.2.1.178.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaSwConnEntry": {
+    "name": "t11FcSpPoNaSwConnEntry",
+    "oid": "1.3.6.1.2.1.178.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSwConnSwitchName",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSwConnAllowedType",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSwConnPortNameOrAll",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSwConnAllowedIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoNaSwConnSwitchName": {
+    "name": "t11FcSpPoNaSwConnSwitchName",
+    "oid": "1.3.6.1.2.1.178.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaSwConnAllowedType": {
+    "name": "t11FcSpPoNaSwConnAllowedType",
+    "oid": "1.3.6.1.2.1.178.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switch": 1,
+          "node": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaSwConnPortNameOrAll": {
+    "name": "t11FcSpPoNaSwConnPortNameOrAll",
+    "oid": "1.3.6.1.2.1.178.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaSwConnAllowedIndex": {
+    "name": "t11FcSpPoNaSwConnAllowedIndex",
+    "oid": "1.3.6.1.2.1.178.1.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaSwConnAllowedNameType": {
+    "name": "t11FcSpPoNaSwConnAllowedNameType",
+    "oid": "1.3.6.1.2.1.178.1.3.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpPolicyNameType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nodeName": 1,
+          "restrictedNodeName": 2,
+          "portName": 3,
+          "restrictedPortName": 4,
+          "wildcard": 5,
+          "restrictedWildcard": 6
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaSwConnAllowedName": {
+    "name": "t11FcSpPoNaSwConnAllowedName",
+    "oid": "1.3.6.1.2.1.178.1.3.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaSwConnRowStatus": {
+    "name": "t11FcSpPoNaSwConnRowStatus",
+    "oid": "1.3.6.1.2.1.178.1.3.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaIpMgmtTable": {
+    "name": "t11FcSpPoNaIpMgmtTable",
+    "oid": "1.3.6.1.2.1.178.1.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaIpMgmtEntry": {
+    "name": "t11FcSpPoNaIpMgmtEntry",
+    "oid": "1.3.6.1.2.1.178.1.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaIpMgmtListName",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaIpMgmtEntryNameType",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaIpMgmtEntryNameLow",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaIpMgmtEntryNameHigh",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoNaIpMgmtListName": {
+    "name": "t11FcSpPoNaIpMgmtListName",
+    "oid": "1.3.6.1.2.1.178.1.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpAlphaNumName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaIpMgmtEntryNameType": {
+    "name": "t11FcSpPoNaIpMgmtEntryNameType",
+    "oid": "1.3.6.1.2.1.178.1.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaIpMgmtEntryNameLow": {
+    "name": "t11FcSpPoNaIpMgmtEntryNameLow",
+    "oid": "1.3.6.1.2.1.178.1.3.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaIpMgmtEntryNameHigh": {
+    "name": "t11FcSpPoNaIpMgmtEntryNameHigh",
+    "oid": "1.3.6.1.2.1.178.1.3.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaIpMgmtWkpIndex": {
+    "name": "t11FcSpPoNaIpMgmtWkpIndex",
+    "oid": "1.3.6.1.2.1.178.1.3.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaIpMgmtAttribute": {
+    "name": "t11FcSpPoNaIpMgmtAttribute",
+    "oid": "1.3.6.1.2.1.178.1.3.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpAlphaNumNameOrAbsent",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaIpMgmtRowStatus": {
+    "name": "t11FcSpPoNaIpMgmtRowStatus",
+    "oid": "1.3.6.1.2.1.178.1.3.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaWkpDescrTable": {
+    "name": "t11FcSpPoNaWkpDescrTable",
+    "oid": "1.3.6.1.2.1.178.1.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaWkpDescrEntry": {
+    "name": "t11FcSpPoNaWkpDescrEntry",
+    "oid": "1.3.6.1.2.1.178.1.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaWkpDescrSpecifierIndx",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaWkpDescrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoNaWkpDescrSpecifierIndx": {
+    "name": "t11FcSpPoNaWkpDescrSpecifierIndx",
+    "oid": "1.3.6.1.2.1.178.1.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaWkpDescrIndex": {
+    "name": "t11FcSpPoNaWkpDescrIndex",
+    "oid": "1.3.6.1.2.1.178.1.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaWkpDescrFlags": {
+    "name": "t11FcSpPoNaWkpDescrFlags",
+    "oid": "1.3.6.1.2.1.178.1.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "allow": 0,
+        "wkpWildcard": 1,
+        "destPortWildcard": 2,
+        "readOnly": 3
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaWkpDescrWkpNumber": {
+    "name": "t11FcSpPoNaWkpDescrWkpNumber",
+    "oid": "1.3.6.1.2.1.178.1.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaWkpDescrDestPort": {
+    "name": "t11FcSpPoNaWkpDescrDestPort",
+    "oid": "1.3.6.1.2.1.178.1.3.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaWkpDescrRowStatus": {
+    "name": "t11FcSpPoNaWkpDescrRowStatus",
+    "oid": "1.3.6.1.2.1.178.1.3.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaAttribTable": {
+    "name": "t11FcSpPoNaAttribTable",
+    "oid": "1.3.6.1.2.1.178.1.3.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaAttribEntry": {
+    "name": "t11FcSpPoNaAttribEntry",
+    "oid": "1.3.6.1.2.1.178.1.3.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaAttribName",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaAttribEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaAttribPartIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoNaAttribName": {
+    "name": "t11FcSpPoNaAttribName",
+    "oid": "1.3.6.1.2.1.178.1.3.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpAlphaNumName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaAttribEntryIndex": {
+    "name": "t11FcSpPoNaAttribEntryIndex",
+    "oid": "1.3.6.1.2.1.178.1.3.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaAttribPartIndex": {
+    "name": "t11FcSpPoNaAttribPartIndex",
+    "oid": "1.3.6.1.2.1.178.1.3.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaAttribType": {
+    "name": "t11FcSpPoNaAttribType",
+    "oid": "1.3.6.1.2.1.178.1.3.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaAttribValue": {
+    "name": "t11FcSpPoNaAttribValue",
+    "oid": "1.3.6.1.2.1.178.1.3.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaAttribExtension": {
+    "name": "t11FcSpPoNaAttribExtension",
+    "oid": "1.3.6.1.2.1.178.1.3.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoNaAttribRowStatus": {
+    "name": "t11FcSpPoNaAttribRowStatus",
+    "oid": "1.3.6.1.2.1.178.1.3.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaAuthProtTable": {
+    "name": "t11FcSpPoNaAuthProtTable",
+    "oid": "1.3.6.1.2.1.178.1.3.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaAuthProtEntry": {
+    "name": "t11FcSpPoNaAuthProtEntry",
+    "oid": "1.3.6.1.2.1.178.1.3.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaAttribName",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaAttribEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaAuthProtIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaAuthProtPartIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoNaAuthProtIdentifier": {
+    "name": "t11FcSpPoNaAuthProtIdentifier",
+    "oid": "1.3.6.1.2.1.178.1.3.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaAuthProtPartIndex": {
+    "name": "t11FcSpPoNaAuthProtPartIndex",
+    "oid": "1.3.6.1.2.1.178.1.3.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoNaAuthProtParams": {
+    "name": "t11FcSpPoNaAuthProtParams",
+    "oid": "1.3.6.1.2.1.178.1.3.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoNaAuthProtRowStatus": {
+    "name": "t11FcSpPoNaAuthProtRowStatus",
+    "oid": "1.3.6.1.2.1.178.1.3.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FcSpPoStatsTable": {
+    "name": "t11FcSpPoStatsTable",
+    "oid": "1.3.6.1.2.1.178.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoStatsEntry": {
+    "name": "t11FcSpPoStatsEntry",
+    "oid": "1.3.6.1.2.1.178.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoFabricIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoInRequests": {
+    "name": "t11FcSpPoInRequests",
+    "oid": "1.3.6.1.2.1.178.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoInAccepts": {
+    "name": "t11FcSpPoInAccepts",
+    "oid": "1.3.6.1.2.1.178.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoInRejects": {
+    "name": "t11FcSpPoInRejects",
+    "oid": "1.3.6.1.2.1.178.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoServerAddress": {
+    "name": "t11FcSpPoServerAddress",
+    "oid": "1.3.6.1.2.1.178.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "t11FcSpPoControlTable": {
+    "name": "t11FcSpPoControlTable",
+    "oid": "1.3.6.1.2.1.178.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpPoControlEntry": {
+    "name": "t11FcSpPoControlEntry",
+    "oid": "1.3.6.1.2.1.178.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoFabricIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoStorageType": {
+    "name": "t11FcSpPoStorageType",
+    "oid": "1.3.6.1.2.1.178.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FcSpPoNotificationEnable": {
+    "name": "t11FcSpPoNotificationEnable",
+    "oid": "1.3.6.1.2.1.178.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FcSpPoLastNotifyType": {
+    "name": "t11FcSpPoLastNotifyType",
+    "oid": "1.3.6.1.2.1.178.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "activation": 2,
+          "activateFail": 3,
+          "deactivation": 4,
+          "deactivateFail": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoRequestSource": {
+    "name": "t11FcSpPoRequestSource",
+    "oid": "1.3.6.1.2.1.178.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoReasonCode": {
+    "name": "t11FcSpPoReasonCode",
+    "oid": "1.3.6.1.2.1.178.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11NsGs4RejectReasonCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoCtCommandString": {
+    "name": "t11FcSpPoCtCommandString",
+    "oid": "1.3.6.1.2.1.178.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoReasonCodeExp": {
+    "name": "t11FcSpPoReasonCodeExp",
+    "oid": "1.3.6.1.2.1.178.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoReasonVendorCode": {
+    "name": "t11FcSpPoReasonVendorCode",
+    "oid": "1.3.6.1.2.1.178.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpPoNotifyActivation": {
+    "name": "t11FcSpPoNotifyActivation",
+    "oid": "1.3.6.1.2.1.178.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoServerAddress"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoPolicySummaryObjName"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoRequestSource"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoNotifyActivateFail": {
+    "name": "t11FcSpPoNotifyActivateFail",
+    "oid": "1.3.6.1.2.1.178.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoServerAddress"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoRequestSource"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoCtCommandString"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoReasonCode"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoReasonCodeExp"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoReasonVendorCode"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoNotifyDeactivation": {
+    "name": "t11FcSpPoNotifyDeactivation",
+    "oid": "1.3.6.1.2.1.178.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoServerAddress"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoRequestSource"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoNotifyDeactivateFail": {
+    "name": "t11FcSpPoNotifyDeactivateFail",
+    "oid": "1.3.6.1.2.1.178.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoServerAddress"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoRequestSource"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoCtCommandString"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoReasonCode"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoReasonCodeExp"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoReasonVendorCode"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoMIBCompliances": {
+    "name": "t11FcSpPoMIBCompliances",
+    "oid": "1.3.6.1.2.1.178.2.1",
+    "class": "objectidentity"
+  },
+  "t11FcSpPoMIBGroups": {
+    "name": "t11FcSpPoMIBGroups",
+    "oid": "1.3.6.1.2.1.178.2.2",
+    "class": "objectidentity"
+  },
+  "t11FcSpPoMIBCompliance": {
+    "name": "t11FcSpPoMIBCompliance",
+    "oid": "1.3.6.1.2.1.178.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "t11FcSpPoActiveObjectsGroup",
+        "module": "T11-FC-SP-POLICY-MIB"
+      },
+      {
+        "object": "t11FcSpPoNonActiveObjectsGroup",
+        "module": "T11-FC-SP-POLICY-MIB"
+      },
+      {
+        "object": "t11FcSpPoNotifyObjectsGroup",
+        "module": "T11-FC-SP-POLICY-MIB"
+      },
+      {
+        "object": "t11FcSpPoNotificationGroup",
+        "module": "T11-FC-SP-POLICY-MIB"
+      },
+      {
+        "object": "t11FcSpPoOperationsObjectsGroup",
+        "module": "T11-FC-SP-POLICY-MIB"
+      },
+      {
+        "object": "t11FcSpPoStatsObjectsGroup",
+        "module": "T11-FC-SP-POLICY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoActiveObjectsGroup": {
+    "name": "t11FcSpPoActiveObjectsGroup",
+    "oid": "1.3.6.1.2.1.178.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoPolicySummaryObjName"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoAdminFabricName"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoActivatedTimeStamp"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoSummaryPolicyType"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoSummaryHashFormat"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoSummaryHashValue"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoSwMembSwitchFlags"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoSwMembDomainID"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoSwMembPolicyDataRole"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoSwMembAuthBehaviour"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoSwMembAttribute"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNoMembFlags"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNoMembCtAccessIndex"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNoMembAttribute"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoCtDescrFlags"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoCtDescrGsType"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoCtDescrGsSubType"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoSwConnAllowedNameType"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoSwConnAllowedName"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoIpMgmtWkpIndex"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoIpMgmtAttribute"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoWkpDescrFlags"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoWkpDescrWkpNumber"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoWkpDescrDestPort"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoAttribType"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoAttribValue"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoAttribExtension"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoAuthProtParams"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoOperationsObjectsGroup": {
+    "name": "t11FcSpPoOperationsObjectsGroup",
+    "oid": "1.3.6.1.2.1.178.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoOperActivate"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoOperDeActivate"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoOperResult"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoOperFailCause"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoNonActiveObjectsGroup": {
+    "name": "t11FcSpPoNonActiveObjectsGroup",
+    "oid": "1.3.6.1.2.1.178.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoStorageType"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSummaryPolicyNameType"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSummaryPolicyName"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSummaryHashStatus"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSummaryHashFormat"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSummaryHashValue"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSummaryRowStatus"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSwListFabricName"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSwListRowStatus"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSwMembFlags"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSwMembDomainID"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSwMembPolicyDataRole"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSwMembAuthBehaviour"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSwMembAttribute"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSwMembRowStatus"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaNoMembFlags"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaNoMembCtAccessIndex"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaNoMembAttribute"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaNoMembRowStatus"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaCtDescrFlags"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaCtDescrGsType"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaCtDescrGsSubType"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaCtDescrRowStatus"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSwConnAllowedNameType"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSwConnAllowedName"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaSwConnRowStatus"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaIpMgmtWkpIndex"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaIpMgmtAttribute"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaIpMgmtRowStatus"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaWkpDescrFlags"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaWkpDescrWkpNumber"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaWkpDescrDestPort"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaWkpDescrRowStatus"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaAttribType"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaAttribValue"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaAttribExtension"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaAttribRowStatus"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaAuthProtParams"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNaAuthProtRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoStatsObjectsGroup": {
+    "name": "t11FcSpPoStatsObjectsGroup",
+    "oid": "1.3.6.1.2.1.178.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoInRequests"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoInAccepts"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoInRejects"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoNotifyObjectsGroup": {
+    "name": "t11FcSpPoNotifyObjectsGroup",
+    "oid": "1.3.6.1.2.1.178.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNotificationEnable"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoServerAddress"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoLastNotifyType"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoRequestSource"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoReasonCode"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoCtCommandString"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoReasonCodeExp"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoReasonVendorCode"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpPoNotificationGroup": {
+    "name": "t11FcSpPoNotificationGroup",
+    "oid": "1.3.6.1.2.1.178.2.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNotifyActivation"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNotifyActivateFail"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNotifyDeactivation"
+      },
+      {
+        "module": "T11-FC-SP-POLICY-MIB",
+        "object": "t11FcSpPoNotifyDeactivateFail"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/T11-FC-SP-POLICY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "T11-FC-SP-POLICY-MIB"
+  }
+}

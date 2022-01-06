@@ -1,0 +1,1167 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "PEGASUS-MIB": [
+      "CommStateEnum",
+      "AvailabilityStatusElem",
+      "pegasusMibModule",
+      "OperStateEnum"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter64",
+      "TimeTicks",
+      "Gauge32",
+      "iso",
+      "Integer32",
+      "Bits",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "pegasusSdhMibModule": {
+    "name": "pegasusSdhMibModule",
+    "oid": "1.3.6.1.4.1.6368.2.8",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-03-18 00:00",
+        "description": "Improved Alarm signalisation. A new variable stm1CardAlarmStatus shows the alarms that are active on the STM-1 card. Active Ethernet alarms are shown by ethernetIfAlarmStatus. The following values for vcAlarmStatus are can not occur (not used): - vcgTxAddTimeout - vcgDnuOk - vcgTxAdd - vcgRxAdd - vcgTxRemove - vcgRxRemove - vcgTxDnu - vcgRxFail"
+      },
+      {
+        "revision": "2004-01-07 00:00",
+        "description": "Actually, only GFP is supported as Ethernet Encapsulation. Therefore the variable etherIfEncapsulation is now read-only."
+      },
+      {
+        "revision": "2003-11-17 00:00",
+        "description": "Initial Revision."
+      }
+    ]
+  },
+  "ClockSourceEnum": {
+    "name": "ClockSourceEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rxLineClock": 1,
+          "referenceClock": 2,
+          "freeRun": 3
+        }
+      }
+    }
+  },
+  "ClockSyncStateEnum": {
+    "name": "ClockSyncStateEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "syncOk": 1,
+          "syncNotOk": 2
+        }
+      }
+    }
+  },
+  "ClockModeEnum": {
+    "name": "ClockModeEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    }
+  },
+  "ClockPriorityEnum": {
+    "name": "ClockPriorityEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2
+        }
+      }
+    }
+  },
+  "ClockQualityEnum": {
+    "name": "ClockQualityEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "prc": 1,
+          "ssu-a": 2,
+          "ssu-b": 3,
+          "sec": 4,
+          "dnu": 5,
+          "auto": 6,
+          "unknown": 7
+        }
+      }
+    }
+  },
+  "ClockStateEnum": {
+    "name": "ClockStateEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "valid": 2
+        }
+      }
+    }
+  },
+  "MultiplexingModeEnum": {
+    "name": "MultiplexingModeEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "au3": 1,
+          "au4": 2
+        }
+      }
+    }
+  },
+  "VirtualContainerTypeEnum": {
+    "name": "VirtualContainerTypeEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vc4": 1,
+          "vc3": 2,
+          "vc12": 3
+        }
+      }
+    }
+  },
+  "LaserOperationModeEnum": {
+    "name": "LaserOperationModeEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "als": 2
+        }
+      }
+    }
+  },
+  "LaserStateEnum": {
+    "name": "LaserStateEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "shutdown": 2,
+          "restart": 3
+        }
+      }
+    }
+  },
+  "SdhInterfaceEnum": {
+    "name": "SdhInterfaceEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "optical": 1,
+          "e1": 2
+        }
+      }
+    }
+  },
+  "PRBSPatternEnum": {
+    "name": "PRBSPatternEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pattern2exp15": 1,
+          "pattern2exp20": 2
+        }
+      }
+    }
+  },
+  "TraceSizeEnum": {
+    "name": "TraceSizeEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "size1byte": 1,
+          "size16byte": 2
+        }
+      }
+    }
+  },
+  "SignalLabel": {
+    "name": "SignalLabel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          },
+          {
+            "min": 18,
+            "max": 26
+          },
+          {
+            "min": 207,
+            "max": 207
+          },
+          {
+            "min": 225,
+            "max": 252
+          },
+          {
+            "min": 254,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "x",
+    "status": "current"
+  },
+  "ConcatenationTypeEnum": {
+    "name": "ConcatenationTypeEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lcas": 1,
+          "nonLCAS": 2
+        }
+      }
+    }
+  },
+  "EthernetIfEncapsulationEnum": {
+    "name": "EthernetIfEncapsulationEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "gfp": 2,
+          "lapf": 3,
+          "laps": 4,
+          "ppp": 5
+        }
+      }
+    }
+  },
+  "OrderLevelEnum": {
+    "name": "OrderLevelEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "highOrder": 1,
+          "lowOrder": 2
+        }
+      }
+    }
+  },
+  "STM1SlotNumber": {
+    "name": "STM1SlotNumber",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    }
+  },
+  "TUGIndex": {
+    "name": "TUGIndex",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    }
+  },
+  "TUGIndexOrZero": {
+    "name": "TUGIndexOrZero",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    }
+  },
+  "stm1CardTable": {
+    "name": "stm1CardTable",
+    "oid": "1.3.6.1.4.1.6368.2.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stm1CardEntry": {
+    "name": "stm1CardEntry",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PEGASUS-SDH-MIB",
+        "object": "stm1CardSlotNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stm1CardSlotNumber": {
+    "name": "stm1CardSlotNumber",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "STM1SlotNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stm1CardName": {
+    "name": "stm1CardName",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stm1CardHardwareVersion": {
+    "name": "stm1CardHardwareVersion",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stm1CardFirmwareVersion": {
+    "name": "stm1CardFirmwareVersion",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stm1CardManufacturer": {
+    "name": "stm1CardManufacturer",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stm1CardSerialNumber": {
+    "name": "stm1CardSerialNumber",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stm1CardMultiplexingMode": {
+    "name": "stm1CardMultiplexingMode",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiplexingModeEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stm1CardJ0TraceMonitoring": {
+    "name": "stm1CardJ0TraceMonitoring",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stm1CardJ1TraceMonitoring": {
+    "name": "stm1CardJ1TraceMonitoring",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stm1CardJ2TraceMonitoring": {
+    "name": "stm1CardJ2TraceMonitoring",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stm1CardJ0PathTraceSize": {
+    "name": "stm1CardJ0PathTraceSize",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TraceSizeEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stm1CardJ0PathTraceSend": {
+    "name": "stm1CardJ0PathTraceSend",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stm1CardJ0PathTraceExpected": {
+    "name": "stm1CardJ0PathTraceExpected",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stm1CardJ0PathTraceReceive": {
+    "name": "stm1CardJ0PathTraceReceive",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stm1CardLaserOperationMode": {
+    "name": "stm1CardLaserOperationMode",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LaserOperationModeEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stm1CardLaserState": {
+    "name": "stm1CardLaserState",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LaserStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stm1CardOperState": {
+    "name": "stm1CardOperState",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stm1CardAvailabilityState": {
+    "name": "stm1CardAvailabilityState",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AvailabilityStatusElem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stm1CardMgmtCommState": {
+    "name": "stm1CardMgmtCommState",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CommStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stm1CardPRBSGeneratorSink": {
+    "name": "stm1CardPRBSGeneratorSink",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdhInterfaceEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stm1CardPRBSAnalyzerSource": {
+    "name": "stm1CardPRBSAnalyzerSource",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdhInterfaceEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stm1CardPRBSPattern": {
+    "name": "stm1CardPRBSPattern",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PRBSPatternEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stm1CardAlarmStatus": {
+    "name": "stm1CardAlarmStatus",
+    "oid": "1.3.6.1.4.1.6368.2.8.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 511
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stm1CardClockTable": {
+    "name": "stm1CardClockTable",
+    "oid": "1.3.6.1.4.1.6368.2.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stm1CardClockEntry": {
+    "name": "stm1CardClockEntry",
+    "oid": "1.3.6.1.4.1.6368.2.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PEGASUS-SDH-MIB",
+        "object": "stm1CardSlotNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stm1CardActiveClockSource": {
+    "name": "stm1CardActiveClockSource",
+    "oid": "1.3.6.1.4.1.6368.2.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockSourceEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stm1CardClockSyncState": {
+    "name": "stm1CardClockSyncState",
+    "oid": "1.3.6.1.4.1.6368.2.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockSyncStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stm1CardTxLineClockQuality": {
+    "name": "stm1CardTxLineClockQuality",
+    "oid": "1.3.6.1.4.1.6368.2.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockQualityEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stm1CardRxClockMode": {
+    "name": "stm1CardRxClockMode",
+    "oid": "1.3.6.1.4.1.6368.2.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockModeEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stm1CardRxClockPriority": {
+    "name": "stm1CardRxClockPriority",
+    "oid": "1.3.6.1.4.1.6368.2.8.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockPriorityEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stm1CardRxClockQuality": {
+    "name": "stm1CardRxClockQuality",
+    "oid": "1.3.6.1.4.1.6368.2.8.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockQualityEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stm1CardRxClockState": {
+    "name": "stm1CardRxClockState",
+    "oid": "1.3.6.1.4.1.6368.2.8.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stm1CardReferenceClockMode": {
+    "name": "stm1CardReferenceClockMode",
+    "oid": "1.3.6.1.4.1.6368.2.8.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockModeEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stm1CardReferenceClockPriority": {
+    "name": "stm1CardReferenceClockPriority",
+    "oid": "1.3.6.1.4.1.6368.2.8.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockPriorityEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stm1CardReferenceClockQuality": {
+    "name": "stm1CardReferenceClockQuality",
+    "oid": "1.3.6.1.4.1.6368.2.8.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockQualityEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stm1CardReferenceClockState": {
+    "name": "stm1CardReferenceClockState",
+    "oid": "1.3.6.1.4.1.6368.2.8.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetIfTable": {
+    "name": "ethernetIfTable",
+    "oid": "1.3.6.1.4.1.6368.2.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ethernetIfEntry": {
+    "name": "ethernetIfEntry",
+    "oid": "1.3.6.1.4.1.6368.2.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "etherIfConcatenationOption": {
+    "name": "etherIfConcatenationOption",
+    "oid": "1.3.6.1.4.1.6368.2.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConcatenationTypeEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "etherIfEncapsulation": {
+    "name": "etherIfEncapsulation",
+    "oid": "1.3.6.1.4.1.6368.2.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EthernetIfEncapsulationEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "etherIfOrderLevel": {
+    "name": "etherIfOrderLevel",
+    "oid": "1.3.6.1.4.1.6368.2.8.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OrderLevelEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "etherIfAlarmStatus": {
+    "name": "etherIfAlarmStatus",
+    "oid": "1.3.6.1.4.1.6368.2.8.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 511
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcTable": {
+    "name": "vcTable",
+    "oid": "1.3.6.1.4.1.6368.2.8.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcEntry": {
+    "name": "vcEntry",
+    "oid": "1.3.6.1.4.1.6368.2.8.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcType": {
+    "name": "vcType",
+    "oid": "1.3.6.1.4.1.6368.2.8.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualContainerTypeEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcRelatedTUG": {
+    "name": "vcRelatedTUG",
+    "oid": "1.3.6.1.4.1.6368.2.8.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TUGIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcRelatedVC": {
+    "name": "vcRelatedVC",
+    "oid": "1.3.6.1.4.1.6368.2.8.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcAssignedIfIndex": {
+    "name": "vcAssignedIfIndex",
+    "oid": "1.3.6.1.4.1.6368.2.8.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vcPathTraceSend": {
+    "name": "vcPathTraceSend",
+    "oid": "1.3.6.1.4.1.6368.2.8.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vcPathTraceExpected": {
+    "name": "vcPathTraceExpected",
+    "oid": "1.3.6.1.4.1.6368.2.8.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vcPathTraceReceive": {
+    "name": "vcPathTraceReceive",
+    "oid": "1.3.6.1.4.1.6368.2.8.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcSignalLabelSend": {
+    "name": "vcSignalLabelSend",
+    "oid": "1.3.6.1.4.1.6368.2.8.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SignalLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vcSignalLabelExpected": {
+    "name": "vcSignalLabelExpected",
+    "oid": "1.3.6.1.4.1.6368.2.8.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SignalLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vcSignalLabelReceive": {
+    "name": "vcSignalLabelReceive",
+    "oid": "1.3.6.1.4.1.6368.2.8.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SignalLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcAlarmStatus": {
+    "name": "vcAlarmStatus",
+    "oid": "1.3.6.1.4.1.6368.2.8.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 524287
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tugConfigTable": {
+    "name": "tugConfigTable",
+    "oid": "1.3.6.1.4.1.6368.2.8.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tugConfigEntry": {
+    "name": "tugConfigEntry",
+    "oid": "1.3.6.1.4.1.6368.2.8.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PEGASUS-SDH-MIB",
+        "object": "tugIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tugIndex": {
+    "name": "tugIndex",
+    "oid": "1.3.6.1.4.1.6368.2.8.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TUGIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tugRelatedVC4": {
+    "name": "tugRelatedVC4",
+    "oid": "1.3.6.1.4.1.6368.2.8.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tugOrderLevel": {
+    "name": "tugOrderLevel",
+    "oid": "1.3.6.1.4.1.6368.2.8.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OrderLevelEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdhMibRevision": {
+    "name": "sdhMibRevision",
+    "oid": "1.3.6.1.4.1.6368.2.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "$Workfile: PEGASUS-SDH-MIB.txt $ $Revision: 14 $ $Date: 3/18/04 6:40p $",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pegasus/PEGASUS-SDH-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:46:29 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PEGASUS-SDH-MIB"
+  }
+}

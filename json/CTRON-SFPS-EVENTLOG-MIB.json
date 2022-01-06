@@ -1,0 +1,1010 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-SFPS-INCLUDE-MIB": [
+      "sfpsEventLogGenConfig",
+      "sfpsEventLogClientConfig",
+      "sfpsEventLogStats",
+      "sfpsFragStats",
+      "sfpsEventLogClientConfigAPI",
+      "sfpsTrapTable",
+      "sfpsTrapAPI"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "SfpsSwitchInstance": {
+    "name": "SfpsSwitchInstance",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    }
+  },
+  "HexInteger": {
+    "name": "HexInteger",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "sfpsEventLogStatsTable": {
+    "name": "sfpsEventLogStatsTable",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sfpsEventLogStatsEntry": {
+    "name": "sfpsEventLogStatsEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-EVENTLOG-MIB",
+        "object": "sfpsEventLogStatsSwInst",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-EVENTLOG-MIB",
+        "object": "sfpsEventLogWindowStart",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sfpsEventLogStatsSwInst": {
+    "name": "sfpsEventLogStatsSwInst",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsSwitchInstance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsEventLogWindowStart": {
+    "name": "sfpsEventLogWindowStart",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsEventLogIndex": {
+    "name": "sfpsEventLogIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsEventLogClientName": {
+    "name": "sfpsEventLogClientName",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsEventLogLevel": {
+    "name": "sfpsEventLogLevel",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsEventLogMessageString": {
+    "name": "sfpsEventLogMessageString",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsEventLogTime": {
+    "name": "sfpsEventLogTime",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsEventLogCallTag": {
+    "name": "sfpsEventLogCallTag",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HexInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsEventLogInfo1": {
+    "name": "sfpsEventLogInfo1",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HexInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsEventLogInfo2": {
+    "name": "sfpsEventLogInfo2",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HexInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsEventLogGenConfigTable": {
+    "name": "sfpsEventLogGenConfigTable",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sfpsEventLogGenConfigEntry": {
+    "name": "sfpsEventLogGenConfigEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-EVENTLOG-MIB",
+        "object": "sfpsEventLogGenConfigSwInst",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sfpsEventLogGenConfigSwInst": {
+    "name": "sfpsEventLogGenConfigSwInst",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsSwitchInstance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsEventLogGenConfigWindowStart": {
+    "name": "sfpsEventLogGenConfigWindowStart",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsEventLogGenConfigLoggingIndex": {
+    "name": "sfpsEventLogGenConfigLoggingIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsEventLogGenConfigMessageFilter": {
+    "name": "sfpsEventLogGenConfigMessageFilter",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsEventLogGenConfigCallTagFilter": {
+    "name": "sfpsEventLogGenConfigCallTagFilter",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HexInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsEventLogGenConfigAdminStatus": {
+    "name": "sfpsEventLogGenConfigAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3,
+          "reset": 4,
+          "continue": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsEventLogGenConfigOperStatus": {
+    "name": "sfpsEventLogGenConfigOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3,
+          "pending-disable": 4,
+          "pending-enable": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsEventLogGenConfigOperTime": {
+    "name": "sfpsEventLogGenConfigOperTime",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsEventLogGenConfigAutoFreeze": {
+    "name": "sfpsEventLogGenConfigAutoFreeze",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsEventLogGenConfigDisplayWrapDetect": {
+    "name": "sfpsEventLogGenConfigDisplayWrapDetect",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsEventLogGenConfigAdvertiseAddr": {
+    "name": "sfpsEventLogGenConfigAdvertiseAddr",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsEventLogClientConfigTable": {
+    "name": "sfpsEventLogClientConfigTable",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sfpsEventLogClientConfigEntry": {
+    "name": "sfpsEventLogClientConfigEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-EVENTLOG-MIB",
+        "object": "sfpsEventLogClientConfigId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sfpsEventLogClientConfigId": {
+    "name": "sfpsEventLogClientConfigId",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsEventLogClientConfigName": {
+    "name": "sfpsEventLogClientConfigName",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsEventLogClientLogStatus": {
+    "name": "sfpsEventLogClientLogStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsEventLogClientDisplayStatus": {
+    "name": "sfpsEventLogClientDisplayStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsEventLogClientFreezeLogStatus": {
+    "name": "sfpsEventLogClientFreezeLogStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsEventLogClientFreezeDisplayStatus": {
+    "name": "sfpsEventLogClientFreezeDisplayStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsEventLogClientErrorLogStatus": {
+    "name": "sfpsEventLogClientErrorLogStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsEventLogClientErrorDisplayStatus": {
+    "name": "sfpsEventLogClientErrorDisplayStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsEventLogClientCriticalLogStatus": {
+    "name": "sfpsEventLogClientCriticalLogStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsEventLogClientCriticalDisplayStatus": {
+    "name": "sfpsEventLogClientCriticalDisplayStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsEventLogClientInfoLogStatus": {
+    "name": "sfpsEventLogClientInfoLogStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsEventLogClientInfoDisplayStatus": {
+    "name": "sfpsEventLogClientInfoDisplayStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsEventLogClientDebugLogStatus": {
+    "name": "sfpsEventLogClientDebugLogStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsEventLogClientDebugDisplayStatus": {
+    "name": "sfpsEventLogClientDebugDisplayStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsEventLogClientConfigAPIVerb": {
+    "name": "sfpsEventLogClientConfigAPIVerb",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "freezeLog": 1,
+          "errorLog": 2,
+          "criticalLog": 3,
+          "infoLog": 4,
+          "debugLog": 5,
+          "allLogLevels": 6,
+          "allClients": 7,
+          "masterLog": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsEventLogClientConfigAPIAdminStatus": {
+    "name": "sfpsEventLogClientConfigAPIAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsEventLogClientConfigAPIClientName": {
+    "name": "sfpsEventLogClientConfigAPIClientName",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsEventLogClientConfigAPIClientID": {
+    "name": "sfpsEventLogClientConfigAPIClientID",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsEventLogClientConfigAPILogDisplay": {
+    "name": "sfpsEventLogClientConfigAPILogDisplay",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.5.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "logAndDisplay": 2,
+          "logOnly": 3,
+          "displayOnly": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsFragStatsTotalFrags": {
+    "name": "sfpsFragStatsTotalFrags",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsFragStatsNumLookupFail": {
+    "name": "sfpsFragStatsNumLookupFail",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsFragStatsAvgCompares": {
+    "name": "sfpsFragStatsAvgCompares",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsFragStatsNumNodes": {
+    "name": "sfpsFragStatsNumNodes",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsFragStatsNumUsed": {
+    "name": "sfpsFragStatsNumUsed",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsFragStatsMaxNumUsed": {
+    "name": "sfpsFragStatsMaxNumUsed",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.11.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsFragStatsNumStolen": {
+    "name": "sfpsFragStatsNumStolen",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.11.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsTrapAPIVerb": {
+    "name": "sfpsTrapAPIVerb",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "enable": 2,
+          "disable": 3,
+          "resetTrapStats": 4,
+          "resetAllStats": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsTrapAPITrapId": {
+    "name": "sfpsTrapAPITrapId",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "newUser": 1400,
+          "violation": 1401,
+          "srcBlock": 1402,
+          "dstBlock": 1403,
+          "portToStandby": 1404,
+          "portFromStandby": 1405,
+          "ageCnt": 1406,
+          "changeCount": 1407,
+          "foundNeighbor": 1408,
+          "lostNeighbor": 1409,
+          "agentIP": 1410
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsTrapAPITotalSent": {
+    "name": "sfpsTrapAPITotalSent",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.7.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsTrapTableTrapId": {
+    "name": "sfpsTrapTableTrapId",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.7.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "newUser": 1400,
+          "violation": 1401,
+          "srcBlock": 1402,
+          "dstBlock": 1403,
+          "portToStandby": 1404,
+          "portFromStandby": 1405,
+          "ageCnt": 1406,
+          "changeCount": 1407,
+          "foundNeighbor": 1408,
+          "lostNeighbor": 1409,
+          "agentIP": 1410,
+          "noSrcVlans": 1411,
+          "noDestVlans": 1412,
+          "noSrcVlansEnabled": 1413,
+          "noDestVlansEnabled": 1414,
+          "noCommonSecureVlan": 1415,
+          "incVlanUserCount": 1416,
+          "decVlanUserCount": 1417,
+          "vrrpPrimaryResign": 1418,
+          "vrrpPrimaryAged": 1419,
+          "vrrpSecondaryUp": 1420,
+          "hsrpPrimaryResign": 1421,
+          "hsrpSecondaryUp": 1422
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsTrapTableAdminStatus": {
+    "name": "sfpsTrapTableAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.7.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsTrapTableNumSent": {
+    "name": "sfpsTrapTableNumSent",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.7.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsTrapTableLastSent": {
+    "name": "sfpsTrapTableLastSent",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.6.1.7.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-EVENTLOG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CTRON-SFPS-EVENTLOG-MIB"
+  }
+}

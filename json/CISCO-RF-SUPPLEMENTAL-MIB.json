@@ -1,0 +1,679 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-CONFIG-COPY-MIB": [
+      "ConfigCopyState"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "PhysicalIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "ciscoRfSupMIB": {
+    "name": "ciscoRfSupMIB",
+    "oid": "1.3.6.1.4.1.9.9.198",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-05-27 00:00",
+        "description": "Added the following scalar object to the cRfSupSystem subgroup: cRfSupSysIfCounterSync"
+      },
+      {
+        "revision": "2004-03-04 00:00",
+        "description": "Two notifications ciscoRfSupTimeChangeEvent and ciscoRfSupTimeZoneChangeEvent have been added. cRfSupNotificationsEnabled has been added to control the above objects."
+      },
+      {
+        "revision": "2001-03-16 00:00",
+        "description": "The initial release of this MIB."
+      }
+    ]
+  },
+  "RfSupSyncAdminState": {
+    "name": "RfSupSyncAdminState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableAutoSync": 1,
+          "disableAutoSync": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RfSupSyncOperState": {
+    "name": "RfSupSyncOperState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inSync": 1,
+          "lastUpdateFailed": 2,
+          "commDown": 3,
+          "syncDisabled": 4,
+          "noStandbyPresent": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoRfSupMIBNotifs": {
+    "name": "ciscoRfSupMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.198.0",
+    "class": "objectidentity"
+  },
+  "ciscoRfSupMIBObjects": {
+    "name": "ciscoRfSupMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.198.1",
+    "class": "objectidentity"
+  },
+  "cRfSupSystem": {
+    "name": "cRfSupSystem",
+    "oid": "1.3.6.1.4.1.9.9.198.1.1",
+    "class": "objectidentity"
+  },
+  "cRfSupCpu": {
+    "name": "cRfSupCpu",
+    "oid": "1.3.6.1.4.1.9.9.198.1.2",
+    "class": "objectidentity"
+  },
+  "cRfSupAction": {
+    "name": "cRfSupAction",
+    "oid": "1.3.6.1.4.1.9.9.198.1.3",
+    "class": "objectidentity"
+  },
+  "cRfSupSysAvailableStartTime": {
+    "name": "cRfSupSysAvailableStartTime",
+    "oid": "1.3.6.1.4.1.9.9.198.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cRfSupSysSwitchoverTime": {
+    "name": "cRfSupSysSwitchoverTime",
+    "oid": "1.3.6.1.4.1.9.9.198.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cRfSupSysSwitchovers": {
+    "name": "cRfSupSysSwitchovers",
+    "oid": "1.3.6.1.4.1.9.9.198.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cRfSupSysRunningConfigSyncTime": {
+    "name": "cRfSupSysRunningConfigSyncTime",
+    "oid": "1.3.6.1.4.1.9.9.198.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cRfSupSysRunningConfigAdmin": {
+    "name": "cRfSupSysRunningConfigAdmin",
+    "oid": "1.3.6.1.4.1.9.9.198.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RfSupSyncAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cRfSupSysRunningConfigOper": {
+    "name": "cRfSupSysRunningConfigOper",
+    "oid": "1.3.6.1.4.1.9.9.198.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RfSupSyncOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cRfSupSysStartupConfigSyncTime": {
+    "name": "cRfSupSysStartupConfigSyncTime",
+    "oid": "1.3.6.1.4.1.9.9.198.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cRfSupSysStartupConfigAdmin": {
+    "name": "cRfSupSysStartupConfigAdmin",
+    "oid": "1.3.6.1.4.1.9.9.198.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RfSupSyncAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cRfSupSysStartupConfigOper": {
+    "name": "cRfSupSysStartupConfigOper",
+    "oid": "1.3.6.1.4.1.9.9.198.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RfSupSyncOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cRfSupSysBootImageSyncTime": {
+    "name": "cRfSupSysBootImageSyncTime",
+    "oid": "1.3.6.1.4.1.9.9.198.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cRfSupSysBootImageAdmin": {
+    "name": "cRfSupSysBootImageAdmin",
+    "oid": "1.3.6.1.4.1.9.9.198.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RfSupSyncAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cRfSupSysBootImageOper": {
+    "name": "cRfSupSysBootImageOper",
+    "oid": "1.3.6.1.4.1.9.9.198.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RfSupSyncOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cRfSupSysStandbyBootFile": {
+    "name": "cRfSupSysStandbyBootFile",
+    "oid": "1.3.6.1.4.1.9.9.198.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cRfSupNotificationsEnabled": {
+    "name": "cRfSupNotificationsEnabled",
+    "oid": "1.3.6.1.4.1.9.9.198.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cRfSupSysIfCounterSync": {
+    "name": "cRfSupSysIfCounterSync",
+    "oid": "1.3.6.1.4.1.9.9.198.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cRfSupCpuTable": {
+    "name": "cRfSupCpuTable",
+    "oid": "1.3.6.1.4.1.9.9.198.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cRfSupCpuEntry": {
+    "name": "cRfSupCpuEntry",
+    "oid": "1.3.6.1.4.1.9.9.198.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupCpuUniqueIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cRfSupCpuUniqueIndex": {
+    "name": "cRfSupCpuUniqueIndex",
+    "oid": "1.3.6.1.4.1.9.9.198.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cRfSupCpuActiveSeverity": {
+    "name": "cRfSupCpuActiveSeverity",
+    "oid": "1.3.6.1.4.1.9.9.198.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonFaulty": 0,
+          "nonTrafficAffectingFault": 1,
+          "partialTrafficAffectingFault": 2,
+          "fullyTrafficAffectingFault": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cRfSupCpuInitTime": {
+    "name": "cRfSupCpuInitTime",
+    "oid": "1.3.6.1.4.1.9.9.198.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cRfSupActionManualSync": {
+    "name": "cRfSupActionManualSync",
+    "oid": "1.3.6.1.4.1.9.9.198.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "runningConfig": 2,
+          "startupConfig": 3,
+          "bootImage": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cRfSupActionLastSyncResult": {
+    "name": "cRfSupActionLastSyncResult",
+    "oid": "1.3.6.1.4.1.9.9.198.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigCopyState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoRfSupTimeChangeEvent": {
+    "name": "ciscoRfSupTimeChangeEvent",
+    "oid": "1.3.6.1.4.1.9.9.198.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupSysAvailableStartTime"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupSysSwitchoverTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRfSupTimeZoneChangeEvent": {
+    "name": "ciscoRfSupTimeZoneChangeEvent",
+    "oid": "1.3.6.1.4.1.9.9.198.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupSysAvailableStartTime"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupSysSwitchoverTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRfSupMibConformance": {
+    "name": "ciscoRfSupMibConformance",
+    "oid": "1.3.6.1.4.1.9.9.198.2",
+    "class": "objectidentity"
+  },
+  "ciscoRfSupMibCompliances": {
+    "name": "ciscoRfSupMibCompliances",
+    "oid": "1.3.6.1.4.1.9.9.198.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoRfSupMibGroups": {
+    "name": "ciscoRfSupMibGroups",
+    "oid": "1.3.6.1.4.1.9.9.198.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoRfSupMibCompliance": {
+    "name": "ciscoRfSupMibCompliance",
+    "oid": "1.3.6.1.4.1.9.9.198.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoRfSupSysGroup",
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB"
+      },
+      {
+        "object": "ciscoRfSupActionGroup",
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB"
+      },
+      {
+        "object": "ciscoRfSupCpuGroup",
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoRfSupMibComplianceRev1": {
+    "name": "ciscoRfSupMibComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.198.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoRfSupSysGroup",
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB"
+      },
+      {
+        "object": "ciscoRfSupActionGroup",
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB"
+      },
+      {
+        "object": "ciscoRfSupCpuGroup",
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB"
+      },
+      {
+        "object": "ciscoRfSupSysOptionalGroup",
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoRfSupMibComplianceRev2": {
+    "name": "ciscoRfSupMibComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.198.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoRfSupSysGroup",
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB"
+      },
+      {
+        "object": "ciscoRfSupActionGroup",
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB"
+      },
+      {
+        "object": "ciscoRfSupCpuGroup",
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB"
+      },
+      {
+        "object": "ciscoRfSupSysOptionalGroup",
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB"
+      },
+      {
+        "object": "ciscoRfSupNotifGroup",
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB"
+      },
+      {
+        "object": "ciscoRfSupSysOptionalSyncGroup",
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRfSupSysGroup": {
+    "name": "ciscoRfSupSysGroup",
+    "oid": "1.3.6.1.4.1.9.9.198.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupSysAvailableStartTime"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupSysSwitchoverTime"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupSysSwitchovers"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupSysRunningConfigSyncTime"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupSysRunningConfigAdmin"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupSysRunningConfigOper"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupSysStartupConfigSyncTime"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupSysStartupConfigAdmin"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupSysStartupConfigOper"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupSysBootImageSyncTime"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupSysBootImageAdmin"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupSysBootImageOper"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupSysStandbyBootFile"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRfSupCpuGroup": {
+    "name": "ciscoRfSupCpuGroup",
+    "oid": "1.3.6.1.4.1.9.9.198.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupCpuActiveSeverity"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupCpuInitTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRfSupActionGroup": {
+    "name": "ciscoRfSupActionGroup",
+    "oid": "1.3.6.1.4.1.9.9.198.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupActionManualSync"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupActionLastSyncResult"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRfSupSysOptionalGroup": {
+    "name": "ciscoRfSupSysOptionalGroup",
+    "oid": "1.3.6.1.4.1.9.9.198.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupNotificationsEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRfSupNotifGroup": {
+    "name": "ciscoRfSupNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.198.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "ciscoRfSupTimeChangeEvent"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "ciscoRfSupTimeZoneChangeEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRfSupSysOptionalSyncGroup": {
+    "name": "ciscoRfSupSysOptionalSyncGroup",
+    "oid": "1.3.6.1.4.1.9.9.198.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupSysIfCounterSync"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-RF-SUPPLEMENTAL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-RF-SUPPLEMENTAL-MIB"
+  }
+}

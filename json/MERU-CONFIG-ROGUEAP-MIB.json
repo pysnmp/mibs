@@ -1,0 +1,612 @@
+{
+  "imports": {
+    "class": "imports",
+    "IPV6-TC": [
+      "Ipv6Address"
+    ],
+    "MERU-SMI": [
+      "mwConfiguration"
+    ],
+    "MERU-TC": [
+      "MwlApType",
+      "MwlArrayDataTypeAction",
+      "MwlBlock",
+      "MwlSpectrumBandsBits",
+      "MwlOnOffSwitch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "iso",
+      "Unsigned32",
+      "enterprises",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "MacAddress",
+      "DateAndTime",
+      "TruthValue",
+      "TimeInterval",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "mwConfigRogueAp": {
+    "name": "mwConfigRogueAp",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7",
+    "class": "moduleidentity"
+  },
+  "mwRogueapVars": {
+    "name": "mwRogueapVars",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.1",
+    "class": "objectidentity"
+  },
+  "mwRogueapVarsDetection": {
+    "name": "mwRogueapVarsDetection",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlOnOffSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRogueapVarsBlock": {
+    "name": "mwRogueapVarsBlock",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlBlock",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRogueapVarsAging": {
+    "name": "mwRogueapVarsAging",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRogueapVarsMitigateAps": {
+    "name": "mwRogueapVarsMitigateAps",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRogueapVarsScanningTime": {
+    "name": "mwRogueapVarsScanningTime",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRogueapVarsOperationalTime": {
+    "name": "mwRogueapVarsOperationalTime",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRogueapVarsMitigationFrames": {
+    "name": "mwRogueapVarsMitigationFrames",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRogueapVarsScanChannelMask": {
+    "name": "mwRogueapVarsScanChannelMask",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRogueapVarsMinRSSI": {
+    "name": "mwRogueapVarsMinRSSI",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRogueapVarsSpectrumBands": {
+    "name": "mwRogueapVarsSpectrumBands",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlSpectrumBandsBits",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRogueapAclTable": {
+    "name": "mwRogueapAclTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwRogueapAclEntry": {
+    "name": "mwRogueapAclEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-ROGUEAP-MIB",
+        "object": "mwRogueapAclTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwRogueapAclTableIndex": {
+    "name": "mwRogueapAclTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwRogueapAclBssId": {
+    "name": "mwRogueapAclBssId",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRogueapAclRowStatus": {
+    "name": "mwRogueapAclRowStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRogueapBlockTable": {
+    "name": "mwRogueapBlockTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwRogueapBlockEntry": {
+    "name": "mwRogueapBlockEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-ROGUEAP-MIB",
+        "object": "mwRogueapBlockTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwRogueapBlockTableIndex": {
+    "name": "mwRogueapBlockTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwRogueapBlockBssId": {
+    "name": "mwRogueapBlockBssId",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRogueapBlockCreationDate": {
+    "name": "mwRogueapBlockCreationDate",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwRogueapBlockLastReported": {
+    "name": "mwRogueapBlockLastReported",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwRogueapBlockRowStatus": {
+    "name": "mwRogueapBlockRowStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRogueApListTable": {
+    "name": "mwRogueApListTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwRogueApListEntry": {
+    "name": "mwRogueApListEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-ROGUEAP-MIB",
+        "object": "mwRogueApListTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwRogueApListTableIndex": {
+    "name": "mwRogueApListTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwRogueApListMac": {
+    "name": "mwRogueApListMac",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwRogueApListEssid": {
+    "name": "mwRogueApListEssid",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwRogueApListBssid": {
+    "name": "mwRogueApListBssid",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwRogueApListChannel": {
+    "name": "mwRogueApListChannel",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwRogueApListMeruAp1Id": {
+    "name": "mwRogueApListMeruAp1Id",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwRogueApListMeruAp2Id": {
+    "name": "mwRogueApListMeruAp2Id",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwRogueApListMeruAp3Id": {
+    "name": "mwRogueApListMeruAp3Id",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwRogueApListDeviceType": {
+    "name": "mwRogueApListDeviceType",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlApType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwRogueApListMeruAp1Rssi": {
+    "name": "mwRogueApListMeruAp1Rssi",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwRogueApListMeruAp2Rssi": {
+    "name": "mwRogueApListMeruAp2Rssi",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwRogueApListMeruAp3Rssi": {
+    "name": "mwRogueApListMeruAp3Rssi",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwRogueApListNonReportedAudits": {
+    "name": "mwRogueApListNonReportedAudits",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwRogueApListMeruAp1LastActivity": {
+    "name": "mwRogueApListMeruAp1LastActivity",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwRogueApListMeruAp2LastActivity": {
+    "name": "mwRogueApListMeruAp2LastActivity",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwRogueApListMeruAp3LastActivity": {
+    "name": "mwRogueApListMeruAp3LastActivity",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwRogueDetectionApTable": {
+    "name": "mwRogueDetectionApTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwRogueDetectionApEntry": {
+    "name": "mwRogueDetectionApEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-ROGUEAP-MIB",
+        "object": "mwRogueDetectionApTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwRogueDetectionApTableIndex": {
+    "name": "mwRogueDetectionApTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwRogueDetectionApNmsApNodeId": {
+    "name": "mwRogueDetectionApNmsApNodeId",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRogueDetectionApRowStatus": {
+    "name": "mwRogueDetectionApRowStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.7.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-ROGUEAP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:30:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MERU-CONFIG-ROGUEAP-MIB"
+  }
+}

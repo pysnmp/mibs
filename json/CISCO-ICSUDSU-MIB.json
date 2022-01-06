@@ -1,0 +1,1111 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "RFC1406-MIB": [
+      "dsx1ConfigEntry"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoICsuDsuMIB": {
+    "name": "ciscoICsuDsuMIB",
+    "oid": "1.3.6.1.4.1.9.9.44",
+    "class": "moduleidentity"
+  },
+  "ciscoICsuDsuObjects": {
+    "name": "ciscoICsuDsuObjects",
+    "oid": "1.3.6.1.4.1.9.9.44.1",
+    "class": "objectidentity"
+  },
+  "ciscoICsuDsuGeneral": {
+    "name": "ciscoICsuDsuGeneral",
+    "oid": "1.3.6.1.4.1.9.9.44.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoICsuDsuT1": {
+    "name": "ciscoICsuDsuT1",
+    "oid": "1.3.6.1.4.1.9.9.44.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoICsuDsuSw56k": {
+    "name": "ciscoICsuDsuSw56k",
+    "oid": "1.3.6.1.4.1.9.9.44.1.3",
+    "class": "objectidentity"
+  },
+  "ciscoICsuDsuStaticConfigTable": {
+    "name": "ciscoICsuDsuStaticConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.44.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoICsuDsuStaticConfigEntry": {
+    "name": "ciscoICsuDsuStaticConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.44.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoICsuDsuType": {
+    "name": "ciscoICsuDsuType",
+    "oid": "1.3.6.1.4.1.9.9.44.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fractionalT1": 1,
+          "twoWireSwitched56k": 2,
+          "fourWireSwitched56k": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuHwRevision": {
+    "name": "ciscoICsuDsuHwRevision",
+    "oid": "1.3.6.1.4.1.9.9.44.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuSwRevision": {
+    "name": "ciscoICsuDsuSwRevision",
+    "oid": "1.3.6.1.4.1.9.9.44.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuProtocolRevision": {
+    "name": "ciscoICsuDsuProtocolRevision",
+    "oid": "1.3.6.1.4.1.9.9.44.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuTestReportTable": {
+    "name": "ciscoICsuDsuTestReportTable",
+    "oid": "1.3.6.1.4.1.9.9.44.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoICsuDsuTestReportEntry": {
+    "name": "ciscoICsuDsuTestReportEntry",
+    "oid": "1.3.6.1.4.1.9.9.44.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoICsuDsuLastSelfTestResult": {
+    "name": "ciscoICsuDsuLastSelfTestResult",
+    "oid": "1.3.6.1.4.1.9.9.44.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuTimeOfLastSelfTest": {
+    "name": "ciscoICsuDsuTimeOfLastSelfTest",
+    "oid": "1.3.6.1.4.1.9.9.44.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuNumResets": {
+    "name": "ciscoICsuDsuNumResets",
+    "oid": "1.3.6.1.4.1.9.9.44.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuTimeOfLastReset": {
+    "name": "ciscoICsuDsuTimeOfLastReset",
+    "oid": "1.3.6.1.4.1.9.9.44.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuLoopbackStatus": {
+    "name": "ciscoICsuDsuLoopbackStatus",
+    "oid": "1.3.6.1.4.1.9.9.44.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "completed": 1,
+          "inProgress": 2,
+          "neverPerformed": 3,
+          "failed": 4,
+          "noSyncWithTestPattern": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuLoopbackNumErrors": {
+    "name": "ciscoICsuDsuLoopbackNumErrors",
+    "oid": "1.3.6.1.4.1.9.9.44.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuLoopbackDuration": {
+    "name": "ciscoICsuDsuLoopbackDuration",
+    "oid": "1.3.6.1.4.1.9.9.44.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuLoopbackPoint": {
+    "name": "ciscoICsuDsuLoopbackPoint",
+    "oid": "1.3.6.1.4.1.9.9.44.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dtePayload": 1,
+          "dteFull": 2,
+          "lineFull": 3,
+          "linePayload": 4,
+          "remoteSmartJack": 5,
+          "remoteFull": 6,
+          "remotePayload": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuLoopbackPattern": {
+    "name": "ciscoICsuDsuLoopbackPattern",
+    "oid": "1.3.6.1.4.1.9.9.44.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noPattern": 1,
+          "patternQRW": 2,
+          "pattern0In1": 3,
+          "pattern1In1": 4,
+          "pattern1In2": 5,
+          "pattern1In3": 6,
+          "pattern1In5": 7,
+          "pattern1In8": 8,
+          "pattern3In24": 9,
+          "patternUser": 10,
+          "pattern2047": 11,
+          "pattern511": 12,
+          "patternStressDDS1": 13,
+          "patternStressDDS2": 14,
+          "patternStressDDS3": 15,
+          "patternStressDDS4": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuUserDefinedPattern": {
+    "name": "ciscoICsuDsuUserDefinedPattern",
+    "oid": "1.3.6.1.4.1.9.9.44.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuLoopbackCode": {
+    "name": "ciscoICsuDsuLoopbackCode",
+    "oid": "1.3.6.1.4.1.9.9.44.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standard": 1,
+          "alternate": 2,
+          "v54": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuEndTimeOfLastLoopback": {
+    "name": "ciscoICsuDsuEndTimeOfLastLoopback",
+    "oid": "1.3.6.1.4.1.9.9.44.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuT1ConfigTable": {
+    "name": "ciscoICsuDsuT1ConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.44.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoICsuDsuT1ConfigEntry": {
+    "name": "ciscoICsuDsuT1ConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.44.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ciscoICsuDsuT1ConfigEntry",
+      "module": "CISCO-ICSUDSU-MIB",
+      "object": "dsx1ConfigEntry"
+    },
+    "status": "current"
+  },
+  "ciscoICsuDsuT1LineBuildOut": {
+    "name": "ciscoICsuDsuT1LineBuildOut",
+    "oid": "1.3.6.1.4.1.9.9.44.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "buildOut0": 1,
+          "buildOut7p5": 2,
+          "buildOut15": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuT1DteLineCode": {
+    "name": "ciscoICsuDsuT1DteLineCode",
+    "oid": "1.3.6.1.4.1.9.9.44.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "inverted": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuT1SupportRemoteAlarmIndication": {
+    "name": "ciscoICsuDsuT1SupportRemoteAlarmIndication",
+    "oid": "1.3.6.1.4.1.9.9.44.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuT1FullBandwidthRemoteLoopcode": {
+    "name": "ciscoICsuDsuT1FullBandwidthRemoteLoopcode",
+    "oid": "1.3.6.1.4.1.9.9.44.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standard": 1,
+          "alternate": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuT1PayloadRemoteLoopcode": {
+    "name": "ciscoICsuDsuT1PayloadRemoteLoopcode",
+    "oid": "1.3.6.1.4.1.9.9.44.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standard": 1,
+          "alternate": 2,
+          "disabled": 3,
+          "v54": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuT1StatusTable": {
+    "name": "ciscoICsuDsuT1StatusTable",
+    "oid": "1.3.6.1.4.1.9.9.44.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoICsuDsuT1StatusEntry": {
+    "name": "ciscoICsuDsuT1StatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.44.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoICsuDsuT1LoopStatus": {
+    "name": "ciscoICsuDsuT1LoopStatus",
+    "oid": "1.3.6.1.4.1.9.9.44.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuT1LossOfSignals": {
+    "name": "ciscoICsuDsuT1LossOfSignals",
+    "oid": "1.3.6.1.4.1.9.9.44.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuT1LossOfFrames": {
+    "name": "ciscoICsuDsuT1LossOfFrames",
+    "oid": "1.3.6.1.4.1.9.9.44.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuT1RemoteAlarmIndications": {
+    "name": "ciscoICsuDsuT1RemoteAlarmIndications",
+    "oid": "1.3.6.1.4.1.9.9.44.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuT1AlarmIndicationSignals": {
+    "name": "ciscoICsuDsuT1AlarmIndicationSignals",
+    "oid": "1.3.6.1.4.1.9.9.44.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuSw56kConfigTable": {
+    "name": "ciscoICsuDsuSw56kConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.44.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoICsuDsuSw56kConfigEntry": {
+    "name": "ciscoICsuDsuSw56kConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.44.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoICsuDsuSw56kNetworkType": {
+    "name": "ciscoICsuDsuSw56kNetworkType",
+    "oid": "1.3.6.1.4.1.9.9.44.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dds": 1,
+          "att": 2,
+          "sprint": 3,
+          "otherCarrier": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuSw56kClockSource": {
+    "name": "ciscoICsuDsuSw56kClockSource",
+    "oid": "1.3.6.1.4.1.9.9.44.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1,
+          "line": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuSw56kLoopRate": {
+    "name": "ciscoICsuDsuSw56kLoopRate",
+    "oid": "1.3.6.1.4.1.9.9.44.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bps2400": 1,
+          "bps4800": 2,
+          "bps9600": 3,
+          "bps19k": 4,
+          "bps38k": 5,
+          "bps56k": 6,
+          "bps64k": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuSw56kScramblerEnabled": {
+    "name": "ciscoICsuDsuSw56kScramblerEnabled",
+    "oid": "1.3.6.1.4.1.9.9.44.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuSw56kRemoteLoopbackEnabled": {
+    "name": "ciscoICsuDsuSw56kRemoteLoopbackEnabled",
+    "oid": "1.3.6.1.4.1.9.9.44.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuSw56kLineStatusTable": {
+    "name": "ciscoICsuDsuSw56kLineStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.44.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoICsuDsuSw56kLineStatusEntry": {
+    "name": "ciscoICsuDsuSw56kLineStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.44.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoICsuDsuSw56kDialingStatus": {
+    "name": "ciscoICsuDsuSw56kDialingStatus",
+    "oid": "1.3.6.1.4.1.9.9.44.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "dialing": 2,
+          "online": 3,
+          "noWinkFromSwitch": 4,
+          "numberBusy": 5,
+          "noAnswer": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuSw56kLoopStatus": {
+    "name": "ciscoICsuDsuSw56kLoopStatus",
+    "oid": "1.3.6.1.4.1.9.9.44.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuSw56kReceivedOosOofs": {
+    "name": "ciscoICsuDsuSw56kReceivedOosOofs",
+    "oid": "1.3.6.1.4.1.9.9.44.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuSw56kLostSealingCurrents": {
+    "name": "ciscoICsuDsuSw56kLostSealingCurrents",
+    "oid": "1.3.6.1.4.1.9.9.44.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuSw56kLostReceiveSignals": {
+    "name": "ciscoICsuDsuSw56kLostReceiveSignals",
+    "oid": "1.3.6.1.4.1.9.9.44.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuSw56kLostFrameSyncs": {
+    "name": "ciscoICsuDsuSw56kLostFrameSyncs",
+    "oid": "1.3.6.1.4.1.9.9.44.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuSw56kLoopRateSearches": {
+    "name": "ciscoICsuDsuSw56kLoopRateSearches",
+    "oid": "1.3.6.1.4.1.9.9.44.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoICsuDsuMIBNotificationEnables": {
+    "name": "ciscoICsuDsuMIBNotificationEnables",
+    "oid": "1.3.6.1.4.1.9.9.44.2",
+    "class": "objectidentity"
+  },
+  "ciscoICsuDsuEnableT1LoopStatusNotification": {
+    "name": "ciscoICsuDsuEnableT1LoopStatusNotification",
+    "oid": "1.3.6.1.4.1.9.9.44.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoICsuDsuEnableSw56kLoopStatusNotification": {
+    "name": "ciscoICsuDsuEnableSw56kLoopStatusNotification",
+    "oid": "1.3.6.1.4.1.9.9.44.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoICsuDsuMIBNotificationPrefix": {
+    "name": "ciscoICsuDsuMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.44.3",
+    "class": "objectidentity"
+  },
+  "ciscoICsuDsuMIBNotifications": {
+    "name": "ciscoICsuDsuMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.44.3.0",
+    "class": "objectidentity"
+  },
+  "ciscoICsuDsuT1LoopStatusNotification": {
+    "name": "ciscoICsuDsuT1LoopStatusNotification",
+    "oid": "1.3.6.1.4.1.9.9.44.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuT1LoopStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoICsuDsuSw56kLoopStatusNotification": {
+    "name": "ciscoICsuDsuSw56kLoopStatusNotification",
+    "oid": "1.3.6.1.4.1.9.9.44.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuSw56kLoopStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoICsuDsuMIBConformance": {
+    "name": "ciscoICsuDsuMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.44.4",
+    "class": "objectidentity"
+  },
+  "ciscoICsuDsuMIBCompliances": {
+    "name": "ciscoICsuDsuMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.44.4.1",
+    "class": "objectidentity"
+  },
+  "ciscoICsuDsuMIBGroups": {
+    "name": "ciscoICsuDsuMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.44.4.2",
+    "class": "objectidentity"
+  },
+  "ciscoICsuDsuMIBCompliance": {
+    "name": "ciscoICsuDsuMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.44.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoICsuDsuMIBGroup",
+        "module": "CISCO-ICSUDSU-MIB"
+      },
+      {
+        "object": "ciscoICsuDsuMIBT1Group",
+        "module": "CISCO-ICSUDSU-MIB"
+      },
+      {
+        "object": "ciscoICsuDsuMIBSw56kGroup",
+        "module": "CISCO-ICSUDSU-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoICsuDsuMIBGroup": {
+    "name": "ciscoICsuDsuMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.44.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuType"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuHwRevision"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuSwRevision"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuProtocolRevision"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuLastSelfTestResult"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuTimeOfLastSelfTest"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuNumResets"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuTimeOfLastReset"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuLoopbackStatus"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuLoopbackNumErrors"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuLoopbackDuration"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuLoopbackPoint"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuLoopbackPattern"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuUserDefinedPattern"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuLoopbackCode"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuEndTimeOfLastLoopback"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoICsuDsuMIBT1Group": {
+    "name": "ciscoICsuDsuMIBT1Group",
+    "oid": "1.3.6.1.4.1.9.9.44.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuT1LineBuildOut"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuT1DteLineCode"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuT1SupportRemoteAlarmIndication"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuT1FullBandwidthRemoteLoopcode"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuT1PayloadRemoteLoopcode"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuT1LoopStatus"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuT1LossOfSignals"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuT1LossOfFrames"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuT1RemoteAlarmIndications"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuT1AlarmIndicationSignals"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuEnableT1LoopStatusNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoICsuDsuMIBSw56kGroup": {
+    "name": "ciscoICsuDsuMIBSw56kGroup",
+    "oid": "1.3.6.1.4.1.9.9.44.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuSw56kNetworkType"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuSw56kClockSource"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuSw56kLoopRate"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuSw56kScramblerEnabled"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuSw56kRemoteLoopbackEnabled"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuSw56kDialingStatus"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuSw56kLoopStatus"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuSw56kReceivedOosOofs"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuSw56kLostSealingCurrents"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuSw56kLostReceiveSignals"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuSw56kLostFrameSyncs"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuSw56kLoopRateSearches"
+      },
+      {
+        "module": "CISCO-ICSUDSU-MIB",
+        "object": "ciscoICsuDsuEnableSw56kLoopStatusNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ICSUDSU-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ICSUDSU-MIB"
+  }
+}

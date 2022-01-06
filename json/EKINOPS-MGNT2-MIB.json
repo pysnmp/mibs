@@ -1,0 +1,4648 @@
+{
+  "imports": {
+    "class": "imports",
+    "EKINOPS-MIB": [
+      "EkiLoadGWSW",
+      "EkiOnOff",
+      "EkiSynchroMode",
+      "EkiLoadState",
+      "ekinops",
+      "EkiApiState",
+      "EkiLoadPermutMethod",
+      "EkiState",
+      "EkiLoadPermutMode",
+      "EkiProtocol"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Bits",
+      "TimeTicks",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ]
+  },
+  "mgnt2": {
+    "name": "mgnt2",
+    "oid": "1.3.6.1.4.1.20044.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-11-24 00:00",
+        "description": "Initial version."
+      },
+      {
+        "revision": "2006-01-24 00:00",
+        "description": "Add the ekicraft package table."
+      },
+      {
+        "revision": "2006-03-10 00:00",
+        "description": "Change Rack full to Rack Not Full"
+      },
+      {
+        "revision": "2006-05-10 00:00",
+        "description": "Gateways are managed by a table"
+      },
+      {
+        "revision": "2006-05-23 00:00",
+        "description": "Replace PBU by PM"
+      },
+      {
+        "revision": "2006-09-28 00:00",
+        "description": "CRAFT/LINUX Inventory Insertion"
+      },
+      {
+        "revision": "2006-12-13 00:00",
+        "description": "Plug-in inventory table insertion"
+      },
+      {
+        "revision": "2007-02-09 00:00",
+        "description": "Add Backpanel ,Fan inventory and error counters"
+      },
+      {
+        "revision": "2007-04-24 00:00",
+        "description": "Add detailed traps"
+      },
+      {
+        "revision": "2007-06-19 00:00",
+        "description": "Add ABS3 objects"
+      },
+      {
+        "revision": "2007-08-27 00:00",
+        "description": "Add Groups number in board table for pm1008dc"
+      },
+      {
+        "revision": "2007-11-27 00:00",
+        "description": "Update Ekinops Address,Helps on objects,Add Dcc management"
+      },
+      {
+        "revision": "2008-05-20 00:00",
+        "description": "Add syslog and ntp servers ip addresses"
+      },
+      {
+        "revision": "2008-06-18 00:00",
+        "description": "Add Inactivity Time out"
+      },
+      {
+        "revision": "2008-08-18 00:00",
+        "description": "Add Cli access, create a textual convention for DCC access.Add Craft Access"
+      },
+      {
+        "revision": "2008-10-07 00:00",
+        "description": "Invert code on DCC mode"
+      },
+      {
+        "revision": "2008-11-19 00:00",
+        "description": "Insert Chassis Ethernet Split"
+      },
+      {
+        "revision": "2009-01-05 00:00",
+        "description": "Insert Chassis Global Conf"
+      },
+      {
+        "revision": "2009-12-15 00:00",
+        "description": "Correction on traps"
+      },
+      {
+        "revision": "2010-01-04 00:00",
+        "description": "Insert CRIT/URG/NURG/Acknowledge"
+      },
+      {
+        "revision": "2010-02-16 00:00",
+        "description": "Add CondType and NMS parameters"
+      },
+      {
+        "revision": "2010-07-16 00:00",
+        "description": "Add perf management for the NMS"
+      },
+      {
+        "revision": "2010-10-27 00:00",
+        "description": "Add new filters for traps"
+      },
+      {
+        "revision": "2011-03-17 00:00",
+        "description": "Add new filters for traps"
+      },
+      {
+        "revision": "2011-04-07 00:00",
+        "description": "New mode on new ehternet input"
+      },
+      {
+        "revision": "2011-04-13 00:00",
+        "description": "Polling Manager fail insertion"
+      },
+      {
+        "revision": "2011-05-27 00:00",
+        "description": "Rajout AlarmType sur Extraction Fan"
+      },
+      {
+        "revision": "2011-06-08 00:00",
+        "description": "Rajout Cold Reset"
+      },
+      {
+        "revision": "2011-06-30 00:00",
+        "description": "PerfCapStatus new type"
+      },
+      {
+        "revision": "2011-09-12 00:00",
+        "description": "New data for Atom"
+      },
+      {
+        "revision": "2012-02-08 00:00",
+        "description": "PM labelling removal"
+      },
+      {
+        "revision": "2012-03-19 00:00",
+        "description": "Add mgnt2SubFunctionLabel for 100G"
+      },
+      {
+        "revision": "2012-07-16 00:00",
+        "description": "Minor cosmetic updates"
+      },
+      {
+        "revision": "2013-05-28 00:00",
+        "description": "RSTP configuration object"
+      },
+      {
+        "revision": "2013-05-30 00:00",
+        "description": "Dust filter insertion, CPU Temp warning"
+      },
+      {
+        "revision": "2013-08-29 00:00",
+        "description": "LLDP configuration object"
+      },
+      {
+        "revision": "2013-09-04 00:00",
+        "description": "MGNT Shutdown adding"
+      },
+      {
+        "revision": "2013-09-11 00:00",
+        "description": "Log file mode insertion"
+      },
+      {
+        "revision": "2013-11-06 00:00",
+        "description": "RADIUS objects"
+      },
+      {
+        "revision": "2014-07-30 00:00",
+        "description": "Node Controller objects"
+      },
+      {
+        "revision": "2014-09-01 00:00",
+        "description": "Probcause,AlarmType - NMS completion"
+      },
+      {
+        "revision": "2015-02-11 00:00",
+        "description": "HTTP configuration"
+      },
+      {
+        "revision": "2015-04-01 00:00",
+        "description": "Add bindings for Node Controller"
+      },
+      {
+        "revision": "2015-04-14 00:00",
+        "description": "RSTP Thresholds"
+      },
+      {
+        "revision": "2015-04-14 00:00",
+        "description": "Users privilege"
+      },
+      {
+        "revision": "2015-10-09 00:00",
+        "description": "Add in mgnt2SlotStatus"
+      },
+      {
+        "revision": "2015-11-05 00:00",
+        "description": "Appropriate Limits on SYNTAX of some OBJECT-TYPE "
+      },
+      {
+        "revision": "2016-05-27 00:00",
+        "description": "Add objects for fail login attemps"
+      },
+      {
+        "revision": "2016-06-15 00:00",
+        "description": "Removable Fan modules handling"
+      },
+      {
+        "revision": "2016-10-12 00:00",
+        "description": "Modification of numbering of the fans"
+      },
+      {
+        "revision": "2017-01-10 00:00",
+        "description": "FTP, TFTP enable disable"
+      }
+    ]
+  },
+  "Mgnt2CliAccessValues": {
+    "name": "Mgnt2CliAccessValues",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noCliByEthernet": 0,
+          "cliBySSH": 1,
+          "cliByTelnet": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mgnt2CraftAccessValues": {
+    "name": "Mgnt2CraftAccessValues",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noCraftAccess": 0,
+          "craftEnable": 1,
+          "craftEnableHttps": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mgnt2DccAccessValues": {
+    "name": "Mgnt2DccAccessValues",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mode1Slots2s4s6s8s10": 0,
+          "mode2Slots2s6s10s14s18": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mgnt2TrapModeValues": {
+    "name": "Mgnt2TrapModeValues",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "syntheticTrap": 0,
+          "detailedTrap": 1,
+          "nmsTrap": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mgnt2AckMode": {
+    "name": "Mgnt2AckMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "modeA": 1,
+          "modeB": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mgnt2PerfResyncValues": {
+    "name": "Mgnt2PerfResyncValues",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "perfResyncIdle": 1,
+          "perfResyncSync": 2,
+          "perfResyncReady": 3,
+          "perfResyncDelete": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mgnt2NetMode": {
+    "name": "Mgnt2NetMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switch": 1,
+          "gateway": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mgnt2MasterEthMode": {
+    "name": "Mgnt2MasterEthMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dhcp": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mgnt2SubnetEthMode": {
+    "name": "Mgnt2SubnetEthMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dhcp": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mgnt2AuthTypeValues": {
+    "name": "Mgnt2AuthTypeValues",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authLocal": 0,
+          "authRADIUS": 1,
+          "authLDAP": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mgnt2LogFileMode": {
+    "name": "Mgnt2LogFileMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "linear": 1,
+          "rotary": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mgnt2SlotStatus": {
+    "name": "Mgnt2SlotStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "slotEmpty": 0,
+          "pmReady": 1,
+          "pmReset": 2,
+          "pmLoad": 3,
+          "pmPassive": 4,
+          "pmUnknown": 5,
+          "pmNotReady": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "mgnt2SNMPAgentData": {
+    "name": "mgnt2SNMPAgentData",
+    "oid": "1.3.6.1.4.1.20044.7.1",
+    "class": "objectidentity"
+  },
+  "mgnt2Hardware": {
+    "name": "mgnt2Hardware",
+    "oid": "1.3.6.1.4.1.20044.7.2",
+    "class": "objectidentity"
+  },
+  "mgnt2Traps": {
+    "name": "mgnt2Traps",
+    "oid": "1.3.6.1.4.1.20044.7.3",
+    "class": "objectidentity"
+  },
+  "mgnt2SoftwareManagement": {
+    "name": "mgnt2SoftwareManagement",
+    "oid": "1.3.6.1.4.1.20044.7.4",
+    "class": "objectidentity"
+  },
+  "mgnt2ConfigManagement": {
+    "name": "mgnt2ConfigManagement",
+    "oid": "1.3.6.1.4.1.20044.7.5",
+    "class": "objectidentity"
+  },
+  "mgnt2RemoteInventory": {
+    "name": "mgnt2RemoteInventory",
+    "oid": "1.3.6.1.4.1.20044.7.6",
+    "class": "objectidentity"
+  },
+  "mgnt2ErrorCounters": {
+    "name": "mgnt2ErrorCounters",
+    "oid": "1.3.6.1.4.1.20044.7.7",
+    "class": "objectidentity"
+  },
+  "mgnt2Perf": {
+    "name": "mgnt2Perf",
+    "oid": "1.3.6.1.4.1.20044.7.8",
+    "class": "objectidentity"
+  },
+  "mgnt2IPmanagment": {
+    "name": "mgnt2IPmanagment",
+    "oid": "1.3.6.1.4.1.20044.7.1.1",
+    "class": "objectidentity"
+  },
+  "mgnt2GigmManagerIpAddressTable": {
+    "name": "mgnt2GigmManagerIpAddressTable",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgnt2GigmManagerIpAddressEntry": {
+    "name": "mgnt2GigmManagerIpAddressEntry",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2GigmManagerIpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2GigmManagerIpIndex": {
+    "name": "mgnt2GigmManagerIpIndex",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgnt2GigmManagerIpAddress": {
+    "name": "mgnt2GigmManagerIpAddress",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgnt2GigmManagerIpAddressTableRowStatus": {
+    "name": "mgnt2GigmManagerIpAddressTableRowStatus",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgnt2GigmManagerTrapPort": {
+    "name": "mgnt2GigmManagerTrapPort",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgnt2GigmManagerEnableCtrl": {
+    "name": "mgnt2GigmManagerEnableCtrl",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgnt2GigmManagerEnableConfig": {
+    "name": "mgnt2GigmManagerEnableConfig",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgnt2GigmManagerEnableEvent": {
+    "name": "mgnt2GigmManagerEnableEvent",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgnt2GigmManagerEnableAlarmCrit": {
+    "name": "mgnt2GigmManagerEnableAlarmCrit",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgnt2GigmManagerEnableAlarmMajor": {
+    "name": "mgnt2GigmManagerEnableAlarmMajor",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgnt2GigmManagerEnableAlarmMinor": {
+    "name": "mgnt2GigmManagerEnableAlarmMinor",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgnt2GigmManagerRegistrationTimeout": {
+    "name": "mgnt2GigmManagerRegistrationTimeout",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgnt2GigmManagerEnableAlarmWarning": {
+    "name": "mgnt2GigmManagerEnableAlarmWarning",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgnt2GigmManagerEnableAlarmIndeterminate": {
+    "name": "mgnt2GigmManagerEnableAlarmIndeterminate",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgnt2GigmBoardIpAddress": {
+    "name": "mgnt2GigmBoardIpAddress",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2GigmIPAddresByDHCP": {
+    "name": "mgnt2GigmIPAddresByDHCP",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2GigmNetmask": {
+    "name": "mgnt2GigmNetmask",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2GigmGatewayAddressTable": {
+    "name": "mgnt2GigmGatewayAddressTable",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgnt2GigmGatewayAddressEntry": {
+    "name": "mgnt2GigmGatewayAddressEntry",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2GigmGatewayIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2GigmGatewayIndex": {
+    "name": "mgnt2GigmGatewayIndex",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgnt2GigmGatewayAddress": {
+    "name": "mgnt2GigmGatewayAddress",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgnt2GigmGatewayOrder": {
+    "name": "mgnt2GigmGatewayOrder",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgnt2GigmSyslog": {
+    "name": "mgnt2GigmSyslog",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2GigmNtpServer": {
+    "name": "mgnt2GigmNtpServer",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2GigmNodeIpAddress": {
+    "name": "mgnt2GigmNodeIpAddress",
+    "oid": "1.3.6.1.4.1.20044.7.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2ModulesManagement": {
+    "name": "mgnt2ModulesManagement",
+    "oid": "1.3.6.1.4.1.20044.7.1.2",
+    "class": "objectidentity"
+  },
+  "mgnt2GigmBoardTable": {
+    "name": "mgnt2GigmBoardTable",
+    "oid": "1.3.6.1.4.1.20044.7.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgnt2GigmBoardEntry": {
+    "name": "mgnt2GigmBoardEntry",
+    "oid": "1.3.6.1.4.1.20044.7.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2IndexBoards",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2IndexBoards": {
+    "name": "mgnt2IndexBoards",
+    "oid": "1.3.6.1.4.1.20044.7.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2Position": {
+    "name": "mgnt2Position",
+    "oid": "1.3.6.1.4.1.20044.7.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2Name": {
+    "name": "mgnt2Name",
+    "oid": "1.3.6.1.4.1.20044.7.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2PortNumber": {
+    "name": "mgnt2PortNumber",
+    "oid": "1.3.6.1.4.1.20044.7.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2LineNumber": {
+    "name": "mgnt2LineNumber",
+    "oid": "1.3.6.1.4.1.20044.7.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2GroupNumber": {
+    "name": "mgnt2GroupNumber",
+    "oid": "1.3.6.1.4.1.20044.7.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2RootOIDInventory": {
+    "name": "mgnt2RootOIDInventory",
+    "oid": "1.3.6.1.4.1.20044.7.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2SlotOcc": {
+    "name": "mgnt2SlotOcc",
+    "oid": "1.3.6.1.4.1.20044.7.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2SubFunctionLabel": {
+    "name": "mgnt2SubFunctionLabel",
+    "oid": "1.3.6.1.4.1.20044.7.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2SlotStatus": {
+    "name": "mgnt2SlotStatus",
+    "oid": "1.3.6.1.4.1.20044.7.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2SlotStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2GigmSelectedBoard": {
+    "name": "mgnt2GigmSelectedBoard",
+    "oid": "1.3.6.1.4.1.20044.7.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2GigmMibsTable": {
+    "name": "mgnt2GigmMibsTable",
+    "oid": "1.3.6.1.4.1.20044.7.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "mgnt2GigmMibsEntry": {
+    "name": "mgnt2GigmMibsEntry",
+    "oid": "1.3.6.1.4.1.20044.7.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2IndexMibs",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "mgnt2IndexMibs": {
+    "name": "mgnt2IndexMibs",
+    "oid": "1.3.6.1.4.1.20044.7.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "mgnt2MibName": {
+    "name": "mgnt2MibName",
+    "oid": "1.3.6.1.4.1.20044.7.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "mgnt2MibPartNumber": {
+    "name": "mgnt2MibPartNumber",
+    "oid": "1.3.6.1.4.1.20044.7.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "mgnt2GigmLogicalName": {
+    "name": "mgnt2GigmLogicalName",
+    "oid": "1.3.6.1.4.1.20044.7.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2GigmEqptType": {
+    "name": "mgnt2GigmEqptType",
+    "oid": "1.3.6.1.4.1.20044.7.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2GigmTrapCount": {
+    "name": "mgnt2GigmTrapCount",
+    "oid": "1.3.6.1.4.1.20044.7.1.7",
+    "class": "objectidentity"
+  },
+  "mgnt2GigmTrapCounter": {
+    "name": "mgnt2GigmTrapCounter",
+    "oid": "1.3.6.1.4.1.20044.7.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2GigmResetTrapCounter": {
+    "name": "mgnt2GigmResetTrapCounter",
+    "oid": "1.3.6.1.4.1.20044.7.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2GigmSecurity": {
+    "name": "mgnt2GigmSecurity",
+    "oid": "1.3.6.1.4.1.20044.7.1.8",
+    "class": "objectidentity"
+  },
+  "mgnt2GigmRoCommunity": {
+    "name": "mgnt2GigmRoCommunity",
+    "oid": "1.3.6.1.4.1.20044.7.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2GigmRwCommunity": {
+    "name": "mgnt2GigmRwCommunity",
+    "oid": "1.3.6.1.4.1.20044.7.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2GigmTrapCommunity": {
+    "name": "mgnt2GigmTrapCommunity",
+    "oid": "1.3.6.1.4.1.20044.7.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2GigmTime": {
+    "name": "mgnt2GigmTime",
+    "oid": "1.3.6.1.4.1.20044.7.1.9",
+    "class": "objectidentity"
+  },
+  "mgnt2GigmCurrentHour": {
+    "name": "mgnt2GigmCurrentHour",
+    "oid": "1.3.6.1.4.1.20044.7.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2GigmCurrentMinute": {
+    "name": "mgnt2GigmCurrentMinute",
+    "oid": "1.3.6.1.4.1.20044.7.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2GigmCurrentYear": {
+    "name": "mgnt2GigmCurrentYear",
+    "oid": "1.3.6.1.4.1.20044.7.1.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1970,
+            "max": 3000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2GigmCurrentMonth": {
+    "name": "mgnt2GigmCurrentMonth",
+    "oid": "1.3.6.1.4.1.20044.7.1.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2GigmCurrentDay": {
+    "name": "mgnt2GigmCurrentDay",
+    "oid": "1.3.6.1.4.1.20044.7.1.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2Authentication": {
+    "name": "mgnt2Authentication",
+    "oid": "1.3.6.1.4.1.20044.7.1.10",
+    "class": "objectidentity"
+  },
+  "mgnt2GigmRadiusServer": {
+    "name": "mgnt2GigmRadiusServer",
+    "oid": "1.3.6.1.4.1.20044.7.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2GigmRadiusPort": {
+    "name": "mgnt2GigmRadiusPort",
+    "oid": "1.3.6.1.4.1.20044.7.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2GigmRadiusSecret": {
+    "name": "mgnt2GigmRadiusSecret",
+    "oid": "1.3.6.1.4.1.20044.7.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2GigmLdapHost": {
+    "name": "mgnt2GigmLdapHost",
+    "oid": "1.3.6.1.4.1.20044.7.1.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2GigmLdapPort": {
+    "name": "mgnt2GigmLdapPort",
+    "oid": "1.3.6.1.4.1.20044.7.1.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2GigmLdapBase": {
+    "name": "mgnt2GigmLdapBase",
+    "oid": "1.3.6.1.4.1.20044.7.1.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2GigmLdapVersion": {
+    "name": "mgnt2GigmLdapVersion",
+    "oid": "1.3.6.1.4.1.20044.7.1.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2GigmLdapBindDn": {
+    "name": "mgnt2GigmLdapBindDn",
+    "oid": "1.3.6.1.4.1.20044.7.1.10.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2GigmLdapBindPw": {
+    "name": "mgnt2GigmLdapBindPw",
+    "oid": "1.3.6.1.4.1.20044.7.1.10.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2GigmLdapScope": {
+    "name": "mgnt2GigmLdapScope",
+    "oid": "1.3.6.1.4.1.20044.7.1.10.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2GigmLdapPamPasswd": {
+    "name": "mgnt2GigmLdapPamPasswd",
+    "oid": "1.3.6.1.4.1.20044.7.1.10.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2GigmAuthenticationType": {
+    "name": "mgnt2GigmAuthenticationType",
+    "oid": "1.3.6.1.4.1.20044.7.1.10.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2AuthTypeValues",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2DwlUploadingTable": {
+    "name": "mgnt2DwlUploadingTable",
+    "oid": "1.3.6.1.4.1.20044.7.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "mgnt2DwlUploadingEntry": {
+    "name": "mgnt2DwlUploadingEntry",
+    "oid": "1.3.6.1.4.1.20044.7.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2IndexUpload",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "mgnt2IndexUpload": {
+    "name": "mgnt2IndexUpload",
+    "oid": "1.3.6.1.4.1.20044.7.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "mgnt2DwlUploadFileName": {
+    "name": "mgnt2DwlUploadFileName",
+    "oid": "1.3.6.1.4.1.20044.7.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "mgnt2ImmediateReplacement": {
+    "name": "mgnt2ImmediateReplacement",
+    "oid": "1.3.6.1.4.1.20044.7.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2FileUpload": {
+    "name": "mgnt2FileUpload",
+    "oid": "1.3.6.1.4.1.20044.7.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2DeletePackageFromRam": {
+    "name": "mgnt2DeletePackageFromRam",
+    "oid": "1.3.6.1.4.1.20044.7.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2FlashingInProgress": {
+    "name": "mgnt2FlashingInProgress",
+    "oid": "1.3.6.1.4.1.20044.7.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "mgnt2DwlPackageTable": {
+    "name": "mgnt2DwlPackageTable",
+    "oid": "1.3.6.1.4.1.20044.7.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "mgnt2DwlPackageEntry": {
+    "name": "mgnt2DwlPackageEntry",
+    "oid": "1.3.6.1.4.1.20044.7.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2IndexPackage",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "mgnt2IndexPackage": {
+    "name": "mgnt2IndexPackage",
+    "oid": "1.3.6.1.4.1.20044.7.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "mgnt2DwlPackageFileName": {
+    "name": "mgnt2DwlPackageFileName",
+    "oid": "1.3.6.1.4.1.20044.7.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "mgnt2ExtractedPack": {
+    "name": "mgnt2ExtractedPack",
+    "oid": "1.3.6.1.4.1.20044.7.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "mgnt2SwitchTo": {
+    "name": "mgnt2SwitchTo",
+    "oid": "1.3.6.1.4.1.20044.7.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2Immediate": {
+    "name": "mgnt2Immediate",
+    "oid": "1.3.6.1.4.1.20044.7.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2DeletePackageFromFlash": {
+    "name": "mgnt2DeletePackageFromFlash",
+    "oid": "1.3.6.1.4.1.20044.7.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2PackageExtractionInProgress": {
+    "name": "mgnt2PackageExtractionInProgress",
+    "oid": "1.3.6.1.4.1.20044.7.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "mgnt2DwlUploadingTableUpdate": {
+    "name": "mgnt2DwlUploadingTableUpdate",
+    "oid": "1.3.6.1.4.1.20044.7.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2LoadPMTable": {
+    "name": "mgnt2LoadPMTable",
+    "oid": "1.3.6.1.4.1.20044.7.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "mgnt2LoadPMEntry": {
+    "name": "mgnt2LoadPMEntry",
+    "oid": "1.3.6.1.4.1.20044.7.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2LoadPMIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "mgnt2LoadPMIndex": {
+    "name": "mgnt2LoadPMIndex",
+    "oid": "1.3.6.1.4.1.20044.7.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "mgnt2LoadFileName": {
+    "name": "mgnt2LoadFileName",
+    "oid": "1.3.6.1.4.1.20044.7.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "mgnt2LoadFileType": {
+    "name": "mgnt2LoadFileType",
+    "oid": "1.3.6.1.4.1.20044.7.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiLoadGWSW",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "mgnt2LoadState": {
+    "name": "mgnt2LoadState",
+    "oid": "1.3.6.1.4.1.20044.7.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiLoadState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "mgnt2LoadModuleNumber": {
+    "name": "mgnt2LoadModuleNumber",
+    "oid": "1.3.6.1.4.1.20044.7.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2LoadResetMethod": {
+    "name": "mgnt2LoadResetMethod",
+    "oid": "1.3.6.1.4.1.20044.7.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiLoadPermutMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2LoadResetMode": {
+    "name": "mgnt2LoadResetMode",
+    "oid": "1.3.6.1.4.1.20044.7.4.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiLoadPermutMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2LoadBankNumber": {
+    "name": "mgnt2LoadBankNumber",
+    "oid": "1.3.6.1.4.1.20044.7.4.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2LoadDownloadProgress": {
+    "name": "mgnt2LoadDownloadProgress",
+    "oid": "1.3.6.1.4.1.20044.7.4.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "mgnt2LoadTransfer": {
+    "name": "mgnt2LoadTransfer",
+    "oid": "1.3.6.1.4.1.20044.7.4.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2LoadDelete": {
+    "name": "mgnt2LoadDelete",
+    "oid": "1.3.6.1.4.1.20044.7.4.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2LoadPMTableUpdate": {
+    "name": "mgnt2LoadPMTableUpdate",
+    "oid": "1.3.6.1.4.1.20044.7.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2DwlEkicraftPkgTable": {
+    "name": "mgnt2DwlEkicraftPkgTable",
+    "oid": "1.3.6.1.4.1.20044.7.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "mgnt2DwlEkicraftPkgEntry": {
+    "name": "mgnt2DwlEkicraftPkgEntry",
+    "oid": "1.3.6.1.4.1.20044.7.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2IndexEkicraftPkg",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "mgnt2IndexEkicraftPkg": {
+    "name": "mgnt2IndexEkicraftPkg",
+    "oid": "1.3.6.1.4.1.20044.7.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "mgnt2DwlEkicraftPkgFileName": {
+    "name": "mgnt2DwlEkicraftPkgFileName",
+    "oid": "1.3.6.1.4.1.20044.7.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "mgnt2DwlEkicraftExtractedPack": {
+    "name": "mgnt2DwlEkicraftExtractedPack",
+    "oid": "1.3.6.1.4.1.20044.7.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "mgnt2DwlEkicraftSwitchTo": {
+    "name": "mgnt2DwlEkicraftSwitchTo",
+    "oid": "1.3.6.1.4.1.20044.7.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2DwlEkicraftImmediate": {
+    "name": "mgnt2DwlEkicraftImmediate",
+    "oid": "1.3.6.1.4.1.20044.7.4.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2DeleteEkicraftPkgFromFlash": {
+    "name": "mgnt2DeleteEkicraftPkgFromFlash",
+    "oid": "1.3.6.1.4.1.20044.7.4.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2EkicraftPkgExtractionInProgress": {
+    "name": "mgnt2EkicraftPkgExtractionInProgress",
+    "oid": "1.3.6.1.4.1.20044.7.4.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "mgnt2CnfUploadConfigFilesTable": {
+    "name": "mgnt2CnfUploadConfigFilesTable",
+    "oid": "1.3.6.1.4.1.20044.7.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "mgnt2CnfUploadConfigFilesEntry": {
+    "name": "mgnt2CnfUploadConfigFilesEntry",
+    "oid": "1.3.6.1.4.1.20044.7.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2CnfUploadConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "mgnt2CnfUploadConfigIndex": {
+    "name": "mgnt2CnfUploadConfigIndex",
+    "oid": "1.3.6.1.4.1.20044.7.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "mgnt2CnfConfigFileName": {
+    "name": "mgnt2CnfConfigFileName",
+    "oid": "1.3.6.1.4.1.20044.7.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "mgnt2CnfConfigSlot": {
+    "name": "mgnt2CnfConfigSlot",
+    "oid": "1.3.6.1.4.1.20044.7.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2CnfConfigUpload": {
+    "name": "mgnt2CnfConfigUpload",
+    "oid": "1.3.6.1.4.1.20044.7.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2CnfDeleteConfigFile": {
+    "name": "mgnt2CnfDeleteConfigFile",
+    "oid": "1.3.6.1.4.1.20044.7.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2CnfManageConfigFilesTable": {
+    "name": "mgnt2CnfManageConfigFilesTable",
+    "oid": "1.3.6.1.4.1.20044.7.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "mgnt2CnfManageConfigFilesEntry": {
+    "name": "mgnt2CnfManageConfigFilesEntry",
+    "oid": "1.3.6.1.4.1.20044.7.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2CnfManageConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "mgnt2CnfManageConfigIndex": {
+    "name": "mgnt2CnfManageConfigIndex",
+    "oid": "1.3.6.1.4.1.20044.7.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "mgnt2CnfManageConfigFileID": {
+    "name": "mgnt2CnfManageConfigFileID",
+    "oid": "1.3.6.1.4.1.20044.7.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2CnfManageConfigFileName": {
+    "name": "mgnt2CnfManageConfigFileName",
+    "oid": "1.3.6.1.4.1.20044.7.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2CnfModuleSlotNumber": {
+    "name": "mgnt2CnfModuleSlotNumber",
+    "oid": "1.3.6.1.4.1.20044.7.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2CnfBackupConfig": {
+    "name": "mgnt2CnfBackupConfig",
+    "oid": "1.3.6.1.4.1.20044.7.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2CnfRestoreConfig": {
+    "name": "mgnt2CnfRestoreConfig",
+    "oid": "1.3.6.1.4.1.20044.7.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2CnfExportConfig": {
+    "name": "mgnt2CnfExportConfig",
+    "oid": "1.3.6.1.4.1.20044.7.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2CnfDeleteConfig": {
+    "name": "mgnt2CnfDeleteConfig",
+    "oid": "1.3.6.1.4.1.20044.7.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mgnt2RinvHwPlatform": {
+    "name": "mgnt2RinvHwPlatform",
+    "oid": "1.3.6.1.4.1.20044.7.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2RinvSoftwarePackage": {
+    "name": "mgnt2RinvSoftwarePackage",
+    "oid": "1.3.6.1.4.1.20044.7.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2RinvGateware": {
+    "name": "mgnt2RinvGateware",
+    "oid": "1.3.6.1.4.1.20044.7.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2RinvAgent": {
+    "name": "mgnt2RinvAgent",
+    "oid": "1.3.6.1.4.1.20044.7.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2RinvCraft": {
+    "name": "mgnt2RinvCraft",
+    "oid": "1.3.6.1.4.1.20044.7.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2RinvLinux": {
+    "name": "mgnt2RinvLinux",
+    "oid": "1.3.6.1.4.1.20044.7.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "EkiPlugInState": {
+    "name": "EkiPlugInState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absent": 0,
+          "loaded": 1,
+          "versionError": 2,
+          "symbolError": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "mgnt2GigmPlugInTable": {
+    "name": "mgnt2GigmPlugInTable",
+    "oid": "1.3.6.1.4.1.20044.7.6.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgnt2GigmPlugInEntry": {
+    "name": "mgnt2GigmPlugInEntry",
+    "oid": "1.3.6.1.4.1.20044.7.6.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2IndexPlugIns",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2IndexPlugIns": {
+    "name": "mgnt2IndexPlugIns",
+    "oid": "1.3.6.1.4.1.20044.7.6.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2PlugInRinv": {
+    "name": "mgnt2PlugInRinv",
+    "oid": "1.3.6.1.4.1.20044.7.6.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2PollingPresent": {
+    "name": "mgnt2PollingPresent",
+    "oid": "1.3.6.1.4.1.20044.7.6.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiPlugInState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2SnmpPresent": {
+    "name": "mgnt2SnmpPresent",
+    "oid": "1.3.6.1.4.1.20044.7.6.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiPlugInState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2RinvBackpanel": {
+    "name": "mgnt2RinvBackpanel",
+    "oid": "1.3.6.1.4.1.20044.7.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2RinvFan": {
+    "name": "mgnt2RinvFan",
+    "oid": "1.3.6.1.4.1.20044.7.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2RinvUboot": {
+    "name": "mgnt2RinvUboot",
+    "oid": "1.3.6.1.4.1.20044.7.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2GigmErrorCounterTable": {
+    "name": "mgnt2GigmErrorCounterTable",
+    "oid": "1.3.6.1.4.1.20044.7.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgnt2GigmErrorCounterEntry": {
+    "name": "mgnt2GigmErrorCounterEntry",
+    "oid": "1.3.6.1.4.1.20044.7.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2IndexErrorCounter",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2IndexErrorCounter": {
+    "name": "mgnt2IndexErrorCounter",
+    "oid": "1.3.6.1.4.1.20044.7.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2ErrorCounterSlotNumber": {
+    "name": "mgnt2ErrorCounterSlotNumber",
+    "oid": "1.3.6.1.4.1.20044.7.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2ErrorCounterValue": {
+    "name": "mgnt2ErrorCounterValue",
+    "oid": "1.3.6.1.4.1.20044.7.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2GigmResetErrorCounters": {
+    "name": "mgnt2GigmResetErrorCounters",
+    "oid": "1.3.6.1.4.1.20044.7.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2PerfCapabilityTable": {
+    "name": "mgnt2PerfCapabilityTable",
+    "oid": "1.3.6.1.4.1.20044.7.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgnt2PerfCapabilityEntry": {
+    "name": "mgnt2PerfCapabilityEntry",
+    "oid": "1.3.6.1.4.1.20044.7.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2PerfCapIndexBoards",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2PerfCapIndexBoards": {
+    "name": "mgnt2PerfCapIndexBoards",
+    "oid": "1.3.6.1.4.1.20044.7.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2PerfCapPosition": {
+    "name": "mgnt2PerfCapPosition",
+    "oid": "1.3.6.1.4.1.20044.7.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2PerfCapName": {
+    "name": "mgnt2PerfCapName",
+    "oid": "1.3.6.1.4.1.20044.7.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2PerfCapStatus": {
+    "name": "mgnt2PerfCapStatus",
+    "oid": "1.3.6.1.4.1.20044.7.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2PerfCapOidEnable": {
+    "name": "mgnt2PerfCapOidEnable",
+    "oid": "1.3.6.1.4.1.20044.7.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2GigmPerf15minSync": {
+    "name": "mgnt2GigmPerf15minSync",
+    "oid": "1.3.6.1.4.1.20044.7.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2GigmPerf24hSync": {
+    "name": "mgnt2GigmPerf24hSync",
+    "oid": "1.3.6.1.4.1.20044.7.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2PerfResyncNMS": {
+    "name": "mgnt2PerfResyncNMS",
+    "oid": "1.3.6.1.4.1.20044.7.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2PerfResyncValues",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2alarms": {
+    "name": "mgnt2alarms",
+    "oid": "1.3.6.1.4.1.20044.7.2.1",
+    "class": "objectidentity"
+  },
+  "mgnt2controls": {
+    "name": "mgnt2controls",
+    "oid": "1.3.6.1.4.1.20044.7.2.2",
+    "class": "objectidentity"
+  },
+  "mgnt2config": {
+    "name": "mgnt2config",
+    "oid": "1.3.6.1.4.1.20044.7.2.3",
+    "class": "objectidentity"
+  },
+  "mgnt2AlmsynthAlm0": {
+    "name": "mgnt2AlmsynthAlm0",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.0",
+    "class": "objectidentity"
+  },
+  "mgnt2AlmMgntDefFuseB": {
+    "name": "mgnt2AlmMgntDefFuseB",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.0.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmMgntDefFuseA": {
+    "name": "mgnt2AlmMgntDefFuseA",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.0.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmDef48b": {
+    "name": "mgnt2AlmDef48b",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.0.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmDef48a": {
+    "name": "mgnt2AlmDef48a",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.0.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmFansFailure": {
+    "name": "mgnt2AlmFansFailure",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.0.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmAbsFailure": {
+    "name": "mgnt2AlmAbsFailure",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.0.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmsynthAlm1": {
+    "name": "mgnt2AlmsynthAlm1",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.1",
+    "class": "objectidentity"
+  },
+  "mgnt2AlmAcknowledge": {
+    "name": "mgnt2AlmAcknowledge",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmCritVisual": {
+    "name": "mgnt2AlmCritVisual",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmUrgVisual": {
+    "name": "mgnt2AlmUrgVisual",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmNurgVisual": {
+    "name": "mgnt2AlmNurgVisual",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmboardMgmntSet1": {
+    "name": "mgnt2AlmboardMgmntSet1",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.16",
+    "class": "objectidentity"
+  },
+  "mgnt2AlmPmFanAbsent": {
+    "name": "mgnt2AlmPmFanAbsent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.16.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPmSlot11Absent": {
+    "name": "mgnt2AlmPmSlot11Absent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.16.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPmSlot10Absent": {
+    "name": "mgnt2AlmPmSlot10Absent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.16.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPmSlot9Absent": {
+    "name": "mgnt2AlmPmSlot9Absent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.16.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPmSlot8Absent": {
+    "name": "mgnt2AlmPmSlot8Absent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.16.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPmSlot7Absent": {
+    "name": "mgnt2AlmPmSlot7Absent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.16.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPmSlot6Absent": {
+    "name": "mgnt2AlmPmSlot6Absent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.16.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPmSlot5Absent": {
+    "name": "mgnt2AlmPmSlot5Absent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.16.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPmSlot4Absent": {
+    "name": "mgnt2AlmPmSlot4Absent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.16.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPmSlot3Absent": {
+    "name": "mgnt2AlmPmSlot3Absent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.16.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPmSlot2Absent": {
+    "name": "mgnt2AlmPmSlot2Absent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.16.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPmSlot1Absent": {
+    "name": "mgnt2AlmPmSlot1Absent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.16.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmboardMgmntSet2": {
+    "name": "mgnt2AlmboardMgmntSet2",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.17",
+    "class": "objectidentity"
+  },
+  "mgnt2AlmPmSlot20Absent": {
+    "name": "mgnt2AlmPmSlot20Absent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.17.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPmSlot19Absent": {
+    "name": "mgnt2AlmPmSlot19Absent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.17.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPmSlot18Absent": {
+    "name": "mgnt2AlmPmSlot18Absent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.17.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPmSlot17Absent": {
+    "name": "mgnt2AlmPmSlot17Absent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.17.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPmSlot16Absent": {
+    "name": "mgnt2AlmPmSlot16Absent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.17.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPmSlot15Absent": {
+    "name": "mgnt2AlmPmSlot15Absent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.17.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPmSlot14Absent": {
+    "name": "mgnt2AlmPmSlot14Absent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.17.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPmSlot13Absent": {
+    "name": "mgnt2AlmPmSlot13Absent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.17.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPmSlot12Absent": {
+    "name": "mgnt2AlmPmSlot12Absent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.17.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmfanMgmnt": {
+    "name": "mgnt2AlmfanMgmnt",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.20",
+    "class": "objectidentity"
+  },
+  "mgnt2AlmFanFilterAbsent": {
+    "name": "mgnt2AlmFanFilterAbsent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.20.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPbFan6Fail": {
+    "name": "mgnt2AlmPbFan6Fail",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.20.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPbFan5Fail": {
+    "name": "mgnt2AlmPbFan5Fail",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.20.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPbFan4Fail": {
+    "name": "mgnt2AlmPbFan4Fail",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.20.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPbFan3Fail": {
+    "name": "mgnt2AlmPbFan3Fail",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.20.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPbFan2Fail": {
+    "name": "mgnt2AlmPbFan2Fail",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.20.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmPbFan1Fail": {
+    "name": "mgnt2AlmPbFan1Fail",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.20.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmfanPwrMgmnt": {
+    "name": "mgnt2AlmfanPwrMgmnt",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.24",
+    "class": "objectidentity"
+  },
+  "mgnt2AlmFanDefFuseB": {
+    "name": "mgnt2AlmFanDefFuseB",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.24.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmFanDefFuseA": {
+    "name": "mgnt2AlmFanDefFuseA",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.24.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmFanPwrFail1": {
+    "name": "mgnt2AlmFanPwrFail1",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.24.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmFanPwrProtOn": {
+    "name": "mgnt2AlmFanPwrProtOn",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.24.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmremoveablefanModuleFail": {
+    "name": "mgnt2AlmremoveablefanModuleFail",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.25",
+    "class": "objectidentity"
+  },
+  "mgnt2AlmFan4ModuleAbsent": {
+    "name": "mgnt2AlmFan4ModuleAbsent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.25.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmFan3ModuleAbsent": {
+    "name": "mgnt2AlmFan3ModuleAbsent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.25.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmFan2ModuleAbsent": {
+    "name": "mgnt2AlmFan2ModuleAbsent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.25.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmFan1ModuleAbsent": {
+    "name": "mgnt2AlmFan1ModuleAbsent",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.25.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmremoveableFanModuleMgmnt": {
+    "name": "mgnt2AlmremoveableFanModuleMgmnt",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.26",
+    "class": "objectidentity"
+  },
+  "mgnt2AlmFan4ModuleFail": {
+    "name": "mgnt2AlmFan4ModuleFail",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.26.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmFan3ModuleFail": {
+    "name": "mgnt2AlmFan3ModuleFail",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.26.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmFan2ModuleFail": {
+    "name": "mgnt2AlmFan2ModuleFail",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.26.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmFan1ModuleFail": {
+    "name": "mgnt2AlmFan1ModuleFail",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.26.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmswAlarm1": {
+    "name": "mgnt2AlmswAlarm1",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.32",
+    "class": "objectidentity"
+  },
+  "mgnt2AlmPollingManagerError": {
+    "name": "mgnt2AlmPollingManagerError",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.32.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmFifoCmdError": {
+    "name": "mgnt2AlmFifoCmdError",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.32.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmApiError": {
+    "name": "mgnt2AlmApiError",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.32.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmapiErrorCode": {
+    "name": "mgnt2AlmapiErrorCode",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmlogMgmnt": {
+    "name": "mgnt2AlmlogMgmnt",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.34",
+    "class": "objectidentity"
+  },
+  "mgnt2AlmLog80Full": {
+    "name": "mgnt2AlmLog80Full",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.34.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmLogFileFull": {
+    "name": "mgnt2AlmLogFileFull",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.34.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmntpSyncLoss": {
+    "name": "mgnt2AlmntpSyncLoss",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.35",
+    "class": "objectidentity"
+  },
+  "mgnt2AlmCpuTempOverRange": {
+    "name": "mgnt2AlmCpuTempOverRange",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.35.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmNtpSyncLoss": {
+    "name": "mgnt2AlmNtpSyncLoss",
+    "oid": "1.3.6.1.4.1.20044.7.2.1.35.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2Ctrlsynth5": {
+    "name": "mgnt2Ctrlsynth5",
+    "oid": "1.3.6.1.4.1.20044.7.2.2.5",
+    "class": "objectidentity"
+  },
+  "mgnt2CtrlChassisColdReset": {
+    "name": "mgnt2CtrlChassisColdReset",
+    "oid": "1.3.6.1.4.1.20044.7.2.2.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CtrlChassisWarmReset": {
+    "name": "mgnt2CtrlChassisWarmReset",
+    "oid": "1.3.6.1.4.1.20044.7.2.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CtrlChassisShutdown": {
+    "name": "mgnt2CtrlChassisShutdown",
+    "oid": "1.3.6.1.4.1.20044.7.2.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CtrltestLed": {
+    "name": "mgnt2CtrltestLed",
+    "oid": "1.3.6.1.4.1.20044.7.2.2.18",
+    "class": "objectidentity"
+  },
+  "mgnt2CtrlLedOff": {
+    "name": "mgnt2CtrlLedOff",
+    "oid": "1.3.6.1.4.1.20044.7.2.2.18.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CtrlRedLed": {
+    "name": "mgnt2CtrlRedLed",
+    "oid": "1.3.6.1.4.1.20044.7.2.2.18.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CtrlGreenLed": {
+    "name": "mgnt2CtrlGreenLed",
+    "oid": "1.3.6.1.4.1.20044.7.2.2.18.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CtrllogFile": {
+    "name": "mgnt2CtrllogFile",
+    "oid": "1.3.6.1.4.1.20044.7.2.2.19",
+    "class": "objectidentity"
+  },
+  "mgnt2CtrlLogFileReset": {
+    "name": "mgnt2CtrlLogFileReset",
+    "oid": "1.3.6.1.4.1.20044.7.2.2.19.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CtrlmgntSaveConfig": {
+    "name": "mgnt2CtrlmgntSaveConfig",
+    "oid": "1.3.6.1.4.1.20044.7.2.2.23",
+    "class": "objectidentity"
+  },
+  "mgnt2CtrlSaveConfig": {
+    "name": "mgnt2CtrlSaveConfig",
+    "oid": "1.3.6.1.4.1.20044.7.2.2.23.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CtrlmgntGetGlobalConfig": {
+    "name": "mgnt2CtrlmgntGetGlobalConfig",
+    "oid": "1.3.6.1.4.1.20044.7.2.2.24",
+    "class": "objectidentity"
+  },
+  "mgnt2CtrlGetGlobalConfig": {
+    "name": "mgnt2CtrlGetGlobalConfig",
+    "oid": "1.3.6.1.4.1.20044.7.2.2.24.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CtrlmgntPutGlobalConfig": {
+    "name": "mgnt2CtrlmgntPutGlobalConfig",
+    "oid": "1.3.6.1.4.1.20044.7.2.2.25",
+    "class": "objectidentity"
+  },
+  "mgnt2CtrlPutGlobalConfig": {
+    "name": "mgnt2CtrlPutGlobalConfig",
+    "oid": "1.3.6.1.4.1.20044.7.2.2.25.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CtrlmgntAcknowledge": {
+    "name": "mgnt2CtrlmgntAcknowledge",
+    "oid": "1.3.6.1.4.1.20044.7.2.2.26",
+    "class": "objectidentity"
+  },
+  "mgnt2CtrlAcknowledge": {
+    "name": "mgnt2CtrlAcknowledge",
+    "oid": "1.3.6.1.4.1.20044.7.2.2.26.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgethPort2": {
+    "name": "mgnt2CfgethPort2",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.17",
+    "class": "objectidentity"
+  },
+  "mgnt2CfgChassisEthernetSplit": {
+    "name": "mgnt2CfgChassisEthernetSplit",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.17.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgEthPort2Disable": {
+    "name": "mgnt2CfgEthPort2Disable",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.17.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgmgntDccEnable": {
+    "name": "mgnt2CfgmgntDccEnable",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2DccAccessValues",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgpmTrapEnable": {
+    "name": "mgnt2CfgpmTrapEnable",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.20",
+    "class": "objectidentity"
+  },
+  "mgnt2CfgPmConfigTrapEn": {
+    "name": "mgnt2CfgPmConfigTrapEn",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.20.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgPmControlTrapEn": {
+    "name": "mgnt2CfgPmControlTrapEn",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.20.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgPmMinorTrapEn": {
+    "name": "mgnt2CfgPmMinorTrapEn",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.20.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgPmMajorTrapEn": {
+    "name": "mgnt2CfgPmMajorTrapEn",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.20.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgPmCriticalTrapEn": {
+    "name": "mgnt2CfgPmCriticalTrapEn",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.20.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgmgntTrapEnable": {
+    "name": "mgnt2CfgmgntTrapEnable",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.21",
+    "class": "objectidentity"
+  },
+  "mgnt2CfgMgntEventTrapEn": {
+    "name": "mgnt2CfgMgntEventTrapEn",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.21.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgMgntConfigTrapEn": {
+    "name": "mgnt2CfgMgntConfigTrapEn",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.21.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgMgntControlTrapEn": {
+    "name": "mgnt2CfgMgntControlTrapEn",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.21.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgMgntMinorTrapEn": {
+    "name": "mgnt2CfgMgntMinorTrapEn",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.21.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgMgntMajorTrapEn": {
+    "name": "mgnt2CfgMgntMajorTrapEn",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.21.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgMgntCriticalTrapEn": {
+    "name": "mgnt2CfgMgntCriticalTrapEn",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.21.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgmgntTrapMode": {
+    "name": "mgnt2CfgmgntTrapMode",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2TrapModeValues",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgsyslogEnable": {
+    "name": "mgnt2CfgsyslogEnable",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.23",
+    "class": "objectidentity"
+  },
+  "mgnt2CfgSyslogAlarmEn": {
+    "name": "mgnt2CfgSyslogAlarmEn",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.23.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgSyslogCtrlEn": {
+    "name": "mgnt2CfgSyslogCtrlEn",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.23.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgSyslogConfigEn": {
+    "name": "mgnt2CfgSyslogConfigEn",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.23.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgSyslogEventEn": {
+    "name": "mgnt2CfgSyslogEventEn",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.23.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgntpTimeZone": {
+    "name": "mgnt2CfgntpTimeZone",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgpmConfEnable": {
+    "name": "mgnt2CfgpmConfEnable",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.25",
+    "class": "objectidentity"
+  },
+  "mgnt2CfgPmRestoreEnable": {
+    "name": "mgnt2CfgPmRestoreEnable",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.25.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgPmBackupEnable": {
+    "name": "mgnt2CfgPmBackupEnable",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.25.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfginactivityTimeout": {
+    "name": "mgnt2CfginactivityTimeout",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgcliAccess": {
+    "name": "mgnt2CfgcliAccess",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2CliAccessValues",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgcraftAccess": {
+    "name": "mgnt2CfgcraftAccess",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2CraftAccessValues",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgperfModes1": {
+    "name": "mgnt2CfgperfModes1",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiSynchroMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgalarmModelActiv": {
+    "name": "mgnt2CfgalarmModelActiv",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2AckMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgnetworkInput": {
+    "name": "mgnt2CfgnetworkInput",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2NetMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgmasterEthMode": {
+    "name": "mgnt2CfgmasterEthMode",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2MasterEthMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgsubnetMode": {
+    "name": "mgnt2CfgsubnetMode",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2SubnetEthMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgrstpMode": {
+    "name": "mgnt2CfgrstpMode",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.34",
+    "class": "objectidentity"
+  },
+  "mgnt2CfgRstpEnable": {
+    "name": "mgnt2CfgRstpEnable",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.34.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfglldpMode": {
+    "name": "mgnt2CfglldpMode",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.35",
+    "class": "objectidentity"
+  },
+  "mgnt2CfgLldpEnable": {
+    "name": "mgnt2CfgLldpEnable",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.35.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfglogMode": {
+    "name": "mgnt2CfglogMode",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2LogFileMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgnodeMode": {
+    "name": "mgnt2CfgnodeMode",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.37",
+    "class": "objectidentity"
+  },
+  "mgnt2CfgNodeControllerEnable": {
+    "name": "mgnt2CfgNodeControllerEnable",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.37.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgunprivilegedUsersMode": {
+    "name": "mgnt2CfgunprivilegedUsersMode",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.38",
+    "class": "objectidentity"
+  },
+  "mgnt2CfgRestrictUnprivilegeUsers": {
+    "name": "mgnt2CfgRestrictUnprivilegeUsers",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.38.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgoscDccLinkUpThreshold": {
+    "name": "mgnt2CfgoscDccLinkUpThreshold",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgoscDccLinkDownThreshold": {
+    "name": "mgnt2CfgoscDccLinkDownThreshold",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgaccountAutoLock": {
+    "name": "mgnt2CfgaccountAutoLock",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgfailCountReset": {
+    "name": "mgnt2CfgfailCountReset",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgftpMode": {
+    "name": "mgnt2CfgftpMode",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.44",
+    "class": "objectidentity"
+  },
+  "mgnt2CfgFtpEnable": {
+    "name": "mgnt2CfgFtpEnable",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.44.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2CfgtftpMode": {
+    "name": "mgnt2CfgtftpMode",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.45",
+    "class": "objectidentity"
+  },
+  "mgnt2CfgTftpEnable": {
+    "name": "mgnt2CfgTftpEnable",
+    "oid": "1.3.6.1.4.1.20044.7.2.3.45.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2TrapBoardNumber": {
+    "name": "mgnt2TrapBoardNumber",
+    "oid": "1.3.6.1.4.1.20044.7.3.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2TrapSeverity": {
+    "name": "mgnt2TrapSeverity",
+    "oid": "1.3.6.1.4.1.20044.7.3.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2TrapSourcePm": {
+    "name": "mgnt2TrapSourcePm",
+    "oid": "1.3.6.1.4.1.20044.7.3.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2TrapSourcePortType": {
+    "name": "mgnt2TrapSourcePortType",
+    "oid": "1.3.6.1.4.1.20044.7.3.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2TrapSourcePortNumber": {
+    "name": "mgnt2TrapSourcePortNumber",
+    "oid": "1.3.6.1.4.1.20044.7.3.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2TrapSourceLabel": {
+    "name": "mgnt2TrapSourceLabel",
+    "oid": "1.3.6.1.4.1.20044.7.3.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2TrapSourceValue": {
+    "name": "mgnt2TrapSourceValue",
+    "oid": "1.3.6.1.4.1.20044.7.3.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2TrapEventLabel": {
+    "name": "mgnt2TrapEventLabel",
+    "oid": "1.3.6.1.4.1.20044.7.3.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2TrapNodeControllerIpAddress": {
+    "name": "mgnt2TrapNodeControllerIpAddress",
+    "oid": "1.3.6.1.4.1.20044.7.3.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2TrapChassisId": {
+    "name": "mgnt2TrapChassisId",
+    "oid": "1.3.6.1.4.1.20044.7.3.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2TrapApi": {
+    "name": "mgnt2TrapApi",
+    "oid": "1.3.6.1.4.1.20044.7.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapBoardNumber"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2AlmapiErrorCode"
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2TrapSwError": {
+    "name": "mgnt2TrapSwError",
+    "oid": "1.3.6.1.4.1.20044.7.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2AlmFifoCmdError"
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2TrapBoardInserted": {
+    "name": "mgnt2TrapBoardInserted",
+    "oid": "1.3.6.1.4.1.20044.7.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapBoardNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2TrapBoardRemoved": {
+    "name": "mgnt2TrapBoardRemoved",
+    "oid": "1.3.6.1.4.1.20044.7.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapBoardNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2TrapRestoreConfDone": {
+    "name": "mgnt2TrapRestoreConfDone",
+    "oid": "1.3.6.1.4.1.20044.7.3.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapBoardNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2TrapGlobalPowerFail": {
+    "name": "mgnt2TrapGlobalPowerFail",
+    "oid": "1.3.6.1.4.1.20044.7.3.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2AlmDef48b"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2AlmDef48a"
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2TrapFanPowerFail": {
+    "name": "mgnt2TrapFanPowerFail",
+    "oid": "1.3.6.1.4.1.20044.7.3.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2AlmFanDefFuseB"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2AlmFanDefFuseA"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2AlmFanPwrFail1"
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2TrapGigmPowerFail": {
+    "name": "mgnt2TrapGigmPowerFail",
+    "oid": "1.3.6.1.4.1.20044.7.3.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2AlmMgntDefFuseA"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2AlmMgntDefFuseB"
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2TrapFanFail": {
+    "name": "mgnt2TrapFanFail",
+    "oid": "1.3.6.1.4.1.20044.7.3.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2AlmPbFan1Fail"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2AlmPbFan2Fail"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2AlmPbFan3Fail"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2AlmPbFan4Fail"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2AlmPbFan5Fail"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2AlmPbFan6Fail"
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2TrapLogFileFull": {
+    "name": "mgnt2TrapLogFileFull",
+    "oid": "1.3.6.1.4.1.20044.7.3.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapBoardNumber"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2AlmLog80Full"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2AlmLogFileFull"
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2TrapAlarm": {
+    "name": "mgnt2TrapAlarm",
+    "oid": "1.3.6.1.4.1.20044.7.3.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapSeverity"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapSourcePm"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapBoardNumber"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapSourcePortType"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapSourcePortNumber"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapSourceLabel"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapSourceValue"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapNodeControllerIpAddress"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapChassisId"
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2TrapEvent": {
+    "name": "mgnt2TrapEvent",
+    "oid": "1.3.6.1.4.1.20044.7.3.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapBoardNumber"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapEventLabel"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapNodeControllerIpAddress"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapChassisId"
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2TrapControl": {
+    "name": "mgnt2TrapControl",
+    "oid": "1.3.6.1.4.1.20044.7.3.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapSourcePm"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapBoardNumber"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapSourcePortType"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapSourcePortNumber"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapSourceLabel"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapSourceValue"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapNodeControllerIpAddress"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapChassisId"
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2TrapConfig": {
+    "name": "mgnt2TrapConfig",
+    "oid": "1.3.6.1.4.1.20044.7.3.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapSourcePm"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapBoardNumber"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapSourcePortType"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapSourcePortNumber"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapSourceLabel"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapSourceValue"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapNodeControllerIpAddress"
+      },
+      {
+        "module": "EKINOPS-MGNT2-MIB",
+        "object": "mgnt2TrapChassisId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ekinops/EKINOPS-MGNT2-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:28:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "EKINOPS-MGNT2-MIB"
+  }
+}

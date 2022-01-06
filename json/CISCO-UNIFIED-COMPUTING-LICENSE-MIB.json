@@ -1,0 +1,3422 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoInetAddressMask",
+      "Unsigned64",
+      "CiscoNetworkAddress",
+      "TimeIntervalSec",
+      "CiscoAlarmSeverity"
+    ],
+    "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectId",
+      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectDn"
+    ],
+    "CISCO-UNIFIED-COMPUTING-TC-MIB": [
+      "CucsFsmCompletion",
+      "CucsLicenseTransport",
+      "CucsLicenseInstanceFsmCurrentFsm",
+      "CucsLicenseScope",
+      "CucsLicenseType",
+      "CucsLicenseTransferState",
+      "CucsLicenseDownloaderFsmStageName",
+      "CucsLicenseFileFsmCurrentFsm",
+      "CucsLicenseDownloaderFsmTaskItem",
+      "CucsLicenseInstanceFsmStageName",
+      "CucsLicensePeerStatus",
+      "CucsPolicyPolicyOwner",
+      "CucsLicenseFileFsmStageName",
+      "CucsLicenseState",
+      "CucsLicenseFileState",
+      "CucsFsmFlags",
+      "CucsLicenseFileFsmTaskItem",
+      "CucsFsmFsmStageStatus",
+      "CucsLicenseFeatureType",
+      "CucsConditionRemoteInvRslt",
+      "CucsLicenseDownloaderFsmCurrentFsm",
+      "CucsLicenseDownloadActivity",
+      "CucsLicenseInstanceFsmTaskItem"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6",
+      "InetAddressIPv4"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "RowPointer",
+      "TimeInterval",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cucsLicenseObjects": {
+    "name": "cucsLicenseObjects",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25",
+    "class": "moduleidentity"
+  },
+  "cucsLicenseContentsTable": {
+    "name": "cucsLicenseContentsTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseContentsEntry": {
+    "name": "cucsLicenseContentsEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
+        "object": "cucsLicenseContentsInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLicenseContentsInstanceId": {
+    "name": "cucsLicenseContentsInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseContentsDn": {
+    "name": "cucsLicenseContentsDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseContentsRn": {
+    "name": "cucsLicenseContentsRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseContentsFeatureName": {
+    "name": "cucsLicenseContentsFeatureName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseContentsTotalQuant": {
+    "name": "cucsLicenseContentsTotalQuant",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseContentsVendor": {
+    "name": "cucsLicenseContentsVendor",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseContentsVersion": {
+    "name": "cucsLicenseContentsVersion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderTable": {
+    "name": "cucsLicenseDownloaderTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderEntry": {
+    "name": "cucsLicenseDownloaderEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
+        "object": "cucsLicenseDownloaderInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLicenseDownloaderInstanceId": {
+    "name": "cucsLicenseDownloaderInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderDn": {
+    "name": "cucsLicenseDownloaderDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderRn": {
+    "name": "cucsLicenseDownloaderRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderAdminState": {
+    "name": "cucsLicenseDownloaderAdminState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicenseDownloadActivity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFileName": {
+    "name": "cucsLicenseDownloaderFileName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmDescr": {
+    "name": "cucsLicenseDownloaderFsmDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmPrev": {
+    "name": "cucsLicenseDownloaderFsmPrev",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmProgr": {
+    "name": "cucsLicenseDownloaderFsmProgr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmRmtInvErrCode": {
+    "name": "cucsLicenseDownloaderFsmRmtInvErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmRmtInvErrDescr": {
+    "name": "cucsLicenseDownloaderFsmRmtInvErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmRmtInvRslt": {
+    "name": "cucsLicenseDownloaderFsmRmtInvRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmStageDescr": {
+    "name": "cucsLicenseDownloaderFsmStageDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmStamp": {
+    "name": "cucsLicenseDownloaderFsmStamp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmStatus": {
+    "name": "cucsLicenseDownloaderFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmTry": {
+    "name": "cucsLicenseDownloaderFsmTry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderProt": {
+    "name": "cucsLicenseDownloaderProt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicenseTransport",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderPwd": {
+    "name": "cucsLicenseDownloaderPwd",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderRemotePath": {
+    "name": "cucsLicenseDownloaderRemotePath",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderServer": {
+    "name": "cucsLicenseDownloaderServer",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderTransferState": {
+    "name": "cucsLicenseDownloaderTransferState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicenseTransferState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderUser": {
+    "name": "cucsLicenseDownloaderUser",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmTable": {
+    "name": "cucsLicenseDownloaderFsmTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmEntry": {
+    "name": "cucsLicenseDownloaderFsmEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
+        "object": "cucsLicenseDownloaderFsmInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmInstanceId": {
+    "name": "cucsLicenseDownloaderFsmInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmDn": {
+    "name": "cucsLicenseDownloaderFsmDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmRn": {
+    "name": "cucsLicenseDownloaderFsmRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmCompletionTime": {
+    "name": "cucsLicenseDownloaderFsmCompletionTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmCurrentFsm": {
+    "name": "cucsLicenseDownloaderFsmCurrentFsm",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicenseDownloaderFsmCurrentFsm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmDescrData": {
+    "name": "cucsLicenseDownloaderFsmDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmFsmStatus": {
+    "name": "cucsLicenseDownloaderFsmFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmProgress": {
+    "name": "cucsLicenseDownloaderFsmProgress",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmRmtErrCode": {
+    "name": "cucsLicenseDownloaderFsmRmtErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.16.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmRmtErrDescr": {
+    "name": "cucsLicenseDownloaderFsmRmtErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.16.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmRmtRslt": {
+    "name": "cucsLicenseDownloaderFsmRmtRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.16.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmStageTable": {
+    "name": "cucsLicenseDownloaderFsmStageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmStageEntry": {
+    "name": "cucsLicenseDownloaderFsmStageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
+        "object": "cucsLicenseDownloaderFsmStageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmStageInstanceId": {
+    "name": "cucsLicenseDownloaderFsmStageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmStageDn": {
+    "name": "cucsLicenseDownloaderFsmStageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmStageRn": {
+    "name": "cucsLicenseDownloaderFsmStageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmStageDescrData": {
+    "name": "cucsLicenseDownloaderFsmStageDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmStageLastUpdateTime": {
+    "name": "cucsLicenseDownloaderFsmStageLastUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmStageName": {
+    "name": "cucsLicenseDownloaderFsmStageName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicenseDownloaderFsmStageName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmStageOrder": {
+    "name": "cucsLicenseDownloaderFsmStageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmStageRetry": {
+    "name": "cucsLicenseDownloaderFsmStageRetry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.17.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmStageStageStatus": {
+    "name": "cucsLicenseDownloaderFsmStageStageStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.17.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmTaskTable": {
+    "name": "cucsLicenseDownloaderFsmTaskTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmTaskEntry": {
+    "name": "cucsLicenseDownloaderFsmTaskEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
+        "object": "cucsLicenseDownloaderFsmTaskInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmTaskInstanceId": {
+    "name": "cucsLicenseDownloaderFsmTaskInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmTaskDn": {
+    "name": "cucsLicenseDownloaderFsmTaskDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmTaskRn": {
+    "name": "cucsLicenseDownloaderFsmTaskRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmTaskCompletion": {
+    "name": "cucsLicenseDownloaderFsmTaskCompletion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmCompletion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmTaskFlags": {
+    "name": "cucsLicenseDownloaderFsmTaskFlags",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFlags",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmTaskItem": {
+    "name": "cucsLicenseDownloaderFsmTaskItem",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicenseDownloaderFsmTaskItem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseDownloaderFsmTaskSeqId": {
+    "name": "cucsLicenseDownloaderFsmTaskSeqId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseEpTable": {
+    "name": "cucsLicenseEpTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseEpEntry": {
+    "name": "cucsLicenseEpEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
+        "object": "cucsLicenseEpInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLicenseEpInstanceId": {
+    "name": "cucsLicenseEpInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseEpDn": {
+    "name": "cucsLicenseEpDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseEpRn": {
+    "name": "cucsLicenseEpRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureTable": {
+    "name": "cucsLicenseFeatureTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseFeatureEntry": {
+    "name": "cucsLicenseFeatureEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
+        "object": "cucsLicenseFeatureInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLicenseFeatureInstanceId": {
+    "name": "cucsLicenseFeatureInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseFeatureDn": {
+    "name": "cucsLicenseFeatureDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureRn": {
+    "name": "cucsLicenseFeatureRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureDescr": {
+    "name": "cucsLicenseFeatureDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureGracePeriod": {
+    "name": "cucsLicenseFeatureGracePeriod",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureIntId": {
+    "name": "cucsLicenseFeatureIntId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureName": {
+    "name": "cucsLicenseFeatureName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureType": {
+    "name": "cucsLicenseFeatureType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicenseFeatureType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureVendor": {
+    "name": "cucsLicenseFeatureVendor",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureVersion": {
+    "name": "cucsLicenseFeatureVersion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeaturePolicyLevel": {
+    "name": "cucsLicenseFeaturePolicyLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeaturePolicyOwner": {
+    "name": "cucsLicenseFeaturePolicyOwner",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPolicyPolicyOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureCapProviderTable": {
+    "name": "cucsLicenseFeatureCapProviderTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseFeatureCapProviderEntry": {
+    "name": "cucsLicenseFeatureCapProviderEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
+        "object": "cucsLicenseFeatureCapProviderInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLicenseFeatureCapProviderInstanceId": {
+    "name": "cucsLicenseFeatureCapProviderInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseFeatureCapProviderDn": {
+    "name": "cucsLicenseFeatureCapProviderDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureCapProviderRn": {
+    "name": "cucsLicenseFeatureCapProviderRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureCapProviderDefQuant": {
+    "name": "cucsLicenseFeatureCapProviderDefQuant",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureCapProviderDeprecated": {
+    "name": "cucsLicenseFeatureCapProviderDeprecated",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureCapProviderFeatureName": {
+    "name": "cucsLicenseFeatureCapProviderFeatureName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureCapProviderGencount": {
+    "name": "cucsLicenseFeatureCapProviderGencount",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureCapProviderGracePeriod": {
+    "name": "cucsLicenseFeatureCapProviderGracePeriod",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureCapProviderLicVendor": {
+    "name": "cucsLicenseFeatureCapProviderLicVendor",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureCapProviderLicVersion": {
+    "name": "cucsLicenseFeatureCapProviderLicVersion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureCapProviderMgmtPlaneVer": {
+    "name": "cucsLicenseFeatureCapProviderMgmtPlaneVer",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureCapProviderModel": {
+    "name": "cucsLicenseFeatureCapProviderModel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureCapProviderRevision": {
+    "name": "cucsLicenseFeatureCapProviderRevision",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureCapProviderType": {
+    "name": "cucsLicenseFeatureCapProviderType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicenseFeatureType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureCapProviderVendor": {
+    "name": "cucsLicenseFeatureCapProviderVendor",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureCapProviderDeleted": {
+    "name": "cucsLicenseFeatureCapProviderDeleted",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureCapProviderSku": {
+    "name": "cucsLicenseFeatureCapProviderSku",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureCapProviderElementLoadFailures": {
+    "name": "cucsLicenseFeatureCapProviderElementLoadFailures",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureCapProviderElementsLoaded": {
+    "name": "cucsLicenseFeatureCapProviderElementsLoaded",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureCapProviderLoadErrors": {
+    "name": "cucsLicenseFeatureCapProviderLoadErrors",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureCapProviderLoadWarnings": {
+    "name": "cucsLicenseFeatureCapProviderLoadWarnings",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureLineTable": {
+    "name": "cucsLicenseFeatureLineTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseFeatureLineEntry": {
+    "name": "cucsLicenseFeatureLineEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
+        "object": "cucsLicenseFeatureLineInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLicenseFeatureLineInstanceId": {
+    "name": "cucsLicenseFeatureLineInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseFeatureLineDn": {
+    "name": "cucsLicenseFeatureLineDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureLineRn": {
+    "name": "cucsLicenseFeatureLineRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureLineExp": {
+    "name": "cucsLicenseFeatureLineExp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureLineId": {
+    "name": "cucsLicenseFeatureLineId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureLinePak": {
+    "name": "cucsLicenseFeatureLinePak",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureLineQuant": {
+    "name": "cucsLicenseFeatureLineQuant",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureLineSig": {
+    "name": "cucsLicenseFeatureLineSig",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureLineType": {
+    "name": "cucsLicenseFeatureLineType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicenseType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFeatureLineSku": {
+    "name": "cucsLicenseFeatureLineSku",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileTable": {
+    "name": "cucsLicenseFileTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseFileEntry": {
+    "name": "cucsLicenseFileEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
+        "object": "cucsLicenseFileInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLicenseFileInstanceId": {
+    "name": "cucsLicenseFileInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseFileDn": {
+    "name": "cucsLicenseFileDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileRn": {
+    "name": "cucsLicenseFileRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileAdminState": {
+    "name": "cucsLicenseFileAdminState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicenseFileState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmDescr": {
+    "name": "cucsLicenseFileFsmDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmPrev": {
+    "name": "cucsLicenseFileFsmPrev",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmProgr": {
+    "name": "cucsLicenseFileFsmProgr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmRmtInvErrCode": {
+    "name": "cucsLicenseFileFsmRmtInvErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmRmtInvErrDescr": {
+    "name": "cucsLicenseFileFsmRmtInvErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmRmtInvRslt": {
+    "name": "cucsLicenseFileFsmRmtInvRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmStageDescr": {
+    "name": "cucsLicenseFileFsmStageDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmStamp": {
+    "name": "cucsLicenseFileFsmStamp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmStatus": {
+    "name": "cucsLicenseFileFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmTry": {
+    "name": "cucsLicenseFileFsmTry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileId": {
+    "name": "cucsLicenseFileId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileName": {
+    "name": "cucsLicenseFileName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.8.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileOperState": {
+    "name": "cucsLicenseFileOperState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.8.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicenseFileState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileOperStateDescr": {
+    "name": "cucsLicenseFileOperStateDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.8.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileScope": {
+    "name": "cucsLicenseFileScope",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.8.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicenseScope",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileVersion": {
+    "name": "cucsLicenseFileVersion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.8.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmTable": {
+    "name": "cucsLicenseFileFsmTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmEntry": {
+    "name": "cucsLicenseFileFsmEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
+        "object": "cucsLicenseFileFsmInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLicenseFileFsmInstanceId": {
+    "name": "cucsLicenseFileFsmInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmDn": {
+    "name": "cucsLicenseFileFsmDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmRn": {
+    "name": "cucsLicenseFileFsmRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmCompletionTime": {
+    "name": "cucsLicenseFileFsmCompletionTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmCurrentFsm": {
+    "name": "cucsLicenseFileFsmCurrentFsm",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicenseFileFsmCurrentFsm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmDescrData": {
+    "name": "cucsLicenseFileFsmDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmFsmStatus": {
+    "name": "cucsLicenseFileFsmFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmProgress": {
+    "name": "cucsLicenseFileFsmProgress",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.18.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmRmtErrCode": {
+    "name": "cucsLicenseFileFsmRmtErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.18.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmRmtErrDescr": {
+    "name": "cucsLicenseFileFsmRmtErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.18.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmRmtRslt": {
+    "name": "cucsLicenseFileFsmRmtRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.18.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmStageTable": {
+    "name": "cucsLicenseFileFsmStageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmStageEntry": {
+    "name": "cucsLicenseFileFsmStageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
+        "object": "cucsLicenseFileFsmStageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLicenseFileFsmStageInstanceId": {
+    "name": "cucsLicenseFileFsmStageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmStageDn": {
+    "name": "cucsLicenseFileFsmStageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmStageRn": {
+    "name": "cucsLicenseFileFsmStageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmStageDescrData": {
+    "name": "cucsLicenseFileFsmStageDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmStageLastUpdateTime": {
+    "name": "cucsLicenseFileFsmStageLastUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmStageName": {
+    "name": "cucsLicenseFileFsmStageName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.19.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicenseFileFsmStageName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmStageOrder": {
+    "name": "cucsLicenseFileFsmStageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.19.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmStageRetry": {
+    "name": "cucsLicenseFileFsmStageRetry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.19.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmStageStageStatus": {
+    "name": "cucsLicenseFileFsmStageStageStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.19.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmTaskTable": {
+    "name": "cucsLicenseFileFsmTaskTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmTaskEntry": {
+    "name": "cucsLicenseFileFsmTaskEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
+        "object": "cucsLicenseFileFsmTaskInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLicenseFileFsmTaskInstanceId": {
+    "name": "cucsLicenseFileFsmTaskInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmTaskDn": {
+    "name": "cucsLicenseFileFsmTaskDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmTaskRn": {
+    "name": "cucsLicenseFileFsmTaskRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmTaskCompletion": {
+    "name": "cucsLicenseFileFsmTaskCompletion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmCompletion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmTaskFlags": {
+    "name": "cucsLicenseFileFsmTaskFlags",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFlags",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmTaskItem": {
+    "name": "cucsLicenseFileFsmTaskItem",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicenseFileFsmTaskItem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseFileFsmTaskSeqId": {
+    "name": "cucsLicenseFileFsmTaskSeqId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceTable": {
+    "name": "cucsLicenseInstanceTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseInstanceEntry": {
+    "name": "cucsLicenseInstanceEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
+        "object": "cucsLicenseInstanceInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLicenseInstanceInstanceId": {
+    "name": "cucsLicenseInstanceInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseInstanceDn": {
+    "name": "cucsLicenseInstanceDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceRn": {
+    "name": "cucsLicenseInstanceRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceAbsQuant": {
+    "name": "cucsLicenseInstanceAbsQuant",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceDefQuant": {
+    "name": "cucsLicenseInstanceDefQuant",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFeature": {
+    "name": "cucsLicenseInstanceFeature",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmDescr": {
+    "name": "cucsLicenseInstanceFsmDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmPrev": {
+    "name": "cucsLicenseInstanceFsmPrev",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmProgr": {
+    "name": "cucsLicenseInstanceFsmProgr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmRmtInvErrCode": {
+    "name": "cucsLicenseInstanceFsmRmtInvErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmRmtInvErrDescr": {
+    "name": "cucsLicenseInstanceFsmRmtInvErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmRmtInvRslt": {
+    "name": "cucsLicenseInstanceFsmRmtInvRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmStageDescr": {
+    "name": "cucsLicenseInstanceFsmStageDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmStamp": {
+    "name": "cucsLicenseInstanceFsmStamp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmStatus": {
+    "name": "cucsLicenseInstanceFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmTry": {
+    "name": "cucsLicenseInstanceFsmTry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceGracePeriodUsed": {
+    "name": "cucsLicenseInstanceGracePeriodUsed",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceOperState": {
+    "name": "cucsLicenseInstanceOperState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicenseState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstancePeerStatus": {
+    "name": "cucsLicenseInstancePeerStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicensePeerStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceScope": {
+    "name": "cucsLicenseInstanceScope",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicenseScope",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceUsedQuant": {
+    "name": "cucsLicenseInstanceUsedQuant",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceIsPresent": {
+    "name": "cucsLicenseInstanceIsPresent",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceSku": {
+    "name": "cucsLicenseInstanceSku",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceSubordinateUsedQuant": {
+    "name": "cucsLicenseInstanceSubordinateUsedQuant",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.10.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmTable": {
+    "name": "cucsLicenseInstanceFsmTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmEntry": {
+    "name": "cucsLicenseInstanceFsmEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
+        "object": "cucsLicenseInstanceFsmInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmInstanceId": {
+    "name": "cucsLicenseInstanceFsmInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmDn": {
+    "name": "cucsLicenseInstanceFsmDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmRn": {
+    "name": "cucsLicenseInstanceFsmRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmCompletionTime": {
+    "name": "cucsLicenseInstanceFsmCompletionTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmCurrentFsm": {
+    "name": "cucsLicenseInstanceFsmCurrentFsm",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicenseInstanceFsmCurrentFsm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmDescrData": {
+    "name": "cucsLicenseInstanceFsmDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmFsmStatus": {
+    "name": "cucsLicenseInstanceFsmFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.20.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmProgress": {
+    "name": "cucsLicenseInstanceFsmProgress",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.20.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmRmtErrCode": {
+    "name": "cucsLicenseInstanceFsmRmtErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.20.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmRmtErrDescr": {
+    "name": "cucsLicenseInstanceFsmRmtErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.20.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmRmtRslt": {
+    "name": "cucsLicenseInstanceFsmRmtRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.20.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmStageTable": {
+    "name": "cucsLicenseInstanceFsmStageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmStageEntry": {
+    "name": "cucsLicenseInstanceFsmStageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
+        "object": "cucsLicenseInstanceFsmStageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmStageInstanceId": {
+    "name": "cucsLicenseInstanceFsmStageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmStageDn": {
+    "name": "cucsLicenseInstanceFsmStageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmStageRn": {
+    "name": "cucsLicenseInstanceFsmStageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmStageDescrData": {
+    "name": "cucsLicenseInstanceFsmStageDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmStageLastUpdateTime": {
+    "name": "cucsLicenseInstanceFsmStageLastUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmStageName": {
+    "name": "cucsLicenseInstanceFsmStageName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicenseInstanceFsmStageName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmStageOrder": {
+    "name": "cucsLicenseInstanceFsmStageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmStageRetry": {
+    "name": "cucsLicenseInstanceFsmStageRetry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.21.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmStageStageStatus": {
+    "name": "cucsLicenseInstanceFsmStageStageStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.21.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmTaskTable": {
+    "name": "cucsLicenseInstanceFsmTaskTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmTaskEntry": {
+    "name": "cucsLicenseInstanceFsmTaskEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
+        "object": "cucsLicenseInstanceFsmTaskInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmTaskInstanceId": {
+    "name": "cucsLicenseInstanceFsmTaskInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmTaskDn": {
+    "name": "cucsLicenseInstanceFsmTaskDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmTaskRn": {
+    "name": "cucsLicenseInstanceFsmTaskRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmTaskCompletion": {
+    "name": "cucsLicenseInstanceFsmTaskCompletion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmCompletion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmTaskFlags": {
+    "name": "cucsLicenseInstanceFsmTaskFlags",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFlags",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmTaskItem": {
+    "name": "cucsLicenseInstanceFsmTaskItem",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicenseInstanceFsmTaskItem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseInstanceFsmTaskSeqId": {
+    "name": "cucsLicenseInstanceFsmTaskSeqId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicensePropTable": {
+    "name": "cucsLicensePropTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicensePropEntry": {
+    "name": "cucsLicensePropEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
+        "object": "cucsLicensePropInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLicensePropInstanceId": {
+    "name": "cucsLicensePropInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicensePropDn": {
+    "name": "cucsLicensePropDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicensePropRn": {
+    "name": "cucsLicensePropRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicensePropName": {
+    "name": "cucsLicensePropName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicensePropValue": {
+    "name": "cucsLicensePropValue",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseServerHostIdTable": {
+    "name": "cucsLicenseServerHostIdTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseServerHostIdEntry": {
+    "name": "cucsLicenseServerHostIdEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
+        "object": "cucsLicenseServerHostIdInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLicenseServerHostIdInstanceId": {
+    "name": "cucsLicenseServerHostIdInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseServerHostIdDn": {
+    "name": "cucsLicenseServerHostIdDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseServerHostIdRn": {
+    "name": "cucsLicenseServerHostIdRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseServerHostIdHostId": {
+    "name": "cucsLicenseServerHostIdHostId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseServerHostIdScope": {
+    "name": "cucsLicenseServerHostIdScope",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicenseScope",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseSourceTable": {
+    "name": "cucsLicenseSourceTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseSourceEntry": {
+    "name": "cucsLicenseSourceEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
+        "object": "cucsLicenseSourceInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLicenseSourceInstanceId": {
+    "name": "cucsLicenseSourceInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseSourceDn": {
+    "name": "cucsLicenseSourceDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseSourceRn": {
+    "name": "cucsLicenseSourceRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseSourceAlwaysUse": {
+    "name": "cucsLicenseSourceAlwaysUse",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseSourceHostId": {
+    "name": "cucsLicenseSourceHostId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseSourceHostName": {
+    "name": "cucsLicenseSourceHostName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseSourceVendorDaemonPath": {
+    "name": "cucsLicenseSourceVendorDaemonPath",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseSourceSku": {
+    "name": "cucsLicenseSourceSku",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseSourceFileTable": {
+    "name": "cucsLicenseSourceFileTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseSourceFileEntry": {
+    "name": "cucsLicenseSourceFileEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
+        "object": "cucsLicenseSourceFileInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLicenseSourceFileInstanceId": {
+    "name": "cucsLicenseSourceFileInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseSourceFileDn": {
+    "name": "cucsLicenseSourceFileDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseSourceFileRn": {
+    "name": "cucsLicenseSourceFileRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseSourceFileExp": {
+    "name": "cucsLicenseSourceFileExp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseSourceFileHostId": {
+    "name": "cucsLicenseSourceFileHostId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseSourceFileId": {
+    "name": "cucsLicenseSourceFileId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseSourceFileLine": {
+    "name": "cucsLicenseSourceFileLine",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseSourceFilePak": {
+    "name": "cucsLicenseSourceFilePak",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseSourceFileQuant": {
+    "name": "cucsLicenseSourceFileQuant",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseSourceFileSig": {
+    "name": "cucsLicenseSourceFileSig",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.15.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseSourceFileType": {
+    "name": "cucsLicenseSourceFileType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.15.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicenseType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseTargetTable": {
+    "name": "cucsLicenseTargetTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseTargetEntry": {
+    "name": "cucsLicenseTargetEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
+        "object": "cucsLicenseTargetInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLicenseTargetInstanceId": {
+    "name": "cucsLicenseTargetInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLicenseTargetDn": {
+    "name": "cucsLicenseTargetDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseTargetRn": {
+    "name": "cucsLicenseTargetRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseTargetPortId": {
+    "name": "cucsLicenseTargetPortId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseTargetSlotId": {
+    "name": "cucsLicenseTargetSlotId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseTargetIsRackPresent": {
+    "name": "cucsLicenseTargetIsRackPresent",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.22.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLicenseTargetAggrPortId": {
+    "name": "cucsLicenseTargetAggrPortId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.25.22.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB"
+  }
+}

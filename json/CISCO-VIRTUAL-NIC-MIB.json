@@ -1,0 +1,552 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoVirtualNicMIB": {
+    "name": "ciscoVirtualNicMIB",
+    "oid": "1.3.6.1.4.1.9.9.710",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-10-26 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoVirtualNicMIBNotifs": {
+    "name": "ciscoVirtualNicMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.710.0",
+    "class": "objectidentity"
+  },
+  "ciscoVirtualNicMIBObjects": {
+    "name": "ciscoVirtualNicMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.710.1",
+    "class": "objectidentity"
+  },
+  "ciscoVirtualNicMIBConformance": {
+    "name": "ciscoVirtualNicMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.710.2",
+    "class": "objectidentity"
+  },
+  "cvnInterfaceObjects": {
+    "name": "cvnInterfaceObjects",
+    "oid": "1.3.6.1.4.1.9.9.710.1.1",
+    "class": "objectidentity"
+  },
+  "cvnConnecteeObjects": {
+    "name": "cvnConnecteeObjects",
+    "oid": "1.3.6.1.4.1.9.9.710.1.2",
+    "class": "objectidentity"
+  },
+  "cvnVethIfTable": {
+    "name": "cvnVethIfTable",
+    "oid": "1.3.6.1.4.1.9.9.710.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvnVethIfEntry": {
+    "name": "cvnVethIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.710.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VIRTUAL-NIC-MIB",
+        "object": "cvnVethInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvnVethInterface": {
+    "name": "cvnVethInterface",
+    "oid": "1.3.6.1.4.1.9.9.710.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvnVethAdapter": {
+    "name": "cvnVethAdapter",
+    "oid": "1.3.6.1.4.1.9.9.710.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvnVethOwner": {
+    "name": "cvnVethOwner",
+    "oid": "1.3.6.1.4.1.9.9.710.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvnVethHostID": {
+    "name": "cvnVethHostID",
+    "oid": "1.3.6.1.4.1.9.9.710.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvnVethHostAddrType": {
+    "name": "cvnVethHostAddrType",
+    "oid": "1.3.6.1.4.1.9.9.710.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvnVethHostAddr": {
+    "name": "cvnVethHostAddr",
+    "oid": "1.3.6.1.4.1.9.9.710.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvnVethPortProfileUsed": {
+    "name": "cvnVethPortProfileUsed",
+    "oid": "1.3.6.1.4.1.9.9.710.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvnVethIfProfileAlias": {
+    "name": "cvnVethIfProfileAlias",
+    "oid": "1.3.6.1.4.1.9.9.710.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvnVethIfAdditionalState": {
+    "name": "cvnVethIfAdditionalState",
+    "oid": "1.3.6.1.4.1.9.9.710.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "participating": 2,
+          "suspended": 3,
+          "errDisabled": 4,
+          "nonParticipating": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvnVethStateReason": {
+    "name": "cvnVethStateReason",
+    "oid": "1.3.6.1.4.1.9.9.710.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvnPinningTable": {
+    "name": "cvnPinningTable",
+    "oid": "1.3.6.1.4.1.9.9.710.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvnPinningEntry": {
+    "name": "cvnPinningEntry",
+    "oid": "1.3.6.1.4.1.9.9.710.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VIRTUAL-NIC-MIB",
+        "object": "cvnVethInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvnPinnedSubGrpId": {
+    "name": "cvnPinnedSubGrpId",
+    "oid": "1.3.6.1.4.1.9.9.710.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvnConnecteeTable": {
+    "name": "cvnConnecteeTable",
+    "oid": "1.3.6.1.4.1.9.9.710.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvnConnecteeEntry": {
+    "name": "cvnConnecteeEntry",
+    "oid": "1.3.6.1.4.1.9.9.710.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VIRTUAL-NIC-MIB",
+        "object": "cvnVethInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvnConnecteeAttachType": {
+    "name": "cvnConnecteeAttachType",
+    "oid": "1.3.6.1.4.1.9.9.710.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "vem": 2,
+          "niv": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvnDVSPort": {
+    "name": "cvnDVSPort",
+    "oid": "1.3.6.1.4.1.9.9.710.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvnConnecteeName": {
+    "name": "cvnConnecteeName",
+    "oid": "1.3.6.1.4.1.9.9.710.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvnConnecteeUuid": {
+    "name": "cvnConnecteeUuid",
+    "oid": "1.3.6.1.4.1.9.9.710.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvnConnecteeType": {
+    "name": "cvnConnecteeType",
+    "oid": "1.3.6.1.4.1.9.9.710.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "vmwareVm": 2,
+          "vmwareHost": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvnConnecteeMac": {
+    "name": "cvnConnecteeMac",
+    "oid": "1.3.6.1.4.1.9.9.710.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvnConnecteeDeviceName": {
+    "name": "cvnConnecteeDeviceName",
+    "oid": "1.3.6.1.4.1.9.9.710.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvnConnecteeDeviceType": {
+    "name": "cvnConnecteeDeviceType",
+    "oid": "1.3.6.1.4.1.9.9.710.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "pnic": 2,
+          "vnic": 3,
+          "vswif": 4,
+          "vmknic": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoVirtualNicMIBCompliances": {
+    "name": "ciscoVirtualNicMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.710.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoVirtualNicMIBGroups": {
+    "name": "ciscoVirtualNicMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.710.2.2",
+    "class": "objectidentity"
+  },
+  "virtualNicMIBCompliance": {
+    "name": "virtualNicMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.710.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cvnVethGroup",
+        "module": "CISCO-VIRTUAL-NIC-MIB"
+      },
+      {
+        "object": "cvnPinningGroup",
+        "module": "CISCO-VIRTUAL-NIC-MIB"
+      },
+      {
+        "object": "cvnConnecteeGroup",
+        "module": "CISCO-VIRTUAL-NIC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cvnVethGroup": {
+    "name": "cvnVethGroup",
+    "oid": "1.3.6.1.4.1.9.9.710.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VIRTUAL-NIC-MIB",
+        "object": "cvnVethAdapter"
+      },
+      {
+        "module": "CISCO-VIRTUAL-NIC-MIB",
+        "object": "cvnVethOwner"
+      },
+      {
+        "module": "CISCO-VIRTUAL-NIC-MIB",
+        "object": "cvnVethHostID"
+      },
+      {
+        "module": "CISCO-VIRTUAL-NIC-MIB",
+        "object": "cvnVethHostAddrType"
+      },
+      {
+        "module": "CISCO-VIRTUAL-NIC-MIB",
+        "object": "cvnVethHostAddr"
+      },
+      {
+        "module": "CISCO-VIRTUAL-NIC-MIB",
+        "object": "cvnVethPortProfileUsed"
+      },
+      {
+        "module": "CISCO-VIRTUAL-NIC-MIB",
+        "object": "cvnVethIfProfileAlias"
+      },
+      {
+        "module": "CISCO-VIRTUAL-NIC-MIB",
+        "object": "cvnVethIfAdditionalState"
+      },
+      {
+        "module": "CISCO-VIRTUAL-NIC-MIB",
+        "object": "cvnVethStateReason"
+      }
+    ],
+    "status": "current"
+  },
+  "cvnPinningGroup": {
+    "name": "cvnPinningGroup",
+    "oid": "1.3.6.1.4.1.9.9.710.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VIRTUAL-NIC-MIB",
+        "object": "cvnPinnedSubGrpId"
+      }
+    ],
+    "status": "current"
+  },
+  "cvnConnecteeGroup": {
+    "name": "cvnConnecteeGroup",
+    "oid": "1.3.6.1.4.1.9.9.710.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VIRTUAL-NIC-MIB",
+        "object": "cvnConnecteeAttachType"
+      },
+      {
+        "module": "CISCO-VIRTUAL-NIC-MIB",
+        "object": "cvnDVSPort"
+      },
+      {
+        "module": "CISCO-VIRTUAL-NIC-MIB",
+        "object": "cvnConnecteeName"
+      },
+      {
+        "module": "CISCO-VIRTUAL-NIC-MIB",
+        "object": "cvnConnecteeUuid"
+      },
+      {
+        "module": "CISCO-VIRTUAL-NIC-MIB",
+        "object": "cvnConnecteeType"
+      },
+      {
+        "module": "CISCO-VIRTUAL-NIC-MIB",
+        "object": "cvnConnecteeMac"
+      },
+      {
+        "module": "CISCO-VIRTUAL-NIC-MIB",
+        "object": "cvnConnecteeDeviceName"
+      },
+      {
+        "module": "CISCO-VIRTUAL-NIC-MIB",
+        "object": "cvnConnecteeDeviceType"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VIRTUAL-NIC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-VIRTUAL-NIC-MIB"
+  }
+}

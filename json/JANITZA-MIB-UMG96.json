@@ -1,0 +1,995 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysUpTime"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "iso",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "mib-2",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Integer32",
+      "Counter32",
+      "enterprises",
+      "Unsigned32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "system": {
+    "name": "system",
+    "oid": "1.3.6.1.2.1.1",
+    "class": "objectidentity"
+  },
+  "snmp": {
+    "name": "snmp",
+    "oid": "1.3.6.1.2.1.11",
+    "class": "objectidentity"
+  },
+  "sysDescr": {
+    "name": "sysDescr",
+    "oid": "1.3.6.1.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysObjectID": {
+    "name": "sysObjectID",
+    "oid": "1.3.6.1.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysUpTime": {
+    "name": "sysUpTime",
+    "oid": "1.3.6.1.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysName": {
+    "name": "sysName",
+    "oid": "1.3.6.1.2.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysLocation": {
+    "name": "sysLocation",
+    "oid": "1.3.6.1.2.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysServices": {
+    "name": "sysServices",
+    "oid": "1.3.6.1.2.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "janitza": {
+    "name": "janitza",
+    "oid": "1.3.6.1.4.1.34278",
+    "class": "objectidentity"
+  },
+  "rmsPhase": {
+    "name": "rmsPhase",
+    "oid": "1.3.6.1.4.1.34278.1",
+    "class": "objectidentity"
+  },
+  "uLN1": {
+    "name": "uLN1",
+    "oid": "1.3.6.1.4.1.34278.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "uLN2": {
+    "name": "uLN2",
+    "oid": "1.3.6.1.4.1.34278.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "uLN3": {
+    "name": "uLN3",
+    "oid": "1.3.6.1.4.1.34278.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "uL1L2": {
+    "name": "uL1L2",
+    "oid": "1.3.6.1.4.1.34278.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "uL2L3": {
+    "name": "uL2L3",
+    "oid": "1.3.6.1.4.1.34278.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "uL3L1": {
+    "name": "uL3L1",
+    "oid": "1.3.6.1.4.1.34278.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "iL1": {
+    "name": "iL1",
+    "oid": "1.3.6.1.4.1.34278.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "iL2": {
+    "name": "iL2",
+    "oid": "1.3.6.1.4.1.34278.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "iL3": {
+    "name": "iL3",
+    "oid": "1.3.6.1.4.1.34278.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "iL4": {
+    "name": "iL4",
+    "oid": "1.3.6.1.4.1.34278.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "iL5": {
+    "name": "iL5",
+    "oid": "1.3.6.1.4.1.34278.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "iL6": {
+    "name": "iL6",
+    "oid": "1.3.6.1.4.1.34278.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pL1": {
+    "name": "pL1",
+    "oid": "1.3.6.1.4.1.34278.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pL2": {
+    "name": "pL2",
+    "oid": "1.3.6.1.4.1.34278.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pL3": {
+    "name": "pL3",
+    "oid": "1.3.6.1.4.1.34278.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "qL1": {
+    "name": "qL1",
+    "oid": "1.3.6.1.4.1.34278.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "qL2": {
+    "name": "qL2",
+    "oid": "1.3.6.1.4.1.34278.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "qL3": {
+    "name": "qL3",
+    "oid": "1.3.6.1.4.1.34278.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sL1": {
+    "name": "sL1",
+    "oid": "1.3.6.1.4.1.34278.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sL2": {
+    "name": "sL2",
+    "oid": "1.3.6.1.4.1.34278.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sL3": {
+    "name": "sL3",
+    "oid": "1.3.6.1.4.1.34278.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cosPL1": {
+    "name": "cosPL1",
+    "oid": "1.3.6.1.4.1.34278.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cosPL2": {
+    "name": "cosPL2",
+    "oid": "1.3.6.1.4.1.34278.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cosPL3": {
+    "name": "cosPL3",
+    "oid": "1.3.6.1.4.1.34278.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rmsSum": {
+    "name": "rmsSum",
+    "oid": "1.3.6.1.4.1.34278.2",
+    "class": "objectidentity"
+  },
+  "p3": {
+    "name": "p3",
+    "oid": "1.3.6.1.4.1.34278.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "q3": {
+    "name": "q3",
+    "oid": "1.3.6.1.4.1.34278.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "s3": {
+    "name": "s3",
+    "oid": "1.3.6.1.4.1.34278.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cosP3": {
+    "name": "cosP3",
+    "oid": "1.3.6.1.4.1.34278.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "energyPhase": {
+    "name": "energyPhase",
+    "oid": "1.3.6.1.4.1.34278.3",
+    "class": "objectidentity"
+  },
+  "whL1": {
+    "name": "whL1",
+    "oid": "1.3.6.1.4.1.34278.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "whL2": {
+    "name": "whL2",
+    "oid": "1.3.6.1.4.1.34278.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "whL3": {
+    "name": "whL3",
+    "oid": "1.3.6.1.4.1.34278.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "qhL1": {
+    "name": "qhL1",
+    "oid": "1.3.6.1.4.1.34278.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "qhL2": {
+    "name": "qhL2",
+    "oid": "1.3.6.1.4.1.34278.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "qhL3": {
+    "name": "qhL3",
+    "oid": "1.3.6.1.4.1.34278.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "energySum": {
+    "name": "energySum",
+    "oid": "1.3.6.1.4.1.34278.4",
+    "class": "objectidentity"
+  },
+  "wh3": {
+    "name": "wh3",
+    "oid": "1.3.6.1.4.1.34278.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "qh3": {
+    "name": "qh3",
+    "oid": "1.3.6.1.4.1.34278.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "thd": {
+    "name": "thd",
+    "oid": "1.3.6.1.4.1.34278.5",
+    "class": "objectidentity"
+  },
+  "thdULN1": {
+    "name": "thdULN1",
+    "oid": "1.3.6.1.4.1.34278.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "thdULN2": {
+    "name": "thdULN2",
+    "oid": "1.3.6.1.4.1.34278.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "thdULN3": {
+    "name": "thdULN3",
+    "oid": "1.3.6.1.4.1.34278.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "thdIL1": {
+    "name": "thdIL1",
+    "oid": "1.3.6.1.4.1.34278.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "thdIL2": {
+    "name": "thdIL2",
+    "oid": "1.3.6.1.4.1.34278.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "thdIL3": {
+    "name": "thdIL3",
+    "oid": "1.3.6.1.4.1.34278.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "misc": {
+    "name": "misc",
+    "oid": "1.3.6.1.4.1.34278.6",
+    "class": "objectidentity"
+  },
+  "frequence": {
+    "name": "frequence",
+    "oid": "1.3.6.1.4.1.34278.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "temp1": {
+    "name": "temp1",
+    "oid": "1.3.6.1.4.1.34278.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "temp2": {
+    "name": "temp2",
+    "oid": "1.3.6.1.4.1.34278.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "user": {
+    "name": "user",
+    "oid": "1.3.6.1.4.1.34278.7",
+    "class": "objectidentity"
+  },
+  "jasicVAR1": {
+    "name": "jasicVAR1",
+    "oid": "1.3.6.1.4.1.34278.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "jasicVAR2": {
+    "name": "jasicVAR2",
+    "oid": "1.3.6.1.4.1.34278.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "jasicVAR3": {
+    "name": "jasicVAR3",
+    "oid": "1.3.6.1.4.1.34278.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "jasicVAR4": {
+    "name": "jasicVAR4",
+    "oid": "1.3.6.1.4.1.34278.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "jasicVAR5": {
+    "name": "jasicVAR5",
+    "oid": "1.3.6.1.4.1.34278.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "jasicVAR6": {
+    "name": "jasicVAR6",
+    "oid": "1.3.6.1.4.1.34278.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "jasicVAR7": {
+    "name": "jasicVAR7",
+    "oid": "1.3.6.1.4.1.34278.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "jasicVAR8": {
+    "name": "jasicVAR8",
+    "oid": "1.3.6.1.4.1.34278.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "jasicVAR9": {
+    "name": "jasicVAR9",
+    "oid": "1.3.6.1.4.1.34278.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "jasicVAR10": {
+    "name": "jasicVAR10",
+    "oid": "1.3.6.1.4.1.34278.7.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "jasicVAR11": {
+    "name": "jasicVAR11",
+    "oid": "1.3.6.1.4.1.34278.7.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "jasicVAR12": {
+    "name": "jasicVAR12",
+    "oid": "1.3.6.1.4.1.34278.7.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "jasicVAR13": {
+    "name": "jasicVAR13",
+    "oid": "1.3.6.1.4.1.34278.7.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "jasicVAR14": {
+    "name": "jasicVAR14",
+    "oid": "1.3.6.1.4.1.34278.7.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "jasicVAR15": {
+    "name": "jasicVAR15",
+    "oid": "1.3.6.1.4.1.34278.7.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "jasicVAR16": {
+    "name": "jasicVAR16",
+    "oid": "1.3.6.1.4.1.34278.7.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "coldStart": {
+    "name": "coldStart",
+    "oid": "1.3.6.1.2.1.110.0",
+    "class": "notificationtype"
+  },
+  "warmStart": {
+    "name": "warmStart",
+    "oid": "1.3.6.1.2.1.110.1",
+    "class": "notificationtype"
+  },
+  "userTrap1": {
+    "name": "userTrap1",
+    "oid": "1.3.6.1.4.1.342780.6",
+    "class": "notificationtype"
+  },
+  "userTrap2": {
+    "name": "userTrap2",
+    "oid": "1.3.6.1.4.1.342780.7",
+    "class": "notificationtype"
+  },
+  "userTrap3": {
+    "name": "userTrap3",
+    "oid": "1.3.6.1.4.1.342780.8",
+    "class": "notificationtype"
+  },
+  "userTrap4": {
+    "name": "userTrap4",
+    "oid": "1.3.6.1.4.1.342780.9",
+    "class": "notificationtype"
+  },
+  "userTrap5": {
+    "name": "userTrap5",
+    "oid": "1.3.6.1.4.1.342780.10",
+    "class": "notificationtype"
+  },
+  "userTrap6": {
+    "name": "userTrap6",
+    "oid": "1.3.6.1.4.1.342780.11",
+    "class": "notificationtype"
+  },
+  "userTrap7": {
+    "name": "userTrap7",
+    "oid": "1.3.6.1.4.1.342780.12",
+    "class": "notificationtype"
+  },
+  "userTrap8": {
+    "name": "userTrap8",
+    "oid": "1.3.6.1.4.1.342780.13",
+    "class": "notificationtype"
+  },
+  "userTrap9": {
+    "name": "userTrap9",
+    "oid": "1.3.6.1.4.1.342780.14",
+    "class": "notificationtype"
+  },
+  "userTrap10": {
+    "name": "userTrap10",
+    "oid": "1.3.6.1.4.1.342780.15",
+    "class": "notificationtype"
+  },
+  "userTrap11": {
+    "name": "userTrap11",
+    "oid": "1.3.6.1.4.1.342780.16",
+    "class": "notificationtype"
+  },
+  "userTrap12": {
+    "name": "userTrap12",
+    "oid": "1.3.6.1.4.1.342780.17",
+    "class": "notificationtype"
+  },
+  "userTrap13": {
+    "name": "userTrap13",
+    "oid": "1.3.6.1.4.1.342780.18",
+    "class": "notificationtype"
+  },
+  "userTrap14": {
+    "name": "userTrap14",
+    "oid": "1.3.6.1.4.1.342780.19",
+    "class": "notificationtype"
+  },
+  "userTrap15": {
+    "name": "userTrap15",
+    "oid": "1.3.6.1.4.1.342780.20",
+    "class": "notificationtype"
+  },
+  "userTrap16": {
+    "name": "userTrap16",
+    "oid": "1.3.6.1.4.1.342780.21",
+    "class": "notificationtype"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/janitza/JANITZA-MIB-UMG96",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:39:40 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JANITZA-MIB-UMG96"
+  }
+}

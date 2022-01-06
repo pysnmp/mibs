@@ -1,0 +1,2401 @@
+{
+  "imports": {
+    "class": "imports",
+    "RFC1271-MIB": [
+      "history",
+      "OwnerString",
+      "rmon",
+      "statistics"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "OwnerString": {
+    "name": "OwnerString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "MacAddress": {
+    "name": "MacAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    }
+  },
+  "TimeInterval": {
+    "name": "TimeInterval",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "tokenRing": {
+    "name": "tokenRing",
+    "oid": "1.3.6.1.2.1.16.10",
+    "class": "objectidentity"
+  },
+  "EntryStatus": {
+    "name": "EntryStatus",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "createRequest": 2,
+          "underCreation": 3,
+          "invalid": 4
+        }
+      }
+    }
+  },
+  "tokenRingMLStatsTable": {
+    "name": "tokenRingMLStatsTable",
+    "oid": "1.3.6.1.2.1.16.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsEntry": {
+    "name": "tokenRingMLStatsEntry",
+    "oid": "1.3.6.1.2.1.16.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TOKEN-RING-RMON-MIB",
+        "object": "tokenRingMLStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsIndex": {
+    "name": "tokenRingMLStatsIndex",
+    "oid": "1.3.6.1.2.1.16.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsDataSource": {
+    "name": "tokenRingMLStatsDataSource",
+    "oid": "1.3.6.1.2.1.16.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsDropEvents": {
+    "name": "tokenRingMLStatsDropEvents",
+    "oid": "1.3.6.1.2.1.16.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsMacOctets": {
+    "name": "tokenRingMLStatsMacOctets",
+    "oid": "1.3.6.1.2.1.16.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsMacPkts": {
+    "name": "tokenRingMLStatsMacPkts",
+    "oid": "1.3.6.1.2.1.16.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsRingPurgeEvents": {
+    "name": "tokenRingMLStatsRingPurgeEvents",
+    "oid": "1.3.6.1.2.1.16.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsRingPurgePkts": {
+    "name": "tokenRingMLStatsRingPurgePkts",
+    "oid": "1.3.6.1.2.1.16.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsBeaconEvents": {
+    "name": "tokenRingMLStatsBeaconEvents",
+    "oid": "1.3.6.1.2.1.16.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsBeaconTime": {
+    "name": "tokenRingMLStatsBeaconTime",
+    "oid": "1.3.6.1.2.1.16.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsBeaconPkts": {
+    "name": "tokenRingMLStatsBeaconPkts",
+    "oid": "1.3.6.1.2.1.16.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsClaimTokenEvents": {
+    "name": "tokenRingMLStatsClaimTokenEvents",
+    "oid": "1.3.6.1.2.1.16.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsClaimTokenPkts": {
+    "name": "tokenRingMLStatsClaimTokenPkts",
+    "oid": "1.3.6.1.2.1.16.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsNAUNChanges": {
+    "name": "tokenRingMLStatsNAUNChanges",
+    "oid": "1.3.6.1.2.1.16.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsLineErrors": {
+    "name": "tokenRingMLStatsLineErrors",
+    "oid": "1.3.6.1.2.1.16.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsInternalErrors": {
+    "name": "tokenRingMLStatsInternalErrors",
+    "oid": "1.3.6.1.2.1.16.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsBurstErrors": {
+    "name": "tokenRingMLStatsBurstErrors",
+    "oid": "1.3.6.1.2.1.16.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsACErrors": {
+    "name": "tokenRingMLStatsACErrors",
+    "oid": "1.3.6.1.2.1.16.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsAbortErrors": {
+    "name": "tokenRingMLStatsAbortErrors",
+    "oid": "1.3.6.1.2.1.16.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsLostFrameErrors": {
+    "name": "tokenRingMLStatsLostFrameErrors",
+    "oid": "1.3.6.1.2.1.16.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsCongestionErrors": {
+    "name": "tokenRingMLStatsCongestionErrors",
+    "oid": "1.3.6.1.2.1.16.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsFrameCopiedErrors": {
+    "name": "tokenRingMLStatsFrameCopiedErrors",
+    "oid": "1.3.6.1.2.1.16.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsFrequencyErrors": {
+    "name": "tokenRingMLStatsFrequencyErrors",
+    "oid": "1.3.6.1.2.1.16.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsTokenErrors": {
+    "name": "tokenRingMLStatsTokenErrors",
+    "oid": "1.3.6.1.2.1.16.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsSoftErrorReports": {
+    "name": "tokenRingMLStatsSoftErrorReports",
+    "oid": "1.3.6.1.2.1.16.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsRingPollEvents": {
+    "name": "tokenRingMLStatsRingPollEvents",
+    "oid": "1.3.6.1.2.1.16.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsOwner": {
+    "name": "tokenRingMLStatsOwner",
+    "oid": "1.3.6.1.2.1.16.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "tokenRingMLStatsStatus": {
+    "name": "tokenRingMLStatsStatus",
+    "oid": "1.3.6.1.2.1.16.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntryStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "tokenRingPStatsTable": {
+    "name": "tokenRingPStatsTable",
+    "oid": "1.3.6.1.2.1.16.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "tokenRingPStatsEntry": {
+    "name": "tokenRingPStatsEntry",
+    "oid": "1.3.6.1.2.1.16.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TOKEN-RING-RMON-MIB",
+        "object": "tokenRingPStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "tokenRingPStatsIndex": {
+    "name": "tokenRingPStatsIndex",
+    "oid": "1.3.6.1.2.1.16.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPStatsDataSource": {
+    "name": "tokenRingPStatsDataSource",
+    "oid": "1.3.6.1.2.1.16.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "tokenRingPStatsDropEvents": {
+    "name": "tokenRingPStatsDropEvents",
+    "oid": "1.3.6.1.2.1.16.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPStatsDataOctets": {
+    "name": "tokenRingPStatsDataOctets",
+    "oid": "1.3.6.1.2.1.16.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPStatsDataPkts": {
+    "name": "tokenRingPStatsDataPkts",
+    "oid": "1.3.6.1.2.1.16.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPStatsDataBroadcastPkts": {
+    "name": "tokenRingPStatsDataBroadcastPkts",
+    "oid": "1.3.6.1.2.1.16.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPStatsDataMulticastPkts": {
+    "name": "tokenRingPStatsDataMulticastPkts",
+    "oid": "1.3.6.1.2.1.16.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPStatsDataPkts18to63Octets": {
+    "name": "tokenRingPStatsDataPkts18to63Octets",
+    "oid": "1.3.6.1.2.1.16.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPStatsDataPkts64to127Octets": {
+    "name": "tokenRingPStatsDataPkts64to127Octets",
+    "oid": "1.3.6.1.2.1.16.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPStatsDataPkts128to255Octets": {
+    "name": "tokenRingPStatsDataPkts128to255Octets",
+    "oid": "1.3.6.1.2.1.16.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPStatsDataPkts256to511Octets": {
+    "name": "tokenRingPStatsDataPkts256to511Octets",
+    "oid": "1.3.6.1.2.1.16.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPStatsDataPkts512to1023Octets": {
+    "name": "tokenRingPStatsDataPkts512to1023Octets",
+    "oid": "1.3.6.1.2.1.16.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPStatsDataPkts1024to2047Octets": {
+    "name": "tokenRingPStatsDataPkts1024to2047Octets",
+    "oid": "1.3.6.1.2.1.16.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPStatsDataPkts2048to4095Octets": {
+    "name": "tokenRingPStatsDataPkts2048to4095Octets",
+    "oid": "1.3.6.1.2.1.16.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPStatsDataPkts4096to8191Octets": {
+    "name": "tokenRingPStatsDataPkts4096to8191Octets",
+    "oid": "1.3.6.1.2.1.16.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPStatsDataPkts8192to18000Octets": {
+    "name": "tokenRingPStatsDataPkts8192to18000Octets",
+    "oid": "1.3.6.1.2.1.16.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPStatsDataPktsGreaterThan18000Octets": {
+    "name": "tokenRingPStatsDataPktsGreaterThan18000Octets",
+    "oid": "1.3.6.1.2.1.16.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPStatsOwner": {
+    "name": "tokenRingPStatsOwner",
+    "oid": "1.3.6.1.2.1.16.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "tokenRingPStatsStatus": {
+    "name": "tokenRingPStatsStatus",
+    "oid": "1.3.6.1.2.1.16.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntryStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryTable": {
+    "name": "tokenRingMLHistoryTable",
+    "oid": "1.3.6.1.2.1.16.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryEntry": {
+    "name": "tokenRingMLHistoryEntry",
+    "oid": "1.3.6.1.2.1.16.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TOKEN-RING-RMON-MIB",
+        "object": "tokenRingMLHistoryIndex",
+        "implied": 0
+      },
+      {
+        "module": "TOKEN-RING-RMON-MIB",
+        "object": "tokenRingMLHistorySampleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryIndex": {
+    "name": "tokenRingMLHistoryIndex",
+    "oid": "1.3.6.1.2.1.16.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistorySampleIndex": {
+    "name": "tokenRingMLHistorySampleIndex",
+    "oid": "1.3.6.1.2.1.16.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryIntervalStart": {
+    "name": "tokenRingMLHistoryIntervalStart",
+    "oid": "1.3.6.1.2.1.16.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryDropEvents": {
+    "name": "tokenRingMLHistoryDropEvents",
+    "oid": "1.3.6.1.2.1.16.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryMacOctets": {
+    "name": "tokenRingMLHistoryMacOctets",
+    "oid": "1.3.6.1.2.1.16.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryMacPkts": {
+    "name": "tokenRingMLHistoryMacPkts",
+    "oid": "1.3.6.1.2.1.16.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryRingPurgeEvents": {
+    "name": "tokenRingMLHistoryRingPurgeEvents",
+    "oid": "1.3.6.1.2.1.16.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryRingPurgePkts": {
+    "name": "tokenRingMLHistoryRingPurgePkts",
+    "oid": "1.3.6.1.2.1.16.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryBeaconEvents": {
+    "name": "tokenRingMLHistoryBeaconEvents",
+    "oid": "1.3.6.1.2.1.16.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryBeaconTime": {
+    "name": "tokenRingMLHistoryBeaconTime",
+    "oid": "1.3.6.1.2.1.16.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryBeaconPkts": {
+    "name": "tokenRingMLHistoryBeaconPkts",
+    "oid": "1.3.6.1.2.1.16.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryClaimTokenEvents": {
+    "name": "tokenRingMLHistoryClaimTokenEvents",
+    "oid": "1.3.6.1.2.1.16.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryClaimTokenPkts": {
+    "name": "tokenRingMLHistoryClaimTokenPkts",
+    "oid": "1.3.6.1.2.1.16.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryNAUNChanges": {
+    "name": "tokenRingMLHistoryNAUNChanges",
+    "oid": "1.3.6.1.2.1.16.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryLineErrors": {
+    "name": "tokenRingMLHistoryLineErrors",
+    "oid": "1.3.6.1.2.1.16.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryInternalErrors": {
+    "name": "tokenRingMLHistoryInternalErrors",
+    "oid": "1.3.6.1.2.1.16.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryBurstErrors": {
+    "name": "tokenRingMLHistoryBurstErrors",
+    "oid": "1.3.6.1.2.1.16.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryACErrors": {
+    "name": "tokenRingMLHistoryACErrors",
+    "oid": "1.3.6.1.2.1.16.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryAbortErrors": {
+    "name": "tokenRingMLHistoryAbortErrors",
+    "oid": "1.3.6.1.2.1.16.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryLostFrameErrors": {
+    "name": "tokenRingMLHistoryLostFrameErrors",
+    "oid": "1.3.6.1.2.1.16.2.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryCongestionErrors": {
+    "name": "tokenRingMLHistoryCongestionErrors",
+    "oid": "1.3.6.1.2.1.16.2.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryFrameCopiedErrors": {
+    "name": "tokenRingMLHistoryFrameCopiedErrors",
+    "oid": "1.3.6.1.2.1.16.2.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryFrequencyErrors": {
+    "name": "tokenRingMLHistoryFrequencyErrors",
+    "oid": "1.3.6.1.2.1.16.2.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryTokenErrors": {
+    "name": "tokenRingMLHistoryTokenErrors",
+    "oid": "1.3.6.1.2.1.16.2.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistorySoftErrorReports": {
+    "name": "tokenRingMLHistorySoftErrorReports",
+    "oid": "1.3.6.1.2.1.16.2.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryRingPollEvents": {
+    "name": "tokenRingMLHistoryRingPollEvents",
+    "oid": "1.3.6.1.2.1.16.2.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingMLHistoryActiveStations": {
+    "name": "tokenRingMLHistoryActiveStations",
+    "oid": "1.3.6.1.2.1.16.2.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPHistoryTable": {
+    "name": "tokenRingPHistoryTable",
+    "oid": "1.3.6.1.2.1.16.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "tokenRingPHistoryEntry": {
+    "name": "tokenRingPHistoryEntry",
+    "oid": "1.3.6.1.2.1.16.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TOKEN-RING-RMON-MIB",
+        "object": "tokenRingPHistoryIndex",
+        "implied": 0
+      },
+      {
+        "module": "TOKEN-RING-RMON-MIB",
+        "object": "tokenRingPHistorySampleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "tokenRingPHistoryIndex": {
+    "name": "tokenRingPHistoryIndex",
+    "oid": "1.3.6.1.2.1.16.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPHistorySampleIndex": {
+    "name": "tokenRingPHistorySampleIndex",
+    "oid": "1.3.6.1.2.1.16.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPHistoryIntervalStart": {
+    "name": "tokenRingPHistoryIntervalStart",
+    "oid": "1.3.6.1.2.1.16.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPHistoryDropEvents": {
+    "name": "tokenRingPHistoryDropEvents",
+    "oid": "1.3.6.1.2.1.16.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPHistoryDataOctets": {
+    "name": "tokenRingPHistoryDataOctets",
+    "oid": "1.3.6.1.2.1.16.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPHistoryDataPkts": {
+    "name": "tokenRingPHistoryDataPkts",
+    "oid": "1.3.6.1.2.1.16.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPHistoryDataBroadcastPkts": {
+    "name": "tokenRingPHistoryDataBroadcastPkts",
+    "oid": "1.3.6.1.2.1.16.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPHistoryDataMulticastPkts": {
+    "name": "tokenRingPHistoryDataMulticastPkts",
+    "oid": "1.3.6.1.2.1.16.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPHistoryDataPkts18to63Octets": {
+    "name": "tokenRingPHistoryDataPkts18to63Octets",
+    "oid": "1.3.6.1.2.1.16.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPHistoryDataPkts64to127Octets": {
+    "name": "tokenRingPHistoryDataPkts64to127Octets",
+    "oid": "1.3.6.1.2.1.16.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPHistoryDataPkts128to255Octets": {
+    "name": "tokenRingPHistoryDataPkts128to255Octets",
+    "oid": "1.3.6.1.2.1.16.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPHistoryDataPkts256to511Octets": {
+    "name": "tokenRingPHistoryDataPkts256to511Octets",
+    "oid": "1.3.6.1.2.1.16.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPHistoryDataPkts512to1023Octets": {
+    "name": "tokenRingPHistoryDataPkts512to1023Octets",
+    "oid": "1.3.6.1.2.1.16.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPHistoryDataPkts1024to2047Octets": {
+    "name": "tokenRingPHistoryDataPkts1024to2047Octets",
+    "oid": "1.3.6.1.2.1.16.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPHistoryDataPkts2048to4095Octets": {
+    "name": "tokenRingPHistoryDataPkts2048to4095Octets",
+    "oid": "1.3.6.1.2.1.16.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPHistoryDataPkts4096to8191Octets": {
+    "name": "tokenRingPHistoryDataPkts4096to8191Octets",
+    "oid": "1.3.6.1.2.1.16.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPHistoryDataPkts8192to18000Octets": {
+    "name": "tokenRingPHistoryDataPkts8192to18000Octets",
+    "oid": "1.3.6.1.2.1.16.2.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tokenRingPHistoryDataPktsGreaterThan18000Octets": {
+    "name": "tokenRingPHistoryDataPktsGreaterThan18000Octets",
+    "oid": "1.3.6.1.2.1.16.2.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationControlTable": {
+    "name": "ringStationControlTable",
+    "oid": "1.3.6.1.2.1.16.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ringStationControlEntry": {
+    "name": "ringStationControlEntry",
+    "oid": "1.3.6.1.2.1.16.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TOKEN-RING-RMON-MIB",
+        "object": "ringStationControlIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ringStationControlIfIndex": {
+    "name": "ringStationControlIfIndex",
+    "oid": "1.3.6.1.2.1.16.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationControlTableSize": {
+    "name": "ringStationControlTableSize",
+    "oid": "1.3.6.1.2.1.16.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationControlActiveStations": {
+    "name": "ringStationControlActiveStations",
+    "oid": "1.3.6.1.2.1.16.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationControlRingState": {
+    "name": "ringStationControlRingState",
+    "oid": "1.3.6.1.2.1.16.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normalOperation": 1,
+          "ringPurgeState": 2,
+          "claimTokenState": 3,
+          "beaconFrameStreamingState": 4,
+          "beaconBitStreamingState": 5,
+          "beaconRingSignalLossState": 6,
+          "beaconSetRecoveryModeState": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationControlBeaconSender": {
+    "name": "ringStationControlBeaconSender",
+    "oid": "1.3.6.1.2.1.16.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationControlBeaconNAUN": {
+    "name": "ringStationControlBeaconNAUN",
+    "oid": "1.3.6.1.2.1.16.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationControlActiveMonitor": {
+    "name": "ringStationControlActiveMonitor",
+    "oid": "1.3.6.1.2.1.16.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationControlOrderChanges": {
+    "name": "ringStationControlOrderChanges",
+    "oid": "1.3.6.1.2.1.16.10.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationControlOwner": {
+    "name": "ringStationControlOwner",
+    "oid": "1.3.6.1.2.1.16.10.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ringStationControlStatus": {
+    "name": "ringStationControlStatus",
+    "oid": "1.3.6.1.2.1.16.10.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntryStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ringStationTable": {
+    "name": "ringStationTable",
+    "oid": "1.3.6.1.2.1.16.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ringStationEntry": {
+    "name": "ringStationEntry",
+    "oid": "1.3.6.1.2.1.16.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TOKEN-RING-RMON-MIB",
+        "object": "ringStationIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "TOKEN-RING-RMON-MIB",
+        "object": "ringStationMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ringStationIfIndex": {
+    "name": "ringStationIfIndex",
+    "oid": "1.3.6.1.2.1.16.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationMacAddress": {
+    "name": "ringStationMacAddress",
+    "oid": "1.3.6.1.2.1.16.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationLastNAUN": {
+    "name": "ringStationLastNAUN",
+    "oid": "1.3.6.1.2.1.16.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationStationStatus": {
+    "name": "ringStationStationStatus",
+    "oid": "1.3.6.1.2.1.16.10.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2,
+          "forcedRemoval": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationLastEnterTime": {
+    "name": "ringStationLastEnterTime",
+    "oid": "1.3.6.1.2.1.16.10.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationLastExitTime": {
+    "name": "ringStationLastExitTime",
+    "oid": "1.3.6.1.2.1.16.10.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationDuplicateAddresses": {
+    "name": "ringStationDuplicateAddresses",
+    "oid": "1.3.6.1.2.1.16.10.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationInLineErrors": {
+    "name": "ringStationInLineErrors",
+    "oid": "1.3.6.1.2.1.16.10.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationOutLineErrors": {
+    "name": "ringStationOutLineErrors",
+    "oid": "1.3.6.1.2.1.16.10.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationInternalErrors": {
+    "name": "ringStationInternalErrors",
+    "oid": "1.3.6.1.2.1.16.10.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationInBurstErrors": {
+    "name": "ringStationInBurstErrors",
+    "oid": "1.3.6.1.2.1.16.10.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationOutBurstErrors": {
+    "name": "ringStationOutBurstErrors",
+    "oid": "1.3.6.1.2.1.16.10.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationACErrors": {
+    "name": "ringStationACErrors",
+    "oid": "1.3.6.1.2.1.16.10.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationAbortErrors": {
+    "name": "ringStationAbortErrors",
+    "oid": "1.3.6.1.2.1.16.10.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationLostFrameErrors": {
+    "name": "ringStationLostFrameErrors",
+    "oid": "1.3.6.1.2.1.16.10.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationCongestionErrors": {
+    "name": "ringStationCongestionErrors",
+    "oid": "1.3.6.1.2.1.16.10.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationFrameCopiedErrors": {
+    "name": "ringStationFrameCopiedErrors",
+    "oid": "1.3.6.1.2.1.16.10.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationFrequencyErrors": {
+    "name": "ringStationFrequencyErrors",
+    "oid": "1.3.6.1.2.1.16.10.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationTokenErrors": {
+    "name": "ringStationTokenErrors",
+    "oid": "1.3.6.1.2.1.16.10.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationInBeaconErrors": {
+    "name": "ringStationInBeaconErrors",
+    "oid": "1.3.6.1.2.1.16.10.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationOutBeaconErrors": {
+    "name": "ringStationOutBeaconErrors",
+    "oid": "1.3.6.1.2.1.16.10.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationInsertions": {
+    "name": "ringStationInsertions",
+    "oid": "1.3.6.1.2.1.16.10.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationOrderTable": {
+    "name": "ringStationOrderTable",
+    "oid": "1.3.6.1.2.1.16.10.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ringStationOrderEntry": {
+    "name": "ringStationOrderEntry",
+    "oid": "1.3.6.1.2.1.16.10.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TOKEN-RING-RMON-MIB",
+        "object": "ringStationOrderIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "TOKEN-RING-RMON-MIB",
+        "object": "ringStationOrderOrderIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ringStationOrderIfIndex": {
+    "name": "ringStationOrderIfIndex",
+    "oid": "1.3.6.1.2.1.16.10.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationOrderOrderIndex": {
+    "name": "ringStationOrderOrderIndex",
+    "oid": "1.3.6.1.2.1.16.10.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationOrderMacAddress": {
+    "name": "ringStationOrderMacAddress",
+    "oid": "1.3.6.1.2.1.16.10.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationConfigControlTable": {
+    "name": "ringStationConfigControlTable",
+    "oid": "1.3.6.1.2.1.16.10.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ringStationConfigControlEntry": {
+    "name": "ringStationConfigControlEntry",
+    "oid": "1.3.6.1.2.1.16.10.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TOKEN-RING-RMON-MIB",
+        "object": "ringStationConfigControlIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "TOKEN-RING-RMON-MIB",
+        "object": "ringStationConfigControlMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ringStationConfigControlIfIndex": {
+    "name": "ringStationConfigControlIfIndex",
+    "oid": "1.3.6.1.2.1.16.10.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationConfigControlMacAddress": {
+    "name": "ringStationConfigControlMacAddress",
+    "oid": "1.3.6.1.2.1.16.10.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationConfigControlRemove": {
+    "name": "ringStationConfigControlRemove",
+    "oid": "1.3.6.1.2.1.16.10.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stable": 1,
+          "removing": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ringStationConfigControlUpdateStats": {
+    "name": "ringStationConfigControlUpdateStats",
+    "oid": "1.3.6.1.2.1.16.10.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stable": 1,
+          "updating": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ringStationConfigTable": {
+    "name": "ringStationConfigTable",
+    "oid": "1.3.6.1.2.1.16.10.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ringStationConfigEntry": {
+    "name": "ringStationConfigEntry",
+    "oid": "1.3.6.1.2.1.16.10.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TOKEN-RING-RMON-MIB",
+        "object": "ringStationConfigIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "TOKEN-RING-RMON-MIB",
+        "object": "ringStationConfigMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ringStationConfigIfIndex": {
+    "name": "ringStationConfigIfIndex",
+    "oid": "1.3.6.1.2.1.16.10.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationConfigMacAddress": {
+    "name": "ringStationConfigMacAddress",
+    "oid": "1.3.6.1.2.1.16.10.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationConfigUpdateTime": {
+    "name": "ringStationConfigUpdateTime",
+    "oid": "1.3.6.1.2.1.16.10.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationConfigLocation": {
+    "name": "ringStationConfigLocation",
+    "oid": "1.3.6.1.2.1.16.10.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationConfigMicrocode": {
+    "name": "ringStationConfigMicrocode",
+    "oid": "1.3.6.1.2.1.16.10.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationConfigGroupAddress": {
+    "name": "ringStationConfigGroupAddress",
+    "oid": "1.3.6.1.2.1.16.10.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ringStationConfigFunctionalAddress": {
+    "name": "ringStationConfigFunctionalAddress",
+    "oid": "1.3.6.1.2.1.16.10.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceRoutingStatsTable": {
+    "name": "sourceRoutingStatsTable",
+    "oid": "1.3.6.1.2.1.16.10.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sourceRoutingStatsEntry": {
+    "name": "sourceRoutingStatsEntry",
+    "oid": "1.3.6.1.2.1.16.10.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TOKEN-RING-RMON-MIB",
+        "object": "sourceRoutingStatsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sourceRoutingStatsIfIndex": {
+    "name": "sourceRoutingStatsIfIndex",
+    "oid": "1.3.6.1.2.1.16.10.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceRoutingStatsRingNumber": {
+    "name": "sourceRoutingStatsRingNumber",
+    "oid": "1.3.6.1.2.1.16.10.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceRoutingStatsInFrames": {
+    "name": "sourceRoutingStatsInFrames",
+    "oid": "1.3.6.1.2.1.16.10.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceRoutingStatsOutFrames": {
+    "name": "sourceRoutingStatsOutFrames",
+    "oid": "1.3.6.1.2.1.16.10.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceRoutingStatsThroughFrames": {
+    "name": "sourceRoutingStatsThroughFrames",
+    "oid": "1.3.6.1.2.1.16.10.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceRoutingStatsAllRoutesBroadcastFrames": {
+    "name": "sourceRoutingStatsAllRoutesBroadcastFrames",
+    "oid": "1.3.6.1.2.1.16.10.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceRoutingStatsSingleRouteBroadcastFrames": {
+    "name": "sourceRoutingStatsSingleRouteBroadcastFrames",
+    "oid": "1.3.6.1.2.1.16.10.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceRoutingStatsInOctets": {
+    "name": "sourceRoutingStatsInOctets",
+    "oid": "1.3.6.1.2.1.16.10.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceRoutingStatsOutOctets": {
+    "name": "sourceRoutingStatsOutOctets",
+    "oid": "1.3.6.1.2.1.16.10.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceRoutingStatsThroughOctets": {
+    "name": "sourceRoutingStatsThroughOctets",
+    "oid": "1.3.6.1.2.1.16.10.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceRoutingStatsAllRoutesBroadcastOctets": {
+    "name": "sourceRoutingStatsAllRoutesBroadcastOctets",
+    "oid": "1.3.6.1.2.1.16.10.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceRoutingStatsSingleRoutesBroadcastOctets": {
+    "name": "sourceRoutingStatsSingleRoutesBroadcastOctets",
+    "oid": "1.3.6.1.2.1.16.10.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceRoutingStatsLocalLLCFrames": {
+    "name": "sourceRoutingStatsLocalLLCFrames",
+    "oid": "1.3.6.1.2.1.16.10.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceRoutingStats1HopFrames": {
+    "name": "sourceRoutingStats1HopFrames",
+    "oid": "1.3.6.1.2.1.16.10.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceRoutingStats2HopsFrames": {
+    "name": "sourceRoutingStats2HopsFrames",
+    "oid": "1.3.6.1.2.1.16.10.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceRoutingStats3HopsFrames": {
+    "name": "sourceRoutingStats3HopsFrames",
+    "oid": "1.3.6.1.2.1.16.10.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceRoutingStats4HopsFrames": {
+    "name": "sourceRoutingStats4HopsFrames",
+    "oid": "1.3.6.1.2.1.16.10.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceRoutingStats5HopsFrames": {
+    "name": "sourceRoutingStats5HopsFrames",
+    "oid": "1.3.6.1.2.1.16.10.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceRoutingStats6HopsFrames": {
+    "name": "sourceRoutingStats6HopsFrames",
+    "oid": "1.3.6.1.2.1.16.10.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceRoutingStats7HopsFrames": {
+    "name": "sourceRoutingStats7HopsFrames",
+    "oid": "1.3.6.1.2.1.16.10.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceRoutingStats8HopsFrames": {
+    "name": "sourceRoutingStats8HopsFrames",
+    "oid": "1.3.6.1.2.1.16.10.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceRoutingStatsMoreThan8HopsFrames": {
+    "name": "sourceRoutingStatsMoreThan8HopsFrames",
+    "oid": "1.3.6.1.2.1.16.10.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceRoutingStatsOwner": {
+    "name": "sourceRoutingStatsOwner",
+    "oid": "1.3.6.1.2.1.16.10.6.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sourceRoutingStatsStatus": {
+    "name": "sourceRoutingStatsStatus",
+    "oid": "1.3.6.1.2.1.16.10.6.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntryStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/TOKEN-RING-RMON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TOKEN-RING-RMON-MIB"
+  }
+}

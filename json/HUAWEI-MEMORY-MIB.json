@@ -1,0 +1,315 @@
+{
+  "imports": {
+    "class": "imports",
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "HUAWEI-DEVICE-MIB": [
+      "hwSlotIndex",
+      "hwFrameIndex"
+    ],
+    "HUAWEI-MIB": [
+      "hwDev"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwMemoryDev": {
+    "name": "hwMemoryDev",
+    "oid": "1.3.6.1.4.1.2011.6.3.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-08-17 00:00",
+        "description": "V1.01, change DESCRIPTION."
+      },
+      {
+        "revision": "2014-07-26 00:00",
+        "description": "V1.00, initial version."
+      }
+    ]
+  },
+  "hwMemoryDevTable": {
+    "name": "hwMemoryDevTable",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMemoryDevEntry": {
+    "name": "hwMemoryDevEntry",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MEMORY-MIB",
+        "object": "hwMemoryDevModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMemoryDevModuleIndex": {
+    "name": "hwMemoryDevModuleIndex",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMemoryDevSize": {
+    "name": "hwMemoryDevSize",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMemoryDevFree": {
+    "name": "hwMemoryDevFree",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMemoryDevRawSliceUsed": {
+    "name": "hwMemoryDevRawSliceUsed",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMemoryDevLargestFree": {
+    "name": "hwMemoryDevLargestFree",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMemoryDevFail": {
+    "name": "hwMemoryDevFail",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMemoryDevFailNoMem": {
+    "name": "hwMemoryDevFailNoMem",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMemoryDevSize64": {
+    "name": "hwMemoryDevSize64",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMemoryDevFree64": {
+    "name": "hwMemoryDevFree64",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBufferTable": {
+    "name": "hwBufferTable",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBufferEntry": {
+    "name": "hwBufferEntry",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MEMORY-MIB",
+        "object": "hwBufferModuleIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MEMORY-MIB",
+        "object": "hwBufferSize",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBufferModuleIndex": {
+    "name": "hwBufferModuleIndex",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBufferSize": {
+    "name": "hwBufferSize",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBufferCurrentTotal": {
+    "name": "hwBufferCurrentTotal",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBufferCurrentUsed": {
+    "name": "hwBufferCurrentUsed",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-MEMORY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-MEMORY-MIB"
+  }
+}

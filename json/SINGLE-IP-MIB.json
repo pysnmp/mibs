@@ -1,0 +1,1119 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlink-common-mgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "swSingleIPMIB": {
+    "name": "swSingleIPMIB",
+    "oid": "1.3.6.1.4.1.171.12.8",
+    "class": "moduleidentity"
+  },
+  "swSingleIPMgmt": {
+    "name": "swSingleIPMgmt",
+    "oid": "1.3.6.1.4.1.171.12.8.1",
+    "class": "objectidentity"
+  },
+  "swSingleIPInfo": {
+    "name": "swSingleIPInfo",
+    "oid": "1.3.6.1.4.1.171.12.8.1.1",
+    "class": "objectidentity"
+  },
+  "swSingleIPCtrl": {
+    "name": "swSingleIPCtrl",
+    "oid": "1.3.6.1.4.1.171.12.8.1.2",
+    "class": "objectidentity"
+  },
+  "swSingleIPVersion": {
+    "name": "swSingleIPVersion",
+    "oid": "1.3.6.1.4.1.171.12.8.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPCapability": {
+    "name": "swSingleIPCapability",
+    "oid": "1.3.6.1.4.1.171.12.8.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPPlatform": {
+    "name": "swSingleIPPlatform",
+    "oid": "1.3.6.1.4.1.171.12.8.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPAdmin": {
+    "name": "swSingleIPAdmin",
+    "oid": "1.3.6.1.4.1.171.12.8.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swSingleIPRoleState": {
+    "name": "swSingleIPRoleState",
+    "oid": "1.3.6.1.4.1.171.12.8.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cs": 1,
+          "cas": 2,
+          "ms": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swSingleIPHoldtime": {
+    "name": "swSingleIPHoldtime",
+    "oid": "1.3.6.1.4.1.171.12.8.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swSingleIPTimeInterval": {
+    "name": "swSingleIPTimeInterval",
+    "oid": "1.3.6.1.4.1.171.12.8.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 90
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swSingleIPCSGroupName": {
+    "name": "swSingleIPCSGroupName",
+    "oid": "1.3.6.1.4.1.171.12.8.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swSingleIPTrapMgmt": {
+    "name": "swSingleIPTrapMgmt",
+    "oid": "1.3.6.1.4.1.171.12.8.1.2.6",
+    "class": "objectidentity"
+  },
+  "swSingleIPTrapStatus": {
+    "name": "swSingleIPTrapStatus",
+    "oid": "1.3.6.1.4.1.171.12.8.1.2.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swSingleIPMSTable": {
+    "name": "swSingleIPMSTable",
+    "oid": "1.3.6.1.4.1.171.12.8.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swSingleIPMSEntry": {
+    "name": "swSingleIPMSEntry",
+    "oid": "1.3.6.1.4.1.171.12.8.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swSingleIPMSID": {
+    "name": "swSingleIPMSID",
+    "oid": "1.3.6.1.4.1.171.12.8.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPMSDeviceName": {
+    "name": "swSingleIPMSDeviceName",
+    "oid": "1.3.6.1.4.1.171.12.8.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPMSMacAddr": {
+    "name": "swSingleIPMSMacAddr",
+    "oid": "1.3.6.1.4.1.171.12.8.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPMSFirmwareVer": {
+    "name": "swSingleIPMSFirmwareVer",
+    "oid": "1.3.6.1.4.1.171.12.8.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPMSCapability": {
+    "name": "swSingleIPMSCapability",
+    "oid": "1.3.6.1.4.1.171.12.8.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPMSPlatform": {
+    "name": "swSingleIPMSPlatform",
+    "oid": "1.3.6.1.4.1.171.12.8.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPMSHoldtime": {
+    "name": "swSingleIPMSHoldtime",
+    "oid": "1.3.6.1.4.1.171.12.8.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPMSCasSource": {
+    "name": "swSingleIPMSCasSource",
+    "oid": "1.3.6.1.4.1.171.12.8.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "swSingleIPMSPassword": {
+    "name": "swSingleIPMSPassword",
+    "oid": "1.3.6.1.4.1.171.12.8.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "swSingleIPMSRowStatus": {
+    "name": "swSingleIPMSRowStatus",
+    "oid": "1.3.6.1.4.1.171.12.8.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "swSingleIPCaSTable": {
+    "name": "swSingleIPCaSTable",
+    "oid": "1.3.6.1.4.1.171.12.8.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swSingleIPCaSEntry": {
+    "name": "swSingleIPCaSEntry",
+    "oid": "1.3.6.1.4.1.171.12.8.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPCaSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swSingleIPCaSID": {
+    "name": "swSingleIPCaSID",
+    "oid": "1.3.6.1.4.1.171.12.8.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPCaSDeviceName": {
+    "name": "swSingleIPCaSDeviceName",
+    "oid": "1.3.6.1.4.1.171.12.8.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPCaSMacAddr": {
+    "name": "swSingleIPCaSMacAddr",
+    "oid": "1.3.6.1.4.1.171.12.8.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPCaSFirmwareVer": {
+    "name": "swSingleIPCaSFirmwareVer",
+    "oid": "1.3.6.1.4.1.171.12.8.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPCaSCapability": {
+    "name": "swSingleIPCaSCapability",
+    "oid": "1.3.6.1.4.1.171.12.8.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPCaSPlatform": {
+    "name": "swSingleIPCaSPlatform",
+    "oid": "1.3.6.1.4.1.171.12.8.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPCaSHoldtime": {
+    "name": "swSingleIPCaSHoldtime",
+    "oid": "1.3.6.1.4.1.171.12.8.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPGroupTable": {
+    "name": "swSingleIPGroupTable",
+    "oid": "1.3.6.1.4.1.171.12.8.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swSingleIPGroupEntry": {
+    "name": "swSingleIPGroupEntry",
+    "oid": "1.3.6.1.4.1.171.12.8.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPGroupMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swSingleIPGroupMacAddr": {
+    "name": "swSingleIPGroupMacAddr",
+    "oid": "1.3.6.1.4.1.171.12.8.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPGroupName": {
+    "name": "swSingleIPGroupName",
+    "oid": "1.3.6.1.4.1.171.12.8.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPGroupDeviceName": {
+    "name": "swSingleIPGroupDeviceName",
+    "oid": "1.3.6.1.4.1.171.12.8.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPGroupMSNumber": {
+    "name": "swSingleIPGroupMSNumber",
+    "oid": "1.3.6.1.4.1.171.12.8.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPGroupFirmwareVer": {
+    "name": "swSingleIPGroupFirmwareVer",
+    "oid": "1.3.6.1.4.1.171.12.8.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPGroupCapability": {
+    "name": "swSingleIPGroupCapability",
+    "oid": "1.3.6.1.4.1.171.12.8.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPGroupPlatform": {
+    "name": "swSingleIPGroupPlatform",
+    "oid": "1.3.6.1.4.1.171.12.8.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPGroupHoldtime": {
+    "name": "swSingleIPGroupHoldtime",
+    "oid": "1.3.6.1.4.1.171.12.8.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPNeighborTable": {
+    "name": "swSingleIPNeighborTable",
+    "oid": "1.3.6.1.4.1.171.12.8.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swSingleIPNeighborEntry": {
+    "name": "swSingleIPNeighborEntry",
+    "oid": "1.3.6.1.4.1.171.12.8.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPNBReceivedPort",
+        "implied": 0
+      },
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPNBMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swSingleIPNBReceivedPort": {
+    "name": "swSingleIPNBReceivedPort",
+    "oid": "1.3.6.1.4.1.171.12.8.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPNBMacAddr": {
+    "name": "swSingleIPNBMacAddr",
+    "oid": "1.3.6.1.4.1.171.12.8.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSingleIPNBRoleState": {
+    "name": "swSingleIPNBRoleState",
+    "oid": "1.3.6.1.4.1.171.12.8.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "commander": 1,
+          "candidate": 2,
+          "member": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "singleIPMSNotify": {
+    "name": "singleIPMSNotify",
+    "oid": "1.3.6.1.4.1.171.12.8.6",
+    "class": "objectidentity"
+  },
+  "singleIPMSNotifyPrefix": {
+    "name": "singleIPMSNotifyPrefix",
+    "oid": "1.3.6.1.4.1.171.12.8.6.0",
+    "class": "objectidentity"
+  },
+  "swSingleIPMSColdStart": {
+    "name": "swSingleIPMSColdStart",
+    "oid": "1.3.6.1.4.1.171.12.8.6.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSID"
+      },
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "swSingleIPMSWarmStart": {
+    "name": "swSingleIPMSWarmStart",
+    "oid": "1.3.6.1.4.1.171.12.8.6.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSID"
+      },
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "swSingleIPMSLinkDown": {
+    "name": "swSingleIPMSLinkDown",
+    "oid": "1.3.6.1.4.1.171.12.8.6.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSID"
+      },
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSMacAddr"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "swSingleIPMSLinkUp": {
+    "name": "swSingleIPMSLinkUp",
+    "oid": "1.3.6.1.4.1.171.12.8.6.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSID"
+      },
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSMacAddr"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "swSingleIPMSAuthFail": {
+    "name": "swSingleIPMSAuthFail",
+    "oid": "1.3.6.1.4.1.171.12.8.6.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSID"
+      },
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "swSingleIPMSnewRoot": {
+    "name": "swSingleIPMSnewRoot",
+    "oid": "1.3.6.1.4.1.171.12.8.6.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSID"
+      },
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "swSingleIPMSTopologyChange": {
+    "name": "swSingleIPMSTopologyChange",
+    "oid": "1.3.6.1.4.1.171.12.8.6.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSID"
+      },
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "swSingleIPMSrisingAlarm": {
+    "name": "swSingleIPMSrisingAlarm",
+    "oid": "1.3.6.1.4.1.171.12.8.6.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSID"
+      },
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "swSingleIPMSfallingAlarm": {
+    "name": "swSingleIPMSfallingAlarm",
+    "oid": "1.3.6.1.4.1.171.12.8.6.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSID"
+      },
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "swSingleIPMSmacNotification": {
+    "name": "swSingleIPMSmacNotification",
+    "oid": "1.3.6.1.4.1.171.12.8.6.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSID"
+      },
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSMacAddr"
+      },
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "swSingleIPMSPortTypeChange": {
+    "name": "swSingleIPMSPortTypeChange",
+    "oid": "1.3.6.1.4.1.171.12.8.6.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSID"
+      },
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSMacAddr"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "swSingleIPMSPowerStatusChg": {
+    "name": "swSingleIPMSPowerStatusChg",
+    "oid": "1.3.6.1.4.1.171.12.8.6.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSID"
+      },
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSMacAddr"
+      },
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "swSingleIPMSPowerFailure": {
+    "name": "swSingleIPMSPowerFailure",
+    "oid": "1.3.6.1.4.1.171.12.8.6.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSID"
+      },
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSMacAddr"
+      },
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "swSingleIPMSPowerRecover": {
+    "name": "swSingleIPMSPowerRecover",
+    "oid": "1.3.6.1.4.1.171.12.8.6.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSID"
+      },
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSMacAddr"
+      },
+      {
+        "module": "SINGLE-IP-MIB",
+        "object": "swSingleIPMSTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "singleIPNotifyBidings": {
+    "name": "singleIPNotifyBidings",
+    "oid": "1.3.6.1.4.1.171.12.8.6.1",
+    "class": "objectidentity"
+  },
+  "swSingleIPMSTrapMessage": {
+    "name": "swSingleIPMSTrapMessage",
+    "oid": "1.3.6.1.4.1.171.12.8.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/SINGLE-IP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SINGLE-IP-MIB"
+  }
+}

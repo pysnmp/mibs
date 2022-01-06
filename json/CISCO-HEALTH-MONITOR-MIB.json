@@ -1,0 +1,369 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoHealthMonitorMIB": {
+    "name": "ciscoHealthMonitorMIB",
+    "oid": "1.3.6.1.4.1.9.9.243",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-09-12 12:30",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoHealthMonitorMIBObjects": {
+    "name": "ciscoHealthMonitorMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.243.1",
+    "class": "objectidentity"
+  },
+  "HealthLevel": {
+    "name": "HealthLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ciscoHealthMonitorTable": {
+    "name": "ciscoHealthMonitorTable",
+    "oid": "1.3.6.1.4.1.9.9.243.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoHealthMonitorEntry": {
+    "name": "ciscoHealthMonitorEntry",
+    "oid": "1.3.6.1.4.1.9.9.243.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-HEALTH-MONITOR-MIB",
+        "object": "ciscoHealthMonitorSubsysName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoHealthMonitorSubsysName": {
+    "name": "ciscoHealthMonitorSubsysName",
+    "oid": "1.3.6.1.4.1.9.9.243.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoHealthMonitorHealth": {
+    "name": "ciscoHealthMonitorHealth",
+    "oid": "1.3.6.1.4.1.9.9.243.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HealthLevel",
+      "class": "type"
+    },
+    "units": "0.01 percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoHealthMonitorHealthNotifyEnable": {
+    "name": "ciscoHealthMonitorHealthNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.243.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoHealthMonitorHealthNotifyHighThreshold": {
+    "name": "ciscoHealthMonitorHealthNotifyHighThreshold",
+    "oid": "1.3.6.1.4.1.9.9.243.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HealthLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10000,
+        "format": "decimal"
+      }
+    },
+    "units": "0.01 percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoHealthMonitorHealthNotifyLowThreshold": {
+    "name": "ciscoHealthMonitorHealthNotifyLowThreshold",
+    "oid": "1.3.6.1.4.1.9.9.243.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HealthLevel",
+      "class": "type"
+    },
+    "units": "0.01 percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoHealthMonitorCatastrophicFaults": {
+    "name": "ciscoHealthMonitorCatastrophicFaults",
+    "oid": "1.3.6.1.4.1.9.9.243.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoHealthMonitorCriticalFaults": {
+    "name": "ciscoHealthMonitorCriticalFaults",
+    "oid": "1.3.6.1.4.1.9.9.243.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoHealthMonitorHighSeverityFaults": {
+    "name": "ciscoHealthMonitorHighSeverityFaults",
+    "oid": "1.3.6.1.4.1.9.9.243.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoHealthMonitorMediumSeverityFaults": {
+    "name": "ciscoHealthMonitorMediumSeverityFaults",
+    "oid": "1.3.6.1.4.1.9.9.243.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoHealthMonitorLowSeverityFaults": {
+    "name": "ciscoHealthMonitorLowSeverityFaults",
+    "oid": "1.3.6.1.4.1.9.9.243.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoHealthMonitorPositiveEvents": {
+    "name": "ciscoHealthMonitorPositiveEvents",
+    "oid": "1.3.6.1.4.1.9.9.243.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoHealthMonitorMIBNotifs": {
+    "name": "ciscoHealthMonitorMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.243.0",
+    "class": "objectidentity"
+  },
+  "ciscoHealthMonitorHealthLevel": {
+    "name": "ciscoHealthMonitorHealthLevel",
+    "oid": "1.3.6.1.4.1.9.9.243.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-HEALTH-MONITOR-MIB",
+        "object": "ciscoHealthMonitorHealth"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoHealthMonitorMIBConform": {
+    "name": "ciscoHealthMonitorMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.243.2",
+    "class": "objectidentity"
+  },
+  "ciscoHealthMonitorMIBCompliances": {
+    "name": "ciscoHealthMonitorMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.243.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoHealthMonitorMIBGroups": {
+    "name": "ciscoHealthMonitorMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.243.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoHealthMonitorMIBCompliance": {
+    "name": "ciscoHealthMonitorMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.243.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoHealthMonitorGroup",
+        "module": "CISCO-HEALTH-MONITOR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoHealthMonitorGroup": {
+    "name": "ciscoHealthMonitorGroup",
+    "oid": "1.3.6.1.4.1.9.9.243.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-HEALTH-MONITOR-MIB",
+        "object": "ciscoHealthMonitorHealth"
+      },
+      {
+        "module": "CISCO-HEALTH-MONITOR-MIB",
+        "object": "ciscoHealthMonitorHealthNotifyEnable"
+      },
+      {
+        "module": "CISCO-HEALTH-MONITOR-MIB",
+        "object": "ciscoHealthMonitorHealthNotifyHighThreshold"
+      },
+      {
+        "module": "CISCO-HEALTH-MONITOR-MIB",
+        "object": "ciscoHealthMonitorHealthNotifyLowThreshold"
+      },
+      {
+        "module": "CISCO-HEALTH-MONITOR-MIB",
+        "object": "ciscoHealthMonitorCatastrophicFaults"
+      },
+      {
+        "module": "CISCO-HEALTH-MONITOR-MIB",
+        "object": "ciscoHealthMonitorCriticalFaults"
+      },
+      {
+        "module": "CISCO-HEALTH-MONITOR-MIB",
+        "object": "ciscoHealthMonitorHighSeverityFaults"
+      },
+      {
+        "module": "CISCO-HEALTH-MONITOR-MIB",
+        "object": "ciscoHealthMonitorMediumSeverityFaults"
+      },
+      {
+        "module": "CISCO-HEALTH-MONITOR-MIB",
+        "object": "ciscoHealthMonitorLowSeverityFaults"
+      },
+      {
+        "module": "CISCO-HEALTH-MONITOR-MIB",
+        "object": "ciscoHealthMonitorPositiveEvents"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoHealthMonitorMIBNotificationGroup": {
+    "name": "ciscoHealthMonitorMIBNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.243.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-HEALTH-MONITOR-MIB",
+        "object": "ciscoHealthMonitorHealthLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-HEALTH-MONITOR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-HEALTH-MONITOR-MIB"
+  }
+}

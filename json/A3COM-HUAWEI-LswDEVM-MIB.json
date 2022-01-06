@@ -1,0 +1,710 @@
+{
+  "imports": {
+    "class": "imports",
+    "A3COM-HUAWEI-DEVICE-MIB": [
+      "hwLswFrameIndex",
+      "hwLswSlotIndex"
+    ],
+    "A3COM-HUAWEI-OID-MIB": [
+      "lswCommon",
+      "huaweiUtility"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "Integer32",
+      "MibIdentifier",
+      "iso",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwLswdevMMib": {
+    "name": "hwLswdevMMib",
+    "oid": "1.3.6.1.4.1.43.45.1.2.23.1.9",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-06-29 00:00",
+        "description": ""
+      }
+    ]
+  },
+  "hwDevice": {
+    "name": "hwDevice",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1",
+    "class": "objectidentity"
+  },
+  "hwCpuTable": {
+    "name": "hwCpuTable",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCpuEntry": {
+    "name": "hwCpuEntry",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A3COM-HUAWEI-LswDEVM-MIB",
+        "object": "hwCpuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwCpuIndex": {
+    "name": "hwCpuIndex",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCpuCostRate": {
+    "name": "hwCpuCostRate",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCpuCostRatePer1Min": {
+    "name": "hwCpuCostRatePer1Min",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCpuCostRatePer5Min": {
+    "name": "hwCpuCostRatePer5Min",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMem": {
+    "name": "hwMem",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.2",
+    "class": "objectidentity"
+  },
+  "hwMemTable": {
+    "name": "hwMemTable",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMemEntry": {
+    "name": "hwMemEntry",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A3COM-HUAWEI-LswDEVM-MIB",
+        "object": "hwMemModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMemModuleIndex": {
+    "name": "hwMemModuleIndex",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMemSize": {
+    "name": "hwMemSize",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMemFree": {
+    "name": "hwMemFree",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMemRawSliceUsed": {
+    "name": "hwMemRawSliceUsed",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMemLgFree": {
+    "name": "hwMemLgFree",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMemFail": {
+    "name": "hwMemFail",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMemFailNoMem": {
+    "name": "hwMemFailNoMem",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBufTable": {
+    "name": "hwBufTable",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBufEntry": {
+    "name": "hwBufEntry",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A3COM-HUAWEI-LswDEVM-MIB",
+        "object": "hwBufModuleIndex",
+        "implied": 0
+      },
+      {
+        "module": "A3COM-HUAWEI-LswDEVM-MIB",
+        "object": "hwBufSize",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBufModuleIndex": {
+    "name": "hwBufModuleIndex",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBufSize": {
+    "name": "hwBufSize",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBufCurrentTotal": {
+    "name": "hwBufCurrentTotal",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBufCurrentUsed": {
+    "name": "hwBufCurrentUsed",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlh": {
+    "name": "hwFlh",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.3",
+    "class": "objectidentity"
+  },
+  "hwFlhTotalSize": {
+    "name": "hwFlhTotalSize",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhTotalFree": {
+    "name": "hwFlhTotalFree",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhLastDelTime": {
+    "name": "hwFlhLastDelTime",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhDelState": {
+    "name": "hwFlhDelState",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "executing": 1,
+          "ok": 2,
+          "error": 3,
+          "readOnly": 4,
+          "failtoopen": 5,
+          "blockMallocFail": 6,
+          "noneDelOperationSinceStart": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhState": {
+    "name": "hwFlhState",
+    "oid": "1.3.6.1.4.1.43.45.1.6.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "busy": 1,
+          "free": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLswdevMMibObject": {
+    "name": "hwLswdevMMibObject",
+    "oid": "1.3.6.1.4.1.43.45.1.2.23.1.9.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hwdevMFanStatusTable": {
+    "name": "hwdevMFanStatusTable",
+    "oid": "1.3.6.1.4.1.43.45.1.2.23.1.9.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwdevMFanStatusEntry": {
+    "name": "hwdevMFanStatusEntry",
+    "oid": "1.3.6.1.4.1.43.45.1.2.23.1.9.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A3COM-HUAWEI-LswDEVM-MIB",
+        "object": "hwDevMFanNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwDevMFanNum": {
+    "name": "hwDevMFanNum",
+    "oid": "1.3.6.1.4.1.43.45.1.2.23.1.9.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDevMFanStatus": {
+    "name": "hwDevMFanStatus",
+    "oid": "1.3.6.1.4.1.43.45.1.2.23.1.9.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "deactive": 2,
+          "not-install": 3,
+          "unsupport": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwdevMPowerStatusTable": {
+    "name": "hwdevMPowerStatusTable",
+    "oid": "1.3.6.1.4.1.43.45.1.2.23.1.9.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwdevMPowerStatusEntry": {
+    "name": "hwdevMPowerStatusEntry",
+    "oid": "1.3.6.1.4.1.43.45.1.2.23.1.9.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A3COM-HUAWEI-LswDEVM-MIB",
+        "object": "hwDevMPowerNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwDevMPowerNum": {
+    "name": "hwDevMPowerNum",
+    "oid": "1.3.6.1.4.1.43.45.1.2.23.1.9.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDevMPowerStatus": {
+    "name": "hwDevMPowerStatus",
+    "oid": "1.3.6.1.4.1.43.45.1.2.23.1.9.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "deactive": 2,
+          "not-install": 3,
+          "unsupport": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwdevMSlotEnvironmentTable": {
+    "name": "hwdevMSlotEnvironmentTable",
+    "oid": "1.3.6.1.4.1.43.45.1.2.23.1.9.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwdevMSlotEnvironmentEntry": {
+    "name": "hwdevMSlotEnvironmentEntry",
+    "oid": "1.3.6.1.4.1.43.45.1.2.23.1.9.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A3COM-HUAWEI-DEVICE-MIB",
+        "object": "hwLswFrameIndex",
+        "implied": 0
+      },
+      {
+        "module": "A3COM-HUAWEI-DEVICE-MIB",
+        "object": "hwLswSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "A3COM-HUAWEI-LswDEVM-MIB",
+        "object": "hwdevMSlotEnvironmentType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwdevMSlotEnvironmentType": {
+    "name": "hwdevMSlotEnvironmentType",
+    "oid": "1.3.6.1.4.1.43.45.1.2.23.1.9.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "temperature": 1,
+          "humidity": 2,
+          "fog": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDevMSlotEnvironmentStatus": {
+    "name": "hwDevMSlotEnvironmentStatus",
+    "oid": "1.3.6.1.4.1.43.45.1.2.23.1.9.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "upper": 2,
+          "lower": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDevMSlotEnvironmentValue": {
+    "name": "hwDevMSlotEnvironmentValue",
+    "oid": "1.3.6.1.4.1.43.45.1.2.23.1.9.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDevMSlotEnvironmentUpperLimit": {
+    "name": "hwDevMSlotEnvironmentUpperLimit",
+    "oid": "1.3.6.1.4.1.43.45.1.2.23.1.9.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDevMSlotEnvironmentLowerLimit": {
+    "name": "hwDevMSlotEnvironmentLowerLimit",
+    "oid": "1.3.6.1.4.1.43.45.1.2.23.1.9.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwLinkUpDownTrapEnable": {
+    "name": "hwLinkUpDownTrapEnable",
+    "oid": "1.3.6.1.4.1.43.45.1.2.23.1.9.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableBoth": 1,
+          "disableBoth": 2,
+          "enableLinkUpTrapOnly": 3,
+          "enableLinkDownTrapOnly": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwdot1qTpFdbLearnStatus": {
+    "name": "hwdot1qTpFdbLearnStatus",
+    "oid": "1.3.6.1.4.1.43.45.1.2.23.1.9.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwCfmWriteFlash": {
+    "name": "hwCfmWriteFlash",
+    "oid": "1.3.6.1.4.1.43.45.1.2.23.1.9.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "write": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwCfmEraseFlash": {
+    "name": "hwCfmEraseFlash",
+    "oid": "1.3.6.1.4.1.43.45.1.2.23.1.9.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "erase": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDevMFirstTrapTime": {
+    "name": "hwDevMFirstTrapTime",
+    "oid": "1.3.6.1.4.1.43.45.1.2.23.1.9.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/3com/A3COM-HUAWEI-LswDEVM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:39 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "A3COM-HUAWEI-LswDEVM-MIB"
+  }
+}

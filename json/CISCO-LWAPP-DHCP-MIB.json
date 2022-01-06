@@ -1,0 +1,796 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoURLString"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoLwappDhcpMIB": {
+    "name": "ciscoLwappDhcpMIB",
+    "oid": "1.3.6.1.4.1.9.9.792",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-01-31 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappDhcpMIBNotif": {
+    "name": "ciscoLwappDhcpMIBNotif",
+    "oid": "1.3.6.1.4.1.9.9.792.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDhcpMIBObjects": {
+    "name": "ciscoLwappDhcpMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.792.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDhcpMIBConform": {
+    "name": "ciscoLwappDhcpMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.792.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDhcpGlobalConfig": {
+    "name": "ciscoLwappDhcpGlobalConfig",
+    "oid": "1.3.6.1.4.1.9.9.792.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDhcpStatsConfig": {
+    "name": "ciscoLwappDhcpStatsConfig",
+    "oid": "1.3.6.1.4.1.9.9.792.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDhcpStats": {
+    "name": "ciscoLwappDhcpStats",
+    "oid": "1.3.6.1.4.1.9.9.792.1.3",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDhcpScopeStats": {
+    "name": "ciscoLwappDhcpScopeStats",
+    "oid": "1.3.6.1.4.1.9.9.792.1.4",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDhcpMIBNotifObjects": {
+    "name": "ciscoLwappDhcpMIBNotifObjects",
+    "oid": "1.3.6.1.4.1.9.9.792.1.5",
+    "class": "objectidentity"
+  },
+  "cLDhcpClearAllStats": {
+    "name": "cLDhcpClearAllStats",
+    "oid": "1.3.6.1.4.1.9.9.792.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLDhcpOpt82RemoteIdFormat": {
+    "name": "cLDhcpOpt82RemoteIdFormat",
+    "oid": "1.3.6.1.4.1.9.9.792.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apMac": 1,
+          "apMacSsid": 2,
+          "apEthMac": 3,
+          "apNameSsid": 4,
+          "apGroupName": 5,
+          "flexGroupName": 6,
+          "apLocation": 7,
+          "apMacVlanId": 8,
+          "apNameVlanId": 9,
+          "apEthMacSsid": 10
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "apMac",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLDhcpClearAllDiscontinuityTime": {
+    "name": "cLDhcpClearAllDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.9.9.792.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpTimeout": {
+    "name": "cLDhcpTimeout",
+    "oid": "1.3.6.1.4.1.9.9.792.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLDhcpOpt37RemoteIdFormat": {
+    "name": "cLDhcpOpt37RemoteIdFormat",
+    "oid": "1.3.6.1.4.1.9.9.792.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apMac": 1,
+          "apMacSsid": 2,
+          "apEthMac": 3,
+          "apNameSsid": 4,
+          "apGroupName": 5,
+          "flexGroupName": 6,
+          "apLocation": 7,
+          "apMacVlanId": 8,
+          "apNameVlanId": 9,
+          "apEthMacSsid": 10
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "apMac",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLDhcpStatsConfigTable": {
+    "name": "cLDhcpStatsConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.792.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLDhcpStatsConfigEntry": {
+    "name": "cLDhcpStatsConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.792.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpServerInetAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpServerInetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLDhcpServerInetAddressType": {
+    "name": "cLDhcpServerInetAddressType",
+    "oid": "1.3.6.1.4.1.9.9.792.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLDhcpServerInetAddress": {
+    "name": "cLDhcpServerInetAddress",
+    "oid": "1.3.6.1.4.1.9.9.792.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLDhcpClearStats": {
+    "name": "cLDhcpClearStats",
+    "oid": "1.3.6.1.4.1.9.9.792.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLDhcpClearDiscontinuityTime": {
+    "name": "cLDhcpClearDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.9.9.792.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpStatsShowTable": {
+    "name": "cLDhcpStatsShowTable",
+    "oid": "1.3.6.1.4.1.9.9.792.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLDhcpStatsShowEntry": {
+    "name": "cLDhcpStatsShowEntry",
+    "oid": "1.3.6.1.4.1.9.9.792.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpServerInetAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpServerInetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLDhcpProxy": {
+    "name": "cLDhcpProxy",
+    "oid": "1.3.6.1.4.1.9.9.792.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLDhcpDiscoverPackets": {
+    "name": "cLDhcpDiscoverPackets",
+    "oid": "1.3.6.1.4.1.9.9.792.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpRequestPackets": {
+    "name": "cLDhcpRequestPackets",
+    "oid": "1.3.6.1.4.1.9.9.792.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpDeclinePackets": {
+    "name": "cLDhcpDeclinePackets",
+    "oid": "1.3.6.1.4.1.9.9.792.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpInformPackets": {
+    "name": "cLDhcpInformPackets",
+    "oid": "1.3.6.1.4.1.9.9.792.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpReleasePackets": {
+    "name": "cLDhcpReleasePackets",
+    "oid": "1.3.6.1.4.1.9.9.792.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpReplyPackets": {
+    "name": "cLDhcpReplyPackets",
+    "oid": "1.3.6.1.4.1.9.9.792.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpOfferPackets": {
+    "name": "cLDhcpOfferPackets",
+    "oid": "1.3.6.1.4.1.9.9.792.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpAckPackets": {
+    "name": "cLDhcpAckPackets",
+    "oid": "1.3.6.1.4.1.9.9.792.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpNakPackets": {
+    "name": "cLDhcpNakPackets",
+    "oid": "1.3.6.1.4.1.9.9.792.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpTxFailures": {
+    "name": "cLDhcpTxFailures",
+    "oid": "1.3.6.1.4.1.9.9.792.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpLastResponseTime": {
+    "name": "cLDhcpLastResponseTime",
+    "oid": "1.3.6.1.4.1.9.9.792.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpLastRequestTime": {
+    "name": "cLDhcpLastRequestTime",
+    "oid": "1.3.6.1.4.1.9.9.792.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpRxDiscoverPackets": {
+    "name": "cLDhcpRxDiscoverPackets",
+    "oid": "1.3.6.1.4.1.9.9.792.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpScopeStatsTable": {
+    "name": "cLDhcpScopeStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.792.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLDhcpScopeStatsEntry": {
+    "name": "cLDhcpScopeStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.792.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpScopeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLDhcpScopeIndex": {
+    "name": "cLDhcpScopeIndex",
+    "oid": "1.3.6.1.4.1.9.9.792.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLDhcpScopeAddressPoolUsage": {
+    "name": "cLDhcpScopeAddressPoolUsage",
+    "oid": "1.3.6.1.4.1.9.9.792.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpScopeName": {
+    "name": "cLDhcpScopeName",
+    "oid": "1.3.6.1.4.1.9.9.792.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpScopeAllocatedIP": {
+    "name": "cLDhcpScopeAllocatedIP",
+    "oid": "1.3.6.1.4.1.9.9.792.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpScopeAvailableIP": {
+    "name": "cLDhcpScopeAvailableIP",
+    "oid": "1.3.6.1.4.1.9.9.792.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpScopeDiscoverPkts": {
+    "name": "cLDhcpScopeDiscoverPkts",
+    "oid": "1.3.6.1.4.1.9.9.792.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpScopeAckPkts": {
+    "name": "cLDhcpScopeAckPkts",
+    "oid": "1.3.6.1.4.1.9.9.792.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpScopeOfferPkts": {
+    "name": "cLDhcpScopeOfferPkts",
+    "oid": "1.3.6.1.4.1.9.9.792.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpScopeTotalAckPkts": {
+    "name": "cLDhcpScopeTotalAckPkts",
+    "oid": "1.3.6.1.4.1.9.9.792.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpScopeRequestPkts": {
+    "name": "cLDhcpScopeRequestPkts",
+    "oid": "1.3.6.1.4.1.9.9.792.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpScopeRequestGoodPkts": {
+    "name": "cLDhcpScopeRequestGoodPkts",
+    "oid": "1.3.6.1.4.1.9.9.792.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLDhcpTrapSet": {
+    "name": "cLDhcpTrapSet",
+    "oid": "1.3.6.1.4.1.9.9.792.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoLwappDhcpScopeAddressExhaust": {
+    "name": "ciscoLwappDhcpScopeAddressExhaust",
+    "oid": "1.3.6.1.4.1.9.9.792.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpScopeName"
+      },
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpTrapSet"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappDhcpMIBCompliances": {
+    "name": "ciscoLwappDhcpMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.792.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDhcpMIBGroups": {
+    "name": "ciscoLwappDhcpMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.792.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDhcpMIBCompliance": {
+    "name": "ciscoLwappDhcpMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.792.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappDhcpMIBConfigGroup",
+        "module": "CISCO-LWAPP-DHCP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappDhcpMIBConfigGroup": {
+    "name": "ciscoLwappDhcpMIBConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.792.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpClearAllStats"
+      },
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpOpt82RemoteIdFormat"
+      },
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpClearAllDiscontinuityTime"
+      },
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpOpt37RemoteIdFormat"
+      },
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpClearStats"
+      },
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpClearDiscontinuityTime"
+      },
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpProxy"
+      },
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpDiscoverPackets"
+      },
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpRequestPackets"
+      },
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpDeclinePackets"
+      },
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpInformPackets"
+      },
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpReleasePackets"
+      },
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpReplyPackets"
+      },
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpOfferPackets"
+      },
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpAckPackets"
+      },
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpNakPackets"
+      },
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpTxFailures"
+      },
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpLastResponseTime"
+      },
+      {
+        "module": "CISCO-LWAPP-DHCP-MIB",
+        "object": "cLDhcpLastRequestTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-DHCP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-DHCP-MIB"
+  }
+}

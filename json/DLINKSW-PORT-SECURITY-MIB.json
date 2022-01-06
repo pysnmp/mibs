@@ -1,0 +1,738 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrNone",
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "dlinkSwPortSecurityMIB": {
+    "name": "dlinkSwPortSecurityMIB",
+    "oid": "1.3.6.1.4.1.171.14.8",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-07-30 00:00",
+        "description": " This is the first version of the MIB file for 'port security' functionality. "
+      }
+    ]
+  },
+  "dPortSecNotifications": {
+    "name": "dPortSecNotifications",
+    "oid": "1.3.6.1.4.1.171.14.8.0",
+    "class": "objectidentity"
+  },
+  "dPortSecObjects": {
+    "name": "dPortSecObjects",
+    "oid": "1.3.6.1.4.1.171.14.8.1",
+    "class": "objectidentity"
+  },
+  "dPortSecConformance": {
+    "name": "dPortSecConformance",
+    "oid": "1.3.6.1.4.1.171.14.8.2",
+    "class": "objectidentity"
+  },
+  "dPortSecGlobalNotifControl": {
+    "name": "dPortSecGlobalNotifControl",
+    "oid": "1.3.6.1.4.1.171.14.8.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dPortSecGlobalNotifRate": {
+    "name": "dPortSecGlobalNotifRate",
+    "oid": "1.3.6.1.4.1.171.14.8.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "notifications per second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dPortSecNotifyInfo": {
+    "name": "dPortSecNotifyInfo",
+    "oid": "1.3.6.1.4.1.171.14.8.1.3",
+    "class": "objectidentity"
+  },
+  "dPortSecIfViolationMacAddress": {
+    "name": "dPortSecIfViolationMacAddress",
+    "oid": "1.3.6.1.4.1.171.14.8.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dPortSecGlobalMaximumNum": {
+    "name": "dPortSecGlobalMaximumNum",
+    "oid": "1.3.6.1.4.1.171.14.8.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dPortSecVlanTable": {
+    "name": "dPortSecVlanTable",
+    "oid": "1.3.6.1.4.1.171.14.8.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dPortSecVlanEntry": {
+    "name": "dPortSecVlanEntry",
+    "oid": "1.3.6.1.4.1.171.14.8.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecVlanID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dPortSecVlanID": {
+    "name": "dPortSecVlanID",
+    "oid": "1.3.6.1.4.1.171.14.8.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dPortSecVlanMaximumNum": {
+    "name": "dPortSecVlanMaximumNum",
+    "oid": "1.3.6.1.4.1.171.14.8.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dPortSecVlanCurrentNum": {
+    "name": "dPortSecVlanCurrentNum",
+    "oid": "1.3.6.1.4.1.171.14.8.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dPortSecIfTable": {
+    "name": "dPortSecIfTable",
+    "oid": "1.3.6.1.4.1.171.14.8.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dPortSecIfEntry": {
+    "name": "dPortSecIfEntry",
+    "oid": "1.3.6.1.4.1.171.14.8.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dPortSecIfEnable": {
+    "name": "dPortSecIfEnable",
+    "oid": "1.3.6.1.4.1.171.14.8.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dPortSecIfCurrentStatus": {
+    "name": "dPortSecIfCurrentStatus",
+    "oid": "1.3.6.1.4.1.171.14.8.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notEnabled": 1,
+          "forwarding": 2,
+          "errDisabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dPortSecIfMaximumNum": {
+    "name": "dPortSecIfMaximumNum",
+    "oid": "1.3.6.1.4.1.171.14.8.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dPortSecIfViolationAction": {
+    "name": "dPortSecIfViolationAction",
+    "oid": "1.3.6.1.4.1.171.14.8.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "protect": 1,
+          "restrict": 2,
+          "shutdown": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "shutdown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dPortSecIfSecureMode": {
+    "name": "dPortSecIfSecureMode",
+    "oid": "1.3.6.1.4.1.171.14.8.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permanent": 1,
+          "deleteOnTimeout": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "deleteOnTimeout",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dPortSecIfAgingTime": {
+    "name": "dPortSecIfAgingTime",
+    "oid": "1.3.6.1.4.1.171.14.8.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dPortSecIfAgingType": {
+    "name": "dPortSecIfAgingType",
+    "oid": "1.3.6.1.4.1.171.14.8.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absolute": 1,
+          "inactivity": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "absolute",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dPortSecIfClearDynamicAddr": {
+    "name": "dPortSecIfClearDynamicAddr",
+    "oid": "1.3.6.1.4.1.171.14.8.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noOp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dPortSecIfCurrentNum": {
+    "name": "dPortSecIfCurrentNum",
+    "oid": "1.3.6.1.4.1.171.14.8.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dPortSecIfViolationCount": {
+    "name": "dPortSecIfViolationCount",
+    "oid": "1.3.6.1.4.1.171.14.8.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dPortSecAddrTableCurrentNum": {
+    "name": "dPortSecAddrTableCurrentNum",
+    "oid": "1.3.6.1.4.1.171.14.8.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dPortSecAddrTable": {
+    "name": "dPortSecAddrTable",
+    "oid": "1.3.6.1.4.1.171.14.8.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dPortSecAddrEntry": {
+    "name": "dPortSecAddrEntry",
+    "oid": "1.3.6.1.4.1.171.14.8.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecAddrIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecAddrVlanID",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecAddrMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dPortSecAddrIfIndex": {
+    "name": "dPortSecAddrIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.8.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dPortSecAddrVlanID": {
+    "name": "dPortSecAddrVlanID",
+    "oid": "1.3.6.1.4.1.171.14.8.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dPortSecAddrMacAddress": {
+    "name": "dPortSecAddrMacAddress",
+    "oid": "1.3.6.1.4.1.171.14.8.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dPortSecAddrSecureMode": {
+    "name": "dPortSecAddrSecureMode",
+    "oid": "1.3.6.1.4.1.171.14.8.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permanent": 1,
+          "deleteOnTimeout": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dPortSecAddrRemainTime": {
+    "name": "dPortSecAddrRemainTime",
+    "oid": "1.3.6.1.4.1.171.14.8.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dPortSecAddrRowStatus": {
+    "name": "dPortSecAddrRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.8.1.8.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dPortSecMacAddrViolation": {
+    "name": "dPortSecMacAddrViolation",
+    "oid": "1.3.6.1.4.1.171.14.8.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecIfCurrentStatus"
+      },
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecIfViolationMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "dPortSecMIBCompliances": {
+    "name": "dPortSecMIBCompliances",
+    "oid": "1.3.6.1.4.1.171.14.8.2.1",
+    "class": "objectidentity"
+  },
+  "dPortSecMIBGroups": {
+    "name": "dPortSecMIBGroups",
+    "oid": "1.3.6.1.4.1.171.14.8.2.2",
+    "class": "objectidentity"
+  },
+  "dPortSecMIBCompliance": {
+    "name": "dPortSecMIBCompliance",
+    "oid": "1.3.6.1.4.1.171.14.8.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dPortSecIfCfgGroup",
+        "module": "DLINKSW-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "dPortSecIfStatusGroup",
+        "module": "DLINKSW-PORT-SECURITY-MIB"
+      },
+      {
+        "object": "dPortSecAddrGroup",
+        "module": "DLINKSW-PORT-SECURITY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dPortSecIfCfgGroup": {
+    "name": "dPortSecIfCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.8.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecIfEnable"
+      },
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecIfMaximumNum"
+      },
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecIfViolationAction"
+      },
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecIfSecureMode"
+      },
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecIfAgingTime"
+      },
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecIfAgingType"
+      },
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecIfClearDynamicAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "dPortSecIfStatusGroup": {
+    "name": "dPortSecIfStatusGroup",
+    "oid": "1.3.6.1.4.1.171.14.8.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecIfCurrentNum"
+      },
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecIfCurrentStatus"
+      },
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecIfViolationCount"
+      }
+    ],
+    "status": "current"
+  },
+  "dPortSecAddrGroup": {
+    "name": "dPortSecAddrGroup",
+    "oid": "1.3.6.1.4.1.171.14.8.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecAddrRowStatus"
+      },
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecAddrSecureMode"
+      },
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecAddrRemainTime"
+      },
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecAddrTableCurrentNum"
+      }
+    ],
+    "status": "current"
+  },
+  "dPortSecAddrNumCtrlGroup": {
+    "name": "dPortSecAddrNumCtrlGroup",
+    "oid": "1.3.6.1.4.1.171.14.8.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecGlobalMaximumNum"
+      },
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecVlanMaximumNum"
+      },
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecVlanCurrentNum"
+      }
+    ],
+    "status": "current"
+  },
+  "dPortSecNotifEnableGroup": {
+    "name": "dPortSecNotifEnableGroup",
+    "oid": "1.3.6.1.4.1.171.14.8.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecGlobalNotifControl"
+      },
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecGlobalNotifRate"
+      }
+    ],
+    "status": "current"
+  },
+  "dPortSecNotifGroup": {
+    "name": "dPortSecNotifGroup",
+    "oid": "1.3.6.1.4.1.171.14.8.2.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-PORT-SECURITY-MIB",
+        "object": "dPortSecMacAddrViolation"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-PORT-SECURITY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-PORT-SECURITY-MIB"
+  }
+}

@@ -1,0 +1,1015 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "PhysicalIndex",
+      "PhysicalIndexOrZero"
+    ],
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfLicense": {
+    "name": "hpnicfLicense",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-09-18 10:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "hpnicfLicenseScalarObjects": {
+    "name": "hpnicfLicenseScalarObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.1",
+    "class": "objectidentity"
+  },
+  "hpnicfLicenseTables": {
+    "name": "hpnicfLicenseTables",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2",
+    "class": "objectidentity"
+  },
+  "hpnicfLicenseNotifications": {
+    "name": "hpnicfLicenseNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.3",
+    "class": "objectidentity"
+  },
+  "hpnicfLicenseNotifyEnable": {
+    "name": "hpnicfLicenseNotifyEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLicenseOpEntryMaxNum": {
+    "name": "hpnicfLicenseOpEntryMaxNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLicenseNextFreeOpIndex": {
+    "name": "hpnicfLicenseNextFreeOpIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseDevInfoTable": {
+    "name": "hpnicfLicenseDevInfoTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfLicenseDevInfoEntry": {
+    "name": "hpnicfLicenseDevInfoEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-LICENSE-MIB",
+        "object": "hpnicfLicensePhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLicensePhysicalIndex": {
+    "name": "hpnicfLicensePhysicalIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfLicenseSN": {
+    "name": "hpnicfLicenseSN",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseDeviceIDType": {
+    "name": "hpnicfLicenseDeviceIDType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "keyString": 2,
+          "file": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseDeviceID": {
+    "name": "hpnicfLicenseDeviceID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseHardwareInfo": {
+    "name": "hpnicfLicenseHardwareInfo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseMaxNum": {
+    "name": "hpnicfLicenseMaxNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseUsedNum": {
+    "name": "hpnicfLicenseUsedNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseRecyclableNum": {
+    "name": "hpnicfLicenseRecyclableNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseInstallType": {
+    "name": "hpnicfLicenseInstallType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "installInChassis": 2,
+          "installInSlot": 3,
+          "installInCPU": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseFileStoragePath": {
+    "name": "hpnicfLicenseFileStoragePath",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseGeneralTable": {
+    "name": "hpnicfLicenseGeneralTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfLicenseGeneralEntry": {
+    "name": "hpnicfLicenseGeneralEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-LICENSE-MIB",
+        "object": "hpnicfLicensePhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-LICENSE-MIB",
+        "object": "hpnicfLicenseIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLicenseIndex": {
+    "name": "hpnicfLicenseIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfLicenseFeature": {
+    "name": "hpnicfLicenseFeature",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseProductDescr": {
+    "name": "hpnicfLicenseProductDescr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseFileDescr": {
+    "name": "hpnicfLicenseFileDescr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseState": {
+    "name": "hpnicfLicenseState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "inuse": 2,
+          "usable": 3,
+          "expired": 4,
+          "uninstalled": 5,
+          "unusable": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseActivationFile": {
+    "name": "hpnicfLicenseActivationFile",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseActivationKey": {
+    "name": "hpnicfLicenseActivationKey",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseLicenseKey": {
+    "name": "hpnicfLicenseLicenseKey",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseUninstActivationFile": {
+    "name": "hpnicfLicenseUninstActivationFile",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseUninstActivationKey": {
+    "name": "hpnicfLicenseUninstActivationKey",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseType": {
+    "name": "hpnicfLicenseType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "permanent": 2,
+          "daysRestricted": 3,
+          "trialDaysRestricted": 4,
+          "dateRestricted": 5,
+          "trialDateRestricted": 6,
+          "countRestricted": 7,
+          "trialCountRestricted": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseInstalledTime": {
+    "name": "hpnicfLicenseInstalledTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseUninstalledTime": {
+    "name": "hpnicfLicenseUninstalledTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseDaysLeft": {
+    "name": "hpnicfLicenseDaysLeft",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseValidityStart": {
+    "name": "hpnicfLicenseValidityStart",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseValidityEnd": {
+    "name": "hpnicfLicenseValidityEnd",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseExpiredDays": {
+    "name": "hpnicfLicenseExpiredDays",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseCount": {
+    "name": "hpnicfLicenseCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseFeatureTable": {
+    "name": "hpnicfLicenseFeatureTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfLicenseFeatureEntry": {
+    "name": "hpnicfLicenseFeatureEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-LICENSE-MIB",
+        "object": "hpnicfLicensePhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-LICENSE-MIB",
+        "object": "hpnicfLicenseFeatureName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLicenseFeatureName": {
+    "name": "hpnicfLicenseFeatureName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseFeatureState": {
+    "name": "hpnicfLicenseFeatureState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notLicensed": 1,
+          "trialLicense": 2,
+          "formalLicense": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseOpTable": {
+    "name": "hpnicfLicenseOpTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfLicenseOpEntry": {
+    "name": "hpnicfLicenseOpEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-LICENSE-MIB",
+        "object": "hpnicfLicenseOpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLicenseOpIndex": {
+    "name": "hpnicfLicenseOpIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfLicenseOpPhysicalIndex": {
+    "name": "hpnicfLicenseOpPhysicalIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfLicenseOpType": {
+    "name": "hpnicfLicenseOpType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "compress": 1,
+          "delete": 2,
+          "installActivationFile": 3,
+          "installActivationKey": 4,
+          "installLicenseKey": 5,
+          "uninstallActivationFile": 6,
+          "uninstallActivationKey": 7,
+          "uninstallLicenseKey": 8
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfLicenseOpString": {
+    "name": "hpnicfLicenseOpString",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfLicenseOpNotifyEnable": {
+    "name": "hpnicfLicenseOpNotifyEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfLicenseOpRowStatus": {
+    "name": "hpnicfLicenseOpRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfLicenseOpState": {
+    "name": "hpnicfLicenseOpState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opInProgress": 1,
+          "opSuccessful": 2,
+          "opFailed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseOpFailedReason": {
+    "name": "hpnicfLicenseOpFailedReason",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseOpEndTime": {
+    "name": "hpnicfLicenseOpEndTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLicenseNotificationPrefix": {
+    "name": "hpnicfLicenseNotificationPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.3.0",
+    "class": "objectidentity"
+  },
+  "hpnicfLicenseOpCompletion": {
+    "name": "hpnicfLicenseOpCompletion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-LICENSE-MIB",
+        "object": "hpnicfLicenseOpIndex"
+      },
+      {
+        "module": "HPN-ICF-LICENSE-MIB",
+        "object": "hpnicfLicenseOpPhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-LICENSE-MIB",
+        "object": "hpnicfLicenseOpType"
+      },
+      {
+        "module": "HPN-ICF-LICENSE-MIB",
+        "object": "hpnicfLicenseOpString"
+      },
+      {
+        "module": "HPN-ICF-LICENSE-MIB",
+        "object": "hpnicfLicenseOpState"
+      },
+      {
+        "module": "HPN-ICF-LICENSE-MIB",
+        "object": "hpnicfLicenseOpFailedReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLicenseActivationFileLost": {
+    "name": "hpnicfLicenseActivationFileLost",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-LICENSE-MIB",
+        "object": "hpnicfLicensePhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-LICENSE-MIB",
+        "object": "hpnicfLicenseActivationFile"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLicenseActivationFileRestored": {
+    "name": "hpnicfLicenseActivationFileRestored",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-LICENSE-MIB",
+        "object": "hpnicfLicensePhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-LICENSE-MIB",
+        "object": "hpnicfLicenseActivationFile"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLicenseExpired": {
+    "name": "hpnicfLicenseExpired",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-LICENSE-MIB",
+        "object": "hpnicfLicenseFeatureName"
+      },
+      {
+        "module": "HPN-ICF-LICENSE-MIB",
+        "object": "hpnicfLicenseFeatureState"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLicenseExpireWarning": {
+    "name": "hpnicfLicenseExpireWarning",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-LICENSE-MIB",
+        "object": "hpnicfLicenseFeatureName"
+      },
+      {
+        "module": "HPN-ICF-LICENSE-MIB",
+        "object": "hpnicfLicenseFeatureState"
+      },
+      {
+        "module": "HPN-ICF-LICENSE-MIB",
+        "object": "hpnicfLicenseBindValidityPeriodRemaining"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLicenseNotificationBindings": {
+    "name": "hpnicfLicenseNotificationBindings",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.3.1",
+    "class": "objectidentity"
+  },
+  "hpnicfLicenseBindValidityPeriodRemaining": {
+    "name": "hpnicfLicenseBindValidityPeriodRemaining",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.145.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "days",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-LICENSE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-LICENSE-MIB"
+  }
+}

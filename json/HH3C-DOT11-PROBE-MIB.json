@@ -1,0 +1,1276 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cDot11"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
+    ]
+  },
+  "hh3cDot11PROBE": {
+    "name": "hh3cDot11PROBE",
+    "oid": "1.3.6.1.4.1.25506.2.75.17",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-03-28 09:51",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "Hh3cDot11PROBEEnabledStatus": {
+    "name": "Hh3cDot11PROBEEnabledStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11PROBERadioType": {
+    "name": "Hh3cDot11PROBERadioType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot11a": 1,
+          "dot11b": 2,
+          "dot11g": 4,
+          "dot11n": 8,
+          "dot11gn": 16,
+          "dot11an": 32,
+          "dot11ac": 64,
+          "dot11gac": 128
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11PROBEDevStatus": {
+    "name": "Hh3cDot11PROBEDevStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11PROBEChannel": {
+    "name": "Hh3cDot11PROBEChannel",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 224
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Hh3cDot11PROBEEncryptMethod": {
+    "name": "Hh3cDot11PROBEEncryptMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Hh3cDot11PROBEAuthMethod": {
+    "name": "Hh3cDot11PROBEAuthMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Hh3cDot11PROBESecurityType": {
+    "name": "Hh3cDot11PROBESecurityType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "hh3cDot11PROBEConfigGroup": {
+    "name": "hh3cDot11PROBEConfigGroup",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.1",
+    "class": "objectidentity"
+  },
+  "hh3cDot11PROBEDataGroup": {
+    "name": "hh3cDot11PROBEDataGroup",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2",
+    "class": "objectidentity"
+  },
+  "hh3cDot11PROBERadioCfgTable": {
+    "name": "hh3cDot11PROBERadioCfgTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11PROBERadioCfgEntry": {
+    "name": "hh3cDot11PROBERadioCfgEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-PROBE-MIB",
+        "object": "hh3cDot11PROBERadioCfgApName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-PROBE-MIB",
+        "object": "hh3cDot11PROBERadioCfgRadioId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11PROBERadioCfgApName": {
+    "name": "hh3cDot11PROBERadioCfgApName",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11PROBERadioCfgRadioId": {
+    "name": "hh3cDot11PROBERadioCfgRadioId",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11PROBERadioCfgStatus": {
+    "name": "hh3cDot11PROBERadioCfgStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11PROBEEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11PROBEClientTable": {
+    "name": "hh3cDot11PROBEClientTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11PROBEClientEntry": {
+    "name": "hh3cDot11PROBEClientEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-PROBE-MIB",
+        "object": "hh3cDot11PROBEClientMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11PROBEClientMac": {
+    "name": "hh3cDot11PROBEClientMac",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11PROBEClientBSSID": {
+    "name": "hh3cDot11PROBEClientBSSID",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEClientSSID": {
+    "name": "hh3cDot11PROBEClientSSID",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEClientIsDiss": {
+    "name": "hh3cDot11PROBEClientIsDiss",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEClientStatus": {
+    "name": "hh3cDot11PROBEClientStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11PROBEDevStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEClientDuratTime": {
+    "name": "hh3cDot11PROBEClientDuratTime",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEClientVendor": {
+    "name": "hh3cDot11PROBEClientVendor",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEClientRptApNum": {
+    "name": "hh3cDot11PROBEClientRptApNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEClientWorkChannel": {
+    "name": "hh3cDot11PROBEClientWorkChannel",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11PROBEChannel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEClientRSSIMax": {
+    "name": "hh3cDot11PROBEClientRSSIMax",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEClientRSSIMin": {
+    "name": "hh3cDot11PROBEClientRSSIMin",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEClientRSSI": {
+    "name": "hh3cDot11PROBEClientRSSI",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEClientFirstTime": {
+    "name": "hh3cDot11PROBEClientFirstTime",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEClientLastTime": {
+    "name": "hh3cDot11PROBEClientLastTime",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEStatTable": {
+    "name": "hh3cDot11PROBEStatTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11PROBEStatEntry": {
+    "name": "hh3cDot11PROBEStatEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-PROBE-MIB",
+        "object": "hh3cDot11PROBEStatTime",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11PROBEStatTime": {
+    "name": "hh3cDot11PROBEStatTime",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11PROBEStatRssiMaxNum": {
+    "name": "hh3cDot11PROBEStatRssiMaxNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEStatRssiMiddleNum": {
+    "name": "hh3cDot11PROBEStatRssiMiddleNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEStatRssiMinNum": {
+    "name": "hh3cDot11PROBEStatRssiMinNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEStatTotalNum": {
+    "name": "hh3cDot11PROBEStatTotalNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEStatAssocNum": {
+    "name": "hh3cDot11PROBEStatAssocNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEStatDissocNum": {
+    "name": "hh3cDot11PROBEStatDissocNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApTable": {
+    "name": "hh3cDot11PROBEApTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApEntry": {
+    "name": "hh3cDot11PROBEApEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-PROBE-MIB",
+        "object": "hh3cDot11PROBEApMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11PROBEApMacAddress": {
+    "name": "hh3cDot11PROBEApMacAddress",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApSsid": {
+    "name": "hh3cDot11PROBEApSsid",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApStatus": {
+    "name": "hh3cDot11PROBEApStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11PROBEDevStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApStatusDuTime": {
+    "name": "hh3cDot11PROBEApStatusDuTime",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApVendor": {
+    "name": "hh3cDot11PROBEApVendor",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApRadioType": {
+    "name": "hh3cDot11PROBEApRadioType",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11PROBERadioType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApSecurityType": {
+    "name": "hh3cDot11PROBEApSecurityType",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11PROBESecurityType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApEncryMethod": {
+    "name": "hh3cDot11PROBEApEncryMethod",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11PROBEEncryptMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApAuthMethod": {
+    "name": "hh3cDot11PROBEApAuthMethod",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11PROBEAuthMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApIsBroadSSID": {
+    "name": "hh3cDot11PROBEApIsBroadSSID",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApQosSupport": {
+    "name": "hh3cDot11PROBEApQosSupport",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApBeaconIntvl": {
+    "name": "hh3cDot11PROBEApBeaconIntvl",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApUpDuration": {
+    "name": "hh3cDot11PROBEApUpDuration",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApSCWS": {
+    "name": "hh3cDot11PROBEApSCWS",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApRptSensorNum": {
+    "name": "hh3cDot11PROBEApRptSensorNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApChannel": {
+    "name": "hh3cDot11PROBEApChannel",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11PROBEChannel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApRSSIMax": {
+    "name": "hh3cDot11PROBEApRSSIMax",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApRSSIMin": {
+    "name": "hh3cDot11PROBEApRSSIMin",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApRSSI": {
+    "name": "hh3cDot11PROBEApRSSI",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApFirstRptTime": {
+    "name": "hh3cDot11PROBEApFirstRptTime",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApLastRptTime": {
+    "name": "hh3cDot11PROBEApLastRptTime",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApAssoCltTable": {
+    "name": "hh3cDot11PROBEApAssoCltTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApAssoCltEntry": {
+    "name": "hh3cDot11PROBEApAssoCltEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-PROBE-MIB",
+        "object": "hh3cDot11PROBEApAssoCltApMac",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-PROBE-MIB",
+        "object": "hh3cDot11PROBEApAssoCltCltMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11PROBEApAssoCltApMac": {
+    "name": "hh3cDot11PROBEApAssoCltApMac",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApAssoCltCltMac": {
+    "name": "hh3cDot11PROBEApAssoCltCltMac",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApAssoCltIsAsso": {
+    "name": "hh3cDot11PROBEApAssoCltIsAsso",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApRepSenTable": {
+    "name": "hh3cDot11PROBEApRepSenTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApRepSenEntry": {
+    "name": "hh3cDot11PROBEApRepSenEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-PROBE-MIB",
+        "object": "hh3cDot11PROBEApRepSenApMac",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-PROBE-MIB",
+        "object": "hh3cDot11PROBEApRepSenSenName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11PROBEApRepSenApMac": {
+    "name": "hh3cDot11PROBEApRepSenApMac",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApRepSenSenName": {
+    "name": "hh3cDot11PROBEApRepSenSenName",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApRepSenRadioId": {
+    "name": "hh3cDot11PROBEApRepSenRadioId",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApRepSenRssi": {
+    "name": "hh3cDot11PROBEApRepSenRssi",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApRepSenChannel": {
+    "name": "hh3cDot11PROBEApRepSenChannel",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11PROBEChannel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApRepSenFirRepTim": {
+    "name": "hh3cDot11PROBEApRepSenFirRepTim",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBEApRepSenLasRepTim": {
+    "name": "hh3cDot11PROBEApRepSenLasRepTim",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBECliRepSenTable": {
+    "name": "hh3cDot11PROBECliRepSenTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11PROBECliRepSenEntry": {
+    "name": "hh3cDot11PROBECliRepSenEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-PROBE-MIB",
+        "object": "hh3cDot11PROBECliRepSenCliMac",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-PROBE-MIB",
+        "object": "hh3cDot11PROBECliRepSenSenName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11PROBECliRepSenCliMac": {
+    "name": "hh3cDot11PROBECliRepSenCliMac",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11PROBECliRepSenSenName": {
+    "name": "hh3cDot11PROBECliRepSenSenName",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11PROBECliRepSenRadioId": {
+    "name": "hh3cDot11PROBECliRepSenRadioId",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBECliRepSenRssi": {
+    "name": "hh3cDot11PROBECliRepSenRssi",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBECliRepSenChannel": {
+    "name": "hh3cDot11PROBECliRepSenChannel",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11PROBEChannel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBECliRepSenFRepTime": {
+    "name": "hh3cDot11PROBECliRepSenFRepTime",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBECliRepSenLRepTime": {
+    "name": "hh3cDot11PROBECliRepSenLRepTime",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11PROBECliRepSenAssAPMac": {
+    "name": "hh3cDot11PROBECliRepSenAssAPMac",
+    "oid": "1.3.6.1.4.1.25506.2.75.17.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DOT11-PROBE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-DOT11-PROBE-MIB"
+  }
+}

@@ -1,0 +1,3431 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "Unsigned64",
+      "EntPhysicalIndexOrZero"
+    ],
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowPointer",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoProcessMIB": {
+    "name": "ciscoProcessMIB",
+    "oid": "1.3.6.1.4.1.9.9.109",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-06-23 00:00",
+        "description": "Added new table cpmCoreTable as well as a new optoinal compliance group cpmCoreGroup."
+      },
+      {
+        "revision": "2010-05-06 00:00",
+        "description": "Added the following new objects to the cpmCPUTotalTable. cpmCPUMemoryCommitted, cpmCPUMemoryCommittedOvrFlow and cpmCPUMemoryHCCommitted. Added new compliance group cpmCPUTotalMemoryCommitGroup which includes Committed memory objects. Added new compliance cProcessMIBComplianceRev5 which deprecates cProcessMIBComplianceRev4."
+      },
+      {
+        "revision": "2009-10-12 00:00",
+        "description": "Added TEXTUAL-CONVENTION called CPULoadAverage. Added the following new objects to cpmCPUTotalTable. cpmCPULoadAvg1min, cpmCPULoadAvg5min, cpmCPULoadAvg15min. Added new compliance group cpmCPULoadAvgGroup which includes load average objects. Added new compliance cProcessMIBComplianceRev4 which deprecates cProcessMIBComplianceRev3."
+      },
+      {
+        "revision": "2009-01-23 00:00",
+        "description": "Added the following new objects to cpmCPUTotalTable. cpmCPUMemoryUsedOvrflw, cpmCPUMemoryHCUsed, cpmCPUMemoryFreeOvrflw, cpmCPUMemoryHCFree, cpmCPUMemoryKernelReservedOvrflw, cpmCPUMemoryHCKernelReserved, cpmCPUMemoryLowestOvrflw, cpmCPUMemoryHCLowest Added the following new objects to cpmProcessExtRevTable. cpmProcExtMemAllocatedRevOvrflw, cpmProcExtHCMemAllocatedRev, cpmProcExtMemFreedRevOvrflw, cpmProcExtHCMemFreedRev, cpmProcessTextSegmentSizeOvrflw, cpmProcessHCTextSegmentSize, cpmProcessDataSegmentSizeOvrflw, cpmProcessHCDataSegmentSize, cpmProcessStackSizeOvrflw, cpmProcessHCStackSize, cpmProcessDynamicMemorySizeOvrflw, cpmProcessHCDynamicMemorySize Added the following new objects to cpmThreadTable. cpmThreadStackSizeOvrflw, cpmThreadHCStackSize Added the following new objects to cpmVirtualProcessTable. cpmVirtualProcessMemAllocatedOvrflw, cpmVirtualProcessHCMemAllocated, cpmVirtualProcessMemFreedOvrflw, cpmVirtualProcessHCMemFreed Added following new compliance groups. cpmCPUTotalOverflowGroup, cpmCPUTotalOverflowGroup, cpmProcessExtRevOverflowGroup, cpmProcessExtRevHCGroup, cpmThreadOverflowGroup, cpmThreadHCGroup, cpmVirtualProcessOverflowGroup, cpmVirtualProcessHCGroup Added new compliance cProcessMIBComplianceRev3 which deprecates cProcessMIBComplianceRev2."
+      },
+      {
+        "revision": "2007-03-23 00:00",
+        "description": "Added new objects to support POSIX compliant OS. Added cpmThread, cpmThreadTable, cpmVirtualProcess, cpmVirtualProcessTable and updated cpmCPUTotalTable, cpmProcessExtRevTable. Added cProcessMIBComplianceRev2 by deprecating cProcessMIBComplianceRev1. Added cpmCPUPosixMemoryGroup, cpmPosixProcessGroup, cpmThreadGroup, cpmVirtualProcessGroup."
+      },
+      {
+        "revision": "2003-01-22 00:00",
+        "description": "cpmCPUThresholdTable, cpmCPUHistoryTable, cpmCPUProcessHistoryTable are added for CPU thresholding feature."
+      },
+      {
+        "revision": "2001-05-18 00:00",
+        "description": "The objects cpmProcExtUtil5Sec, cpmProcExtUtil1Min, cpmProcExtUtil5Min,cpmCPUTotal5sec, cpmCPUTotal1min and cpmCPUTotal5min are deprecated to increase the value range as 0..100. The table cpmProcessExtTable is deprecated. The new objects added are cpmProcessExtRevTable, cpmProcExtMemAllocatedRev, cpmProcExtMemFreedRev, cpmProcExtInvokedRev, cpmProcExtRuntimeRev, cpmProcExtUtil5SecRev, cpmProcExtUtil1MinRev, cpmCPUTotal5MinRev, cpmCPUTotal5secRev, cpmCPUTotal1minRev and cpmCPUTotal5minRev."
+      },
+      {
+        "revision": "1998-04-15 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "CPULoadAverage": {
+    "name": "CPULoadAverage",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "ciscoProcessMIBObjects": {
+    "name": "ciscoProcessMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.109.1",
+    "class": "objectidentity"
+  },
+  "cpmCPU": {
+    "name": "cpmCPU",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1",
+    "class": "objectidentity"
+  },
+  "cpmProcess": {
+    "name": "cpmProcess",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2",
+    "class": "objectidentity"
+  },
+  "cpmThread": {
+    "name": "cpmThread",
+    "oid": "1.3.6.1.4.1.9.9.109.1.3",
+    "class": "objectidentity"
+  },
+  "cpmVirtualProcess": {
+    "name": "cpmVirtualProcess",
+    "oid": "1.3.6.1.4.1.9.9.109.1.4",
+    "class": "objectidentity"
+  },
+  "cpmCPUHistory": {
+    "name": "cpmCPUHistory",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.5",
+    "class": "objectidentity"
+  },
+  "cpmCPUTotalTable": {
+    "name": "cpmCPUTotalTable",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmCPUTotalEntry": {
+    "name": "cpmCPUTotalEntry",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUTotalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpmCPUTotalIndex": {
+    "name": "cpmCPUTotalIndex",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmCPUTotalPhysicalIndex": {
+    "name": "cpmCPUTotalPhysicalIndex",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUTotal5sec": {
+    "name": "cpmCPUTotal5sec",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpmCPUTotal1min": {
+    "name": "cpmCPUTotal1min",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpmCPUTotal5min": {
+    "name": "cpmCPUTotal5min",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpmCPUTotal5secRev": {
+    "name": "cpmCPUTotal5secRev",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpmCPUTotal1minRev": {
+    "name": "cpmCPUTotal1minRev",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUTotal5minRev": {
+    "name": "cpmCPUTotal5minRev",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUMonInterval": {
+    "name": "cpmCPUMonInterval",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUTotalMonIntervalValue": {
+    "name": "cpmCPUTotalMonIntervalValue",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUInterruptMonIntervalValue": {
+    "name": "cpmCPUInterruptMonIntervalValue",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUMemoryUsed": {
+    "name": "cpmCPUMemoryUsed",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilo-bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUMemoryFree": {
+    "name": "cpmCPUMemoryFree",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilo-bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUMemoryKernelReserved": {
+    "name": "cpmCPUMemoryKernelReserved",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilo-bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUMemoryLowest": {
+    "name": "cpmCPUMemoryLowest",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUMemoryUsedOvrflw": {
+    "name": "cpmCPUMemoryUsedOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilo-bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUMemoryHCUsed": {
+    "name": "cpmCPUMemoryHCUsed",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kilo-bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUMemoryFreeOvrflw": {
+    "name": "cpmCPUMemoryFreeOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilo-bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUMemoryHCFree": {
+    "name": "cpmCPUMemoryHCFree",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "kilo-bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUMemoryKernelReservedOvrflw": {
+    "name": "cpmCPUMemoryKernelReservedOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilo-bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUMemoryHCKernelReserved": {
+    "name": "cpmCPUMemoryHCKernelReserved",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kilo-bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUMemoryLowestOvrflw": {
+    "name": "cpmCPUMemoryLowestOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilo-bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUMemoryHCLowest": {
+    "name": "cpmCPUMemoryHCLowest",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kilo-bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPULoadAvg1min": {
+    "name": "cpmCPULoadAvg1min",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CPULoadAverage",
+      "class": "type"
+    },
+    "units": "hundredths of processes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPULoadAvg5min": {
+    "name": "cpmCPULoadAvg5min",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CPULoadAverage",
+      "class": "type"
+    },
+    "units": "hundredths of processes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPULoadAvg15min": {
+    "name": "cpmCPULoadAvg15min",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CPULoadAverage",
+      "class": "type"
+    },
+    "units": "hundredths of processes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUMemoryCommitted": {
+    "name": "cpmCPUMemoryCommitted",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUMemoryCommittedOvrflw": {
+    "name": "cpmCPUMemoryCommittedOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUMemoryHCCommitted": {
+    "name": "cpmCPUMemoryHCCommitted",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCoreTable": {
+    "name": "cpmCoreTable",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmCoreEntry": {
+    "name": "cpmCoreEntry",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUTotalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCoreIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpmCoreIndex": {
+    "name": "cpmCoreIndex",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmCorePhysicalIndex": {
+    "name": "cpmCorePhysicalIndex",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCore5sec": {
+    "name": "cpmCore5sec",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCore1min": {
+    "name": "cpmCore1min",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCore5min": {
+    "name": "cpmCore5min",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCoreLoadAvg1min": {
+    "name": "cpmCoreLoadAvg1min",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CPULoadAverage",
+      "class": "type"
+    },
+    "units": "hundredths of processes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCoreLoadAvg5min": {
+    "name": "cpmCoreLoadAvg5min",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CPULoadAverage",
+      "class": "type"
+    },
+    "units": "hundredths of processes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCoreLoadAvg15min": {
+    "name": "cpmCoreLoadAvg15min",
+    "oid": "1.3.6.1.4.1.9.9.109.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CPULoadAverage",
+      "class": "type"
+    },
+    "units": "hundredths of processes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessTable": {
+    "name": "cpmProcessTable",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmProcessEntry": {
+    "name": "cpmProcessEntry",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUTotalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessPID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpmProcessPID": {
+    "name": "cpmProcessPID",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessName": {
+    "name": "cpmProcessName",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessuSecs": {
+    "name": "cpmProcessuSecs",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpmProcessTimeCreated": {
+    "name": "cpmProcessTimeCreated",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessAverageUSecs": {
+    "name": "cpmProcessAverageUSecs",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessExtTable": {
+    "name": "cpmProcessExtTable",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cpmProcessExtEntry": {
+    "name": "cpmProcessExtEntry",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cpmProcessExtEntry",
+      "module": "CISCO-PROCESS-MIB",
+      "object": "cpmProcessEntry"
+    },
+    "status": "deprecated"
+  },
+  "cpmProcExtMemAllocated": {
+    "name": "cpmProcExtMemAllocated",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpmProcExtMemFreed": {
+    "name": "cpmProcExtMemFreed",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpmProcExtInvoked": {
+    "name": "cpmProcExtInvoked",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpmProcExtRuntime": {
+    "name": "cpmProcExtRuntime",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpmProcExtUtil5Sec": {
+    "name": "cpmProcExtUtil5Sec",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpmProcExtUtil1Min": {
+    "name": "cpmProcExtUtil1Min",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpmProcExtUtil5Min": {
+    "name": "cpmProcExtUtil5Min",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpmProcExtPriority": {
+    "name": "cpmProcExtPriority",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "high": 2,
+          "normal": 3,
+          "low": 4,
+          "notAssigned": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cpmProcessExtRevTable": {
+    "name": "cpmProcessExtRevTable",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmProcessExtRevEntry": {
+    "name": "cpmProcessExtRevEntry",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUTotalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessPID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpmProcExtMemAllocatedRev": {
+    "name": "cpmProcExtMemAllocatedRev",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcExtMemFreedRev": {
+    "name": "cpmProcExtMemFreedRev",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcExtInvokedRev": {
+    "name": "cpmProcExtInvokedRev",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcExtRuntimeRev": {
+    "name": "cpmProcExtRuntimeRev",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcExtUtil5SecRev": {
+    "name": "cpmProcExtUtil5SecRev",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcExtUtil1MinRev": {
+    "name": "cpmProcExtUtil1MinRev",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcExtUtil5MinRev": {
+    "name": "cpmProcExtUtil5MinRev",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcExtPriorityRev": {
+    "name": "cpmProcExtPriorityRev",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "high": 2,
+          "normal": 3,
+          "low": 4,
+          "notAssigned": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessType": {
+    "name": "cpmProcessType",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "posix": 2,
+          "ios": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessRespawn": {
+    "name": "cpmProcessRespawn",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessRespawnCount": {
+    "name": "cpmProcessRespawnCount",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessRespawnAfterLastPatch": {
+    "name": "cpmProcessRespawnAfterLastPatch",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessMemoryCore": {
+    "name": "cpmProcessMemoryCore",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "mainmem": 2,
+          "mainmemSharedmem": 3,
+          "mainmemText": 4,
+          "mainmemTextSharedmem": 5,
+          "sharedmem": 6,
+          "sparse": 7,
+          "off": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessLastRestartUser": {
+    "name": "cpmProcessLastRestartUser",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessTextSegmentSize": {
+    "name": "cpmProcessTextSegmentSize",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilo-bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessDataSegmentSize": {
+    "name": "cpmProcessDataSegmentSize",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilo-bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessStackSize": {
+    "name": "cpmProcessStackSize",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilo-bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessDynamicMemorySize": {
+    "name": "cpmProcessDynamicMemorySize",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilo-bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcExtMemAllocatedRevOvrflw": {
+    "name": "cpmProcExtMemAllocatedRevOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcExtHCMemAllocatedRev": {
+    "name": "cpmProcExtHCMemAllocatedRev",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcExtMemFreedRevOvrflw": {
+    "name": "cpmProcExtMemFreedRevOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcExtHCMemFreedRev": {
+    "name": "cpmProcExtHCMemFreedRev",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessTextSegmentSizeOvrflw": {
+    "name": "cpmProcessTextSegmentSizeOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilo-bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessHCTextSegmentSize": {
+    "name": "cpmProcessHCTextSegmentSize",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "units": "kilo-bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessDataSegmentSizeOvrflw": {
+    "name": "cpmProcessDataSegmentSizeOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilo-bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessHCDataSegmentSize": {
+    "name": "cpmProcessHCDataSegmentSize",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kilo-bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessStackSizeOvrflw": {
+    "name": "cpmProcessStackSizeOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilo-bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessHCStackSize": {
+    "name": "cpmProcessHCStackSize",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kilo-bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessDynamicMemorySizeOvrflw": {
+    "name": "cpmProcessDynamicMemorySizeOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilo-bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessHCDynamicMemorySize": {
+    "name": "cpmProcessHCDynamicMemorySize",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kilo-bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUThresholdTable": {
+    "name": "cpmCPUThresholdTable",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmCPUThresholdEntry": {
+    "name": "cpmCPUThresholdEntry",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUTotalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUThresholdClass",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpmCPUThresholdClass": {
+    "name": "cpmCPUThresholdClass",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "total": 1,
+          "interrupt": 2,
+          "process": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmCPURisingThresholdValue": {
+    "name": "cpmCPURisingThresholdValue",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpmCPURisingThresholdPeriod": {
+    "name": "cpmCPURisingThresholdPeriod",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpmCPUFallingThresholdValue": {
+    "name": "cpmCPUFallingThresholdValue",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpmCPUFallingThresholdPeriod": {
+    "name": "cpmCPUFallingThresholdPeriod",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpmCPUThresholdEntryStatus": {
+    "name": "cpmCPUThresholdEntryStatus",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpmCPUHistoryThreshold": {
+    "name": "cpmCPUHistoryThreshold",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpmCPUHistorySize": {
+    "name": "cpmCPUHistorySize",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpmCPUHistoryTable": {
+    "name": "cpmCPUHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmCPUHistoryEntry": {
+    "name": "cpmCPUHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUTotalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUHistoryReportId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpmCPUHistoryReportId": {
+    "name": "cpmCPUHistoryReportId",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmCPUHistoryReportSize": {
+    "name": "cpmCPUHistoryReportSize",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUHistoryTotalUtil": {
+    "name": "cpmCPUHistoryTotalUtil",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUHistoryInterruptUtil": {
+    "name": "cpmCPUHistoryInterruptUtil",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUHistoryCreatedTime": {
+    "name": "cpmCPUHistoryCreatedTime",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmThreadTable": {
+    "name": "cpmThreadTable",
+    "oid": "1.3.6.1.4.1.9.9.109.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmThreadEntry": {
+    "name": "cpmThreadEntry",
+    "oid": "1.3.6.1.4.1.9.9.109.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUTotalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessPID",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmThreadID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpmThreadID": {
+    "name": "cpmThreadID",
+    "oid": "1.3.6.1.4.1.9.9.109.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmThreadName": {
+    "name": "cpmThreadName",
+    "oid": "1.3.6.1.4.1.9.9.109.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmThreadPriority": {
+    "name": "cpmThreadPriority",
+    "oid": "1.3.6.1.4.1.9.9.109.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmThreadState": {
+    "name": "cpmThreadState",
+    "oid": "1.3.6.1.4.1.9.9.109.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "dead": 2,
+          "running": 3,
+          "ready": 4,
+          "stopped": 5,
+          "send": 6,
+          "receive": 7,
+          "reply": 8,
+          "stack": 9,
+          "waitpage": 10,
+          "sigsuspend": 11,
+          "sigwaitinfo": 12,
+          "nanosleep": 13,
+          "mutex": 14,
+          "condvar": 15,
+          "join": 16,
+          "intr": 17,
+          "sem": 18
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmThreadBlockingProcess": {
+    "name": "cpmThreadBlockingProcess",
+    "oid": "1.3.6.1.4.1.9.9.109.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmThreadCpuUtilization": {
+    "name": "cpmThreadCpuUtilization",
+    "oid": "1.3.6.1.4.1.9.9.109.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmThreadStackSize": {
+    "name": "cpmThreadStackSize",
+    "oid": "1.3.6.1.4.1.9.9.109.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmThreadStackSizeOvrflw": {
+    "name": "cpmThreadStackSizeOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.109.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmThreadHCStackSize": {
+    "name": "cpmThreadHCStackSize",
+    "oid": "1.3.6.1.4.1.9.9.109.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmVirtualProcessTable": {
+    "name": "cpmVirtualProcessTable",
+    "oid": "1.3.6.1.4.1.9.9.109.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmVirtualProcessEntry": {
+    "name": "cpmVirtualProcessEntry",
+    "oid": "1.3.6.1.4.1.9.9.109.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUTotalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessPID",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmVirtualProcessID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpmVirtualProcessID": {
+    "name": "cpmVirtualProcessID",
+    "oid": "1.3.6.1.4.1.9.9.109.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmVirtualProcessName": {
+    "name": "cpmVirtualProcessName",
+    "oid": "1.3.6.1.4.1.9.9.109.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmVirtualProcessUtil5Sec": {
+    "name": "cpmVirtualProcessUtil5Sec",
+    "oid": "1.3.6.1.4.1.9.9.109.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmVirtualProcessUtil1Min": {
+    "name": "cpmVirtualProcessUtil1Min",
+    "oid": "1.3.6.1.4.1.9.9.109.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmVirtualProcessUtil5Min": {
+    "name": "cpmVirtualProcessUtil5Min",
+    "oid": "1.3.6.1.4.1.9.9.109.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmVirtualProcessMemAllocated": {
+    "name": "cpmVirtualProcessMemAllocated",
+    "oid": "1.3.6.1.4.1.9.9.109.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmVirtualProcessMemFreed": {
+    "name": "cpmVirtualProcessMemFreed",
+    "oid": "1.3.6.1.4.1.9.9.109.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmVirtualProcessInvokeCount": {
+    "name": "cpmVirtualProcessInvokeCount",
+    "oid": "1.3.6.1.4.1.9.9.109.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmVirtualProcessRuntime": {
+    "name": "cpmVirtualProcessRuntime",
+    "oid": "1.3.6.1.4.1.9.9.109.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmVirtualProcessMemAllocatedOvrflw": {
+    "name": "cpmVirtualProcessMemAllocatedOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.109.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmVirtualProcessHCMemAllocated": {
+    "name": "cpmVirtualProcessHCMemAllocated",
+    "oid": "1.3.6.1.4.1.9.9.109.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmVirtualProcessMemFreedOvrflw": {
+    "name": "cpmVirtualProcessMemFreedOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.109.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmVirtualProcessHCMemFreed": {
+    "name": "cpmVirtualProcessHCMemFreed",
+    "oid": "1.3.6.1.4.1.9.9.109.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUProcessHistoryTable": {
+    "name": "cpmCPUProcessHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmCPUProcessHistoryEntry": {
+    "name": "cpmCPUProcessHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUTotalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUHistoryReportId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUProcessHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpmCPUProcessHistoryIndex": {
+    "name": "cpmCPUProcessHistoryIndex",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmCPUHistoryProcId": {
+    "name": "cpmCPUHistoryProcId",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUHistoryProcName": {
+    "name": "cpmCPUHistoryProcName",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUHistoryProcCreated": {
+    "name": "cpmCPUHistoryProcCreated",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCPUHistoryProcUtil": {
+    "name": "cpmCPUHistoryProcUtil",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoProcessMIBNotifPrefix": {
+    "name": "ciscoProcessMIBNotifPrefix",
+    "oid": "1.3.6.1.4.1.9.9.109.2",
+    "class": "objectidentity"
+  },
+  "ciscoProcessMIBNotifs": {
+    "name": "ciscoProcessMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.109.2.0",
+    "class": "objectidentity"
+  },
+  "cpmCPURisingThreshold": {
+    "name": "cpmCPURisingThreshold",
+    "oid": "1.3.6.1.4.1.9.9.109.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPURisingThresholdValue"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUTotalMonIntervalValue"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUInterruptMonIntervalValue"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcExtUtil5SecRev"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessTimeCreated"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmCPUFallingThreshold": {
+    "name": "cpmCPUFallingThreshold",
+    "oid": "1.3.6.1.4.1.9.9.109.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUFallingThresholdValue"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUTotalMonIntervalValue"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUInterruptMonIntervalValue"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoProcessMIBConformance": {
+    "name": "ciscoProcessMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.109.3",
+    "class": "objectidentity"
+  },
+  "cpmCompliances": {
+    "name": "cpmCompliances",
+    "oid": "1.3.6.1.4.1.9.9.109.3.1",
+    "class": "objectidentity"
+  },
+  "cpmGroups": {
+    "name": "cpmGroups",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2",
+    "class": "objectidentity"
+  },
+  "cProcessMIBCompliance": {
+    "name": "cProcessMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.109.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpmCPUTotalGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmProcessGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmProcessExtGroup",
+        "module": "CISCO-PROCESS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cProcessMIBComplianceRev": {
+    "name": "cProcessMIBComplianceRev",
+    "oid": "1.3.6.1.4.1.9.9.109.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpmCPUTotalGroupRev",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmProcessGroupRev",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmProcessExtGroupRev",
+        "module": "CISCO-PROCESS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cProcessMIBComplianceRev1": {
+    "name": "cProcessMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.109.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpmCPUThresholdGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUTotalGroupRev1",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUHistoryGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUThresholdNotificationGroup",
+        "module": "CISCO-PROCESS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cProcessMIBComplianceRev2": {
+    "name": "cProcessMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.109.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpmCPUTotalGroupRev1",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUHistoryGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUThresholdNotificationGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmProcessExtGroupRev",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUThresholdGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmProcessGroupRev",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUPosixMemoryGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmPosixProcessGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmThreadGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmVirtualProcessGroup",
+        "module": "CISCO-PROCESS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cProcessMIBComplianceRev3": {
+    "name": "cProcessMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.109.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpmCPUTotalGroupRev1",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUHistoryGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUThresholdNotificationGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmProcessExtGroupRev",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUThresholdGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmProcessGroupRev",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUPosixMemoryGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmPosixProcessGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmThreadGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmVirtualProcessGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUTotalOverflowGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUTotalHCGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmProcessExtRevOverflowGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmProcessExtRevHCGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmThreadOverflowGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmThreadHCGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmVirtualProcessOverflowGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmVirtualProcessHCGroup",
+        "module": "CISCO-PROCESS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cProcessMIBComplianceRev4": {
+    "name": "cProcessMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.109.3.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpmCPUTotalGroupRev1",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUHistoryGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUThresholdNotificationGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmProcessExtGroupRev",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUThresholdGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmProcessGroupRev",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUPosixMemoryGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmPosixProcessGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmThreadGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmVirtualProcessGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUTotalOverflowGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUTotalHCGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmProcessExtRevOverflowGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmProcessExtRevHCGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmThreadOverflowGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmThreadHCGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmVirtualProcessOverflowGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmVirtualProcessHCGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPULoadAvgGroup",
+        "module": "CISCO-PROCESS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cProcessMIBComplianceRev5": {
+    "name": "cProcessMIBComplianceRev5",
+    "oid": "1.3.6.1.4.1.9.9.109.3.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpmCPUTotalGroupRev1",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCoreGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUHistoryGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUThresholdNotificationGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmProcessExtGroupRev",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUThresholdGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmProcessGroupRev",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUPosixMemoryGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmPosixProcessGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmThreadGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmVirtualProcessGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUTotalOverflowGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUTotalHCGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmProcessExtRevOverflowGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmProcessExtRevHCGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmThreadOverflowGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmThreadHCGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmVirtualProcessOverflowGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmVirtualProcessHCGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPULoadAvgGroup",
+        "module": "CISCO-PROCESS-MIB"
+      },
+      {
+        "object": "cpmCPUTotalMemoryCommitGroup",
+        "module": "CISCO-PROCESS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmCPUTotalGroup": {
+    "name": "cpmCPUTotalGroup",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUTotalPhysicalIndex"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUTotal5sec"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUTotal1min"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUTotal5min"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpmProcessGroup": {
+    "name": "cpmProcessGroup",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessPID"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessName"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessuSecs"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessTimeCreated"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpmProcessExtGroup": {
+    "name": "cpmProcessExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcExtMemAllocated"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcExtMemFreed"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcExtInvoked"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcExtRuntime"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcExtUtil5Sec"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcExtUtil1Min"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcExtUtil5Min"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcExtPriority"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpmCPUTotalGroupRev": {
+    "name": "cpmCPUTotalGroupRev",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUTotalPhysicalIndex"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUTotal5secRev"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUTotal1minRev"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUTotal5minRev"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpmProcessExtGroupRev": {
+    "name": "cpmProcessExtGroupRev",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcExtMemAllocatedRev"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcExtMemFreedRev"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcExtInvokedRev"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcExtRuntimeRev"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcExtUtil5SecRev"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcExtUtil1MinRev"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcExtUtil5MinRev"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcExtPriorityRev"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmProcessGroupRev": {
+    "name": "cpmProcessGroupRev",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessPID"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessName"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessAverageUSecs"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessTimeCreated"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmCPUTotalGroupRev1": {
+    "name": "cpmCPUTotalGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUTotalPhysicalIndex"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUTotal1minRev"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUTotal5minRev"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUMonInterval"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUTotalMonIntervalValue"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUInterruptMonIntervalValue"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmCPUThresholdGroup": {
+    "name": "cpmCPUThresholdGroup",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPURisingThresholdValue"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPURisingThresholdPeriod"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUFallingThresholdValue"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUFallingThresholdPeriod"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUThresholdEntryStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmCPUHistoryGroup": {
+    "name": "cpmCPUHistoryGroup",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUHistorySize"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUHistoryThreshold"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUHistoryTotalUtil"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUHistoryInterruptUtil"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUHistoryCreatedTime"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUHistoryReportSize"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUHistoryProcId"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUHistoryProcName"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUHistoryProcCreated"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUHistoryProcUtil"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmCPUThresholdNotificationGroup": {
+    "name": "cpmCPUThresholdNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPURisingThreshold"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUFallingThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmCPUPosixMemoryGroup": {
+    "name": "cpmCPUPosixMemoryGroup",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUMemoryUsed"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUMemoryFree"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUMemoryKernelReserved"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUMemoryLowest"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmPosixProcessGroup": {
+    "name": "cpmPosixProcessGroup",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessType"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessRespawn"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessRespawnCount"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessRespawnAfterLastPatch"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessMemoryCore"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessLastRestartUser"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessTextSegmentSize"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessDataSegmentSize"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessStackSize"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessDynamicMemorySize"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmThreadGroup": {
+    "name": "cpmThreadGroup",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmThreadName"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmThreadPriority"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmThreadState"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmThreadBlockingProcess"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmThreadCpuUtilization"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmThreadStackSize"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmVirtualProcessGroup": {
+    "name": "cpmVirtualProcessGroup",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmVirtualProcessName"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmVirtualProcessUtil5Sec"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmVirtualProcessUtil1Min"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmVirtualProcessUtil5Min"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmVirtualProcessMemAllocated"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmVirtualProcessMemFreed"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmVirtualProcessInvokeCount"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmVirtualProcessRuntime"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmCPUTotalOverflowGroup": {
+    "name": "cpmCPUTotalOverflowGroup",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUMemoryUsedOvrflw"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUMemoryFreeOvrflw"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUMemoryKernelReservedOvrflw"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUMemoryLowestOvrflw"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmCPUTotalHCGroup": {
+    "name": "cpmCPUTotalHCGroup",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUMemoryHCUsed"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUMemoryHCFree"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUMemoryHCKernelReserved"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUMemoryHCLowest"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmProcessExtRevOverflowGroup": {
+    "name": "cpmProcessExtRevOverflowGroup",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcExtMemAllocatedRevOvrflw"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcExtMemFreedRevOvrflw"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessTextSegmentSizeOvrflw"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessDataSegmentSizeOvrflw"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessStackSizeOvrflw"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessDynamicMemorySizeOvrflw"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmProcessExtRevHCGroup": {
+    "name": "cpmProcessExtRevHCGroup",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcExtHCMemAllocatedRev"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcExtHCMemFreedRev"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessHCTextSegmentSize"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessHCDataSegmentSize"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessHCStackSize"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessHCDynamicMemorySize"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmThreadOverflowGroup": {
+    "name": "cpmThreadOverflowGroup",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmThreadStackSizeOvrflw"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmThreadHCGroup": {
+    "name": "cpmThreadHCGroup",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmThreadHCStackSize"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmVirtualProcessOverflowGroup": {
+    "name": "cpmVirtualProcessOverflowGroup",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmVirtualProcessMemAllocatedOvrflw"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmVirtualProcessMemFreedOvrflw"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmVirtualProcessHCGroup": {
+    "name": "cpmVirtualProcessHCGroup",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmVirtualProcessHCMemAllocated"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmVirtualProcessHCMemFreed"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmCPULoadAvgGroup": {
+    "name": "cpmCPULoadAvgGroup",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPULoadAvg1min"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPULoadAvg5min"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPULoadAvg15min"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmCPUTotalMemoryCommitGroup": {
+    "name": "cpmCPUTotalMemoryCommitGroup",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUMemoryCommitted"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUMemoryCommittedOvrflw"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCPUMemoryHCCommitted"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmCoreGroup": {
+    "name": "cpmCoreGroup",
+    "oid": "1.3.6.1.4.1.9.9.109.3.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCorePhysicalIndex"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCore5sec"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCore1min"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCore5min"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCoreLoadAvg1min"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCoreLoadAvg5min"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmCoreLoadAvg15min"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-PROCESS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-PROCESS-MIB"
+  }
+}

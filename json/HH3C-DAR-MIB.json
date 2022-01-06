@@ -1,0 +1,309 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cDar": {
+    "name": "hh3cDar",
+    "oid": "1.3.6.1.4.1.25506.2.112",
+    "class": "moduleidentity"
+  },
+  "Hh3cDarProtocol": {
+    "name": "Hh3cDarProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalidProtocol": 1,
+          "bgp": 2,
+          "cifs": 3,
+          "citrix": 4,
+          "cuseeme": 5,
+          "dhcp": 6,
+          "dns": 7,
+          "egp": 8,
+          "eigrp": 9,
+          "exchange": 10,
+          "fasttrack": 11,
+          "finger": 12,
+          "ftp": 13,
+          "gnutella": 14,
+          "gopher": 15,
+          "gre": 16,
+          "http": 17,
+          "h323": 18,
+          "icmp": 19,
+          "igmp": 20,
+          "imap": 21,
+          "ip": 22,
+          "ipinip": 23,
+          "ipsec": 24,
+          "ipv6": 25,
+          "irc": 26,
+          "kerberos": 27,
+          "l2tp": 28,
+          "ldap": 29,
+          "mgcp": 30,
+          "napster": 31,
+          "netbios": 32,
+          "netshow": 33,
+          "nfs": 34,
+          "nntp": 35,
+          "notes": 36,
+          "novadign": 37,
+          "ntp": 38,
+          "pcanywhere": 39,
+          "pop3": 40,
+          "pptp": 41,
+          "printer": 42,
+          "rcmd": 43,
+          "rip": 44,
+          "rsvp": 45,
+          "rtcp": 46,
+          "rtp": 47,
+          "rtsp": 48,
+          "secureftp": 49,
+          "securehttp": 50,
+          "secureimap": 51,
+          "secureirc": 52,
+          "secureldap": 53,
+          "securenntp": 54,
+          "securepop3": 55,
+          "securetelnet": 56,
+          "sip": 57,
+          "skinny": 58,
+          "smtp": 59,
+          "snmp": 60,
+          "socks": 61,
+          "sqlnet": 62,
+          "sqlserver": 63,
+          "ssh": 64,
+          "streamwork": 65,
+          "sunrpc": 66,
+          "syslog": 67,
+          "tcp": 68,
+          "tcphandshake": 69,
+          "telnet": 70,
+          "tftp": 71,
+          "total": 72,
+          "udp": 73,
+          "unknownothers": 74,
+          "unknowntcp": 75,
+          "unknownudp": 76,
+          "userdefine001": 77,
+          "userdefine002": 78,
+          "userdefine003": 79,
+          "userdefine004": 80,
+          "userdefine005": 81,
+          "userdefine006": 82,
+          "userdefine007": 83,
+          "userdefine008": 84,
+          "userdefine009": 85,
+          "userdefine010": 86,
+          "vdolive": 87,
+          "winmx": 88,
+          "xwindows": 89
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cDarIfObjects": {
+    "name": "hh3cDarIfObjects",
+    "oid": "1.3.6.1.4.1.25506.2.112.1",
+    "class": "objectidentity"
+  },
+  "hh3cDarIfStatisticsObjects": {
+    "name": "hh3cDarIfStatisticsObjects",
+    "oid": "1.3.6.1.4.1.25506.2.112.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cDarStatisticsTable": {
+    "name": "hh3cDarStatisticsTable",
+    "oid": "1.3.6.1.4.1.25506.2.112.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDarStatisticsEntry": {
+    "name": "hh3cDarStatisticsEntry",
+    "oid": "1.3.6.1.4.1.25506.2.112.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DAR-MIB",
+        "object": "hh3cDarStatisticsProtocolID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDarStatisticsProtocolID": {
+    "name": "hh3cDarStatisticsProtocolID",
+    "oid": "1.3.6.1.4.1.25506.2.112.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDarProtocol",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDarStatisticsProtocolName": {
+    "name": "hh3cDarStatisticsProtocolName",
+    "oid": "1.3.6.1.4.1.25506.2.112.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDarStatisticsInPkts": {
+    "name": "hh3cDarStatisticsInPkts",
+    "oid": "1.3.6.1.4.1.25506.2.112.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDarStatisticsInBytes": {
+    "name": "hh3cDarStatisticsInBytes",
+    "oid": "1.3.6.1.4.1.25506.2.112.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDarStatisticsInBitRate": {
+    "name": "hh3cDarStatisticsInBitRate",
+    "oid": "1.3.6.1.4.1.25506.2.112.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDarStatisticsMaxInBitRate": {
+    "name": "hh3cDarStatisticsMaxInBitRate",
+    "oid": "1.3.6.1.4.1.25506.2.112.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDarStatisticsOutPkts": {
+    "name": "hh3cDarStatisticsOutPkts",
+    "oid": "1.3.6.1.4.1.25506.2.112.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDarStatisticsOutBytes": {
+    "name": "hh3cDarStatisticsOutBytes",
+    "oid": "1.3.6.1.4.1.25506.2.112.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDarStatisticsOutBitRate": {
+    "name": "hh3cDarStatisticsOutBitRate",
+    "oid": "1.3.6.1.4.1.25506.2.112.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDarStatisticsMaxOutBitRate": {
+    "name": "hh3cDarStatisticsMaxOutBitRate",
+    "oid": "1.3.6.1.4.1.25506.2.112.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DAR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-DAR-MIB"
+  }
+}

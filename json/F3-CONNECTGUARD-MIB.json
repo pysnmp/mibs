@@ -1,0 +1,3850 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADVA-MIB": [
+      "fsp150cm"
+    ],
+    "CM-COMMON-MIB": [
+      "OperationalState",
+      "SecondaryState",
+      "EthernetMediaType",
+      "TrafficDirection",
+      "PerfCounter64",
+      "VlanEthertype",
+      "CmPmBinAction",
+      "F3DisplayString",
+      "SfpMediaType",
+      "PriorityMapMode",
+      "AfpTagControl",
+      "CmPmIntervalType",
+      "EthernetPortSpeed",
+      "VlanPriority",
+      "SfpConnectorValue",
+      "AdminState",
+      "VlanId",
+      "VlanTagType"
+    ],
+    "CM-ENTITY-MIB": [
+      "slotIndex",
+      "networkElementEntry",
+      "f3UsbHostIndex",
+      "neIndex",
+      "shelfIndex"
+    ],
+    "CM-FACILITY-MIB": [
+      "cmFlowEntry"
+    ],
+    "ENTITY-MIB": [
+      "PhysicalIndex"
+    ],
+    "F3-FPM-MIB": [
+      "f3AccFlowPointEntry",
+      "f3NetFlowPointEntry"
+    ],
+    "IEEE8021-SECY-MIB": [
+      "SecySCI"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "IPV6-TC": [
+      "Ipv6Address"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TimeStamp",
+      "RowStatus",
+      "DisplayString",
+      "StorageType",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "VariablePointer"
+    ]
+  },
+  "f3ConnectGuardMIB": {
+    "name": "f3ConnectGuardMIB",
+    "oid": "1.3.6.1.4.1.2544.1.12.36",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-07-11 00:00",
+        "description": "Notes from release 201607110000Z a) added FlowSecureState back to the mib since the mib has been released Notes from release 201607080000Z a) deprecated f3FlowExtConnectGuardTable moved the attributes to cmFlowTable b) removed f3AccFlowpointExtConnectGuardTable and f3NetFlowpointExtConnectGuardTable and moved the attributes to acc/net flowpoint tables Notes from release 201606200000Z a) added f3ConnectGuardFlowKeyInjectFlowPoint to f3ConnectGuardFlowTable Notes from release 201606170000Z a) added f3MPFlowExtConnectGuardTable Notes from release 201606060000Z a) added f3ConnectGuardFlowKeyExchangeFrameOuterVlanEtherType, f3ConnectGuardFlowKeyExchangeFrameInner1VlanEtherType, and f3ConnectGuardFlowKeyExchangeFrameInner2VlanEtherType to f3ConnectGuardFlowTable Notes from release 201605100000Z a) added f3AccFlowpointExtConnectGuardTable and f3NetFlowpointExtConnectGuardTable to support secure flow on flow point Notes from release 201604120000Z a) added system level scalar f3ConnectGuardCryptoPasswordControl Notes from release 201601260000Z a) add f3ConnectGuardFlowAlias to f3ConnectGuardFlowTable Notes from release 201409120000Z Notes from release 201601040000Z a) add f3ConnectGuardFlowAssociatedMep to f3ConnectGuardFlowTable "
+      }
+    ]
+  },
+  "f3ConnectGuardConfigObjects": {
+    "name": "f3ConnectGuardConfigObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1",
+    "class": "objectidentity"
+  },
+  "f3ConnectGuardPerformanceObjects": {
+    "name": "f3ConnectGuardPerformanceObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2",
+    "class": "objectidentity"
+  },
+  "f3ConnectGuardNotifications": {
+    "name": "f3ConnectGuardNotifications",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.3",
+    "class": "objectidentity"
+  },
+  "f3ConnectGuardConformance": {
+    "name": "f3ConnectGuardConformance",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.4",
+    "class": "objectidentity"
+  },
+  "FlowSecureState": {
+    "name": "FlowSecureState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "secureNormal": 1,
+          "secureBlocked": 2,
+          "unsecureNormal": 3,
+          "unsecureBlocked": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CipherSuiteType": {
+    "name": "CipherSuiteType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gcmAes256": 1,
+          "gcmAes128": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "KeyExchangeFrameTagControl": {
+    "name": "KeyExchangeFrameTagControl",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoSelect": 1,
+          "manual": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ScSaState": {
+    "name": "ScSaState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inUse": 1,
+          "notInUse": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ConnectGuardKeyExMode": {
+    "name": "ConnectGuardKeyExMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authPasswordBasedDiffieHellman": 1,
+          "caBasedDiffieHellman": 2,
+          "ieee8021x": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DiffieHellmanKeyPairLength": {
+    "name": "DiffieHellmanKeyPairLength",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "length2048": 1,
+          "length4096": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ConnectGuardFlowActionType": {
+    "name": "ConnectGuardFlowActionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "restartKeyXchg": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "f3ConnectGuardFlowTable": {
+    "name": "f3ConnectGuardFlowTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowEntry": {
+    "name": "f3ConnectGuardFlowEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardFlowIndex": {
+    "name": "f3ConnectGuardFlowIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowCipherSuite": {
+    "name": "f3ConnectGuardFlowCipherSuite",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CipherSuiteType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowAdminState": {
+    "name": "f3ConnectGuardFlowAdminState",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowSecondaryState": {
+    "name": "f3ConnectGuardFlowSecondaryState",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SecondaryState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowOperationalState": {
+    "name": "f3ConnectGuardFlowOperationalState",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperationalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowEgressInterface": {
+    "name": "f3ConnectGuardFlowEgressInterface",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowKeyExchangeProfile": {
+    "name": "f3ConnectGuardFlowKeyExchangeProfile",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowKeyExchangeFrameTagControl": {
+    "name": "f3ConnectGuardFlowKeyExchangeFrameTagControl",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "KeyExchangeFrameTagControl",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowKeyExchangeFrameOuterVlanEnabled": {
+    "name": "f3ConnectGuardFlowKeyExchangeFrameOuterVlanEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowKeyExchangeFrameOuterVlanId": {
+    "name": "f3ConnectGuardFlowKeyExchangeFrameOuterVlanId",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowKeyExchangeFrameOuterVlanPriority": {
+    "name": "f3ConnectGuardFlowKeyExchangeFrameOuterVlanPriority",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowKeyExchangeFrameInner1VlanEnabled": {
+    "name": "f3ConnectGuardFlowKeyExchangeFrameInner1VlanEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowKeyExchangeFrameInner1VlanId": {
+    "name": "f3ConnectGuardFlowKeyExchangeFrameInner1VlanId",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowKeyExchangeFrameInner1VlanPriority": {
+    "name": "f3ConnectGuardFlowKeyExchangeFrameInner1VlanPriority",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowKeyExchangeFrameInner2VlanEnabled": {
+    "name": "f3ConnectGuardFlowKeyExchangeFrameInner2VlanEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowKeyExchangeFrameInner2VlanId": {
+    "name": "f3ConnectGuardFlowKeyExchangeFrameInner2VlanId",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowKeyExchangeFrameInner2VlanPriority": {
+    "name": "f3ConnectGuardFlowKeyExchangeFrameInner2VlanPriority",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowKeyExchangeInterval": {
+    "name": "f3ConnectGuardFlowKeyExchangeInterval",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowTagsClear": {
+    "name": "f3ConnectGuardFlowTagsClear",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowStorageType": {
+    "name": "f3ConnectGuardFlowStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowRowStatus": {
+    "name": "f3ConnectGuardFlowRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowKeyXchgFailsCounts": {
+    "name": "f3ConnectGuardFlowKeyXchgFailsCounts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowAction": {
+    "name": "f3ConnectGuardFlowAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConnectGuardFlowActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowReplayProtectionEnabled": {
+    "name": "f3ConnectGuardFlowReplayProtectionEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowReplayProtectionWindow": {
+    "name": "f3ConnectGuardFlowReplayProtectionWindow",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowRemoteMacAddrEnabled": {
+    "name": "f3ConnectGuardFlowRemoteMacAddrEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowRemoteMacAddr": {
+    "name": "f3ConnectGuardFlowRemoteMacAddr",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowAssociatedMep": {
+    "name": "f3ConnectGuardFlowAssociatedMep",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowAlias": {
+    "name": "f3ConnectGuardFlowAlias",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowKeyExchangeFrameOuterVlanEtherType": {
+    "name": "f3ConnectGuardFlowKeyExchangeFrameOuterVlanEtherType",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowKeyExchangeFrameInner1VlanEtherType": {
+    "name": "f3ConnectGuardFlowKeyExchangeFrameInner1VlanEtherType",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowKeyExchangeFrameInner2VlanEtherType": {
+    "name": "f3ConnectGuardFlowKeyExchangeFrameInner2VlanEtherType",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowKeyInjectFlowPoint": {
+    "name": "f3ConnectGuardFlowKeyInjectFlowPoint",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ConnectGuardKeyExchangeProfileTable": {
+    "name": "f3ConnectGuardKeyExchangeProfileTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardKeyExchangeProfileEntry": {
+    "name": "f3ConnectGuardKeyExchangeProfileEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardKeyExchangeProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardKeyExchangeProfileIndex": {
+    "name": "f3ConnectGuardKeyExchangeProfileIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardKeyExchangeProfileName": {
+    "name": "f3ConnectGuardKeyExchangeProfileName",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardKeyExchangeProfileUserId": {
+    "name": "f3ConnectGuardKeyExchangeProfileUserId",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardKeyExchangeProfileMode": {
+    "name": "f3ConnectGuardKeyExchangeProfileMode",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConnectGuardKeyExMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardKeyExchangeProfileAuthPassword": {
+    "name": "f3ConnectGuardKeyExchangeProfileAuthPassword",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardKeyExchangeProfileDiffieHellmanKeyPairLen": {
+    "name": "f3ConnectGuardKeyExchangeProfileDiffieHellmanKeyPairLen",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DiffieHellmanKeyPairLength",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardKeyExchangeProfileStorageType": {
+    "name": "f3ConnectGuardKeyExchangeProfileStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ConnectGuardKeyExchangeProfileRowStatus": {
+    "name": "f3ConnectGuardKeyExchangeProfileRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCTable": {
+    "name": "f3ConnectGuardTxSCTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCEntry": {
+    "name": "f3ConnectGuardTxSCEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCIndex": {
+    "name": "f3ConnectGuardTxSCIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCI": {
+    "name": "f3ConnectGuardTxSCI",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SecySCI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxScState": {
+    "name": "f3ConnectGuardTxScState",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScSaState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardCurrentTxSa": {
+    "name": "f3ConnectGuardCurrentTxSa",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardPreviousTxSa": {
+    "name": "f3ConnectGuardPreviousTxSa",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxScCreateTime": {
+    "name": "f3ConnectGuardTxScCreateTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxScStartTime": {
+    "name": "f3ConnectGuardTxScStartTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxScStopTime": {
+    "name": "f3ConnectGuardTxScStopTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCTable": {
+    "name": "f3ConnectGuardRxSCTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCEntry": {
+    "name": "f3ConnectGuardRxSCEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCIndex": {
+    "name": "f3ConnectGuardRxSCIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCI": {
+    "name": "f3ConnectGuardRxSCI",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SecySCI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxScState": {
+    "name": "f3ConnectGuardRxScState",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScSaState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardCurrentRxSa": {
+    "name": "f3ConnectGuardCurrentRxSa",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxScCreateTime": {
+    "name": "f3ConnectGuardRxScCreateTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxScStartTime": {
+    "name": "f3ConnectGuardRxScStartTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxScStopTime": {
+    "name": "f3ConnectGuardRxScStopTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSATable": {
+    "name": "f3ConnectGuardTxSATable",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSAEntry": {
+    "name": "f3ConnectGuardTxSAEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSAIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardTxSAIndex": {
+    "name": "f3ConnectGuardTxSAIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSAState": {
+    "name": "f3ConnectGuardTxSAState",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScSaState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSANextPN": {
+    "name": "f3ConnectGuardTxSANextPN",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSASAKUnchanged": {
+    "name": "f3ConnectGuardTxSASAKUnchanged",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSACreatedTime": {
+    "name": "f3ConnectGuardTxSACreatedTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSAStartedTime": {
+    "name": "f3ConnectGuardTxSAStartedTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSAStoppedTime": {
+    "name": "f3ConnectGuardTxSAStoppedTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSATable": {
+    "name": "f3ConnectGuardRxSATable",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSAEntry": {
+    "name": "f3ConnectGuardRxSAEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSAIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardRxSAIndex": {
+    "name": "f3ConnectGuardRxSAIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSAState": {
+    "name": "f3ConnectGuardRxSAState",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScSaState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSANextPN": {
+    "name": "f3ConnectGuardRxSANextPN",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSASAKUnchanged": {
+    "name": "f3ConnectGuardRxSASAKUnchanged",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSACreatedTime": {
+    "name": "f3ConnectGuardRxSACreatedTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSAStartedTime": {
+    "name": "f3ConnectGuardRxSAStartedTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSAStoppedTime": {
+    "name": "f3ConnectGuardRxSAStoppedTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3FlowExtConnectGuardTable": {
+    "name": "f3FlowExtConnectGuardTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "f3FlowExtConnectGuardEntry": {
+    "name": "f3FlowExtConnectGuardEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f3FlowExtConnectGuardEntry",
+      "module": "F3-CONNECTGUARD-MIB",
+      "object": "cmFlowEntry"
+    },
+    "status": "deprecated"
+  },
+  "f3FlowRefConnectGuardFlowObject": {
+    "name": "f3FlowRefConnectGuardFlowObject",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3FlowSecureBlockingEnabled": {
+    "name": "f3FlowSecureBlockingEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3FlowSecureState": {
+    "name": "f3FlowSecureState",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowSecureState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardConfigScalars": {
+    "name": "f3ConnectGuardConfigScalars",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.8",
+    "class": "objectidentity"
+  },
+  "f3ConnectGuardPasswordScalars": {
+    "name": "f3ConnectGuardPasswordScalars",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.9",
+    "class": "objectidentity"
+  },
+  "f3ConnectGuardCryptoPassword": {
+    "name": "f3ConnectGuardCryptoPassword",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardRestoreFactoryApproved": {
+    "name": "f3ConnectGuardRestoreFactoryApproved",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardSoftwareVersionApproved": {
+    "name": "f3ConnectGuardSoftwareVersionApproved",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardSoftwareInstallApproved": {
+    "name": "f3ConnectGuardSoftwareInstallApproved",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardRestoreDatabaseApproved": {
+    "name": "f3ConnectGuardRestoreDatabaseApproved",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardConfigFileLoadApproved": {
+    "name": "f3ConnectGuardConfigFileLoadApproved",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardCryptoPasswordControl": {
+    "name": "f3ConnectGuardCryptoPasswordControl",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.1.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowStatsTable": {
+    "name": "f3ConnectGuardFlowStatsTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowStatsEntry": {
+    "name": "f3ConnectGuardFlowStatsEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardFlowStatsIndex": {
+    "name": "f3ConnectGuardFlowStatsIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowStatsIntervalType": {
+    "name": "f3ConnectGuardFlowStatsIntervalType",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmPmIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowStatsValid": {
+    "name": "f3ConnectGuardFlowStatsValid",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowStatsAction": {
+    "name": "f3ConnectGuardFlowStatsAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmPmBinAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowStatsTxUntaggedPkts": {
+    "name": "f3ConnectGuardFlowStatsTxUntaggedPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowStatsTxTooLongPkts": {
+    "name": "f3ConnectGuardFlowStatsTxTooLongPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowStatsRxUntaggedPkts": {
+    "name": "f3ConnectGuardFlowStatsRxUntaggedPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowStatsRxNotagPkts": {
+    "name": "f3ConnectGuardFlowStatsRxNotagPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowStatsRxBadtagPkts": {
+    "name": "f3ConnectGuardFlowStatsRxBadtagPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowStatsRxUnknownSCIPkts": {
+    "name": "f3ConnectGuardFlowStatsRxUnknownSCIPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowStatsRxNoSCIPkts": {
+    "name": "f3ConnectGuardFlowStatsRxNoSCIPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowStatsRxOverrunPkts": {
+    "name": "f3ConnectGuardFlowStatsRxOverrunPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowHistoryTable": {
+    "name": "f3ConnectGuardFlowHistoryTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowHistoryEntry": {
+    "name": "f3ConnectGuardFlowHistoryEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowStatsIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardFlowHistoryIndex": {
+    "name": "f3ConnectGuardFlowHistoryIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowHistoryTime": {
+    "name": "f3ConnectGuardFlowHistoryTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowHistoryValid": {
+    "name": "f3ConnectGuardFlowHistoryValid",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowHistoryAction": {
+    "name": "f3ConnectGuardFlowHistoryAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmPmBinAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowHistoryTxUntaggedPkts": {
+    "name": "f3ConnectGuardFlowHistoryTxUntaggedPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowHistoryTxTooLongPkts": {
+    "name": "f3ConnectGuardFlowHistoryTxTooLongPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowHistoryRxUntaggedPkts": {
+    "name": "f3ConnectGuardFlowHistoryRxUntaggedPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowHistoryRxNotagPkts": {
+    "name": "f3ConnectGuardFlowHistoryRxNotagPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowHistoryRxBadtagPkts": {
+    "name": "f3ConnectGuardFlowHistoryRxBadtagPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowHistoryRxUnknownSCIPkts": {
+    "name": "f3ConnectGuardFlowHistoryRxUnknownSCIPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowHistoryRxNoSCIPkts": {
+    "name": "f3ConnectGuardFlowHistoryRxNoSCIPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowHistoryRxOverrunPkts": {
+    "name": "f3ConnectGuardFlowHistoryRxOverrunPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowThresholdTable": {
+    "name": "f3ConnectGuardFlowThresholdTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowThresholdEntry": {
+    "name": "f3ConnectGuardFlowThresholdEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowStatsIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowThresholdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardFlowThresholdIndex": {
+    "name": "f3ConnectGuardFlowThresholdIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowThresholdInterval": {
+    "name": "f3ConnectGuardFlowThresholdInterval",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmPmIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowThresholdVariable": {
+    "name": "f3ConnectGuardFlowThresholdVariable",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowThresholdValueLo": {
+    "name": "f3ConnectGuardFlowThresholdValueLo",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowThresholdValueHi": {
+    "name": "f3ConnectGuardFlowThresholdValueHi",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowThresholdMonValue": {
+    "name": "f3ConnectGuardFlowThresholdMonValue",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCStatsTable": {
+    "name": "f3ConnectGuardTxSCStatsTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCStatsEntry": {
+    "name": "f3ConnectGuardTxSCStatsEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCStatsIndex": {
+    "name": "f3ConnectGuardTxSCStatsIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCStatsIntervalType": {
+    "name": "f3ConnectGuardTxSCStatsIntervalType",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmPmIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCStatsValid": {
+    "name": "f3ConnectGuardTxSCStatsValid",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCStatsAction": {
+    "name": "f3ConnectGuardTxSCStatsAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmPmBinAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCStatsTxProtectedPkts": {
+    "name": "f3ConnectGuardTxSCStatsTxProtectedPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCStatsTxEncryptedPkts": {
+    "name": "f3ConnectGuardTxSCStatsTxEncryptedPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCStatsTxOctetsProtected": {
+    "name": "f3ConnectGuardTxSCStatsTxOctetsProtected",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCStatsTxOctetsEncrypted": {
+    "name": "f3ConnectGuardTxSCStatsTxOctetsEncrypted",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCHistoryTable": {
+    "name": "f3ConnectGuardTxSCHistoryTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCHistoryEntry": {
+    "name": "f3ConnectGuardTxSCHistoryEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCStatsIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCHistoryIndex": {
+    "name": "f3ConnectGuardTxSCHistoryIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCHistoryTime": {
+    "name": "f3ConnectGuardTxSCHistoryTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCHistoryValid": {
+    "name": "f3ConnectGuardTxSCHistoryValid",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCHistoryAction": {
+    "name": "f3ConnectGuardTxSCHistoryAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmPmBinAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCHistoryTxProtectedPkts": {
+    "name": "f3ConnectGuardTxSCHistoryTxProtectedPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCHistoryTxEncryptedPkts": {
+    "name": "f3ConnectGuardTxSCHistoryTxEncryptedPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCHistoryTxOctetsProtected": {
+    "name": "f3ConnectGuardTxSCHistoryTxOctetsProtected",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCHistoryTxOctetsEncrypted": {
+    "name": "f3ConnectGuardTxSCHistoryTxOctetsEncrypted",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCThresholdTable": {
+    "name": "f3ConnectGuardTxSCThresholdTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCThresholdEntry": {
+    "name": "f3ConnectGuardTxSCThresholdEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCStatsIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCThresholdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCThresholdIndex": {
+    "name": "f3ConnectGuardTxSCThresholdIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCThresholdInterval": {
+    "name": "f3ConnectGuardTxSCThresholdInterval",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmPmIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCThresholdVariable": {
+    "name": "f3ConnectGuardTxSCThresholdVariable",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCThresholdValueLo": {
+    "name": "f3ConnectGuardTxSCThresholdValueLo",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCThresholdValueHi": {
+    "name": "f3ConnectGuardTxSCThresholdValueHi",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCThresholdMonValue": {
+    "name": "f3ConnectGuardTxSCThresholdMonValue",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCStatsTable": {
+    "name": "f3ConnectGuardRxSCStatsTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCStatsEntry": {
+    "name": "f3ConnectGuardRxSCStatsEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCStatsIndex": {
+    "name": "f3ConnectGuardRxSCStatsIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCStatsIntervalType": {
+    "name": "f3ConnectGuardRxSCStatsIntervalType",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmPmIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCStatsValid": {
+    "name": "f3ConnectGuardRxSCStatsValid",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCStatsAction": {
+    "name": "f3ConnectGuardRxSCStatsAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmPmBinAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCStatsRxUnusedSAPkts": {
+    "name": "f3ConnectGuardRxSCStatsRxUnusedSAPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCStatsRxNoUsingSAPkts": {
+    "name": "f3ConnectGuardRxSCStatsRxNoUsingSAPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCStatsRxLatePkts": {
+    "name": "f3ConnectGuardRxSCStatsRxLatePkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCStatsRxNotValidPkts": {
+    "name": "f3ConnectGuardRxSCStatsRxNotValidPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCStatsRxInvalidPkts": {
+    "name": "f3ConnectGuardRxSCStatsRxInvalidPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCStatsRxDelayedPkts": {
+    "name": "f3ConnectGuardRxSCStatsRxDelayedPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCStatsRxUncheckedPkts": {
+    "name": "f3ConnectGuardRxSCStatsRxUncheckedPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCStatsRxOKPkts": {
+    "name": "f3ConnectGuardRxSCStatsRxOKPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCStatsRxOctetsValidated": {
+    "name": "f3ConnectGuardRxSCStatsRxOctetsValidated",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCStatsRxOctetsDecrypted": {
+    "name": "f3ConnectGuardRxSCStatsRxOctetsDecrypted",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCHistoryTable": {
+    "name": "f3ConnectGuardRxSCHistoryTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCHistoryEntry": {
+    "name": "f3ConnectGuardRxSCHistoryEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCStatsIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCHistoryIndex": {
+    "name": "f3ConnectGuardRxSCHistoryIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCHistoryTime": {
+    "name": "f3ConnectGuardRxSCHistoryTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCHistoryValid": {
+    "name": "f3ConnectGuardRxSCHistoryValid",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCHistoryAction": {
+    "name": "f3ConnectGuardRxSCHistoryAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmPmBinAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCHistoryRxUnusedSAPkts": {
+    "name": "f3ConnectGuardRxSCHistoryRxUnusedSAPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCHistoryRxNoUsingSAPkts": {
+    "name": "f3ConnectGuardRxSCHistoryRxNoUsingSAPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCHistoryRxLatePkts": {
+    "name": "f3ConnectGuardRxSCHistoryRxLatePkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCHistoryRxNotValidPkts": {
+    "name": "f3ConnectGuardRxSCHistoryRxNotValidPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCHistoryRxInvalidPkts": {
+    "name": "f3ConnectGuardRxSCHistoryRxInvalidPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCHistoryRxDelayedPkts": {
+    "name": "f3ConnectGuardRxSCHistoryRxDelayedPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCHistoryRxUncheckedPkts": {
+    "name": "f3ConnectGuardRxSCHistoryRxUncheckedPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCHistoryRxOKPkts": {
+    "name": "f3ConnectGuardRxSCHistoryRxOKPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCHistoryRxOctetsValidated": {
+    "name": "f3ConnectGuardRxSCHistoryRxOctetsValidated",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCHistoryRxOctetsDecrypted": {
+    "name": "f3ConnectGuardRxSCHistoryRxOctetsDecrypted",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCThresholdTable": {
+    "name": "f3ConnectGuardRxSCThresholdTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCThresholdEntry": {
+    "name": "f3ConnectGuardRxSCThresholdEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCStatsIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCThresholdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCThresholdIndex": {
+    "name": "f3ConnectGuardRxSCThresholdIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCThresholdInterval": {
+    "name": "f3ConnectGuardRxSCThresholdInterval",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmPmIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCThresholdVariable": {
+    "name": "f3ConnectGuardRxSCThresholdVariable",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCThresholdValueLo": {
+    "name": "f3ConnectGuardRxSCThresholdValueLo",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCThresholdValueHi": {
+    "name": "f3ConnectGuardRxSCThresholdValueHi",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCThresholdMonValue": {
+    "name": "f3ConnectGuardRxSCThresholdMonValue",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSAStatsTable": {
+    "name": "f3ConnectGuardTxSAStatsTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSAStatsEntry": {
+    "name": "f3ConnectGuardTxSAStatsEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSAIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardTxSAStatsProtectedPkts": {
+    "name": "f3ConnectGuardTxSAStatsProtectedPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardTxSAStatsEncryptedPkts": {
+    "name": "f3ConnectGuardTxSAStatsEncryptedPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSAStatsTable": {
+    "name": "f3ConnectGuardRxSAStatsTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSAStatsEntry": {
+    "name": "f3ConnectGuardRxSAStatsEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSAIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardRxSAStatsUnusedSAPkts": {
+    "name": "f3ConnectGuardRxSAStatsUnusedSAPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSAStatsNoUsingSAPkts": {
+    "name": "f3ConnectGuardRxSAStatsNoUsingSAPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSAStatsNotValidPkts": {
+    "name": "f3ConnectGuardRxSAStatsNotValidPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSAStatsInvalidPkts": {
+    "name": "f3ConnectGuardRxSAStatsInvalidPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardRxSAStatsOKPkts": {
+    "name": "f3ConnectGuardRxSAStatsOKPkts",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.2.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConnectGuardFlowThresholdCrossingAlert": {
+    "name": "f3ConnectGuardFlowThresholdCrossingAlert",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowThresholdIndex"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowThresholdInterval"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowThresholdVariable"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowThresholdValueLo"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowThresholdValueHi"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowThresholdMonValue"
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardTxSCThresholdCrossingAlert": {
+    "name": "f3ConnectGuardTxSCThresholdCrossingAlert",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCThresholdIndex"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCThresholdInterval"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCThresholdVariable"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCThresholdValueLo"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCThresholdValueHi"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCThresholdMonValue"
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardRxSCThresholdCrossingAlert": {
+    "name": "f3ConnectGuardRxSCThresholdCrossingAlert",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCThresholdIndex"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCThresholdInterval"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCThresholdVariable"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCThresholdValueLo"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCThresholdValueHi"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCThresholdMonValue"
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardStateChangeTrap": {
+    "name": "f3ConnectGuardStateChangeTrap",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3FlowSecureState"
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardCompliances": {
+    "name": "f3ConnectGuardCompliances",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.4.1",
+    "class": "objectidentity"
+  },
+  "f3ConnectGuardGroups": {
+    "name": "f3ConnectGuardGroups",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.4.2",
+    "class": "objectidentity"
+  },
+  "f3ConnectGuardCompliance": {
+    "name": "f3ConnectGuardCompliance",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "f3ConnectGuardObjectsGroup",
+        "module": "F3-CONNECTGUARD-MIB"
+      },
+      {
+        "object": "f3ConnectGuardPerfGroup",
+        "module": "F3-CONNECTGUARD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardObjectsGroup": {
+    "name": "f3ConnectGuardObjectsGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowIndex"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowEgressInterface"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowAdminState"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowSecondaryState"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowOperationalState"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowCipherSuite"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowKeyExchangeProfile"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowKeyExchangeFrameTagControl"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowKeyExchangeFrameOuterVlanEnabled"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowKeyExchangeFrameOuterVlanId"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowKeyExchangeFrameOuterVlanPriority"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowKeyExchangeFrameInner1VlanEnabled"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowKeyExchangeFrameInner1VlanId"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowKeyExchangeFrameInner1VlanPriority"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowKeyExchangeFrameInner2VlanEnabled"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowKeyExchangeFrameInner2VlanId"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowKeyExchangeFrameInner2VlanPriority"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowKeyExchangeInterval"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowTagsClear"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowStorageType"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowRowStatus"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowKeyXchgFailsCounts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowAction"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowReplayProtectionEnabled"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowReplayProtectionWindow"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowRemoteMacAddrEnabled"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowRemoteMacAddr"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowAssociatedMep"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowAlias"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowKeyExchangeFrameOuterVlanEtherType"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowKeyExchangeFrameInner1VlanEtherType"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowKeyExchangeFrameInner2VlanEtherType"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowKeyInjectFlowPoint"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardKeyExchangeProfileIndex"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardKeyExchangeProfileName"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardKeyExchangeProfileUserId"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardKeyExchangeProfileMode"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardKeyExchangeProfileAuthPassword"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardKeyExchangeProfileDiffieHellmanKeyPairLen"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardKeyExchangeProfileStorageType"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardKeyExchangeProfileRowStatus"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCIndex"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCI"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxScState"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardCurrentTxSa"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardPreviousTxSa"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxScCreateTime"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxScStartTime"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxScStopTime"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCIndex"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCI"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxScState"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardCurrentRxSa"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxScCreateTime"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxScStartTime"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxScStopTime"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSAIndex"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSAState"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSANextPN"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSASAKUnchanged"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSACreatedTime"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSAStartedTime"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSAStoppedTime"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSAIndex"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSAState"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSANextPN"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSASAKUnchanged"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSACreatedTime"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSAStartedTime"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSAStoppedTime"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardCryptoPassword"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRestoreFactoryApproved"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardSoftwareVersionApproved"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardSoftwareInstallApproved"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRestoreDatabaseApproved"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardConfigFileLoadApproved"
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardPerfGroup": {
+    "name": "f3ConnectGuardPerfGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.36.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowStatsIndex"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowStatsIntervalType"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowStatsValid"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowStatsAction"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowStatsTxUntaggedPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowStatsTxTooLongPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowStatsRxUntaggedPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowStatsRxNotagPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowStatsRxBadtagPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowStatsRxUnknownSCIPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowStatsRxNoSCIPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowStatsRxOverrunPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowHistoryIndex"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowHistoryTime"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowHistoryValid"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowHistoryAction"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowHistoryTxUntaggedPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowHistoryTxTooLongPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowHistoryRxUntaggedPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowHistoryRxNotagPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowHistoryRxBadtagPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowHistoryRxUnknownSCIPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowHistoryRxNoSCIPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowHistoryRxOverrunPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowThresholdIndex"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowThresholdInterval"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowThresholdVariable"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowThresholdValueLo"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowThresholdValueHi"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardFlowThresholdMonValue"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCStatsIndex"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCStatsIntervalType"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCStatsValid"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCStatsAction"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCStatsTxProtectedPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCStatsTxEncryptedPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCStatsTxOctetsProtected"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCStatsTxOctetsEncrypted"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCHistoryIndex"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCHistoryTime"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCHistoryValid"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCHistoryAction"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCHistoryTxProtectedPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCHistoryTxEncryptedPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCHistoryTxOctetsProtected"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCHistoryTxOctetsEncrypted"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCThresholdIndex"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCThresholdInterval"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCThresholdVariable"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCThresholdValueLo"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCThresholdValueHi"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSCThresholdMonValue"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCStatsIndex"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCStatsIntervalType"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCStatsValid"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCStatsAction"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCStatsRxUnusedSAPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCStatsRxNoUsingSAPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCStatsRxLatePkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCStatsRxNotValidPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCStatsRxInvalidPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCStatsRxDelayedPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCStatsRxUncheckedPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCStatsRxOKPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCStatsRxOctetsValidated"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCStatsRxOctetsDecrypted"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCHistoryIndex"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCHistoryTime"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCHistoryValid"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCHistoryAction"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCHistoryRxUnusedSAPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCHistoryRxNoUsingSAPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCHistoryRxLatePkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCHistoryRxNotValidPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCHistoryRxInvalidPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCHistoryRxDelayedPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCHistoryRxUncheckedPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCHistoryRxOKPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCHistoryRxOctetsValidated"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCHistoryRxOctetsDecrypted"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCThresholdIndex"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCThresholdInterval"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCThresholdVariable"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCThresholdValueLo"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCThresholdValueHi"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSCThresholdMonValue"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSAStatsProtectedPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardTxSAStatsEncryptedPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSAStatsUnusedSAPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSAStatsNoUsingSAPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSAStatsNotValidPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSAStatsInvalidPkts"
+      },
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "object": "f3ConnectGuardRxSAStatsOKPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-CONNECTGUARD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "F3-CONNECTGUARD-MIB"
+  }
+}

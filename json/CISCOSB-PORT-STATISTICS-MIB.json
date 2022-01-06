@@ -1,0 +1,806 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOSB-MIB": [
+      "switch001"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "rlPortStat": {
+    "name": "rlPortStat",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-04-06 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "PortStatisticsSubType": {
+    "name": "PortStatisticsSubType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "second": 1,
+          "minute": 2,
+          "hour": 3,
+          "day": 4,
+          "week": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PortStatisticsSampleClockSource": {
+    "name": "PortStatisticsSampleClockSource",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1,
+          "sntp": 2,
+          "userDefined": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PortStatisticsCounterName": {
+    "name": "PortStatisticsCounterName",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "anyCounter": 0,
+          "unicastFrameSent": 1,
+          "broadcastFrameSent": 2,
+          "multicastFrameSent": 3,
+          "goodOctetsSent": 4,
+          "txUtilization": 5,
+          "goodUnicastFrameReceived": 6,
+          "broadcastFrameReceived": 7,
+          "multicastFrameReceived": 8,
+          "rxErrorFrameReceived": 9,
+          "totalOctetsReceived": 10,
+          "rxUtilization": 11,
+          "txRxUtilization": 12,
+          "frames64B": 13,
+          "frames65To127B": 14,
+          "frames128To255B": 15,
+          "frames256To511B": 16,
+          "frames512To1023B": 17,
+          "frames1024To1518B": 18,
+          "dot3StatsFCSErrors": 19,
+          "dot3StatsSingleCollisionFrames": 20,
+          "dot3StatsLateCollisions": 21,
+          "dot3StatsExcessiveCollisions": 22,
+          "dot3StatsFrameTooLongs": 23,
+          "dot3StatsInternalMacReceiveErrors": 24,
+          "dot3InPauseFrames": 25,
+          "dot3OutPauseFrames": 26,
+          "etherStatsDropEvents": 27,
+          "etherStatsCRCAlignErrors": 28,
+          "etherStatsUndersizePkts": 29,
+          "etherStatsOversizePkts": 30,
+          "etherStatsFragments": 31,
+          "etherStatsJabbers": 32,
+          "etherStatsCollisions": 33,
+          "goodOctetsReceived": 34,
+          "badOctetsReceived": 35,
+          "goodFrameSent": 36,
+          "goodFrameReceived": 37,
+          "snaPortUtilizationRxColor": 38,
+          "snaPortUtilizationTxColor": 39,
+          "poePowerConsumption": 40,
+          "poePowerSavings": 41,
+          "poeOverload": 42,
+          "poeShort": 43,
+          "poeDenied": 44,
+          "poeAbsent": 45,
+          "poeInvalidSignature": 46,
+          "lastCounterSpecifier": 47
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlPortStatEnabledPorts": {
+    "name": "rlPortStatEnabledPorts",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPortStatClearPorts": {
+    "name": "rlPortStatClearPorts",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPortStatSampleTable": {
+    "name": "rlPortStatSampleTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPortStatSampleEntry": {
+    "name": "rlPortStatSampleEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-PORT-STATISTICS-MIB",
+        "object": "rlPortStatSampleIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-PORT-STATISTICS-MIB",
+        "object": "rlPortStatSampleStatSubType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-PORT-STATISTICS-MIB",
+        "object": "rlPortStatSampleCounterName",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-PORT-STATISTICS-MIB",
+        "object": "rlPortStatSampleStatID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPortStatSampleIfIndex": {
+    "name": "rlPortStatSampleIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPortStatSampleStatSubType": {
+    "name": "rlPortStatSampleStatSubType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortStatisticsSubType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPortStatSampleCounterName": {
+    "name": "rlPortStatSampleCounterName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortStatisticsCounterName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPortStatSampleStatID": {
+    "name": "rlPortStatSampleStatID",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPortStatSampleCollectionInterval": {
+    "name": "rlPortStatSampleCollectionInterval",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatSampleSystemCollectionTime": {
+    "name": "rlPortStatSampleSystemCollectionTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatSampleCollectionTime": {
+    "name": "rlPortStatSampleCollectionTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatSampleCollectionTimeStr": {
+    "name": "rlPortStatSampleCollectionTimeStr",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatSampleCounterValue": {
+    "name": "rlPortStatSampleCounterValue",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatSamplePartialFlag": {
+    "name": "rlPortStatSamplePartialFlag",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatSampleClockSource": {
+    "name": "rlPortStatSampleClockSource",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortStatisticsSampleClockSource",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatLastSampleTable": {
+    "name": "rlPortStatLastSampleTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPortStatLastSampleEntry": {
+    "name": "rlPortStatLastSampleEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-PORT-STATISTICS-MIB",
+        "object": "rlPortStatLastSampleIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-PORT-STATISTICS-MIB",
+        "object": "rlPortStatLastSampleStatSubType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-PORT-STATISTICS-MIB",
+        "object": "rlPortStatLastSampleCounterName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPortStatLastSampleIfIndex": {
+    "name": "rlPortStatLastSampleIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPortStatLastSampleStatSubType": {
+    "name": "rlPortStatLastSampleStatSubType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortStatisticsSubType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPortStatLastSampleCounterName": {
+    "name": "rlPortStatLastSampleCounterName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortStatisticsCounterName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPortStatLastSampleStatID": {
+    "name": "rlPortStatLastSampleStatID",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatLastSampleCollectionInterval": {
+    "name": "rlPortStatLastSampleCollectionInterval",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatLastSampleSystemCollectionTime": {
+    "name": "rlPortStatLastSampleSystemCollectionTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatLastSampleCollectionTime": {
+    "name": "rlPortStatLastSampleCollectionTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatLastSampleCollectionTimeStr": {
+    "name": "rlPortStatLastSampleCollectionTimeStr",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatLastSampleCounterValue": {
+    "name": "rlPortStatLastSampleCounterValue",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatLastSamplePartialFlag": {
+    "name": "rlPortStatLastSamplePartialFlag",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatLastSampleClockSource": {
+    "name": "rlPortStatLastSampleClockSource",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortStatisticsSampleClockSource",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatLastEventTable": {
+    "name": "rlPortStatLastEventTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPortStatLastEventEntry": {
+    "name": "rlPortStatLastEventEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-PORT-STATISTICS-MIB",
+        "object": "rlPortStatLastEventIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-PORT-STATISTICS-MIB",
+        "object": "rlPortStatLastEventCounterName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPortStatLastEventIfIndex": {
+    "name": "rlPortStatLastEventIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPortStatLastEventCounterName": {
+    "name": "rlPortStatLastEventCounterName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortStatisticsCounterName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPortStatLastEventSystemTime": {
+    "name": "rlPortStatLastEventSystemTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatLastEventPosixTime": {
+    "name": "rlPortStatLastEventPosixTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatLastEventTimeStr": {
+    "name": "rlPortStatLastEventTimeStr",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatLastEventCounter": {
+    "name": "rlPortStatLastEventCounter",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortStatisticsCounterName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatLastEventCounterValue": {
+    "name": "rlPortStatLastEventCounterValue",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatClearPOEConsumptionPorts": {
+    "name": "rlPortStatClearPOEConsumptionPorts",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPortStatPOECumulativeEnergySaved": {
+    "name": "rlPortStatPOECumulativeEnergySaved",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Watt*Hour",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatGreenEthCumulativeEnergySaved": {
+    "name": "rlPortStatGreenEthCumulativeEnergySaved",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Watt*Hour",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatGreenEthEstimatedAnnualEnergySaved": {
+    "name": "rlPortStatGreenEthEstimatedAnnualEnergySaved",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Watt*Hour",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatClearPortEventsCategory": {
+    "name": "rlPortStatClearPortEventsCategory",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "macCounters": 1,
+          "poeCounters": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPortStatClearPortEvents": {
+    "name": "rlPortStatClearPortEvents",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPortStatPOEEstimatedAnnualEnergySaved": {
+    "name": "rlPortStatPOEEstimatedAnnualEnergySaved",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Watt*Hour",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatPOEEstimatedAnnualEnergySavedAvailable": {
+    "name": "rlPortStatPOEEstimatedAnnualEnergySavedAvailable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatGreenEthEstimatedAnnualEnergySavedAvailable": {
+    "name": "rlPortStatGreenEthEstimatedAnnualEnergySavedAvailable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatPOECurrentEnergySaved": {
+    "name": "rlPortStatPOECurrentEnergySaved",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Watt*Hour",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPortStatClearGreenEthCumulativeEnergySaved": {
+    "name": "rlPortStatClearGreenEthCumulativeEnergySaved",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPortStatEnabled": {
+    "name": "rlPortStatEnabled",
+    "oid": "1.3.6.1.4.1.9.6.1.101.223.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-PORT-STATISTICS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCOSB-PORT-STATISTICS-MIB"
+  }
+}

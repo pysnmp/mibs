@@ -1,0 +1,1738 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "mib-2",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "mgmdStdMIB": {
+    "name": "mgmdStdMIB",
+    "oid": "1.3.6.1.2.1.185",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-03-30 00:00",
+        "description": "This MIB obsoletes both RFC 2933 and RFC 3019."
+      }
+    ]
+  },
+  "mgmdMIBObjects": {
+    "name": "mgmdMIBObjects",
+    "oid": "1.3.6.1.2.1.185.1",
+    "class": "objectidentity"
+  },
+  "mgmdHostInterfaceTable": {
+    "name": "mgmdHostInterfaceTable",
+    "oid": "1.3.6.1.2.1.185.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdHostInterfaceEntry": {
+    "name": "mgmdHostInterfaceEntry",
+    "oid": "1.3.6.1.2.1.185.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdHostInterfaceIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdHostInterfaceQuerierType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdHostInterfaceIfIndex": {
+    "name": "mgmdHostInterfaceIfIndex",
+    "oid": "1.3.6.1.2.1.185.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdHostInterfaceQuerierType": {
+    "name": "mgmdHostInterfaceQuerierType",
+    "oid": "1.3.6.1.2.1.185.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdHostInterfaceQuerier": {
+    "name": "mgmdHostInterfaceQuerier",
+    "oid": "1.3.6.1.2.1.185.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdHostInterfaceStatus": {
+    "name": "mgmdHostInterfaceStatus",
+    "oid": "1.3.6.1.2.1.185.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgmdHostInterfaceVersion": {
+    "name": "mgmdHostInterfaceVersion",
+    "oid": "1.3.6.1.2.1.185.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgmdHostInterfaceVersion1QuerierTimer": {
+    "name": "mgmdHostInterfaceVersion1QuerierTimer",
+    "oid": "1.3.6.1.2.1.185.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdHostInterfaceVersion2QuerierTimer": {
+    "name": "mgmdHostInterfaceVersion2QuerierTimer",
+    "oid": "1.3.6.1.2.1.185.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdHostInterfaceVersion3Robustness": {
+    "name": "mgmdHostInterfaceVersion3Robustness",
+    "oid": "1.3.6.1.2.1.185.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgmdRouterInterfaceTable": {
+    "name": "mgmdRouterInterfaceTable",
+    "oid": "1.3.6.1.2.1.185.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdRouterInterfaceEntry": {
+    "name": "mgmdRouterInterfaceEntry",
+    "oid": "1.3.6.1.2.1.185.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterInterfaceIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterInterfaceQuerierType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdRouterInterfaceIfIndex": {
+    "name": "mgmdRouterInterfaceIfIndex",
+    "oid": "1.3.6.1.2.1.185.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdRouterInterfaceQuerierType": {
+    "name": "mgmdRouterInterfaceQuerierType",
+    "oid": "1.3.6.1.2.1.185.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdRouterInterfaceQuerier": {
+    "name": "mgmdRouterInterfaceQuerier",
+    "oid": "1.3.6.1.2.1.185.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdRouterInterfaceQueryInterval": {
+    "name": "mgmdRouterInterfaceQueryInterval",
+    "oid": "1.3.6.1.2.1.185.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31744
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 125,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgmdRouterInterfaceStatus": {
+    "name": "mgmdRouterInterfaceStatus",
+    "oid": "1.3.6.1.2.1.185.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgmdRouterInterfaceVersion": {
+    "name": "mgmdRouterInterfaceVersion",
+    "oid": "1.3.6.1.2.1.185.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgmdRouterInterfaceQueryMaxResponseTime": {
+    "name": "mgmdRouterInterfaceQueryMaxResponseTime",
+    "oid": "1.3.6.1.2.1.185.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31744
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "tenths of seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgmdRouterInterfaceQuerierUpTime": {
+    "name": "mgmdRouterInterfaceQuerierUpTime",
+    "oid": "1.3.6.1.2.1.185.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdRouterInterfaceQuerierExpiryTime": {
+    "name": "mgmdRouterInterfaceQuerierExpiryTime",
+    "oid": "1.3.6.1.2.1.185.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdRouterInterfaceWrongVersionQueries": {
+    "name": "mgmdRouterInterfaceWrongVersionQueries",
+    "oid": "1.3.6.1.2.1.185.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdRouterInterfaceJoins": {
+    "name": "mgmdRouterInterfaceJoins",
+    "oid": "1.3.6.1.2.1.185.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdRouterInterfaceProxyIfIndex": {
+    "name": "mgmdRouterInterfaceProxyIfIndex",
+    "oid": "1.3.6.1.2.1.185.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgmdRouterInterfaceGroups": {
+    "name": "mgmdRouterInterfaceGroups",
+    "oid": "1.3.6.1.2.1.185.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdRouterInterfaceRobustness": {
+    "name": "mgmdRouterInterfaceRobustness",
+    "oid": "1.3.6.1.2.1.185.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgmdRouterInterfaceLastMemberQueryInterval": {
+    "name": "mgmdRouterInterfaceLastMemberQueryInterval",
+    "oid": "1.3.6.1.2.1.185.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31744
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "tenths of seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgmdRouterInterfaceLastMemberQueryCount": {
+    "name": "mgmdRouterInterfaceLastMemberQueryCount",
+    "oid": "1.3.6.1.2.1.185.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdRouterInterfaceStartupQueryCount": {
+    "name": "mgmdRouterInterfaceStartupQueryCount",
+    "oid": "1.3.6.1.2.1.185.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdRouterInterfaceStartupQueryInterval": {
+    "name": "mgmdRouterInterfaceStartupQueryInterval",
+    "oid": "1.3.6.1.2.1.185.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31744
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdHostCacheTable": {
+    "name": "mgmdHostCacheTable",
+    "oid": "1.3.6.1.2.1.185.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdHostCacheEntry": {
+    "name": "mgmdHostCacheEntry",
+    "oid": "1.3.6.1.2.1.185.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdHostCacheAddressType",
+        "implied": 0
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdHostCacheAddress",
+        "implied": 0
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdHostCacheIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdHostCacheAddressType": {
+    "name": "mgmdHostCacheAddressType",
+    "oid": "1.3.6.1.2.1.185.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdHostCacheAddress": {
+    "name": "mgmdHostCacheAddress",
+    "oid": "1.3.6.1.2.1.185.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdHostCacheIfIndex": {
+    "name": "mgmdHostCacheIfIndex",
+    "oid": "1.3.6.1.2.1.185.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdHostCacheUpTime": {
+    "name": "mgmdHostCacheUpTime",
+    "oid": "1.3.6.1.2.1.185.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdHostCacheLastReporter": {
+    "name": "mgmdHostCacheLastReporter",
+    "oid": "1.3.6.1.2.1.185.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdHostCacheSourceFilterMode": {
+    "name": "mgmdHostCacheSourceFilterMode",
+    "oid": "1.3.6.1.2.1.185.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "include": 1,
+          "exclude": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdRouterCacheTable": {
+    "name": "mgmdRouterCacheTable",
+    "oid": "1.3.6.1.2.1.185.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdRouterCacheEntry": {
+    "name": "mgmdRouterCacheEntry",
+    "oid": "1.3.6.1.2.1.185.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterCacheAddressType",
+        "implied": 0
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterCacheAddress",
+        "implied": 0
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterCacheIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdRouterCacheAddressType": {
+    "name": "mgmdRouterCacheAddressType",
+    "oid": "1.3.6.1.2.1.185.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdRouterCacheAddress": {
+    "name": "mgmdRouterCacheAddress",
+    "oid": "1.3.6.1.2.1.185.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdRouterCacheIfIndex": {
+    "name": "mgmdRouterCacheIfIndex",
+    "oid": "1.3.6.1.2.1.185.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdRouterCacheLastReporter": {
+    "name": "mgmdRouterCacheLastReporter",
+    "oid": "1.3.6.1.2.1.185.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdRouterCacheUpTime": {
+    "name": "mgmdRouterCacheUpTime",
+    "oid": "1.3.6.1.2.1.185.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdRouterCacheExpiryTime": {
+    "name": "mgmdRouterCacheExpiryTime",
+    "oid": "1.3.6.1.2.1.185.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdRouterCacheExcludeModeExpiryTimer": {
+    "name": "mgmdRouterCacheExcludeModeExpiryTimer",
+    "oid": "1.3.6.1.2.1.185.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdRouterCacheVersion1HostTimer": {
+    "name": "mgmdRouterCacheVersion1HostTimer",
+    "oid": "1.3.6.1.2.1.185.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdRouterCacheVersion2HostTimer": {
+    "name": "mgmdRouterCacheVersion2HostTimer",
+    "oid": "1.3.6.1.2.1.185.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdRouterCacheSourceFilterMode": {
+    "name": "mgmdRouterCacheSourceFilterMode",
+    "oid": "1.3.6.1.2.1.185.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "include": 1,
+          "exclude": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdInverseHostCacheTable": {
+    "name": "mgmdInverseHostCacheTable",
+    "oid": "1.3.6.1.2.1.185.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdInverseHostCacheEntry": {
+    "name": "mgmdInverseHostCacheEntry",
+    "oid": "1.3.6.1.2.1.185.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdInverseHostCacheIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdInverseHostCacheAddressType",
+        "implied": 0
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdInverseHostCacheAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdInverseHostCacheIfIndex": {
+    "name": "mgmdInverseHostCacheIfIndex",
+    "oid": "1.3.6.1.2.1.185.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdInverseHostCacheAddressType": {
+    "name": "mgmdInverseHostCacheAddressType",
+    "oid": "1.3.6.1.2.1.185.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdInverseHostCacheAddress": {
+    "name": "mgmdInverseHostCacheAddress",
+    "oid": "1.3.6.1.2.1.185.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdInverseRouterCacheTable": {
+    "name": "mgmdInverseRouterCacheTable",
+    "oid": "1.3.6.1.2.1.185.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdInverseRouterCacheEntry": {
+    "name": "mgmdInverseRouterCacheEntry",
+    "oid": "1.3.6.1.2.1.185.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdInverseRouterCacheIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdInverseRouterCacheAddressType",
+        "implied": 0
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdInverseRouterCacheAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdInverseRouterCacheIfIndex": {
+    "name": "mgmdInverseRouterCacheIfIndex",
+    "oid": "1.3.6.1.2.1.185.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdInverseRouterCacheAddressType": {
+    "name": "mgmdInverseRouterCacheAddressType",
+    "oid": "1.3.6.1.2.1.185.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdInverseRouterCacheAddress": {
+    "name": "mgmdInverseRouterCacheAddress",
+    "oid": "1.3.6.1.2.1.185.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdHostSrcListTable": {
+    "name": "mgmdHostSrcListTable",
+    "oid": "1.3.6.1.2.1.185.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdHostSrcListEntry": {
+    "name": "mgmdHostSrcListEntry",
+    "oid": "1.3.6.1.2.1.185.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdHostSrcListAddressType",
+        "implied": 0
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdHostSrcListAddress",
+        "implied": 0
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdHostSrcListIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdHostSrcListHostAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdHostSrcListAddressType": {
+    "name": "mgmdHostSrcListAddressType",
+    "oid": "1.3.6.1.2.1.185.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdHostSrcListAddress": {
+    "name": "mgmdHostSrcListAddress",
+    "oid": "1.3.6.1.2.1.185.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdHostSrcListIfIndex": {
+    "name": "mgmdHostSrcListIfIndex",
+    "oid": "1.3.6.1.2.1.185.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdHostSrcListHostAddress": {
+    "name": "mgmdHostSrcListHostAddress",
+    "oid": "1.3.6.1.2.1.185.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdHostSrcListExpire": {
+    "name": "mgmdHostSrcListExpire",
+    "oid": "1.3.6.1.2.1.185.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdRouterSrcListTable": {
+    "name": "mgmdRouterSrcListTable",
+    "oid": "1.3.6.1.2.1.185.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdRouterSrcListEntry": {
+    "name": "mgmdRouterSrcListEntry",
+    "oid": "1.3.6.1.2.1.185.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterSrcListAddressType",
+        "implied": 0
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterSrcListAddress",
+        "implied": 0
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterSrcListIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterSrcListHostAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdRouterSrcListAddressType": {
+    "name": "mgmdRouterSrcListAddressType",
+    "oid": "1.3.6.1.2.1.185.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdRouterSrcListAddress": {
+    "name": "mgmdRouterSrcListAddress",
+    "oid": "1.3.6.1.2.1.185.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdRouterSrcListIfIndex": {
+    "name": "mgmdRouterSrcListIfIndex",
+    "oid": "1.3.6.1.2.1.185.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdRouterSrcListHostAddress": {
+    "name": "mgmdRouterSrcListHostAddress",
+    "oid": "1.3.6.1.2.1.185.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgmdRouterSrcListExpire": {
+    "name": "mgmdRouterSrcListExpire",
+    "oid": "1.3.6.1.2.1.185.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmdMIBConformance": {
+    "name": "mgmdMIBConformance",
+    "oid": "1.3.6.1.2.1.185.2",
+    "class": "objectidentity"
+  },
+  "mgmdMIBCompliance": {
+    "name": "mgmdMIBCompliance",
+    "oid": "1.3.6.1.2.1.185.2.1",
+    "class": "objectidentity"
+  },
+  "mgmdMIBGroups": {
+    "name": "mgmdMIBGroups",
+    "oid": "1.3.6.1.2.1.185.2.2",
+    "class": "objectidentity"
+  },
+  "mgmdIgmpV1HostReadMIBCompliance": {
+    "name": "mgmdIgmpV1HostReadMIBCompliance",
+    "oid": "1.3.6.1.2.1.185.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mgmdHostBaseMIBGroup",
+        "module": "MGMD-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdIgmpV1RouterReadMIBCompliance": {
+    "name": "mgmdIgmpV1RouterReadMIBCompliance",
+    "oid": "1.3.6.1.2.1.185.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mgmdRouterBaseMIBGroup",
+        "module": "MGMD-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdIgmpV1RouterWriteMIBCompliance": {
+    "name": "mgmdIgmpV1RouterWriteMIBCompliance",
+    "oid": "1.3.6.1.2.1.185.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mgmdRouterBaseMIBGroup",
+        "module": "MGMD-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdIgmpV2MldV1HostReadMIBCompliance": {
+    "name": "mgmdIgmpV2MldV1HostReadMIBCompliance",
+    "oid": "1.3.6.1.2.1.185.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mgmdHostBaseMIBGroup",
+        "module": "MGMD-STD-MIB"
+      },
+      {
+        "object": "mgmdV2HostMIBGroup",
+        "module": "MGMD-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdIgmpV2MldV1HostWriteMIBCompliance": {
+    "name": "mgmdIgmpV2MldV1HostWriteMIBCompliance",
+    "oid": "1.3.6.1.2.1.185.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mgmdHostBaseMIBGroup",
+        "module": "MGMD-STD-MIB"
+      },
+      {
+        "object": "mgmdV2HostMIBGroup",
+        "module": "MGMD-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdIgmpV2MldV1RouterReadMIBCompliance": {
+    "name": "mgmdIgmpV2MldV1RouterReadMIBCompliance",
+    "oid": "1.3.6.1.2.1.185.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mgmdRouterBaseMIBGroup",
+        "module": "MGMD-STD-MIB"
+      },
+      {
+        "object": "mgmdV2RouterBaseMIBGroup",
+        "module": "MGMD-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdIgmpV2V3MldV1V2RouterWriteMIBCompliance": {
+    "name": "mgmdIgmpV2V3MldV1V2RouterWriteMIBCompliance",
+    "oid": "1.3.6.1.2.1.185.2.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mgmdRouterBaseMIBGroup",
+        "module": "MGMD-STD-MIB"
+      },
+      {
+        "object": "mgmdV2RouterBaseMIBGroup",
+        "module": "MGMD-STD-MIB"
+      },
+      {
+        "object": "mgmdV2ProxyMIBGroup",
+        "module": "MGMD-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdIgmpV3MldV2HostReadMIBCompliance": {
+    "name": "mgmdIgmpV3MldV2HostReadMIBCompliance",
+    "oid": "1.3.6.1.2.1.185.2.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mgmdHostBaseMIBGroup",
+        "module": "MGMD-STD-MIB"
+      },
+      {
+        "object": "mgmdV2HostMIBGroup",
+        "module": "MGMD-STD-MIB"
+      },
+      {
+        "object": "mgmdV3HostMIBGroup",
+        "module": "MGMD-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdIgmpV3MldV2HostWriteMIBCompliance": {
+    "name": "mgmdIgmpV3MldV2HostWriteMIBCompliance",
+    "oid": "1.3.6.1.2.1.185.2.1.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mgmdHostBaseMIBGroup",
+        "module": "MGMD-STD-MIB"
+      },
+      {
+        "object": "mgmdV2HostMIBGroup",
+        "module": "MGMD-STD-MIB"
+      },
+      {
+        "object": "mgmdV3HostMIBGroup",
+        "module": "MGMD-STD-MIB"
+      },
+      {
+        "object": "mgmdHostExtendedMIBGroup",
+        "module": "MGMD-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdIgmpV3MldV2RouterReadMIBCompliance": {
+    "name": "mgmdIgmpV3MldV2RouterReadMIBCompliance",
+    "oid": "1.3.6.1.2.1.185.2.1.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mgmdRouterBaseMIBGroup",
+        "module": "MGMD-STD-MIB"
+      },
+      {
+        "object": "mgmdV2RouterBaseMIBGroup",
+        "module": "MGMD-STD-MIB"
+      },
+      {
+        "object": "mgmdV3RouterMIBGroup",
+        "module": "MGMD-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdHostBaseMIBGroup": {
+    "name": "mgmdHostBaseMIBGroup",
+    "oid": "1.3.6.1.2.1.185.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdHostInterfaceStatus"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdHostInterfaceVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdRouterBaseMIBGroup": {
+    "name": "mgmdRouterBaseMIBGroup",
+    "oid": "1.3.6.1.2.1.185.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterInterfaceStatus"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterInterfaceQueryInterval"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterCacheUpTime"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterCacheExpiryTime"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterInterfaceVersion"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterInterfaceJoins"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterInterfaceGroups"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterCacheLastReporter"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterInterfaceQuerierUpTime"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterInterfaceQuerierExpiryTime"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterInterfaceQuerier"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdInverseRouterCacheAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdV2HostMIBGroup": {
+    "name": "mgmdV2HostMIBGroup",
+    "oid": "1.3.6.1.2.1.185.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdHostInterfaceVersion1QuerierTimer"
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdHostExtendedMIBGroup": {
+    "name": "mgmdHostExtendedMIBGroup",
+    "oid": "1.3.6.1.2.1.185.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdHostCacheLastReporter"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdHostCacheUpTime"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdHostInterfaceQuerier"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdInverseHostCacheAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdV2RouterBaseMIBGroup": {
+    "name": "mgmdV2RouterBaseMIBGroup",
+    "oid": "1.3.6.1.2.1.185.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterInterfaceWrongVersionQueries"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterInterfaceLastMemberQueryCount"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterInterfaceStartupQueryCount"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterInterfaceStartupQueryInterval"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterCacheVersion1HostTimer"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterInterfaceQueryMaxResponseTime"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterInterfaceRobustness"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterInterfaceLastMemberQueryInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdV2ProxyMIBGroup": {
+    "name": "mgmdV2ProxyMIBGroup",
+    "oid": "1.3.6.1.2.1.185.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterInterfaceProxyIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdV3HostMIBGroup": {
+    "name": "mgmdV3HostMIBGroup",
+    "oid": "1.3.6.1.2.1.185.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdHostInterfaceVersion2QuerierTimer"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdHostCacheSourceFilterMode"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdHostInterfaceVersion3Robustness"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdHostSrcListExpire"
+      }
+    ],
+    "status": "current"
+  },
+  "mgmdV3RouterMIBGroup": {
+    "name": "mgmdV3RouterMIBGroup",
+    "oid": "1.3.6.1.2.1.185.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterCacheSourceFilterMode"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterCacheVersion2HostTimer"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterCacheExcludeModeExpiryTimer"
+      },
+      {
+        "module": "MGMD-STD-MIB",
+        "object": "mgmdRouterSrcListExpire"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/MGMD-STD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MGMD-STD-MIB"
+  }
+}

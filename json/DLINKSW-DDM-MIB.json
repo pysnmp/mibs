@@ -1,0 +1,1037 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "dlinkSwDdmMIB": {
+    "name": "dlinkSwDdmMIB",
+    "oid": "1.3.6.1.4.1.171.14.72",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-02-04 00:00",
+        "description": "The structure of DDM for the proprietary enterprise."
+      },
+      {
+        "revision": "2013-09-05 00:00",
+        "description": "Modified the object dDdmAlarmTrap and dDdmWarningTrap to support to send traps when transceiver monitoring recovers from an abnormal warning/alarm situation to normal status."
+      }
+    ]
+  },
+  "DlinkThresholdState": {
+    "name": "DlinkThresholdState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "higherAlarm": 1,
+          "higherWarning": 2,
+          "lowerWarning": 3,
+          "lowerAlarm": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "dDdmMIBNotifications": {
+    "name": "dDdmMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.72.0",
+    "class": "objectidentity"
+  },
+  "dDdmMIBObjects": {
+    "name": "dDdmMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.72.1",
+    "class": "objectidentity"
+  },
+  "dDdmMIBConformance": {
+    "name": "dDdmMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.72.2",
+    "class": "objectidentity"
+  },
+  "dDdmCtrl": {
+    "name": "dDdmCtrl",
+    "oid": "1.3.6.1.4.1.171.14.72.1.1",
+    "class": "objectidentity"
+  },
+  "dDdmNotifyEnable": {
+    "name": "dDdmNotifyEnable",
+    "oid": "1.3.6.1.4.1.171.14.72.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "alarm": 0,
+        "warning": 1
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDdmIfCtrl": {
+    "name": "dDdmIfCtrl",
+    "oid": "1.3.6.1.4.1.171.14.72.1.2",
+    "class": "objectidentity"
+  },
+  "dDdmIfCfgTable": {
+    "name": "dDdmIfCfgTable",
+    "oid": "1.3.6.1.4.1.171.14.72.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDdmIfCfgEntry": {
+    "name": "dDdmIfCfgEntry",
+    "oid": "1.3.6.1.4.1.171.14.72.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDdmIfCfgEnabled": {
+    "name": "dDdmIfCfgEnabled",
+    "oid": "1.3.6.1.4.1.171.14.72.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDdmShutdownLevel": {
+    "name": "dDdmShutdownLevel",
+    "oid": "1.3.6.1.4.1.171.14.72.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "alarm": 2,
+          "warning": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDdmThresholdMgmt": {
+    "name": "dDdmThresholdMgmt",
+    "oid": "1.3.6.1.4.1.171.14.72.1.3",
+    "class": "objectidentity"
+  },
+  "dDdmThresholdCfgTable": {
+    "name": "dDdmThresholdCfgTable",
+    "oid": "1.3.6.1.4.1.171.14.72.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDdmThresholdCfgEntry": {
+    "name": "dDdmThresholdCfgEntry",
+    "oid": "1.3.6.1.4.1.171.14.72.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmThresholdComponent",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDmThresholdAbnormalLevel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDdmThresholdComponent": {
+    "name": "dDdmThresholdComponent",
+    "oid": "1.3.6.1.4.1.171.14.72.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "temperature": 1,
+          "voltage": 2,
+          "biasCurrent": 3,
+          "txPowerMw": 4,
+          "txPowerDbm": 5,
+          "rxPowerMw": 6,
+          "rxPowerDbm": 7
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDmThresholdAbnormalLevel": {
+    "name": "dDmThresholdAbnormalLevel",
+    "oid": "1.3.6.1.4.1.171.14.72.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "highAlarm": 1,
+          "highWarning": 2,
+          "lowWarning": 3,
+          "lowAlarm": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDdmThresholdCfgValue": {
+    "name": "dDdmThresholdCfgValue",
+    "oid": "1.3.6.1.4.1.171.14.72.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDdmThresholdCfgRowStatus": {
+    "name": "dDdmThresholdCfgRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.72.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDdmInfo": {
+    "name": "dDdmInfo",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4",
+    "class": "objectidentity"
+  },
+  "dDdmIfInfoTable": {
+    "name": "dDdmIfInfoTable",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDdmIfInfoEntry": {
+    "name": "dDdmIfInfoEntry",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDdmIfInfoCurrentTemperature": {
+    "name": "dDdmIfInfoCurrentTemperature",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milli-degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoTemperatureState": {
+    "name": "dDdmIfInfoTemperatureState",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkThresholdState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoHighAlarmTemperature": {
+    "name": "dDdmIfInfoHighAlarmTemperature",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milli-degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoHighWarnTemperature": {
+    "name": "dDdmIfInfoHighWarnTemperature",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milli-degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoLowWarnTemperature": {
+    "name": "dDdmIfInfoLowWarnTemperature",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milli-degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoLowAlarmTemperature": {
+    "name": "dDdmIfInfoLowAlarmTemperature",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milli-degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoCurrentVoltage": {
+    "name": "dDdmIfInfoCurrentVoltage",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "centi-Volt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoVoltageState": {
+    "name": "dDdmIfInfoVoltageState",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkThresholdState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoHighAlarmVoltage": {
+    "name": "dDdmIfInfoHighAlarmVoltage",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "centi-Volt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoHighWarnVoltage": {
+    "name": "dDdmIfInfoHighWarnVoltage",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "centi-Volt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoLowWarnVoltage": {
+    "name": "dDdmIfInfoLowWarnVoltage",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "centi-Volt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoLowAlarmVoltage": {
+    "name": "dDdmIfInfoLowAlarmVoltage",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "centi-Volt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoCurrentBiasCurrent": {
+    "name": "dDdmIfInfoCurrentBiasCurrent",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milli-amperes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoBiasCurrentState": {
+    "name": "dDdmIfInfoBiasCurrentState",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkThresholdState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoHighAlarmBiasCurrent": {
+    "name": "dDdmIfInfoHighAlarmBiasCurrent",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milli-amperes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoHighWarnBiasCurrent": {
+    "name": "dDdmIfInfoHighWarnBiasCurrent",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milli-amperes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoLowWarnBiasCurrent": {
+    "name": "dDdmIfInfoLowWarnBiasCurrent",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milli-amperes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoLowAlarmBiasCurrent": {
+    "name": "dDdmIfInfoLowAlarmBiasCurrent",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milli-amperes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoCurrentTxPower": {
+    "name": "dDdmIfInfoCurrentTxPower",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "tenths of a microwatt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoTxPowerState": {
+    "name": "dDdmIfInfoTxPowerState",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkThresholdState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoHighAlarmTxPower": {
+    "name": "dDdmIfInfoHighAlarmTxPower",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "tenths of a microwatt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoHighWarnTxPower": {
+    "name": "dDdmIfInfoHighWarnTxPower",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "tenths of a microwatt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoLowWarnTxPower": {
+    "name": "dDdmIfInfoLowWarnTxPower",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "tenths of a microwatt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoLowAlarmTxPower": {
+    "name": "dDdmIfInfoLowAlarmTxPower",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "tenths of a microwatt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoCurrentRxPower": {
+    "name": "dDdmIfInfoCurrentRxPower",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "tenths of a microwatt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoRxPowerState": {
+    "name": "dDdmIfInfoRxPowerState",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkThresholdState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoHighAlarmRxPower": {
+    "name": "dDdmIfInfoHighAlarmRxPower",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "tenths of a microwatt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoHighWarnRxPower": {
+    "name": "dDdmIfInfoHighWarnRxPower",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "tenths of a microwatt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoLowWarnRxPower": {
+    "name": "dDdmIfInfoLowWarnRxPower",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "tenths of a microwatt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmIfInfoLowAlarmRxPower": {
+    "name": "dDdmIfInfoLowAlarmRxPower",
+    "oid": "1.3.6.1.4.1.171.14.72.1.4.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "tenths of a microwatt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDdmNotifyInfo": {
+    "name": "dDdmNotifyInfo",
+    "oid": "1.3.6.1.4.1.171.14.72.1.5",
+    "class": "objectidentity"
+  },
+  "dDdmNotifyInfoIfIndex": {
+    "name": "dDdmNotifyInfoIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.72.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dDdmNotifyInfoComponent": {
+    "name": "dDdmNotifyInfoComponent",
+    "oid": "1.3.6.1.4.1.171.14.72.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "temperature": 1,
+          "voltage": 2,
+          "biasCurrent": 3,
+          "txPowerMw": 4,
+          "rxPowerMw": 5
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dDdmNotifyInfoAbnormalLevel": {
+    "name": "dDdmNotifyInfoAbnormalLevel",
+    "oid": "1.3.6.1.4.1.171.14.72.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "high": 1,
+          "low": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dDdmNotifyInfoThresholdExceedOrRecover": {
+    "name": "dDdmNotifyInfoThresholdExceedOrRecover",
+    "oid": "1.3.6.1.4.1.171.14.72.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "exceed": 1,
+          "recover": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dDdmAlarmTrap": {
+    "name": "dDdmAlarmTrap",
+    "oid": "1.3.6.1.4.1.171.14.72.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmNotifyInfoIfIndex"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmNotifyInfoComponent"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmNotifyInfoAbnormalLevel"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmNotifyInfoThresholdExceedOrRecover"
+      }
+    ],
+    "status": "current"
+  },
+  "dDdmWarningTrap": {
+    "name": "dDdmWarningTrap",
+    "oid": "1.3.6.1.4.1.171.14.72.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmNotifyInfoIfIndex"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmNotifyInfoComponent"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmNotifyInfoAbnormalLevel"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmNotifyInfoThresholdExceedOrRecover"
+      }
+    ],
+    "status": "current"
+  },
+  "dDdmCompliances": {
+    "name": "dDdmCompliances",
+    "oid": "1.3.6.1.4.1.171.14.72.2.1",
+    "class": "objectidentity"
+  },
+  "dDdmCompliance": {
+    "name": "dDdmCompliance",
+    "oid": "1.3.6.1.4.1.171.14.72.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dDdmInfoGroup",
+        "module": "DLINKSW-DDM-MIB"
+      },
+      {
+        "object": "dDdmCfgGroup",
+        "module": "DLINKSW-DDM-MIB"
+      },
+      {
+        "object": "dDdmNotifyGroup",
+        "module": "DLINKSW-DDM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dDdmGroups": {
+    "name": "dDdmGroups",
+    "oid": "1.3.6.1.4.1.171.14.72.2.2",
+    "class": "objectidentity"
+  },
+  "dDdmInfoGroup": {
+    "name": "dDdmInfoGroup",
+    "oid": "1.3.6.1.4.1.171.14.72.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoCurrentTemperature"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoTemperatureState"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoHighAlarmTemperature"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoHighWarnTemperature"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoLowWarnTemperature"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoLowAlarmTemperature"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoCurrentVoltage"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoVoltageState"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoHighAlarmVoltage"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoHighWarnVoltage"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoLowWarnVoltage"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoLowAlarmVoltage"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoCurrentBiasCurrent"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoBiasCurrentState"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoHighAlarmBiasCurrent"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoHighWarnBiasCurrent"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoLowWarnBiasCurrent"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoLowAlarmBiasCurrent"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoCurrentTxPower"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoTxPowerState"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoHighAlarmTxPower"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoHighWarnTxPower"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoLowWarnTxPower"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoLowAlarmTxPower"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoCurrentRxPower"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoRxPowerState"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoHighAlarmRxPower"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoHighWarnRxPower"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoLowWarnRxPower"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfInfoLowAlarmRxPower"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmNotifyInfoIfIndex"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmNotifyInfoComponent"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmNotifyInfoAbnormalLevel"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmNotifyInfoThresholdExceedOrRecover"
+      }
+    ],
+    "status": "current"
+  },
+  "dDdmCfgGroup": {
+    "name": "dDdmCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.72.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmNotifyEnable"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmIfCfgEnabled"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmShutdownLevel"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmThresholdCfgValue"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmThresholdCfgRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dDdmNotifyGroup": {
+    "name": "dDdmNotifyGroup",
+    "oid": "1.3.6.1.4.1.171.14.72.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmAlarmTrap"
+      },
+      {
+        "module": "DLINKSW-DDM-MIB",
+        "object": "dDdmWarningTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-DDM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-DDM-MIB"
+  }
+}

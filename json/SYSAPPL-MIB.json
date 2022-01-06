@@ -1,0 +1,1491 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "mib-2",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sysApplMIB": {
+    "name": "sysApplMIB",
+    "oid": "1.3.6.1.2.1.54",
+    "class": "moduleidentity"
+  },
+  "sysApplOBJ": {
+    "name": "sysApplOBJ",
+    "oid": "1.3.6.1.2.1.54.1",
+    "class": "objectidentity"
+  },
+  "sysApplInstalled": {
+    "name": "sysApplInstalled",
+    "oid": "1.3.6.1.2.1.54.1.1",
+    "class": "objectidentity"
+  },
+  "sysApplRun": {
+    "name": "sysApplRun",
+    "oid": "1.3.6.1.2.1.54.1.2",
+    "class": "objectidentity"
+  },
+  "sysApplMap": {
+    "name": "sysApplMap",
+    "oid": "1.3.6.1.2.1.54.1.3",
+    "class": "objectidentity"
+  },
+  "sysApplNotifications": {
+    "name": "sysApplNotifications",
+    "oid": "1.3.6.1.2.1.54.2",
+    "class": "objectidentity"
+  },
+  "sysApplConformance": {
+    "name": "sysApplConformance",
+    "oid": "1.3.6.1.2.1.54.3",
+    "class": "objectidentity"
+  },
+  "RunState": {
+    "name": "RunState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "runnable": 2,
+          "waiting": 3,
+          "exiting": 4,
+          "other": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LongUtf8String": {
+    "name": "LongUtf8String",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "displayhint": "1024a",
+    "status": "current"
+  },
+  "Utf8String": {
+    "name": "Utf8String",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "sysApplInstallPkgTable": {
+    "name": "sysApplInstallPkgTable",
+    "oid": "1.3.6.1.2.1.54.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysApplInstallPkgEntry": {
+    "name": "sysApplInstallPkgEntry",
+    "oid": "1.3.6.1.2.1.54.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplInstallPkgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysApplInstallPkgIndex": {
+    "name": "sysApplInstallPkgIndex",
+    "oid": "1.3.6.1.2.1.54.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysApplInstallPkgManufacturer": {
+    "name": "sysApplInstallPkgManufacturer",
+    "oid": "1.3.6.1.2.1.54.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplInstallPkgProductName": {
+    "name": "sysApplInstallPkgProductName",
+    "oid": "1.3.6.1.2.1.54.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplInstallPkgVersion": {
+    "name": "sysApplInstallPkgVersion",
+    "oid": "1.3.6.1.2.1.54.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplInstallPkgSerialNumber": {
+    "name": "sysApplInstallPkgSerialNumber",
+    "oid": "1.3.6.1.2.1.54.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplInstallPkgDate": {
+    "name": "sysApplInstallPkgDate",
+    "oid": "1.3.6.1.2.1.54.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplInstallPkgLocation": {
+    "name": "sysApplInstallPkgLocation",
+    "oid": "1.3.6.1.2.1.54.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LongUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplInstallElmtTable": {
+    "name": "sysApplInstallElmtTable",
+    "oid": "1.3.6.1.2.1.54.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysApplInstallElmtEntry": {
+    "name": "sysApplInstallElmtEntry",
+    "oid": "1.3.6.1.2.1.54.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplInstallPkgIndex",
+        "implied": 0
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplInstallElmtIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysApplInstallElmtIndex": {
+    "name": "sysApplInstallElmtIndex",
+    "oid": "1.3.6.1.2.1.54.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysApplInstallElmtName": {
+    "name": "sysApplInstallElmtName",
+    "oid": "1.3.6.1.2.1.54.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplInstallElmtType": {
+    "name": "sysApplInstallElmtType",
+    "oid": "1.3.6.1.2.1.54.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "nonexecutable": 2,
+          "operatingSystem": 3,
+          "deviceDriver": 4,
+          "application": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplInstallElmtDate": {
+    "name": "sysApplInstallElmtDate",
+    "oid": "1.3.6.1.2.1.54.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplInstallElmtPath": {
+    "name": "sysApplInstallElmtPath",
+    "oid": "1.3.6.1.2.1.54.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LongUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplInstallElmtSizeHigh": {
+    "name": "sysApplInstallElmtSizeHigh",
+    "oid": "1.3.6.1.2.1.54.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplInstallElmtSizeLow": {
+    "name": "sysApplInstallElmtSizeLow",
+    "oid": "1.3.6.1.2.1.54.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplInstallElmtRole": {
+    "name": "sysApplInstallElmtRole",
+    "oid": "1.3.6.1.2.1.54.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "executable": 0,
+        "exclusive": 1,
+        "primary": 2,
+        "required": 3,
+        "dependent": 4,
+        "unknown": 5
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "unknown": 5
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysApplInstallElmtModifyDate": {
+    "name": "sysApplInstallElmtModifyDate",
+    "oid": "1.3.6.1.2.1.54.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplInstallElmtCurSizeHigh": {
+    "name": "sysApplInstallElmtCurSizeHigh",
+    "oid": "1.3.6.1.2.1.54.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplInstallElmtCurSizeLow": {
+    "name": "sysApplInstallElmtCurSizeLow",
+    "oid": "1.3.6.1.2.1.54.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplRunTable": {
+    "name": "sysApplRunTable",
+    "oid": "1.3.6.1.2.1.54.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysApplRunEntry": {
+    "name": "sysApplRunEntry",
+    "oid": "1.3.6.1.2.1.54.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplInstallPkgIndex",
+        "implied": 0
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplRunIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysApplRunIndex": {
+    "name": "sysApplRunIndex",
+    "oid": "1.3.6.1.2.1.54.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysApplRunStarted": {
+    "name": "sysApplRunStarted",
+    "oid": "1.3.6.1.2.1.54.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplRunCurrentState": {
+    "name": "sysApplRunCurrentState",
+    "oid": "1.3.6.1.2.1.54.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RunState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplPastRunTable": {
+    "name": "sysApplPastRunTable",
+    "oid": "1.3.6.1.2.1.54.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysApplPastRunEntry": {
+    "name": "sysApplPastRunEntry",
+    "oid": "1.3.6.1.2.1.54.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplInstallPkgIndex",
+        "implied": 0
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplPastRunIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysApplPastRunIndex": {
+    "name": "sysApplPastRunIndex",
+    "oid": "1.3.6.1.2.1.54.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysApplPastRunStarted": {
+    "name": "sysApplPastRunStarted",
+    "oid": "1.3.6.1.2.1.54.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplPastRunExitState": {
+    "name": "sysApplPastRunExitState",
+    "oid": "1.3.6.1.2.1.54.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "complete": 1,
+          "failed": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplPastRunTimeEnded": {
+    "name": "sysApplPastRunTimeEnded",
+    "oid": "1.3.6.1.2.1.54.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplElmtRunTable": {
+    "name": "sysApplElmtRunTable",
+    "oid": "1.3.6.1.2.1.54.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysApplElmtRunEntry": {
+    "name": "sysApplElmtRunEntry",
+    "oid": "1.3.6.1.2.1.54.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtRunInstallPkg",
+        "implied": 0
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtRunInvocID",
+        "implied": 0
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtRunIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysApplElmtRunInstallPkg": {
+    "name": "sysApplElmtRunInstallPkg",
+    "oid": "1.3.6.1.2.1.54.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysApplElmtRunInvocID": {
+    "name": "sysApplElmtRunInvocID",
+    "oid": "1.3.6.1.2.1.54.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysApplElmtRunIndex": {
+    "name": "sysApplElmtRunIndex",
+    "oid": "1.3.6.1.2.1.54.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysApplElmtRunInstallID": {
+    "name": "sysApplElmtRunInstallID",
+    "oid": "1.3.6.1.2.1.54.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplElmtRunTimeStarted": {
+    "name": "sysApplElmtRunTimeStarted",
+    "oid": "1.3.6.1.2.1.54.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplElmtRunState": {
+    "name": "sysApplElmtRunState",
+    "oid": "1.3.6.1.2.1.54.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RunState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplElmtRunName": {
+    "name": "sysApplElmtRunName",
+    "oid": "1.3.6.1.2.1.54.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LongUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplElmtRunParameters": {
+    "name": "sysApplElmtRunParameters",
+    "oid": "1.3.6.1.2.1.54.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplElmtRunCPU": {
+    "name": "sysApplElmtRunCPU",
+    "oid": "1.3.6.1.2.1.54.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplElmtRunMemory": {
+    "name": "sysApplElmtRunMemory",
+    "oid": "1.3.6.1.2.1.54.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplElmtRunNumFiles": {
+    "name": "sysApplElmtRunNumFiles",
+    "oid": "1.3.6.1.2.1.54.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplElmtRunUser": {
+    "name": "sysApplElmtRunUser",
+    "oid": "1.3.6.1.2.1.54.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplElmtPastRunTable": {
+    "name": "sysApplElmtPastRunTable",
+    "oid": "1.3.6.1.2.1.54.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysApplElmtPastRunEntry": {
+    "name": "sysApplElmtPastRunEntry",
+    "oid": "1.3.6.1.2.1.54.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplInstallPkgIndex",
+        "implied": 0
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtPastRunInvocID",
+        "implied": 0
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtPastRunIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysApplElmtPastRunInvocID": {
+    "name": "sysApplElmtPastRunInvocID",
+    "oid": "1.3.6.1.2.1.54.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysApplElmtPastRunIndex": {
+    "name": "sysApplElmtPastRunIndex",
+    "oid": "1.3.6.1.2.1.54.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysApplElmtPastRunInstallID": {
+    "name": "sysApplElmtPastRunInstallID",
+    "oid": "1.3.6.1.2.1.54.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplElmtPastRunTimeStarted": {
+    "name": "sysApplElmtPastRunTimeStarted",
+    "oid": "1.3.6.1.2.1.54.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplElmtPastRunTimeEnded": {
+    "name": "sysApplElmtPastRunTimeEnded",
+    "oid": "1.3.6.1.2.1.54.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplElmtPastRunName": {
+    "name": "sysApplElmtPastRunName",
+    "oid": "1.3.6.1.2.1.54.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LongUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplElmtPastRunParameters": {
+    "name": "sysApplElmtPastRunParameters",
+    "oid": "1.3.6.1.2.1.54.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplElmtPastRunCPU": {
+    "name": "sysApplElmtPastRunCPU",
+    "oid": "1.3.6.1.2.1.54.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplElmtPastRunMemory": {
+    "name": "sysApplElmtPastRunMemory",
+    "oid": "1.3.6.1.2.1.54.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "Kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplElmtPastRunNumFiles": {
+    "name": "sysApplElmtPastRunNumFiles",
+    "oid": "1.3.6.1.2.1.54.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplElmtPastRunUser": {
+    "name": "sysApplElmtPastRunUser",
+    "oid": "1.3.6.1.2.1.54.1.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplPastRunMaxRows": {
+    "name": "sysApplPastRunMaxRows",
+    "oid": "1.3.6.1.2.1.54.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysApplPastRunTableRemItems": {
+    "name": "sysApplPastRunTableRemItems",
+    "oid": "1.3.6.1.2.1.54.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplPastRunTblTimeLimit": {
+    "name": "sysApplPastRunTblTimeLimit",
+    "oid": "1.3.6.1.2.1.54.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7200,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysApplElemPastRunMaxRows": {
+    "name": "sysApplElemPastRunMaxRows",
+    "oid": "1.3.6.1.2.1.54.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysApplElemPastRunTableRemItems": {
+    "name": "sysApplElemPastRunTableRemItems",
+    "oid": "1.3.6.1.2.1.54.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplElemPastRunTblTimeLimit": {
+    "name": "sysApplElemPastRunTblTimeLimit",
+    "oid": "1.3.6.1.2.1.54.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7200,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysApplAgentPollInterval": {
+    "name": "sysApplAgentPollInterval",
+    "oid": "1.3.6.1.2.1.54.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysApplMapTable": {
+    "name": "sysApplMapTable",
+    "oid": "1.3.6.1.2.1.54.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysApplMapEntry": {
+    "name": "sysApplMapEntry",
+    "oid": "1.3.6.1.2.1.54.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtRunIndex",
+        "implied": 0
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtRunInvocID",
+        "implied": 0
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplMapInstallElmtIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysApplMapInstallElmtIndex": {
+    "name": "sysApplMapInstallElmtIndex",
+    "oid": "1.3.6.1.2.1.54.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysApplMapInstallPkgIndex": {
+    "name": "sysApplMapInstallPkgIndex",
+    "oid": "1.3.6.1.2.1.54.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysApplMIBCompliances": {
+    "name": "sysApplMIBCompliances",
+    "oid": "1.3.6.1.2.1.54.3.1",
+    "class": "objectidentity"
+  },
+  "sysApplMIBGroups": {
+    "name": "sysApplMIBGroups",
+    "oid": "1.3.6.1.2.1.54.3.2",
+    "class": "objectidentity"
+  },
+  "sysApplMIBCompliance": {
+    "name": "sysApplMIBCompliance",
+    "oid": "1.3.6.1.2.1.54.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "sysApplInstalledGroup",
+        "module": "SYSAPPL-MIB"
+      },
+      {
+        "object": "sysApplRunGroup",
+        "module": "SYSAPPL-MIB"
+      },
+      {
+        "object": "sysApplMapGroup",
+        "module": "SYSAPPL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "sysApplInstalledGroup": {
+    "name": "sysApplInstalledGroup",
+    "oid": "1.3.6.1.2.1.54.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplInstallPkgManufacturer"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplInstallPkgProductName"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplInstallPkgVersion"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplInstallPkgSerialNumber"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplInstallPkgDate"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplInstallPkgLocation"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplInstallElmtName"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplInstallElmtType"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplInstallElmtDate"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplInstallElmtPath"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplInstallElmtSizeHigh"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplInstallElmtSizeLow"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplInstallElmtRole"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplInstallElmtModifyDate"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplInstallElmtCurSizeHigh"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplInstallElmtCurSizeLow"
+      }
+    ],
+    "status": "current"
+  },
+  "sysApplRunGroup": {
+    "name": "sysApplRunGroup",
+    "oid": "1.3.6.1.2.1.54.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplRunStarted"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplRunCurrentState"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplPastRunStarted"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplPastRunExitState"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplPastRunTimeEnded"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtRunInstallID"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtRunTimeStarted"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtRunState"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtRunName"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtRunParameters"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtRunCPU"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtRunMemory"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtRunNumFiles"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtRunUser"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtPastRunInstallID"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtPastRunTimeStarted"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtPastRunTimeEnded"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtPastRunName"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtPastRunParameters"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtPastRunCPU"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtPastRunMemory"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtPastRunNumFiles"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtPastRunUser"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplPastRunMaxRows"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplPastRunTableRemItems"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplPastRunTblTimeLimit"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElemPastRunMaxRows"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElemPastRunTableRemItems"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElemPastRunTblTimeLimit"
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplAgentPollInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "sysApplMapGroup": {
+    "name": "sysApplMapGroup",
+    "oid": "1.3.6.1.2.1.54.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplMapInstallPkgIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/SYSAPPL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SYSAPPL-MIB"
+  }
+}

@@ -1,0 +1,1790 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB": [
+      "CiscoSbcPeriodicStatsInterval",
+      "csbCallStatsInstanceIndex",
+      "csbCallStatsServiceIndex"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSbcStatsMIB": {
+    "name": "ciscoSbcStatsMIB",
+    "oid": "1.3.6.1.4.1.9.9.757",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-09-15 00:00",
+        "description": "Latest version of this MIB module."
+      }
+    ]
+  },
+  "CiscoSbcSIPMethod": {
+    "name": "CiscoSbcSIPMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ack": 2,
+          "bye": 3,
+          "cancel": 4,
+          "info": 5,
+          "invite": 6,
+          "message": 7,
+          "notify": 8,
+          "options": 9,
+          "prack": 10,
+          "refer": 11,
+          "register": 12,
+          "subscribe": 13,
+          "update": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoSbcRadiusClientType": {
+    "name": "CiscoSbcRadiusClientType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authentication": 1,
+          "accounting": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoSbcStatsMIBNotifs": {
+    "name": "ciscoSbcStatsMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.757.0",
+    "class": "objectidentity"
+  },
+  "ciscoSbcStatsMIBObjects": {
+    "name": "ciscoSbcStatsMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.757.1",
+    "class": "objectidentity"
+  },
+  "ciscoSbcStatsMIBConform": {
+    "name": "ciscoSbcStatsMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.757.2",
+    "class": "objectidentity"
+  },
+  "csbRadiusStatsTable": {
+    "name": "csbRadiusStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.757.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csbRadiusStatsEntry": {
+    "name": "csbRadiusStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.757.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB",
+        "object": "csbCallStatsInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB",
+        "object": "csbCallStatsServiceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRadiusStatsEntIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csbRadiusStatsEntIndex": {
+    "name": "csbRadiusStatsEntIndex",
+    "oid": "1.3.6.1.4.1.9.9.757.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csbRadiusStatsClientName": {
+    "name": "csbRadiusStatsClientName",
+    "oid": "1.3.6.1.4.1.9.9.757.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRadiusStatsClientType": {
+    "name": "csbRadiusStatsClientType",
+    "oid": "1.3.6.1.4.1.9.9.757.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoSbcRadiusClientType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRadiusStatsSrvrName": {
+    "name": "csbRadiusStatsSrvrName",
+    "oid": "1.3.6.1.4.1.9.9.757.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRadiusStatsAcsReqs": {
+    "name": "csbRadiusStatsAcsReqs",
+    "oid": "1.3.6.1.4.1.9.9.757.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRadiusStatsAcsRtrns": {
+    "name": "csbRadiusStatsAcsRtrns",
+    "oid": "1.3.6.1.4.1.9.9.757.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRadiusStatsAcsAccpts": {
+    "name": "csbRadiusStatsAcsAccpts",
+    "oid": "1.3.6.1.4.1.9.9.757.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRadiusStatsAcsRejects": {
+    "name": "csbRadiusStatsAcsRejects",
+    "oid": "1.3.6.1.4.1.9.9.757.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRadiusStatsAcsChalls": {
+    "name": "csbRadiusStatsAcsChalls",
+    "oid": "1.3.6.1.4.1.9.9.757.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRadiusStatsActReqs": {
+    "name": "csbRadiusStatsActReqs",
+    "oid": "1.3.6.1.4.1.9.9.757.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRadiusStatsActRetrans": {
+    "name": "csbRadiusStatsActRetrans",
+    "oid": "1.3.6.1.4.1.9.9.757.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRadiusStatsActRsps": {
+    "name": "csbRadiusStatsActRsps",
+    "oid": "1.3.6.1.4.1.9.9.757.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRadiusStatsMalformedRsps": {
+    "name": "csbRadiusStatsMalformedRsps",
+    "oid": "1.3.6.1.4.1.9.9.757.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRadiusStatsBadAuths": {
+    "name": "csbRadiusStatsBadAuths",
+    "oid": "1.3.6.1.4.1.9.9.757.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRadiusStatsPending": {
+    "name": "csbRadiusStatsPending",
+    "oid": "1.3.6.1.4.1.9.9.757.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRadiusStatsTimeouts": {
+    "name": "csbRadiusStatsTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.757.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRadiusStatsUnknownType": {
+    "name": "csbRadiusStatsUnknownType",
+    "oid": "1.3.6.1.4.1.9.9.757.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRadiusStatsDropped": {
+    "name": "csbRadiusStatsDropped",
+    "oid": "1.3.6.1.4.1.9.9.757.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRfBillRealmStatsTable": {
+    "name": "csbRfBillRealmStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.757.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csbRfBillRealmStatsEntry": {
+    "name": "csbRfBillRealmStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.757.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB",
+        "object": "csbCallStatsInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB",
+        "object": "csbCallStatsServiceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRfBillRealmStatsIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRfBillRealmStatsRealmName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csbRfBillRealmStatsIndex": {
+    "name": "csbRfBillRealmStatsIndex",
+    "oid": "1.3.6.1.4.1.9.9.757.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csbRfBillRealmStatsRealmName": {
+    "name": "csbRfBillRealmStatsRealmName",
+    "oid": "1.3.6.1.4.1.9.9.757.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRfBillRealmStatsTotalStartAcrs": {
+    "name": "csbRfBillRealmStatsTotalStartAcrs",
+    "oid": "1.3.6.1.4.1.9.9.757.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "ACRs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRfBillRealmStatsTotalInterimAcrs": {
+    "name": "csbRfBillRealmStatsTotalInterimAcrs",
+    "oid": "1.3.6.1.4.1.9.9.757.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "ACRs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRfBillRealmStatsTotalStopAcrs": {
+    "name": "csbRfBillRealmStatsTotalStopAcrs",
+    "oid": "1.3.6.1.4.1.9.9.757.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "ACRs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRfBillRealmStatsTotalEventAcrs": {
+    "name": "csbRfBillRealmStatsTotalEventAcrs",
+    "oid": "1.3.6.1.4.1.9.9.757.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "ACRs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRfBillRealmStatsSuccStartAcrs": {
+    "name": "csbRfBillRealmStatsSuccStartAcrs",
+    "oid": "1.3.6.1.4.1.9.9.757.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "ACRs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRfBillRealmStatsSuccInterimAcrs": {
+    "name": "csbRfBillRealmStatsSuccInterimAcrs",
+    "oid": "1.3.6.1.4.1.9.9.757.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "ACRs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRfBillRealmStatsSuccStopAcrs": {
+    "name": "csbRfBillRealmStatsSuccStopAcrs",
+    "oid": "1.3.6.1.4.1.9.9.757.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "ACRs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRfBillRealmStatsSuccEventAcrs": {
+    "name": "csbRfBillRealmStatsSuccEventAcrs",
+    "oid": "1.3.6.1.4.1.9.9.757.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "ACRs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRfBillRealmStatsFailStartAcrs": {
+    "name": "csbRfBillRealmStatsFailStartAcrs",
+    "oid": "1.3.6.1.4.1.9.9.757.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "ACRs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRfBillRealmStatsFailInterimAcrs": {
+    "name": "csbRfBillRealmStatsFailInterimAcrs",
+    "oid": "1.3.6.1.4.1.9.9.757.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "ACRs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRfBillRealmStatsFailStopAcrs": {
+    "name": "csbRfBillRealmStatsFailStopAcrs",
+    "oid": "1.3.6.1.4.1.9.9.757.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "ACRs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbRfBillRealmStatsFailEventAcrs": {
+    "name": "csbRfBillRealmStatsFailEventAcrs",
+    "oid": "1.3.6.1.4.1.9.9.757.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "ACRs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdCurrentStatsTable": {
+    "name": "csbSIPMthdCurrentStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.757.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csbSIPMthdCurrentStatsEntry": {
+    "name": "csbSIPMthdCurrentStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.757.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB",
+        "object": "csbCallStatsInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB",
+        "object": "csbCallStatsServiceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdCurrentStatsAdjName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdCurrentStatsMethod",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdCurrentStatsInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csbSIPMthdCurrentStatsAdjName": {
+    "name": "csbSIPMthdCurrentStatsAdjName",
+    "oid": "1.3.6.1.4.1.9.9.757.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdCurrentStatsMethod": {
+    "name": "csbSIPMthdCurrentStatsMethod",
+    "oid": "1.3.6.1.4.1.9.9.757.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoSbcSIPMethod",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csbSIPMthdCurrentStatsInterval": {
+    "name": "csbSIPMthdCurrentStatsInterval",
+    "oid": "1.3.6.1.4.1.9.9.757.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoSbcPeriodicStatsInterval",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csbSIPMthdCurrentStatsMethodName": {
+    "name": "csbSIPMthdCurrentStatsMethodName",
+    "oid": "1.3.6.1.4.1.9.9.757.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdCurrentStatsReqIn": {
+    "name": "csbSIPMthdCurrentStatsReqIn",
+    "oid": "1.3.6.1.4.1.9.9.757.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdCurrentStatsReqOut": {
+    "name": "csbSIPMthdCurrentStatsReqOut",
+    "oid": "1.3.6.1.4.1.9.9.757.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdCurrentStatsResp1xxIn": {
+    "name": "csbSIPMthdCurrentStatsResp1xxIn",
+    "oid": "1.3.6.1.4.1.9.9.757.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdCurrentStatsResp1xxOut": {
+    "name": "csbSIPMthdCurrentStatsResp1xxOut",
+    "oid": "1.3.6.1.4.1.9.9.757.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdCurrentStatsResp2xxIn": {
+    "name": "csbSIPMthdCurrentStatsResp2xxIn",
+    "oid": "1.3.6.1.4.1.9.9.757.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdCurrentStatsResp2xxOut": {
+    "name": "csbSIPMthdCurrentStatsResp2xxOut",
+    "oid": "1.3.6.1.4.1.9.9.757.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdCurrentStatsResp3xxIn": {
+    "name": "csbSIPMthdCurrentStatsResp3xxIn",
+    "oid": "1.3.6.1.4.1.9.9.757.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdCurrentStatsResp3xxOut": {
+    "name": "csbSIPMthdCurrentStatsResp3xxOut",
+    "oid": "1.3.6.1.4.1.9.9.757.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdCurrentStatsResp4xxIn": {
+    "name": "csbSIPMthdCurrentStatsResp4xxIn",
+    "oid": "1.3.6.1.4.1.9.9.757.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdCurrentStatsResp4xxOut": {
+    "name": "csbSIPMthdCurrentStatsResp4xxOut",
+    "oid": "1.3.6.1.4.1.9.9.757.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdCurrentStatsResp5xxIn": {
+    "name": "csbSIPMthdCurrentStatsResp5xxIn",
+    "oid": "1.3.6.1.4.1.9.9.757.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdCurrentStatsResp5xxOut": {
+    "name": "csbSIPMthdCurrentStatsResp5xxOut",
+    "oid": "1.3.6.1.4.1.9.9.757.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdCurrentStatsResp6xxIn": {
+    "name": "csbSIPMthdCurrentStatsResp6xxIn",
+    "oid": "1.3.6.1.4.1.9.9.757.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdCurrentStatsResp6xxOut": {
+    "name": "csbSIPMthdCurrentStatsResp6xxOut",
+    "oid": "1.3.6.1.4.1.9.9.757.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdHistoryStatsTable": {
+    "name": "csbSIPMthdHistoryStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.757.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csbSIPMthdHistoryStatsEntry": {
+    "name": "csbSIPMthdHistoryStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.757.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB",
+        "object": "csbCallStatsInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB",
+        "object": "csbCallStatsServiceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdHistoryStatsAdjName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdHistoryStatsMethod",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdHistoryStatsInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csbSIPMthdHistoryStatsAdjName": {
+    "name": "csbSIPMthdHistoryStatsAdjName",
+    "oid": "1.3.6.1.4.1.9.9.757.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdHistoryStatsMethod": {
+    "name": "csbSIPMthdHistoryStatsMethod",
+    "oid": "1.3.6.1.4.1.9.9.757.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoSbcSIPMethod",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csbSIPMthdHistoryStatsInterval": {
+    "name": "csbSIPMthdHistoryStatsInterval",
+    "oid": "1.3.6.1.4.1.9.9.757.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoSbcPeriodicStatsInterval",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csbSIPMthdHistoryStatsMethodName": {
+    "name": "csbSIPMthdHistoryStatsMethodName",
+    "oid": "1.3.6.1.4.1.9.9.757.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdHistoryStatsReqIn": {
+    "name": "csbSIPMthdHistoryStatsReqIn",
+    "oid": "1.3.6.1.4.1.9.9.757.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdHistoryStatsReqOut": {
+    "name": "csbSIPMthdHistoryStatsReqOut",
+    "oid": "1.3.6.1.4.1.9.9.757.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdHistoryStatsResp1xxIn": {
+    "name": "csbSIPMthdHistoryStatsResp1xxIn",
+    "oid": "1.3.6.1.4.1.9.9.757.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdHistoryStatsResp1xxOut": {
+    "name": "csbSIPMthdHistoryStatsResp1xxOut",
+    "oid": "1.3.6.1.4.1.9.9.757.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdHistoryStatsResp2xxIn": {
+    "name": "csbSIPMthdHistoryStatsResp2xxIn",
+    "oid": "1.3.6.1.4.1.9.9.757.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdHistoryStatsResp2xxOut": {
+    "name": "csbSIPMthdHistoryStatsResp2xxOut",
+    "oid": "1.3.6.1.4.1.9.9.757.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdHistoryStatsResp3xxIn": {
+    "name": "csbSIPMthdHistoryStatsResp3xxIn",
+    "oid": "1.3.6.1.4.1.9.9.757.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdHistoryStatsResp3xxOut": {
+    "name": "csbSIPMthdHistoryStatsResp3xxOut",
+    "oid": "1.3.6.1.4.1.9.9.757.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdHistoryStatsResp4xxIn": {
+    "name": "csbSIPMthdHistoryStatsResp4xxIn",
+    "oid": "1.3.6.1.4.1.9.9.757.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdHistoryStatsResp4xxOut": {
+    "name": "csbSIPMthdHistoryStatsResp4xxOut",
+    "oid": "1.3.6.1.4.1.9.9.757.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdHistoryStatsResp5xxIn": {
+    "name": "csbSIPMthdHistoryStatsResp5xxIn",
+    "oid": "1.3.6.1.4.1.9.9.757.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdHistoryStatsResp5xxOut": {
+    "name": "csbSIPMthdHistoryStatsResp5xxOut",
+    "oid": "1.3.6.1.4.1.9.9.757.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdHistoryStatsResp6xxIn": {
+    "name": "csbSIPMthdHistoryStatsResp6xxIn",
+    "oid": "1.3.6.1.4.1.9.9.757.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdHistoryStatsResp6xxOut": {
+    "name": "csbSIPMthdHistoryStatsResp6xxOut",
+    "oid": "1.3.6.1.4.1.9.9.757.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdRCCurrentStatsTable": {
+    "name": "csbSIPMthdRCCurrentStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.757.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csbSIPMthdRCCurrentStatsEntry": {
+    "name": "csbSIPMthdRCCurrentStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.757.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB",
+        "object": "csbCallStatsInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB",
+        "object": "csbCallStatsServiceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdRCCurrentStatsAdjName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdRCCurrentStatsMethod",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdRCCurrentStatsRespCode",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdRCCurrentStatsInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csbSIPMthdRCCurrentStatsAdjName": {
+    "name": "csbSIPMthdRCCurrentStatsAdjName",
+    "oid": "1.3.6.1.4.1.9.9.757.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdRCCurrentStatsMethod": {
+    "name": "csbSIPMthdRCCurrentStatsMethod",
+    "oid": "1.3.6.1.4.1.9.9.757.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoSbcSIPMethod",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csbSIPMthdRCCurrentStatsRespCode": {
+    "name": "csbSIPMthdRCCurrentStatsRespCode",
+    "oid": "1.3.6.1.4.1.9.9.757.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csbSIPMthdRCCurrentStatsInterval": {
+    "name": "csbSIPMthdRCCurrentStatsInterval",
+    "oid": "1.3.6.1.4.1.9.9.757.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoSbcPeriodicStatsInterval",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csbSIPMthdRCCurrentStatsMethodName": {
+    "name": "csbSIPMthdRCCurrentStatsMethodName",
+    "oid": "1.3.6.1.4.1.9.9.757.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdRCCurrentStatsRespIn": {
+    "name": "csbSIPMthdRCCurrentStatsRespIn",
+    "oid": "1.3.6.1.4.1.9.9.757.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdRCCurrentStatsRespOut": {
+    "name": "csbSIPMthdRCCurrentStatsRespOut",
+    "oid": "1.3.6.1.4.1.9.9.757.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdRCHistoryStatsTable": {
+    "name": "csbSIPMthdRCHistoryStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.757.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csbSIPMthdRCHistoryStatsEntry": {
+    "name": "csbSIPMthdRCHistoryStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.757.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB",
+        "object": "csbCallStatsInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB",
+        "object": "csbCallStatsServiceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdRCHistoryStatsAdjName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdRCHistoryStatsMethod",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdRCHistoryStatsRespCode",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdRCHistoryStatsInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csbSIPMthdRCHistoryStatsAdjName": {
+    "name": "csbSIPMthdRCHistoryStatsAdjName",
+    "oid": "1.3.6.1.4.1.9.9.757.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdRCHistoryStatsMethod": {
+    "name": "csbSIPMthdRCHistoryStatsMethod",
+    "oid": "1.3.6.1.4.1.9.9.757.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoSbcSIPMethod",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csbSIPMthdRCHistoryStatsMethodName": {
+    "name": "csbSIPMthdRCHistoryStatsMethodName",
+    "oid": "1.3.6.1.4.1.9.9.757.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdRCHistoryStatsRespCode": {
+    "name": "csbSIPMthdRCHistoryStatsRespCode",
+    "oid": "1.3.6.1.4.1.9.9.757.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csbSIPMthdRCHistoryStatsInterval": {
+    "name": "csbSIPMthdRCHistoryStatsInterval",
+    "oid": "1.3.6.1.4.1.9.9.757.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoSbcPeriodicStatsInterval",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csbSIPMthdRCHistoryStatsRespIn": {
+    "name": "csbSIPMthdRCHistoryStatsRespIn",
+    "oid": "1.3.6.1.4.1.9.9.757.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbSIPMthdRCHistoryStatsRespOut": {
+    "name": "csbSIPMthdRCHistoryStatsRespOut",
+    "oid": "1.3.6.1.4.1.9.9.757.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csbStatsMIBCompliances": {
+    "name": "csbStatsMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.757.2.1",
+    "class": "objectidentity"
+  },
+  "csbStatsMIBGroups": {
+    "name": "csbStatsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.757.2.2",
+    "class": "objectidentity"
+  },
+  "csbStatsMIBCompliance": {
+    "name": "csbStatsMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.757.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "csbRadiusStatsGroup",
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
+      },
+      {
+        "object": "csbRfBillRealmStatsGroup",
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
+      },
+      {
+        "object": "csbSIPMthdCurrentStatsGroup",
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
+      },
+      {
+        "object": "csbSIPMthdHistoryStatsGroup",
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
+      },
+      {
+        "object": "csbSIPMthdRCHistoryStatsGroup",
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
+      },
+      {
+        "object": "csbSIPMthdRCCurrentStatsGroup",
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "csbRadiusStatsGroup": {
+    "name": "csbRadiusStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.757.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRadiusStatsClientName"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRadiusStatsClientType"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRadiusStatsSrvrName"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRadiusStatsAcsReqs"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRadiusStatsAcsRtrns"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRadiusStatsAcsAccpts"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRadiusStatsAcsRejects"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRadiusStatsAcsChalls"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRadiusStatsActReqs"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRadiusStatsActRetrans"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRadiusStatsActRsps"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRadiusStatsMalformedRsps"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRadiusStatsBadAuths"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRadiusStatsPending"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRadiusStatsTimeouts"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRadiusStatsUnknownType"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRadiusStatsDropped"
+      }
+    ],
+    "status": "current"
+  },
+  "csbRfBillRealmStatsGroup": {
+    "name": "csbRfBillRealmStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.757.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRfBillRealmStatsRealmName"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRfBillRealmStatsTotalStartAcrs"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRfBillRealmStatsTotalInterimAcrs"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRfBillRealmStatsTotalStopAcrs"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRfBillRealmStatsTotalEventAcrs"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRfBillRealmStatsSuccStartAcrs"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRfBillRealmStatsSuccInterimAcrs"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRfBillRealmStatsSuccStopAcrs"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRfBillRealmStatsSuccEventAcrs"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRfBillRealmStatsFailStartAcrs"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRfBillRealmStatsFailInterimAcrs"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRfBillRealmStatsFailStopAcrs"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbRfBillRealmStatsFailEventAcrs"
+      }
+    ],
+    "status": "current"
+  },
+  "csbSIPMthdCurrentStatsGroup": {
+    "name": "csbSIPMthdCurrentStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.757.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdCurrentStatsAdjName"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdCurrentStatsMethodName"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdCurrentStatsReqIn"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdCurrentStatsReqOut"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdCurrentStatsResp1xxIn"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdCurrentStatsResp1xxOut"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdCurrentStatsResp2xxIn"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdCurrentStatsResp2xxOut"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdCurrentStatsResp3xxIn"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdCurrentStatsResp3xxOut"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdCurrentStatsResp4xxIn"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdCurrentStatsResp4xxOut"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdCurrentStatsResp5xxIn"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdCurrentStatsResp5xxOut"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdCurrentStatsResp6xxIn"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdCurrentStatsResp6xxOut"
+      }
+    ],
+    "status": "current"
+  },
+  "csbSIPMthdHistoryStatsGroup": {
+    "name": "csbSIPMthdHistoryStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.757.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdHistoryStatsAdjName"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdHistoryStatsMethodName"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdHistoryStatsReqIn"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdHistoryStatsReqOut"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdHistoryStatsResp1xxIn"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdHistoryStatsResp1xxOut"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdHistoryStatsResp2xxIn"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdHistoryStatsResp2xxOut"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdHistoryStatsResp3xxIn"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdHistoryStatsResp3xxOut"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdHistoryStatsResp4xxIn"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdHistoryStatsResp4xxOut"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdHistoryStatsResp5xxIn"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdHistoryStatsResp5xxOut"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdHistoryStatsResp6xxIn"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdHistoryStatsResp6xxOut"
+      }
+    ],
+    "status": "current"
+  },
+  "csbSIPMthdRCCurrentStatsGroup": {
+    "name": "csbSIPMthdRCCurrentStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.757.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdRCCurrentStatsAdjName"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdRCCurrentStatsMethodName"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdRCCurrentStatsRespIn"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdRCCurrentStatsRespOut"
+      }
+    ],
+    "status": "current"
+  },
+  "csbSIPMthdRCHistoryStatsGroup": {
+    "name": "csbSIPMthdRCHistoryStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.757.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdRCHistoryStatsAdjName"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdRCHistoryStatsMethodName"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdRCHistoryStatsRespIn"
+      },
+      {
+        "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+        "object": "csbSIPMthdRCHistoryStatsRespOut"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SESS-BORDER-CTRLR-STATS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
+  }
+}

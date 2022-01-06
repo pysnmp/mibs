@@ -1,0 +1,893 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifName"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwIphcMIB": {
+    "name": "hwIphcMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.154",
+    "class": "moduleidentity"
+  },
+  "HWCompressType": {
+    "name": "HWCompressType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "withoutCompress": 1,
+          "enableTcpCompress": 2,
+          "enableRtpCompress": 3,
+          "enableEcRtpCompress": 4,
+          "enableUdpCompressOnly": 5,
+          "enableUdpandRtpCompressOnly": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HWCompressFormat": {
+    "name": "HWCompressFormat",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ietf": 1,
+          "nonstandard": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hwIphcInfoObjects": {
+    "name": "hwIphcInfoObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1",
+    "class": "objectidentity"
+  },
+  "hwIphcTcpConfigTable": {
+    "name": "hwIphcTcpConfigTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIphcTcpConfigEntry": {
+    "name": "hwIphcTcpConfigEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIphcTcpIfIndex": {
+    "name": "hwIphcTcpIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIphcTcpEnable": {
+    "name": "hwIphcTcpEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWCompressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIphcTcpConnnectionNumber": {
+    "name": "hwIphcTcpConnnectionNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIphcTcpRowStatus": {
+    "name": "hwIphcTcpRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIphcTcpConfigEffectTable": {
+    "name": "hwIphcTcpConfigEffectTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIphcTcpConfigEffectEntry": {
+    "name": "hwIphcTcpConfigEffectEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIphcTcpEffectEnable": {
+    "name": "hwIphcTcpEffectEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWCompressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcTcpEffectConnnectionNumber": {
+    "name": "hwIphcTcpEffectConnnectionNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcRtpConfigTable": {
+    "name": "hwIphcRtpConfigTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIphcRtpConfigEntry": {
+    "name": "hwIphcRtpConfigEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIphcRtpIfIndex": {
+    "name": "hwIphcRtpIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIphcRtpEnable": {
+    "name": "hwIphcRtpEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWCompressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIphcRtpConnnectionNumber": {
+    "name": "hwIphcRtpConnnectionNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIphcRtpNValue": {
+    "name": "hwIphcRtpNValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIphcRtpFormatType": {
+    "name": "hwIphcRtpFormatType",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWCompressFormat",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIphcRtpRowStatus": {
+    "name": "hwIphcRtpRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIphcRtpConfigEffectTable": {
+    "name": "hwIphcRtpConfigEffectTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIphcRtpConfigEffectEntry": {
+    "name": "hwIphcRtpConfigEffectEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIphcRtpEffectEnable": {
+    "name": "hwIphcRtpEffectEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWCompressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcRtpEffectConnnectionNumber": {
+    "name": "hwIphcRtpEffectConnnectionNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcRtpEffectNValue": {
+    "name": "hwIphcRtpEffectNValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcStatisticsObjects": {
+    "name": "hwIphcStatisticsObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2",
+    "class": "objectidentity"
+  },
+  "hwIphcTcpRunInfoTable": {
+    "name": "hwIphcTcpRunInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIphcTcpRunInfoEntry": {
+    "name": "hwIphcTcpRunInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIphcTcpSentTotalPackets": {
+    "name": "hwIphcTcpSentTotalPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcTcpSentTotalBytes": {
+    "name": "hwIphcTcpSentTotalBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcTcpSentCompressPackets": {
+    "name": "hwIphcTcpSentCompressPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcTcpSentCompressBytes": {
+    "name": "hwIphcTcpSentCompressBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcTcpSavedBytes": {
+    "name": "hwIphcTcpSavedBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcTcpCompressRatio": {
+    "name": "hwIphcTcpCompressRatio",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcTcpReceivedTotalPackets": {
+    "name": "hwIphcTcpReceivedTotalPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcTcpReceivedCompressPackets": {
+    "name": "hwIphcTcpReceivedCompressPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcTcpReceivedCompressErrorPackets": {
+    "name": "hwIphcTcpReceivedCompressErrorPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcTcpReceivedCompressDiscardPackets": {
+    "name": "hwIphcTcpReceivedCompressDiscardPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcRtpRunInfoTable": {
+    "name": "hwIphcRtpRunInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIphcRtpRunInfoEntry": {
+    "name": "hwIphcRtpRunInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIphcRtpSentTotalPackets": {
+    "name": "hwIphcRtpSentTotalPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcRtpSentTotalBytes": {
+    "name": "hwIphcRtpSentTotalBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcRtpSentCompressPackets": {
+    "name": "hwIphcRtpSentCompressPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcRtpSentCompressBytes": {
+    "name": "hwIphcRtpSentCompressBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcRtpSavedBytes": {
+    "name": "hwIphcRtpSavedBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcRtpCompressRatio": {
+    "name": "hwIphcRtpCompressRatio",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcRtpReceivedTotalPackets": {
+    "name": "hwIphcRtpReceivedTotalPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcRtpReceivedCompressPackets": {
+    "name": "hwIphcRtpReceivedCompressPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcRtpReceivedCompressErrorPackets": {
+    "name": "hwIphcRtpReceivedCompressErrorPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcRtpReceivedCompressDiscardPackets": {
+    "name": "hwIphcRtpReceivedCompressDiscardPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIphcTraps": {
+    "name": "hwIphcTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.3",
+    "class": "objectidentity"
+  },
+  "hwIphcContextError": {
+    "name": "hwIphcContextError",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIphcContextErrorResume": {
+    "name": "hwIphcContextErrorResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIphcConformance": {
+    "name": "hwIphcConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.4",
+    "class": "objectidentity"
+  },
+  "hwIphcCompliances": {
+    "name": "hwIphcCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.4.1",
+    "class": "objectidentity"
+  },
+  "hwIphcCompliance": {
+    "name": "hwIphcCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwIphcInfoGroup",
+        "module": "HUAWEI-IPHC-MIB"
+      },
+      {
+        "object": "hwIphcStatisticsGroup",
+        "module": "HUAWEI-IPHC-MIB"
+      },
+      {
+        "object": "hwIphcNotificationGroup",
+        "module": "HUAWEI-IPHC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIphcGroups": {
+    "name": "hwIphcGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.4.2",
+    "class": "objectidentity"
+  },
+  "hwIphcInfoGroup": {
+    "name": "hwIphcInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpEnable"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpConnnectionNumber"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpRowStatus"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpEffectEnable"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpEffectConnnectionNumber"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpEnable"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpConnnectionNumber"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpNValue"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpFormatType"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpRowStatus"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpEffectEnable"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpEffectConnnectionNumber"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpEffectNValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIphcStatisticsGroup": {
+    "name": "hwIphcStatisticsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpSentTotalPackets"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpSentTotalBytes"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpSentCompressPackets"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpSentCompressBytes"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpSavedBytes"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpCompressRatio"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpReceivedTotalPackets"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpReceivedCompressPackets"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpReceivedCompressErrorPackets"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpReceivedCompressDiscardPackets"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpSentTotalPackets"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpSentTotalBytes"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpSentCompressPackets"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpSentCompressBytes"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpSavedBytes"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpCompressRatio"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpReceivedTotalPackets"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpReceivedCompressPackets"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpReceivedCompressErrorPackets"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpReceivedCompressDiscardPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIphcNotificationGroup": {
+    "name": "hwIphcNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.4.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcContextError"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcContextErrorResume"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-IPHC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-IPHC-MIB"
+  }
+}

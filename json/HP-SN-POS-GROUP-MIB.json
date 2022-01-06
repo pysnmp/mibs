@@ -1,0 +1,708 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-SN-ROOT-MIB": [
+      "snPOS"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "POSStatus": {
+    "name": "POSStatus",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    }
+  },
+  "DisplayString": {
+    "name": "DisplayString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "snPOSInfo": {
+    "name": "snPOSInfo",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1",
+    "class": "objectidentity"
+  },
+  "snPOSInfoTable": {
+    "name": "snPOSInfoTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snPOSInfoEntry": {
+    "name": "snPOSInfoEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-POS-GROUP-MIB",
+        "object": "snPOSInfoPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snPOSInfoPortNum": {
+    "name": "snPOSInfoPortNum",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSIfIndex": {
+    "name": "snPOSIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSDescr": {
+    "name": "snPOSDescr",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSName": {
+    "name": "snPOSName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snPOSInfoSpeed": {
+    "name": "snPOSInfoSpeed",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "s155000": 1,
+          "s622000": 2,
+          "other": 3,
+          "s2488000": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snPOSInfoAdminStatus": {
+    "name": "snPOSInfoAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snPOSInfoLinkStatus": {
+    "name": "snPOSInfoLinkStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSInfoClock": {
+    "name": "snPOSInfoClock",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1,
+          "line": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snPOSInfoLoopBack": {
+    "name": "snPOSInfoLoopBack",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "line": 1,
+          "internal": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snPOSInfoScrambleATM": {
+    "name": "snPOSInfoScrambleATM",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "POSStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snPOSInfoFraming": {
+    "name": "snPOSInfoFraming",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sonet": 1,
+          "sdh": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snPOSInfoCRC": {
+    "name": "snPOSInfoCRC",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "crc32bits": 1,
+          "crc16bits": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snPOSInfoKeepAlive": {
+    "name": "snPOSInfoKeepAlive",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snPOSInfoFlagC2": {
+    "name": "snPOSInfoFlagC2",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snPOSInfoFlagJ0": {
+    "name": "snPOSInfoFlagJ0",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snPOSInfoFlagH1": {
+    "name": "snPOSInfoFlagH1",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snPOSStatsInFrames": {
+    "name": "snPOSStatsInFrames",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSStatsOutFrames": {
+    "name": "snPOSStatsOutFrames",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSStatsAlignErrors": {
+    "name": "snPOSStatsAlignErrors",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSStatsFCSErrors": {
+    "name": "snPOSStatsFCSErrors",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSStatsFrameTooLongs": {
+    "name": "snPOSStatsFrameTooLongs",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSStatsFrameTooShorts": {
+    "name": "snPOSStatsFrameTooShorts",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSStatsInDiscard": {
+    "name": "snPOSStatsInDiscard",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSStatsOutDiscard": {
+    "name": "snPOSStatsOutDiscard",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSInOctets": {
+    "name": "snPOSInOctets",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSOutOctets": {
+    "name": "snPOSOutOctets",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSStatsInBitsPerSec": {
+    "name": "snPOSStatsInBitsPerSec",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSStatsOutBitsPerSec": {
+    "name": "snPOSStatsOutBitsPerSec",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSStatsInPktsPerSec": {
+    "name": "snPOSStatsInPktsPerSec",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSStatsOutPktsPerSec": {
+    "name": "snPOSStatsOutPktsPerSec",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSStatsInUtilization": {
+    "name": "snPOSStatsInUtilization",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSStatsOutUtilization": {
+    "name": "snPOSStatsOutUtilization",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSTagType": {
+    "name": "snPOSTagType",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tagged": 1,
+          "untagged": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSStatsB1": {
+    "name": "snPOSStatsB1",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSStatsB2": {
+    "name": "snPOSStatsB2",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSStatsB3": {
+    "name": "snPOSStatsB3",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSStatsAIS": {
+    "name": "snPOSStatsAIS",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSStatsRDI": {
+    "name": "snPOSStatsRDI",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSStatsLOP": {
+    "name": "snPOSStatsLOP",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSStatsLOF": {
+    "name": "snPOSStatsLOF",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPOSStatsLOS": {
+    "name": "snPOSStatsLOS",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.2.14.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HP-SN-POS-GROUP-MIB"
+  }
+}

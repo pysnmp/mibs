@@ -1,0 +1,911 @@
+{
+  "imports": {
+    "class": "imports",
+    "ATM-TC-MIB": [
+      "AtmVcIdentifier",
+      "AtmVpIdentifier"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "JUNIPER-SMI": [
+      "jnxMibs"
+    ],
+    "JUNIPER-VPN-MIB": [
+      "jnxVpnPwVpnName",
+      "jnxVpnPwVpnType",
+      "jnxVpnPwIndex"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfIntervalCount",
+      "PerfCurrentCount"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TruthValue",
+      "RowPointer",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxPWAtmMIB": {
+    "name": "jnxPWAtmMIB",
+    "oid": "1.3.6.1.4.1.2636.3.57",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-09-01 00:00",
+        "description": " This mib is a modified version of RFC 5605"
+      }
+    ]
+  },
+  "jnxpwAtmNotifications": {
+    "name": "jnxpwAtmNotifications",
+    "oid": "1.3.6.1.4.1.2636.3.57.0",
+    "class": "objectidentity"
+  },
+  "jnxpwAtmObjects": {
+    "name": "jnxpwAtmObjects",
+    "oid": "1.3.6.1.4.1.2636.3.57.1",
+    "class": "objectidentity"
+  },
+  "jnxpwAtmConformance": {
+    "name": "jnxpwAtmConformance",
+    "oid": "1.3.6.1.4.1.2636.3.57.2",
+    "class": "objectidentity"
+  },
+  "jnxpwAtmCfgTable": {
+    "name": "jnxpwAtmCfgTable",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxpwAtmCfgEntry": {
+    "name": "jnxpwAtmCfgEntry",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-VPN-MIB",
+        "object": "jnxVpnPwVpnType",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-VPN-MIB",
+        "object": "jnxVpnPwVpnName",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-VPN-MIB",
+        "object": "jnxVpnPwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxpwAtmCfgMaxCellConcatenation": {
+    "name": "jnxpwAtmCfgMaxCellConcatenation",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 29
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmCfgFarEndMaxCellConcatenation": {
+    "name": "jnxpwAtmCfgFarEndMaxCellConcatenation",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 29
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmCfgTimeoutMode": {
+    "name": "jnxpwAtmCfgTimeoutMode",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmClpQosMapping": {
+    "name": "jnxpwAtmClpQosMapping",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmOutboundNto1Table": {
+    "name": "jnxpwAtmOutboundNto1Table",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxpwAtmOutboundNto1Entry": {
+    "name": "jnxpwAtmOutboundNto1Entry",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-VPN-MIB",
+        "object": "jnxVpnPwVpnType",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-VPN-MIB",
+        "object": "jnxVpnPwVpnName",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-VPN-MIB",
+        "object": "jnxVpnPwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxpwAtmOutboundNto1AtmIf": {
+    "name": "jnxpwAtmOutboundNto1AtmIf",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxpwAtmOutboundNto1Vpi": {
+    "name": "jnxpwAtmOutboundNto1Vpi",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxpwAtmOutboundNto1Vci": {
+    "name": "jnxpwAtmOutboundNto1Vci",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxpwAtmOutboundNto1RowStatus": {
+    "name": "jnxpwAtmOutboundNto1RowStatus",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmOutboundNto1TrafficParamDescr": {
+    "name": "jnxpwAtmOutboundNto1TrafficParamDescr",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmOutboundNto1MappedVpi": {
+    "name": "jnxpwAtmOutboundNto1MappedVpi",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmOutboundNto1MappedVci": {
+    "name": "jnxpwAtmOutboundNto1MappedVci",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmInboundNto1Table": {
+    "name": "jnxpwAtmInboundNto1Table",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxpwAtmInboundNto1Entry": {
+    "name": "jnxpwAtmInboundNto1Entry",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-VPN-MIB",
+        "object": "jnxVpnPwVpnType",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-VPN-MIB",
+        "object": "jnxVpnPwVpnName",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-VPN-MIB",
+        "object": "jnxVpnPwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxpwAtmInboundNto1AtmIf": {
+    "name": "jnxpwAtmInboundNto1AtmIf",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxpwAtmInboundNto1Vpi": {
+    "name": "jnxpwAtmInboundNto1Vpi",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxpwAtmInboundNto1Vci": {
+    "name": "jnxpwAtmInboundNto1Vci",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxpwAtmInboundNto1RowStatus": {
+    "name": "jnxpwAtmInboundNto1RowStatus",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmInboundNto1TrafficParamDescr": {
+    "name": "jnxpwAtmInboundNto1TrafficParamDescr",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmInboundNto1MappedVpi": {
+    "name": "jnxpwAtmInboundNto1MappedVpi",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmInboundNto1MappedVci": {
+    "name": "jnxpwAtmInboundNto1MappedVci",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerfCurrentTable": {
+    "name": "jnxpwAtmPerfCurrentTable",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxpwAtmPerfCurrentEntry": {
+    "name": "jnxpwAtmPerfCurrentEntry",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-VPN-MIB",
+        "object": "jnxVpnPwVpnType",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-VPN-MIB",
+        "object": "jnxVpnPwVpnName",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-VPN-MIB",
+        "object": "jnxVpnPwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxpwAtmPerfCurrentMissingPkts": {
+    "name": "jnxpwAtmPerfCurrentMissingPkts",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerfCurrentPktsReOrder": {
+    "name": "jnxpwAtmPerfCurrentPktsReOrder",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerfCurrentPktsMisOrder": {
+    "name": "jnxpwAtmPerfCurrentPktsMisOrder",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerfCurrentPktsTimeout": {
+    "name": "jnxpwAtmPerfCurrentPktsTimeout",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerfCurrentPktsXmit": {
+    "name": "jnxpwAtmPerfCurrentPktsXmit",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerfCurrentCellsDropped": {
+    "name": "jnxpwAtmPerfCurrentCellsDropped",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerfCurrentPktsReceived": {
+    "name": "jnxpwAtmPerfCurrentPktsReceived",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerfCurrentUnknownCells": {
+    "name": "jnxpwAtmPerfCurrentUnknownCells",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerfIntervalTable": {
+    "name": "jnxpwAtmPerfIntervalTable",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxpwAtmPerfIntervalEntry": {
+    "name": "jnxpwAtmPerfIntervalEntry",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-VPN-MIB",
+        "object": "jnxVpnPwVpnType",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-VPN-MIB",
+        "object": "jnxVpnPwVpnName",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-VPN-MIB",
+        "object": "jnxVpnPwIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-PW-ATM-MIB",
+        "object": "jnxpwAtmPerfIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxpwAtmPerfIntervalNumber": {
+    "name": "jnxpwAtmPerfIntervalNumber",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxpwAtmPerfIntervalValidData": {
+    "name": "jnxpwAtmPerfIntervalValidData",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerfIntervalDuration": {
+    "name": "jnxpwAtmPerfIntervalDuration",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerfIntervalMissingPkts": {
+    "name": "jnxpwAtmPerfIntervalMissingPkts",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerfIntervalPktsReOrder": {
+    "name": "jnxpwAtmPerfIntervalPktsReOrder",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerfIntervalPktsMisOrder": {
+    "name": "jnxpwAtmPerfIntervalPktsMisOrder",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerfIntervalPktsTimeout": {
+    "name": "jnxpwAtmPerfIntervalPktsTimeout",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerfIntervalPktsXmit": {
+    "name": "jnxpwAtmPerfIntervalPktsXmit",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerfIntervalCellsDropped": {
+    "name": "jnxpwAtmPerfIntervalCellsDropped",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerfIntervalPktsReceived": {
+    "name": "jnxpwAtmPerfIntervalPktsReceived",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerfIntervalUnknownCells": {
+    "name": "jnxpwAtmPerfIntervalUnknownCells",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerf1DayIntervalTable": {
+    "name": "jnxpwAtmPerf1DayIntervalTable",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxpwAtmPerf1DayIntervalEntry": {
+    "name": "jnxpwAtmPerf1DayIntervalEntry",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-VPN-MIB",
+        "object": "jnxVpnPwVpnType",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-VPN-MIB",
+        "object": "jnxVpnPwVpnName",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-VPN-MIB",
+        "object": "jnxVpnPwIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-PW-ATM-MIB",
+        "object": "jnxpwAtmPerf1DayIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxpwAtmPerf1DayIntervalNumber": {
+    "name": "jnxpwAtmPerf1DayIntervalNumber",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 365
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxpwAtmPerf1DayIntervalValidData": {
+    "name": "jnxpwAtmPerf1DayIntervalValidData",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerf1DayIntervalDuration": {
+    "name": "jnxpwAtmPerf1DayIntervalDuration",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerf1DayIntervalMissingPkts": {
+    "name": "jnxpwAtmPerf1DayIntervalMissingPkts",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerf1DayIntervalPktsReOrder": {
+    "name": "jnxpwAtmPerf1DayIntervalPktsReOrder",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerf1DayIntervalPktsMisOrder": {
+    "name": "jnxpwAtmPerf1DayIntervalPktsMisOrder",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerf1DayIntervalPktsTimeout": {
+    "name": "jnxpwAtmPerf1DayIntervalPktsTimeout",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerf1DayIntervalPktsXmit": {
+    "name": "jnxpwAtmPerf1DayIntervalPktsXmit",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerf1DayIntervalCellsDropped": {
+    "name": "jnxpwAtmPerf1DayIntervalCellsDropped",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerf1DayIntervalPktsReceived": {
+    "name": "jnxpwAtmPerf1DayIntervalPktsReceived",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxpwAtmPerf1DayIntervalUnknownCells": {
+    "name": "jnxpwAtmPerf1DayIntervalUnknownCells",
+    "oid": "1.3.6.1.4.1.2636.3.57.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-PW-ATM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-PW-ATM-MIB"
+  }
+}

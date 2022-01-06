@@ -1,0 +1,1071 @@
+{
+  "imports": {
+    "class": "imports",
+    "IEEE8021-BRIDGE-MIB": [
+      "ieee8021BridgeBasePortComponentId",
+      "ieee8021BridgeBasePort"
+    ],
+    "IEEE8021-TC-MIB": [
+      "IEEE8021BridgePortType",
+      "IEEE8021BridgePortNumberOrZero",
+      "ieee802dot1mibs",
+      "IEEE8021PriorityValue",
+      "IEEE8021PbbComponentIdentifierOrZero",
+      "IEEE8021PortAcceptableFrameTypes"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId",
+      "VlanIdOrNone"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ieee8021PbMib": {
+    "name": "ieee8021PbMib",
+    "oid": "1.3.111.2.802.1.1.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-06-28 00:00",
+        "description": "Published as part of IEEE Std 802.1Q-2018. Cross references updated and corrected."
+      },
+      {
+        "revision": "2014-12-15 00:00",
+        "description": "Published as part of IEEE Std 802.1Q 2014 revision. Cross references updated and corrected. Bug fixes to conformance section."
+      },
+      {
+        "revision": "2012-02-10 00:00",
+        "description": "Deprecated ieee8021PbVidTranslationTable moved the new object to the Q Bridge as part of VID translation for IEEE Std 802.1aq."
+      },
+      {
+        "revision": "2011-04-06 00:00",
+        "description": "Additions to support Remote Customer Service Interfaces."
+      },
+      {
+        "revision": "2011-02-27 00:00",
+        "description": "Change to ieee8021PbEdgePortAcceptableFrameTypes permissible values, addition of IEEE8021BridgePortNumberOrZero to IMPORTS, as part of 2011 revision of IEEE Std 802.1Q."
+      },
+      {
+        "revision": "2010-08-26 00:00",
+        "description": "Minor edits to contact information etc. as part of revision of Std 802.1Q."
+      },
+      {
+        "revision": "2008-10-15 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "ieee8021PbNotifications": {
+    "name": "ieee8021PbNotifications",
+    "oid": "1.3.111.2.802.1.1.5.0",
+    "class": "objectidentity"
+  },
+  "ieee8021PbObjects": {
+    "name": "ieee8021PbObjects",
+    "oid": "1.3.111.2.802.1.1.5.1",
+    "class": "objectidentity"
+  },
+  "ieee8021PbConformance": {
+    "name": "ieee8021PbConformance",
+    "oid": "1.3.111.2.802.1.1.5.2",
+    "class": "objectidentity"
+  },
+  "ieee8021PbVidTranslationTable": {
+    "name": "ieee8021PbVidTranslationTable",
+    "oid": "1.3.111.2.802.1.1.5.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "ieee8021PbVidTranslationEntry": {
+    "name": "ieee8021PbVidTranslationEntry",
+    "oid": "1.3.111.2.802.1.1.5.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePortComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePort",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbVidTranslationLocalVid",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ieee8021PbVidTranslationLocalVid": {
+    "name": "ieee8021PbVidTranslationLocalVid",
+    "oid": "1.3.111.2.802.1.1.5.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "ieee8021PbVidTranslationRelayVid": {
+    "name": "ieee8021PbVidTranslationRelayVid",
+    "oid": "1.3.111.2.802.1.1.5.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "ieee8021PbVidTranslationRowStatus": {
+    "name": "ieee8021PbVidTranslationRowStatus",
+    "oid": "1.3.111.2.802.1.1.5.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "ieee8021PbCVidRegistrationTable": {
+    "name": "ieee8021PbCVidRegistrationTable",
+    "oid": "1.3.111.2.802.1.1.5.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbCVidRegistrationEntry": {
+    "name": "ieee8021PbCVidRegistrationEntry",
+    "oid": "1.3.111.2.802.1.1.5.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePortComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePort",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbCVidRegistrationCVid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbCVidRegistrationCVid": {
+    "name": "ieee8021PbCVidRegistrationCVid",
+    "oid": "1.3.111.2.802.1.1.5.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbCVidRegistrationSVid": {
+    "name": "ieee8021PbCVidRegistrationSVid",
+    "oid": "1.3.111.2.802.1.1.5.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbCVidRegistrationUntaggedPep": {
+    "name": "ieee8021PbCVidRegistrationUntaggedPep",
+    "oid": "1.3.111.2.802.1.1.5.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbCVidRegistrationUntaggedCep": {
+    "name": "ieee8021PbCVidRegistrationUntaggedCep",
+    "oid": "1.3.111.2.802.1.1.5.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbCVidRegistrationRowStatus": {
+    "name": "ieee8021PbCVidRegistrationRowStatus",
+    "oid": "1.3.111.2.802.1.1.5.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbEdgePortTable": {
+    "name": "ieee8021PbEdgePortTable",
+    "oid": "1.3.111.2.802.1.1.5.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbEdgePortEntry": {
+    "name": "ieee8021PbEdgePortEntry",
+    "oid": "1.3.111.2.802.1.1.5.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePortComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePort",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbEdgePortSVid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbEdgePortSVid": {
+    "name": "ieee8021PbEdgePortSVid",
+    "oid": "1.3.111.2.802.1.1.5.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbEdgePortPVID": {
+    "name": "ieee8021PbEdgePortPVID",
+    "oid": "1.3.111.2.802.1.1.5.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021PbEdgePortDefaultUserPriority": {
+    "name": "ieee8021PbEdgePortDefaultUserPriority",
+    "oid": "1.3.111.2.802.1.1.5.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PriorityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021PbEdgePortAcceptableFrameTypes": {
+    "name": "ieee8021PbEdgePortAcceptableFrameTypes",
+    "oid": "1.3.111.2.802.1.1.5.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PortAcceptableFrameTypes",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "admitAll",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021PbEdgePortEnableIngressFiltering": {
+    "name": "ieee8021PbEdgePortEnableIngressFiltering",
+    "oid": "1.3.111.2.802.1.1.5.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021PbServicePriorityRegenerationTable": {
+    "name": "ieee8021PbServicePriorityRegenerationTable",
+    "oid": "1.3.111.2.802.1.1.5.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbServicePriorityRegenerationEntry": {
+    "name": "ieee8021PbServicePriorityRegenerationEntry",
+    "oid": "1.3.111.2.802.1.1.5.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePortComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePort",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbServicePriorityRegenerationSVid",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbServicePriorityRegenerationReceivedPriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbServicePriorityRegenerationSVid": {
+    "name": "ieee8021PbServicePriorityRegenerationSVid",
+    "oid": "1.3.111.2.802.1.1.5.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbServicePriorityRegenerationReceivedPriority": {
+    "name": "ieee8021PbServicePriorityRegenerationReceivedPriority",
+    "oid": "1.3.111.2.802.1.1.5.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PriorityValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbServicePriorityRegenerationRegeneratedPriority": {
+    "name": "ieee8021PbServicePriorityRegenerationRegeneratedPriority",
+    "oid": "1.3.111.2.802.1.1.5.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PriorityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021PbCnpTable": {
+    "name": "ieee8021PbCnpTable",
+    "oid": "1.3.111.2.802.1.1.5.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbCnpEntry": {
+    "name": "ieee8021PbCnpEntry",
+    "oid": "1.3.111.2.802.1.1.5.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePortComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbCnpCComponentId": {
+    "name": "ieee8021PbCnpCComponentId",
+    "oid": "1.3.111.2.802.1.1.5.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifierOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbCnpSVid": {
+    "name": "ieee8021PbCnpSVid",
+    "oid": "1.3.111.2.802.1.1.5.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbCnpRowStatus": {
+    "name": "ieee8021PbCnpRowStatus",
+    "oid": "1.3.111.2.802.1.1.5.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbPnpTable": {
+    "name": "ieee8021PbPnpTable",
+    "oid": "1.3.111.2.802.1.1.5.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbPnpEntry": {
+    "name": "ieee8021PbPnpEntry",
+    "oid": "1.3.111.2.802.1.1.5.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePortComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbPnpRowStatus": {
+    "name": "ieee8021PbPnpRowStatus",
+    "oid": "1.3.111.2.802.1.1.5.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbCepTable": {
+    "name": "ieee8021PbCepTable",
+    "oid": "1.3.111.2.802.1.1.5.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbCepEntry": {
+    "name": "ieee8021PbCepEntry",
+    "oid": "1.3.111.2.802.1.1.5.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePortComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbCepCComponentId": {
+    "name": "ieee8021PbCepCComponentId",
+    "oid": "1.3.111.2.802.1.1.5.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifierOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PbCepCepPortNumber": {
+    "name": "ieee8021PbCepCepPortNumber",
+    "oid": "1.3.111.2.802.1.1.5.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumberOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PbCepRowStatus": {
+    "name": "ieee8021PbCepRowStatus",
+    "oid": "1.3.111.2.802.1.1.5.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbRcapTable": {
+    "name": "ieee8021PbRcapTable",
+    "oid": "1.3.111.2.802.1.1.5.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbRcapEntry": {
+    "name": "ieee8021PbRcapEntry",
+    "oid": "1.3.111.2.802.1.1.5.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePortComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbRcapSComponentId": {
+    "name": "ieee8021PbRcapSComponentId",
+    "oid": "1.3.111.2.802.1.1.5.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifierOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PbRcapRcapPortNumber": {
+    "name": "ieee8021PbRcapRcapPortNumber",
+    "oid": "1.3.111.2.802.1.1.5.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumberOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PbRcapRowStatus": {
+    "name": "ieee8021PbRcapRowStatus",
+    "oid": "1.3.111.2.802.1.1.5.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbInternalInterfaceTable": {
+    "name": "ieee8021PbInternalInterfaceTable",
+    "oid": "1.3.111.2.802.1.1.5.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbIiEntry": {
+    "name": "ieee8021PbIiEntry",
+    "oid": "1.3.111.2.802.1.1.5.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePortComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePort",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbIiExternalSVid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbIiExternalSVid": {
+    "name": "ieee8021PbIiExternalSVid",
+    "oid": "1.3.111.2.802.1.1.5.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbIiInternalPortNumber": {
+    "name": "ieee8021PbIiInternalPortNumber",
+    "oid": "1.3.111.2.802.1.1.5.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumberOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PbIiInternalPortType": {
+    "name": "ieee8021PbIiInternalPortType",
+    "oid": "1.3.111.2.802.1.1.5.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbIiInternalSVid": {
+    "name": "ieee8021PbIiInternalSVid",
+    "oid": "1.3.111.2.802.1.1.5.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbIiRowStatus": {
+    "name": "ieee8021PbIiRowStatus",
+    "oid": "1.3.111.2.802.1.1.5.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbGroups": {
+    "name": "ieee8021PbGroups",
+    "oid": "1.3.111.2.802.1.1.5.2.1",
+    "class": "objectidentity"
+  },
+  "ieee8021PbCompliances": {
+    "name": "ieee8021PbCompliances",
+    "oid": "1.3.111.2.802.1.1.5.2.2",
+    "class": "objectidentity"
+  },
+  "ieee8021PbVidTranslationGroup": {
+    "name": "ieee8021PbVidTranslationGroup",
+    "oid": "1.3.111.2.802.1.1.5.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbVidTranslationRelayVid"
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbVidTranslationRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ieee8021PbCVidRegistrationGroup": {
+    "name": "ieee8021PbCVidRegistrationGroup",
+    "oid": "1.3.111.2.802.1.1.5.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbCVidRegistrationSVid"
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbCVidRegistrationUntaggedPep"
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbCVidRegistrationUntaggedCep"
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbCVidRegistrationRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbEdgePortGroup": {
+    "name": "ieee8021PbEdgePortGroup",
+    "oid": "1.3.111.2.802.1.1.5.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbEdgePortPVID"
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbEdgePortDefaultUserPriority"
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbEdgePortAcceptableFrameTypes"
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbEdgePortEnableIngressFiltering"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbServicePriorityRegenerationGroup": {
+    "name": "ieee8021PbServicePriorityRegenerationGroup",
+    "oid": "1.3.111.2.802.1.1.5.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbServicePriorityRegenerationRegeneratedPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbDynamicCnpGroup": {
+    "name": "ieee8021PbDynamicCnpGroup",
+    "oid": "1.3.111.2.802.1.1.5.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbCnpCComponentId"
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbCnpSVid"
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbCnpRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbDynamicPnpGroup": {
+    "name": "ieee8021PbDynamicPnpGroup",
+    "oid": "1.3.111.2.802.1.1.5.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbPnpRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbDynamicCepGroup": {
+    "name": "ieee8021PbDynamicCepGroup",
+    "oid": "1.3.111.2.802.1.1.5.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbCepCComponentId"
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbCepCepPortNumber"
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbCepRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbDynamicRcapGroup": {
+    "name": "ieee8021PbDynamicRcapGroup",
+    "oid": "1.3.111.2.802.1.1.5.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbRcapSComponentId"
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbRcapRcapPortNumber"
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbCepRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ieee8021PbInternalInterfaceGroup": {
+    "name": "ieee8021PbInternalInterfaceGroup",
+    "oid": "1.3.111.2.802.1.1.5.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbIiInternalPortNumber"
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbIiInternalPortType"
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbIiInternalSVid"
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbIiRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbDynamicRcapV2Group": {
+    "name": "ieee8021PbDynamicRcapV2Group",
+    "oid": "1.3.111.2.802.1.1.5.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbRcapSComponentId"
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbRcapRcapPortNumber"
+      },
+      {
+        "module": "IEEE8021-PB-MIB",
+        "object": "ieee8021PbRcapRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbCompliance": {
+    "name": "ieee8021PbCompliance",
+    "oid": "1.3.111.2.802.1.1.5.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ieee8021PbVidTranslationGroup",
+        "module": "IEEE8021-PB-MIB"
+      },
+      {
+        "object": "ieee8021PbCVidRegistrationGroup",
+        "module": "IEEE8021-PB-MIB"
+      },
+      {
+        "object": "ieee8021PbEdgePortGroup",
+        "module": "IEEE8021-PB-MIB"
+      },
+      {
+        "object": "ieee8021PbServicePriorityRegenerationGroup",
+        "module": "IEEE8021-PB-MIB"
+      },
+      {
+        "object": "ieee8021PbDynamicCnpGroup",
+        "module": "IEEE8021-PB-MIB"
+      },
+      {
+        "object": "ieee8021PbDynamicPnpGroup",
+        "module": "IEEE8021-PB-MIB"
+      },
+      {
+        "object": "ieee8021PbDynamicCepGroup",
+        "module": "IEEE8021-PB-MIB"
+      },
+      {
+        "object": "ieee8021PbDynamicRcapGroup",
+        "module": "IEEE8021-PB-MIB"
+      },
+      {
+        "object": "ieee8021PbInternalInterfaceGroup",
+        "module": "IEEE8021-PB-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ieee8021PbComplianceV2": {
+    "name": "ieee8021PbComplianceV2",
+    "oid": "1.3.111.2.802.1.1.5.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ieee8021PbCVidRegistrationGroup",
+        "module": "IEEE8021-PB-MIB"
+      },
+      {
+        "object": "ieee8021PbEdgePortGroup",
+        "module": "IEEE8021-PB-MIB"
+      },
+      {
+        "object": "ieee8021PbServicePriorityRegenerationGroup",
+        "module": "IEEE8021-PB-MIB"
+      },
+      {
+        "object": "ieee8021PbDynamicCnpGroup",
+        "module": "IEEE8021-PB-MIB"
+      },
+      {
+        "object": "ieee8021PbDynamicPnpGroup",
+        "module": "IEEE8021-PB-MIB"
+      },
+      {
+        "object": "ieee8021PbDynamicCepGroup",
+        "module": "IEEE8021-PB-MIB"
+      },
+      {
+        "object": "ieee8021PbDynamicRcapV2Group",
+        "module": "IEEE8021-PB-MIB"
+      },
+      {
+        "object": "ieee8021PbInternalInterfaceGroup",
+        "module": "IEEE8021-PB-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IEEE8021-PB-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IEEE8021-PB-MIB"
+  }
+}

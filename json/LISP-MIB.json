@@ -1,0 +1,3200 @@
+{
+  "imports": {
+    "class": "imports",
+    "IANA-ADDRESS-FAMILY-NUMBERS-MIB": [
+      "AddressFamilyNumbers"
+    ],
+    "MPLS-L3VPN-STD-MIB": [
+      "MplsL3VpnName"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "mib-2",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "lispMIB": {
+    "name": "lispMIB",
+    "oid": "1.3.6.1.2.1.220",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-10-21 00:00",
+        "description": "Initial version of the IETF LISP-MIB module. Published as RFC 7052."
+      }
+    ]
+  },
+  "LispAddressType": {
+    "name": "LispAddressType",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 5,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "displayhint": "39a",
+    "status": "current"
+  },
+  "lispObjects": {
+    "name": "lispObjects",
+    "oid": "1.3.6.1.2.1.220.1",
+    "class": "objectidentity"
+  },
+  "lispConformance": {
+    "name": "lispConformance",
+    "oid": "1.3.6.1.2.1.220.2",
+    "class": "objectidentity"
+  },
+  "lispFeaturesTable": {
+    "name": "lispFeaturesTable",
+    "oid": "1.3.6.1.2.1.220.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispFeaturesEntry": {
+    "name": "lispFeaturesEntry",
+    "oid": "1.3.6.1.2.1.220.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispFeaturesInstanceID",
+        "implied": 0
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispFeaturesAddressFamily",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lispFeaturesInstanceID": {
+    "name": "lispFeaturesInstanceID",
+    "oid": "1.3.6.1.2.1.220.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispFeaturesAddressFamily": {
+    "name": "lispFeaturesAddressFamily",
+    "oid": "1.3.6.1.2.1.220.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AddressFamilyNumbers",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispFeaturesItrEnabled": {
+    "name": "lispFeaturesItrEnabled",
+    "oid": "1.3.6.1.2.1.220.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispFeaturesEtrEnabled": {
+    "name": "lispFeaturesEtrEnabled",
+    "oid": "1.3.6.1.2.1.220.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispFeaturesProxyItrEnabled": {
+    "name": "lispFeaturesProxyItrEnabled",
+    "oid": "1.3.6.1.2.1.220.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispFeaturesProxyEtrEnabled": {
+    "name": "lispFeaturesProxyEtrEnabled",
+    "oid": "1.3.6.1.2.1.220.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispFeaturesMapServerEnabled": {
+    "name": "lispFeaturesMapServerEnabled",
+    "oid": "1.3.6.1.2.1.220.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispFeaturesMapResolverEnabled": {
+    "name": "lispFeaturesMapResolverEnabled",
+    "oid": "1.3.6.1.2.1.220.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispFeaturesMapCacheSize": {
+    "name": "lispFeaturesMapCacheSize",
+    "oid": "1.3.6.1.2.1.220.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispFeaturesMapCacheLimit": {
+    "name": "lispFeaturesMapCacheLimit",
+    "oid": "1.3.6.1.2.1.220.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispFeaturesEtrMapCacheTtl": {
+    "name": "lispFeaturesEtrMapCacheTtl",
+    "oid": "1.3.6.1.2.1.220.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispFeaturesRlocProbeEnabled": {
+    "name": "lispFeaturesRlocProbeEnabled",
+    "oid": "1.3.6.1.2.1.220.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispFeaturesEtrAcceptMapDataEnabled": {
+    "name": "lispFeaturesEtrAcceptMapDataEnabled",
+    "oid": "1.3.6.1.2.1.220.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispFeaturesEtrAcceptMapDataVerifyEnabled": {
+    "name": "lispFeaturesEtrAcceptMapDataVerifyEnabled",
+    "oid": "1.3.6.1.2.1.220.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispFeaturesRouterTimeStamp": {
+    "name": "lispFeaturesRouterTimeStamp",
+    "oid": "1.3.6.1.2.1.220.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispIidToVrfTable": {
+    "name": "lispIidToVrfTable",
+    "oid": "1.3.6.1.2.1.220.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispIidToVrfEntry": {
+    "name": "lispIidToVrfEntry",
+    "oid": "1.3.6.1.2.1.220.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispFeaturesInstanceID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lispIidToVrfName": {
+    "name": "lispIidToVrfName",
+    "oid": "1.3.6.1.2.1.220.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsL3VpnName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispGlobalStatsTable": {
+    "name": "lispGlobalStatsTable",
+    "oid": "1.3.6.1.2.1.220.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispGlobalStatsEntry": {
+    "name": "lispGlobalStatsEntry",
+    "oid": "1.3.6.1.2.1.220.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispFeaturesInstanceID",
+        "implied": 0
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispFeaturesAddressFamily",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lispGlobalStatsMapRequestsIn": {
+    "name": "lispGlobalStatsMapRequestsIn",
+    "oid": "1.3.6.1.2.1.220.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispGlobalStatsMapRequestsOut": {
+    "name": "lispGlobalStatsMapRequestsOut",
+    "oid": "1.3.6.1.2.1.220.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispGlobalStatsMapRepliesIn": {
+    "name": "lispGlobalStatsMapRepliesIn",
+    "oid": "1.3.6.1.2.1.220.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispGlobalStatsMapRepliesOut": {
+    "name": "lispGlobalStatsMapRepliesOut",
+    "oid": "1.3.6.1.2.1.220.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispGlobalStatsMapRegistersIn": {
+    "name": "lispGlobalStatsMapRegistersIn",
+    "oid": "1.3.6.1.2.1.220.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispGlobalStatsMapRegistersOut": {
+    "name": "lispGlobalStatsMapRegistersOut",
+    "oid": "1.3.6.1.2.1.220.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMappingDatabaseTable": {
+    "name": "lispMappingDatabaseTable",
+    "oid": "1.3.6.1.2.1.220.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispMappingDatabaseEntry": {
+    "name": "lispMappingDatabaseEntry",
+    "oid": "1.3.6.1.2.1.220.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseEidLength",
+        "implied": 0
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseEid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lispMappingDatabaseEidLength": {
+    "name": "lispMappingDatabaseEidLength",
+    "oid": "1.3.6.1.2.1.220.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispMappingDatabaseEid": {
+    "name": "lispMappingDatabaseEid",
+    "oid": "1.3.6.1.2.1.220.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LispAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispMappingDatabaseLsb": {
+    "name": "lispMappingDatabaseLsb",
+    "oid": "1.3.6.1.2.1.220.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMappingDatabaseEidPartitioned": {
+    "name": "lispMappingDatabaseEidPartitioned",
+    "oid": "1.3.6.1.2.1.220.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMappingDatabaseTimeStamp": {
+    "name": "lispMappingDatabaseTimeStamp",
+    "oid": "1.3.6.1.2.1.220.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMappingDatabaseDecapOctets": {
+    "name": "lispMappingDatabaseDecapOctets",
+    "oid": "1.3.6.1.2.1.220.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMappingDatabaseDecapPackets": {
+    "name": "lispMappingDatabaseDecapPackets",
+    "oid": "1.3.6.1.2.1.220.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMappingDatabaseEncapOctets": {
+    "name": "lispMappingDatabaseEncapOctets",
+    "oid": "1.3.6.1.2.1.220.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMappingDatabaseEncapPackets": {
+    "name": "lispMappingDatabaseEncapPackets",
+    "oid": "1.3.6.1.2.1.220.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMappingDatabaseLocatorTable": {
+    "name": "lispMappingDatabaseLocatorTable",
+    "oid": "1.3.6.1.2.1.220.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispMappingDatabaseLocatorEntry": {
+    "name": "lispMappingDatabaseLocatorEntry",
+    "oid": "1.3.6.1.2.1.220.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseEidLength",
+        "implied": 0
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseEid",
+        "implied": 0
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseLocatorRlocLength",
+        "implied": 0
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseLocatorRloc",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lispMappingDatabaseLocatorRlocLength": {
+    "name": "lispMappingDatabaseLocatorRlocLength",
+    "oid": "1.3.6.1.2.1.220.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispMappingDatabaseLocatorRloc": {
+    "name": "lispMappingDatabaseLocatorRloc",
+    "oid": "1.3.6.1.2.1.220.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LispAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispMappingDatabaseLocatorRlocPriority": {
+    "name": "lispMappingDatabaseLocatorRlocPriority",
+    "oid": "1.3.6.1.2.1.220.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMappingDatabaseLocatorRlocWeight": {
+    "name": "lispMappingDatabaseLocatorRlocWeight",
+    "oid": "1.3.6.1.2.1.220.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMappingDatabaseLocatorRlocMPriority": {
+    "name": "lispMappingDatabaseLocatorRlocMPriority",
+    "oid": "1.3.6.1.2.1.220.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMappingDatabaseLocatorRlocMWeight": {
+    "name": "lispMappingDatabaseLocatorRlocMWeight",
+    "oid": "1.3.6.1.2.1.220.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMappingDatabaseLocatorRlocState": {
+    "name": "lispMappingDatabaseLocatorRlocState",
+    "oid": "1.3.6.1.2.1.220.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "unreachable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMappingDatabaseLocatorRlocLocal": {
+    "name": "lispMappingDatabaseLocatorRlocLocal",
+    "oid": "1.3.6.1.2.1.220.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "siteself": 1,
+          "sitelocal": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMappingDatabaseLocatorRlocTimeStamp": {
+    "name": "lispMappingDatabaseLocatorRlocTimeStamp",
+    "oid": "1.3.6.1.2.1.220.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMappingDatabaseLocatorRlocDecapOctets": {
+    "name": "lispMappingDatabaseLocatorRlocDecapOctets",
+    "oid": "1.3.6.1.2.1.220.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMappingDatabaseLocatorRlocDecapPackets": {
+    "name": "lispMappingDatabaseLocatorRlocDecapPackets",
+    "oid": "1.3.6.1.2.1.220.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMappingDatabaseLocatorRlocEncapOctets": {
+    "name": "lispMappingDatabaseLocatorRlocEncapOctets",
+    "oid": "1.3.6.1.2.1.220.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMappingDatabaseLocatorRlocEncapPackets": {
+    "name": "lispMappingDatabaseLocatorRlocEncapPackets",
+    "oid": "1.3.6.1.2.1.220.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheTable": {
+    "name": "lispMapCacheTable",
+    "oid": "1.3.6.1.2.1.220.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispMapCacheEntry": {
+    "name": "lispMapCacheEntry",
+    "oid": "1.3.6.1.2.1.220.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheEidLength",
+        "implied": 0
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheEid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lispMapCacheEidLength": {
+    "name": "lispMapCacheEidLength",
+    "oid": "1.3.6.1.2.1.220.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispMapCacheEid": {
+    "name": "lispMapCacheEid",
+    "oid": "1.3.6.1.2.1.220.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LispAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispMapCacheEidTimeStamp": {
+    "name": "lispMapCacheEidTimeStamp",
+    "oid": "1.3.6.1.2.1.220.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheEidExpiryTime": {
+    "name": "lispMapCacheEidExpiryTime",
+    "oid": "1.3.6.1.2.1.220.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheEidState": {
+    "name": "lispMapCacheEidState",
+    "oid": "1.3.6.1.2.1.220.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheEidAuthoritative": {
+    "name": "lispMapCacheEidAuthoritative",
+    "oid": "1.3.6.1.2.1.220.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheEidDecapOctets": {
+    "name": "lispMapCacheEidDecapOctets",
+    "oid": "1.3.6.1.2.1.220.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheEidDecapPackets": {
+    "name": "lispMapCacheEidDecapPackets",
+    "oid": "1.3.6.1.2.1.220.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheEidEncapOctets": {
+    "name": "lispMapCacheEidEncapOctets",
+    "oid": "1.3.6.1.2.1.220.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheEidEncapPackets": {
+    "name": "lispMapCacheEidEncapPackets",
+    "oid": "1.3.6.1.2.1.220.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheLocatorTable": {
+    "name": "lispMapCacheLocatorTable",
+    "oid": "1.3.6.1.2.1.220.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispMapCacheLocatorEntry": {
+    "name": "lispMapCacheLocatorEntry",
+    "oid": "1.3.6.1.2.1.220.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheEidLength",
+        "implied": 0
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheEid",
+        "implied": 0
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheLocatorRlocLength",
+        "implied": 0
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheLocatorRloc",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lispMapCacheLocatorRlocLength": {
+    "name": "lispMapCacheLocatorRlocLength",
+    "oid": "1.3.6.1.2.1.220.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispMapCacheLocatorRloc": {
+    "name": "lispMapCacheLocatorRloc",
+    "oid": "1.3.6.1.2.1.220.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LispAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispMapCacheLocatorRlocPriority": {
+    "name": "lispMapCacheLocatorRlocPriority",
+    "oid": "1.3.6.1.2.1.220.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheLocatorRlocWeight": {
+    "name": "lispMapCacheLocatorRlocWeight",
+    "oid": "1.3.6.1.2.1.220.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheLocatorRlocMPriority": {
+    "name": "lispMapCacheLocatorRlocMPriority",
+    "oid": "1.3.6.1.2.1.220.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheLocatorRlocMWeight": {
+    "name": "lispMapCacheLocatorRlocMWeight",
+    "oid": "1.3.6.1.2.1.220.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheLocatorRlocState": {
+    "name": "lispMapCacheLocatorRlocState",
+    "oid": "1.3.6.1.2.1.220.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "unreachable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheLocatorRlocTimeStamp": {
+    "name": "lispMapCacheLocatorRlocTimeStamp",
+    "oid": "1.3.6.1.2.1.220.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheLocatorRlocLastPriorityChange": {
+    "name": "lispMapCacheLocatorRlocLastPriorityChange",
+    "oid": "1.3.6.1.2.1.220.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheLocatorRlocLastWeightChange": {
+    "name": "lispMapCacheLocatorRlocLastWeightChange",
+    "oid": "1.3.6.1.2.1.220.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheLocatorRlocLastMPriorityChange": {
+    "name": "lispMapCacheLocatorRlocLastMPriorityChange",
+    "oid": "1.3.6.1.2.1.220.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheLocatorRlocLastMWeightChange": {
+    "name": "lispMapCacheLocatorRlocLastMWeightChange",
+    "oid": "1.3.6.1.2.1.220.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheLocatorRlocLastStateChange": {
+    "name": "lispMapCacheLocatorRlocLastStateChange",
+    "oid": "1.3.6.1.2.1.220.1.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheLocatorRlocRtt": {
+    "name": "lispMapCacheLocatorRlocRtt",
+    "oid": "1.3.6.1.2.1.220.1.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheLocatorRlocDecapOctets": {
+    "name": "lispMapCacheLocatorRlocDecapOctets",
+    "oid": "1.3.6.1.2.1.220.1.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheLocatorRlocDecapPackets": {
+    "name": "lispMapCacheLocatorRlocDecapPackets",
+    "oid": "1.3.6.1.2.1.220.1.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheLocatorRlocEncapOctets": {
+    "name": "lispMapCacheLocatorRlocEncapOctets",
+    "oid": "1.3.6.1.2.1.220.1.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispMapCacheLocatorRlocEncapPackets": {
+    "name": "lispMapCacheLocatorRlocEncapPackets",
+    "oid": "1.3.6.1.2.1.220.1.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispConfiguredLocatorTable": {
+    "name": "lispConfiguredLocatorTable",
+    "oid": "1.3.6.1.2.1.220.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispConfiguredLocatorEntry": {
+    "name": "lispConfiguredLocatorEntry",
+    "oid": "1.3.6.1.2.1.220.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispConfiguredLocatorRlocLength",
+        "implied": 0
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispConfiguredLocatorRloc",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lispConfiguredLocatorRlocLength": {
+    "name": "lispConfiguredLocatorRlocLength",
+    "oid": "1.3.6.1.2.1.220.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispConfiguredLocatorRloc": {
+    "name": "lispConfiguredLocatorRloc",
+    "oid": "1.3.6.1.2.1.220.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LispAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispConfiguredLocatorRlocState": {
+    "name": "lispConfiguredLocatorRlocState",
+    "oid": "1.3.6.1.2.1.220.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "unreachable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispConfiguredLocatorRlocLocal": {
+    "name": "lispConfiguredLocatorRlocLocal",
+    "oid": "1.3.6.1.2.1.220.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "siteself": 1,
+          "sitelocal": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispConfiguredLocatorRlocTimeStamp": {
+    "name": "lispConfiguredLocatorRlocTimeStamp",
+    "oid": "1.3.6.1.2.1.220.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispConfiguredLocatorRlocDecapOctets": {
+    "name": "lispConfiguredLocatorRlocDecapOctets",
+    "oid": "1.3.6.1.2.1.220.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispConfiguredLocatorRlocDecapPackets": {
+    "name": "lispConfiguredLocatorRlocDecapPackets",
+    "oid": "1.3.6.1.2.1.220.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispConfiguredLocatorRlocEncapOctets": {
+    "name": "lispConfiguredLocatorRlocEncapOctets",
+    "oid": "1.3.6.1.2.1.220.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispConfiguredLocatorRlocEncapPackets": {
+    "name": "lispConfiguredLocatorRlocEncapPackets",
+    "oid": "1.3.6.1.2.1.220.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispEidRegistrationTable": {
+    "name": "lispEidRegistrationTable",
+    "oid": "1.3.6.1.2.1.220.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispEidRegistrationEntry": {
+    "name": "lispEidRegistrationEntry",
+    "oid": "1.3.6.1.2.1.220.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationEidLength",
+        "implied": 0
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationEid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lispEidRegistrationEidLength": {
+    "name": "lispEidRegistrationEidLength",
+    "oid": "1.3.6.1.2.1.220.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispEidRegistrationEid": {
+    "name": "lispEidRegistrationEid",
+    "oid": "1.3.6.1.2.1.220.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LispAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispEidRegistrationSiteName": {
+    "name": "lispEidRegistrationSiteName",
+    "oid": "1.3.6.1.2.1.220.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispEidRegistrationSiteDescription": {
+    "name": "lispEidRegistrationSiteDescription",
+    "oid": "1.3.6.1.2.1.220.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispEidRegistrationIsRegistered": {
+    "name": "lispEidRegistrationIsRegistered",
+    "oid": "1.3.6.1.2.1.220.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispEidRegistrationFirstTimeStamp": {
+    "name": "lispEidRegistrationFirstTimeStamp",
+    "oid": "1.3.6.1.2.1.220.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispEidRegistrationLastTimeStamp": {
+    "name": "lispEidRegistrationLastTimeStamp",
+    "oid": "1.3.6.1.2.1.220.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispEidRegistrationLastRegisterSenderLength": {
+    "name": "lispEidRegistrationLastRegisterSenderLength",
+    "oid": "1.3.6.1.2.1.220.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispEidRegistrationLastRegisterSender": {
+    "name": "lispEidRegistrationLastRegisterSender",
+    "oid": "1.3.6.1.2.1.220.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LispAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispEidRegistrationAuthenticationErrors": {
+    "name": "lispEidRegistrationAuthenticationErrors",
+    "oid": "1.3.6.1.2.1.220.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispEidRegistrationRlocsMismatch": {
+    "name": "lispEidRegistrationRlocsMismatch",
+    "oid": "1.3.6.1.2.1.220.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispEidRegistrationEtrTable": {
+    "name": "lispEidRegistrationEtrTable",
+    "oid": "1.3.6.1.2.1.220.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispEidRegistrationEtrEntry": {
+    "name": "lispEidRegistrationEtrEntry",
+    "oid": "1.3.6.1.2.1.220.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationEidLength",
+        "implied": 0
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationEid",
+        "implied": 0
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationEtrSenderLength",
+        "implied": 0
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationEtrSender",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lispEidRegistrationEtrSenderLength": {
+    "name": "lispEidRegistrationEtrSenderLength",
+    "oid": "1.3.6.1.2.1.220.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispEidRegistrationEtrSender": {
+    "name": "lispEidRegistrationEtrSender",
+    "oid": "1.3.6.1.2.1.220.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LispAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispEidRegistrationEtrLastTimeStamp": {
+    "name": "lispEidRegistrationEtrLastTimeStamp",
+    "oid": "1.3.6.1.2.1.220.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispEidRegistrationEtrTtl": {
+    "name": "lispEidRegistrationEtrTtl",
+    "oid": "1.3.6.1.2.1.220.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispEidRegistrationEtrProxyReply": {
+    "name": "lispEidRegistrationEtrProxyReply",
+    "oid": "1.3.6.1.2.1.220.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispEidRegistrationEtrWantsMapNotify": {
+    "name": "lispEidRegistrationEtrWantsMapNotify",
+    "oid": "1.3.6.1.2.1.220.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispEidRegistrationLocatorTable": {
+    "name": "lispEidRegistrationLocatorTable",
+    "oid": "1.3.6.1.2.1.220.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispEidRegistrationLocatorEntry": {
+    "name": "lispEidRegistrationLocatorEntry",
+    "oid": "1.3.6.1.2.1.220.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationEidLength",
+        "implied": 0
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationEid",
+        "implied": 0
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationEtrSenderLength",
+        "implied": 0
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationEtrSender",
+        "implied": 0
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationLocatorRlocLength",
+        "implied": 0
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationLocatorRloc",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lispEidRegistrationLocatorRlocLength": {
+    "name": "lispEidRegistrationLocatorRlocLength",
+    "oid": "1.3.6.1.2.1.220.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispEidRegistrationLocatorRloc": {
+    "name": "lispEidRegistrationLocatorRloc",
+    "oid": "1.3.6.1.2.1.220.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LispAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispEidRegistrationLocatorRlocState": {
+    "name": "lispEidRegistrationLocatorRlocState",
+    "oid": "1.3.6.1.2.1.220.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispEidRegistrationLocatorIsLocal": {
+    "name": "lispEidRegistrationLocatorIsLocal",
+    "oid": "1.3.6.1.2.1.220.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispEidRegistrationLocatorPriority": {
+    "name": "lispEidRegistrationLocatorPriority",
+    "oid": "1.3.6.1.2.1.220.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispEidRegistrationLocatorWeight": {
+    "name": "lispEidRegistrationLocatorWeight",
+    "oid": "1.3.6.1.2.1.220.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispEidRegistrationLocatorMPriority": {
+    "name": "lispEidRegistrationLocatorMPriority",
+    "oid": "1.3.6.1.2.1.220.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispEidRegistrationLocatorMWeight": {
+    "name": "lispEidRegistrationLocatorMWeight",
+    "oid": "1.3.6.1.2.1.220.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispUseMapServerTable": {
+    "name": "lispUseMapServerTable",
+    "oid": "1.3.6.1.2.1.220.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispUseMapServerEntry": {
+    "name": "lispUseMapServerEntry",
+    "oid": "1.3.6.1.2.1.220.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispUseMapServerAddressLength",
+        "implied": 0
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispUseMapServerAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lispUseMapServerAddressLength": {
+    "name": "lispUseMapServerAddressLength",
+    "oid": "1.3.6.1.2.1.220.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispUseMapServerAddress": {
+    "name": "lispUseMapServerAddress",
+    "oid": "1.3.6.1.2.1.220.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LispAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispUseMapServerState": {
+    "name": "lispUseMapServerState",
+    "oid": "1.3.6.1.2.1.220.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "unreachable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispUseMapResolverTable": {
+    "name": "lispUseMapResolverTable",
+    "oid": "1.3.6.1.2.1.220.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispUseMapResolverEntry": {
+    "name": "lispUseMapResolverEntry",
+    "oid": "1.3.6.1.2.1.220.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispUseMapResolverAddressLength",
+        "implied": 0
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispUseMapResolverAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lispUseMapResolverAddressLength": {
+    "name": "lispUseMapResolverAddressLength",
+    "oid": "1.3.6.1.2.1.220.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispUseMapResolverAddress": {
+    "name": "lispUseMapResolverAddress",
+    "oid": "1.3.6.1.2.1.220.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LispAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispUseMapResolverState": {
+    "name": "lispUseMapResolverState",
+    "oid": "1.3.6.1.2.1.220.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispUseProxyEtrTable": {
+    "name": "lispUseProxyEtrTable",
+    "oid": "1.3.6.1.2.1.220.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispUseProxyEtrEntry": {
+    "name": "lispUseProxyEtrEntry",
+    "oid": "1.3.6.1.2.1.220.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispUseProxyEtrAddressLength",
+        "implied": 0
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispUseProxyEtrAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lispUseProxyEtrAddressLength": {
+    "name": "lispUseProxyEtrAddressLength",
+    "oid": "1.3.6.1.2.1.220.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispUseProxyEtrAddress": {
+    "name": "lispUseProxyEtrAddress",
+    "oid": "1.3.6.1.2.1.220.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LispAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lispUseProxyEtrPriority": {
+    "name": "lispUseProxyEtrPriority",
+    "oid": "1.3.6.1.2.1.220.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispUseProxyEtrWeight": {
+    "name": "lispUseProxyEtrWeight",
+    "oid": "1.3.6.1.2.1.220.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispUseProxyEtrMPriority": {
+    "name": "lispUseProxyEtrMPriority",
+    "oid": "1.3.6.1.2.1.220.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispUseProxyEtrMWeight": {
+    "name": "lispUseProxyEtrMWeight",
+    "oid": "1.3.6.1.2.1.220.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispUseProxyEtrState": {
+    "name": "lispUseProxyEtrState",
+    "oid": "1.3.6.1.2.1.220.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lispCompliances": {
+    "name": "lispCompliances",
+    "oid": "1.3.6.1.2.1.220.2.1",
+    "class": "objectidentity"
+  },
+  "lispGroups": {
+    "name": "lispGroups",
+    "oid": "1.3.6.1.2.1.220.2.2",
+    "class": "objectidentity"
+  },
+  "lispMIBComplianceEtr": {
+    "name": "lispMIBComplianceEtr",
+    "oid": "1.3.6.1.2.1.220.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "lispMIBEtrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBItrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBPetrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBPitrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBMapServerGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBMapResolverGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBEtrExtendedGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBItrExtendedGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBMapServerExtendedGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBTuningParametersGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBEncapStatisticsGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBDecapStatisticsGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBDiagnosticsGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBVrfGroup",
+        "module": "LISP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "lispMIBComplianceItr": {
+    "name": "lispMIBComplianceItr",
+    "oid": "1.3.6.1.2.1.220.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "lispMIBItrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBEtrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBPetrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBPitrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBMapServerGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBMapResolverGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBEtrExtendedGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBItrExtendedGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBMapServerExtendedGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBTuningParametersGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBEncapStatisticsGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBDecapStatisticsGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBDiagnosticsGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBVrfGroup",
+        "module": "LISP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "lispMIBCompliancePetr": {
+    "name": "lispMIBCompliancePetr",
+    "oid": "1.3.6.1.2.1.220.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "lispMIBPetrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBEtrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBItrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBPitrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBMapServerGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBMapResolverGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBEtrExtendedGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBItrExtendedGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBMapServerExtendedGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBTuningParametersGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBEncapStatisticsGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBDecapStatisticsGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBDiagnosticsGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBVrfGroup",
+        "module": "LISP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "lispMIBCompliancePitr": {
+    "name": "lispMIBCompliancePitr",
+    "oid": "1.3.6.1.2.1.220.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "lispMIBPitrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBEtrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBItrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBPetrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBMapServerGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBMapResolverGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBEtrExtendedGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBItrExtendedGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBMapServerExtendedGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBTuningParametersGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBEncapStatisticsGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBDecapStatisticsGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBDiagnosticsGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBVrfGroup",
+        "module": "LISP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "lispMIBComplianceMapServer": {
+    "name": "lispMIBComplianceMapServer",
+    "oid": "1.3.6.1.2.1.220.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "lispMIBMapServerGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBEtrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBItrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBPetrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBPitrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBMapResolverGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBEtrExtendedGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBItrExtendedGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBMapServerExtendedGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBTuningParametersGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBEncapStatisticsGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBDecapStatisticsGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBDiagnosticsGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBVrfGroup",
+        "module": "LISP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "lispMIBComplianceMapResolver": {
+    "name": "lispMIBComplianceMapResolver",
+    "oid": "1.3.6.1.2.1.220.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "lispMIBMapResolverGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBEtrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBItrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBPetrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBPitrGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBMapServerGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBEtrExtendedGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBItrExtendedGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBMapServerExtendedGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBTuningParametersGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBEncapStatisticsGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBDecapStatisticsGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBDiagnosticsGroup",
+        "module": "LISP-MIB"
+      },
+      {
+        "object": "lispMIBVrfGroup",
+        "module": "LISP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "lispMIBEtrGroup": {
+    "name": "lispMIBEtrGroup",
+    "oid": "1.3.6.1.2.1.220.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispFeaturesEtrEnabled"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseLsb"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseLocatorRlocPriority"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseLocatorRlocWeight"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseLocatorRlocMPriority"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseLocatorRlocMWeight"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseLocatorRlocState"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseLocatorRlocLocal"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispConfiguredLocatorRlocState"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispConfiguredLocatorRlocLocal"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispUseMapServerState"
+      }
+    ],
+    "status": "current"
+  },
+  "lispMIBItrGroup": {
+    "name": "lispMIBItrGroup",
+    "oid": "1.3.6.1.2.1.220.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispFeaturesItrEnabled"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispFeaturesMapCacheSize"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseLsb"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheLocatorRlocPriority"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheLocatorRlocWeight"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheLocatorRlocMPriority"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheLocatorRlocMWeight"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheLocatorRlocState"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheEidTimeStamp"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheEidExpiryTime"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispUseMapResolverState"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispUseProxyEtrPriority"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispUseProxyEtrWeight"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispUseProxyEtrMPriority"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispUseProxyEtrMWeight"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispUseProxyEtrState"
+      }
+    ],
+    "status": "current"
+  },
+  "lispMIBPetrGroup": {
+    "name": "lispMIBPetrGroup",
+    "oid": "1.3.6.1.2.1.220.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispFeaturesProxyEtrEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "lispMIBPitrGroup": {
+    "name": "lispMIBPitrGroup",
+    "oid": "1.3.6.1.2.1.220.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispFeaturesProxyItrEnabled"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispConfiguredLocatorRlocState"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispConfiguredLocatorRlocLocal"
+      }
+    ],
+    "status": "current"
+  },
+  "lispMIBMapServerGroup": {
+    "name": "lispMIBMapServerGroup",
+    "oid": "1.3.6.1.2.1.220.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispFeaturesMapServerEnabled"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationIsRegistered"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationLocatorRlocState"
+      }
+    ],
+    "status": "current"
+  },
+  "lispMIBMapResolverGroup": {
+    "name": "lispMIBMapResolverGroup",
+    "oid": "1.3.6.1.2.1.220.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispFeaturesMapResolverEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "lispMIBEtrExtendedGroup": {
+    "name": "lispMIBEtrExtendedGroup",
+    "oid": "1.3.6.1.2.1.220.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispFeaturesRlocProbeEnabled"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispFeaturesEtrAcceptMapDataEnabled"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispFeaturesEtrAcceptMapDataVerifyEnabled"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseEidPartitioned"
+      }
+    ],
+    "status": "current"
+  },
+  "lispMIBItrExtendedGroup": {
+    "name": "lispMIBItrExtendedGroup",
+    "oid": "1.3.6.1.2.1.220.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispFeaturesRlocProbeEnabled"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheEidState"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheEidAuthoritative"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheLocatorRlocTimeStamp"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheLocatorRlocLastPriorityChange"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheLocatorRlocLastWeightChange"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheLocatorRlocLastMPriorityChange"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheLocatorRlocLastMWeightChange"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheLocatorRlocLastStateChange"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheLocatorRlocRtt"
+      }
+    ],
+    "status": "current"
+  },
+  "lispMIBMapServerExtendedGroup": {
+    "name": "lispMIBMapServerExtendedGroup",
+    "oid": "1.3.6.1.2.1.220.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationSiteName"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationSiteDescription"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationIsRegistered"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationFirstTimeStamp"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationLastTimeStamp"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationLastRegisterSenderLength"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationLastRegisterSender"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationEtrLastTimeStamp"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationEtrTtl"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationEtrProxyReply"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationEtrWantsMapNotify"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationLocatorIsLocal"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationLocatorPriority"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationLocatorWeight"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationLocatorMPriority"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationLocatorMWeight"
+      }
+    ],
+    "status": "current"
+  },
+  "lispMIBTuningParametersGroup": {
+    "name": "lispMIBTuningParametersGroup",
+    "oid": "1.3.6.1.2.1.220.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispFeaturesMapCacheLimit"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispFeaturesEtrMapCacheTtl"
+      }
+    ],
+    "status": "current"
+  },
+  "lispMIBEncapStatisticsGroup": {
+    "name": "lispMIBEncapStatisticsGroup",
+    "oid": "1.3.6.1.2.1.220.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseTimeStamp"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseEncapOctets"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseEncapPackets"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseLocatorRlocTimeStamp"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseLocatorRlocEncapOctets"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseLocatorRlocEncapPackets"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheEidTimeStamp"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheEidEncapOctets"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheEidEncapPackets"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheLocatorRlocTimeStamp"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheLocatorRlocEncapOctets"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheLocatorRlocEncapPackets"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispConfiguredLocatorRlocTimeStamp"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispConfiguredLocatorRlocEncapOctets"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispConfiguredLocatorRlocEncapPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "lispMIBDecapStatisticsGroup": {
+    "name": "lispMIBDecapStatisticsGroup",
+    "oid": "1.3.6.1.2.1.220.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseTimeStamp"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseDecapOctets"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseDecapPackets"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseLocatorRlocTimeStamp"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseLocatorRlocDecapOctets"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseLocatorRlocDecapPackets"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheEidTimeStamp"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheEidDecapOctets"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheEidDecapPackets"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheLocatorRlocTimeStamp"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheLocatorRlocDecapOctets"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispMapCacheLocatorRlocDecapPackets"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispConfiguredLocatorRlocTimeStamp"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispConfiguredLocatorRlocDecapOctets"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispConfiguredLocatorRlocDecapPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "lispMIBDiagnosticsGroup": {
+    "name": "lispMIBDiagnosticsGroup",
+    "oid": "1.3.6.1.2.1.220.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispFeaturesRouterTimeStamp"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispGlobalStatsMapRequestsIn"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispGlobalStatsMapRequestsOut"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispGlobalStatsMapRepliesIn"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispGlobalStatsMapRepliesOut"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispGlobalStatsMapRegistersIn"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispGlobalStatsMapRegistersOut"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationAuthenticationErrors"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationRlocsMismatch"
+      }
+    ],
+    "status": "current"
+  },
+  "lispMIBVrfGroup": {
+    "name": "lispMIBVrfGroup",
+    "oid": "1.3.6.1.2.1.220.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispIidToVrfName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/LISP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "LISP-MIB"
+  }
+}

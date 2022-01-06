@@ -1,0 +1,1824 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALTEON-ROOT-MIB": [
+      "aws-switch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "IpAddress",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "iso",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "layer7": {
+    "name": "layer7",
+    "oid": "1.3.6.1.4.1.1872.2.5.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-09-01 00:00",
+        "description": "Added revision clause for SMIv2 compliance."
+      }
+    ]
+  },
+  "layer7Configs": {
+    "name": "layer7Configs",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1",
+    "class": "objectidentity"
+  },
+  "layer7Stats": {
+    "name": "layer7Stats",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2",
+    "class": "objectidentity"
+  },
+  "layer7Info": {
+    "name": "layer7Info",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.3",
+    "class": "objectidentity"
+  },
+  "layer7Oper": {
+    "name": "layer7Oper",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.4",
+    "class": "objectidentity"
+  },
+  "urlCfg": {
+    "name": "urlCfg",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1",
+    "class": "objectidentity"
+  },
+  "layer7GeneralCfg": {
+    "name": "layer7GeneralCfg",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.2",
+    "class": "objectidentity"
+  },
+  "sdpCfg": {
+    "name": "sdpCfg",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.3",
+    "class": "objectidentity"
+  },
+  "slbUrlRedir": {
+    "name": "slbUrlRedir",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.1",
+    "class": "objectidentity"
+  },
+  "slbUrlBalance": {
+    "name": "slbUrlBalance",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2",
+    "class": "objectidentity"
+  },
+  "slbUrlHttpMethods": {
+    "name": "slbUrlHttpMethods",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.3",
+    "class": "objectidentity"
+  },
+  "urlStats": {
+    "name": "urlStats",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1",
+    "class": "objectidentity"
+  },
+  "connPoolingStats": {
+    "name": "connPoolingStats",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.2",
+    "class": "objectidentity"
+  },
+  "slbParsing": {
+    "name": "slbParsing",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.3.1",
+    "class": "objectidentity"
+  },
+  "slbCurCfgUrlRedirNonGetOrigSrv": {
+    "name": "slbCurCfgUrlRedirNonGetOrigSrv",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbNewCfgUrlRedirNonGetOrigSrv": {
+    "name": "slbNewCfgUrlRedirNonGetOrigSrv",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slbCurCfgUrlRedirCookieOrigSrv": {
+    "name": "slbCurCfgUrlRedirCookieOrigSrv",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbNewCfgUrlRedirCookieOrigSrv": {
+    "name": "slbNewCfgUrlRedirCookieOrigSrv",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slbCurCfgUrlRedirNoCacheOrigSrv": {
+    "name": "slbCurCfgUrlRedirNoCacheOrigSrv",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbNewCfgUrlRedirNoCacheOrigSrv": {
+    "name": "slbNewCfgUrlRedirNoCacheOrigSrv",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slbCurCfgUrlRedirUriHashLength": {
+    "name": "slbCurCfgUrlRedirUriHashLength",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbNewCfgUrlRedirUriHashLength": {
+    "name": "slbNewCfgUrlRedirUriHashLength",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slbCurCfgUrlRedirHeader": {
+    "name": "slbCurCfgUrlRedirHeader",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbNewCfgUrlRedirHeader": {
+    "name": "slbNewCfgUrlRedirHeader",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slbCurCfgUrlRedirHeaderName": {
+    "name": "slbCurCfgUrlRedirHeaderName",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbNewCfgUrlRedirHeaderName": {
+    "name": "slbNewCfgUrlRedirHeaderName",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slbUrlLbPathTableMaxSize": {
+    "name": "slbUrlLbPathTableMaxSize",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbCurCfgUrlLbPathTable": {
+    "name": "slbCurCfgUrlLbPathTable",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbCurCfgUrlLbPathTableEntry": {
+    "name": "slbCurCfgUrlLbPathTableEntry",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-CHEETAH-LAYER7-MIB",
+        "object": "slbCurCfgUrlLbPathIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbCurCfgUrlLbPathIndex": {
+    "name": "slbCurCfgUrlLbPathIndex",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbCurCfgUrlLbPathString": {
+    "name": "slbCurCfgUrlLbPathString",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbCurCfgUrlLbBwmContract": {
+    "name": "slbCurCfgUrlLbBwmContract",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbCurCfgUrlLbPathHTTPHeader": {
+    "name": "slbCurCfgUrlLbPathHTTPHeader",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbCurCfgUrlLbPathHTTPHeaderValue": {
+    "name": "slbCurCfgUrlLbPathHTTPHeaderValue",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbCurCfgUrlLbPathPatternStringType": {
+    "name": "slbCurCfgUrlLbPathPatternStringType",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ascii": 1,
+          "binary": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbCurCfgUrlLbPathOffset": {
+    "name": "slbCurCfgUrlLbPathOffset",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbCurCfgUrlLbPathDepth": {
+    "name": "slbCurCfgUrlLbPathDepth",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbCurCfgUrlLbPathOper": {
+    "name": "slbCurCfgUrlLbPathOper",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eq": 1,
+          "gt": 2,
+          "lt": 3,
+          "none": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbNewCfgUrlLbPathTable": {
+    "name": "slbNewCfgUrlLbPathTable",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbNewCfgUrlLbPathTableEntry": {
+    "name": "slbNewCfgUrlLbPathTableEntry",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-CHEETAH-LAYER7-MIB",
+        "object": "slbNewCfgUrlLbPathIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbNewCfgUrlLbPathIndex": {
+    "name": "slbNewCfgUrlLbPathIndex",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbNewCfgUrlLbPathString": {
+    "name": "slbNewCfgUrlLbPathString",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbNewCfgUrlLbBwmContract": {
+    "name": "slbNewCfgUrlLbBwmContract",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbNewCfgUrlLbPathHTTPHeader": {
+    "name": "slbNewCfgUrlLbPathHTTPHeader",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbNewCfgUrlLbPathHTTPHeaderValue": {
+    "name": "slbNewCfgUrlLbPathHTTPHeaderValue",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbNewCfgUrlLbPathPatternStringType": {
+    "name": "slbNewCfgUrlLbPathPatternStringType",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ascii": 1,
+          "binary": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbNewCfgUrlLbPathOffset": {
+    "name": "slbNewCfgUrlLbPathOffset",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbNewCfgUrlLbPathDepth": {
+    "name": "slbNewCfgUrlLbPathDepth",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbNewCfgUrlLbPathOper": {
+    "name": "slbNewCfgUrlLbPathOper",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eq": 1,
+          "gt": 2,
+          "lt": 3,
+          "none": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbNewCfgUrlLbPathDelete": {
+    "name": "slbNewCfgUrlLbPathDelete",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "delete": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbCurCfgUrlLbErrorMsg": {
+    "name": "slbCurCfgUrlLbErrorMsg",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbNewCfgUrlLbErrorMsg": {
+    "name": "slbNewCfgUrlLbErrorMsg",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slbCurCfgUrlLbCaseSensitiveStrMatch": {
+    "name": "slbCurCfgUrlLbCaseSensitiveStrMatch",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbNewCfgUrlLbCaseSensitiveStrMatch": {
+    "name": "slbNewCfgUrlLbCaseSensitiveStrMatch",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slbUrlHttpMethodsTableMaxSize": {
+    "name": "slbUrlHttpMethodsTableMaxSize",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbCurCfgUrlHttpMethodsTable": {
+    "name": "slbCurCfgUrlHttpMethodsTable",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbCurCfgUrlHttpMethodsTableEntry": {
+    "name": "slbCurCfgUrlHttpMethodsTableEntry",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-CHEETAH-LAYER7-MIB",
+        "object": "slbCurCfgUrlHttpMethodIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbCurCfgUrlHttpMethodIndex": {
+    "name": "slbCurCfgUrlHttpMethodIndex",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbCurCfgUrlHttpMethodString": {
+    "name": "slbCurCfgUrlHttpMethodString",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbNewCfgUrlHttpMethodsTable": {
+    "name": "slbNewCfgUrlHttpMethodsTable",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbNewCfgUrlHttpMethodsTableEntry": {
+    "name": "slbNewCfgUrlHttpMethodsTableEntry",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-CHEETAH-LAYER7-MIB",
+        "object": "slbNewCfgUrlHttpMethodIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbNewCfgUrlHttpMethodIndex": {
+    "name": "slbNewCfgUrlHttpMethodIndex",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbNewCfgUrlHttpMethodString": {
+    "name": "slbNewCfgUrlHttpMethodString",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbNewCfgUrlHttpMethodDelete": {
+    "name": "slbNewCfgUrlHttpMethodDelete",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "delete": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "layer7CurCfgDbindTimeout": {
+    "name": "layer7CurCfgDbindTimeout",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "layer7NewCfgDbindTimeout": {
+    "name": "layer7NewCfgDbindTimeout",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slbSdpTableMaxSize": {
+    "name": "slbSdpTableMaxSize",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbCurCfgSdpTable": {
+    "name": "slbCurCfgSdpTable",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbCurCfgSdpTableEntry": {
+    "name": "slbCurCfgSdpTableEntry",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-CHEETAH-LAYER7-MIB",
+        "object": "slbCurCfgSdpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbCurCfgSdpIndex": {
+    "name": "slbCurCfgSdpIndex",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbCurCfgSdpPrivAddr": {
+    "name": "slbCurCfgSdpPrivAddr",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbCurCfgSdpPublicAddr": {
+    "name": "slbCurCfgSdpPublicAddr",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbNewCfgSdpTable": {
+    "name": "slbNewCfgSdpTable",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbNewCfgSdpTableEntry": {
+    "name": "slbNewCfgSdpTableEntry",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-CHEETAH-LAYER7-MIB",
+        "object": "slbCurCfgSdpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbNewCfgSdpIndex": {
+    "name": "slbNewCfgSdpIndex",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbNewCfgSdpPrivAddr": {
+    "name": "slbNewCfgSdpPrivAddr",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbNewCfgSdpPublicAddr": {
+    "name": "slbNewCfgSdpPublicAddr",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbNewCfgSdpDelete": {
+    "name": "slbNewCfgSdpDelete",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "delete": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "urlRedirStats": {
+    "name": "urlRedirStats",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.1",
+    "class": "objectidentity"
+  },
+  "urlStatRedRedirs": {
+    "name": "urlStatRedRedirs",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlStatRedOrigSrvs": {
+    "name": "urlStatRedOrigSrvs",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlStatRedNonGets": {
+    "name": "urlStatRedNonGets",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlStatRedCookie": {
+    "name": "urlStatRedCookie",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlStatRedNoCache": {
+    "name": "urlStatRedNoCache",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlStatRedStraightOrigSrvs": {
+    "name": "urlStatRedStraightOrigSrvs",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlStatRedRtspCacheSrvs": {
+    "name": "urlStatRedRtspCacheSrvs",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlStatRedRtspOrigSrvs": {
+    "name": "urlStatRedRtspOrigSrvs",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlSlbStats": {
+    "name": "urlSlbStats",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.2",
+    "class": "objectidentity"
+  },
+  "urlStatSlbPathTable": {
+    "name": "urlStatSlbPathTable",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "urlStatSlbPathTableEntry": {
+    "name": "urlStatSlbPathTableEntry",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-CHEETAH-LAYER7-MIB",
+        "object": "urlStatSlbPathIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "urlStatSlbPathIndex": {
+    "name": "urlStatSlbPathIndex",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlStatSlbPathHits": {
+    "name": "urlStatSlbPathHits",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStats": {
+    "name": "urlMaintStats",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3",
+    "class": "objectidentity"
+  },
+  "urlMaintStatClientReset": {
+    "name": "urlMaintStatClientReset",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatServerReset": {
+    "name": "urlMaintStatServerReset",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatConnSplicing": {
+    "name": "urlMaintStatConnSplicing",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatHalfOpens": {
+    "name": "urlMaintStatHalfOpens",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatSwitchRetries": {
+    "name": "urlMaintStatSwitchRetries",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatRandomEarlyDrops": {
+    "name": "urlMaintStatRandomEarlyDrops",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatReqTooLong": {
+    "name": "urlMaintStatReqTooLong",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatInvalidHandshakes": {
+    "name": "urlMaintStatInvalidHandshakes",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatCurSPMemUnits": {
+    "name": "urlMaintStatCurSPMemUnits",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatCurSEQBufEntries": {
+    "name": "urlMaintStatCurSEQBufEntries",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatHighestSEQBufEntries": {
+    "name": "urlMaintStatHighestSEQBufEntries",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatCurDataBufUse": {
+    "name": "urlMaintStatCurDataBufUse",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatHighestDataBufUse": {
+    "name": "urlMaintStatHighestDataBufUse",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatCurSPBufEntries": {
+    "name": "urlMaintStatCurSPBufEntries",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatHighestSPBufEntries": {
+    "name": "urlMaintStatHighestSPBufEntries",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatTotalNonZeroSEQAlloc": {
+    "name": "urlMaintStatTotalNonZeroSEQAlloc",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatTotalSEQBufAllocs": {
+    "name": "urlMaintStatTotalSEQBufAllocs",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatTotalSEQBufFrees": {
+    "name": "urlMaintStatTotalSEQBufFrees",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatTotalDataBufAllocs": {
+    "name": "urlMaintStatTotalDataBufAllocs",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatTotalDataBufFrees": {
+    "name": "urlMaintStatTotalDataBufFrees",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatSeqBufAllocFails": {
+    "name": "urlMaintStatSeqBufAllocFails",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatUBufAllocFails": {
+    "name": "urlMaintStatUBufAllocFails",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatMaxSessPerBucket": {
+    "name": "urlMaintStatMaxSessPerBucket",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatMaxFramesPerSess": {
+    "name": "urlMaintStatMaxFramesPerSess",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatMaxBytesBuffered": {
+    "name": "urlMaintStatMaxBytesBuffered",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatInvalidMethods": {
+    "name": "urlMaintStatInvalidMethods",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatAgedSessions": {
+    "name": "urlMaintStatAgedSessions",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlMaintStatLowestSPMemUnits": {
+    "name": "urlMaintStatLowestSPMemUnits",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.3.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlSpMaintStatsTable": {
+    "name": "urlSpMaintStatsTable",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "urlSpMaintStatsTableEntry": {
+    "name": "urlSpMaintStatsTableEntry",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-CHEETAH-LAYER7-MIB",
+        "object": "urlSpMaintStatsSpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "urlSpMaintStatsSpIndex": {
+    "name": "urlSpMaintStatsSpIndex",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlSpMaintStatsCurMemUnits": {
+    "name": "urlSpMaintStatsCurMemUnits",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "urlSpMaintStatsLowestMemUnits": {
+    "name": "urlSpMaintStatsLowestMemUnits",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currOpenedServerConns": {
+    "name": "currOpenedServerConns",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeServerConns": {
+    "name": "activeServerConns",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "availServerConns": {
+    "name": "availServerConns",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agedOutClientConns": {
+    "name": "agedOutClientConns",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agedOutServerConns": {
+    "name": "agedOutServerConns",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbParsingString": {
+    "name": "slbParsingString",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 22
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slbParsingVip": {
+    "name": "slbParsingVip",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbParsingRip": {
+    "name": "slbParsingRip",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbParsingRport": {
+    "name": "slbParsingRport",
+    "oid": "1.3.6.1.4.1.1872.2.5.5.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alteonos/ALTEON-CHEETAH-LAYER7-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:17:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALTEON-CHEETAH-LAYER7-MIB"
+  }
+}

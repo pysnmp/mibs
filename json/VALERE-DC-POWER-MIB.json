@@ -1,0 +1,3643 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysUpTime"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "Counter32",
+      "IpAddress",
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "TimeTicks",
+      "Counter64",
+      "Bits",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "AutonomousType",
+      "DisplayString",
+      "TestAndIncr",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "TimeStamp"
+    ]
+  },
+  "vpwrDcPowerMgt": {
+    "name": "vpwrDcPowerMgt",
+    "oid": "1.3.6.1.4.1.13858",
+    "class": "moduleidentity"
+  },
+  "PositiveInteger": {
+    "name": "PositiveInteger",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "NonNegativeInteger": {
+    "name": "NonNegativeInteger",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "vpwrDcPowerProducts": {
+    "name": "vpwrDcPowerProducts",
+    "oid": "1.3.6.1.4.1.13858.1",
+    "class": "objectidentity"
+  },
+  "vpwrDcPowerSystem": {
+    "name": "vpwrDcPowerSystem",
+    "oid": "1.3.6.1.4.1.13858.2",
+    "class": "objectidentity"
+  },
+  "vpwrDcPowerRectifier": {
+    "name": "vpwrDcPowerRectifier",
+    "oid": "1.3.6.1.4.1.13858.3",
+    "class": "objectidentity"
+  },
+  "vpwrDcPowerLvd": {
+    "name": "vpwrDcPowerLvd",
+    "oid": "1.3.6.1.4.1.13858.4",
+    "class": "objectidentity"
+  },
+  "vpwrDcPowerTest": {
+    "name": "vpwrDcPowerTest",
+    "oid": "1.3.6.1.4.1.13858.5",
+    "class": "objectidentity"
+  },
+  "vpwrDcPowerModuleIdent": {
+    "name": "vpwrDcPowerModuleIdent",
+    "oid": "1.3.6.1.4.1.13858.6",
+    "class": "objectidentity"
+  },
+  "vpwrDcPowerBatteryGroup": {
+    "name": "vpwrDcPowerBatteryGroup",
+    "oid": "1.3.6.1.4.1.13858.7",
+    "class": "objectidentity"
+  },
+  "vpwrDcPowerAlarmGroup": {
+    "name": "vpwrDcPowerAlarmGroup",
+    "oid": "1.3.6.1.4.1.13858.8",
+    "class": "objectidentity"
+  },
+  "vpwrDcPowerSnmpConfig": {
+    "name": "vpwrDcPowerSnmpConfig",
+    "oid": "1.3.6.1.4.1.13858.9",
+    "class": "objectidentity"
+  },
+  "vpwrDcPowerTraps": {
+    "name": "vpwrDcPowerTraps",
+    "oid": "1.3.6.1.4.1.13858.10",
+    "class": "objectidentity"
+  },
+  "vpwrDcPowerTrapsMsgString": {
+    "name": "vpwrDcPowerTrapsMsgString",
+    "oid": "1.3.6.1.4.1.13858.11",
+    "class": "objectidentity"
+  },
+  "vpwrDcPowerRinger": {
+    "name": "vpwrDcPowerRinger",
+    "oid": "1.3.6.1.4.1.13858.12",
+    "class": "objectidentity"
+  },
+  "vpwrDcPowerDcDcConverter": {
+    "name": "vpwrDcPowerDcDcConverter",
+    "oid": "1.3.6.1.4.1.13858.13",
+    "class": "objectidentity"
+  },
+  "vpwrDcPowerDcAcInverter": {
+    "name": "vpwrDcPowerDcAcInverter",
+    "oid": "1.3.6.1.4.1.13858.14",
+    "class": "objectidentity"
+  },
+  "vpwrDcPowerBayController": {
+    "name": "vpwrDcPowerBayController",
+    "oid": "1.3.6.1.4.1.13858.15",
+    "class": "objectidentity"
+  },
+  "vpwrDcPowerIoModule": {
+    "name": "vpwrDcPowerIoModule",
+    "oid": "1.3.6.1.4.1.13858.16",
+    "class": "objectidentity"
+  },
+  "vpwrDcPowerDist": {
+    "name": "vpwrDcPowerDist",
+    "oid": "1.3.6.1.4.1.13858.17",
+    "class": "objectidentity"
+  },
+  "vpwrDcPowerTrio": {
+    "name": "vpwrDcPowerTrio",
+    "oid": "1.3.6.1.4.1.13858.18",
+    "class": "objectidentity"
+  },
+  "vpwrSystemIdentGroup": {
+    "name": "vpwrSystemIdentGroup",
+    "oid": "1.3.6.1.4.1.13858.2.1",
+    "class": "objectidentity"
+  },
+  "vpwrSystemConfigGroup": {
+    "name": "vpwrSystemConfigGroup",
+    "oid": "1.3.6.1.4.1.13858.2.2",
+    "class": "objectidentity"
+  },
+  "vpwrSystemParameterGroup": {
+    "name": "vpwrSystemParameterGroup",
+    "oid": "1.3.6.1.4.1.13858.2.3",
+    "class": "objectidentity"
+  },
+  "vpwrSystemPanelIdentGroup": {
+    "name": "vpwrSystemPanelIdentGroup",
+    "oid": "1.3.6.1.4.1.13858.2.4",
+    "class": "objectidentity"
+  },
+  "vpwrSystemBayctrlIdentGroup": {
+    "name": "vpwrSystemBayctrlIdentGroup",
+    "oid": "1.3.6.1.4.1.13858.2.5",
+    "class": "objectidentity"
+  },
+  "vpwrLvdConfigGroup": {
+    "name": "vpwrLvdConfigGroup",
+    "oid": "1.3.6.1.4.1.13858.4.1",
+    "class": "objectidentity"
+  },
+  "vpwrLvdAlarmGroup": {
+    "name": "vpwrLvdAlarmGroup",
+    "oid": "1.3.6.1.4.1.13858.4.2",
+    "class": "objectidentity"
+  },
+  "vpwrLvdTestGroup": {
+    "name": "vpwrLvdTestGroup",
+    "oid": "1.3.6.1.4.1.13858.4.3",
+    "class": "objectidentity"
+  },
+  "vpwrRectifierConfigGroup": {
+    "name": "vpwrRectifierConfigGroup",
+    "oid": "1.3.6.1.4.1.13858.3.1",
+    "class": "objectidentity"
+  },
+  "vpwrRectifierAlarmGroup": {
+    "name": "vpwrRectifierAlarmGroup",
+    "oid": "1.3.6.1.4.1.13858.3.2",
+    "class": "objectidentity"
+  },
+  "vpwrRectifierTestGroup": {
+    "name": "vpwrRectifierTestGroup",
+    "oid": "1.3.6.1.4.1.13858.3.3",
+    "class": "objectidentity"
+  },
+  "vpwrBatteryTempGroup": {
+    "name": "vpwrBatteryTempGroup",
+    "oid": "1.3.6.1.4.1.13858.7.1",
+    "class": "objectidentity"
+  },
+  "vpwrBatteryCurrentGroup": {
+    "name": "vpwrBatteryCurrentGroup",
+    "oid": "1.3.6.1.4.1.13858.7.2",
+    "class": "objectidentity"
+  },
+  "vpwrBatteryBoostGroup": {
+    "name": "vpwrBatteryBoostGroup",
+    "oid": "1.3.6.1.4.1.13858.7.3",
+    "class": "objectidentity"
+  },
+  "vpwrBatteryDischargeTestGroup": {
+    "name": "vpwrBatteryDischargeTestGroup",
+    "oid": "1.3.6.1.4.1.13858.7.4",
+    "class": "objectidentity"
+  },
+  "vpwrRingerConfigGroup": {
+    "name": "vpwrRingerConfigGroup",
+    "oid": "1.3.6.1.4.1.13858.12.1",
+    "class": "objectidentity"
+  },
+  "vpwrRingerAlarmGroup": {
+    "name": "vpwrRingerAlarmGroup",
+    "oid": "1.3.6.1.4.1.13858.12.2",
+    "class": "objectidentity"
+  },
+  "vpwrRingerTestGroup": {
+    "name": "vpwrRingerTestGroup",
+    "oid": "1.3.6.1.4.1.13858.12.3",
+    "class": "objectidentity"
+  },
+  "vpwrDcDcConverterConfigGroup": {
+    "name": "vpwrDcDcConverterConfigGroup",
+    "oid": "1.3.6.1.4.1.13858.13.1",
+    "class": "objectidentity"
+  },
+  "vpwrDcDcConverterAlarmGroup": {
+    "name": "vpwrDcDcConverterAlarmGroup",
+    "oid": "1.3.6.1.4.1.13858.13.2",
+    "class": "objectidentity"
+  },
+  "vpwrDcDcConverterTestGroup": {
+    "name": "vpwrDcDcConverterTestGroup",
+    "oid": "1.3.6.1.4.1.13858.13.3",
+    "class": "objectidentity"
+  },
+  "vpwrDcAcInverterConfigGroup": {
+    "name": "vpwrDcAcInverterConfigGroup",
+    "oid": "1.3.6.1.4.1.13858.14.1",
+    "class": "objectidentity"
+  },
+  "vpwrDcAcInverterAlarmGroup": {
+    "name": "vpwrDcAcInverterAlarmGroup",
+    "oid": "1.3.6.1.4.1.13858.14.2",
+    "class": "objectidentity"
+  },
+  "vpwrDcAcInverterTestGroup": {
+    "name": "vpwrDcAcInverterTestGroup",
+    "oid": "1.3.6.1.4.1.13858.14.3",
+    "class": "objectidentity"
+  },
+  "vpwrIoModuleConfigGroup": {
+    "name": "vpwrIoModuleConfigGroup",
+    "oid": "1.3.6.1.4.1.13858.16.1",
+    "class": "objectidentity"
+  },
+  "vpwrIoModuleAlarmGroup": {
+    "name": "vpwrIoModuleAlarmGroup",
+    "oid": "1.3.6.1.4.1.13858.16.2",
+    "class": "objectidentity"
+  },
+  "vpwrIoModuleTestGroup": {
+    "name": "vpwrIoModuleTestGroup",
+    "oid": "1.3.6.1.4.1.13858.16.3",
+    "class": "objectidentity"
+  },
+  "vpwrIdentManufacturer": {
+    "name": "vpwrIdentManufacturer",
+    "oid": "1.3.6.1.4.1.13858.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrIdentModel": {
+    "name": "vpwrIdentModel",
+    "oid": "1.3.6.1.4.1.13858.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrIdentControllerVersion": {
+    "name": "vpwrIdentControllerVersion",
+    "oid": "1.3.6.1.4.1.13858.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrIdentAgentSoftwareVersion": {
+    "name": "vpwrIdentAgentSoftwareVersion",
+    "oid": "1.3.6.1.4.1.13858.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrIdentName": {
+    "name": "vpwrIdentName",
+    "oid": "1.3.6.1.4.1.13858.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrSystemIdentTable": {
+    "name": "vpwrSystemIdentTable",
+    "oid": "1.3.6.1.4.1.13858.2.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vpwrSystemIdentEntry": {
+    "name": "vpwrSystemIdentEntry",
+    "oid": "1.3.6.1.4.1.13858.2.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrBayIndex",
+        "implied": 0
+      },
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vpwrBayIndex": {
+    "name": "vpwrBayIndex",
+    "oid": "1.3.6.1.4.1.13858.2.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrModuleIndex": {
+    "name": "vpwrModuleIndex",
+    "oid": "1.3.6.1.4.1.13858.2.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrModuleOID": {
+    "name": "vpwrModuleOID",
+    "oid": "1.3.6.1.4.1.13858.2.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrModuleCurrent": {
+    "name": "vpwrModuleCurrent",
+    "oid": "1.3.6.1.4.1.13858.2.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrModuleOperStatus": {
+    "name": "vpwrModuleOperStatus",
+    "oid": "1.3.6.1.4.1.13858.2.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "moduleStatusOK": 0,
+          "moduleStatusAlarm": 1,
+          "moduleStatusDisabled": 2,
+          "moduleStatusRingerAOn": 3,
+          "moduleStatusRingerBOn": 4,
+          "moduleStatusUnknown": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrModuleCapacity": {
+    "name": "vpwrModuleCapacity",
+    "oid": "1.3.6.1.4.1.13858.2.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrPanelIdentTable": {
+    "name": "vpwrPanelIdentTable",
+    "oid": "1.3.6.1.4.1.13858.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vpwrPanelIdentEntry": {
+    "name": "vpwrPanelIdentEntry",
+    "oid": "1.3.6.1.4.1.13858.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrPanelBayIndex",
+        "implied": 0
+      },
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrPanelModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vpwrPanelBayIndex": {
+    "name": "vpwrPanelBayIndex",
+    "oid": "1.3.6.1.4.1.13858.2.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrPanelModuleIndex": {
+    "name": "vpwrPanelModuleIndex",
+    "oid": "1.3.6.1.4.1.13858.2.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrPanelModuleOID": {
+    "name": "vpwrPanelModuleOID",
+    "oid": "1.3.6.1.4.1.13858.2.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrPanelModuleCurrent": {
+    "name": "vpwrPanelModuleCurrent",
+    "oid": "1.3.6.1.4.1.13858.2.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrPanelModuleOperStatus": {
+    "name": "vpwrPanelModuleOperStatus",
+    "oid": "1.3.6.1.4.1.13858.2.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "moduleStatusOK": 0,
+          "moduleStatusAlarm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrPanelModuleCapacity": {
+    "name": "vpwrPanelModuleCapacity",
+    "oid": "1.3.6.1.4.1.13858.2.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrBayctrlIdentTable": {
+    "name": "vpwrBayctrlIdentTable",
+    "oid": "1.3.6.1.4.1.13858.2.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vpwrBayctrlIdentEntry": {
+    "name": "vpwrBayctrlIdentEntry",
+    "oid": "1.3.6.1.4.1.13858.2.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrBayctrlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vpwrBayctrlIndex": {
+    "name": "vpwrBayctrlIndex",
+    "oid": "1.3.6.1.4.1.13858.2.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrBayctrlOID": {
+    "name": "vpwrBayctrlOID",
+    "oid": "1.3.6.1.4.1.13858.2.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrBayctrlCurrent": {
+    "name": "vpwrBayctrlCurrent",
+    "oid": "1.3.6.1.4.1.13858.2.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrBayctrlOperStatus": {
+    "name": "vpwrBayctrlOperStatus",
+    "oid": "1.3.6.1.4.1.13858.2.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "moduleStatusOK": 0,
+          "moduleStatusAlarm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrBayctrlCapacity": {
+    "name": "vpwrBayctrlCapacity",
+    "oid": "1.3.6.1.4.1.13858.2.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrSystemTempCompensation": {
+    "name": "vpwrSystemTempCompensation",
+    "oid": "1.3.6.1.4.1.13858.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tempCompDisabled": 0,
+          "tempCompEnabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrSystemTempCompStartTemperature": {
+    "name": "vpwrSystemTempCompStartTemperature",
+    "oid": "1.3.6.1.4.1.13858.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 25,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrSystemTempCompStopVoltage": {
+    "name": "vpwrSystemTempCompStopVoltage",
+    "oid": "1.3.6.1.4.1.13858.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": " *.01 Volts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrSystemTempCompensationSlope": {
+    "name": "vpwrSystemTempCompensationSlope",
+    "oid": "1.3.6.1.4.1.13858.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "units": " milli-Volts per degrees Centigrade",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrSystemThermalSenseType": {
+    "name": "vpwrSystemThermalSenseType",
+    "oid": "1.3.6.1.4.1.13858.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "external": 0,
+          "internal": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrSystemHVAlarmSetpoint": {
+    "name": "vpwrSystemHVAlarmSetpoint",
+    "oid": "1.3.6.1.4.1.13858.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": " *.01 Volts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrSystemBDAlarmSetpoint": {
+    "name": "vpwrSystemBDAlarmSetpoint",
+    "oid": "1.3.6.1.4.1.13858.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": " *.01 Volts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrSystemInternalTempLThreshold": {
+    "name": "vpwrSystemInternalTempLThreshold",
+    "oid": "1.3.6.1.4.1.13858.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrSystemInternalTempUThreshold": {
+    "name": "vpwrSystemInternalTempUThreshold",
+    "oid": "1.3.6.1.4.1.13858.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrSystemShelfCapacity": {
+    "name": "vpwrSystemShelfCapacity",
+    "oid": "1.3.6.1.4.1.13858.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrSystemVoltage": {
+    "name": "vpwrSystemVoltage",
+    "oid": "1.3.6.1.4.1.13858.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": " *.01 Volts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrSystemCurrent": {
+    "name": "vpwrSystemCurrent",
+    "oid": "1.3.6.1.4.1.13858.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": " Amperes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrSystemControllerState": {
+    "name": "vpwrSystemControllerState",
+    "oid": "1.3.6.1.4.1.13858.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "systemControllerStateUnknown": 0,
+          "systemControllerStateNormal": 1,
+          "systemControllerStateChange": 2,
+          "systemControllerStateAlarm": 3,
+          "systemControllerStateMenu": 4,
+          "systemControllerStateIrActive": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrSystemInternalTemperature": {
+    "name": "vpwrSystemInternalTemperature",
+    "oid": "1.3.6.1.4.1.13858.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrSystemTempCompensationState": {
+    "name": "vpwrSystemTempCompensationState",
+    "oid": "1.3.6.1.4.1.13858.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "systemTempCompInactive": 0,
+          "systemTempCompActive": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrSystemType": {
+    "name": "vpwrSystemType",
+    "oid": "1.3.6.1.4.1.13858.2.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sysTypeUnknow": 0,
+          "sysType48V": 1,
+          "sysType24V": 2,
+          "sysType12V": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrLvdWarningSetpoint": {
+    "name": "vpwrLvdWarningSetpoint",
+    "oid": "1.3.6.1.4.1.13858.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": " * .01 Volts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrLvdDisconnectSetpoint": {
+    "name": "vpwrLvdDisconnectSetpoint",
+    "oid": "1.3.6.1.4.1.13858.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": " *.01 Volts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrLvdReconnectSetpoint": {
+    "name": "vpwrLvdReconnectSetpoint",
+    "oid": "1.3.6.1.4.1.13858.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": " *.01 Volts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrLvdReconnectDelayTimer": {
+    "name": "vpwrLvdReconnectDelayTimer",
+    "oid": "1.3.6.1.4.1.13858.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "units": " Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrLvdContactorConfigTable": {
+    "name": "vpwrLvdContactorConfigTable",
+    "oid": "1.3.6.1.4.1.13858.4.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vpwrLvdContactorConfigEntry": {
+    "name": "vpwrLvdContactorConfigEntry",
+    "oid": "1.3.6.1.4.1.13858.4.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrBayIndex",
+        "implied": 0
+      },
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrModuleIndex",
+        "implied": 0
+      },
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrLvdContactorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vpwrLvdContactorIndex": {
+    "name": "vpwrLvdContactorIndex",
+    "oid": "1.3.6.1.4.1.13858.4.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "units": " None",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrLvdContactorWarningSetpoint": {
+    "name": "vpwrLvdContactorWarningSetpoint",
+    "oid": "1.3.6.1.4.1.13858.4.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "units": " * .01 Volts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrLvdContactorDisconnectSetpoint": {
+    "name": "vpwrLvdContactorDisconnectSetpoint",
+    "oid": "1.3.6.1.4.1.13858.4.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "units": " *.01 Volts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrLvdContactorReconnectSetpoint": {
+    "name": "vpwrLvdContactorReconnectSetpoint",
+    "oid": "1.3.6.1.4.1.13858.4.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "units": " *.01 Volts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrLvdContactorReconnectDelayTimer": {
+    "name": "vpwrLvdContactorReconnectDelayTimer",
+    "oid": "1.3.6.1.4.1.13858.4.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "units": " Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrLvdContactorState": {
+    "name": "vpwrLvdContactorState",
+    "oid": "1.3.6.1.4.1.13858.4.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "contactorOpen": 0,
+          "contactorClose": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrRectifierFVSetpoint": {
+    "name": "vpwrRectifierFVSetpoint",
+    "oid": "1.3.6.1.4.1.13858.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": " *.01 Volts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrRectifierHVSDSetpoint": {
+    "name": "vpwrRectifierHVSDSetpoint",
+    "oid": "1.3.6.1.4.1.13858.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": " *.01 Volts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrRectifierCurrentLimitAdminState": {
+    "name": "vpwrRectifierCurrentLimitAdminState",
+    "oid": "1.3.6.1.4.1.13858.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rectCurrentLimitDisabled": 0,
+          "rectCurrentLimitEnabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrRectifierCurrentLimit": {
+    "name": "vpwrRectifierCurrentLimit",
+    "oid": "1.3.6.1.4.1.13858.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "Amperes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrAlarmsPresent": {
+    "name": "vpwrAlarmsPresent",
+    "oid": "1.3.6.1.4.1.13858.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrAlarmTable": {
+    "name": "vpwrAlarmTable",
+    "oid": "1.3.6.1.4.1.13858.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vpwrAlarmEntry": {
+    "name": "vpwrAlarmEntry",
+    "oid": "1.3.6.1.4.1.13858.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrAlarmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vpwrAlarmIndex": {
+    "name": "vpwrAlarmIndex",
+    "oid": "1.3.6.1.4.1.13858.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrAlarmDescr": {
+    "name": "vpwrAlarmDescr",
+    "oid": "1.3.6.1.4.1.13858.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrAlarmTime": {
+    "name": "vpwrAlarmTime",
+    "oid": "1.3.6.1.4.1.13858.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrBatteryTempTable": {
+    "name": "vpwrBatteryTempTable",
+    "oid": "1.3.6.1.4.1.13858.7.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vpwrBatteryTempEntry": {
+    "name": "vpwrBatteryTempEntry",
+    "oid": "1.3.6.1.4.1.13858.7.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrBatteryTempIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vpwrBatteryTempIndex": {
+    "name": "vpwrBatteryTempIndex",
+    "oid": "1.3.6.1.4.1.13858.7.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrBatteryTempName": {
+    "name": "vpwrBatteryTempName",
+    "oid": "1.3.6.1.4.1.13858.7.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrBatteryTemp": {
+    "name": "vpwrBatteryTemp",
+    "oid": "1.3.6.1.4.1.13858.7.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrBatteryTempLThreshold": {
+    "name": "vpwrBatteryTempLThreshold",
+    "oid": "1.3.6.1.4.1.13858.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrBatteryTempUThreshold": {
+    "name": "vpwrBatteryTempUThreshold",
+    "oid": "1.3.6.1.4.1.13858.7.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "batteryTempCompensation": {
+    "name": "batteryTempCompensation",
+    "oid": "1.3.6.1.4.1.13858.7.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tempCompDisabled": 0,
+          "tempCompEnabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "batteryTempCompHighStartTemperature": {
+    "name": "batteryTempCompHighStartTemperature",
+    "oid": "1.3.6.1.4.1.13858.7.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 25,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "batteryTempCompHighStopVoltage": {
+    "name": "batteryTempCompHighStopVoltage",
+    "oid": "1.3.6.1.4.1.13858.7.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": " *.01 Volts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "batteryTempCompHighSlope": {
+    "name": "batteryTempCompHighSlope",
+    "oid": "1.3.6.1.4.1.13858.7.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "units": " milli-Volts per degrees Centigrade",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "batteryTempCompLowStartTemperature": {
+    "name": "batteryTempCompLowStartTemperature",
+    "oid": "1.3.6.1.4.1.13858.7.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "batteryTempCompLowStopVoltage": {
+    "name": "batteryTempCompLowStopVoltage",
+    "oid": "1.3.6.1.4.1.13858.7.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": " *.01 Volts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "batteryTempCompLowSlope": {
+    "name": "batteryTempCompLowSlope",
+    "oid": "1.3.6.1.4.1.13858.7.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "units": " milli-Volts per degrees Centigrade",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "batteryTempCompRunawayTemperature": {
+    "name": "batteryTempCompRunawayTemperature",
+    "oid": "1.3.6.1.4.1.13858.7.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 25,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "batteryTempCompRunawayStopVoltage": {
+    "name": "batteryTempCompRunawayStopVoltage",
+    "oid": "1.3.6.1.4.1.13858.7.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": " *.01 Volts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "batteryTempCompSenseSource": {
+    "name": "batteryTempCompSenseSource",
+    "oid": "1.3.6.1.4.1.13858.7.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "external": 0,
+          "internal": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "batteryTempCompRunawayState": {
+    "name": "batteryTempCompRunawayState",
+    "oid": "1.3.6.1.4.1.13858.7.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "thermalProbeTable": {
+    "name": "thermalProbeTable",
+    "oid": "1.3.6.1.4.1.13858.7.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "thermalProbeEntry": {
+    "name": "thermalProbeEntry",
+    "oid": "1.3.6.1.4.1.13858.7.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "thermalProbeEntry",
+      "module": "VALERE-DC-POWER-MIB",
+      "object": "vpwrBatteryTempEntry"
+    },
+    "status": "current"
+  },
+  "thermalProbeState": {
+    "name": "thermalProbeState",
+    "oid": "1.3.6.1.4.1.13858.7.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notPresent": 0,
+          "present": 1,
+          "removed": 2,
+          "shorted": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrTrapTable": {
+    "name": "vpwrTrapTable",
+    "oid": "1.3.6.1.4.1.13858.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vpwrTrapEntry": {
+    "name": "vpwrTrapEntry",
+    "oid": "1.3.6.1.4.1.13858.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapIpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vpwrTrapIpIndex": {
+    "name": "vpwrTrapIpIndex",
+    "oid": "1.3.6.1.4.1.13858.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrTrapIpAddress": {
+    "name": "vpwrTrapIpAddress",
+    "oid": "1.3.6.1.4.1.13858.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrTrapCriticality": {
+    "name": "vpwrTrapCriticality",
+    "oid": "1.3.6.1.4.1.13858.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrReadCommunityString": {
+    "name": "vpwrReadCommunityString",
+    "oid": "1.3.6.1.4.1.13858.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrWriteCommunityString": {
+    "name": "vpwrWriteCommunityString",
+    "oid": "1.3.6.1.4.1.13858.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrTrapCommunityString": {
+    "name": "vpwrTrapCommunityString",
+    "oid": "1.3.6.1.4.1.13858.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrTrapPowerMajorAlarm": {
+    "name": "vpwrTrapPowerMajorAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapPowerMinorAlarm": {
+    "name": "vpwrTrapPowerMinorAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapACFAlarm": {
+    "name": "vpwrTrapACFAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapHVAlarm": {
+    "name": "vpwrTrapHVAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapHVSDAlarm": {
+    "name": "vpwrTrapHVSDAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapBDAlarm": {
+    "name": "vpwrTrapBDAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapLVDWarningAlarm": {
+    "name": "vpwrTrapLVDWarningAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapLVDOpenAlarm": {
+    "name": "vpwrTrapLVDOpenAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapDistAlarm": {
+    "name": "vpwrTrapDistAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapAuxAlarm": {
+    "name": "vpwrTrapAuxAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapSystemRedundancyAlarm": {
+    "name": "vpwrTrapSystemRedundancyAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapIShareAlarm": {
+    "name": "vpwrTrapIShareAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapModuleFailAlarm": {
+    "name": "vpwrTrapModuleFailAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapMultipleModuleFailAlarm": {
+    "name": "vpwrTrapMultipleModuleFailAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapModuleCommAlarm": {
+    "name": "vpwrTrapModuleCommAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapSystemOverTemperatureAlarm": {
+    "name": "vpwrTrapSystemOverTemperatureAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapSystemOK": {
+    "name": "vpwrTrapSystemOK",
+    "oid": "1.3.6.1.4.1.13858.100.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapModuleInserted": {
+    "name": "vpwrTrapModuleInserted",
+    "oid": "1.3.6.1.4.1.13858.100.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      },
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrBayIndex"
+      },
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrModuleIndex"
+      }
+    ]
+  },
+  "vpwrTrapModuleRemoved": {
+    "name": "vpwrTrapModuleRemoved",
+    "oid": "1.3.6.1.4.1.13858.100.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      },
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrBayIndex"
+      },
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrModuleIndex"
+      }
+    ]
+  },
+  "vpwrTrapThermalCompActive": {
+    "name": "vpwrTrapThermalCompActive",
+    "oid": "1.3.6.1.4.1.13858.100.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapThermalCompInactive": {
+    "name": "vpwrTrapThermalCompInactive",
+    "oid": "1.3.6.1.4.1.13858.100.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapInternalTempAlarmSet": {
+    "name": "vpwrTrapInternalTempAlarmSet",
+    "oid": "1.3.6.1.4.1.13858.100.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapInternalTempAlarmCleared": {
+    "name": "vpwrTrapInternalTempAlarmCleared",
+    "oid": "1.3.6.1.4.1.13858.100.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapBatteryTempAlarmSet": {
+    "name": "vpwrTrapBatteryTempAlarmSet",
+    "oid": "1.3.6.1.4.1.13858.100.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapBatteryTempAlarmCleared": {
+    "name": "vpwrTrapBatteryTempAlarmCleared",
+    "oid": "1.3.6.1.4.1.13858.100.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapLoginFail": {
+    "name": "vpwrTrapLoginFail",
+    "oid": "1.3.6.1.4.1.13858.100.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapLoginSuccess": {
+    "name": "vpwrTrapLoginSuccess",
+    "oid": "1.3.6.1.4.1.13858.100.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapLogout": {
+    "name": "vpwrTrapLogout",
+    "oid": "1.3.6.1.4.1.13858.100.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapAdminPwdChange": {
+    "name": "vpwrTrapAdminPwdChange",
+    "oid": "1.3.6.1.4.1.13858.100.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapIllegalConfigSubmit": {
+    "name": "vpwrTrapIllegalConfigSubmit",
+    "oid": "1.3.6.1.4.1.13858.100.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapCfgChange": {
+    "name": "vpwrTrapCfgChange",
+    "oid": "1.3.6.1.4.1.13858.100.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapClearEventHistory": {
+    "name": "vpwrTrapClearEventHistory",
+    "oid": "1.3.6.1.4.1.13858.100.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapSwDownloadNoReboot": {
+    "name": "vpwrTrapSwDownloadNoReboot",
+    "oid": "1.3.6.1.4.1.13858.100.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapSwDownloadAndReboot": {
+    "name": "vpwrTrapSwDownloadAndReboot",
+    "oid": "1.3.6.1.4.1.13858.100.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapSystemClockChange": {
+    "name": "vpwrTrapSystemClockChange",
+    "oid": "1.3.6.1.4.1.13858.100.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapModuleAlarm": {
+    "name": "vpwrTrapModuleAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapOIDChange": {
+    "name": "vpwrTrapOIDChange",
+    "oid": "1.3.6.1.4.1.13858.100.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapThermalRunaway": {
+    "name": "vpwrTrapThermalRunaway",
+    "oid": "1.3.6.1.4.1.13858.100.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapBatteryDischargeTestAlarm": {
+    "name": "vpwrTrapBatteryDischargeTestAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapRingerAAlarm": {
+    "name": "vpwrTrapRingerAAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapRingerBAlarm": {
+    "name": "vpwrTrapRingerBAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapSingleRingerAlarm": {
+    "name": "vpwrTrapSingleRingerAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapMultipleRingerAlarm": {
+    "name": "vpwrTrapMultipleRingerAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapThermalProbeAlarm": {
+    "name": "vpwrTrapThermalProbeAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapRingerCommAlarm": {
+    "name": "vpwrTrapRingerCommAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapDistributionCommAlarm": {
+    "name": "vpwrTrapDistributionCommAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapConverterAlarm": {
+    "name": "vpwrTrapConverterAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.47",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapMultipleConvFailAlarm": {
+    "name": "vpwrTrapMultipleConvFailAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.48",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapUnmappedAddressAlarm": {
+    "name": "vpwrTrapUnmappedAddressAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.49",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapConfigErrorAlarm": {
+    "name": "vpwrTrapConfigErrorAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.50",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapDisplayFirmwareMismatchAlarm": {
+    "name": "vpwrTrapDisplayFirmwareMismatchAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.51",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapConverterInputFailAlarm": {
+    "name": "vpwrTrapConverterInputFailAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.52",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapBatteryRechgIlimitFailAlarm": {
+    "name": "vpwrTrapBatteryRechgIlimitFailAlarm",
+    "oid": "1.3.6.1.4.1.13858.100.53",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrTrapSystemAlive": {
+    "name": "vpwrTrapSystemAlive",
+    "oid": "1.3.6.1.4.1.13858.100.54",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrTrapsMsgString"
+      }
+    ]
+  },
+  "vpwrLvdAlarmContactorOpen": {
+    "name": "vpwrLvdAlarmContactorOpen",
+    "oid": "1.3.6.1.4.1.13858.4.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrLvdAlarmCBOpen": {
+    "name": "vpwrLvdAlarmCBOpen",
+    "oid": "1.3.6.1.4.1.13858.4.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrTrapLvdFuseOpen": {
+    "name": "vpwrTrapLvdFuseOpen",
+    "oid": "1.3.6.1.4.1.13858.4.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrLvdAlarmWarning": {
+    "name": "vpwrLvdAlarmWarning",
+    "oid": "1.3.6.1.4.1.13858.4.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrRectAlarmDCFail": {
+    "name": "vpwrRectAlarmDCFail",
+    "oid": "1.3.6.1.4.1.13858.3.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrRectAlarmBoostFail": {
+    "name": "vpwrRectAlarmBoostFail",
+    "oid": "1.3.6.1.4.1.13858.3.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrRectAlarmACFail": {
+    "name": "vpwrRectAlarmACFail",
+    "oid": "1.3.6.1.4.1.13858.3.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrRectAlarmHVSD": {
+    "name": "vpwrRectAlarmHVSD",
+    "oid": "1.3.6.1.4.1.13858.3.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrRectAlarmFanFail": {
+    "name": "vpwrRectAlarmFanFail",
+    "oid": "1.3.6.1.4.1.13858.3.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrRectAlarmAmbTemp": {
+    "name": "vpwrRectAlarmAmbTemp",
+    "oid": "1.3.6.1.4.1.13858.3.2.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrRectAlarmIntTemp": {
+    "name": "vpwrRectAlarmIntTemp",
+    "oid": "1.3.6.1.4.1.13858.3.2.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrRectAlarmIShare": {
+    "name": "vpwrRectAlarmIShare",
+    "oid": "1.3.6.1.4.1.13858.3.2.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrRectAlarmUV": {
+    "name": "vpwrRectAlarmUV",
+    "oid": "1.3.6.1.4.1.13858.3.2.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrRectAlarmLowVoltage": {
+    "name": "vpwrRectAlarmLowVoltage",
+    "oid": "1.3.6.1.4.1.13858.3.2.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrRectAlarmReserved": {
+    "name": "vpwrRectAlarmReserved",
+    "oid": "1.3.6.1.4.1.13858.3.2.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrRectAlarmDCEnable": {
+    "name": "vpwrRectAlarmDCEnable",
+    "oid": "1.3.6.1.4.1.13858.3.2.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrRectAlarmRemoteShutdown": {
+    "name": "vpwrRectAlarmRemoteShutdown",
+    "oid": "1.3.6.1.4.1.13858.3.2.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrRectAlarmModDisableShutdown": {
+    "name": "vpwrRectAlarmModDisableShutdown",
+    "oid": "1.3.6.1.4.1.13858.3.2.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrRectAlarmShortPinShutdown": {
+    "name": "vpwrRectAlarmShortPinShutdown",
+    "oid": "1.3.6.1.4.1.13858.3.2.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrRectAlarmBoostComm": {
+    "name": "vpwrRectAlarmBoostComm",
+    "oid": "1.3.6.1.4.1.13858.3.2.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrTrapsMsgString": {
+    "name": "vpwrTrapsMsgString",
+    "oid": "1.3.6.1.4.1.13858.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vpwrTrapUserIpAddress": {
+    "name": "vpwrTrapUserIpAddress",
+    "oid": "1.3.6.1.4.1.13858.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vpwrTrapEventTimeStamp": {
+    "name": "vpwrTrapEventTimeStamp",
+    "oid": "1.3.6.1.4.1.13858.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysRelayConfigTable": {
+    "name": "sysRelayConfigTable",
+    "oid": "1.3.6.1.4.1.13858.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysRelayConfigEntry": {
+    "name": "sysRelayConfigEntry",
+    "oid": "1.3.6.1.4.1.13858.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "sysRelayIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysRelayIndex": {
+    "name": "sysRelayIndex",
+    "oid": "1.3.6.1.4.1.13858.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysRelayDefaultName": {
+    "name": "sysRelayDefaultName",
+    "oid": "1.3.6.1.4.1.13858.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysRelayCustomName": {
+    "name": "sysRelayCustomName",
+    "oid": "1.3.6.1.4.1.13858.8.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysRelayAlarmSeverity": {
+    "name": "sysRelayAlarmSeverity",
+    "oid": "1.3.6.1.4.1.13858.8.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarmNone": 0,
+          "alarmMajor": 1,
+          "alarmMinor": 2,
+          "alarmMajorAndMinor": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysAlarmConfigTable": {
+    "name": "sysAlarmConfigTable",
+    "oid": "1.3.6.1.4.1.13858.8.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysAlarmConfigEntry": {
+    "name": "sysAlarmConfigEntry",
+    "oid": "1.3.6.1.4.1.13858.8.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "sysAlarmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysAlarmIndex": {
+    "name": "sysAlarmIndex",
+    "oid": "1.3.6.1.4.1.13858.8.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysAlarmDefaultName": {
+    "name": "sysAlarmDefaultName",
+    "oid": "1.3.6.1.4.1.13858.8.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysAlarmCustomName": {
+    "name": "sysAlarmCustomName",
+    "oid": "1.3.6.1.4.1.13858.8.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysAlarmSeverity": {
+    "name": "sysAlarmSeverity",
+    "oid": "1.3.6.1.4.1.13858.8.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "major": 1,
+          "minor": 2,
+          "majorAndMinor": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysAlarmToRelayMapping": {
+    "name": "sysAlarmToRelayMapping",
+    "oid": "1.3.6.1.4.1.13858.8.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysAlarmOperStatus": {
+    "name": "sysAlarmOperStatus",
+    "oid": "1.3.6.1.4.1.13858.8.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysAuxAlarmConfigTable": {
+    "name": "sysAuxAlarmConfigTable",
+    "oid": "1.3.6.1.4.1.13858.8.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysAuxAlarmConfigEntry": {
+    "name": "sysAuxAlarmConfigEntry",
+    "oid": "1.3.6.1.4.1.13858.8.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "sysAuxAlarmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysAuxAlarmIndex": {
+    "name": "sysAuxAlarmIndex",
+    "oid": "1.3.6.1.4.1.13858.8.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysAuxAlarmDefaultName": {
+    "name": "sysAuxAlarmDefaultName",
+    "oid": "1.3.6.1.4.1.13858.8.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysAuxAlarmCustomName": {
+    "name": "sysAuxAlarmCustomName",
+    "oid": "1.3.6.1.4.1.13858.8.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysAuxAlarmSeverity": {
+    "name": "sysAuxAlarmSeverity",
+    "oid": "1.3.6.1.4.1.13858.8.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "major": 1,
+          "minor": 2,
+          "majorAndMinor": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysAuxAlarmToRelayMapping": {
+    "name": "sysAuxAlarmToRelayMapping",
+    "oid": "1.3.6.1.4.1.13858.8.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysAuxAlarmPolarity": {
+    "name": "sysAuxAlarmPolarity",
+    "oid": "1.3.6.1.4.1.13858.8.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarmOnOpen": 0,
+          "alarmOnClose": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysAuxAlarmOperStatus": {
+    "name": "sysAuxAlarmOperStatus",
+    "oid": "1.3.6.1.4.1.13858.8.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysAlarmComFailState": {
+    "name": "sysAlarmComFailState",
+    "oid": "1.3.6.1.4.1.13858.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1,
+          "other": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysAlarmIShareState": {
+    "name": "sysAlarmIShareState",
+    "oid": "1.3.6.1.4.1.13858.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1,
+          "other": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysAlarmRedundancyState": {
+    "name": "sysAlarmRedundancyState",
+    "oid": "1.3.6.1.4.1.13858.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "nPlus1": 1,
+          "nPlus2": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrRingerParameterTable": {
+    "name": "vpwrRingerParameterTable",
+    "oid": "1.3.6.1.4.1.13858.12.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vpwrRingerParameterEntry": {
+    "name": "vpwrRingerParameterEntry",
+    "oid": "1.3.6.1.4.1.13858.12.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrModuleIndex",
+        "implied": 0
+      },
+      {
+        "module": "VALERE-DC-POWER-MIB",
+        "object": "vpwrRingerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vpwrRingerIndex": {
+    "name": "vpwrRingerIndex",
+    "oid": "1.3.6.1.4.1.13858.12.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrRingerParameterAdminState": {
+    "name": "vpwrRingerParameterAdminState",
+    "oid": "1.3.6.1.4.1.13858.12.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ringerDisabled": 0,
+          "ringerAOn": 1,
+          "ringerBOn": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrRingerParameterAcVoltage": {
+    "name": "vpwrRingerParameterAcVoltage",
+    "oid": "1.3.6.1.4.1.13858.12.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 7000,
+            "max": 11000
+          }
+        ]
+      }
+    },
+    "units": " *.01 Volts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrRingerParameterDcVoltage": {
+    "name": "vpwrRingerParameterDcVoltage",
+    "oid": "1.3.6.1.4.1.13858.12.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5600
+          }
+        ]
+      }
+    },
+    "units": " *.01 Volts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrRingerParameterFrequency": {
+    "name": "vpwrRingerParameterFrequency",
+    "oid": "1.3.6.1.4.1.13858.12.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 17,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "units": " Hz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrRingerNumberPresent": {
+    "name": "vpwrRingerNumberPresent",
+    "oid": "1.3.6.1.4.1.13858.12.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrRingerAlarmaAFailed": {
+    "name": "vpwrRingerAlarmaAFailed",
+    "oid": "1.3.6.1.4.1.13858.12.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrRingerAlarmAOTemp": {
+    "name": "vpwrRingerAlarmAOTemp",
+    "oid": "1.3.6.1.4.1.13858.12.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrRingerAlarmAOCurrent": {
+    "name": "vpwrRingerAlarmAOCurrent",
+    "oid": "1.3.6.1.4.1.13858.12.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrRingerAlarmaBFailed": {
+    "name": "vpwrRingerAlarmaBFailed",
+    "oid": "1.3.6.1.4.1.13858.12.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrRingerAlarmBOverTemp": {
+    "name": "vpwrRingerAlarmBOverTemp",
+    "oid": "1.3.6.1.4.1.13858.12.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrRingerAlarmBOverCurrent": {
+    "name": "vpwrRingerAlarmBOverCurrent",
+    "oid": "1.3.6.1.4.1.13858.12.2.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vpwrBoostAdminState": {
+    "name": "vpwrBoostAdminState",
+    "oid": "1.3.6.1.4.1.13858.7.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "boostDisabled": 0,
+          "boostEnabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrBoostVoltage": {
+    "name": "vpwrBoostVoltage",
+    "oid": "1.3.6.1.4.1.13858.7.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 7000,
+            "max": 11000
+          }
+        ]
+      }
+    },
+    "units": " *.01 Volts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrBoostDuration": {
+    "name": "vpwrBoostDuration",
+    "oid": "1.3.6.1.4.1.13858.7.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "Hours",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrBoostOperState": {
+    "name": "vpwrBoostOperState",
+    "oid": "1.3.6.1.4.1.13858.7.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "boostInactive": 0,
+          "boostActive": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrBatteryCurrentLimitAdminState": {
+    "name": "vpwrBatteryCurrentLimitAdminState",
+    "oid": "1.3.6.1.4.1.13858.7.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "battetyCurrentLimitDisabled": 0,
+          "battetyCurrentLimitEnabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrBattetyCurrentLimitValue": {
+    "name": "vpwrBattetyCurrentLimitValue",
+    "oid": "1.3.6.1.4.1.13858.7.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "units": "Ampere",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrBattetyCurrentValue": {
+    "name": "vpwrBattetyCurrentValue",
+    "oid": "1.3.6.1.4.1.13858.7.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "units": "Ampere",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrBDTAdminState": {
+    "name": "vpwrBDTAdminState",
+    "oid": "1.3.6.1.4.1.13858.7.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bdtDisabled": 0,
+          "bdtEnabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrBDTDuration": {
+    "name": "vpwrBDTDuration",
+    "oid": "1.3.6.1.4.1.13858.7.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 17,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "units": "Minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrBDTAlarmVoltage": {
+    "name": "vpwrBDTAlarmVoltage",
+    "oid": "1.3.6.1.4.1.13858.7.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 7000,
+            "max": 11000
+          }
+        ]
+      }
+    },
+    "units": " *.01 Volts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrBDTAbortVoltage": {
+    "name": "vpwrBDTAbortVoltage",
+    "oid": "1.3.6.1.4.1.13858.7.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5600
+          }
+        ]
+      }
+    },
+    "units": " *.01 Volts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrBDTAlarmCoefficient": {
+    "name": "vpwrBDTAlarmCoefficient",
+    "oid": "1.3.6.1.4.1.13858.7.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "None",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrBDTOperState": {
+    "name": "vpwrBDTOperState",
+    "oid": "1.3.6.1.4.1.13858.7.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bdtInactive": 0,
+          "bdtActive": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrBDTClearAlarm": {
+    "name": "vpwrBDTClearAlarm",
+    "oid": "1.3.6.1.4.1.13858.7.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bdtNoAlarm": 0,
+          "bdtAlarmPresent": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vpwrModuleIdentTable": {
+    "name": "vpwrModuleIdentTable",
+    "oid": "1.3.6.1.4.1.13858.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vpwrModuleIdentEntry": {
+    "name": "vpwrModuleIdentEntry",
+    "oid": "1.3.6.1.4.1.13858.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "vpwrModuleIdentEntry",
+      "module": "VALERE-DC-POWER-MIB",
+      "object": "vpwrSystemIdentEntry"
+    },
+    "status": "current"
+  },
+  "vpwrModuleSerialNumber": {
+    "name": "vpwrModuleSerialNumber",
+    "oid": "1.3.6.1.4.1.13858.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrModuleModelNumber": {
+    "name": "vpwrModuleModelNumber",
+    "oid": "1.3.6.1.4.1.13858.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrModuleFwVersion": {
+    "name": "vpwrModuleFwVersion",
+    "oid": "1.3.6.1.4.1.13858.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrModuleTestDate": {
+    "name": "vpwrModuleTestDate",
+    "oid": "1.3.6.1.4.1.13858.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrModuleOperHours": {
+    "name": "vpwrModuleOperHours",
+    "oid": "1.3.6.1.4.1.13858.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrPanelModuleIdentTable": {
+    "name": "vpwrPanelModuleIdentTable",
+    "oid": "1.3.6.1.4.1.13858.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vpwrPanelModuleIdentEntry": {
+    "name": "vpwrPanelModuleIdentEntry",
+    "oid": "1.3.6.1.4.1.13858.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "vpwrPanelModuleIdentEntry",
+      "module": "VALERE-DC-POWER-MIB",
+      "object": "VpwrPanelIdentEntry"
+    },
+    "status": "current"
+  },
+  "vpwrPanelModuleSerialNumber": {
+    "name": "vpwrPanelModuleSerialNumber",
+    "oid": "1.3.6.1.4.1.13858.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrPanelModuleModelNumber": {
+    "name": "vpwrPanelModuleModelNumber",
+    "oid": "1.3.6.1.4.1.13858.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrPanelModuleFwVersion": {
+    "name": "vpwrPanelModuleFwVersion",
+    "oid": "1.3.6.1.4.1.13858.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrPanelModuleTestDate": {
+    "name": "vpwrPanelModuleTestDate",
+    "oid": "1.3.6.1.4.1.13858.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrPanelModuleOperHours": {
+    "name": "vpwrPanelModuleOperHours",
+    "oid": "1.3.6.1.4.1.13858.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrBayctrlModuleIdentTable": {
+    "name": "vpwrBayctrlModuleIdentTable",
+    "oid": "1.3.6.1.4.1.13858.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vpwrBayctrlModuleIdentEntry": {
+    "name": "vpwrBayctrlModuleIdentEntry",
+    "oid": "1.3.6.1.4.1.13858.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "vpwrBayctrlModuleIdentEntry",
+      "module": "VALERE-DC-POWER-MIB",
+      "object": "VpwrBayctrlIdentEntry"
+    },
+    "status": "current"
+  },
+  "vpwrBayctrlSerialNumber": {
+    "name": "vpwrBayctrlSerialNumber",
+    "oid": "1.3.6.1.4.1.13858.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrBayctrlModelNumber": {
+    "name": "vpwrBayctrlModelNumber",
+    "oid": "1.3.6.1.4.1.13858.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrBayctrlFwVersion": {
+    "name": "vpwrBayctrlFwVersion",
+    "oid": "1.3.6.1.4.1.13858.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrBayctrlTestDate": {
+    "name": "vpwrBayctrlTestDate",
+    "oid": "1.3.6.1.4.1.13858.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpwrBayctrlOperHours": {
+    "name": "vpwrBayctrlOperHours",
+    "oid": "1.3.6.1.4.1.13858.6.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltek/VALERE-DC-POWER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:28:42 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "VALERE-DC-POWER-MIB"
+  }
+}

@@ -1,0 +1,353 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoQueueMIB": {
+    "name": "ciscoQueueMIB",
+    "oid": "1.3.6.1.4.1.9.9.37",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1995-08-21 00:00",
+        "description": "Minor cleanups to pacify mib compiler."
+      }
+    ]
+  },
+  "ciscoQueueObjects": {
+    "name": "ciscoQueueObjects",
+    "oid": "1.3.6.1.4.1.9.9.37.1",
+    "class": "objectidentity"
+  },
+  "ciscoQueueTraps": {
+    "name": "ciscoQueueTraps",
+    "oid": "1.3.6.1.4.1.9.9.37.2",
+    "class": "objectidentity"
+  },
+  "ciscoQueueConformance": {
+    "name": "ciscoQueueConformance",
+    "oid": "1.3.6.1.4.1.9.9.37.3",
+    "class": "objectidentity"
+  },
+  "CQAlgorithm": {
+    "name": "CQAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fifo": 1,
+          "priority": 2,
+          "custom": 3,
+          "weightedFair": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cQIfTable": {
+    "name": "cQIfTable",
+    "oid": "1.3.6.1.4.1.9.9.37.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cQIfEntry": {
+    "name": "cQIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.37.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cQIfQType": {
+    "name": "cQIfQType",
+    "oid": "1.3.6.1.4.1.9.9.37.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CQAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cQIfTxLimit": {
+    "name": "cQIfTxLimit",
+    "oid": "1.3.6.1.4.1.9.9.37.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cQIfSubqueues": {
+    "name": "cQIfSubqueues",
+    "oid": "1.3.6.1.4.1.9.9.37.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cQStatsTable": {
+    "name": "cQStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.37.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cQStatsEntry": {
+    "name": "cQStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.37.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-QUEUE-MIB",
+        "object": "cQStatsQNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cQStatsQNumber": {
+    "name": "cQStatsQNumber",
+    "oid": "1.3.6.1.4.1.9.9.37.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cQStatsDepth": {
+    "name": "cQStatsDepth",
+    "oid": "1.3.6.1.4.1.9.9.37.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cQStatsMaxDepth": {
+    "name": "cQStatsMaxDepth",
+    "oid": "1.3.6.1.4.1.9.9.37.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cQStatsDiscards": {
+    "name": "cQStatsDiscards",
+    "oid": "1.3.6.1.4.1.9.9.37.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cQRotationTable": {
+    "name": "cQRotationTable",
+    "oid": "1.3.6.1.4.1.9.9.37.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cQRotationEntry": {
+    "name": "cQRotationEntry",
+    "oid": "1.3.6.1.4.1.9.9.37.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-QUEUE-MIB",
+        "object": "cQStatsQNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cQRotationOctets": {
+    "name": "cQRotationOctets",
+    "oid": "1.3.6.1.4.1.9.9.37.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cQCompliances": {
+    "name": "cQCompliances",
+    "oid": "1.3.6.1.4.1.9.9.37.3.1",
+    "class": "objectidentity"
+  },
+  "cQGroups": {
+    "name": "cQGroups",
+    "oid": "1.3.6.1.4.1.9.9.37.3.2",
+    "class": "objectidentity"
+  },
+  "cQCompliance": {
+    "name": "cQCompliance",
+    "oid": "1.3.6.1.4.1.9.9.37.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cQIfGroup",
+        "module": "CISCO-QUEUE-MIB"
+      },
+      {
+        "object": "cQStatsGroup",
+        "module": "CISCO-QUEUE-MIB"
+      },
+      {
+        "object": "cQRotationGroup",
+        "module": "CISCO-QUEUE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cQIfGroup": {
+    "name": "cQIfGroup",
+    "oid": "1.3.6.1.4.1.9.9.37.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QUEUE-MIB",
+        "object": "cQIfQType"
+      },
+      {
+        "module": "CISCO-QUEUE-MIB",
+        "object": "cQIfTxLimit"
+      },
+      {
+        "module": "CISCO-QUEUE-MIB",
+        "object": "cQIfSubqueues"
+      }
+    ],
+    "status": "current"
+  },
+  "cQStatsGroup": {
+    "name": "cQStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.37.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QUEUE-MIB",
+        "object": "cQStatsDepth"
+      },
+      {
+        "module": "CISCO-QUEUE-MIB",
+        "object": "cQStatsMaxDepth"
+      },
+      {
+        "module": "CISCO-QUEUE-MIB",
+        "object": "cQStatsDiscards"
+      }
+    ],
+    "status": "current"
+  },
+  "cQRotationGroup": {
+    "name": "cQRotationGroup",
+    "oid": "1.3.6.1.4.1.9.9.37.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QUEUE-MIB",
+        "object": "cQRotationOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-QUEUE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-QUEUE-MIB"
+  }
+}

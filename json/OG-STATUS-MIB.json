@@ -1,0 +1,1460 @@
+{
+  "imports": {
+    "class": "imports",
+    "OG-SMI-MIB": [
+      "opengear"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Gauge32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "ogStatus": {
+    "name": "ogStatus",
+    "oid": "1.3.6.1.4.1.25049.16",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-08-16 00:00",
+        "description": "Add UPS RPC outlet tables add extra stats for serial ports."
+      },
+      {
+        "revision": "2013-08-11 00:00",
+        "description": "Add DIO tables for status and current alerts."
+      },
+      {
+        "revision": "2010-08-15 00:00",
+        "description": "Fix type mismatch for serial signal states."
+      },
+      {
+        "revision": "2010-01-11 00:00",
+        "description": "Initial revision"
+      }
+    ]
+  },
+  "ogSerialPortStatusTable": {
+    "name": "ogSerialPortStatusTable",
+    "oid": "1.3.6.1.4.1.25049.16.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ogSerialPortStatusEntry": {
+    "name": "ogSerialPortStatusEntry",
+    "oid": "1.3.6.1.4.1.25049.16.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogSerialPortStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ogSerialPortStatusIndex": {
+    "name": "ogSerialPortStatusIndex",
+    "oid": "1.3.6.1.4.1.25049.16.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ogSerialPortStatusPort": {
+    "name": "ogSerialPortStatusPort",
+    "oid": "1.3.6.1.4.1.25049.16.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogSerialPortStatusRxBytes": {
+    "name": "ogSerialPortStatusRxBytes",
+    "oid": "1.3.6.1.4.1.25049.16.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogSerialPortStatusTxBytes": {
+    "name": "ogSerialPortStatusTxBytes",
+    "oid": "1.3.6.1.4.1.25049.16.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogSerialPortStatusSpeed": {
+    "name": "ogSerialPortStatusSpeed",
+    "oid": "1.3.6.1.4.1.25049.16.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogSerialPortStatusDCD": {
+    "name": "ogSerialPortStatusDCD",
+    "oid": "1.3.6.1.4.1.25049.16.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogSerialPortStatusDTR": {
+    "name": "ogSerialPortStatusDTR",
+    "oid": "1.3.6.1.4.1.25049.16.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogSerialPortStatusDSR": {
+    "name": "ogSerialPortStatusDSR",
+    "oid": "1.3.6.1.4.1.25049.16.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogSerialPortStatusCTS": {
+    "name": "ogSerialPortStatusCTS",
+    "oid": "1.3.6.1.4.1.25049.16.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogSerialPortStatusRTS": {
+    "name": "ogSerialPortStatusRTS",
+    "oid": "1.3.6.1.4.1.25049.16.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogSerialPortStatusLabel": {
+    "name": "ogSerialPortStatusLabel",
+    "oid": "1.3.6.1.4.1.25049.16.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogSerialPortActiveUsersTable": {
+    "name": "ogSerialPortActiveUsersTable",
+    "oid": "1.3.6.1.4.1.25049.16.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ogSerialPortActiveUsersEntry": {
+    "name": "ogSerialPortActiveUsersEntry",
+    "oid": "1.3.6.1.4.1.25049.16.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogSerialPortActiveUsersIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ogSerialPortActiveUsersIndex": {
+    "name": "ogSerialPortActiveUsersIndex",
+    "oid": "1.3.6.1.4.1.25049.16.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ogSerialPortActiveUsersPort": {
+    "name": "ogSerialPortActiveUsersPort",
+    "oid": "1.3.6.1.4.1.25049.16.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogSerialPortActiveUsersName": {
+    "name": "ogSerialPortActiveUsersName",
+    "oid": "1.3.6.1.4.1.25049.16.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogSerialPortActiveUsersPortLabel": {
+    "name": "ogSerialPortActiveUsersPortLabel",
+    "oid": "1.3.6.1.4.1.25049.16.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogRpcStatusTable": {
+    "name": "ogRpcStatusTable",
+    "oid": "1.3.6.1.4.1.25049.16.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ogRpcStatusEntry": {
+    "name": "ogRpcStatusEntry",
+    "oid": "1.3.6.1.4.1.25049.16.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogRpcStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ogRpcStatusIndex": {
+    "name": "ogRpcStatusIndex",
+    "oid": "1.3.6.1.4.1.25049.16.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ogRpcStatusName": {
+    "name": "ogRpcStatusName",
+    "oid": "1.3.6.1.4.1.25049.16.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogRpcStatusMaxTemp": {
+    "name": "ogRpcStatusMaxTemp",
+    "oid": "1.3.6.1.4.1.25049.16.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogRpcStatusAlertCount": {
+    "name": "ogRpcStatusAlertCount",
+    "oid": "1.3.6.1.4.1.25049.16.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogEmdStatusTable": {
+    "name": "ogEmdStatusTable",
+    "oid": "1.3.6.1.4.1.25049.16.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ogEmdStatusEntry": {
+    "name": "ogEmdStatusEntry",
+    "oid": "1.3.6.1.4.1.25049.16.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogEmdStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ogEmdStatusIndex": {
+    "name": "ogEmdStatusIndex",
+    "oid": "1.3.6.1.4.1.25049.16.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ogEmdStatusName": {
+    "name": "ogEmdStatusName",
+    "oid": "1.3.6.1.4.1.25049.16.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogEmdStatusTemp": {
+    "name": "ogEmdStatusTemp",
+    "oid": "1.3.6.1.4.1.25049.16.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogEmdStatusHumidity": {
+    "name": "ogEmdStatusHumidity",
+    "oid": "1.3.6.1.4.1.25049.16.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogEmdStatusAlertCount": {
+    "name": "ogEmdStatusAlertCount",
+    "oid": "1.3.6.1.4.1.25049.16.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogDioStatusTable": {
+    "name": "ogDioStatusTable",
+    "oid": "1.3.6.1.4.1.25049.16.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ogDioStatusEntry": {
+    "name": "ogDioStatusEntry",
+    "oid": "1.3.6.1.4.1.25049.16.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogDioStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ogDioStatusIndex": {
+    "name": "ogDioStatusIndex",
+    "oid": "1.3.6.1.4.1.25049.16.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ogDioStatusName": {
+    "name": "ogDioStatusName",
+    "oid": "1.3.6.1.4.1.25049.16.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogDioStatusType": {
+    "name": "ogDioStatusType",
+    "oid": "1.3.6.1.4.1.25049.16.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ttlInputOutput": 0,
+          "highVoltageOutput": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogDioStatusDirection": {
+    "name": "ogDioStatusDirection",
+    "oid": "1.3.6.1.4.1.25049.16.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "output": 0,
+          "input": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogDioStatusState": {
+    "name": "ogDioStatusState",
+    "oid": "1.3.6.1.4.1.25049.16.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogDioStatusCounter": {
+    "name": "ogDioStatusCounter",
+    "oid": "1.3.6.1.4.1.25049.16.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogDioStatusTriggerMode": {
+    "name": "ogDioStatusTriggerMode",
+    "oid": "1.3.6.1.4.1.25049.16.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "risingEdge": 1,
+          "fallingEdge": 2,
+          "risingFallingEdge": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogSignalAlertStatusTable": {
+    "name": "ogSignalAlertStatusTable",
+    "oid": "1.3.6.1.4.1.25049.16.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ogSignalAlertStatusEntry": {
+    "name": "ogSignalAlertStatusEntry",
+    "oid": "1.3.6.1.4.1.25049.16.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogSignalAlertStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ogSignalAlertStatusIndex": {
+    "name": "ogSignalAlertStatusIndex",
+    "oid": "1.3.6.1.4.1.25049.16.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ogSignalAlertStatusPort": {
+    "name": "ogSignalAlertStatusPort",
+    "oid": "1.3.6.1.4.1.25049.16.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogSignalAlertStatusLabel": {
+    "name": "ogSignalAlertStatusLabel",
+    "oid": "1.3.6.1.4.1.25049.16.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogSignalAlertStatusSignalName": {
+    "name": "ogSignalAlertStatusSignalName",
+    "oid": "1.3.6.1.4.1.25049.16.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogSignalAlertStatusState": {
+    "name": "ogSignalAlertStatusState",
+    "oid": "1.3.6.1.4.1.25049.16.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogEnvAlertStatusTable": {
+    "name": "ogEnvAlertStatusTable",
+    "oid": "1.3.6.1.4.1.25049.16.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ogEnvAlertStatusEntry": {
+    "name": "ogEnvAlertStatusEntry",
+    "oid": "1.3.6.1.4.1.25049.16.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogEnvAlertStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ogEnvAlertStatusIndex": {
+    "name": "ogEnvAlertStatusIndex",
+    "oid": "1.3.6.1.4.1.25049.16.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ogEnvAlertStatusDevice": {
+    "name": "ogEnvAlertStatusDevice",
+    "oid": "1.3.6.1.4.1.25049.16.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogEnvAlertStatusSensor": {
+    "name": "ogEnvAlertStatusSensor",
+    "oid": "1.3.6.1.4.1.25049.16.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogEnvAlertStatusOutlet": {
+    "name": "ogEnvAlertStatusOutlet",
+    "oid": "1.3.6.1.4.1.25049.16.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogEnvAlertStatusValue": {
+    "name": "ogEnvAlertStatusValue",
+    "oid": "1.3.6.1.4.1.25049.16.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogEnvAlertStatusOldValue": {
+    "name": "ogEnvAlertStatusOldValue",
+    "oid": "1.3.6.1.4.1.25049.16.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogEnvAlertStatusStatus": {
+    "name": "ogEnvAlertStatusStatus",
+    "oid": "1.3.6.1.4.1.25049.16.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogNutAlertStatusTable": {
+    "name": "ogNutAlertStatusTable",
+    "oid": "1.3.6.1.4.1.25049.16.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ogNutAlertStatusEntry": {
+    "name": "ogNutAlertStatusEntry",
+    "oid": "1.3.6.1.4.1.25049.16.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogNutAlertStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ogNutAlertStatusIndex": {
+    "name": "ogNutAlertStatusIndex",
+    "oid": "1.3.6.1.4.1.25049.16.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ogNutAlertStatusPort": {
+    "name": "ogNutAlertStatusPort",
+    "oid": "1.3.6.1.4.1.25049.16.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogNutAlertStatusName": {
+    "name": "ogNutAlertStatusName",
+    "oid": "1.3.6.1.4.1.25049.16.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogNutAlertStatusHost": {
+    "name": "ogNutAlertStatusHost",
+    "oid": "1.3.6.1.4.1.25049.16.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogNutAlertStatusStatus": {
+    "name": "ogNutAlertStatusStatus",
+    "oid": "1.3.6.1.4.1.25049.16.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogDataAlertStatusTable": {
+    "name": "ogDataAlertStatusTable",
+    "oid": "1.3.6.1.4.1.25049.16.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ogDataAlertStatusEntry": {
+    "name": "ogDataAlertStatusEntry",
+    "oid": "1.3.6.1.4.1.25049.16.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogDataAlertStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ogDataAlertStatusIndex": {
+    "name": "ogDataAlertStatusIndex",
+    "oid": "1.3.6.1.4.1.25049.16.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ogDataAlertStatusBytes": {
+    "name": "ogDataAlertStatusBytes",
+    "oid": "1.3.6.1.4.1.25049.16.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogDataAlertStatusSeconds": {
+    "name": "ogDataAlertStatusSeconds",
+    "oid": "1.3.6.1.4.1.25049.16.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogDataAlertStatusDevice": {
+    "name": "ogDataAlertStatusDevice",
+    "oid": "1.3.6.1.4.1.25049.16.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogDataAlertStatusState": {
+    "name": "ogDataAlertStatusState",
+    "oid": "1.3.6.1.4.1.25049.16.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogDioAlertStatusTable": {
+    "name": "ogDioAlertStatusTable",
+    "oid": "1.3.6.1.4.1.25049.16.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ogDioAlertStatusEntry": {
+    "name": "ogDioAlertStatusEntry",
+    "oid": "1.3.6.1.4.1.25049.16.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogDioAlertStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ogDioAlertStatusIndex": {
+    "name": "ogDioAlertStatusIndex",
+    "oid": "1.3.6.1.4.1.25049.16.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ogDioAlertStatusName": {
+    "name": "ogDioAlertStatusName",
+    "oid": "1.3.6.1.4.1.25049.16.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogDioAlertStatusValue": {
+    "name": "ogDioAlertStatusValue",
+    "oid": "1.3.6.1.4.1.25049.16.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 0,
+          "closed": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogDioAlertStatusOldValue": {
+    "name": "ogDioAlertStatusOldValue",
+    "oid": "1.3.6.1.4.1.25049.16.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 0,
+          "closed": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogDioAlertStatusTriggered": {
+    "name": "ogDioAlertStatusTriggered",
+    "oid": "1.3.6.1.4.1.25049.16.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogStatusConformance": {
+    "name": "ogStatusConformance",
+    "oid": "1.3.6.1.4.1.25049.16.65535",
+    "class": "objectidentity"
+  },
+  "ogStatusCompliances": {
+    "name": "ogStatusCompliances",
+    "oid": "1.3.6.1.4.1.25049.16.65535.1",
+    "class": "objectidentity"
+  },
+  "ogStatusGroups": {
+    "name": "ogStatusGroups",
+    "oid": "1.3.6.1.4.1.25049.16.65535.2",
+    "class": "objectidentity"
+  },
+  "ogStatusCompliance": {
+    "name": "ogStatusCompliance",
+    "oid": "1.3.6.1.4.1.25049.16.65535.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ogBasicStatusGroup",
+        "module": "OG-STATUS-MIB"
+      },
+      {
+        "object": "ogBasicAlertStatusGroup",
+        "module": "OG-STATUS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ogBasicStatusGroup": {
+    "name": "ogBasicStatusGroup",
+    "oid": "1.3.6.1.4.1.25049.16.65535.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogSerialPortStatusPort"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogSerialPortStatusRxBytes"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogSerialPortStatusTxBytes"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogSerialPortStatusSpeed"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogSerialPortStatusDCD"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogSerialPortStatusDTR"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogSerialPortStatusDSR"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogSerialPortStatusCTS"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogSerialPortStatusRTS"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogSerialPortStatusLabel"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogSerialPortActiveUsersPort"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogSerialPortActiveUsersName"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogSerialPortActiveUsersPortLabel"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogRpcStatusName"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogRpcStatusMaxTemp"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogRpcStatusAlertCount"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogEmdStatusName"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogEmdStatusTemp"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogEmdStatusHumidity"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogEmdStatusAlertCount"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogDioStatusName"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogDioStatusType"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogDioStatusDirection"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogDioStatusState"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogDioStatusCounter"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogDioStatusTriggerMode"
+      }
+    ],
+    "status": "current"
+  },
+  "ogBasicAlertStatusGroup": {
+    "name": "ogBasicAlertStatusGroup",
+    "oid": "1.3.6.1.4.1.25049.16.65535.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogSignalAlertStatusPort"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogSignalAlertStatusLabel"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogSignalAlertStatusSignalName"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogSignalAlertStatusState"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogEnvAlertStatusDevice"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogEnvAlertStatusSensor"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogEnvAlertStatusOutlet"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogEnvAlertStatusValue"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogEnvAlertStatusOldValue"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogEnvAlertStatusStatus"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogNutAlertStatusPort"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogNutAlertStatusName"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogNutAlertStatusHost"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogNutAlertStatusStatus"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogDataAlertStatusBytes"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogDataAlertStatusSeconds"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogDataAlertStatusDevice"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogDataAlertStatusState"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogDioAlertStatusName"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogDioAlertStatusValue"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogDioAlertStatusOldValue"
+      },
+      {
+        "module": "OG-STATUS-MIB",
+        "object": "ogDioAlertStatusTriggered"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/opengear/OG-STATUS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "OG-STATUS-MIB"
+  }
+}

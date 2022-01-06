@@ -1,0 +1,1599 @@
+{
+  "imports": {
+    "class": "imports",
+    "IRT-COMMONVARBINDS-MIB": [
+      "eventTimeStamp",
+      "eventCounter",
+      "eventPriority",
+      "mibRelease"
+    ],
+    "IRT-TRANSMITTER-SMI-MIB": [
+      "LocalRemote",
+      "SelectOnOff",
+      "OkNotOk",
+      "FaultOK",
+      "SFNMFN",
+      "MuteOk",
+      "dvbT",
+      "SelectManualAuto",
+      "PresentNotPresent",
+      "WarningOK",
+      "Input1Input2"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysDescr",
+      "sysLocation",
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dvbSingleTransmitter": {
+    "name": "dvbSingleTransmitter",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-05-04 14:00",
+        "description": "change SFNMode,LocalMode (description) and Module-COMPLIANCE"
+      },
+      {
+        "revision": "2006-12-20 14:00",
+        "description": "Corrections"
+      },
+      {
+        "revision": "2006-09-21 14:00",
+        "description": "Adding Compliance Statement"
+      },
+      {
+        "revision": "2006-09-19 14:00",
+        "description": "Correcting Imports"
+      },
+      {
+        "revision": "2006-09-07 14:00",
+        "description": "Relocation of the TC-MIB from the standard OID area at IEC into the private OID area of the IRT"
+      }
+    ]
+  },
+  "dvbEventsST": {
+    "name": "dvbEventsST",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.0",
+    "class": "objectidentity"
+  },
+  "dvbSTInputPreselectionEvent": {
+    "name": "dvbSTInputPreselectionEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTInputPreselection"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbSTInputAutomaticEvent": {
+    "name": "dvbSTInputAutomaticEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTInputAutomatic"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbSTTransmitterOpModeEvent": {
+    "name": "dvbSTTransmitterOpModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTTransmitterOpMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbSTRFPresentEvent": {
+    "name": "dvbSTRFPresentEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTRFPresent"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbSTResetFaultEvent": {
+    "name": "dvbSTResetFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTResetFault"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "dvbSTFaultEvent": {
+    "name": "dvbSTFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbSTWarningEvent": {
+    "name": "dvbSTWarningEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTWarning"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbSTInput1OKEvent": {
+    "name": "dvbSTInput1OKEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTInput1OK"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbSTInput2OKEvent": {
+    "name": "dvbSTInput2OKEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTInput2OK"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbSTLocalModeEvent": {
+    "name": "dvbSTLocalModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTLocalMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbSTActiveInputEvent": {
+    "name": "dvbSTActiveInputEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTActiveInput"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbSTSFNModeEvent": {
+    "name": "dvbSTSFNModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTSFNMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbSTRefFaultEvent": {
+    "name": "dvbSTRefFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTRefFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbSTMuteEvent": {
+    "name": "dvbSTMuteEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTMute"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbSTFaultMIPEvent": {
+    "name": "dvbSTFaultMIPEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTFaultMIP"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbSTStuffingModeEvent": {
+    "name": "dvbSTStuffingModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTStuffingMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbSTGeneral": {
+    "name": "dvbSTGeneral",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "dvbSTInputPreselection": {
+    "name": "dvbSTInputPreselection",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Input1Input2",
+      "class": "type"
+    },
+    "units": " ",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTInputAutomatic": {
+    "name": "dvbSTInputAutomatic",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectManualAuto",
+      "class": "type"
+    },
+    "units": " ",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTTransmitterOpMode": {
+    "name": "dvbSTTransmitterOpMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectOnOff",
+      "class": "type"
+    },
+    "units": " ",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTRFPresent": {
+    "name": "dvbSTRFPresent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PresentNotPresent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbSTResetFault": {
+    "name": "dvbSTResetFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dvbSTFault": {
+    "name": "dvbSTFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbSTWarning": {
+    "name": "dvbSTWarning",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WarningOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbSTInput1OK": {
+    "name": "dvbSTInput1OK",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OkNotOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbSTInput2OK": {
+    "name": "dvbSTInput2OK",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OkNotOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbSTLocalMode": {
+    "name": "dvbSTLocalMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocalRemote",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbSTActiveInput": {
+    "name": "dvbSTActiveInput",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "input1": 1,
+          "input2": 2,
+          "seamless": 3,
+          "hmHierarchicalModulation": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbSTSFNMode": {
+    "name": "dvbSTSFNMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SFNMFN",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbSTRefFault": {
+    "name": "dvbSTRefFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbSTMute": {
+    "name": "dvbSTMute",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MuteOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbSTFaultMIP": {
+    "name": "dvbSTFaultMIP",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbSTStuffingMode": {
+    "name": "dvbSTStuffingMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbSTEventEnable": {
+    "name": "dvbSTEventEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "dvbSTEventEnableGeneral": {
+    "name": "dvbSTEventEnableGeneral",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "dvbSTInputPreselectionEnable": {
+    "name": "dvbSTInputPreselectionEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTInputAutomaticEnable": {
+    "name": "dvbSTInputAutomaticEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTTransmitterOpModeEnable": {
+    "name": "dvbSTTransmitterOpModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTRFPresentEnable": {
+    "name": "dvbSTRFPresentEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTResetFaultEnable": {
+    "name": "dvbSTResetFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dvbSTFaultEnable": {
+    "name": "dvbSTFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTWarningEnable": {
+    "name": "dvbSTWarningEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTInput1OKEnable": {
+    "name": "dvbSTInput1OKEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTInput2OKEnable": {
+    "name": "dvbSTInput2OKEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTLocalModeEnable": {
+    "name": "dvbSTLocalModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTActiveInputEnable": {
+    "name": "dvbSTActiveInputEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTSFNModeEnable": {
+    "name": "dvbSTSFNModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTRefFaultEnable": {
+    "name": "dvbSTRefFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTMuteEnable": {
+    "name": "dvbSTMuteEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTFaultMIPEnable": {
+    "name": "dvbSTFaultMIPEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTStuffingModeEnable": {
+    "name": "dvbSTStuffingModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.2.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTEventPriority": {
+    "name": "dvbSTEventPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.3",
+    "class": "objectidentity"
+  },
+  "dvbSTEventPriorityGeneral": {
+    "name": "dvbSTEventPriorityGeneral",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.3.1",
+    "class": "objectidentity"
+  },
+  "dvbSTInputPreselectionPriority": {
+    "name": "dvbSTInputPreselectionPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTInputAutomaticPriority": {
+    "name": "dvbSTInputAutomaticPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTTransmitterOpModePriority": {
+    "name": "dvbSTTransmitterOpModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTRFPresentPriority": {
+    "name": "dvbSTRFPresentPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTResetFaultPriority": {
+    "name": "dvbSTResetFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dvbSTFaultPriority": {
+    "name": "dvbSTFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTWarningPriority": {
+    "name": "dvbSTWarningPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTInput1OKPriority": {
+    "name": "dvbSTInput1OKPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTInput2OKPriority": {
+    "name": "dvbSTInput2OKPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTLocalModePriority": {
+    "name": "dvbSTLocalModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.3.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTActiveInputPriority": {
+    "name": "dvbSTActiveInputPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.3.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTSFNModePriority": {
+    "name": "dvbSTSFNModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.3.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTRefFaultPriority": {
+    "name": "dvbSTRefFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.3.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTMutePriority": {
+    "name": "dvbSTMutePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.3.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTFaultMIPPriority": {
+    "name": "dvbSTFaultMIPPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.3.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbSTStuffingModePriority": {
+    "name": "dvbSTStuffingModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.3.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "groupST": {
+    "name": "groupST",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.4",
+    "class": "objectidentity"
+  },
+  "objectGroupST": {
+    "name": "objectGroupST",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.4.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTInputPreselection"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTInputAutomatic"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTTransmitterOpMode"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTRFPresent"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTFault"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTWarning"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTInput1OK"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTInput2OK"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTLocalMode"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTActiveInput"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTSFNMode"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTRefFault"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTMute"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTFaultMIP"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTStuffingMode"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTInputPreselectionEnable"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTInputAutomaticEnable"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTTransmitterOpModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTRFPresentEnable"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTFaultEnable"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTWarningEnable"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTInput1OKEnable"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTInput2OKEnable"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTLocalModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTActiveInputEnable"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTSFNModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTRefFaultEnable"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTMuteEnable"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTFaultMIPEnable"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTStuffingModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTInputPreselectionPriority"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTInputAutomaticPriority"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTTransmitterOpModePriority"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTRFPresentPriority"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTFaultPriority"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTWarningPriority"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTFaultMIPPriority"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTMutePriority"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTRefFaultPriority"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTSFNModePriority"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTStuffingModePriority"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTInput1OKPriority"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTInput2OKPriority"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTLocalModePriority"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTActiveInputPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "eventGroupST": {
+    "name": "eventGroupST",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.4.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTInputPreselectionEvent"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTInputAutomaticEvent"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTTransmitterOpModeEvent"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTRFPresentEvent"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTFaultEvent"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTWarningEvent"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTInput1OKEvent"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTInput2OKEvent"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTLocalModeEvent"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTActiveInputEvent"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTSFNModeEvent"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTRefFaultEvent"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTStuffingModeEvent"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTMuteEvent"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTFaultMIPEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "objectGroupSTobsolete": {
+    "name": "objectGroupSTobsolete",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.4.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTResetFault"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTResetFaultEnable"
+      },
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTResetFaultPriority"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "eventGroupSTobsolete": {
+    "name": "eventGroupSTobsolete",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.4.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB",
+        "object": "dvbSTResetFaultEvent"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "complianceST": {
+    "name": "complianceST",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.5",
+    "class": "objectidentity"
+  },
+  "dvbSingleTransmitterCompliance": {
+    "name": "dvbSingleTransmitterCompliance",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.1.5.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "objectGroupST",
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB"
+      },
+      {
+        "object": "eventGroupST",
+        "module": "IRT-DVBT-SINGLETRANSMITTER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/IRT-DVBT-SINGLETRANSMITTER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IRT-DVBT-SINGLETRANSMITTER-MIB"
+  }
+}

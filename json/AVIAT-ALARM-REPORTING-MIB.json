@@ -1,0 +1,816 @@
+{
+  "imports": {
+    "class": "imports",
+    "AVIAT-TEXTCONVENTION-MIB": [
+      "AviatYangIdentityRef"
+    ],
+    "IANA-ITU-ALARM-TC-MIB": [
+      "IANAItuProbableCause",
+      "IANAItuEventType"
+    ],
+    "ITU-ALARM-TC-MIB": [
+      "ItuPerceivedSeverity"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue",
+      "DateAndTime"
+    ],
+    "STXN-GLOBALREGISTER-MIB": [
+      "aviatModules"
+    ]
+  },
+  "aviatAlarmReportingModule": {
+    "name": "aviatAlarmReportingModule",
+    "oid": "1.3.6.1.4.1.2509.9.47",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-05-26 00:00",
+        "description": "Initial Version."
+      }
+    ]
+  },
+  "aviatAlarmReportingConformance": {
+    "name": "aviatAlarmReportingConformance",
+    "oid": "1.3.6.1.4.1.2509.9.47.1",
+    "class": "objectidentity"
+  },
+  "aviatAlarmReportingGroups": {
+    "name": "aviatAlarmReportingGroups",
+    "oid": "1.3.6.1.4.1.2509.9.47.1.1",
+    "class": "objectidentity"
+  },
+  "aviatAlarmReportingCompliance": {
+    "name": "aviatAlarmReportingCompliance",
+    "oid": "1.3.6.1.4.1.2509.9.47.1.2",
+    "class": "objectidentity"
+  },
+  "aviatAlarmReportingMIBObjects": {
+    "name": "aviatAlarmReportingMIBObjects",
+    "oid": "1.3.6.1.4.1.2509.9.47.2",
+    "class": "objectidentity"
+  },
+  "aviatAlarmReportingNotifications": {
+    "name": "aviatAlarmReportingNotifications",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.7",
+    "class": "objectidentity"
+  },
+  "aviatAlarmReportingMIBEvents": {
+    "name": "aviatAlarmReportingMIBEvents",
+    "oid": "1.3.6.1.4.1.2509.9.47.0",
+    "class": "objectidentity"
+  },
+  "IetfEntityName": {
+    "name": "IetfEntityName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "displayhint": "127t",
+    "status": "current"
+  },
+  "AviatAlarmInstanceState": {
+    "name": "AviatAlarmInstanceState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 0,
+          "raised": 1,
+          "unstable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AviatAlarmReportingMode": {
+    "name": "AviatAlarmReportingMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 0,
+          "nonSummary": 1,
+          "summaryOnly": 2,
+          "none": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "aviatAlarmTypeTable": {
+    "name": "aviatAlarmTypeTable",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatAlarmTypeEntry": {
+    "name": "aviatAlarmTypeEntry",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aviatAlarmTypeIndex": {
+    "name": "aviatAlarmTypeIndex",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatYangIdentityRef",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatAlarmTypeSecurityEvent": {
+    "name": "aviatAlarmTypeSecurityEvent",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatAlarmTypeDescription": {
+    "name": "aviatAlarmTypeDescription",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatAlarmTypeEvent": {
+    "name": "aviatAlarmTypeEvent",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAItuEventType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatAlarmTypeDefaultSeverity": {
+    "name": "aviatAlarmTypeDefaultSeverity",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ItuPerceivedSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatAlarmInstanceLastChange": {
+    "name": "aviatAlarmInstanceLastChange",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatAlarmInstanceTable": {
+    "name": "aviatAlarmInstanceTable",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatAlarmInstanceEntry": {
+    "name": "aviatAlarmInstanceEntry",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmInstanceEntity",
+        "implied": 0
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aviatAlarmInstanceEntity": {
+    "name": "aviatAlarmInstanceEntity",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IetfEntityName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatAlarmInstanceSecurityEvent": {
+    "name": "aviatAlarmInstanceSecurityEvent",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatAlarmInstanceDescription": {
+    "name": "aviatAlarmInstanceDescription",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatAlarmInstanceType": {
+    "name": "aviatAlarmInstanceType",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAItuEventType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatAlarmInstanceCurrentState": {
+    "name": "aviatAlarmInstanceCurrentState",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatAlarmInstanceState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatAlarmInstanceCurrentSeverity": {
+    "name": "aviatAlarmInstanceCurrentSeverity",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ItuPerceivedSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatAlarmInstanceRaisedSeverity": {
+    "name": "aviatAlarmInstanceRaisedSeverity",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ItuPerceivedSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatAlarmInstanceLastStatusChange": {
+    "name": "aviatAlarmInstanceLastStatusChange",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatAlarmInstanceStatusChangeCount": {
+    "name": "aviatAlarmInstanceStatusChangeCount",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatAlarmInstanceDisabled": {
+    "name": "aviatAlarmInstanceDisabled",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatAlarmRaisedInstanceLastChange": {
+    "name": "aviatAlarmRaisedInstanceLastChange",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatAlarmRaisedInstanceTable": {
+    "name": "aviatAlarmRaisedInstanceTable",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatAlarmRaisedInstanceEntry": {
+    "name": "aviatAlarmRaisedInstanceEntry",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmInstanceEntity",
+        "implied": 0
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aviatAlarmRaisedInstanceSecurityEvent": {
+    "name": "aviatAlarmRaisedInstanceSecurityEvent",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatAlarmRaisedInstanceDescription": {
+    "name": "aviatAlarmRaisedInstanceDescription",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatAlarmRaisedInstanceSeverity": {
+    "name": "aviatAlarmRaisedInstanceSeverity",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ItuPerceivedSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatAlarmRaisedInstanceCause": {
+    "name": "aviatAlarmRaisedInstanceCause",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAItuProbableCause",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatAlarmRaisedInstanceTime": {
+    "name": "aviatAlarmRaisedInstanceTime",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatAlarmRaisedInstanceIsUnstable": {
+    "name": "aviatAlarmRaisedInstanceIsUnstable",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatAlarmEntityTable": {
+    "name": "aviatAlarmEntityTable",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatAlarmEntityEntry": {
+    "name": "aviatAlarmEntityEntry",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmInstanceEntity",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aviatAlarmEntityReportingMode": {
+    "name": "aviatAlarmEntityReportingMode",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatAlarmReportingMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatAlarmEntityName": {
+    "name": "aviatAlarmEntityName",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IetfEntityName",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aviatAlarmTypeID": {
+    "name": "aviatAlarmTypeID",
+    "oid": "1.3.6.1.4.1.2509.9.47.2.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatYangIdentityRef",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aviatAlarmRaisedInstanceNotification": {
+    "name": "aviatAlarmRaisedInstanceNotification",
+    "oid": "1.3.6.1.4.1.2509.9.47.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmInstanceLastStatusChange"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmEntityName"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmTypeID"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmInstanceCurrentSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "aviatAlarmClearedInstanceNotification": {
+    "name": "aviatAlarmClearedInstanceNotification",
+    "oid": "1.3.6.1.4.1.2509.9.47.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmInstanceLastStatusChange"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmEntityName"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmTypeID"
+      }
+    ],
+    "status": "current"
+  },
+  "aviatAlarmUnstableInstanceNotification": {
+    "name": "aviatAlarmUnstableInstanceNotification",
+    "oid": "1.3.6.1.4.1.2509.9.47.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmInstanceLastStatusChange"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmEntityName"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmTypeID"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmInstanceCurrentSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "aviatAlarmStabilizedInstanceNotification": {
+    "name": "aviatAlarmStabilizedInstanceNotification",
+    "oid": "1.3.6.1.4.1.2509.9.47.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmInstanceLastStatusChange"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmEntityName"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmTypeID"
+      }
+    ],
+    "status": "current"
+  },
+  "aviatAlarmReportingObjectGroup": {
+    "name": "aviatAlarmReportingObjectGroup",
+    "oid": "1.3.6.1.4.1.2509.9.47.1.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmTypeSecurityEvent"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmTypeDescription"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmTypeEvent"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmTypeDefaultSeverity"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmInstanceLastChange"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmInstanceSecurityEvent"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmInstanceDescription"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmInstanceType"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmInstanceCurrentState"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmInstanceCurrentSeverity"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmInstanceRaisedSeverity"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmInstanceLastStatusChange"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmInstanceStatusChangeCount"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmInstanceDisabled"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmRaisedInstanceLastChange"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmRaisedInstanceSecurityEvent"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmRaisedInstanceDescription"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmRaisedInstanceSeverity"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmRaisedInstanceCause"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmRaisedInstanceTime"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmRaisedInstanceIsUnstable"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmEntityReportingMode"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmEntityName"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmTypeID"
+      }
+    ],
+    "status": "current"
+  },
+  "aviatAlarmReportingNotifyGroup": {
+    "name": "aviatAlarmReportingNotifyGroup",
+    "oid": "1.3.6.1.4.1.2509.9.47.1.1.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmRaisedInstanceNotification"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmClearedInstanceNotification"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmUnstableInstanceNotification"
+      },
+      {
+        "module": "AVIAT-ALARM-REPORTING-MIB",
+        "object": "aviatAlarmStabilizedInstanceNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "aviatAlarmReportingComplV1": {
+    "name": "aviatAlarmReportingComplV1",
+    "oid": "1.3.6.1.4.1.2509.9.47.1.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "aviatAlarmReportingObjectGroup",
+        "module": "AVIAT-ALARM-REPORTING-MIB"
+      },
+      {
+        "object": "aviatAlarmReportingNotifyGroup",
+        "module": "AVIAT-ALARM-REPORTING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aviat-wtm/AVIAT-ALARM-REPORTING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:56 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AVIAT-ALARM-REPORTING-MIB"
+  }
+}

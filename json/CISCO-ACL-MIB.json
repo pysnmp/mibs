@@ -1,0 +1,1655 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoIpProtocol"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoACLMIB": {
+    "name": "ciscoACLMIB",
+    "oid": "1.3.6.1.4.1.9.9.808",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-03-27 00:00",
+        "description": "The initial version of this MIB module."
+      }
+    ]
+  },
+  "caAclMIBObjects": {
+    "name": "caAclMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.808.1",
+    "class": "objectidentity"
+  },
+  "caAclMIBConformance": {
+    "name": "caAclMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.808.2",
+    "class": "objectidentity"
+  },
+  "caAclConfiguration": {
+    "name": "caAclConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1",
+    "class": "objectidentity"
+  },
+  "caAclStats": {
+    "name": "caAclStats",
+    "oid": "1.3.6.1.4.1.9.9.808.1.2",
+    "class": "objectidentity"
+  },
+  "caAclMIBACEConform": {
+    "name": "caAclMIBACEConform",
+    "oid": "1.3.6.1.4.1.9.9.808.2.1",
+    "class": "objectidentity"
+  },
+  "caAclMIBACECompliances": {
+    "name": "caAclMIBACECompliances",
+    "oid": "1.3.6.1.4.1.9.9.808.2.1.1",
+    "class": "objectidentity"
+  },
+  "caAclMIBCfgGroups": {
+    "name": "caAclMIBCfgGroups",
+    "oid": "1.3.6.1.4.1.9.9.808.2.1.2",
+    "class": "objectidentity"
+  },
+  "CaAclTrafficDirection": {
+    "name": "CaAclTrafficDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ingress": 1,
+          "egress": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CaAclACLIndex": {
+    "name": "CaAclACLIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "CaAclSequenceNumber": {
+    "name": "CaAclSequenceNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "CaAclPortOperator": {
+    "name": "CaAclPortOperator",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lt": 1,
+          "gt": 2,
+          "eq": 3,
+          "neq": 4,
+          "range": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CaAclAction": {
+    "name": "CaAclAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 1,
+          "deny": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CaAclLogOption": {
+    "name": "CaAclLogOption",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "log": 1,
+          "logInput": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CaAclTcpFlagsMatch": {
+    "name": "CaAclTcpFlagsMatch",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "matchAny": 1,
+          "matchAll": 2,
+          "matchNone": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CaAclPrecedenceValue": {
+    "name": "CaAclPrecedenceValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "routine": 0,
+          "priority": 1,
+          "immediate": 2,
+          "flash": 3,
+          "flashOverride": 4,
+          "critical": 5,
+          "internet": 6,
+          "network": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "caAclCfgTable": {
+    "name": "caAclCfgTable",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caAclCfgTableEntry": {
+    "name": "caAclCfgTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclAddressType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caAclIndex": {
+    "name": "caAclIndex",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaAclACLIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caAclAddressType": {
+    "name": "caAclAddressType",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caAclName": {
+    "name": "caAclName",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclRowStatus": {
+    "name": "caAclRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACECfgTable": {
+    "name": "caAclIPV4ACECfgTable",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caAclIPV4ACECfgTableEntry": {
+    "name": "caAclIPV4ACECfgTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACESequenceNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caAclIPV4ACESequenceNumber": {
+    "name": "caAclIPV4ACESequenceNumber",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaAclSequenceNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caAclIPV4ACEAction": {
+    "name": "caAclIPV4ACEAction",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaAclAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACEProtocol": {
+    "name": "caAclIPV4ACEProtocol",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoIpProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACESourceAddress": {
+    "name": "caAclIPV4ACESourceAddress",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACESourceWildCardMask": {
+    "name": "caAclIPV4ACESourceWildCardMask",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACESourceNetworkGroup": {
+    "name": "caAclIPV4ACESourceNetworkGroup",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACESourcePortOperator": {
+    "name": "caAclIPV4ACESourcePortOperator",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaAclPortOperator",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACESourcePort": {
+    "name": "caAclIPV4ACESourcePort",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACESourcePortUpper": {
+    "name": "caAclIPV4ACESourcePortUpper",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACESourcePortGroup": {
+    "name": "caAclIPV4ACESourcePortGroup",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACEDestinationAddress": {
+    "name": "caAclIPV4ACEDestinationAddress",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACEDestinationWildCardMask": {
+    "name": "caAclIPV4ACEDestinationWildCardMask",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACEDestinationNetworkGroup": {
+    "name": "caAclIPV4ACEDestinationNetworkGroup",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACEDestinationPortOperator": {
+    "name": "caAclIPV4ACEDestinationPortOperator",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaAclPortOperator",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACEDestinationPort": {
+    "name": "caAclIPV4ACEDestinationPort",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACEDestinationPortUpper": {
+    "name": "caAclIPV4ACEDestinationPortUpper",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACEDestinationPortGroup": {
+    "name": "caAclIPV4ACEDestinationPortGroup",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACEDscpValue": {
+    "name": "caAclIPV4ACEDscpValue",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACETcpFlagsValue": {
+    "name": "caAclIPV4ACETcpFlagsValue",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACETcpFlagsMask": {
+    "name": "caAclIPV4ACETcpFlagsMask",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACETcpFlagsMatchType": {
+    "name": "caAclIPV4ACETcpFlagsMatchType",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaAclTcpFlagsMatch",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACETosValue": {
+    "name": "caAclIPV4ACETosValue",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACEPrecedenceValue": {
+    "name": "caAclIPV4ACEPrecedenceValue",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaAclPrecedenceValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACELogOption": {
+    "name": "caAclIPV4ACELogOption",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaAclLogOption",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACECounterLabel": {
+    "name": "caAclIPV4ACECounterLabel",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACERemark": {
+    "name": "caAclIPV4ACERemark",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV4ACERowStatus": {
+    "name": "caAclIPV4ACERowStatus",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACECfgTable": {
+    "name": "caAclIPV6ACECfgTable",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caAclIPV6ACECfgTableEntry": {
+    "name": "caAclIPV6ACECfgTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACESequenceNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caAclIPV6ACESequenceNumber": {
+    "name": "caAclIPV6ACESequenceNumber",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaAclSequenceNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caAclIPV6ACEAction": {
+    "name": "caAclIPV6ACEAction",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaAclAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACEProtocol": {
+    "name": "caAclIPV6ACEProtocol",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoIpProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACESourceAddress": {
+    "name": "caAclIPV6ACESourceAddress",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACESourcePrefixLength": {
+    "name": "caAclIPV6ACESourcePrefixLength",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACESourceNetworkGroup": {
+    "name": "caAclIPV6ACESourceNetworkGroup",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACESourcePortOperator": {
+    "name": "caAclIPV6ACESourcePortOperator",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaAclPortOperator",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACESourcePort": {
+    "name": "caAclIPV6ACESourcePort",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACESourcePortUpper": {
+    "name": "caAclIPV6ACESourcePortUpper",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACESourcePortGroup": {
+    "name": "caAclIPV6ACESourcePortGroup",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACEDestinationAddress": {
+    "name": "caAclIPV6ACEDestinationAddress",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACEDestinationPrefixLength": {
+    "name": "caAclIPV6ACEDestinationPrefixLength",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACEDestinationNetworkGroup": {
+    "name": "caAclIPV6ACEDestinationNetworkGroup",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACEDestinationPortOperator": {
+    "name": "caAclIPV6ACEDestinationPortOperator",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaAclPortOperator",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACEDestinationPort": {
+    "name": "caAclIPV6ACEDestinationPort",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACEDestinationPortUpper": {
+    "name": "caAclIPV6ACEDestinationPortUpper",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACEDestinationPortGroup": {
+    "name": "caAclIPV6ACEDestinationPortGroup",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACETrafficClassValue": {
+    "name": "caAclIPV6ACETrafficClassValue",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACETcpFlagsValue": {
+    "name": "caAclIPV6ACETcpFlagsValue",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACETcpFlagsMask": {
+    "name": "caAclIPV6ACETcpFlagsMask",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACETcpFlagsMatchType": {
+    "name": "caAclIPV6ACETcpFlagsMatchType",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaAclTcpFlagsMatch",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACELogOption": {
+    "name": "caAclIPV6ACELogOption",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaAclLogOption",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACECounterLabel": {
+    "name": "caAclIPV6ACECounterLabel",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACERemark": {
+    "name": "caAclIPV6ACERemark",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclIPV6ACERowStatus": {
+    "name": "caAclIPV6ACERowStatus",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclAccessGroupCfgTable": {
+    "name": "caAclAccessGroupCfgTable",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caAclAccessGroupCfgEntry": {
+    "name": "caAclAccessGroupCfgEntry",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclAccessGroupCfgAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclAccessGroupDirection",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclAccessGroupSequenceNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caAclAccessGroupACL": {
+    "name": "caAclAccessGroupACL",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaAclACLIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclAccessGroupCfgAddressType": {
+    "name": "caAclAccessGroupCfgAddressType",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caAclAccessGroupDirection": {
+    "name": "caAclAccessGroupDirection",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaAclTrafficDirection",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caAclAccessGroupSequenceNumber": {
+    "name": "caAclAccessGroupSequenceNumber",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaAclSequenceNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caAclAccessGroupRowStatus": {
+    "name": "caAclAccessGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.808.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caAclLabelIntfStatsTable": {
+    "name": "caAclLabelIntfStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.808.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caAclLabelIntfStatsEntry": {
+    "name": "caAclLabelIntfStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.808.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclAccessGroupCfgAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclAccessGroupDirection",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIntfStatsCounterLabelName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caAclIntfStatsCounterLabelName": {
+    "name": "caAclIntfStatsCounterLabelName",
+    "oid": "1.3.6.1.4.1.9.9.808.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caAclIntfStatsPackets": {
+    "name": "caAclIntfStatsPackets",
+    "oid": "1.3.6.1.4.1.9.9.808.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caAclIntfStatsOctets": {
+    "name": "caAclIntfStatsOctets",
+    "oid": "1.3.6.1.4.1.9.9.808.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caAclMIBCfgGroup": {
+    "name": "caAclMIBCfgGroup",
+    "oid": "1.3.6.1.4.1.9.9.808.2.1.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclName"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "caAclIPV4ACLMIBACEGroup": {
+    "name": "caAclIPV4ACLMIBACEGroup",
+    "oid": "1.3.6.1.4.1.9.9.808.2.1.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACEAction"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACEProtocol"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACESourceAddress"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACESourceWildCardMask"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACESourceNetworkGroup"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACESourcePortOperator"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACESourcePort"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACESourcePortUpper"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACESourcePortGroup"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACEDestinationAddress"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACEDestinationWildCardMask"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACEDestinationNetworkGroup"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACEDestinationPortOperator"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACEDestinationPort"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACEDestinationPortUpper"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACEDestinationPortGroup"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACEDscpValue"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACETcpFlagsValue"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACETcpFlagsMask"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACETcpFlagsMatchType"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACETosValue"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACEPrecedenceValue"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACELogOption"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACECounterLabel"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACERemark"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV4ACERowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "caAclIPV6ACLMIBACEGroup": {
+    "name": "caAclIPV6ACLMIBACEGroup",
+    "oid": "1.3.6.1.4.1.9.9.808.2.1.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACEAction"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACEProtocol"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACESourceAddress"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACESourcePrefixLength"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACESourceNetworkGroup"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACESourcePortOperator"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACESourcePort"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACESourcePortUpper"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACESourcePortGroup"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACEDestinationAddress"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACEDestinationPrefixLength"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACEDestinationNetworkGroup"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACEDestinationPortOperator"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACEDestinationPort"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACEDestinationPortUpper"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACEDestinationPortGroup"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACETcpFlagsValue"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACETcpFlagsMask"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACETcpFlagsMatchType"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACETrafficClassValue"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACELogOption"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACECounterLabel"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACERemark"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIPV6ACERowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "caAclMIBAccessGroupCfgGroup": {
+    "name": "caAclMIBAccessGroupCfgGroup",
+    "oid": "1.3.6.1.4.1.9.9.808.2.1.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclAccessGroupACL"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclAccessGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "caAclMIBCounterGroup": {
+    "name": "caAclMIBCounterGroup",
+    "oid": "1.3.6.1.4.1.9.9.808.2.1.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIntfStatsPackets"
+      },
+      {
+        "module": "CISCO-ACL-MIB",
+        "object": "caAclIntfStatsOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "caAclMIBCompliance": {
+    "name": "caAclMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.808.2.1.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "caAclMIBCfgGroup",
+        "module": "CISCO-ACL-MIB"
+      },
+      {
+        "object": "caAclMIBAccessGroupCfgGroup",
+        "module": "CISCO-ACL-MIB"
+      },
+      {
+        "object": "caAclIPV4ACLMIBACEGroup",
+        "module": "CISCO-ACL-MIB"
+      },
+      {
+        "object": "caAclIPV6ACLMIBACEGroup",
+        "module": "CISCO-ACL-MIB"
+      },
+      {
+        "object": "caAclMIBCounterGroup",
+        "module": "CISCO-ACL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ACL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ACL-MIB"
+  }
+}

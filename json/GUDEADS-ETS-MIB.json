@@ -1,0 +1,349 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Bits",
+      "iso",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "gudeads": {
+    "name": "gudeads",
+    "oid": "1.3.6.1.4.1.28507",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-05-23 12:44",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "etsPrimaryPowerChangeEvt": {
+    "name": "etsPrimaryPowerChangeEvt",
+    "oid": "1.3.6.1.4.1.28507.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GUDEADS-ETS-MIB",
+        "object": "etsPrimPowAvail"
+      }
+    ],
+    "status": "current"
+  },
+  "etsSecondaryPowerChangeEvt": {
+    "name": "etsSecondaryPowerChangeEvt",
+    "oid": "1.3.6.1.4.1.28507.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GUDEADS-ETS-MIB",
+        "object": "etsSecPowAvail"
+      }
+    ],
+    "status": "current"
+  },
+  "etsSNMPaccess": {
+    "name": "etsSNMPaccess",
+    "oid": "1.3.6.1.4.1.28507.4.1.1",
+    "class": "objectidentity"
+  },
+  "etsTrapCtrl": {
+    "name": "etsTrapCtrl",
+    "oid": "1.3.6.1.4.1.28507.4.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "etsTrapIPTable": {
+    "name": "etsTrapIPTable",
+    "oid": "1.3.6.1.4.1.28507.4.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "etsTrapIPEntry": {
+    "name": "etsTrapIPEntry",
+    "oid": "1.3.6.1.4.1.28507.4.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GUDEADS-ETS-MIB",
+        "object": "etsTrapIPIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "etsTrapIPIndex": {
+    "name": "etsTrapIPIndex",
+    "oid": "1.3.6.1.4.1.28507.4.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "etsTrapIPPort": {
+    "name": "etsTrapIPPort",
+    "oid": "1.3.6.1.4.1.28507.4.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 162,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "etsTrapIPAddr": {
+    "name": "etsTrapIPAddr",
+    "oid": "1.3.6.1.4.1.28507.4.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gadsETS": {
+    "name": "gadsETS",
+    "oid": "1.3.6.1.4.1.28507.4",
+    "class": "objectidentity"
+  },
+  "etsObjects": {
+    "name": "etsObjects",
+    "oid": "1.3.6.1.4.1.28507.4.1",
+    "class": "objectidentity"
+  },
+  "etsPrimPowAvail": {
+    "name": "etsPrimPowAvail",
+    "oid": "1.3.6.1.4.1.28507.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "etsSecPowAvail": {
+    "name": "etsSecPowAvail",
+    "oid": "1.3.6.1.4.1.28507.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "etsSecManualSelect": {
+    "name": "etsSecManualSelect",
+    "oid": "1.3.6.1.4.1.28507.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "etsEvents": {
+    "name": "etsEvents",
+    "oid": "1.3.6.1.4.1.28507.4.0",
+    "class": "objectidentity"
+  },
+  "etsPowerSelect": {
+    "name": "etsPowerSelect",
+    "oid": "1.3.6.1.4.1.28507.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "etsConf": {
+    "name": "etsConf",
+    "oid": "1.3.6.1.4.1.28507.4.3",
+    "class": "objectidentity"
+  },
+  "etsGroups": {
+    "name": "etsGroups",
+    "oid": "1.3.6.1.4.1.28507.4.3.1",
+    "class": "objectidentity"
+  },
+  "etsCompls": {
+    "name": "etsCompls",
+    "oid": "1.3.6.1.4.1.28507.4.3.2",
+    "class": "objectidentity"
+  },
+  "etsManualSelectEvt": {
+    "name": "etsManualSelectEvt",
+    "oid": "1.3.6.1.4.1.28507.4.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GUDEADS-ETS-MIB",
+        "object": "etsSecManualSelect"
+      }
+    ],
+    "status": "current"
+  },
+  "etsPowerSelectEvt": {
+    "name": "etsPowerSelectEvt",
+    "oid": "1.3.6.1.4.1.28507.4.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GUDEADS-ETS-MIB",
+        "object": "etsPowerSelect"
+      }
+    ],
+    "status": "current"
+  },
+  "etsBasicGroup": {
+    "name": "etsBasicGroup",
+    "oid": "1.3.6.1.4.1.28507.4.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GUDEADS-ETS-MIB",
+        "object": "etsPrimPowAvail"
+      },
+      {
+        "module": "GUDEADS-ETS-MIB",
+        "object": "etsSecPowAvail"
+      },
+      {
+        "module": "GUDEADS-ETS-MIB",
+        "object": "etsSecManualSelect"
+      },
+      {
+        "module": "GUDEADS-ETS-MIB",
+        "object": "etsPowerSelect"
+      },
+      {
+        "module": "GUDEADS-ETS-MIB",
+        "object": "etsTrapCtrl"
+      },
+      {
+        "module": "GUDEADS-ETS-MIB",
+        "object": "etsTrapIPAddr"
+      },
+      {
+        "module": "GUDEADS-ETS-MIB",
+        "object": "etsTrapIPPort"
+      }
+    ],
+    "status": "current"
+  },
+  "etsNotificationGroup": {
+    "name": "etsNotificationGroup",
+    "oid": "1.3.6.1.4.1.28507.4.3.1.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "GUDEADS-ETS-MIB",
+        "object": "etsPrimaryPowerChangeEvt"
+      },
+      {
+        "module": "GUDEADS-ETS-MIB",
+        "object": "etsSecondaryPowerChangeEvt"
+      },
+      {
+        "module": "GUDEADS-ETS-MIB",
+        "object": "etsManualSelectEvt"
+      },
+      {
+        "module": "GUDEADS-ETS-MIB",
+        "object": "etsPowerSelectEvt"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gude/GUDEADS-ETS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:32:16 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "GUDEADS-ETS-MIB"
+  }
+}

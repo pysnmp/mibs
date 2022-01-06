@@ -1,0 +1,2236 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "transmission",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "fddi": {
+    "name": "fddi",
+    "oid": "1.3.6.1.2.1.10.15",
+    "class": "objectidentity"
+  },
+  "fddimib": {
+    "name": "fddimib",
+    "oid": "1.3.6.1.2.1.10.15.73",
+    "class": "objectidentity"
+  },
+  "FddiTimeNano": {
+    "name": "FddiTimeNano",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    }
+  },
+  "FddiTimeMilli": {
+    "name": "FddiTimeMilli",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    }
+  },
+  "FddiResourceId": {
+    "name": "FddiResourceId",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    }
+  },
+  "FddiSMTStationIdType": {
+    "name": "FddiSMTStationIdType",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    }
+  },
+  "FddiMACLongAddressType": {
+    "name": "FddiMACLongAddressType",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    }
+  },
+  "fddimibSMT": {
+    "name": "fddimibSMT",
+    "oid": "1.3.6.1.2.1.10.15.73.1",
+    "class": "objectidentity"
+  },
+  "fddimibMAC": {
+    "name": "fddimibMAC",
+    "oid": "1.3.6.1.2.1.10.15.73.2",
+    "class": "objectidentity"
+  },
+  "fddimibMACCounters": {
+    "name": "fddimibMACCounters",
+    "oid": "1.3.6.1.2.1.10.15.73.3",
+    "class": "objectidentity"
+  },
+  "fddimibPATH": {
+    "name": "fddimibPATH",
+    "oid": "1.3.6.1.2.1.10.15.73.4",
+    "class": "objectidentity"
+  },
+  "fddimibPORT": {
+    "name": "fddimibPORT",
+    "oid": "1.3.6.1.2.1.10.15.73.5",
+    "class": "objectidentity"
+  },
+  "fddimibSMTNumber": {
+    "name": "fddimibSMTNumber",
+    "oid": "1.3.6.1.2.1.10.15.73.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibSMTTable": {
+    "name": "fddimibSMTTable",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "fddimibSMTEntry": {
+    "name": "fddimibSMTEntry",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FDDI-SMT73-MIB",
+        "object": "fddimibSMTIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "fddimibSMTIndex": {
+    "name": "fddimibSMTIndex",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibSMTStationId": {
+    "name": "fddimibSMTStationId",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FddiSMTStationIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibSMTOpVersionId": {
+    "name": "fddimibSMTOpVersionId",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibSMTHiVersionId": {
+    "name": "fddimibSMTHiVersionId",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibSMTLoVersionId": {
+    "name": "fddimibSMTLoVersionId",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibSMTUserData": {
+    "name": "fddimibSMTUserData",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "fddimibSMTMIBVersionId": {
+    "name": "fddimibSMTMIBVersionId",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibSMTMACCts": {
+    "name": "fddimibSMTMACCts",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibSMTNonMasterCts": {
+    "name": "fddimibSMTNonMasterCts",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibSMTMasterCts": {
+    "name": "fddimibSMTMasterCts",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibSMTAvailablePaths": {
+    "name": "fddimibSMTAvailablePaths",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibSMTConfigCapabilities": {
+    "name": "fddimibSMTConfigCapabilities",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibSMTConfigPolicy": {
+    "name": "fddimibSMTConfigPolicy",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "fddimibSMTConnectionPolicy": {
+    "name": "fddimibSMTConnectionPolicy",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 32768,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "fddimibSMTTNotify": {
+    "name": "fddimibSMTTNotify",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "fddimibSMTStatRptPolicy": {
+    "name": "fddimibSMTStatRptPolicy",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "fddimibSMTTraceMaxExpiration": {
+    "name": "fddimibSMTTraceMaxExpiration",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FddiTimeMilli",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "fddimibSMTBypassPresent": {
+    "name": "fddimibSMTBypassPresent",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibSMTECMState": {
+    "name": "fddimibSMTECMState",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ec0": 1,
+          "ec1": 2,
+          "ec2": 3,
+          "ec3": 4,
+          "ec4": 5,
+          "ec5": 6,
+          "ec6": 7,
+          "ec7": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibSMTCFState": {
+    "name": "fddimibSMTCFState",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cf0": 1,
+          "cf1": 2,
+          "cf2": 3,
+          "cf3": 4,
+          "cf4": 5,
+          "cf5": 6,
+          "cf6": 7,
+          "cf7": 8,
+          "cf8": 9,
+          "cf9": 10,
+          "cf10": 11,
+          "cf11": 12,
+          "cf12": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibSMTRemoteDisconnectFlag": {
+    "name": "fddimibSMTRemoteDisconnectFlag",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibSMTStationStatus": {
+    "name": "fddimibSMTStationStatus",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "concatenated": 1,
+          "separated": 2,
+          "thru": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibSMTPeerWrapFlag": {
+    "name": "fddimibSMTPeerWrapFlag",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibSMTTimeStamp": {
+    "name": "fddimibSMTTimeStamp",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FddiTimeMilli",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibSMTTransitionTimeStamp": {
+    "name": "fddimibSMTTransitionTimeStamp",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FddiTimeMilli",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibSMTStationAction": {
+    "name": "fddimibSMTStationAction",
+    "oid": "1.3.6.1.2.1.10.15.73.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "connect": 2,
+          "disconnect": 3,
+          "path-Test": 4,
+          "self-Test": 5,
+          "disable-a": 6,
+          "disable-b": 7,
+          "disable-m": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "fddimibMACNumber": {
+    "name": "fddimibMACNumber",
+    "oid": "1.3.6.1.2.1.10.15.73.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACTable": {
+    "name": "fddimibMACTable",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "fddimibMACEntry": {
+    "name": "fddimibMACEntry",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FDDI-SMT73-MIB",
+        "object": "fddimibMACSMTIndex",
+        "implied": 0
+      },
+      {
+        "module": "FDDI-SMT73-MIB",
+        "object": "fddimibMACIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "fddimibMACSMTIndex": {
+    "name": "fddimibMACSMTIndex",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACIndex": {
+    "name": "fddimibMACIndex",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACIfIndex": {
+    "name": "fddimibMACIfIndex",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACFrameStatusFunctions": {
+    "name": "fddimibMACFrameStatusFunctions",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACTMaxCapability": {
+    "name": "fddimibMACTMaxCapability",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FddiTimeNano",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACTVXCapability": {
+    "name": "fddimibMACTVXCapability",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FddiTimeNano",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACAvailablePaths": {
+    "name": "fddimibMACAvailablePaths",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACCurrentPath": {
+    "name": "fddimibMACCurrentPath",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "isolated": 1,
+          "local": 2,
+          "secondary": 3,
+          "primary": 4,
+          "concatenated": 5,
+          "thru": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACUpstreamNbr": {
+    "name": "fddimibMACUpstreamNbr",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FddiMACLongAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACDownstreamNbr": {
+    "name": "fddimibMACDownstreamNbr",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FddiMACLongAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACOldUpstreamNbr": {
+    "name": "fddimibMACOldUpstreamNbr",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FddiMACLongAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACOldDownstreamNbr": {
+    "name": "fddimibMACOldDownstreamNbr",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FddiMACLongAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACDupAddressTest": {
+    "name": "fddimibMACDupAddressTest",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "pass": 2,
+          "fail": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACRequestedPaths": {
+    "name": "fddimibMACRequestedPaths",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "fddimibMACDownstreamPORTType": {
+    "name": "fddimibMACDownstreamPORTType",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "a": 1,
+          "b": 2,
+          "s": 3,
+          "m": 4,
+          "none": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACSMTAddress": {
+    "name": "fddimibMACSMTAddress",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FddiMACLongAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACTReq": {
+    "name": "fddimibMACTReq",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FddiTimeNano",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACTNeg": {
+    "name": "fddimibMACTNeg",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FddiTimeNano",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACTMax": {
+    "name": "fddimibMACTMax",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FddiTimeNano",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACTvxValue": {
+    "name": "fddimibMACTvxValue",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FddiTimeNano",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACFrameCts": {
+    "name": "fddimibMACFrameCts",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACCopiedCts": {
+    "name": "fddimibMACCopiedCts",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACTransmitCts": {
+    "name": "fddimibMACTransmitCts",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACErrorCts": {
+    "name": "fddimibMACErrorCts",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACLostCts": {
+    "name": "fddimibMACLostCts",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACFrameErrorThreshold": {
+    "name": "fddimibMACFrameErrorThreshold",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "fddimibMACFrameErrorRatio": {
+    "name": "fddimibMACFrameErrorRatio",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACRMTState": {
+    "name": "fddimibMACRMTState",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rm0": 1,
+          "rm1": 2,
+          "rm2": 3,
+          "rm3": 4,
+          "rm4": 5,
+          "rm5": 6,
+          "rm6": 7,
+          "rm7": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACDaFlag": {
+    "name": "fddimibMACDaFlag",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACUnaDaFlag": {
+    "name": "fddimibMACUnaDaFlag",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACFrameErrorFlag": {
+    "name": "fddimibMACFrameErrorFlag",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACMAUnitdataAvailable": {
+    "name": "fddimibMACMAUnitdataAvailable",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACHardwarePresent": {
+    "name": "fddimibMACHardwarePresent",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACMAUnitdataEnable": {
+    "name": "fddimibMACMAUnitdataEnable",
+    "oid": "1.3.6.1.2.1.10.15.73.2.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "fddimibMACCountersTable": {
+    "name": "fddimibMACCountersTable",
+    "oid": "1.3.6.1.2.1.10.15.73.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "fddimibMACCountersEntry": {
+    "name": "fddimibMACCountersEntry",
+    "oid": "1.3.6.1.2.1.10.15.73.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FDDI-SMT73-MIB",
+        "object": "fddimibMACSMTIndex",
+        "implied": 0
+      },
+      {
+        "module": "FDDI-SMT73-MIB",
+        "object": "fddimibMACIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "fddimibMACTokenCts": {
+    "name": "fddimibMACTokenCts",
+    "oid": "1.3.6.1.2.1.10.15.73.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACTvxExpiredCts": {
+    "name": "fddimibMACTvxExpiredCts",
+    "oid": "1.3.6.1.2.1.10.15.73.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACNotCopiedCts": {
+    "name": "fddimibMACNotCopiedCts",
+    "oid": "1.3.6.1.2.1.10.15.73.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACLateCts": {
+    "name": "fddimibMACLateCts",
+    "oid": "1.3.6.1.2.1.10.15.73.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACRingOpCts": {
+    "name": "fddimibMACRingOpCts",
+    "oid": "1.3.6.1.2.1.10.15.73.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACNotCopiedRatio": {
+    "name": "fddimibMACNotCopiedRatio",
+    "oid": "1.3.6.1.2.1.10.15.73.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACNotCopiedFlag": {
+    "name": "fddimibMACNotCopiedFlag",
+    "oid": "1.3.6.1.2.1.10.15.73.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibMACNotCopiedThreshold": {
+    "name": "fddimibMACNotCopiedThreshold",
+    "oid": "1.3.6.1.2.1.10.15.73.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "fddimibPATHNumber": {
+    "name": "fddimibPATHNumber",
+    "oid": "1.3.6.1.2.1.10.15.73.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPATHTable": {
+    "name": "fddimibPATHTable",
+    "oid": "1.3.6.1.2.1.10.15.73.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "fddimibPATHEntry": {
+    "name": "fddimibPATHEntry",
+    "oid": "1.3.6.1.2.1.10.15.73.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FDDI-SMT73-MIB",
+        "object": "fddimibPATHSMTIndex",
+        "implied": 0
+      },
+      {
+        "module": "FDDI-SMT73-MIB",
+        "object": "fddimibPATHIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "fddimibPATHSMTIndex": {
+    "name": "fddimibPATHSMTIndex",
+    "oid": "1.3.6.1.2.1.10.15.73.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPATHIndex": {
+    "name": "fddimibPATHIndex",
+    "oid": "1.3.6.1.2.1.10.15.73.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPATHTVXLowerBound": {
+    "name": "fddimibPATHTVXLowerBound",
+    "oid": "1.3.6.1.2.1.10.15.73.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FddiTimeNano",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "fddimibPATHTMaxLowerBound": {
+    "name": "fddimibPATHTMaxLowerBound",
+    "oid": "1.3.6.1.2.1.10.15.73.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FddiTimeNano",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "fddimibPATHMaxTReq": {
+    "name": "fddimibPATHMaxTReq",
+    "oid": "1.3.6.1.2.1.10.15.73.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FddiTimeNano",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "fddimibPATHConfigTable": {
+    "name": "fddimibPATHConfigTable",
+    "oid": "1.3.6.1.2.1.10.15.73.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "fddimibPATHConfigEntry": {
+    "name": "fddimibPATHConfigEntry",
+    "oid": "1.3.6.1.2.1.10.15.73.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FDDI-SMT73-MIB",
+        "object": "fddimibPATHConfigSMTIndex",
+        "implied": 0
+      },
+      {
+        "module": "FDDI-SMT73-MIB",
+        "object": "fddimibPATHConfigPATHIndex",
+        "implied": 0
+      },
+      {
+        "module": "FDDI-SMT73-MIB",
+        "object": "fddimibPATHConfigTokenOrder",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "fddimibPATHConfigSMTIndex": {
+    "name": "fddimibPATHConfigSMTIndex",
+    "oid": "1.3.6.1.2.1.10.15.73.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPATHConfigPATHIndex": {
+    "name": "fddimibPATHConfigPATHIndex",
+    "oid": "1.3.6.1.2.1.10.15.73.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPATHConfigTokenOrder": {
+    "name": "fddimibPATHConfigTokenOrder",
+    "oid": "1.3.6.1.2.1.10.15.73.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPATHConfigResourceType": {
+    "name": "fddimibPATHConfigResourceType",
+    "oid": "1.3.6.1.2.1.10.15.73.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mac": 2,
+          "port": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPATHConfigResourceIndex": {
+    "name": "fddimibPATHConfigResourceIndex",
+    "oid": "1.3.6.1.2.1.10.15.73.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPATHConfigCurrentPath": {
+    "name": "fddimibPATHConfigCurrentPath",
+    "oid": "1.3.6.1.2.1.10.15.73.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "isolated": 1,
+          "local": 2,
+          "secondary": 3,
+          "primary": 4,
+          "concatenated": 5,
+          "thru": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPORTNumber": {
+    "name": "fddimibPORTNumber",
+    "oid": "1.3.6.1.2.1.10.15.73.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPORTTable": {
+    "name": "fddimibPORTTable",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "fddimibPORTEntry": {
+    "name": "fddimibPORTEntry",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FDDI-SMT73-MIB",
+        "object": "fddimibPORTSMTIndex",
+        "implied": 0
+      },
+      {
+        "module": "FDDI-SMT73-MIB",
+        "object": "fddimibPORTIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "fddimibPORTSMTIndex": {
+    "name": "fddimibPORTSMTIndex",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPORTIndex": {
+    "name": "fddimibPORTIndex",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPORTMyType": {
+    "name": "fddimibPORTMyType",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "a": 1,
+          "b": 2,
+          "s": 3,
+          "m": 4,
+          "none": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPORTNeighborType": {
+    "name": "fddimibPORTNeighborType",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "a": 1,
+          "b": 2,
+          "s": 3,
+          "m": 4,
+          "none": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPORTConnectionPolicies": {
+    "name": "fddimibPORTConnectionPolicies",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "fddimibPORTMACIndicated": {
+    "name": "fddimibPORTMACIndicated",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tVal9FalseRVal9False": 1,
+          "tVal9FalseRVal9True": 2,
+          "tVal9TrueRVal9False": 3,
+          "tVal9TrueRVal9True": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPORTCurrentPath": {
+    "name": "fddimibPORTCurrentPath",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ce0": 1,
+          "ce1": 2,
+          "ce2": 3,
+          "ce3": 4,
+          "ce4": 5,
+          "ce5": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPORTRequestedPaths": {
+    "name": "fddimibPORTRequestedPaths",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "fddimibPORTMACPlacement": {
+    "name": "fddimibPORTMACPlacement",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FddiResourceId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPORTAvailablePaths": {
+    "name": "fddimibPORTAvailablePaths",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPORTPMDClass": {
+    "name": "fddimibPORTPMDClass",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "multimode": 1,
+          "single-mode1": 2,
+          "single-mode2": 3,
+          "sonet": 4,
+          "low-cost-fiber": 5,
+          "twisted-pair": 6,
+          "unknown": 7,
+          "unspecified": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPORTConnectionCapabilities": {
+    "name": "fddimibPORTConnectionCapabilities",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPORTBSFlag": {
+    "name": "fddimibPORTBSFlag",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPORTLCTFailCts": {
+    "name": "fddimibPORTLCTFailCts",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPORTLerEstimate": {
+    "name": "fddimibPORTLerEstimate",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPORTLemRejectCts": {
+    "name": "fddimibPORTLemRejectCts",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPORTLemCts": {
+    "name": "fddimibPORTLemCts",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPORTLerCutoff": {
+    "name": "fddimibPORTLerCutoff",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "fddimibPORTLerAlarm": {
+    "name": "fddimibPORTLerAlarm",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "fddimibPORTConnectState": {
+    "name": "fddimibPORTConnectState",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "connecting": 2,
+          "standby": 3,
+          "active": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPORTPCMState": {
+    "name": "fddimibPORTPCMState",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pc0": 1,
+          "pc1": 2,
+          "pc2": 3,
+          "pc3": 4,
+          "pc4": 5,
+          "pc5": 6,
+          "pc6": 7,
+          "pc7": 8,
+          "pc8": 9,
+          "pc9": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPORTPCWithhold": {
+    "name": "fddimibPORTPCWithhold",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "m-m": 2,
+          "otherincompatible": 3,
+          "pathnotavailable": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPORTLerFlag": {
+    "name": "fddimibPORTLerFlag",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPORTHardwarePresent": {
+    "name": "fddimibPORTHardwarePresent",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fddimibPORTAction": {
+    "name": "fddimibPORTAction",
+    "oid": "1.3.6.1.2.1.10.15.73.5.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "maintPORT": 2,
+          "enablePORT": 3,
+          "disablePORT": 4,
+          "startPORT": 5,
+          "stopPORT": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/FDDI-SMT73-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "FDDI-SMT73-MIB"
+  }
+}

@@ -1,0 +1,638 @@
+{
+  "imports": {
+    "class": "imports",
+    "SIAE-ALARM-MIB": [
+      "AlarmStatus",
+      "AlarmSeverityCode"
+    ],
+    "SIAE-TREE-MIB": [
+      "siaeMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "siaeEcfmExtMib": {
+    "name": "siaeEcfmExtMib",
+    "oid": "1.3.6.1.4.1.3373.1103.94",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-07-25 00:00",
+        "description": "MIB version 01.00.02 Added defLckConditionAlarm and mepLckConditionAlarmsSeverityCode "
+      },
+      {
+        "revision": "2015-06-26 00:00",
+        "description": "MIB version 01.00.01 Changed siaeMepAlarms8021agTable description. Added siaeMepAlarmsY1731Table and Y1731 alarms severity code. "
+      },
+      {
+        "revision": "2015-04-14 00:00",
+        "description": "Initial version 01.00.00. "
+      }
+    ]
+  },
+  "siaeEcfmExtMibVersion": {
+    "name": "siaeEcfmExtMibVersion",
+    "oid": "1.3.6.1.4.1.3373.1103.94.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siaeMepAlarms8021agTable": {
+    "name": "siaeMepAlarms8021agTable",
+    "oid": "1.3.6.1.4.1.3373.1103.94.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "siaeMepAlarms8021agEntry": {
+    "name": "siaeMepAlarms8021agEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.94.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-ECFM-EXT-MIB",
+        "object": "defMIEcfmContextId",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-ECFM-EXT-MIB",
+        "object": "defMIEcfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-ECFM-EXT-MIB",
+        "object": "defMIEcfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-ECFM-EXT-MIB",
+        "object": "defMIEcfmMepIdentifier",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "defMIEcfmContextId": {
+    "name": "defMIEcfmContextId",
+    "oid": "1.3.6.1.4.1.3373.1103.94.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "defMIEcfmMdIndex": {
+    "name": "defMIEcfmMdIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.94.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "defMIEcfmMaIndex": {
+    "name": "defMIEcfmMaIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.94.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "defMIEcfmMepIdentifier": {
+    "name": "defMIEcfmMepIdentifier",
+    "oid": "1.3.6.1.4.1.3373.1103.94.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "defRdiCcmAlarm": {
+    "name": "defRdiCcmAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.94.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "defMacStatusAlarm": {
+    "name": "defMacStatusAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.94.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "defRemoteCcmAlarm": {
+    "name": "defRemoteCcmAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.94.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "defErrorCcmAlarm": {
+    "name": "defErrorCcmAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.94.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "defXconCcmAlarm": {
+    "name": "defXconCcmAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.94.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siaeMepAlarmsY1731Table": {
+    "name": "siaeMepAlarmsY1731Table",
+    "oid": "1.3.6.1.4.1.3373.1103.94.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "siaeMepAlarmsY1731Entry": {
+    "name": "siaeMepAlarmsY1731Entry",
+    "oid": "1.3.6.1.4.1.3373.1103.94.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-ECFM-EXT-MIB",
+        "object": "defMIEcfmY1731ContextId",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-ECFM-EXT-MIB",
+        "object": "defMIEcfmY1731MegIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-ECFM-EXT-MIB",
+        "object": "defMIEcfmY1731MeIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-ECFM-EXT-MIB",
+        "object": "defMIEcfmY1731MepIdentifier",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "defMIEcfmY1731ContextId": {
+    "name": "defMIEcfmY1731ContextId",
+    "oid": "1.3.6.1.4.1.3373.1103.94.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "defMIEcfmY1731MegIndex": {
+    "name": "defMIEcfmY1731MegIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.94.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "defMIEcfmY1731MeIndex": {
+    "name": "defMIEcfmY1731MeIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.94.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "defMIEcfmY1731MepIdentifier": {
+    "name": "defMIEcfmY1731MepIdentifier",
+    "oid": "1.3.6.1.4.1.3373.1103.94.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "defRdiConditionAlarm": {
+    "name": "defRdiConditionAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.94.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "defLossOfContinuityAlarm": {
+    "name": "defLossOfContinuityAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.94.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "defUnexpectedPeriodAlarm": {
+    "name": "defUnexpectedPeriodAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.94.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "defUnexpectedMepAlarm": {
+    "name": "defUnexpectedMepAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.94.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "defMisMergeAlarm": {
+    "name": "defMisMergeAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.94.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "defUnexpectedMegLevelAlarm": {
+    "name": "defUnexpectedMegLevelAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.94.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "defAisConditionAlarm": {
+    "name": "defAisConditionAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.94.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "defLckConditionAlarm": {
+    "name": "defLckConditionAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.94.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mepRdiCcmAlarmsSeverityCode": {
+    "name": "mepRdiCcmAlarmsSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.94.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "warningTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mepMacStatusAlarmsSeverityCode": {
+    "name": "mepMacStatusAlarmsSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.94.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mepRemoteCcmAlarmsSeverityCode": {
+    "name": "mepRemoteCcmAlarmsSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.94.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mepErrorCcmAlarmsSeverityCode": {
+    "name": "mepErrorCcmAlarmsSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.94.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mepXconCcmAlarmsSeverityCode": {
+    "name": "mepXconCcmAlarmsSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.94.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mepRdiConditionAlarmsSeverityCode": {
+    "name": "mepRdiConditionAlarmsSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.94.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "warningTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mepLossOfContinuityAlarmsSeverityCode": {
+    "name": "mepLossOfContinuityAlarmsSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.94.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mepUnexpectedPeriodAlarmsSeverityCode": {
+    "name": "mepUnexpectedPeriodAlarmsSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.94.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mepUnexpectedMepAlarmsSeverityCode": {
+    "name": "mepUnexpectedMepAlarmsSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.94.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mepMisMergeAlarmsSeverityCode": {
+    "name": "mepMisMergeAlarmsSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.94.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mepUnexpectedMegLevelAlarmsSeverityCode": {
+    "name": "mepUnexpectedMegLevelAlarmsSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.94.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mepAisConditionAlarmsSeverityCode": {
+    "name": "mepAisConditionAlarmsSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.94.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mepLckConditionAlarmsSeverityCode": {
+    "name": "mepLckConditionAlarmsSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.94.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "statusTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-ECFM-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SIAE-ECFM-EXT-MIB"
+  }
+}

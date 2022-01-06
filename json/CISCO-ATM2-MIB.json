@@ -1,0 +1,846 @@
+{
+  "imports": {
+    "class": "imports",
+    "ATM-MIB": [
+      "atmInterfaceConfEntry"
+    ],
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoAtm2MIB": {
+    "name": "ciscoAtm2MIB",
+    "oid": "1.3.6.1.4.1.9.10.23",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1998-03-04 00:00",
+        "description": "Added VPI/VCI range objects from supplemental ATOMMIB"
+      }
+    ]
+  },
+  "ciscoatm2MIBObjects": {
+    "name": "ciscoatm2MIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.23.1",
+    "class": "objectidentity"
+  },
+  "ciscoatmSigStatTable": {
+    "name": "ciscoatmSigStatTable",
+    "oid": "1.3.6.1.4.1.9.10.23.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoatmSigStatEntry": {
+    "name": "ciscoatmSigStatEntry",
+    "oid": "1.3.6.1.4.1.9.10.23.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoatmSigSSCOPConEvents": {
+    "name": "ciscoatmSigSSCOPConEvents",
+    "oid": "1.3.6.1.4.1.9.10.23.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoatmSigSSCOPErrdPdus": {
+    "name": "ciscoatmSigSSCOPErrdPdus",
+    "oid": "1.3.6.1.4.1.9.10.23.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoatmSigDetectSetupAttempts": {
+    "name": "ciscoatmSigDetectSetupAttempts",
+    "oid": "1.3.6.1.4.1.9.10.23.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoatmSigEmitSetupAttempts": {
+    "name": "ciscoatmSigEmitSetupAttempts",
+    "oid": "1.3.6.1.4.1.9.10.23.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoatmSigDetectUnavailRoutes": {
+    "name": "ciscoatmSigDetectUnavailRoutes",
+    "oid": "1.3.6.1.4.1.9.10.23.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoatmSigEmitUnavailRoutes": {
+    "name": "ciscoatmSigEmitUnavailRoutes",
+    "oid": "1.3.6.1.4.1.9.10.23.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoatmSigDetectUnavailResrcs": {
+    "name": "ciscoatmSigDetectUnavailResrcs",
+    "oid": "1.3.6.1.4.1.9.10.23.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoatmSigEmitUnavailResrcs": {
+    "name": "ciscoatmSigEmitUnavailResrcs",
+    "oid": "1.3.6.1.4.1.9.10.23.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoatmSigDetectCldPtyEvents": {
+    "name": "ciscoatmSigDetectCldPtyEvents",
+    "oid": "1.3.6.1.4.1.9.10.23.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoatmSigEmitCldPtyEvents": {
+    "name": "ciscoatmSigEmitCldPtyEvents",
+    "oid": "1.3.6.1.4.1.9.10.23.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoatmSigDetectMsgErrors": {
+    "name": "ciscoatmSigDetectMsgErrors",
+    "oid": "1.3.6.1.4.1.9.10.23.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoatmSigEmitMsgErrors": {
+    "name": "ciscoatmSigEmitMsgErrors",
+    "oid": "1.3.6.1.4.1.9.10.23.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoatmSigDetectClgPtyEvents": {
+    "name": "ciscoatmSigDetectClgPtyEvents",
+    "oid": "1.3.6.1.4.1.9.10.23.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoatmSigEmitClgPtyEvents": {
+    "name": "ciscoatmSigEmitClgPtyEvents",
+    "oid": "1.3.6.1.4.1.9.10.23.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoatmSigDetectTimerExpireds": {
+    "name": "ciscoatmSigDetectTimerExpireds",
+    "oid": "1.3.6.1.4.1.9.10.23.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoatmSigEmitTimerExpireds": {
+    "name": "ciscoatmSigEmitTimerExpireds",
+    "oid": "1.3.6.1.4.1.9.10.23.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoatmSigDetectRestarts": {
+    "name": "ciscoatmSigDetectRestarts",
+    "oid": "1.3.6.1.4.1.9.10.23.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoatmSigEmitRestarts": {
+    "name": "ciscoatmSigEmitRestarts",
+    "oid": "1.3.6.1.4.1.9.10.23.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoatmSigInEstabls": {
+    "name": "ciscoatmSigInEstabls",
+    "oid": "1.3.6.1.4.1.9.10.23.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoatmSigOutEstabls": {
+    "name": "ciscoatmSigOutEstabls",
+    "oid": "1.3.6.1.4.1.9.10.23.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoatmSigSupportTable": {
+    "name": "ciscoatmSigSupportTable",
+    "oid": "1.3.6.1.4.1.9.10.23.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoatmSigSupportEntry": {
+    "name": "ciscoatmSigSupportEntry",
+    "oid": "1.3.6.1.4.1.9.10.23.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoatmSigSupportClgPtyNumDel": {
+    "name": "ciscoatmSigSupportClgPtyNumDel",
+    "oid": "1.3.6.1.4.1.9.10.23.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoatmSigSupportClgPtySubAddr": {
+    "name": "ciscoatmSigSupportClgPtySubAddr",
+    "oid": "1.3.6.1.4.1.9.10.23.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoatmSigSupportCldPtySubAddr": {
+    "name": "ciscoatmSigSupportCldPtySubAddr",
+    "oid": "1.3.6.1.4.1.9.10.23.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoatmSigSupportHiLyrInfo": {
+    "name": "ciscoatmSigSupportHiLyrInfo",
+    "oid": "1.3.6.1.4.1.9.10.23.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoatmSigSupportLoLyrInfo": {
+    "name": "ciscoatmSigSupportLoLyrInfo",
+    "oid": "1.3.6.1.4.1.9.10.23.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoatmSigSupportBlliRepeatInd": {
+    "name": "ciscoatmSigSupportBlliRepeatInd",
+    "oid": "1.3.6.1.4.1.9.10.23.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoatmSigSupportAALInfo": {
+    "name": "ciscoatmSigSupportAALInfo",
+    "oid": "1.3.6.1.4.1.9.10.23.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoatmSigSupportUnknownIe": {
+    "name": "ciscoatmSigSupportUnknownIe",
+    "oid": "1.3.6.1.4.1.9.10.23.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoatmInterfaceExtTable": {
+    "name": "ciscoatmInterfaceExtTable",
+    "oid": "1.3.6.1.4.1.9.10.23.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoatmInterfaceExtEntry": {
+    "name": "ciscoatmInterfaceExtEntry",
+    "oid": "1.3.6.1.4.1.9.10.23.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ciscoatmInterfaceExtEntry",
+      "module": "CISCO-ATM2-MIB",
+      "object": "atmInterfaceConfEntry"
+    },
+    "status": "current"
+  },
+  "ciscoatmInterfaceConfMaxSvpcVpi": {
+    "name": "ciscoatmInterfaceConfMaxSvpcVpi",
+    "oid": "1.3.6.1.4.1.9.10.23.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoatmInterfaceCurrentMaxSvpcVpi": {
+    "name": "ciscoatmInterfaceCurrentMaxSvpcVpi",
+    "oid": "1.3.6.1.4.1.9.10.23.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoatmInterfaceConfMaxSvccVpi": {
+    "name": "ciscoatmInterfaceConfMaxSvccVpi",
+    "oid": "1.3.6.1.4.1.9.10.23.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoatmInterfaceCurrentMaxSvccVpi": {
+    "name": "ciscoatmInterfaceCurrentMaxSvccVpi",
+    "oid": "1.3.6.1.4.1.9.10.23.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoatmInterfaceConfMinSvccVci": {
+    "name": "ciscoatmInterfaceConfMinSvccVci",
+    "oid": "1.3.6.1.4.1.9.10.23.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 32,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoatmInterfaceCurrentMinSvccVci": {
+    "name": "ciscoatmInterfaceCurrentMinSvccVci",
+    "oid": "1.3.6.1.4.1.9.10.23.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 32,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoatm2MIBConformance": {
+    "name": "ciscoatm2MIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.23.3",
+    "class": "objectidentity"
+  },
+  "ciscoatm2MIBGroups": {
+    "name": "ciscoatm2MIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.23.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoatm2MIBCompliances": {
+    "name": "ciscoatm2MIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.23.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoatm2MIBCompliance": {
+    "name": "ciscoatm2MIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.23.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoAtmSwitchServcHostGroup",
+        "module": "CISCO-ATM2-MIB"
+      },
+      {
+        "object": "ciscoAtmSwitchServcGroup",
+        "module": "CISCO-ATM2-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoatm2MIBCompliance2": {
+    "name": "ciscoatm2MIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.10.23.3.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoAtmSwitchServcHostGroup",
+        "module": "CISCO-ATM2-MIB"
+      },
+      {
+        "object": "ciscoAtmSwitchServcHostGroup2",
+        "module": "CISCO-ATM2-MIB"
+      },
+      {
+        "object": "ciscoAtmSwitchServcGroup",
+        "module": "CISCO-ATM2-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmSwitchServcHostGroup": {
+    "name": "ciscoAtmSwitchServcHostGroup",
+    "oid": "1.3.6.1.4.1.9.10.23.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigSSCOPConEvents"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigSSCOPErrdPdus"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigDetectSetupAttempts"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigEmitSetupAttempts"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigDetectUnavailRoutes"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigEmitUnavailRoutes"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigDetectUnavailResrcs"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigEmitUnavailResrcs"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigDetectCldPtyEvents"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigEmitCldPtyEvents"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigDetectMsgErrors"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigEmitMsgErrors"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigDetectClgPtyEvents"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigEmitClgPtyEvents"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigDetectTimerExpireds"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigEmitTimerExpireds"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigDetectRestarts"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigEmitRestarts"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigInEstabls"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigOutEstabls"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmSwitchServcGroup": {
+    "name": "ciscoAtmSwitchServcGroup",
+    "oid": "1.3.6.1.4.1.9.10.23.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigSupportClgPtyNumDel"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigSupportClgPtySubAddr"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigSupportCldPtySubAddr"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigSupportHiLyrInfo"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigSupportLoLyrInfo"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigSupportBlliRepeatInd"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigSupportAALInfo"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmSigSupportUnknownIe"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmSwitchServcHostGroup2": {
+    "name": "ciscoAtmSwitchServcHostGroup2",
+    "oid": "1.3.6.1.4.1.9.10.23.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmInterfaceConfMaxSvpcVpi"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmInterfaceCurrentMaxSvpcVpi"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmInterfaceConfMaxSvccVpi"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmInterfaceCurrentMaxSvccVpi"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmInterfaceConfMinSvccVci"
+      },
+      {
+        "module": "CISCO-ATM2-MIB",
+        "object": "ciscoatmInterfaceCurrentMinSvccVci"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ATM2-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ATM2-MIB"
+  }
+}

@@ -1,0 +1,1620 @@
+{
+  "imports": {
+    "class": "imports",
+    "BASIS-MIB": [
+      "bbChanCnfGrp",
+      "bbChanStateGrp"
+    ],
+    "CISCOWAN-SMI": [
+      "ciscoWan"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoWanBbifAtmConnMIB": {
+    "name": "ciscoWanBbifAtmConnMIB",
+    "oid": "1.3.6.1.4.1.351.150.35",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-09 00:00",
+        "description": "Initial version of the MIB. The content of this MIB was originally available in CISCO-WAN-AXIPOP-MIB defined using SMIv1. The applicable objects from CISCO-WAN-AXIPOP-MIB are defined using SMIv2 in this MIB. Also the descriptions of some of the objects have been modified."
+      }
+    ]
+  },
+  "IfNsapAddress": {
+    "name": "IfNsapAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "bbChanCnfGrpTable": {
+    "name": "bbChanCnfGrpTable",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bbChanCnfGrpEntry": {
+    "name": "bbChanCnfGrpEntry",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanCnfNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bbChanCnfNum": {
+    "name": "bbChanCnfNum",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 4111
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbChanRowStatus": {
+    "name": "bbChanRowStatus",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 1,
+          "delete": 2,
+          "modify": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanConnType": {
+    "name": "bbChanConnType",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vpc": 1,
+          "vcc": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanServiceType": {
+    "name": "bbChanServiceType",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cbr": 1,
+          "vbr": 2,
+          "abr": 3,
+          "ubr": 4,
+          "vbr-rt": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanConnDesc": {
+    "name": "bbChanConnDesc",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanSvcFlag": {
+    "name": "bbChanSvcFlag",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "svc": 1,
+          "pvc": 2,
+          "spvc": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanSvcConnId": {
+    "name": "bbChanSvcConnId",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanIfNum": {
+    "name": "bbChanIfNum",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanVpi": {
+    "name": "bbChanVpi",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanVci": {
+    "name": "bbChanVci",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanUpcEnable": {
+    "name": "bbChanUpcEnable",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanUpcPCR": {
+    "name": "bbChanUpcPCR",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 50,
+            "max": 1412832
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanUpcCDVT": {
+    "name": "bbChanUpcCDVT",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanUpcSCR": {
+    "name": "bbChanUpcSCR",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1412832
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanUpcMBS": {
+    "name": "bbChanUpcMBS",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanGcra1Action": {
+    "name": "bbChanGcra1Action",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "tagCells": 2,
+          "tagAndDiscard": 3,
+          "discardAllNonComformCells": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "discardAllNonComformCells",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanGcra2Action": {
+    "name": "bbChanGcra2Action",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "tagCells": 2,
+          "tagAndDiscard": 3,
+          "discardAllNonComformCells": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "discardAllNonComformCells",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanUpcSCRPolicing": {
+    "name": "bbChanUpcSCRPolicing",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clp0": 1,
+          "clp0and1": 2,
+          "off": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanEfciThreshold": {
+    "name": "bbChanEfciThreshold",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 491520
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 196608,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanDiscardOption": {
+    "name": "bbChanDiscardOption",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clpHysteresis": 1,
+          "frameDiscard": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "clpHysteresis",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanFrmDiscardThreshold": {
+    "name": "bbChanFrmDiscardThreshold",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 491520
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanClpHiThreshold": {
+    "name": "bbChanClpHiThreshold",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 491520
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 196608,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanClpLoThreshold": {
+    "name": "bbChanClpLoThreshold",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 491520
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 131072,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanCongstUpdateCode": {
+    "name": "bbChanCongstUpdateCode",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dontUpdate": 1,
+          "setCiBit": 2,
+          "setEfciBit": 3,
+          "clearEfciBit": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanMaxCellMemThreshold": {
+    "name": "bbChanMaxCellMemThreshold",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 512000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 262144,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanIngrPercentUtil": {
+    "name": "bbChanIngrPercentUtil",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanEgrPercentUtil": {
+    "name": "bbChanEgrPercentUtil",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanEgrSrvRate": {
+    "name": "bbChanEgrSrvRate",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1412832
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanOvrSubOvrRide": {
+    "name": "bbChanOvrSubOvrRide",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanLocalVpi": {
+    "name": "bbChanLocalVpi",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbChanLocalVci": {
+    "name": "bbChanLocalVci",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbChanLocalNsapAddr": {
+    "name": "bbChanLocalNsapAddr",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfNsapAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanRemoteVpi": {
+    "name": "bbChanRemoteVpi",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanRemoteVci": {
+    "name": "bbChanRemoteVci",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanRemoteNsapAddr": {
+    "name": "bbChanRemoteNsapAddr",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfNsapAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanMaster": {
+    "name": "bbChanMaster",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanRtePriority": {
+    "name": "bbChanRtePriority",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanMaxCost": {
+    "name": "bbChanMaxCost",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanRestrictTrkType": {
+    "name": "bbChanRestrictTrkType",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noRestriction": 1,
+          "terrestrialTrunk": 2,
+          "satelliteTrunk": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noRestriction",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanTestType": {
+    "name": "bbChanTestType",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "testcon": 1,
+          "testdelay": 2,
+          "notest": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notest",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanTestState": {
+    "name": "bbChanTestState",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "passed": 1,
+          "failed": 2,
+          "inprogress": 3,
+          "notinprogress": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbChanTestResult": {
+    "name": "bbChanTestResult",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbChanTestTypeCPESide": {
+    "name": "bbChanTestTypeCPESide",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "testconseg": 1,
+          "notest": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notest",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanTestStateCPESide": {
+    "name": "bbChanTestStateCPESide",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "passed": 1,
+          "failed": 2,
+          "inprogress": 3,
+          "notinprogress": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbConnVpcFlag": {
+    "name": "bbConnVpcFlag",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vpc": 1,
+          "vcc": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbConnServiceType": {
+    "name": "bbConnServiceType",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cbr": 1,
+          "vbr": 2,
+          "ubr": 4,
+          "abrstd": 6,
+          "vbrrt": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbConnPCR": {
+    "name": "bbConnPCR",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbConnSCR": {
+    "name": "bbConnSCR",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbConnPercentUtil": {
+    "name": "bbConnPercentUtil",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbRemoteConnPCR": {
+    "name": "bbRemoteConnPCR",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbRemoteConnSCR": {
+    "name": "bbRemoteConnSCR",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbRemoteConnPercentUtil": {
+    "name": "bbRemoteConnPercentUtil",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanUpcMCR": {
+    "name": "bbChanUpcMCR",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1412832
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bbChanNumNextAvailable": {
+    "name": "bbChanNumNextAvailable",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 4111
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbChanVpIdNextAvailable": {
+    "name": "bbChanVpIdNextAvailable",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbChanStateGrpTable": {
+    "name": "bbChanStateGrpTable",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bbChanStateGrpEntry": {
+    "name": "bbChanStateGrpEntry",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanStateNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bbChanStateNum": {
+    "name": "bbChanStateNum",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 4111
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbChanState": {
+    "name": "bbChanState",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notconfigured": 1,
+          "normal": 2,
+          "alarm": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbChanEgrXmtState": {
+    "name": "bbChanEgrXmtState",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "normal": 2,
+          "sendingAis": 3,
+          "sendingFerf": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbChanIngrRcvState": {
+    "name": "bbChanIngrRcvState",
+    "oid": "1.3.6.1.4.1.351.110.5.2.7.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "normal": 2,
+          "receivingAis": 3,
+          "receivingFerf": 4,
+          "alarm": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwbAtmConnMIBConformance": {
+    "name": "cwbAtmConnMIBConformance",
+    "oid": "1.3.6.1.4.1.351.150.35.2",
+    "class": "objectidentity"
+  },
+  "cwbAtmConnMIBGroups": {
+    "name": "cwbAtmConnMIBGroups",
+    "oid": "1.3.6.1.4.1.351.150.35.2.1",
+    "class": "objectidentity"
+  },
+  "cwbAtmConnMIBCompliances": {
+    "name": "cwbAtmConnMIBCompliances",
+    "oid": "1.3.6.1.4.1.351.150.35.2.2",
+    "class": "objectidentity"
+  },
+  "cwbAtmConnCompliance": {
+    "name": "cwbAtmConnCompliance",
+    "oid": "1.3.6.1.4.1.351.150.35.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cwbAtmConnGroup",
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB"
+      },
+      {
+        "object": "cwbAtmConnStateGroup",
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB"
+      },
+      {
+        "object": "cwbAtmConnGeneralGroup",
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cwbAtmConnGroup": {
+    "name": "cwbAtmConnGroup",
+    "oid": "1.3.6.1.4.1.351.150.35.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanCnfNum"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanRowStatus"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanConnType"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanServiceType"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanConnDesc"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanSvcFlag"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanSvcConnId"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanIfNum"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanVpi"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanVci"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanUpcEnable"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanUpcPCR"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanUpcCDVT"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanUpcSCR"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanUpcMBS"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanGcra1Action"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanGcra2Action"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanUpcSCRPolicing"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanEfciThreshold"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanDiscardOption"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanFrmDiscardThreshold"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanClpHiThreshold"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanClpLoThreshold"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanCongstUpdateCode"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanMaxCellMemThreshold"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanIngrPercentUtil"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanEgrPercentUtil"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanEgrSrvRate"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanOvrSubOvrRide"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanLocalVpi"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanLocalVci"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanLocalNsapAddr"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanRemoteVpi"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanRemoteVci"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanRemoteNsapAddr"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanMaster"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanRtePriority"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanMaxCost"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanRestrictTrkType"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanTestType"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanTestState"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanTestResult"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanTestTypeCPESide"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanTestStateCPESide"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbConnVpcFlag"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbConnServiceType"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbConnPCR"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbConnSCR"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbConnPercentUtil"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbRemoteConnPCR"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbRemoteConnSCR"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbRemoteConnPercentUtil"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanUpcMCR"
+      }
+    ],
+    "status": "current"
+  },
+  "cwbAtmConnStateGroup": {
+    "name": "cwbAtmConnStateGroup",
+    "oid": "1.3.6.1.4.1.351.150.35.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanStateNum"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanState"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanEgrXmtState"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanIngrRcvState"
+      }
+    ],
+    "status": "current"
+  },
+  "cwbAtmConnGeneralGroup": {
+    "name": "cwbAtmConnGeneralGroup",
+    "oid": "1.3.6.1.4.1.351.150.35.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanNumNextAvailable"
+      },
+      {
+        "module": "CISCO-WAN-BBIF-ATM-CONN-MIB",
+        "object": "bbChanVpIdNextAvailable"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WAN-BBIF-ATM-CONN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-WAN-BBIF-ATM-CONN-MIB"
+  }
+}

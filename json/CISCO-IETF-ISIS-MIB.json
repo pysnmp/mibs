@@ -1,0 +1,4998 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "DIFFSERV-MIB": [
+      "IndexIntegerNextFree"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress",
+      "InetAddressPrefixLength"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoIetfIsisMIB": {
+    "name": "ciscoIetfIsisMIB",
+    "oid": "1.3.6.1.4.1.9.10.118",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-08-16 12:00",
+        "description": "Corrected DESCRIPTION clause for ciiAreaAddrTable, ciiAreaAddrEntry, ciiAreaAddr and for ciiSysLevelOverloadState based on similar definitions in draft-ietf-isis-wg-mib-18.txt."
+      },
+      {
+        "revision": "2005-02-08 12:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "ciscoIetfIsisMIBNotifs": {
+    "name": "ciscoIetfIsisMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.10.118.0",
+    "class": "objectidentity"
+  },
+  "ciscoIetfIsisMIBObjects": {
+    "name": "ciscoIetfIsisMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.118.1",
+    "class": "objectidentity"
+  },
+  "ciscoIetfIsisMIBConform": {
+    "name": "ciscoIetfIsisMIBConform",
+    "oid": "1.3.6.1.4.1.9.10.118.2",
+    "class": "objectidentity"
+  },
+  "ciiSystem": {
+    "name": "ciiSystem",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1",
+    "class": "objectidentity"
+  },
+  "ciiSysLevel": {
+    "name": "ciiSysLevel",
+    "oid": "1.3.6.1.4.1.9.10.118.1.2",
+    "class": "objectidentity"
+  },
+  "ciiCirc": {
+    "name": "ciiCirc",
+    "oid": "1.3.6.1.4.1.9.10.118.1.3",
+    "class": "objectidentity"
+  },
+  "ciiCircLevelValues": {
+    "name": "ciiCircLevelValues",
+    "oid": "1.3.6.1.4.1.9.10.118.1.4",
+    "class": "objectidentity"
+  },
+  "ciiCounters": {
+    "name": "ciiCounters",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5",
+    "class": "objectidentity"
+  },
+  "ciiISAdj": {
+    "name": "ciiISAdj",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6",
+    "class": "objectidentity"
+  },
+  "ciiReachAddr": {
+    "name": "ciiReachAddr",
+    "oid": "1.3.6.1.4.1.9.10.118.1.7",
+    "class": "objectidentity"
+  },
+  "ciiIPReachAddr": {
+    "name": "ciiIPReachAddr",
+    "oid": "1.3.6.1.4.1.9.10.118.1.8",
+    "class": "objectidentity"
+  },
+  "ciiLSPDataBase": {
+    "name": "ciiLSPDataBase",
+    "oid": "1.3.6.1.4.1.9.10.118.1.9",
+    "class": "objectidentity"
+  },
+  "ciiNotification": {
+    "name": "ciiNotification",
+    "oid": "1.3.6.1.4.1.9.10.118.1.10",
+    "class": "objectidentity"
+  },
+  "CiiOSINSAddress": {
+    "name": "CiiOSINSAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiiSystemID": {
+    "name": "CiiSystemID",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiiLinkStatePDUID": {
+    "name": "CiiLinkStatePDUID",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiiAdminState": {
+    "name": "CiiAdminState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiiLSPBuffSize": {
+    "name": "CiiLSPBuffSize",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 16000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiiLevelState": {
+    "name": "CiiLevelState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "waiting": 3,
+          "overloaded": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiiSupportedProtocol": {
+    "name": "CiiSupportedProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "iso8473": 129,
+          "ipV6": 142,
+          "ip": 204
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiiDefaultMetric": {
+    "name": "CiiDefaultMetric",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiiWideMetric": {
+    "name": "CiiWideMetric",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiiFullMetric": {
+    "name": "CiiFullMetric",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "CiiMetricType": {
+    "name": "CiiMetricType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1,
+          "external": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiiMetricStyle": {
+    "name": "CiiMetricStyle",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "narrow": 1,
+          "wide": 2,
+          "both": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiiISLevel": {
+    "name": "CiiISLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "area": 1,
+          "domain": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiiPDUHeader": {
+    "name": "CiiPDUHeader",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiiCircuitID": {
+    "name": "CiiCircuitID",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 7,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiiISPriority": {
+    "name": "CiiISPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiiUnsigned16TC": {
+    "name": "CiiUnsigned16TC",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiiUnsigned8TC": {
+    "name": "CiiUnsigned8TC",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ciiSysObject": {
+    "name": "ciiSysObject",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.1",
+    "class": "objectidentity"
+  },
+  "ciiSysVersion": {
+    "name": "ciiSysVersion",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "one": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "one",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiSysType": {
+    "name": "ciiSysType",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1IS": 1,
+          "level2IS": 2,
+          "level1L2IS": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "level1L2IS",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiSysID": {
+    "name": "ciiSysID",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiSystemID",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiSysMaxPathSplits": {
+    "name": "ciiSysMaxPathSplits",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiSysMaxLSPGenInt": {
+    "name": "ciiSysMaxLSPGenInt",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65235
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 900,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiSysPollESHelloRate": {
+    "name": "ciiSysPollESHelloRate",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiUnsigned16TC",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiSysWaitTime": {
+    "name": "ciiSysWaitTime",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiUnsigned16TC",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiSysAdminState": {
+    "name": "ciiSysAdminState",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiAdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiSysL2toL1Leaking": {
+    "name": "ciiSysL2toL1Leaking",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiSysMaxAge": {
+    "name": "ciiSysMaxAge",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiUnsigned16TC",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 350,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1200,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiSysReceiveLSPBufferSize": {
+    "name": "ciiSysReceiveLSPBufferSize",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiUnsigned16TC",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1492,
+            "max": 16000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1492,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiManAreaAddrTable": {
+    "name": "ciiManAreaAddrTable",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiManAreaAddrEntry": {
+    "name": "ciiManAreaAddrEntry",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiManAreaAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciiManAreaAddr": {
+    "name": "ciiManAreaAddr",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiOSINSAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiManAreaAddrExistState": {
+    "name": "ciiManAreaAddrExistState",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiAreaAddrTable": {
+    "name": "ciiAreaAddrTable",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiAreaAddrEntry": {
+    "name": "ciiAreaAddrEntry",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiAreaAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciiAreaAddr": {
+    "name": "ciiAreaAddr",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiOSINSAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiSysProtSuppTable": {
+    "name": "ciiSysProtSuppTable",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiSysProtSuppEntry": {
+    "name": "ciiSysProtSuppEntry",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysProtSuppProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciiSysProtSuppProtocol": {
+    "name": "ciiSysProtSuppProtocol",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiSupportedProtocol",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiSysProtSuppExistState": {
+    "name": "ciiSysProtSuppExistState",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiSummAddrTable": {
+    "name": "ciiSummAddrTable",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiSummAddrEntry": {
+    "name": "ciiSummAddrEntry",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSummAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSummAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSummAddrPrefixLen",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciiSummAddressType": {
+    "name": "ciiSummAddressType",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiSummAddress": {
+    "name": "ciiSummAddress",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiSummAddrPrefixLen": {
+    "name": "ciiSummAddrPrefixLen",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiSummAddrExistState": {
+    "name": "ciiSummAddrExistState",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiSummAddrMetric": {
+    "name": "ciiSummAddrMetric",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiDefaultMetric",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiSummAddrFullMetric": {
+    "name": "ciiSummAddrFullMetric",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiFullMetric",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiRedistributeAddrTable": {
+    "name": "ciiRedistributeAddrTable",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiRedistributeAddrEntry": {
+    "name": "ciiRedistributeAddrEntry",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiRedistributeAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiRedistributeAddrAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiRedistributeAddrPrefixLen",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciiRedistributeAddrType": {
+    "name": "ciiRedistributeAddrType",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiRedistributeAddrAddress": {
+    "name": "ciiRedistributeAddrAddress",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiRedistributeAddrPrefixLen": {
+    "name": "ciiRedistributeAddrPrefixLen",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiRedistributeAddrExistState": {
+    "name": "ciiRedistributeAddrExistState",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiRouterTable": {
+    "name": "ciiRouterTable",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiRouterEntry": {
+    "name": "ciiRouterEntry",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiRouterSysID",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiRouterLevel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciiRouterSysID": {
+    "name": "ciiRouterSysID",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiSystemID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiRouterLevel": {
+    "name": "ciiRouterLevel",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiISLevel",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiRouterHostName": {
+    "name": "ciiRouterHostName",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiRouterID": {
+    "name": "ciiRouterID",
+    "oid": "1.3.6.1.4.1.9.10.118.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiSysLevelTable": {
+    "name": "ciiSysLevelTable",
+    "oid": "1.3.6.1.4.1.9.10.118.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiSysLevelEntry": {
+    "name": "ciiSysLevelEntry",
+    "oid": "1.3.6.1.4.1.9.10.118.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysLevelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciiSysLevelIndex": {
+    "name": "ciiSysLevelIndex",
+    "oid": "1.3.6.1.4.1.9.10.118.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1IS": 1,
+          "level2IS": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiSysLevelOrigLSPBuffSize": {
+    "name": "ciiSysLevelOrigLSPBuffSize",
+    "oid": "1.3.6.1.4.1.9.10.118.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiLSPBuffSize",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1492,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiSysLevelMinLSPGenInt": {
+    "name": "ciiSysLevelMinLSPGenInt",
+    "oid": "1.3.6.1.4.1.9.10.118.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiUnsigned16TC",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiSysLevelOverloadState": {
+    "name": "ciiSysLevelOverloadState",
+    "oid": "1.3.6.1.4.1.9.10.118.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiLevelState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiSysLevelSetOverload": {
+    "name": "ciiSysLevelSetOverload",
+    "oid": "1.3.6.1.4.1.9.10.118.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiSysLevelSetOverloadUntil": {
+    "name": "ciiSysLevelSetOverloadUntil",
+    "oid": "1.3.6.1.4.1.9.10.118.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiSysLevelMetricStyle": {
+    "name": "ciiSysLevelMetricStyle",
+    "oid": "1.3.6.1.4.1.9.10.118.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiMetricStyle",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "narrow",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiSysLevelSPFConsiders": {
+    "name": "ciiSysLevelSPFConsiders",
+    "oid": "1.3.6.1.4.1.9.10.118.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiMetricStyle",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "narrow",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiSysLevelTEEnabled": {
+    "name": "ciiSysLevelTEEnabled",
+    "oid": "1.3.6.1.4.1.9.10.118.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiNextCircIndex": {
+    "name": "ciiNextCircIndex",
+    "oid": "1.3.6.1.4.1.9.10.118.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexIntegerNextFree",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiCircTable": {
+    "name": "ciiCircTable",
+    "oid": "1.3.6.1.4.1.9.10.118.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiCircEntry": {
+    "name": "ciiCircEntry",
+    "oid": "1.3.6.1.4.1.9.10.118.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciiCircIndex": {
+    "name": "ciiCircIndex",
+    "oid": "1.3.6.1.4.1.9.10.118.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiCircIfIndex": {
+    "name": "ciiCircIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.118.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiCircIfSubIndex": {
+    "name": "ciiCircIfSubIndex",
+    "oid": "1.3.6.1.4.1.9.10.118.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiCircAdminState": {
+    "name": "ciiCircAdminState",
+    "oid": "1.3.6.1.4.1.9.10.118.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiAdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiCircExistState": {
+    "name": "ciiCircExistState",
+    "oid": "1.3.6.1.4.1.9.10.118.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiCircType": {
+    "name": "ciiCircType",
+    "oid": "1.3.6.1.4.1.9.10.118.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "broadcast": 1,
+          "ptToPt": 2,
+          "staticIn": 3,
+          "staticOut": 4,
+          "dA": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiCircExtDomain": {
+    "name": "ciiCircExtDomain",
+    "oid": "1.3.6.1.4.1.9.10.118.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiCircLevel": {
+    "name": "ciiCircLevel",
+    "oid": "1.3.6.1.4.1.9.10.118.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1": 1,
+          "level2": 2,
+          "level1L2": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "level1L2",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiCircPassiveCircuit": {
+    "name": "ciiCircPassiveCircuit",
+    "oid": "1.3.6.1.4.1.9.10.118.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiCircMeshGroupEnabled": {
+    "name": "ciiCircMeshGroupEnabled",
+    "oid": "1.3.6.1.4.1.9.10.118.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "blocked": 2,
+          "set": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "inactive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiCircMeshGroup": {
+    "name": "ciiCircMeshGroup",
+    "oid": "1.3.6.1.4.1.9.10.118.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiCircSmallHellos": {
+    "name": "ciiCircSmallHellos",
+    "oid": "1.3.6.1.4.1.9.10.118.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiCircLastUpTime": {
+    "name": "ciiCircLastUpTime",
+    "oid": "1.3.6.1.4.1.9.10.118.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiCirc3WayEnabled": {
+    "name": "ciiCirc3WayEnabled",
+    "oid": "1.3.6.1.4.1.9.10.118.1.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiCircExtendedCircID": {
+    "name": "ciiCircExtendedCircID",
+    "oid": "1.3.6.1.4.1.9.10.118.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiCircLevelTable": {
+    "name": "ciiCircLevelTable",
+    "oid": "1.3.6.1.4.1.9.10.118.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiCircLevelEntry": {
+    "name": "ciiCircLevelEntry",
+    "oid": "1.3.6.1.4.1.9.10.118.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircLevelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciiCircLevelIndex": {
+    "name": "ciiCircLevelIndex",
+    "oid": "1.3.6.1.4.1.9.10.118.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1IS": 1,
+          "level2IS": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiCircLevelMetric": {
+    "name": "ciiCircLevelMetric",
+    "oid": "1.3.6.1.4.1.9.10.118.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiDefaultMetric",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiCircLevelWideMetric": {
+    "name": "ciiCircLevelWideMetric",
+    "oid": "1.3.6.1.4.1.9.10.118.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiWideMetric",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiCircLevelISPriority": {
+    "name": "ciiCircLevelISPriority",
+    "oid": "1.3.6.1.4.1.9.10.118.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiISPriority",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 64,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiCircLevelIDOctet": {
+    "name": "ciiCircLevelIDOctet",
+    "oid": "1.3.6.1.4.1.9.10.118.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiCircLevelID": {
+    "name": "ciiCircLevelID",
+    "oid": "1.3.6.1.4.1.9.10.118.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiCircuitID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiCircLevelDesIS": {
+    "name": "ciiCircLevelDesIS",
+    "oid": "1.3.6.1.4.1.9.10.118.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiCircuitID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiCircLevelHelloMultiplier": {
+    "name": "ciiCircLevelHelloMultiplier",
+    "oid": "1.3.6.1.4.1.9.10.118.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiCircLevelHelloTimer": {
+    "name": "ciiCircLevelHelloTimer",
+    "oid": "1.3.6.1.4.1.9.10.118.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 600000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiCircLevelDRHelloTimer": {
+    "name": "ciiCircLevelDRHelloTimer",
+    "oid": "1.3.6.1.4.1.9.10.118.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 120000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiCircLevelLSPThrottle": {
+    "name": "ciiCircLevelLSPThrottle",
+    "oid": "1.3.6.1.4.1.9.10.118.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiUnsigned16TC",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiCircLevelMinLSPRetransInt": {
+    "name": "ciiCircLevelMinLSPRetransInt",
+    "oid": "1.3.6.1.4.1.9.10.118.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiCircLevelCSNPInterval": {
+    "name": "ciiCircLevelCSNPInterval",
+    "oid": "1.3.6.1.4.1.9.10.118.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiCircLevelPartSNPInterval": {
+    "name": "ciiCircLevelPartSNPInterval",
+    "oid": "1.3.6.1.4.1.9.10.118.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciiSystemCounterTable": {
+    "name": "ciiSystemCounterTable",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiSystemCounterEntry": {
+    "name": "ciiSystemCounterEntry",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysStatLevel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciiSysStatLevel": {
+    "name": "ciiSysStatLevel",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1IS": 1,
+          "level2IS": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiSysStatCorrLSPs": {
+    "name": "ciiSysStatCorrLSPs",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiSysStatAuthTypeFails": {
+    "name": "ciiSysStatAuthTypeFails",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiSysStatAuthFails": {
+    "name": "ciiSysStatAuthFails",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiSysStatLSPDbaseOloads": {
+    "name": "ciiSysStatLSPDbaseOloads",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiSysStatManAddrDropFromAreas": {
+    "name": "ciiSysStatManAddrDropFromAreas",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiSysStatAttmptToExMaxSeqNums": {
+    "name": "ciiSysStatAttmptToExMaxSeqNums",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiSysStatSeqNumSkips": {
+    "name": "ciiSysStatSeqNumSkips",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiSysStatOwnLSPPurges": {
+    "name": "ciiSysStatOwnLSPPurges",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiSysStatIDFieldLenMismatches": {
+    "name": "ciiSysStatIDFieldLenMismatches",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiSysStatPartChanges": {
+    "name": "ciiSysStatPartChanges",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiSysStatSPFRuns": {
+    "name": "ciiSysStatSPFRuns",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiSysStatLSPErrors": {
+    "name": "ciiSysStatLSPErrors",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiCircuitCounterTable": {
+    "name": "ciiCircuitCounterTable",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiCircuitCounterEntry": {
+    "name": "ciiCircuitCounterEntry",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircuitType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciiCircuitType": {
+    "name": "ciiCircuitType",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lanlevel1": 1,
+          "lanlevel2": 2,
+          "p2pcircuit": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiCircAdjChanges": {
+    "name": "ciiCircAdjChanges",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiCircNumAdj": {
+    "name": "ciiCircNumAdj",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiCircInitFails": {
+    "name": "ciiCircInitFails",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiCircRejAdjs": {
+    "name": "ciiCircRejAdjs",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiCircIDFieldLenMismatches": {
+    "name": "ciiCircIDFieldLenMismatches",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiCircMaxAreaAddrMismatches": {
+    "name": "ciiCircMaxAreaAddrMismatches",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiCircAuthTypeFails": {
+    "name": "ciiCircAuthTypeFails",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiCircAuthFails": {
+    "name": "ciiCircAuthFails",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiCircLANDesISChanges": {
+    "name": "ciiCircLANDesISChanges",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiPacketCounterTable": {
+    "name": "ciiPacketCounterTable",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiPacketCounterEntry": {
+    "name": "ciiPacketCounterEntry",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPacketCountLevel",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPacketCountDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciiPacketCountLevel": {
+    "name": "ciiPacketCountLevel",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1": 1,
+          "level2": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiPacketCountDirection": {
+    "name": "ciiPacketCountDirection",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sending": 1,
+          "receiving": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiPacketCountIIHellos": {
+    "name": "ciiPacketCountIIHellos",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiPacketCountISHellos": {
+    "name": "ciiPacketCountISHellos",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiPacketCountESHellos": {
+    "name": "ciiPacketCountESHellos",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiPacketCountLSPs": {
+    "name": "ciiPacketCountLSPs",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiPacketCountCSNPs": {
+    "name": "ciiPacketCountCSNPs",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiPacketCountPSNPs": {
+    "name": "ciiPacketCountPSNPs",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiPacketCountUnknowns": {
+    "name": "ciiPacketCountUnknowns",
+    "oid": "1.3.6.1.4.1.9.10.118.1.5.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiISAdjTable": {
+    "name": "ciiISAdjTable",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiISAdjEntry": {
+    "name": "ciiISAdjEntry",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiISAdjIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciiISAdjIndex": {
+    "name": "ciiISAdjIndex",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiISAdjState": {
+    "name": "ciiISAdjState",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "initializing": 2,
+          "up": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiISAdj3WayState": {
+    "name": "ciiISAdj3WayState",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 0,
+          "initializing": 1,
+          "down": 2,
+          "failed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiISAdjNeighSNPAAddress": {
+    "name": "ciiISAdjNeighSNPAAddress",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiOSINSAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiISAdjNeighSysType": {
+    "name": "ciiISAdjNeighSysType",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "l1IntermediateSystem": 1,
+          "l2IntermediateSystem": 2,
+          "l1L2IntermediateSystem": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiISAdjNeighSysID": {
+    "name": "ciiISAdjNeighSysID",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiSystemID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiISAdjNbrExtendedCircID": {
+    "name": "ciiISAdjNbrExtendedCircID",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiISAdjUsage": {
+    "name": "ciiISAdjUsage",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1": 1,
+          "level2": 2,
+          "level1and2": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiISAdjHoldTimer": {
+    "name": "ciiISAdjHoldTimer",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiUnsigned16TC",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiISAdjNeighPriority": {
+    "name": "ciiISAdjNeighPriority",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiISPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiISAdjLastUpTime": {
+    "name": "ciiISAdjLastUpTime",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "hundredths of a second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiISAdjAreaAddrTable": {
+    "name": "ciiISAdjAreaAddrTable",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiISAdjAreaAddrEntry": {
+    "name": "ciiISAdjAreaAddrEntry",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiISAdjIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiISAdjAreaAddrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciiISAdjAreaAddrIndex": {
+    "name": "ciiISAdjAreaAddrIndex",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiISAdjAreaAddress": {
+    "name": "ciiISAdjAreaAddress",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiOSINSAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiISAdjIPAddrTable": {
+    "name": "ciiISAdjIPAddrTable",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiISAdjIPAddrEntry": {
+    "name": "ciiISAdjIPAddrEntry",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiISAdjIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiISAdjIPAddrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciiISAdjIPAddrIndex": {
+    "name": "ciiISAdjIPAddrIndex",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiISAdjIPAddrType": {
+    "name": "ciiISAdjIPAddrType",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiISAdjIPAddrAddress": {
+    "name": "ciiISAdjIPAddrAddress",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiISAdjProtSuppTable": {
+    "name": "ciiISAdjProtSuppTable",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiISAdjProtSuppEntry": {
+    "name": "ciiISAdjProtSuppEntry",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiISAdjIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiISAdjProtSuppProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciiISAdjProtSuppProtocol": {
+    "name": "ciiISAdjProtSuppProtocol",
+    "oid": "1.3.6.1.4.1.9.10.118.1.6.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiSupportedProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiRATable": {
+    "name": "ciiRATable",
+    "oid": "1.3.6.1.4.1.9.10.118.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiRAEntry": {
+    "name": "ciiRAEntry",
+    "oid": "1.3.6.1.4.1.9.10.118.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiRAIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciiRAIndex": {
+    "name": "ciiRAIndex",
+    "oid": "1.3.6.1.4.1.9.10.118.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiRAExistState": {
+    "name": "ciiRAExistState",
+    "oid": "1.3.6.1.4.1.9.10.118.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiRAAdminState": {
+    "name": "ciiRAAdminState",
+    "oid": "1.3.6.1.4.1.9.10.118.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiAdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiRAAddrPrefix": {
+    "name": "ciiRAAddrPrefix",
+    "oid": "1.3.6.1.4.1.9.10.118.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiOSINSAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiRAMapType": {
+    "name": "ciiRAMapType",
+    "oid": "1.3.6.1.4.1.9.10.118.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "explicit": 2,
+          "extractIDI": 3,
+          "extractDSP": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiRAMetric": {
+    "name": "ciiRAMetric",
+    "oid": "1.3.6.1.4.1.9.10.118.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiDefaultMetric",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiRAMetricType": {
+    "name": "ciiRAMetricType",
+    "oid": "1.3.6.1.4.1.9.10.118.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiMetricType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "internal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiRASNPAAddress": {
+    "name": "ciiRASNPAAddress",
+    "oid": "1.3.6.1.4.1.9.10.118.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiOSINSAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiRASNPAMask": {
+    "name": "ciiRASNPAMask",
+    "oid": "1.3.6.1.4.1.9.10.118.1.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiOSINSAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiRASNPAPrefix": {
+    "name": "ciiRASNPAPrefix",
+    "oid": "1.3.6.1.4.1.9.10.118.1.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiOSINSAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiRAType": {
+    "name": "ciiRAType",
+    "oid": "1.3.6.1.4.1.9.10.118.1.7.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "automatic": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "manual",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiIPRATable": {
+    "name": "ciiIPRATable",
+    "oid": "1.3.6.1.4.1.9.10.118.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiIPRAEntry": {
+    "name": "ciiIPRAEntry",
+    "oid": "1.3.6.1.4.1.9.10.118.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiIPRADestType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiIPRADest",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiIPRADestPrefixLen",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiIPRANextHopIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciiIPRADestType": {
+    "name": "ciiIPRADestType",
+    "oid": "1.3.6.1.4.1.9.10.118.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiIPRADest": {
+    "name": "ciiIPRADest",
+    "oid": "1.3.6.1.4.1.9.10.118.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiIPRADestPrefixLen": {
+    "name": "ciiIPRADestPrefixLen",
+    "oid": "1.3.6.1.4.1.9.10.118.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiIPRANextHopIndex": {
+    "name": "ciiIPRANextHopIndex",
+    "oid": "1.3.6.1.4.1.9.10.118.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiIPRANextHopType": {
+    "name": "ciiIPRANextHopType",
+    "oid": "1.3.6.1.4.1.9.10.118.1.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiIPRANextHop": {
+    "name": "ciiIPRANextHop",
+    "oid": "1.3.6.1.4.1.9.10.118.1.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiIPRAType": {
+    "name": "ciiIPRAType",
+    "oid": "1.3.6.1.4.1.9.10.118.1.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "automatic": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiIPRAExistState": {
+    "name": "ciiIPRAExistState",
+    "oid": "1.3.6.1.4.1.9.10.118.1.8.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiIPRAAdminState": {
+    "name": "ciiIPRAAdminState",
+    "oid": "1.3.6.1.4.1.9.10.118.1.8.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiAdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiIPRAMetric": {
+    "name": "ciiIPRAMetric",
+    "oid": "1.3.6.1.4.1.9.10.118.1.8.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiDefaultMetric",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiIPRAMetricType": {
+    "name": "ciiIPRAMetricType",
+    "oid": "1.3.6.1.4.1.9.10.118.1.8.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiMetricType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "internal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiIPRAFullMetric": {
+    "name": "ciiIPRAFullMetric",
+    "oid": "1.3.6.1.4.1.9.10.118.1.8.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiFullMetric",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiIPRASNPAAddress": {
+    "name": "ciiIPRASNPAAddress",
+    "oid": "1.3.6.1.4.1.9.10.118.1.8.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiOSINSAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciiIPRASourceType": {
+    "name": "ciiIPRASourceType",
+    "oid": "1.3.6.1.4.1.9.10.118.1.8.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "direct": 2,
+          "ospfv2": 3,
+          "ospfv3": 4,
+          "isis": 5,
+          "rip": 6,
+          "igrp": 7,
+          "eigrp": 8,
+          "bgp": 9,
+          "other": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiLSPSummaryTable": {
+    "name": "ciiLSPSummaryTable",
+    "oid": "1.3.6.1.4.1.9.10.118.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiLSPSummaryEntry": {
+    "name": "ciiLSPSummaryEntry",
+    "oid": "1.3.6.1.4.1.9.10.118.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiLSPLevel",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiLSPID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciiLSPLevel": {
+    "name": "ciiLSPLevel",
+    "oid": "1.3.6.1.4.1.9.10.118.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiISLevel",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiLSPID": {
+    "name": "ciiLSPID",
+    "oid": "1.3.6.1.4.1.9.10.118.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiLinkStatePDUID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiLSPSeq": {
+    "name": "ciiLSPSeq",
+    "oid": "1.3.6.1.4.1.9.10.118.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiLSPZeroLife": {
+    "name": "ciiLSPZeroLife",
+    "oid": "1.3.6.1.4.1.9.10.118.1.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiLSPChecksum": {
+    "name": "ciiLSPChecksum",
+    "oid": "1.3.6.1.4.1.9.10.118.1.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiUnsigned16TC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiLSPLifetimeRemain": {
+    "name": "ciiLSPLifetimeRemain",
+    "oid": "1.3.6.1.4.1.9.10.118.1.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiUnsigned16TC",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiLSPPDULength": {
+    "name": "ciiLSPPDULength",
+    "oid": "1.3.6.1.4.1.9.10.118.1.9.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiUnsigned16TC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiLSPAttributes": {
+    "name": "ciiLSPAttributes",
+    "oid": "1.3.6.1.4.1.9.10.118.1.9.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiUnsigned8TC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiLSPTLVTable": {
+    "name": "ciiLSPTLVTable",
+    "oid": "1.3.6.1.4.1.9.10.118.1.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiLSPTLVEntry": {
+    "name": "ciiLSPTLVEntry",
+    "oid": "1.3.6.1.4.1.9.10.118.1.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiLSPLevel",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiLSPID",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiLSPTLVIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciiLSPTLVIndex": {
+    "name": "ciiLSPTLVIndex",
+    "oid": "1.3.6.1.4.1.9.10.118.1.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciiLSPTLVSeq": {
+    "name": "ciiLSPTLVSeq",
+    "oid": "1.3.6.1.4.1.9.10.118.1.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiLSPTLVChecksum": {
+    "name": "ciiLSPTLVChecksum",
+    "oid": "1.3.6.1.4.1.9.10.118.1.9.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiUnsigned16TC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiLSPTLVType": {
+    "name": "ciiLSPTLVType",
+    "oid": "1.3.6.1.4.1.9.10.118.1.9.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiUnsigned8TC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiLSPTLVLen": {
+    "name": "ciiLSPTLVLen",
+    "oid": "1.3.6.1.4.1.9.10.118.1.9.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiUnsigned8TC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiLSPTLVValue": {
+    "name": "ciiLSPTLVValue",
+    "oid": "1.3.6.1.4.1.9.10.118.1.9.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciiNotificationEntry": {
+    "name": "ciiNotificationEntry",
+    "oid": "1.3.6.1.4.1.9.10.118.1.10.1",
+    "class": "objectidentity"
+  },
+  "ciiPduLspId": {
+    "name": "ciiPduLspId",
+    "oid": "1.3.6.1.4.1.9.10.118.1.10.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiLinkStatePDUID",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciiPduFragment": {
+    "name": "ciiPduFragment",
+    "oid": "1.3.6.1.4.1.9.10.118.1.10.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiPDUHeader",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciiPduFieldLen": {
+    "name": "ciiPduFieldLen",
+    "oid": "1.3.6.1.4.1.9.10.118.1.10.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiUnsigned8TC",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciiPduMaxAreaAddress": {
+    "name": "ciiPduMaxAreaAddress",
+    "oid": "1.3.6.1.4.1.9.10.118.1.10.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiUnsigned8TC",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciiPduProtocolVersion": {
+    "name": "ciiPduProtocolVersion",
+    "oid": "1.3.6.1.4.1.9.10.118.1.10.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiUnsigned8TC",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciiPduLspSize": {
+    "name": "ciiPduLspSize",
+    "oid": "1.3.6.1.4.1.9.10.118.1.10.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciiPduOriginatingBufferSize": {
+    "name": "ciiPduOriginatingBufferSize",
+    "oid": "1.3.6.1.4.1.9.10.118.1.10.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiUnsigned16TC",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16000
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciiPduProtocolsSupported": {
+    "name": "ciiPduProtocolsSupported",
+    "oid": "1.3.6.1.4.1.9.10.118.1.10.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciiAdjState": {
+    "name": "ciiAdjState",
+    "oid": "1.3.6.1.4.1.9.10.118.1.10.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "initializing": 2,
+          "up": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciiErrorOffset": {
+    "name": "ciiErrorOffset",
+    "oid": "1.3.6.1.4.1.9.10.118.1.10.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciiErrorTLVType": {
+    "name": "ciiErrorTLVType",
+    "oid": "1.3.6.1.4.1.9.10.118.1.10.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciiNotifManualAddress": {
+    "name": "ciiNotifManualAddress",
+    "oid": "1.3.6.1.4.1.9.10.118.1.10.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiiOSINSAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciiNotifIsLevelIndex": {
+    "name": "ciiNotifIsLevelIndex",
+    "oid": "1.3.6.1.4.1.9.10.118.1.10.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1IS": 1,
+          "level2IS": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciiDatabaseOverload": {
+    "name": "ciiDatabaseOverload",
+    "oid": "1.3.6.1.4.1.9.10.118.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiNotifIsLevelIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysLevelOverloadState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciiManualAddressDrops": {
+    "name": "ciiManualAddressDrops",
+    "oid": "1.3.6.1.4.1.9.10.118.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiNotifManualAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciiCorruptedLSPDetected": {
+    "name": "ciiCorruptedLSPDetected",
+    "oid": "1.3.6.1.4.1.9.10.118.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiNotifIsLevelIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduLspId"
+      }
+    ],
+    "status": "current"
+  },
+  "ciiAttemptToExceedMaxSequence": {
+    "name": "ciiAttemptToExceedMaxSequence",
+    "oid": "1.3.6.1.4.1.9.10.118.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiNotifIsLevelIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduLspId"
+      }
+    ],
+    "status": "current"
+  },
+  "ciiIDLenMismatch": {
+    "name": "ciiIDLenMismatch",
+    "oid": "1.3.6.1.4.1.9.10.118.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiNotifIsLevelIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduFieldLen"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduFragment"
+      }
+    ],
+    "status": "current"
+  },
+  "ciiMaxAreaAddressesMismatch": {
+    "name": "ciiMaxAreaAddressesMismatch",
+    "oid": "1.3.6.1.4.1.9.10.118.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiNotifIsLevelIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduMaxAreaAddress"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduFragment"
+      }
+    ],
+    "status": "current"
+  },
+  "ciiOwnLSPPurge": {
+    "name": "ciiOwnLSPPurge",
+    "oid": "1.3.6.1.4.1.9.10.118.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiNotifIsLevelIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduLspId"
+      }
+    ],
+    "status": "current"
+  },
+  "ciiSequenceNumberSkip": {
+    "name": "ciiSequenceNumberSkip",
+    "oid": "1.3.6.1.4.1.9.10.118.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiNotifIsLevelIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduLspId"
+      }
+    ],
+    "status": "current"
+  },
+  "ciiAuthenticationTypeFailure": {
+    "name": "ciiAuthenticationTypeFailure",
+    "oid": "1.3.6.1.4.1.9.10.118.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiNotifIsLevelIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduFragment"
+      }
+    ],
+    "status": "current"
+  },
+  "ciiAuthenticationFailure": {
+    "name": "ciiAuthenticationFailure",
+    "oid": "1.3.6.1.4.1.9.10.118.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiNotifIsLevelIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduFragment"
+      }
+    ],
+    "status": "current"
+  },
+  "ciiVersionSkew": {
+    "name": "ciiVersionSkew",
+    "oid": "1.3.6.1.4.1.9.10.118.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiNotifIsLevelIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduProtocolVersion"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduFragment"
+      }
+    ],
+    "status": "current"
+  },
+  "ciiAreaMismatch": {
+    "name": "ciiAreaMismatch",
+    "oid": "1.3.6.1.4.1.9.10.118.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduFragment"
+      }
+    ],
+    "status": "current"
+  },
+  "ciiRejectedAdjacency": {
+    "name": "ciiRejectedAdjacency",
+    "oid": "1.3.6.1.4.1.9.10.118.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiNotifIsLevelIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduFragment"
+      }
+    ],
+    "status": "current"
+  },
+  "ciiLSPTooLargeToPropagate": {
+    "name": "ciiLSPTooLargeToPropagate",
+    "oid": "1.3.6.1.4.1.9.10.118.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiNotifIsLevelIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduLspSize"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduLspId"
+      }
+    ],
+    "status": "current"
+  },
+  "ciiOrigLSPBuffSizeMismatch": {
+    "name": "ciiOrigLSPBuffSizeMismatch",
+    "oid": "1.3.6.1.4.1.9.10.118.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiNotifIsLevelIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduLspId"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduOriginatingBufferSize"
+      }
+    ],
+    "status": "current"
+  },
+  "ciiProtocolsSupportedMismatch": {
+    "name": "ciiProtocolsSupportedMismatch",
+    "oid": "1.3.6.1.4.1.9.10.118.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiNotifIsLevelIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduProtocolsSupported"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduLspId"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduFragment"
+      }
+    ],
+    "status": "current"
+  },
+  "ciiAdjacencyChange": {
+    "name": "ciiAdjacencyChange",
+    "oid": "1.3.6.1.4.1.9.10.118.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiNotifIsLevelIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduLspId"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiAdjState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciiLSPErrorDetected": {
+    "name": "ciiLSPErrorDetected",
+    "oid": "1.3.6.1.4.1.9.10.118.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiNotifIsLevelIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduLspId"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduFragment"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiErrorOffset"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiErrorTLVType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIetfIsisMIBGroups": {
+    "name": "ciscoIetfIsisMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.118.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoIetfIsisMIBCompliances": {
+    "name": "ciscoIetfIsisMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.118.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoIetfIsisMIBCompliance": {
+    "name": "ciscoIetfIsisMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.118.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIetfIsisSystemGroup",
+        "module": "CISCO-IETF-ISIS-MIB"
+      },
+      {
+        "object": "ciscoIetfIsisCircuitGroup",
+        "module": "CISCO-IETF-ISIS-MIB"
+      },
+      {
+        "object": "ciscoIetfIsisISAdjGroup",
+        "module": "CISCO-IETF-ISIS-MIB"
+      },
+      {
+        "object": "ciscoIetfIsisNotifObjectGroup",
+        "module": "CISCO-IETF-ISIS-MIB"
+      },
+      {
+        "object": "ciscoIetfIsisNotificationGroup",
+        "module": "CISCO-IETF-ISIS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIetfIsisMIBAdvCompliance": {
+    "name": "ciscoIetfIsisMIBAdvCompliance",
+    "oid": "1.3.6.1.4.1.9.10.118.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIetfIsisSystemGroup",
+        "module": "CISCO-IETF-ISIS-MIB"
+      },
+      {
+        "object": "ciscoIetfIsisCircuitGroup",
+        "module": "CISCO-IETF-ISIS-MIB"
+      },
+      {
+        "object": "ciscoIetfIsisISAdjGroup",
+        "module": "CISCO-IETF-ISIS-MIB"
+      },
+      {
+        "object": "ciscoIetfIsisNotifObjectGroup",
+        "module": "CISCO-IETF-ISIS-MIB"
+      },
+      {
+        "object": "ciscoIetfIsisNotificationGroup",
+        "module": "CISCO-IETF-ISIS-MIB"
+      },
+      {
+        "object": "ciscoIetfIsisISPDUCounterGroup",
+        "module": "CISCO-IETF-ISIS-MIB"
+      },
+      {
+        "object": "ciscoIetfIsisRATableGroup",
+        "module": "CISCO-IETF-ISIS-MIB"
+      },
+      {
+        "object": "ciscoIetfIsisISIPRADestGroup",
+        "module": "CISCO-IETF-ISIS-MIB"
+      },
+      {
+        "object": "ciscoIetfIsisLSPGroup",
+        "module": "CISCO-IETF-ISIS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIetfIsisSystemGroup": {
+    "name": "ciscoIetfIsisSystemGroup",
+    "oid": "1.3.6.1.4.1.9.10.118.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysVersion"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysType"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysID"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysMaxPathSplits"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysMaxLSPGenInt"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysPollESHelloRate"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysWaitTime"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysAdminState"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysL2toL1Leaking"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysMaxAge"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysLevelOrigLSPBuffSize"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysLevelMinLSPGenInt"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysLevelOverloadState"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysLevelSetOverload"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysLevelSetOverloadUntil"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysLevelMetricStyle"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysLevelSPFConsiders"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysLevelTEEnabled"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysReceiveLSPBufferSize"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiManAreaAddrExistState"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiAreaAddr"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysProtSuppExistState"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSummAddrExistState"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSummAddrMetric"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSummAddrFullMetric"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiRedistributeAddrExistState"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiRouterHostName"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiRouterID"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysStatCorrLSPs"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysStatLSPDbaseOloads"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysStatManAddrDropFromAreas"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysStatAttmptToExMaxSeqNums"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysStatSeqNumSkips"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysStatOwnLSPPurges"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysStatIDFieldLenMismatches"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysStatPartChanges"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysStatSPFRuns"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysStatAuthTypeFails"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysStatAuthFails"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSysStatLSPErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIetfIsisCircuitGroup": {
+    "name": "ciscoIetfIsisCircuitGroup",
+    "oid": "1.3.6.1.4.1.9.10.118.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiNextCircIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIfSubIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircAdminState"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircExistState"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircType"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircExtDomain"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircAdjChanges"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircNumAdj"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircInitFails"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircRejAdjs"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIDFieldLenMismatches"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircMaxAreaAddrMismatches"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircAuthTypeFails"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircAuthFails"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircLANDesISChanges"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircLevel"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircPassiveCircuit"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircMeshGroupEnabled"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircMeshGroup"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircSmallHellos"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircLastUpTime"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCirc3WayEnabled"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircExtendedCircID"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircLevelMetric"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircLevelWideMetric"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircLevelISPriority"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircLevelIDOctet"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircLevelID"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircLevelDesIS"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircLevelHelloMultiplier"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircLevelHelloTimer"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircLevelDRHelloTimer"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircLevelLSPThrottle"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircLevelMinLSPRetransInt"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircLevelCSNPInterval"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCircLevelPartSNPInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIetfIsisISAdjGroup": {
+    "name": "ciscoIetfIsisISAdjGroup",
+    "oid": "1.3.6.1.4.1.9.10.118.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiISAdjState"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiISAdj3WayState"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiISAdjNeighSNPAAddress"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiISAdjNeighSysType"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiISAdjNeighSysID"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiISAdjNbrExtendedCircID"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiISAdjUsage"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiISAdjHoldTimer"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiISAdjNeighPriority"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiISAdjLastUpTime"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiISAdjAreaAddress"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiISAdjIPAddrType"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiISAdjIPAddrAddress"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiISAdjProtSuppProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIetfIsisNotifObjectGroup": {
+    "name": "ciscoIetfIsisNotifObjectGroup",
+    "oid": "1.3.6.1.4.1.9.10.118.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduLspId"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduFragment"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduFieldLen"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduMaxAreaAddress"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduProtocolVersion"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduLspSize"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduOriginatingBufferSize"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPduProtocolsSupported"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiAdjState"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiErrorOffset"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiErrorTLVType"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiNotifManualAddress"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiNotifIsLevelIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIetfIsisNotificationGroup": {
+    "name": "ciscoIetfIsisNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.10.118.2.1.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiDatabaseOverload"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiManualAddressDrops"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiCorruptedLSPDetected"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiAttemptToExceedMaxSequence"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiIDLenMismatch"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiMaxAreaAddressesMismatch"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiOwnLSPPurge"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiSequenceNumberSkip"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiAuthenticationTypeFailure"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiAuthenticationFailure"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiVersionSkew"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiAreaMismatch"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiRejectedAdjacency"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiLSPTooLargeToPropagate"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiOrigLSPBuffSizeMismatch"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiProtocolsSupportedMismatch"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiAdjacencyChange"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiLSPErrorDetected"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIetfIsisISPDUCounterGroup": {
+    "name": "ciscoIetfIsisISPDUCounterGroup",
+    "oid": "1.3.6.1.4.1.9.10.118.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPacketCountIIHellos"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPacketCountISHellos"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPacketCountESHellos"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPacketCountLSPs"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPacketCountCSNPs"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPacketCountPSNPs"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiPacketCountUnknowns"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIetfIsisRATableGroup": {
+    "name": "ciscoIetfIsisRATableGroup",
+    "oid": "1.3.6.1.4.1.9.10.118.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiRAExistState"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiRAAdminState"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiRAAddrPrefix"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiRAMapType"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiRAMetric"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiRAMetricType"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiRASNPAAddress"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiRASNPAMask"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiRASNPAPrefix"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiRAType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIetfIsisISIPRADestGroup": {
+    "name": "ciscoIetfIsisISIPRADestGroup",
+    "oid": "1.3.6.1.4.1.9.10.118.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiIPRANextHopType"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiIPRANextHop"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiIPRAType"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiIPRAExistState"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiIPRAAdminState"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiIPRAMetric"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiIPRAFullMetric"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiIPRAMetricType"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiIPRASNPAAddress"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiIPRASourceType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIetfIsisLSPGroup": {
+    "name": "ciscoIetfIsisLSPGroup",
+    "oid": "1.3.6.1.4.1.9.10.118.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiLSPSeq"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiLSPZeroLife"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiLSPChecksum"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiLSPLifetimeRemain"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiLSPPDULength"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiLSPAttributes"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiLSPTLVSeq"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiLSPTLVChecksum"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiLSPTLVType"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiLSPTLVLen"
+      },
+      {
+        "module": "CISCO-IETF-ISIS-MIB",
+        "object": "ciiLSPTLVValue"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-ISIS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IETF-ISIS-MIB"
+  }
+}

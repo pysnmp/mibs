@@ -1,0 +1,220 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoEntityRedunTcMIB": {
+    "name": "ciscoEntityRedunTcMIB",
+    "oid": "1.3.6.1.4.1.9.9.494",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-10-01 00:00",
+        "description": "The initial version of this MIB module."
+      }
+    ]
+  },
+  "CeRedunType": {
+    "name": "CeRedunType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "yCable": 2,
+          "aps": 3,
+          "featureCard": 4,
+          "externalSwitch": 5,
+          "slotPair": 6,
+          "cmts": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CeRedunScope": {
+    "name": "CeRedunScope",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "local": 2,
+          "remoteChassis": 3,
+          "remoteSystem": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CeRedunArch": {
+    "name": "CeRedunArch",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "oneToOne": 2,
+          "onePlusOne": 3,
+          "oneToN": 4,
+          "mToN": 5,
+          "loadSharing": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CeRedunSwitchCommand": {
+    "name": "CeRedunSwitchCommand",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noCmdInEffect": 1,
+          "clear": 2,
+          "manualSwitchAway": 3,
+          "forcedSwitchAway": 4,
+          "lockoutProtection": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CeRedunMode": {
+    "name": "CeRedunMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CeRedunMbrStatus": {
+    "name": "CeRedunMbrStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "protectionLockedOut": 0,
+        "degraded": 1,
+        "failure": 2,
+        "standby": 3,
+        "protectionProvided": 4,
+        "forcedStandby": 5,
+        "manualStandby": 6
+      }
+    },
+    "status": "current"
+  },
+  "CeRedunStateCategories": {
+    "name": "CeRedunStateCategories",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "inactive": 3,
+          "failed": 4,
+          "initializing": 5,
+          "negotiation": 6,
+          "activeOther": 7,
+          "activeImageInitialize": 8,
+          "activeConfigInitialize": 9,
+          "activeRunStateInitialize": 10,
+          "activeFromStandbyTransition": 11,
+          "activeReconciliation": 12,
+          "activeWait": 13,
+          "active": 14,
+          "standbyOther": 15,
+          "standbyImageInitialize": 16,
+          "standbyConfigInitialize": 17,
+          "standbyRunStateInitialize": 18,
+          "standbyReconciliation": 19,
+          "standbyWait": 20,
+          "standbyColdFinal": 21,
+          "standbyWarmFinal": 22,
+          "standbyHotFinal": 23,
+          "standbySwitchingToActive": 24
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CeRedunReasonCategories": {
+    "name": "CeRedunReasonCategories",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unsupported": 2,
+          "notKnown": 3,
+          "userManual": 4,
+          "userForced": 5,
+          "userLockout": 6,
+          "activeMbrFailed": 7,
+          "activeMbrRemoved": 8,
+          "activeMbrDisabled": 9,
+          "revertiveSwitchover": 10,
+          "remoteRequest": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENTITY-REDUNDANCY-TC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ENTITY-REDUNDANCY-TC-MIB"
+  }
+}

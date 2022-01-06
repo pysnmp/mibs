@@ -1,0 +1,6218 @@
+{
+  "imports": {
+    "class": "imports",
+    "RFC1212-MIB": [
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "Gauge32",
+      "TRAP-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "DisplayString": {
+    "name": "DisplayString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "ibm": {
+    "name": "ibm",
+    "oid": "1.3.6.1.4.1.2",
+    "class": "objectidentity"
+  },
+  "ibm3584v1": {
+    "name": "ibm3584v1",
+    "oid": "1.3.6.1.4.1.4484",
+    "class": "objectidentity"
+  },
+  "ibm3584v1MIB": {
+    "name": "ibm3584v1MIB",
+    "oid": "1.3.6.1.4.1.4484.1",
+    "class": "objectidentity"
+  },
+  "ibmProd": {
+    "name": "ibmProd",
+    "oid": "1.3.6.1.4.1.2.6",
+    "class": "objectidentity"
+  },
+  "ibm3584": {
+    "name": "ibm3584",
+    "oid": "1.3.6.1.4.1.2.6.182",
+    "class": "objectidentity"
+  },
+  "ibm3584MIB": {
+    "name": "ibm3584MIB",
+    "oid": "1.3.6.1.4.1.2.6.182.1",
+    "class": "objectidentity"
+  },
+  "ibm3584MIBTraps": {
+    "name": "ibm3584MIBTraps",
+    "oid": "1.3.6.1.4.1.2.6.182.1.0",
+    "class": "objectidentity"
+  },
+  "ibm3584MIBAdmin": {
+    "name": "ibm3584MIBAdmin",
+    "oid": "1.3.6.1.4.1.2.6.182.1.1",
+    "class": "objectidentity"
+  },
+  "ibm3584MIBObjects": {
+    "name": "ibm3584MIBObjects",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2",
+    "class": "objectidentity"
+  },
+  "ibm3584MIBConformance": {
+    "name": "ibm3584MIBConformance",
+    "oid": "1.3.6.1.4.1.2.6.182.1.3",
+    "class": "objectidentity"
+  },
+  "ibm3584MIBGroupMTMNLSN": {
+    "name": "ibm3584MIBGroupMTMNLSN",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.11",
+    "class": "objectidentity"
+  },
+  "ibm3584MIBGroupSKASCASCQ": {
+    "name": "ibm3584MIBGroupSKASCASCQ",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.21",
+    "class": "objectidentity"
+  },
+  "ibm3584MIBGroupHECHECQ": {
+    "name": "ibm3584MIBGroupHECHECQ",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.31",
+    "class": "objectidentity"
+  },
+  "ibm3584MIBGroupTA": {
+    "name": "ibm3584MIBGroupTA",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.41",
+    "class": "objectidentity"
+  },
+  "ibm3584MIBGroupURC": {
+    "name": "ibm3584MIBGroupURC",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.51",
+    "class": "objectidentity"
+  },
+  "ibm3584MIBGroupFFFD": {
+    "name": "ibm3584MIBGroupFFFD",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.61",
+    "class": "objectidentity"
+  },
+  "ibm3584MIBGroupTD": {
+    "name": "ibm3584MIBGroupTD",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.71",
+    "class": "objectidentity"
+  },
+  "ibm3584MIBGroupFSC": {
+    "name": "ibm3584MIBGroupFSC",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.81",
+    "class": "objectidentity"
+  },
+  "ibm3584MIBGroupSCD": {
+    "name": "ibm3584MIBGroupSCD",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.91",
+    "class": "objectidentity"
+  },
+  "ibm3584MIBGroupVOLSER": {
+    "name": "ibm3584MIBGroupVOLSER",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.101",
+    "class": "objectidentity"
+  },
+  "ibm3584MIBGroupLL": {
+    "name": "ibm3584MIBGroupLL",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.111",
+    "class": "objectidentity"
+  },
+  "ibm3584MIBGroupWWNN": {
+    "name": "ibm3584MIBGroupWWNN",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.121",
+    "class": "objectidentity"
+  },
+  "ibm3584MIBGroupEA": {
+    "name": "ibm3584MIBGroupEA",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.131",
+    "class": "objectidentity"
+  },
+  "ibm3584MIBGroupDrvSN": {
+    "name": "ibm3584MIBGroupDrvSN",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.141",
+    "class": "objectidentity"
+  },
+  "ibm3584MIBSeverity": {
+    "name": "ibm3584MIBSeverity",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.151",
+    "class": "objectidentity"
+  },
+  "ibm3584MIBUserID": {
+    "name": "ibm3584MIBUserID",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.171",
+    "class": "objectidentity"
+  },
+  "ibm3584MIBObjectsMTMNLSN": {
+    "name": "ibm3584MIBObjectsMTMNLSN",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibm3584MIBObjectsSKASCASCQ": {
+    "name": "ibm3584MIBObjectsSKASCASCQ",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.21.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibm3584MIBObjectsHECHECQ": {
+    "name": "ibm3584MIBObjectsHECHECQ",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.31.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibm3584MIBObjectsTA": {
+    "name": "ibm3584MIBObjectsTA",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.41.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibm3584MIBObjectsURC": {
+    "name": "ibm3584MIBObjectsURC",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.51.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibm3584MIBObjectsFFFD": {
+    "name": "ibm3584MIBObjectsFFFD",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.61.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibm3584MIBObjectsTD": {
+    "name": "ibm3584MIBObjectsTD",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.71.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibm3584MIBObjectsFSC": {
+    "name": "ibm3584MIBObjectsFSC",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.81.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibm3584MIBObjectsSCD": {
+    "name": "ibm3584MIBObjectsSCD",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.91.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibm3584MIBObjectsVOLSER": {
+    "name": "ibm3584MIBObjectsVOLSER",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.101.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibm3584MIBObjectsLL": {
+    "name": "ibm3584MIBObjectsLL",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.111.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibm3584MIBObjectsWWNN": {
+    "name": "ibm3584MIBObjectsWWNN",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.121.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibm3584MIBObjectsEA": {
+    "name": "ibm3584MIBObjectsEA",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.131.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibm3584MIBObjectsDrvSN": {
+    "name": "ibm3584MIBObjectsDrvSN",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.141.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibm3584MIBObjectsSeverity": {
+    "name": "ibm3584MIBObjectsSeverity",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.151.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "informational": 1,
+          "warning": 2,
+          "critical": 3,
+          "unknown": 4,
+          "configuration": 5,
+          "security": 6,
+          "authentication": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibm3584MIBObjectsUserID": {
+    "name": "ibm3584MIBObjectsUserID",
+    "oid": "1.3.6.1.4.1.2.6.182.1.2.171.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibm3584Trap001": {
+    "name": "ibm3584Trap001",
+    "oid": "1.3.6.1.4.1.4484.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap002": {
+    "name": "ibm3584Trap002",
+    "oid": "1.3.6.1.4.1.4484.10.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap003": {
+    "name": "ibm3584Trap003",
+    "oid": "1.3.6.1.4.1.4484.10.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap004": {
+    "name": "ibm3584Trap004",
+    "oid": "1.3.6.1.4.1.4484.10.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap005": {
+    "name": "ibm3584Trap005",
+    "oid": "1.3.6.1.4.1.4484.10.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap006": {
+    "name": "ibm3584Trap006",
+    "oid": "1.3.6.1.4.1.4484.10.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap007": {
+    "name": "ibm3584Trap007",
+    "oid": "1.3.6.1.4.1.4484.10.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap008": {
+    "name": "ibm3584Trap008",
+    "oid": "1.3.6.1.4.1.4484.10.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap009": {
+    "name": "ibm3584Trap009",
+    "oid": "1.3.6.1.4.1.4484.10.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap010": {
+    "name": "ibm3584Trap010",
+    "oid": "1.3.6.1.4.1.4484.10.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap011": {
+    "name": "ibm3584Trap011",
+    "oid": "1.3.6.1.4.1.4484.10.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap012": {
+    "name": "ibm3584Trap012",
+    "oid": "1.3.6.1.4.1.4484.10.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap013": {
+    "name": "ibm3584Trap013",
+    "oid": "1.3.6.1.4.1.4484.10.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap014": {
+    "name": "ibm3584Trap014",
+    "oid": "1.3.6.1.4.1.4484.10.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap015": {
+    "name": "ibm3584Trap015",
+    "oid": "1.3.6.1.4.1.4484.10.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap016": {
+    "name": "ibm3584Trap016",
+    "oid": "1.3.6.1.4.1.4484.10.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap017": {
+    "name": "ibm3584Trap017",
+    "oid": "1.3.6.1.4.1.4484.10.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap018": {
+    "name": "ibm3584Trap018",
+    "oid": "1.3.6.1.4.1.4484.10.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap019": {
+    "name": "ibm3584Trap019",
+    "oid": "1.3.6.1.4.1.4484.10.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap020": {
+    "name": "ibm3584Trap020",
+    "oid": "1.3.6.1.4.1.4484.10.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap021": {
+    "name": "ibm3584Trap021",
+    "oid": "1.3.6.1.4.1.4484.10.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap022": {
+    "name": "ibm3584Trap022",
+    "oid": "1.3.6.1.4.1.4484.10.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap023": {
+    "name": "ibm3584Trap023",
+    "oid": "1.3.6.1.4.1.4484.10.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap024": {
+    "name": "ibm3584Trap024",
+    "oid": "1.3.6.1.4.1.4484.10.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap025": {
+    "name": "ibm3584Trap025",
+    "oid": "1.3.6.1.4.1.4484.10.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap026": {
+    "name": "ibm3584Trap026",
+    "oid": "1.3.6.1.4.1.4484.10.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap027": {
+    "name": "ibm3584Trap027",
+    "oid": "1.3.6.1.4.1.4484.10.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap028": {
+    "name": "ibm3584Trap028",
+    "oid": "1.3.6.1.4.1.4484.10.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap029": {
+    "name": "ibm3584Trap029",
+    "oid": "1.3.6.1.4.1.4484.10.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap030": {
+    "name": "ibm3584Trap030",
+    "oid": "1.3.6.1.4.1.4484.10.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap031": {
+    "name": "ibm3584Trap031",
+    "oid": "1.3.6.1.4.1.4484.10.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap032": {
+    "name": "ibm3584Trap032",
+    "oid": "1.3.6.1.4.1.4484.10.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsHECHECQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap201": {
+    "name": "ibm3584Trap201",
+    "oid": "1.3.6.1.4.1.4484.10.201",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap202": {
+    "name": "ibm3584Trap202",
+    "oid": "1.3.6.1.4.1.4484.10.202",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap203": {
+    "name": "ibm3584Trap203",
+    "oid": "1.3.6.1.4.1.4484.10.203",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap204": {
+    "name": "ibm3584Trap204",
+    "oid": "1.3.6.1.4.1.4484.10.204",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap205": {
+    "name": "ibm3584Trap205",
+    "oid": "1.3.6.1.4.1.4484.10.205",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap206": {
+    "name": "ibm3584Trap206",
+    "oid": "1.3.6.1.4.1.4484.10.206",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap207": {
+    "name": "ibm3584Trap207",
+    "oid": "1.3.6.1.4.1.4484.10.207",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap208": {
+    "name": "ibm3584Trap208",
+    "oid": "1.3.6.1.4.1.4484.10.208",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap209": {
+    "name": "ibm3584Trap209",
+    "oid": "1.3.6.1.4.1.4484.10.209",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap210": {
+    "name": "ibm3584Trap210",
+    "oid": "1.3.6.1.4.1.4484.10.210",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap211": {
+    "name": "ibm3584Trap211",
+    "oid": "1.3.6.1.4.1.4484.10.211",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap212": {
+    "name": "ibm3584Trap212",
+    "oid": "1.3.6.1.4.1.4484.10.212",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap213": {
+    "name": "ibm3584Trap213",
+    "oid": "1.3.6.1.4.1.4484.10.213",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap214": {
+    "name": "ibm3584Trap214",
+    "oid": "1.3.6.1.4.1.4484.10.214",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap215": {
+    "name": "ibm3584Trap215",
+    "oid": "1.3.6.1.4.1.4484.10.215",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap216": {
+    "name": "ibm3584Trap216",
+    "oid": "1.3.6.1.4.1.4484.10.216",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap217": {
+    "name": "ibm3584Trap217",
+    "oid": "1.3.6.1.4.1.4484.10.217",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap218": {
+    "name": "ibm3584Trap218",
+    "oid": "1.3.6.1.4.1.4484.10.218",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap219": {
+    "name": "ibm3584Trap219",
+    "oid": "1.3.6.1.4.1.4484.10.219",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap220": {
+    "name": "ibm3584Trap220",
+    "oid": "1.3.6.1.4.1.4484.10.220",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap221": {
+    "name": "ibm3584Trap221",
+    "oid": "1.3.6.1.4.1.4484.10.221",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap222": {
+    "name": "ibm3584Trap222",
+    "oid": "1.3.6.1.4.1.4484.10.222",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap223": {
+    "name": "ibm3584Trap223",
+    "oid": "1.3.6.1.4.1.4484.10.223",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap224": {
+    "name": "ibm3584Trap224",
+    "oid": "1.3.6.1.4.1.4484.10.224",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap225": {
+    "name": "ibm3584Trap225",
+    "oid": "1.3.6.1.4.1.4484.10.225",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap226": {
+    "name": "ibm3584Trap226",
+    "oid": "1.3.6.1.4.1.4484.10.226",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap227": {
+    "name": "ibm3584Trap227",
+    "oid": "1.3.6.1.4.1.4484.10.227",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap228": {
+    "name": "ibm3584Trap228",
+    "oid": "1.3.6.1.4.1.4484.10.228",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap229": {
+    "name": "ibm3584Trap229",
+    "oid": "1.3.6.1.4.1.4484.10.229",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap230": {
+    "name": "ibm3584Trap230",
+    "oid": "1.3.6.1.4.1.4484.10.230",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap231": {
+    "name": "ibm3584Trap231",
+    "oid": "1.3.6.1.4.1.4484.10.231",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap232": {
+    "name": "ibm3584Trap232",
+    "oid": "1.3.6.1.4.1.4484.10.232",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap233": {
+    "name": "ibm3584Trap233",
+    "oid": "1.3.6.1.4.1.4484.10.233",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap234": {
+    "name": "ibm3584Trap234",
+    "oid": "1.3.6.1.4.1.4484.10.234",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap235": {
+    "name": "ibm3584Trap235",
+    "oid": "1.3.6.1.4.1.4484.10.235",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap236": {
+    "name": "ibm3584Trap236",
+    "oid": "1.3.6.1.4.1.4484.10.236",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap237": {
+    "name": "ibm3584Trap237",
+    "oid": "1.3.6.1.4.1.4484.10.237",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap238": {
+    "name": "ibm3584Trap238",
+    "oid": "1.3.6.1.4.1.4484.10.238",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap239": {
+    "name": "ibm3584Trap239",
+    "oid": "1.3.6.1.4.1.4484.10.239",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap240": {
+    "name": "ibm3584Trap240",
+    "oid": "1.3.6.1.4.1.4484.10.240",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap241": {
+    "name": "ibm3584Trap241",
+    "oid": "1.3.6.1.4.1.4484.10.241",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap242": {
+    "name": "ibm3584Trap242",
+    "oid": "1.3.6.1.4.1.4484.10.242",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap243": {
+    "name": "ibm3584Trap243",
+    "oid": "1.3.6.1.4.1.4484.10.243",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap244": {
+    "name": "ibm3584Trap244",
+    "oid": "1.3.6.1.4.1.4484.10.244",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap245": {
+    "name": "ibm3584Trap245",
+    "oid": "1.3.6.1.4.1.4484.10.245",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap246": {
+    "name": "ibm3584Trap246",
+    "oid": "1.3.6.1.4.1.4484.10.246",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap250": {
+    "name": "ibm3584Trap250",
+    "oid": "1.3.6.1.4.1.4484.10.250",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap251": {
+    "name": "ibm3584Trap251",
+    "oid": "1.3.6.1.4.1.4484.10.251",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap252": {
+    "name": "ibm3584Trap252",
+    "oid": "1.3.6.1.4.1.4484.10.252",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap253": {
+    "name": "ibm3584Trap253",
+    "oid": "1.3.6.1.4.1.4484.10.253",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap254": {
+    "name": "ibm3584Trap254",
+    "oid": "1.3.6.1.4.1.4484.10.254",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap255": {
+    "name": "ibm3584Trap255",
+    "oid": "1.3.6.1.4.1.4484.10.255",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap256": {
+    "name": "ibm3584Trap256",
+    "oid": "1.3.6.1.4.1.4484.10.256",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap257": {
+    "name": "ibm3584Trap257",
+    "oid": "1.3.6.1.4.1.4484.10.257",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap258": {
+    "name": "ibm3584Trap258",
+    "oid": "1.3.6.1.4.1.4484.10.258",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap259": {
+    "name": "ibm3584Trap259",
+    "oid": "1.3.6.1.4.1.4484.10.259",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap260": {
+    "name": "ibm3584Trap260",
+    "oid": "1.3.6.1.4.1.4484.10.260",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSKASCASCQ"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsURC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFSC"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSCD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsFFFD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap401": {
+    "name": "ibm3584Trap401",
+    "oid": "1.3.6.1.4.1.4484.10.401",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap402": {
+    "name": "ibm3584Trap402",
+    "oid": "1.3.6.1.4.1.4484.10.402",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap403": {
+    "name": "ibm3584Trap403",
+    "oid": "1.3.6.1.4.1.4484.10.403",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap404": {
+    "name": "ibm3584Trap404",
+    "oid": "1.3.6.1.4.1.4484.10.404",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap405": {
+    "name": "ibm3584Trap405",
+    "oid": "1.3.6.1.4.1.4484.10.405",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap406": {
+    "name": "ibm3584Trap406",
+    "oid": "1.3.6.1.4.1.4484.10.406",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap407": {
+    "name": "ibm3584Trap407",
+    "oid": "1.3.6.1.4.1.4484.10.407",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap408": {
+    "name": "ibm3584Trap408",
+    "oid": "1.3.6.1.4.1.4484.10.408",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap409": {
+    "name": "ibm3584Trap409",
+    "oid": "1.3.6.1.4.1.4484.10.409",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap410": {
+    "name": "ibm3584Trap410",
+    "oid": "1.3.6.1.4.1.4484.10.410",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap411": {
+    "name": "ibm3584Trap411",
+    "oid": "1.3.6.1.4.1.4484.10.411",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap412": {
+    "name": "ibm3584Trap412",
+    "oid": "1.3.6.1.4.1.4484.10.412",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap413": {
+    "name": "ibm3584Trap413",
+    "oid": "1.3.6.1.4.1.4484.10.413",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap414": {
+    "name": "ibm3584Trap414",
+    "oid": "1.3.6.1.4.1.4484.10.414",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap415": {
+    "name": "ibm3584Trap415",
+    "oid": "1.3.6.1.4.1.4484.10.415",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap416": {
+    "name": "ibm3584Trap416",
+    "oid": "1.3.6.1.4.1.4484.10.416",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap417": {
+    "name": "ibm3584Trap417",
+    "oid": "1.3.6.1.4.1.4484.10.417",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap418": {
+    "name": "ibm3584Trap418",
+    "oid": "1.3.6.1.4.1.4484.10.418",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap419": {
+    "name": "ibm3584Trap419",
+    "oid": "1.3.6.1.4.1.4484.10.419",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap420": {
+    "name": "ibm3584Trap420",
+    "oid": "1.3.6.1.4.1.4484.10.420",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap421": {
+    "name": "ibm3584Trap421",
+    "oid": "1.3.6.1.4.1.4484.10.421",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap422": {
+    "name": "ibm3584Trap422",
+    "oid": "1.3.6.1.4.1.4484.10.422",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap440": {
+    "name": "ibm3584Trap440",
+    "oid": "1.3.6.1.4.1.4484.10.440",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsUserID"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap441": {
+    "name": "ibm3584Trap441",
+    "oid": "1.3.6.1.4.1.4484.10.441",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsUserID"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap442": {
+    "name": "ibm3584Trap442",
+    "oid": "1.3.6.1.4.1.4484.10.442",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsUserID"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap443": {
+    "name": "ibm3584Trap443",
+    "oid": "1.3.6.1.4.1.4484.10.443",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsUserID"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap444": {
+    "name": "ibm3584Trap444",
+    "oid": "1.3.6.1.4.1.4484.10.444",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsUserID"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap445": {
+    "name": "ibm3584Trap445",
+    "oid": "1.3.6.1.4.1.4484.10.445",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsUserID"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap446": {
+    "name": "ibm3584Trap446",
+    "oid": "1.3.6.1.4.1.4484.10.446",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsUserID"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsVOLSER"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap447": {
+    "name": "ibm3584Trap447",
+    "oid": "1.3.6.1.4.1.4484.10.447",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsUserID"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap448": {
+    "name": "ibm3584Trap448",
+    "oid": "1.3.6.1.4.1.4484.10.448",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsUserID"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap449": {
+    "name": "ibm3584Trap449",
+    "oid": "1.3.6.1.4.1.4484.10.449",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsUserID"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap450": {
+    "name": "ibm3584Trap450",
+    "oid": "1.3.6.1.4.1.4484.10.450",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsUserID"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap451": {
+    "name": "ibm3584Trap451",
+    "oid": "1.3.6.1.4.1.4484.10.451",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsUserID"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsLL"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsWWNN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsEA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsDrvSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584Trap452": {
+    "name": "ibm3584Trap452",
+    "oid": "1.3.6.1.4.1.4484.10.452",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsMTMNLSN"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTA"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsTD"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsUserID"
+      },
+      {
+        "module": "IBM-TS3500-MIBv1",
+        "object": "ibm3584MIBObjectsSeverity"
+      }
+    ]
+  },
+  "ibm3584MIBCompliances": {
+    "name": "ibm3584MIBCompliances",
+    "oid": "1.3.6.1.4.1.2.6.182.1.3.1",
+    "class": "objectidentity"
+  },
+  "ibm3584MIBGroups": {
+    "name": "ibm3584MIBGroups",
+    "oid": "1.3.6.1.4.1.2.6.182.1.3.2",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBM-TS3500-MIBv1",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:38:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IBM-TS3500-MIBv1"
+  }
+}

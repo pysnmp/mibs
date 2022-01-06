@@ -1,0 +1,621 @@
+{
+  "imports": {
+    "class": "imports",
+    "BASIS-MIB": [
+      "axisDiagnostics"
+    ],
+    "CISCOWAN-SMI": [
+      "ciscoWan"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoMgx82xxDsx3BertMIB": {
+    "name": "ciscoMgx82xxDsx3BertMIB",
+    "oid": "1.3.6.1.4.1.351.150.39",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-01-02 00:00",
+        "description": "Initial version of the MIB. The content of this MIB was originally available in CISCO-WAN-AXIPOP-MIB defined using SMIv1. The applicable objects from CISCO-WAN-AXIPOP-MIB are defined using SMIv2 in this MIB. Also the descriptions of some of the objects have been modified."
+      }
+    ]
+  },
+  "dsx3bert": {
+    "name": "dsx3bert",
+    "oid": "1.3.6.1.4.1.351.110.6.2",
+    "class": "objectidentity"
+  },
+  "dsx3bertControl": {
+    "name": "dsx3bertControl",
+    "oid": "1.3.6.1.4.1.351.110.6.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 0,
+          "acquireBert": 1,
+          "releaseBert": 2,
+          "cnfBert": 3,
+          "startBert": 4,
+          "modBert": 5,
+          "delBert": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noAction",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3bertResourceStatus": {
+    "name": "dsx3bertResourceStatus",
+    "oid": "1.3.6.1.4.1.351.110.6.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "free": 1,
+          "inUse": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "free",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3bertOwner": {
+    "name": "dsx3bertOwner",
+    "oid": "1.3.6.1.4.1.351.110.6.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3bertUserId": {
+    "name": "dsx3bertUserId",
+    "oid": "1.3.6.1.4.1.351.110.6.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3bertStatus": {
+    "name": "dsx3bertStatus",
+    "oid": "1.3.6.1.4.1.351.110.6.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "bertInSync": 2,
+          "bertOutOfSync": 3,
+          "farEndInLoop": 4,
+          "metallicInLoop": 5,
+          "bertFailed": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "inactive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3bertTestMedium": {
+    "name": "dsx3bertTestMedium",
+    "oid": "1.3.6.1.4.1.351.110.6.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "port": 1,
+          "line": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3bertPort": {
+    "name": "dsx3bertPort",
+    "oid": "1.3.6.1.4.1.351.110.6.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3bertLine": {
+    "name": "dsx3bertLine",
+    "oid": "1.3.6.1.4.1.351.110.6.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3bertMode": {
+    "name": "dsx3bertMode",
+    "oid": "1.3.6.1.4.1.351.110.6.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bertPatternTest": 1,
+          "loopback": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3bertPattern": {
+    "name": "dsx3bertPattern",
+    "oid": "1.3.6.1.4.1.351.110.6.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allOnes": 1,
+          "allZeros": 2,
+          "alternateOneZero": 3,
+          "doubleOneZero": 4,
+          "threeInTwentyFour": 5,
+          "oneInSixteen": 6,
+          "oneInEight": 7,
+          "oneInFour": 8,
+          "sfLoopUp": 9,
+          "sfLoopDown": 10,
+          "threeBit": 11,
+          "fourBit": 12,
+          "fiveBit": 13,
+          "sixBit": 14,
+          "sevenBit": 15,
+          "fracT1LoopUp": 16,
+          "fracT1LoopDown": 17,
+          "nineBit": 18,
+          "tenBit": 19,
+          "elevenBit": 20,
+          "fifteenBit": 21,
+          "seventeenBit": 22,
+          "eighteenBit": 23,
+          "twentyBit": 24,
+          "twentyBitQRSS": 25,
+          "twentyOneBit": 26,
+          "twentyTwoBit": 27,
+          "twentyThreeBit": 28,
+          "twentyFiveBit": 29,
+          "twentyEightBit": 30,
+          "twentyNineBit": 31,
+          "thirtyOneBit": 32,
+          "thirtyTwo": 33
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3bertLoopback": {
+    "name": "dsx3bertLoopback",
+    "oid": "1.3.6.1.4.1.351.110.6.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "farEndLoopback": 1,
+          "metallicLoopback": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3bertStartTime": {
+    "name": "dsx3bertStartTime",
+    "oid": "1.3.6.1.4.1.351.110.6.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3bertStartDate": {
+    "name": "dsx3bertStartDate",
+    "oid": "1.3.6.1.4.1.351.110.6.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3bertBitCountUpper": {
+    "name": "dsx3bertBitCountUpper",
+    "oid": "1.3.6.1.4.1.351.110.6.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3bertBitCountLower": {
+    "name": "dsx3bertBitCountLower",
+    "oid": "1.3.6.1.4.1.351.110.6.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3bertBitErrorCountUpper": {
+    "name": "dsx3bertBitErrorCountUpper",
+    "oid": "1.3.6.1.4.1.351.110.6.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3bertBitErrorCountLower": {
+    "name": "dsx3bertBitErrorCountLower",
+    "oid": "1.3.6.1.4.1.351.110.6.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3bertErrorInsertionRate": {
+    "name": "dsx3bertErrorInsertionRate",
+    "oid": "1.3.6.1.4.1.351.110.6.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "errorInsertionDisabled": 1,
+          "oneInTen": 2,
+          "oneInTenPowerTwo": 3,
+          "oneInTenPowerThree": 4,
+          "oneInTenPowerFour": 5,
+          "oneInTenPowerFive": 6,
+          "oneInTenPowerSix": 7,
+          "oneInTenPowerSeven": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3bertErrorInjectCount": {
+    "name": "dsx3bertErrorInjectCount",
+    "oid": "1.3.6.1.4.1.351.110.6.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3bertCleanupAction": {
+    "name": "dsx3bertCleanupAction",
+    "oid": "1.3.6.1.4.1.351.110.6.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "smCleanup": 2,
+          "metallicLoopdown": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noAction",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmDsx3BertMIBConformance": {
+    "name": "cmDsx3BertMIBConformance",
+    "oid": "1.3.6.1.4.1.351.150.39.2",
+    "class": "objectidentity"
+  },
+  "cmDsx3BertMIBGroups": {
+    "name": "cmDsx3BertMIBGroups",
+    "oid": "1.3.6.1.4.1.351.150.39.2.1",
+    "class": "objectidentity"
+  },
+  "cmDsx3BertMIBCompliances": {
+    "name": "cmDsx3BertMIBCompliances",
+    "oid": "1.3.6.1.4.1.351.150.39.2.2",
+    "class": "objectidentity"
+  },
+  "cmDsx3BertCompliance": {
+    "name": "cmDsx3BertCompliance",
+    "oid": "1.3.6.1.4.1.351.150.39.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmDsx3BertConfGroup",
+        "module": "CISCO-MGX82XX-DSX3-BERT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cmDsx3BertConfGroup": {
+    "name": "cmDsx3BertConfGroup",
+    "oid": "1.3.6.1.4.1.351.150.39.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MGX82XX-DSX3-BERT-MIB",
+        "object": "dsx3bertControl"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX3-BERT-MIB",
+        "object": "dsx3bertResourceStatus"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX3-BERT-MIB",
+        "object": "dsx3bertOwner"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX3-BERT-MIB",
+        "object": "dsx3bertUserId"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX3-BERT-MIB",
+        "object": "dsx3bertStatus"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX3-BERT-MIB",
+        "object": "dsx3bertTestMedium"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX3-BERT-MIB",
+        "object": "dsx3bertPort"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX3-BERT-MIB",
+        "object": "dsx3bertLine"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX3-BERT-MIB",
+        "object": "dsx3bertMode"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX3-BERT-MIB",
+        "object": "dsx3bertPattern"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX3-BERT-MIB",
+        "object": "dsx3bertLoopback"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX3-BERT-MIB",
+        "object": "dsx3bertStartTime"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX3-BERT-MIB",
+        "object": "dsx3bertStartDate"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX3-BERT-MIB",
+        "object": "dsx3bertBitCountUpper"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX3-BERT-MIB",
+        "object": "dsx3bertBitCountLower"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX3-BERT-MIB",
+        "object": "dsx3bertBitErrorCountUpper"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX3-BERT-MIB",
+        "object": "dsx3bertBitErrorCountLower"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX3-BERT-MIB",
+        "object": "dsx3bertErrorInsertionRate"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX3-BERT-MIB",
+        "object": "dsx3bertErrorInjectCount"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX3-BERT-MIB",
+        "object": "dsx3bertCleanupAction"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MGX82XX-DSX3-BERT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-MGX82XX-DSX3-BERT-MIB"
+  }
+}

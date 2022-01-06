@@ -1,0 +1,1326 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "enterprises",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwStorage": {
+    "name": "hwStorage",
+    "oid": "1.3.6.1.4.1.34774.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-04-07 17:16",
+        "description": "Description."
+      }
+    ]
+  },
+  "NodeCodeString": {
+    "name": "NodeCodeString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 15,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "huaweistorage": {
+    "name": "huaweistorage",
+    "oid": "1.3.6.1.4.1.34774",
+    "class": "objectidentity"
+  },
+  "hwISM": {
+    "name": "hwISM",
+    "oid": "1.3.6.1.4.1.34774.4.1",
+    "class": "objectidentity"
+  },
+  "hwPerformance": {
+    "name": "hwPerformance",
+    "oid": "1.3.6.1.4.1.34774.4.1.21",
+    "class": "objectidentity"
+  },
+  "hwPerformanceSwitch": {
+    "name": "hwPerformanceSwitch",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPerfNodeTable": {
+    "name": "hwPerfNodeTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPerfNodeEntry": {
+    "name": "hwPerfNodeEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfNodeIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPerfNodeIfIndex": {
+    "name": "hwPerfNodeIfIndex",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfNodeCPUUsage": {
+    "name": "hwPerfNodeCPUUsage",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfNodeAvgCacheUsage": {
+    "name": "hwPerfNodeAvgCacheUsage",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfNodeDelay": {
+    "name": "hwPerfNodeDelay",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfNodeTotalIOPS": {
+    "name": "hwPerfNodeTotalIOPS",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfNodeReadIOPS": {
+    "name": "hwPerfNodeReadIOPS",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfNodeWriteIOPS": {
+    "name": "hwPerfNodeWriteIOPS",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfNodeTotalTraffic": {
+    "name": "hwPerfNodeTotalTraffic",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfNodeReadTraffic": {
+    "name": "hwPerfNodeReadTraffic",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfNodeWriteTraffic": {
+    "name": "hwPerfNodeWriteTraffic",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfNodeFileBandwidth": {
+    "name": "hwPerfNodeFileBandwidth",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfNodeFileOPS": {
+    "name": "hwPerfNodeFileOPS",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfLunTable": {
+    "name": "hwPerfLunTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPerfLunEntry": {
+    "name": "hwPerfLunEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfLunID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPerfLunID": {
+    "name": "hwPerfLunID",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfLunHitRate": {
+    "name": "hwPerfLunHitRate",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfLunTotalIOPS": {
+    "name": "hwPerfLunTotalIOPS",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfLunReadIOPS": {
+    "name": "hwPerfLunReadIOPS",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfLunWriteIOPS": {
+    "name": "hwPerfLunWriteIOPS",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfLunTotalTraffic": {
+    "name": "hwPerfLunTotalTraffic",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfLunReadTraffic": {
+    "name": "hwPerfLunReadTraffic",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfLunWriteTraffic": {
+    "name": "hwPerfLunWriteTraffic",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfLunReadIORate": {
+    "name": "hwPerfLunReadIORate",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfLunWriteIORate": {
+    "name": "hwPerfLunWriteIORate",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfLunMaxTraffic": {
+    "name": "hwPerfLunMaxTraffic",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfLunMaxIOPS": {
+    "name": "hwPerfLunMaxIOPS",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfPortTable": {
+    "name": "hwPerfPortTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPerfPortEntry": {
+    "name": "hwPerfPortEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPerfPortIfIndex": {
+    "name": "hwPerfPortIfIndex",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfPortDelay": {
+    "name": "hwPerfPortDelay",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfPortTotalIOPS": {
+    "name": "hwPerfPortTotalIOPS",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfPortReadIOPS": {
+    "name": "hwPerfPortReadIOPS",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfPortWriteIOPS": {
+    "name": "hwPerfPortWriteIOPS",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfPortTotalTraffic": {
+    "name": "hwPerfPortTotalTraffic",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfPortReadTraffic": {
+    "name": "hwPerfPortReadTraffic",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfPortWriteTraffic": {
+    "name": "hwPerfPortWriteTraffic",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfPortMaxTraffic": {
+    "name": "hwPerfPortMaxTraffic",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfPortMaxIOPS": {
+    "name": "hwPerfPortMaxIOPS",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfPortLocation": {
+    "name": "hwPerfPortLocation",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfCacheTable": {
+    "name": "hwPerfCacheTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPerfCacheEntry": {
+    "name": "hwPerfCacheEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfCacheID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPerfCacheID": {
+    "name": "hwPerfCacheID",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfCacheReadUtilization": {
+    "name": "hwPerfCacheReadUtilization",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfCacheWriteUtilization": {
+    "name": "hwPerfCacheWriteUtilization",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfCacheMirrorWriteUtilization": {
+    "name": "hwPerfCacheMirrorWriteUtilization",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfCacheHitRatio": {
+    "name": "hwPerfCacheHitRatio",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfControllerNFSV3Table": {
+    "name": "hwPerfControllerNFSV3Table",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPerfControllerNFSV3Entry": {
+    "name": "hwPerfControllerNFSV3Entry",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfControllerNFSV3ID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPerfControllerNFSV3ID": {
+    "name": "hwPerfControllerNFSV3ID",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfControllerNFSV3OPS": {
+    "name": "hwPerfControllerNFSV3OPS",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfControllerNFSV3Bps": {
+    "name": "hwPerfControllerNFSV3Bps",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfControllerNFSV4Table": {
+    "name": "hwPerfControllerNFSV4Table",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPerfControllerNFSV4Entry": {
+    "name": "hwPerfControllerNFSV4Entry",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfControllerNFSV4ID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPerfControllerNFSV4ID": {
+    "name": "hwPerfControllerNFSV4ID",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfControllerNFSV4OPS": {
+    "name": "hwPerfControllerNFSV4OPS",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfControllerNFSV4Bps": {
+    "name": "hwPerfControllerNFSV4Bps",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfControllerSMBV1Table": {
+    "name": "hwPerfControllerSMBV1Table",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPerfControllerSMBV1Entry": {
+    "name": "hwPerfControllerSMBV1Entry",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfControllerSMBV1ID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPerfControllerSMBV1ID": {
+    "name": "hwPerfControllerSMBV1ID",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfControllerSMBV1OPS": {
+    "name": "hwPerfControllerSMBV1OPS",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfControllerSMBV1Bps": {
+    "name": "hwPerfControllerSMBV1Bps",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfControllerSMBV2Table": {
+    "name": "hwPerfControllerSMBV2Table",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPerfControllerSMBV2Entry": {
+    "name": "hwPerfControllerSMBV2Entry",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfControllerSMBV2ID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPerfControllerSMBV2ID": {
+    "name": "hwPerfControllerSMBV2ID",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfControllerSMBV2OPS": {
+    "name": "hwPerfControllerSMBV2OPS",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfControllerSMBV2Bps": {
+    "name": "hwPerfControllerSMBV2Bps",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfFileSystemTable": {
+    "name": "hwPerfFileSystemTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPerfFileSystemEntry": {
+    "name": "hwPerfFileSystemEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfFileSystemID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPerfFileSystemID": {
+    "name": "hwPerfFileSystemID",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfFileSystemOPS": {
+    "name": "hwPerfFileSystemOPS",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfFileSystemServiceTime": {
+    "name": "hwPerfFileSystemServiceTime",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfFileSystemReadOPS": {
+    "name": "hwPerfFileSystemReadOPS",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfFileSystemReadBandwidth": {
+    "name": "hwPerfFileSystemReadBandwidth",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfFileSystemAvRdOPSRspTime": {
+    "name": "hwPerfFileSystemAvRdOPSRspTime",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfFileSystemAvWrOPSRspTime": {
+    "name": "hwPerfFileSystemAvWrOPSRspTime",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfFileSystemWriteOPS": {
+    "name": "hwPerfFileSystemWriteOPS",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPerfFileSystemWriteBandwidth": {
+    "name": "hwPerfFileSystemWriteBandwidth",
+    "oid": "1.3.6.1.4.1.34774.4.1.21.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isoConformance": {
+    "name": "isoConformance",
+    "oid": "1.6",
+    "class": "objectidentity"
+  },
+  "isoGroups": {
+    "name": "isoGroups",
+    "oid": "1.6.1",
+    "class": "objectidentity"
+  },
+  "currentObjectGroup": {
+    "name": "currentObjectGroup",
+    "oid": "1.6.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfControllerNFSV3ID"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfControllerNFSV4ID"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfControllerSMBV1ID"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfControllerSMBV2ID"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfFileSystemID"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfNodeCPUUsage"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfNodeAvgCacheUsage"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfLunTotalIOPS"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfLunHitRate"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfLunReadIOPS"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfLunWriteIOPS"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfLunTotalTraffic"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfLunReadTraffic"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfLunWriteTraffic"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfPortDelay"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfPortTotalIOPS"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfPortReadIOPS"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfPortWriteIOPS"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfPortTotalTraffic"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfPortReadTraffic"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfPortWriteTraffic"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfNodeDelay"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfNodeTotalIOPS"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfNodeReadIOPS"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfNodeWriteIOPS"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfNodeTotalTraffic"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfNodeReadTraffic"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfNodeWriteTraffic"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfLunID"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfPortIfIndex"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfLunWriteIORate"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfLunReadIORate"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfCacheID"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfCacheReadUtilization"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfCacheWriteUtilization"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfCacheMirrorWriteUtilization"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfCacheHitRatio"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfLunMaxTraffic"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfLunMaxIOPS"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfPortMaxTraffic"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfPortMaxIOPS"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfNodeFileBandwidth"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfNodeFileOPS"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfControllerNFSV3Bps"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfControllerNFSV3OPS"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfControllerNFSV4OPS"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfControllerNFSV4Bps"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfControllerSMBV1OPS"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfControllerSMBV2OPS"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfControllerSMBV2Bps"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfFileSystemOPS"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfFileSystemServiceTime"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfFileSystemReadOPS"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfFileSystemReadBandwidth"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfFileSystemWriteOPS"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfFileSystemWriteBandwidth"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerformanceSwitch"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfFileSystemAvRdOPSRspTime"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfFileSystemAvWrOPSRspTime"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfPortLocation"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfControllerSMBV1Bps"
+      },
+      {
+        "module": "ISM-PERFORMANCE-MIB",
+        "object": "hwPerfNodeIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "isoCompliances": {
+    "name": "isoCompliances",
+    "oid": "1.6.2",
+    "class": "objectidentity"
+  },
+  "basicCompliance": {
+    "name": "basicCompliance",
+    "oid": "1.6.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "currentObjectGroup",
+        "module": "ISM-PERFORMANCE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/ISM-PERFORMANCE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ISM-PERFORMANCE-MIB"
+  }
+}

@@ -1,0 +1,2995 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-QOS-PIB-MIB": [
+      "Percent"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalName",
+      "entPhysicalVendorType",
+      "entPhysicalDescr",
+      "entPhysicalIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoCat6kCrossbarMIB": {
+    "name": "ciscoCat6kCrossbarMIB",
+    "oid": "1.3.6.1.4.1.9.9.217",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-02-15 00:00",
+        "description": "Added cc6kxbarErrRcvryPersLinkResGroup and cc6kxbarErrRcvryChResyncGroup, cc6kxbarTMSwBusUtilGroup, cc6kxbarTMSwBusUtilNotifControlGroup, cc6kxbarTMSwBusUtilNotifObjectGroup, cc6kxbarTMSwBusUtilNotifGroup, cc6kxbarTMChUtilGroup, cc6kxbarTMChUtilNotifControlGroup, cc6kxbarTMChUtilNotifObjectGroup, cc6kxbarTMChUtilNotifGroup. Added two new enumerations 'pfc4' and 'pfc4xl' in cc6kxbarSysCapPfcOperMode. Added DISPLAY-HINT in TEXTUAL-CONVENTION of ModuleSlotNumber and FabricChannelNumber."
+      },
+      {
+        "revision": "2007-12-18 00:00",
+        "description": "Added cc6kxbarSysCapPfcOperModeGroup, cc6kxbarSysCapSwitchResGroup, cc6kxbarChannelUtilGroup1, cc6kxbarSwBusGroup1, cc6kxbarErrorGroup, cc6kxbarErrRcvryThresholdGroup and cc6kxbarErrRcvrySwitchoverGroup."
+      },
+      {
+        "revision": "2006-12-19 00:00",
+        "description": "Added cc6kxbarDcefOnlyModeAllowedGroup, cc6kxbarForceBusModeGroup, cc6kxbarFlowCtrlNotifCtrlGroup, cc6kxbarFlowCtrlBusThreshGroup, cc6kxbarFlowCtrlBusThrNotifGroup and cc6kxbarBusOnlyModeOperGroup."
+      },
+      {
+        "revision": "2004-11-19 00:00",
+        "description": "Added cc6kxbarIntBusCRCErrGroup."
+      },
+      {
+        "revision": "2004-08-11 00:00",
+        "description": "Added cc6kxbarIntBusNotifControlGroup and cc6kxbarIntBusCRCErrNotifGroup."
+      },
+      {
+        "revision": "2004-06-11 00:00",
+        "description": "Added cc6kxbarTruncatedModeOper Object and changed the description of cc6kxbarTruncatedModeAllowed and cc6kxbarMinFabricPresent."
+      },
+      {
+        "revision": "2003-09-29 00:00",
+        "description": "Changed the description of cc6kxbarTruncatedModeAllowed and cc6kxbarMinFabricPresent. Removed default value for cc6kxbarTruncatedModeAllowed."
+      },
+      {
+        "revision": "2003-04-02 00:00",
+        "description": "Changed the SYNTAX and description of cc6kxbarMinFabricPresent and description of cc6kxbarTruncatedModeAllowed."
+      },
+      {
+        "revision": "2002-12-05 00:00",
+        "description": "Added cc6kxbarModuleChannelSpeed, cc6kxbarSwBusSwitchingStatus, cc6kxbarSwBusFailureDuration, cc6kxbarSwBusNotifEnable objects and cc6kxbarSwBusStallNotif notification."
+      },
+      {
+        "revision": "2001-06-25 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoCat6kXbarMIBObjects": {
+    "name": "ciscoCat6kXbarMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.217.1",
+    "class": "objectidentity"
+  },
+  "cc6kxbarConfiguration": {
+    "name": "cc6kxbarConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.217.1.1",
+    "class": "objectidentity"
+  },
+  "cc6kxbarStatus": {
+    "name": "cc6kxbarStatus",
+    "oid": "1.3.6.1.4.1.9.9.217.1.2",
+    "class": "objectidentity"
+  },
+  "cc6kxbarStatistics": {
+    "name": "cc6kxbarStatistics",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3",
+    "class": "objectidentity"
+  },
+  "cc6kxbarSwBusObjects": {
+    "name": "cc6kxbarSwBusObjects",
+    "oid": "1.3.6.1.4.1.9.9.217.1.4",
+    "class": "objectidentity"
+  },
+  "cc6kxbarIntBusObjects": {
+    "name": "cc6kxbarIntBusObjects",
+    "oid": "1.3.6.1.4.1.9.9.217.1.5",
+    "class": "objectidentity"
+  },
+  "cc6kxbarFlowCtrlObjects": {
+    "name": "cc6kxbarFlowCtrlObjects",
+    "oid": "1.3.6.1.4.1.9.9.217.1.6",
+    "class": "objectidentity"
+  },
+  "cc6kxbarSystemCapacityObjects": {
+    "name": "cc6kxbarSystemCapacityObjects",
+    "oid": "1.3.6.1.4.1.9.9.217.1.7",
+    "class": "objectidentity"
+  },
+  "cc6kxbarErrorRecoveryObjects": {
+    "name": "cc6kxbarErrorRecoveryObjects",
+    "oid": "1.3.6.1.4.1.9.9.217.1.8",
+    "class": "objectidentity"
+  },
+  "cc6kxbarTrafficMonitorObjects": {
+    "name": "cc6kxbarTrafficMonitorObjects",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9",
+    "class": "objectidentity"
+  },
+  "cc6kxbarTrafficMonitorSwBusObjects": {
+    "name": "cc6kxbarTrafficMonitorSwBusObjects",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9.1",
+    "class": "objectidentity"
+  },
+  "cc6kxbarTrafficMonitorChObjects": {
+    "name": "cc6kxbarTrafficMonitorChObjects",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9.2",
+    "class": "objectidentity"
+  },
+  "ModuleSlotNumber": {
+    "name": "ModuleSlotNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "FabricChannelNumber": {
+    "name": "FabricChannelNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "ChannelStatus": {
+    "name": "ChannelStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "syncError": 2,
+          "heartbeatError": 3,
+          "crcError": 4,
+          "bufferError": 5,
+          "timeoutError": 6,
+          "unused": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cc6kxbarFallbackMode": {
+    "name": "cc6kxbarFallbackMode",
+    "oid": "1.3.6.1.4.1.9.9.217.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarBusOnlyModeAllowed": {
+    "name": "cc6kxbarBusOnlyModeAllowed",
+    "oid": "1.3.6.1.4.1.9.9.217.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarTruncatedModeAllowed": {
+    "name": "cc6kxbarTruncatedModeAllowed",
+    "oid": "1.3.6.1.4.1.9.9.217.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarMinFabricPresent": {
+    "name": "cc6kxbarMinFabricPresent",
+    "oid": "1.3.6.1.4.1.9.9.217.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarLcdBannerTable": {
+    "name": "cc6kxbarLcdBannerTable",
+    "oid": "1.3.6.1.4.1.9.9.217.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cc6kxbarLcdBannerEntry": {
+    "name": "cc6kxbarLcdBannerEntry",
+    "oid": "1.3.6.1.4.1.9.9.217.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarLcdBannerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarLcdBannerIndex": {
+    "name": "cc6kxbarLcdBannerIndex",
+    "oid": "1.3.6.1.4.1.9.9.217.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cc6kxbarLcdBannerBanner": {
+    "name": "cc6kxbarLcdBannerBanner",
+    "oid": "1.3.6.1.4.1.9.9.217.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarLcdBannerMaxSize": {
+    "name": "cc6kxbarLcdBannerMaxSize",
+    "oid": "1.3.6.1.4.1.9.9.217.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarTruncatedModeOper": {
+    "name": "cc6kxbarTruncatedModeOper",
+    "oid": "1.3.6.1.4.1.9.9.217.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarDcefOnlyModeAllowed": {
+    "name": "cc6kxbarDcefOnlyModeAllowed",
+    "oid": "1.3.6.1.4.1.9.9.217.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarForceBusMode": {
+    "name": "cc6kxbarForceBusMode",
+    "oid": "1.3.6.1.4.1.9.9.217.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarBusOnlyModeOper": {
+    "name": "cc6kxbarBusOnlyModeOper",
+    "oid": "1.3.6.1.4.1.9.9.217.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarFabricActiveSlot": {
+    "name": "cc6kxbarFabricActiveSlot",
+    "oid": "1.3.6.1.4.1.9.9.217.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleSlotNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarFabricBackupSlot": {
+    "name": "cc6kxbarFabricBackupSlot",
+    "oid": "1.3.6.1.4.1.9.9.217.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleSlotNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarModuleModeTable": {
+    "name": "cc6kxbarModuleModeTable",
+    "oid": "1.3.6.1.4.1.9.9.217.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cc6kxbarModuleModeEntry": {
+    "name": "cc6kxbarModuleModeEntry",
+    "oid": "1.3.6.1.4.1.9.9.217.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarModuleModeModule",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarModuleModeModule": {
+    "name": "cc6kxbarModuleModeModule",
+    "oid": "1.3.6.1.4.1.9.9.217.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleSlotNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cc6kxbarModuleModeSwitchingMode": {
+    "name": "cc6kxbarModuleModeSwitchingMode",
+    "oid": "1.3.6.1.4.1.9.9.217.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "busmode": 1,
+          "crossbarmode": 2,
+          "dcefmode": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarModuleChannelTable": {
+    "name": "cc6kxbarModuleChannelTable",
+    "oid": "1.3.6.1.4.1.9.9.217.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cc6kxbarModuleChannelEntry": {
+    "name": "cc6kxbarModuleChannelEntry",
+    "oid": "1.3.6.1.4.1.9.9.217.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarModuleChannelModule",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarModuleChannelChannel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarModuleChannelModule": {
+    "name": "cc6kxbarModuleChannelModule",
+    "oid": "1.3.6.1.4.1.9.9.217.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleSlotNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cc6kxbarModuleChannelChannel": {
+    "name": "cc6kxbarModuleChannelChannel",
+    "oid": "1.3.6.1.4.1.9.9.217.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FabricChannelNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cc6kxbarModuleChannelModStatus": {
+    "name": "cc6kxbarModuleChannelModStatus",
+    "oid": "1.3.6.1.4.1.9.9.217.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarModuleChannelFabStatus": {
+    "name": "cc6kxbarModuleChannelFabStatus",
+    "oid": "1.3.6.1.4.1.9.9.217.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarModuleChannelSpeed": {
+    "name": "cc6kxbarModuleChannelSpeed",
+    "oid": "1.3.6.1.4.1.9.9.217.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarStatisticsTable": {
+    "name": "cc6kxbarStatisticsTable",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cc6kxbarStatisticsEntry": {
+    "name": "cc6kxbarStatisticsEntry",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarStatisticsModule",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarStatisticsChannel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarStatisticsModule": {
+    "name": "cc6kxbarStatisticsModule",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleSlotNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cc6kxbarStatisticsChannel": {
+    "name": "cc6kxbarStatisticsChannel",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FabricChannelNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cc6kxbarStatisticsInErrors": {
+    "name": "cc6kxbarStatisticsInErrors",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarStatisticsOutErrors": {
+    "name": "cc6kxbarStatisticsOutErrors",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarStatisticsOutDropped": {
+    "name": "cc6kxbarStatisticsOutDropped",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarStatisticsInUtil": {
+    "name": "cc6kxbarStatisticsInUtil",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarStatisticsOutUtil": {
+    "name": "cc6kxbarStatisticsOutUtil",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarStatisticsPeakInUtil": {
+    "name": "cc6kxbarStatisticsPeakInUtil",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarStatisticsPeakTmInUtil": {
+    "name": "cc6kxbarStatisticsPeakTmInUtil",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarStatisticsPeakOutUtil": {
+    "name": "cc6kxbarStatisticsPeakOutUtil",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarStatisticsPeakTmOutUtil": {
+    "name": "cc6kxbarStatisticsPeakTmOutUtil",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarErrorTable": {
+    "name": "cc6kxbarErrorTable",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cc6kxbarErrorEntry": {
+    "name": "cc6kxbarErrorEntry",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarErrorModule",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarErrorChannel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarErrorModule": {
+    "name": "cc6kxbarErrorModule",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleSlotNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cc6kxbarErrorChannel": {
+    "name": "cc6kxbarErrorChannel",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FabricChannelNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cc6kxbarErrorModuleCrc": {
+    "name": "cc6kxbarErrorModuleCrc",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarErrorModuleHbeat": {
+    "name": "cc6kxbarErrorModuleHbeat",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarErrorModuleSync": {
+    "name": "cc6kxbarErrorModuleSync",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarErrorModuleDDRSync": {
+    "name": "cc6kxbarErrorModuleDDRSync",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarErrorChannelSync": {
+    "name": "cc6kxbarErrorChannelSync",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarErrorChannelBuffer": {
+    "name": "cc6kxbarErrorChannelBuffer",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarErrorChannelTimeout": {
+    "name": "cc6kxbarErrorChannelTimeout",
+    "oid": "1.3.6.1.4.1.9.9.217.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarSwBusSwitchingStatus": {
+    "name": "cc6kxbarSwBusSwitchingStatus",
+    "oid": "1.3.6.1.4.1.9.9.217.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "stalled": 2,
+          "isolated": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarSwBusFailureDuration": {
+    "name": "cc6kxbarSwBusFailureDuration",
+    "oid": "1.3.6.1.4.1.9.9.217.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarSwBusNotifEnable": {
+    "name": "cc6kxbarSwBusNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.217.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarSwBusUtilization": {
+    "name": "cc6kxbarSwBusUtilization",
+    "oid": "1.3.6.1.4.1.9.9.217.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarSwBusPeakUtilization": {
+    "name": "cc6kxbarSwBusPeakUtilization",
+    "oid": "1.3.6.1.4.1.9.9.217.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarSwBusPeakTimeUtil": {
+    "name": "cc6kxbarSwBusPeakTimeUtil",
+    "oid": "1.3.6.1.4.1.9.9.217.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarIntBusNotifEnable": {
+    "name": "cc6kxbarIntBusNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.217.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "intBusCRCErrExcd": 0,
+        "intBusCRCErrRcvrd": 1
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarIntBusCRCErrTable": {
+    "name": "cc6kxbarIntBusCRCErrTable",
+    "oid": "1.3.6.1.4.1.9.9.217.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cc6kxbarIntBusCRCErrEntry": {
+    "name": "cc6kxbarIntBusCRCErrEntry",
+    "oid": "1.3.6.1.4.1.9.9.217.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarIntBusCRCErrExcdStatus": {
+    "name": "cc6kxbarIntBusCRCErrExcdStatus",
+    "oid": "1.3.6.1.4.1.9.9.217.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarIntBusCRCErrExcdCount": {
+    "name": "cc6kxbarIntBusCRCErrExcdCount",
+    "oid": "1.3.6.1.4.1.9.9.217.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarFlowCtrlNotifEnable": {
+    "name": "cc6kxbarFlowCtrlNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.217.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "busThreshExcd": 0
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarFlowCtrlBusFIFOThrMode": {
+    "name": "cc6kxbarFlowCtrlBusFIFOThrMode",
+    "oid": "1.3.6.1.4.1.9.9.217.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "auto": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarFlowCtrlBusFIFOThrValue": {
+    "name": "cc6kxbarFlowCtrlBusFIFOThrValue",
+    "oid": "1.3.6.1.4.1.9.9.217.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "original": 1,
+          "lower": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarFlowCtrlBusFIFOTransTime": {
+    "name": "cc6kxbarFlowCtrlBusFIFOTransTime",
+    "oid": "1.3.6.1.4.1.9.9.217.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarSysCapPfcOperMode": {
+    "name": "cc6kxbarSysCapPfcOperMode",
+    "oid": "1.3.6.1.4.1.9.9.217.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "pfc3a": 2,
+          "pfc3b": 3,
+          "pfc3bxl": 4,
+          "pfc3cst1": 5,
+          "pfc3cxlst1": 6,
+          "pfc3c": 7,
+          "pfc3cxl": 8,
+          "pfc4": 9,
+          "pfc4xl": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarSysCapSwitchResTable": {
+    "name": "cc6kxbarSysCapSwitchResTable",
+    "oid": "1.3.6.1.4.1.9.9.217.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cc6kxbarSysCapSwitchResEntry": {
+    "name": "cc6kxbarSysCapSwitchResEntry",
+    "oid": "1.3.6.1.4.1.9.9.217.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarSysCapSwitchResSeries": {
+    "name": "cc6kxbarSysCapSwitchResSeries",
+    "oid": "1.3.6.1.4.1.9.9.217.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "supervisor": 2,
+          "classic": 3,
+          "fabric": 4,
+          "dcef720": 5,
+          "cef720": 6,
+          "dcef256": 7,
+          "cef256": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarSysCapSwitchResCefMode": {
+    "name": "cc6kxbarSysCapSwitchResCefMode",
+    "oid": "1.3.6.1.4.1.9.9.217.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "dcef": 2,
+          "cef": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarErrRcvryThreshLink": {
+    "name": "cc6kxbarErrRcvryThreshLink",
+    "oid": "1.3.6.1.4.1.9.9.217.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarErrRcvryThreshPersLink": {
+    "name": "cc6kxbarErrRcvryThreshPersLink",
+    "oid": "1.3.6.1.4.1.9.9.217.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarErrRcvrySwitchoverEnable": {
+    "name": "cc6kxbarErrRcvrySwitchoverEnable",
+    "oid": "1.3.6.1.4.1.9.9.217.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarErrRcvryPersLinkResync": {
+    "name": "cc6kxbarErrRcvryPersLinkResync",
+    "oid": "1.3.6.1.4.1.9.9.217.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarErrRcvryChResyncCount": {
+    "name": "cc6kxbarErrRcvryChResyncCount",
+    "oid": "1.3.6.1.4.1.9.9.217.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarErrRcvryChResyncInterval": {
+    "name": "cc6kxbarErrRcvryChResyncInterval",
+    "oid": "1.3.6.1.4.1.9.9.217.1.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarTMSwBusUtilEnable": {
+    "name": "cc6kxbarTMSwBusUtilEnable",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarTMSwBusUtilInterval": {
+    "name": "cc6kxbarTMSwBusUtilInterval",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarTMSwBusUtilThreshold": {
+    "name": "cc6kxbarTMSwBusUtilThreshold",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percent",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarTMSwBusUtilLogCount": {
+    "name": "cc6kxbarTMSwBusUtilLogCount",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarTMSwBusUtilLastLogTime": {
+    "name": "cc6kxbarTMSwBusUtilLastLogTime",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarTMSwBusUtilLogInterval": {
+    "name": "cc6kxbarTMSwBusUtilLogInterval",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarTMSwBusUtilUtilization": {
+    "name": "cc6kxbarTMSwBusUtilUtilization",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percent",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cc6kxbarTMSwBusUtilNotifEnable": {
+    "name": "cc6kxbarTMSwBusUtilNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarTMChUtilTable": {
+    "name": "cc6kxbarTMChUtilTable",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cc6kxbarTMChUtilEntry": {
+    "name": "cc6kxbarTMChUtilEntry",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMChUtilModule",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMChUtilChannel",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMChUtilDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarTMChUtilModule": {
+    "name": "cc6kxbarTMChUtilModule",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleSlotNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cc6kxbarTMChUtilChannel": {
+    "name": "cc6kxbarTMChUtilChannel",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FabricChannelNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cc6kxbarTMChUtilDirection": {
+    "name": "cc6kxbarTMChUtilDirection",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ingress": 1,
+          "egress": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cc6kxbarTMChUtilEnable": {
+    "name": "cc6kxbarTMChUtilEnable",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarTMChUtilInterval": {
+    "name": "cc6kxbarTMChUtilInterval",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarTMChUtilThreshold": {
+    "name": "cc6kxbarTMChUtilThreshold",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percent",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarTMChUtilLogCount": {
+    "name": "cc6kxbarTMChUtilLogCount",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarTMChUtilLastLogTime": {
+    "name": "cc6kxbarTMChUtilLastLogTime",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cc6kxbarTMChUtilLogInterval": {
+    "name": "cc6kxbarTMChUtilLogInterval",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cc6kxbarTMChUtilUtilization": {
+    "name": "cc6kxbarTMChUtilUtilization",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percent",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cc6kxbarTMChUtilNotifEnable": {
+    "name": "cc6kxbarTMChUtilNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.217.1.9.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoCat6kXbarMIBNotifs": {
+    "name": "ciscoCat6kXbarMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.217.0",
+    "class": "objectidentity"
+  },
+  "cc6kxbarSwBusStatusChangeNotif": {
+    "name": "cc6kxbarSwBusStatusChangeNotif",
+    "oid": "1.3.6.1.4.1.9.9.217.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarSwBusSwitchingStatus"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarSwBusFailureDuration"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarIntBusCRCErrExcdNotif": {
+    "name": "cc6kxbarIntBusCRCErrExcdNotif",
+    "oid": "1.3.6.1.4.1.9.9.217.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalVendorType"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarIntBusCRCErrRcvrdNotif": {
+    "name": "cc6kxbarIntBusCRCErrRcvrdNotif",
+    "oid": "1.3.6.1.4.1.9.9.217.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalVendorType"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarFlowCtrlBusThrExcdNotif": {
+    "name": "cc6kxbarFlowCtrlBusThrExcdNotif",
+    "oid": "1.3.6.1.4.1.9.9.217.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalVendorType"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarTMSwBusUtilAboveNotif": {
+    "name": "cc6kxbarTMSwBusUtilAboveNotif",
+    "oid": "1.3.6.1.4.1.9.9.217.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMSwBusUtilUtilization"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMSwBusUtilThreshold"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMSwBusUtilInterval"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarTMSwBusUtilBelowNotif": {
+    "name": "cc6kxbarTMSwBusUtilBelowNotif",
+    "oid": "1.3.6.1.4.1.9.9.217.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMSwBusUtilUtilization"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMSwBusUtilThreshold"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMSwBusUtilInterval"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarTMChUtilAboveNotif": {
+    "name": "cc6kxbarTMChUtilAboveNotif",
+    "oid": "1.3.6.1.4.1.9.9.217.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMChUtilUtilization"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMChUtilThreshold"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMChUtilInterval"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarTMChUtilBelowNotif": {
+    "name": "cc6kxbarTMChUtilBelowNotif",
+    "oid": "1.3.6.1.4.1.9.9.217.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMChUtilUtilization"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMChUtilThreshold"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMChUtilInterval"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarMIBConformance": {
+    "name": "cc6kxbarMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.217.3",
+    "class": "objectidentity"
+  },
+  "cc6kxbarMIBCompliances": {
+    "name": "cc6kxbarMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.217.3.1",
+    "class": "objectidentity"
+  },
+  "cc6kxbarMIBGroups": {
+    "name": "cc6kxbarMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2",
+    "class": "objectidentity"
+  },
+  "cc6kxbarMIBCompliance": {
+    "name": "cc6kxbarMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.217.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cc6kxbarModuleStatusGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelStatusGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelStatisticsGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarFallbackGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarBusOnlyAllowedGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cc6kxbarMIBComplianceVer1": {
+    "name": "cc6kxbarMIBComplianceVer1",
+    "oid": "1.3.6.1.4.1.9.9.217.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cc6kxbarModuleStatusGroupVer1",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelStatusGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelStatisticsGroupVer1",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarFallbackGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarBusOnlyAllowedGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarLcdBannerGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelUtilGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelSpeedGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarSwBusGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarSwBusNotifGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cc6kxbarMIBComplianceVer2": {
+    "name": "cc6kxbarMIBComplianceVer2",
+    "oid": "1.3.6.1.4.1.9.9.217.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cc6kxbarModuleStatusGroupVer1",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelStatusGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelStatisticsGroupVer1",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarFallbackGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarBusOnlyAllowedGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarLcdBannerGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelUtilGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelSpeedGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarSwBusGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarSwBusNotifGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarTruncatedOperGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cc6kxbarMIBComplianceVer3": {
+    "name": "cc6kxbarMIBComplianceVer3",
+    "oid": "1.3.6.1.4.1.9.9.217.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cc6kxbarModuleStatusGroupVer1",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelStatusGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelStatisticsGroupVer1",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarFallbackGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarBusOnlyAllowedGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarLcdBannerGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelUtilGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelSpeedGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarSwBusGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarSwBusNotifGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarTruncatedOperGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarIntBusNotifControlGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarIntBusCRCErrNotifGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cc6kxbarMIBComplianceVer4": {
+    "name": "cc6kxbarMIBComplianceVer4",
+    "oid": "1.3.6.1.4.1.9.9.217.3.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cc6kxbarModuleStatusGroupVer1",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelStatusGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelStatisticsGroupVer1",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarFallbackGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarBusOnlyAllowedGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarLcdBannerGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelUtilGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelSpeedGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarSwBusGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarSwBusNotifGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarTruncatedOperGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarIntBusNotifControlGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarIntBusCRCErrNotifGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarIntBusCRCErrGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cc6kxbarMIBComplianceVer5": {
+    "name": "cc6kxbarMIBComplianceVer5",
+    "oid": "1.3.6.1.4.1.9.9.217.3.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cc6kxbarModuleStatusGroupVer1",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelStatusGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelStatisticsGroupVer1",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarFallbackGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarBusOnlyAllowedGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarLcdBannerGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelUtilGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelSpeedGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarSwBusGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarSwBusNotifGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarTruncatedOperGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarIntBusNotifControlGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarIntBusCRCErrNotifGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarIntBusCRCErrGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarDcefOnlyModeAllowedGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarForceBusModeGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarFlowCtrlNotifCtrlGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarFlowCtrlBusThreshGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarFlowCtrlBusThrNotifGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarBusOnlyModeOperGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cc6kxbarMIBComplianceVer6": {
+    "name": "cc6kxbarMIBComplianceVer6",
+    "oid": "1.3.6.1.4.1.9.9.217.3.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cc6kxbarModuleStatusGroupVer1",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelStatusGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelStatisticsGroupVer1",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarFallbackGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarBusOnlyAllowedGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarLcdBannerGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelUtilGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelSpeedGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarSwBusGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarSwBusNotifGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarTruncatedOperGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarIntBusNotifControlGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarIntBusCRCErrNotifGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarIntBusCRCErrGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarDcefOnlyModeAllowedGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarForceBusModeGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarFlowCtrlNotifCtrlGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarFlowCtrlBusThreshGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarFlowCtrlBusThrNotifGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarBusOnlyModeOperGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarSysCapPfcOperModeGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarSysCapSwitchResGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelUtilGroup1",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarSwBusGroup1",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarErrorGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarErrRcvryThresholdGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarErrRcvrySwitchoverGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cc6kxbarMIBComplianceVer7": {
+    "name": "cc6kxbarMIBComplianceVer7",
+    "oid": "1.3.6.1.4.1.9.9.217.3.1.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cc6kxbarModuleStatusGroupVer1",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelStatusGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelStatisticsGroupVer1",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarFallbackGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarBusOnlyAllowedGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarLcdBannerGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelUtilGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelSpeedGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarSwBusGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarSwBusNotifGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarTruncatedOperGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarIntBusNotifControlGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarIntBusCRCErrNotifGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarIntBusCRCErrGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarDcefOnlyModeAllowedGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarForceBusModeGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarFlowCtrlNotifCtrlGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarFlowCtrlBusThreshGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarFlowCtrlBusThrNotifGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarBusOnlyModeOperGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarSysCapPfcOperModeGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarSysCapSwitchResGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarChannelUtilGroup1",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarSwBusGroup1",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarErrorGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarErrRcvryThresholdGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarErrRcvrySwitchoverGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarErrRcvryPersLinkResGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarErrRcvryChResyncGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarTMSwBusUtilGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarTMSwBusUtilNotifControlGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarTMSwBusUtilNotifObjectGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarTMSwBusUtilNotifGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarTMChUtilGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarTMChUtilNotifControlGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarTMChUtilNotifObjectGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      },
+      {
+        "object": "cc6kxbarTMChUtilNotifGroup",
+        "module": "CISCO-CAT6K-CROSSBAR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarModuleStatusGroup": {
+    "name": "cc6kxbarModuleStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarLcdBannerMaxSize"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarLcdBannerBanner"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTruncatedModeAllowed"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarMinFabricPresent"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarFabricActiveSlot"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarFabricBackupSlot"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarModuleModeSwitchingMode"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cc6kxbarChannelStatusGroup": {
+    "name": "cc6kxbarChannelStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarModuleChannelModStatus"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarModuleChannelFabStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarChannelStatisticsGroup": {
+    "name": "cc6kxbarChannelStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarStatisticsInErrors"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarStatisticsOutErrors"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarStatisticsOutDropped"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarStatisticsInUtil"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarStatisticsOutUtil"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cc6kxbarFallbackGroup": {
+    "name": "cc6kxbarFallbackGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarFallbackMode"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarBusOnlyAllowedGroup": {
+    "name": "cc6kxbarBusOnlyAllowedGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarBusOnlyModeAllowed"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarModuleStatusGroupVer1": {
+    "name": "cc6kxbarModuleStatusGroupVer1",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTruncatedModeAllowed"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarMinFabricPresent"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarFabricActiveSlot"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarFabricBackupSlot"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarModuleModeSwitchingMode"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarChannelStatisticsGroupVer1": {
+    "name": "cc6kxbarChannelStatisticsGroupVer1",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarStatisticsInErrors"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarStatisticsOutErrors"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarStatisticsOutDropped"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarLcdBannerGroup": {
+    "name": "cc6kxbarLcdBannerGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarLcdBannerMaxSize"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarLcdBannerBanner"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarChannelUtilGroup": {
+    "name": "cc6kxbarChannelUtilGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarStatisticsInUtil"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarStatisticsOutUtil"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarChannelSpeedGroup": {
+    "name": "cc6kxbarChannelSpeedGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarModuleChannelSpeed"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarSwBusGroup": {
+    "name": "cc6kxbarSwBusGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarSwBusSwitchingStatus"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarSwBusFailureDuration"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarSwBusNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarSwBusNotifGroup": {
+    "name": "cc6kxbarSwBusNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.12",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarSwBusStatusChangeNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarTruncatedOperGroup": {
+    "name": "cc6kxbarTruncatedOperGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTruncatedModeOper"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarIntBusNotifControlGroup": {
+    "name": "cc6kxbarIntBusNotifControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarIntBusNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarIntBusCRCErrNotifGroup": {
+    "name": "cc6kxbarIntBusCRCErrNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.15",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarIntBusCRCErrExcdNotif"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarIntBusCRCErrRcvrdNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarIntBusCRCErrGroup": {
+    "name": "cc6kxbarIntBusCRCErrGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarIntBusCRCErrExcdStatus"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarIntBusCRCErrExcdCount"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarDcefOnlyModeAllowedGroup": {
+    "name": "cc6kxbarDcefOnlyModeAllowedGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarDcefOnlyModeAllowed"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarForceBusModeGroup": {
+    "name": "cc6kxbarForceBusModeGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarForceBusMode"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarFlowCtrlNotifCtrlGroup": {
+    "name": "cc6kxbarFlowCtrlNotifCtrlGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarFlowCtrlNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarFlowCtrlBusThreshGroup": {
+    "name": "cc6kxbarFlowCtrlBusThreshGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarFlowCtrlBusFIFOThrMode"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarFlowCtrlBusFIFOThrValue"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarFlowCtrlBusFIFOTransTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarFlowCtrlBusThrNotifGroup": {
+    "name": "cc6kxbarFlowCtrlBusThrNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.21",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarFlowCtrlBusThrExcdNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarBusOnlyModeOperGroup": {
+    "name": "cc6kxbarBusOnlyModeOperGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarBusOnlyModeOper"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarSysCapPfcOperModeGroup": {
+    "name": "cc6kxbarSysCapPfcOperModeGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarSysCapPfcOperMode"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarSysCapSwitchResGroup": {
+    "name": "cc6kxbarSysCapSwitchResGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarSysCapSwitchResSeries"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarSysCapSwitchResCefMode"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarChannelUtilGroup1": {
+    "name": "cc6kxbarChannelUtilGroup1",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarStatisticsPeakInUtil"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarStatisticsPeakTmInUtil"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarStatisticsPeakOutUtil"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarStatisticsPeakTmOutUtil"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarSwBusGroup1": {
+    "name": "cc6kxbarSwBusGroup1",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarSwBusUtilization"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarSwBusPeakUtilization"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarSwBusPeakTimeUtil"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarErrorGroup": {
+    "name": "cc6kxbarErrorGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarErrorModuleCrc"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarErrorModuleHbeat"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarErrorModuleSync"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarErrorModuleDDRSync"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarErrorChannelSync"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarErrorChannelBuffer"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarErrorChannelTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarErrRcvryThresholdGroup": {
+    "name": "cc6kxbarErrRcvryThresholdGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarErrRcvryThreshLink"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarErrRcvryThreshPersLink"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarErrRcvrySwitchoverGroup": {
+    "name": "cc6kxbarErrRcvrySwitchoverGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarErrRcvrySwitchoverEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarErrRcvryPersLinkResGroup": {
+    "name": "cc6kxbarErrRcvryPersLinkResGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.30",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarErrRcvryPersLinkResync"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarErrRcvryChResyncGroup": {
+    "name": "cc6kxbarErrRcvryChResyncGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.31",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarErrRcvryChResyncCount"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarErrRcvryChResyncInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarTMSwBusUtilGroup": {
+    "name": "cc6kxbarTMSwBusUtilGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.32",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMSwBusUtilEnable"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMSwBusUtilInterval"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMSwBusUtilThreshold"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMSwBusUtilLogCount"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMSwBusUtilLastLogTime"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMSwBusUtilLogInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarTMSwBusUtilNotifControlGroup": {
+    "name": "cc6kxbarTMSwBusUtilNotifControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.33",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMSwBusUtilNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarTMSwBusUtilNotifObjectGroup": {
+    "name": "cc6kxbarTMSwBusUtilNotifObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.34",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMSwBusUtilUtilization"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarTMSwBusUtilNotifGroup": {
+    "name": "cc6kxbarTMSwBusUtilNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.35",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMSwBusUtilAboveNotif"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMSwBusUtilBelowNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarTMChUtilGroup": {
+    "name": "cc6kxbarTMChUtilGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.36",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMChUtilEnable"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMChUtilInterval"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMChUtilThreshold"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMChUtilLogCount"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMChUtilLastLogTime"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMChUtilLogInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarTMChUtilNotifControlGroup": {
+    "name": "cc6kxbarTMChUtilNotifControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.37",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMChUtilNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarTMChUtilNotifObjectGroup": {
+    "name": "cc6kxbarTMChUtilNotifObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.38",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMChUtilUtilization"
+      }
+    ],
+    "status": "current"
+  },
+  "cc6kxbarTMChUtilNotifGroup": {
+    "name": "cc6kxbarTMChUtilNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.217.3.2.39",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMChUtilAboveNotif"
+      },
+      {
+        "module": "CISCO-CAT6K-CROSSBAR-MIB",
+        "object": "cc6kxbarTMChUtilBelowNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CAT6K-CROSSBAR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CAT6K-CROSSBAR-MIB"
+  }
+}

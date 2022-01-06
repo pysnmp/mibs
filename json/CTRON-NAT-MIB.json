@@ -1,0 +1,749 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-IP-ROUTER-MIB": [
+      "nwIpComponents",
+      "nwIpClientServices",
+      "nwIpMibs",
+      "nwIpRouter"
+    ],
+    "ROUTER-OIDS": [
+      "nwRtrProtoSuites"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ctNat": {
+    "name": "ctNat",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1",
+    "class": "objectidentity"
+  },
+  "ctNatConfigGroup": {
+    "name": "ctNatConfigGroup",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1",
+    "class": "objectidentity"
+  },
+  "ctNatServerGroup": {
+    "name": "ctNatServerGroup",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.2",
+    "class": "objectidentity"
+  },
+  "ctNatConnStatsGroup": {
+    "name": "ctNatConnStatsGroup",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.3",
+    "class": "objectidentity"
+  },
+  "ctNatPublicIfIndex": {
+    "name": "ctNatPublicIfIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctNatPublicIP": {
+    "name": "ctNatPublicIP",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatPublicMask": {
+    "name": "ctNatPublicMask",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatMaxConn": {
+    "name": "ctNatMaxConn",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctNatTcpTimeout": {
+    "name": "ctNatTcpTimeout",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctNatUdpTimeout": {
+    "name": "ctNatUdpTimeout",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctNatPktsL2I": {
+    "name": "ctNatPktsL2I",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatPktsI2L": {
+    "name": "ctNatPktsI2L",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatBytesL2I": {
+    "name": "ctNatBytesL2I",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatBytesI2L": {
+    "name": "ctNatBytesI2L",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatTcpConn": {
+    "name": "ctNatTcpConn",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatUdpConn": {
+    "name": "ctNatUdpConn",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatIcmpConn": {
+    "name": "ctNatIcmpConn",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatRetries": {
+    "name": "ctNatRetries",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatBadSums": {
+    "name": "ctNatBadSums",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatTotalPkts": {
+    "name": "ctNatTotalPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatBadPkts": {
+    "name": "ctNatBadPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatResPkts": {
+    "name": "ctNatResPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatTotTcpConn": {
+    "name": "ctNatTotTcpConn",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatTotUdpConn": {
+    "name": "ctNatTotUdpConn",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatTotIcmpConn": {
+    "name": "ctNatTotIcmpConn",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatConfigTable": {
+    "name": "ctNatConfigTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctNatConfigEntry": {
+    "name": "ctNatConfigEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-NAT-MIB",
+        "object": "ctNatConfigId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctNatConfigId": {
+    "name": "ctNatConfigId",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatAdminStatus": {
+    "name": "ctNatAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctNatOperStatus": {
+    "name": "ctNatOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2,
+          "invalid-config": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatLocalIfIndex": {
+    "name": "ctNatLocalIfIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctNatLocalIP": {
+    "name": "ctNatLocalIP",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatLocalMask": {
+    "name": "ctNatLocalMask",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.1.22.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatTotServerEntries": {
+    "name": "ctNatTotServerEntries",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatServerListTable": {
+    "name": "ctNatServerListTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctNatServerListEntry": {
+    "name": "ctNatServerListEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-NAT-MIB",
+        "object": "ctNatServerId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctNatServerId": {
+    "name": "ctNatServerId",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatProxyServer": {
+    "name": "ctNatProxyServer",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctNatTotActiveConn": {
+    "name": "ctNatTotActiveConn",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatConnStatsTable": {
+    "name": "ctNatConnStatsTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctNatConnStatsEntry": {
+    "name": "ctNatConnStatsEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-NAT-MIB",
+        "object": "ctNatConnStatsID",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctNatConnStatsID": {
+    "name": "ctNatConnStatsID",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatConnStatsForeignIP": {
+    "name": "ctNatConnStatsForeignIP",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatConnStatsLocalIP": {
+    "name": "ctNatConnStatsLocalIP",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatConnStatsPublicPort": {
+    "name": "ctNatConnStatsPublicPort",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatConnStatsLocalPort": {
+    "name": "ctNatConnStatsLocalPort",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatConnStatsForeignPort": {
+    "name": "ctNatConnStatsForeignPort",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatConnStatsOutgoingPkts": {
+    "name": "ctNatConnStatsOutgoingPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatConnStatsOutgoingBytes": {
+    "name": "ctNatConnStatsOutgoingBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatConnStatsIncomingPkts": {
+    "name": "ctNatConnStatsIncomingPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatConnStatsIncomingBytes": {
+    "name": "ctNatConnStatsIncomingBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatConnStatsTimeSinceUse": {
+    "name": "ctNatConnStatsTimeSinceUse",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatConnStatsProtocol": {
+    "name": "ctNatConnStatsProtocol",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatConnStatsTCPSeq": {
+    "name": "ctNatConnStatsTCPSeq",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatConnStatsTCPAck": {
+    "name": "ctNatConnStatsTCPAck",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatConnStatsTCPState": {
+    "name": "ctNatConnStatsTCPState",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatConnStatsLocalRetrys": {
+    "name": "ctNatConnStatsLocalRetrys",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatConnStatsForeignRetrys": {
+    "name": "ctNatConnStatsForeignRetrys",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatConnStatsLocalChecksum": {
+    "name": "ctNatConnStatsLocalChecksum",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctNatConnStatsForeignChecksum": {
+    "name": "ctNatConnStatsForeignChecksum",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.1.2.12.1.3.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-NAT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CTRON-NAT-MIB"
+  }
+}

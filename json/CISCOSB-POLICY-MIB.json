@@ -1,0 +1,5430 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOSB-BRIDGEMIBOBJECTS-MIB": [
+      "VlanList2",
+      "VlanList1",
+      "VlanList3",
+      "VlanList4"
+    ],
+    "CISCOSB-MIB": [
+      "switch001",
+      "Percents",
+      "VlanPriority"
+    ],
+    "DIFF-SERV-MIB": [
+      "diffServClassifierEntry"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList",
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "zeroDotZero",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "RowPointer",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "InterfaceType": {
+    "name": "InterfaceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vlan": 1,
+          "port": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "StatisticsCntrNumOfBitsType": {
+    "name": "StatisticsCntrNumOfBitsType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uint32": 32,
+          "uint48": 48,
+          "uint64": 64
+        }
+      }
+    },
+    "status": "current"
+  },
+  "StatisticsDPType": {
+    "name": "StatisticsDPType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "green": 1,
+          "yellow": 2,
+          "red": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "StatisticsClearActionType": {
+    "name": "StatisticsClearActionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noaction": 1,
+          "action": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "StatisticsCntrType": {
+    "name": "StatisticsCntrType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "statisticsCntrTypeSetDSCP": 1,
+          "statisticsCntrTypeDeny": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlPolicy": {
+    "name": "rlPolicy",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-03-14 00:00",
+        "description": "Initial V2 version of this MIB."
+      },
+      {
+        "revision": "2005-02-07 00:00",
+        "description": "Added rlPolicyPortCfgPortRateLimitStatus,rlPolicyPortCfgCirPortRateLimit rlPolicyPortCfgCbsPortRateLimit to rlPolicyPortConfigurationTable"
+      },
+      {
+        "revision": "2005-01-27 00:00",
+        "description": "Added rlPolicyFlowClassificationOffsetsGroupUseVPTId and rlPolicyFlowClassificationOffsetsGroupUseEtherTypeId To rlPolicyFlowClassificationOffsetsTable Added rlPolicyClassifierVPTID And rlPolicyClassifierEtherTypeID To rlPolicyClassifierTable Added Vpt and Ethertype support to rlPolicyClassifierAdditionalCriteriaSupported Added rlPolicyFlowClassificationOffsetsGroupUseInnerVlanId To rlPolicyFlowClassificationOffsetsTable Added rlPolicyClassifierInnerVID To rlPolicyClassifierTable Added Inner vlan id support to rlPolicyClassifierAdditionalCriteriaSupported"
+      },
+      {
+        "revision": "2003-10-07 00:00",
+        "description": "Added cos-dscp to RlPolicyTrustTypes."
+      },
+      {
+        "revision": "2003-09-22 00:00",
+        "description": "Add to RlPolicyQosMode service ,Add rlPolicyRulesDownloadMarker,Added rlPolicyDscpVptTable ."
+      },
+      {
+        "revision": "2005-04-14 00:00",
+        "description": "Added rlPolicyDefaultForwardingProtocol to rlPolicyDefaultForwardingTable"
+      },
+      {
+        "revision": "2005-04-17 00:00",
+        "description": "Added rlPolicyDscpToDpTable"
+      },
+      {
+        "revision": "2006-04-08 00:00",
+        "description": "Added branch rlPolicyStatistics"
+      },
+      {
+        "revision": "2006-05-20 00:00",
+        "description": "Added branch rlPolicyClassifierUtilization"
+      },
+      {
+        "revision": "2006-06-26 00:00",
+        "description": "Added rlPolicyVlanConfigurationTable"
+      }
+    ]
+  },
+  "RlPolicyGroupType": {
+    "name": "RlPolicyGroupType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bridged": 1,
+          "routedIp": 2,
+          "routedIpx": 3,
+          "notUsed": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlPolicyClassifierDiffservIfType": {
+    "name": "RlPolicyClassifierDiffservIfType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "allBoundaryPorts": 2,
+          "allInteriorPorts": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlPolicyTrustTypes": {
+    "name": "RlPolicyTrustTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cos": 1,
+          "dscp": 2,
+          "cos-dscp": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlPolicyQosMode": {
+    "name": "RlPolicyQosMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "basic": 2,
+          "advanced": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "L4ProtType": {
+    "name": "L4ProtType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcp": 1,
+          "udp": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlPolicyTimeBasedAclWeekPeriodicList": {
+    "name": "RlPolicyTimeBasedAclWeekPeriodicList",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "monday": 0,
+        "tuesday": 1,
+        "wednesday": 2,
+        "thursday": 3,
+        "friday": 4,
+        "saturday": 5,
+        "sunday": 6
+      }
+    },
+    "status": "current"
+  },
+  "RlPolicyRulesActionDropType": {
+    "name": "RlPolicyRulesActionDropType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hardDrop": 1,
+          "softDrop": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlPolicyMarkVlanAction": {
+    "name": "RlPolicyMarkVlanAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noMark": 1,
+          "mark": 2,
+          "markNestedVlan": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlPolicyRedirectAction": {
+    "name": "RlPolicyRedirectAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "trap": 2,
+          "redirectToInterface": 3,
+          "redirectToAllPorts": 4,
+          "mirror": 5,
+          "analyzerPort": 6,
+          "loopback": 7,
+          "redirectToPortGroup": 8,
+          "mirrorAndRedirectToInterface": 9,
+          "mirrorAndRedirectToInterfacesGroup": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlPolicyMibVersion": {
+    "name": "rlPolicyMibVersion",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyClassifier": {
+    "name": "rlPolicyClassifier",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2",
+    "class": "objectidentity"
+  },
+  "rlPolicyClassifierPlatDependParams": {
+    "name": "rlPolicyClassifierPlatDependParams",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.1",
+    "class": "objectidentity"
+  },
+  "rlPolicyFlowClassificationOffsetsGroupScheme": {
+    "name": "rlPolicyFlowClassificationOffsetsGroupScheme",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allOffsetsPermitted": 1,
+          "singleFlowClassificationOffsetGroupsForIpIpxBridge": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyNumberOfOffsetsPerFlowClassificationOffsetGroup": {
+    "name": "rlPolicyNumberOfOffsetsPerFlowClassificationOffsetGroup",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "rlPolicyFlowClassificationOffsetGroupMaximumOffset": {
+    "name": "rlPolicyFlowClassificationOffsetGroupMaximumOffset",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyNumberOfOffsetsPerOmpcGroup": {
+    "name": "rlPolicyNumberOfOffsetsPerOmpcGroup",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyOmpcMaximumOffset": {
+    "name": "rlPolicyOmpcMaximumOffset",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyOMPCPermittedOperators": {
+    "name": "rlPolicyOMPCPermittedOperators",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyMaxOMPCLengthForBiggerSmallerOperation": {
+    "name": "rlPolicyMaxOMPCLengthForBiggerSmallerOperation",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyClassifierAdditionalCriteriaSupported": {
+    "name": "rlPolicyClassifierAdditionalCriteriaSupported",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "rlPolicyClassifierAdditionalCriteriaUsedInOffsetCount": {
+    "name": "rlPolicyClassifierAdditionalCriteriaUsedInOffsetCount",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "rlPolicyClassifierPermittedOffsetTypes": {
+    "name": "rlPolicyClassifierPermittedOffsetTypes",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "rlPolicyClassifierOMPCActions": {
+    "name": "rlPolicyClassifierOMPCActions",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyFlowClassificationOffsetsTable": {
+    "name": "rlPolicyFlowClassificationOffsetsTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyFlowClassificationOffsetsGroupEntry": {
+    "name": "rlPolicyFlowClassificationOffsetsGroupEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyFlowClassificationOffsetsGroupType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPolicyFlowClassificationOffsetsGroupType": {
+    "name": "rlPolicyFlowClassificationOffsetsGroupType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlPolicyGroupType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyFlowClassificationOffsetsGroupOffset": {
+    "name": "rlPolicyFlowClassificationOffsetsGroupOffset",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyFlowClassificationOffsetsGroupOffsetType": {
+    "name": "rlPolicyFlowClassificationOffsetsGroupOffsetType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyFlowClassificationOffsetsGroupMask": {
+    "name": "rlPolicyFlowClassificationOffsetsGroupMask",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyFlowClassificationOffsetsGroupUseInputInterface": {
+    "name": "rlPolicyFlowClassificationOffsetsGroupUseInputInterface",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyFlowClassificationOffsetsGroupUseOutputInterface": {
+    "name": "rlPolicyFlowClassificationOffsetsGroupUseOutputInterface",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyFlowClassificationOffsetsGroupUseVlanId": {
+    "name": "rlPolicyFlowClassificationOffsetsGroupUseVlanId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyFlowClassificationOffsetsGroupStatus": {
+    "name": "rlPolicyFlowClassificationOffsetsGroupStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyFlowClassificationOffsetsGroupUseVPTId": {
+    "name": "rlPolicyFlowClassificationOffsetsGroupUseVPTId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyFlowClassificationOffsetsGroupUseEtherTypeId": {
+    "name": "rlPolicyFlowClassificationOffsetsGroupUseEtherTypeId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyFlowClassificationOffsetsGroupUseInnerVlanId": {
+    "name": "rlPolicyFlowClassificationOffsetsGroupUseInnerVlanId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyOMPCTable": {
+    "name": "rlPolicyOMPCTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyOMPCEntry": {
+    "name": "rlPolicyOMPCEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyOMPCGroupType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyOMPCIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPolicyOMPCGroupType": {
+    "name": "rlPolicyOMPCGroupType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlPolicyGroupType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyOMPCIndex": {
+    "name": "rlPolicyOMPCIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyOMPCOffset": {
+    "name": "rlPolicyOMPCOffset",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyOMPCOffsetType": {
+    "name": "rlPolicyOMPCOffsetType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "l2": 1,
+          "l3": 2,
+          "l3-ipv6": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyOMPCMask": {
+    "name": "rlPolicyOMPCMask",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyOMPCPattern": {
+    "name": "rlPolicyOMPCPattern",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyOMPCCondition": {
+    "name": "rlPolicyOMPCCondition",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "equal": 1,
+          "notEqual": 2,
+          "bigger": 3,
+          "smaller": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "equal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyOMPCDescription": {
+    "name": "rlPolicyOMPCDescription",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyOMPCStatus": {
+    "name": "rlPolicyOMPCStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyClassifierTable": {
+    "name": "rlPolicyClassifierTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyClassifierEntry": {
+    "name": "rlPolicyClassifierEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyClassifierType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyClassifierListIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyClassifierSubListIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyClassifierIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPolicyClassifierType": {
+    "name": "rlPolicyClassifierType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlPolicyGroupType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyClassifierListIndex": {
+    "name": "rlPolicyClassifierListIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyClassifierSubListIndex": {
+    "name": "rlPolicyClassifierSubListIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyClassifierIndex": {
+    "name": "rlPolicyClassifierIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyClassifierOmpcList": {
+    "name": "rlPolicyClassifierOmpcList",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyClassifierInIfIndex": {
+    "name": "rlPolicyClassifierInIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyClassifierOutIfIndex": {
+    "name": "rlPolicyClassifierOutIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyClassifierVID": {
+    "name": "rlPolicyClassifierVID",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyClassifierDiffservInIfType": {
+    "name": "rlPolicyClassifierDiffservInIfType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlPolicyClassifierDiffservIfType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "normal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyClassifierDiffservOutIfType": {
+    "name": "rlPolicyClassifierDiffservOutIfType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlPolicyClassifierDiffservIfType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "normal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyClassifierStatus": {
+    "name": "rlPolicyClassifierStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyClassifierInIfIndexList": {
+    "name": "rlPolicyClassifierInIfIndexList",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyClassifierOutIfIndexList": {
+    "name": "rlPolicyClassifierOutIfIndexList",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyClassifierVPTID": {
+    "name": "rlPolicyClassifierVPTID",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyClassifierVPTIDMask": {
+    "name": "rlPolicyClassifierVPTIDMask",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyClassifierEtherTypeID": {
+    "name": "rlPolicyClassifierEtherTypeID",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1499,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65536,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyClassifierInnerVID": {
+    "name": "rlPolicyClassifierInnerVID",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.2.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyRules": {
+    "name": "rlPolicyRules",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3",
+    "class": "objectidentity"
+  },
+  "rlPolicyRulesPlatDependParams": {
+    "name": "rlPolicyRulesPlatDependParams",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.1",
+    "class": "objectidentity"
+  },
+  "rlPolicyDroppedPacketCountSupported": {
+    "name": "rlPolicyDroppedPacketCountSupported",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyFilterActionOptions": {
+    "name": "rlPolicyFilterActionOptions",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyIngressMeteringSupported": {
+    "name": "rlPolicyIngressMeteringSupported",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyEgressMeteringSupported": {
+    "name": "rlPolicyEgressMeteringSupported",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyRulesTable": {
+    "name": "rlPolicyRulesTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyRulesEntry": {
+    "name": "rlPolicyRulesEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyRulesTableType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyRulesInterfaceDirection",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyRulesListIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyRulesSubListIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyRulesIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPolicyRulesTableType": {
+    "name": "rlPolicyRulesTableType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlPolicyGroupType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyRulesInterfaceDirection": {
+    "name": "rlPolicyRulesInterfaceDirection",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyRulesListIndex": {
+    "name": "rlPolicyRulesListIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyRulesSubListIndex": {
+    "name": "rlPolicyRulesSubListIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyRulesIndex": {
+    "name": "rlPolicyRulesIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyRulesFilteringAction": {
+    "name": "rlPolicyRulesFilteringAction",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "block": 1,
+          "blockAndTrap": 2,
+          "permitAndTrap": 3,
+          "permit": 4,
+          "blockAndDisablePort": 5,
+          "blockTrapAndDisablePort": 6,
+          "blockAndLogInput": 7,
+          "permitAndLogInput": 8
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "permit",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyRulesDroppedPackets": {
+    "name": "rlPolicyRulesDroppedPackets",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyRulesFurtherRefPointer": {
+    "name": "rlPolicyRulesFurtherRefPointer",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyRulesDescription": {
+    "name": "rlPolicyRulesDescription",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyRulesStatus": {
+    "name": "rlPolicyRulesStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyRulesCounterIdx": {
+    "name": "rlPolicyRulesCounterIdx",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyRulesCounter": {
+    "name": "rlPolicyRulesCounter",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyRulesActionPointer": {
+    "name": "rlPolicyRulesActionPointer",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyRulesTimeRange1": {
+    "name": "rlPolicyRulesTimeRange1",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyRulesTimeRange2": {
+    "name": "rlPolicyRulesTimeRange2",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyRulesSrcPortRangeStart": {
+    "name": "rlPolicyRulesSrcPortRangeStart",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyRulesSrcPortRangeEnd": {
+    "name": "rlPolicyRulesSrcPortRangeEnd",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyRulesDestPortRangeStart": {
+    "name": "rlPolicyRulesDestPortRangeStart",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyRulesDestPortRangeEnd": {
+    "name": "rlPolicyRulesDestPortRangeEnd",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyRulesActionDropType": {
+    "name": "rlPolicyRulesActionDropType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlPolicyRulesActionDropType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "hardDrop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyRulesDownloadMarker": {
+    "name": "rlPolicyRulesDownloadMarker",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "finish": 2,
+          "finishCombined": 3,
+          "undo": 4,
+          "deleteStart": 5,
+          "deleteFinish": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyMeterClass": {
+    "name": "rlPolicyMeterClass",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.4",
+    "class": "objectidentity"
+  },
+  "rlPolicyMeterPlatDependParams": {
+    "name": "rlPolicyMeterPlatDependParams",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.4.1",
+    "class": "objectidentity"
+  },
+  "rlPolicyMeterDepth": {
+    "name": "rlPolicyMeterDepth",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyMeterClassTable": {
+    "name": "rlPolicyMeterClassTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyMeteringClassEntry": {
+    "name": "rlPolicyMeteringClassEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyMeteringClassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPolicyMeteringClassIndex": {
+    "name": "rlPolicyMeteringClassIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyMeteringClassAlwaysConform": {
+    "name": "rlPolicyMeteringClassAlwaysConform",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyMeteringClassAggregateMeterRate": {
+    "name": "rlPolicyMeteringClassAggregateMeterRate",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyMeteringClassAggregateMeterBurstSize": {
+    "name": "rlPolicyMeteringClassAggregateMeterBurstSize",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyMeteringClassPerSessionMeteringRate": {
+    "name": "rlPolicyMeteringClassPerSessionMeteringRate",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyMeteringClassMaxSessionLimit": {
+    "name": "rlPolicyMeteringClassMaxSessionLimit",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyMeteringClassActionPointer": {
+    "name": "rlPolicyMeteringClassActionPointer",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyMeteringClassFailMeterPointer": {
+    "name": "rlPolicyMeteringClassFailMeterPointer",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyMeteringClassStatus": {
+    "name": "rlPolicyMeteringClassStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyMeteringCounterEnable": {
+    "name": "rlPolicyMeteringCounterEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyMeteringClassInProfileCounter": {
+    "name": "rlPolicyMeteringClassInProfileCounter",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyMeteringClassOutProfileCounter": {
+    "name": "rlPolicyMeteringClassOutProfileCounter",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyAction": {
+    "name": "rlPolicyAction",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5",
+    "class": "objectidentity"
+  },
+  "rlPolicyActionPlatDependParams": {
+    "name": "rlPolicyActionPlatDependParams",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.1",
+    "class": "objectidentity"
+  },
+  "rlPolicyActionMREDSupported": {
+    "name": "rlPolicyActionMREDSupported",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supported": 1,
+          "notSupported": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyActionDroppedPacketCountSupported": {
+    "name": "rlPolicyActionDroppedPacketCountSupported",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyActionDroppedDropPrecedenceSupported": {
+    "name": "rlPolicyActionDroppedDropPrecedenceSupported",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyActionInProfileDropPrecedence": {
+    "name": "rlPolicyActionInProfileDropPrecedence",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyActionOutProfileDropPrecedence": {
+    "name": "rlPolicyActionOutProfileDropPrecedence",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyActionDscpSupport": {
+    "name": "rlPolicyActionDscpSupport",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "rlPolicyActionDsQueueManagmentSupported": {
+    "name": "rlPolicyActionDsQueueManagmentSupported",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supported": 1,
+          "notSupported": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "rlPolicyActionTable": {
+    "name": "rlPolicyActionTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyActionEntry": {
+    "name": "rlPolicyActionEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyActionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPolicyActionIndex": {
+    "name": "rlPolicyActionIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyActionNewDscp": {
+    "name": "rlPolicyActionNewDscp",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyActionChangeDscp": {
+    "name": "rlPolicyActionChangeDscp",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyActionMinThreshold": {
+    "name": "rlPolicyActionMinThreshold",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyActionMaxThreshold": {
+    "name": "rlPolicyActionMaxThreshold",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyActionDropPolicy": {
+    "name": "rlPolicyActionDropPolicy",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "alwaysDrop": 2,
+          "tailDrop": 3,
+          "randomDrop": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyActionDroppedPackets": {
+    "name": "rlPolicyActionDroppedPackets",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyActionNonDsInProfileDropPrecedence": {
+    "name": "rlPolicyActionNonDsInProfileDropPrecedence",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "medium": 2,
+          "high": 3,
+          "drop": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "low",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyActionNonDsOutProfileDropPrecedence": {
+    "name": "rlPolicyActionNonDsOutProfileDropPrecedence",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "medium": 2,
+          "high": 3,
+          "drop": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "low",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyActionChangeVpt": {
+    "name": "rlPolicyActionChangeVpt",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyActionNewVpt": {
+    "name": "rlPolicyActionNewVpt",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyActionServiceClassPointer": {
+    "name": "rlPolicyActionServiceClassPointer",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyActionStatus": {
+    "name": "rlPolicyActionStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyActionChangeDscpNonConform": {
+    "name": "rlPolicyActionChangeDscpNonConform",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyActionChangeNewDscpNonConform": {
+    "name": "rlPolicyActionChangeNewDscpNonConform",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyActionAdvancedTrustMode": {
+    "name": "rlPolicyActionAdvancedTrustMode",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyActionNewIpPrecedence": {
+    "name": "rlPolicyActionNewIpPrecedence",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyActionChangeIpPrecedence": {
+    "name": "rlPolicyActionChangeIpPrecedence",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyActionReDirect": {
+    "name": "rlPolicyActionReDirect",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlPolicyRedirectAction",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyActionNewInterface": {
+    "name": "rlPolicyActionNewInterface",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyActionChangeVidAction": {
+    "name": "rlPolicyActionChangeVidAction",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlPolicyMarkVlanAction",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "noMark",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyActionNewVid": {
+    "name": "rlPolicyActionNewVid",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyActionTrapTypeId": {
+    "name": "rlPolicyActionTrapTypeId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyActionAddTunnel": {
+    "name": "rlPolicyActionAddTunnel",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.5.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClass": {
+    "name": "rlPolicyServiceClass",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6",
+    "class": "objectidentity"
+  },
+  "rlPolicyServiceClassPlatDependParams": {
+    "name": "rlPolicyServiceClassPlatDependParams",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.1",
+    "class": "objectidentity"
+  },
+  "rlPolicyNumberOfServiceClassesSupported": {
+    "name": "rlPolicyNumberOfServiceClassesSupported",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyBoundedPriorityQueueSupport": {
+    "name": "rlPolicyBoundedPriorityQueueSupport",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supported": 1,
+          "notSupported": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "rlPolicyDefaultServiceClass": {
+    "name": "rlPolicyDefaultServiceClass",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyActiveServiceClassTable": {
+    "name": "rlPolicyActiveServiceClassTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notActive": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativeTable": {
+    "name": "rlPolicyServiceClassTentativeTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativeEntry": {
+    "name": "rlPolicyServiceClassTentativeEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyServiceClassTentativeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativeIndex": {
+    "name": "rlPolicyServiceClassTentativeIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativeName": {
+    "name": "rlPolicyServiceClassTentativeName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativePhbType": {
+    "name": "rlPolicyServiceClassTentativePhbType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "expeditedForwarding": 1,
+          "assuredForwarding": 2,
+          "bestEffort": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "bestEffort",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativeMinRate": {
+    "name": "rlPolicyServiceClassTentativeMinRate",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativeMaxRate": {
+    "name": "rlPolicyServiceClassTentativeMaxRate",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativePriority": {
+    "name": "rlPolicyServiceClassTentativePriority",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentative8021DPri": {
+    "name": "rlPolicyServiceClassTentative8021DPri",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativeStatus": {
+    "name": "rlPolicyServiceClassTentativeStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativeTdThersholdDp0": {
+    "name": "rlPolicyServiceClassTentativeTdThersholdDp0",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativeTdThersholdDp1": {
+    "name": "rlPolicyServiceClassTentativeTdThersholdDp1",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativeTdThersholdDp2": {
+    "name": "rlPolicyServiceClassTentativeTdThersholdDp2",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativeRedMinDp0": {
+    "name": "rlPolicyServiceClassTentativeRedMinDp0",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativeRedMaxDp0": {
+    "name": "rlPolicyServiceClassTentativeRedMaxDp0",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativeRedProbDp0": {
+    "name": "rlPolicyServiceClassTentativeRedProbDp0",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativeRedMinDp1": {
+    "name": "rlPolicyServiceClassTentativeRedMinDp1",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativeRedMaxDp1": {
+    "name": "rlPolicyServiceClassTentativeRedMaxDp1",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativeRedProbDp1": {
+    "name": "rlPolicyServiceClassTentativeRedProbDp1",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativeRedMinDp2": {
+    "name": "rlPolicyServiceClassTentativeRedMinDp2",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativeRedMaxDp2": {
+    "name": "rlPolicyServiceClassTentativeRedMaxDp2",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativeRedProbDp2": {
+    "name": "rlPolicyServiceClassTentativeRedProbDp2",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativeRedQweight": {
+    "name": "rlPolicyServiceClassTentativeRedQweight",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativeShaperStatus": {
+    "name": "rlPolicyServiceClassTentativeShaperStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativeCirQueueShaper": {
+    "name": "rlPolicyServiceClassTentativeCirQueueShaper",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassTentativeCbsQueueShaper": {
+    "name": "rlPolicyServiceClassTentativeCbsQueueShaper",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActiveTable": {
+    "name": "rlPolicyServiceClassActiveTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActiveEntry": {
+    "name": "rlPolicyServiceClassActiveEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyServiceClassActiveIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPolicyServiceClassActiveIndex": {
+    "name": "rlPolicyServiceClassActiveIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActiveName": {
+    "name": "rlPolicyServiceClassActiveName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActivePhbType": {
+    "name": "rlPolicyServiceClassActivePhbType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "expeditedForwarding": 1,
+          "assuredForwarding": 2,
+          "bestEffort": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "bestEffort",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActiveMinRate": {
+    "name": "rlPolicyServiceClassActiveMinRate",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActiveMaxRate": {
+    "name": "rlPolicyServiceClassActiveMaxRate",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActivePriority": {
+    "name": "rlPolicyServiceClassActivePriority",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActive8021DPri": {
+    "name": "rlPolicyServiceClassActive8021DPri",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActiveTdThersholdDp0": {
+    "name": "rlPolicyServiceClassActiveTdThersholdDp0",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActiveTdThersholdDp1": {
+    "name": "rlPolicyServiceClassActiveTdThersholdDp1",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActiveTdThersholdDp2": {
+    "name": "rlPolicyServiceClassActiveTdThersholdDp2",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActiveRedMinDp0": {
+    "name": "rlPolicyServiceClassActiveRedMinDp0",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActiveRedMaxDp0": {
+    "name": "rlPolicyServiceClassActiveRedMaxDp0",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActiveRedProbDp0": {
+    "name": "rlPolicyServiceClassActiveRedProbDp0",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActiveRedMinDp1": {
+    "name": "rlPolicyServiceClassActiveRedMinDp1",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActiveRedMaxDp1": {
+    "name": "rlPolicyServiceClassActiveRedMaxDp1",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActiveRedProbDp1": {
+    "name": "rlPolicyServiceClassActiveRedProbDp1",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActiveRedMinDp2": {
+    "name": "rlPolicyServiceClassActiveRedMinDp2",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActiveRedMaxDp2": {
+    "name": "rlPolicyServiceClassActiveRedMaxDp2",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActiveRedProbDp2": {
+    "name": "rlPolicyServiceClassActiveRedProbDp2",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActiveRedQweight": {
+    "name": "rlPolicyServiceClassActiveRedQweight",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActiveShaperStatus": {
+    "name": "rlPolicyServiceClassActiveShaperStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActiveCirQueueShaper": {
+    "name": "rlPolicyServiceClassActiveCirQueueShaper",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassActiveCbsQueueShaper": {
+    "name": "rlPolicyServiceClassActiveCbsQueueShaper",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyPortConfigurationTable": {
+    "name": "rlPolicyPortConfigurationTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyPortCfgEntry": {
+    "name": "rlPolicyPortCfgEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyPortCfgIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPolicyPortCfgIfIndex": {
+    "name": "rlPolicyPortCfgIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyPortCfgMinimalBandwidth": {
+    "name": "rlPolicyPortCfgMinimalBandwidth",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyPortCfgMaximalBandwidth": {
+    "name": "rlPolicyPortCfgMaximalBandwidth",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyPortCfgStatus": {
+    "name": "rlPolicyPortCfgStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlpolicyDropProfilePointer": {
+    "name": "rlpolicyDropProfilePointer",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyPortCfgQueueShaperStatus": {
+    "name": "rlPolicyPortCfgQueueShaperStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyPortCfgCirQueueShaper": {
+    "name": "rlPolicyPortCfgCirQueueShaper",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyPortCfgCbsQueueShaper": {
+    "name": "rlPolicyPortCfgCbsQueueShaper",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyPortCfgPortShaperStatus": {
+    "name": "rlPolicyPortCfgPortShaperStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyPortCfgCirPortShaper": {
+    "name": "rlPolicyPortCfgCirPortShaper",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyPortCfgCbsPortShaper": {
+    "name": "rlPolicyPortCfgCbsPortShaper",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyPortCfgPortRateLimitStatus": {
+    "name": "rlPolicyPortCfgPortRateLimitStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyPortCfgCirPortRateLimit": {
+    "name": "rlPolicyPortCfgCirPortRateLimit",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyPortCfgCbsPortRateLimit": {
+    "name": "rlPolicyPortCfgCbsPortRateLimit",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDropProfileTable": {
+    "name": "rlPolicyDropProfileTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyDropProfileEntry": {
+    "name": "rlPolicyDropProfileEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyDropProfileIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyDropProfileQueueNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPolicyDropProfileIndex": {
+    "name": "rlPolicyDropProfileIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyDropProfileQueueNumber": {
+    "name": "rlPolicyDropProfileQueueNumber",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyDropProfileTdThersholdDp0": {
+    "name": "rlPolicyDropProfileTdThersholdDp0",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDropProfileTdThersholdDp1": {
+    "name": "rlPolicyDropProfileTdThersholdDp1",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDropProfileTdThersholdDp2": {
+    "name": "rlPolicyDropProfileTdThersholdDp2",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDropProfileRedMinDp0": {
+    "name": "rlPolicyDropProfileRedMinDp0",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDropProfileRedMaxDp0": {
+    "name": "rlPolicyDropProfileRedMaxDp0",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDropProfileRedProbDp0": {
+    "name": "rlPolicyDropProfileRedProbDp0",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDropProfileRedMinDp1": {
+    "name": "rlPolicyDropProfileRedMinDp1",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDropProfileRedMaxDp1": {
+    "name": "rlPolicyDropProfileRedMaxDp1",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDropProfileRedProbDp1": {
+    "name": "rlPolicyDropProfileRedProbDp1",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDropProfileRedMinDp2": {
+    "name": "rlPolicyDropProfileRedMinDp2",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDropProfileRedMaxDp2": {
+    "name": "rlPolicyDropProfileRedMaxDp2",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDropProfileRedProbDp2": {
+    "name": "rlPolicyDropProfileRedProbDp2",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDropProfileRedQweight": {
+    "name": "rlPolicyDropProfileRedQweight",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDropProfileStatus": {
+    "name": "rlPolicyDropProfileStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyVlanConfigurationTable": {
+    "name": "rlPolicyVlanConfigurationTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyVlanCfgEntry": {
+    "name": "rlPolicyVlanCfgEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyVlanCfgVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPolicyVlanCfgVlanId": {
+    "name": "rlPolicyVlanCfgVlanId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyVlanCfgPortRateLimitStatus": {
+    "name": "rlPolicyVlanCfgPortRateLimitStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyVlanCfgCirPortRateLimit": {
+    "name": "rlPolicyVlanCfgCirPortRateLimit",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyVlanCfgCbsPortRateLimit": {
+    "name": "rlPolicyVlanCfgCbsPortRateLimit",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyVlanCfgStatus": {
+    "name": "rlPolicyVlanCfgStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.6.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDiffServ": {
+    "name": "rlPolicyDiffServ",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.7",
+    "class": "objectidentity"
+  },
+  "rlPolicyDiffServPlatDependParams": {
+    "name": "rlPolicyDiffServPlatDependParams",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.7.1",
+    "class": "objectidentity"
+  },
+  "rlDiffservModeSupported": {
+    "name": "rlDiffservModeSupported",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supported": 1,
+          "notSupported": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "rlDiffservModeEnabled": {
+    "name": "rlDiffservModeEnabled",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDiffservBoundaryTable": {
+    "name": "rlDiffservBoundaryTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlDiffservBoundaryEntry": {
+    "name": "rlDiffservBoundaryEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlDiffservBoundaryIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlDiffservBoundaryIfIndex": {
+    "name": "rlDiffservBoundaryIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDiffservBoundaryPortType": {
+    "name": "rlDiffservBoundaryPortType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "boundary": 1,
+          "interior": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "boundary",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDiffservBoundaryStatus": {
+    "name": "rlDiffservBoundaryStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyGlobalParams": {
+    "name": "rlPolicyGlobalParams",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.9",
+    "class": "objectidentity"
+  },
+  "rlPolicyGlobalOperationEnabled": {
+    "name": "rlPolicyGlobalOperationEnabled",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyGlobalDefaultForwarding": {
+    "name": "rlPolicyGlobalDefaultForwarding",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyGlobalAdminTrapfrequency": {
+    "name": "rlPolicyGlobalAdminTrapfrequency",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyGlobalOperTrapElapsedTime": {
+    "name": "rlPolicyGlobalOperTrapElapsedTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyGlobalQosMode": {
+    "name": "rlPolicyGlobalQosMode",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlPolicyQosMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "rlPolicyGlobalTrustMode": {
+    "name": "rlPolicyGlobalTrustMode",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlPolicyTrustTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "rlPolicyGlobalDeviceQosOperationTypes": {
+    "name": "rlPolicyGlobalDeviceQosOperationTypes",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "basic": 2,
+          "advanced": 3,
+          "all": 4,
+          "notSupported": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyGlobalDscpMutationSupported": {
+    "name": "rlPolicyGlobalDscpMutationSupported",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.9.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyGlobalClassifyIpPrecedenceSupported": {
+    "name": "rlPolicyGlobalClassifyIpPrecedenceSupported",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.9.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "rlPolicyGlobalDeviceShapingTypeSupported": {
+    "name": "rlPolicyGlobalDeviceShapingTypeSupported",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.9.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "portShaper": 1,
+          "queueShaper": 2,
+          "portAndQueueShaper": 3,
+          "notSupported": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyGlobalDscpRemarkingSupported": {
+    "name": "rlPolicyGlobalDscpRemarkingSupported",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.9.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyGlobalqueueSchedulerPerDeviceOrPort": {
+    "name": "rlPolicyGlobalqueueSchedulerPerDeviceOrPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.9.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "device": 1,
+          "port": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "rlPolicyMapping": {
+    "name": "rlPolicyMapping",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10",
+    "class": "objectidentity"
+  },
+  "rlPolicyDscpServiceClassTable": {
+    "name": "rlPolicyDscpServiceClassTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyDscpServiceClassEntry": {
+    "name": "rlPolicyDscpServiceClassEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyDscpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPolicyDscpIndex": {
+    "name": "rlPolicyDscpIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyServiceClassValue": {
+    "name": "rlPolicyServiceClassValue",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDscpServiceClassStatus": {
+    "name": "rlPolicyDscpServiceClassStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyTcpUdpPortServiceClassTable": {
+    "name": "rlPolicyTcpUdpPortServiceClassTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "rlPolicyTcpUdpPortServiceClassEntry": {
+    "name": "rlPolicyTcpUdpPortServiceClassEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyProtocolType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyTcpUdpPort",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "rlPolicyProtocolType": {
+    "name": "rlPolicyProtocolType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4ProtType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "rlPolicyTcpUdpPort": {
+    "name": "rlPolicyTcpUdpPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "rlPolicyMappedServiceClass": {
+    "name": "rlPolicyMappedServiceClass",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rlPolicyTcpUdpPortServiceClassStatus": {
+    "name": "rlPolicyTcpUdpPortServiceClassStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rlPolicyDscpRemarkTable": {
+    "name": "rlPolicyDscpRemarkTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyDscpRemarkEntry": {
+    "name": "rlPolicyDscpRemarkEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyRmOldDscp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPolicyRmOldDscp": {
+    "name": "rlPolicyRmOldDscp",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyRmNewDscp": {
+    "name": "rlPolicyRmNewDscp",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDscpRemarkStatus": {
+    "name": "rlPolicyDscpRemarkStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyRmNewExceedDscp": {
+    "name": "rlPolicyRmNewExceedDscp",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDscpMutationTable": {
+    "name": "rlPolicyDscpMutationTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyDscpMutationEntry": {
+    "name": "rlPolicyDscpMutationEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyOldDscp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPolicyOldDscp": {
+    "name": "rlPolicyOldDscp",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyNewDscp": {
+    "name": "rlPolicyNewDscp",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDscpMutationStatus": {
+    "name": "rlPolicyDscpMutationStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyTrustModeTable": {
+    "name": "rlPolicyTrustModeTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyTrustModeEntry": {
+    "name": "rlPolicyTrustModeEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyTrustModePortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPolicyTrustModePortNumber": {
+    "name": "rlPolicyTrustModePortNumber",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyTrustModePortState": {
+    "name": "rlPolicyTrustModePortState",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDscpVptTable": {
+    "name": "rlPolicyDscpVptTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyDscpVptEntry": {
+    "name": "rlPolicyDscpVptEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyDscpValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPolicyDscpValue": {
+    "name": "rlPolicyDscpValue",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyVptValue": {
+    "name": "rlPolicyVptValue",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDscpVptStatus": {
+    "name": "rlPolicyDscpVptStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDscpToDpTable": {
+    "name": "rlPolicyDscpToDpTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyDscpToDpEntry": {
+    "name": "rlPolicyDscpToDpEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyDscp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPolicyDscp": {
+    "name": "rlPolicyDscp",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyDp": {
+    "name": "rlPolicyDp",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDscpToDpStatus": {
+    "name": "rlPolicyDscpToDpStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.10.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDefaultForwardingTable": {
+    "name": "rlPolicyDefaultForwardingTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyDefaultForwardingEntry": {
+    "name": "rlPolicyDefaultForwardingEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyDefaultForwardingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPolicyDefaultForwardingIndex": {
+    "name": "rlPolicyDefaultForwardingIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyDefaultForwardingPortList": {
+    "name": "rlPolicyDefaultForwardingPortList",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDefaultForwardingVlanId1To1024": {
+    "name": "rlPolicyDefaultForwardingVlanId1To1024",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList1",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDefaultForwardingVlanId1025To2048": {
+    "name": "rlPolicyDefaultForwardingVlanId1025To2048",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList2",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDefaultForwardingVlanId2049To3072": {
+    "name": "rlPolicyDefaultForwardingVlanId2049To3072",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList3",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDefaultForwardingVlanId3073To4096": {
+    "name": "rlPolicyDefaultForwardingVlanId3073To4096",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList4",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDefaultForwardingLayer": {
+    "name": "rlPolicyDefaultForwardingLayer",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "l2": 1,
+          "l3": 2,
+          "l3-ipv6": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDefaultForwardingAction": {
+    "name": "rlPolicyDefaultForwardingAction",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 1,
+          "deny": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDefaultForwardingStatus": {
+    "name": "rlPolicyDefaultForwardingStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDefaultForwardingProtocol": {
+    "name": "rlPolicyDefaultForwardingProtocol",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bpdu": 1,
+          "icmpv6": 2,
+          "none": 255
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyStatistics": {
+    "name": "rlPolicyStatistics",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12",
+    "class": "objectidentity"
+  },
+  "rlPolicyPortPolicyStatisticsTable": {
+    "name": "rlPolicyPortPolicyStatisticsTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyPortPolicyStatisticsEntry": {
+    "name": "rlPolicyPortPolicyStatisticsEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyPortPolicyStatisticsIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyPortPolicyStatisticsCntrType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPolicyPortPolicyStatisticsIfIndex": {
+    "name": "rlPolicyPortPolicyStatisticsIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyPortPolicyStatisticsCntrType": {
+    "name": "rlPolicyPortPolicyStatisticsCntrType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StatisticsCntrType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyPolicyStatisticsCntrSize": {
+    "name": "rlPolicyPolicyStatisticsCntrSize",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StatisticsCntrNumOfBitsType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyPolicyStatisticsEnableCounting": {
+    "name": "rlPolicyPolicyStatisticsEnableCounting",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyPolicyStatisticsCounterValue": {
+    "name": "rlPolicyPolicyStatisticsCounterValue",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyOutQueueStatisticsTable": {
+    "name": "rlPolicyOutQueueStatisticsTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyOutQueueStatisticsEntry": {
+    "name": "rlPolicyOutQueueStatisticsEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyOutQueueStatisticsCountrID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPolicyOutQueueStatisticsCountrID": {
+    "name": "rlPolicyOutQueueStatisticsCountrID",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyOutQueueStatisticsIfIndexList": {
+    "name": "rlPolicyOutQueueStatisticsIfIndexList",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyOutQueueStatisticsPortAll": {
+    "name": "rlPolicyOutQueueStatisticsPortAll",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyOutQueueStatisticsVlan": {
+    "name": "rlPolicyOutQueueStatisticsVlan",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyOutQueueStatisticsVlanAll": {
+    "name": "rlPolicyOutQueueStatisticsVlanAll",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyOutQueueStatisticsQueue": {
+    "name": "rlPolicyOutQueueStatisticsQueue",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyOutQueueStatisticsQueueAll": {
+    "name": "rlPolicyOutQueueStatisticsQueueAll",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyOutQueueStatisticsDP": {
+    "name": "rlPolicyOutQueueStatisticsDP",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StatisticsDPType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyOutQueueStatisticsDPAll": {
+    "name": "rlPolicyOutQueueStatisticsDPAll",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyOutQueueStatisticsCounterTailDropValue": {
+    "name": "rlPolicyOutQueueStatisticsCounterTailDropValue",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyOutQueueStatisticsCounterAllValue": {
+    "name": "rlPolicyOutQueueStatisticsCounterAllValue",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyOutQueueStatisticsCntrNumOfBits": {
+    "name": "rlPolicyOutQueueStatisticsCntrNumOfBits",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StatisticsCntrNumOfBitsType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyOutQueueStatisticsStatus": {
+    "name": "rlPolicyOutQueueStatisticsStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyGlobalStatisticsCntrsTable": {
+    "name": "rlPolicyGlobalStatisticsCntrsTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyGlobalStatisticsCntrsEntry": {
+    "name": "rlPolicyGlobalStatisticsCntrsEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyGlobalStatisticsCntrsType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPolicyGlobalStatisticsCntrsType": {
+    "name": "rlPolicyGlobalStatisticsCntrsType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StatisticsCntrType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyGlobalStatisticsCntrsNumOfBits": {
+    "name": "rlPolicyGlobalStatisticsCntrsNumOfBits",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StatisticsCntrNumOfBitsType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyGlobalStatisticsCntrsCounterValue": {
+    "name": "rlPolicyGlobalStatisticsCntrsCounterValue",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyGlobalStatisticsStatus": {
+    "name": "rlPolicyGlobalStatisticsStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyClearCounters": {
+    "name": "rlPolicyClearCounters",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyClassifierUtilization": {
+    "name": "rlPolicyClassifierUtilization",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.13",
+    "class": "objectidentity"
+  },
+  "rlPolicyClassifierUtilizationTable": {
+    "name": "rlPolicyClassifierUtilizationTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.13.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyClassifierUtilizationEntry": {
+    "name": "rlPolicyClassifierUtilizationEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.13.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyClassifierUtilizationUnitId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPolicyClassifierUtilizationUnitId": {
+    "name": "rlPolicyClassifierUtilizationUnitId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.13.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyClassifierUtilizationPercent": {
+    "name": "rlPolicyClassifierUtilizationPercent",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.13.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyClassifierUtilizationRulesNumber": {
+    "name": "rlPolicyClassifierUtilizationRulesNumber",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.13.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyIsTCAvailable": {
+    "name": "rlPolicyIsTCAvailable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPolicyCPUSafeGuardEnable": {
+    "name": "rlPolicyCPUSafeGuardEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyQosModeGlobalCfgTable": {
+    "name": "rlPolicyQosModeGlobalCfgTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyQosModeGlobalCfgEntry": {
+    "name": "rlPolicyQosModeGlobalCfgEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-POLICY-MIB",
+        "object": "rlPolicyGlobalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPolicyGlobalIndex": {
+    "name": "rlPolicyGlobalIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPolicyGlobalQoSMode": {
+    "name": "rlPolicyGlobalQoSMode",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlPolicyQosMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyBasicGlobalTrustMode": {
+    "name": "rlPolicyBasicGlobalTrustMode",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlPolicyTrustTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyAdvcGlobalTrustMode": {
+    "name": "rlPolicyAdvcGlobalTrustMode",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlPolicyTrustTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyPortTrustAdvancedMode": {
+    "name": "rlPolicyPortTrustAdvancedMode",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyDscpMutationEnable": {
+    "name": "rlPolicyDscpMutationEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPolicyModeGlobalCfgStatus": {
+    "name": "rlPolicyModeGlobalCfgStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.59.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-POLICY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCOSB-POLICY-MIB"
+  }
+}

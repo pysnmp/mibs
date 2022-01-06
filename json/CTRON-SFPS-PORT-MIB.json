@@ -1,0 +1,1150 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-SFPS-INCLUDE-MIB": [
+      "sfpsPortAttributeAPI",
+      "sfpsPortStats",
+      "sfpsPortConfig",
+      "sfpsPortAttributeTable"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "SfpsSwitchPort": {
+    "name": "SfpsSwitchPort",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "HexInteger": {
+    "name": "HexInteger",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "sfpsInPortConfigTable": {
+    "name": "sfpsInPortConfigTable",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sfpsInPortConfigEntry": {
+    "name": "sfpsInPortConfigEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-PORT-MIB",
+        "object": "sfpsInPortConfigPort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sfpsInPortConfigPort": {
+    "name": "sfpsInPortConfigPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsSwitchPort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortConfigAdminStatus": {
+    "name": "sfpsInPortConfigAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3,
+          "loopback": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsInPortConfigOperStatus": {
+    "name": "sfpsInPortConfigOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3,
+          "pending-disable": 4,
+          "pending-enable": 5,
+          "invalid-config": 6,
+          "testing": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortConfigOperTime": {
+    "name": "sfpsInPortConfigOperTime",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortConfigType": {
+    "name": "sfpsInPortConfigType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "access-port": 2,
+          "network-port": 3,
+          "host-mgmt-port": 4,
+          "host-ctl-port": 5,
+          "unknown": 6,
+          "going-to-access": 7,
+          "hybrid-port": 8,
+          "stand-by": 9,
+          "network-only": 10,
+          "accessOnly": 11,
+          "raPrimary": 12,
+          "uplink": 13,
+          "fclStandby": 14,
+          "loopStandby": 15,
+          "raStandby": 16,
+          "flood": 17,
+          "uplinkFlood": 18,
+          "downlinkFlood": 19,
+          "unknown-ra-standby": 20
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsInPortConfigReservedBW": {
+    "name": "sfpsInPortConfigReservedBW",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsInPortConfigAllocBW": {
+    "name": "sfpsInPortConfigAllocBW",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortConfigQoS": {
+    "name": "sfpsInPortConfigQoS",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsInPortConfigQSize": {
+    "name": "sfpsInPortConfigQSize",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortConfigQLen": {
+    "name": "sfpsInPortConfigQLen",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortConfigSwitchId": {
+    "name": "sfpsInPortConfigSwitchId",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortConfigMediaType": {
+    "name": "sfpsInPortConfigMediaType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet": 1,
+          "fddi": 2,
+          "atm-lec": 3,
+          "token-ring": 4,
+          "wan": 5,
+          "inb": 6,
+          "hcp": 7,
+          "hdp": 8,
+          "atm-svc": 9,
+          "atm-pvc": 10,
+          "unknown": 11,
+          "atm-forum-lec": 12,
+          "atm-forum-pvc": 13,
+          "atm-forum-svc": 14
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortConfigFrontPanelPort": {
+    "name": "sfpsInPortConfigFrontPanelPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsSwitchPort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortConfigLinkStatus": {
+    "name": "sfpsInPortConfigLinkStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "linkUp": 2,
+          "linkDown": 3,
+          "link-N-A": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortConfigLinkStateAge": {
+    "name": "sfpsInPortConfigLinkStateAge",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortConfigRouterPort": {
+    "name": "sfpsInPortConfigRouterPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "router-port": 2,
+          "no-router": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortConfigSlotNumber": {
+    "name": "sfpsInPortConfigSlotNumber",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortConfigMib2PortId": {
+    "name": "sfpsInPortConfigMib2PortId",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortConfigTopoAgent": {
+    "name": "sfpsInPortConfigTopoAgent",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortConfigLayer3Learning": {
+    "name": "sfpsInPortConfigLayer3Learning",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsOutPortConfigTable": {
+    "name": "sfpsOutPortConfigTable",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sfpsOutPortConfigEntry": {
+    "name": "sfpsOutPortConfigEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-PORT-MIB",
+        "object": "sfpsOutPortConfigPort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sfpsOutPortConfigPort": {
+    "name": "sfpsOutPortConfigPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsSwitchPort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsOutPortConfigAdminStatus": {
+    "name": "sfpsOutPortConfigAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3,
+          "loopback": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsOutPortConfigOperStatus": {
+    "name": "sfpsOutPortConfigOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3,
+          "pending-disable": 4,
+          "pending-enable": 5,
+          "invalid-config": 6,
+          "testing": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsOutPortConfigOperTime": {
+    "name": "sfpsOutPortConfigOperTime",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsOutPortConfigType": {
+    "name": "sfpsOutPortConfigType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "access-port": 2,
+          "network-port": 3,
+          "host-mgmt-port": 4,
+          "host-ctl-port": 5,
+          "unknown": 6,
+          "going-to-access": 7,
+          "hybrid-port": 8,
+          "stand-by": 9,
+          "network-only": 10,
+          "accessOnly": 11,
+          "raPrimary": 12,
+          "standbyFCLConflict": 13,
+          "standbyLoopedPort": 14,
+          "standbyVersionConflict": 15,
+          "standbyRANonPrimary": 16,
+          "flood": 17,
+          "uplinkFlood": 18,
+          "downlinkFlood": 19,
+          "unknown-ra-standby": 20
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsOutPortConfigReservedBW": {
+    "name": "sfpsOutPortConfigReservedBW",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsOutPortConfigAllocBW": {
+    "name": "sfpsOutPortConfigAllocBW",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsOutPortConfigQoS": {
+    "name": "sfpsOutPortConfigQoS",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsOutPortConfigQSize": {
+    "name": "sfpsOutPortConfigQSize",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsOutPortConfigQLen": {
+    "name": "sfpsOutPortConfigQLen",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsOutPortConfigSwitchId": {
+    "name": "sfpsOutPortConfigSwitchId",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsOutPortConfigMediaType": {
+    "name": "sfpsOutPortConfigMediaType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet": 1,
+          "fddi": 2,
+          "atm-lec": 3,
+          "token-ring": 4,
+          "wan": 5,
+          "inb": 6,
+          "hcp": 7,
+          "hdp": 8,
+          "atm-encap": 9,
+          "atm-pvc": 10,
+          "unknown": 11,
+          "atm-forum-lec": 12,
+          "atm-forum-pvc": 13,
+          "atm-forum-svc": 14
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsOutPortConfigFrontPanelPort": {
+    "name": "sfpsOutPortConfigFrontPanelPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsSwitchPort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsOutPortConfigLinkStatus": {
+    "name": "sfpsOutPortConfigLinkStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "linkUp": 2,
+          "linkDown": 3,
+          "linkNA": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsOutPortConfigLinkStateAge": {
+    "name": "sfpsOutPortConfigLinkStateAge",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsOutPortConfigRouterPort": {
+    "name": "sfpsOutPortConfigRouterPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "router-port": 2,
+          "no-router": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsOutPortConfigSlotNumber": {
+    "name": "sfpsOutPortConfigSlotNumber",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsOutPortConfigMib2PortId": {
+    "name": "sfpsOutPortConfigMib2PortId",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortStatsTable": {
+    "name": "sfpsInPortStatsTable",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sfpsInPortStatsEntry": {
+    "name": "sfpsInPortStatsEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-PORT-MIB",
+        "object": "sfpsInPortStatsPort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sfpsInPortStatsPort": {
+    "name": "sfpsInPortStatsPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsSwitchPort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortStatsAdminStatus": {
+    "name": "sfpsInPortStatsAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsInPortStatsReset": {
+    "name": "sfpsInPortStatsReset",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsInPortStatsOperTime": {
+    "name": "sfpsInPortStatsOperTime",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortStatsPkts": {
+    "name": "sfpsInPortStatsPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortStatsDiscardPkts": {
+    "name": "sfpsInPortStatsDiscardPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortStatsBytes": {
+    "name": "sfpsInPortStatsBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortStatsDiscardBytes": {
+    "name": "sfpsInPortStatsDiscardBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortStatsQOverflows": {
+    "name": "sfpsInPortStatsQOverflows",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortStatsLinkUps": {
+    "name": "sfpsInPortStatsLinkUps",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsInPortStatsLinkDowns": {
+    "name": "sfpsInPortStatsLinkDowns",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsOutPortStatsTable": {
+    "name": "sfpsOutPortStatsTable",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sfpsOutPortStatsEntry": {
+    "name": "sfpsOutPortStatsEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-PORT-MIB",
+        "object": "sfpsOutPortStatsPort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sfpsOutPortStatsPort": {
+    "name": "sfpsOutPortStatsPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsSwitchPort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsOutPortStatsAdminStatus": {
+    "name": "sfpsOutPortStatsAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsOutPortStatsReset": {
+    "name": "sfpsOutPortStatsReset",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsOutPortStatsOperTime": {
+    "name": "sfpsOutPortStatsOperTime",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsOutPortStatsPkts": {
+    "name": "sfpsOutPortStatsPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsOutPortStatsDiscardPkts": {
+    "name": "sfpsOutPortStatsDiscardPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsOutPortStatsBytes": {
+    "name": "sfpsOutPortStatsBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsOutPortStatsDiscardBytes": {
+    "name": "sfpsOutPortStatsDiscardBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsOutPortStatsQOverflows": {
+    "name": "sfpsOutPortStatsQOverflows",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsOutPortStatsLinkUps": {
+    "name": "sfpsOutPortStatsLinkUps",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsOutPortStatsLinkDowns": {
+    "name": "sfpsOutPortStatsLinkDowns",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsPortAttributePort": {
+    "name": "sfpsPortAttributePort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.9.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsPortAttributeAttributes": {
+    "name": "sfpsPortAttributeAttributes",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.9.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HexInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsPortAttributeLearnSelfArp": {
+    "name": "sfpsPortAttributeLearnSelfArp",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.9.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 2,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsPortAttributeAPIVerb": {
+    "name": "sfpsPortAttributeAPIVerb",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.9.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "resetAll": 2,
+          "resetPort": 3,
+          "enablePortAttr": 4,
+          "disablePortAttr": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsPortAttributeAPIPort": {
+    "name": "sfpsPortAttributeAPIPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.9.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsPortAttributeAPIAttribute": {
+    "name": "sfpsPortAttributeAPIAttribute",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.2.1.9.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 2,
+          "learnSelfArp": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-PORT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CTRON-SFPS-PORT-MIB"
+  }
+}

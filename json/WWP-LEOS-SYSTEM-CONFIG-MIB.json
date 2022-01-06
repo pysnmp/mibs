@@ -1,0 +1,3230 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
+      "enterprises",
+      "Gauge32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-TYPE",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "DateAndTime",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ],
+    "WWP-SMI": [
+      "wwpModulesLeos"
+    ]
+  },
+  "FileName": {
+    "name": "FileName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "SystemClientAdminState": {
+    "name": "SystemClientAdminState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SystemServerAdminState": {
+    "name": "SystemServerAdminState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "wwpLeosSystemConfigMIB": {
+    "name": "wwpLeosSystemConfigMIB",
+    "oid": "1.3.6.1.4.1.6141.2.60.12",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-08-20 00:00",
+        "description": "Defined wwpLeosSystemXFtpSftp, wwpLeosSystemXFtpSftpClient, and wwpLeosSystemXftpSftpClientAlgorithm along with all of the objects these nodes encompass, providing the ability to configure the algorithms used by the various functions of the SFTP client's SSH protocol when used by the xftp feature."
+      },
+      {
+        "revision": "2015-07-17 00:00",
+        "description": "Corrected DESCRIPTION for wwpLeosSystemXFtpFtpServerSecret and wwpLeosSystemXFtpSFtpServerSecret."
+      },
+      {
+        "revision": "2015-06-22 00:00",
+        "description": "Added wwpLeosSystemXFtpSecret."
+      },
+      {
+        "revision": "2015-01-21 00:00",
+        "description": "Added wwpLeosSystemScpServerAdminState."
+      },
+      {
+        "revision": "2014-11-10 00:00",
+        "description": "Defined SystemClientAdminState, wwpLeosSystemClients, wwpLeosSystemFtpClientAdminState, and wwpLeosSystemTftpClientAdminState to support ability to enable/disable ftp and tftp client connections from the device."
+      },
+      {
+        "revision": "2014-10-15 00:00",
+        "description": "Changed the SYNTAX of wwpLeosSystemXFtpFtpServerSecret to OCTET STRING(SIZE(0..259)). Changed the SYNTAX of wwpLeosSystemXFtpSFtpServerSecret to OCTET STRING(SIZE(0..259))."
+      },
+      {
+        "revision": "2014-07-15 00:00",
+        "description": "Updated descriptions in wwpLeosTelnetMaxBaseUserSessions, wwpLeosTelnetMaxAdminUserSessions, and wwpLeosTelnetMaxSuperUserSessions to be more accurate."
+      },
+      {
+        "revision": "2013-04-23 00:00",
+        "description": "Miscellaneous spelling and description corrections."
+      },
+      {
+        "revision": "2012-10-30 00:00",
+        "description": "Added wwpLeosSystemFtpServerAdminState and wwpLeosSystemTftpServerAdminState for enable/disable of FTP/TFTP server. Added new entries to show status of /mnt/xftp directory along with its associated trap."
+      },
+      {
+        "revision": "2012-09-19 00:00",
+        "description": "Added wwpLeosSystemServers for enable/disable of SFTP server."
+      },
+      {
+        "revision": "2012-07-06 00:00",
+        "description": "Added three new tables for XFTP server settings."
+      },
+      {
+        "revision": "2012-06-27 00:00",
+        "description": "Corrected string lengths."
+      },
+      {
+        "revision": "2012-04-16 00:00",
+        "description": "Added a new table for Default Gateway to support IPv6 configuration. The old OID, wwpLeosSystemConfigDefaultGateway, will continue to support ipv4 configuration."
+      },
+      {
+        "revision": "2011-11-05 00:00",
+        "description": "Added a new table for Guardian configuration"
+      },
+      {
+        "revision": "2011-07-05 00:00",
+        "description": "Added a new object wwpLeosTelnetMaxAdminUserSessions."
+      },
+      {
+        "revision": "2002-03-16 00:00",
+        "description": "Initial creation."
+      }
+    ]
+  },
+  "wwpLeosSystemConfigMIBObjects": {
+    "name": "wwpLeosSystemConfigMIBObjects",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1",
+    "class": "objectidentity"
+  },
+  "wwpLeosSystemConfigAttr": {
+    "name": "wwpLeosSystemConfigAttr",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1",
+    "class": "objectidentity"
+  },
+  "wwpLeosSystemConfigDefaultGateway": {
+    "name": "wwpLeosSystemConfigDefaultGateway",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigBootCmdFile": {
+    "name": "wwpLeosSystemConfigBootCmdFile",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FileName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigBootCfgFile": {
+    "name": "wwpLeosSystemConfigBootCfgFile",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FileName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemClockDateTime": {
+    "name": "wwpLeosSystemClockDateTime",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigSavePermFile": {
+    "name": "wwpLeosSystemConfigSavePermFile",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FileName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigLastFileNameReset": {
+    "name": "wwpLeosSystemConfigLastFileNameReset",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemServiceMode": {
+    "name": "wwpLeosSystemServiceMode",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "mpls": 1,
+          "pbt": 2,
+          "aoam": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigBackupGateway": {
+    "name": "wwpLeosSystemConfigBackupGateway",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigCustomerCfgFile": {
+    "name": "wwpLeosSystemConfigCustomerCfgFile",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FileName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigDefaultGatewayTable": {
+    "name": "wwpLeosSystemConfigDefaultGatewayTable",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigDefaultGatewayEntry": {
+    "name": "wwpLeosSystemConfigDefaultGatewayEntry",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemConfigDefaultGatewayIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemConfigDefaultGatewayIndex": {
+    "name": "wwpLeosSystemConfigDefaultGatewayIndex",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigDefaultGatewayInetAddrType": {
+    "name": "wwpLeosSystemConfigDefaultGatewayInetAddrType",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigDefaultGatewayInetAddress": {
+    "name": "wwpLeosSystemConfigDefaultGatewayInetAddress",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigDefaultGatewayInterfaceName": {
+    "name": "wwpLeosSystemConfigDefaultGatewayInterfaceName",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigDefaultGatewayMetric": {
+    "name": "wwpLeosSystemConfigDefaultGatewayMetric",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigDefaultGatewayStatus": {
+    "name": "wwpLeosSystemConfigDefaultGatewayStatus",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigBackupGatewayTable": {
+    "name": "wwpLeosSystemConfigBackupGatewayTable",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigBackupGatewayEntry": {
+    "name": "wwpLeosSystemConfigBackupGatewayEntry",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemConfigBackupGatewayIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemConfigBackupGatewayIndex": {
+    "name": "wwpLeosSystemConfigBackupGatewayIndex",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigBackupGatewayInetAddrType": {
+    "name": "wwpLeosSystemConfigBackupGatewayInetAddrType",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigBackupGatewayInetAddress": {
+    "name": "wwpLeosSystemConfigBackupGatewayInetAddress",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigBackupGatewayInterfaceName": {
+    "name": "wwpLeosSystemConfigBackupGatewayInterfaceName",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigBackupGatewayMetric": {
+    "name": "wwpLeosSystemConfigBackupGatewayMetric",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigBackupGatewayStatus": {
+    "name": "wwpLeosSystemConfigBackupGatewayStatus",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosSystemConfig": {
+    "name": "wwpLeosSystemConfig",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.2",
+    "class": "objectidentity"
+  },
+  "wwpLeosSystemConfigSaveFileName": {
+    "name": "wwpLeosSystemConfigSaveFileName",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FileName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigControl": {
+    "name": "wwpLeosSystemConfigControl",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "save": 1,
+          "mfgDefaultCfg": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigFilepath": {
+    "name": "wwpLeosSystemConfigFilepath",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FileName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigFileTable": {
+    "name": "wwpLeosSystemConfigFileTable",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigFileEntry": {
+    "name": "wwpLeosSystemConfigFileEntry",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemConfigFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemConfigFileIndex": {
+    "name": "wwpLeosSystemConfigFileIndex",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigFileName": {
+    "name": "wwpLeosSystemConfigFileName",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FileName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigActivateFile": {
+    "name": "wwpLeosSystemConfigActivateFile",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loadCfg": 1,
+          "resetToCfg": 2,
+          "none": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemTelnet": {
+    "name": "wwpLeosSystemTelnet",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.3",
+    "class": "objectidentity"
+  },
+  "wwpLeosTelnetMaxBaseUserSessions": {
+    "name": "wwpLeosTelnetMaxBaseUserSessions",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosTelnetMaxSuperUserSessions": {
+    "name": "wwpLeosTelnetMaxSuperUserSessions",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosTelnetMaxAdminUserSessions": {
+    "name": "wwpLeosTelnetMaxAdminUserSessions",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuLoadQuery": {
+    "name": "wwpLeosSystemCpuLoadQuery",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.7",
+    "class": "objectidentity"
+  },
+  "wwpLeosSystemCpuLoad1Min": {
+    "name": "wwpLeosSystemCpuLoad1Min",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuLoad10Min": {
+    "name": "wwpLeosSystemCpuLoad10Min",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuLoad15Min": {
+    "name": "wwpLeosSystemCpuLoad15Min",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuLoad5Min": {
+    "name": "wwpLeosSystemCpuLoad5Min",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuLoad1MinMinimum": {
+    "name": "wwpLeosSystemCpuLoad1MinMinimum",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuLoad1MinMaximum": {
+    "name": "wwpLeosSystemCpuLoad1MinMaximum",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuLoad1MinState": {
+    "name": "wwpLeosSystemCpuLoad1MinState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "degraded": 3,
+          "faulted": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuLoad15MinMinimum": {
+    "name": "wwpLeosSystemCpuLoad15MinMinimum",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuLoad15MinMaximum": {
+    "name": "wwpLeosSystemCpuLoad15MinMaximum",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuLoad15MinState": {
+    "name": "wwpLeosSystemCpuLoad15MinState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.7.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "degraded": 3,
+          "faulted": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuLoad5MinMinimum": {
+    "name": "wwpLeosSystemCpuLoad5MinMinimum",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.7.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuLoad5MinMaximum": {
+    "name": "wwpLeosSystemCpuLoad5MinMaximum",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.7.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuLoad5MinState": {
+    "name": "wwpLeosSystemCpuLoad5MinState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.7.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "degraded": 3,
+          "faulted": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigNotif": {
+    "name": "wwpLeosSystemConfigNotif",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.8",
+    "class": "objectidentity"
+  },
+  "wwpLeosSystemConfigNotifTable": {
+    "name": "wwpLeosSystemConfigNotifTable",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigNotifEntry": {
+    "name": "wwpLeosSystemConfigNotifEntry",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemConfigFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemConfigErrLineNum": {
+    "name": "wwpLeosSystemConfigErrLineNum",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigErrStr": {
+    "name": "wwpLeosSystemConfigErrStr",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigErrLinesTotal": {
+    "name": "wwpLeosSystemConfigErrLinesTotal",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemMemoryUsageQuery": {
+    "name": "wwpLeosSystemMemoryUsageQuery",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.9",
+    "class": "objectidentity"
+  },
+  "wwpLeosSystemMemoryUsageTable": {
+    "name": "wwpLeosSystemMemoryUsageTable",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemMemoryUsageEntry": {
+    "name": "wwpLeosSystemMemoryUsageEntry",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemMemoryUsagePoolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemMemoryUsagePoolIndex": {
+    "name": "wwpLeosSystemMemoryUsagePoolIndex",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ose-pool-1": 1,
+          "global-heap": 2,
+          "malloc-heap": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemMemoryUsageMemoryTotal": {
+    "name": "wwpLeosSystemMemoryUsageMemoryTotal",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemMemoryUsageMemoryLWM": {
+    "name": "wwpLeosSystemMemoryUsageMemoryLWM",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemMemoryUsageMemoryFree": {
+    "name": "wwpLeosSystemMemoryUsageMemoryFree",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemMemoryUsageStatus": {
+    "name": "wwpLeosSystemMemoryUsageStatus",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "lowMemory": 2,
+          "notSupported": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemMemoryUsageMemoryUsed": {
+    "name": "wwpLeosSystemMemoryUsageMemoryUsed",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemMemoryUsageMemoryAvailable": {
+    "name": "wwpLeosSystemMemoryUsageMemoryAvailable",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.9.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtp": {
+    "name": "wwpLeosSystemXFtp",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10",
+    "class": "objectidentity"
+  },
+  "wwpLeosSystemXFtpMode": {
+    "name": "wwpLeosSystemXFtpMode",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tftp": 1,
+          "ftp": 2,
+          "sftp": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpServer": {
+    "name": "wwpLeosSystemXFtpServer",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpUserName": {
+    "name": "wwpLeosSystemXFtpUserName",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpPasswd": {
+    "name": "wwpLeosSystemXFtpPasswd",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpNumOfRetries": {
+    "name": "wwpLeosSystemXFtpNumOfRetries",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpRetryInterval": {
+    "name": "wwpLeosSystemXFtpRetryInterval",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpConnectionTimeout": {
+    "name": "wwpLeosSystemXFtpConnectionTimeout",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpTFtpServerTable": {
+    "name": "wwpLeosSystemXFtpTFtpServerTable",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpTFtpServerEntry": {
+    "name": "wwpLeosSystemXFtpTFtpServerEntry",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemXFtpTFtpServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpTFtpServerIndex": {
+    "name": "wwpLeosSystemXFtpTFtpServerIndex",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpTFtpServerHostName": {
+    "name": "wwpLeosSystemXFtpTFtpServerHostName",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpTFtpServerRowStatus": {
+    "name": "wwpLeosSystemXFtpTFtpServerRowStatus",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpFtpServerTable": {
+    "name": "wwpLeosSystemXFtpFtpServerTable",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpFtpServerEntry": {
+    "name": "wwpLeosSystemXFtpFtpServerEntry",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemXFtpFtpServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpFtpServerIndex": {
+    "name": "wwpLeosSystemXFtpFtpServerIndex",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpFtpServerHostName": {
+    "name": "wwpLeosSystemXFtpFtpServerHostName",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpFtpServerUserName": {
+    "name": "wwpLeosSystemXFtpFtpServerUserName",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpFtpServerPassword": {
+    "name": "wwpLeosSystemXFtpFtpServerPassword",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpFtpServerSecret": {
+    "name": "wwpLeosSystemXFtpFtpServerSecret",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 259
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpFtpServerRowStatus": {
+    "name": "wwpLeosSystemXFtpFtpServerRowStatus",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpSFtpServerTable": {
+    "name": "wwpLeosSystemXFtpSFtpServerTable",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpSFtpServerEntry": {
+    "name": "wwpLeosSystemXFtpSFtpServerEntry",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemXFtpSFtpServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpSFtpServerIndex": {
+    "name": "wwpLeosSystemXFtpSFtpServerIndex",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpSFtpServerHostName": {
+    "name": "wwpLeosSystemXFtpSFtpServerHostName",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpSFtpServerUserName": {
+    "name": "wwpLeosSystemXFtpSFtpServerUserName",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpSFtpServerPassword": {
+    "name": "wwpLeosSystemXFtpSFtpServerPassword",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpSFtpServerSecret": {
+    "name": "wwpLeosSystemXFtpSFtpServerSecret",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 259
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpSFtpServerRowStatus": {
+    "name": "wwpLeosSystemXFtpSFtpServerRowStatus",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpSecret": {
+    "name": "wwpLeosSystemXFtpSecret",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 259
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemXFtpSftp": {
+    "name": "wwpLeosSystemXFtpSftp",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12",
+    "class": "objectidentity"
+  },
+  "wwpLeosSystemXFtpSftpClient": {
+    "name": "wwpLeosSystemXFtpSftpClient",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1",
+    "class": "objectidentity"
+  },
+  "wwpLeosSystemXftpSftpClientAlgorithm": {
+    "name": "wwpLeosSystemXftpSftpClientAlgorithm",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1",
+    "class": "objectidentity"
+  },
+  "wwpLeosSystemXftpSftpClientKexAlgorithmTable": {
+    "name": "wwpLeosSystemXftpSftpClientKexAlgorithmTable",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientKexAlgorithmEntry": {
+    "name": "wwpLeosSystemXftpSftpClientKexAlgorithmEntry",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemXftpSftpClientKexAlgorithmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientKexAlgorithmIndex": {
+    "name": "wwpLeosSystemXftpSftpClientKexAlgorithmIndex",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientKexAlgorithmName": {
+    "name": "wwpLeosSystemXftpSftpClientKexAlgorithmName",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientKexAlgorithmAdminState": {
+    "name": "wwpLeosSystemXftpSftpClientKexAlgorithmAdminState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientKexAlgorithmOperState": {
+    "name": "wwpLeosSystemXftpSftpClientKexAlgorithmOperState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientKexAlgorithmPriority": {
+    "name": "wwpLeosSystemXftpSftpClientKexAlgorithmPriority",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientServerHostKeyAlgorithmTable": {
+    "name": "wwpLeosSystemXftpSftpClientServerHostKeyAlgorithmTable",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientServerHostKeyAlgorithmEntry": {
+    "name": "wwpLeosSystemXftpSftpClientServerHostKeyAlgorithmEntry",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemXftpSftpClientServerHostKeyAlgorithmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientServerHostKeyAlgorithmIndex": {
+    "name": "wwpLeosSystemXftpSftpClientServerHostKeyAlgorithmIndex",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientServerHostKeyAlgorithmName": {
+    "name": "wwpLeosSystemXftpSftpClientServerHostKeyAlgorithmName",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientServerHostKeyAlgorithmAdminState": {
+    "name": "wwpLeosSystemXftpSftpClientServerHostKeyAlgorithmAdminState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientServerHostKeyAlgorithmOperState": {
+    "name": "wwpLeosSystemXftpSftpClientServerHostKeyAlgorithmOperState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientServerHostKeyAlgorithmPriority": {
+    "name": "wwpLeosSystemXftpSftpClientServerHostKeyAlgorithmPriority",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientEncryptionAlgorithmTable": {
+    "name": "wwpLeosSystemXftpSftpClientEncryptionAlgorithmTable",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientEncryptionAlgorithmEntry": {
+    "name": "wwpLeosSystemXftpSftpClientEncryptionAlgorithmEntry",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemXftpSftpClientEncryptionAlgorithmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientEncryptionAlgorithmIndex": {
+    "name": "wwpLeosSystemXftpSftpClientEncryptionAlgorithmIndex",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientEncryptionAlgorithmName": {
+    "name": "wwpLeosSystemXftpSftpClientEncryptionAlgorithmName",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientEncryptionAlgorithmAdminState": {
+    "name": "wwpLeosSystemXftpSftpClientEncryptionAlgorithmAdminState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientEncryptionAlgorithmOperState": {
+    "name": "wwpLeosSystemXftpSftpClientEncryptionAlgorithmOperState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientEncryptionAlgorithmPriority": {
+    "name": "wwpLeosSystemXftpSftpClientEncryptionAlgorithmPriority",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientMacAlgorithmTable": {
+    "name": "wwpLeosSystemXftpSftpClientMacAlgorithmTable",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientMacAlgorithmEntry": {
+    "name": "wwpLeosSystemXftpSftpClientMacAlgorithmEntry",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemXftpSftpClientMacAlgorithmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientMacAlgorithmIndex": {
+    "name": "wwpLeosSystemXftpSftpClientMacAlgorithmIndex",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientMacAlgorithmName": {
+    "name": "wwpLeosSystemXftpSftpClientMacAlgorithmName",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientMacAlgorithmAdminState": {
+    "name": "wwpLeosSystemXftpSftpClientMacAlgorithmAdminState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientMacAlgorithmOperState": {
+    "name": "wwpLeosSystemXftpSftpClientMacAlgorithmOperState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientMacAlgorithmPriority": {
+    "name": "wwpLeosSystemXftpSftpClientMacAlgorithmPriority",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientCompressionAlgorithmTable": {
+    "name": "wwpLeosSystemXftpSftpClientCompressionAlgorithmTable",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientCompressionAlgorithmEntry": {
+    "name": "wwpLeosSystemXftpSftpClientCompressionAlgorithmEntry",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemXftpSftpClientCompressionAlgorithmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientCompressionAlgorithmIndex": {
+    "name": "wwpLeosSystemXftpSftpClientCompressionAlgorithmIndex",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientCompressionAlgorithmName": {
+    "name": "wwpLeosSystemXftpSftpClientCompressionAlgorithmName",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientCompressionAlgorithmAdminState": {
+    "name": "wwpLeosSystemXftpSftpClientCompressionAlgorithmAdminState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientCompressionAlgorithmOperState": {
+    "name": "wwpLeosSystemXftpSftpClientCompressionAlgorithmOperState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemXftpSftpClientCompressionAlgorithmPriority": {
+    "name": "wwpLeosSystemXftpSftpClientCompressionAlgorithmPriority",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.10.12.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuUtilization": {
+    "name": "wwpLeosSystemCpuUtilization",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.11",
+    "class": "objectidentity"
+  },
+  "wwpLeosSystemCpuUtilizationLast5Seconds": {
+    "name": "wwpLeosSystemCpuUtilizationLast5Seconds",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuUtilizationLast5SecondsMinimum": {
+    "name": "wwpLeosSystemCpuUtilizationLast5SecondsMinimum",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuUtilizationLast5SecondsMaximum": {
+    "name": "wwpLeosSystemCpuUtilizationLast5SecondsMaximum",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuUtilizationLast5SecondsState": {
+    "name": "wwpLeosSystemCpuUtilizationLast5SecondsState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "degraded": 3,
+          "faulted": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuUtilizationLast10Seconds": {
+    "name": "wwpLeosSystemCpuUtilizationLast10Seconds",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuUtilizationLast10SecondsMinimum": {
+    "name": "wwpLeosSystemCpuUtilizationLast10SecondsMinimum",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.11.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuUtilizationLast10SecondsMaximum": {
+    "name": "wwpLeosSystemCpuUtilizationLast10SecondsMaximum",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.11.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuUtilizationLast10SecondsState": {
+    "name": "wwpLeosSystemCpuUtilizationLast10SecondsState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.11.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "degraded": 3,
+          "faulted": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuUtilizationLast60Seconds": {
+    "name": "wwpLeosSystemCpuUtilizationLast60Seconds",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.11.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuUtilizationLast60SecondsMinimum": {
+    "name": "wwpLeosSystemCpuUtilizationLast60SecondsMinimum",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.11.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuUtilizationLast60SecondsMaximum": {
+    "name": "wwpLeosSystemCpuUtilizationLast60SecondsMaximum",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.11.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemCpuUtilizationLast60SecondsState": {
+    "name": "wwpLeosSystemCpuUtilizationLast60SecondsState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.11.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "degraded": 3,
+          "faulted": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemFileSystemUtilization": {
+    "name": "wwpLeosSystemFileSystemUtilization",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.12",
+    "class": "objectidentity"
+  },
+  "wwpLeosSystemFileSystemUtilizationTmpfsCurrent": {
+    "name": "wwpLeosSystemFileSystemUtilizationTmpfsCurrent",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemFileSystemUtilizationTmpfsMinimum": {
+    "name": "wwpLeosSystemFileSystemUtilizationTmpfsMinimum",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemFileSystemUtilizationTmpfsMaximum": {
+    "name": "wwpLeosSystemFileSystemUtilizationTmpfsMaximum",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemFileSystemUtilizationTmpfsState": {
+    "name": "wwpLeosSystemFileSystemUtilizationTmpfsState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "degraded": 3,
+          "faulted": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemFileSystemUtilizationSysfsCurrent": {
+    "name": "wwpLeosSystemFileSystemUtilizationSysfsCurrent",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemFileSystemUtilizationSysfsMinimum": {
+    "name": "wwpLeosSystemFileSystemUtilizationSysfsMinimum",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.12.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemFileSystemUtilizationSysfsMaximum": {
+    "name": "wwpLeosSystemFileSystemUtilizationSysfsMaximum",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.12.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemFileSystemUtilizationSysfsState": {
+    "name": "wwpLeosSystemFileSystemUtilizationSysfsState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.12.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "degraded": 3,
+          "faulted": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemFileSystemUtilizationXftpCurrent": {
+    "name": "wwpLeosSystemFileSystemUtilizationXftpCurrent",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.12.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemFileSystemUtilizationXftpMinimum": {
+    "name": "wwpLeosSystemFileSystemUtilizationXftpMinimum",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.12.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemFileSystemUtilizationXftpMaximum": {
+    "name": "wwpLeosSystemFileSystemUtilizationXftpMaximum",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.12.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemFileSystemUtilizationXftpState": {
+    "name": "wwpLeosSystemFileSystemUtilizationXftpState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.12.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "degraded": 3,
+          "faulted": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemMemoryUtilization": {
+    "name": "wwpLeosSystemMemoryUtilization",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.13",
+    "class": "objectidentity"
+  },
+  "wwpLeosSystemMemoryUtilizationUsedMemoryCurrent": {
+    "name": "wwpLeosSystemMemoryUtilizationUsedMemoryCurrent",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemMemoryUtilizationUsedMemoryMinimum": {
+    "name": "wwpLeosSystemMemoryUtilizationUsedMemoryMinimum",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemMemoryUtilizationUsedMemoryMaximum": {
+    "name": "wwpLeosSystemMemoryUtilizationUsedMemoryMaximum",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemMemoryUtilizationAvailableMemoryCurrent": {
+    "name": "wwpLeosSystemMemoryUtilizationAvailableMemoryCurrent",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemMemoryUtilizationAvailableMemoryMinimum": {
+    "name": "wwpLeosSystemMemoryUtilizationAvailableMemoryMinimum",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.13.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemMemoryUtilizationAvailableMemoryMaximum": {
+    "name": "wwpLeosSystemMemoryUtilizationAvailableMemoryMaximum",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.13.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemMemoryUtilizationAvailableMemoryState": {
+    "name": "wwpLeosSystemMemoryUtilizationAvailableMemoryState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.13.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "degraded": 3,
+          "faulted": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemGuardian": {
+    "name": "wwpLeosSystemGuardian",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.14",
+    "class": "objectidentity"
+  },
+  "wwpLeosSystemGuardianAdminEnable": {
+    "name": "wwpLeosSystemGuardianAdminEnable",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemGuardianOperEnable": {
+    "name": "wwpLeosSystemGuardianOperEnable",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.14.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "suspended": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemGuardianLimitNumReboots": {
+    "name": "wwpLeosSystemGuardianLimitNumReboots",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.14.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemGuardianConsecutiveReboots": {
+    "name": "wwpLeosSystemGuardianConsecutiveReboots",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.14.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemGuardianTotalReboots": {
+    "name": "wwpLeosSystemGuardianTotalReboots",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.14.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosSystemServers": {
+    "name": "wwpLeosSystemServers",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.15",
+    "class": "objectidentity"
+  },
+  "wwpLeosSystemSftpServerAdminState": {
+    "name": "wwpLeosSystemSftpServerAdminState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.15.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SystemServerAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemFtpServerAdminState": {
+    "name": "wwpLeosSystemFtpServerAdminState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.15.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SystemServerAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemTftpServerAdminState": {
+    "name": "wwpLeosSystemTftpServerAdminState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.15.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SystemServerAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemScpServerAdminState": {
+    "name": "wwpLeosSystemScpServerAdminState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.15.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SystemServerAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemClients": {
+    "name": "wwpLeosSystemClients",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.16",
+    "class": "objectidentity"
+  },
+  "wwpLeosSystemFtpClientAdminState": {
+    "name": "wwpLeosSystemFtpClientAdminState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.16.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SystemClientAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemTftpClientAdminState": {
+    "name": "wwpLeosSystemTftpClientAdminState",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.1.16.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SystemClientAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosSystemConfigMIBNotificationPrefix": {
+    "name": "wwpLeosSystemConfigMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.2",
+    "class": "objectidentity"
+  },
+  "wwpLeosSystemConfigMIBNotifications": {
+    "name": "wwpLeosSystemConfigMIBNotifications",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.2.0",
+    "class": "objectidentity"
+  },
+  "wwpLeosImproperCmdInConfigFile": {
+    "name": "wwpLeosImproperCmdInConfigFile",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemConfigFileName"
+      },
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemConfigErrLineNum"
+      },
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemConfigErrLinesTotal"
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemServiceModeChange": {
+    "name": "wwpLeosSystemServiceModeChange",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemServiceMode"
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemMemoryStatusNotification": {
+    "name": "wwpLeosSystemMemoryStatusNotification",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemMemoryUsageMemoryTotal"
+      },
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemMemoryUsageMemoryFree"
+      },
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemMemoryUsageStatus"
+      },
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemMemoryUsageMemoryAvailable"
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosImproperCmdInConfigLineString": {
+    "name": "wwpLeosImproperCmdInConfigLineString",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemConfigErrStr"
+      },
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemConfigErrLineNum"
+      },
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemConfigFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemCpuUtilization5SecondStatusTrap": {
+    "name": "wwpLeosSystemCpuUtilization5SecondStatusTrap",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemCpuUtilizationLast5Seconds"
+      },
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemCpuUtilizationLast5SecondsState"
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemCpuUtilization10SecondStatusTrap": {
+    "name": "wwpLeosSystemCpuUtilization10SecondStatusTrap",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemCpuUtilizationLast10Seconds"
+      },
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemCpuUtilizationLast10SecondsState"
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemCpuUtilization60SecondStatusTrap": {
+    "name": "wwpLeosSystemCpuUtilization60SecondStatusTrap",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemCpuUtilizationLast60Seconds"
+      },
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemCpuUtilizationLast60SecondsState"
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemCpu1MinLoadStatusTrap": {
+    "name": "wwpLeosSystemCpu1MinLoadStatusTrap",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemCpuLoad1Min"
+      },
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemCpuLoad1MinState"
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemCpu5MinLoadStatusTrap": {
+    "name": "wwpLeosSystemCpu5MinLoadStatusTrap",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.2.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemCpuLoad5Min"
+      },
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemCpuLoad5MinState"
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemCpu15MinLoadStatusTrap": {
+    "name": "wwpLeosSystemCpu15MinLoadStatusTrap",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemCpuLoad15Min"
+      },
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemCpuLoad15MinState"
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemMemoryUtilizationStatusTrap": {
+    "name": "wwpLeosSystemMemoryUtilizationStatusTrap",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.2.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemMemoryUtilizationAvailableMemoryCurrent"
+      },
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemMemoryUtilizationAvailableMemoryState"
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemFileSystemUtilizationTmpStatusTrap": {
+    "name": "wwpLeosSystemFileSystemUtilizationTmpStatusTrap",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.2.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemFileSystemUtilizationTmpfsCurrent"
+      },
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemFileSystemUtilizationTmpfsState"
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemFileSystemUtilizationSysfsStatusTrap": {
+    "name": "wwpLeosSystemFileSystemUtilizationSysfsStatusTrap",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.2.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemFileSystemUtilizationSysfsCurrent"
+      },
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemFileSystemUtilizationSysfsState"
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemFileSystemUtilizationXftpStatusTrap": {
+    "name": "wwpLeosSystemFileSystemUtilizationXftpStatusTrap",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.2.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemFileSystemUtilizationXftpCurrent"
+      },
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemFileSystemUtilizationXftpState"
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemConfigMIBConformance": {
+    "name": "wwpLeosSystemConfigMIBConformance",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.3",
+    "class": "objectidentity"
+  },
+  "wwpLeosSystemConfigCompliances": {
+    "name": "wwpLeosSystemConfigCompliances",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.3.1",
+    "class": "objectidentity"
+  },
+  "wwpLeosDefaultGatewayCompliance": {
+    "name": "wwpLeosDefaultGatewayCompliance",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "wwpLeosDefaultGatewayIPv6Group",
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosBackupGatewayCompliance": {
+    "name": "wwpLeosBackupGatewayCompliance",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "wwpLeosBackupGatewayIPv6Group",
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosSystemConfigMIBGroups": {
+    "name": "wwpLeosSystemConfigMIBGroups",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.3.2",
+    "class": "objectidentity"
+  },
+  "wwpLeosDefaultGatewayIPv6Group": {
+    "name": "wwpLeosDefaultGatewayIPv6Group",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemConfigDefaultGatewayInetAddrType"
+      },
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemConfigDefaultGatewayInetAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosBackupGatewayIPv6Group": {
+    "name": "wwpLeosBackupGatewayIPv6Group",
+    "oid": "1.3.6.1.4.1.6141.2.60.12.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemConfigBackupGatewayInetAddrType"
+      },
+      {
+        "module": "WWP-LEOS-SYSTEM-CONFIG-MIB",
+        "object": "wwpLeosSystemConfigBackupGatewayInetAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WWP-LEOS-SYSTEM-CONFIG",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "WWP-LEOS-SYSTEM-CONFIG-MIB"
+  }
+}

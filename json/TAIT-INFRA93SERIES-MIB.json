@@ -1,0 +1,3714 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TAIT-COMMON-MIB": [
+      "taitGeneric"
+    ],
+    "TAIT-INFRA93-94SERIES-COMMON-MIB": [
+      "infra93-94MibModule"
+    ],
+    "TAIT-INFRA93-94SERIES-TC-MIB": [
+      "CurrentmA",
+      "PowerW",
+      "GateState",
+      "AlarmState",
+      "OptionState",
+      "TransmitterStatus",
+      "Condition",
+      "TimingControlType",
+      "Milliseconds",
+      "BaseStationMode",
+      "FrequencyHz",
+      "VoltageV",
+      "ChannelGroupStatus"
+    ],
+    "TAIT-INFRA93SERIES-TC-MIB": [
+      "Temperature",
+      "FrequencydHz",
+      "OperationalMode",
+      "ReceiverSyncStatus",
+      "TxFrequencyResponse",
+      "LogicalChannelState",
+      "ControlProtocolStatus",
+      "DcsCode",
+      "ColourCode",
+      "SubAudibleType",
+      "RxFrequencyResponse",
+      "MPTControlProtocolStatus",
+      "SINADLevel",
+      "FallbackNodeStatus",
+      "Ratio",
+      "StandaloneNodeStatus",
+      "LeveldBm",
+      "TransmitterSyncStatus"
+    ]
+  },
+  "infra93MibMonitored": {
+    "name": "infra93MibMonitored",
+    "oid": "1.3.6.1.4.1.3570.1.1.10.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-08-30 15:38",
+        "description": "Version 1.24.00 - Added linearTransmissionCapability object group. - This group is optional and will be present only for systems equipped with a linear power amplifier. - This group contains the following alarms: rctAlarmTxRSynthOutOfLock systemAlarmCartesianLoopUnstable systemAlarmTxRCableAbsent - Added optional pmuInfoGroup object group. - pmuAlarmsGroup and pmuStateGroup are now optional."
+      },
+      {
+        "revision": "2019-05-29 00:00",
+        "description": "Version 1.23.00 - Minor text revisions"
+      },
+      {
+        "revision": "2019-03-30 00:00",
+        "description": "Version 1.22.00 - healthNetworkConnLogChan1State, healthNetworkConnLogChan2State references updated"
+      },
+      {
+        "revision": "2018-08-30 00:00",
+        "description": "Version 1.21.00 - Added audio line configured levels, tx-key, rx-gate and rf repeat - Added receiver disabled state monitored value."
+      },
+      {
+        "revision": "2018-07-30 00:00",
+        "description": "Version 1.20.00 - Clarified the meaning of the configuration invalid alarm"
+      },
+      {
+        "revision": "2018-05-22 00:26",
+        "description": "Version 1.19.00 - Added new logical channel states TEST and POLL - modified textual convention value for INVALID from 4 to 255"
+      },
+      {
+        "revision": "2017-09-14 01:30",
+        "description": "Version 1.18.00 - Add channel group name to current channel properties - nwSvpPort Monitored value in the TB93XX series Base Stations"
+      },
+      {
+        "revision": "2017-08-24 14:00",
+        "description": "Version 1.17.00 - Two backup NTP servers added - Added channelgroup properties - status, localBufferLevel, furthestBufferLevel, marshalingType, marshallingDuration, Receiver and Transmitter synchronization status/reason - Added DMR Central Voter and DMR IP Networking Satellite licences - Added single-base-station as an option for channelgroup status - Added monitoring parameters for channelgroup network characteristics - nwChannelGroupLateStreamsCount, nwChannelGroupOverflowCount, nwChannelGroupUnderflowCount nwChannelGroupLostPacketsCount, nwChannelGroupJitter - TX Buffer alarm added"
+      },
+      {
+        "revision": "2017-05-05 15:00",
+        "description": "Version 1.16.00 - Simulcast related alarms added"
+      },
+      {
+        "revision": "2017-03-07 00:00",
+        "description": "Version 1.15.00 - Fixed missing MAX-ACCESS entires on OIDs: linkInfoDMRNodeIPAddress, linkInfoDMRNodePriority, linkInfoMPTNodeIPAddress, linkInfoMPTNodePriority"
+      },
+      {
+        "revision": "2017-02-03 00:00",
+        "description": "Version 1.14.01 - Fixed missing MAX-ACCESS entires on OIDs: linkInfoDMRNodeIPAddress, linkInfoDMRNodePriority, linkInfoMPTNodeIPAddress, linkInfoMPTNodePriority"
+      },
+      {
+        "revision": "2016-12-05 00:00",
+        "description": "Version 1.14.00 - Added support for MPT conventional fallback - Added status of the MPT fallback node - Added status of the DMR fallback node - Added state of the receiver's analog gate - Added the node controller IP addresses and priorities for DMR and MPT - Added the colour code of the channel"
+      },
+      {
+        "revision": "2016-07-01 00:00",
+        "description": "Version 1.13.00 - Added configured Ntp server visibility - Copied PMU State items from TB9400 MIB - Updated DCS formatting description"
+      },
+      {
+        "revision": "2016-02-18 00:00",
+        "description": "Version 1.12.00 - Updated ControlProtocolStatus description tfor name change from dmr-rx-only to dmr-hibernate. - Updated ControlProtocolStatus description to include dmr-tier2-aligned mode. - Updated where logical receiver gating information comes from."
+      },
+      {
+        "revision": "2015-11-03 04:00",
+        "description": "Version 1.11.00 - Fixed missing alarm getters for pa reverse power high, pa final 2 temperature high and pmu output current high - Added licenceAnalogConventional - Updated description for infoStandaloneNodeStatus - updated alarm range descriptions - added temperature for reciter board (rctTemperatureBoard)"
+      },
+      {
+        "revision": "2015-03-23 04:00",
+        "description": "Version 1.10.00 - Added DMR Conventional license state"
+      },
+      {
+        "revision": "2014-10-30 15:00",
+        "description": "Version 1.09.00 - Description text reviewed"
+      },
+      {
+        "revision": "2014-07-29 00:00",
+        "description": "Version 1.08.00 - Report the number of interference events"
+      },
+      {
+        "revision": "2014-07-10 00:00",
+        "description": "1.07.00 - Able to monitor the running state of the secure shell interface"
+      },
+      {
+        "revision": "2014-04-14 00:00",
+        "description": "1.06.00 - Add system alarms for TDMA"
+      },
+      {
+        "revision": "2014-04-13 00:00",
+        "description": "1.05.00 - Added values for use during coverage testing"
+      },
+      {
+        "revision": "2014-03-14 00:00",
+        "description": "1.04.01 - Modified description of the inactive logical channel state"
+      },
+      {
+        "revision": "2014-01-26 00:00",
+        "description": "1.04.00 - Moved textual convention module identity OID to start at 1"
+      },
+      {
+        "revision": "2014-01-14 11:00",
+        "description": "1.03.03 - Addition of interference counter and interference over threshold"
+      },
+      {
+        "revision": "2014-01-01 00:00",
+        "description": "These versions were recorded prior to utilization of the MODULE-IDENTITY change log: 1.03.02 - Modified textual convention for states of logical channels, OFF(0)=>INACTIVE(0) 1.03.01 - Updated description for dmr-two-slot-data now that it is supported 1.03.00 - Addition of packet lost counters 1.02.00 - Addition of licenses and module detail information 1.00.04 - New standalone node alarms Two alarms have been added for the standalone node. This resulted in two new traps: systemFallbackControlled and systemDuplicateNodePriority. Also two new OIDs in the MIB: systemAlarmFallbackControlled and systemAlarmDuplicateNodePriority 1.00.03 - Modifications to names of states ControlProtocolStatus: offline(0) enum has been renamed to unconnected(0) unconnected(1) enum has been DEPRECATED and will no longer be used by new base station software. idle(2) enum has been renamed to standby(2) The consequences for mismatched old base stations with new MIBs and new base stations with old MIBs are as follows: Old base station queried with new MIBs in NMS: offline(0) => unconnected(0) unconnected(1) => deprecated_unconnected(1) idle(2) => standby(2) New base station queried with old MIBs in NMS: unconnected(0) => offline(0) standby(2) => idle(2) LogicalChannelState: offline(0) enum has been renamed to off(0) 1.00.02 - Initial version prior to change log entries"
+      }
+    ]
+  },
+  "infra93MIB": {
+    "name": "infra93MIB",
+    "oid": "1.3.6.1.4.1.3570.2.2",
+    "class": "objectidentity"
+  },
+  "monitored": {
+    "name": "monitored",
+    "oid": "1.3.6.1.4.1.3570.2.2.2",
+    "class": "objectidentity"
+  },
+  "mibObjects": {
+    "name": "mibObjects",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1",
+    "class": "objectidentity"
+  },
+  "productInfo": {
+    "name": "productInfo",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.1",
+    "class": "objectidentity"
+  },
+  "productSummary": {
+    "name": "productSummary",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.1.1",
+    "class": "objectidentity"
+  },
+  "info": {
+    "name": "info",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "health": {
+    "name": "health",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "productEnabledFeatures": {
+    "name": "productEnabledFeatures",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.1.2",
+    "class": "objectidentity"
+  },
+  "modules": {
+    "name": "modules",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2",
+    "class": "objectidentity"
+  },
+  "reciter": {
+    "name": "reciter",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2",
+    "class": "objectidentity"
+  },
+  "rctSummary": {
+    "name": "rctSummary",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.1",
+    "class": "objectidentity"
+  },
+  "rctInfo": {
+    "name": "rctInfo",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.1.1",
+    "class": "objectidentity"
+  },
+  "rctHealth": {
+    "name": "rctHealth",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.1.2",
+    "class": "objectidentity"
+  },
+  "rctSelectedChannel": {
+    "name": "rctSelectedChannel",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.2",
+    "class": "objectidentity"
+  },
+  "rctRfReceiveQuality": {
+    "name": "rctRfReceiveQuality",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.3",
+    "class": "objectidentity"
+  },
+  "rctRfReceiver": {
+    "name": "rctRfReceiver",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.4",
+    "class": "objectidentity"
+  },
+  "rctRfTransmitter": {
+    "name": "rctRfTransmitter",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.5",
+    "class": "objectidentity"
+  },
+  "rctTemperature": {
+    "name": "rctTemperature",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.6",
+    "class": "objectidentity"
+  },
+  "rctSystemInterface": {
+    "name": "rctSystemInterface",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.7",
+    "class": "objectidentity"
+  },
+  "powerAmplifier": {
+    "name": "powerAmplifier",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.3",
+    "class": "objectidentity"
+  },
+  "paSummary": {
+    "name": "paSummary",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.3.1",
+    "class": "objectidentity"
+  },
+  "paInfo": {
+    "name": "paInfo",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.3.1.1",
+    "class": "objectidentity"
+  },
+  "paHealth": {
+    "name": "paHealth",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.3.1.2",
+    "class": "objectidentity"
+  },
+  "paTxOutput": {
+    "name": "paTxOutput",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.3.2",
+    "class": "objectidentity"
+  },
+  "paTemperature": {
+    "name": "paTemperature",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.3.4",
+    "class": "objectidentity"
+  },
+  "paGeneral": {
+    "name": "paGeneral",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.3.5",
+    "class": "objectidentity"
+  },
+  "powerManagementUnit": {
+    "name": "powerManagementUnit",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.4",
+    "class": "objectidentity"
+  },
+  "pmuSummary": {
+    "name": "pmuSummary",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.4.1",
+    "class": "objectidentity"
+  },
+  "pmuInfo": {
+    "name": "pmuInfo",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.4.1.1",
+    "class": "objectidentity"
+  },
+  "pmuHealth": {
+    "name": "pmuHealth",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.4.1.2",
+    "class": "objectidentity"
+  },
+  "pmuSubmodules": {
+    "name": "pmuSubmodules",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.4.1.3",
+    "class": "objectidentity"
+  },
+  "pmuState": {
+    "name": "pmuState",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.4.2",
+    "class": "objectidentity"
+  },
+  "frontPanel": {
+    "name": "frontPanel",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.5",
+    "class": "objectidentity"
+  },
+  "fpSummary": {
+    "name": "fpSummary",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.5.1",
+    "class": "objectidentity"
+  },
+  "fpInfo": {
+    "name": "fpInfo",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.5.1.1",
+    "class": "objectidentity"
+  },
+  "fpHealth": {
+    "name": "fpHealth",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.5.1.2",
+    "class": "objectidentity"
+  },
+  "alarms": {
+    "name": "alarms",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3",
+    "class": "objectidentity"
+  },
+  "alarmSummary": {
+    "name": "alarmSummary",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.1",
+    "class": "objectidentity"
+  },
+  "reciterAlarms": {
+    "name": "reciterAlarms",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.3",
+    "class": "objectidentity"
+  },
+  "paAlarms": {
+    "name": "paAlarms",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.4",
+    "class": "objectidentity"
+  },
+  "pmuAlarms": {
+    "name": "pmuAlarms",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.5",
+    "class": "objectidentity"
+  },
+  "customAlarms": {
+    "name": "customAlarms",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.6",
+    "class": "objectidentity"
+  },
+  "fpAlarms": {
+    "name": "fpAlarms",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.7",
+    "class": "objectidentity"
+  },
+  "systemAlarms": {
+    "name": "systemAlarms",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.8",
+    "class": "objectidentity"
+  },
+  "networkLinks": {
+    "name": "networkLinks",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.4",
+    "class": "objectidentity"
+  },
+  "networkLinksSummary": {
+    "name": "networkLinksSummary",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.4.1",
+    "class": "objectidentity"
+  },
+  "linkInfo": {
+    "name": "linkInfo",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.4.1.1",
+    "class": "objectidentity"
+  },
+  "linkHealth": {
+    "name": "linkHealth",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.4.1.2",
+    "class": "objectidentity"
+  },
+  "networkInterfaces": {
+    "name": "networkInterfaces",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.5",
+    "class": "objectidentity"
+  },
+  "nwNtpInterface": {
+    "name": "nwNtpInterface",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.5.1",
+    "class": "objectidentity"
+  },
+  "nwChannelGroup": {
+    "name": "nwChannelGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.5.2",
+    "class": "objectidentity"
+  },
+  "nwPorts": {
+    "name": "nwPorts",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.5.3",
+    "class": "objectidentity"
+  },
+  "mibConformance": {
+    "name": "mibConformance",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5",
+    "class": "objectidentity"
+  },
+  "mibGroups": {
+    "name": "mibGroups",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1",
+    "class": "objectidentity"
+  },
+  "mibCompliance": {
+    "name": "mibCompliance",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.2",
+    "class": "objectidentity"
+  },
+  "licenceDmrFull": {
+    "name": "licenceDmrFull",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.1.2.300",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenceDmrExpress": {
+    "name": "licenceDmrExpress",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.1.2.302",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenceDmrAccess": {
+    "name": "licenceDmrAccess",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.1.2.303",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenceDmrConventional": {
+    "name": "licenceDmrConventional",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.1.2.304",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenceAnalogConventional": {
+    "name": "licenceAnalogConventional",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.1.2.301",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenceDmrExpress20": {
+    "name": "licenceDmrExpress20",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.1.2.305",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenceDmrCentralVoter": {
+    "name": "licenceDmrCentralVoter",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.1.2.306",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenceDmrNetworkSatellite": {
+    "name": "licenceDmrNetworkSatellite",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.1.2.307",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoTransmitterStatus": {
+    "name": "infoTransmitterStatus",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TransmitterStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoStandaloneNodeStatus": {
+    "name": "infoStandaloneNodeStatus",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StandaloneNodeStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "infoMPTFallbackNodeStatus": {
+    "name": "infoMPTFallbackNodeStatus",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FallbackNodeStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoDMRFallbackNodeStatus": {
+    "name": "infoDMRFallbackNodeStatus",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FallbackNodeStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "healthRunMode": {
+    "name": "healthRunMode",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BaseStationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "healthNetworkConnLogChan1State": {
+    "name": "healthNetworkConnLogChan1State",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LogicalChannelState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "healthNetworkConnLogChan2State": {
+    "name": "healthNetworkConnLogChan2State",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LogicalChannelState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "healthSecureShellRunning": {
+    "name": "healthSecureShellRunning",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctInfoProductCode": {
+    "name": "rctInfoProductCode",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctInfoSerialNumber": {
+    "name": "rctInfoSerialNumber",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctInfoHardwareVersion": {
+    "name": "rctInfoHardwareVersion",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctInfoFirmwareVersion": {
+    "name": "rctInfoFirmwareVersion",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctRfReceiverRSSI": {
+    "name": "rctRfReceiverRSSI",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LeveldBm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctRfReceiverLC1RSSI": {
+    "name": "rctRfReceiverLC1RSSI",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LeveldBm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctRfReceiverLC2RSSI": {
+    "name": "rctRfReceiverLC2RSSI",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LeveldBm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctRfReceiverLC1RxGateState": {
+    "name": "rctRfReceiverLC1RxGateState",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctRfReceiverLC2RxGateState": {
+    "name": "rctRfReceiverLC2RxGateState",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctRfReceiverSelectedDecodeCTCSS": {
+    "name": "rctRfReceiverSelectedDecodeCTCSS",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FrequencydHz",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctRfReceiverSelectedDecodeSubAudibleType": {
+    "name": "rctRfReceiverSelectedDecodeSubAudibleType",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubAudibleType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctRfReceiverSelectedSINADGatingLevel": {
+    "name": "rctRfReceiverSelectedSINADGatingLevel",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SINADLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctRfReceiverSelectedDecodeDCS": {
+    "name": "rctRfReceiverSelectedDecodeDCS",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DcsCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctRfReceiverSelectedFrequencyResponse": {
+    "name": "rctRfReceiverSelectedFrequencyResponse",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RxFrequencyResponse",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctRfReceiverAnalogGateState": {
+    "name": "rctRfReceiverAnalogGateState",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctRfReceiverIsDisabled": {
+    "name": "rctRfReceiverIsDisabled",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctRfTxSelectedEncodeCTCSS": {
+    "name": "rctRfTxSelectedEncodeCTCSS",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FrequencydHz",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctRfTxSelectedEncodeSubAudibleType": {
+    "name": "rctRfTxSelectedEncodeSubAudibleType",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubAudibleType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctRfTxSelectFrequencyResponse": {
+    "name": "rctRfTxSelectFrequencyResponse",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TxFrequencyResponse",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctRfTxSelectedEncodeDCS": {
+    "name": "rctRfTxSelectedEncodeDCS",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DcsCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctRfTxSelectedEncodeSubAudibleDeviation": {
+    "name": "rctRfTxSelectedEncodeSubAudibleDeviation",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctRfTxRfRepeatState": {
+    "name": "rctRfTxRfRepeatState",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.5.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptionState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctTemperatureBoard": {
+    "name": "rctTemperatureBoard",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Temperature",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctSiConfiguredBalancedLineInLevel": {
+    "name": "rctSiConfiguredBalancedLineInLevel",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LeveldBm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctSiConfiguredBalancedLineOutLevel": {
+    "name": "rctSiConfiguredBalancedLineOutLevel",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LeveldBm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctSiTxKey": {
+    "name": "rctSiTxKey",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GateState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctSiRxGate": {
+    "name": "rctSiRxGate",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GateState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paInfoProductCode": {
+    "name": "paInfoProductCode",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.3.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paInfoSerialNumber": {
+    "name": "paInfoSerialNumber",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.3.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paInfoHardwareVersion": {
+    "name": "paInfoHardwareVersion",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.3.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paInfoFirmwareVersion": {
+    "name": "paInfoFirmwareVersion",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.3.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fpInfoProductCode": {
+    "name": "fpInfoProductCode",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.5.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fpInfoSerialNumber": {
+    "name": "fpInfoSerialNumber",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.5.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fpInfoHardwareVersion": {
+    "name": "fpInfoHardwareVersion",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.5.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fpInfoFirmwareVersion": {
+    "name": "fpInfoFirmwareVersion",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.5.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuInfoProductCode": {
+    "name": "pmuInfoProductCode",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.4.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuInfoSerialNumber": {
+    "name": "pmuInfoSerialNumber",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.4.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuInfoHardwareVersion": {
+    "name": "pmuInfoHardwareVersion",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.4.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuInfoFirmwareVersion": {
+    "name": "pmuInfoFirmwareVersion",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.4.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuInfoCalibrationUpdateDate": {
+    "name": "pmuInfoCalibrationUpdateDate",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.4.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuStateMainsInState": {
+    "name": "pmuStateMainsInState",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Condition",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuStateBatteryInState": {
+    "name": "pmuStateBatteryInState",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Condition",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuStateBatteryInVoltage": {
+    "name": "pmuStateBatteryInVoltage",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VoltageV",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuStateOutCurrent": {
+    "name": "pmuStateOutCurrent",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CurrentmA",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuStateOutVoltage": {
+    "name": "pmuStateOutVoltage",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VoltageV",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuStateOutStatus": {
+    "name": "pmuStateOutStatus",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Condition",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuStateAuxOutState": {
+    "name": "pmuStateAuxOutState",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.4.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Condition",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuStateBusConnect": {
+    "name": "pmuStateBusConnect",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.4.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctSelectedChannelNumber": {
+    "name": "rctSelectedChannelNumber",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctSelectedChannelName": {
+    "name": "rctSelectedChannelName",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctSelectedChannelProfileName": {
+    "name": "rctSelectedChannelProfileName",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctSelectedChannelSigProfileName": {
+    "name": "rctSelectedChannelSigProfileName",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctSelectedChannelTransmitPower": {
+    "name": "rctSelectedChannelTransmitPower",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PowerW",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctSelectedChannelTxFreq": {
+    "name": "rctSelectedChannelTxFreq",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FrequencyHz",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctSelectedChannelRxFreq": {
+    "name": "rctSelectedChannelRxFreq",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FrequencyHz",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctSelectedChannelSystemType": {
+    "name": "rctSelectedChannelSystemType",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperationalMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctSelectedChannelColourCode": {
+    "name": "rctSelectedChannelColourCode",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColourCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctSelectedChannelGroupName": {
+    "name": "rctSelectedChannelGroupName",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctRfRcvInterference": {
+    "name": "rctRfRcvInterference",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctRfInterferenceCounter": {
+    "name": "rctRfInterferenceCounter",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctRfInterferenceEvents": {
+    "name": "rctRfInterferenceEvents",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paTxOutputForwardPower": {
+    "name": "paTxOutputForwardPower",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PowerW",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paTxOutputVSWR": {
+    "name": "paTxOutputVSWR",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.2.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ratio",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkInfoCtrlProtocolStatus": {
+    "name": "linkInfoCtrlProtocolStatus",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.4.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ControlProtocolStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkInfoNetworkPacketCount": {
+    "name": "linkInfoNetworkPacketCount",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.4.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkInfoMPTCtrlProtocolStatus": {
+    "name": "linkInfoMPTCtrlProtocolStatus",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.4.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MPTControlProtocolStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkInfoDMRNodeIPAddress": {
+    "name": "linkInfoDMRNodeIPAddress",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.4.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkInfoDMRNodePriority": {
+    "name": "linkInfoDMRNodePriority",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.4.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkInfoMPTNodeIPAddress": {
+    "name": "linkInfoMPTNodeIPAddress",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.4.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkInfoMPTNodePriority": {
+    "name": "linkInfoMPTNodePriority",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.4.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkHealthNetworkPacketLostCount": {
+    "name": "linkHealthNetworkPacketLostCount",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.4.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkHealthNetworkJitterLastOver": {
+    "name": "linkHealthNetworkJitterLastOver",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.4.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkHealthNetworkJitterCount": {
+    "name": "linkHealthNetworkJitterCount",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.4.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkHealthSequenceErrorsCount": {
+    "name": "linkHealthSequenceErrorsCount",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.4.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nwConfiguredNtpServerAddress": {
+    "name": "nwConfiguredNtpServerAddress",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nwConfiguredNtpBackupServerAddress1": {
+    "name": "nwConfiguredNtpBackupServerAddress1",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nwConfiguredNtpBackupServerAddress2": {
+    "name": "nwConfiguredNtpBackupServerAddress2",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSummaryBaseStation": {
+    "name": "alarmSummaryBaseStation",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSummaryReciter": {
+    "name": "alarmSummaryReciter",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSummaryPowerAmplifier": {
+    "name": "alarmSummaryPowerAmplifier",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSummaryPowerManagementUnit": {
+    "name": "alarmSummaryPowerManagementUnit",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSummaryCustomAlarms": {
+    "name": "alarmSummaryCustomAlarms",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSummaryFrontPanel": {
+    "name": "alarmSummaryFrontPanel",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSummarySystem": {
+    "name": "alarmSummarySystem",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSummaryMinor": {
+    "name": "alarmSummaryMinor",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSummaryMajor": {
+    "name": "alarmSummaryMajor",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctAlarmRxSynthOutOfLock": {
+    "name": "rctAlarmRxSynthOutOfLock",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctAlarmInvalidChannelSelected": {
+    "name": "rctAlarmInvalidChannelSelected",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctAlarmOverTemperature": {
+    "name": "rctAlarmOverTemperature",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctAlarmTxCalibrationInvalid": {
+    "name": "rctAlarmTxCalibrationInvalid",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctAlarmRxCalibrationInvalid": {
+    "name": "rctAlarmRxCalibrationInvalid",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctAlarmInvalidConfiguration": {
+    "name": "rctAlarmInvalidConfiguration",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctAlarm25MHzSynthOutOfLock": {
+    "name": "rctAlarm25MHzSynthOutOfLock",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctAlarm6144MHzSynthOutOfLock": {
+    "name": "rctAlarm6144MHzSynthOutOfLock",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctAlarmTxFSynthOutOfLock": {
+    "name": "rctAlarmTxFSynthOutOfLock",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctAlarmSimulcastSynch": {
+    "name": "rctAlarmSimulcastSynch",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctAlarmReceiverSynch": {
+    "name": "rctAlarmReceiverSynch",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rctAlarmTxRSynthOutOfLock": {
+    "name": "rctAlarmTxRSynthOutOfLock",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.3.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paAlarmNoPADetected": {
+    "name": "paAlarmNoPADetected",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paAlarmInvalidFirmware": {
+    "name": "paAlarmInvalidFirmware",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paAlarmInvalidCalibration": {
+    "name": "paAlarmInvalidCalibration",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paAlarmForwardPowerLow": {
+    "name": "paAlarmForwardPowerLow",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paAlarmPowerFoldback": {
+    "name": "paAlarmPowerFoldback",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paAlarmReversePowerHigh": {
+    "name": "paAlarmReversePowerHigh",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paAlarmShutdownImminent": {
+    "name": "paAlarmShutdownImminent",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paAlarmVSWRFault": {
+    "name": "paAlarmVSWRFault",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paAlarmDriverCurrentHigh": {
+    "name": "paAlarmDriverCurrentHigh",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paAlarmFinal1CurrentHigh": {
+    "name": "paAlarmFinal1CurrentHigh",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paAlarmFinal2CurrentHigh": {
+    "name": "paAlarmFinal2CurrentHigh",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paAlarmCurrentImbalance": {
+    "name": "paAlarmCurrentImbalance",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paAlarmSupplyVoltageLow": {
+    "name": "paAlarmSupplyVoltageLow",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paAlarmSupplyVoltageHigh": {
+    "name": "paAlarmSupplyVoltageHigh",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paAlarmDriverTemperatureHigh": {
+    "name": "paAlarmDriverTemperatureHigh",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paAlarmFinal1TemperatureHigh": {
+    "name": "paAlarmFinal1TemperatureHigh",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paAlarmFinal2TemperatureHigh": {
+    "name": "paAlarmFinal2TemperatureHigh",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.4.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuAlarmNoPMUDetected": {
+    "name": "pmuAlarmNoPMUDetected",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuAlarmInvalidFirmware": {
+    "name": "pmuAlarmInvalidFirmware",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuAlarmMainsFailure": {
+    "name": "pmuAlarmMainsFailure",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuAlarmSelfTestFailure": {
+    "name": "pmuAlarmSelfTestFailure",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuAlarmShutdownImminent": {
+    "name": "pmuAlarmShutdownImminent",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuAlarmTemperatureHigh": {
+    "name": "pmuAlarmTemperatureHigh",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuAlarmBatteryProtect": {
+    "name": "pmuAlarmBatteryProtect",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuAlarmBatteryVoltageLow": {
+    "name": "pmuAlarmBatteryVoltageLow",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuAlarmBatteryVoltageHigh": {
+    "name": "pmuAlarmBatteryVoltageHigh",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuAlarmCurrentOutHigh": {
+    "name": "pmuAlarmCurrentOutHigh",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuAlarmVoltageOutLow": {
+    "name": "pmuAlarmVoltageOutLow",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmuAlarmVoltageOutHigh": {
+    "name": "pmuAlarmVoltageOutHigh",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemAlarmAmbientTempLow": {
+    "name": "systemAlarmAmbientTempLow",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemAlarmAmbientTempHigh": {
+    "name": "systemAlarmAmbientTempHigh",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemAlarmExternalRefAbsent": {
+    "name": "systemAlarmExternalRefAbsent",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemAlarmQoSJitter": {
+    "name": "systemAlarmQoSJitter",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemAlarmQoSLostPackets": {
+    "name": "systemAlarmQoSLostPackets",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemAlarmFallbackControlled": {
+    "name": "systemAlarmFallbackControlled",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemAlarmDuplicateNodePriority": {
+    "name": "systemAlarmDuplicateNodePriority",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemAlarmNTPSynchronisation": {
+    "name": "systemAlarmNTPSynchronisation",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemAlarm1PPSAbsent": {
+    "name": "systemAlarm1PPSAbsent",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemAlarmQoSTransmitBuffer": {
+    "name": "systemAlarmQoSTransmitBuffer",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.8.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemAlarmCartesianLoopUnstable": {
+    "name": "systemAlarmCartesianLoopUnstable",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.8.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemAlarmTxRCableAbsent": {
+    "name": "systemAlarmTxRCableAbsent",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.8.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fpAlarmFan1": {
+    "name": "fpAlarmFan1",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fpAlarmFan2": {
+    "name": "fpAlarmFan2",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fpAlarmFan3": {
+    "name": "fpAlarmFan3",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fpAlarmNoFPDetected": {
+    "name": "fpAlarmNoFPDetected",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fpAlarmInvalidFirmware": {
+    "name": "fpAlarmInvalidFirmware",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "customAlarm1": {
+    "name": "customAlarm1",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "customAlarm2": {
+    "name": "customAlarm2",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "customAlarm3": {
+    "name": "customAlarm3",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "customAlarm4": {
+    "name": "customAlarm4",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "customAlarm5": {
+    "name": "customAlarm5",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "customAlarm6": {
+    "name": "customAlarm6",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "customAlarm7": {
+    "name": "customAlarm7",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "customAlarm8": {
+    "name": "customAlarm8",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "customAlarm9": {
+    "name": "customAlarm9",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "customAlarm10": {
+    "name": "customAlarm10",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "customAlarm11": {
+    "name": "customAlarm11",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.6.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "customAlarm12": {
+    "name": "customAlarm12",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.3.6.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nwSvpPort": {
+    "name": "nwSvpPort",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.5.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nwChannelGroupStatus": {
+    "name": "nwChannelGroupStatus",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelGroupStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nwChannelGroupLocalBufferLevel": {
+    "name": "nwChannelGroupLocalBufferLevel",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Milliseconds",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nwChannelGroupEmptiestBufferLevel": {
+    "name": "nwChannelGroupEmptiestBufferLevel",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Milliseconds",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nwChannelGroupMarshallingType": {
+    "name": "nwChannelGroupMarshallingType",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimingControlType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nwChannelGroupMarshallingDuration": {
+    "name": "nwChannelGroupMarshallingDuration",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.5.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Milliseconds",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nwChannelGroupReceiverSynchStatus": {
+    "name": "nwChannelGroupReceiverSynchStatus",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.5.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReceiverSyncStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nwChannelGroupTransmitterSynchStatus": {
+    "name": "nwChannelGroupTransmitterSynchStatus",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.5.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TransmitterSyncStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nwChannelGroupLateStreamsCount": {
+    "name": "nwChannelGroupLateStreamsCount",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.5.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nwChannelGroupOverflowCount": {
+    "name": "nwChannelGroupOverflowCount",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.5.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nwChannelGroupUnderflowCount": {
+    "name": "nwChannelGroupUnderflowCount",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.5.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nwChannelGroupLostPacketsCount": {
+    "name": "nwChannelGroupLostPacketsCount",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.5.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nwChannelGroupJitter": {
+    "name": "nwChannelGroupJitter",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.1.5.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "healthGroup": {
+    "name": "healthGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "healthRunMode"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "healthNetworkConnLogChan1State"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "healthNetworkConnLogChan2State"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "healthSecureShellRunning"
+      }
+    ],
+    "status": "current"
+  },
+  "alarmSummaryGroup": {
+    "name": "alarmSummaryGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "alarmSummaryPowerAmplifier"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "alarmSummaryFrontPanel"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "alarmSummaryReciter"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "alarmSummaryBaseStation"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "alarmSummarySystem"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "alarmSummaryPowerManagementUnit"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "alarmSummaryCustomAlarms"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "alarmSummaryMinor"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "alarmSummaryMajor"
+      }
+    ],
+    "status": "current"
+  },
+  "rctSelectedChannelGroup": {
+    "name": "rctSelectedChannelGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctSelectedChannelNumber"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctSelectedChannelName"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctSelectedChannelProfileName"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctSelectedChannelSigProfileName"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctSelectedChannelTransmitPower"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctSelectedChannelTxFreq"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctSelectedChannelRxFreq"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctSelectedChannelSystemType"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctSelectedChannelColourCode"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctSelectedChannelGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "paTxOutputGroup": {
+    "name": "paTxOutputGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "paTxOutputForwardPower"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "paTxOutputVSWR"
+      }
+    ],
+    "status": "current"
+  },
+  "linkInfoGroup": {
+    "name": "linkInfoGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "linkInfoCtrlProtocolStatus"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "linkInfoNetworkPacketCount"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "linkInfoMPTCtrlProtocolStatus"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "linkInfoDMRNodeIPAddress"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "linkInfoDMRNodePriority"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "linkInfoMPTNodeIPAddress"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "linkInfoMPTNodePriority"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "linkHealthSequenceErrorsCount"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "linkHealthNetworkPacketLostCount"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "linkHealthNetworkJitterLastOver"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "linkHealthNetworkJitterCount"
+      }
+    ],
+    "status": "current"
+  },
+  "customAlarmsGroup": {
+    "name": "customAlarmsGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "customAlarm1"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "customAlarm2"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "customAlarm3"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "customAlarm4"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "customAlarm5"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "customAlarm6"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "customAlarm7"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "customAlarm8"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "customAlarm9"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "customAlarm10"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "customAlarm11"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "customAlarm12"
+      }
+    ],
+    "status": "current"
+  },
+  "systemAlarmsGroup": {
+    "name": "systemAlarmsGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "systemAlarmExternalRefAbsent"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "systemAlarmAmbientTempHigh"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "systemAlarmAmbientTempLow"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "systemAlarmQoSJitter"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "systemAlarmQoSLostPackets"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "systemAlarmFallbackControlled"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "systemAlarmDuplicateNodePriority"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "systemAlarmNTPSynchronisation"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "systemAlarm1PPSAbsent"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "systemAlarmQoSTransmitBuffer"
+      }
+    ],
+    "status": "current"
+  },
+  "fpAlarmsGroup": {
+    "name": "fpAlarmsGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "fpAlarmInvalidFirmware"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "fpAlarmFan2"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "fpAlarmNoFPDetected"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "fpAlarmFan3"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "fpAlarmFan1"
+      }
+    ],
+    "status": "current"
+  },
+  "paAlarmsGroup": {
+    "name": "paAlarmsGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "paAlarmFinal1CurrentHigh"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "paAlarmDriverCurrentHigh"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "paAlarmSupplyVoltageLow"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "paAlarmFinal2TemperatureHigh"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "paAlarmFinal2CurrentHigh"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "paAlarmVSWRFault"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "paAlarmDriverTemperatureHigh"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "paAlarmForwardPowerLow"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "paAlarmNoPADetected"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "paAlarmFinal1TemperatureHigh"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "paAlarmSupplyVoltageHigh"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "paAlarmPowerFoldback"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "paAlarmInvalidCalibration"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "paAlarmInvalidFirmware"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "paAlarmShutdownImminent"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "paAlarmReversePowerHigh"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "paAlarmCurrentImbalance"
+      }
+    ],
+    "status": "current"
+  },
+  "pmuAlarmsGroup": {
+    "name": "pmuAlarmsGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuAlarmMainsFailure"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuAlarmBatteryVoltageLow"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuAlarmBatteryVoltageHigh"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuAlarmBatteryProtect"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuAlarmInvalidFirmware"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuAlarmVoltageOutHigh"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuAlarmNoPMUDetected"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuAlarmVoltageOutLow"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuAlarmShutdownImminent"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuAlarmCurrentOutHigh"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuAlarmSelfTestFailure"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuAlarmTemperatureHigh"
+      }
+    ],
+    "status": "current"
+  },
+  "reciterAlarmsGroup": {
+    "name": "reciterAlarmsGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctAlarmRxSynthOutOfLock"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctAlarmInvalidChannelSelected"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctAlarmRxCalibrationInvalid"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctAlarmOverTemperature"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctAlarmInvalidConfiguration"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctAlarm25MHzSynthOutOfLock"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctAlarmTxCalibrationInvalid"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctAlarmTxFSynthOutOfLock"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctAlarm6144MHzSynthOutOfLock"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctAlarmSimulcastSynch"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctAlarmReceiverSynch"
+      }
+    ],
+    "status": "current"
+  },
+  "infoGroup": {
+    "name": "infoGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "infoTransmitterStatus"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "infoMPTFallbackNodeStatus"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "infoDMRFallbackNodeStatus"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctInfoProductCode"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctInfoSerialNumber"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctInfoHardwareVersion"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctInfoFirmwareVersion"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "paInfoProductCode"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "paInfoSerialNumber"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "paInfoHardwareVersion"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "paInfoFirmwareVersion"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "fpInfoProductCode"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "fpInfoSerialNumber"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "fpInfoHardwareVersion"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "fpInfoFirmwareVersion"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "licenceDmrFull"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "licenceDmrExpress"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "licenceDmrAccess"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "licenceDmrConventional"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "licenceAnalogConventional"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "licenceDmrExpress20"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "licenceDmrCentralVoter"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "licenceDmrNetworkSatellite"
+      }
+    ],
+    "status": "current"
+  },
+  "rctReceiveQualityGroup": {
+    "name": "rctReceiveQualityGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctRfRcvInterference"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctRfInterferenceCounter"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctRfInterferenceEvents"
+      }
+    ],
+    "status": "current"
+  },
+  "rctReceiverGroup": {
+    "name": "rctReceiverGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctRfReceiverRSSI"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctRfReceiverLC1RSSI"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctRfReceiverLC2RSSI"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctRfReceiverLC1RxGateState"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctRfReceiverLC2RxGateState"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctRfReceiverSelectedDecodeCTCSS"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctRfReceiverSelectedDecodeSubAudibleType"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctRfReceiverSelectedSINADGatingLevel"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctRfReceiverSelectedDecodeDCS"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctRfReceiverSelectedFrequencyResponse"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctRfReceiverAnalogGateState"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctRfReceiverIsDisabled"
+      }
+    ],
+    "status": "current"
+  },
+  "rctTemperatureGroup": {
+    "name": "rctTemperatureGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctTemperatureBoard"
+      }
+    ],
+    "status": "current"
+  },
+  "pmuStateGroup": {
+    "name": "pmuStateGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuStateMainsInState"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuStateBatteryInState"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuStateBatteryInVoltage"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuStateOutCurrent"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuStateOutVoltage"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuStateOutStatus"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuStateAuxOutState"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuStateBusConnect"
+      }
+    ],
+    "status": "current"
+  },
+  "nwNtpInterfaceGroup": {
+    "name": "nwNtpInterfaceGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "nwConfiguredNtpServerAddress"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "nwConfiguredNtpBackupServerAddress1"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "nwConfiguredNtpBackupServerAddress2"
+      }
+    ],
+    "status": "current"
+  },
+  "rctTransmitterGroup": {
+    "name": "rctTransmitterGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctRfTxSelectedEncodeCTCSS"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctRfTxSelectedEncodeSubAudibleType"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctRfTxSelectFrequencyResponse"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctRfTxSelectedEncodeDCS"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctRfTxSelectedEncodeSubAudibleDeviation"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctRfTxRfRepeatState"
+      }
+    ],
+    "status": "current"
+  },
+  "nwChannelGroupGroup": {
+    "name": "nwChannelGroupGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "nwChannelGroupStatus"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "nwChannelGroupLocalBufferLevel"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "nwChannelGroupEmptiestBufferLevel"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "nwChannelGroupMarshallingType"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "nwChannelGroupMarshallingDuration"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "nwChannelGroupReceiverSynchStatus"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "nwChannelGroupTransmitterSynchStatus"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "nwChannelGroupLateStreamsCount"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "nwChannelGroupOverflowCount"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "nwChannelGroupUnderflowCount"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "nwChannelGroupLostPacketsCount"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "nwChannelGroupJitter"
+      }
+    ],
+    "status": "current"
+  },
+  "nwPortsGroup": {
+    "name": "nwPortsGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "nwSvpPort"
+      }
+    ],
+    "status": "current"
+  },
+  "mibComplianceList": {
+    "name": "mibComplianceList",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "rctTransmitterGroup",
+        "module": "TAIT-INFRA93SERIES-MIB"
+      },
+      {
+        "object": "rctReceiverGroup",
+        "module": "TAIT-INFRA93SERIES-MIB"
+      },
+      {
+        "object": "rctReceiveQualityGroup",
+        "module": "TAIT-INFRA93SERIES-MIB"
+      },
+      {
+        "object": "infoGroup",
+        "module": "TAIT-INFRA93SERIES-MIB"
+      },
+      {
+        "object": "healthGroup",
+        "module": "TAIT-INFRA93SERIES-MIB"
+      },
+      {
+        "object": "alarmSummaryGroup",
+        "module": "TAIT-INFRA93SERIES-MIB"
+      },
+      {
+        "object": "rctSelectedChannelGroup",
+        "module": "TAIT-INFRA93SERIES-MIB"
+      },
+      {
+        "object": "paTxOutputGroup",
+        "module": "TAIT-INFRA93SERIES-MIB"
+      },
+      {
+        "object": "linkInfoGroup",
+        "module": "TAIT-INFRA93SERIES-MIB"
+      },
+      {
+        "object": "customAlarmsGroup",
+        "module": "TAIT-INFRA93SERIES-MIB"
+      },
+      {
+        "object": "systemAlarmsGroup",
+        "module": "TAIT-INFRA93SERIES-MIB"
+      },
+      {
+        "object": "fpAlarmsGroup",
+        "module": "TAIT-INFRA93SERIES-MIB"
+      },
+      {
+        "object": "paAlarmsGroup",
+        "module": "TAIT-INFRA93SERIES-MIB"
+      },
+      {
+        "object": "reciterAlarmsGroup",
+        "module": "TAIT-INFRA93SERIES-MIB"
+      },
+      {
+        "object": "rctTemperatureGroup",
+        "module": "TAIT-INFRA93SERIES-MIB"
+      },
+      {
+        "object": "nwNtpInterfaceGroup",
+        "module": "TAIT-INFRA93SERIES-MIB"
+      },
+      {
+        "object": "nwChannelGroupGroup",
+        "module": "TAIT-INFRA93SERIES-MIB"
+      },
+      {
+        "object": "nwPortsGroup",
+        "module": "TAIT-INFRA93SERIES-MIB"
+      },
+      {
+        "object": "linearTransmissionCapability",
+        "module": "TAIT-INFRA93SERIES-MIB"
+      },
+      {
+        "object": "pmuAlarmsGroup",
+        "module": "TAIT-INFRA93SERIES-MIB"
+      },
+      {
+        "object": "pmuInfoGroup",
+        "module": "TAIT-INFRA93SERIES-MIB"
+      },
+      {
+        "object": "pmuStateGroup",
+        "module": "TAIT-INFRA93SERIES-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "rctSystemInterfaceGroup": {
+    "name": "rctSystemInterfaceGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctSiConfiguredBalancedLineInLevel"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctSiConfiguredBalancedLineOutLevel"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctSiTxKey"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctSiRxGate"
+      }
+    ],
+    "status": "current"
+  },
+  "linearTransmissionCapability": {
+    "name": "linearTransmissionCapability",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "rctAlarmTxRSynthOutOfLock"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "systemAlarmCartesianLoopUnstable"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "systemAlarmTxRCableAbsent"
+      }
+    ],
+    "status": "current"
+  },
+  "pmuInfoGroup": {
+    "name": "pmuInfoGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuInfoProductCode"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuInfoSerialNumber"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuInfoHardwareVersion"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuInfoFirmwareVersion"
+      },
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "pmuInfoCalibrationUpdateDate"
+      }
+    ],
+    "status": "current"
+  },
+  "deprecatedOidGroup": {
+    "name": "deprecatedOidGroup",
+    "oid": "1.3.6.1.4.1.3570.2.2.2.5.1.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-INFRA93SERIES-MIB",
+        "object": "infoStandaloneNodeStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tait/TAIT-INFRA93SERIES-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TAIT-INFRA93SERIES-MIB"
+  }
+}

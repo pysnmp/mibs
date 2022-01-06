@@ -1,0 +1,1891 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-IETF-PIM-MIB": [
+      "cPimNbrAddress",
+      "cPimInetMRouteNextHopEntry",
+      "cPimIfEntry",
+      "cPimNbrAddressType",
+      "cPimCRPEntry",
+      "cPimIfStatus",
+      "cPimNbrEntry",
+      "cPimInetMRouteEntry",
+      "cPimNbrIfIndex"
+    ],
+    "CISCO-PIM-MIB": [
+      "cpimRPMappingChangeType"
+    ],
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IANA-RTPROTO-MIB": [
+      "IANAipMRouteProtocol"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddressPrefixLength",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIetfPimExtMIB": {
+    "name": "ciscoIetfPimExtMIB",
+    "oid": "1.3.6.1.4.1.9.10.120",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-06-12 00:00",
+        "description": "Remove the range for cpimExtNbrGenId."
+      },
+      {
+        "revision": "2006-08-25 00:00",
+        "description": "Added ciscoIetfPimExtNotifs, cpimExtInterfaceStateChangeNotifEnabled, cpimExtRPMappingChangeNotifEnabled, ciscoIetfPimExtInterfaceUp, ciscoIetfPimExtInterfaceDown, ciscoIetfPimExtRPMappingChange, ciscoIetfPimExtMIBComplianceRev1, ciscoIetfPimExtNotifEnabledGroup, ciscoIetfPimExtNotificationGroup"
+      },
+      {
+        "revision": "2005-02-21 00:00",
+        "description": "Initial version of this MIB module"
+      }
+    ]
+  },
+  "ciscoIetfPimExtNotifs": {
+    "name": "ciscoIetfPimExtNotifs",
+    "oid": "1.3.6.1.4.1.9.10.120.0",
+    "class": "objectidentity"
+  },
+  "ciscoIetfPimExtMIBObjects": {
+    "name": "ciscoIetfPimExtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.120.1",
+    "class": "objectidentity"
+  },
+  "ciscoPimExt": {
+    "name": "ciscoPimExt",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1",
+    "class": "objectidentity"
+  },
+  "cpimExtIfTable": {
+    "name": "cpimExtIfTable",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpimExtIfEntry": {
+    "name": "cpimExtIfEntry",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cpimExtIfEntry",
+      "module": "CISCO-IETF-PIM-EXT-MIB",
+      "object": "cPimIfEntry"
+    },
+    "status": "current"
+  },
+  "cpimExtIfTrigHelloInterval": {
+    "name": "cpimExtIfTrigHelloInterval",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpimExtIfHelloHoldtime": {
+    "name": "cpimExtIfHelloHoldtime",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 105,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpimExtIfLanPruneDelay": {
+    "name": "cpimExtIfLanPruneDelay",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "off": 0,
+        "on": 1
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "on": 1
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpimExtIfPropagationDelay": {
+    "name": "cpimExtIfPropagationDelay",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpimExtIfOverrideInterval": {
+    "name": "cpimExtIfOverrideInterval",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpimExtIfGenerationID": {
+    "name": "cpimExtIfGenerationID",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "off": 0,
+        "on": 1
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "off": 0
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpimExtIfJoinPruneHoldtime": {
+    "name": "cpimExtIfJoinPruneHoldtime",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 210,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpimExtIfGraftRetryInterval": {
+    "name": "cpimExtIfGraftRetryInterval",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpimExtIfMaxGraftRetries": {
+    "name": "cpimExtIfMaxGraftRetries",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpimExtIfSRTTLThreshold": {
+    "name": "cpimExtIfSRTTLThreshold",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpimExtIfLanDelayEnabled": {
+    "name": "cpimExtIfLanDelayEnabled",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtIfSRCapable": {
+    "name": "cpimExtIfSRCapable",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtIfDRPriority": {
+    "name": "cpimExtIfDRPriority",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpimExtIfBidirCapable": {
+    "name": "cpimExtIfBidirCapable",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtIfBSRBorder": {
+    "name": "cpimExtIfBSRBorder",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpimExtNbrTable": {
+    "name": "cpimExtNbrTable",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpimExtNbrEntry": {
+    "name": "cpimExtNbrEntry",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cpimExtNbrEntry",
+      "module": "CISCO-IETF-PIM-EXT-MIB",
+      "object": "cPimNbrEntry"
+    },
+    "status": "current"
+  },
+  "cpimExtNbrLANPruneDelay": {
+    "name": "cpimExtNbrLANPruneDelay",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtNbrOverrideInterval": {
+    "name": "cpimExtNbrOverrideInterval",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtNbrTBit": {
+    "name": "cpimExtNbrTBit",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "disabled": 0,
+        "enabled": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtNbrSRCapable": {
+    "name": "cpimExtNbrSRCapable",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtNbrGenId": {
+    "name": "cpimExtNbrGenId",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtNbrBidirCapable": {
+    "name": "cpimExtNbrBidirCapable",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtNbrDRPresent": {
+    "name": "cpimExtNbrDRPresent",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtNbrDRPriority": {
+    "name": "cpimExtNbrDRPriority",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtNbrSecAddressTable": {
+    "name": "cpimExtNbrSecAddressTable",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpimExtNbrSecAddressEntry": {
+    "name": "cpimExtNbrSecAddressEntry",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-PIM-MIB",
+        "object": "cPimNbrIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PIM-MIB",
+        "object": "cPimNbrAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PIM-MIB",
+        "object": "cPimNbrAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtNbrSecAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpimExtNbrSecAddress": {
+    "name": "cpimExtNbrSecAddress",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtNbrSecMask": {
+    "name": "cpimExtNbrSecMask",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtMRouteTable": {
+    "name": "cpimExtMRouteTable",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpimExtMRouteEntry": {
+    "name": "cpimExtMRouteEntry",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cpimExtMRouteEntry",
+      "module": "CISCO-IETF-PIM-EXT-MIB",
+      "object": "cPimInetMRouteEntry"
+    },
+    "status": "current"
+  },
+  "cpimExtMRouteRPFNeighbor": {
+    "name": "cpimExtMRouteRPFNeighbor",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtMRouteSourceTimer": {
+    "name": "cpimExtMRouteSourceTimer",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtMRouteOriginatorSRTTL": {
+    "name": "cpimExtMRouteOriginatorSRTTL",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtMRouteBidirGroup": {
+    "name": "cpimExtMRouteBidirGroup",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtMRouteNextHopTable": {
+    "name": "cpimExtMRouteNextHopTable",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpimExtMRouteNextHopEntry": {
+    "name": "cpimExtMRouteNextHopEntry",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cpimExtMRouteNextHopEntry",
+      "module": "CISCO-IETF-PIM-EXT-MIB",
+      "object": "cPimInetMRouteNextHopEntry"
+    },
+    "status": "current"
+  },
+  "cpimExtMRouteNextHopAssertWinner": {
+    "name": "cpimExtMRouteNextHopAssertWinner",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtMRouteNextHopAssertTimer": {
+    "name": "cpimExtMRouteNextHopAssertTimer",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtMRouteNextHopAssertMetric": {
+    "name": "cpimExtMRouteNextHopAssertMetric",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtMRouteNextHopAsrtMtrcPref": {
+    "name": "cpimExtMRouteNextHopAsrtMtrcPref",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtMRouteNextHopJoinPruneTmr": {
+    "name": "cpimExtMRouteNextHopJoinPruneTmr",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtBidirDFTable": {
+    "name": "cpimExtBidirDFTable",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpimExtBidirDFEntry": {
+    "name": "cpimExtBidirDFEntry",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtBidirDFRPAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtBidirDFRPAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtBidirDFIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpimExtBidirDFIfIndex": {
+    "name": "cpimExtBidirDFIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpimExtBidirDFRPAddressType": {
+    "name": "cpimExtBidirDFRPAddressType",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpimExtBidirDFRPAddress": {
+    "name": "cpimExtBidirDFRPAddress",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpimExtBidirDFWinnerAddress": {
+    "name": "cpimExtBidirDFWinnerAddress",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtBidirDFWinnerUptime": {
+    "name": "cpimExtBidirDFWinnerUptime",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtBidirDFWnrMtrcPref": {
+    "name": "cpimExtBidirDFWnrMtrcPref",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtBidirDFWinnerMetric": {
+    "name": "cpimExtBidirDFWinnerMetric",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtBidirDFState": {
+    "name": "cpimExtBidirDFState",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "dfOffer": 1,
+          "dfLose": 2,
+          "dfWinner": 3,
+          "dfBackoff": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtBidirDFStateTimer": {
+    "name": "cpimExtBidirDFStateTimer",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtRPSetTable": {
+    "name": "cpimExtRPSetTable",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpimExtRPSetEntry": {
+    "name": "cpimExtRPSetEntry",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtRPSetComponent",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtRPSetAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtRPSetGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtRPSetGroupMask",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtRPSetType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtRPSetProtocol",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtRPSetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpimExtRPSetComponent": {
+    "name": "cpimExtRPSetComponent",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpimExtRPSetAddrType": {
+    "name": "cpimExtRPSetAddrType",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpimExtRPSetGroupAddress": {
+    "name": "cpimExtRPSetGroupAddress",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpimExtRPSetGroupMask": {
+    "name": "cpimExtRPSetGroupMask",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpimExtRPSetType": {
+    "name": "cpimExtRPSetType",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "static": 2,
+          "bsr": 3,
+          "embedded": 4,
+          "autorp": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpimExtRPSetProtocol": {
+    "name": "cpimExtRPSetProtocol",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAipMRouteProtocol",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpimExtRPSetAddress": {
+    "name": "cpimExtRPSetAddress",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpimExtRPSetHoldTime": {
+    "name": "cpimExtRPSetHoldTime",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtRPSetExpiryTime": {
+    "name": "cpimExtRPSetExpiryTime",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtRPSetPriority": {
+    "name": "cpimExtRPSetPriority",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtRPSetRPActive": {
+    "name": "cpimExtRPSetRPActive",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpimExtCRPTable": {
+    "name": "cpimExtCRPTable",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpimExtCRPEntry": {
+    "name": "cpimExtCRPEntry",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cpimExtCRPEntry",
+      "module": "CISCO-IETF-PIM-EXT-MIB",
+      "object": "cPimCRPEntry"
+    },
+    "status": "current"
+  },
+  "cpimExtCRPBidir": {
+    "name": "cpimExtCRPBidir",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpimExtSourceLifetime": {
+    "name": "cpimExtSourceLifetime",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 210,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpimExtStateRefreshInterval": {
+    "name": "cpimExtStateRefreshInterval",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpimExtStateRefreshLimitInterval": {
+    "name": "cpimExtStateRefreshLimitInterval",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpimExtStateRefreshTimeToLive": {
+    "name": "cpimExtStateRefreshTimeToLive",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 16,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpimExtInterfaceStateChangeNotifEnabled": {
+    "name": "cpimExtInterfaceStateChangeNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpimExtRPMappingChangeNotifEnabled": {
+    "name": "cpimExtRPMappingChangeNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.10.120.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoIetfPimExtInterfaceUp": {
+    "name": "ciscoIetfPimExtInterfaceUp",
+    "oid": "1.3.6.1.4.1.9.10.120.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PIM-MIB",
+        "object": "cPimIfStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIetfPimExtInterfaceDown": {
+    "name": "ciscoIetfPimExtInterfaceDown",
+    "oid": "1.3.6.1.4.1.9.10.120.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PIM-MIB",
+        "object": "cPimIfStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIetfPimExtRPMappingChange": {
+    "name": "ciscoIetfPimExtRPMappingChange",
+    "oid": "1.3.6.1.4.1.9.10.120.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtRPSetHoldTime"
+      },
+      {
+        "module": "CISCO-PIM-MIB",
+        "object": "cpimRPMappingChangeType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIetfPimExtMIBConformance": {
+    "name": "ciscoIetfPimExtMIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.120.2",
+    "class": "objectidentity"
+  },
+  "ciscoIetfPimExtMIBCompliances": {
+    "name": "ciscoIetfPimExtMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.120.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoIetfPimExtMIBGroups": {
+    "name": "ciscoIetfPimExtMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.120.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoIetfPimExtMIBCompliance": {
+    "name": "ciscoIetfPimExtMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.120.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIetfPimExtGeneralGroup",
+        "module": "CISCO-IETF-PIM-EXT-MIB"
+      },
+      {
+        "object": "ciscoIetfPimExtNbrGroup",
+        "module": "CISCO-IETF-PIM-EXT-MIB"
+      },
+      {
+        "object": "ciscoIetfPimExtNextHopGroup",
+        "module": "CISCO-IETF-PIM-EXT-MIB"
+      },
+      {
+        "object": "ciscoIetfPimExtBidirGroup",
+        "module": "CISCO-IETF-PIM-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoIetfPimExtMIBComplianceRev1": {
+    "name": "ciscoIetfPimExtMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.10.120.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIetfPimExtGeneralGroup",
+        "module": "CISCO-IETF-PIM-EXT-MIB"
+      },
+      {
+        "object": "ciscoIetfPimExtNbrGroup",
+        "module": "CISCO-IETF-PIM-EXT-MIB"
+      },
+      {
+        "object": "ciscoIetfPimExtNextHopGroup",
+        "module": "CISCO-IETF-PIM-EXT-MIB"
+      },
+      {
+        "object": "ciscoIetfPimExtBidirGroup",
+        "module": "CISCO-IETF-PIM-EXT-MIB"
+      },
+      {
+        "object": "ciscoIetfPimExtNotificationGroup",
+        "module": "CISCO-IETF-PIM-EXT-MIB"
+      },
+      {
+        "object": "ciscoIetfPimExtNotifEnabledGroup",
+        "module": "CISCO-IETF-PIM-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIetfPimExtGeneralGroup": {
+    "name": "ciscoIetfPimExtGeneralGroup",
+    "oid": "1.3.6.1.4.1.9.10.120.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtIfTrigHelloInterval"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtIfHelloHoldtime"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtIfLanPruneDelay"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtIfPropagationDelay"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtIfOverrideInterval"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtIfGenerationID"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtIfJoinPruneHoldtime"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtIfGraftRetryInterval"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtIfMaxGraftRetries"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtIfSRTTLThreshold"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtIfLanDelayEnabled"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtIfSRCapable"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtIfDRPriority"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtIfBSRBorder"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtMRouteRPFNeighbor"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtMRouteSourceTimer"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtMRouteOriginatorSRTTL"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtRPSetHoldTime"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtRPSetExpiryTime"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtRPSetPriority"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtRPSetRPActive"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtSourceLifetime"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtStateRefreshInterval"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtStateRefreshLimitInterval"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtStateRefreshTimeToLive"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIetfPimExtNbrGroup": {
+    "name": "ciscoIetfPimExtNbrGroup",
+    "oid": "1.3.6.1.4.1.9.10.120.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtNbrLANPruneDelay"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtNbrOverrideInterval"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtNbrTBit"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtNbrSRCapable"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtNbrGenId"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtNbrDRPresent"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtNbrDRPriority"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtNbrSecAddress"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtNbrSecMask"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIetfPimExtNextHopGroup": {
+    "name": "ciscoIetfPimExtNextHopGroup",
+    "oid": "1.3.6.1.4.1.9.10.120.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtMRouteNextHopAssertWinner"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtMRouteNextHopAssertTimer"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtMRouteNextHopAssertMetric"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtMRouteNextHopAsrtMtrcPref"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtMRouteNextHopJoinPruneTmr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIetfPimExtBidirGroup": {
+    "name": "ciscoIetfPimExtBidirGroup",
+    "oid": "1.3.6.1.4.1.9.10.120.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtBidirDFWinnerAddress"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtBidirDFWinnerUptime"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtBidirDFWnrMtrcPref"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtBidirDFWinnerMetric"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtBidirDFState"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtBidirDFStateTimer"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtIfBidirCapable"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtNbrBidirCapable"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtMRouteBidirGroup"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtCRPBidir"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIetfPimExtNotificationGroup": {
+    "name": "ciscoIetfPimExtNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.10.120.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "ciscoIetfPimExtInterfaceUp"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "ciscoIetfPimExtInterfaceDown"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "ciscoIetfPimExtRPMappingChange"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIetfPimExtNotifEnabledGroup": {
+    "name": "ciscoIetfPimExtNotifEnabledGroup",
+    "oid": "1.3.6.1.4.1.9.10.120.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtInterfaceStateChangeNotifEnabled"
+      },
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "object": "cpimExtRPMappingChangeNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-PIM-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IETF-PIM-EXT-MIB"
+  }
+}

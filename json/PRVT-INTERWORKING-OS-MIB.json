@@ -1,0 +1,1029 @@
+{
+  "imports": {
+    "class": "imports",
+    "PRVT-SWITCH-MIB": [
+      "prvt-products"
+    ],
+    "SNMP-USER-BASED-SM-MIB": [
+      "usmUserSecurityName"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
+    ]
+  },
+  "prvtInterworkOsMib": {
+    "name": "prvtInterworkOsMib",
+    "oid": "1.3.6.1.4.1.738.1.111.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-04-09 00:00",
+        "description": "setExecutetrap varbind change"
+      },
+      {
+        "revision": "2008-03-31 00:00",
+        "description": "Removed configurationChanged, see PrvtConfigChange.mib."
+      },
+      {
+        "revision": "2008-01-01 00:00",
+        "description": "Removed redefined OIDs in private vendor extension definitions."
+      },
+      {
+        "revision": "2005-02-16 00:00",
+        "description": "Fixed spelling errors and changed the contact info."
+      },
+      {
+        "revision": "2004-12-20 00:00",
+        "description": "Added the configurationChanged and snmpSetExecuted notifications."
+      },
+      {
+        "revision": "2004-03-10 00:00",
+        "description": "Modified the description of the managementLoadExecute object to clarify that the startup-config is replaced at configuration download."
+      },
+      {
+        "revision": "2003-05-08 00:00",
+        "description": "Move to SMI-V2."
+      },
+      {
+        "revision": "2002-12-12 00:00",
+        "description": "Add detection for CPU RAM size."
+      },
+      {
+        "revision": "2002-11-26 00:00",
+        "description": "Add CPU group."
+      },
+      {
+        "revision": "2002-11-17 00:00",
+        "description": "Enable loading VDSL E2 firmware. Add support for reload."
+      },
+      {
+        "revision": "2001-04-19 00:00",
+        "description": "Add management group."
+      },
+      {
+        "revision": "2001-03-19 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "software": {
+    "name": "software",
+    "oid": "1.3.6.1.4.1.738.1.111",
+    "class": "objectidentity"
+  },
+  "prvtInterworkOsNotifications": {
+    "name": "prvtInterworkOsNotifications",
+    "oid": "1.3.6.1.4.1.738.1.111.1.0",
+    "class": "objectidentity"
+  },
+  "version": {
+    "name": "version",
+    "oid": "1.3.6.1.4.1.738.1.111.1.1",
+    "class": "objectidentity"
+  },
+  "option": {
+    "name": "option",
+    "oid": "1.3.6.1.4.1.738.1.111.1.2",
+    "class": "objectidentity"
+  },
+  "management": {
+    "name": "management",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3",
+    "class": "objectidentity"
+  },
+  "cpu": {
+    "name": "cpu",
+    "oid": "1.3.6.1.4.1.738.1.111.1.4",
+    "class": "objectidentity"
+  },
+  "prvtInterworkOsConformance": {
+    "name": "prvtInterworkOsConformance",
+    "oid": "1.3.6.1.4.1.738.1.111.1.5",
+    "class": "objectidentity"
+  },
+  "bootVersionNumber": {
+    "name": "bootVersionNumber",
+    "oid": "1.3.6.1.4.1.738.1.111.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bootVersionDate": {
+    "name": "bootVersionDate",
+    "oid": "1.3.6.1.4.1.738.1.111.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bootVersionString": {
+    "name": "bootVersionString",
+    "oid": "1.3.6.1.4.1.738.1.111.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oSversionNumber": {
+    "name": "oSversionNumber",
+    "oid": "1.3.6.1.4.1.738.1.111.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oSversionDate": {
+    "name": "oSversionDate",
+    "oid": "1.3.6.1.4.1.738.1.111.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oSversionString": {
+    "name": "oSversionString",
+    "oid": "1.3.6.1.4.1.738.1.111.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appletVersionNumber": {
+    "name": "appletVersionNumber",
+    "oid": "1.3.6.1.4.1.738.1.111.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appletVersionDate": {
+    "name": "appletVersionDate",
+    "oid": "1.3.6.1.4.1.738.1.111.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optionInstalled": {
+    "name": "optionInstalled",
+    "oid": "1.3.6.1.4.1.738.1.111.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "managementConnectivity": {
+    "name": "managementConnectivity",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.1",
+    "class": "objectidentity"
+  },
+  "managementConnectivityMACAddr": {
+    "name": "managementConnectivityMACAddr",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "managementConnectivityIpAddress": {
+    "name": "managementConnectivityIpAddress",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "managementConnectivityIPNetMask": {
+    "name": "managementConnectivityIPNetMask",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "managementIPGateAddress": {
+    "name": "managementIPGateAddress",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "managementSerialBaud": {
+    "name": "managementSerialBaud",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "baud2400": 1,
+          "baud9600": 2,
+          "baud19200": 3,
+          "baud38400": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "managementLoad": {
+    "name": "managementLoad",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.2",
+    "class": "objectidentity"
+  },
+  "managementLoadTftpServerAddress": {
+    "name": "managementLoadTftpServerAddress",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "managementLoadFileName": {
+    "name": "managementLoadFileName",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "managementLoadType": {
+    "name": "managementLoadType",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "application": 1,
+          "boot": 2,
+          "configuration": 3,
+          "java": 4,
+          "vdsl-E2": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "managementLoadExecute": {
+    "name": "managementLoadExecute",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noop": 1,
+          "download": 2,
+          "upload": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "managementLoadExecuteStatus": {
+    "name": "managementLoadExecuteStatus",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-started": 1,
+          "in-progress": 2,
+          "success": 3,
+          "error-connection": 4,
+          "error-filename": 5,
+          "error-fault": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "managementMisc": {
+    "name": "managementMisc",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.3",
+    "class": "objectidentity"
+  },
+  "managementMiscSaveToNvm": {
+    "name": "managementMiscSaveToNvm",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noop": 1,
+          "save": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "managementMiscReset": {
+    "name": "managementMiscReset",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noop": 1,
+          "reset": 2,
+          "reset-to-defaults": 3,
+          "save-and-reset": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "managementMiscReload": {
+    "name": "managementMiscReload",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noop": 1,
+          "save-and-reload": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "managementMiscReloadInTime": {
+    "name": "managementMiscReloadInTime",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "managementMiscReloadAtTime": {
+    "name": "managementMiscReloadAtTime",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "managementMiscReloadSaveInTime": {
+    "name": "managementMiscReloadSaveInTime",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "managementMiscReloadSaveAtTime": {
+    "name": "managementMiscReloadSaveAtTime",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "managementLicense": {
+    "name": "managementLicense",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.4",
+    "class": "objectidentity"
+  },
+  "managementOptionSupportStatus": {
+    "name": "managementOptionSupportStatus",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reserved0": 0,
+          "reserved1": 1,
+          "reserved2": 2,
+          "reserved3": 3,
+          "reserved4": 4,
+          "reserved5": 5,
+          "reserved6": 6,
+          "reserved7": 7,
+          "reserved8": 8,
+          "reserved9": 9,
+          "licNotSpecified": 10,
+          "licBasic": 11,
+          "licML": 12,
+          "licAdvML": 13,
+          "reserved14": 14,
+          "reserved15": 15,
+          "reserved16": 16,
+          "reserved17": 17,
+          "reserved18": 18,
+          "reserved19": 19,
+          "reserved20": 20,
+          "reserved21": 21,
+          "reserved22": 22,
+          "reserved23": 23,
+          "reserved24": 24,
+          "reserved25": 25,
+          "reserved26": 26,
+          "reserved27": 27,
+          "reserved28": 28,
+          "reserved29": 29,
+          "reserved30": 30,
+          "reserved31": 31
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "managementOptionSupportKey": {
+    "name": "managementOptionSupportKey",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "managementOptionSupportAddress": {
+    "name": "managementOptionSupportAddress",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "managementOptionSupportL3Capable": {
+    "name": "managementOptionSupportL3Capable",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtBootConfigUpgrade": {
+    "name": "prvtBootConfigUpgrade",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.5",
+    "class": "objectidentity"
+  },
+  "prvtBootUpgradeSrcURI": {
+    "name": "prvtBootUpgradeSrcURI",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtBootApplicationNameURI": {
+    "name": "prvtBootApplicationNameURI",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtBootConfigURI": {
+    "name": "prvtBootConfigURI",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtBootUpgradeCmd": {
+    "name": "prvtBootUpgradeCmd",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "ready": 1,
+          "apply": 2,
+          "applyExec": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ready",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtBootOperStatus": {
+    "name": "prvtBootOperStatus",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ready": 1,
+          "notReady": 2,
+          "upgradeInProgress": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ready",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtBootErrorCondition": {
+    "name": "prvtBootErrorCondition",
+    "oid": "1.3.6.1.4.1.738.1.111.1.3.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 0,
+          "genericError": 1,
+          "copyFailed": 2,
+          "downloadFailed": 3,
+          "freeSpaceError": 4,
+          "validationFailed": 5,
+          "backupFailed": 6,
+          "inProgressError": 7,
+          "consistencyError": 8,
+          "fileSystemError": 9,
+          "profileNameError": 10,
+          "profileError": 11,
+          "fileNameError": 12,
+          "pathError": 13,
+          "zFileError": 14,
+          "cannotFindFile": 15,
+          "defApplicationProfileError": 16,
+          "configProfileError": 17,
+          "bootDevProfileError": 18,
+          "ftpServerProfileError": 19,
+          "ftpUserProfileError": 20,
+          "ftpPassProfileError": 21
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noError",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuMonitoring": {
+    "name": "cpuMonitoring",
+    "oid": "1.3.6.1.4.1.738.1.111.1.4.1",
+    "class": "objectidentity"
+  },
+  "cpuMonitoringStatus": {
+    "name": "cpuMonitoringStatus",
+    "oid": "1.3.6.1.4.1.738.1.111.1.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpuMonitoringUtilization": {
+    "name": "cpuMonitoringUtilization",
+    "oid": "1.3.6.1.4.1.738.1.111.1.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuRedundancy": {
+    "name": "cpuRedundancy",
+    "oid": "1.3.6.1.4.1.738.1.111.1.4.2",
+    "class": "objectidentity"
+  },
+  "cpuHwRedundancySupport": {
+    "name": "cpuHwRedundancySupport",
+    "oid": "1.3.6.1.4.1.738.1.111.1.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuRedundancyTable": {
+    "name": "cpuRedundancyTable",
+    "oid": "1.3.6.1.4.1.738.1.111.1.4.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpuRedundancyEntry": {
+    "name": "cpuRedundancyEntry",
+    "oid": "1.3.6.1.4.1.738.1.111.1.4.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-INTERWORKING-OS-MIB",
+        "object": "cpuId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpuId": {
+    "name": "cpuId",
+    "oid": "1.3.6.1.4.1.738.1.111.1.4.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpuName": {
+    "name": "cpuName",
+    "oid": "1.3.6.1.4.1.738.1.111.1.4.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuStatus": {
+    "name": "cpuStatus",
+    "oid": "1.3.6.1.4.1.738.1.111.1.4.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "standby": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuRedundancySupport": {
+    "name": "cpuRedundancySupport",
+    "oid": "1.3.6.1.4.1.738.1.111.1.4.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuSWVersionString": {
+    "name": "cpuSWVersionString",
+    "oid": "1.3.6.1.4.1.738.1.111.1.4.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuHW": {
+    "name": "cpuHW",
+    "oid": "1.3.6.1.4.1.738.1.111.1.4.3",
+    "class": "objectidentity"
+  },
+  "cpuRAMsize": {
+    "name": "cpuRAMsize",
+    "oid": "1.3.6.1.4.1.738.1.111.1.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imageCrcCheckFailed": {
+    "name": "imageCrcCheckFailed",
+    "oid": "1.3.6.1.4.1.738.1.111.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-INTERWORKING-OS-MIB",
+        "object": "managementLoadTftpServerAddress"
+      },
+      {
+        "module": "PRVT-INTERWORKING-OS-MIB",
+        "object": "managementLoadFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "configurationLoadFailed": {
+    "name": "configurationLoadFailed",
+    "oid": "1.3.6.1.4.1.738.1.111.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-INTERWORKING-OS-MIB",
+        "object": "managementLoadTftpServerAddress"
+      },
+      {
+        "module": "PRVT-INTERWORKING-OS-MIB",
+        "object": "managementLoadFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "unauthorizedAccessViaCLI": {
+    "name": "unauthorizedAccessViaCLI",
+    "oid": "1.3.6.1.4.1.738.1.111.1.0.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "snmpSetExecuted": {
+    "name": "snmpSetExecuted",
+    "oid": "1.3.6.1.4.1.738.1.111.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMP-USER-BASED-SM-MIB",
+        "object": "usmUserSecurityName"
+      }
+    ],
+    "status": "current"
+  },
+  "managementOptionSupportChanged": {
+    "name": "managementOptionSupportChanged",
+    "oid": "1.3.6.1.4.1.738.1.111.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-INTERWORKING-OS-MIB",
+        "object": "managementOptionSupportStatus"
+      },
+      {
+        "module": "PRVT-INTERWORKING-OS-MIB",
+        "object": "managementOptionSupportAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-INTERWORKING-OS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-INTERWORKING-OS-MIB"
+  }
+}

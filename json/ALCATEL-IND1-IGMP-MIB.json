@@ -1,0 +1,2454 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1Igmp"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress",
+      "InetAddressIPv4"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "alcatelIND1IgmpMIB": {
+    "name": "alcatelIND1IgmpMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-03-31 00:00",
+        "description": "IGMP helper address changes"
+      },
+      {
+        "revision": "2008-09-10 00:00",
+        "description": "Add flood unknown object"
+      },
+      {
+        "revision": "2008-08-08 00:00",
+        "description": "The latest version of this MIB Module. Added maximum group limit objects."
+      },
+      {
+        "revision": "2007-04-03 00:00",
+        "description": "The revised version of this MIB Module."
+      }
+    ]
+  },
+  "alcatelIND1IgmpMIBObjects": {
+    "name": "alcatelIND1IgmpMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1",
+    "class": "objectidentity"
+  },
+  "alaIgmp": {
+    "name": "alaIgmp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.1",
+    "class": "objectidentity"
+  },
+  "alaIgmpStatus": {
+    "name": "alaIgmpStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpQuerying": {
+    "name": "alaIgmpQuerying",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpSpoofing": {
+    "name": "alaIgmpSpoofing",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpZapping": {
+    "name": "alaIgmpZapping",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpVersion": {
+    "name": "alaIgmpVersion",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpRobustness": {
+    "name": "alaIgmpRobustness",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpQueryInterval": {
+    "name": "alaIgmpQueryInterval",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 125,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpQueryResponseInterval": {
+    "name": "alaIgmpQueryResponseInterval",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "tenths of seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpLastMemberQueryInterval": {
+    "name": "alaIgmpLastMemberQueryInterval",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "tenths of seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpRouterTimeout": {
+    "name": "alaIgmpRouterTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpSourceTimeout": {
+    "name": "alaIgmpSourceTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpProxying": {
+    "name": "alaIgmpProxying",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpUnsolicitedReportInterval": {
+    "name": "alaIgmpUnsolicitedReportInterval",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpQuerierForwarding": {
+    "name": "alaIgmpQuerierForwarding",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpMaxGroupLimit": {
+    "name": "alaIgmpMaxGroupLimit",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpMaxGroupExceedAction": {
+    "name": "alaIgmpMaxGroupExceedAction",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "drop": 1,
+          "replace": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpFloodUnknown": {
+    "name": "alaIgmpFloodUnknown",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpHelperAddressType": {
+    "name": "alaIgmpHelperAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpHelperAddress": {
+    "name": "alaIgmpHelperAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpVlan": {
+    "name": "alaIgmpVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.2",
+    "class": "objectidentity"
+  },
+  "alaIgmpVlanTable": {
+    "name": "alaIgmpVlanTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpVlanEntry": {
+    "name": "alaIgmpVlanEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpVlanIndex": {
+    "name": "alaIgmpVlanIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpVlanStatus": {
+    "name": "alaIgmpVlanStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpVlanQuerying": {
+    "name": "alaIgmpVlanQuerying",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpVlanSpoofing": {
+    "name": "alaIgmpVlanSpoofing",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpVlanZapping": {
+    "name": "alaIgmpVlanZapping",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpVlanVersion": {
+    "name": "alaIgmpVlanVersion",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpVlanRobustness": {
+    "name": "alaIgmpVlanRobustness",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpVlanQueryInterval": {
+    "name": "alaIgmpVlanQueryInterval",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpVlanQueryResponseInterval": {
+    "name": "alaIgmpVlanQueryResponseInterval",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "tenths of seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpVlanLastMemberQueryInterval": {
+    "name": "alaIgmpVlanLastMemberQueryInterval",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "tenths of seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpVlanRouterTimeout": {
+    "name": "alaIgmpVlanRouterTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpVlanSourceTimeout": {
+    "name": "alaIgmpVlanSourceTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpVlanProxying": {
+    "name": "alaIgmpVlanProxying",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpVlanUnsolicitedReportInterval": {
+    "name": "alaIgmpVlanUnsolicitedReportInterval",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpVlanQuerierForwarding": {
+    "name": "alaIgmpVlanQuerierForwarding",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpVlanMaxGroupLimit": {
+    "name": "alaIgmpVlanMaxGroupLimit",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpVlanMaxGroupExceedAction": {
+    "name": "alaIgmpVlanMaxGroupExceedAction",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "drop": 1,
+          "replace": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpVlanSpoofAddressType": {
+    "name": "alaIgmpVlanSpoofAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "alaIgmpVlanSpoofAddress": {
+    "name": "alaIgmpVlanSpoofAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "alaIgmpMember": {
+    "name": "alaIgmpMember",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.3",
+    "class": "objectidentity"
+  },
+  "alaIgmpMemberTable": {
+    "name": "alaIgmpMemberTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpMemberEntry": {
+    "name": "alaIgmpMemberEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpMemberVlan",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpMemberIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpMemberGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpMemberSourceAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpMemberVlan": {
+    "name": "alaIgmpMemberVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpMemberIfIndex": {
+    "name": "alaIgmpMemberIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpMemberGroupAddress": {
+    "name": "alaIgmpMemberGroupAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpMemberSourceAddress": {
+    "name": "alaIgmpMemberSourceAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpMemberMode": {
+    "name": "alaIgmpMemberMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "include": 1,
+          "exclude": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpMemberCount": {
+    "name": "alaIgmpMemberCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpMemberTimeout": {
+    "name": "alaIgmpMemberTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpStaticMember": {
+    "name": "alaIgmpStaticMember",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.4",
+    "class": "objectidentity"
+  },
+  "alaIgmpStaticMemberTable": {
+    "name": "alaIgmpStaticMemberTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpStaticMemberEntry": {
+    "name": "alaIgmpStaticMemberEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpStaticMemberVlan",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpStaticMemberIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpStaticMemberGroupAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpStaticMemberVlan": {
+    "name": "alaIgmpStaticMemberVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpStaticMemberIfIndex": {
+    "name": "alaIgmpStaticMemberIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpStaticMemberGroupAddress": {
+    "name": "alaIgmpStaticMemberGroupAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpStaticMemberRowStatus": {
+    "name": "alaIgmpStaticMemberRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIgmpNeighbor": {
+    "name": "alaIgmpNeighbor",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.5",
+    "class": "objectidentity"
+  },
+  "alaIgmpNeighborTable": {
+    "name": "alaIgmpNeighborTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpNeighborEntry": {
+    "name": "alaIgmpNeighborEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpNeighborVlan",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpNeighborIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpNeighborHostAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpNeighborVlan": {
+    "name": "alaIgmpNeighborVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpNeighborIfIndex": {
+    "name": "alaIgmpNeighborIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpNeighborHostAddress": {
+    "name": "alaIgmpNeighborHostAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpNeighborCount": {
+    "name": "alaIgmpNeighborCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpNeighborTimeout": {
+    "name": "alaIgmpNeighborTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpStaticNeighbor": {
+    "name": "alaIgmpStaticNeighbor",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.6",
+    "class": "objectidentity"
+  },
+  "alaIgmpStaticNeighborTable": {
+    "name": "alaIgmpStaticNeighborTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpStaticNeighborEntry": {
+    "name": "alaIgmpStaticNeighborEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpStaticNeighborVlan",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpStaticNeighborIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpStaticNeighborVlan": {
+    "name": "alaIgmpStaticNeighborVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpStaticNeighborIfIndex": {
+    "name": "alaIgmpStaticNeighborIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpStaticNeighborRowStatus": {
+    "name": "alaIgmpStaticNeighborRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIgmpQuerier": {
+    "name": "alaIgmpQuerier",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.7",
+    "class": "objectidentity"
+  },
+  "alaIgmpQuerierTable": {
+    "name": "alaIgmpQuerierTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpQuerierEntry": {
+    "name": "alaIgmpQuerierEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpQuerierVlan",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpQuerierIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpQuerierHostAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpQuerierVlan": {
+    "name": "alaIgmpQuerierVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpQuerierIfIndex": {
+    "name": "alaIgmpQuerierIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpQuerierHostAddress": {
+    "name": "alaIgmpQuerierHostAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpQuerierCount": {
+    "name": "alaIgmpQuerierCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpQuerierTimeout": {
+    "name": "alaIgmpQuerierTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpStaticQuerier": {
+    "name": "alaIgmpStaticQuerier",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.8",
+    "class": "objectidentity"
+  },
+  "alaIgmpStaticQuerierTable": {
+    "name": "alaIgmpStaticQuerierTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpStaticQuerierEntry": {
+    "name": "alaIgmpStaticQuerierEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpStaticQuerierVlan",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpStaticQuerierIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpStaticQuerierVlan": {
+    "name": "alaIgmpStaticQuerierVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpStaticQuerierIfIndex": {
+    "name": "alaIgmpStaticQuerierIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpStaticQuerierRowStatus": {
+    "name": "alaIgmpStaticQuerierRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIgmpSource": {
+    "name": "alaIgmpSource",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.9",
+    "class": "objectidentity"
+  },
+  "alaIgmpSourceTable": {
+    "name": "alaIgmpSourceTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpSourceEntry": {
+    "name": "alaIgmpSourceEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpSourceVlan",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpSourceGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpSourceHostAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpSourceDestAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpSourceOrigAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpSourceVlan": {
+    "name": "alaIgmpSourceVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpSourceIfIndex": {
+    "name": "alaIgmpSourceIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpSourceGroupAddress": {
+    "name": "alaIgmpSourceGroupAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpSourceHostAddress": {
+    "name": "alaIgmpSourceHostAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpSourceDestAddress": {
+    "name": "alaIgmpSourceDestAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpSourceOrigAddress": {
+    "name": "alaIgmpSourceOrigAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpSourceType": {
+    "name": "alaIgmpSourceType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.9.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mcast": 1,
+          "pim": 2,
+          "ipip": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpForward": {
+    "name": "alaIgmpForward",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.10",
+    "class": "objectidentity"
+  },
+  "alaIgmpForwardTable": {
+    "name": "alaIgmpForwardTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpForwardEntry": {
+    "name": "alaIgmpForwardEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpForwardVlan",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpForwardGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpForwardHostAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpForwardDestAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpForwardOrigAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpForwardNextVlan",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpForwardNextIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpForwardVlan": {
+    "name": "alaIgmpForwardVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpForwardIfIndex": {
+    "name": "alaIgmpForwardIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpForwardGroupAddress": {
+    "name": "alaIgmpForwardGroupAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpForwardHostAddress": {
+    "name": "alaIgmpForwardHostAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpForwardDestAddress": {
+    "name": "alaIgmpForwardDestAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpForwardOrigAddress": {
+    "name": "alaIgmpForwardOrigAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpForwardType": {
+    "name": "alaIgmpForwardType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mcast": 1,
+          "pim": 2,
+          "ipip": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpForwardNextVlan": {
+    "name": "alaIgmpForwardNextVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.10.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpForwardNextIfIndex": {
+    "name": "alaIgmpForwardNextIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.10.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpForwardNextType": {
+    "name": "alaIgmpForwardNextType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.10.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mcast": 1,
+          "pim": 2,
+          "ipip": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpTunnel": {
+    "name": "alaIgmpTunnel",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.11",
+    "class": "objectidentity"
+  },
+  "alaIgmpTunnelTable": {
+    "name": "alaIgmpTunnelTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpTunnelEntry": {
+    "name": "alaIgmpTunnelEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpTunnelVlan",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpTunnelGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpTunnelHostAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpTunnelDestAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpTunnelOrigAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpTunnelNextDestAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpTunnelVlan": {
+    "name": "alaIgmpTunnelVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpTunnelIfIndex": {
+    "name": "alaIgmpTunnelIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpTunnelGroupAddress": {
+    "name": "alaIgmpTunnelGroupAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpTunnelHostAddress": {
+    "name": "alaIgmpTunnelHostAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.11.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpTunnelDestAddress": {
+    "name": "alaIgmpTunnelDestAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.11.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpTunnelOrigAddress": {
+    "name": "alaIgmpTunnelOrigAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.11.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpTunnelType": {
+    "name": "alaIgmpTunnelType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.11.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mcast": 1,
+          "pim": 2,
+          "ipip": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpTunnelNextDestAddress": {
+    "name": "alaIgmpTunnelNextDestAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.11.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpTunnelNextType": {
+    "name": "alaIgmpTunnelNextType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.11.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mcast": 1,
+          "pim": 2,
+          "ipip": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpPort": {
+    "name": "alaIgmpPort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.12",
+    "class": "objectidentity"
+  },
+  "alaIgmpPortTable": {
+    "name": "alaIgmpPortTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpPortEntry": {
+    "name": "alaIgmpPortEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpPortIfIndex": {
+    "name": "alaIgmpPortIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpPortMaxGroupLimit": {
+    "name": "alaIgmpPortMaxGroupLimit",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpPortMaxGroupExceedAction": {
+    "name": "alaIgmpPortMaxGroupExceedAction",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "drop": 1,
+          "replace": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpPortVlan": {
+    "name": "alaIgmpPortVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.13",
+    "class": "objectidentity"
+  },
+  "alaIgmpPortVlanTable": {
+    "name": "alaIgmpPortVlanTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.13.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpPortVlanEntry": {
+    "name": "alaIgmpPortVlanEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.13.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpPortIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpVlanId": {
+    "name": "alaIgmpVlanId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.13.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpPortVlanCurrentGroupCount": {
+    "name": "alaIgmpPortVlanCurrentGroupCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.13.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpPortVlanMaxGroupLimit": {
+    "name": "alaIgmpPortVlanMaxGroupLimit",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.13.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpPortVlanMaxGroupExceedAction": {
+    "name": "alaIgmpPortVlanMaxGroupExceedAction",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.1.13.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "drop": 1,
+          "replace": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IgmpMIBConformance": {
+    "name": "alcatelIND1IgmpMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.2",
+    "class": "objectidentity"
+  },
+  "alcatelIND1IgmpMIBCompliances": {
+    "name": "alcatelIND1IgmpMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.2.1",
+    "class": "objectidentity"
+  },
+  "alaIgmpCompliance": {
+    "name": "alaIgmpCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alaIgmpGroup",
+        "module": "ALCATEL-IND1-IGMP-MIB"
+      },
+      {
+        "object": "alaIgmpVlanGroup",
+        "module": "ALCATEL-IND1-IGMP-MIB"
+      },
+      {
+        "object": "alaIgmpMemberGroup",
+        "module": "ALCATEL-IND1-IGMP-MIB"
+      },
+      {
+        "object": "alaIgmpStaticMemberGroup",
+        "module": "ALCATEL-IND1-IGMP-MIB"
+      },
+      {
+        "object": "alaIgmpNeighborGroup",
+        "module": "ALCATEL-IND1-IGMP-MIB"
+      },
+      {
+        "object": "alaIgmpStaticNeighborGroup",
+        "module": "ALCATEL-IND1-IGMP-MIB"
+      },
+      {
+        "object": "alaIgmpQuerierGroup",
+        "module": "ALCATEL-IND1-IGMP-MIB"
+      },
+      {
+        "object": "alaIgmpStaticQuerierGroup",
+        "module": "ALCATEL-IND1-IGMP-MIB"
+      },
+      {
+        "object": "alaIgmpSourceGroup",
+        "module": "ALCATEL-IND1-IGMP-MIB"
+      },
+      {
+        "object": "alaIgmpForwardGroup",
+        "module": "ALCATEL-IND1-IGMP-MIB"
+      },
+      {
+        "object": "alaIgmpTunnelGroup",
+        "module": "ALCATEL-IND1-IGMP-MIB"
+      },
+      {
+        "object": "alaIgmpPortGroup",
+        "module": "ALCATEL-IND1-IGMP-MIB"
+      },
+      {
+        "object": "alaIgmpPortVlanGroup",
+        "module": "ALCATEL-IND1-IGMP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IgmpMIBGroups": {
+    "name": "alcatelIND1IgmpMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.2.2",
+    "class": "objectidentity"
+  },
+  "alaIgmpGroup": {
+    "name": "alaIgmpGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpQuerying"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpSpoofing"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpZapping"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpVersion"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpRobustness"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpQueryInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpQueryResponseInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpLastMemberQueryInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpRouterTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpSourceTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpProxying"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpUnsolicitedReportInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpQuerierForwarding"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpMaxGroupLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpMaxGroupExceedAction"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpFloodUnknown"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpHelperAddressType"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpHelperAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpVlanGroup": {
+    "name": "alaIgmpVlanGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpVlanStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpVlanQuerying"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpVlanSpoofing"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpVlanZapping"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpVlanVersion"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpVlanRobustness"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpVlanQueryInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpVlanQueryResponseInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpVlanLastMemberQueryInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpVlanRouterTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpVlanSourceTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpVlanProxying"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpVlanUnsolicitedReportInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpVlanQuerierForwarding"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpVlanMaxGroupLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpVlanMaxGroupExceedAction"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpVlanSpoofAddressType"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpVlanSpoofAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpMemberGroup": {
+    "name": "alaIgmpMemberGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpMemberMode"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpMemberCount"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpMemberTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpStaticMemberGroup": {
+    "name": "alaIgmpStaticMemberGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpStaticMemberRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpNeighborGroup": {
+    "name": "alaIgmpNeighborGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpNeighborCount"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpNeighborTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpStaticNeighborGroup": {
+    "name": "alaIgmpStaticNeighborGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpStaticNeighborRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpQuerierGroup": {
+    "name": "alaIgmpQuerierGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpQuerierCount"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpQuerierTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpStaticQuerierGroup": {
+    "name": "alaIgmpStaticQuerierGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpStaticQuerierRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpSourceGroup": {
+    "name": "alaIgmpSourceGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpSourceIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpSourceType"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpForwardGroup": {
+    "name": "alaIgmpForwardGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpForwardIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpForwardType"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpForwardNextType"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpTunnelGroup": {
+    "name": "alaIgmpTunnelGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpTunnelIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpTunnelType"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpTunnelNextType"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpPortGroup": {
+    "name": "alaIgmpPortGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpPortMaxGroupLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpPortMaxGroupExceedAction"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpPortVlanGroup": {
+    "name": "alaIgmpPortVlanGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.34.1.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpPortVlanCurrentGroupCount"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpPortVlanMaxGroupLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-IGMP-MIB",
+        "object": "alaIgmpPortVlanMaxGroupExceedAction"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-IGMP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:03 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-IGMP-MIB"
+  }
+}

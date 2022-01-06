@@ -1,0 +1,1286 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "transmission",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "frameRelayDTE": {
+    "name": "frameRelayDTE",
+    "oid": "1.3.6.1.2.1.10.32",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1997-05-01 02:29",
+        "description": "Converted from SMIv1 to SMIv2. (Thus, indices are read-only rather than being not-accessible.) Added objects and made clarifications based on implementation experience."
+      },
+      {
+        "revision": "1992-04-01 00:00",
+        "description": "Published as RFC 1315, the initial version of this MIB module."
+      }
+    ]
+  },
+  "DLCI": {
+    "name": "DLCI",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8388607
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "frDlcmiTable": {
+    "name": "frDlcmiTable",
+    "oid": "1.3.6.1.2.1.10.32.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frDlcmiEntry": {
+    "name": "frDlcmiEntry",
+    "oid": "1.3.6.1.2.1.10.32.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDlcmiIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "frDlcmiIfIndex": {
+    "name": "frDlcmiIfIndex",
+    "oid": "1.3.6.1.2.1.10.32.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frDlcmiState": {
+    "name": "frDlcmiState",
+    "oid": "1.3.6.1.2.1.10.32.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noLmiConfigured": 1,
+          "lmiRev1": 2,
+          "ansiT1617D": 3,
+          "ansiT1617B": 4,
+          "itut933A": 5,
+          "ansiT1617D1994": 6
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frDlcmiAddress": {
+    "name": "frDlcmiAddress",
+    "oid": "1.3.6.1.2.1.10.32.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "q921": 1,
+          "q922March90": 2,
+          "q922November90": 3,
+          "q922": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frDlcmiAddressLen": {
+    "name": "frDlcmiAddressLen",
+    "oid": "1.3.6.1.2.1.10.32.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "twoOctets": 2,
+          "threeOctets": 3,
+          "fourOctets": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frDlcmiPollingInterval": {
+    "name": "frDlcmiPollingInterval",
+    "oid": "1.3.6.1.2.1.10.32.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frDlcmiFullEnquiryInterval": {
+    "name": "frDlcmiFullEnquiryInterval",
+    "oid": "1.3.6.1.2.1.10.32.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frDlcmiErrorThreshold": {
+    "name": "frDlcmiErrorThreshold",
+    "oid": "1.3.6.1.2.1.10.32.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frDlcmiMonitoredEvents": {
+    "name": "frDlcmiMonitoredEvents",
+    "oid": "1.3.6.1.2.1.10.32.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frDlcmiMaxSupportedVCs": {
+    "name": "frDlcmiMaxSupportedVCs",
+    "oid": "1.3.6.1.2.1.10.32.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DLCI",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frDlcmiMulticast": {
+    "name": "frDlcmiMulticast",
+    "oid": "1.3.6.1.2.1.10.32.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonBroadcast": 1,
+          "broadcast": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frDlcmiStatus": {
+    "name": "frDlcmiStatus",
+    "oid": "1.3.6.1.2.1.10.32.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "fault": 2,
+          "initializing": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frDlcmiRowStatus": {
+    "name": "frDlcmiRowStatus",
+    "oid": "1.3.6.1.2.1.10.32.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frCircuitTable": {
+    "name": "frCircuitTable",
+    "oid": "1.3.6.1.2.1.10.32.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frCircuitEntry": {
+    "name": "frCircuitEntry",
+    "oid": "1.3.6.1.2.1.10.32.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitDlci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "frCircuitIfIndex": {
+    "name": "frCircuitIfIndex",
+    "oid": "1.3.6.1.2.1.10.32.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frCircuitDlci": {
+    "name": "frCircuitDlci",
+    "oid": "1.3.6.1.2.1.10.32.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DLCI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frCircuitState": {
+    "name": "frCircuitState",
+    "oid": "1.3.6.1.2.1.10.32.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "active": 2,
+          "inactive": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "active",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frCircuitReceivedFECNs": {
+    "name": "frCircuitReceivedFECNs",
+    "oid": "1.3.6.1.2.1.10.32.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frCircuitReceivedBECNs": {
+    "name": "frCircuitReceivedBECNs",
+    "oid": "1.3.6.1.2.1.10.32.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frCircuitSentFrames": {
+    "name": "frCircuitSentFrames",
+    "oid": "1.3.6.1.2.1.10.32.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frCircuitSentOctets": {
+    "name": "frCircuitSentOctets",
+    "oid": "1.3.6.1.2.1.10.32.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frCircuitReceivedFrames": {
+    "name": "frCircuitReceivedFrames",
+    "oid": "1.3.6.1.2.1.10.32.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frCircuitReceivedOctets": {
+    "name": "frCircuitReceivedOctets",
+    "oid": "1.3.6.1.2.1.10.32.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frCircuitCreationTime": {
+    "name": "frCircuitCreationTime",
+    "oid": "1.3.6.1.2.1.10.32.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frCircuitLastTimeChange": {
+    "name": "frCircuitLastTimeChange",
+    "oid": "1.3.6.1.2.1.10.32.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frCircuitCommittedBurst": {
+    "name": "frCircuitCommittedBurst",
+    "oid": "1.3.6.1.2.1.10.32.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frCircuitExcessBurst": {
+    "name": "frCircuitExcessBurst",
+    "oid": "1.3.6.1.2.1.10.32.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frCircuitThroughput": {
+    "name": "frCircuitThroughput",
+    "oid": "1.3.6.1.2.1.10.32.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frCircuitMulticast": {
+    "name": "frCircuitMulticast",
+    "oid": "1.3.6.1.2.1.10.32.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unicast": 1,
+          "oneWay": 2,
+          "twoWay": 3,
+          "nWay": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unicast",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frCircuitType": {
+    "name": "frCircuitType",
+    "oid": "1.3.6.1.2.1.10.32.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frCircuitDiscards": {
+    "name": "frCircuitDiscards",
+    "oid": "1.3.6.1.2.1.10.32.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frCircuitReceivedDEs": {
+    "name": "frCircuitReceivedDEs",
+    "oid": "1.3.6.1.2.1.10.32.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frCircuitSentDEs": {
+    "name": "frCircuitSentDEs",
+    "oid": "1.3.6.1.2.1.10.32.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frCircuitLogicalIfIndex": {
+    "name": "frCircuitLogicalIfIndex",
+    "oid": "1.3.6.1.2.1.10.32.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frCircuitRowStatus": {
+    "name": "frCircuitRowStatus",
+    "oid": "1.3.6.1.2.1.10.32.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frErrTable": {
+    "name": "frErrTable",
+    "oid": "1.3.6.1.2.1.10.32.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frErrEntry": {
+    "name": "frErrEntry",
+    "oid": "1.3.6.1.2.1.10.32.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frErrIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "frErrIfIndex": {
+    "name": "frErrIfIndex",
+    "oid": "1.3.6.1.2.1.10.32.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frErrType": {
+    "name": "frErrType",
+    "oid": "1.3.6.1.2.1.10.32.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknownError": 1,
+          "receiveShort": 2,
+          "receiveLong": 3,
+          "illegalAddress": 4,
+          "unknownAddress": 5,
+          "dlcmiProtoErr": 6,
+          "dlcmiUnknownIE": 7,
+          "dlcmiSequenceErr": 8,
+          "dlcmiUnknownRpt": 9,
+          "noErrorSinceReset": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frErrData": {
+    "name": "frErrData",
+    "oid": "1.3.6.1.2.1.10.32.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frErrTime": {
+    "name": "frErrTime",
+    "oid": "1.3.6.1.2.1.10.32.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frErrFaults": {
+    "name": "frErrFaults",
+    "oid": "1.3.6.1.2.1.10.32.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frErrFaultTime": {
+    "name": "frErrFaultTime",
+    "oid": "1.3.6.1.2.1.10.32.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frameRelayTrapControl": {
+    "name": "frameRelayTrapControl",
+    "oid": "1.3.6.1.2.1.10.32.4",
+    "class": "objectidentity"
+  },
+  "frameRelayTraps": {
+    "name": "frameRelayTraps",
+    "oid": "1.3.6.1.2.1.10.32.0",
+    "class": "objectidentity"
+  },
+  "frTrapState": {
+    "name": "frTrapState",
+    "oid": "1.3.6.1.2.1.10.32.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "frTrapMaxRate": {
+    "name": "frTrapMaxRate",
+    "oid": "1.3.6.1.2.1.10.32.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "frDLCIStatusChange": {
+    "name": "frDLCIStatusChange",
+    "oid": "1.3.6.1.2.1.10.32.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitState"
+      }
+    ],
+    "status": "current"
+  },
+  "frConformance": {
+    "name": "frConformance",
+    "oid": "1.3.6.1.2.1.10.32.6",
+    "class": "objectidentity"
+  },
+  "frGroups": {
+    "name": "frGroups",
+    "oid": "1.3.6.1.2.1.10.32.6.1",
+    "class": "objectidentity"
+  },
+  "frCompliances": {
+    "name": "frCompliances",
+    "oid": "1.3.6.1.2.1.10.32.6.2",
+    "class": "objectidentity"
+  },
+  "frCompliance": {
+    "name": "frCompliance",
+    "oid": "1.3.6.1.2.1.10.32.6.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "frPortGroup",
+        "module": "FRAME-RELAY-DTE-MIB"
+      },
+      {
+        "object": "frCircuitGroup",
+        "module": "FRAME-RELAY-DTE-MIB"
+      },
+      {
+        "object": "frErrGroup",
+        "module": "FRAME-RELAY-DTE-MIB"
+      },
+      {
+        "object": "frTrapGroup",
+        "module": "FRAME-RELAY-DTE-MIB"
+      },
+      {
+        "object": "frNotificationGroup",
+        "module": "FRAME-RELAY-DTE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "frCompliance0": {
+    "name": "frCompliance0",
+    "oid": "1.3.6.1.2.1.10.32.6.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "frPortGroup0",
+        "module": "FRAME-RELAY-DTE-MIB"
+      },
+      {
+        "object": "frCircuitGroup0",
+        "module": "FRAME-RELAY-DTE-MIB"
+      },
+      {
+        "object": "frErrGroup0",
+        "module": "FRAME-RELAY-DTE-MIB"
+      },
+      {
+        "object": "frTrapGroup0",
+        "module": "FRAME-RELAY-DTE-MIB"
+      },
+      {
+        "object": "frNotificationGroup",
+        "module": "FRAME-RELAY-DTE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "frPortGroup": {
+    "name": "frPortGroup",
+    "oid": "1.3.6.1.2.1.10.32.6.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDlcmiIfIndex"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDlcmiState"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDlcmiAddress"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDlcmiAddressLen"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDlcmiPollingInterval"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDlcmiFullEnquiryInterval"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDlcmiErrorThreshold"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDlcmiMonitoredEvents"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDlcmiMaxSupportedVCs"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDlcmiMulticast"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDlcmiStatus"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDlcmiRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "frCircuitGroup": {
+    "name": "frCircuitGroup",
+    "oid": "1.3.6.1.2.1.10.32.6.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitIfIndex"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitDlci"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitState"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitReceivedFECNs"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitReceivedBECNs"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitSentFrames"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitSentOctets"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitReceivedFrames"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitReceivedOctets"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitCreationTime"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitLastTimeChange"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitCommittedBurst"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitExcessBurst"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitThroughput"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitMulticast"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitType"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitDiscards"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitReceivedDEs"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitSentDEs"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitLogicalIfIndex"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "frTrapGroup": {
+    "name": "frTrapGroup",
+    "oid": "1.3.6.1.2.1.10.32.6.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frTrapState"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frTrapMaxRate"
+      }
+    ],
+    "status": "current"
+  },
+  "frErrGroup": {
+    "name": "frErrGroup",
+    "oid": "1.3.6.1.2.1.10.32.6.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frErrIfIndex"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frErrType"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frErrData"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frErrTime"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frErrFaults"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frErrFaultTime"
+      }
+    ],
+    "status": "current"
+  },
+  "frNotificationGroup": {
+    "name": "frNotificationGroup",
+    "oid": "1.3.6.1.2.1.10.32.6.1.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDLCIStatusChange"
+      }
+    ],
+    "status": "current"
+  },
+  "frPortGroup0": {
+    "name": "frPortGroup0",
+    "oid": "1.3.6.1.2.1.10.32.6.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDlcmiIfIndex"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDlcmiState"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDlcmiAddress"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDlcmiAddressLen"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDlcmiPollingInterval"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDlcmiFullEnquiryInterval"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDlcmiErrorThreshold"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDlcmiMonitoredEvents"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDlcmiMaxSupportedVCs"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frDlcmiMulticast"
+      }
+    ],
+    "status": "current"
+  },
+  "frCircuitGroup0": {
+    "name": "frCircuitGroup0",
+    "oid": "1.3.6.1.2.1.10.32.6.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitIfIndex"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitDlci"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitState"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitReceivedFECNs"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitReceivedBECNs"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitSentFrames"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitSentOctets"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitReceivedFrames"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitReceivedOctets"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitCreationTime"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitLastTimeChange"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitCommittedBurst"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitExcessBurst"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frCircuitThroughput"
+      }
+    ],
+    "status": "current"
+  },
+  "frErrGroup0": {
+    "name": "frErrGroup0",
+    "oid": "1.3.6.1.2.1.10.32.6.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frErrIfIndex"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frErrType"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frErrData"
+      },
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frErrTime"
+      }
+    ],
+    "status": "current"
+  },
+  "frTrapGroup0": {
+    "name": "frTrapGroup0",
+    "oid": "1.3.6.1.2.1.10.32.6.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "object": "frTrapState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/FRAME-RELAY-DTE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "FRAME-RELAY-DTE-MIB"
+  }
+}

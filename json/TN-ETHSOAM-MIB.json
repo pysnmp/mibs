@@ -1,0 +1,2138 @@
+{
+  "imports": {
+    "class": "imports",
+    "IEEE8021-CFM-MIB": [
+      "dot1agCfmMepIdentifier",
+      "dot1agCfmMepEntry",
+      "dot1agCfmLtrEntry"
+    ],
+    "IEEE8021-TC-MIB": [
+      "IEEE8021PriorityValue"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId",
+      "VlanIdOrNone"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TRANSITION-SMI": [
+      "tnProducts"
+    ]
+  },
+  "Dot1agCfmMepId": {
+    "name": "Dot1agCfmMepId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Dot1agCfmMpDirection": {
+    "name": "Dot1agCfmMpDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "up": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Dot1agCfmMaintDomainName": {
+    "name": "Dot1agCfmMaintDomainName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 43
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Dot1agCfmMaintAssocName": {
+    "name": "Dot1agCfmMaintAssocName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 45
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Dot1agCfmMDLevel": {
+    "name": "Dot1agCfmMDLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "TnEthSoamType": {
+    "name": "TnEthSoamType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "port": 1,
+          "esp": 2,
+          "evc": 3,
+          "vlan": 4,
+          "mplslink": 5,
+          "mplstunnel": 6,
+          "mplspw": 7,
+          "mplslsp": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TnEthSoamTestPatternType": {
+    "name": "TnEthSoamTestPatternType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allzero": 1,
+          "allone": 2,
+          "onezero": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "tnEthSoamMIB": {
+    "name": "tnEthSoamMIB",
+    "oid": "1.3.6.1.4.1.868.2.5.105",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-04-20 00:00",
+        "description": "Initial version of this MIB module."
+      },
+      {
+        "revision": "2014-05-06 00:00",
+        "description": "Added Serval MIB tnEthSoamVOE to this MIB module."
+      }
+    ]
+  },
+  "tnEthSoamMIBNotifications": {
+    "name": "tnEthSoamMIBNotifications",
+    "oid": "1.3.6.1.4.1.868.2.5.105.0",
+    "class": "objectidentity"
+  },
+  "tnEthSoamMIBObjects": {
+    "name": "tnEthSoamMIBObjects",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1",
+    "class": "objectidentity"
+  },
+  "tnEthSoamMIBConformance": {
+    "name": "tnEthSoamMIBConformance",
+    "oid": "1.3.6.1.4.1.868.2.5.105.2",
+    "class": "objectidentity"
+  },
+  "tnEthSoamFaultAlarm": {
+    "name": "tnEthSoamFaultAlarm",
+    "oid": "1.3.6.1.4.1.868.2.5.105.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier"
+      },
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoamStatusCCMLevel"
+      },
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoamStatusCCMMeg"
+      },
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoamStatusCCMMep"
+      },
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoamStatusAIS"
+      },
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoamStatusCLK"
+      },
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoamStatusSSF"
+      }
+    ],
+    "status": "current"
+  },
+  "tnEthSoamPeerFaultAlarm": {
+    "name": "tnEthSoamPeerFaultAlarm",
+    "oid": "1.3.6.1.4.1.868.2.5.105.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier"
+      },
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoamPeerStatuscLOC"
+      },
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoamPeerStatuscRDI"
+      },
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoamPeerStatuscPeriod"
+      },
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoamPeerStatuscPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "tnEthSoamMPMgmt": {
+    "name": "tnEthSoamMPMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.1",
+    "class": "objectidentity"
+  },
+  "tnEthSoamPeerCfgMgmt": {
+    "name": "tnEthSoamPeerCfgMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.2",
+    "class": "objectidentity"
+  },
+  "tnEthSoamPeerStatusMgmt": {
+    "name": "tnEthSoamPeerStatusMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.3",
+    "class": "objectidentity"
+  },
+  "tnEthSoamAPSCfgMgmt": {
+    "name": "tnEthSoamAPSCfgMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.4",
+    "class": "objectidentity"
+  },
+  "tnEthSoamClientCfgMgmt": {
+    "name": "tnEthSoamClientCfgMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.5",
+    "class": "objectidentity"
+  },
+  "tnEthSoamLocalCfgMgmt": {
+    "name": "tnEthSoamLocalCfgMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.6",
+    "class": "objectidentity"
+  },
+  "tnEthSoamStatusMgmt": {
+    "name": "tnEthSoamStatusMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.7",
+    "class": "objectidentity"
+  },
+  "tnEthSoamLossStateMgmt": {
+    "name": "tnEthSoamLossStateMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.8",
+    "class": "objectidentity"
+  },
+  "tnEthSoamTSExtMgmt": {
+    "name": "tnEthSoamTSExtMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.9",
+    "class": "objectidentity"
+  },
+  "tnEthSoamLtmMgmt": {
+    "name": "tnEthSoamLtmMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.10",
+    "class": "objectidentity"
+  },
+  "tnEthSoamLtrMgmt": {
+    "name": "tnEthSoamLtrMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.11",
+    "class": "objectidentity"
+  },
+  "tnEthSoamAisCfgMgmt": {
+    "name": "tnEthSoamAisCfgMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.12",
+    "class": "objectidentity"
+  },
+  "tnEthSoamDmCfgMgmt": {
+    "name": "tnEthSoamDmCfgMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.13",
+    "class": "objectidentity"
+  },
+  "tnEthSoamDmStateMgmt": {
+    "name": "tnEthSoamDmStateMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14",
+    "class": "objectidentity"
+  },
+  "tnEthSoamMPTable": {
+    "name": "tnEthSoamMPTable",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnEthSoamMPEntry": {
+    "name": "tnEthSoamMPEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoaminstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnEthSoaminstance": {
+    "name": "tnEthSoaminstance",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnEthSoamDomaintype": {
+    "name": "tnEthSoamDomaintype",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TnEthSoamType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamMode": {
+    "name": "tnEthSoamMode",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mep": 1,
+          "mip": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamdirection": {
+    "name": "tnEthSoamdirection",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMpDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamresidencePort": {
+    "name": "tnEthSoamresidencePort",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamlevel": {
+    "name": "tnEthSoamlevel",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMDLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamFlowInstance": {
+    "name": "tnEthSoamFlowInstance",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamTaggedVID": {
+    "name": "tnEthSoamTaggedVID",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamAlarm": {
+    "name": "tnEthSoamAlarm",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamStatus": {
+    "name": "tnEthSoamStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamPeerCfgTable": {
+    "name": "tnEthSoamPeerCfgTable",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnEthSoamPeerCfgEntry": {
+    "name": "tnEthSoamPeerCfgEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoaminstance",
+        "implied": 0
+      },
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoamPeerCfgMepId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnEthSoamPeerCfgMepId": {
+    "name": "tnEthSoamPeerCfgMepId",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMepId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnEthSoamPeerCfgUnicastMac": {
+    "name": "tnEthSoamPeerCfgUnicastMac",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnEthSoamPeerCfgRowState": {
+    "name": "tnEthSoamPeerCfgRowState",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamPeerStatusTable": {
+    "name": "tnEthSoamPeerStatusTable",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnEthSoamPeerStatusEntry": {
+    "name": "tnEthSoamPeerStatusEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoaminstance",
+        "implied": 0
+      },
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoamPeerStatusMepId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnEthSoamPeerStatusMepId": {
+    "name": "tnEthSoamPeerStatusMepId",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMepId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnEthSoamPeerStatuscLOC": {
+    "name": "tnEthSoamPeerStatuscLOC",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamPeerStatuscRDI": {
+    "name": "tnEthSoamPeerStatuscRDI",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamPeerStatuscPeriod": {
+    "name": "tnEthSoamPeerStatuscPeriod",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamPeerStatuscPriority": {
+    "name": "tnEthSoamPeerStatuscPriority",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamAPSCfgTable": {
+    "name": "tnEthSoamAPSCfgTable",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnEthSoamAPSCfgEntry": {
+    "name": "tnEthSoamAPSCfgEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoaminstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnEthSoamAPSCfgEnable": {
+    "name": "tnEthSoamAPSCfgEnable",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamAPSCfgPriority": {
+    "name": "tnEthSoamAPSCfgPriority",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PriorityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamAPSCfgCast": {
+    "name": "tnEthSoamAPSCfgCast",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unicast": 0,
+          "multicast": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamAPSCfgType": {
+    "name": "tnEthSoamAPSCfgType",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "raps": 0,
+          "laps": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamAPSCfgLastOctet": {
+    "name": "tnEthSoamAPSCfgLastOctet",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamClientCfgTable": {
+    "name": "tnEthSoamClientCfgTable",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnEthSoamClientCfgEntry": {
+    "name": "tnEthSoamClientCfgEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoaminstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnEthSoamClientCfgDomain": {
+    "name": "tnEthSoamClientCfgDomain",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TnEthSoamType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamClientCfgLevel": {
+    "name": "tnEthSoamClientCfgLevel",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMDLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnEthSoamClientCfgFlow1": {
+    "name": "tnEthSoamClientCfgFlow1",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamClientCfgFlow2": {
+    "name": "tnEthSoamClientCfgFlow2",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamClientCfgFlow3": {
+    "name": "tnEthSoamClientCfgFlow3",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamClientCfgFlow4": {
+    "name": "tnEthSoamClientCfgFlow4",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamClientCfgFlow5": {
+    "name": "tnEthSoamClientCfgFlow5",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamClientCfgFlow6": {
+    "name": "tnEthSoamClientCfgFlow6",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamClientCfgFlow7": {
+    "name": "tnEthSoamClientCfgFlow7",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamClientCfgFlow8": {
+    "name": "tnEthSoamClientCfgFlow8",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamClientCfgFlow9": {
+    "name": "tnEthSoamClientCfgFlow9",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamClientCfgFlow10": {
+    "name": "tnEthSoamClientCfgFlow10",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamLocalCfgTable": {
+    "name": "tnEthSoamLocalCfgTable",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnEthSoamLocalCfgEntry": {
+    "name": "tnEthSoamLocalCfgEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoaminstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnEthSoamFormat": {
+    "name": "tnEthSoamFormat",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "itu": 1,
+          "ieee": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnEthSoamDomainName": {
+    "name": "tnEthSoamDomainName",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnEthSoamMegOrMaName": {
+    "name": "tnEthSoamMegOrMaName",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnEthSoamMepID": {
+    "name": "tnEthSoamMepID",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMepId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnEthSoamCcmInterval": {
+    "name": "tnEthSoamCcmInterval",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interval300s": 1,
+          "interval100s": 2,
+          "interval10s": 3,
+          "interval1s": 4,
+          "interval6M": 5,
+          "interval1M": 6,
+          "interval6H": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnEthSoamEVCQos": {
+    "name": "tnEthSoamEVCQos",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnEthSoamEVCPolicyID": {
+    "name": "tnEthSoamEVCPolicyID",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnEthSoamVOE": {
+    "name": "tnEthSoamVOE",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnEthSoamStatusTable": {
+    "name": "tnEthSoamStatusTable",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnEthSoamStatusEntry": {
+    "name": "tnEthSoamStatusEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoaminstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnEthSoamStatusCCMLevel": {
+    "name": "tnEthSoamStatusCCMLevel",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamStatusCCMMeg": {
+    "name": "tnEthSoamStatusCCMMeg",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamStatusCCMMep": {
+    "name": "tnEthSoamStatusCCMMep",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamStatusAIS": {
+    "name": "tnEthSoamStatusAIS",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamStatusCLK": {
+    "name": "tnEthSoamStatusCLK",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamStatusSSF": {
+    "name": "tnEthSoamStatusSSF",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamStatusBLK": {
+    "name": "tnEthSoamStatusBLK",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamStatusTSF": {
+    "name": "tnEthSoamStatusTSF",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamLossStateTable": {
+    "name": "tnEthSoamLossStateTable",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnEthSoamLossStateEntry": {
+    "name": "tnEthSoamLossStateEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoaminstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnEthSoamLossStateTxCount": {
+    "name": "tnEthSoamLossStateTxCount",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamLossStateRxCount": {
+    "name": "tnEthSoamLossStateRxCount",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamLossStateNELossCount": {
+    "name": "tnEthSoamLossStateNELossCount",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamLossStateFELossCount": {
+    "name": "tnEthSoamLossStateFELossCount",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamLossStateNELossRatio": {
+    "name": "tnEthSoamLossStateNELossRatio",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamLossStateFELossRatio": {
+    "name": "tnEthSoamLossStateFELossRatio",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamLossStateAction": {
+    "name": "tnEthSoamLossStateAction",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnEthSoamTSExtTable": {
+    "name": "tnEthSoamTSExtTable",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnEthSoamTSExtEntry": {
+    "name": "tnEthSoamTSExtEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoaminstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnEthSoamTSSeqNum": {
+    "name": "tnEthSoamTSSeqNum",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnEthSoamTSStateRxRate": {
+    "name": "tnEthSoamTSStateRxRate",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamTSStateAction": {
+    "name": "tnEthSoamTSStateAction",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnEthSoamTestCfgPattern": {
+    "name": "tnEthSoamTestCfgPattern",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TnEthSoamTestPatternType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "allzero",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamLtmTable": {
+    "name": "tnEthSoamLtmTable",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnEthSoamLtmEntry": {
+    "name": "tnEthSoamLtmEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoaminstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnEthSoamltmPriority": {
+    "name": "tnEthSoamltmPriority",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PriorityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamLtrTable": {
+    "name": "tnEthSoamLtrTable",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnEthSoamLtrEntry": {
+    "name": "tnEthSoamLtrEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "tnEthSoamLtrEntry",
+      "module": "TN-ETHSOAM-MIB",
+      "object": "dot1agCfmLtrEntry"
+    },
+    "status": "current"
+  },
+  "tnEthSoamLtrDirection": {
+    "name": "tnEthSoamLtrDirection",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamAisCfgTable": {
+    "name": "tnEthSoamAisCfgTable",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnEthSoamAisCfgEntry": {
+    "name": "tnEthSoamAisCfgEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "tnEthSoamAisCfgEntry",
+      "module": "TN-ETHSOAM-MIB",
+      "object": "dot1agCfmMepEntry"
+    },
+    "status": "current"
+  },
+  "tnEthSoamAisCfgProtection": {
+    "name": "tnEthSoamAisCfgProtection",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnEthSoamDmCfgTable": {
+    "name": "tnEthSoamDmCfgTable",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.13.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnEthSoamDmCfgEntry": {
+    "name": "tnEthSoamDmCfgEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.13.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoaminstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnEthSoamDmCfgEnable": {
+    "name": "tnEthSoamDmCfgEnable",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.13.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamDmCfgPriority": {
+    "name": "tnEthSoamDmCfgPriority",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.13.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PriorityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamDmCfgCast": {
+    "name": "tnEthSoamDmCfgCast",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.13.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unicast": 0,
+          "multicast": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamDmCfgPeerId": {
+    "name": "tnEthSoamDmCfgPeerId",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.13.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMepId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamDmCfgWayType": {
+    "name": "tnEthSoamDmCfgWayType",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.13.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oneway": 1,
+          "twoway": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamDmCfgTxMode": {
+    "name": "tnEthSoamDmCfgTxMode",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.13.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standardize": 1,
+          "proprietary": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamDmCfgCalc": {
+    "name": "tnEthSoamDmCfgCalc",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.13.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "roundtrip": 1,
+          "flow": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamDmCfgGap": {
+    "name": "tnEthSoamDmCfgGap",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.13.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamDmCfgCount": {
+    "name": "tnEthSoamDmCfgCount",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.13.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamDmCfgUnit": {
+    "name": "tnEthSoamDmCfgUnit",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.13.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ns": 1,
+          "us": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamDmCfgD2forD1": {
+    "name": "tnEthSoamDmCfgD2forD1",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.13.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamDmCfgCOAction": {
+    "name": "tnEthSoamDmCfgCOAction",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.13.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "keep": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnEthSoamDmStateTable": {
+    "name": "tnEthSoamDmStateTable",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnEthSoamDmStateEntry": {
+    "name": "tnEthSoamDmStateEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-ETHSOAM-MIB",
+        "object": "tnEthSoaminstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnEthSoamDmStateFNTxCount": {
+    "name": "tnEthSoamDmStateFNTxCount",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateFNRxTimeout": {
+    "name": "tnEthSoamDmStateFNRxTimeout",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateFNRxCount": {
+    "name": "tnEthSoamDmStateFNRxCount",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateFNRxError": {
+    "name": "tnEthSoamDmStateFNRxError",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateFNAvgTotal": {
+    "name": "tnEthSoamDmStateFNAvgTotal",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateFNAvgLastN": {
+    "name": "tnEthSoamDmStateFNAvgLastN",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateFNAvgVarTotal": {
+    "name": "tnEthSoamDmStateFNAvgVarTotal",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateFNAvgVarLastN": {
+    "name": "tnEthSoamDmStateFNAvgVarLastN",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateFNMinValue": {
+    "name": "tnEthSoamDmStateFNMinValue",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateFNMaxValue": {
+    "name": "tnEthSoamDmStateFNMaxValue",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateFNOverFlow": {
+    "name": "tnEthSoamDmStateFNOverFlow",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateNFTxCount": {
+    "name": "tnEthSoamDmStateNFTxCount",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateNFRxTimeout": {
+    "name": "tnEthSoamDmStateNFRxTimeout",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateNFRxCount": {
+    "name": "tnEthSoamDmStateNFRxCount",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateNFRxError": {
+    "name": "tnEthSoamDmStateNFRxError",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateNFAvgTotal": {
+    "name": "tnEthSoamDmStateNFAvgTotal",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateNFAvgLastN": {
+    "name": "tnEthSoamDmStateNFAvgLastN",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateNFAvgVarTotal": {
+    "name": "tnEthSoamDmStateNFAvgVarTotal",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateNFAvgVarLastN": {
+    "name": "tnEthSoamDmStateNFAvgVarLastN",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateNFMinValue": {
+    "name": "tnEthSoamDmStateNFMinValue",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateNFMaxValue": {
+    "name": "tnEthSoamDmStateNFMaxValue",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateNFOverFlow": {
+    "name": "tnEthSoamDmStateNFOverFlow",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateTwoWayTxCount": {
+    "name": "tnEthSoamDmStateTwoWayTxCount",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateTwoWayRxTimeout": {
+    "name": "tnEthSoamDmStateTwoWayRxTimeout",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateTwoWayRxCount": {
+    "name": "tnEthSoamDmStateTwoWayRxCount",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateTwoWayRxError": {
+    "name": "tnEthSoamDmStateTwoWayRxError",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateTwoWayAvgTotal": {
+    "name": "tnEthSoamDmStateTwoWayAvgTotal",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateTwoWayAvgLastN": {
+    "name": "tnEthSoamDmStateTwoWayAvgLastN",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateTwoWayAvgVarTotal": {
+    "name": "tnEthSoamDmStateTwoWayAvgVarTotal",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateTwoWayAvgVarLastN": {
+    "name": "tnEthSoamDmStateTwoWayAvgVarLastN",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateTwoWayMinValue": {
+    "name": "tnEthSoamDmStateTwoWayMinValue",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateTwoWayMaxValue": {
+    "name": "tnEthSoamDmStateTwoWayMaxValue",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateTwoWayOverFlow": {
+    "name": "tnEthSoamDmStateTwoWayOverFlow",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEthSoamDmStateAction": {
+    "name": "tnEthSoamDmStateAction",
+    "oid": "1.3.6.1.4.1.868.2.5.105.1.14.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-ETHSOAM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-ETHSOAM-MIB"
+  }
+}

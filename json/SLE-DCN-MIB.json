@@ -1,0 +1,2398 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-SMI": [
+      "sleMgmt"
+    ],
+    "SLE-TC-MIB": [
+      "SleControlStatusType",
+      "SleControlRequestResultType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sleDCN": {
+    "name": "sleDCN",
+    "oid": "1.3.6.1.4.1.6296.101.91",
+    "class": "moduleidentity"
+  },
+  "sleDcnNodeInfo": {
+    "name": "sleDcnNodeInfo",
+    "oid": "1.3.6.1.4.1.6296.101.91.1",
+    "class": "objectidentity"
+  },
+  "sleDcnNodeBaseInfo": {
+    "name": "sleDcnNodeBaseInfo",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1",
+    "class": "objectidentity"
+  },
+  "sleDcnNodeType": {
+    "name": "sleDcnNodeType",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ne": 0,
+          "gne": 1,
+          "l2ne": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnMacAddress": {
+    "name": "sleDcnMacAddress",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnLoIp": {
+    "name": "sleDcnLoIp",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnLoIpRegisterType": {
+    "name": "sleDcnLoIpRegisterType",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 0,
+          "manual": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnIfNetwork": {
+    "name": "sleDcnIfNetwork",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnIfNetworkRegisterType": {
+    "name": "sleDcnIfNetworkRegisterType",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 0,
+          "manual": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleNeDcnOspfArea": {
+    "name": "sleNeDcnOspfArea",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnGneState": {
+    "name": "sleDcnGneState",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noneGne": 0,
+          "noCandidate": 1,
+          "waiting": 2,
+          "slave": 3,
+          "master": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnMgneCandidate": {
+    "name": "sleDcnMgneCandidate",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnMgnePriority": {
+    "name": "sleDcnMgnePriority",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnLoIpBase": {
+    "name": "sleDcnLoIpBase",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnLoIpBasePrefixlen": {
+    "name": "sleDcnLoIpBasePrefixlen",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnIfIpBase": {
+    "name": "sleDcnIfIpBase",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnIfIpBasePrefixlen": {
+    "name": "sleDcnIfIpBasePrefixlen",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnL2gwState": {
+    "name": "sleDcnL2gwState",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noneL2gw": 0,
+          "noCandidate": 1,
+          "waiting": 2,
+          "slave": 3,
+          "master": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnMl2gwCandidate": {
+    "name": "sleDcnMl2gwCandidate",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnMl2gwPriority": {
+    "name": "sleDcnMl2gwPriority",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnVlanIp": {
+    "name": "sleDcnVlanIp",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnVlanIpPrefixlen": {
+    "name": "sleDcnVlanIpPrefixlen",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnVlanIpRegisterType": {
+    "name": "sleDcnVlanIpRegisterType",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 0,
+          "manual": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnL2GatewayIp": {
+    "name": "sleDcnL2GatewayIp",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnMgmtIp": {
+    "name": "sleDcnMgmtIp",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnMgmtIpPrefixlen": {
+    "name": "sleDcnMgmtIpPrefixlen",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnNodeBaseControl": {
+    "name": "sleDcnNodeBaseControl",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.2",
+    "class": "objectidentity"
+  },
+  "sleDcnControlRequest": {
+    "name": "sleDcnControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setNodeType": 1,
+          "dcnLoip": 2,
+          "dcnLoIpBase": 3,
+          "dcnIfNetwork": 4,
+          "dcnIfIpBase": 5,
+          "mgneSwitchOver": 6,
+          "mgneCandidate": 7,
+          "mgnePriority": 8,
+          "l2GatewayEnable": 9,
+          "dcnVlanIp": 10,
+          "ml2gwSwitchOver": 11,
+          "ml2gwCandidate": 12,
+          "ml2gwPriority": 13,
+          "remoteLoip": 14,
+          "remoteIfNetwork": 15,
+          "mgmtIp": 16
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDcnControlStatus": {
+    "name": "sleDcnControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnControlTimer": {
+    "name": "sleDcnControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDcnControlTimeStamp": {
+    "name": "sleDcnControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnControlReqResult": {
+    "name": "sleDcnControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnControlNodeType": {
+    "name": "sleDcnControlNodeType",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ne": 0,
+          "gne": 1,
+          "l2ne": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDcnControlDcnLoIp": {
+    "name": "sleDcnControlDcnLoIp",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnControlDcnLoIpBase": {
+    "name": "sleDcnControlDcnLoIpBase",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnControlDcnLoIpBasePrefixlen": {
+    "name": "sleDcnControlDcnLoIpBasePrefixlen",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnControlDcnIfIpBase": {
+    "name": "sleDcnControlDcnIfIpBase",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnControlDcnIfIpBasePrefixlen": {
+    "name": "sleDcnControlDcnIfIpBasePrefixlen",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnControlDcnMgneCandidate": {
+    "name": "sleDcnControlDcnMgneCandidate",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDcnControlDcnMgnePriority": {
+    "name": "sleDcnControlDcnMgnePriority",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDcnControlL2GatewayEnable": {
+    "name": "sleDcnControlL2GatewayEnable",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDcnControlDcnVlanIp": {
+    "name": "sleDcnControlDcnVlanIp",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnControlDcnVlanIpPrefixlen": {
+    "name": "sleDcnControlDcnVlanIpPrefixlen",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnControlDcnMl2gwCandidate": {
+    "name": "sleDcnControlDcnMl2gwCandidate",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDcnControlDcnMl2gwPriority": {
+    "name": "sleDcnControlDcnMl2gwPriority",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDcnControlDcnMacAddr": {
+    "name": "sleDcnControlDcnMacAddr",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnControlDcnIfNetwork": {
+    "name": "sleDcnControlDcnIfNetwork",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnControlDcnMgmtIp": {
+    "name": "sleDcnControlDcnMgmtIp",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnControlDcnMgmtIpPrefixlen": {
+    "name": "sleDcnControlDcnMgmtIpPrefixlen",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnNodeBaseNotification": {
+    "name": "sleDcnNodeBaseNotification",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.3",
+    "class": "objectidentity"
+  },
+  "sleDcnNodeTypeChanged": {
+    "name": "sleDcnNodeTypeChanged",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlRequest"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlTimeStamp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlReqResult"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlNodeType"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnLoIpChanged": {
+    "name": "sleDcnLoIpChanged",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlRequest"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlTimeStamp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlReqResult"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnLoIp"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnLoIpBaseChanged": {
+    "name": "sleDcnLoIpBaseChanged",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlRequest"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlTimeStamp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlReqResult"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnLoIpBase"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnLoIpBasePrefixlen"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnIfNetworkChanged": {
+    "name": "sleDcnIfNetworkChanged",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlRequest"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlTimeStamp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlReqResult"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnIfNetwork"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnIfIpBaseChanged": {
+    "name": "sleDcnIfIpBaseChanged",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlRequest"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlTimeStamp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlReqResult"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnIfIpBase"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnIfIpBasePrefixlen"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnMgneSwitchOverChanged": {
+    "name": "sleDcnMgneSwitchOverChanged",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.3.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlRequest"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlTimeStamp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnMgneCandidateChanged": {
+    "name": "sleDcnMgneCandidateChanged",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.3.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlRequest"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlTimeStamp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlReqResult"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnMgneCandidate"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnMgnePriorityChanged": {
+    "name": "sleDcnMgnePriorityChanged",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.3.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlRequest"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlTimeStamp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlReqResult"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnMgnePriority"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnL2GatewayEnableChanged": {
+    "name": "sleDcnL2GatewayEnableChanged",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.3.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlRequest"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlTimeStamp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlReqResult"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlL2GatewayEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnVlanIpChanged": {
+    "name": "sleDcnVlanIpChanged",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.3.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlRequest"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlTimeStamp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlReqResult"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnVlanIp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnVlanIpPrefixlen"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnMl2gwSwitchOverChanged": {
+    "name": "sleDcnMl2gwSwitchOverChanged",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.3.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlRequest"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlTimeStamp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnMl2gwCandidateChanged": {
+    "name": "sleDcnMl2gwCandidateChanged",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.3.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlRequest"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlTimeStamp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlReqResult"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnMl2gwCandidate"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnMl2gwPriorityChanged": {
+    "name": "sleDcnMl2gwPriorityChanged",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.3.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlRequest"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlTimeStamp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlReqResult"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnMl2gwPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnRemoteLoIpChanged": {
+    "name": "sleDcnRemoteLoIpChanged",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.3.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlRequest"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlTimeStamp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlReqResult"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnMacAddr"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnLoIp"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnRemoteIfNetworkChanged": {
+    "name": "sleDcnRemoteIfNetworkChanged",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.3.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlRequest"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlTimeStamp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlReqResult"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnMacAddr"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnIfNetwork"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnMgmtIpChanged": {
+    "name": "sleDcnMgmtIpChanged",
+    "oid": "1.3.6.1.4.1.6296.101.91.1.3.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlRequest"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlTimeStamp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlReqResult"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnMgmtIp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnMgmtIpPrefixlen"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnGneInfo": {
+    "name": "sleDcnGneInfo",
+    "oid": "1.3.6.1.4.1.6296.101.91.2",
+    "class": "objectidentity"
+  },
+  "sleDcnNe": {
+    "name": "sleDcnNe",
+    "oid": "1.3.6.1.4.1.6296.101.91.2.1",
+    "class": "objectidentity"
+  },
+  "sleDcnNeTable": {
+    "name": "sleDcnNeTable",
+    "oid": "1.3.6.1.4.1.6296.101.91.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleDcnNeEntry": {
+    "name": "sleDcnNeEntry",
+    "oid": "1.3.6.1.4.1.6296.101.91.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNeMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnNeMacAddress": {
+    "name": "sleDcnNeMacAddress",
+    "oid": "1.3.6.1.4.1.6296.101.91.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnNeLoIpAddr": {
+    "name": "sleDcnNeLoIpAddr",
+    "oid": "1.3.6.1.4.1.6296.101.91.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnNeLoipRegsterType": {
+    "name": "sleDcnNeLoipRegsterType",
+    "oid": "1.3.6.1.4.1.6296.101.91.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 0,
+          "manual": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnNeType": {
+    "name": "sleDcnNeType",
+    "oid": "1.3.6.1.4.1.6296.101.91.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ne": 0,
+          "gne": 1,
+          "l2ne": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnNeNodeRegisterType": {
+    "name": "sleDcnNeNodeRegisterType",
+    "oid": "1.3.6.1.4.1.6296.101.91.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 0,
+          "manual": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnNodeFail": {
+    "name": "sleDcnNodeFail",
+    "oid": "1.3.6.1.4.1.6296.101.91.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "fail": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnNeSetControl": {
+    "name": "sleDcnNeSetControl",
+    "oid": "1.3.6.1.4.1.6296.101.91.2.1.2",
+    "class": "objectidentity"
+  },
+  "sleDcnNeControlRequest": {
+    "name": "sleDcnNeControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.91.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "register": 1,
+          "unregister": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDcnNeControlStatus": {
+    "name": "sleDcnNeControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.91.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnNeControlTimer": {
+    "name": "sleDcnNeControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.91.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDcnNeControlTimeStamp": {
+    "name": "sleDcnNeControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.91.2.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnNeControlReqResult": {
+    "name": "sleDcnNeControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.91.2.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnNeControlNeMacAddr": {
+    "name": "sleDcnNeControlNeMacAddr",
+    "oid": "1.3.6.1.4.1.6296.101.91.2.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDcnProxySetNotification": {
+    "name": "sleDcnProxySetNotification",
+    "oid": "1.3.6.1.4.1.6296.101.91.2.1.3",
+    "class": "objectidentity"
+  },
+  "sleDcnNeRegisterChanged": {
+    "name": "sleDcnNeRegisterChanged",
+    "oid": "1.3.6.1.4.1.6296.101.91.2.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNeControlRequest"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNeControlTimeStamp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNeControlReqResult"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNeControlNeMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnNeUnegisterChanged": {
+    "name": "sleDcnNeUnegisterChanged",
+    "oid": "1.3.6.1.4.1.6296.101.91.2.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNeControlRequest"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNeControlTimeStamp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNeControlReqResult"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNeControlNeMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnNeInfo": {
+    "name": "sleDcnNeInfo",
+    "oid": "1.3.6.1.4.1.6296.101.91.3",
+    "class": "objectidentity"
+  },
+  "sleDcnGNE": {
+    "name": "sleDcnGNE",
+    "oid": "1.3.6.1.4.1.6296.101.91.3.1",
+    "class": "objectidentity"
+  },
+  "sleDcnGneTable": {
+    "name": "sleDcnGneTable",
+    "oid": "1.3.6.1.4.1.6296.101.91.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleDcnGneEntry": {
+    "name": "sleDcnGneEntry",
+    "oid": "1.3.6.1.4.1.6296.101.91.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnGneMasterType",
+        "implied": 0
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnGneMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnGneMasterType": {
+    "name": "sleDcnGneMasterType",
+    "oid": "1.3.6.1.4.1.6296.101.91.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gne": 1,
+          "l2gw": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnGneMacAddr": {
+    "name": "sleDcnGneMacAddr",
+    "oid": "1.3.6.1.4.1.6296.101.91.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnGneLoIpAddr": {
+    "name": "sleDcnGneLoIpAddr",
+    "oid": "1.3.6.1.4.1.6296.101.91.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnGneNodeType": {
+    "name": "sleDcnGneNodeType",
+    "oid": "1.3.6.1.4.1.6296.101.91.3.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ne": 0,
+          "gne": 1,
+          "l2ne": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnGNeGatewayState": {
+    "name": "sleDcnGNeGatewayState",
+    "oid": "1.3.6.1.4.1.6296.101.91.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "noCandidate": 1,
+          "waiting": 2,
+          "slave": 3,
+          "master": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnGneNodeFail": {
+    "name": "sleDcnGneNodeFail",
+    "oid": "1.3.6.1.4.1.6296.101.91.3.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "fail": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnInterface": {
+    "name": "sleDcnInterface",
+    "oid": "1.3.6.1.4.1.6296.101.91.4",
+    "class": "objectidentity"
+  },
+  "sleDcnIf": {
+    "name": "sleDcnIf",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1",
+    "class": "objectidentity"
+  },
+  "sleDcnIfTable": {
+    "name": "sleDcnIfTable",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleDcnIfEntry": {
+    "name": "sleDcnIfEntry",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnIfIndex": {
+    "name": "sleDcnIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnIfName": {
+    "name": "sleDcnIfName",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnIfDcnMode": {
+    "name": "sleDcnIfDcnMode",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noDcnIf": 0,
+          "auto": 1,
+          "passive": 2,
+          "l2": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnIfAllocIpAddress": {
+    "name": "sleDcnIfAllocIpAddress",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnIfCurrentIpAddress": {
+    "name": "sleDcnIfCurrentIpAddress",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnIfGneOspfArea": {
+    "name": "sleDcnIfGneOspfArea",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnNearMacAddress": {
+    "name": "sleDcnNearMacAddress",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnNearNodeLoIpAddr": {
+    "name": "sleDcnNearNodeLoIpAddr",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnNearNodeIfName": {
+    "name": "sleDcnNearNodeIfName",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnNearIfFail": {
+    "name": "sleDcnNearIfFail",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "fail": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnIfControl": {
+    "name": "sleDcnIfControl",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.2",
+    "class": "objectidentity"
+  },
+  "sleDcnIfControlRequest": {
+    "name": "sleDcnIfControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dcnifDcnMode": 1,
+          "gneIfOspfArea": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDcnIfControlStatus": {
+    "name": "sleDcnIfControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnIfControlTimer": {
+    "name": "sleDcnIfControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDcnIfControlTimeStamp": {
+    "name": "sleDcnIfControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnIfControlReqResult": {
+    "name": "sleDcnIfControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDcnIfControlIfIndex": {
+    "name": "sleDcnIfControlIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDcnIfControlDcnMode": {
+    "name": "sleDcnIfControlDcnMode",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noDcnIf": 0,
+          "auto": 1,
+          "passive": 2,
+          "l2": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDcnIfControlGneOspfArea": {
+    "name": "sleDcnIfControlGneOspfArea",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDcnIfNotification": {
+    "name": "sleDcnIfNotification",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.3",
+    "class": "objectidentity"
+  },
+  "sleDcnIfModeChanged": {
+    "name": "sleDcnIfModeChanged",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfControlRequest"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfControlTimeStamp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfControlReqResult"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfControlIfIndex"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfControlDcnMode"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnIfGneOspfAreaChanged": {
+    "name": "sleDcnIfGneOspfAreaChanged",
+    "oid": "1.3.6.1.4.1.6296.101.91.4.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfControlRequest"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfControlTimeStamp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfControlReqResult"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfControlIfIndex"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfControlGneOspfArea"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnObjectGroup": {
+    "name": "sleDcnObjectGroup",
+    "oid": "1.3.6.1.4.1.6296.101.91.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNodeType"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnMacAddress"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnMgneCandidate"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnMgnePriority"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfIpBase"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfIpBasePrefixlen"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnL2gwState"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnMl2gwCandidate"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnMl2gwPriority"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnIfIpBase"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnIfIpBasePrefixlen"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnMgneCandidate"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnMgnePriority"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnMl2gwCandidate"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnMl2gwPriority"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNeMacAddress"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNeLoIpAddr"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNeLoipRegsterType"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNeNodeRegisterType"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNeControlRequest"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNeControlStatus"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNeControlTimer"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNeControlTimeStamp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNeControlReqResult"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNeControlNeMacAddr"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnGneMacAddr"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnGneNodeType"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnGNeGatewayState"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfName"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfDcnMode"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfAllocIpAddress"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfCurrentIpAddress"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfControlDcnMode"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlRequest"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlStatus"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlTimer"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlTimeStamp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlReqResult"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlNodeType"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNodeFail"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnGneLoIpAddr"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnGneNodeFail"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfIndex"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNearNodeLoIpAddr"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNearNodeIfName"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfControlRequest"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfControlStatus"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfControlTimer"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfControlTimeStamp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfControlReqResult"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfControlIfIndex"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnMgmtIp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnMgmtIp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnMgmtIpPrefixlen"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnMgmtIpPrefixlen"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnVlanIpPrefixlen"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnVlanIpPrefixlen"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNearIfFail"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnGneState"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNeType"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnLoIpBase"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnLoIpBasePrefixlen"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnLoIp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnVlanIp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleNeDcnOspfArea"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlL2GatewayEnable"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnLoIpBase"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnLoIpBasePrefixlen"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnLoIp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnVlanIp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfGneOspfArea"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnL2GatewayIp"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfControlGneOspfArea"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnMacAddr"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnControlDcnIfNetwork"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNearMacAddress"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnGneMasterType"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnLoIpRegisterType"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfNetwork"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfNetworkRegisterType"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnVlanIpRegisterType"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDcnNotificationGroup": {
+    "name": "sleDcnNotificationGroup",
+    "oid": "1.3.6.1.4.1.6296.101.91.14",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfIpBaseChanged"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnMgneSwitchOverChanged"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnMgneCandidateChanged"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnMgnePriorityChanged"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnMl2gwSwitchOverChanged"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnMl2gwCandidateChanged"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnMl2gwPriorityChanged"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNeRegisterChanged"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNeUnegisterChanged"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfModeChanged"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnNodeTypeChanged"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnMgmtIpChanged"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnL2GatewayEnableChanged"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfNetworkChanged"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnRemoteLoIpChanged"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnRemoteIfNetworkChanged"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnLoIpBaseChanged"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnLoIpChanged"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnVlanIpChanged"
+      },
+      {
+        "module": "SLE-DCN-MIB",
+        "object": "sleDcnIfGneOspfAreaChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-DCN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:15 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SLE-DCN-MIB"
+  }
+}

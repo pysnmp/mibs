@@ -1,0 +1,6595 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "MWRM-RADIO-MIB": [
+      "genEquipRadioCfgRadioId"
+    ],
+    "MWRM-UNIT-MIB": [
+      "DownUp",
+      "ProgressStatus",
+      "LoopbackType",
+      "AllowedNotAllowed",
+      "SwCommandTimer",
+      "BerLevel",
+      "SwCommand",
+      "EnableDisableSMI2",
+      "Severity",
+      "RadioId",
+      "GreenYellow",
+      "TrailIfType",
+      "SlotId",
+      "SignalLevel",
+      "TrailProtectedType",
+      "NoYes",
+      "RfuId",
+      "ClockSrc",
+      "EnableDisable",
+      "OffOn",
+      "InputSeverity",
+      "QueueName",
+      "Integrity",
+      "PmTableType",
+      "HalfFull",
+      "MetricImperial",
+      "RateMbps"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "TRAP-TYPE",
+      "Gauge32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "enterprises",
+      "Integer32",
+      "IpAddress",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "microwave_radio": {
+    "name": "microwave_radio",
+    "oid": "1.3.6.1.4.1.2281",
+    "class": "objectidentity"
+  },
+  "genEquip": {
+    "name": "genEquip",
+    "oid": "1.3.6.1.4.1.2281.10",
+    "class": "objectidentity"
+  },
+  "genEquipUnit": {
+    "name": "genEquipUnit",
+    "oid": "1.3.6.1.4.1.2281.10.1",
+    "class": "objectidentity"
+  },
+  "genEquipPM": {
+    "name": "genEquipPM",
+    "oid": "1.3.6.1.4.1.2281.10.6",
+    "class": "objectidentity"
+  },
+  "genEquipPmRfu": {
+    "name": "genEquipPmRfu",
+    "oid": "1.3.6.1.4.1.2281.10.6.1",
+    "class": "objectidentity"
+  },
+  "genEquipPmRfuCommon": {
+    "name": "genEquipPmRfuCommon",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1",
+    "class": "objectidentity"
+  },
+  "genEquipPmRfuCommonSL15minTable": {
+    "name": "genEquipPmRfuCommonSL15minTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minEntry": {
+    "name": "genEquipPmRfuCommonSL15minEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmRfuCommonSL15minId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minId": {
+    "name": "genEquipPmRfuCommonSL15minId",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minIfIndex": {
+    "name": "genEquipPmRfuCommonSL15minIfIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minTimeAndDate": {
+    "name": "genEquipPmRfuCommonSL15minTimeAndDate",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minMinRsl": {
+    "name": "genEquipPmRfuCommonSL15minMinRsl",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minMaxRsl": {
+    "name": "genEquipPmRfuCommonSL15minMaxRsl",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minRslExceed1": {
+    "name": "genEquipPmRfuCommonSL15minRslExceed1",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minRslExceed2": {
+    "name": "genEquipPmRfuCommonSL15minRslExceed2",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minMinTsl": {
+    "name": "genEquipPmRfuCommonSL15minMinTsl",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minMaxTsl": {
+    "name": "genEquipPmRfuCommonSL15minMaxTsl",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minTslExceed": {
+    "name": "genEquipPmRfuCommonSL15minTslExceed",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minIDF": {
+    "name": "genEquipPmRfuCommonSL15minIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minCurrTable": {
+    "name": "genEquipPmRfuCommonSL15minCurrTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minCurrEntry": {
+    "name": "genEquipPmRfuCommonSL15minCurrEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmRfuCommonSL15minCurrId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minCurrId": {
+    "name": "genEquipPmRfuCommonSL15minCurrId",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minCurrIfIndex": {
+    "name": "genEquipPmRfuCommonSL15minCurrIfIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minCurrTimeAndDate": {
+    "name": "genEquipPmRfuCommonSL15minCurrTimeAndDate",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minCurrMinRsl": {
+    "name": "genEquipPmRfuCommonSL15minCurrMinRsl",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minCurrMaxRsl": {
+    "name": "genEquipPmRfuCommonSL15minCurrMaxRsl",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minCurrRslExceed1": {
+    "name": "genEquipPmRfuCommonSL15minCurrRslExceed1",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minCurrRslExceed2": {
+    "name": "genEquipPmRfuCommonSL15minCurrRslExceed2",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minCurrMinTsl": {
+    "name": "genEquipPmRfuCommonSL15minCurrMinTsl",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minCurrMaxTsl": {
+    "name": "genEquipPmRfuCommonSL15minCurrMaxTsl",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minCurrTslExceed": {
+    "name": "genEquipPmRfuCommonSL15minCurrTslExceed",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL15minCurrIDF": {
+    "name": "genEquipPmRfuCommonSL15minCurrIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrTable": {
+    "name": "genEquipPmRfuCommonSL24hrTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrEntry": {
+    "name": "genEquipPmRfuCommonSL24hrEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmRfuCommonSL24hrId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrId": {
+    "name": "genEquipPmRfuCommonSL24hrId",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrIfIndex": {
+    "name": "genEquipPmRfuCommonSL24hrIfIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrTimeAndDate": {
+    "name": "genEquipPmRfuCommonSL24hrTimeAndDate",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrMinRsl": {
+    "name": "genEquipPmRfuCommonSL24hrMinRsl",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrMaxRsl": {
+    "name": "genEquipPmRfuCommonSL24hrMaxRsl",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrRslExceed1": {
+    "name": "genEquipPmRfuCommonSL24hrRslExceed1",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrRslExceed2": {
+    "name": "genEquipPmRfuCommonSL24hrRslExceed2",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrMinTsl": {
+    "name": "genEquipPmRfuCommonSL24hrMinTsl",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrMaxTsl": {
+    "name": "genEquipPmRfuCommonSL24hrMaxTsl",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrTslExceed": {
+    "name": "genEquipPmRfuCommonSL24hrTslExceed",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrIDF": {
+    "name": "genEquipPmRfuCommonSL24hrIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrCurrTable": {
+    "name": "genEquipPmRfuCommonSL24hrCurrTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrCurrEntry": {
+    "name": "genEquipPmRfuCommonSL24hrCurrEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmRfuCommonSL24hrCurrId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrCurrId": {
+    "name": "genEquipPmRfuCommonSL24hrCurrId",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrCurrIfIndex": {
+    "name": "genEquipPmRfuCommonSL24hrCurrIfIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrCurrTimeAndDate": {
+    "name": "genEquipPmRfuCommonSL24hrCurrTimeAndDate",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrCurrMinRsl": {
+    "name": "genEquipPmRfuCommonSL24hrCurrMinRsl",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrCurrMaxRsl": {
+    "name": "genEquipPmRfuCommonSL24hrCurrMaxRsl",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrCurrRslExceed1": {
+    "name": "genEquipPmRfuCommonSL24hrCurrRslExceed1",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrCurrRslExceed2": {
+    "name": "genEquipPmRfuCommonSL24hrCurrRslExceed2",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrCurrMinTsl": {
+    "name": "genEquipPmRfuCommonSL24hrCurrMinTsl",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrCurrMaxTsl": {
+    "name": "genEquipPmRfuCommonSL24hrCurrMaxTsl",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrCurrTslExceed": {
+    "name": "genEquipPmRfuCommonSL24hrCurrTslExceed",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRfuCommonSL24hrCurrIDF": {
+    "name": "genEquipPmRfuCommonSL24hrCurrIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTraffic": {
+    "name": "genEquipPmTraffic",
+    "oid": "1.3.6.1.4.1.2281.10.6.2",
+    "class": "objectidentity"
+  },
+  "genEquipPmTrafficRadioAgg15minTable": {
+    "name": "genEquipPmTrafficRadioAgg15minTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg15minEntry": {
+    "name": "genEquipPmTrafficRadioAgg15minEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmTrafficRadioAgg15minId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg15minId": {
+    "name": "genEquipPmTrafficRadioAgg15minId",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg15minIfIndex": {
+    "name": "genEquipPmTrafficRadioAgg15minIfIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg15minTimeAndDate": {
+    "name": "genEquipPmTrafficRadioAgg15minTimeAndDate",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg15minES": {
+    "name": "genEquipPmTrafficRadioAgg15minES",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg15minSES": {
+    "name": "genEquipPmTrafficRadioAgg15minSES",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg15minUAS": {
+    "name": "genEquipPmTrafficRadioAgg15minUAS",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg15minBBE": {
+    "name": "genEquipPmTrafficRadioAgg15minBBE",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg15minIDF": {
+    "name": "genEquipPmTrafficRadioAgg15minIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg15minCurrTable": {
+    "name": "genEquipPmTrafficRadioAgg15minCurrTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg15minCurrEntry": {
+    "name": "genEquipPmTrafficRadioAgg15minCurrEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmTrafficRadioAgg15minCurrId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg15minCurrId": {
+    "name": "genEquipPmTrafficRadioAgg15minCurrId",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg15minCurrIfIndex": {
+    "name": "genEquipPmTrafficRadioAgg15minCurrIfIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg15minCurrTimeAndDate": {
+    "name": "genEquipPmTrafficRadioAgg15minCurrTimeAndDate",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg15minCurrES": {
+    "name": "genEquipPmTrafficRadioAgg15minCurrES",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg15minCurrSES": {
+    "name": "genEquipPmTrafficRadioAgg15minCurrSES",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg15minCurrUAS": {
+    "name": "genEquipPmTrafficRadioAgg15minCurrUAS",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg15minCurrBBE": {
+    "name": "genEquipPmTrafficRadioAgg15minCurrBBE",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg15minCurrIDF": {
+    "name": "genEquipPmTrafficRadioAgg15minCurrIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg24hrTable": {
+    "name": "genEquipPmTrafficRadioAgg24hrTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg24hrEntry": {
+    "name": "genEquipPmTrafficRadioAgg24hrEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmTrafficRadioAgg24hrId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg24hrId": {
+    "name": "genEquipPmTrafficRadioAgg24hrId",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg24hrIfIndex": {
+    "name": "genEquipPmTrafficRadioAgg24hrIfIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg24hrTimeAndDate": {
+    "name": "genEquipPmTrafficRadioAgg24hrTimeAndDate",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg24hrES": {
+    "name": "genEquipPmTrafficRadioAgg24hrES",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg24hrSES": {
+    "name": "genEquipPmTrafficRadioAgg24hrSES",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg24hrUAS": {
+    "name": "genEquipPmTrafficRadioAgg24hrUAS",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg24hrBBE": {
+    "name": "genEquipPmTrafficRadioAgg24hrBBE",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg24hrIDF": {
+    "name": "genEquipPmTrafficRadioAgg24hrIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg24hrCurrTable": {
+    "name": "genEquipPmTrafficRadioAgg24hrCurrTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg24hrCurrEntry": {
+    "name": "genEquipPmTrafficRadioAgg24hrCurrEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmTrafficRadioAgg24hrCurrId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg24hrCurrId": {
+    "name": "genEquipPmTrafficRadioAgg24hrCurrId",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg24hrCurrIfIndex": {
+    "name": "genEquipPmTrafficRadioAgg24hrCurrIfIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg24hrCurrTimeAndDate": {
+    "name": "genEquipPmTrafficRadioAgg24hrCurrTimeAndDate",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg24hrCurrES": {
+    "name": "genEquipPmTrafficRadioAgg24hrCurrES",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg24hrCurrSES": {
+    "name": "genEquipPmTrafficRadioAgg24hrCurrSES",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg24hrCurrUAS": {
+    "name": "genEquipPmTrafficRadioAgg24hrCurrUAS",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg24hrCurrBBE": {
+    "name": "genEquipPmTrafficRadioAgg24hrCurrBBE",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficRadioAgg24hrCurrIDF": {
+    "name": "genEquipPmTrafficRadioAgg24hrCurrIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmAll": {
+    "name": "genEquipPmAll",
+    "oid": "1.3.6.1.4.1.2281.10.6.3",
+    "class": "objectidentity"
+  },
+  "genEquipPmClear": {
+    "name": "genEquipPmClear",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OffOn",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficSL": {
+    "name": "genEquipPmTrafficSL",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.2",
+    "class": "objectidentity"
+  },
+  "genEquipPmTrafficSLTable": {
+    "name": "genEquipPmTrafficSLTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficSLEntry": {
+    "name": "genEquipPmTrafficSLEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmTrafficSLPmType",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmTrafficSLId",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmTrafficSLInterval",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficSLPmType": {
+    "name": "genEquipPmTrafficSLPmType",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmTableType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficSLId": {
+    "name": "genEquipPmTrafficSLId",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RfuId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficSLInterval": {
+    "name": "genEquipPmTrafficSLInterval",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficSLMinRsl": {
+    "name": "genEquipPmTrafficSLMinRsl",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficSLMaxRsl": {
+    "name": "genEquipPmTrafficSLMaxRsl",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficSLRslExceed1": {
+    "name": "genEquipPmTrafficSLRslExceed1",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficSLRslExceed2": {
+    "name": "genEquipPmTrafficSLRslExceed2",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficSLMinTsl": {
+    "name": "genEquipPmTrafficSLMinTsl",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficSLMaxTsl": {
+    "name": "genEquipPmTrafficSLMaxTsl",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficSLTslExceed": {
+    "name": "genEquipPmTrafficSLTslExceed",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficSLIDF": {
+    "name": "genEquipPmTrafficSLIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficAggregate": {
+    "name": "genEquipPmTrafficAggregate",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.3",
+    "class": "objectidentity"
+  },
+  "genEquipPmTrafficAggTable": {
+    "name": "genEquipPmTrafficAggTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficAggEntry": {
+    "name": "genEquipPmTrafficAggEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmTrafficAggPmType",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmTrafficAggInterval",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficAggPmType": {
+    "name": "genEquipPmTrafficAggPmType",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmTableType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficAggInterval": {
+    "name": "genEquipPmTrafficAggInterval",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficAggES": {
+    "name": "genEquipPmTrafficAggES",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficAggSES": {
+    "name": "genEquipPmTrafficAggSES",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficAggUAS": {
+    "name": "genEquipPmTrafficAggUAS",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficAggBBE": {
+    "name": "genEquipPmTrafficAggBBE",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrafficAggIDF": {
+    "name": "genEquipPmTrafficAggIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadio": {
+    "name": "genEquipPmRadio",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4",
+    "class": "objectidentity"
+  },
+  "genEquipPmRadioMRMC": {
+    "name": "genEquipPmRadioMRMC",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.1",
+    "class": "objectidentity"
+  },
+  "genEquipPmRadioMRMCTable": {
+    "name": "genEquipPmRadioMRMCTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioMRMCEntry": {
+    "name": "genEquipPmRadioMRMCEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmRadioMRMCPmType",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmRadioMRMCId",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmRadioMRMCInterval",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmRadioMRMCPmType": {
+    "name": "genEquipPmRadioMRMCPmType",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmTableType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioMRMCId": {
+    "name": "genEquipPmRadioMRMCId",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RadioId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioMRMCInterval": {
+    "name": "genEquipPmRadioMRMCInterval",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioMRMCIfIndex": {
+    "name": "genEquipPmRadioMRMCIfIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioMRMCMinProfile": {
+    "name": "genEquipPmRadioMRMCMinProfile",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioMRMCMaxProfile": {
+    "name": "genEquipPmRadioMRMCMaxProfile",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioMRMCMinBitrate": {
+    "name": "genEquipPmRadioMRMCMinBitrate",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioMRMCMaxBitrate": {
+    "name": "genEquipPmRadioMRMCMaxBitrate",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioMRMCMinTDMIf": {
+    "name": "genEquipPmRadioMRMCMinTDMIf",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioMRMCMaxTDMIf": {
+    "name": "genEquipPmRadioMRMCMaxTDMIf",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioMRMCIDF": {
+    "name": "genEquipPmRadioMRMCIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioTDM": {
+    "name": "genEquipPmRadioTDM",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.2",
+    "class": "objectidentity"
+  },
+  "genEquipPmRadioTDMTable": {
+    "name": "genEquipPmRadioTDMTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioTDMEntry": {
+    "name": "genEquipPmRadioTDMEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmRadioTDMPmType",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmRadioTDMInterval",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmRadioTDMPmType": {
+    "name": "genEquipPmRadioTDMPmType",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmTableType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioTDMInterval": {
+    "name": "genEquipPmRadioTDMInterval",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioTDMRadioUAS": {
+    "name": "genEquipPmRadioTDMRadioUAS",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioTDMIDF": {
+    "name": "genEquipPmRadioTDMIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernet": {
+    "name": "genEquipPmRadioEthernet",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3",
+    "class": "objectidentity"
+  },
+  "genEquipPmRadioEthernetTable": {
+    "name": "genEquipPmRadioEthernetTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetEntry": {
+    "name": "genEquipPmRadioEthernetEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmRadioEthernetPmType",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmRadioEthernetInterval",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetPmType": {
+    "name": "genEquipPmRadioEthernetPmType",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmTableType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetInterval": {
+    "name": "genEquipPmRadioEthernetInterval",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetFrameErrorRate": {
+    "name": "genEquipPmRadioEthernetFrameErrorRate",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetPeakThroughput": {
+    "name": "genEquipPmRadioEthernetPeakThroughput",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetAverageThroughput": {
+    "name": "genEquipPmRadioEthernetAverageThroughput",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetExceedThroughput": {
+    "name": "genEquipPmRadioEthernetExceedThroughput",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetPeakCapacity": {
+    "name": "genEquipPmRadioEthernetPeakCapacity",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetAverageCapacity": {
+    "name": "genEquipPmRadioEthernetAverageCapacity",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetExceedCapacity": {
+    "name": "genEquipPmRadioEthernetExceedCapacity",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetPeakUtilization": {
+    "name": "genEquipPmRadioEthernetPeakUtilization",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetAverageUtilization": {
+    "name": "genEquipPmRadioEthernetAverageUtilization",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetExceedUtilization": {
+    "name": "genEquipPmRadioEthernetExceedUtilization",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetIDF": {
+    "name": "genEquipPmRadioEthernetIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetThresholdTable": {
+    "name": "genEquipPmRadioEthernetThresholdTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetThresholdEntry": {
+    "name": "genEquipPmRadioEthernetThresholdEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-RADIO-MIB",
+        "object": "genEquipRadioCfgRadioId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetThresholdThroughput": {
+    "name": "genEquipPmRadioEthernetThresholdThroughput",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetThresholdCapacity": {
+    "name": "genEquipPmRadioEthernetThresholdCapacity",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetThresholdUtilization": {
+    "name": "genEquipPmRadioEthernetThresholdUtilization",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "above-0": 0,
+          "above-20": 1,
+          "above-40": 2,
+          "above-60": 3,
+          "above-80": 4,
+          "no-threshold": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetEtmTable": {
+    "name": "genEquipPmRadioEthernetEtmTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetEtmEntry": {
+    "name": "genEquipPmRadioEthernetEtmEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmRadioEthernetEtmPmType",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmRadioEthernetEtmPmQueueIndex",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmRadioEthernetEtmInterval",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetEtmPmType": {
+    "name": "genEquipPmRadioEthernetEtmPmType",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmTableType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetEtmPmQueueIndex": {
+    "name": "genEquipPmRadioEthernetEtmPmQueueIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetEtmInterval": {
+    "name": "genEquipPmRadioEthernetEtmInterval",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetEtmPmMaxGreenBytesPassed": {
+    "name": "genEquipPmRadioEthernetEtmPmMaxGreenBytesPassed",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetEtmPmAvgGreenBytesPassed": {
+    "name": "genEquipPmRadioEthernetEtmPmAvgGreenBytesPassed",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetEtmPmMaxGreenFramesDropped": {
+    "name": "genEquipPmRadioEthernetEtmPmMaxGreenFramesDropped",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetEtmPmAvgGreenFramesDropped": {
+    "name": "genEquipPmRadioEthernetEtmPmAvgGreenFramesDropped",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetEtmPmMaxYellowBytesPassed": {
+    "name": "genEquipPmRadioEthernetEtmPmMaxYellowBytesPassed",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetEtmPmAvgYellowBytesPassed": {
+    "name": "genEquipPmRadioEthernetEtmPmAvgYellowBytesPassed",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetEtmPmMaxYellowFramesDropped": {
+    "name": "genEquipPmRadioEthernetEtmPmMaxYellowFramesDropped",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetEtmPmAvgYellowFramesDropped": {
+    "name": "genEquipPmRadioEthernetEtmPmAvgYellowFramesDropped",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetEtmPmMaxRedFramesDropped": {
+    "name": "genEquipPmRadioEthernetEtmPmMaxRedFramesDropped",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetEtmPmAvgRedFramesDropped": {
+    "name": "genEquipPmRadioEthernetEtmPmAvgRedFramesDropped",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetEtmPmIDF": {
+    "name": "genEquipPmRadioEthernetEtmPmIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetEtmPmMaxGreenFramesPassed": {
+    "name": "genEquipPmRadioEthernetEtmPmMaxGreenFramesPassed",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetEtmPmAvgGreenFramesPassed": {
+    "name": "genEquipPmRadioEthernetEtmPmAvgGreenFramesPassed",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetEtmPmMaxYellowFramesPassed": {
+    "name": "genEquipPmRadioEthernetEtmPmMaxYellowFramesPassed",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetEtmPmAvgYellowFramesPassed": {
+    "name": "genEquipPmRadioEthernetEtmPmAvgYellowFramesPassed",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetEtmPmMaxRedBytesDropped": {
+    "name": "genEquipPmRadioEthernetEtmPmMaxRedBytesDropped",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioEthernetEtmPmAvgRedBytesDropped": {
+    "name": "genEquipPmRadioEthernetEtmPmAvgRedBytesDropped",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.3.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioMSETable": {
+    "name": "genEquipPmRadioMSETable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioMSEEntry": {
+    "name": "genEquipPmRadioMSEEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmRadioMSEPmType",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmRadioMSEInterval",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmRadioMSEPmType": {
+    "name": "genEquipPmRadioMSEPmType",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmTableType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioMSEInterval": {
+    "name": "genEquipPmRadioMSEInterval",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioMSEMinMse": {
+    "name": "genEquipPmRadioMSEMinMse",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioMSEMaxMse": {
+    "name": "genEquipPmRadioMSEMaxMse",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioMSEexceeded": {
+    "name": "genEquipPmRadioMSEexceeded",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioMSEIDF": {
+    "name": "genEquipPmRadioMSEIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioThresholdTable": {
+    "name": "genEquipPmRadioThresholdTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioThresholdEntry": {
+    "name": "genEquipPmRadioThresholdEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-RADIO-MIB",
+        "object": "genEquipRadioCfgRadioId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmRadioThresholdMSE": {
+    "name": "genEquipPmRadioThresholdMSE",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -99,
+            "max": -1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioThresholdRSL1": {
+    "name": "genEquipPmRadioThresholdRSL1",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -75,
+            "max": -15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioThresholdRSL2": {
+    "name": "genEquipPmRadioThresholdRSL2",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -75,
+            "max": -15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioThresholdTSL": {
+    "name": "genEquipPmRadioThresholdTSL",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioThresholdXPI": {
+    "name": "genEquipPmRadioThresholdXPI",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioXPITable": {
+    "name": "genEquipPmRadioXPITable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioXPIEntry": {
+    "name": "genEquipPmRadioXPIEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmRadioXPIPmType",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmRadioXPIPmInterval",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmRadioXPIPmType": {
+    "name": "genEquipPmRadioXPIPmType",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmTableType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioXPIPmInterval": {
+    "name": "genEquipPmRadioXPIPmInterval",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioXPIPmMinXPI": {
+    "name": "genEquipPmRadioXPIPmMinXPI",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioXPIPmMaxXPI": {
+    "name": "genEquipPmRadioXPIPmMaxXPI",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioXPIBelowThreshold": {
+    "name": "genEquipPmRadioXPIBelowThreshold",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioXPIIDF": {
+    "name": "genEquipPmRadioXPIIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmRadioClear": {
+    "name": "genEquipPmRadioClear",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OffOn",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPmTDM": {
+    "name": "genEquipPmTDM",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.5",
+    "class": "objectidentity"
+  },
+  "genEquipPmTdmTable": {
+    "name": "genEquipPmTdmTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmTdmEntry": {
+    "name": "genEquipPmTdmEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmTdmPmType",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmTdmInterval",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmTdmPmType": {
+    "name": "genEquipPmTdmPmType",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmTableType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTdmInterval": {
+    "name": "genEquipPmTdmInterval",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTdmES": {
+    "name": "genEquipPmTdmES",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTdmSES": {
+    "name": "genEquipPmTdmSES",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTdmUAS": {
+    "name": "genEquipPmTdmUAS",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTdmBBE": {
+    "name": "genEquipPmTdmBBE",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTdmIDF": {
+    "name": "genEquipPmTdmIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSDH": {
+    "name": "genEquipPmSDH",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6",
+    "class": "objectidentity"
+  },
+  "genEquipPmSdhTable": {
+    "name": "genEquipPmSdhTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhEntry": {
+    "name": "genEquipPmSdhEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmSdhPmType",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmSdhInterval",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmSdhPmType": {
+    "name": "genEquipPmSdhPmType",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmTableType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhInterval": {
+    "name": "genEquipPmSdhInterval",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhES": {
+    "name": "genEquipPmSdhES",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhSES": {
+    "name": "genEquipPmSdhSES",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhEB": {
+    "name": "genEquipPmSdhEB",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhBBE": {
+    "name": "genEquipPmSdhBBE",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhIDF": {
+    "name": "genEquipPmSdhIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhIfIndex": {
+    "name": "genEquipPmSdhIfIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhTimeStamp": {
+    "name": "genEquipPmSdhTimeStamp",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhUAS": {
+    "name": "genEquipPmSdhUAS",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstLRTable": {
+    "name": "genEquipPmSdhRstLRTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstLREntry": {
+    "name": "genEquipPmSdhRstLREntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmSdhRstLRPmType",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmSdhRstLRIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmSdhRstLRInterval",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstLRPmType": {
+    "name": "genEquipPmSdhRstLRPmType",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmTableType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstLRIfIndex": {
+    "name": "genEquipPmSdhRstLRIfIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstLRInterval": {
+    "name": "genEquipPmSdhRstLRInterval",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstLRTimeStamp": {
+    "name": "genEquipPmSdhRstLRTimeStamp",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstLRES": {
+    "name": "genEquipPmSdhRstLRES",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstLRSES": {
+    "name": "genEquipPmSdhRstLRSES",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstLRUAS": {
+    "name": "genEquipPmSdhRstLRUAS",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstLREB": {
+    "name": "genEquipPmSdhRstLREB",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstLRCV": {
+    "name": "genEquipPmSdhRstLRCV",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstLRBBE": {
+    "name": "genEquipPmSdhRstLRBBE",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstLRIDF": {
+    "name": "genEquipPmSdhRstLRIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstRLTable": {
+    "name": "genEquipPmSdhRstRLTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstRLEntry": {
+    "name": "genEquipPmSdhRstRLEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmSdhRstRLPmType",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmSdhRstRLIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmSdhRstRLInterval",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstRLPmType": {
+    "name": "genEquipPmSdhRstRLPmType",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmTableType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstRLIfIndex": {
+    "name": "genEquipPmSdhRstRLIfIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstRLInterval": {
+    "name": "genEquipPmSdhRstRLInterval",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstRLTimeStamp": {
+    "name": "genEquipPmSdhRstRLTimeStamp",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstRLES": {
+    "name": "genEquipPmSdhRstRLES",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstRLSES": {
+    "name": "genEquipPmSdhRstRLSES",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstRLUAS": {
+    "name": "genEquipPmSdhRstRLUAS",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstRLEB": {
+    "name": "genEquipPmSdhRstRLEB",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstRLCV": {
+    "name": "genEquipPmSdhRstRLCV",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstRLBBE": {
+    "name": "genEquipPmSdhRstRLBBE",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmSdhRstRLIDF": {
+    "name": "genEquipPmSdhRstRLIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.6.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrails": {
+    "name": "genEquipPmTrails",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.7",
+    "class": "objectidentity"
+  },
+  "genEquipPmTrailsEndPointTable": {
+    "name": "genEquipPmTrailsEndPointTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmTrailsEndPointEntry": {
+    "name": "genEquipPmTrailsEndPointEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmTrailsEndPointPmType",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmTrailsEndPointId",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmTrailsEndPointEPId",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmTrailsEndPointInterval",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmTrailsEndPointPmType": {
+    "name": "genEquipPmTrailsEndPointPmType",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmTableType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrailsEndPointId": {
+    "name": "genEquipPmTrailsEndPointId",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrailsEndPointEPId": {
+    "name": "genEquipPmTrailsEndPointEPId",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrailsEndPointInterval": {
+    "name": "genEquipPmTrailsEndPointInterval",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrailsEndPointES": {
+    "name": "genEquipPmTrailsEndPointES",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrailsEndPointSES": {
+    "name": "genEquipPmTrailsEndPointSES",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrailsEndPointUAS": {
+    "name": "genEquipPmTrailsEndPointUAS",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrailsEndPointBBE": {
+    "name": "genEquipPmTrailsEndPointBBE",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrailsEndPointNoOfSwitches": {
+    "name": "genEquipPmTrailsEndPointNoOfSwitches",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrailsEndPointActivePathCounts": {
+    "name": "genEquipPmTrailsEndPointActivePathCounts",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmTrailsEndPointIDF": {
+    "name": "genEquipPmTrailsEndPointIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.7.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmPW": {
+    "name": "genEquipPmPW",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8",
+    "class": "objectidentity"
+  },
+  "genEquipPmPWTable": {
+    "name": "genEquipPmPWTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmPWEntry": {
+    "name": "genEquipPmPWEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmPWPmType",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmPWId",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmPWInterval",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmPWPmType": {
+    "name": "genEquipPmPWPmType",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmTableType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmPWId": {
+    "name": "genEquipPmPWId",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmPWInterval": {
+    "name": "genEquipPmPWInterval",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmPWMissingPkts": {
+    "name": "genEquipPmPWMissingPkts",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmPWPktsReOrder": {
+    "name": "genEquipPmPWPktsReOrder",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmPWtrBfrUnderruns": {
+    "name": "genEquipPmPWtrBfrUnderruns",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmPWMisOrderDropped": {
+    "name": "genEquipPmPWMisOrderDropped",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmPWMalformedPkt": {
+    "name": "genEquipPmPWMalformedPkt",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmPWES": {
+    "name": "genEquipPmPWES",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmPWSES": {
+    "name": "genEquipPmPWSES",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmPWUAS": {
+    "name": "genEquipPmPWUAS",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmPWFC": {
+    "name": "genEquipPmPWFC",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmPWIDF": {
+    "name": "genEquipPmPWIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmNGPWTable": {
+    "name": "genEquipPmNGPWTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmNGPWEntry": {
+    "name": "genEquipPmNGPWEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmNGPWPmType",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmNGPWIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmNGPWInterval",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmNGPWPmType": {
+    "name": "genEquipPmNGPWPmType",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmTableType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmNGPWIfIndex": {
+    "name": "genEquipPmNGPWIfIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmNGPWInterval": {
+    "name": "genEquipPmNGPWInterval",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmNGPWES": {
+    "name": "genEquipPmNGPWES",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmNGPWSES": {
+    "name": "genEquipPmNGPWSES",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmNGPWUAS": {
+    "name": "genEquipPmNGPWUAS",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmNGPWFC": {
+    "name": "genEquipPmNGPWFC",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmNGPWFER": {
+    "name": "genEquipPmNGPWFER",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmNGPWMissingPkts": {
+    "name": "genEquipPmNGPWMissingPkts",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmNGPWPktsReOrder": {
+    "name": "genEquipPmNGPWPktsReOrder",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmNGPWMisOrderDropped": {
+    "name": "genEquipPmNGPWMisOrderDropped",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmNGPWMalformedPkt": {
+    "name": "genEquipPmNGPWMalformedPkt",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmNGPWIdf": {
+    "name": "genEquipPmNGPWIdf",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.8.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthUtilization": {
+    "name": "genEquipPmEthUtilization",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.9",
+    "class": "objectidentity"
+  },
+  "genEquipPmEthUtilizationAdmin": {
+    "name": "genEquipPmEthUtilizationAdmin",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableDisable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPmEthUtilizationThreshold": {
+    "name": "genEquipPmEthUtilizationThreshold",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPmEthUtilizationTable": {
+    "name": "genEquipPmEthUtilizationTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.9.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmEthUtilizationEntry": {
+    "name": "genEquipPmEthUtilizationEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.9.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmEthUtilizationPmType",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmEthUtilizationInterval",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmEthUtilizationPmType": {
+    "name": "genEquipPmEthUtilizationPmType",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.9.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmTableType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthUtilizationInterval": {
+    "name": "genEquipPmEthUtilizationInterval",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.9.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthUtilizationPeakUtilization": {
+    "name": "genEquipPmEthUtilizationPeakUtilization",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.9.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthUtilizationAverageUtilization": {
+    "name": "genEquipPmEthUtilizationAverageUtilization",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.9.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthUtilizationExceedUtilization": {
+    "name": "genEquipPmEthUtilizationExceedUtilization",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.9.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthUtilizationIDF": {
+    "name": "genEquipPmEthUtilizationIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.9.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicer": {
+    "name": "genEquipPmEthernetIngressPolicer",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10",
+    "class": "objectidentity"
+  },
+  "genEquipPmEthernetIngressPolicerUnicastStatisticsTable": {
+    "name": "genEquipPmEthernetIngressPolicerUnicastStatisticsTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerUnicastStatisticsEntry": {
+    "name": "genEquipPmEthernetIngressPolicerUnicastStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmEthernetIngressPolicerUnicastStatisticsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerUnicastStatisticsIfIndex": {
+    "name": "genEquipPmEthernetIngressPolicerUnicastStatisticsIfIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerUnicastStatisticsClearOnRead": {
+    "name": "genEquipPmEthernetIngressPolicerUnicastStatisticsClearOnRead",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NoYes",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerUnicastStatisticsGreenPacket": {
+    "name": "genEquipPmEthernetIngressPolicerUnicastStatisticsGreenPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerUnicastStatisticsGreenBytes": {
+    "name": "genEquipPmEthernetIngressPolicerUnicastStatisticsGreenBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerUnicastStatisticsYellowPacket": {
+    "name": "genEquipPmEthernetIngressPolicerUnicastStatisticsYellowPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerUnicastStatisticsYellowBytes": {
+    "name": "genEquipPmEthernetIngressPolicerUnicastStatisticsYellowBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerUnicastStatisticsRedPacket": {
+    "name": "genEquipPmEthernetIngressPolicerUnicastStatisticsRedPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerUnicastStatisticsRedBytes": {
+    "name": "genEquipPmEthernetIngressPolicerUnicastStatisticsRedBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerMulticastStatisticsTable": {
+    "name": "genEquipPmEthernetIngressPolicerMulticastStatisticsTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerMulticastStatisticsEntry": {
+    "name": "genEquipPmEthernetIngressPolicerMulticastStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmEthernetIngressPolicerMulticastStatisticsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerMulticastStatisticsIfIndex": {
+    "name": "genEquipPmEthernetIngressPolicerMulticastStatisticsIfIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerMulticastStatisticsClearOnRead": {
+    "name": "genEquipPmEthernetIngressPolicerMulticastStatisticsClearOnRead",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NoYes",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerMulticastStatisticsGreenPacket": {
+    "name": "genEquipPmEthernetIngressPolicerMulticastStatisticsGreenPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerMulticastStatisticsGreenBytes": {
+    "name": "genEquipPmEthernetIngressPolicerMulticastStatisticsGreenBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerMulticastStatisticsYellowPacket": {
+    "name": "genEquipPmEthernetIngressPolicerMulticastStatisticsYellowPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerMulticastStatisticsYellowBytes": {
+    "name": "genEquipPmEthernetIngressPolicerMulticastStatisticsYellowBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerMulticastStatisticsRedPacket": {
+    "name": "genEquipPmEthernetIngressPolicerMulticastStatisticsRedPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerMulticastStatisticsRedBytes": {
+    "name": "genEquipPmEthernetIngressPolicerMulticastStatisticsRedBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerBroadcastStatisticsTable": {
+    "name": "genEquipPmEthernetIngressPolicerBroadcastStatisticsTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerBroadcastStatisticsEntry": {
+    "name": "genEquipPmEthernetIngressPolicerBroadcastStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmEthernetIngressPolicerBroadcastStatisticsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerBroadcastStatisticsIfIndex": {
+    "name": "genEquipPmEthernetIngressPolicerBroadcastStatisticsIfIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerBroadcastStatisticsClearOnRead": {
+    "name": "genEquipPmEthernetIngressPolicerBroadcastStatisticsClearOnRead",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NoYes",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerBroadcastStatisticsGreenPacket": {
+    "name": "genEquipPmEthernetIngressPolicerBroadcastStatisticsGreenPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerBroadcastStatisticsGreenBytes": {
+    "name": "genEquipPmEthernetIngressPolicerBroadcastStatisticsGreenBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerBroadcastStatisticsYellowPacket": {
+    "name": "genEquipPmEthernetIngressPolicerBroadcastStatisticsYellowPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerBroadcastStatisticsYellowBytes": {
+    "name": "genEquipPmEthernetIngressPolicerBroadcastStatisticsYellowBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerBroadcastStatisticsRedPacket": {
+    "name": "genEquipPmEthernetIngressPolicerBroadcastStatisticsRedPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerBroadcastStatisticsRedBytes": {
+    "name": "genEquipPmEthernetIngressPolicerBroadcastStatisticsRedBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType1StatisticsTable": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType1StatisticsTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType1StatisticsEntry": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType1StatisticsEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmEthernetIngressPolicerEtherType1StatisticsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType1StatisticsIfIndex": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType1StatisticsIfIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType1StatisticsClearOnRead": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType1StatisticsClearOnRead",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NoYes",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType1StatisticsGreenPacket": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType1StatisticsGreenPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType1StatisticsGreenBytes": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType1StatisticsGreenBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType1StatisticsYellowPacket": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType1StatisticsYellowPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType1StatisticsYellowBytes": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType1StatisticsYellowBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType1StatisticsRedPacket": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType1StatisticsRedPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType1StatisticsRedBytes": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType1StatisticsRedBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType2StatisticsTable": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType2StatisticsTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType2StatisticsEntry": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType2StatisticsEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmEthernetIngressPolicerEtherType2StatisticsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType2StatisticsIfIndex": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType2StatisticsIfIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType2StatisticsClearOnRead": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType2StatisticsClearOnRead",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NoYes",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType2StatisticsGreenPacket": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType2StatisticsGreenPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType2StatisticsGreenBytes": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType2StatisticsGreenBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType2StatisticsYellowPacket": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType2StatisticsYellowPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType2StatisticsYellowBytes": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType2StatisticsYellowBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType2StatisticsRedPacket": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType2StatisticsRedPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType2StatisticsRedBytes": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType2StatisticsRedBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType3StatisticsTable": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType3StatisticsTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType3StatisticsEntry": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType3StatisticsEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmEthernetIngressPolicerEtherType3StatisticsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType3StatisticsIfIndex": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType3StatisticsIfIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType3StatisticsClearOnRead": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType3StatisticsClearOnRead",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NoYes",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType3StatisticsGreenPacket": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType3StatisticsGreenPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType3StatisticsGreenBytes": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType3StatisticsGreenBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType3StatisticsYellowPacket": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType3StatisticsYellowPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType3StatisticsYellowBytes": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType3StatisticsYellowBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType3StatisticsRedPacket": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType3StatisticsRedPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetIngressPolicerEtherType3StatisticsRedBytes": {
+    "name": "genEquipPmEthernetIngressPolicerEtherType3StatisticsRedBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.10.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsTable": {
+    "name": "genEquipPmEthernetRmonStatisticsTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsEntry": {
+    "name": "genEquipPmEthernetRmonStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmEthernetRmonStatisticsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsIfIndex": {
+    "name": "genEquipPmEthernetRmonStatisticsIfIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsClearOnRead": {
+    "name": "genEquipPmEthernetRmonStatisticsClearOnRead",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NoYes",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsTxByteCount": {
+    "name": "genEquipPmEthernetRmonStatisticsTxByteCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsTxFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsTxFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsTxMulticastFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsTxMulticastFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsTxBroadcastFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsTxBroadcastFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsTxControlFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsTxControlFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsTxPauseFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsTxPauseFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsTxFcsErrorFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsTxFcsErrorFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsTxLengthErrorFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsTxLengthErrorFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsTxOversizeFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsTxOversizeFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsTxUndersizeFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsTxUndersizeFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsTxFragmentFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsTxFragmentFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsTxJabberFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsTxJabberFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsTx64FrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsTx64FrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsTx65_127FrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsTx65_127FrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsTx128_255FrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsTx128_255FrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsTx256_511FrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsTx256_511FrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsTx512_1023FrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsTx512_1023FrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsTx1024_1518FrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsTx1024_1518FrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsTx1519_1522FrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsTx1519_1522FrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsRxByteCount": {
+    "name": "genEquipPmEthernetRmonStatisticsRxByteCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsRxFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsRxFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsRxMulticastFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsRxMulticastFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsRxBroadcastFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsRxBroadcastFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsRxControlFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsRxControlFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsRxPauseFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsRxPauseFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsRxFcsErrorFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsRxFcsErrorFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsRxLengthErrorFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsRxLengthErrorFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsRxcode_ErrorCount": {
+    "name": "genEquipPmEthernetRmonStatisticsRxcode_ErrorCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsRxoversizeFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsRxoversizeFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsRxundersize_ErrorFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsRxundersize_ErrorFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsRxFragmentFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsRxFragmentFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsRx64FrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsRx64FrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsRx65_127FrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsRx65_127FrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsRx128_255FrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsRx128_255FrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsRx256_511FrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsRx256_511FrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsRx512_1023FrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsRx512_1023FrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsRx1024_1518FrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsRx1024_1518FrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsRx1519_1522FrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsRx1519_1522FrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsRxExceedmaxFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsRxExceedmaxFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsRxExceedMaxWithErrorFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsRxExceedMaxWithErrorFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetRmonStatisticsRxJabberFrameCount": {
+    "name": "genEquipPmEthernetRmonStatisticsRxJabberFrameCount",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.11.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTable": {
+    "name": "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsEntry": {
+    "name": "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsIfIndex": {
+    "name": "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsIfIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsServiceIndex": {
+    "name": "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsServiceIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsClearOnRead": {
+    "name": "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsClearOnRead",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NoYes",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenPacket": {
+    "name": "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBytes": {
+    "name": "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBitsPerSecond": {
+    "name": "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBitsPerSecond",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenPacket": {
+    "name": "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenBytes": {
+    "name": "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowPacket": {
+    "name": "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBytes": {
+    "name": "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBitsPerSecond": {
+    "name": "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBitsPerSecond",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowPacket": {
+    "name": "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowBytes": {
+    "name": "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCetSpPmCosIngressPolicerStatisticsTable": {
+    "name": "genEquipServicesCetSpPmCosIngressPolicerStatisticsTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipServicesCetSpPmCosIngressPolicerStatisticsEntry": {
+    "name": "genEquipServicesCetSpPmCosIngressPolicerStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipServicesCetSpPmCosIngressPolicerStatiServiceIndex",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipServicesCetSpPmCosIngressPolicerStatiSpIndex",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipServicesCetSpPmCosIngressPolicerStatiCos",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipServicesCetSpPmCosIngressPolicerStatiServiceIndex": {
+    "name": "genEquipServicesCetSpPmCosIngressPolicerStatiServiceIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCetSpPmCosIngressPolicerStatiSpIndex": {
+    "name": "genEquipServicesCetSpPmCosIngressPolicerStatiSpIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCetSpPmCosIngressPolicerStatiCos": {
+    "name": "genEquipServicesCetSpPmCosIngressPolicerStatiCos",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCetSpPmCosIngressPolicerStatiClearOnRead": {
+    "name": "genEquipServicesCetSpPmCosIngressPolicerStatiClearOnRead",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NoYes",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipServicesCetSpPmCosIngressPolicerStatiGreenPacket": {
+    "name": "genEquipServicesCetSpPmCosIngressPolicerStatiGreenPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCetSpPmCosIngressPolicerStatiGreenBytes": {
+    "name": "genEquipServicesCetSpPmCosIngressPolicerStatiGreenBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCetSpPmCosIngressPolicerStatiYellowPacket": {
+    "name": "genEquipServicesCetSpPmCosIngressPolicerStatiYellowPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCetSpPmCosIngressPolicerStatiYellowBytes": {
+    "name": "genEquipServicesCetSpPmCosIngressPolicerStatiYellowBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCetSpPmCosIngressPolicerStatiRedPacket": {
+    "name": "genEquipServicesCetSpPmCosIngressPolicerStatiRedPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCetSpPmCosIngressPolicerStatiRedBytes": {
+    "name": "genEquipServicesCetSpPmCosIngressPolicerStatiRedBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCetSpPmIngressPolicerStatisticsTable": {
+    "name": "genEquipServicesCetSpPmIngressPolicerStatisticsTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipServicesCetSpPmIngressPolicerStatisticsEntry": {
+    "name": "genEquipServicesCetSpPmIngressPolicerStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipServicesCetSpPmIngressPolicerStatiServiceIndex",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipServicesCetSpPmIngressPolicerStatiSpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipServicesCetSpPmIngressPolicerStatiServiceIndex": {
+    "name": "genEquipServicesCetSpPmIngressPolicerStatiServiceIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCetSpPmIngressPolicerStatiSpIndex": {
+    "name": "genEquipServicesCetSpPmIngressPolicerStatiSpIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCetSpPmIngressPolicerStatiClearOnRead": {
+    "name": "genEquipServicesCetSpPmIngressPolicerStatiClearOnRead",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NoYes",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipServicesCetSpPmIngressPolicerStatiGreenPacket": {
+    "name": "genEquipServicesCetSpPmIngressPolicerStatiGreenPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCetSpPmIngressPolicerStatiGreenBytes": {
+    "name": "genEquipServicesCetSpPmIngressPolicerStatiGreenBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCetSpPmIngressPolicerStatiYellowPacket": {
+    "name": "genEquipServicesCetSpPmIngressPolicerStatiYellowPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCetSpPmIngressPolicerStatiYellowBytes": {
+    "name": "genEquipServicesCetSpPmIngressPolicerStatiYellowBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCetSpPmIngressPolicerStatiRedPacket": {
+    "name": "genEquipServicesCetSpPmIngressPolicerStatiRedPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCetSpPmIngressPolicerStatiRedBytes": {
+    "name": "genEquipServicesCetSpPmIngressPolicerStatiRedBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueueStatisticsTable": {
+    "name": "genEquipServicesCETTmPmSpEgressQueueStatisticsTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueueStatisticsEntry": {
+    "name": "genEquipServicesCETTmPmSpEgressQueueStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipServicesCETTmPmSpEgressQueueStatisticsIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipServicesCETTmPmSpEgressQueueStatisticsServiceIndex",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipServicesCETTmPmSpEgressQueueStatisticsCosQueueIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueueStatisticsIfIndex": {
+    "name": "genEquipServicesCETTmPmSpEgressQueueStatisticsIfIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueueStatisticsServiceIndex": {
+    "name": "genEquipServicesCETTmPmSpEgressQueueStatisticsServiceIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueueStatisticsCosQueueIndex": {
+    "name": "genEquipServicesCETTmPmSpEgressQueueStatisticsCosQueueIndex",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueueStatisticsClearOnRead": {
+    "name": "genEquipServicesCETTmPmSpEgressQueueStatisticsClearOnRead",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NoYes",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenPacket": {
+    "name": "genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBytes": {
+    "name": "genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBitsPerSecond": {
+    "name": "genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBitsPerSecond",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenPacket": {
+    "name": "genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenBytes": {
+    "name": "genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowPacket": {
+    "name": "genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.15.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBytes": {
+    "name": "genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.15.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBitsPerSecond": {
+    "name": "genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBitsPerSecond",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.15.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowPacket": {
+    "name": "genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowPacket",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.15.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowBytes": {
+    "name": "genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowBytes",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.15.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmUtilization": {
+    "name": "genEquipPmUtilization",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16",
+    "class": "objectidentity"
+  },
+  "genEquipPmUtilizationCPU": {
+    "name": "genEquipPmUtilizationCPU",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.1",
+    "class": "objectidentity"
+  },
+  "genEquipPmUtilizationCPUAdmin": {
+    "name": "genEquipPmUtilizationCPUAdmin",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableDisable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPmUtilizationCPUThreshold": {
+    "name": "genEquipPmUtilizationCPUThreshold",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPmUtilizationCPUTable": {
+    "name": "genEquipPmUtilizationCPUTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmUtilizationCPUEntry": {
+    "name": "genEquipPmUtilizationCPUEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmUtilizationCPUPmType",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmUtilizationCPUInterval",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmUtilizationCPUPmType": {
+    "name": "genEquipPmUtilizationCPUPmType",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmTableType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmUtilizationCPUInterval": {
+    "name": "genEquipPmUtilizationCPUInterval",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmUtilizationCPUPeakUtilization": {
+    "name": "genEquipPmUtilizationCPUPeakUtilization",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmUtilizationCPUAverageUtilization": {
+    "name": "genEquipPmUtilizationCPUAverageUtilization",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmUtilizationCPUMinimumUtilization": {
+    "name": "genEquipPmUtilizationCPUMinimumUtilization",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmUtilizationCPUExceedUtilization": {
+    "name": "genEquipPmUtilizationCPUExceedUtilization",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmUtilizationCPUIDF": {
+    "name": "genEquipPmUtilizationCPUIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmUtilizationMem": {
+    "name": "genEquipPmUtilizationMem",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.2",
+    "class": "objectidentity"
+  },
+  "genEquipPmUtilizationMemAdmin": {
+    "name": "genEquipPmUtilizationMemAdmin",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableDisable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPmUtilizationMemThreshold": {
+    "name": "genEquipPmUtilizationMemThreshold",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPmUtilizationMemTable": {
+    "name": "genEquipPmUtilizationMemTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmUtilizationMemEntry": {
+    "name": "genEquipPmUtilizationMemEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmUtilizationMemPmType",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmUtilizationMemInterval",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmUtilizationMemPmType": {
+    "name": "genEquipPmUtilizationMemPmType",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmTableType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmUtilizationMemInterval": {
+    "name": "genEquipPmUtilizationMemInterval",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmUtilizationMemPeakUtilization": {
+    "name": "genEquipPmUtilizationMemPeakUtilization",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmUtilizationMemAverageUtilization": {
+    "name": "genEquipPmUtilizationMemAverageUtilization",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmUtilizationMemMinimumUtilization": {
+    "name": "genEquipPmUtilizationMemMinimumUtilization",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmUtilizationMemExceedUtilization": {
+    "name": "genEquipPmUtilizationMemExceedUtilization",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmUtilizationMemIDF": {
+    "name": "genEquipPmUtilizationMemIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.16.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integrity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernet": {
+    "name": "genEquipPmEthernet",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17",
+    "class": "objectidentity"
+  },
+  "genEquipPmEthernetPortTable": {
+    "name": "genEquipPmEthernetPortTable",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortEntry": {
+    "name": "genEquipPmEthernetPortEntry",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmEthernetPortPmType",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "MWRM-PM-MIB",
+        "object": "genEquipPmEthernetPortPmInterval",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortPmType": {
+    "name": "genEquipPmEthernetPortPmType",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortPmInterval": {
+    "name": "genEquipPmEthernetPortPmInterval",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortRxAvgBcastPackets": {
+    "name": "genEquipPmEthernetPortRxAvgBcastPackets",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortRxPeakBcastPackets": {
+    "name": "genEquipPmEthernetPortRxPeakBcastPackets",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortRxBytesLayer1ExcedThSecCnt": {
+    "name": "genEquipPmEthernetPortRxBytesLayer1ExcedThSecCnt",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortRxAvgBytesLayer1": {
+    "name": "genEquipPmEthernetPortRxAvgBytesLayer1",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortRxPeakBytesLayer1": {
+    "name": "genEquipPmEthernetPortRxPeakBytesLayer1",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortRxAvgBytesLayer2": {
+    "name": "genEquipPmEthernetPortRxAvgBytesLayer2",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortRxPeakBytesLayer2": {
+    "name": "genEquipPmEthernetPortRxPeakBytesLayer2",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortRxAvgMcastPackets": {
+    "name": "genEquipPmEthernetPortRxAvgMcastPackets",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortRxPeakMcastPackets": {
+    "name": "genEquipPmEthernetPortRxPeakMcastPackets",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortRxAvgPackets": {
+    "name": "genEquipPmEthernetPortRxAvgPackets",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortRxPeakPackets": {
+    "name": "genEquipPmEthernetPortRxPeakPackets",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortTxAvgBcastPackets": {
+    "name": "genEquipPmEthernetPortTxAvgBcastPackets",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortTxPeakBcastPackets": {
+    "name": "genEquipPmEthernetPortTxPeakBcastPackets",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortTxBytesLayer1ExcedThSecCnt": {
+    "name": "genEquipPmEthernetPortTxBytesLayer1ExcedThSecCnt",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortTxAvgBytesLayer1": {
+    "name": "genEquipPmEthernetPortTxAvgBytesLayer1",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortTxPeakBytesLayer1": {
+    "name": "genEquipPmEthernetPortTxPeakBytesLayer1",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortTxAvgBytesLayer2": {
+    "name": "genEquipPmEthernetPortTxAvgBytesLayer2",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortTxPeakBytesLayer2": {
+    "name": "genEquipPmEthernetPortTxPeakBytesLayer2",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortTxAvgMcastPackets": {
+    "name": "genEquipPmEthernetPortTxAvgMcastPackets",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortTxPeakMcastPackets": {
+    "name": "genEquipPmEthernetPortTxPeakMcastPackets",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortTxAvgPackets": {
+    "name": "genEquipPmEthernetPortTxAvgPackets",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortTxPeakPackets": {
+    "name": "genEquipPmEthernetPortTxPeakPackets",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPmEthernetPortPmIDF": {
+    "name": "genEquipPmEthernetPortPmIDF",
+    "oid": "1.3.6.1.4.1.2281.10.6.3.17.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "genEquipPMStatistics": {
+    "name": "genEquipPMStatistics",
+    "oid": "1.3.6.1.4.1.2281.10.6.4",
+    "class": "objectidentity"
+  },
+  "genEquipRMONResetCounters": {
+    "name": "genEquipRMONResetCounters",
+    "oid": "1.3.6.1.4.1.2281.10.6.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OffOn",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "genEquipPMStatisticsResetAllL2PortPm": {
+    "name": "genEquipPMStatisticsResetAllL2PortPm",
+    "oid": "1.3.6.1.4.1.2281.10.6.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OffOn",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ceraos/MWRM-PM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:15 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MWRM-PM-MIB"
+  }
+}

@@ -1,0 +1,378 @@
+{
+  "imports": {
+    "class": "imports",
+    "FC-MGMT-MIB": [
+      "fcmSwitchIndex",
+      "fcmInstanceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "mib-2",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ],
+    "T11-FC-NAME-SERVER-MIB": [
+      "T11NsGs4RejectReasonCode"
+    ],
+    "T11-TC-MIB": [
+      "T11FabricIndex"
+    ]
+  },
+  "t11FabricLockMIB": {
+    "name": "t11FabricLockMIB",
+    "oid": "1.3.6.1.2.1.159",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-06-27 00:00",
+        "description": "Initial version of this MIB module, published as RFC 4936."
+      }
+    ]
+  },
+  "t11FLockMIBObjects": {
+    "name": "t11FLockMIBObjects",
+    "oid": "1.3.6.1.2.1.159.1",
+    "class": "objectidentity"
+  },
+  "t11FLockMIBConformance": {
+    "name": "t11FLockMIBConformance",
+    "oid": "1.3.6.1.2.1.159.2",
+    "class": "objectidentity"
+  },
+  "t11FLockMIBNotifications": {
+    "name": "t11FLockMIBNotifications",
+    "oid": "1.3.6.1.2.1.159.0",
+    "class": "objectidentity"
+  },
+  "t11FLockConfiguration": {
+    "name": "t11FLockConfiguration",
+    "oid": "1.3.6.1.2.1.159.1.1",
+    "class": "objectidentity"
+  },
+  "t11FLockTable": {
+    "name": "t11FLockTable",
+    "oid": "1.3.6.1.2.1.159.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FLockEntry": {
+    "name": "t11FLockEntry",
+    "oid": "1.3.6.1.2.1.159.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-LOCK-MIB",
+        "object": "t11FLockFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-LOCK-MIB",
+        "object": "t11FLockApplicationID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FLockFabricIndex": {
+    "name": "t11FLockFabricIndex",
+    "oid": "1.3.6.1.2.1.159.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FabricIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FLockApplicationID": {
+    "name": "t11FLockApplicationID",
+    "oid": "1.3.6.1.2.1.159.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FLockInitiatorType": {
+    "name": "t11FLockInitiatorType",
+    "oid": "1.3.6.1.2.1.159.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ssb": 2,
+          "cli": 3,
+          "snmp": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FLockInitiator": {
+    "name": "t11FLockInitiator",
+    "oid": "1.3.6.1.2.1.159.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FLockInitiatorIpAddrType": {
+    "name": "t11FLockInitiatorIpAddrType",
+    "oid": "1.3.6.1.2.1.159.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FLockInitiatorIpAddr": {
+    "name": "t11FLockInitiatorIpAddr",
+    "oid": "1.3.6.1.2.1.159.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FLockStatus": {
+    "name": "t11FLockStatus",
+    "oid": "1.3.6.1.2.1.159.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "settingUp": 2,
+          "rejectFailure": 3,
+          "otherFailure": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FLockRejectReasonCode": {
+    "name": "t11FLockRejectReasonCode",
+    "oid": "1.3.6.1.2.1.159.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11NsGs4RejectReasonCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FLockRejectReasonCodeExp": {
+    "name": "t11FLockRejectReasonCodeExp",
+    "oid": "1.3.6.1.2.1.159.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FLockRejectReasonVendorCode": {
+    "name": "t11FLockRejectReasonVendorCode",
+    "oid": "1.3.6.1.2.1.159.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FLockRowStatus": {
+    "name": "t11FLockRowStatus",
+    "oid": "1.3.6.1.2.1.159.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FLockMIBCompliances": {
+    "name": "t11FLockMIBCompliances",
+    "oid": "1.3.6.1.2.1.159.2.1",
+    "class": "objectidentity"
+  },
+  "t11FLockMIBGroups": {
+    "name": "t11FLockMIBGroups",
+    "oid": "1.3.6.1.2.1.159.2.2",
+    "class": "objectidentity"
+  },
+  "t11FLockMIBCompliance": {
+    "name": "t11FLockMIBCompliance",
+    "oid": "1.3.6.1.2.1.159.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "t11FLockActiveGroup",
+        "module": "T11-FC-FABRIC-LOCK-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FLockActiveGroup": {
+    "name": "t11FLockActiveGroup",
+    "oid": "1.3.6.1.2.1.159.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-FABRIC-LOCK-MIB",
+        "object": "t11FLockInitiatorType"
+      },
+      {
+        "module": "T11-FC-FABRIC-LOCK-MIB",
+        "object": "t11FLockInitiator"
+      },
+      {
+        "module": "T11-FC-FABRIC-LOCK-MIB",
+        "object": "t11FLockInitiatorIpAddrType"
+      },
+      {
+        "module": "T11-FC-FABRIC-LOCK-MIB",
+        "object": "t11FLockInitiatorIpAddr"
+      },
+      {
+        "module": "T11-FC-FABRIC-LOCK-MIB",
+        "object": "t11FLockStatus"
+      },
+      {
+        "module": "T11-FC-FABRIC-LOCK-MIB",
+        "object": "t11FLockRejectReasonCode"
+      },
+      {
+        "module": "T11-FC-FABRIC-LOCK-MIB",
+        "object": "t11FLockRejectReasonCodeExp"
+      },
+      {
+        "module": "T11-FC-FABRIC-LOCK-MIB",
+        "object": "t11FLockRejectReasonVendorCode"
+      },
+      {
+        "module": "T11-FC-FABRIC-LOCK-MIB",
+        "object": "t11FLockRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/T11-FC-FABRIC-LOCK-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "T11-FC-FABRIC-LOCK-MIB"
+  }
+}

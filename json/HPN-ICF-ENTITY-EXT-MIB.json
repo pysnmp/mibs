@@ -1,0 +1,2325 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex",
+      "entPhysicalName",
+      "entPhysicalDescr"
+    ],
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfEntityExtend": {
+    "name": "hpnicfEntityExtend",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6",
+    "class": "moduleidentity"
+  },
+  "HpnicfAdminState": {
+    "name": "HpnicfAdminState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "locked": 2,
+          "shuttingDown": 3,
+          "unlocked": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfOperState": {
+    "name": "HpnicfOperState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "disabled": 2,
+          "enabled": 3,
+          "dangerous": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfAlarmStatus": {
+    "name": "HpnicfAlarmStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "notSupported": 0,
+        "underRepair": 1,
+        "critical": 2,
+        "major": 3,
+        "minor": 4,
+        "alarmOutstanding": 5,
+        "warning": 6,
+        "indeterminate": 7
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfStandbyStatus": {
+    "name": "HpnicfStandbyStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "hotStandby": 2,
+          "coldStandby": 3,
+          "providingService": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hpnicfEntityExtObjects": {
+    "name": "hpnicfEntityExtObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1",
+    "class": "objectidentity"
+  },
+  "hpnicfEntityExtState": {
+    "name": "hpnicfEntityExtState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfEntityExtStateTable": {
+    "name": "hpnicfEntityExtStateTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEntityExtStateEntry": {
+    "name": "hpnicfEntityExtStateEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtPhysicalIndex": {
+    "name": "hpnicfEntityExtPhysicalIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfEntityExtAdminStatus": {
+    "name": "hpnicfEntityExtAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEntityExtOperStatus": {
+    "name": "hpnicfEntityExtOperStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtStandbyStatus": {
+    "name": "hpnicfEntityExtStandbyStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfStandbyStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtAlarmLight": {
+    "name": "hpnicfEntityExtAlarmLight",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfAlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtCpuUsage": {
+    "name": "hpnicfEntityExtCpuUsage",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtCpuUsageThreshold": {
+    "name": "hpnicfEntityExtCpuUsageThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEntityExtMemUsage": {
+    "name": "hpnicfEntityExtMemUsage",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtMemUsageThreshold": {
+    "name": "hpnicfEntityExtMemUsageThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEntityExtMemSize": {
+    "name": "hpnicfEntityExtMemSize",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtUpTime": {
+    "name": "hpnicfEntityExtUpTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtTemperature": {
+    "name": "hpnicfEntityExtTemperature",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtTemperatureThreshold": {
+    "name": "hpnicfEntityExtTemperatureThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEntityExtVoltage": {
+    "name": "hpnicfEntityExtVoltage",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtVoltageLowThreshold": {
+    "name": "hpnicfEntityExtVoltageLowThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEntityExtVoltageHighThreshold": {
+    "name": "hpnicfEntityExtVoltageHighThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEntityExtCriticalTemperatureThreshold": {
+    "name": "hpnicfEntityExtCriticalTemperatureThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEntityExtMacAddress": {
+    "name": "hpnicfEntityExtMacAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtErrorStatus": {
+    "name": "hpnicfEntityExtErrorStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "normal": 2,
+          "postFailure": 3,
+          "entityAbsent": 4,
+          "poeError": 11,
+          "stackError": 21,
+          "stackPortBlocked": 22,
+          "stackPortFailed": 23,
+          "sfpRecvError": 31,
+          "sfpSendError": 32,
+          "sfpBothError": 33,
+          "fanError": 41,
+          "psuError": 51,
+          "rpsError": 61,
+          "moduleFaulty": 71,
+          "sensorError": 81,
+          "hardwareFaulty": 91
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtCpuMaxUsage": {
+    "name": "hpnicfEntityExtCpuMaxUsage",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtLowerTemperatureThreshold": {
+    "name": "hpnicfEntityExtLowerTemperatureThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEntityExtShutdownTemperatureThreshold": {
+    "name": "hpnicfEntityExtShutdownTemperatureThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEntityExtPhyMemSize": {
+    "name": "hpnicfEntityExtPhyMemSize",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtPhyCpuFrequency": {
+    "name": "hpnicfEntityExtPhyCpuFrequency",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtFirstUsedDate": {
+    "name": "hpnicfEntityExtFirstUsedDate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtCpuAvgUsage": {
+    "name": "hpnicfEntityExtCpuAvgUsage",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtMemAvgUsage": {
+    "name": "hpnicfEntityExtMemAvgUsage",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtMemType": {
+    "name": "hpnicfEntityExtMemType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtCriticalLowerTemperatureThreshold": {
+    "name": "hpnicfEntityExtCriticalLowerTemperatureThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEntityExtShutdownLowerTemperatureThreshold": {
+    "name": "hpnicfEntityExtShutdownLowerTemperatureThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEntityExtCpuUsageRecoverThreshold": {
+    "name": "hpnicfEntityExtCpuUsageRecoverThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEntityExtMemSizeRev": {
+    "name": "hpnicfEntityExtMemSizeRev",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtCpuUsageIn1Minute": {
+    "name": "hpnicfEntityExtCpuUsageIn1Minute",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtCpuUsageIn5Minutes": {
+    "name": "hpnicfEntityExtCpuUsageIn5Minutes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtManu": {
+    "name": "hpnicfEntityExtManu",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.2",
+    "class": "objectidentity"
+  },
+  "hpnicfEntityExtManuTable": {
+    "name": "hpnicfEntityExtManuTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEntityExtManuEntry": {
+    "name": "hpnicfEntityExtManuEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtManuPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtManuPhysicalIndex": {
+    "name": "hpnicfEntityExtManuPhysicalIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfEntityExtManuSerialNum": {
+    "name": "hpnicfEntityExtManuSerialNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtManuBuildInfo": {
+    "name": "hpnicfEntityExtManuBuildInfo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtManuBOM": {
+    "name": "hpnicfEntityExtManuBOM",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtMacAddressCount": {
+    "name": "hpnicfEntityExtMacAddressCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtPower": {
+    "name": "hpnicfEntityExtPower",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.3",
+    "class": "objectidentity"
+  },
+  "hpnicfEntityExtPowerTable": {
+    "name": "hpnicfEntityExtPowerTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEntityExtPowerEntry": {
+    "name": "hpnicfEntityExtPowerEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPowerPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtPowerPhysicalIndex": {
+    "name": "hpnicfEntityExtPowerPhysicalIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfEntityExtNominalPower": {
+    "name": "hpnicfEntityExtNominalPower",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtCurrentPower": {
+    "name": "hpnicfEntityExtCurrentPower",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtAveragePower": {
+    "name": "hpnicfEntityExtAveragePower",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEntityExtPeakPower": {
+    "name": "hpnicfEntityExtPeakPower",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfProcessObjects": {
+    "name": "hpnicfProcessObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.4",
+    "class": "objectidentity"
+  },
+  "hpnicfProcessTable": {
+    "name": "hpnicfProcessTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfProcessEntry": {
+    "name": "hpnicfProcessEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfProcessID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfProcessID": {
+    "name": "hpnicfProcessID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfProcessName": {
+    "name": "hpnicfProcessName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfProcessUtil5Min": {
+    "name": "hpnicfProcessUtil5Min",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEntityExtTraps": {
+    "name": "hpnicfEntityExtTraps",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2",
+    "class": "objectidentity"
+  },
+  "hpnicfEntityExtTrapsPrefix": {
+    "name": "hpnicfEntityExtTrapsPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0",
+    "class": "objectidentity"
+  },
+  "hpnicfEntityExtTrapsInfor": {
+    "name": "hpnicfEntityExtTrapsInfor",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.1",
+    "class": "objectidentity"
+  },
+  "hpnicfEntityExtTemperatureThresholdNotification": {
+    "name": "hpnicfEntityExtTemperatureThresholdNotification",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtTemperature"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtTemperatureThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtVoltageLowThresholdNotification": {
+    "name": "hpnicfEntityExtVoltageLowThresholdNotification",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtVoltage"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtVoltageLowThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtVoltageHighThresholdNotification": {
+    "name": "hpnicfEntityExtVoltageHighThresholdNotification",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtVoltage"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtVoltageHighThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtCpuUsageThresholdNotfication": {
+    "name": "hpnicfEntityExtCpuUsageThresholdNotfication",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtCpuUsage"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtCpuUsageThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAlarmLight"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtCpuUsageRecoverThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtMemUsageThresholdNotification": {
+    "name": "hpnicfEntityExtMemUsageThresholdNotification",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMemUsage"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMemUsageThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMemSize"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAlarmLight"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtOperEnabled": {
+    "name": "hpnicfEntityExtOperEnabled",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtOperDisabled": {
+    "name": "hpnicfEntityExtOperDisabled",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtCriticalTemperatureThresholdNotification": {
+    "name": "hpnicfEntityExtCriticalTemperatureThresholdNotification",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtTemperature"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtCriticalTemperatureThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtSFPAlarmOn": {
+    "name": "hpnicfEntityExtSFPAlarmOn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtErrorStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtSFPAlarmOff": {
+    "name": "hpnicfEntityExtSFPAlarmOff",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtErrorStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtSFPPhony": {
+    "name": "hpnicfEntityExtSFPPhony",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityInsert": {
+    "name": "hpnicfEntityInsert",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityRemove": {
+    "name": "hpnicfEntityRemove",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtForcedPowerOff": {
+    "name": "hpnicfEntityExtForcedPowerOff",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtForcedPowerOn": {
+    "name": "hpnicfEntityExtForcedPowerOn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtFaultAlarmOn": {
+    "name": "hpnicfEntityExtFaultAlarmOn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtErrorStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtFaultAlarmOff": {
+    "name": "hpnicfEntityExtFaultAlarmOff",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtErrorStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtResourceLack": {
+    "name": "hpnicfEntityExtResourceLack",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtResourceEnough": {
+    "name": "hpnicfEntityExtResourceEnough",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtTemperatureLower": {
+    "name": "hpnicfEntityExtTemperatureLower",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtTemperature"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtLowerTemperatureThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtTemperatureTooUp": {
+    "name": "hpnicfEntityExtTemperatureTooUp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtTemperature"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtShutdownTemperatureThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtTemperatureNormal": {
+    "name": "hpnicfEntityExtTemperatureNormal",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtTemperature"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtLowerTemperatureThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtTemperatureThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExternalAlarmOccur": {
+    "name": "hpnicfEntityExternalAlarmOccur",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExternalAlarmRecover": {
+    "name": "hpnicfEntityExternalAlarmRecover",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtCpuUsageThresholdRecover": {
+    "name": "hpnicfEntityExtCpuUsageThresholdRecover",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtCpuUsage"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtCpuUsageThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAlarmLight"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtCpuUsageRecoverThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtMemUsageThresholdRecover": {
+    "name": "hpnicfEntityExtMemUsageThresholdRecover",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMemUsage"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMemUsageThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMemSize"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAlarmLight"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtMemAllocatedFailed": {
+    "name": "hpnicfEntityExtMemAllocatedFailed",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtTrapDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtECCParityAlarm": {
+    "name": "hpnicfEntityExtECCParityAlarm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtECCParityAlarmStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtTrapDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtCritLowerTempThresholdNotification": {
+    "name": "hpnicfEntityExtCritLowerTempThresholdNotification",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtTemperature"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtCriticalLowerTemperatureThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtTemperatureTooLow": {
+    "name": "hpnicfEntityExtTemperatureTooLow",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtTemperature"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtShutdownLowerTemperatureThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtFanDirectionNotPreferred": {
+    "name": "hpnicfEntityExtFanDirectionNotPreferred",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtFanDirectionNotAccord": {
+    "name": "hpnicfEntityExtFanDirectionNotAccord",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtSFPInvalid": {
+    "name": "hpnicfEntityExtSFPInvalid",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtSFPInvalidInDays"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtSFPInvalidNow": {
+    "name": "hpnicfEntityExtSFPInvalidNow",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtMemUsageThresholdOverTrap": {
+    "name": "hpnicfEntityExtMemUsageThresholdOverTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMemUsage"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMemUsageThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMemSizeRev"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtMemUsageThresholdRecoverTrap": {
+    "name": "hpnicfEntityExtMemUsageThresholdRecoverTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMemUsage"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMemUsageThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMemSizeRev"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtTrapDescription": {
+    "name": "hpnicfEntityExtTrapDescription",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfEntityExtECCParityAlarmStatus": {
+    "name": "hpnicfEntityExtECCParityAlarmStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "l1cache": 2,
+          "l2cache": 3,
+          "sdram": 4,
+          "mac": 5,
+          "tcam": 6,
+          "ingressbuffer": 7,
+          "egressbuffer": 8,
+          "lpm": 9,
+          "controlmemory": 10
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfEntityExtSFPInvalidInDays": {
+    "name": "hpnicfEntityExtSFPInvalidInDays",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfEntityExtFirstTrapTime": {
+    "name": "hpnicfEntityExtFirstTrapTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfEntityExtConformance": {
+    "name": "hpnicfEntityExtConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.3",
+    "class": "objectidentity"
+  },
+  "hpnicfEntityExtCompliances": {
+    "name": "hpnicfEntityExtCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.3.1",
+    "class": "objectidentity"
+  },
+  "hpnicfEntityExtCompliance": {
+    "name": "hpnicfEntityExtCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpnicfEntityExtGroup",
+        "module": "HPN-ICF-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "hpnicfEntityExtNotificationGroup",
+        "module": "HPN-ICF-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "hpnicfEntityExtManuGroup",
+        "module": "HPN-ICF-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "hpnicfEntityExtPowerGroup",
+        "module": "HPN-ICF-ENTITY-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtGroups": {
+    "name": "hpnicfEntityExtGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.3.2",
+    "class": "objectidentity"
+  },
+  "hpnicfEntityExtGroup": {
+    "name": "hpnicfEntityExtGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAdminStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtOperStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtStandbyStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAlarmLight"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtCpuUsage"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtCpuUsageThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMemUsage"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMemUsageThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMemSize"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtUpTime"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtTemperature"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtTemperatureThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtVoltage"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtVoltageLowThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtVoltageHighThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtCriticalTemperatureThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMacAddress"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtErrorStatus"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtCpuMaxUsage"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtLowerTemperatureThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtShutdownTemperatureThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhyMemSize"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPhyCpuFrequency"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtFirstUsedDate"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtCpuAvgUsage"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMemAvgUsage"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMemType"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtCriticalLowerTemperatureThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtShutdownLowerTemperatureThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtCpuUsageRecoverThreshold"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMemSizeRev"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtCpuUsageIn1Minute"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtCpuUsageIn5Minutes"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtNotificationGroup": {
+    "name": "hpnicfEntityExtNotificationGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtTemperatureThresholdNotification"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtVoltageLowThresholdNotification"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtVoltageHighThresholdNotification"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtCpuUsageThresholdNotfication"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMemUsageThresholdNotification"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtOperEnabled"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtOperDisabled"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtCriticalTemperatureThresholdNotification"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtSFPAlarmOn"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtSFPAlarmOff"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtSFPPhony"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityInsert"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityRemove"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtForcedPowerOff"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtForcedPowerOn"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtFaultAlarmOn"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtFaultAlarmOff"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtResourceLack"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtResourceEnough"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtTemperatureLower"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtTemperatureTooUp"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtTemperatureNormal"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExternalAlarmOccur"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExternalAlarmRecover"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtCpuUsageThresholdRecover"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMemUsageThresholdRecover"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMemAllocatedFailed"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtECCParityAlarm"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtCritLowerTempThresholdNotification"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtTemperatureTooLow"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtFanDirectionNotPreferred"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtFanDirectionNotAccord"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtSFPInvalid"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtSFPInvalidNow"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMemUsageThresholdOverTrap"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMemUsageThresholdRecoverTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtManuGroup": {
+    "name": "hpnicfEntityExtManuGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtManuPhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtManuSerialNum"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtManuBuildInfo"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtManuBOM"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtMacAddressCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEntityExtPowerGroup": {
+    "name": "hpnicfEntityExtPowerGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.6.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPowerPhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtNominalPower"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtCurrentPower"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtAveragePower"
+      },
+      {
+        "module": "HPN-ICF-ENTITY-EXT-MIB",
+        "object": "hpnicfEntityExtPeakPower"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-ENTITY-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-ENTITY-EXT-MIB"
+  }
+}

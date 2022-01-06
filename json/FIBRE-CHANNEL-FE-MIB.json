@@ -1,0 +1,2145 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Bits",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "mib-2"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TimeStamp",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "fcFeMIB": {
+    "name": "fcFeMIB",
+    "oid": "1.3.6.1.2.1.75",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-05-18 00:00",
+        "description": "Initial revision, published as RFC 2837."
+      }
+    ]
+  },
+  "fcFeMIBObjects": {
+    "name": "fcFeMIBObjects",
+    "oid": "1.3.6.1.2.1.75.1",
+    "class": "objectidentity"
+  },
+  "fcFeConfig": {
+    "name": "fcFeConfig",
+    "oid": "1.3.6.1.2.1.75.1.1",
+    "class": "objectidentity"
+  },
+  "fcFeStatus": {
+    "name": "fcFeStatus",
+    "oid": "1.3.6.1.2.1.75.1.2",
+    "class": "objectidentity"
+  },
+  "fcFeError": {
+    "name": "fcFeError",
+    "oid": "1.3.6.1.2.1.75.1.3",
+    "class": "objectidentity"
+  },
+  "fcFeAccounting": {
+    "name": "fcFeAccounting",
+    "oid": "1.3.6.1.2.1.75.1.4",
+    "class": "objectidentity"
+  },
+  "fcFeCapabilities": {
+    "name": "fcFeCapabilities",
+    "oid": "1.3.6.1.2.1.75.1.5",
+    "class": "objectidentity"
+  },
+  "MilliSeconds": {
+    "name": "MilliSeconds",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "MicroSeconds": {
+    "name": "MicroSeconds",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "FcNameId": {
+    "name": "FcNameId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FcAddressId": {
+    "name": "FcAddressId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FcRxDataFieldSize": {
+    "name": "FcRxDataFieldSize",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 128,
+            "max": 2112
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FcBbCredit": {
+    "name": "FcBbCredit",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FcphVersion": {
+    "name": "FcphVersion",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FcStackedConnMode": {
+    "name": "FcStackedConnMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "transparent": 2,
+          "lockedDown": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FcCosCap": {
+    "name": "FcCosCap",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "classF": 0,
+        "class1": 1,
+        "class2": 2,
+        "class3": 3,
+        "class4": 4,
+        "class5": 5,
+        "class6": 6
+      }
+    },
+    "status": "current"
+  },
+  "FcFeModuleCapacity": {
+    "name": "FcFeModuleCapacity",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "FcFeFxPortCapacity": {
+    "name": "FcFeFxPortCapacity",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "FcFeModuleIndex": {
+    "name": "FcFeModuleIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "FcFeFxPortIndex": {
+    "name": "FcFeFxPortIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "FcFeNxPortIndex": {
+    "name": "FcFeNxPortIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 126
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FcBbCreditModel": {
+    "name": "FcBbCreditModel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "regular": 1,
+          "alternate": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fcFeFabricName": {
+    "name": "fcFeFabricName",
+    "oid": "1.3.6.1.2.1.75.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcFeElementName": {
+    "name": "fcFeElementName",
+    "oid": "1.3.6.1.2.1.75.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcFeModuleCapacity": {
+    "name": "fcFeModuleCapacity",
+    "oid": "1.3.6.1.2.1.75.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcFeModuleCapacity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFeModuleTable": {
+    "name": "fcFeModuleTable",
+    "oid": "1.3.6.1.2.1.75.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcFeModuleEntry": {
+    "name": "fcFeModuleEntry",
+    "oid": "1.3.6.1.2.1.75.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFeModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcFeModuleIndex": {
+    "name": "fcFeModuleIndex",
+    "oid": "1.3.6.1.2.1.75.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcFeModuleIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcFeModuleDescr": {
+    "name": "fcFeModuleDescr",
+    "oid": "1.3.6.1.2.1.75.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFeModuleObjectID": {
+    "name": "fcFeModuleObjectID",
+    "oid": "1.3.6.1.2.1.75.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFeModuleOperStatus": {
+    "name": "fcFeModuleOperStatus",
+    "oid": "1.3.6.1.2.1.75.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "online": 1,
+          "offline": 2,
+          "testing": 3,
+          "faulty": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFeModuleLastChange": {
+    "name": "fcFeModuleLastChange",
+    "oid": "1.3.6.1.2.1.75.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFeModuleFxPortCapacity": {
+    "name": "fcFeModuleFxPortCapacity",
+    "oid": "1.3.6.1.2.1.75.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcFeFxPortCapacity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFeModuleName": {
+    "name": "fcFeModuleName",
+    "oid": "1.3.6.1.2.1.75.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcFxPortTable": {
+    "name": "fcFxPortTable",
+    "oid": "1.3.6.1.2.1.75.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcFxPortEntry": {
+    "name": "fcFxPortEntry",
+    "oid": "1.3.6.1.2.1.75.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFeModuleIndex",
+        "implied": 0
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcFxPortIndex": {
+    "name": "fcFxPortIndex",
+    "oid": "1.3.6.1.2.1.75.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcFeFxPortIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcFxPortName": {
+    "name": "fcFxPortName",
+    "oid": "1.3.6.1.2.1.75.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortFcphVersionHigh": {
+    "name": "fcFxPortFcphVersionHigh",
+    "oid": "1.3.6.1.2.1.75.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcphVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortFcphVersionLow": {
+    "name": "fcFxPortFcphVersionLow",
+    "oid": "1.3.6.1.2.1.75.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcphVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortBbCredit": {
+    "name": "fcFxPortBbCredit",
+    "oid": "1.3.6.1.2.1.75.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortRxBufSize": {
+    "name": "fcFxPortRxBufSize",
+    "oid": "1.3.6.1.2.1.75.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcRxDataFieldSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortRatov": {
+    "name": "fcFxPortRatov",
+    "oid": "1.3.6.1.2.1.75.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliSeconds",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortEdtov": {
+    "name": "fcFxPortEdtov",
+    "oid": "1.3.6.1.2.1.75.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliSeconds",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortCosSupported": {
+    "name": "fcFxPortCosSupported",
+    "oid": "1.3.6.1.2.1.75.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcCosCap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortIntermixSupported": {
+    "name": "fcFxPortIntermixSupported",
+    "oid": "1.3.6.1.2.1.75.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortStackedConnMode": {
+    "name": "fcFxPortStackedConnMode",
+    "oid": "1.3.6.1.2.1.75.1.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcStackedConnMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortClass2SeqDeliv": {
+    "name": "fcFxPortClass2SeqDeliv",
+    "oid": "1.3.6.1.2.1.75.1.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortClass3SeqDeliv": {
+    "name": "fcFxPortClass3SeqDeliv",
+    "oid": "1.3.6.1.2.1.75.1.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortHoldTime": {
+    "name": "fcFxPortHoldTime",
+    "oid": "1.3.6.1.2.1.75.1.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MicroSeconds",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortStatusTable": {
+    "name": "fcFxPortStatusTable",
+    "oid": "1.3.6.1.2.1.75.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcFxPortStatusEntry": {
+    "name": "fcFxPortStatusEntry",
+    "oid": "1.3.6.1.2.1.75.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "fcFxPortStatusEntry",
+      "module": "FIBRE-CHANNEL-FE-MIB",
+      "object": "fcFxPortEntry"
+    },
+    "status": "current"
+  },
+  "fcFxPortID": {
+    "name": "fcFxPortID",
+    "oid": "1.3.6.1.2.1.75.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortBbCreditAvailable": {
+    "name": "fcFxPortBbCreditAvailable",
+    "oid": "1.3.6.1.2.1.75.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortOperMode": {
+    "name": "fcFxPortOperMode",
+    "oid": "1.3.6.1.2.1.75.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "fPort": 2,
+          "flPort": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortAdminMode": {
+    "name": "fcFxPortAdminMode",
+    "oid": "1.3.6.1.2.1.75.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fPort": 2,
+          "flPort": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcFxPortPhysTable": {
+    "name": "fcFxPortPhysTable",
+    "oid": "1.3.6.1.2.1.75.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcFxPortPhysEntry": {
+    "name": "fcFxPortPhysEntry",
+    "oid": "1.3.6.1.2.1.75.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "fcFxPortPhysEntry",
+      "module": "FIBRE-CHANNEL-FE-MIB",
+      "object": "fcFxPortEntry"
+    },
+    "status": "current"
+  },
+  "fcFxPortPhysAdminStatus": {
+    "name": "fcFxPortPhysAdminStatus",
+    "oid": "1.3.6.1.2.1.75.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "online": 1,
+          "offline": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcFxPortPhysOperStatus": {
+    "name": "fcFxPortPhysOperStatus",
+    "oid": "1.3.6.1.2.1.75.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "online": 1,
+          "offline": 2,
+          "testing": 3,
+          "linkFailure": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortPhysLastChange": {
+    "name": "fcFxPortPhysLastChange",
+    "oid": "1.3.6.1.2.1.75.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortPhysRttov": {
+    "name": "fcFxPortPhysRttov",
+    "oid": "1.3.6.1.2.1.75.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliSeconds",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcFxLoginTable": {
+    "name": "fcFxLoginTable",
+    "oid": "1.3.6.1.2.1.75.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcFxLoginEntry": {
+    "name": "fcFxLoginEntry",
+    "oid": "1.3.6.1.2.1.75.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFeModuleIndex",
+        "implied": 0
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortNxLoginIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcFxPortNxLoginIndex": {
+    "name": "fcFxPortNxLoginIndex",
+    "oid": "1.3.6.1.2.1.75.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcFeNxPortIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcFxPortFcphVersionAgreed": {
+    "name": "fcFxPortFcphVersionAgreed",
+    "oid": "1.3.6.1.2.1.75.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcphVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortNxPortBbCredit": {
+    "name": "fcFxPortNxPortBbCredit",
+    "oid": "1.3.6.1.2.1.75.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortNxPortRxDataFieldSize": {
+    "name": "fcFxPortNxPortRxDataFieldSize",
+    "oid": "1.3.6.1.2.1.75.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcRxDataFieldSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortCosSuppAgreed": {
+    "name": "fcFxPortCosSuppAgreed",
+    "oid": "1.3.6.1.2.1.75.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcCosCap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortIntermixSuppAgreed": {
+    "name": "fcFxPortIntermixSuppAgreed",
+    "oid": "1.3.6.1.2.1.75.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortStackedConnModeAgreed": {
+    "name": "fcFxPortStackedConnModeAgreed",
+    "oid": "1.3.6.1.2.1.75.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcStackedConnMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortClass2SeqDelivAgreed": {
+    "name": "fcFxPortClass2SeqDelivAgreed",
+    "oid": "1.3.6.1.2.1.75.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortClass3SeqDelivAgreed": {
+    "name": "fcFxPortClass3SeqDelivAgreed",
+    "oid": "1.3.6.1.2.1.75.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortNxPortName": {
+    "name": "fcFxPortNxPortName",
+    "oid": "1.3.6.1.2.1.75.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortConnectedNxPort": {
+    "name": "fcFxPortConnectedNxPort",
+    "oid": "1.3.6.1.2.1.75.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortBbCreditModel": {
+    "name": "fcFxPortBbCreditModel",
+    "oid": "1.3.6.1.2.1.75.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCreditModel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcFxPortErrorTable": {
+    "name": "fcFxPortErrorTable",
+    "oid": "1.3.6.1.2.1.75.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcFxPortErrorEntry": {
+    "name": "fcFxPortErrorEntry",
+    "oid": "1.3.6.1.2.1.75.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "fcFxPortErrorEntry",
+      "module": "FIBRE-CHANNEL-FE-MIB",
+      "object": "fcFxPortEntry"
+    },
+    "status": "current"
+  },
+  "fcFxPortLinkFailures": {
+    "name": "fcFxPortLinkFailures",
+    "oid": "1.3.6.1.2.1.75.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortSyncLosses": {
+    "name": "fcFxPortSyncLosses",
+    "oid": "1.3.6.1.2.1.75.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortSigLosses": {
+    "name": "fcFxPortSigLosses",
+    "oid": "1.3.6.1.2.1.75.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortPrimSeqProtoErrors": {
+    "name": "fcFxPortPrimSeqProtoErrors",
+    "oid": "1.3.6.1.2.1.75.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortInvalidTxWords": {
+    "name": "fcFxPortInvalidTxWords",
+    "oid": "1.3.6.1.2.1.75.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortInvalidCrcs": {
+    "name": "fcFxPortInvalidCrcs",
+    "oid": "1.3.6.1.2.1.75.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortDelimiterErrors": {
+    "name": "fcFxPortDelimiterErrors",
+    "oid": "1.3.6.1.2.1.75.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortAddressIdErrors": {
+    "name": "fcFxPortAddressIdErrors",
+    "oid": "1.3.6.1.2.1.75.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortLinkResetIns": {
+    "name": "fcFxPortLinkResetIns",
+    "oid": "1.3.6.1.2.1.75.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortLinkResetOuts": {
+    "name": "fcFxPortLinkResetOuts",
+    "oid": "1.3.6.1.2.1.75.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortOlsIns": {
+    "name": "fcFxPortOlsIns",
+    "oid": "1.3.6.1.2.1.75.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortOlsOuts": {
+    "name": "fcFxPortOlsOuts",
+    "oid": "1.3.6.1.2.1.75.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortC1AccountingTable": {
+    "name": "fcFxPortC1AccountingTable",
+    "oid": "1.3.6.1.2.1.75.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcFxPortC1AccountingEntry": {
+    "name": "fcFxPortC1AccountingEntry",
+    "oid": "1.3.6.1.2.1.75.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "fcFxPortC1AccountingEntry",
+      "module": "FIBRE-CHANNEL-FE-MIB",
+      "object": "fcFxPortEntry"
+    },
+    "status": "current"
+  },
+  "fcFxPortC1InFrames": {
+    "name": "fcFxPortC1InFrames",
+    "oid": "1.3.6.1.2.1.75.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortC1OutFrames": {
+    "name": "fcFxPortC1OutFrames",
+    "oid": "1.3.6.1.2.1.75.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortC1InOctets": {
+    "name": "fcFxPortC1InOctets",
+    "oid": "1.3.6.1.2.1.75.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortC1OutOctets": {
+    "name": "fcFxPortC1OutOctets",
+    "oid": "1.3.6.1.2.1.75.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortC1Discards": {
+    "name": "fcFxPortC1Discards",
+    "oid": "1.3.6.1.2.1.75.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortC1FbsyFrames": {
+    "name": "fcFxPortC1FbsyFrames",
+    "oid": "1.3.6.1.2.1.75.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortC1FrjtFrames": {
+    "name": "fcFxPortC1FrjtFrames",
+    "oid": "1.3.6.1.2.1.75.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortC1InConnections": {
+    "name": "fcFxPortC1InConnections",
+    "oid": "1.3.6.1.2.1.75.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortC1OutConnections": {
+    "name": "fcFxPortC1OutConnections",
+    "oid": "1.3.6.1.2.1.75.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortC1ConnTime": {
+    "name": "fcFxPortC1ConnTime",
+    "oid": "1.3.6.1.2.1.75.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliSeconds",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortC2AccountingTable": {
+    "name": "fcFxPortC2AccountingTable",
+    "oid": "1.3.6.1.2.1.75.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcFxPortC2AccountingEntry": {
+    "name": "fcFxPortC2AccountingEntry",
+    "oid": "1.3.6.1.2.1.75.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "fcFxPortC2AccountingEntry",
+      "module": "FIBRE-CHANNEL-FE-MIB",
+      "object": "fcFxPortEntry"
+    },
+    "status": "current"
+  },
+  "fcFxPortC2InFrames": {
+    "name": "fcFxPortC2InFrames",
+    "oid": "1.3.6.1.2.1.75.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortC2OutFrames": {
+    "name": "fcFxPortC2OutFrames",
+    "oid": "1.3.6.1.2.1.75.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortC2InOctets": {
+    "name": "fcFxPortC2InOctets",
+    "oid": "1.3.6.1.2.1.75.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortC2OutOctets": {
+    "name": "fcFxPortC2OutOctets",
+    "oid": "1.3.6.1.2.1.75.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortC2Discards": {
+    "name": "fcFxPortC2Discards",
+    "oid": "1.3.6.1.2.1.75.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortC2FbsyFrames": {
+    "name": "fcFxPortC2FbsyFrames",
+    "oid": "1.3.6.1.2.1.75.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortC2FrjtFrames": {
+    "name": "fcFxPortC2FrjtFrames",
+    "oid": "1.3.6.1.2.1.75.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortC3AccountingTable": {
+    "name": "fcFxPortC3AccountingTable",
+    "oid": "1.3.6.1.2.1.75.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcFxPortC3AccountingEntry": {
+    "name": "fcFxPortC3AccountingEntry",
+    "oid": "1.3.6.1.2.1.75.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "fcFxPortC3AccountingEntry",
+      "module": "FIBRE-CHANNEL-FE-MIB",
+      "object": "fcFxPortEntry"
+    },
+    "status": "current"
+  },
+  "fcFxPortC3InFrames": {
+    "name": "fcFxPortC3InFrames",
+    "oid": "1.3.6.1.2.1.75.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortC3OutFrames": {
+    "name": "fcFxPortC3OutFrames",
+    "oid": "1.3.6.1.2.1.75.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortC3InOctets": {
+    "name": "fcFxPortC3InOctets",
+    "oid": "1.3.6.1.2.1.75.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortC3OutOctets": {
+    "name": "fcFxPortC3OutOctets",
+    "oid": "1.3.6.1.2.1.75.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortC3Discards": {
+    "name": "fcFxPortC3Discards",
+    "oid": "1.3.6.1.2.1.75.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortCapTable": {
+    "name": "fcFxPortCapTable",
+    "oid": "1.3.6.1.2.1.75.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcFxPortCapEntry": {
+    "name": "fcFxPortCapEntry",
+    "oid": "1.3.6.1.2.1.75.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "fcFxPortCapEntry",
+      "module": "FIBRE-CHANNEL-FE-MIB",
+      "object": "fcFxPortEntry"
+    },
+    "status": "current"
+  },
+  "fcFxPortCapFcphVersionHigh": {
+    "name": "fcFxPortCapFcphVersionHigh",
+    "oid": "1.3.6.1.2.1.75.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcphVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortCapFcphVersionLow": {
+    "name": "fcFxPortCapFcphVersionLow",
+    "oid": "1.3.6.1.2.1.75.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcphVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortCapBbCreditMax": {
+    "name": "fcFxPortCapBbCreditMax",
+    "oid": "1.3.6.1.2.1.75.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortCapBbCreditMin": {
+    "name": "fcFxPortCapBbCreditMin",
+    "oid": "1.3.6.1.2.1.75.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortCapRxDataFieldSizeMax": {
+    "name": "fcFxPortCapRxDataFieldSizeMax",
+    "oid": "1.3.6.1.2.1.75.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcRxDataFieldSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortCapRxDataFieldSizeMin": {
+    "name": "fcFxPortCapRxDataFieldSizeMin",
+    "oid": "1.3.6.1.2.1.75.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcRxDataFieldSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortCapCos": {
+    "name": "fcFxPortCapCos",
+    "oid": "1.3.6.1.2.1.75.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcCosCap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortCapIntermix": {
+    "name": "fcFxPortCapIntermix",
+    "oid": "1.3.6.1.2.1.75.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortCapStackedConnMode": {
+    "name": "fcFxPortCapStackedConnMode",
+    "oid": "1.3.6.1.2.1.75.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcStackedConnMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortCapClass2SeqDeliv": {
+    "name": "fcFxPortCapClass2SeqDeliv",
+    "oid": "1.3.6.1.2.1.75.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortCapClass3SeqDeliv": {
+    "name": "fcFxPortCapClass3SeqDeliv",
+    "oid": "1.3.6.1.2.1.75.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortCapHoldTimeMax": {
+    "name": "fcFxPortCapHoldTimeMax",
+    "oid": "1.3.6.1.2.1.75.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MicroSeconds",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFxPortCapHoldTimeMin": {
+    "name": "fcFxPortCapHoldTimeMin",
+    "oid": "1.3.6.1.2.1.75.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MicroSeconds",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcFeMIBConformance": {
+    "name": "fcFeMIBConformance",
+    "oid": "1.3.6.1.2.1.75.2",
+    "class": "objectidentity"
+  },
+  "fcFeMIBCompliances": {
+    "name": "fcFeMIBCompliances",
+    "oid": "1.3.6.1.2.1.75.2.1",
+    "class": "objectidentity"
+  },
+  "fcFeMIBGroups": {
+    "name": "fcFeMIBGroups",
+    "oid": "1.3.6.1.2.1.75.2.2",
+    "class": "objectidentity"
+  },
+  "fcFeMIBMinimumCompliance": {
+    "name": "fcFeMIBMinimumCompliance",
+    "oid": "1.3.6.1.2.1.75.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcFeConfigGroup",
+        "module": "FIBRE-CHANNEL-FE-MIB"
+      },
+      {
+        "object": "fcFeStatusGroup",
+        "module": "FIBRE-CHANNEL-FE-MIB"
+      },
+      {
+        "object": "fcFeErrorGroup",
+        "module": "FIBRE-CHANNEL-FE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "fcFeMIBFullCompliance": {
+    "name": "fcFeMIBFullCompliance",
+    "oid": "1.3.6.1.2.1.75.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcFeConfigGroup",
+        "module": "FIBRE-CHANNEL-FE-MIB"
+      },
+      {
+        "object": "fcFeStatusGroup",
+        "module": "FIBRE-CHANNEL-FE-MIB"
+      },
+      {
+        "object": "fcFeErrorGroup",
+        "module": "FIBRE-CHANNEL-FE-MIB"
+      },
+      {
+        "object": "fcFeCapabilitiesGroup",
+        "module": "FIBRE-CHANNEL-FE-MIB"
+      },
+      {
+        "object": "fcFeClass1AccountingGroup",
+        "module": "FIBRE-CHANNEL-FE-MIB"
+      },
+      {
+        "object": "fcFeClass2AccountingGroup",
+        "module": "FIBRE-CHANNEL-FE-MIB"
+      },
+      {
+        "object": "fcFeClass3AccountingGroup",
+        "module": "FIBRE-CHANNEL-FE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "fcFeConfigGroup": {
+    "name": "fcFeConfigGroup",
+    "oid": "1.3.6.1.2.1.75.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFeFabricName"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFeElementName"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFeModuleCapacity"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFeModuleDescr"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFeModuleObjectID"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFeModuleOperStatus"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFeModuleLastChange"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFeModuleFxPortCapacity"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFeModuleName"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortName"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortFcphVersionHigh"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortFcphVersionLow"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortBbCredit"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortRxBufSize"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortRatov"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortEdtov"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortCosSupported"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortIntermixSupported"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortStackedConnMode"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortClass2SeqDeliv"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortClass3SeqDeliv"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortHoldTime"
+      }
+    ],
+    "status": "current"
+  },
+  "fcFeStatusGroup": {
+    "name": "fcFeStatusGroup",
+    "oid": "1.3.6.1.2.1.75.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortID"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortBbCreditAvailable"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortOperMode"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortAdminMode"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortPhysAdminStatus"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortPhysOperStatus"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortPhysLastChange"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortPhysRttov"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortFcphVersionAgreed"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortNxPortBbCredit"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortNxPortRxDataFieldSize"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortCosSuppAgreed"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortIntermixSuppAgreed"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortStackedConnModeAgreed"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortClass2SeqDelivAgreed"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortClass3SeqDelivAgreed"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortNxPortName"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortConnectedNxPort"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortBbCreditModel"
+      }
+    ],
+    "status": "current"
+  },
+  "fcFeErrorGroup": {
+    "name": "fcFeErrorGroup",
+    "oid": "1.3.6.1.2.1.75.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortLinkFailures"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortSyncLosses"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortSigLosses"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortPrimSeqProtoErrors"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortInvalidTxWords"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortInvalidCrcs"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortDelimiterErrors"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortAddressIdErrors"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortLinkResetIns"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortLinkResetOuts"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortOlsIns"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortOlsOuts"
+      }
+    ],
+    "status": "current"
+  },
+  "fcFeClass1AccountingGroup": {
+    "name": "fcFeClass1AccountingGroup",
+    "oid": "1.3.6.1.2.1.75.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortC1InFrames"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortC1OutFrames"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortC1InOctets"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortC1OutOctets"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortC1Discards"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortC1FbsyFrames"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortC1FrjtFrames"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortC1InConnections"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortC1OutConnections"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortC1ConnTime"
+      }
+    ],
+    "status": "current"
+  },
+  "fcFeClass2AccountingGroup": {
+    "name": "fcFeClass2AccountingGroup",
+    "oid": "1.3.6.1.2.1.75.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortC2InFrames"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortC2OutFrames"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortC2InOctets"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortC2OutOctets"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortC2Discards"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortC2FbsyFrames"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortC2FrjtFrames"
+      }
+    ],
+    "status": "current"
+  },
+  "fcFeClass3AccountingGroup": {
+    "name": "fcFeClass3AccountingGroup",
+    "oid": "1.3.6.1.2.1.75.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortC3InFrames"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortC3OutFrames"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortC3InOctets"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortC3OutOctets"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortC3Discards"
+      }
+    ],
+    "status": "current"
+  },
+  "fcFeCapabilitiesGroup": {
+    "name": "fcFeCapabilitiesGroup",
+    "oid": "1.3.6.1.2.1.75.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortCapFcphVersionHigh"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortCapFcphVersionLow"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortCapBbCreditMax"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortCapBbCreditMin"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortCapRxDataFieldSizeMax"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortCapRxDataFieldSizeMin"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortCapCos"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortCapIntermix"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortCapStackedConnMode"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortCapClass2SeqDeliv"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortCapClass3SeqDeliv"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortCapHoldTimeMax"
+      },
+      {
+        "module": "FIBRE-CHANNEL-FE-MIB",
+        "object": "fcFxPortCapHoldTimeMin"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/brocade/FIBRE-CHANNEL-FE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:54 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "FIBRE-CHANNEL-FE-MIB"
+  }
+}

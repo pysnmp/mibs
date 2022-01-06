@@ -1,0 +1,455 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TAP2-MIB": [
+      "cTap2StreamIndex",
+      "cTap2MediationContentId"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoMobilityTapMIB": {
+    "name": "ciscoMobilityTapMIB",
+    "oid": "1.3.6.1.4.1.9.9.672",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-06-16 00:00",
+        "description": "Added a new textual convention: CmtapLawfulInterceptID. Added following three objects to cmtapStreamTable. cmtapStreamLIIdentifier. cmtapStreamLocationInfo. cmtapStreamInterceptType. Added the following new MODULE-COMPLIANCE. ciscoMobilityTapMIBComplianceRev01. Added the following new OBJECT-GROUP. ciscoMobilityTapStreamGroupSup1."
+      },
+      {
+        "revision": "2010-04-15 00:00",
+        "description": "Added enumeration 'servedMdn' for mtapStreamCapabilities object and CmtapSubscriberIDType."
+      },
+      {
+        "revision": "2008-08-05 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoMobilityTapMIBNotifs": {
+    "name": "ciscoMobilityTapMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.672.0",
+    "class": "objectidentity"
+  },
+  "ciscoMobilityTapMIBObjects": {
+    "name": "ciscoMobilityTapMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.672.1",
+    "class": "objectidentity"
+  },
+  "ciscoMobilityTapMIBConform": {
+    "name": "ciscoMobilityTapMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.672.2",
+    "class": "objectidentity"
+  },
+  "cmtapStreamGroup": {
+    "name": "cmtapStreamGroup",
+    "oid": "1.3.6.1.4.1.9.9.672.1.1",
+    "class": "objectidentity"
+  },
+  "CmtapLawfulInterceptID": {
+    "name": "CmtapLawfulInterceptID",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "displayhint": "256a",
+    "status": "current"
+  },
+  "CmtapSubscriberIDType": {
+    "name": "CmtapSubscriberIDType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "msid": 2,
+          "imsi": 3,
+          "nai": 4,
+          "esn": 5,
+          "servedMdn": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmtapSubscriberID": {
+    "name": "CmtapSubscriberID",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "displayhint": "256a",
+    "status": "current"
+  },
+  "cmtapStreamCapabilities": {
+    "name": "cmtapStreamCapabilities",
+    "oid": "1.3.6.1.4.1.9.9.672.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "tapEnable": 0,
+        "interface": 1,
+        "calledSubscriberID": 2,
+        "nonvolatileStorage": 3,
+        "msid": 4,
+        "imsi": 5,
+        "nai": 6,
+        "esn": 7,
+        "servedMdn": 8
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmtapStreamTable": {
+    "name": "cmtapStreamTable",
+    "oid": "1.3.6.1.4.1.9.9.672.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmtapStreamEntry": {
+    "name": "cmtapStreamEntry",
+    "oid": "1.3.6.1.4.1.9.9.672.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TAP2-MIB",
+        "object": "cTap2MediationContentId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TAP2-MIB",
+        "object": "cTap2StreamIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmtapStreamCalledSubscriberIDType": {
+    "name": "cmtapStreamCalledSubscriberIDType",
+    "oid": "1.3.6.1.4.1.9.9.672.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmtapSubscriberIDType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmtapStreamCalledSubscriberID": {
+    "name": "cmtapStreamCalledSubscriberID",
+    "oid": "1.3.6.1.4.1.9.9.672.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmtapSubscriberID",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmtapStreamSubscriberIDType": {
+    "name": "cmtapStreamSubscriberIDType",
+    "oid": "1.3.6.1.4.1.9.9.672.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmtapSubscriberIDType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmtapStreamSubscriberID": {
+    "name": "cmtapStreamSubscriberID",
+    "oid": "1.3.6.1.4.1.9.9.672.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmtapSubscriberID",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmtapStreamStorageType": {
+    "name": "cmtapStreamStorageType",
+    "oid": "1.3.6.1.4.1.9.9.672.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmtapStreamStatus": {
+    "name": "cmtapStreamStatus",
+    "oid": "1.3.6.1.4.1.9.9.672.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmtapStreamLIIdentifier": {
+    "name": "cmtapStreamLIIdentifier",
+    "oid": "1.3.6.1.4.1.9.9.672.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmtapLawfulInterceptID",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "not set",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmtapStreamLocationInfo": {
+    "name": "cmtapStreamLocationInfo",
+    "oid": "1.3.6.1.4.1.9.9.672.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmtapStreamInterceptType": {
+    "name": "cmtapStreamInterceptType",
+    "oid": "1.3.6.1.4.1.9.9.672.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ccOnly": 1,
+          "iriOnly": 2,
+          "both": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "both",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoMobilityTapMIBCompliances": {
+    "name": "ciscoMobilityTapMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.672.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoMobilityTapMIBGroups": {
+    "name": "ciscoMobilityTapMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.672.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoMobilityTapMIBCompliance": {
+    "name": "ciscoMobilityTapMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.672.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoMobilityTapCapabilityGroup",
+        "module": "CISCO-MOBILITY-TAP-MIB"
+      },
+      {
+        "object": "ciscoMobilityTapStreamGroup",
+        "module": "CISCO-MOBILITY-TAP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoMobilityTapMIBComplianceRev01": {
+    "name": "ciscoMobilityTapMIBComplianceRev01",
+    "oid": "1.3.6.1.4.1.9.9.672.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoMobilityTapCapabilityGroup",
+        "module": "CISCO-MOBILITY-TAP-MIB"
+      },
+      {
+        "object": "ciscoMobilityTapStreamGroup",
+        "module": "CISCO-MOBILITY-TAP-MIB"
+      },
+      {
+        "object": "ciscoMobilityTapStreamGroupSup1",
+        "module": "CISCO-MOBILITY-TAP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMobilityTapCapabilityGroup": {
+    "name": "ciscoMobilityTapCapabilityGroup",
+    "oid": "1.3.6.1.4.1.9.9.672.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MOBILITY-TAP-MIB",
+        "object": "cmtapStreamCapabilities"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMobilityTapStreamGroup": {
+    "name": "ciscoMobilityTapStreamGroup",
+    "oid": "1.3.6.1.4.1.9.9.672.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MOBILITY-TAP-MIB",
+        "object": "cmtapStreamCalledSubscriberIDType"
+      },
+      {
+        "module": "CISCO-MOBILITY-TAP-MIB",
+        "object": "cmtapStreamCalledSubscriberID"
+      },
+      {
+        "module": "CISCO-MOBILITY-TAP-MIB",
+        "object": "cmtapStreamSubscriberIDType"
+      },
+      {
+        "module": "CISCO-MOBILITY-TAP-MIB",
+        "object": "cmtapStreamSubscriberID"
+      },
+      {
+        "module": "CISCO-MOBILITY-TAP-MIB",
+        "object": "cmtapStreamStorageType"
+      },
+      {
+        "module": "CISCO-MOBILITY-TAP-MIB",
+        "object": "cmtapStreamStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMobilityTapStreamGroupSup1": {
+    "name": "ciscoMobilityTapStreamGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.672.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MOBILITY-TAP-MIB",
+        "object": "cmtapStreamLIIdentifier"
+      },
+      {
+        "module": "CISCO-MOBILITY-TAP-MIB",
+        "object": "cmtapStreamLocationInfo"
+      },
+      {
+        "module": "CISCO-MOBILITY-TAP-MIB",
+        "object": "cmtapStreamInterceptType"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MOBILITY-TAP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-MOBILITY-TAP-MIB"
+  }
+}

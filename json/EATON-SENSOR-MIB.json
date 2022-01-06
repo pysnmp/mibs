@@ -1,0 +1,2462 @@
+{
+  "imports": {
+    "class": "imports",
+    "EATON-OIDS": [
+      "sensorAgent"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Bits",
+      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "eatonSensor": {
+    "name": "eatonSensor",
+    "oid": "1.3.6.1.4.1.534.6.8.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-12-17 12:00",
+        "description": "Initial release."
+      }
+    ]
+  },
+  "sensor": {
+    "name": "sensor",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1",
+    "class": "objectidentity"
+  },
+  "temperature": {
+    "name": "temperature",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2",
+    "class": "objectidentity"
+  },
+  "humidity": {
+    "name": "humidity",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3",
+    "class": "objectidentity"
+  },
+  "digitalInput": {
+    "name": "digitalInput",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4",
+    "class": "objectidentity"
+  },
+  "conformance": {
+    "name": "conformance",
+    "oid": "1.3.6.1.4.1.534.6.8.1.10",
+    "class": "objectidentity"
+  },
+  "UnixTimeStamp": {
+    "name": "UnixTimeStamp",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "displayhint": "dddddddddd",
+    "status": "current"
+  },
+  "PositionType": {
+    "name": "PositionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "other": 1,
+          "rackRear": 2,
+          "rackFront": 3,
+          "batteryRoom": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ElevationType": {
+    "name": "ElevationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "other": 1,
+          "bottom": 2,
+          "middle": 3,
+          "top": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CommunicationStatus": {
+    "name": "CommunicationStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "communicationOK": 2,
+          "communicationLost": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ProbeConnectionType": {
+    "name": "ProbeConnectionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "internal": 1,
+          "wired": 2,
+          "wireless": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EnableType": {
+    "name": "EnableType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlarmType": {
+    "name": "AlarmType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 0,
+          "lowWarning": 1,
+          "lowCritical": 2,
+          "highWarning": 3,
+          "highCritical": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ResetCommandType": {
+    "name": "ResetCommandType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "reset": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PolarityType": {
+    "name": "PolarityType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normallyOpened": 0,
+          "normallyClosed": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlarmSeverityType": {
+    "name": "AlarmSeverityType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "informationnal": 1,
+          "warning": 2,
+          "critical": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlarmLevelType": {
+    "name": "AlarmLevelType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 0,
+          "informationnal": 1,
+          "warning": 2,
+          "critical": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "StateType": {
+    "name": "StateType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TemperatureUnitType": {
+    "name": "TemperatureUnitType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tenthOfDegKelvin": 0,
+          "tenthOfDegCelsius": 1,
+          "tenthOfDegFarhenheit": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "sensorCount": {
+    "name": "sensorCount",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorIdentificationTable": {
+    "name": "sensorIdentificationTable",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sensorIdentificationEntry": {
+    "name": "sensorIdentificationEntry",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sensorIndex": {
+    "name": "sensorIndex",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "sensorUuid": {
+    "name": "sensorUuid",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorConnectionType": {
+    "name": "sensorConnectionType",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProbeConnectionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorAddress": {
+    "name": "sensorAddress",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorMonitoredBy": {
+    "name": "sensorMonitoredBy",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorManufacturer": {
+    "name": "sensorManufacturer",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorModel": {
+    "name": "sensorModel",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorPartNumber": {
+    "name": "sensorPartNumber",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorSerialNumber": {
+    "name": "sensorSerialNumber",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorFirmwareVersion": {
+    "name": "sensorFirmwareVersion",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorConfigurationTable": {
+    "name": "sensorConfigurationTable",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sensorConfigurationEntry": {
+    "name": "sensorConfigurationEntry",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sensorName": {
+    "name": "sensorName",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sensorLocation": {
+    "name": "sensorLocation",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sensorPosition": {
+    "name": "sensorPosition",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sensorElevation": {
+    "name": "sensorElevation",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ElevationType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sensorUElevation": {
+    "name": "sensorUElevation",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sensorMonitoringTable": {
+    "name": "sensorMonitoringTable",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sensorMonitoringEntry": {
+    "name": "sensorMonitoringEntry",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sensorStatus": {
+    "name": "sensorStatus",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CommunicationStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorStatusSince": {
+    "name": "sensorStatusSince",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnixTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorTemperatureCount": {
+    "name": "sensorTemperatureCount",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorHumidityCount": {
+    "name": "sensorHumidityCount",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorDigitalInputCount": {
+    "name": "sensorDigitalInputCount",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorAnalogInputCount": {
+    "name": "sensorAnalogInputCount",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorNotification": {
+    "name": "sensorNotification",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.0",
+    "class": "objectidentity"
+  },
+  "notifySensorCount": {
+    "name": "notifySensorCount",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorCount"
+      }
+    ],
+    "status": "current"
+  },
+  "notifySensorStatus": {
+    "name": "notifySensorStatus",
+    "oid": "1.3.6.1.4.1.534.6.8.1.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorIndex"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorUuid"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorStatus"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorStatusSince"
+      }
+    ],
+    "status": "current"
+  },
+  "temperatureIdentificationTable": {
+    "name": "temperatureIdentificationTable",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "temperatureIdentificationEntry": {
+    "name": "temperatureIdentificationEntry",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "temperatureIndex": {
+    "name": "temperatureIndex",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "temperatureUuid": {
+    "name": "temperatureUuid",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperatureConnectionType": {
+    "name": "temperatureConnectionType",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProbeConnectionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperatureConfigurationTable": {
+    "name": "temperatureConfigurationTable",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "temperatureConfigurationEntry": {
+    "name": "temperatureConfigurationEntry",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "temperatureName": {
+    "name": "temperatureName",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "temperatureEnable": {
+    "name": "temperatureEnable",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "temperatureOffset": {
+    "name": "temperatureOffset",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "temperatureAlarmEnable": {
+    "name": "temperatureAlarmEnable",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "temperatureThresholdLowWarning": {
+    "name": "temperatureThresholdLowWarning",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "temperatureThresholdLowCritical": {
+    "name": "temperatureThresholdLowCritical",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "temperatureThresholdHighWarning": {
+    "name": "temperatureThresholdHighWarning",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "temperatureThresholdHighCritical": {
+    "name": "temperatureThresholdHighCritical",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "temperatureThresholdHysteresis": {
+    "name": "temperatureThresholdHysteresis",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "temperatureAlarmGracePeriod": {
+    "name": "temperatureAlarmGracePeriod",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "temperatureMonitoringTable": {
+    "name": "temperatureMonitoringTable",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "temperatureMonitoringEntry": {
+    "name": "temperatureMonitoringEntry",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "temperatureAlarm": {
+    "name": "temperatureAlarm",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperatureAlarmChangeSince": {
+    "name": "temperatureAlarmChangeSince",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnixTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperatureValue": {
+    "name": "temperatureValue",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperatureCommunicationStatus": {
+    "name": "temperatureCommunicationStatus",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CommunicationStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperatureCommunicationStatusSince": {
+    "name": "temperatureCommunicationStatusSince",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnixTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperatureMonitoringMinMaxTable": {
+    "name": "temperatureMonitoringMinMaxTable",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "temperatureMonitoringMinMaxEntry": {
+    "name": "temperatureMonitoringMinMaxEntry",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "temperatureMinValue": {
+    "name": "temperatureMinValue",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperatureMinValueSince": {
+    "name": "temperatureMinValueSince",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnixTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperatureMaxValue": {
+    "name": "temperatureMaxValue",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperatureMaxValueSince": {
+    "name": "temperatureMaxValueSince",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnixTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperatureResetMinMax": {
+    "name": "temperatureResetMinMax",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ResetCommandType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "temperatureUnit": {
+    "name": "temperatureUnit",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TemperatureUnitType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "temperatureNotification": {
+    "name": "temperatureNotification",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.0",
+    "class": "objectidentity"
+  },
+  "notifyTemperatureAlarm": {
+    "name": "notifyTemperatureAlarm",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorIndex"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureIndex"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureUuid"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureAlarm"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureAlarmChangeSince"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureValue"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyTemperatureCommunicationStatus": {
+    "name": "notifyTemperatureCommunicationStatus",
+    "oid": "1.3.6.1.4.1.534.6.8.1.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorIndex"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureIndex"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureUuid"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureCommunicationStatus"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureCommunicationStatusSince"
+      }
+    ],
+    "status": "current"
+  },
+  "humidityIdentificationTable": {
+    "name": "humidityIdentificationTable",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "humidityIdentificationEntry": {
+    "name": "humidityIdentificationEntry",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "humidityIndex": {
+    "name": "humidityIndex",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "humidityUuid": {
+    "name": "humidityUuid",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "humidityConnectionType": {
+    "name": "humidityConnectionType",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProbeConnectionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "humidityConfigurationTable": {
+    "name": "humidityConfigurationTable",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "humidityConfigurationEntry": {
+    "name": "humidityConfigurationEntry",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "humidityName": {
+    "name": "humidityName",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidityEnable": {
+    "name": "humidityEnable",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidityOffset": {
+    "name": "humidityOffset",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidityAlarmEnable": {
+    "name": "humidityAlarmEnable",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidityThresholdLowWarning": {
+    "name": "humidityThresholdLowWarning",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidityThresholdLowCritical": {
+    "name": "humidityThresholdLowCritical",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidityThresholdHighWarning": {
+    "name": "humidityThresholdHighWarning",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidityThresholdHighCritical": {
+    "name": "humidityThresholdHighCritical",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidityThresholdHysteresis": {
+    "name": "humidityThresholdHysteresis",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidityAlarmGracePeriod": {
+    "name": "humidityAlarmGracePeriod",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidityMonitoringTable": {
+    "name": "humidityMonitoringTable",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "humidityMonitoringEntry": {
+    "name": "humidityMonitoringEntry",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "humidityAlarm": {
+    "name": "humidityAlarm",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "humidityAlarmChangeSince": {
+    "name": "humidityAlarmChangeSince",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnixTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "humidityValue": {
+    "name": "humidityValue",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "humidityCommunicationStatus": {
+    "name": "humidityCommunicationStatus",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CommunicationStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "humidityCommunicationStatusSince": {
+    "name": "humidityCommunicationStatusSince",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnixTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "humidityMonitoringMinMaxTable": {
+    "name": "humidityMonitoringMinMaxTable",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "humidityMonitoringMinMaxEntry": {
+    "name": "humidityMonitoringMinMaxEntry",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "humidityMinValue": {
+    "name": "humidityMinValue",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "humidityMinValueSince": {
+    "name": "humidityMinValueSince",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnixTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "humidityMaxValue": {
+    "name": "humidityMaxValue",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "humidityMaxValueSince": {
+    "name": "humidityMaxValueSince",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnixTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "humidityResetMinMax": {
+    "name": "humidityResetMinMax",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ResetCommandType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidityNotification": {
+    "name": "humidityNotification",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.0",
+    "class": "objectidentity"
+  },
+  "notifyHumidityAlarm": {
+    "name": "notifyHumidityAlarm",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorIndex"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityIndex"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityUuid"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityAlarm"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityAlarmChangeSince"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityValue"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyHumidityCommunicationStatus": {
+    "name": "notifyHumidityCommunicationStatus",
+    "oid": "1.3.6.1.4.1.534.6.8.1.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorIndex"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityIndex"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityUuid"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityCommunicationStatus"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityCommunicationStatusSince"
+      }
+    ],
+    "status": "current"
+  },
+  "digitalInputIdentificationTable": {
+    "name": "digitalInputIdentificationTable",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "digitalInputIdentificationEntry": {
+    "name": "digitalInputIdentificationEntry",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "digitalInputIndex": {
+    "name": "digitalInputIndex",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "digitalInputUuid": {
+    "name": "digitalInputUuid",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "digitalInputConnectionType": {
+    "name": "digitalInputConnectionType",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProbeConnectionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "digitalInputConfigurationTable": {
+    "name": "digitalInputConfigurationTable",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "digitalInputConfigurationEntry": {
+    "name": "digitalInputConfigurationEntry",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "digitalInputName": {
+    "name": "digitalInputName",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "digitalInputEnable": {
+    "name": "digitalInputEnable",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "digitalInputPolarity": {
+    "name": "digitalInputPolarity",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolarityType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "digitalInputAlarmEnable": {
+    "name": "digitalInputAlarmEnable",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "digitalInputAlarmSeverity": {
+    "name": "digitalInputAlarmSeverity",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "digitalInputAlarmGracePeriod": {
+    "name": "digitalInputAlarmGracePeriod",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "digitalInputMonitoringTable": {
+    "name": "digitalInputMonitoringTable",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "digitalInputMonitoringEntry": {
+    "name": "digitalInputMonitoringEntry",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "digitalInputAlarm": {
+    "name": "digitalInputAlarm",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevelType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "digitalInputAlarmChangeSince": {
+    "name": "digitalInputAlarmChangeSince",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnixTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "digitalInputState": {
+    "name": "digitalInputState",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StateType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "digitalInputStateSince": {
+    "name": "digitalInputStateSince",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnixTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "digitalInputCommunicationStatus": {
+    "name": "digitalInputCommunicationStatus",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CommunicationStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "digitalInputCommunicationStatusSince": {
+    "name": "digitalInputCommunicationStatusSince",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnixTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "digitalInputNotification": {
+    "name": "digitalInputNotification",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.0",
+    "class": "objectidentity"
+  },
+  "notifyDigitalInputAlarm": {
+    "name": "notifyDigitalInputAlarm",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorIndex"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputIndex"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputUuid"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputAlarm"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputAlarmChangeSince"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputState"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputStateSince"
+      }
+    ],
+    "status": "current"
+  },
+  "notifydigitalInputCommunicationStatus": {
+    "name": "notifydigitalInputCommunicationStatus",
+    "oid": "1.3.6.1.4.1.534.6.8.1.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorIndex"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputIndex"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputUuid"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputCommunicationStatus"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputCommunicationStatusSince"
+      }
+    ],
+    "status": "current"
+  },
+  "eatonSensorCompliances": {
+    "name": "eatonSensorCompliances",
+    "oid": "1.3.6.1.4.1.534.6.8.1.10.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "sensorRequiredGroup",
+        "module": "EATON-SENSOR-MIB"
+      },
+      {
+        "object": "sensorOptionalGroup",
+        "module": "EATON-SENSOR-MIB"
+      },
+      {
+        "object": "sensorNotifyGroup",
+        "module": "EATON-SENSOR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "objectGroups": {
+    "name": "objectGroups",
+    "oid": "1.3.6.1.4.1.534.6.8.1.10.2",
+    "class": "objectidentity"
+  },
+  "sensorRequiredGroup": {
+    "name": "sensorRequiredGroup",
+    "oid": "1.3.6.1.4.1.534.6.8.1.10.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorCount"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorIndex"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorManufacturer"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorModel"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorPartNumber"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorSerialNumber"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorFirmwareVersion"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorName"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorStatus"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorStatusSince"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorTemperatureCount"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorHumidityCount"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorDigitalInputCount"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureIndex"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureName"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureValue"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureUnit"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityIndex"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityName"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityValue"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputIndex"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputName"
+      }
+    ],
+    "status": "current"
+  },
+  "sensorOptionalGroup": {
+    "name": "sensorOptionalGroup",
+    "oid": "1.3.6.1.4.1.534.6.8.1.10.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorUuid"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorConnectionType"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorAddress"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorMonitoredBy"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorLocation"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorPosition"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorElevation"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorUElevation"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "sensorAnalogInputCount"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureUuid"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureConnectionType"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureEnable"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureOffset"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureAlarmEnable"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureThresholdLowWarning"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureThresholdLowCritical"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureThresholdHighWarning"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureThresholdHighCritical"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureThresholdHysteresis"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureAlarmGracePeriod"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureAlarm"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureAlarmChangeSince"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureCommunicationStatus"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureCommunicationStatusSince"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureMinValue"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureMinValueSince"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureMaxValue"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureMaxValueSince"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "temperatureResetMinMax"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityUuid"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityConnectionType"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityEnable"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityOffset"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityAlarmEnable"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityThresholdLowWarning"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityThresholdLowCritical"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityThresholdHighWarning"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityThresholdHighCritical"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityThresholdHysteresis"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityAlarmGracePeriod"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityAlarm"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityAlarmChangeSince"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityCommunicationStatus"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityCommunicationStatusSince"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityMinValue"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityMinValueSince"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityMaxValue"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityMaxValueSince"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "humidityResetMinMax"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputUuid"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputConnectionType"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputEnable"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputPolarity"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputAlarmEnable"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputAlarmSeverity"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputAlarmGracePeriod"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputState"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputStateSince"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputAlarm"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputAlarmChangeSince"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputCommunicationStatus"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "digitalInputCommunicationStatusSince"
+      }
+    ],
+    "status": "current"
+  },
+  "sensorNotifyGroup": {
+    "name": "sensorNotifyGroup",
+    "oid": "1.3.6.1.4.1.534.6.8.1.10.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "notifySensorStatus"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "notifySensorCount"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "notifyTemperatureAlarm"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "notifyTemperatureCommunicationStatus"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "notifyHumidityAlarm"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "notifyHumidityCommunicationStatus"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "notifyDigitalInputAlarm"
+      },
+      {
+        "module": "EATON-SENSOR-MIB",
+        "object": "notifydigitalInputCommunicationStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/EATON-SENSOR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:53 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "EATON-SENSOR-MIB"
+  }
+}

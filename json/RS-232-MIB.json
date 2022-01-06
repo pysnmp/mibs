@@ -1,0 +1,1038 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "transmission",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "rs232": {
+    "name": "rs232",
+    "oid": "1.3.6.1.2.1.10.33",
+    "class": "moduleidentity"
+  },
+  "rs232Number": {
+    "name": "rs232Number",
+    "oid": "1.3.6.1.2.1.10.33.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rs232PortTable": {
+    "name": "rs232PortTable",
+    "oid": "1.3.6.1.2.1.10.33.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rs232PortEntry": {
+    "name": "rs232PortEntry",
+    "oid": "1.3.6.1.2.1.10.33.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232PortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rs232PortIndex": {
+    "name": "rs232PortIndex",
+    "oid": "1.3.6.1.2.1.10.33.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rs232PortType": {
+    "name": "rs232PortType",
+    "oid": "1.3.6.1.2.1.10.33.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "rs232": 2,
+          "rs422": 3,
+          "rs423": 4,
+          "v35": 5,
+          "x21": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rs232PortInSigNumber": {
+    "name": "rs232PortInSigNumber",
+    "oid": "1.3.6.1.2.1.10.33.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rs232PortOutSigNumber": {
+    "name": "rs232PortOutSigNumber",
+    "oid": "1.3.6.1.2.1.10.33.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rs232PortInSpeed": {
+    "name": "rs232PortInSpeed",
+    "oid": "1.3.6.1.2.1.10.33.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rs232PortOutSpeed": {
+    "name": "rs232PortOutSpeed",
+    "oid": "1.3.6.1.2.1.10.33.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rs232PortInFlowType": {
+    "name": "rs232PortInFlowType",
+    "oid": "1.3.6.1.2.1.10.33.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "ctsRts": 2,
+          "dsrDtr": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rs232PortOutFlowType": {
+    "name": "rs232PortOutFlowType",
+    "oid": "1.3.6.1.2.1.10.33.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "ctsRts": 2,
+          "dsrDtr": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rs232AsyncPortTable": {
+    "name": "rs232AsyncPortTable",
+    "oid": "1.3.6.1.2.1.10.33.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rs232AsyncPortEntry": {
+    "name": "rs232AsyncPortEntry",
+    "oid": "1.3.6.1.2.1.10.33.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232AsyncPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rs232AsyncPortIndex": {
+    "name": "rs232AsyncPortIndex",
+    "oid": "1.3.6.1.2.1.10.33.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rs232AsyncPortBits": {
+    "name": "rs232AsyncPortBits",
+    "oid": "1.3.6.1.2.1.10.33.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rs232AsyncPortStopBits": {
+    "name": "rs232AsyncPortStopBits",
+    "oid": "1.3.6.1.2.1.10.33.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "one": 1,
+          "two": 2,
+          "oneAndHalf": 3,
+          "dynamic": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rs232AsyncPortParity": {
+    "name": "rs232AsyncPortParity",
+    "oid": "1.3.6.1.2.1.10.33.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "odd": 2,
+          "even": 3,
+          "mark": 4,
+          "space": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rs232AsyncPortAutobaud": {
+    "name": "rs232AsyncPortAutobaud",
+    "oid": "1.3.6.1.2.1.10.33.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rs232AsyncPortParityErrs": {
+    "name": "rs232AsyncPortParityErrs",
+    "oid": "1.3.6.1.2.1.10.33.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rs232AsyncPortFramingErrs": {
+    "name": "rs232AsyncPortFramingErrs",
+    "oid": "1.3.6.1.2.1.10.33.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rs232AsyncPortOverrunErrs": {
+    "name": "rs232AsyncPortOverrunErrs",
+    "oid": "1.3.6.1.2.1.10.33.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rs232SyncPortTable": {
+    "name": "rs232SyncPortTable",
+    "oid": "1.3.6.1.2.1.10.33.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rs232SyncPortEntry": {
+    "name": "rs232SyncPortEntry",
+    "oid": "1.3.6.1.2.1.10.33.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232SyncPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rs232SyncPortIndex": {
+    "name": "rs232SyncPortIndex",
+    "oid": "1.3.6.1.2.1.10.33.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rs232SyncPortClockSource": {
+    "name": "rs232SyncPortClockSource",
+    "oid": "1.3.6.1.2.1.10.33.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1,
+          "external": 2,
+          "split": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rs232SyncPortFrameCheckErrs": {
+    "name": "rs232SyncPortFrameCheckErrs",
+    "oid": "1.3.6.1.2.1.10.33.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rs232SyncPortTransmitUnderrunErrs": {
+    "name": "rs232SyncPortTransmitUnderrunErrs",
+    "oid": "1.3.6.1.2.1.10.33.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rs232SyncPortReceiveOverrunErrs": {
+    "name": "rs232SyncPortReceiveOverrunErrs",
+    "oid": "1.3.6.1.2.1.10.33.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rs232SyncPortInterruptedFrames": {
+    "name": "rs232SyncPortInterruptedFrames",
+    "oid": "1.3.6.1.2.1.10.33.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rs232SyncPortAbortedFrames": {
+    "name": "rs232SyncPortAbortedFrames",
+    "oid": "1.3.6.1.2.1.10.33.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rs232SyncPortRole": {
+    "name": "rs232SyncPortRole",
+    "oid": "1.3.6.1.2.1.10.33.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dte": 1,
+          "dce": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "dce",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rs232SyncPortEncoding": {
+    "name": "rs232SyncPortEncoding",
+    "oid": "1.3.6.1.2.1.10.33.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nrz": 1,
+          "nrzi": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "nrz",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rs232SyncPortRTSControl": {
+    "name": "rs232SyncPortRTSControl",
+    "oid": "1.3.6.1.2.1.10.33.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "controlled": 1,
+          "constant": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "constant",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rs232SyncPortRTSCTSDelay": {
+    "name": "rs232SyncPortRTSCTSDelay",
+    "oid": "1.3.6.1.2.1.10.33.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rs232SyncPortMode": {
+    "name": "rs232SyncPortMode",
+    "oid": "1.3.6.1.2.1.10.33.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fdx": 1,
+          "hdx": 2,
+          "simplex-receive": 3,
+          "simplex-send": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "fdx",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rs232SyncPortIdlePattern": {
+    "name": "rs232SyncPortIdlePattern",
+    "oid": "1.3.6.1.2.1.10.33.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mark": 1,
+          "space": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "space",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rs232SyncPortMinFlags": {
+    "name": "rs232SyncPortMinFlags",
+    "oid": "1.3.6.1.2.1.10.33.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rs232InSigTable": {
+    "name": "rs232InSigTable",
+    "oid": "1.3.6.1.2.1.10.33.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rs232InSigEntry": {
+    "name": "rs232InSigEntry",
+    "oid": "1.3.6.1.2.1.10.33.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232InSigPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232InSigName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rs232InSigPortIndex": {
+    "name": "rs232InSigPortIndex",
+    "oid": "1.3.6.1.2.1.10.33.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rs232InSigName": {
+    "name": "rs232InSigName",
+    "oid": "1.3.6.1.2.1.10.33.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rts": 1,
+          "cts": 2,
+          "dsr": 3,
+          "dtr": 4,
+          "ri": 5,
+          "dcd": 6,
+          "sq": 7,
+          "srs": 8,
+          "srts": 9,
+          "scts": 10,
+          "sdcd": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rs232InSigState": {
+    "name": "rs232InSigState",
+    "oid": "1.3.6.1.2.1.10.33.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "on": 2,
+          "off": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rs232InSigChanges": {
+    "name": "rs232InSigChanges",
+    "oid": "1.3.6.1.2.1.10.33.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rs232OutSigTable": {
+    "name": "rs232OutSigTable",
+    "oid": "1.3.6.1.2.1.10.33.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rs232OutSigEntry": {
+    "name": "rs232OutSigEntry",
+    "oid": "1.3.6.1.2.1.10.33.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232OutSigPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232OutSigName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rs232OutSigPortIndex": {
+    "name": "rs232OutSigPortIndex",
+    "oid": "1.3.6.1.2.1.10.33.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rs232OutSigName": {
+    "name": "rs232OutSigName",
+    "oid": "1.3.6.1.2.1.10.33.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rts": 1,
+          "cts": 2,
+          "dsr": 3,
+          "dtr": 4,
+          "ri": 5,
+          "dcd": 6,
+          "sq": 7,
+          "srs": 8,
+          "srts": 9,
+          "scts": 10,
+          "sdcd": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rs232OutSigState": {
+    "name": "rs232OutSigState",
+    "oid": "1.3.6.1.2.1.10.33.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "on": 2,
+          "off": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rs232OutSigChanges": {
+    "name": "rs232OutSigChanges",
+    "oid": "1.3.6.1.2.1.10.33.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rs232Conformance": {
+    "name": "rs232Conformance",
+    "oid": "1.3.6.1.2.1.10.33.7",
+    "class": "objectidentity"
+  },
+  "rs232Groups": {
+    "name": "rs232Groups",
+    "oid": "1.3.6.1.2.1.10.33.7.1",
+    "class": "objectidentity"
+  },
+  "rs232Compliances": {
+    "name": "rs232Compliances",
+    "oid": "1.3.6.1.2.1.10.33.7.2",
+    "class": "objectidentity"
+  },
+  "rs232Compliance": {
+    "name": "rs232Compliance",
+    "oid": "1.3.6.1.2.1.10.33.7.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "rs232Group",
+        "module": "RS-232-MIB"
+      },
+      {
+        "object": "rs232AsyncGroup",
+        "module": "RS-232-MIB"
+      },
+      {
+        "object": "rs232SyncGroup",
+        "module": "RS-232-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "rs232Group": {
+    "name": "rs232Group",
+    "oid": "1.3.6.1.2.1.10.33.7.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232Number"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232PortIndex"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232PortType"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232PortInSigNumber"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232PortOutSigNumber"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232PortInSpeed"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232PortOutSpeed"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232PortInFlowType"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232PortOutFlowType"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232InSigPortIndex"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232InSigName"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232InSigState"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232InSigChanges"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232OutSigPortIndex"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232OutSigName"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232OutSigState"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232OutSigChanges"
+      }
+    ],
+    "status": "current"
+  },
+  "rs232AsyncGroup": {
+    "name": "rs232AsyncGroup",
+    "oid": "1.3.6.1.2.1.10.33.7.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232AsyncPortIndex"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232AsyncPortBits"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232AsyncPortStopBits"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232AsyncPortParity"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232AsyncPortAutobaud"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232AsyncPortParityErrs"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232AsyncPortFramingErrs"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232AsyncPortOverrunErrs"
+      }
+    ],
+    "status": "current"
+  },
+  "rs232SyncGroup": {
+    "name": "rs232SyncGroup",
+    "oid": "1.3.6.1.2.1.10.33.7.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232SyncPortIndex"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232SyncPortClockSource"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232SyncPortFrameCheckErrs"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232SyncPortTransmitUnderrunErrs"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232SyncPortReceiveOverrunErrs"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232SyncPortInterruptedFrames"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232SyncPortAbortedFrames"
+      }
+    ],
+    "status": "current"
+  },
+  "rs232SyncSDLCGroup": {
+    "name": "rs232SyncSDLCGroup",
+    "oid": "1.3.6.1.2.1.10.33.7.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232SyncPortRole"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232SyncPortEncoding"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232SyncPortRTSControl"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232SyncPortRTSCTSDelay"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232SyncPortMode"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232SyncPortIdlePattern"
+      },
+      {
+        "module": "RS-232-MIB",
+        "object": "rs232SyncPortMinFlags"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/RS-232-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:05 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RS-232-MIB"
+  }
+}

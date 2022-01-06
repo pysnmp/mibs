@@ -1,0 +1,824 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1DHL"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "Bits",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "alcatelIND1DHLMIB": {
+    "name": "alcatelIND1DHLMIB",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1",
+    "class": "moduleidentity"
+  },
+  "alcatelIND1DHLMIBNotifications": {
+    "name": "alcatelIND1DHLMIBNotifications",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1DHLMIBObjects": {
+    "name": "alcatelIND1DHLMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1DHLMIBConformance": {
+    "name": "alcatelIND1DHLMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1DHLMIBGroups": {
+    "name": "alcatelIND1DHLMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1DHLMIBCompliances": {
+    "name": "alcatelIND1DHLMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alaDHLSessionConfig": {
+    "name": "alaDHLSessionConfig",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.1",
+    "class": "objectidentity"
+  },
+  "alaDHLSessionTable": {
+    "name": "alaDHLSessionTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDHLSessionEntry": {
+    "name": "alaDHLSessionEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLSessionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaDHLSessionIndex": {
+    "name": "alaDHLSessionIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDHLSessionDescr": {
+    "name": "alaDHLSessionDescr",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaDHLSessionAdminStatus": {
+    "name": "alaDHLSessionAdminStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaDHLSessionOperStatus": {
+    "name": "alaDHLSessionOperStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDHLSessionPreemptionTime": {
+    "name": "alaDHLSessionPreemptionTime",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaDHLSessionAdminMacFlushing": {
+    "name": "alaDHLSessionAdminMacFlushing",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "raw": 2,
+          "mvrp": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaDHLSessionActiveMacFlushing": {
+    "name": "alaDHLSessionActiveMacFlushing",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "raw": 2,
+          "mvrp": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDHLSessionRowStatus": {
+    "name": "alaDHLSessionRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaDHLLinksConfig": {
+    "name": "alaDHLLinksConfig",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.2",
+    "class": "objectidentity"
+  },
+  "alaDHLLinksTable": {
+    "name": "alaDHLLinksTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDHLLinksEntry": {
+    "name": "alaDHLLinksEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLSessionIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLLinkslinkA",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLLinkslinkB",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaDHLLinkslinkA": {
+    "name": "alaDHLLinkslinkA",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDHLLinkslinkB": {
+    "name": "alaDHLLinkslinkB",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDHLLinkslinkAOperStatus": {
+    "name": "alaDHLLinkslinkAOperStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDHLLinkslinkBOperStatus": {
+    "name": "alaDHLLinkslinkBOperStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDHLLinksRowStatus": {
+    "name": "alaDHLLinksRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaDHLVpa": {
+    "name": "alaDHLVpa",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.3",
+    "class": "objectidentity"
+  },
+  "alaDHLVpaTable": {
+    "name": "alaDHLVpaTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDHLVpaEntry": {
+    "name": "alaDHLVpaEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLSessionIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLVpalink",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLVpaVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaDHLVpalink": {
+    "name": "alaDHLVpalink",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDHLVpaVlan": {
+    "name": "alaDHLVpaVlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDHLVpaVlanType": {
+    "name": "alaDHLVpaVlanType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "protectedVlan": 1,
+          "unprotectedVlan": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDHLVpaActiveLink": {
+    "name": "alaDHLVpaActiveLink",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDHLVlanMap": {
+    "name": "alaDHLVlanMap",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.4",
+    "class": "objectidentity"
+  },
+  "alaDHLVlanMapTable": {
+    "name": "alaDHLVlanMapTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDHLVlanMapEntry": {
+    "name": "alaDHLVlanMapEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLSessionIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLVlanMapVlanStart",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLVlanMapVlanEnd",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaDHLVlanMapVlanStart": {
+    "name": "alaDHLVlanMapVlanStart",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDHLVlanMapVlanEnd": {
+    "name": "alaDHLVlanMapVlanEnd",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDHLVlanMapRowStatus": {
+    "name": "alaDHLVlanMapRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaDHLTrapsObj": {
+    "name": "alaDHLTrapsObj",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.5",
+    "class": "objectidentity"
+  },
+  "alaDHLVlanMoveTrap": {
+    "name": "alaDHLVlanMoveTrap",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLSessionID"
+      },
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLPortFrom"
+      },
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLPortTo"
+      },
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLVlanMoveReason"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDHLSessionID": {
+    "name": "alaDHLSessionID",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaDHLPortFrom": {
+    "name": "alaDHLPortFrom",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaDHLPortTo": {
+    "name": "alaDHLPortTo",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaDHLVlanMoveReason": {
+    "name": "alaDHLVlanMoveReason",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linkUp": 1,
+          "linkDown": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alcatelIND1DHLMIBCompliance": {
+    "name": "alcatelIND1DHLMIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alaDHLSessionGroup",
+        "module": "ALCATEL-IND1-DHL-MIB"
+      },
+      {
+        "object": "alaDHLLinksGroup",
+        "module": "ALCATEL-IND1-DHL-MIB"
+      },
+      {
+        "object": "alaDHLVpaGroup",
+        "module": "ALCATEL-IND1-DHL-MIB"
+      },
+      {
+        "object": "alaDHLVlanMapGroup",
+        "module": "ALCATEL-IND1-DHL-MIB"
+      },
+      {
+        "object": "alaDHLNotificationGroup",
+        "module": "ALCATEL-IND1-DHL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDHLSessionGroup": {
+    "name": "alaDHLSessionGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLSessionDescr"
+      },
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLSessionAdminStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLSessionOperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLSessionPreemptionTime"
+      },
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLSessionAdminMacFlushing"
+      },
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLSessionActiveMacFlushing"
+      },
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLSessionRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDHLLinksGroup": {
+    "name": "alaDHLLinksGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLLinkslinkAOperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLLinkslinkBOperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLLinksRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDHLVpaGroup": {
+    "name": "alaDHLVpaGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLVpaVlanType"
+      },
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLVpaActiveLink"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDHLVlanMapGroup": {
+    "name": "alaDHLVlanMapGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLVlanMapRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDHLNotificationObjectGroup": {
+    "name": "alaDHLNotificationObjectGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLSessionID"
+      },
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLPortFrom"
+      },
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLPortTo"
+      },
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLVlanMoveReason"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDHLNotificationGroup": {
+    "name": "alaDHLNotificationGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.65.1.2.1.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DHL-MIB",
+        "object": "alaDHLVlanMoveTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/aos7/ALCATEL-IND1-DHL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:46 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-DHL-MIB"
+  }
+}

@@ -1,0 +1,287 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "NBS-MIB": [
+      "NbsTcPartIndex",
+      "nbs",
+      "NbsTcStatusSimple"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "Integer32",
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "nbsFanMib": {
+    "name": "nbsFanMib",
+    "oid": "1.3.6.1.4.1.629.226",
+    "class": "moduleidentity"
+  },
+  "nbsFanFanGrp": {
+    "name": "nbsFanFanGrp",
+    "oid": "1.3.6.1.4.1.629.226.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsFanEventsGrp": {
+    "name": "nbsFanEventsGrp",
+    "oid": "1.3.6.1.4.1.629.226.100",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsFanEvents": {
+    "name": "nbsFanEvents",
+    "oid": "1.3.6.1.4.1.629.226.100.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsFanFanTable": {
+    "name": "nbsFanFanTable",
+    "oid": "1.3.6.1.4.1.629.226.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsFanFanEntry": {
+    "name": "nbsFanFanEntry",
+    "oid": "1.3.6.1.4.1.629.226.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-FAN-MIB",
+        "object": "nbsFanFanParentIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "NBS-FAN-MIB",
+        "object": "nbsFanFanParentPartIndex",
+        "implied": 0
+      },
+      {
+        "module": "NBS-FAN-MIB",
+        "object": "nbsFanFanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsFanFanParentIfIndex": {
+    "name": "nbsFanFanParentIfIndex",
+    "oid": "1.3.6.1.4.1.629.226.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFanFanParentPartIndex": {
+    "name": "nbsFanFanParentPartIndex",
+    "oid": "1.3.6.1.4.1.629.226.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NbsTcPartIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFanFanIndex": {
+    "name": "nbsFanFanIndex",
+    "oid": "1.3.6.1.4.1.629.226.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFanFanDescription": {
+    "name": "nbsFanFanDescription",
+    "oid": "1.3.6.1.4.1.629.226.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFanFanStatus": {
+    "name": "nbsFanFanStatus",
+    "oid": "1.3.6.1.4.1.629.226.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NbsTcStatusSimple",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFanFanSpeed": {
+    "name": "nbsFanFanSpeed",
+    "oid": "1.3.6.1.4.1.629.226.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "off": 2,
+          "low": 3,
+          "medium": 4,
+          "high": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFanFanTableSize": {
+    "name": "nbsFanFanTableSize",
+    "oid": "1.3.6.1.4.1.629.226.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsFanTrapFanStatusBad": {
+    "name": "nbsFanTrapFanStatusBad",
+    "oid": "1.3.6.1.4.1.629.226.100.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-FAN-MIB",
+        "object": "nbsFanFanParentIfIndex"
+      },
+      {
+        "module": "NBS-FAN-MIB",
+        "object": "nbsFanFanParentPartIndex"
+      },
+      {
+        "module": "NBS-FAN-MIB",
+        "object": "nbsFanFanIndex"
+      },
+      {
+        "module": "NBS-FAN-MIB",
+        "object": "nbsFanFanDescription"
+      },
+      {
+        "module": "NBS-FAN-MIB",
+        "object": "nbsFanFanStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsFanTrapFanStatusOk": {
+    "name": "nbsFanTrapFanStatusOk",
+    "oid": "1.3.6.1.4.1.629.226.100.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-FAN-MIB",
+        "object": "nbsFanFanParentIfIndex"
+      },
+      {
+        "module": "NBS-FAN-MIB",
+        "object": "nbsFanFanParentPartIndex"
+      },
+      {
+        "module": "NBS-FAN-MIB",
+        "object": "nbsFanFanIndex"
+      },
+      {
+        "module": "NBS-FAN-MIB",
+        "object": "nbsFanFanDescription"
+      },
+      {
+        "module": "NBS-FAN-MIB",
+        "object": "nbsFanFanStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsFanTrapFanSpeedChanged": {
+    "name": "nbsFanTrapFanSpeedChanged",
+    "oid": "1.3.6.1.4.1.629.226.100.0.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-FAN-MIB",
+        "object": "nbsFanFanParentIfIndex"
+      },
+      {
+        "module": "NBS-FAN-MIB",
+        "object": "nbsFanFanParentPartIndex"
+      },
+      {
+        "module": "NBS-FAN-MIB",
+        "object": "nbsFanFanIndex"
+      },
+      {
+        "module": "NBS-FAN-MIB",
+        "object": "nbsFanFanDescription"
+      },
+      {
+        "module": "NBS-FAN-MIB",
+        "object": "nbsFanFanSpeed"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-FAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:42:12 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NBS-FAN-MIB"
+  }
+}

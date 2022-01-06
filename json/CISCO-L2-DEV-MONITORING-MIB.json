@@ -1,0 +1,369 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoL2DevMonMIB": {
+    "name": "ciscoL2DevMonMIB",
+    "oid": "1.3.6.1.4.1.9.9.271",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-07-22 00:00",
+        "description": "Added cl2DevMonActiveRadioMacType to identify to the device radio MAC protocol type and cl2DevMonActiveLocalRadioIndex to identify the local radio used for monitoring."
+      },
+      {
+        "revision": "2001-09-27 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoL2DevMonMIBObjects": {
+    "name": "ciscoL2DevMonMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.271.1",
+    "class": "objectidentity"
+  },
+  "cl2DevMonConfig": {
+    "name": "cl2DevMonConfig",
+    "oid": "1.3.6.1.4.1.9.9.271.1.1",
+    "class": "objectidentity"
+  },
+  "cl2DevMonInStandbyMode": {
+    "name": "cl2DevMonInStandbyMode",
+    "oid": "1.3.6.1.4.1.9.9.271.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cl2DevMonNotifEnabled": {
+    "name": "cl2DevMonNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.271.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cl2DevMonActiveTable": {
+    "name": "cl2DevMonActiveTable",
+    "oid": "1.3.6.1.4.1.9.9.271.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cl2DevMonActiveEntry": {
+    "name": "cl2DevMonActiveEntry",
+    "oid": "1.3.6.1.4.1.9.9.271.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-L2-DEV-MONITORING-MIB",
+        "object": "cl2DevMonActiveMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cl2DevMonActiveMacAddress": {
+    "name": "cl2DevMonActiveMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.271.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cl2DevMonActivePollingFrequency": {
+    "name": "cl2DevMonActivePollingFrequency",
+    "oid": "1.3.6.1.4.1.9.9.271.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cl2DevMonActivePollingTimeOut": {
+    "name": "cl2DevMonActivePollingTimeOut",
+    "oid": "1.3.6.1.4.1.9.9.271.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cl2DevMonActiveRowStatus": {
+    "name": "cl2DevMonActiveRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.271.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cl2DevMonActiveRadioMacType": {
+    "name": "cl2DevMonActiveRadioMacType",
+    "oid": "1.3.6.1.4.1.9.9.271.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ieee802dot11a": 1,
+          "ieee802dot11b": 2,
+          "ieee802dot11g": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cl2DevMonActiveLocalRadioIndex": {
+    "name": "cl2DevMonActiveLocalRadioIndex",
+    "oid": "1.3.6.1.4.1.9.9.271.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoL2DevMonMIBNotifications": {
+    "name": "ciscoL2DevMonMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.271.0",
+    "class": "objectidentity"
+  },
+  "cl2DevMonSwitchover": {
+    "name": "cl2DevMonSwitchover",
+    "oid": "1.3.6.1.4.1.9.9.271.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-L2-DEV-MONITORING-MIB",
+        "object": "cl2DevMonActivePollingFrequency"
+      },
+      {
+        "module": "CISCO-L2-DEV-MONITORING-MIB",
+        "object": "cl2DevMonActivePollingTimeOut"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoL2DevMonMIBConformance": {
+    "name": "ciscoL2DevMonMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.271.2",
+    "class": "objectidentity"
+  },
+  "ciscoL2DevMonMIBCompliances": {
+    "name": "ciscoL2DevMonMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.271.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoL2DevMonMIBGroups": {
+    "name": "ciscoL2DevMonMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.271.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoL2DevMonCompliance": {
+    "name": "ciscoL2DevMonCompliance",
+    "oid": "1.3.6.1.4.1.9.9.271.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoL2DevMonConfigGroup",
+        "module": "CISCO-L2-DEV-MONITORING-MIB"
+      },
+      {
+        "object": "ciscoL2DevMonNotificationGroup",
+        "module": "CISCO-L2-DEV-MONITORING-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoL2DevMonComplianceRev1": {
+    "name": "ciscoL2DevMonComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.271.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoL2DevMonConfigGroup",
+        "module": "CISCO-L2-DEV-MONITORING-MIB"
+      },
+      {
+        "object": "ciscoL2DevMonNotificationGroup",
+        "module": "CISCO-L2-DEV-MONITORING-MIB"
+      },
+      {
+        "object": "ciscoL2DevMonRadioConfigGroup",
+        "module": "CISCO-L2-DEV-MONITORING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoL2DevMonConfigGroup": {
+    "name": "ciscoL2DevMonConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.271.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2-DEV-MONITORING-MIB",
+        "object": "cl2DevMonInStandbyMode"
+      },
+      {
+        "module": "CISCO-L2-DEV-MONITORING-MIB",
+        "object": "cl2DevMonNotifEnabled"
+      },
+      {
+        "module": "CISCO-L2-DEV-MONITORING-MIB",
+        "object": "cl2DevMonActivePollingFrequency"
+      },
+      {
+        "module": "CISCO-L2-DEV-MONITORING-MIB",
+        "object": "cl2DevMonActivePollingTimeOut"
+      },
+      {
+        "module": "CISCO-L2-DEV-MONITORING-MIB",
+        "object": "cl2DevMonActiveRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoL2DevMonNotificationGroup": {
+    "name": "ciscoL2DevMonNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.271.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2-DEV-MONITORING-MIB",
+        "object": "cl2DevMonSwitchover"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoL2DevMonRadioConfigGroup": {
+    "name": "ciscoL2DevMonRadioConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.271.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2-DEV-MONITORING-MIB",
+        "object": "cl2DevMonActiveRadioMacType"
+      },
+      {
+        "module": "CISCO-L2-DEV-MONITORING-MIB",
+        "object": "cl2DevMonActiveLocalRadioIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-L2-DEV-MONITORING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-L2-DEV-MONITORING-MIB"
+  }
+}

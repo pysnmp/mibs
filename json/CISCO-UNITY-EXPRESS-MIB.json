@@ -1,0 +1,2375 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "ciscoUnityExpressMIB": {
+    "name": "ciscoUnityExpressMIB",
+    "oid": "1.3.6.1.4.1.9.9.420",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-01-08 00:00",
+        "description": "Deprecated cueHardwareModuleType."
+      },
+      {
+        "revision": "2005-09-02 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoUnityExpressMIBNotifs": {
+    "name": "ciscoUnityExpressMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.420.0",
+    "class": "objectidentity"
+  },
+  "ciscoUnityExpressMIBObjects": {
+    "name": "ciscoUnityExpressMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.420.1",
+    "class": "objectidentity"
+  },
+  "ciscoUnityExpressMIBConform": {
+    "name": "ciscoUnityExpressMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.420.2",
+    "class": "objectidentity"
+  },
+  "cueSystem": {
+    "name": "cueSystem",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1",
+    "class": "objectidentity"
+  },
+  "cueSystemControl": {
+    "name": "cueSystemControl",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.1",
+    "class": "objectidentity"
+  },
+  "cueShutdownRequest": {
+    "name": "cueShutdownRequest",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cueSystemScalars": {
+    "name": "cueSystemScalars",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.2",
+    "class": "objectidentity"
+  },
+  "cueAVTNumber": {
+    "name": "cueAVTNumber",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueVoicemailNumber": {
+    "name": "cueVoicemailNumber",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueAANumber": {
+    "name": "cueAANumber",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueHardwareModuleType": {
+    "name": "cueHardwareModuleType",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aim": 1,
+          "nm": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cueCallControlAgentType": {
+    "name": "cueCallControlAgentType",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ccm": 1,
+          "ccme": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueSIPInfo": {
+    "name": "cueSIPInfo",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.3",
+    "class": "objectidentity"
+  },
+  "cueSIPGatewayName": {
+    "name": "cueSIPGatewayName",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueSIPGatewayIPType": {
+    "name": "cueSIPGatewayIPType",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueSIPGatewayIP": {
+    "name": "cueSIPGatewayIP",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueSIPPort": {
+    "name": "cueSIPPort",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueJTAPIInfo": {
+    "name": "cueJTAPIInfo",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.4",
+    "class": "objectidentity"
+  },
+  "cueJTAPIServerTable": {
+    "name": "cueJTAPIServerTable",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cueJTAPIServerEntry": {
+    "name": "cueJTAPIServerEntry",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueJTAPIServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cueJTAPIServerIndex": {
+    "name": "cueJTAPIServerIndex",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cueJTAPIServerName": {
+    "name": "cueJTAPIServerName",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueJTAPIServerIPType": {
+    "name": "cueJTAPIServerIPType",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueJTAPIServerIP": {
+    "name": "cueJTAPIServerIP",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueJTAPISubsystemState": {
+    "name": "cueJTAPISubsystemState",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "initializing": 2,
+          "inService": 3,
+          "outOfService": 4,
+          "shuttingDown": 5,
+          "shutDown": 6,
+          "partialService": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueJTAPIUsername": {
+    "name": "cueJTAPIUsername",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueJTAPISoftwareVersion": {
+    "name": "cueJTAPISoftwareVersion",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueJTAPIPortsRegistered": {
+    "name": "cueJTAPIPortsRegistered",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueSystemDefaults": {
+    "name": "cueSystemDefaults",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.5",
+    "class": "objectidentity"
+  },
+  "cueDefaultMailboxSize": {
+    "name": "cueDefaultMailboxSize",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueDefaultGreetingSize": {
+    "name": "cueDefaultGreetingSize",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueDefaultMessageSizeMax": {
+    "name": "cueDefaultMessageSizeMax",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueDefaultMessageExpiryTime": {
+    "name": "cueDefaultMessageExpiryTime",
+    "oid": "1.3.6.1.4.1.9.9.420.1.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "days",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueUsage": {
+    "name": "cueUsage",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2",
+    "class": "objectidentity"
+  },
+  "cueUsageScalars": {
+    "name": "cueUsageScalars",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.1",
+    "class": "objectidentity"
+  },
+  "cueLicensedPortsMax": {
+    "name": "cueLicensedPortsMax",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueActiveCalls": {
+    "name": "cueActiveCalls",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cuePersonalMailboxes": {
+    "name": "cuePersonalMailboxes",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueGeneralDeliveryMailboxes": {
+    "name": "cueGeneralDeliveryMailboxes",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueOrphanedMailboxes": {
+    "name": "cueOrphanedMailboxes",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueCapacityOfVoicemail": {
+    "name": "cueCapacityOfVoicemail",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueAllocatedCapacity": {
+    "name": "cueAllocatedCapacity",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueTotalTimeUsed": {
+    "name": "cueTotalTimeUsed",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cuePercentTimeUsed": {
+    "name": "cuePercentTimeUsed",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueMessageTimeUsed": {
+    "name": "cueMessageTimeUsed",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueMessageCount": {
+    "name": "cueMessageCount",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueAverageMessageLength": {
+    "name": "cueAverageMessageLength",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueGreetingTimeUsed": {
+    "name": "cueGreetingTimeUsed",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueGreetingCount": {
+    "name": "cueGreetingCount",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueAverageGreetingLength": {
+    "name": "cueAverageGreetingLength",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueMessagesLeft": {
+    "name": "cueMessagesLeft",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueMessagesRetrieved": {
+    "name": "cueMessagesRetrieved",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueMessagesDeleted": {
+    "name": "cueMessagesDeleted",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueLicensedMailboxesMax": {
+    "name": "cueLicensedMailboxesMax",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueMailboxesAbove90PercentFull": {
+    "name": "cueMailboxesAbove90PercentFull",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueMboxTable": {
+    "name": "cueMboxTable",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cueMboxEntry": {
+    "name": "cueMboxEntry",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMboxIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cueMboxIndex": {
+    "name": "cueMboxIndex",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cueMboxOwner": {
+    "name": "cueMboxOwner",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueMboxPrimaryExtension": {
+    "name": "cueMboxPrimaryExtension",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueMboxType": {
+    "name": "cueMboxType",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "personal": 1,
+          "generalDelivery": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueMboxDescription": {
+    "name": "cueMboxDescription",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueMboxSize": {
+    "name": "cueMboxSize",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueMboxTimeUsed": {
+    "name": "cueMboxTimeUsed",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueMboxPercentTimeUsed": {
+    "name": "cueMboxPercentTimeUsed",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueMboxNumberOfMessages": {
+    "name": "cueMboxNumberOfMessages",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueMboxNumberOfNewMessages": {
+    "name": "cueMboxNumberOfNewMessages",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueMboxNumberOfSavedMessages": {
+    "name": "cueMboxNumberOfSavedMessages",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueMboxMessageSizeMax": {
+    "name": "cueMboxMessageSizeMax",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueMboxMessageExpiryTime": {
+    "name": "cueMboxMessageExpiryTime",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "days",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueMboxPlayTutorial": {
+    "name": "cueMboxPlayTutorial",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueMboxGreetingType": {
+    "name": "cueMboxGreetingType",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standard": 1,
+          "alternate": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueMboxEnabled": {
+    "name": "cueMboxEnabled",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueMboxBusy": {
+    "name": "cueMboxBusy",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueMboxMWIState": {
+    "name": "cueMboxMWIState",
+    "oid": "1.3.6.1.4.1.9.9.420.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueSecurity": {
+    "name": "cueSecurity",
+    "oid": "1.3.6.1.4.1.9.9.420.1.3",
+    "class": "objectidentity"
+  },
+  "cueLoginInfo": {
+    "name": "cueLoginInfo",
+    "oid": "1.3.6.1.4.1.9.9.420.1.3.1",
+    "class": "objectidentity"
+  },
+  "cueLoginAttempts": {
+    "name": "cueLoginAttempts",
+    "oid": "1.3.6.1.4.1.9.9.420.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueLoginUsernameFailures": {
+    "name": "cueLoginUsernameFailures",
+    "oid": "1.3.6.1.4.1.9.9.420.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueLoginPasswordFailures": {
+    "name": "cueLoginPasswordFailures",
+    "oid": "1.3.6.1.4.1.9.9.420.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cuePINInfo": {
+    "name": "cuePINInfo",
+    "oid": "1.3.6.1.4.1.9.9.420.1.3.2",
+    "class": "objectidentity"
+  },
+  "cuePINAttempts": {
+    "name": "cuePINAttempts",
+    "oid": "1.3.6.1.4.1.9.9.420.1.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cuePINResets": {
+    "name": "cuePINResets",
+    "oid": "1.3.6.1.4.1.9.9.420.1.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cuePINUidFailures": {
+    "name": "cuePINUidFailures",
+    "oid": "1.3.6.1.4.1.9.9.420.1.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cuePINPasswordFailures": {
+    "name": "cuePINPasswordFailures",
+    "oid": "1.3.6.1.4.1.9.9.420.1.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueNotif": {
+    "name": "cueNotif",
+    "oid": "1.3.6.1.4.1.9.9.420.1.4",
+    "class": "objectidentity"
+  },
+  "cueNotifConfig": {
+    "name": "cueNotifConfig",
+    "oid": "1.3.6.1.4.1.9.9.420.1.4.1",
+    "class": "objectidentity"
+  },
+  "cueNotifEnable": {
+    "name": "cueNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.420.1.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cueNotifInfo": {
+    "name": "cueNotifInfo",
+    "oid": "1.3.6.1.4.1.9.9.420.1.4.2",
+    "class": "objectidentity"
+  },
+  "cueNotifSeverity": {
+    "name": "cueNotifSeverity",
+    "oid": "1.3.6.1.4.1.9.9.420.1.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 1,
+          "warning": 2,
+          "informational": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cueNotifDate": {
+    "name": "cueNotifDate",
+    "oid": "1.3.6.1.4.1.9.9.420.1.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cueNotifDescription": {
+    "name": "cueNotifDescription",
+    "oid": "1.3.6.1.4.1.9.9.420.1.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cueNotifDetail": {
+    "name": "cueNotifDetail",
+    "oid": "1.3.6.1.4.1.9.9.420.1.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cueNotifSecurity": {
+    "name": "cueNotifSecurity",
+    "oid": "1.3.6.1.4.1.9.9.420.1.4.3",
+    "class": "objectidentity"
+  },
+  "cueLoginUsernameThresh": {
+    "name": "cueLoginUsernameThresh",
+    "oid": "1.3.6.1.4.1.9.9.420.1.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueLoginPasswordThresh": {
+    "name": "cueLoginPasswordThresh",
+    "oid": "1.3.6.1.4.1.9.9.420.1.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cuePINUidThresh": {
+    "name": "cuePINUidThresh",
+    "oid": "1.3.6.1.4.1.9.9.420.1.4.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cuePINPasswordThresh": {
+    "name": "cuePINPasswordThresh",
+    "oid": "1.3.6.1.4.1.9.9.420.1.4.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cuePINResetThresh": {
+    "name": "cuePINResetThresh",
+    "oid": "1.3.6.1.4.1.9.9.420.1.4.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueBackupRestore": {
+    "name": "cueBackupRestore",
+    "oid": "1.3.6.1.4.1.9.9.420.1.5",
+    "class": "objectidentity"
+  },
+  "cueBRHistoryTable": {
+    "name": "cueBRHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.420.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cueBRHistoryEntry": {
+    "name": "cueBRHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.420.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueBRHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cueBRHistoryIndex": {
+    "name": "cueBRHistoryIndex",
+    "oid": "1.3.6.1.4.1.9.9.420.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cueBRHistoryOperation": {
+    "name": "cueBRHistoryOperation",
+    "oid": "1.3.6.1.4.1.9.9.420.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backup": 1,
+          "restore": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueBRHistoryDate": {
+    "name": "cueBRHistoryDate",
+    "oid": "1.3.6.1.4.1.9.9.420.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cueBRHistoryResult": {
+    "name": "cueBRHistoryResult",
+    "oid": "1.3.6.1.4.1.9.9.420.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "failure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityExpressApplAlert": {
+    "name": "ciscoUnityExpressApplAlert",
+    "oid": "1.3.6.1.4.1.9.9.420.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifSeverity"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDate"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDescription"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUnityExpressStorageAlert": {
+    "name": "ciscoUnityExpressStorageAlert",
+    "oid": "1.3.6.1.4.1.9.9.420.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifSeverity"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDate"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDescription"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUnityExpressSecurityAlert": {
+    "name": "ciscoUnityExpressSecurityAlert",
+    "oid": "1.3.6.1.4.1.9.9.420.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifSeverity"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDate"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDescription"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUnityExpressCallMgrAlert": {
+    "name": "ciscoUnityExpressCallMgrAlert",
+    "oid": "1.3.6.1.4.1.9.9.420.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifSeverity"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDate"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDescription"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUnityExpressRescExhausted": {
+    "name": "ciscoUnityExpressRescExhausted",
+    "oid": "1.3.6.1.4.1.9.9.420.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifSeverity"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDate"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDescription"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUnityExpressBackupAlert": {
+    "name": "ciscoUnityExpressBackupAlert",
+    "oid": "1.3.6.1.4.1.9.9.420.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifSeverity"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDate"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDescription"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUnityExpressNTPAlert": {
+    "name": "ciscoUnityExpressNTPAlert",
+    "oid": "1.3.6.1.4.1.9.9.420.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifSeverity"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDate"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDescription"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUnityExpressMIBCompliances": {
+    "name": "ciscoUnityExpressMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.420.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoUnityExpressMIBGroups": {
+    "name": "ciscoUnityExpressMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.420.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoUnityExpressMIBCompliance": {
+    "name": "ciscoUnityExpressMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.420.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cueSystemGroup",
+        "module": "CISCO-UNITY-EXPRESS-MIB"
+      },
+      {
+        "object": "cueUsageGroup",
+        "module": "CISCO-UNITY-EXPRESS-MIB"
+      },
+      {
+        "object": "cueSecurityGroup",
+        "module": "CISCO-UNITY-EXPRESS-MIB"
+      },
+      {
+        "object": "cueNotifGroup",
+        "module": "CISCO-UNITY-EXPRESS-MIB"
+      },
+      {
+        "object": "ciscoUnityExpressMIBNotificationsGroup",
+        "module": "CISCO-UNITY-EXPRESS-MIB"
+      },
+      {
+        "object": "cueBackupRestoreGroup",
+        "module": "CISCO-UNITY-EXPRESS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUnityExpressMIBComplianceRev1": {
+    "name": "ciscoUnityExpressMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.420.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cueSystemGroupRev1",
+        "module": "CISCO-UNITY-EXPRESS-MIB"
+      },
+      {
+        "object": "cueUsageGroup",
+        "module": "CISCO-UNITY-EXPRESS-MIB"
+      },
+      {
+        "object": "cueSecurityGroup",
+        "module": "CISCO-UNITY-EXPRESS-MIB"
+      },
+      {
+        "object": "cueNotifGroup",
+        "module": "CISCO-UNITY-EXPRESS-MIB"
+      },
+      {
+        "object": "ciscoUnityExpressMIBNotificationsGroup",
+        "module": "CISCO-UNITY-EXPRESS-MIB"
+      },
+      {
+        "object": "cueBackupRestoreGroup",
+        "module": "CISCO-UNITY-EXPRESS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cueSystemGroup": {
+    "name": "cueSystemGroup",
+    "oid": "1.3.6.1.4.1.9.9.420.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueShutdownRequest"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueAVTNumber"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueVoicemailNumber"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueAANumber"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueHardwareModuleType"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueCallControlAgentType"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueSIPGatewayName"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueSIPGatewayIPType"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueSIPGatewayIP"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueSIPPort"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueJTAPIServerName"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueJTAPIServerIPType"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueJTAPIServerIP"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueJTAPISubsystemState"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueJTAPIUsername"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueJTAPISoftwareVersion"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueJTAPIPortsRegistered"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueDefaultMailboxSize"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueDefaultGreetingSize"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueDefaultMessageSizeMax"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueDefaultMessageExpiryTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cueUsageGroup": {
+    "name": "cueUsageGroup",
+    "oid": "1.3.6.1.4.1.9.9.420.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueLicensedPortsMax"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueActiveCalls"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cuePersonalMailboxes"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueGeneralDeliveryMailboxes"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueOrphanedMailboxes"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueCapacityOfVoicemail"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueAllocatedCapacity"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueTotalTimeUsed"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cuePercentTimeUsed"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMessageTimeUsed"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMessageCount"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueAverageMessageLength"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueGreetingTimeUsed"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueGreetingCount"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueAverageGreetingLength"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMboxOwner"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMboxPrimaryExtension"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMboxType"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMboxDescription"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMboxSize"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMboxTimeUsed"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMboxPercentTimeUsed"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMboxNumberOfMessages"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMboxNumberOfNewMessages"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMboxNumberOfSavedMessages"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMboxMessageSizeMax"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMboxMessageExpiryTime"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMboxPlayTutorial"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMboxGreetingType"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMboxEnabled"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMboxBusy"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMboxMWIState"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMessagesLeft"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMessagesRetrieved"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMessagesDeleted"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueLicensedMailboxesMax"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueMailboxesAbove90PercentFull"
+      }
+    ],
+    "status": "current"
+  },
+  "cueSecurityGroup": {
+    "name": "cueSecurityGroup",
+    "oid": "1.3.6.1.4.1.9.9.420.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueLoginAttempts"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueLoginUsernameFailures"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueLoginPasswordFailures"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cuePINAttempts"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cuePINResets"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cuePINUidFailures"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cuePINPasswordFailures"
+      }
+    ],
+    "status": "current"
+  },
+  "cueNotifGroup": {
+    "name": "cueNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.420.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifEnable"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifSeverity"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDate"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDescription"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueNotifDetail"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueLoginUsernameThresh"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueLoginPasswordThresh"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cuePINUidThresh"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cuePINPasswordThresh"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cuePINResetThresh"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUnityExpressMIBNotificationsGroup": {
+    "name": "ciscoUnityExpressMIBNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.420.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "ciscoUnityExpressApplAlert"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "ciscoUnityExpressStorageAlert"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "ciscoUnityExpressSecurityAlert"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "ciscoUnityExpressCallMgrAlert"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "ciscoUnityExpressRescExhausted"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "ciscoUnityExpressBackupAlert"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "ciscoUnityExpressNTPAlert"
+      }
+    ],
+    "status": "current"
+  },
+  "cueBackupRestoreGroup": {
+    "name": "cueBackupRestoreGroup",
+    "oid": "1.3.6.1.4.1.9.9.420.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueBRHistoryOperation"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueBRHistoryDate"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueBRHistoryResult"
+      }
+    ],
+    "status": "current"
+  },
+  "cueSystemGroupRev1": {
+    "name": "cueSystemGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.420.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueShutdownRequest"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueAVTNumber"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueVoicemailNumber"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueAANumber"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueCallControlAgentType"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueSIPGatewayName"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueSIPGatewayIPType"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueSIPGatewayIP"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueSIPPort"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueJTAPIServerName"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueJTAPIServerIPType"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueJTAPIServerIP"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueJTAPISubsystemState"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueJTAPIUsername"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueJTAPISoftwareVersion"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueJTAPIPortsRegistered"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueDefaultMailboxSize"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueDefaultGreetingSize"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueDefaultMessageSizeMax"
+      },
+      {
+        "module": "CISCO-UNITY-EXPRESS-MIB",
+        "object": "cueDefaultMessageExpiryTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNITY-EXPRESS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-UNITY-EXPRESS-MIB"
+  }
+}

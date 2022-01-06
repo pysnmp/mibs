@@ -1,0 +1,1990 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetVersion",
+      "InetAddressPrefixLength",
+      "InetAddress"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "dlinkSwIpMcastExtMIB": {
+    "name": "dlinkSwIpMcastExtMIB",
+    "oid": "1.3.6.1.4.1.171.14.55",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-05-02 00:00",
+        "description": "Initial revision of this MIB module."
+      },
+      {
+        "revision": "2014-06-16 00:00",
+        "description": "Modify 'dIpmcExtStaticMrouteTable ', 'dIpmcExtRpfTable',dIpmcExtGrpOutgoingPortTable and 'dIpmcExtGrpOutgoingPortTable'. Modify the description of objects in 'dIpmcExtIgmpIfStatTable', 'dIpmcExtPimIfStatTable', and 'dIpmcExtDvmrpIfStatTable'."
+      },
+      {
+        "revision": "2014-07-18 00:00",
+        "description": "Modify the OID of all rowstatus objects to 99."
+      },
+      {
+        "revision": "2014-08-01 00:00",
+        "description": "Remove objects IpmcExtStaticMrouteDistance and dIpmcExtRpfDistance because we dont have plan to implement these objects now. Add the description for setting the value of dIpmcExtStaticMrouteRpfAddr to zero."
+      }
+    ]
+  },
+  "dIpmcExtNotifications": {
+    "name": "dIpmcExtNotifications",
+    "oid": "1.3.6.1.4.1.171.14.55.0",
+    "class": "objectidentity"
+  },
+  "dIpmcExtObjects": {
+    "name": "dIpmcExtObjects",
+    "oid": "1.3.6.1.4.1.171.14.55.1",
+    "class": "objectidentity"
+  },
+  "dIpmcExtConformance": {
+    "name": "dIpmcExtConformance",
+    "oid": "1.3.6.1.4.1.171.14.55.2",
+    "class": "objectidentity"
+  },
+  "dIpmcExtMcastRouteEnabled": {
+    "name": "dIpmcExtMcastRouteEnabled",
+    "oid": "1.3.6.1.4.1.171.14.55.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ipv4": 0,
+        "ipv6": 1
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpmcExtIpv4McastTableLookupMode": {
+    "name": "dIpmcExtIpv4McastTableLookupMode",
+    "oid": "1.3.6.1.4.1.171.14.55.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "mac": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpmcExtClearStatisticsObjects": {
+    "name": "dIpmcExtClearStatisticsObjects",
+    "oid": "1.3.6.1.4.1.171.14.55.1.3",
+    "class": "objectidentity"
+  },
+  "dIpmcExtClearStatistics": {
+    "name": "dIpmcExtClearStatistics",
+    "oid": "1.3.6.1.4.1.171.14.55.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "igmp": 0,
+        "pim": 1,
+        "dvmrp": 2
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpmcExtBoundaryTable": {
+    "name": "dIpmcExtBoundaryTable",
+    "oid": "1.3.6.1.4.1.171.14.55.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtBoundaryEntry": {
+    "name": "dIpmcExtBoundaryEntry",
+    "oid": "1.3.6.1.4.1.171.14.55.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtBoundaryVersion",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtBoundaryIfIdx",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtBoundaryAccessList",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtBoundaryApplyDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpmcExtBoundaryVersion": {
+    "name": "dIpmcExtBoundaryVersion",
+    "oid": "1.3.6.1.4.1.171.14.55.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetVersion",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtBoundaryIfIdx": {
+    "name": "dIpmcExtBoundaryIfIdx",
+    "oid": "1.3.6.1.4.1.171.14.55.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtBoundaryAccessList": {
+    "name": "dIpmcExtBoundaryAccessList",
+    "oid": "1.3.6.1.4.1.171.14.55.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtBoundaryApplyDirection": {
+    "name": "dIpmcExtBoundaryApplyDirection",
+    "oid": "1.3.6.1.4.1.171.14.55.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtBoundaryRowStatus": {
+    "name": "dIpmcExtBoundaryRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.55.1.4.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpmcExtStaticMrouteTable": {
+    "name": "dIpmcExtStaticMrouteTable",
+    "oid": "1.3.6.1.4.1.171.14.55.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtStaticMrouteEntry": {
+    "name": "dIpmcExtStaticMrouteEntry",
+    "oid": "1.3.6.1.4.1.171.14.55.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtStaticMrouteSrcNetType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtStaticMrouteSrcNetAddr",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtStaticMrouteSrcNetPreLen",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpmcExtStaticMrouteSrcNetType": {
+    "name": "dIpmcExtStaticMrouteSrcNetType",
+    "oid": "1.3.6.1.4.1.171.14.55.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtStaticMrouteSrcNetAddr": {
+    "name": "dIpmcExtStaticMrouteSrcNetAddr",
+    "oid": "1.3.6.1.4.1.171.14.55.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtStaticMrouteSrcNetPreLen": {
+    "name": "dIpmcExtStaticMrouteSrcNetPreLen",
+    "oid": "1.3.6.1.4.1.171.14.55.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtStaticMrouteRpfType": {
+    "name": "dIpmcExtStaticMrouteRpfType",
+    "oid": "1.3.6.1.4.1.171.14.55.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "neighborAddr": 1,
+          "interfaceId": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpmcExtStaticMrouteRpfAddr": {
+    "name": "dIpmcExtStaticMrouteRpfAddr",
+    "oid": "1.3.6.1.4.1.171.14.55.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpmcExtStaticMrouteRpfIfIndex": {
+    "name": "dIpmcExtStaticMrouteRpfIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.55.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpmcExtStaticMrouteRowStatus": {
+    "name": "dIpmcExtStaticMrouteRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.55.1.5.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpmcExtCtrlPktCpuFilterTable": {
+    "name": "dIpmcExtCtrlPktCpuFilterTable",
+    "oid": "1.3.6.1.4.1.171.14.55.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtCtrlPktCpuFilterEntry": {
+    "name": "dIpmcExtCtrlPktCpuFilterEntry",
+    "oid": "1.3.6.1.4.1.171.14.55.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtCtrlPktCpuFilterIfIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpmcExtCtrlPktCpuFilterIfIdx": {
+    "name": "dIpmcExtCtrlPktCpuFilterIfIdx",
+    "oid": "1.3.6.1.4.1.171.14.55.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtCtrlPktCpuFilterV4Proto": {
+    "name": "dIpmcExtCtrlPktCpuFilterV4Proto",
+    "oid": "1.3.6.1.4.1.171.14.55.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "dvmrp": 0,
+        "pim": 1,
+        "igmpQuery": 2,
+        "ospf": 3,
+        "rip": 4,
+        "vrrp": 5
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpmcExtCtrlPktCpuFilterV6Proto": {
+    "name": "dIpmcExtCtrlPktCpuFilterV6Proto",
+    "oid": "1.3.6.1.4.1.171.14.55.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "pim": 0,
+        "mldQuery": 1,
+        "ospf": 2,
+        "ripng": 3,
+        "nd": 4
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpmcExtCtrlPktReplacePriTable": {
+    "name": "dIpmcExtCtrlPktReplacePriTable",
+    "oid": "1.3.6.1.4.1.171.14.55.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtCtrlPktReplacePriEntry": {
+    "name": "dIpmcExtCtrlPktReplacePriEntry",
+    "oid": "1.3.6.1.4.1.171.14.55.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtCtrlPktRepPriPotocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpmcExtCtrlPktRepPriPotocol": {
+    "name": "dIpmcExtCtrlPktRepPriPotocol",
+    "oid": "1.3.6.1.4.1.171.14.55.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v4dvmrp": 1,
+          "v4pim": 2,
+          "igmpQuery": 3,
+          "v4ospf": 4,
+          "rip": 5,
+          "v4vrrp": 6,
+          "v6pim": 7,
+          "mld": 8,
+          "v6ospf": 9,
+          "ripng": 10,
+          "nd": 11
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtCtrlPktRepDscp": {
+    "name": "dIpmcExtCtrlPktRepDscp",
+    "oid": "1.3.6.1.4.1.171.14.55.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpmcExtCtrlPktRepPriority": {
+    "name": "dIpmcExtCtrlPktRepPriority",
+    "oid": "1.3.6.1.4.1.171.14.55.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpmcExtCtrlPktRepPriRowStatus": {
+    "name": "dIpmcExtCtrlPktRepPriRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.55.1.7.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpmcExtRpfTable": {
+    "name": "dIpmcExtRpfTable",
+    "oid": "1.3.6.1.4.1.171.14.55.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtRpfEntry": {
+    "name": "dIpmcExtRpfEntry",
+    "oid": "1.3.6.1.4.1.171.14.55.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtRpfAddrType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtRpfAddr",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtRpfRouteAddr",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtRpfRoutePrefixLen",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpmcExtRpfAddrType": {
+    "name": "dIpmcExtRpfAddrType",
+    "oid": "1.3.6.1.4.1.171.14.55.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtRpfAddr": {
+    "name": "dIpmcExtRpfAddr",
+    "oid": "1.3.6.1.4.1.171.14.55.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtRpfRouteAddr": {
+    "name": "dIpmcExtRpfRouteAddr",
+    "oid": "1.3.6.1.4.1.171.14.55.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtRpfRoutePrefixLen": {
+    "name": "dIpmcExtRpfRoutePrefixLen",
+    "oid": "1.3.6.1.4.1.171.14.55.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtRpfIfIndex": {
+    "name": "dIpmcExtRpfIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.55.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtRpfNeighborAddr": {
+    "name": "dIpmcExtRpfNeighborAddr",
+    "oid": "1.3.6.1.4.1.171.14.55.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtRpfType": {
+    "name": "dIpmcExtRpfType",
+    "oid": "1.3.6.1.4.1.171.14.55.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unicast": 1,
+          "static": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtRpfMetricValid": {
+    "name": "dIpmcExtRpfMetricValid",
+    "oid": "1.3.6.1.4.1.171.14.55.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtRpfMetric": {
+    "name": "dIpmcExtRpfMetric",
+    "oid": "1.3.6.1.4.1.171.14.55.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtGrpOutgoingPortTable": {
+    "name": "dIpmcExtGrpOutgoingPortTable",
+    "oid": "1.3.6.1.4.1.171.14.55.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtGrpOutgoingPortEntry": {
+    "name": "dIpmcExtGrpOutgoingPortEntry",
+    "oid": "1.3.6.1.4.1.171.14.55.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtGrpOutgoingAddrType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtGrpOutgoingVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtGrpOutgoingGroupAddr",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtGrpOutgoingPfxLen",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtGrpOutgoingSrcAddr",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtGrpOutgoingSrcPfxLen",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtGrpOutgoingPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpmcExtGrpOutgoingAddrType": {
+    "name": "dIpmcExtGrpOutgoingAddrType",
+    "oid": "1.3.6.1.4.1.171.14.55.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtGrpOutgoingVlanIndex": {
+    "name": "dIpmcExtGrpOutgoingVlanIndex",
+    "oid": "1.3.6.1.4.1.171.14.55.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtGrpOutgoingGroupAddr": {
+    "name": "dIpmcExtGrpOutgoingGroupAddr",
+    "oid": "1.3.6.1.4.1.171.14.55.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtGrpOutgoingPfxLen": {
+    "name": "dIpmcExtGrpOutgoingPfxLen",
+    "oid": "1.3.6.1.4.1.171.14.55.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtGrpOutgoingSrcAddr": {
+    "name": "dIpmcExtGrpOutgoingSrcAddr",
+    "oid": "1.3.6.1.4.1.171.14.55.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtGrpOutgoingSrcPfxLen": {
+    "name": "dIpmcExtGrpOutgoingSrcPfxLen",
+    "oid": "1.3.6.1.4.1.171.14.55.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtGrpOutgoingPort": {
+    "name": "dIpmcExtGrpOutgoingPort",
+    "oid": "1.3.6.1.4.1.171.14.55.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtStatisticsObjects": {
+    "name": "dIpmcExtStatisticsObjects",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10",
+    "class": "objectidentity"
+  },
+  "dIpmcExtIgmpPortIfStatTable": {
+    "name": "dIpmcExtIgmpPortIfStatTable",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtIgmpPortIfStatEntry": {
+    "name": "dIpmcExtIgmpPortIfStatEntry",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtIgmpPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpmcExtIgmpPortIfIndex": {
+    "name": "dIpmcExtIgmpPortIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtIgmpPortIfV1RxReport": {
+    "name": "dIpmcExtIgmpPortIfV1RxReport",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtIgmpPortIfV1RxQuery": {
+    "name": "dIpmcExtIgmpPortIfV1RxQuery",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtIgmpPortIfV1TxReport": {
+    "name": "dIpmcExtIgmpPortIfV1TxReport",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtIgmpPortIfV1TxQuery": {
+    "name": "dIpmcExtIgmpPortIfV1TxQuery",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtIgmpPortIfV2RxReport": {
+    "name": "dIpmcExtIgmpPortIfV2RxReport",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtIgmpPortIfV2RxQuery": {
+    "name": "dIpmcExtIgmpPortIfV2RxQuery",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtIgmpPortIfV2RxLeave": {
+    "name": "dIpmcExtIgmpPortIfV2RxLeave",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtIgmpPortIfV2TxReport": {
+    "name": "dIpmcExtIgmpPortIfV2TxReport",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtIgmpPortIfV2TxQuery": {
+    "name": "dIpmcExtIgmpPortIfV2TxQuery",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtIgmpPortIfV2TxLeave": {
+    "name": "dIpmcExtIgmpPortIfV2TxLeave",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtIgmpPortIfV3RxReport": {
+    "name": "dIpmcExtIgmpPortIfV3RxReport",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtIgmpPortIfV3RxQuery": {
+    "name": "dIpmcExtIgmpPortIfV3RxQuery",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtIgmpPortIfV3TxReport": {
+    "name": "dIpmcExtIgmpPortIfV3TxReport",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtIgmpPortIfV3TxQuery": {
+    "name": "dIpmcExtIgmpPortIfV3TxQuery",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtIgmpPortIfRxUnknown": {
+    "name": "dIpmcExtIgmpPortIfRxUnknown",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtIgmpPortIfTxUnknown": {
+    "name": "dIpmcExtIgmpPortIfTxUnknown",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfStatTable": {
+    "name": "dIpmcExtPimPortIfStatTable",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfStatEntry": {
+    "name": "dIpmcExtPimPortIfStatEntry",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfVersion",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfIndex": {
+    "name": "dIpmcExtPimPortIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfVersion": {
+    "name": "dIpmcExtPimPortIfVersion",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetVersion",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfRxHello": {
+    "name": "dIpmcExtPimPortIfRxHello",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfTxHello": {
+    "name": "dIpmcExtPimPortIfTxHello",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfRxRegister": {
+    "name": "dIpmcExtPimPortIfRxRegister",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfTxRegister": {
+    "name": "dIpmcExtPimPortIfTxRegister",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfRxRegisterStop": {
+    "name": "dIpmcExtPimPortIfRxRegisterStop",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfTxRegisterStop": {
+    "name": "dIpmcExtPimPortIfTxRegisterStop",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfRxJoinPrune": {
+    "name": "dIpmcExtPimPortIfRxJoinPrune",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfTxJoinPrune": {
+    "name": "dIpmcExtPimPortIfTxJoinPrune",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfRxBootstrap": {
+    "name": "dIpmcExtPimPortIfRxBootstrap",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfTxBootstrap": {
+    "name": "dIpmcExtPimPortIfTxBootstrap",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfRxAssert": {
+    "name": "dIpmcExtPimPortIfRxAssert",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfTxAssert": {
+    "name": "dIpmcExtPimPortIfTxAssert",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfRxGraft": {
+    "name": "dIpmcExtPimPortIfRxGraft",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfTxGraft": {
+    "name": "dIpmcExtPimPortIfTxGraft",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfRxGraftAck": {
+    "name": "dIpmcExtPimPortIfRxGraftAck",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfTxGraftAck": {
+    "name": "dIpmcExtPimPortIfTxGraftAck",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfRxCRpAdv": {
+    "name": "dIpmcExtPimPortIfRxCRpAdv",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfTxCRpAdv": {
+    "name": "dIpmcExtPimPortIfTxCRpAdv",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfRxStateRefresh": {
+    "name": "dIpmcExtPimPortIfRxStateRefresh",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfTxStateRefresh": {
+    "name": "dIpmcExtPimPortIfTxStateRefresh",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfRxUnknown": {
+    "name": "dIpmcExtPimPortIfRxUnknown",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtPimPortIfTxUnknown": {
+    "name": "dIpmcExtPimPortIfTxUnknown",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtDvmrpPortIfStatTable": {
+    "name": "dIpmcExtDvmrpPortIfStatTable",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtDvmrpPortIfStatEntry": {
+    "name": "dIpmcExtDvmrpPortIfStatEntry",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtDvmrpPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpmcExtDvmrpPortIfIndex": {
+    "name": "dIpmcExtDvmrpPortIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpmcExtDvmrpPortIfRxProbe": {
+    "name": "dIpmcExtDvmrpPortIfRxProbe",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtDvmrpPortIfTxProbe": {
+    "name": "dIpmcExtDvmrpPortIfTxProbe",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtDvmrpPortIfRxReport": {
+    "name": "dIpmcExtDvmrpPortIfRxReport",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtDvmrpPortIfTxReport": {
+    "name": "dIpmcExtDvmrpPortIfTxReport",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtDvmrpPortIfRxPrune": {
+    "name": "dIpmcExtDvmrpPortIfRxPrune",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtDvmrpPortIfTxPrune": {
+    "name": "dIpmcExtDvmrpPortIfTxPrune",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtDvmrpPortIfRxGraft": {
+    "name": "dIpmcExtDvmrpPortIfRxGraft",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtDvmrpPortIfTxGraft": {
+    "name": "dIpmcExtDvmrpPortIfTxGraft",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtDvmrpPortIfRxGraftAck": {
+    "name": "dIpmcExtDvmrpPortIfRxGraftAck",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtDvmrpPortIfTxGraftAck": {
+    "name": "dIpmcExtDvmrpPortIfTxGraftAck",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtDvmrpPortIfRxUnknown": {
+    "name": "dIpmcExtDvmrpPortIfRxUnknown",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtDvmrpPortIfTxUnknown": {
+    "name": "dIpmcExtDvmrpPortIfTxUnknown",
+    "oid": "1.3.6.1.4.1.171.14.55.1.10.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpmcExtCompliances": {
+    "name": "dIpmcExtCompliances",
+    "oid": "1.3.6.1.4.1.171.14.55.2.1",
+    "class": "objectidentity"
+  },
+  "dIpmcExtCompliance": {
+    "name": "dIpmcExtCompliance",
+    "oid": "1.3.6.1.4.1.171.14.55.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dIpmcExtGeneralCtrlGroup",
+        "module": "DLINKSW-IPMCAST-EXT-MIB"
+      },
+      {
+        "object": "dIpmcExtBoundaryGroup",
+        "module": "DLINKSW-IPMCAST-EXT-MIB"
+      },
+      {
+        "object": "dIpmcExtMrouteGroup",
+        "module": "DLINKSW-IPMCAST-EXT-MIB"
+      },
+      {
+        "object": "dIpmcExtRpfGroup",
+        "module": "DLINKSW-IPMCAST-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpmcExtGroups": {
+    "name": "dIpmcExtGroups",
+    "oid": "1.3.6.1.4.1.171.14.55.2.2",
+    "class": "objectidentity"
+  },
+  "dIpmcExtClearStatisticsGroup": {
+    "name": "dIpmcExtClearStatisticsGroup",
+    "oid": "1.3.6.1.4.1.171.14.55.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtClearStatistics"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpmcExtGeneralCtrlGroup": {
+    "name": "dIpmcExtGeneralCtrlGroup",
+    "oid": "1.3.6.1.4.1.171.14.55.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtMcastRouteEnabled"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtIpv4McastTableLookupMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpmcExtBoundaryGroup": {
+    "name": "dIpmcExtBoundaryGroup",
+    "oid": "1.3.6.1.4.1.171.14.55.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtBoundaryRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpmcExtMrouteGroup": {
+    "name": "dIpmcExtMrouteGroup",
+    "oid": "1.3.6.1.4.1.171.14.55.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtStaticMrouteRpfType"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtStaticMrouteRpfAddr"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtStaticMrouteRpfIfIndex"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtStaticMrouteRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpmcExtCtrlPktCpuFilterGroup": {
+    "name": "dIpmcExtCtrlPktCpuFilterGroup",
+    "oid": "1.3.6.1.4.1.171.14.55.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtCtrlPktCpuFilterV4Proto"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtCtrlPktCpuFilterV6Proto"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpmcExtCtrlPktReplacePriGroup": {
+    "name": "dIpmcExtCtrlPktReplacePriGroup",
+    "oid": "1.3.6.1.4.1.171.14.55.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtCtrlPktRepDscp"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtCtrlPktRepPriority"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtCtrlPktRepPriRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpmcExtRpfGroup": {
+    "name": "dIpmcExtRpfGroup",
+    "oid": "1.3.6.1.4.1.171.14.55.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtRpfIfIndex"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtRpfNeighborAddr"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtRpfType"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtRpfMetricValid"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtRpfMetric"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpmcExtOutgoingPortsInfoGroup": {
+    "name": "dIpmcExtOutgoingPortsInfoGroup",
+    "oid": "1.3.6.1.4.1.171.14.55.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtGrpOutgoingPort"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpmcExtIgmpStatisticsGroup": {
+    "name": "dIpmcExtIgmpStatisticsGroup",
+    "oid": "1.3.6.1.4.1.171.14.55.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtIgmpPortIfV1RxReport"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtIgmpPortIfV1RxQuery"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtIgmpPortIfV1TxReport"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtIgmpPortIfV1TxQuery"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtIgmpPortIfV2RxReport"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtIgmpPortIfV2RxQuery"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtIgmpPortIfV2RxLeave"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtIgmpPortIfV2TxReport"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtIgmpPortIfV2TxQuery"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtIgmpPortIfV2TxLeave"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtIgmpPortIfV3RxReport"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtIgmpPortIfV3RxQuery"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtIgmpPortIfV3TxReport"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtIgmpPortIfV3TxQuery"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtIgmpPortIfRxUnknown"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtIgmpPortIfTxUnknown"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpmcExtPimStatisticsGroup": {
+    "name": "dIpmcExtPimStatisticsGroup",
+    "oid": "1.3.6.1.4.1.171.14.55.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfRxHello"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfTxHello"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfRxRegister"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfTxRegister"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfRxRegisterStop"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfTxRegisterStop"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfRxJoinPrune"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfTxJoinPrune"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfRxBootstrap"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfTxBootstrap"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfRxAssert"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfTxAssert"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfRxGraft"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfTxGraft"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfRxGraftAck"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfTxGraftAck"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfRxCRpAdv"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfTxCRpAdv"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfRxStateRefresh"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfTxStateRefresh"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfRxUnknown"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtPimPortIfTxUnknown"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpmcExtDvmrpStatisticsGroup": {
+    "name": "dIpmcExtDvmrpStatisticsGroup",
+    "oid": "1.3.6.1.4.1.171.14.55.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtDvmrpPortIfRxProbe"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtDvmrpPortIfTxProbe"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtDvmrpPortIfRxReport"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtDvmrpPortIfTxReport"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtDvmrpPortIfRxPrune"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtDvmrpPortIfTxPrune"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtDvmrpPortIfRxGraft"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtDvmrpPortIfTxGraft"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtDvmrpPortIfRxGraftAck"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtDvmrpPortIfTxGraftAck"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtDvmrpPortIfRxUnknown"
+      },
+      {
+        "module": "DLINKSW-IPMCAST-EXT-MIB",
+        "object": "dIpmcExtDvmrpPortIfTxUnknown"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-IPMCAST-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-IPMCAST-EXT-MIB"
+  }
+}

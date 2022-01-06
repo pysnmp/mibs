@@ -1,0 +1,2996 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfIntervalCount",
+      "PerfCurrentCount"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "transmission",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hdsl2ShdslMIB": {
+    "name": "hdsl2ShdslMIB",
+    "oid": "1.3.6.1.2.1.10.48",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-12-21 00:00",
+        "description": "addressed comment: defval missing, added region1 as def val as per RFC"
+      },
+      {
+        "revision": "2005-12-07 00:00",
+        "description": "This version, published as RFC 4319. The following changes have been made in this version: 1. Added a 3rd and 4th wire pair. 2. Modified all rates such that their rates are only constrained by an unsigned 32-bit value and not by what today's perceived technology limitations are. 3. Clarified that the rates from RFC 3276 include payload and any applicable framing and added objects for payload-only rates. 4. Added an object to indicate whether the tip and ring are reversed on a wire pair. 5. Added an object to display the activation state of a wire pair. 6. Added references as necessary for clarification. 7. Added display hints to textual conventions as necessary. 8. Updated conformance statements as necessary. 9. Some changes were due to IETF requirements and RFC generation tools."
+      },
+      {
+        "revision": "2002-05-09 00:00",
+        "description": "Initial version, published as RFC 3276."
+      }
+    ]
+  },
+  "hdsl2ShdslMibObjects": {
+    "name": "hdsl2ShdslMibObjects",
+    "oid": "1.3.6.1.2.1.10.48.1",
+    "class": "objectidentity"
+  },
+  "Hdsl2ShdslPerfCurrDayCount": {
+    "name": "Hdsl2ShdslPerfCurrDayCount",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Hdsl2Shdsl1DayIntervalCount": {
+    "name": "Hdsl2Shdsl1DayIntervalCount",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Hdsl2ShdslPerfTimeElapsed": {
+    "name": "Hdsl2ShdslPerfTimeElapsed",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86399
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Hdsl2ShdslPerfIntervalThreshold": {
+    "name": "Hdsl2ShdslPerfIntervalThreshold",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Hdsl2ShdslUnitId": {
+    "name": "Hdsl2ShdslUnitId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "xtuC": 1,
+          "xtuR": 2,
+          "xru1": 3,
+          "xru2": 4,
+          "xru3": 5,
+          "xru4": 6,
+          "xru5": 7,
+          "xru6": 8,
+          "xru7": 9,
+          "xru8": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hdsl2ShdslUnitSide": {
+    "name": "Hdsl2ShdslUnitSide",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "networkSide": 1,
+          "customerSide": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hdsl2ShdslWirePair": {
+    "name": "Hdsl2ShdslWirePair",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wirePair1": 1,
+          "wirePair2": 2,
+          "wirePair3": 3,
+          "wirePair4": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hdsl2ShdslTransmissionModeType": {
+    "name": "Hdsl2ShdslTransmissionModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "region1": 0,
+        "region2": 1
+      }
+    },
+    "status": "current"
+  },
+  "Hdsl2ShdslClockReferenceType": {
+    "name": "Hdsl2ShdslClockReferenceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "localClk": 1,
+          "networkClk": 2,
+          "dataOrNetworkClk": 3,
+          "dataClk": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfTable": {
+    "name": "hdsl2ShdslSpanConfTable",
+    "oid": "1.3.6.1.2.1.10.48.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfEntry": {
+    "name": "hdsl2ShdslSpanConfEntry",
+    "oid": "1.3.6.1.2.1.10.48.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfNumRepeaters": {
+    "name": "hdsl2ShdslSpanConfNumRepeaters",
+    "oid": "1.3.6.1.2.1.10.48.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "units": "repeaters",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfProfile": {
+    "name": "hdsl2ShdslSpanConfProfile",
+    "oid": "1.3.6.1.2.1.10.48.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfAlarmProfile": {
+    "name": "hdsl2ShdslSpanConfAlarmProfile",
+    "oid": "1.3.6.1.2.1.10.48.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hdsl2ShdslSpanStatusTable": {
+    "name": "hdsl2ShdslSpanStatusTable",
+    "oid": "1.3.6.1.2.1.10.48.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hdsl2ShdslSpanStatusEntry": {
+    "name": "hdsl2ShdslSpanStatusEntry",
+    "oid": "1.3.6.1.2.1.10.48.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslStatusNumAvailRepeaters": {
+    "name": "hdsl2ShdslStatusNumAvailRepeaters",
+    "oid": "1.3.6.1.2.1.10.48.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslStatusMaxAttainableLineRate": {
+    "name": "hdsl2ShdslStatusMaxAttainableLineRate",
+    "oid": "1.3.6.1.2.1.10.48.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslStatusActualLineRate": {
+    "name": "hdsl2ShdslStatusActualLineRate",
+    "oid": "1.3.6.1.2.1.10.48.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslStatusTransmissionModeCurrent": {
+    "name": "hdsl2ShdslStatusTransmissionModeCurrent",
+    "oid": "1.3.6.1.2.1.10.48.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2ShdslTransmissionModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslStatusMaxAttainablePayloadRate": {
+    "name": "hdsl2ShdslStatusMaxAttainablePayloadRate",
+    "oid": "1.3.6.1.2.1.10.48.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslStatusActualPayloadRate": {
+    "name": "hdsl2ShdslStatusActualPayloadRate",
+    "oid": "1.3.6.1.2.1.10.48.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslInventoryTable": {
+    "name": "hdsl2ShdslInventoryTable",
+    "oid": "1.3.6.1.2.1.10.48.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hdsl2ShdslInventoryEntry": {
+    "name": "hdsl2ShdslInventoryEntry",
+    "oid": "1.3.6.1.2.1.10.48.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslInvIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslInvIndex": {
+    "name": "hdsl2ShdslInvIndex",
+    "oid": "1.3.6.1.2.1.10.48.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2ShdslUnitId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hdsl2ShdslInvVendorID": {
+    "name": "hdsl2ShdslInvVendorID",
+    "oid": "1.3.6.1.2.1.10.48.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslInvVendorModelNumber": {
+    "name": "hdsl2ShdslInvVendorModelNumber",
+    "oid": "1.3.6.1.2.1.10.48.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslInvVendorSerialNumber": {
+    "name": "hdsl2ShdslInvVendorSerialNumber",
+    "oid": "1.3.6.1.2.1.10.48.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslInvVendorEOCSoftwareVersion": {
+    "name": "hdsl2ShdslInvVendorEOCSoftwareVersion",
+    "oid": "1.3.6.1.2.1.10.48.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslInvStandardVersion": {
+    "name": "hdsl2ShdslInvStandardVersion",
+    "oid": "1.3.6.1.2.1.10.48.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslInvVendorListNumber": {
+    "name": "hdsl2ShdslInvVendorListNumber",
+    "oid": "1.3.6.1.2.1.10.48.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslInvVendorIssueNumber": {
+    "name": "hdsl2ShdslInvVendorIssueNumber",
+    "oid": "1.3.6.1.2.1.10.48.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslInvVendorSoftwareVersion": {
+    "name": "hdsl2ShdslInvVendorSoftwareVersion",
+    "oid": "1.3.6.1.2.1.10.48.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslInvEquipmentCode": {
+    "name": "hdsl2ShdslInvEquipmentCode",
+    "oid": "1.3.6.1.2.1.10.48.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslInvVendorOther": {
+    "name": "hdsl2ShdslInvVendorOther",
+    "oid": "1.3.6.1.2.1.10.48.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslInvTransmissionModeCapability": {
+    "name": "hdsl2ShdslInvTransmissionModeCapability",
+    "oid": "1.3.6.1.2.1.10.48.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2ShdslTransmissionModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointConfTable": {
+    "name": "hdsl2ShdslEndpointConfTable",
+    "oid": "1.3.6.1.2.1.10.48.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointConfEntry": {
+    "name": "hdsl2ShdslEndpointConfEntry",
+    "oid": "1.3.6.1.2.1.10.48.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslInvIndex",
+        "implied": 0
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointSide",
+        "implied": 0
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointWirePair",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointSide": {
+    "name": "hdsl2ShdslEndpointSide",
+    "oid": "1.3.6.1.2.1.10.48.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2ShdslUnitSide",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointWirePair": {
+    "name": "hdsl2ShdslEndpointWirePair",
+    "oid": "1.3.6.1.2.1.10.48.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2ShdslWirePair",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointAlarmConfProfile": {
+    "name": "hdsl2ShdslEndpointAlarmConfProfile",
+    "oid": "1.3.6.1.2.1.10.48.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointCurrTable": {
+    "name": "hdsl2ShdslEndpointCurrTable",
+    "oid": "1.3.6.1.2.1.10.48.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointCurrEntry": {
+    "name": "hdsl2ShdslEndpointCurrEntry",
+    "oid": "1.3.6.1.2.1.10.48.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslInvIndex",
+        "implied": 0
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointSide",
+        "implied": 0
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointWirePair",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointCurrAtn": {
+    "name": "hdsl2ShdslEndpointCurrAtn",
+    "oid": "1.3.6.1.2.1.10.48.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -127,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointCurrSnrMgn": {
+    "name": "hdsl2ShdslEndpointCurrSnrMgn",
+    "oid": "1.3.6.1.2.1.10.48.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -127,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointCurrStatus": {
+    "name": "hdsl2ShdslEndpointCurrStatus",
+    "oid": "1.3.6.1.2.1.10.48.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "noDefect": 0,
+        "powerBackoff": 1,
+        "deviceFault": 2,
+        "dcContinuityFault": 3,
+        "snrMarginAlarm": 4,
+        "loopAttenuationAlarm": 5,
+        "loswFailureAlarm": 6,
+        "configInitFailure": 7,
+        "protocolInitFailure": 8,
+        "noNeighborPresent": 9,
+        "loopbackActive": 10
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointES": {
+    "name": "hdsl2ShdslEndpointES",
+    "oid": "1.3.6.1.2.1.10.48.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointSES": {
+    "name": "hdsl2ShdslEndpointSES",
+    "oid": "1.3.6.1.2.1.10.48.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointCRCanomalies": {
+    "name": "hdsl2ShdslEndpointCRCanomalies",
+    "oid": "1.3.6.1.2.1.10.48.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "detected CRC Anomalies",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointLOSWS": {
+    "name": "hdsl2ShdslEndpointLOSWS",
+    "oid": "1.3.6.1.2.1.10.48.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointUAS": {
+    "name": "hdsl2ShdslEndpointUAS",
+    "oid": "1.3.6.1.2.1.10.48.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointCurr15MinTimeElapsed": {
+    "name": "hdsl2ShdslEndpointCurr15MinTimeElapsed",
+    "oid": "1.3.6.1.2.1.10.48.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2ShdslPerfTimeElapsed",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointCurr15MinES": {
+    "name": "hdsl2ShdslEndpointCurr15MinES",
+    "oid": "1.3.6.1.2.1.10.48.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointCurr15MinSES": {
+    "name": "hdsl2ShdslEndpointCurr15MinSES",
+    "oid": "1.3.6.1.2.1.10.48.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointCurr15MinCRCanomalies": {
+    "name": "hdsl2ShdslEndpointCurr15MinCRCanomalies",
+    "oid": "1.3.6.1.2.1.10.48.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "detected CRC Anomalies",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointCurr15MinLOSWS": {
+    "name": "hdsl2ShdslEndpointCurr15MinLOSWS",
+    "oid": "1.3.6.1.2.1.10.48.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointCurr15MinUAS": {
+    "name": "hdsl2ShdslEndpointCurr15MinUAS",
+    "oid": "1.3.6.1.2.1.10.48.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointCurr1DayTimeElapsed": {
+    "name": "hdsl2ShdslEndpointCurr1DayTimeElapsed",
+    "oid": "1.3.6.1.2.1.10.48.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2ShdslPerfTimeElapsed",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointCurr1DayES": {
+    "name": "hdsl2ShdslEndpointCurr1DayES",
+    "oid": "1.3.6.1.2.1.10.48.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2ShdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointCurr1DaySES": {
+    "name": "hdsl2ShdslEndpointCurr1DaySES",
+    "oid": "1.3.6.1.2.1.10.48.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2ShdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointCurr1DayCRCanomalies": {
+    "name": "hdsl2ShdslEndpointCurr1DayCRCanomalies",
+    "oid": "1.3.6.1.2.1.10.48.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2ShdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "units": "detected CRC Anomalies",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointCurr1DayLOSWS": {
+    "name": "hdsl2ShdslEndpointCurr1DayLOSWS",
+    "oid": "1.3.6.1.2.1.10.48.1.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2ShdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointCurr1DayUAS": {
+    "name": "hdsl2ShdslEndpointCurr1DayUAS",
+    "oid": "1.3.6.1.2.1.10.48.1.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2ShdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointCurrTipRingReversal": {
+    "name": "hdsl2ShdslEndpointCurrTipRingReversal",
+    "oid": "1.3.6.1.2.1.10.48.1.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "reversed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointCurrActivationState": {
+    "name": "hdsl2ShdslEndpointCurrActivationState",
+    "oid": "1.3.6.1.2.1.10.48.1.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "preActivation": 1,
+          "activation": 2,
+          "data": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2Shdsl15MinIntervalTable": {
+    "name": "hdsl2Shdsl15MinIntervalTable",
+    "oid": "1.3.6.1.2.1.10.48.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hdsl2Shdsl15MinIntervalEntry": {
+    "name": "hdsl2Shdsl15MinIntervalEntry",
+    "oid": "1.3.6.1.2.1.10.48.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslInvIndex",
+        "implied": 0
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointSide",
+        "implied": 0
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointWirePair",
+        "implied": 0
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2Shdsl15MinIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2Shdsl15MinIntervalNumber": {
+    "name": "hdsl2Shdsl15MinIntervalNumber",
+    "oid": "1.3.6.1.2.1.10.48.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hdsl2Shdsl15MinIntervalES": {
+    "name": "hdsl2Shdsl15MinIntervalES",
+    "oid": "1.3.6.1.2.1.10.48.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2Shdsl15MinIntervalSES": {
+    "name": "hdsl2Shdsl15MinIntervalSES",
+    "oid": "1.3.6.1.2.1.10.48.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2Shdsl15MinIntervalCRCanomalies": {
+    "name": "hdsl2Shdsl15MinIntervalCRCanomalies",
+    "oid": "1.3.6.1.2.1.10.48.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "detected CRC Anomalies",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2Shdsl15MinIntervalLOSWS": {
+    "name": "hdsl2Shdsl15MinIntervalLOSWS",
+    "oid": "1.3.6.1.2.1.10.48.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2Shdsl15MinIntervalUAS": {
+    "name": "hdsl2Shdsl15MinIntervalUAS",
+    "oid": "1.3.6.1.2.1.10.48.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2Shdsl1DayIntervalTable": {
+    "name": "hdsl2Shdsl1DayIntervalTable",
+    "oid": "1.3.6.1.2.1.10.48.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hdsl2Shdsl1DayIntervalEntry": {
+    "name": "hdsl2Shdsl1DayIntervalEntry",
+    "oid": "1.3.6.1.2.1.10.48.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslInvIndex",
+        "implied": 0
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointSide",
+        "implied": 0
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointWirePair",
+        "implied": 0
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2Shdsl1DayIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2Shdsl1DayIntervalNumber": {
+    "name": "hdsl2Shdsl1DayIntervalNumber",
+    "oid": "1.3.6.1.2.1.10.48.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hdsl2Shdsl1DayIntervalMoniSecs": {
+    "name": "hdsl2Shdsl1DayIntervalMoniSecs",
+    "oid": "1.3.6.1.2.1.10.48.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2ShdslPerfTimeElapsed",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2Shdsl1DayIntervalES": {
+    "name": "hdsl2Shdsl1DayIntervalES",
+    "oid": "1.3.6.1.2.1.10.48.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2Shdsl1DayIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2Shdsl1DayIntervalSES": {
+    "name": "hdsl2Shdsl1DayIntervalSES",
+    "oid": "1.3.6.1.2.1.10.48.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2Shdsl1DayIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2Shdsl1DayIntervalCRCanomalies": {
+    "name": "hdsl2Shdsl1DayIntervalCRCanomalies",
+    "oid": "1.3.6.1.2.1.10.48.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2Shdsl1DayIntervalCount",
+      "class": "type"
+    },
+    "units": "detected CRC Anomalies",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2Shdsl1DayIntervalLOSWS": {
+    "name": "hdsl2Shdsl1DayIntervalLOSWS",
+    "oid": "1.3.6.1.2.1.10.48.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2Shdsl1DayIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2Shdsl1DayIntervalUAS": {
+    "name": "hdsl2Shdsl1DayIntervalUAS",
+    "oid": "1.3.6.1.2.1.10.48.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2Shdsl1DayIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointMaintTable": {
+    "name": "hdsl2ShdslEndpointMaintTable",
+    "oid": "1.3.6.1.2.1.10.48.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointMaintEntry": {
+    "name": "hdsl2ShdslEndpointMaintEntry",
+    "oid": "1.3.6.1.2.1.10.48.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslInvIndex",
+        "implied": 0
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointSide",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslMaintLoopbackConfig": {
+    "name": "hdsl2ShdslMaintLoopbackConfig",
+    "oid": "1.3.6.1.2.1.10.48.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noLoopback": 1,
+          "normalLoopback": 2,
+          "specialLoopback": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hdsl2ShdslMaintTipRingReversal": {
+    "name": "hdsl2ShdslMaintTipRingReversal",
+    "oid": "1.3.6.1.2.1.10.48.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "reversed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslMaintPowerBackOff": {
+    "name": "hdsl2ShdslMaintPowerBackOff",
+    "oid": "1.3.6.1.2.1.10.48.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "enhanced": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hdsl2ShdslMaintSoftRestart": {
+    "name": "hdsl2ShdslMaintSoftRestart",
+    "oid": "1.3.6.1.2.1.10.48.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "restart": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hdsl2ShdslUnitMaintTable": {
+    "name": "hdsl2ShdslUnitMaintTable",
+    "oid": "1.3.6.1.2.1.10.48.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hdsl2ShdslUnitMaintEntry": {
+    "name": "hdsl2ShdslUnitMaintEntry",
+    "oid": "1.3.6.1.2.1.10.48.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslInvIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslMaintLoopbackTimeout": {
+    "name": "hdsl2ShdslMaintLoopbackTimeout",
+    "oid": "1.3.6.1.2.1.10.48.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hdsl2ShdslMaintUnitPowerSource": {
+    "name": "hdsl2ShdslMaintUnitPowerSource",
+    "oid": "1.3.6.1.2.1.10.48.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "span": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfProfileTable": {
+    "name": "hdsl2ShdslSpanConfProfileTable",
+    "oid": "1.3.6.1.2.1.10.48.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfProfileEntry": {
+    "name": "hdsl2ShdslSpanConfProfileEntry",
+    "oid": "1.3.6.1.2.1.10.48.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslSpanConfProfileName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfProfileName": {
+    "name": "hdsl2ShdslSpanConfProfileName",
+    "oid": "1.3.6.1.2.1.10.48.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfWireInterface": {
+    "name": "hdsl2ShdslSpanConfWireInterface",
+    "oid": "1.3.6.1.2.1.10.48.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "twoWire": 1,
+          "fourWire": 2,
+          "sixWire": 3,
+          "eightWire": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "twoWire",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfMinLineRate": {
+    "name": "hdsl2ShdslSpanConfMinLineRate",
+    "oid": "1.3.6.1.2.1.10.48.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1552000,
+        "format": "decimal"
+      }
+    },
+    "units": "bps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfMaxLineRate": {
+    "name": "hdsl2ShdslSpanConfMaxLineRate",
+    "oid": "1.3.6.1.2.1.10.48.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1552000,
+        "format": "decimal"
+      }
+    },
+    "units": "bps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfPSD": {
+    "name": "hdsl2ShdslSpanConfPSD",
+    "oid": "1.3.6.1.2.1.10.48.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "symmetric": 1,
+          "asymmetric": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "symmetric",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfTransmissionMode": {
+    "name": "hdsl2ShdslSpanConfTransmissionMode",
+    "oid": "1.3.6.1.2.1.10.48.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2ShdslTransmissionModeType",
+      "class": "type"
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "region1": 0
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfRemoteEnabled": {
+    "name": "hdsl2ShdslSpanConfRemoteEnabled",
+    "oid": "1.3.6.1.2.1.10.48.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfPowerFeeding": {
+    "name": "hdsl2ShdslSpanConfPowerFeeding",
+    "oid": "1.3.6.1.2.1.10.48.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noPower": 1,
+          "powerFeed": 2,
+          "wettingCurrent": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noPower",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfCurrCondTargetMarginDown": {
+    "name": "hdsl2ShdslSpanConfCurrCondTargetMarginDown",
+    "oid": "1.3.6.1.2.1.10.48.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -10,
+            "max": 21
+          }
+        ]
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfWorstCaseTargetMarginDown": {
+    "name": "hdsl2ShdslSpanConfWorstCaseTargetMarginDown",
+    "oid": "1.3.6.1.2.1.10.48.1.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -10,
+            "max": 21
+          }
+        ]
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfCurrCondTargetMarginUp": {
+    "name": "hdsl2ShdslSpanConfCurrCondTargetMarginUp",
+    "oid": "1.3.6.1.2.1.10.48.1.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -10,
+            "max": 21
+          }
+        ]
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfWorstCaseTargetMarginUp": {
+    "name": "hdsl2ShdslSpanConfWorstCaseTargetMarginUp",
+    "oid": "1.3.6.1.2.1.10.48.1.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -10,
+            "max": 21
+          }
+        ]
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfUsedTargetMargins": {
+    "name": "hdsl2ShdslSpanConfUsedTargetMargins",
+    "oid": "1.3.6.1.2.1.10.48.1.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "currCondDown": 0,
+        "worstCaseDown": 1,
+        "currCondUp": 2,
+        "worstCaseUp": 3
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "currCondDown": 0
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfReferenceClock": {
+    "name": "hdsl2ShdslSpanConfReferenceClock",
+    "oid": "1.3.6.1.2.1.10.48.1.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2ShdslClockReferenceType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "localClk",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfLineProbeEnable": {
+    "name": "hdsl2ShdslSpanConfLineProbeEnable",
+    "oid": "1.3.6.1.2.1.10.48.1.10.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfProfileRowStatus": {
+    "name": "hdsl2ShdslSpanConfProfileRowStatus",
+    "oid": "1.3.6.1.2.1.10.48.1.10.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointAlarmConfProfileTable": {
+    "name": "hdsl2ShdslEndpointAlarmConfProfileTable",
+    "oid": "1.3.6.1.2.1.10.48.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointAlarmConfProfileEntry": {
+    "name": "hdsl2ShdslEndpointAlarmConfProfileEntry",
+    "oid": "1.3.6.1.2.1.10.48.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointAlarmConfProfileName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointAlarmConfProfileName": {
+    "name": "hdsl2ShdslEndpointAlarmConfProfileName",
+    "oid": "1.3.6.1.2.1.10.48.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointThreshLoopAttenuation": {
+    "name": "hdsl2ShdslEndpointThreshLoopAttenuation",
+    "oid": "1.3.6.1.2.1.10.48.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -127,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointThreshSNRMargin": {
+    "name": "hdsl2ShdslEndpointThreshSNRMargin",
+    "oid": "1.3.6.1.2.1.10.48.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -127,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointThreshES": {
+    "name": "hdsl2ShdslEndpointThreshES",
+    "oid": "1.3.6.1.2.1.10.48.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2ShdslPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointThreshSES": {
+    "name": "hdsl2ShdslEndpointThreshSES",
+    "oid": "1.3.6.1.2.1.10.48.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2ShdslPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointThreshCRCanomalies": {
+    "name": "hdsl2ShdslEndpointThreshCRCanomalies",
+    "oid": "1.3.6.1.2.1.10.48.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "detected CRC Anomalies",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointThreshLOSWS": {
+    "name": "hdsl2ShdslEndpointThreshLOSWS",
+    "oid": "1.3.6.1.2.1.10.48.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2ShdslPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointThreshUAS": {
+    "name": "hdsl2ShdslEndpointThreshUAS",
+    "oid": "1.3.6.1.2.1.10.48.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hdsl2ShdslPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointAlarmConfProfileRowStatus": {
+    "name": "hdsl2ShdslEndpointAlarmConfProfileRowStatus",
+    "oid": "1.3.6.1.2.1.10.48.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hdsl2ShdslNotifications": {
+    "name": "hdsl2ShdslNotifications",
+    "oid": "1.3.6.1.2.1.10.48.0",
+    "class": "objectidentity"
+  },
+  "hdsl2ShdslLoopAttenCrossing": {
+    "name": "hdsl2ShdslLoopAttenCrossing",
+    "oid": "1.3.6.1.2.1.10.48.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurrAtn"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointThreshLoopAttenuation"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslSNRMarginCrossing": {
+    "name": "hdsl2ShdslSNRMarginCrossing",
+    "oid": "1.3.6.1.2.1.10.48.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurrSnrMgn"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointThreshSNRMargin"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslPerfESThresh": {
+    "name": "hdsl2ShdslPerfESThresh",
+    "oid": "1.3.6.1.2.1.10.48.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurr15MinES"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointThreshES"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslPerfSESThresh": {
+    "name": "hdsl2ShdslPerfSESThresh",
+    "oid": "1.3.6.1.2.1.10.48.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurr15MinSES"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointThreshSES"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslPerfCRCanomaliesThresh": {
+    "name": "hdsl2ShdslPerfCRCanomaliesThresh",
+    "oid": "1.3.6.1.2.1.10.48.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurr15MinCRCanomalies"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointThreshCRCanomalies"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslPerfLOSWSThresh": {
+    "name": "hdsl2ShdslPerfLOSWSThresh",
+    "oid": "1.3.6.1.2.1.10.48.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurr15MinLOSWS"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointThreshLOSWS"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslPerfUASThresh": {
+    "name": "hdsl2ShdslPerfUASThresh",
+    "oid": "1.3.6.1.2.1.10.48.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurr15MinUAS"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointThreshUAS"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslSpanInvalidNumRepeaters": {
+    "name": "hdsl2ShdslSpanInvalidNumRepeaters",
+    "oid": "1.3.6.1.2.1.10.48.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslSpanConfNumRepeaters"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslLoopbackFailure": {
+    "name": "hdsl2ShdslLoopbackFailure",
+    "oid": "1.3.6.1.2.1.10.48.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslMaintLoopbackConfig"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslpowerBackoff": {
+    "name": "hdsl2ShdslpowerBackoff",
+    "oid": "1.3.6.1.2.1.10.48.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurrStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdsldeviceFault": {
+    "name": "hdsl2ShdsldeviceFault",
+    "oid": "1.3.6.1.2.1.10.48.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurrStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdsldcContinuityFault": {
+    "name": "hdsl2ShdsldcContinuityFault",
+    "oid": "1.3.6.1.2.1.10.48.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurrStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslconfigInitFailure": {
+    "name": "hdsl2ShdslconfigInitFailure",
+    "oid": "1.3.6.1.2.1.10.48.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurrStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslprotocolInitFailure": {
+    "name": "hdsl2ShdslprotocolInitFailure",
+    "oid": "1.3.6.1.2.1.10.48.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurrStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslnoNeighborPresent": {
+    "name": "hdsl2ShdslnoNeighborPresent",
+    "oid": "1.3.6.1.2.1.10.48.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurrStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslLocalPowerLoss": {
+    "name": "hdsl2ShdslLocalPowerLoss",
+    "oid": "1.3.6.1.2.1.10.48.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslInvVendorID"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslConformance": {
+    "name": "hdsl2ShdslConformance",
+    "oid": "1.3.6.1.2.1.10.48.3",
+    "class": "objectidentity"
+  },
+  "hdsl2ShdslGroups": {
+    "name": "hdsl2ShdslGroups",
+    "oid": "1.3.6.1.2.1.10.48.3.1",
+    "class": "objectidentity"
+  },
+  "hdsl2ShdslCompliances": {
+    "name": "hdsl2ShdslCompliances",
+    "oid": "1.3.6.1.2.1.10.48.3.2",
+    "class": "objectidentity"
+  },
+  "hdsl2ShdslLineMibCompliance": {
+    "name": "hdsl2ShdslLineMibCompliance",
+    "oid": "1.3.6.1.2.1.10.48.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hdsl2ShdslSpanConfGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2ShdslSpanStatusGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2ShdslInventoryGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2ShdslEndpointConfGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2ShdslEndpointCurrGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2Shdsl15MinIntervalGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2Shdsl1DayIntervalGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2ShdslMaintenanceGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2ShdslEndpointAlarmConfGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2ShdslNotificationGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2ShdslInventoryShdslGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2ShdslSpanShdslStatusGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2ShdslSpanConfProfileGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hdsl2GshdslbisLineMibCompliance": {
+    "name": "hdsl2GshdslbisLineMibCompliance",
+    "oid": "1.3.6.1.2.1.10.48.3.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hdsl2ShdslSpanConfGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2ShdslSpanStatusGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2ShdslInventoryGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2ShdslEndpointConfGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2ShdslEndpointCurrGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2Shdsl15MinIntervalGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2Shdsl1DayIntervalGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2ShdslMaintenanceGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2ShdslEndpointAlarmConfGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2ShdslNotificationGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2ShdslInventoryShdslGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2ShdslSpanShdslStatusGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2ShdslSpanConfProfileGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2ShdslWirePairGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      },
+      {
+        "object": "hdsl2ShdslPayloadRateGroup",
+        "module": "HDSL2-SHDSL-LINE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfGroup": {
+    "name": "hdsl2ShdslSpanConfGroup",
+    "oid": "1.3.6.1.2.1.10.48.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslSpanConfNumRepeaters"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslSpanConfProfile"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslSpanConfAlarmProfile"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslSpanStatusGroup": {
+    "name": "hdsl2ShdslSpanStatusGroup",
+    "oid": "1.3.6.1.2.1.10.48.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslStatusNumAvailRepeaters"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslInventoryShdslGroup": {
+    "name": "hdsl2ShdslInventoryShdslGroup",
+    "oid": "1.3.6.1.2.1.10.48.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslInvTransmissionModeCapability"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslSpanShdslStatusGroup": {
+    "name": "hdsl2ShdslSpanShdslStatusGroup",
+    "oid": "1.3.6.1.2.1.10.48.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslStatusMaxAttainableLineRate"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslStatusActualLineRate"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslStatusTransmissionModeCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslInventoryGroup": {
+    "name": "hdsl2ShdslInventoryGroup",
+    "oid": "1.3.6.1.2.1.10.48.3.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslInvVendorID"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslInvVendorModelNumber"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslInvVendorSerialNumber"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslInvVendorEOCSoftwareVersion"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslInvStandardVersion"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslInvVendorListNumber"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslInvVendorIssueNumber"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslInvVendorSoftwareVersion"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslInvEquipmentCode"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslInvVendorOther"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointConfGroup": {
+    "name": "hdsl2ShdslEndpointConfGroup",
+    "oid": "1.3.6.1.2.1.10.48.3.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurrAtn"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointCurrGroup": {
+    "name": "hdsl2ShdslEndpointCurrGroup",
+    "oid": "1.3.6.1.2.1.10.48.3.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurrAtn"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurrSnrMgn"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurrStatus"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointES"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointSES"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCRCanomalies"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointLOSWS"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointUAS"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurr15MinTimeElapsed"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurr15MinES"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurr15MinSES"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurr15MinCRCanomalies"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurr15MinLOSWS"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurr15MinUAS"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurr1DayTimeElapsed"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurr1DayES"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurr1DaySES"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurr1DayCRCanomalies"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurr1DayLOSWS"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurr1DayUAS"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2Shdsl15MinIntervalGroup": {
+    "name": "hdsl2Shdsl15MinIntervalGroup",
+    "oid": "1.3.6.1.2.1.10.48.3.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2Shdsl15MinIntervalES"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2Shdsl15MinIntervalSES"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2Shdsl15MinIntervalCRCanomalies"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2Shdsl15MinIntervalLOSWS"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2Shdsl15MinIntervalUAS"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2Shdsl1DayIntervalGroup": {
+    "name": "hdsl2Shdsl1DayIntervalGroup",
+    "oid": "1.3.6.1.2.1.10.48.3.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2Shdsl1DayIntervalMoniSecs"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2Shdsl1DayIntervalES"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2Shdsl1DayIntervalSES"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2Shdsl1DayIntervalCRCanomalies"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2Shdsl1DayIntervalLOSWS"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2Shdsl1DayIntervalUAS"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslMaintenanceGroup": {
+    "name": "hdsl2ShdslMaintenanceGroup",
+    "oid": "1.3.6.1.2.1.10.48.3.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslMaintLoopbackConfig"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslMaintTipRingReversal"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslMaintPowerBackOff"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslMaintSoftRestart"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslMaintLoopbackTimeout"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslMaintUnitPowerSource"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslEndpointAlarmConfGroup": {
+    "name": "hdsl2ShdslEndpointAlarmConfGroup",
+    "oid": "1.3.6.1.2.1.10.48.3.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointAlarmConfProfile"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointThreshLoopAttenuation"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointThreshSNRMargin"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointThreshES"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointThreshSES"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointThreshCRCanomalies"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointThreshLOSWS"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointThreshUAS"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointAlarmConfProfileRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslNotificationGroup": {
+    "name": "hdsl2ShdslNotificationGroup",
+    "oid": "1.3.6.1.2.1.10.48.3.1.12",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslLoopAttenCrossing"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslSNRMarginCrossing"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslPerfESThresh"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslPerfSESThresh"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslPerfCRCanomaliesThresh"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslPerfLOSWSThresh"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslPerfUASThresh"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslSpanInvalidNumRepeaters"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslLoopbackFailure"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslpowerBackoff"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdsldeviceFault"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdsldcContinuityFault"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslconfigInitFailure"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslprotocolInitFailure"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslnoNeighborPresent"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslLocalPowerLoss"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslSpanConfProfileGroup": {
+    "name": "hdsl2ShdslSpanConfProfileGroup",
+    "oid": "1.3.6.1.2.1.10.48.3.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslSpanConfWireInterface"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslSpanConfMinLineRate"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslSpanConfMaxLineRate"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslSpanConfPSD"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslSpanConfTransmissionMode"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslSpanConfRemoteEnabled"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslSpanConfPowerFeeding"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslSpanConfCurrCondTargetMarginDown"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslSpanConfWorstCaseTargetMarginDown"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslSpanConfCurrCondTargetMarginUp"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslSpanConfWorstCaseTargetMarginUp"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslSpanConfUsedTargetMargins"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslSpanConfReferenceClock"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslSpanConfLineProbeEnable"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslSpanConfProfileRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslWirePairGroup": {
+    "name": "hdsl2ShdslWirePairGroup",
+    "oid": "1.3.6.1.2.1.10.48.3.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurrTipRingReversal"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslEndpointCurrActivationState"
+      }
+    ],
+    "status": "current"
+  },
+  "hdsl2ShdslPayloadRateGroup": {
+    "name": "hdsl2ShdslPayloadRateGroup",
+    "oid": "1.3.6.1.2.1.10.48.3.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslStatusMaxAttainablePayloadRate"
+      },
+      {
+        "module": "HDSL2-SHDSL-LINE-MIB",
+        "object": "hdsl2ShdslStatusActualPayloadRate"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/HDSL2-SHDSL-LINE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HDSL2-SHDSL-LINE-MIB"
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "imports": {
+    "class": "imports",
+    "PRVT-SWITCH-MIB": [
+      "switch",
+      "configL2IfaceEnable"
+    ],
+    "Q-BRIDGE-MIB": [
+      "dot1qTpFdbStatus",
+      "dot1qVlanStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "prvtPortSecurityMib": {
+    "name": "prvtPortSecurityMib",
+    "oid": "1.3.6.1.4.1.738.1.5.109",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-06-18 00:00",
+        "description": "Added prvtDuplicatedMACAddressAlarm."
+      },
+      {
+        "revision": "2005-02-16 00:00",
+        "description": "Fixed spelling errors and changed the contact info."
+      },
+      {
+        "revision": "2004-05-10 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "prvtPortSECNotifications": {
+    "name": "prvtPortSECNotifications",
+    "oid": "1.3.6.1.4.1.738.1.5.109.0",
+    "class": "objectidentity"
+  },
+  "prvtPortSECObjects": {
+    "name": "prvtPortSECObjects",
+    "oid": "1.3.6.1.4.1.738.1.5.109.1",
+    "class": "objectidentity"
+  },
+  "prvtPortSECConformance": {
+    "name": "prvtPortSECConformance",
+    "oid": "1.3.6.1.4.1.738.1.5.109.2",
+    "class": "objectidentity"
+  },
+  "prvtPortSECViolation": {
+    "name": "prvtPortSECViolation",
+    "oid": "1.3.6.1.4.1.738.1.5.109.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanStatus"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qTpFdbStatus"
+      },
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "configL2IfaceEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtDuplicatedMACAddressAlarm": {
+    "name": "prvtDuplicatedMACAddressAlarm",
+    "oid": "1.3.6.1.4.1.738.1.5.109.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanStatus"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qTpFdbStatus"
+      },
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "configL2IfaceEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtPortSECMIBGroups": {
+    "name": "prvtPortSECMIBGroups",
+    "oid": "1.3.6.1.4.1.738.1.5.109.2.2",
+    "class": "objectidentity"
+  },
+  "prvtPortSECNotificationGroup": {
+    "name": "prvtPortSECNotificationGroup",
+    "oid": "1.3.6.1.4.1.738.1.5.109.2.2.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "PRVT-PORT-SECURITY-MIB",
+        "object": "prvtPortSECViolation"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-PORT-SECURITY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-PORT-SECURITY-MIB"
+  }
+}

@@ -1,0 +1,3458 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-FLOW-MONITOR-TC-MIB": [
+      "FlowMetricValue"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoMediatraceMIB": {
+    "name": "ciscoMediatraceMIB",
+    "oid": "1.3.6.1.4.1.9.9.800",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-08-23 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "CiscoNTPTimeStamp": {
+    "name": "CiscoNTPTimeStamp",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "4d.4d",
+    "status": "current"
+  },
+  "CiscoMediatraceSupportProtocol": {
+    "name": "CiscoMediatraceSupportProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcp": 6,
+          "udp": 17
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoMediatraceDiscoveryProtocol": {
+    "name": "CiscoMediatraceDiscoveryProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rsvp": 46
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoMediatraceMIBNotifs": {
+    "name": "ciscoMediatraceMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.800.0",
+    "class": "objectidentity"
+  },
+  "ciscoMediatraceMIBObjects": {
+    "name": "ciscoMediatraceMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.800.1",
+    "class": "objectidentity"
+  },
+  "ciscoMediatraceMIBConform": {
+    "name": "ciscoMediatraceMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.800.2",
+    "class": "objectidentity"
+  },
+  "cMTCtrl": {
+    "name": "cMTCtrl",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1",
+    "class": "objectidentity"
+  },
+  "cMTStats": {
+    "name": "cMTStats",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2",
+    "class": "objectidentity"
+  },
+  "cMTInitiatorEnable": {
+    "name": "cMTInitiatorEnable",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMTInitiatorSourceInterface": {
+    "name": "cMTInitiatorSourceInterface",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMTInitiatorSourceAddressType": {
+    "name": "cMTInitiatorSourceAddressType",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMTInitiatorSourceAddress": {
+    "name": "cMTInitiatorSourceAddress",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMTInitiatorMaxSessions": {
+    "name": "cMTInitiatorMaxSessions",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMTInitiatorSoftwareVersionMajor": {
+    "name": "cMTInitiatorSoftwareVersionMajor",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTInitiatorSoftwareVersionMinor": {
+    "name": "cMTInitiatorSoftwareVersionMinor",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTInitiatorProtocolVersionMajor": {
+    "name": "cMTInitiatorProtocolVersionMajor",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTInitiatorProtocolVersionMinor": {
+    "name": "cMTInitiatorProtocolVersionMinor",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTInitiatorConfiguredSessions": {
+    "name": "cMTInitiatorConfiguredSessions",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTInitiatorPendingSessions": {
+    "name": "cMTInitiatorPendingSessions",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTInitiatorInactiveSessions": {
+    "name": "cMTInitiatorInactiveSessions",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTInitiatorActiveSessions": {
+    "name": "cMTInitiatorActiveSessions",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTResponderEnable": {
+    "name": "cMTResponderEnable",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMTResponderMaxSessions": {
+    "name": "cMTResponderMaxSessions",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMTResponderActiveSessions": {
+    "name": "cMTResponderActiveSessions",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTFlowSpecifierTable": {
+    "name": "cMTFlowSpecifierTable",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTFlowSpecifierEntry": {
+    "name": "cMTFlowSpecifierEntry",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTFlowSpecifierName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMTFlowSpecifierName": {
+    "name": "cMTFlowSpecifierName",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTFlowSpecifierRowStatus": {
+    "name": "cMTFlowSpecifierRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTFlowSpecifierMetadataGlobalId": {
+    "name": "cMTFlowSpecifierMetadataGlobalId",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTFlowSpecifierDestAddrType": {
+    "name": "cMTFlowSpecifierDestAddrType",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTFlowSpecifierDestAddr": {
+    "name": "cMTFlowSpecifierDestAddr",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTFlowSpecifierDestPort": {
+    "name": "cMTFlowSpecifierDestPort",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTFlowSpecifierSourceAddrType": {
+    "name": "cMTFlowSpecifierSourceAddrType",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTFlowSpecifierSourceAddr": {
+    "name": "cMTFlowSpecifierSourceAddr",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.18.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTFlowSpecifierSourcePort": {
+    "name": "cMTFlowSpecifierSourcePort",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.18.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTFlowSpecifierIpProtocol": {
+    "name": "cMTFlowSpecifierIpProtocol",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.18.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMediatraceSupportProtocol",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "udp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTPathSpecifierTable": {
+    "name": "cMTPathSpecifierTable",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTPathSpecifierEntry": {
+    "name": "cMTPathSpecifierEntry",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathSpecifierName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMTPathSpecifierName": {
+    "name": "cMTPathSpecifierName",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTPathSpecifierRowStatus": {
+    "name": "cMTPathSpecifierRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTPathSpecifierMetadataGlobalId": {
+    "name": "cMTPathSpecifierMetadataGlobalId",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTPathSpecifierDestAddrType": {
+    "name": "cMTPathSpecifierDestAddrType",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTPathSpecifierDestAddr": {
+    "name": "cMTPathSpecifierDestAddr",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTPathSpecifierDestPort": {
+    "name": "cMTPathSpecifierDestPort",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.19.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTPathSpecifierSourceAddrType": {
+    "name": "cMTPathSpecifierSourceAddrType",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.19.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTPathSpecifierSourceAddr": {
+    "name": "cMTPathSpecifierSourceAddr",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.19.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTPathSpecifierSourcePort": {
+    "name": "cMTPathSpecifierSourcePort",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.19.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTPathSpecifierProtocolForDiscovery": {
+    "name": "cMTPathSpecifierProtocolForDiscovery",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.19.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMediatraceDiscoveryProtocol",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "rsvp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTPathSpecifierGatewayAddrType": {
+    "name": "cMTPathSpecifierGatewayAddrType",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.19.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTPathSpecifierGatewayAddr": {
+    "name": "cMTPathSpecifierGatewayAddr",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.19.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTPathSpecifierGatewayVlanId": {
+    "name": "cMTPathSpecifierGatewayVlanId",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.19.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTPathSpecifierIpProtocol": {
+    "name": "cMTPathSpecifierIpProtocol",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.19.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMediatraceSupportProtocol",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "udp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTSessionParamsTable": {
+    "name": "cMTSessionParamsTable",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTSessionParamsEntry": {
+    "name": "cMTSessionParamsEntry",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionParamsName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMTSessionParamsName": {
+    "name": "cMTSessionParamsName",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTSessionParamsRowStatus": {
+    "name": "cMTSessionParamsRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTSessionParamsResponseTimeout": {
+    "name": "cMTSessionParamsResponseTimeout",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTSessionParamsFrequency": {
+    "name": "cMTSessionParamsFrequency",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTSessionParamsInactivityTimeout": {
+    "name": "cMTSessionParamsInactivityTimeout",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10800
+          }
+        ]
+      }
+    },
+    "units": "sconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTSessionParamsHistoryBuckets": {
+    "name": "cMTSessionParamsHistoryBuckets",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "units": "buckets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTSessionParamsRouteChangeReactiontime": {
+    "name": "cMTSessionParamsRouteChangeReactiontime",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.20.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTMediaMonitorProfileTable": {
+    "name": "cMTMediaMonitorProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTMediaMonitorProfileEntry": {
+    "name": "cMTMediaMonitorProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTMediaMonitorProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMTMediaMonitorProfileName": {
+    "name": "cMTMediaMonitorProfileName",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTMediaMonitorProfileRowStatus": {
+    "name": "cMTMediaMonitorProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTMediaMonitorProfileMetric": {
+    "name": "cMTMediaMonitorProfileMetric",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rtp": 1,
+          "tcp": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTMediaMonitorProfileInterval": {
+    "name": "cMTMediaMonitorProfileInterval",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTMediaMonitorProfileRtpMaxDropout": {
+    "name": "cMTMediaMonitorProfileRtpMaxDropout",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTMediaMonitorProfileRtpMaxReorder": {
+    "name": "cMTMediaMonitorProfileRtpMaxReorder",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTMediaMonitorProfileRtpMinimalSequential": {
+    "name": "cMTMediaMonitorProfileRtpMinimalSequential",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTSystemProfileTable": {
+    "name": "cMTSystemProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTSystemProfileEntry": {
+    "name": "cMTSystemProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSystemProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMTSystemProfileName": {
+    "name": "cMTSystemProfileName",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTSystemProfileRowStatus": {
+    "name": "cMTSystemProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTSystemProfileMetric": {
+    "name": "cMTSystemProfileMetric",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interface": 1,
+          "cpu": 2,
+          "memory": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTSessionTable": {
+    "name": "cMTSessionTable",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTSessionEntry": {
+    "name": "cMTSessionEntry",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMTSessionNumber": {
+    "name": "cMTSessionNumber",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTSessionRowStatus": {
+    "name": "cMTSessionRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTSessionPathSpecifierName": {
+    "name": "cMTSessionPathSpecifierName",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTSessionParamName": {
+    "name": "cMTSessionParamName",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.23.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTSessionProfileName": {
+    "name": "cMTSessionProfileName",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.23.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTSessionFlowSpecifierName": {
+    "name": "cMTSessionFlowSpecifierName",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.23.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTSessionTraceRouteEnabled": {
+    "name": "cMTSessionTraceRouteEnabled",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.23.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTScheduleTable": {
+    "name": "cMTScheduleTable",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTScheduleEntry": {
+    "name": "cMTScheduleEntry",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMTScheduleRowStatus": {
+    "name": "cMTScheduleRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTScheduleStartTime": {
+    "name": "cMTScheduleStartTime",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTScheduleLife": {
+    "name": "cMTScheduleLife",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.24.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3600,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTScheduleEntryAgeout": {
+    "name": "cMTScheduleEntryAgeout",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.24.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2073600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3600,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTScheduleRecurring": {
+    "name": "cMTScheduleRecurring",
+    "oid": "1.3.6.1.4.1.9.9.800.1.1.24.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMTPathTable": {
+    "name": "cMTPathTable",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTPathEntry": {
+    "name": "cMTPathEntry",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionLifeNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTBucketNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathHopNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMTSessionLifeNumber": {
+    "name": "cMTSessionLifeNumber",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTBucketNumber": {
+    "name": "cMTBucketNumber",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTPathHopNumber": {
+    "name": "cMTPathHopNumber",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTPathHopAddrType": {
+    "name": "cMTPathHopAddrType",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTPathHopAddr": {
+    "name": "cMTPathHopAddr",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTPathHopType": {
+    "name": "cMTPathHopType",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mediatrace": 1,
+          "traceroute": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTPathHopAlternate1AddrType": {
+    "name": "cMTPathHopAlternate1AddrType",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTPathHopAlternate1Addr": {
+    "name": "cMTPathHopAlternate1Addr",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTPathHopAlternate2AddrType": {
+    "name": "cMTPathHopAlternate2AddrType",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTPathHopAlternate2Addr": {
+    "name": "cMTPathHopAlternate2Addr",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTPathHopAlternate3AddrType": {
+    "name": "cMTPathHopAlternate3AddrType",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTPathHopAlternate3Addr": {
+    "name": "cMTPathHopAlternate3Addr",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTHopStatsTable": {
+    "name": "cMTHopStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTHopStatsEntry": {
+    "name": "cMTHopStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionLifeNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTBucketNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTHopStatsAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTHopStatsAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMTHopStatsMaskBitmaps": {
+    "name": "cMTHopStatsMaskBitmaps",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "mediatraceTtlUnsupported": 0,
+        "mediatraceTtlUncollected": 1,
+        "collectionStatsUnsupported": 2,
+        "collectionStatsUncollected": 3,
+        "ingressInterfaceUnsupported": 4,
+        "ingressInterfaceUncollected": 5,
+        "egressInterfaceUnsupported": 6,
+        "egressInterfaceUncollected": 7
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTHopStatsAddrType": {
+    "name": "cMTHopStatsAddrType",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTHopStatsAddr": {
+    "name": "cMTHopStatsAddr",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTHopStatsName": {
+    "name": "cMTHopStatsName",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTHopStatsMediatraceTtl": {
+    "name": "cMTHopStatsMediatraceTtl",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTHopStatsCollectionStatus": {
+    "name": "cMTHopStatsCollectionStatus",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "notSuccess": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTHopStatsIngressInterface": {
+    "name": "cMTHopStatsIngressInterface",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTHopStatsEgressInterface": {
+    "name": "cMTHopStatsEgressInterface",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTTraceRouteTable": {
+    "name": "cMTTraceRouteTable",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTTraceRouteEntry": {
+    "name": "cMTTraceRouteEntry",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionLifeNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTBucketNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTHopStatsAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTHopStatsAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMTTraceRouteHopNumber": {
+    "name": "cMTTraceRouteHopNumber",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTTraceRouteHopRtt": {
+    "name": "cMTTraceRouteHopRtt",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTSessionStatusTable": {
+    "name": "cMTSessionStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTSessionStatusEntry": {
+    "name": "cMTSessionStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMTSessionStatusBitmaps": {
+    "name": "cMTSessionStatusBitmaps",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "globalSessionIdUusupport": 0,
+        "globalSessionIdUncollected": 1,
+        "operationStateUusupport": 2,
+        "operationStateUncollected": 3,
+        "operationTimeToLiveUusupport": 4,
+        "operationTimeToLiveUncollected": 5
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTSessionStatusGlobalSessionId": {
+    "name": "cMTSessionStatusGlobalSessionId",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTSessionStatusOperationState": {
+    "name": "cMTSessionStatusOperationState",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pending": 1,
+          "active": 2,
+          "inactive": 3,
+          "sleep": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTSessionStatusOperationTimeToLive": {
+    "name": "cMTSessionStatusOperationTimeToLive",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTSessionRequestStatsTable": {
+    "name": "cMTSessionRequestStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTSessionRequestStatsEntry": {
+    "name": "cMTSessionRequestStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionLifeNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTBucketNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMTSessionRequestStatsBitmaps": {
+    "name": "cMTSessionRequestStatsBitmaps",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "requestTimestampUnsupport": 0,
+        "requestTimestampUncollected": 1,
+        "requestStatusUnsupport": 2,
+        "requestStatusUncollected": 3,
+        "tracerouteStatusUnsupport": 4,
+        "tracerouteStatusUncollected": 5,
+        "routeIndexUnsupport": 6,
+        "routeIndexUncollected": 7,
+        "numberOfMediatraceHopsUnsupport": 8,
+        "numberOfMediatraceHopsUncollected": 9,
+        "numberOfNonMediatraceHopsUnsupport": 10,
+        "numberOfNonMediatraceHopsUncollected": 11,
+        "numberOfValidHopsUnsupport": 12,
+        "numberOfValidHopsUncollected": 13,
+        "numberOfErrorHopsUnsupport": 14,
+        "numberOfErrorHopsUncollected": 15,
+        "numberOfNoDataRecordHopsUnsupport": 16,
+        "numberOfNoDataRecordHopsUncollected": 17,
+        "metaGlobalIdUnsupport": 18,
+        "metaGlobalIdUncollected": 19,
+        "metaMultiPartySessionIdUnsupport": 20,
+        "metaMultiPartySessionIdUncollected": 21,
+        "metaAppNameUnsupport": 22,
+        "metaAppNameUncollected": 23
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTSessionRequestStatsRequestTimestamp": {
+    "name": "cMTSessionRequestStatsRequestTimestamp",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTSessionRequestStatsRequestStatus": {
+    "name": "cMTSessionRequestStatsRequestStatus",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "completed": 1,
+          "notCompleted": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTSessionRequestStatsTracerouteStatus": {
+    "name": "cMTSessionRequestStatsTracerouteStatus",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "completed": 1,
+          "notCompleted": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTSessionRequestStatsRouteIndex": {
+    "name": "cMTSessionRequestStatsRouteIndex",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTSessionRequestStatsNumberOfMediatraceHops": {
+    "name": "cMTSessionRequestStatsNumberOfMediatraceHops",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTSessionRequestStatsNumberOfNonMediatraceHops": {
+    "name": "cMTSessionRequestStatsNumberOfNonMediatraceHops",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTSessionRequestStatsNumberOfValidHops": {
+    "name": "cMTSessionRequestStatsNumberOfValidHops",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTSessionRequestStatsNumberOfErrorHops": {
+    "name": "cMTSessionRequestStatsNumberOfErrorHops",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTSessionRequestStatsNumberOfNoDataRecordHops": {
+    "name": "cMTSessionRequestStatsNumberOfNoDataRecordHops",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTSessionRequestStatsMDGlobalId": {
+    "name": "cMTSessionRequestStatsMDGlobalId",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTSessionRequestStatsMDMultiPartySessionId": {
+    "name": "cMTSessionRequestStatsMDMultiPartySessionId",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTSessionRequestStatsMDAppName": {
+    "name": "cMTSessionRequestStatsMDAppName",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTCommonMetricStatsTable": {
+    "name": "cMTCommonMetricStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTCommonMetricStatsEntry": {
+    "name": "cMTCommonMetricStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionLifeNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTBucketNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTHopStatsAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTHopStatsAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMTCommonMetricsBitmaps": {
+    "name": "cMTCommonMetricsBitmaps",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "flowSamplingStartTimeUnsupported": 0,
+        "flowSamplingStartTimeUncollected": 1,
+        "ipPktDroppedUnsupported": 2,
+        "ipPktDroppedUncollected": 3,
+        "ipPktCountUnsupported": 4,
+        "ipPktCountUncollected": 5,
+        "ipOctetsUnsupported": 6,
+        "ipOctetsUncollected": 7,
+        "ipByteRateUnsupported": 8,
+        "ipByteRateUncollected": 9,
+        "ipDscpUnsupported": 10,
+        "ipDscpUncollected": 11,
+        "ipTtlUnsupported": 12,
+        "ipTtlUncollected": 13,
+        "flowCounterUnsupported": 14,
+        "flowCounterUncollected": 15,
+        "flowDirectionUnsupported": 16,
+        "flowDirectionUncollected": 17,
+        "lossMeasurementUnsupported": 18,
+        "lossMeasurementUncollected": 19,
+        "mediaStopOccurredUnsupported": 20,
+        "mediaStopOccurredUncollected": 21,
+        "routeForwardUnsupported": 22,
+        "routeForwardUncollected": 23,
+        "ipProtocolUnsupported": 24,
+        "ipProtocolUncollected": 25
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTCommonMetricsFlowSamplingStartTime": {
+    "name": "cMTCommonMetricsFlowSamplingStartTime",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNTPTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTCommonMetricsIpPktDropped": {
+    "name": "cMTCommonMetricsIpPktDropped",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTCommonMetricsIpOctets": {
+    "name": "cMTCommonMetricsIpOctets",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTCommonMetricsIpPktCount": {
+    "name": "cMTCommonMetricsIpPktCount",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTCommonMetricsIpByteRate": {
+    "name": "cMTCommonMetricsIpByteRate",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTCommonMetricsIpDscp": {
+    "name": "cMTCommonMetricsIpDscp",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTCommonMetricsIpTtl": {
+    "name": "cMTCommonMetricsIpTtl",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTCommonMetricsFlowCounter": {
+    "name": "cMTCommonMetricsFlowCounter",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTCommonMetricsFlowDirection": {
+    "name": "cMTCommonMetricsFlowDirection",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ingress": 2,
+          "egress": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTCommonMetricsLossMeasurement": {
+    "name": "cMTCommonMetricsLossMeasurement",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTCommonMetricsMediaStopOccurred": {
+    "name": "cMTCommonMetricsMediaStopOccurred",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTCommonMetricsRouteForward": {
+    "name": "cMTCommonMetricsRouteForward",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTCommonMetricsIpProtocol": {
+    "name": "cMTCommonMetricsIpProtocol",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMediatraceSupportProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTRtpMetricStatsTable": {
+    "name": "cMTRtpMetricStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTRtpMetricStatsEntry": {
+    "name": "cMTRtpMetricStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cMTRtpMetricStatsEntry",
+      "module": "CISCO-MEDIATRACE-MIB",
+      "object": "cMTCommonMetricStatsEntry"
+    },
+    "status": "current"
+  },
+  "cMTRtpMetricsBitmaps": {
+    "name": "cMTRtpMetricsBitmaps",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bitRateunSupport": 0,
+        "bitRateunCollected": 1,
+        "octetsunSupport": 2,
+        "octetsunCollected": 3,
+        "pktsunSupport": 4,
+        "pktsunCollected": 5,
+        "jitterunSupport": 6,
+        "jitterunCollected": 7,
+        "lostPktsunSupport": 8,
+        "lostPktsunCollected": 9,
+        "expectedPktsunSupport": 10,
+        "expectedPktsunCollected": 11,
+        "lostPktEventsunSupport": 12,
+        "lostPktEventsunCollected": 13,
+        "losspercentUnsupport": 14,
+        "losspercentUncollected": 15
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTRtpMetricsBitRate": {
+    "name": "cMTRtpMetricsBitRate",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTRtpMetricsOctets": {
+    "name": "cMTRtpMetricsOctets",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTRtpMetricsPkts": {
+    "name": "cMTRtpMetricsPkts",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTRtpMetricsJitter": {
+    "name": "cMTRtpMetricsJitter",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMetricValue",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTRtpMetricsLostPkts": {
+    "name": "cMTRtpMetricsLostPkts",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTRtpMetricsExpectedPkts": {
+    "name": "cMTRtpMetricsExpectedPkts",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTRtpMetricsLostPktEvents": {
+    "name": "cMTRtpMetricsLostPktEvents",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTRtpMetricsLossPercent": {
+    "name": "cMTRtpMetricsLossPercent",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTTcpMetricStatsTable": {
+    "name": "cMTTcpMetricStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTTcpMetricStatsEntry": {
+    "name": "cMTTcpMetricStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cMTTcpMetricStatsEntry",
+      "module": "CISCO-MEDIATRACE-MIB",
+      "object": "cMTCommonMetricStatsEntry"
+    },
+    "status": "current"
+  },
+  "cMTTcpMetricBitmaps": {
+    "name": "cMTTcpMetricBitmaps",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "mediaByteCountUnsupport": 0,
+        "mediaByteCountUncollected": 1,
+        "connectRoundTripDelayUnsupport": 2,
+        "connectRoundTripDelayUncollected": 3,
+        "lostEventCountUnsupport": 4,
+        "lostEventCountUncollected": 5
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTTcpMetricMediaByteCount": {
+    "name": "cMTTcpMetricMediaByteCount",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMetricValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTTcpMetricConnectRoundTripDelay": {
+    "name": "cMTTcpMetricConnectRoundTripDelay",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTTcpMetricLostEventCount": {
+    "name": "cMTTcpMetricLostEventCount",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTSystemMetricStatsTable": {
+    "name": "cMTSystemMetricStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTSystemMetricStatsEntry": {
+    "name": "cMTSystemMetricStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionLifeNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTBucketNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTHopStatsAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTHopStatsAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMTSystemMetricBitmaps": {
+    "name": "cMTSystemMetricBitmaps",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "cpuOneMinuteUtilizationUnsupport": 0,
+        "cpuOneMinuteUtilizationUncollected": 1,
+        "cpuFiveMinutesUtilizationUnsupport": 2,
+        "cpuFiveMinutesUtilizationUncollected": 3,
+        "memoryMetricsUnsupport": 4,
+        "memoryMetricsUncollected": 5
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTSystemMetricCpuOneMinuteUtilization": {
+    "name": "cMTSystemMetricCpuOneMinuteUtilization",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTSystemMetricCpuFiveMinutesUtilization": {
+    "name": "cMTSystemMetricCpuFiveMinutesUtilization",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTSystemMetricMemoryUtilization": {
+    "name": "cMTSystemMetricMemoryUtilization",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTInterfaceMetricStatsTable": {
+    "name": "cMTInterfaceMetricStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMTInterfaceMetricStatsEntry": {
+    "name": "cMTInterfaceMetricStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionLifeNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTBucketNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTHopStatsAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTHopStatsAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMTInterfaceBitmaps": {
+    "name": "cMTInterfaceBitmaps",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "inSpeedUnsupport": 0,
+        "inSpeedUncollected": 1,
+        "outSpeedUnsupport": 2,
+        "outSpeedUncollected": 3,
+        "outDiscardsUnsupport": 4,
+        "outDiscardsUncollected": 5,
+        "inDiscardsUnsupport": 6,
+        "inDiscardsUncollected": 7,
+        "outErrorsUnsupport": 8,
+        "outErrorsUncollected": 9,
+        "inErrorsUnsupport": 10,
+        "inErrorsUncollected": 11,
+        "outOctetsUnsupport": 12,
+        "outOctetsUncollected": 13,
+        "inOctetsUnsupport": 14,
+        "inOctetsUncollected": 15
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTInterfaceOutSpeed": {
+    "name": "cMTInterfaceOutSpeed",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTInterfaceInSpeed": {
+    "name": "cMTInterfaceInSpeed",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTInterfaceOutDiscards": {
+    "name": "cMTInterfaceOutDiscards",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTInterfaceInDiscards": {
+    "name": "cMTInterfaceInDiscards",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTInterfaceOutErrors": {
+    "name": "cMTInterfaceOutErrors",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTInterfaceInErrors": {
+    "name": "cMTInterfaceInErrors",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTInterfaceOutOctets": {
+    "name": "cMTInterfaceOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMTInterfaceInOctets": {
+    "name": "cMTInterfaceInOctets",
+    "oid": "1.3.6.1.4.1.9.9.800.1.2.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoMediatraceMIBCompliances": {
+    "name": "ciscoMediatraceMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.800.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoMediatraceMIBGroups": {
+    "name": "ciscoMediatraceMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.800.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoMediatraceMIBCompliance": {
+    "name": "ciscoMediatraceMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.800.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoMediatraceMIBMainObjectGroup",
+        "module": "CISCO-MEDIATRACE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMediatraceMIBMainObjectGroup": {
+    "name": "ciscoMediatraceMIBMainObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.800.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTFlowSpecifierRowStatus"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTFlowSpecifierDestAddrType"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTFlowSpecifierDestAddr"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTFlowSpecifierDestPort"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTFlowSpecifierSourceAddrType"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTFlowSpecifierSourceAddr"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTFlowSpecifierSourcePort"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTFlowSpecifierIpProtocol"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathSpecifierRowStatus"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathSpecifierDestAddrType"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathSpecifierDestAddr"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathSpecifierDestPort"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathSpecifierSourceAddrType"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathSpecifierSourceAddr"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathSpecifierSourcePort"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathSpecifierProtocolForDiscovery"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathSpecifierGatewayAddrType"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathSpecifierGatewayAddr"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathSpecifierGatewayVlanId"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathSpecifierIpProtocol"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionParamsResponseTimeout"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionParamsFrequency"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionParamsHistoryBuckets"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionParamsInactivityTimeout"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionParamsRouteChangeReactiontime"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionParamsRowStatus"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionPathSpecifierName"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTMediaMonitorProfileRtpMaxDropout"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTMediaMonitorProfileRtpMaxReorder"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTMediaMonitorProfileRtpMinimalSequential"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTMediaMonitorProfileInterval"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTMediaMonitorProfileRowStatus"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionFlowSpecifierName"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionParamName"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionProfileName"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionRequestStatsRouteIndex"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionRequestStatsTracerouteStatus"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionRowStatus"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTScheduleLife"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTScheduleStartTime"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTScheduleEntryAgeout"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTScheduleRowStatus"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSystemProfileMetric"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSystemProfileRowStatus"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTHopStatsMediatraceTtl"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTHopStatsName"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTHopStatsCollectionStatus"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTHopStatsIngressInterface"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTHopStatsEgressInterface"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathHopType"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathHopAddrType"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathHopAddr"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathHopAlternate1AddrType"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathHopAlternate1Addr"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathHopAlternate2AddrType"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathHopAlternate2Addr"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathHopAlternate3AddrType"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathHopAlternate3Addr"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTTraceRouteHopNumber"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTTraceRouteHopRtt"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionRequestStatsRequestTimestamp"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionRequestStatsRequestStatus"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionRequestStatsNumberOfMediatraceHops"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionRequestStatsNumberOfValidHops"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionRequestStatsNumberOfErrorHops"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionRequestStatsNumberOfNoDataRecordHops"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionRequestStatsNumberOfNonMediatraceHops"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTCommonMetricsIpPktDropped"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTCommonMetricsIpOctets"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTCommonMetricsIpPktCount"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTCommonMetricsIpByteRate"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTCommonMetricsIpDscp"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTCommonMetricsIpTtl"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTCommonMetricsFlowCounter"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTCommonMetricsFlowDirection"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTCommonMetricsLossMeasurement"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTCommonMetricsMediaStopOccurred"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTCommonMetricsRouteForward"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTCommonMetricsIpProtocol"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTRtpMetricsBitRate"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTRtpMetricsOctets"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTRtpMetricsPkts"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTRtpMetricsJitter"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTRtpMetricsLostPkts"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTRtpMetricsExpectedPkts"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTRtpMetricsLostPktEvents"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTRtpMetricsLossPercent"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTTcpMetricMediaByteCount"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTTcpMetricConnectRoundTripDelay"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTTcpMetricLostEventCount"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSystemMetricCpuOneMinuteUtilization"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSystemMetricCpuFiveMinutesUtilization"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSystemMetricMemoryUtilization"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTInterfaceOutSpeed"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTInterfaceInSpeed"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTInterfaceOutDiscards"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTInterfaceInDiscards"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTInterfaceOutErrors"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTInterfaceInErrors"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTInterfaceOutOctets"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTInterfaceInOctets"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTMediaMonitorProfileMetric"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionTraceRouteEnabled"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTScheduleRecurring"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTFlowSpecifierMetadataGlobalId"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTPathSpecifierMetadataGlobalId"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTHopStatsMaskBitmaps"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionStatusBitmaps"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTCommonMetricsBitmaps"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTRtpMetricsBitmaps"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTTcpMetricBitmaps"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSystemMetricBitmaps"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTInterfaceBitmaps"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionStatusOperationState"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionStatusOperationTimeToLive"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionStatusGlobalSessionId"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionRequestStatsBitmaps"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionRequestStatsMDGlobalId"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionRequestStatsMDMultiPartySessionId"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTSessionRequestStatsMDAppName"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTInitiatorEnable"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTInitiatorSourceInterface"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTInitiatorSourceAddressType"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTInitiatorSourceAddress"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTInitiatorMaxSessions"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTInitiatorSoftwareVersionMajor"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTInitiatorProtocolVersionMajor"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTInitiatorConfiguredSessions"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTInitiatorPendingSessions"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTInitiatorInactiveSessions"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTInitiatorActiveSessions"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTResponderEnable"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTResponderMaxSessions"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTResponderActiveSessions"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTInitiatorSoftwareVersionMinor"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTInitiatorProtocolVersionMinor"
+      },
+      {
+        "module": "CISCO-MEDIATRACE-MIB",
+        "object": "cMTCommonMetricsFlowSamplingStartTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MEDIATRACE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-MEDIATRACE-MIB"
+  }
+}

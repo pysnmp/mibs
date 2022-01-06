@@ -1,0 +1,2472 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressPrefixLength",
+      "InetAddressType"
+    ],
+    "LINKSYS-MIB": [
+      "rnd"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "Counter32",
+      "iso",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "PhysAddress",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ]
+  },
+  "Percents": {
+    "name": "Percents",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "NetNumber": {
+    "name": "NetNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "rlFFT": {
+    "name": "rlFFT",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-06-01 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "rlIpFFT": {
+    "name": "rlIpFFT",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1",
+    "class": "objectidentity"
+  },
+  "rlIpFftMibVersion": {
+    "name": "rlIpFftMibVersion",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetMaxFftNumber": {
+    "name": "rlInetMaxFftNumber",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftDynamicSupported": {
+    "name": "rlInetFftDynamicSupported",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supported": 1,
+          "unsupported": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubnetSupported": {
+    "name": "rlInetFftSubnetSupported",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supported": 1,
+          "unsupported": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpFftUnknownAddrMsgUsed": {
+    "name": "rlIpFftUnknownAddrMsgUsed",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "used": 1,
+          "unused": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftAgingTimeSupported": {
+    "name": "rlInetFftAgingTimeSupported",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supported": 1,
+          "unsupported": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpFftSrcAddrSupported": {
+    "name": "rlIpFftSrcAddrSupported",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supported": 1,
+          "unsupported": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftAgingTimeout": {
+    "name": "rlInetFftAgingTimeout",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpFftRedBoundary": {
+    "name": "rlIpFftRedBoundary",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percents",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpFftYellowBoundary": {
+    "name": "rlIpFftYellowBoundary",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percents",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlInetFftNumTable": {
+    "name": "rlInetFftNumTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInetFftNumEntry": {
+    "name": "rlInetFftNumEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlInetFftNumIndex",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlInetFftNumAddressType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlInetFftNumIndex": {
+    "name": "rlInetFftNumIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftNumAddressType": {
+    "name": "rlInetFftNumAddressType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftNumStnRoutesNumber": {
+    "name": "rlInetFftNumStnRoutesNumber",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftNumSubRoutesNumber": {
+    "name": "rlInetFftNumSubRoutesNumber",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftNumInetTomeRoutesNumber": {
+    "name": "rlInetFftNumInetTomeRoutesNumber",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftStnTable": {
+    "name": "rlInetFftStnTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInetFftStnEntry": {
+    "name": "rlInetFftStnEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlInetFftStnIndex",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlInetFftStnMrid",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlInetFftStnDstInetAddressType",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlInetFftStnDstInetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlInetFftStnIndex": {
+    "name": "rlInetFftStnIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftStnMrid": {
+    "name": "rlInetFftStnMrid",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftStnDstInetAddressType": {
+    "name": "rlInetFftStnDstInetAddressType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftStnDstInetAddress": {
+    "name": "rlInetFftStnDstInetAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftStnDstRouteInetPrefix": {
+    "name": "rlInetFftStnDstRouteInetPrefix",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftStnDstInetAddrType": {
+    "name": "rlInetFftStnDstInetAddrType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "remote": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftStnDstMacAddress": {
+    "name": "rlInetFftStnDstMacAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftStnSrcMacAddress": {
+    "name": "rlInetFftStnSrcMacAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftStnOutIfIndex": {
+    "name": "rlInetFftStnOutIfIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftStnVid": {
+    "name": "rlInetFftStnVid",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftStnTaggedMode": {
+    "name": "rlInetFftStnTaggedMode",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "untagged": 1,
+          "tagged": 2,
+          "basedPortConfig": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftStnAge": {
+    "name": "rlInetFftStnAge",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubTable": {
+    "name": "rlInetFftSubTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInetFftSubEntry": {
+    "name": "rlInetFftSubEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlInetFftSubMrid",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlInetFftSubDstInetSubnetType",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlInetFftSubDstInetSubnet",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlInetFftSubDstInetPrefix",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlInetFftSubMrid": {
+    "name": "rlInetFftSubMrid",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubDstInetSubnetType": {
+    "name": "rlInetFftSubDstInetSubnetType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubDstInetSubnet": {
+    "name": "rlInetFftSubDstInetSubnet",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubDstInetPrefix": {
+    "name": "rlInetFftSubDstInetPrefix",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopSetRefCount": {
+    "name": "rlInetFftSubNextHopSetRefCount",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopCount": {
+    "name": "rlInetFftSubNextHopCount",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopIfindex1": {
+    "name": "rlInetFftSubNextHopIfindex1",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopInetAddr1Type": {
+    "name": "rlInetFftSubNextHopInetAddr1Type",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopInetAddr1": {
+    "name": "rlInetFftSubNextHopInetAddr1",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopIfindex2": {
+    "name": "rlInetFftSubNextHopIfindex2",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopInetAddr2Type": {
+    "name": "rlInetFftSubNextHopInetAddr2Type",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopInetAddr2": {
+    "name": "rlInetFftSubNextHopInetAddr2",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopIfindex3": {
+    "name": "rlInetFftSubNextHopIfindex3",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopInetAddr3Type": {
+    "name": "rlInetFftSubNextHopInetAddr3Type",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopInetAddr3": {
+    "name": "rlInetFftSubNextHopInetAddr3",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopIfindex4": {
+    "name": "rlInetFftSubNextHopIfindex4",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopInetAddr4Type": {
+    "name": "rlInetFftSubNextHopInetAddr4Type",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopInetAddr4": {
+    "name": "rlInetFftSubNextHopInetAddr4",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopIfindex5": {
+    "name": "rlInetFftSubNextHopIfindex5",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopInetAddr5Type": {
+    "name": "rlInetFftSubNextHopInetAddr5Type",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopInetAddr5": {
+    "name": "rlInetFftSubNextHopInetAddr5",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopIfindex6": {
+    "name": "rlInetFftSubNextHopIfindex6",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopInetAddr6Type": {
+    "name": "rlInetFftSubNextHopInetAddr6Type",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopInetAddr6": {
+    "name": "rlInetFftSubNextHopInetAddr6",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopIfindex7": {
+    "name": "rlInetFftSubNextHopIfindex7",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopInetAddr7Type": {
+    "name": "rlInetFftSubNextHopInetAddr7Type",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopInetAddr7": {
+    "name": "rlInetFftSubNextHopInetAddr7",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopIfindex8": {
+    "name": "rlInetFftSubNextHopIfindex8",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopInetAddr8Type": {
+    "name": "rlInetFftSubNextHopInetAddr8Type",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubNextHopInetAddr8": {
+    "name": "rlInetFftSubNextHopInetAddr8",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftSubAge": {
+    "name": "rlInetFftSubAge",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.14.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftCountersTable": {
+    "name": "rlInetFftCountersTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInetFftCountersEntry": {
+    "name": "rlInetFftCountersEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlInetFftCountersIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlInetFftCountersIndex": {
+    "name": "rlInetFftCountersIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftInReceives": {
+    "name": "rlInetFftInReceives",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftForwDatagrams": {
+    "name": "rlInetFftForwDatagrams",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftInDiscards": {
+    "name": "rlInetFftInDiscards",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftNextHopTable": {
+    "name": "rlInetFftNextHopTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInetFftNextHopEntry": {
+    "name": "rlInetFftNextHopEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlInetFftNextHopifindex",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlInetFftNextHopInetAddressType",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlInetFftNextHopInetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlInetFftNextHopifindex": {
+    "name": "rlInetFftNextHopifindex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftNextHopInetAddressType": {
+    "name": "rlInetFftNextHopInetAddressType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftNextHopInetAddress": {
+    "name": "rlInetFftNextHopInetAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftNextHopValid": {
+    "name": "rlInetFftNextHopValid",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftNextHopType": {
+    "name": "rlInetFftNextHopType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "remote": 2,
+          "reject": 3,
+          "drop": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftNextHopReferenceCount": {
+    "name": "rlInetFftNextHopReferenceCount",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftNextHopNetAddress": {
+    "name": "rlInetFftNextHopNetAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftNextHopVid": {
+    "name": "rlInetFftNextHopVid",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftNextHopMacAddress": {
+    "name": "rlInetFftNextHopMacAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.16.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftNextHopOutIfIndex": {
+    "name": "rlInetFftNextHopOutIfIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.16.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftL2InfoTable": {
+    "name": "rlInetFftL2InfoTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInetFftL2InfoEntry": {
+    "name": "rlInetFftL2InfoEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlInetFftL2InfoIfindex",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlInetFftL2InfoDstMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlInetFftL2InfoIfindex": {
+    "name": "rlInetFftL2InfoIfindex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftL2InfoDstMacAddress": {
+    "name": "rlInetFftL2InfoDstMacAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftL2InfoValid": {
+    "name": "rlInetFftL2InfoValid",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftL2InfoType": {
+    "name": "rlInetFftL2InfoType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "vlan": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftL2InfoReferenceCount": {
+    "name": "rlInetFftL2InfoReferenceCount",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftL2InfoVid": {
+    "name": "rlInetFftL2InfoVid",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftL2InfoSrcMacAddress": {
+    "name": "rlInetFftL2InfoSrcMacAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftL2InfoOutIfIndex": {
+    "name": "rlInetFftL2InfoOutIfIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.17.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetFftL2InfoTaggedMode": {
+    "name": "rlInetFftL2InfoTaggedMode",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.17.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "untagged": 1,
+          "tagged": 2,
+          "basedPortConfig": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpv6FftRedBoundary": {
+    "name": "rlIpv6FftRedBoundary",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percents",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6FftYellowBoundary": {
+    "name": "rlIpv6FftYellowBoundary",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percents",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpxFFT": {
+    "name": "rlIpxFFT",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2",
+    "class": "objectidentity"
+  },
+  "rlIpxFftMibVersion": {
+    "name": "rlIpxFftMibVersion",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxMaxFftNumber": {
+    "name": "rlIpxMaxFftNumber",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftDynamicSupported": {
+    "name": "rlIpxFftDynamicSupported",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supported": 1,
+          "unsupported": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftNetworkSupported": {
+    "name": "rlIpxFftNetworkSupported",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supported": 1,
+          "unsupported": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftUnknownAddrMsgUsed": {
+    "name": "rlIpxFftUnknownAddrMsgUsed",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "used": 1,
+          "unused": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftAgingTimeSupported": {
+    "name": "rlIpxFftAgingTimeSupported",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supported": 1,
+          "unsupported": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftSrcAddrSupported": {
+    "name": "rlIpxFftSrcAddrSupported",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supported": 1,
+          "unsupported": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftAgingTimeout": {
+    "name": "rlIpxFftAgingTimeout",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpxFftRedBoundary": {
+    "name": "rlIpxFftRedBoundary",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpxFftYellowBoundary": {
+    "name": "rlIpxFftYellowBoundary",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percents",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpxFftNumTable": {
+    "name": "rlIpxFftNumTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpxFftNumEntry": {
+    "name": "rlIpxFftNumEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlIpxFftNumIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpxFftNumIndex": {
+    "name": "rlIpxFftNumIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftNumStnRoutesNumber": {
+    "name": "rlIpxFftNumStnRoutesNumber",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftNumSubRoutesNumber": {
+    "name": "rlIpxFftNumSubRoutesNumber",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftStnTable": {
+    "name": "rlIpxFftStnTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpxFftStnEntry": {
+    "name": "rlIpxFftStnEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlIpxFftStnIndex",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlIpxFftStnDstNetid",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlIpxFftStnDstNode",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlIpxFftStnSrcNetid",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlIpxFftStnSrcNode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpxFftStnIndex": {
+    "name": "rlIpxFftStnIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftStnDstNetid": {
+    "name": "rlIpxFftStnDstNetid",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NetNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftStnDstNode": {
+    "name": "rlIpxFftStnDstNode",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftStnSrcNetid": {
+    "name": "rlIpxFftStnSrcNetid",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NetNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftStnSrcNode": {
+    "name": "rlIpxFftStnSrcNode",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftStnDstIpxAddrType": {
+    "name": "rlIpxFftStnDstIpxAddrType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "remote": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftStnEncapsulation": {
+    "name": "rlIpxFftStnEncapsulation",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "novell": 1,
+          "ethernet": 2,
+          "llc": 3,
+          "snap": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftStnDstMacAddress": {
+    "name": "rlIpxFftStnDstMacAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftStnSrcMacAddress": {
+    "name": "rlIpxFftStnSrcMacAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftStnOutIfIndex": {
+    "name": "rlIpxFftStnOutIfIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftStnTci": {
+    "name": "rlIpxFftStnTci",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftStnFacsIndex": {
+    "name": "rlIpxFftStnFacsIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftStnAge": {
+    "name": "rlIpxFftStnAge",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.13.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftSubTable": {
+    "name": "rlIpxFftSubTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpxFftSubEntry": {
+    "name": "rlIpxFftSubEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlIpxFftSubIndex",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlIpxFftSubDstNetid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpxFftSubIndex": {
+    "name": "rlIpxFftSubIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftSubDstNetid": {
+    "name": "rlIpxFftSubDstNetid",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NetNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftSubEncapsulation": {
+    "name": "rlIpxFftSubEncapsulation",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "novell": 1,
+          "ethernet": 2,
+          "llc": 3,
+          "snap": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftSubDstMacAddress": {
+    "name": "rlIpxFftSubDstMacAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftSubSrcMacAddress": {
+    "name": "rlIpxFftSubSrcMacAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftSubOutIfIndex": {
+    "name": "rlIpxFftSubOutIfIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftSubTci": {
+    "name": "rlIpxFftSubTci",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftSubFacsIndex": {
+    "name": "rlIpxFftSubFacsIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftSubAge": {
+    "name": "rlIpxFftSubAge",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftCountersTable": {
+    "name": "rlIpxFftCountersTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpxFftCountersEntry": {
+    "name": "rlIpxFftCountersEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlIpxFftCountersIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpxFftCountersIndex": {
+    "name": "rlIpxFftCountersIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftInReceives": {
+    "name": "rlIpxFftInReceives",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftForwDatagrams": {
+    "name": "rlIpxFftForwDatagrams",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpxFftInDiscards": {
+    "name": "rlIpxFftInDiscards",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.2.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFFT": {
+    "name": "rlIpmFFT",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3",
+    "class": "objectidentity"
+  },
+  "rlIpmFftMibVersion": {
+    "name": "rlIpmFftMibVersion",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmMaxFftNumber": {
+    "name": "rlIpmMaxFftNumber",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFftDynamicSupported": {
+    "name": "rlIpmFftDynamicSupported",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supported": 1,
+          "unsupported": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFftUnknownAddrMsgUsed": {
+    "name": "rlIpmFftUnknownAddrMsgUsed",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "used": 1,
+          "unused": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFftUserAgingTimeout": {
+    "name": "rlIpmFftUserAgingTimeout",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpmFftRouterAgingTimeout": {
+    "name": "rlIpmFftRouterAgingTimeout",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFftNumTable": {
+    "name": "rlIpmFftNumTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpmFftNumEntry": {
+    "name": "rlIpmFftNumEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlIpmFftNumIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpmFftNumIndex": {
+    "name": "rlIpmFftNumIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFftNumRoutesNumber": {
+    "name": "rlIpmFftNumRoutesNumber",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFftTable": {
+    "name": "rlIpmFftTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpmFftEntry": {
+    "name": "rlIpmFftEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlIpmFftIndex",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlIpmFftSrcIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlIpmFftDstIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpmFftIndex": {
+    "name": "rlIpmFftIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFftSrcIpAddress": {
+    "name": "rlIpmFftSrcIpAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFftDstIpAddress": {
+    "name": "rlIpmFftDstIpAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFftSrcIpMask": {
+    "name": "rlIpmFftSrcIpMask",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFftInputIfIndex": {
+    "name": "rlIpmFftInputIfIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFftInputVlanTag": {
+    "name": "rlIpmFftInputVlanTag",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFftForwardAction": {
+    "name": "rlIpmFftForwardAction",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forward": 1,
+          "discard": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFftInportAction": {
+    "name": "rlIpmFftInportAction",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sentToCPU": 1,
+          "discard": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFftAge": {
+    "name": "rlIpmFftAge",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFftPortTagTable": {
+    "name": "rlIpmFftPortTagTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpmFftPortTagEntry": {
+    "name": "rlIpmFftPortTagEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlIpmFftPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlIpmFftPortSrcIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlIpmFftPortDstIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlIpmFftPortOutputifIndex",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlIpmFftPortOutputTag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpmFftPortIndex": {
+    "name": "rlIpmFftPortIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFftPortSrcIpAddress": {
+    "name": "rlIpmFftPortSrcIpAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFftPortDstIpAddress": {
+    "name": "rlIpmFftPortDstIpAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFftPortOutputifIndex": {
+    "name": "rlIpmFftPortOutputifIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFftPortOutputTag": {
+    "name": "rlIpmFftPortOutputTag",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFftCountersTable": {
+    "name": "rlIpmFftCountersTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpmFftCountersEntry": {
+    "name": "rlIpmFftCountersEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-rlFft",
+        "object": "rlIpmFftCountersIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpmFftCountersIndex": {
+    "name": "rlIpmFftCountersIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFftInReceives": {
+    "name": "rlIpmFftInReceives",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFftForwDatagrams": {
+    "name": "rlIpmFftForwDatagrams",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpmFftInDiscards": {
+    "name": "rlIpmFftInDiscards",
+    "oid": "1.3.6.1.4.1.3955.1000.201.47.3.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-rlFft",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:41:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "LINKSYS-rlFft"
+  }
+}

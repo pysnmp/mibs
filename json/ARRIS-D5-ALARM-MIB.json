@@ -1,0 +1,2438 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARRIS-D5-QAM-EXT-MIB": [
+      "d5QamExtServingGroup"
+    ],
+    "ARRIS-D5-VIDEO-MIB": [
+      "d5vStreamProgIndex",
+      "d5vStreamEsPidIndex",
+      "d5vIpUdpIndex",
+      "d5vIpSrcIndex",
+      "d5vIpDestIndex"
+    ],
+    "ARRIS-MIB": [
+      "arrisD5UEQam"
+    ],
+    "DOCS-CABLE-DEVICE-MIB": [
+      "docsDevEvId",
+      "docsDevEventEntry",
+      "docsDevEvLevel",
+      "docsDevEvText"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex",
+      "entPhysicalContainedIn"
+    ],
+    "ENTITY-SENSOR-MIB": [
+      "entPhySensorValue"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "Bits",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "d5AlarmMIB": {
+    "name": "d5AlarmMIB",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2",
+    "class": "moduleidentity"
+  },
+  "eqTraps": {
+    "name": "eqTraps",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.0",
+    "class": "objectidentity"
+  },
+  "d5Traps": {
+    "name": "d5Traps",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1",
+    "class": "objectidentity"
+  },
+  "d5EnvMonTraps": {
+    "name": "d5EnvMonTraps",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.1",
+    "class": "objectidentity"
+  },
+  "d5MpegMgtTraps": {
+    "name": "d5MpegMgtTraps",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.2",
+    "class": "objectidentity"
+  },
+  "d5SessMgtTraps": {
+    "name": "d5SessMgtTraps",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.3",
+    "class": "objectidentity"
+  },
+  "d5CasTraps": {
+    "name": "d5CasTraps",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.4",
+    "class": "objectidentity"
+  },
+  "d5MiscTraps": {
+    "name": "d5MiscTraps",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.5",
+    "class": "objectidentity"
+  },
+  "d5TrapGroup": {
+    "name": "d5TrapGroup",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.6",
+    "class": "objectidentity"
+  },
+  "d5AlarmStatus": {
+    "name": "d5AlarmStatus",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.7",
+    "class": "objectidentity"
+  },
+  "d5EqmMgtTraps": {
+    "name": "d5EqmMgtTraps",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.8",
+    "class": "objectidentity"
+  },
+  "d5DtiTraps": {
+    "name": "d5DtiTraps",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.9",
+    "class": "objectidentity"
+  },
+  "alarmNotification": {
+    "name": "alarmNotification",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      }
+    ],
+    "status": "current"
+  },
+  "alarmNotificationGroup": {
+    "name": "alarmNotificationGroup",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.0.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "alarmNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "d5EnvMonAlarmOffTrap": {
+    "name": "d5EnvMonAlarmOffTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalContainedIn"
+      }
+    ],
+    "status": "current"
+  },
+  "d5EnvMonFanErrorTrap": {
+    "name": "d5EnvMonFanErrorTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalContainedIn"
+      },
+      {
+        "module": "ENTITY-SENSOR-MIB",
+        "object": "entPhySensorValue"
+      }
+    ],
+    "status": "current"
+  },
+  "d5EnvMonFanWarningTrap": {
+    "name": "d5EnvMonFanWarningTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalContainedIn"
+      },
+      {
+        "module": "ENTITY-SENSOR-MIB",
+        "object": "entPhySensorValue"
+      }
+    ],
+    "status": "current"
+  },
+  "d5EnvMonVoltErrorTrap": {
+    "name": "d5EnvMonVoltErrorTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalContainedIn"
+      },
+      {
+        "module": "ENTITY-SENSOR-MIB",
+        "object": "entPhySensorValue"
+      }
+    ],
+    "status": "current"
+  },
+  "d5EnvMonVoltWarningTrap": {
+    "name": "d5EnvMonVoltWarningTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.1.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalContainedIn"
+      },
+      {
+        "module": "ENTITY-SENSOR-MIB",
+        "object": "entPhySensorValue"
+      }
+    ],
+    "status": "current"
+  },
+  "d5EnvMonTempErrorTrap": {
+    "name": "d5EnvMonTempErrorTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.1.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalContainedIn"
+      },
+      {
+        "module": "ENTITY-SENSOR-MIB",
+        "object": "entPhySensorValue"
+      }
+    ],
+    "status": "current"
+  },
+  "d5EnvMonTempWarningTrap": {
+    "name": "d5EnvMonTempWarningTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.1.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalContainedIn"
+      },
+      {
+        "module": "ENTITY-SENSOR-MIB",
+        "object": "entPhySensorValue"
+      }
+    ],
+    "status": "current"
+  },
+  "d5EnvMonPsuErrorTrap": {
+    "name": "d5EnvMonPsuErrorTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.1.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalContainedIn"
+      }
+    ],
+    "status": "current"
+  },
+  "d5EnvMonPsuWarningTrap": {
+    "name": "d5EnvMonPsuWarningTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.1.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalContainedIn"
+      }
+    ],
+    "status": "current"
+  },
+  "d5EnvMonSysFatalTrap": {
+    "name": "d5EnvMonSysFatalTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.1.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalContainedIn"
+      }
+    ],
+    "status": "current"
+  },
+  "d5EnvMonSysRecoverTrap": {
+    "name": "d5EnvMonSysRecoverTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.1.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalContainedIn"
+      }
+    ],
+    "status": "current"
+  },
+  "d5MpegMgtProgErrorTrap": {
+    "name": "d5MpegMgtProgErrorTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpSrcIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpDestIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpUdpIndex"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5QamIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vStreamProgIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "d5MpegMgtProgPidErrorTrap": {
+    "name": "d5MpegMgtProgPidErrorTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpSrcIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpDestIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpUdpIndex"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5QamIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vStreamProgIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vStreamEsPidIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "d5MpegMgtProgOversubsTrap": {
+    "name": "d5MpegMgtProgOversubsTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpSrcIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpDestIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpUdpIndex"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5QamIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vStreamProgIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "d5MpegMgtProgStartTrap": {
+    "name": "d5MpegMgtProgStartTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpSrcIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpDestIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpUdpIndex"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5QamIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vStreamProgIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "d5MpegMgtProgStopTrap": {
+    "name": "d5MpegMgtProgStopTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpSrcIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpDestIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpUdpIndex"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5QamIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vStreamProgIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "d5MpegMgtQamErrorTrap": {
+    "name": "d5MpegMgtQamErrorTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpSrcIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpDestIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpUdpIndex"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5QamIndex"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5StreamMax"
+      }
+    ],
+    "status": "current"
+  },
+  "d5MpegMgtQamOversubsTrap": {
+    "name": "d5MpegMgtQamOversubsTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5QamIndex"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5QamBandwidth"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5QamBandwidthNull"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5QamBandwidthActual"
+      }
+    ],
+    "status": "current"
+  },
+  "d5MpegMgtQamOversubsFilterTrap": {
+    "name": "d5MpegMgtQamOversubsFilterTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpSrcIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpDestIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpUdpIndex"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5QamIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vStreamProgIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "d5MpegMgtQamOversubsRecoveryTrap": {
+    "name": "d5MpegMgtQamOversubsRecoveryTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.2.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5QamIndex"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5QamBandwidth"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5QamBandwidthNull"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5QamBandwidthActual"
+      }
+    ],
+    "status": "current"
+  },
+  "d5MpegMgtSessStartTrap": {
+    "name": "d5MpegMgtSessStartTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.2.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpSrcIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpDestIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpUdpIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "d5MpegMgtSessStopTrap": {
+    "name": "d5MpegMgtSessStopTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.2.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpSrcIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpDestIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpUdpIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "d5MpegMgtTableErrorTrap": {
+    "name": "d5MpegMgtTableErrorTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.2.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpSrcIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpDestIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpUdpIndex"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5MpegTableFailureReason"
+      }
+    ],
+    "status": "current"
+  },
+  "d5MpegMgtProgUnderflowTrap": {
+    "name": "d5MpegMgtProgUnderflowTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.2.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "alarmAsserted"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpSrcIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpDestIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpUdpIndex"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5QamIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vStreamProgIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "d5MpegMgtProgOverflowTrap": {
+    "name": "d5MpegMgtProgOverflowTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.2.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "alarmAsserted"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpSrcIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpDestIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpUdpIndex"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5QamIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vStreamProgIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "d5SessMgtConnectTrap": {
+    "name": "d5SessMgtConnectTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtIpAddr"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtPort"
+      }
+    ],
+    "status": "current"
+  },
+  "d5SessMgtDisconnectTrap": {
+    "name": "d5SessMgtDisconnectTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "alarmAsserted"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtIpAddr"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtPort"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtReason"
+      }
+    ],
+    "status": "current"
+  },
+  "d5SessMgtGenErrorTrap": {
+    "name": "d5SessMgtGenErrorTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtIpAddr"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtPort"
+      }
+    ],
+    "status": "current"
+  },
+  "d5SessMgtIgmpErrorTrap": {
+    "name": "d5SessMgtIgmpErrorTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtMcastIpAddr"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "d5SessMgtMsgInfoTrap": {
+    "name": "d5SessMgtMsgInfoTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtIpAddr"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtPort"
+      }
+    ],
+    "status": "current"
+  },
+  "d5SessMgtProgOversubsTrap": {
+    "name": "d5SessMgtProgOversubsTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.3.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "alarmAsserted"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpSrcIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpDestIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpUdpIndex"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessionId"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5QamIndex"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5ProvisionedBandwidth"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5ActualBandwidth"
+      }
+    ],
+    "status": "current"
+  },
+  "d5SessMgtQamOversubsTrap": {
+    "name": "d5SessMgtQamOversubsTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.3.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "alarmAsserted"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5QamIndex"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5ProvisionedBandwidth"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5ActualBandwidth"
+      }
+    ],
+    "status": "current"
+  },
+  "d5SessMgtSessGroupOversubsTrap": {
+    "name": "d5SessMgtSessGroupOversubsTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.3.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpSrcIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpDestIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpUdpIndex"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessionId"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5QamIndex"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5ProvisionedBandwidth"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5ActualBandwidth"
+      }
+    ],
+    "status": "current"
+  },
+  "d5SessMgtQamErrorTrap": {
+    "name": "d5SessMgtQamErrorTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.3.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5QamIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "d5SessMgtSessInfoTrap": {
+    "name": "d5SessMgtSessInfoTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.3.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessionId"
+      }
+    ],
+    "status": "current"
+  },
+  "d5SessMgtSessErrorTrap": {
+    "name": "d5SessMgtSessErrorTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.3.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessionId"
+      }
+    ],
+    "status": "current"
+  },
+  "d5SessMgtSessGroupErrorTrap": {
+    "name": "d5SessMgtSessGroupErrorTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.3.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessionId"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5QamIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "d5SessMgtShutdownTrap": {
+    "name": "d5SessMgtShutdownTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.3.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "alarmAsserted"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5ShutdownReason"
+      }
+    ],
+    "status": "current"
+  },
+  "d5SessMgtStartupTrap": {
+    "name": "d5SessMgtStartupTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.3.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      }
+    ],
+    "status": "current"
+  },
+  "d5SessMgtTimeoutResetTrap": {
+    "name": "d5SessMgtTimeoutResetTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.3.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtIpAddr"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtPort"
+      }
+    ],
+    "status": "current"
+  },
+  "d5SessMgtStreamUnavailTrap": {
+    "name": "d5SessMgtStreamUnavailTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.3.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "alarmAsserted"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpSrcIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpDestIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpUdpIndex"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessionId"
+      }
+    ],
+    "status": "current"
+  },
+  "d5SessMgtStreamLostTrap": {
+    "name": "d5SessMgtStreamLostTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.3.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "alarmAsserted"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpSrcIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpDestIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpUdpIndex"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessionId"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5QamIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vStreamProgIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "d5SessMgtMcpStreamLostTrap": {
+    "name": "d5SessMgtMcpStreamLostTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.3.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "alarmAsserted"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpSrcIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpDestIndex"
+      },
+      {
+        "module": "ARRIS-D5-VIDEO-MIB",
+        "object": "d5vIpUdpIndex"
+      },
+      {
+        "module": "ARRIS-D5-QAM-EXT-MIB",
+        "object": "d5QamExtServingGroup"
+      }
+    ],
+    "status": "current"
+  },
+  "d5CasEcmgErrorTrap": {
+    "name": "d5CasEcmgErrorTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      }
+    ],
+    "status": "current"
+  },
+  "d5CasEisErrorTrap": {
+    "name": "d5CasEisErrorTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.4.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      }
+    ],
+    "status": "current"
+  },
+  "d5CasEmmgErrorTrap": {
+    "name": "d5CasEmmgErrorTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.4.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      }
+    ],
+    "status": "current"
+  },
+  "d5CasPsigErrorTrap": {
+    "name": "d5CasPsigErrorTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.4.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      }
+    ],
+    "status": "current"
+  },
+  "d5SystemRebootTrap": {
+    "name": "d5SystemRebootTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.5.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      }
+    ],
+    "status": "current"
+  },
+  "d5TacacsErrorTrap": {
+    "name": "d5TacacsErrorTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.5.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      }
+    ],
+    "status": "current"
+  },
+  "d5TacacsInfoTrap": {
+    "name": "d5TacacsInfoTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.5.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      }
+    ],
+    "status": "current"
+  },
+  "d5HardwareMismatchTrap": {
+    "name": "d5HardwareMismatchTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.5.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalContainedIn"
+      }
+    ],
+    "status": "current"
+  },
+  "d5EnvMonTrapGroup": {
+    "name": "d5EnvMonTrapGroup",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.6.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5EnvMonAlarmOffTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5EnvMonFanErrorTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5EnvMonFanWarningTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5EnvMonVoltErrorTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5EnvMonVoltWarningTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5EnvMonTempErrorTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5EnvMonTempWarningTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5EnvMonPsuErrorTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5EnvMonPsuWarningTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5EnvMonSysFatalTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5EnvMonSysRecoverTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "d5MpegMgtTrapGroup": {
+    "name": "d5MpegMgtTrapGroup",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.6.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5MpegMgtProgErrorTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5MpegMgtProgPidErrorTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5MpegMgtProgOversubsTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5MpegMgtProgStartTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5MpegMgtProgStopTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5MpegMgtQamErrorTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5MpegMgtQamOversubsTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5MpegMgtQamOversubsFilterTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5MpegMgtQamOversubsRecoveryTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5MpegMgtSessStartTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5MpegMgtSessStopTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5MpegMgtTableErrorTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5MpegMgtProgUnderflowTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5MpegMgtProgOverflowTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "d5SessMgtTrapGroup": {
+    "name": "d5SessMgtTrapGroup",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.6.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtConnectTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtDisconnectTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtGenErrorTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtIgmpErrorTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtMsgInfoTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtProgOversubsTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtQamOversubsTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtSessGroupOversubsTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtQamErrorTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtSessInfoTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtSessErrorTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtSessGroupErrorTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtShutdownTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtStartupTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtTimeoutResetTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtStreamUnavailTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtStreamLostTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SessMgtMcpStreamLostTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "d5CasTrapGroup": {
+    "name": "d5CasTrapGroup",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.6.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5CasEcmgErrorTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5CasEisErrorTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5CasEmmgErrorTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5CasPsigErrorTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "d5MiscTrapGroup": {
+    "name": "d5MiscTrapGroup",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.6.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5SystemRebootTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5TacacsErrorTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5TacacsInfoTrap"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "d5HardwareMismatchTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "d5AlarmStatusTable": {
+    "name": "d5AlarmStatusTable",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "d5AlarmStatusEntry": {
+    "name": "d5AlarmStatusEntry",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "d5AlarmStatusEntry",
+      "module": "ARRIS-D5-ALARM-MIB",
+      "object": "docsDevEventEntry"
+    },
+    "status": "current"
+  },
+  "alarmAsserted": {
+    "name": "alarmAsserted",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmId": {
+    "name": "alarmId",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5StreamMax": {
+    "name": "d5StreamMax",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5QamBandwidth": {
+    "name": "d5QamBandwidth",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Hz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5QamBandwidthActual": {
+    "name": "d5QamBandwidthActual",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Hz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5ProvisionedBandwidth": {
+    "name": "d5ProvisionedBandwidth",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Hz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5SessionId": {
+    "name": "d5SessionId",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5ActualBandwidth": {
+    "name": "d5ActualBandwidth",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Hz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5ShutdownReason": {
+    "name": "d5ShutdownReason",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5QamIndex": {
+    "name": "d5QamIndex",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5MpegTableFailureReason": {
+    "name": "d5MpegTableFailureReason",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.7.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5MpegSectionFailureReason": {
+    "name": "d5MpegSectionFailureReason",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.7.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5SessMgtIpAddr": {
+    "name": "d5SessMgtIpAddr",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.7.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5SessMgtPort": {
+    "name": "d5SessMgtPort",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.7.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5SessMgtReason": {
+    "name": "d5SessMgtReason",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.7.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5SessMgtMcastIpAddr": {
+    "name": "d5SessMgtMcastIpAddr",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.7.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5QamBandwidthNull": {
+    "name": "d5QamBandwidthNull",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.7.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Hz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5EqmNoEcmTrap": {
+    "name": "d5EqmNoEcmTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.8.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      }
+    ],
+    "status": "current"
+  },
+  "d5EqmStaleEcmTrap": {
+    "name": "d5EqmStaleEcmTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.8.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      }
+    ],
+    "status": "current"
+  },
+  "d5EqmNoConnTrap": {
+    "name": "d5EqmNoConnTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.8.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      }
+    ],
+    "status": "current"
+  },
+  "d5EqmDomainShutdownTrap": {
+    "name": "d5EqmDomainShutdownTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.8.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      }
+    ],
+    "status": "current"
+  },
+  "d5DtiNoPortTrap": {
+    "name": "d5DtiNoPortTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.9.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "alarmAsserted"
+      }
+    ],
+    "status": "current"
+  },
+  "d5DtiStateTrap": {
+    "name": "d5DtiStateTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.9.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "alarmAsserted"
+      }
+    ],
+    "status": "current"
+  },
+  "d5DtiPortStatusTrap": {
+    "name": "d5DtiPortStatusTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.9.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "ARRIS-D5-ALARM-MIB",
+        "object": "alarmAsserted"
+      }
+    ],
+    "status": "current"
+  },
+  "d5DtiAdminTrap": {
+    "name": "d5DtiAdminTrap",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.2.1.9.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/d5/ARRIS-D5-ALARM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ARRIS-D5-ALARM-MIB"
+  }
+}

@@ -1,0 +1,1217 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "huaweiMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "MPLS-VPN-MIB": [
+      "mplsVpnVrfName"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "hwPortal": {
+    "name": "hwPortal",
+    "oid": "1.3.6.1.4.1.2011.5.4",
+    "class": "moduleidentity"
+  },
+  "hwPortalMibObjects": {
+    "name": "hwPortalMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.4.1",
+    "class": "objectidentity"
+  },
+  "hwPortalConfigPara": {
+    "name": "hwPortalConfigPara",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.1",
+    "class": "objectidentity"
+  },
+  "hwPortalConfigVersionSupport": {
+    "name": "hwPortalConfigVersionSupport",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v2": 2,
+          "both": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "both",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPortalConfigTextInfoSwitch": {
+    "name": "hwPortalConfigTextInfoSwitch",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPortalConfigServerUdpReceivePort": {
+    "name": "hwPortalConfigServerUdpReceivePort",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1024,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPortalConfigServerUdpSendPort": {
+    "name": "hwPortalConfigServerUdpSendPort",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1024,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPortalConfigTrapUdpPort": {
+    "name": "hwPortalConfigTrapUdpPort",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1024,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPortalConfigSourecIfIndex": {
+    "name": "hwPortalConfigSourecIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPortalPacketStatisticsPara": {
+    "name": "hwPortalPacketStatisticsPara",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2",
+    "class": "objectidentity"
+  },
+  "hwPortalStatisticsBeginTime": {
+    "name": "hwPortalStatisticsBeginTime",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalPacketStatisticsAuthenticatorError": {
+    "name": "hwPortalPacketStatisticsAuthenticatorError",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalPacketStatisticsAccessReqError": {
+    "name": "hwPortalPacketStatisticsAccessReqError",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalPacketStatisticsLogoutReqError": {
+    "name": "hwPortalPacketStatisticsLogoutReqError",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalPacketStatisticsInquiryReqError": {
+    "name": "hwPortalPacketStatisticsInquiryReqError",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalPacketStatisticsLoginConfirmError": {
+    "name": "hwPortalPacketStatisticsLoginConfirmError",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalPacketStatisticsAccessReqReceived": {
+    "name": "hwPortalPacketStatisticsAccessReqReceived",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalPacketStatisticsLoginReqReceived": {
+    "name": "hwPortalPacketStatisticsLoginReqReceived",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalPacketStatisticsLogoutReqReceived": {
+    "name": "hwPortalPacketStatisticsLogoutReqReceived",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalPacketStatisticsInquiryReqReceived": {
+    "name": "hwPortalPacketStatisticsInquiryReqReceived",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalPacketStatisticsLoginConfirmReceived": {
+    "name": "hwPortalPacketStatisticsLoginConfirmReceived",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalPacketStatisticsAccessACKFailed": {
+    "name": "hwPortalPacketStatisticsAccessACKFailed",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalPacketStatisticsLoginACKFailed": {
+    "name": "hwPortalPacketStatisticsLoginACKFailed",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalPacketStatisticsLogoutACKFailed": {
+    "name": "hwPortalPacketStatisticsLogoutACKFailed",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalPacketStatisticsInquiryACKFailed": {
+    "name": "hwPortalPacketStatisticsInquiryACKFailed",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalPacketStatisticsAccessAckSent": {
+    "name": "hwPortalPacketStatisticsAccessAckSent",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalPacketStatisticsLoginAckSent": {
+    "name": "hwPortalPacketStatisticsLoginAckSent",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalPacketStatisticsLogoutAckSent": {
+    "name": "hwPortalPacketStatisticsLogoutAckSent",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalPacketStatisticsInquiryAckSent": {
+    "name": "hwPortalPacketStatisticsInquiryAckSent",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalConfigSecretKeyTable": {
+    "name": "hwPortalConfigSecretKeyTable",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPortalConfigSecretKeyEntry": {
+    "name": "hwPortalConfigSecretKeyEntry",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigPortalServerIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPortalConfigPortalServerIpAddress": {
+    "name": "hwPortalConfigPortalServerIpAddress",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalConfigPortalServerIpMask": {
+    "name": "hwPortalConfigPortalServerIpMask",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPortalConfigSecretKey": {
+    "name": "hwPortalConfigSecretKey",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPortalConfigPortalServerPort": {
+    "name": "hwPortalConfigPortalServerPort",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPortalConfigPortalServerNasip": {
+    "name": "hwPortalConfigPortalServerNasip",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPortalConfigStatus": {
+    "name": "hwPortalConfigStatus",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPortalServerTable": {
+    "name": "hwPortalServerTable",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPortalServerEntry": {
+    "name": "hwPortalServerEntry",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalServerIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPortalServerIpAddress": {
+    "name": "hwPortalServerIpAddress",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalServerUserNum": {
+    "name": "hwPortalServerUserNum",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalUserTable": {
+    "name": "hwPortalUserTable",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPortalUserEntry": {
+    "name": "hwPortalUserEntry",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalUserMACAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPortalUserMACAddress": {
+    "name": "hwPortalUserMACAddress",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalUserIpAddress": {
+    "name": "hwPortalUserIpAddress",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalUserPort": {
+    "name": "hwPortalUserPort",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalUserUpFlow": {
+    "name": "hwPortalUserUpFlow",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalUserDownFlow": {
+    "name": "hwPortalUserDownFlow",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalUserName": {
+    "name": "hwPortalUserName",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalUserLoginTime": {
+    "name": "hwPortalUserLoginTime",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalUserServerIpAddress": {
+    "name": "hwPortalUserServerIpAddress",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalConfigSecretKeyTableV2": {
+    "name": "hwPortalConfigSecretKeyTableV2",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPortalConfigSecretKeyEntryV2": {
+    "name": "hwPortalConfigSecretKeyEntryV2",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalVrfNameV2",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigPortalServerIpAddressV2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPortalConfigPortalServerIpAddressV2": {
+    "name": "hwPortalConfigPortalServerIpAddressV2",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalConfigPortalServerIpMaskV2": {
+    "name": "hwPortalConfigPortalServerIpMaskV2",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPortalConfigSecretKeyV2": {
+    "name": "hwPortalConfigSecretKeyV2",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPortalConfigPortalServerPortV2": {
+    "name": "hwPortalConfigPortalServerPortV2",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPortalConfigPortalServerNasipV2": {
+    "name": "hwPortalConfigPortalServerNasipV2",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPortalConfigStatusV2": {
+    "name": "hwPortalConfigStatusV2",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPortalVrfNameV2": {
+    "name": "hwPortalVrfNameV2",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalServerTableV2": {
+    "name": "hwPortalServerTableV2",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPortalServerEntryV2": {
+    "name": "hwPortalServerEntryV2",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalVrfNameV2",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalServerIpAddressV2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPortalServerIpAddressV2": {
+    "name": "hwPortalServerIpAddressV2",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalServerUserNumV2": {
+    "name": "hwPortalServerUserNumV2",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortalConformance": {
+    "name": "hwPortalConformance",
+    "oid": "1.3.6.1.4.1.2011.5.4.3",
+    "class": "objectidentity"
+  },
+  "hwPortalCompliances": {
+    "name": "hwPortalCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.4.3.1",
+    "class": "objectidentity"
+  },
+  "hwPortalCompliance": {
+    "name": "hwPortalCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.4.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwPortalConfigParaObjectGroup",
+        "module": "HUAWEI-PORTAL-MIB"
+      },
+      {
+        "object": "hwPortalPacketStatisticsParaObjectGroup",
+        "module": "HUAWEI-PORTAL-MIB"
+      },
+      {
+        "object": "hwPortalConfigSecretKeyObjectGroup",
+        "module": "HUAWEI-PORTAL-MIB"
+      },
+      {
+        "object": "hwPortalServerObjectGroup",
+        "module": "HUAWEI-PORTAL-MIB"
+      },
+      {
+        "object": "hwPortalUserObjectGroup",
+        "module": "HUAWEI-PORTAL-MIB"
+      },
+      {
+        "object": "hwPortalConfigSecretKeyV2ObjectGroup",
+        "module": "HUAWEI-PORTAL-MIB"
+      },
+      {
+        "object": "hwPortalServerV2ObjectGroup",
+        "module": "HUAWEI-PORTAL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPortalObjectGroups": {
+    "name": "hwPortalObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.5.4.3.2",
+    "class": "objectidentity"
+  },
+  "hwPortalConfigParaObjectGroup": {
+    "name": "hwPortalConfigParaObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.4.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigVersionSupport"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigTextInfoSwitch"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigServerUdpReceivePort"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigServerUdpSendPort"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigTrapUdpPort"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigSourecIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPortalPacketStatisticsParaObjectGroup": {
+    "name": "hwPortalPacketStatisticsParaObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.4.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalStatisticsBeginTime"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsAuthenticatorError"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsAccessReqError"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsLogoutReqError"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsInquiryReqError"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsLoginConfirmError"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsAccessReqReceived"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsLoginReqReceived"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsLogoutReqReceived"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsInquiryReqReceived"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsLoginConfirmReceived"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsAccessACKFailed"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsLoginACKFailed"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsLogoutACKFailed"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsInquiryACKFailed"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsAccessAckSent"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsLoginAckSent"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsLogoutAckSent"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsInquiryAckSent"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPortalConfigSecretKeyObjectGroup": {
+    "name": "hwPortalConfigSecretKeyObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.4.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigPortalServerIpAddress"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigPortalServerIpMask"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigSecretKey"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigPortalServerPort"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigPortalServerNasip"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPortalServerObjectGroup": {
+    "name": "hwPortalServerObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.4.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalServerIpAddress"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalServerUserNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPortalUserObjectGroup": {
+    "name": "hwPortalUserObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.4.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalUserMACAddress"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalUserIpAddress"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalUserPort"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalUserUpFlow"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalUserDownFlow"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalUserName"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalUserLoginTime"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalUserServerIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPortalConfigSecretKeyV2ObjectGroup": {
+    "name": "hwPortalConfigSecretKeyV2ObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.4.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigPortalServerIpAddressV2"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigPortalServerIpMaskV2"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigSecretKeyV2"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigPortalServerPortV2"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigPortalServerNasipV2"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigStatusV2"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalVrfNameV2"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPortalServerV2ObjectGroup": {
+    "name": "hwPortalServerV2ObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.4.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalServerIpAddressV2"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalServerUserNumV2"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-PORTAL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-PORTAL-MIB"
+  }
+}

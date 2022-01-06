@@ -1,0 +1,731 @@
+{
+  "imports": {
+    "class": "imports",
+    "PBI-MAIN-MIB": [
+      "mg"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "MibIdentifier",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Bits",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "MODULE-IDENTITY",
+      "iso",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ]
+  },
+  "mgSignalCharacteristics": {
+    "name": "mgSignalCharacteristics",
+    "oid": "1.3.6.1.4.1.1070.3.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-09-21 09:24",
+        "description": ""
+      }
+    ]
+  },
+  "tsOutTable": {
+    "name": "tsOutTable",
+    "oid": "1.3.6.1.4.1.1070.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgPATTable": {
+    "name": "mgPATTable",
+    "oid": "1.3.6.1.4.1.1070.3.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgPMTTable": {
+    "name": "mgPMTTable",
+    "oid": "1.3.6.1.4.1.1070.3.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgNITTable": {
+    "name": "mgNITTable",
+    "oid": "1.3.6.1.4.1.1070.3.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgSDTTable": {
+    "name": "mgSDTTable",
+    "oid": "1.3.6.1.4.1.1070.3.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgFilterTable": {
+    "name": "mgFilterTable",
+    "oid": "1.3.6.1.4.1.1070.3.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgCATTable": {
+    "name": "mgCATTable",
+    "oid": "1.3.6.1.4.1.1070.3.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tsInput": {
+    "name": "tsInput",
+    "oid": "1.3.6.1.4.1.1070.3.2.8",
+    "class": "objectidentity"
+  },
+  "mgBATTable": {
+    "name": "mgBATTable",
+    "oid": "1.3.6.1.4.1.1070.3.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tsOutEntry": {
+    "name": "tsOutEntry",
+    "oid": "1.3.6.1.4.1.1070.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PBI-MGSIGNALCHARACTERISTICS-MIB",
+        "object": "channelOutput",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "channelOutput": {
+    "name": "channelOutput",
+    "oid": "1.3.6.1.4.1.1070.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bitRate": {
+    "name": "bitRate",
+    "oid": "1.3.6.1.4.1.1070.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "packetSize": {
+    "name": "packetSize",
+    "oid": "1.3.6.1.4.1.1070.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "transportStreamID": {
+    "name": "transportStreamID",
+    "oid": "1.3.6.1.4.1.1070.3.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "otiginalNetworkID": {
+    "name": "otiginalNetworkID",
+    "oid": "1.3.6.1.4.1.1070.3.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "networkID": {
+    "name": "networkID",
+    "oid": "1.3.6.1.4.1.1070.3.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bitrateThreshosdPercent": {
+    "name": "bitrateThreshosdPercent",
+    "oid": "1.3.6.1.4.1.1070.3.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outValidBitRate": {
+    "name": "outValidBitRate",
+    "oid": "1.3.6.1.4.1.1070.3.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgPATEntry": {
+    "name": "mgPATEntry",
+    "oid": "1.3.6.1.4.1.1070.3.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PBI-MGSIGNALCHARACTERISTICS-MIB",
+        "object": "channelInputPAT",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "channelInputPAT": {
+    "name": "channelInputPAT",
+    "oid": "1.3.6.1.4.1.1070.3.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "patSection": {
+    "name": "patSection",
+    "oid": "1.3.6.1.4.1.1070.3.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgPMTEntry": {
+    "name": "mgPMTEntry",
+    "oid": "1.3.6.1.4.1.1070.3.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PBI-MGSIGNALCHARACTERISTICS-MIB",
+        "object": "channelInputPMT",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "channelInputPMT": {
+    "name": "channelInputPMT",
+    "oid": "1.3.6.1.4.1.1070.3.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmtProgramNumber": {
+    "name": "pmtProgramNumber",
+    "oid": "1.3.6.1.4.1.1070.3.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmtPID": {
+    "name": "pmtPID",
+    "oid": "1.3.6.1.4.1.1070.3.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmtSection": {
+    "name": "pmtSection",
+    "oid": "1.3.6.1.4.1.1070.3.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgNITEntry": {
+    "name": "mgNITEntry",
+    "oid": "1.3.6.1.4.1.1070.3.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PBI-MGSIGNALCHARACTERISTICS-MIB",
+        "object": "channelInputNIT",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "channelInputNIT": {
+    "name": "channelInputNIT",
+    "oid": "1.3.6.1.4.1.1070.3.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "networkType": {
+    "name": "networkType",
+    "oid": "1.3.6.1.4.1.1070.3.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nitActualSection": {
+    "name": "nitActualSection",
+    "oid": "1.3.6.1.4.1.1070.3.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nitOhtersSection": {
+    "name": "nitOhtersSection",
+    "oid": "1.3.6.1.4.1.1070.3.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgSDTEntry": {
+    "name": "mgSDTEntry",
+    "oid": "1.3.6.1.4.1.1070.3.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PBI-MGSIGNALCHARACTERISTICS-MIB",
+        "object": "channelInputSDT",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "channelInputSDT": {
+    "name": "channelInputSDT",
+    "oid": "1.3.6.1.4.1.1070.3.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdtSection": {
+    "name": "sdtSection",
+    "oid": "1.3.6.1.4.1.1070.3.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgFilterEntry": {
+    "name": "mgFilterEntry",
+    "oid": "1.3.6.1.4.1.1070.3.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PBI-MGSIGNALCHARACTERISTICS-MIB",
+        "object": "channelInputFilter",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "channelInputFilter": {
+    "name": "channelInputFilter",
+    "oid": "1.3.6.1.4.1.1070.3.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "oldPID": {
+    "name": "oldPID",
+    "oid": "1.3.6.1.4.1.1070.3.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "newPID": {
+    "name": "newPID",
+    "oid": "1.3.6.1.4.1.1070.3.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "oldProgramNumber": {
+    "name": "oldProgramNumber",
+    "oid": "1.3.6.1.4.1.1070.3.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "newProgramNumber": {
+    "name": "newProgramNumber",
+    "oid": "1.3.6.1.4.1.1070.3.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgCATEntry": {
+    "name": "mgCATEntry",
+    "oid": "1.3.6.1.4.1.1070.3.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PBI-MGSIGNALCHARACTERISTICS-MIB",
+        "object": "channelInputCAT",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "channelInputCAT": {
+    "name": "channelInputCAT",
+    "oid": "1.3.6.1.4.1.1070.3.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "catSection": {
+    "name": "catSection",
+    "oid": "1.3.6.1.4.1.1070.3.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "channelInput": {
+    "name": "channelInput",
+    "oid": "1.3.6.1.4.1.1070.3.2.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stateLock": {
+    "name": "stateLock",
+    "oid": "1.3.6.1.4.1.1070.3.2.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tsIdPreference": {
+    "name": "tsIdPreference",
+    "oid": "1.3.6.1.4.1.1070.3.2.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgBATEntry": {
+    "name": "mgBATEntry",
+    "oid": "1.3.6.1.4.1.1070.3.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PBI-MGSIGNALCHARACTERISTICS-MIB",
+        "object": "channelBAT",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "channelBAT": {
+    "name": "channelBAT",
+    "oid": "1.3.6.1.4.1.1070.3.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "batSection": {
+    "name": "batSection",
+    "oid": "1.3.6.1.4.1.1070.3.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pbi/PBI-MGSIGNALCHARACTERISTICS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:46:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PBI-MGSIGNALCHARACTERISTICS-MIB"
+  }
+}

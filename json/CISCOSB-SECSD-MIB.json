@@ -1,0 +1,524 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOSB-MIB": [
+      "switch001"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "rlSecSd": {
+    "name": "rlSecSd",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-08-31 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "RlSecSdRuleUserType": {
+    "name": "RlSecSdRuleUserType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "user-name": 1,
+          "default-user": 2,
+          "level-15-users": 3,
+          "all-users": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlSecSdChannelType": {
+    "name": "RlSecSdChannelType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "secure-xml-snmp": 1,
+          "secure": 2,
+          "insecure": 3,
+          "insecure-xml-snmp": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlSecSdAccessType": {
+    "name": "RlSecSdAccessType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "exclude": 1,
+          "include-encrypted": 2,
+          "include-decrypted": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlSecSdPermitAccessType": {
+    "name": "RlSecSdPermitAccessType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "exclude": 1,
+          "include-encrypted": 2,
+          "include-decrypted": 3,
+          "include-all": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlSecSdSessionAccessType": {
+    "name": "RlSecSdSessionAccessType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "exclude": 1,
+          "include-encrypted": 2,
+          "include-decrypted": 3,
+          "default": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlSecSdRuleOwnerType": {
+    "name": "RlSecSdRuleOwnerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "user": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlSecSdRulesTable": {
+    "name": "rlSecSdRulesTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSecSdRulesEntry": {
+    "name": "rlSecSdRulesEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-SECSD-MIB",
+        "object": "rlSecSdRuleUser",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-SECSD-MIB",
+        "object": "rlSecSdRuleUserName",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-SECSD-MIB",
+        "object": "rlSecSdRuleChannel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSecSdRuleUser": {
+    "name": "rlSecSdRuleUser",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSecSdRuleUserType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSecSdRuleUserName": {
+    "name": "rlSecSdRuleUserName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSecSdRuleChannel": {
+    "name": "rlSecSdRuleChannel",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSecSdChannelType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSecSdRuleRead": {
+    "name": "rlSecSdRuleRead",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSecSdAccessType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSecSdRulePermitRead": {
+    "name": "rlSecSdRulePermitRead",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSecSdPermitAccessType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSecSdRuleIsDefault": {
+    "name": "rlSecSdRuleIsDefault",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSecSdRuleOwner": {
+    "name": "rlSecSdRuleOwner",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSecSdRuleOwnerType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSecSdRuleStatus": {
+    "name": "rlSecSdRuleStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSecSdMngSessionsTable": {
+    "name": "rlSecSdMngSessionsTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSecSdMngSessionsEntry": {
+    "name": "rlSecSdMngSessionsEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-SECSD-MIB",
+        "object": "rlSecSdMngSessionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSecSdMngSessionId": {
+    "name": "rlSecSdMngSessionId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSecSdMngSessionUserLevel": {
+    "name": "rlSecSdMngSessionUserLevel",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSecSdMngSessionUserName": {
+    "name": "rlSecSdMngSessionUserName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSecSdMngSessionChannel": {
+    "name": "rlSecSdMngSessionChannel",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSecSdChannelType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSecSdSessionControl": {
+    "name": "rlSecSdSessionControl",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSecSdSessionAccessType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSecSdCurrentSessionId": {
+    "name": "rlSecSdCurrentSessionId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSecSdPassPhrase": {
+    "name": "rlSecSdPassPhrase",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSecSdFilePassphraseControl": {
+    "name": "rlSecSdFilePassphraseControl",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "restricted": 1,
+          "unrestricted": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unrestricted",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSecSdFileIntegrityControl": {
+    "name": "rlSecSdFileIntegrityControl",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSecSdConfigurationFileSsdDigest": {
+    "name": "rlSecSdConfigurationFileSsdDigest",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSecSdConfigurationFileDigest": {
+    "name": "rlSecSdConfigurationFileDigest",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSecSdFileIndicator": {
+    "name": "rlSecSdFileIndicator",
+    "oid": "1.3.6.1.4.1.9.6.1.101.209.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-SECSD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCOSB-SECSD-MIB"
+  }
+}

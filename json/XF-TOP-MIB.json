@@ -1,0 +1,312 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "enterprises",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "Counter32",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "miniLinkXF": {
+    "name": "miniLinkXF",
+    "oid": "1.3.6.1.4.1.193.81",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-10-10 16:00",
+        "description": "T : Fixed minor syntax warnings"
+      },
+      {
+        "revision": "2012-08-31 16:00",
+        "description": "S : Changed to legal revision"
+      },
+      {
+        "revision": "2012-06-13 16:00",
+        "description": "P : Added xfRps subtree."
+      },
+      {
+        "revision": "2011-09-10 12:00",
+        "description": "O : Added xfCesService subtree."
+      },
+      {
+        "revision": "2010-09-22 11:00",
+        "description": "N : Added xfPT6010 subtree for PT6010"
+      },
+      {
+        "revision": "2010-04-20 10:00",
+        "description": "M : Added xfCN500 subtree for compact node 500."
+      },
+      {
+        "revision": "2010-01-26 10:00",
+        "description": "L : Added xfCN210 subtree for compact node 210."
+      },
+      {
+        "revision": "2009-03-16 12:00",
+        "description": "K : corrected Xf24HrsSeconds to 86400. "
+      },
+      {
+        "revision": "2009-01-22 11:00",
+        "description": "J : Length of xfProductRevison increased from 10 to 40."
+      },
+      {
+        "revision": "2008-02-25 14:44",
+        "description": "H : Added xfSdhAdm"
+      },
+      {
+        "revision": "2006-01-26 12:24",
+        "description": "G added xfAtmAggregationUnit"
+      },
+      {
+        "revision": "2005-02-25 16:00",
+        "description": "F changed xfServiceApplications to added xfIpSau"
+      },
+      {
+        "revision": "2004-01-23 11:11",
+        "description": "E Added xfRadioLink"
+      },
+      {
+        "revision": "2003-06-19 09:24",
+        "description": "D Changed the Xf15MinSeconds and Xf24Seconds to start with 1"
+      },
+      {
+        "revision": "2002-03-07 13:29",
+        "description": "C Added TC for Product number and revision Added TCs for seconds counter 15min and 24hrs Changed contact info "
+      },
+      {
+        "revision": "2001-10-08 15:01",
+        "description": "B etoall: xfMCR instead xfRadio"
+      },
+      {
+        "revision": "2001-04-02 00:00",
+        "description": "Rev. A etoall Initial version"
+      }
+    ]
+  },
+  "XfProductnumber": {
+    "name": "XfProductnumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "displayhint": "30t",
+    "status": "current"
+  },
+  "XfProductRevision": {
+    "name": "XfProductRevision",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "displayhint": "40t",
+    "status": "current"
+  },
+  "Xf24HrsSeconds": {
+    "name": "Xf24HrsSeconds",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Xf15MinSeconds": {
+    "name": "Xf15MinSeconds",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Xf24HrsSecondsGauge": {
+    "name": "Xf24HrsSecondsGauge",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Xf15MinSecondsGauge": {
+    "name": "Xf15MinSecondsGauge",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "ericsson": {
+    "name": "ericsson",
+    "oid": "1.3.6.1.4.1.193",
+    "class": "objectidentity"
+  },
+  "xfSysId": {
+    "name": "xfSysId",
+    "oid": "1.3.6.1.4.1.193.81.1",
+    "class": "objectidentity"
+  },
+  "xfPlatform": {
+    "name": "xfPlatform",
+    "oid": "1.3.6.1.4.1.193.81.2",
+    "class": "objectidentity"
+  },
+  "xfMediaSpecific": {
+    "name": "xfMediaSpecific",
+    "oid": "1.3.6.1.4.1.193.81.3",
+    "class": "objectidentity"
+  },
+  "xfPDH": {
+    "name": "xfPDH",
+    "oid": "1.3.6.1.4.1.193.81.3.1",
+    "class": "objectidentity"
+  },
+  "xfSDH": {
+    "name": "xfSDH",
+    "oid": "1.3.6.1.4.1.193.81.3.2",
+    "class": "objectidentity"
+  },
+  "xfMCR": {
+    "name": "xfMCR",
+    "oid": "1.3.6.1.4.1.193.81.3.3",
+    "class": "objectidentity"
+  },
+  "xfRadioLink": {
+    "name": "xfRadioLink",
+    "oid": "1.3.6.1.4.1.193.81.3.4",
+    "class": "objectidentity"
+  },
+  "xfServiceApplications": {
+    "name": "xfServiceApplications",
+    "oid": "1.3.6.1.4.1.193.81.4",
+    "class": "objectidentity"
+  },
+  "xfEthernetBridge": {
+    "name": "xfEthernetBridge",
+    "oid": "1.3.6.1.4.1.193.81.4.1",
+    "class": "objectidentity"
+  },
+  "xfAtmAggregationUnit": {
+    "name": "xfAtmAggregationUnit",
+    "oid": "1.3.6.1.4.1.193.81.4.2",
+    "class": "objectidentity"
+  },
+  "xfSdhAdm": {
+    "name": "xfSdhAdm",
+    "oid": "1.3.6.1.4.1.193.81.4.3",
+    "class": "objectidentity"
+  },
+  "xfCesService": {
+    "name": "xfCesService",
+    "oid": "1.3.6.1.4.1.193.81.4.4",
+    "class": "objectidentity"
+  },
+  "xfRps": {
+    "name": "xfRps",
+    "oid": "1.3.6.1.4.1.193.81.4.5",
+    "class": "objectidentity"
+  },
+  "xfIpSau": {
+    "name": "xfIpSau",
+    "oid": "1.3.6.1.4.1.193.81.5",
+    "class": "objectidentity"
+  },
+  "xfCN210": {
+    "name": "xfCN210",
+    "oid": "1.3.6.1.4.1.193.81.6",
+    "class": "objectidentity"
+  },
+  "xfCN500": {
+    "name": "xfCN500",
+    "oid": "1.3.6.1.4.1.193.81.7",
+    "class": "objectidentity"
+  },
+  "xfPT6010": {
+    "name": "xfPT6010",
+    "oid": "1.3.6.1.4.1.193.81.8",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/XF-TOP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:31 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "XF-TOP-MIB"
+  }
+}

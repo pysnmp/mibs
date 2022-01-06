@@ -1,0 +1,384 @@
+{
+  "imports": {
+    "class": "imports",
+    "EXTREME-BASE-MIB": [
+      "extremeAgent",
+      "PortList"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Bits",
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "extremeFdb": {
+    "name": "extremeFdb",
+    "oid": "1.3.6.1.4.1.1916.1.16",
+    "class": "moduleidentity"
+  },
+  "extremeFdbMacFdbTable": {
+    "name": "extremeFdbMacFdbTable",
+    "oid": "1.3.6.1.4.1.1916.1.16.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeFdbMacFdbEntry": {
+    "name": "extremeFdbMacFdbEntry",
+    "oid": "1.3.6.1.4.1.1916.1.16.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-FDB-MIB",
+        "object": "extremeFdbMacFdbVlanIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "EXTREME-FDB-MIB",
+        "object": "extremeFdbMacFdbSequenceNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeFdbMacFdbVlanIfIndex": {
+    "name": "extremeFdbMacFdbVlanIfIndex",
+    "oid": "1.3.6.1.4.1.1916.1.16.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeFdbMacFdbSequenceNumber": {
+    "name": "extremeFdbMacFdbSequenceNumber",
+    "oid": "1.3.6.1.4.1.1916.1.16.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeFdbMacFdbMacAddress": {
+    "name": "extremeFdbMacFdbMacAddress",
+    "oid": "1.3.6.1.4.1.1916.1.16.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeFdbMacFdbPortIfIndex": {
+    "name": "extremeFdbMacFdbPortIfIndex",
+    "oid": "1.3.6.1.4.1.1916.1.16.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeFdbMacFdbStatus": {
+    "name": "extremeFdbMacFdbStatus",
+    "oid": "1.3.6.1.4.1.1916.1.16.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "invalid": 2,
+          "learned": 3,
+          "self": 4,
+          "mgmt": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeFdbIpFdbTable": {
+    "name": "extremeFdbIpFdbTable",
+    "oid": "1.3.6.1.4.1.1916.1.16.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeFdbIpFdbEntry": {
+    "name": "extremeFdbIpFdbEntry",
+    "oid": "1.3.6.1.4.1.1916.1.16.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-FDB-MIB",
+        "object": "extremeFdbIpFdbSequenceNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeFdbIpFdbSequenceNumber": {
+    "name": "extremeFdbIpFdbSequenceNumber",
+    "oid": "1.3.6.1.4.1.1916.1.16.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeFdbIpFdbIPAddress": {
+    "name": "extremeFdbIpFdbIPAddress",
+    "oid": "1.3.6.1.4.1.1916.1.16.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeFdbIpFdbMacAddress": {
+    "name": "extremeFdbIpFdbMacAddress",
+    "oid": "1.3.6.1.4.1.1916.1.16.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeFdbIpFdbVlanIfIndex": {
+    "name": "extremeFdbIpFdbVlanIfIndex",
+    "oid": "1.3.6.1.4.1.1916.1.16.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeFdbIpFdbPortIfIndex": {
+    "name": "extremeFdbIpFdbPortIfIndex",
+    "oid": "1.3.6.1.4.1.1916.1.16.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeFdbPermFdbTable": {
+    "name": "extremeFdbPermFdbTable",
+    "oid": "1.3.6.1.4.1.1916.1.16.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeFdbPermFdbEntry": {
+    "name": "extremeFdbPermFdbEntry",
+    "oid": "1.3.6.1.4.1.1916.1.16.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-FDB-MIB",
+        "object": "extremeFdbPermFdbFilterNum",
+        "implied": 0
+      },
+      {
+        "module": "EXTREME-FDB-MIB",
+        "object": "extremeFdbPermFdbMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "EXTREME-FDB-MIB",
+        "object": "extremeFdbPermFdbVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeFdbPermFdbFilterNum": {
+    "name": "extremeFdbPermFdbFilterNum",
+    "oid": "1.3.6.1.4.1.1916.1.16.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeFdbPermFdbMacAddress": {
+    "name": "extremeFdbPermFdbMacAddress",
+    "oid": "1.3.6.1.4.1.1916.1.16.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeFdbPermFdbVlanId": {
+    "name": "extremeFdbPermFdbVlanId",
+    "oid": "1.3.6.1.4.1.1916.1.16.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeFdbPermFdbPortList": {
+    "name": "extremeFdbPermFdbPortList",
+    "oid": "1.3.6.1.4.1.1916.1.16.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extremeFdbPermFdbFlags": {
+    "name": "extremeFdbPermFdbFlags",
+    "oid": "1.3.6.1.4.1.1916.1.16.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "isSecure": 0
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extremeFdbPermFdbStatus": {
+    "name": "extremeFdbPermFdbStatus",
+    "oid": "1.3.6.1.4.1.1916.1.16.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extremeFdbMacFdbCounterTable": {
+    "name": "extremeFdbMacFdbCounterTable",
+    "oid": "1.3.6.1.4.1.1916.1.16.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeFdbMacFdbCounterEntry": {
+    "name": "extremeFdbMacFdbCounterEntry",
+    "oid": "1.3.6.1.4.1.1916.1.16.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-FDB-MIB",
+        "object": "extremeFdbMacFdbCounterPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeFdbMacFdbCounterPortIfIndex": {
+    "name": "extremeFdbMacFdbCounterPortIfIndex",
+    "oid": "1.3.6.1.4.1.1916.1.16.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeFdbMacFdbCounterValue": {
+    "name": "extremeFdbMacFdbCounterValue",
+    "oid": "1.3.6.1.4.1.1916.1.16.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:52 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "EXTREME-FDB-MIB"
+  }
+}

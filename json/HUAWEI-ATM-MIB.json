@@ -1,0 +1,1650 @@
+{
+  "imports": {
+    "class": "imports",
+    "ATM-TC-MIB": [
+      "AtmVcIdentifier",
+      "AtmVpIdentifier"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hwAtmMIB": {
+    "name": "hwAtmMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.156",
+    "class": "moduleidentity"
+  },
+  "hwAtmObjects": {
+    "name": "hwAtmObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1",
+    "class": "objectidentity"
+  },
+  "hwAtmTable": {
+    "name": "hwAtmTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmEntry": {
+    "name": "hwAtmEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmIfIndex": {
+    "name": "hwAtmIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmIfType": {
+    "name": "hwAtmIfType",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oc3OrStm1": 1,
+          "oc12OrStm4": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAtmClock": {
+    "name": "hwAtmClock",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAtmFrameFormat": {
+    "name": "hwAtmFrameFormat",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sdh": 1,
+          "sonet": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "sdh",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAtmScramble": {
+    "name": "hwAtmScramble",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAtmLoopback": {
+    "name": "hwAtmLoopback",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "remote": 2,
+          "payload": 3,
+          "none": 255
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAtmMapPvpTable": {
+    "name": "hwAtmMapPvpTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmMapPvpEntry": {
+    "name": "hwAtmMapPvpEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmMapPvpIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmMapPvpVplVpi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmMapPvpIfIndex": {
+    "name": "hwAtmMapPvpIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmMapPvpVplVpi": {
+    "name": "hwAtmMapPvpVplVpi",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmMapPvpRemoteVplVpi": {
+    "name": "hwAtmMapPvpRemoteVplVpi",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmMapPvpRowStatus": {
+    "name": "hwAtmMapPvpRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmMapPvcTable": {
+    "name": "hwAtmMapPvcTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmMapPvcEntry": {
+    "name": "hwAtmMapPvcEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmMapPvcRemoteVclVci": {
+    "name": "hwAtmMapPvcRemoteVclVci",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmMapPvcRemoteVclVpi": {
+    "name": "hwAtmMapPvcRemoteVclVpi",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmMapPvcRowStatus": {
+    "name": "hwAtmMapPvcRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.3.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmServiceTable": {
+    "name": "hwAtmServiceTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmServiceEntry": {
+    "name": "hwAtmServiceEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmServiceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmServiceName": {
+    "name": "hwAtmServiceName",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmServiceType": {
+    "name": "hwAtmServiceType",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cbr": 1,
+          "vbrNrt": 2,
+          "vbrRt": 3,
+          "ubr": 4,
+          "ubrPlus": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ubr",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmServiceOutputPcr": {
+    "name": "hwAtmServiceOutputPcr",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 64,
+            "max": 149760
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 149760,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmServiceOutputScr": {
+    "name": "hwAtmServiceOutputScr",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 64,
+            "max": 149760
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 149760,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmServiceOutputMbs": {
+    "name": "hwAtmServiceOutputMbs",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmServiceCbrCdvtValue": {
+    "name": "hwAtmServiceCbrCdvtValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmServiceOutputMcr": {
+    "name": "hwAtmServiceOutputMcr",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 64,
+            "max": 149760
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 149760,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmServiceRowStatus": {
+    "name": "hwAtmServiceRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.4.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmPvcServiceTable": {
+    "name": "hwAtmPvcServiceTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmPvcServiceEntry": {
+    "name": "hwAtmPvcServiceEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmPvcServiceName": {
+    "name": "hwAtmPvcServiceName",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmPvcTransmittalDirection": {
+    "name": "hwAtmPvcTransmittalDirection",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "input": 1,
+          "output": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmPvcServiceRowStatus": {
+    "name": "hwAtmPvcServiceRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.5.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmIfConfTable": {
+    "name": "hwAtmIfConfTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmIfConfEntry": {
+    "name": "hwAtmIfConfEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmIfConfIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmIfConfIfIndex": {
+    "name": "hwAtmIfConfIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmIfConfMaxVccs": {
+    "name": "hwAtmIfConfMaxVccs",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAtmIfConfOperVccs": {
+    "name": "hwAtmIfConfOperVccs",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAtmIfConfIntfType": {
+    "name": "hwAtmIfConfIntfType",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uni": 1,
+          "nni": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAtmVplTable": {
+    "name": "hwAtmVplTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmVplEntry": {
+    "name": "hwAtmVplEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVplIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVplVpi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmVplIfIndex": {
+    "name": "hwAtmVplIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmVplVpi": {
+    "name": "hwAtmVplVpi",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmVplRowStatus": {
+    "name": "hwAtmVplRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.12.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmVclTable": {
+    "name": "hwAtmVclTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmVclEntry": {
+    "name": "hwAtmVclEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmVclIfIndex": {
+    "name": "hwAtmVclIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmVclVpi": {
+    "name": "hwAtmVclVpi",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmVclVci": {
+    "name": "hwAtmVclVci",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmVclName": {
+    "name": "hwAtmVclName",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmVccAal5EncapsType": {
+    "name": "hwAtmVccAal5EncapsType",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aal5Snap": 1,
+          "aal5Mux": 2,
+          "aal5MuxNonstandard": 3,
+          "aal5Nlpid": 4
+        }
+      }
+    },
+    "default": {
+      "default": {}
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmVclRowStatus": {
+    "name": "hwAtmVclRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.13.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmPvcIpoaTable": {
+    "name": "hwAtmPvcIpoaTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmPvcIpoaEntry": {
+    "name": "hwAtmPvcIpoaEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVci",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcIpoaType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcIpoaIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmPvcIpoaType": {
+    "name": "hwAtmPvcIpoaType",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "default": 2,
+          "inarp": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmPvcIpoaIpAddress": {
+    "name": "hwAtmPvcIpoaIpAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmPvcIpoaIpMask": {
+    "name": "hwAtmPvcIpoaIpMask",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.14.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmPvcIpoaInarpInterval": {
+    "name": "hwAtmPvcIpoaInarpInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.14.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmPvcIpoaBroadcast": {
+    "name": "hwAtmPvcIpoaBroadcast",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.14.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmPvcIpoaRowStatus": {
+    "name": "hwAtmPvcIpoaRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.14.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmPvcBridgeTable": {
+    "name": "hwAtmPvcBridgeTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmPvcBridgeEntry": {
+    "name": "hwAtmPvcBridgeEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmPvcBridgeDstIfIndex": {
+    "name": "hwAtmPvcBridgeDstIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.15.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmPvcBridgeRowStatus": {
+    "name": "hwAtmPvcBridgeRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.15.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmPvcOamLoopbackTable": {
+    "name": "hwAtmPvcOamLoopbackTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmPvcOAMLoopbackEntry": {
+    "name": "hwAtmPvcOAMLoopbackEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmPvcOAMLoopbackFrequency": {
+    "name": "hwAtmPvcOAMLoopbackFrequency",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.17.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmPvcOAMLoopbackUpCount": {
+    "name": "hwAtmPvcOAMLoopbackUpCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.17.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmPvcOAMLoopbackDownCount": {
+    "name": "hwAtmPvcOAMLoopbackDownCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.17.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmPvcOAMLoopbackRetryFrequency": {
+    "name": "hwAtmPvcOAMLoopbackRetryFrequency",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.17.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmPvcOAMLoopbackRowStatus": {
+    "name": "hwAtmPvcOAMLoopbackRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.17.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmPvpLimitTable": {
+    "name": "hwAtmPvpLimitTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmPvpLimitEntry": {
+    "name": "hwAtmPvpLimitEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvpLimitIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvpLimitVpi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmPvpLimitIfIndex": {
+    "name": "hwAtmPvpLimitIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmPvpLimitVpi": {
+    "name": "hwAtmPvpLimitVpi",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtmPvpLimitPeakRate": {
+    "name": "hwAtmPvpLimitPeakRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.18.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmPvpLimitRowStatus": {
+    "name": "hwAtmPvpLimitRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.18.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtmConformance": {
+    "name": "hwAtmConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11",
+    "class": "objectidentity"
+  },
+  "hwAtmCompliances": {
+    "name": "hwAtmCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.1",
+    "class": "objectidentity"
+  },
+  "hwAtmCompliance": {
+    "name": "hwAtmCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwAtmObjectGroup",
+        "module": "HUAWEI-ATM-MIB"
+      },
+      {
+        "object": "hwAtmMapPvpObjectGroup",
+        "module": "HUAWEI-ATM-MIB"
+      },
+      {
+        "object": "hwAtmMapPvcObjectGroup",
+        "module": "HUAWEI-ATM-MIB"
+      },
+      {
+        "object": "hwAtmPvcIpoaObjectGroup",
+        "module": "HUAWEI-ATM-MIB"
+      },
+      {
+        "object": "hwAtmPvcBridgeObjectGroup",
+        "module": "HUAWEI-ATM-MIB"
+      },
+      {
+        "object": "hwAtmPvcServiceObjectGroup",
+        "module": "HUAWEI-ATM-MIB"
+      },
+      {
+        "object": "hwAtmPvcOAMLoopbackObjectGroup",
+        "module": "HUAWEI-ATM-MIB"
+      },
+      {
+        "object": "hwAtmPvpLimitObjectGroup",
+        "module": "HUAWEI-ATM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmGroups": {
+    "name": "hwAtmGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2",
+    "class": "objectidentity"
+  },
+  "hwAtmObjectGroup": {
+    "name": "hwAtmObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmIfType"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmClock"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmFrameFormat"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmScramble"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmLoopback"
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmIfConf": {
+    "name": "hwAtmIfConf",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmIfConfMaxVccs"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmIfConfOperVccs"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmIfConfIntfType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmVplObjectGroup": {
+    "name": "hwAtmVplObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcBridgeDstIfIndex"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcBridgeRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmVclObjectGroup": {
+    "name": "hwAtmVclObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclName"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVccAal5EncapsType"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmMapPvpObjectGroup": {
+    "name": "hwAtmMapPvpObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmMapPvpRemoteVplVpi"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmMapPvpRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmMapPvcObjectGroup": {
+    "name": "hwAtmMapPvcObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmMapPvcRemoteVclVpi"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmMapPvcRemoteVclVci"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmMapPvcRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmServiceObjectGroup": {
+    "name": "hwAtmServiceObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmServiceType"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmServiceOutputPcr"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmServiceOutputScr"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmServiceOutputMbs"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmServiceCbrCdvtValue"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmServiceOutputMcr"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmServiceRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmPvcServiceObjectGroup": {
+    "name": "hwAtmPvcServiceObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcServiceName"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcTransmittalDirection"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcServiceRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmPvcIpoaObjectGroup": {
+    "name": "hwAtmPvcIpoaObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcIpoaIpMask"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcIpoaInarpInterval"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcIpoaBroadcast"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcIpoaRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmPvcBridgeObjectGroup": {
+    "name": "hwAtmPvcBridgeObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVplRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmPvcOAMLoopbackObjectGroup": {
+    "name": "hwAtmPvcOAMLoopbackObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcOAMLoopbackFrequency"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcOAMLoopbackUpCount"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcOAMLoopbackDownCount"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcOAMLoopbackRetryFrequency"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcOAMLoopbackRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtmPvpLimitObjectGroup": {
+    "name": "hwAtmPvpLimitObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvpLimitPeakRate"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvpLimitRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-ATM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-ATM-MIB"
+  }
+}

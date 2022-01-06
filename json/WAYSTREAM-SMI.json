@@ -1,0 +1,108 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "waystream": {
+    "name": "waystream",
+    "oid": "1.3.6.1.4.1.9303",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-02-10 11:00",
+        "description": "Company name change: In October 2015 PacketFront Network Products was renamed Waystream. In this update all PacketFront were changed to Waystream and all pf* to ws*."
+      },
+      {
+        "revision": "2011-01-11 18:01",
+        "description": "Updated company name"
+      },
+      {
+        "revision": "2009-03-23 10:39",
+        "description": "Updated telephone number in contact-info"
+      },
+      {
+        "revision": "2008-01-17 14:05",
+        "description": "Correct warnings in imports"
+      },
+      {
+        "revision": "2007-05-11 12:28",
+        "description": "Created from PACKETFRONT-MIB.mib"
+      }
+    ]
+  },
+  "wsProduct": {
+    "name": "wsProduct",
+    "oid": "1.3.6.1.4.1.9303.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wsConfig": {
+    "name": "wsConfig",
+    "oid": "1.3.6.1.4.1.9303.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipdConfig": {
+    "name": "ipdConfig",
+    "oid": "1.3.6.1.4.1.9303.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wsExperiment": {
+    "name": "wsExperiment",
+    "oid": "1.3.6.1.4.1.9303.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wsMgmt": {
+    "name": "wsMgmt",
+    "oid": "1.3.6.1.4.1.9303.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wsModules": {
+    "name": "wsModules",
+    "oid": "1.3.6.1.4.1.9303.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "pfSW": {
+    "name": "pfSW",
+    "oid": "1.3.6.1.4.1.9303.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/waystream/WAYSTREAM-SMI",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "WAYSTREAM-SMI"
+  }
+}

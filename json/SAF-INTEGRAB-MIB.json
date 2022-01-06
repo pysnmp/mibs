@@ -1,0 +1,3795 @@
+{
+  "imports": {
+    "class": "imports",
+    "IANAifType-MIB": [
+      "IANAifType"
+    ],
+    "SAF-ENTERPRISE": [
+      "pointToPoint"
+    ],
+    "SAF-INTEGRA-MIB": [
+      "safIntegra"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "PhysAddress",
+      "DateAndTime"
+    ]
+  },
+  "integraB": {
+    "name": "integraB",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-09-17 00:00",
+        "description": "Conformance updated"
+      },
+      {
+        "revision": "2015-09-15 00:00",
+        "description": "Local/remote IP address, mask, gateway OIDs added"
+      },
+      {
+        "revision": "2015-08-12 00:00",
+        "description": "Syntax error fixes"
+      },
+      {
+        "revision": "2015-07-20 00:00",
+        "description": "Public Release 1.22. integraBifIngressBPS, integraBifIngressPPS, integraBifEgressBPS, integraBifEgressPPS value types changed"
+      },
+      {
+        "revision": "2015-05-20 00:00",
+        "description": "Public Release 1.21. Radio PLL status, free physical memory, CPU idle objects added"
+      },
+      {
+        "revision": "2015-04-14 00:00",
+        "description": "Descriptions updated"
+      },
+      {
+        "revision": "2015-03-24 00:00",
+        "description": "Public Release 1.20. Removed integraBifLinkUpDownTrapEnable OID"
+      },
+      {
+        "revision": "2015-02-10 00:00",
+        "description": "Public Release 1.19. Ethernet QoS statistics table reworked"
+      },
+      {
+        "revision": "2015-02-04 00:00",
+        "description": "Public Release 1.18. Modem RMSE value type changed"
+      },
+      {
+        "revision": "2015-01-12 00:00",
+        "description": "Small syntax fix"
+      },
+      {
+        "revision": "2015-01-08 00:00",
+        "description": "Syntax fix"
+      },
+      {
+        "revision": "2015-01-06 00:00",
+        "description": "Public Release 1.17. Module name change (Integra->IntegraB)"
+      },
+      {
+        "revision": "2014-12-18 00:00",
+        "description": "Public Release 1.16. Ethernet port flow control OID added"
+      },
+      {
+        "revision": "2014-12-12 00:00",
+        "description": "Public Release 1.15. Ethernet statistics table updated"
+      },
+      {
+        "revision": "2014-12-10 00:00",
+        "description": "Public Release 1.14. System configuration executing & storing OIDs added"
+      },
+      {
+        "revision": "2014-12-09 00:00",
+        "description": "Public Release 1.13. Duplex shift and Tx mute OIDs are read-only. Read-write Tx mute duration OID added. Radio ranges table created"
+      },
+      {
+        "revision": "2014-11-22 00:00",
+        "description": "Public Release 1.12. Radio side OID is read-only. Grammar typos fixed"
+      },
+      {
+        "revision": "2014-10-29 00:00",
+        "description": "Licence expiration OID fix"
+      },
+      {
+        "revision": "2014-09-04 00:00",
+        "description": "Public Release 1.11. Modem carrier offset OID added"
+      },
+      {
+        "revision": "2014-08-01 00:00",
+        "description": "Public Release 1.10 module name changed"
+      },
+      {
+        "revision": "2014-06-11 00:00",
+        "description": "Public Release 1.09. ifPortType syntax declared by IANAifType"
+      },
+      {
+        "revision": "2014-04-16 00:00",
+        "description": "Public Release 1.08"
+      },
+      {
+        "revision": "2014-02-12 00:00",
+        "description": "Public Release 1.07 - small fixes"
+      },
+      {
+        "revision": "2014-02-11 00:00",
+        "description": "Public Release 1.07"
+      },
+      {
+        "revision": "2014-01-30 00:00",
+        "description": "Public Release 1.06 temperature units *10 only in description"
+      },
+      {
+        "revision": "2014-01-29 00:00",
+        "description": "Public Release 1.05"
+      },
+      {
+        "revision": "2013-12-18 00:00",
+        "description": "Public Release 1.04"
+      },
+      {
+        "revision": "2013-12-09 00:00",
+        "description": "Public Release 1.03"
+      },
+      {
+        "revision": "2013-12-05 00:00",
+        "description": "Public Release 1.02"
+      },
+      {
+        "revision": "2013-09-27 00:00",
+        "description": "Public Release 1.01"
+      },
+      {
+        "revision": "2013-09-19 00:00",
+        "description": "Public Release 1.0"
+      }
+    ]
+  },
+  "integraBtimestamp": {
+    "name": "integraBtimestamp",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBradio": {
+    "name": "integraBradio",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.2",
+    "class": "objectidentity"
+  },
+  "integraBradioTxPower": {
+    "name": "integraBradioTxPower",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "integraBradioTxFrequency": {
+    "name": "integraBradioTxFrequency",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "integraBradioRxLevel": {
+    "name": "integraBradioRxLevel",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBradioSide": {
+    "name": "integraBradioSide",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "high": 1,
+          "low": 2,
+          "error": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBradioTxMute": {
+    "name": "integraBradioTxMute",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "error": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBradioDuplexShift": {
+    "name": "integraBradioDuplexShift",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBradioRxFrequency": {
+    "name": "integraBradioRxFrequency",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBradioTemperature": {
+    "name": "integraBradioTemperature",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBradioTxMuteDuration": {
+    "name": "integraBradioTxMuteDuration",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 214748364
+          }
+        ]
+      }
+    },
+    "units": "s",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "integraBradioRangesTable": {
+    "name": "integraBradioRangesTable",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "integraBradioRangeEntry": {
+    "name": "integraBradioRangeEntry",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBradioRangeEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "integraBradioRangeEntryIndex": {
+    "name": "integraBradioRangeEntryIndex",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBradioRangeDescr": {
+    "name": "integraBradioRangeDescr",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBradioRangeTxPower": {
+    "name": "integraBradioRangeTxPower",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBradioRangeTxFrequency": {
+    "name": "integraBradioRangeTxFrequency",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBradioPLL": {
+    "name": "integraBradioPLL",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 1,
+          "ok": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBmodem": {
+    "name": "integraBmodem",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.3",
+    "class": "objectidentity"
+  },
+  "integraBmodemAcquireStatus": {
+    "name": "integraBmodemAcquireStatus",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acquireInProgress": 1,
+          "acquireLocked": 2,
+          "acquireFailed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBmodemRadialMse": {
+    "name": "integraBmodemRadialMse",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBmodemFECload": {
+    "name": "integraBmodemFECload",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBmodemAcquireLastStatusDetails": {
+    "name": "integraBmodemAcquireLastStatusDetails",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acquireLocked": 1,
+          "acquireSweep": 4,
+          "acquireMSEerror": 5,
+          "acquireBITerror": 6,
+          "acquireStopped": 12,
+          "acquireSMerror": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBmodemTemperature": {
+    "name": "integraBmodemTemperature",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBmodemBandwidth": {
+    "name": "integraBmodemBandwidth",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBmodemModulation": {
+    "name": "integraBmodemModulation",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBmodemRxModulation": {
+    "name": "integraBmodemRxModulation",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBmodemTxModulation": {
+    "name": "integraBmodemTxModulation",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBmodemRxCapacity": {
+    "name": "integraBmodemRxCapacity",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kb/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBmodemTxCapacity": {
+    "name": "integraBmodemTxCapacity",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kb/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBmodemACMengine": {
+    "name": "integraBmodemACMengine",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "error": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBmodemCarrierOffset": {
+    "name": "integraBmodemCarrierOffset",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Hz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBsystem": {
+    "name": "integraBsystem",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.4",
+    "class": "objectidentity"
+  },
+  "integraBsysCPUtemperature": {
+    "name": "integraBsysCPUtemperature",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBsysLicenseExpire": {
+    "name": "integraBsysLicenseExpire",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBsysLicenseGenStatus": {
+    "name": "integraBsysLicenseGenStatus",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "expired": 2,
+          "unknown": 3,
+          "unlimitedTime": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBsysPSUvoltage": {
+    "name": "integraBsysPSUvoltage",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBsysPSUcurrent": {
+    "name": "integraBsysPSUcurrent",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBsysPSUpower": {
+    "name": "integraBsysPSUpower",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "mW",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBsysBoardTemperature": {
+    "name": "integraBsysBoardTemperature",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBsysFreeMemory": {
+    "name": "integraBsysFreeMemory",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBsysCPUidle": {
+    "name": "integraBsysCPUidle",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBethernet": {
+    "name": "integraBethernet",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5",
+    "class": "objectidentity"
+  },
+  "integraBifStatusTable": {
+    "name": "integraBifStatusTable",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "integraBifPortEntry": {
+    "name": "integraBifPortEntry",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifPortStatIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "integraBifPortStatIndex": {
+    "name": "integraBifPortStatIndex",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifPortStatDescr": {
+    "name": "integraBifPortStatDescr",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifPortType": {
+    "name": "integraBifPortType",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAifType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifPortMtu": {
+    "name": "integraBifPortMtu",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifPortSpeed": {
+    "name": "integraBifPortSpeed",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifPortPhysAddress": {
+    "name": "integraBifPortPhysAddress",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifPortAdminStatus": {
+    "name": "integraBifPortAdminStatus",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifPortOperStatus": {
+    "name": "integraBifPortOperStatus",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifPortLastChange": {
+    "name": "integraBifPortLastChange",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifPortAutoneg": {
+    "name": "integraBifPortAutoneg",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifPortDuplex": {
+    "name": "integraBifPortDuplex",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "full": 1,
+          "half": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifPortSyncEthActive": {
+    "name": "integraBifPortSyncEthActive",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifPortSyncEthPrio": {
+    "name": "integraBifPortSyncEthPrio",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifPortFlowControl": {
+    "name": "integraBifPortFlowControl",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifStatisticsTable": {
+    "name": "integraBifStatisticsTable",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "integraBifPortStcEntry": {
+    "name": "integraBifPortStcEntry",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifPortStcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "integraBifPortStcIndex": {
+    "name": "integraBifPortStcIndex",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifPortStcDescr": {
+    "name": "integraBifPortStcDescr",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifTimePassed": {
+    "name": "integraBifTimePassed",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "s/100",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifIngressPackets": {
+    "name": "integraBifIngressPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifIngressBytes": {
+    "name": "integraBifIngressBytes",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEgressPackets": {
+    "name": "integraBifEgressPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEgressBytes": {
+    "name": "integraBifEgressBytes",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEtherStatsMulticastPkts": {
+    "name": "integraBifEtherStatsMulticastPkts",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEtherStatsBroadcastPkts": {
+    "name": "integraBifEtherStatsBroadcastPkts",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEtherStatsPkts64Octets": {
+    "name": "integraBifEtherStatsPkts64Octets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEtherStatsPkts65to127Octets": {
+    "name": "integraBifEtherStatsPkts65to127Octets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEtherStatsPkts128to255Octets": {
+    "name": "integraBifEtherStatsPkts128to255Octets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEtherStatsPkts256to511Octets": {
+    "name": "integraBifEtherStatsPkts256to511Octets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEtherStatsPkts512to1023Octets": {
+    "name": "integraBifEtherStatsPkts512to1023Octets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEtherStatsPkts1024to1518Octets": {
+    "name": "integraBifEtherStatsPkts1024to1518Octets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEtherStatsOversizePkts": {
+    "name": "integraBifEtherStatsOversizePkts",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEtherRxOversizePkts": {
+    "name": "integraBifEtherRxOversizePkts",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEtherTxOversizePkts": {
+    "name": "integraBifEtherTxOversizePkts",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEtherStatsOctets": {
+    "name": "integraBifEtherStatsOctets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEtherStatsPkts": {
+    "name": "integraBifEtherStatsPkts",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEtherStatsTXNoErrors": {
+    "name": "integraBifEtherStatsTXNoErrors",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEtherStatsRXNoErrors": {
+    "name": "integraBifEtherStatsRXNoErrors",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEtherStatsPkts1519to1522Octets": {
+    "name": "integraBifEtherStatsPkts1519to1522Octets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifIfInOctets": {
+    "name": "integraBifIfInOctets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifIfOutOctets": {
+    "name": "integraBifIfOutOctets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifDot1dTpPortInFrames": {
+    "name": "integraBifDot1dTpPortInFrames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifDot1dTpPortOutFrames": {
+    "name": "integraBifDot1dTpPortOutFrames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifReceivedPkts64Octets": {
+    "name": "integraBifReceivedPkts64Octets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifTransmittedPkts64Octets": {
+    "name": "integraBifTransmittedPkts64Octets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifReceivedPkts65to127Octets": {
+    "name": "integraBifReceivedPkts65to127Octets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifTransmittedPkts65to127Octets": {
+    "name": "integraBifTransmittedPkts65to127Octets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifReceivedPkts128to255Octets": {
+    "name": "integraBifReceivedPkts128to255Octets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifTransmittedPkts128to255Octets": {
+    "name": "integraBifTransmittedPkts128to255Octets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifReceivedPkts256to511Octets": {
+    "name": "integraBifReceivedPkts256to511Octets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifTransmittedPkts256to511Octets": {
+    "name": "integraBifTransmittedPkts256to511Octets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifReceivedPkts512to1023Octets": {
+    "name": "integraBifReceivedPkts512to1023Octets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifTransmittedPkts512to1023Octets": {
+    "name": "integraBifTransmittedPkts512to1023Octets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifReceivedPkts1024to1518Octets": {
+    "name": "integraBifReceivedPkts1024to1518Octets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifTransmittedPkts1024to1518Octets": {
+    "name": "integraBifTransmittedPkts1024to1518Octets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifIfInBroadcastPkts": {
+    "name": "integraBifIfInBroadcastPkts",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifIfOutBroadcastPkts": {
+    "name": "integraBifIfOutBroadcastPkts",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifIfInMulticastPkts": {
+    "name": "integraBifIfInMulticastPkts",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifIfOutMulticastPkts": {
+    "name": "integraBifIfOutMulticastPkts",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifDot3InPauseFrames": {
+    "name": "integraBifDot3InPauseFrames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifDot3OutPauseFrames": {
+    "name": "integraBifDot3OutPauseFrames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEtherStatsUndersizePkts": {
+    "name": "integraBifEtherStatsUndersizePkts",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEtherStatsFragments": {
+    "name": "integraBifEtherStatsFragments",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEtherStatsCRCAlignErrors": {
+    "name": "integraBifEtherStatsCRCAlignErrors",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEtherStatsJabbers": {
+    "name": "integraBifEtherStatsJabbers",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifIngressBPS": {
+    "name": "integraBifIngressBPS",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifIngressPPS": {
+    "name": "integraBifIngressPPS",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "pps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEgressBPS": {
+    "name": "integraBifEgressBPS",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEgressPPS": {
+    "name": "integraBifEgressPPS",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "pps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifMAClearnLimitDropIngressPackets": {
+    "name": "integraBifMAClearnLimitDropIngressPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifL2cacheDropIngressPackets": {
+    "name": "integraBifL2cacheDropIngressPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEFMdropIngressPackets": {
+    "name": "integraBifEFMdropIngressPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifEFMdropEgressPackets": {
+    "name": "integraBifEFMdropEgressPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifSTPdropIngressPackets": {
+    "name": "integraBifSTPdropIngressPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifSTPdropEgressPackets": {
+    "name": "integraBifSTPdropEgressPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifMRUdropIngressPackets": {
+    "name": "integraBifMRUdropIngressPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifMRUdropEgressPackets": {
+    "name": "integraBifMRUdropEgressPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifFilterDropIngressPackets": {
+    "name": "integraBifFilterDropIngressPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifFlowClassifierDropIngressPackets": {
+    "name": "integraBifFlowClassifierDropIngressPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifFlowClassifierDropEgressPackets": {
+    "name": "integraBifFlowClassifierDropEgressPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifIllegalSAdropIngressPackets": {
+    "name": "integraBifIllegalSAdropIngressPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifPortRateLimitDropIngressPackets": {
+    "name": "integraBifPortRateLimitDropIngressPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifPortRateLimitDropIngressBytes": {
+    "name": "integraBifPortRateLimitDropIngressBytes",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifPausePFCframesGeneratedIngressPackets": {
+    "name": "integraBifPausePFCframesGeneratedIngressPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifPausePFCframesGeneratedEgressPackets": {
+    "name": "integraBifPausePFCframesGeneratedEgressPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifRateLimitDropForUnknownUnicastIngressPackets": {
+    "name": "integraBifRateLimitDropForUnknownUnicastIngressPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifRateLimitDropForUnknownUnicastIngressBytes": {
+    "name": "integraBifRateLimitDropForUnknownUnicastIngressBytes",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifRateLimitDropForBroadcastIngressPackets": {
+    "name": "integraBifRateLimitDropForBroadcastIngressPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifRateLimitDropForBroadcastIngressBytes": {
+    "name": "integraBifRateLimitDropForBroadcastIngressBytes",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifRateLimitDropForKnownMulticastIngressPackets": {
+    "name": "integraBifRateLimitDropForKnownMulticastIngressPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifRateLimitDropForKnownMulticastIngressBytes": {
+    "name": "integraBifRateLimitDropForKnownMulticastIngressBytes",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifRateLimitDropForUnknownMulticastIngressPackets": {
+    "name": "integraBifRateLimitDropForUnknownMulticastIngressPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifRateLimitDropForUnknownMulticastIngressBytes": {
+    "name": "integraBifRateLimitDropForUnknownMulticastIngressBytes",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifAllCoSQoutPackets": {
+    "name": "integraBifAllCoSQoutPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifAllCoSQoutBytes": {
+    "name": "integraBifAllCoSQoutBytes",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.79",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifAllCoSQdroppedPackets": {
+    "name": "integraBifAllCoSQdroppedPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifAllCoSQdroppedBytes": {
+    "name": "integraBifAllCoSQdroppedBytes",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifProcessedRxPackets": {
+    "name": "integraBifProcessedRxPackets",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.82",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifProcessedRxBytes": {
+    "name": "integraBifProcessedRxBytes",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.2.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifQosStatisticsTable": {
+    "name": "integraBifQosStatisticsTable",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "integraBifCosqEntry": {
+    "name": "integraBifCosqEntry",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqIfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "integraBifCosqIfaceIndex": {
+    "name": "integraBifCosqIfaceIndex",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqIfaceDescr": {
+    "name": "integraBifCosqIfaceDescr",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatDroppedPacketsCoSQ0": {
+    "name": "integraBifCosqStatDroppedPacketsCoSQ0",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatDroppedBytesCoSQ0": {
+    "name": "integraBifCosqStatDroppedBytesCoSQ0",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ0": {
+    "name": "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ0",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ0": {
+    "name": "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ0",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatOutPacketsCoSQ0": {
+    "name": "integraBifCosqStatOutPacketsCoSQ0",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatOutBytesCoSQ0": {
+    "name": "integraBifCosqStatOutBytesCoSQ0",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatDroppedPacketsCoSQ1": {
+    "name": "integraBifCosqStatDroppedPacketsCoSQ1",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatDroppedBytesCoSQ1": {
+    "name": "integraBifCosqStatDroppedBytesCoSQ1",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ1": {
+    "name": "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ1",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ1": {
+    "name": "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ1",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatOutPacketsCoSQ1": {
+    "name": "integraBifCosqStatOutPacketsCoSQ1",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatOutBytesCoSQ1": {
+    "name": "integraBifCosqStatOutBytesCoSQ1",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatDroppedPacketsCoSQ2": {
+    "name": "integraBifCosqStatDroppedPacketsCoSQ2",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatDroppedBytesCoSQ2": {
+    "name": "integraBifCosqStatDroppedBytesCoSQ2",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ2": {
+    "name": "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ2",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ2": {
+    "name": "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ2",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatOutPacketsCoSQ2": {
+    "name": "integraBifCosqStatOutPacketsCoSQ2",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatOutBytesCoSQ2": {
+    "name": "integraBifCosqStatOutBytesCoSQ2",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatDroppedPacketsCoSQ3": {
+    "name": "integraBifCosqStatDroppedPacketsCoSQ3",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatDroppedBytesCoSQ3": {
+    "name": "integraBifCosqStatDroppedBytesCoSQ3",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ3": {
+    "name": "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ3",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ3": {
+    "name": "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ3",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatOutPacketsCoSQ3": {
+    "name": "integraBifCosqStatOutPacketsCoSQ3",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatOutBytesCoSQ3": {
+    "name": "integraBifCosqStatOutBytesCoSQ3",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatDroppedPacketsCoSQ4": {
+    "name": "integraBifCosqStatDroppedPacketsCoSQ4",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatDroppedBytesCoSQ4": {
+    "name": "integraBifCosqStatDroppedBytesCoSQ4",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ4": {
+    "name": "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ4",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ4": {
+    "name": "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ4",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatOutPacketsCoSQ4": {
+    "name": "integraBifCosqStatOutPacketsCoSQ4",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatOutBytesCoSQ4": {
+    "name": "integraBifCosqStatOutBytesCoSQ4",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatDroppedPacketsCoSQ5": {
+    "name": "integraBifCosqStatDroppedPacketsCoSQ5",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatDroppedBytesCoSQ5": {
+    "name": "integraBifCosqStatDroppedBytesCoSQ5",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ5": {
+    "name": "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ5",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ5": {
+    "name": "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ5",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatOutPacketsCoSQ5": {
+    "name": "integraBifCosqStatOutPacketsCoSQ5",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatOutBytesCoSQ5": {
+    "name": "integraBifCosqStatOutBytesCoSQ5",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatDroppedPacketsCoSQ6": {
+    "name": "integraBifCosqStatDroppedPacketsCoSQ6",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatDroppedBytesCoSQ6": {
+    "name": "integraBifCosqStatDroppedBytesCoSQ6",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ6": {
+    "name": "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ6",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ6": {
+    "name": "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ6",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatOutPacketsCoSQ6": {
+    "name": "integraBifCosqStatOutPacketsCoSQ6",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatOutBytesCoSQ6": {
+    "name": "integraBifCosqStatOutBytesCoSQ6",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatDroppedPacketsCoSQ7": {
+    "name": "integraBifCosqStatDroppedPacketsCoSQ7",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatDroppedBytesCoSQ7": {
+    "name": "integraBifCosqStatDroppedBytesCoSQ7",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ7": {
+    "name": "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ7",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ7": {
+    "name": "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ7",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatOutPacketsCoSQ7": {
+    "name": "integraBifCosqStatOutPacketsCoSQ7",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBifCosqStatOutBytesCoSQ7": {
+    "name": "integraBifCosqStatOutBytesCoSQ7",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.5.3.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBexecuteConfig": {
+    "name": "integraBexecuteConfig",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "execute": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "integraBneedStore": {
+    "name": "integraBneedStore",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBstoreConfig": {
+    "name": "integraBstoreConfig",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "store": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "integraBnetCfg": {
+    "name": "integraBnetCfg",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.9",
+    "class": "objectidentity"
+  },
+  "integraBnetCfgIPaddress": {
+    "name": "integraBnetCfgIPaddress",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "integraBnetCfgIPmask": {
+    "name": "integraBnetCfgIPmask",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "integraBnetCfgIPgateway": {
+    "name": "integraBnetCfgIPgateway",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "integraBnetCfgRemoteIPaddress": {
+    "name": "integraBnetCfgRemoteIPaddress",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraBConformance": {
+    "name": "integraBConformance",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.10",
+    "class": "objectidentity"
+  },
+  "integraBCompliances": {
+    "name": "integraBCompliances",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.10.1",
+    "class": "objectidentity"
+  },
+  "integraBCompliance": {
+    "name": "integraBCompliance",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.10.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "integraBMiscGroup",
+        "module": "SAF-INTEGRAB-MIB"
+      },
+      {
+        "object": "integraBRadioGroup",
+        "module": "SAF-INTEGRAB-MIB"
+      },
+      {
+        "object": "integraBModemGroup",
+        "module": "SAF-INTEGRAB-MIB"
+      },
+      {
+        "object": "integraBSystemGroup",
+        "module": "SAF-INTEGRAB-MIB"
+      },
+      {
+        "object": "integraBEthernetGeneralGroup",
+        "module": "SAF-INTEGRAB-MIB"
+      },
+      {
+        "object": "integraBEthernetMiiPortGroup",
+        "module": "SAF-INTEGRAB-MIB"
+      },
+      {
+        "object": "integraBEthernetQosQueueGroup",
+        "module": "SAF-INTEGRAB-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "integraBGroups": {
+    "name": "integraBGroups",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.10.2",
+    "class": "objectidentity"
+  },
+  "integraBMiscGroup": {
+    "name": "integraBMiscGroup",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.10.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBtimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "integraBRadioGroup": {
+    "name": "integraBRadioGroup",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.10.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBradioTxPower"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBradioTxFrequency"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBradioRxLevel"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBradioSide"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBradioTxMute"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBradioDuplexShift"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBradioRxFrequency"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBradioTemperature"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBradioTxMuteDuration"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBradioRangeEntryIndex"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBradioRangeDescr"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBradioRangeTxPower"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBradioRangeTxFrequency"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBradioPLL"
+      }
+    ],
+    "status": "current"
+  },
+  "integraBModemGroup": {
+    "name": "integraBModemGroup",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.10.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBmodemAcquireStatus"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBmodemRadialMse"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBmodemFECload"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBmodemAcquireLastStatusDetails"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBmodemTemperature"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBmodemBandwidth"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBmodemModulation"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBmodemRxModulation"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBmodemTxModulation"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBmodemRxCapacity"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBmodemTxCapacity"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBmodemACMengine"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBmodemCarrierOffset"
+      }
+    ],
+    "status": "current"
+  },
+  "integraBSystemGroup": {
+    "name": "integraBSystemGroup",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.10.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBsysCPUtemperature"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBsysLicenseExpire"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBsysLicenseGenStatus"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBsysPSUvoltage"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBsysPSUcurrent"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBsysPSUpower"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBsysBoardTemperature"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBsysFreeMemory"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBsysCPUidle"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBexecuteConfig"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBneedStore"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBstoreConfig"
+      }
+    ],
+    "status": "current"
+  },
+  "integraBEthernetGeneralGroup": {
+    "name": "integraBEthernetGeneralGroup",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.10.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifPortStatIndex"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifPortStatDescr"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifPortType"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifPortMtu"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifPortSpeed"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifPortPhysAddress"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifPortAdminStatus"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifPortOperStatus"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifPortLastChange"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifPortAutoneg"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifPortDuplex"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifPortSyncEthActive"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifPortSyncEthPrio"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifPortFlowControl"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifPortStcIndex"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifPortStcDescr"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifTimePassed"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifIngressPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifIngressBytes"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEgressPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEgressBytes"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEtherRxOversizePkts"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEtherTxOversizePkts"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifReceivedPkts64Octets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifTransmittedPkts64Octets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifReceivedPkts65to127Octets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifTransmittedPkts65to127Octets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifReceivedPkts128to255Octets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifTransmittedPkts128to255Octets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifReceivedPkts256to511Octets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifTransmittedPkts256to511Octets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifReceivedPkts512to1023Octets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifTransmittedPkts512to1023Octets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifReceivedPkts1024to1518Octets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifTransmittedPkts1024to1518Octets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifIfInBroadcastPkts"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifIfOutBroadcastPkts"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifIfInMulticastPkts"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifIfOutMulticastPkts"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifIngressBPS"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifIngressPPS"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEgressBPS"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEgressPPS"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifMAClearnLimitDropIngressPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifL2cacheDropIngressPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEFMdropIngressPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEFMdropEgressPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifSTPdropIngressPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifSTPdropEgressPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifMRUdropIngressPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifMRUdropEgressPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifFilterDropIngressPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifFlowClassifierDropIngressPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifFlowClassifierDropEgressPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifIllegalSAdropIngressPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifPortRateLimitDropIngressPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifPortRateLimitDropIngressBytes"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifPausePFCframesGeneratedIngressPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifPausePFCframesGeneratedEgressPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifRateLimitDropForUnknownUnicastIngressPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifRateLimitDropForUnknownUnicastIngressBytes"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifRateLimitDropForBroadcastIngressPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifRateLimitDropForBroadcastIngressBytes"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifRateLimitDropForKnownMulticastIngressPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifRateLimitDropForKnownMulticastIngressBytes"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifRateLimitDropForUnknownMulticastIngressPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifRateLimitDropForUnknownMulticastIngressBytes"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifAllCoSQoutPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifAllCoSQoutBytes"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifAllCoSQdroppedPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifAllCoSQdroppedBytes"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifProcessedRxPackets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifProcessedRxBytes"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBnetCfgIPaddress"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBnetCfgIPmask"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBnetCfgIPgateway"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBnetCfgRemoteIPaddress"
+      }
+    ],
+    "status": "current"
+  },
+  "integraBEthernetMiiPortGroup": {
+    "name": "integraBEthernetMiiPortGroup",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.10.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEtherStatsMulticastPkts"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEtherStatsBroadcastPkts"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEtherStatsPkts64Octets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEtherStatsPkts65to127Octets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEtherStatsPkts128to255Octets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEtherStatsPkts256to511Octets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEtherStatsPkts512to1023Octets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEtherStatsPkts1024to1518Octets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEtherStatsOversizePkts"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEtherStatsOctets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEtherStatsPkts"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEtherStatsTXNoErrors"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEtherStatsRXNoErrors"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEtherStatsPkts1519to1522Octets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifIfInOctets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifIfOutOctets"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifDot1dTpPortInFrames"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifDot1dTpPortOutFrames"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifDot3InPauseFrames"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifDot3OutPauseFrames"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEtherStatsUndersizePkts"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEtherStatsFragments"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEtherStatsCRCAlignErrors"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifEtherStatsJabbers"
+      }
+    ],
+    "status": "current"
+  },
+  "integraBEthernetQosQueueGroup": {
+    "name": "integraBEthernetQosQueueGroup",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.1.10.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqIfaceIndex"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqIfaceDescr"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatDroppedPacketsCoSQ0"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatDroppedBytesCoSQ0"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ0"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ0"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatOutPacketsCoSQ0"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatOutBytesCoSQ0"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatDroppedPacketsCoSQ1"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatDroppedBytesCoSQ1"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ1"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ1"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatOutPacketsCoSQ1"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatOutBytesCoSQ1"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatDroppedPacketsCoSQ2"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatDroppedBytesCoSQ2"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ2"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ2"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatOutPacketsCoSQ2"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatOutBytesCoSQ2"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatDroppedPacketsCoSQ3"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatDroppedBytesCoSQ3"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ3"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ3"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatOutPacketsCoSQ3"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatOutBytesCoSQ3"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatDroppedPacketsCoSQ4"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatDroppedBytesCoSQ4"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ4"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ4"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatOutPacketsCoSQ4"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatOutBytesCoSQ4"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatDroppedPacketsCoSQ5"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatDroppedBytesCoSQ5"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ5"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ5"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatOutPacketsCoSQ5"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatOutBytesCoSQ5"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatDroppedPacketsCoSQ6"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatDroppedBytesCoSQ6"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ6"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ6"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatOutPacketsCoSQ6"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatOutBytesCoSQ6"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatDroppedPacketsCoSQ7"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatDroppedBytesCoSQ7"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatGreenDiscardDroppedPacketsCoSQ7"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatYellowDiscardDroppedPacketsCoSQ7"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatOutPacketsCoSQ7"
+      },
+      {
+        "module": "SAF-INTEGRAB-MIB",
+        "object": "integraBifCosqStatOutBytesCoSQ7"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/saf/SAF-INTEGRAB-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SAF-INTEGRAB-MIB"
+  }
+}

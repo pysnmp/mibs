@@ -1,0 +1,2628 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SLB-EXT-MIB": [
+      "SlbUrlString",
+      "SlbFunctionNameString",
+      "cslbxServerProbes"
+    ],
+    "CISCO-SLB-MIB": [
+      "slbEntity",
+      "slbServerFarmName",
+      "SlbServerString"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoPort"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoSlbHealthMonMIB": {
+    "name": "ciscoSlbHealthMonMIB",
+    "oid": "1.3.6.1.4.1.9.9.508",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-06-26 00:00",
+        "description": "-Added CiscoProbeInheritedPortType TEXTUAL-CONVENTION. -Deprecated cshMonSfarmRealProbeStatsTable. -Added cshMonServerfarmRealProbeStatsTable. -Added cshMonProbeTypeStatsTable. -Added the following notifications ciscoSlbHealthMonSocketOveruse ciscoSlbHealthMonSocketNormaluse -Added cshMonSocketOverusageCount notification object. -Deprecated cshMonSfarmrealserverProbeStatsGroup OBJECT-GROUP. -Deprecated ciscoSlbHealthMonMIBComplianceRev2 MODULE-COMPLIANCE. -Added the following OBJECT-GROUP's cshMonSfarmrealserverProbeStatsGroupRev1 cshMonProbeTypeStatsGroup cshMonNotifObjectsGroup -Added cshMonNotifGroup NOTIFICATION-GROUP. -Added ciscoSlbHealthMonMIBComplianceRev3 MODULE-COMPLIANCE."
+      },
+      {
+        "revision": "2008-03-11 00:00",
+        "description": "- Added CiscoProbeHealthMonState TEXTUAL-CONVENTION. - Added cslbxProbeState to the cslbxProbeCfgTable. - Added cshMonSfarmRealProbeStatsTable. - Deprecated cslbHealthMonServerProbesGroup object group. - Deprecated ciscoSlbHealthMonMIBComplianceRev1 compliance statement. - Added cslbHealthMonServerProbesGroupRev1 OBJECT-GROUP. - Added ciscoSlbHealthMonMIBComplianceRev2 MODULE-COMPLIANCE."
+      },
+      {
+        "revision": "2006-11-14 00:00",
+        "description": "- Added following object in cslbxProbeHTTPCfgTable cslbxProbeHTTPSslTlsVersionSupported. - Added 'all' enum in cslbxProbeHTTPCfgSslTlsVersion object. - Added 'rtspProbe' and 'snmpProbe' in SlbProbeType TEXTUAL CONVENTION - Added following group cslbHealthMonHTTPSProbesGroupRev1. - Added following in Compliance/Conformance ciscoSlbHealthMonMIBComplianceRev1."
+      },
+      {
+        "revision": "2006-01-18 00:00",
+        "description": "Initial version of this MIB module. SlbProbeType : New enums(value 10-20) added. - Following tables were originally defined in CISCO-SLB-EXT-MIB cslbxProbeCfgTable cslbxDnsProbeIpTable cslbxProbeHeaderCfgTable cslbxProbeExpectStatusCfgTable - Added following objects in cslbxProbeCfgTable cslbxProbeDescription cslbxProbeProtocolType cslbxProbeRouteMethod cslbxProbeUserName cslbxProbePassword cslbxProbePassCount cslbxProbePriority cslbxProbeConnTermination cslbxProbeSocketReuse cslbxProbeSendDataType cslbxProbeSendData - defined following tables cslbxProbeHTTPCfgTable cslbxProbeSIPCfgTable cslbxProbeFTPCfgTable cslbxProbeTFTPCfgTable cslbxProbeIMAPCfgTable - Added UNITS clause for the following objects cslbxProbeReceiveTimeout cslbxProbeTcpOpenTimeout."
+      }
+    ]
+  },
+  "cslbxProbeCfgTable": {
+    "name": "cslbxProbeCfgTable",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cslbxProbeCfgEntry": {
+    "name": "cslbxProbeCfgEntry",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cslbxProbeName": {
+    "name": "cslbxProbeName",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbServerString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cslbxProbeInterval": {
+    "name": "cslbxProbeInterval",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 12000,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeRetries": {
+    "name": "cslbxProbeRetries",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeFailedInterval": {
+    "name": "cslbxProbeFailedInterval",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 30000,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeReceiveTimeout": {
+    "name": "cslbxProbeReceiveTimeout",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeTcpOpenTimeout": {
+    "name": "cslbxProbeTcpOpenTimeout",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeAlternateDestAddrType": {
+    "name": "cslbxProbeAlternateDestAddrType",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeAlternateDestAddr": {
+    "name": "cslbxProbeAlternateDestAddr",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeDnsDomainName": {
+    "name": "cslbxProbeDnsDomainName",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeHttpRequestMethod": {
+    "name": "cslbxProbeHttpRequestMethod",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "get",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeHttpRequestUrl": {
+    "name": "cslbxProbeHttpRequestUrl",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbUrlString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeRowStatus": {
+    "name": "cslbxProbeRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeScriptName": {
+    "name": "cslbxProbeScriptName",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbFunctionNameString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeScriptArguments": {
+    "name": "cslbxProbeScriptArguments",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbePort": {
+    "name": "cslbxProbePort",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeDescription": {
+    "name": "cslbxProbeDescription",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeRouteMethod": {
+    "name": "cslbxProbeRouteMethod",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "transparent": 2,
+          "routingTable": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "transparent",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeProtocolType": {
+    "name": "cslbxProbeProtocolType",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "tcp": 2,
+          "udp": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "tcp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbePassCount": {
+    "name": "cslbxProbePassCount",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbePriority": {
+    "name": "cslbxProbePriority",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeUserName": {
+    "name": "cslbxProbeUserName",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbePassword": {
+    "name": "cslbxProbePassword",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeConnTermination": {
+    "name": "cslbxProbeConnTermination",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "graceful": 1,
+          "forced": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "forced",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeSocketReuse": {
+    "name": "cslbxProbeSocketReuse",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeSendDataType": {
+    "name": "cslbxProbeSendDataType",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ascii": 1,
+          "binary": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ascii",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeSendData": {
+    "name": "cslbxProbeSendData",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeState": {
+    "name": "cslbxProbeState",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cslbxDnsProbeIpTable": {
+    "name": "cslbxDnsProbeIpTable",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cslbxDnsProbeIpEntry": {
+    "name": "cslbxDnsProbeIpEntry",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxDnsProbeIpProbeName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxDnsProbeIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxDnsProbeIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cslbxDnsProbeIpProbeName": {
+    "name": "cslbxDnsProbeIpProbeName",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbServerString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cslbxDnsProbeIpAddressType": {
+    "name": "cslbxDnsProbeIpAddressType",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cslbxDnsProbeIpAddress": {
+    "name": "cslbxDnsProbeIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cslbxDnsProbeIpRowStatus": {
+    "name": "cslbxDnsProbeIpRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeHeaderCfgTable": {
+    "name": "cslbxProbeHeaderCfgTable",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cslbxProbeHeaderCfgEntry": {
+    "name": "cslbxProbeHeaderCfgEntry",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeHeaderProbeName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeHeaderFieldName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cslbxProbeHeaderProbeName": {
+    "name": "cslbxProbeHeaderProbeName",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbServerString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cslbxProbeHeaderFieldName": {
+    "name": "cslbxProbeHeaderFieldName",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cslbxProbeHeaderFieldValue": {
+    "name": "cslbxProbeHeaderFieldValue",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeHeaderRowStatus": {
+    "name": "cslbxProbeHeaderRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeExpectStatusCfgTable": {
+    "name": "cslbxProbeExpectStatusCfgTable",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cslbxProbeExpectStatusCfgEntry": {
+    "name": "cslbxProbeExpectStatusCfgEntry",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeExpectStatusProbeName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeExpectStatusMinValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cslbxProbeExpectStatusProbeName": {
+    "name": "cslbxProbeExpectStatusProbeName",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbServerString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cslbxProbeExpectStatusMinValue": {
+    "name": "cslbxProbeExpectStatusMinValue",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cslbxProbeExpectStatusMaxValue": {
+    "name": "cslbxProbeExpectStatusMaxValue",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeExpectStatusRowStatus": {
+    "name": "cslbxProbeExpectStatusRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cslbxProbeHTTPCfgTable": {
+    "name": "cslbxProbeHTTPCfgTable",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cslbxProbeHTTPCfgEntry": {
+    "name": "cslbxProbeHTTPCfgEntry",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cslbxProbeHTTPCfgVersion": {
+    "name": "cslbxProbeHTTPCfgVersion",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "httpOneDotZero": 1,
+          "httpOneDotOne": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "httpOneDotOne",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cslbxProbeHTTPCfgPersistence": {
+    "name": "cslbxProbeHTTPCfgPersistence",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cslbxProbeHTTPCfgHashValid": {
+    "name": "cslbxProbeHTTPCfgHashValid",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cslbxProbeHTTPCfgHashName": {
+    "name": "cslbxProbeHTTPCfgHashName",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cslbxProbeHTTPCfgCipherSuite": {
+    "name": "cslbxProbeHTTPCfgCipherSuite",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rsaOther": 1,
+          "rsaAny": 2,
+          "rsaWithRc4128Md5": 3,
+          "rsaWithRc4128Sha": 4,
+          "rsaWithdesCbcSha": 5,
+          "rsaWith3desEdeCbcSha": 6,
+          "rsaExportWithRc440Md5": 7,
+          "rsaExportWithDes40CbcSha": 8,
+          "rsaExport1024WithRc456Md5": 9,
+          "rsaExport1024WithDesCbcSha": 10,
+          "rsaExport1024WithRc456Sha": 11,
+          "rsaWithAes128CbcSha": 12,
+          "rsaWithAes256cbcSha": 13
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "rsaOther",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cslbxProbeHTTPCfgSslTlsVersion": {
+    "name": "cslbxProbeHTTPCfgSslTlsVersion",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "sslv2": 2,
+          "sslv3": 3,
+          "tlsv1": 4,
+          "all": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "sslv3",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cslbxProbeHTTPCfgSslSessionReuse": {
+    "name": "cslbxProbeHTTPCfgSslSessionReuse",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cslbxProbeHTTPSslTlsVersionSupported": {
+    "name": "cslbxProbeHTTPSslTlsVersionSupported",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "sslv3": 0,
+        "tlsv1": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cslbxProbeSIPCfgTable": {
+    "name": "cslbxProbeSIPCfgTable",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cslbxProbeSIPCfgEntry": {
+    "name": "cslbxProbeSIPCfgEntry",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cslbxProbeSIPRegAddress": {
+    "name": "cslbxProbeSIPRegAddress",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cslbxProbeFTPCfgTable": {
+    "name": "cslbxProbeFTPCfgTable",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cslbxProbeFTPCfgEntry": {
+    "name": "cslbxProbeFTPCfgEntry",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cslbxProbeFtpRequestMethod": {
+    "name": "cslbxProbeFtpRequestMethod",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ls": 2,
+          "get": 3,
+          "put": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "get",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cslbxProbeFtpRequestFileName": {
+    "name": "cslbxProbeFtpRequestFileName",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbUrlString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cslbxProbeFtpRequestFileType": {
+    "name": "cslbxProbeFtpRequestFileType",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ascii": 1,
+          "binary": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ascii",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cslbxProbeTFTPCfgTable": {
+    "name": "cslbxProbeTFTPCfgTable",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cslbxProbeTFTPCfgEntry": {
+    "name": "cslbxProbeTFTPCfgEntry",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cslbxProbeTftpRequestMethod": {
+    "name": "cslbxProbeTftpRequestMethod",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "get": 1,
+          "put": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "get",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cslbxProbeTftpRequestFileName": {
+    "name": "cslbxProbeTftpRequestFileName",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbUrlString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cslbxProbeTftpRequestFileType": {
+    "name": "cslbxProbeTftpRequestFileType",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ascii": 1,
+          "binary": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ascii",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cslbxProbeIMAPCfgTable": {
+    "name": "cslbxProbeIMAPCfgTable",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cslbxProbeIMAPCfgEntry": {
+    "name": "cslbxProbeIMAPCfgEntry",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cslbxProbeIMAPMailBox": {
+    "name": "cslbxProbeIMAPMailBox",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cslbxProbeIMAPMethodName": {
+    "name": "cslbxProbeIMAPMethodName",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoSlbHealthMonMIBNotifs": {
+    "name": "ciscoSlbHealthMonMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.508.0",
+    "class": "objectidentity"
+  },
+  "ciscoSlbHealthMonMIBObjects": {
+    "name": "ciscoSlbHealthMonMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.508.1",
+    "class": "objectidentity"
+  },
+  "cshMonSfarmProbes": {
+    "name": "cshMonSfarmProbes",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoSlbHealthMonMIBConformance": {
+    "name": "ciscoSlbHealthMonMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.508.2",
+    "class": "objectidentity"
+  },
+  "ciscoSlbHealthMonNotifObjects": {
+    "name": "ciscoSlbHealthMonNotifObjects",
+    "oid": "1.3.6.1.4.1.9.9.508.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoSlbHealthMonMIBCompliances": {
+    "name": "ciscoSlbHealthMonMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.508.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoSlbHealthMonMIBGroups": {
+    "name": "ciscoSlbHealthMonMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.508.2.2",
+    "class": "objectidentity"
+  },
+  "SlbProbeType": {
+    "name": "SlbProbeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "icmpProbe": 1,
+          "tcpProbe": 2,
+          "dnsProbe": 3,
+          "httpProbe": 4,
+          "ftpProbe": 5,
+          "telnetProbe": 6,
+          "smtpProbe": 7,
+          "scriptedProbe": 8,
+          "undefined": 9,
+          "udpProbe": 10,
+          "httpsProbe": 11,
+          "ldapProbe": 12,
+          "popProbe": 13,
+          "imapProbe": 14,
+          "radiusProbe": 15,
+          "tacacsProbe": 16,
+          "sipProbe": 17,
+          "tftpProbe": 18,
+          "fingerProbe": 19,
+          "echoProbe": 20,
+          "rtspProbe": 21,
+          "snmpProbe": 22
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cslbxProbeType": {
+    "name": "cslbxProbeType",
+    "oid": "1.3.6.1.4.1.9.9.254.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbProbeType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "CiscoProbeHealthMonState": {
+    "name": "CiscoProbeHealthMonState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "invalid": 2,
+          "init": 3,
+          "active": 4,
+          "failed": 5,
+          "disabled": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoProbeInheritedPortType": {
+    "name": "CiscoProbeInheritedPortType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "probe": 2,
+          "real": 3,
+          "vip": 4,
+          "default": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cshMonSfarmRealProbeStatsTable": {
+    "name": "cshMonSfarmRealProbeStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cshMonSfarmRealProbeStatsEntry": {
+    "name": "cshMonSfarmRealProbeStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbServerFarmName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonSfarmRealServerName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonSfarmRealServerPort",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cshMonSfarmRealServerName": {
+    "name": "cshMonSfarmRealServerName",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cshMonSfarmRealServerPort": {
+    "name": "cshMonSfarmRealServerPort",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cshMonSfarmRealProbesPassed": {
+    "name": "cshMonSfarmRealProbesPassed",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cshMonSfarmRealProbesFailed": {
+    "name": "cshMonSfarmRealProbesFailed",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cshMonSfarmRealProbeHealthMonState": {
+    "name": "cshMonSfarmRealProbeHealthMonState",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoProbeHealthMonState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "init",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cshMonProbeTypeStatsTable": {
+    "name": "cshMonProbeTypeStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cshMonProbeTypeStatsEntry": {
+    "name": "cshMonProbeTypeStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cshMonProbeTotalSentProbes": {
+    "name": "cshMonProbeTotalSentProbes",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cshMonProbeTotalPassedProbes": {
+    "name": "cshMonProbeTotalPassedProbes",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cshMonProbeTotalConnectionErrors": {
+    "name": "cshMonProbeTotalConnectionErrors",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cshMonProbeTotalReceivedRSTs": {
+    "name": "cshMonProbeTotalReceivedRSTs",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cshMonProbeTotalReceiveTimeouts": {
+    "name": "cshMonProbeTotalReceiveTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cshMonProbeTotalSendFailures": {
+    "name": "cshMonProbeTotalSendFailures",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cshMonProbeTotalFailedProbes": {
+    "name": "cshMonProbeTotalFailedProbes",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cshMonProbeTotalRefusedConns": {
+    "name": "cshMonProbeTotalRefusedConns",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cshMonProbeTotalOpenTimeouts": {
+    "name": "cshMonProbeTotalOpenTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cshMonProbeTotalActiveSockets": {
+    "name": "cshMonProbeTotalActiveSockets",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cshMonServerfarmRealProbeStatsTable": {
+    "name": "cshMonServerfarmRealProbeStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cshMonServerfarmRealProbeStatsEntry": {
+    "name": "cshMonServerfarmRealProbeStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbServerFarmName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonServerfarmRealServerName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonServerfarmRealServerPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonProbeInheritedPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cshMonServerfarmRealServerName": {
+    "name": "cshMonServerfarmRealServerName",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cshMonServerfarmRealServerPort": {
+    "name": "cshMonServerfarmRealServerPort",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cshMonProbeInheritedPort": {
+    "name": "cshMonProbeInheritedPort",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cshMonServerfarmRealPassedProbes": {
+    "name": "cshMonServerfarmRealPassedProbes",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cshMonServerfarmRealFailedProbes": {
+    "name": "cshMonServerfarmRealFailedProbes",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cshMonServerfarmRealProbeHealthMonState": {
+    "name": "cshMonServerfarmRealProbeHealthMonState",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoProbeHealthMonState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "init",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cshMonServerfarmRealProbeLastProbeTime": {
+    "name": "cshMonServerfarmRealProbeLastProbeTime",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cshMonServerfarmRealProbeLastActiveTime": {
+    "name": "cshMonServerfarmRealProbeLastActiveTime",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cshMonServerfarmRealProbeLastFailedTime": {
+    "name": "cshMonServerfarmRealProbeLastFailedTime",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cshMonProbeInheritedPortType": {
+    "name": "cshMonProbeInheritedPortType",
+    "oid": "1.3.6.1.4.1.9.9.508.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoProbeInheritedPortType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cshMonSocketOverusageCount": {
+    "name": "cshMonSocketOverusageCount",
+    "oid": "1.3.6.1.4.1.9.9.508.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cshMonSocketOveruse": {
+    "name": "cshMonSocketOveruse",
+    "oid": "1.3.6.1.4.1.9.9.508.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonSocketOverusageCount"
+      }
+    ],
+    "status": "current"
+  },
+  "cshMonSocketNormalUse": {
+    "name": "cshMonSocketNormalUse",
+    "oid": "1.3.6.1.4.1.9.9.508.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonSocketOverusageCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbHealthMonMIBCompliance": {
+    "name": "ciscoSlbHealthMonMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.508.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cslbHealthMonServerProbesGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonProbeCfgExtGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonHTTPProbesCommmonGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonHTTPSProbesGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonSIPProbesGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonFTPProbesGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonTFTPProbesGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonIMAPProbesGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonProbeScriptGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSlbHealthMonMIBComplianceRev1": {
+    "name": "ciscoSlbHealthMonMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.508.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cslbHealthMonServerProbesGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonProbeCfgExtGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonHTTPProbesCommmonGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonHTTPSProbesGroupRev1",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonSIPProbesGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonFTPProbesGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonTFTPProbesGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonIMAPProbesGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonProbeScriptGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSlbHealthMonMIBComplianceRev2": {
+    "name": "ciscoSlbHealthMonMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.508.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cslbHealthMonServerProbesGroupRev1",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonProbeCfgExtGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cshMonSfarmrealserverProbeStatsGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonHTTPProbesCommmonGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonHTTPSProbesGroupRev1",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonSIPProbesGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonFTPProbesGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonTFTPProbesGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonIMAPProbesGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonProbeScriptGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSlbHealthMonMIBComplianceRev3": {
+    "name": "ciscoSlbHealthMonMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.508.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cslbHealthMonServerProbesGroupRev1",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonProbeCfgExtGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cshMonSfarmrealserverProbeStatsGroupRev1",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cshMonProbeTypeStatsGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonHTTPProbesCommmonGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonHTTPSProbesGroupRev1",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonSIPProbesGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonFTPProbesGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonTFTPProbesGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonIMAPProbesGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cslbHealthMonProbeScriptGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cshMonNotifObjectsGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      },
+      {
+        "object": "cshMonNotifGroup",
+        "module": "CISCO-SLB-HEALTH-MON-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cslbHealthMonServerProbesGroup": {
+    "name": "cslbHealthMonServerProbesGroup",
+    "oid": "1.3.6.1.4.1.9.9.508.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeType"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeInterval"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeRetries"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeFailedInterval"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeReceiveTimeout"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeTcpOpenTimeout"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeAlternateDestAddrType"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeAlternateDestAddr"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeDnsDomainName"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeRowStatus"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxDnsProbeIpRowStatus"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeExpectStatusMaxValue"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeExpectStatusRowStatus"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbePort"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeDescription"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeProtocolType"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeRouteMethod"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbePriority"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cslbHealthMonProbeCfgExtGroup": {
+    "name": "cslbHealthMonProbeCfgExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.508.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeUserName"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbePassword"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbePassCount"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeConnTermination"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeSocketReuse"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeSendDataType"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeSendData"
+      }
+    ],
+    "status": "current"
+  },
+  "cslbHealthMonSIPProbesGroup": {
+    "name": "cslbHealthMonSIPProbesGroup",
+    "oid": "1.3.6.1.4.1.9.9.508.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeSIPRegAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cslbHealthMonFTPProbesGroup": {
+    "name": "cslbHealthMonFTPProbesGroup",
+    "oid": "1.3.6.1.4.1.9.9.508.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeFtpRequestMethod"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeFtpRequestFileName"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeFtpRequestFileType"
+      }
+    ],
+    "status": "current"
+  },
+  "cslbHealthMonHTTPProbesCommmonGroup": {
+    "name": "cslbHealthMonHTTPProbesCommmonGroup",
+    "oid": "1.3.6.1.4.1.9.9.508.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeHttpRequestMethod"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeHttpRequestUrl"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeHeaderFieldValue"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeHeaderRowStatus"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeHTTPCfgVersion"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeHTTPCfgPersistence"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeHTTPCfgHashValid"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeHTTPCfgHashName"
+      }
+    ],
+    "status": "current"
+  },
+  "cslbHealthMonHTTPSProbesGroup": {
+    "name": "cslbHealthMonHTTPSProbesGroup",
+    "oid": "1.3.6.1.4.1.9.9.508.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeHTTPCfgCipherSuite"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeHTTPCfgSslTlsVersion"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeHTTPCfgSslSessionReuse"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cslbHealthMonTFTPProbesGroup": {
+    "name": "cslbHealthMonTFTPProbesGroup",
+    "oid": "1.3.6.1.4.1.9.9.508.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeTftpRequestMethod"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeTftpRequestFileName"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeTftpRequestFileType"
+      }
+    ],
+    "status": "current"
+  },
+  "cslbHealthMonIMAPProbesGroup": {
+    "name": "cslbHealthMonIMAPProbesGroup",
+    "oid": "1.3.6.1.4.1.9.9.508.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeIMAPMailBox"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeIMAPMethodName"
+      }
+    ],
+    "status": "current"
+  },
+  "cslbHealthMonProbeScriptGroup": {
+    "name": "cslbHealthMonProbeScriptGroup",
+    "oid": "1.3.6.1.4.1.9.9.508.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeScriptName"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeScriptArguments"
+      }
+    ],
+    "status": "current"
+  },
+  "cslbHealthMonHTTPSProbesGroupRev1": {
+    "name": "cslbHealthMonHTTPSProbesGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.508.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeHTTPCfgCipherSuite"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeHTTPCfgSslTlsVersion"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeHTTPCfgSslSessionReuse"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeHTTPSslTlsVersionSupported"
+      }
+    ],
+    "status": "current"
+  },
+  "cslbHealthMonServerProbesGroupRev1": {
+    "name": "cslbHealthMonServerProbesGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.508.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeType"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeInterval"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeRetries"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeFailedInterval"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeReceiveTimeout"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeTcpOpenTimeout"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeAlternateDestAddrType"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeAlternateDestAddr"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeDnsDomainName"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeRowStatus"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxDnsProbeIpRowStatus"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeExpectStatusMaxValue"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeExpectStatusRowStatus"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbePort"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeDescription"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeProtocolType"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeRouteMethod"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbePriority"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeState"
+      }
+    ],
+    "status": "current"
+  },
+  "cshMonSfarmrealserverProbeStatsGroup": {
+    "name": "cshMonSfarmrealserverProbeStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.508.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonSfarmRealProbesPassed"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonSfarmRealProbesFailed"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonSfarmRealProbeHealthMonState"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cshMonSfarmrealserverProbeStatsGroupRev1": {
+    "name": "cshMonSfarmrealserverProbeStatsGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.508.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonServerfarmRealPassedProbes"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonServerfarmRealFailedProbes"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonServerfarmRealProbeHealthMonState"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonServerfarmRealProbeLastProbeTime"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonServerfarmRealProbeLastActiveTime"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonServerfarmRealProbeLastFailedTime"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonProbeInheritedPortType"
+      }
+    ],
+    "status": "current"
+  },
+  "cshMonProbeTypeStatsGroup": {
+    "name": "cshMonProbeTypeStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.508.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonProbeTotalSentProbes"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonProbeTotalPassedProbes"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonProbeTotalConnectionErrors"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonProbeTotalReceivedRSTs"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonProbeTotalReceiveTimeouts"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonProbeTotalSendFailures"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonProbeTotalFailedProbes"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonProbeTotalRefusedConns"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonProbeTotalOpenTimeouts"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonProbeTotalActiveSockets"
+      }
+    ],
+    "status": "current"
+  },
+  "cshMonNotifObjectsGroup": {
+    "name": "cshMonNotifObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.9.508.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonSocketOverusageCount"
+      }
+    ],
+    "status": "current"
+  },
+  "cshMonNotifGroup": {
+    "name": "cshMonNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.508.2.2.16",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonSocketOveruse"
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cshMonSocketNormalUse"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SLB-HEALTH-MON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SLB-HEALTH-MON-MIB"
+  }
+}

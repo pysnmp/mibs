@@ -1,0 +1,940 @@
+{
+  "imports": {
+    "class": "imports",
+    "DMTF-DMI-MIB": [
+      "dmiEventSeverity",
+      "dmiEventStateKey",
+      "DmiString",
+      "dmiEventSystem",
+      "dmiEventAssociatedGroup",
+      "dmiEventSubSystem",
+      "dmiCompId",
+      "dmiEventDateTime"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "DmiCounter": {
+    "name": "DmiCounter",
+    "class": "type",
+    "type": {
+      "type": "Counter32",
+      "class": "type"
+    }
+  },
+  "DmiCounter64": {
+    "name": "DmiCounter64",
+    "class": "type",
+    "type": {
+      "type": "Counter64",
+      "class": "type"
+    }
+  },
+  "DmiGauge": {
+    "name": "DmiGauge",
+    "class": "type",
+    "type": {
+      "type": "Gauge32",
+      "class": "type"
+    }
+  },
+  "DmiInteger": {
+    "name": "DmiInteger",
+    "class": "type",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    }
+  },
+  "DmiOctetstring": {
+    "name": "DmiOctetstring",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "DmiCompId": {
+    "name": "DmiCompId",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "DmiGroupId": {
+    "name": "DmiGroupId",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "dmtf": {
+    "name": "dmtf",
+    "oid": "1.3.6.1.4.1.412",
+    "class": "objectidentity"
+  },
+  "dmtfStdMifs": {
+    "name": "dmtfStdMifs",
+    "oid": "1.3.6.1.4.1.412.2",
+    "class": "objectidentity"
+  },
+  "dmtfDynOids": {
+    "name": "dmtfDynOids",
+    "oid": "1.3.6.1.4.1.412.3",
+    "class": "objectidentity"
+  },
+  "dmtfLANAdapterMIF": {
+    "name": "dmtfLANAdapterMIF",
+    "oid": "1.3.6.1.4.1.412.2.2",
+    "class": "moduleidentity"
+  },
+  "dmtf802AlternateAddressTable": {
+    "name": "dmtf802AlternateAddressTable",
+    "oid": "1.3.6.1.4.1.412.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmtf802AlternateAddressEntry": {
+    "name": "dmtf802AlternateAddressEntry",
+    "oid": "1.3.6.1.4.1.412.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-LAN-ADAPTER-MIB",
+        "object": "DmiCompId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-LAN-ADAPTER-MIB",
+        "object": "DmiGroupId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-LAN-ADAPTER-MIB",
+        "object": "alternateAddressIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmtf802AlternateAddressState": {
+    "name": "dmtf802AlternateAddressState",
+    "oid": "1.3.6.1.4.1.412.2.2.2.1.0",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "notReady": 3,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alternateAddressIndex": {
+    "name": "alternateAddressIndex",
+    "oid": "1.3.6.1.4.1.412.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portIndex": {
+    "name": "portIndex",
+    "oid": "1.3.6.1.4.1.412.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "addressType": {
+    "name": "addressType",
+    "oid": "1.3.6.1.4.1.412.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "multicast": 1,
+          "functional": 2,
+          "group": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alternateAddress": {
+    "name": "alternateAddress",
+    "oid": "1.3.6.1.4.1.412.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmtfBootROMCapabilitiesTable": {
+    "name": "dmtfBootROMCapabilitiesTable",
+    "oid": "1.3.6.1.4.1.412.2.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmtfBootROMCapabilitiesEntry": {
+    "name": "dmtfBootROMCapabilitiesEntry",
+    "oid": "1.3.6.1.4.1.412.2.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-LAN-ADAPTER-MIB",
+        "object": "DmiCompId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-LAN-ADAPTER-MIB",
+        "object": "DmiGroupId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-LAN-ADAPTER-MIB",
+        "object": "capabilityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmtfBootROMCapabilitiesState": {
+    "name": "dmtfBootROMCapabilitiesState",
+    "oid": "1.3.6.1.4.1.412.2.2.6.1.0",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "notReady": 3,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "capabilityIndex": {
+    "name": "capabilityIndex",
+    "oid": "1.3.6.1.4.1.412.2.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "capabilityDescription": {
+    "name": "capabilityDescription",
+    "oid": "1.3.6.1.4.1.412.2.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "capabilityStatus": {
+    "name": "capabilityStatus",
+    "oid": "1.3.6.1.4.1.412.2.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmtfBootROMConfigurationTable": {
+    "name": "dmtfBootROMConfigurationTable",
+    "oid": "1.3.6.1.4.1.412.2.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmtfBootROMConfigurationEntry": {
+    "name": "dmtfBootROMConfigurationEntry",
+    "oid": "1.3.6.1.4.1.412.2.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-LAN-ADAPTER-MIB",
+        "object": "DmiCompId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-LAN-ADAPTER-MIB",
+        "object": "DmiGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bootROMDescription": {
+    "name": "bootROMDescription",
+    "oid": "1.3.6.1.4.1.412.2.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bootROMVersion": {
+    "name": "bootROMVersion",
+    "oid": "1.3.6.1.4.1.412.2.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remoteBootProtocolType": {
+    "name": "remoteBootProtocolType",
+    "oid": "1.3.6.1.4.1.412.2.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "none": 2,
+          "rPL": 3,
+          "bootP": 4,
+          "dECMOP": 5,
+          "nativeNetWare": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remoteBootProtocolVersion": {
+    "name": "remoteBootProtocolVersion",
+    "oid": "1.3.6.1.4.1.412.2.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmtfNetworkAdapter802PortTable": {
+    "name": "dmtfNetworkAdapter802PortTable",
+    "oid": "1.3.6.1.4.1.412.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmtfNetworkAdapter802PortEntry": {
+    "name": "dmtfNetworkAdapter802PortEntry",
+    "oid": "1.3.6.1.4.1.412.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-LAN-ADAPTER-MIB",
+        "object": "DmiCompId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-LAN-ADAPTER-MIB",
+        "object": "DmiGroupId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-LAN-ADAPTER-MIB",
+        "object": "portIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmtfNetworkAdapter802PortState": {
+    "name": "dmtfNetworkAdapter802PortState",
+    "oid": "1.3.6.1.4.1.412.2.2.1.1.0",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "notReady": 3,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portIndex2": {
+    "name": "portIndex2",
+    "oid": "1.3.6.1.4.1.412.2.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "permanentNetworkAddress": {
+    "name": "permanentNetworkAddress",
+    "oid": "1.3.6.1.4.1.412.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentNetworkAddress": {
+    "name": "currentNetworkAddress",
+    "oid": "1.3.6.1.4.1.412.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "connectorType": {
+    "name": "connectorType",
+    "oid": "1.3.6.1.4.1.412.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "aUI": 2,
+          "uTPCategory3": 3,
+          "uTPCategory4": 4,
+          "uTPCategory5": 5,
+          "bNC": 6,
+          "sTPRJ45": 7,
+          "sTPDB9": 8,
+          "fiberMIC": 9,
+          "appleAUI": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataRate": {
+    "name": "dataRate",
+    "oid": "1.3.6.1.4.1.412.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totalPacketsTransmitted": {
+    "name": "totalPacketsTransmitted",
+    "oid": "1.3.6.1.4.1.412.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totalBytesTransmitted": {
+    "name": "totalBytesTransmitted",
+    "oid": "1.3.6.1.4.1.412.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totalPacketsReceived": {
+    "name": "totalPacketsReceived",
+    "oid": "1.3.6.1.4.1.412.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totalBytesReceived": {
+    "name": "totalBytesReceived",
+    "oid": "1.3.6.1.4.1.412.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totalTransmitErrors": {
+    "name": "totalTransmitErrors",
+    "oid": "1.3.6.1.4.1.412.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totalReceiveErrors": {
+    "name": "totalReceiveErrors",
+    "oid": "1.3.6.1.4.1.412.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totalHostErrors": {
+    "name": "totalHostErrors",
+    "oid": "1.3.6.1.4.1.412.2.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totalWireErrors": {
+    "name": "totalWireErrors",
+    "oid": "1.3.6.1.4.1.412.2.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmtfNetworkAdapterDriverTable": {
+    "name": "dmtfNetworkAdapterDriverTable",
+    "oid": "1.3.6.1.4.1.412.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmtfNetworkAdapterDriverEntry": {
+    "name": "dmtfNetworkAdapterDriverEntry",
+    "oid": "1.3.6.1.4.1.412.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-LAN-ADAPTER-MIB",
+        "object": "DmiCompId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-LAN-ADAPTER-MIB",
+        "object": "DmiGroupId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-LAN-ADAPTER-MIB",
+        "object": "driverIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmtfNetworkAdapterDriverState": {
+    "name": "dmtfNetworkAdapterDriverState",
+    "oid": "1.3.6.1.4.1.412.2.2.3.1.0",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "notReady": 3,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "driverIndex": {
+    "name": "driverIndex",
+    "oid": "1.3.6.1.4.1.412.2.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "driverSoftwareName": {
+    "name": "driverSoftwareName",
+    "oid": "1.3.6.1.4.1.412.2.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "driverSoftwareVersion": {
+    "name": "driverSoftwareVersion",
+    "oid": "1.3.6.1.4.1.412.2.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "driverSoftwareDescription": {
+    "name": "driverSoftwareDescription",
+    "oid": "1.3.6.1.4.1.412.2.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "driverSize": {
+    "name": "driverSize",
+    "oid": "1.3.6.1.4.1.412.2.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "driverInterfaceType": {
+    "name": "driverInterfaceType",
+    "oid": "1.3.6.1.4.1.412.2.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "iPX": 2,
+          "oDI": 3,
+          "nDIS": 4,
+          "packetDriver": 5,
+          "lANtastic": 6,
+          "uNIX": 7,
+          "appletalk": 8,
+          "iBMLanSupportProgram": 9,
+          "lLC": 10,
+          "netbios": 11,
+          "pathworksDLL": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "driverInterfaceVersion": {
+    "name": "driverInterfaceVersion",
+    "oid": "1.3.6.1.4.1.412.2.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "driverInterfaceDescription": {
+    "name": "driverInterfaceDescription",
+    "oid": "1.3.6.1.4.1.412.2.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmtfNetworkAdapterHardwareTable": {
+    "name": "dmtfNetworkAdapterHardwareTable",
+    "oid": "1.3.6.1.4.1.412.2.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmtfNetworkAdapterHardwareEntry": {
+    "name": "dmtfNetworkAdapterHardwareEntry",
+    "oid": "1.3.6.1.4.1.412.2.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-LAN-ADAPTER-MIB",
+        "object": "DmiCompId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-LAN-ADAPTER-MIB",
+        "object": "DmiGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "networkTopology": {
+    "name": "networkTopology",
+    "oid": "1.3.6.1.4.1.412.2.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "x10MbpsEthernet": 2,
+          "x100MbpsEthernet": 3,
+          "x10010MbpsEthernet": 4,
+          "x100MbpsVGAnyLAN": 5,
+          "x4MbpsTokenRing": 6,
+          "x16MbpsTokenRing": 7,
+          "x164MbpsTokenRing": 8,
+          "x2MbpsArcnet": 9,
+          "x20MbpsArcnet": 10,
+          "fDDI": 11,
+          "aTM": 12,
+          "appleTalk": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "transmissionCapability": {
+    "name": "transmissionCapability",
+    "oid": "1.3.6.1.4.1.412.2.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "fullDuplex": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "networkAdapterRAMSize": {
+    "name": "networkAdapterRAMSize",
+    "oid": "1.3.6.1.4.1.412.2.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "busType": {
+    "name": "busType",
+    "oid": "1.3.6.1.4.1.412.2.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "iSA": 2,
+          "eISA": 3,
+          "mCA": 4,
+          "pCI": 5,
+          "vL": 6,
+          "pCMCIA": 7,
+          "parallel": 8,
+          "nEC98": 9,
+          "motherboard": 256
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "busWidth": {
+    "name": "busWidth",
+    "oid": "1.3.6.1.4.1.412.2.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "x8BitCard": 3,
+          "x16BitCard": 4,
+          "x32BitCard": 5,
+          "x64BitCard": 6,
+          "x128BitCard": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DMTF-LAN-ADAPTER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DMTF-LAN-ADAPTER-MIB"
+  }
+}

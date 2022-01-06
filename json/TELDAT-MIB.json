@@ -1,0 +1,5111 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "TRAP-TYPE",
+      "MibIdentifier",
+      "Opaque",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "teldat": {
+    "name": "teldat",
+    "oid": "1.3.6.1.4.1.2007",
+    "class": "objectidentity"
+  },
+  "teladmin": {
+    "name": "teladmin",
+    "oid": "1.3.6.1.4.1.2007.1",
+    "class": "objectidentity"
+  },
+  "telproto": {
+    "name": "telproto",
+    "oid": "1.3.6.1.4.1.2007.3",
+    "class": "objectidentity"
+  },
+  "telproducts": {
+    "name": "telproducts",
+    "oid": "1.3.6.1.4.1.2007.4",
+    "class": "objectidentity"
+  },
+  "telobjid": {
+    "name": "telobjid",
+    "oid": "1.3.6.1.4.1.2007.1.1",
+    "class": "objectidentity"
+  },
+  "equipo_rexis_mru": {
+    "name": "equipo_rexis_mru",
+    "oid": "1.3.6.1.4.1.2007.1.1.15",
+    "class": "objectidentity"
+  },
+  "equipo_mbbu": {
+    "name": "equipo_mbbu",
+    "oid": "1.3.6.1.4.1.2007.1.1.16",
+    "class": "objectidentity"
+  },
+  "equipo_bir_u": {
+    "name": "equipo_bir_u",
+    "oid": "1.3.6.1.4.1.2007.1.1.20",
+    "class": "objectidentity"
+  },
+  "equipo_ebano": {
+    "name": "equipo_ebano",
+    "oid": "1.3.6.1.4.1.2007.1.1.21",
+    "class": "objectidentity"
+  },
+  "equipo_nucleox_plus": {
+    "name": "equipo_nucleox_plus",
+    "oid": "1.3.6.1.4.1.2007.1.1.32",
+    "class": "objectidentity"
+  },
+  "equipo_cbra": {
+    "name": "equipo_cbra",
+    "oid": "1.3.6.1.4.1.2007.1.1.33",
+    "class": "objectidentity"
+  },
+  "equipo_centrix_b": {
+    "name": "equipo_centrix_b",
+    "oid": "1.3.6.1.4.1.2007.1.1.34",
+    "class": "objectidentity"
+  },
+  "equipo_centrix_p": {
+    "name": "equipo_centrix_p",
+    "oid": "1.3.6.1.4.1.2007.1.1.35",
+    "class": "objectidentity"
+  },
+  "equipo_temis": {
+    "name": "equipo_temis",
+    "oid": "1.3.6.1.4.1.2007.1.1.36",
+    "class": "objectidentity"
+  },
+  "equipo_novacom": {
+    "name": "equipo_novacom",
+    "oid": "1.3.6.1.4.1.2007.1.1.37",
+    "class": "objectidentity"
+  },
+  "equipo_router_maestro": {
+    "name": "equipo_router_maestro",
+    "oid": "1.3.6.1.4.1.2007.1.1.38",
+    "class": "objectidentity"
+  },
+  "equipo_cbra20": {
+    "name": "equipo_cbra20",
+    "oid": "1.3.6.1.4.1.2007.1.1.39",
+    "class": "objectidentity"
+  },
+  "equipo_np20h": {
+    "name": "equipo_np20h",
+    "oid": "1.3.6.1.4.1.2007.1.1.40",
+    "class": "objectidentity"
+  },
+  "equipo_icu_plus": {
+    "name": "equipo_icu_plus",
+    "oid": "1.3.6.1.4.1.2007.1.1.41",
+    "class": "objectidentity"
+  },
+  "equipo_centrix_f": {
+    "name": "equipo_centrix_f",
+    "oid": "1.3.6.1.4.1.2007.1.1.42",
+    "class": "objectidentity"
+  },
+  "equipo_cbra_tar": {
+    "name": "equipo_cbra_tar",
+    "oid": "1.3.6.1.4.1.2007.1.1.43",
+    "class": "objectidentity"
+  },
+  "equipo_aura": {
+    "name": "equipo_aura",
+    "oid": "1.3.6.1.4.1.2007.1.1.44",
+    "class": "objectidentity"
+  },
+  "equipo_kronos": {
+    "name": "equipo_kronos",
+    "oid": "1.3.6.1.4.1.2007.1.1.45",
+    "class": "objectidentity"
+  },
+  "equipo_teldat_C2": {
+    "name": "equipo_teldat_C2",
+    "oid": "1.3.6.1.4.1.2007.1.1.46",
+    "class": "objectidentity"
+  },
+  "equipo_operador_remoto": {
+    "name": "equipo_operador_remoto",
+    "oid": "1.3.6.1.4.1.2007.1.1.47",
+    "class": "objectidentity"
+  },
+  "equipo_visor": {
+    "name": "equipo_visor",
+    "oid": "1.3.6.1.4.1.2007.1.1.48",
+    "class": "objectidentity"
+  },
+  "equipo_voxnet": {
+    "name": "equipo_voxnet",
+    "oid": "1.3.6.1.4.1.2007.1.1.49",
+    "class": "objectidentity"
+  },
+  "equipo_dusac32": {
+    "name": "equipo_dusac32",
+    "oid": "1.3.6.1.4.1.2007.1.1.50",
+    "class": "objectidentity"
+  },
+  "equipo_novacom_x25": {
+    "name": "equipo_novacom_x25",
+    "oid": "1.3.6.1.4.1.2007.1.1.51",
+    "class": "objectidentity"
+  },
+  "equipo_enaplan": {
+    "name": "equipo_enaplan",
+    "oid": "1.3.6.1.4.1.2007.1.1.52",
+    "class": "objectidentity"
+  },
+  "equipo_teldat_C3": {
+    "name": "equipo_teldat_C3",
+    "oid": "1.3.6.1.4.1.2007.1.1.53",
+    "class": "objectidentity"
+  },
+  "equipo_atlas_standard": {
+    "name": "equipo_atlas_standard",
+    "oid": "1.3.6.1.4.1.2007.1.1.56",
+    "class": "objectidentity"
+  },
+  "equipo_teldat_C2B": {
+    "name": "equipo_teldat_C2B",
+    "oid": "1.3.6.1.4.1.2007.1.1.57",
+    "class": "objectidentity"
+  },
+  "equipo_teldat_CSW": {
+    "name": "equipo_teldat_CSW",
+    "oid": "1.3.6.1.4.1.2007.1.1.58",
+    "class": "objectidentity"
+  },
+  "equipo_teldat_C3_1": {
+    "name": "equipo_teldat_C3_1",
+    "oid": "1.3.6.1.4.1.2007.1.1.59",
+    "class": "objectidentity"
+  },
+  "equipo_teldat_C3B_1": {
+    "name": "equipo_teldat_C3B_1",
+    "oid": "1.3.6.1.4.1.2007.1.1.60",
+    "class": "objectidentity"
+  },
+  "equipo_teldat_C2BM": {
+    "name": "equipo_teldat_C2BM",
+    "oid": "1.3.6.1.4.1.2007.1.1.61",
+    "class": "objectidentity"
+  },
+  "equipo_atlas_basico": {
+    "name": "equipo_atlas_basico",
+    "oid": "1.3.6.1.4.1.2007.1.1.62",
+    "class": "objectidentity"
+  },
+  "equipo_teldat_C2i": {
+    "name": "equipo_teldat_C2i",
+    "oid": "1.3.6.1.4.1.2007.1.1.63",
+    "class": "objectidentity"
+  },
+  "equipo_teldat_C3i": {
+    "name": "equipo_teldat_C3i",
+    "oid": "1.3.6.1.4.1.2007.1.1.64",
+    "class": "objectidentity"
+  },
+  "equipo_teldat_C3B": {
+    "name": "equipo_teldat_C3B",
+    "oid": "1.3.6.1.4.1.2007.1.1.65",
+    "class": "objectidentity"
+  },
+  "equipo_teldat_C3G": {
+    "name": "equipo_teldat_C3G",
+    "oid": "1.3.6.1.4.1.2007.1.1.66",
+    "class": "objectidentity"
+  },
+  "equipo_teldat_C4": {
+    "name": "equipo_teldat_C4",
+    "oid": "1.3.6.1.4.1.2007.1.1.67",
+    "class": "objectidentity"
+  },
+  "equipo_teldat_C4i": {
+    "name": "equipo_teldat_C4i",
+    "oid": "1.3.6.1.4.1.2007.1.1.68",
+    "class": "objectidentity"
+  },
+  "equipo_teldat_C4B": {
+    "name": "equipo_teldat_C4B",
+    "oid": "1.3.6.1.4.1.2007.1.1.69",
+    "class": "objectidentity"
+  },
+  "equipo_centrix_sec": {
+    "name": "equipo_centrix_sec",
+    "oid": "1.3.6.1.4.1.2007.1.1.70",
+    "class": "objectidentity"
+  },
+  "equipo_centrix_d": {
+    "name": "equipo_centrix_d",
+    "oid": "1.3.6.1.4.1.2007.1.1.71",
+    "class": "objectidentity"
+  },
+  "equipo_teldat_C2_UP": {
+    "name": "equipo_teldat_C2_UP",
+    "oid": "1.3.6.1.4.1.2007.1.1.72",
+    "class": "objectidentity"
+  },
+  "equipo_teldat_C6": {
+    "name": "equipo_teldat_C6",
+    "oid": "1.3.6.1.4.1.2007.1.1.73",
+    "class": "objectidentity"
+  },
+  "equipo_centrix_ng": {
+    "name": "equipo_centrix_ng",
+    "oid": "1.3.6.1.4.1.2007.1.1.74",
+    "class": "objectidentity"
+  },
+  "equipo_atlas_voxnet": {
+    "name": "equipo_atlas_voxnet",
+    "oid": "1.3.6.1.4.1.2007.1.1.75",
+    "class": "objectidentity"
+  },
+  "equipo_s2": {
+    "name": "equipo_s2",
+    "oid": "1.3.6.1.4.1.2007.1.1.76",
+    "class": "objectidentity"
+  },
+  "equipo_s4": {
+    "name": "equipo_s4",
+    "oid": "1.3.6.1.4.1.2007.1.1.77",
+    "class": "objectidentity"
+  },
+  "equipo_s2i": {
+    "name": "equipo_s2i",
+    "oid": "1.3.6.1.4.1.2007.1.1.78",
+    "class": "objectidentity"
+  },
+  "equipo_s4i": {
+    "name": "equipo_s4i",
+    "oid": "1.3.6.1.4.1.2007.1.1.79",
+    "class": "objectidentity"
+  },
+  "equipo_g2": {
+    "name": "equipo_g2",
+    "oid": "1.3.6.1.4.1.2007.1.1.80",
+    "class": "objectidentity"
+  },
+  "equipo_g3": {
+    "name": "equipo_g3",
+    "oid": "1.3.6.1.4.1.2007.1.1.81",
+    "class": "objectidentity"
+  },
+  "equipo_g4": {
+    "name": "equipo_g4",
+    "oid": "1.3.6.1.4.1.2007.1.1.82",
+    "class": "objectidentity"
+  },
+  "equipo_g2i": {
+    "name": "equipo_g2i",
+    "oid": "1.3.6.1.4.1.2007.1.1.83",
+    "class": "objectidentity"
+  },
+  "equipo_g3i": {
+    "name": "equipo_g3i",
+    "oid": "1.3.6.1.4.1.2007.1.1.84",
+    "class": "objectidentity"
+  },
+  "equipo_g4i": {
+    "name": "equipo_g4i",
+    "oid": "1.3.6.1.4.1.2007.1.1.85",
+    "class": "objectidentity"
+  },
+  "equipo_c1": {
+    "name": "equipo_c1",
+    "oid": "1.3.6.1.4.1.2007.1.1.86",
+    "class": "objectidentity"
+  },
+  "equipo_c1B": {
+    "name": "equipo_c1B",
+    "oid": "1.3.6.1.4.1.2007.1.1.87",
+    "class": "objectidentity"
+  },
+  "equipo_c1i": {
+    "name": "equipo_c1i",
+    "oid": "1.3.6.1.4.1.2007.1.1.88",
+    "class": "objectidentity"
+  },
+  "equipo_s1": {
+    "name": "equipo_s1",
+    "oid": "1.3.6.1.4.1.2007.1.1.89",
+    "class": "objectidentity"
+  },
+  "equipo_s1i": {
+    "name": "equipo_s1i",
+    "oid": "1.3.6.1.4.1.2007.1.1.90",
+    "class": "objectidentity"
+  },
+  "equipo_g1": {
+    "name": "equipo_g1",
+    "oid": "1.3.6.1.4.1.2007.1.1.91",
+    "class": "objectidentity"
+  },
+  "equipo_g1i": {
+    "name": "equipo_g1i",
+    "oid": "1.3.6.1.4.1.2007.1.1.92",
+    "class": "objectidentity"
+  },
+  "equipo_g3_lite": {
+    "name": "equipo_g3_lite",
+    "oid": "1.3.6.1.4.1.2007.1.1.93",
+    "class": "objectidentity"
+  },
+  "equipo_C3G_lite": {
+    "name": "equipo_C3G_lite",
+    "oid": "1.3.6.1.4.1.2007.1.1.94",
+    "class": "objectidentity"
+  },
+  "equipo_atlas_100": {
+    "name": "equipo_atlas_100",
+    "oid": "1.3.6.1.4.1.2007.1.1.96",
+    "class": "objectidentity"
+  },
+  "equipo_atlas_300V": {
+    "name": "equipo_atlas_300V",
+    "oid": "1.3.6.1.4.1.2007.1.1.97",
+    "class": "objectidentity"
+  },
+  "equipo_c1G": {
+    "name": "equipo_c1G",
+    "oid": "1.3.6.1.4.1.2007.1.1.98",
+    "class": "objectidentity"
+  },
+  "equipo_atlas_250": {
+    "name": "equipo_atlas_250",
+    "oid": "1.3.6.1.4.1.2007.1.1.101",
+    "class": "objectidentity"
+  },
+  "equipo_c4G": {
+    "name": "equipo_c4G",
+    "oid": "1.3.6.1.4.1.2007.1.1.102",
+    "class": "objectidentity"
+  },
+  "equipo_atlas_100B": {
+    "name": "equipo_atlas_100B",
+    "oid": "1.3.6.1.4.1.2007.1.1.103",
+    "class": "objectidentity"
+  },
+  "equipo_atlas_150": {
+    "name": "equipo_atlas_150",
+    "oid": "1.3.6.1.4.1.2007.1.1.104",
+    "class": "objectidentity"
+  },
+  "equipo_a2": {
+    "name": "equipo_a2",
+    "oid": "1.3.6.1.4.1.2007.1.1.105",
+    "class": "objectidentity"
+  },
+  "equipo_a3": {
+    "name": "equipo_a3",
+    "oid": "1.3.6.1.4.1.2007.1.1.106",
+    "class": "objectidentity"
+  },
+  "equipo_a4": {
+    "name": "equipo_a4",
+    "oid": "1.3.6.1.4.1.2007.1.1.107",
+    "class": "objectidentity"
+  },
+  "equipo_a2i": {
+    "name": "equipo_a2i",
+    "oid": "1.3.6.1.4.1.2007.1.1.108",
+    "class": "objectidentity"
+  },
+  "equipo_a3i": {
+    "name": "equipo_a3i",
+    "oid": "1.3.6.1.4.1.2007.1.1.109",
+    "class": "objectidentity"
+  },
+  "equipo_a4i": {
+    "name": "equipo_a4i",
+    "oid": "1.3.6.1.4.1.2007.1.1.110",
+    "class": "objectidentity"
+  },
+  "equipo_a1": {
+    "name": "equipo_a1",
+    "oid": "1.3.6.1.4.1.2007.1.1.111",
+    "class": "objectidentity"
+  },
+  "equipo_a1i": {
+    "name": "equipo_a1i",
+    "oid": "1.3.6.1.4.1.2007.1.1.112",
+    "class": "objectidentity"
+  },
+  "equipo_g4_cdma": {
+    "name": "equipo_g4_cdma",
+    "oid": "1.3.6.1.4.1.2007.1.1.114",
+    "class": "objectidentity"
+  },
+  "equipo_g4i_cdma": {
+    "name": "equipo_g4i_cdma",
+    "oid": "1.3.6.1.4.1.2007.1.1.115",
+    "class": "objectidentity"
+  },
+  "equipo_g3_cdma": {
+    "name": "equipo_g3_cdma",
+    "oid": "1.3.6.1.4.1.2007.1.1.116",
+    "class": "objectidentity"
+  },
+  "equipo_g3i_cdma": {
+    "name": "equipo_g3i_cdma",
+    "oid": "1.3.6.1.4.1.2007.1.1.117",
+    "class": "objectidentity"
+  },
+  "equipo_g1_cdma": {
+    "name": "equipo_g1_cdma",
+    "oid": "1.3.6.1.4.1.2007.1.1.118",
+    "class": "objectidentity"
+  },
+  "equipo_g1i_cdma": {
+    "name": "equipo_g1i_cdma",
+    "oid": "1.3.6.1.4.1.2007.1.1.119",
+    "class": "objectidentity"
+  },
+  "equipo_c1plus": {
+    "name": "equipo_c1plus",
+    "oid": "1.3.6.1.4.1.2007.1.1.122",
+    "class": "objectidentity"
+  },
+  "equipo_c1iplus": {
+    "name": "equipo_c1iplus",
+    "oid": "1.3.6.1.4.1.2007.1.1.123",
+    "class": "objectidentity"
+  },
+  "equipo_atlas_50": {
+    "name": "equipo_atlas_50",
+    "oid": "1.3.6.1.4.1.2007.1.1.126",
+    "class": "objectidentity"
+  },
+  "equipo_g4plus": {
+    "name": "equipo_g4plus",
+    "oid": "1.3.6.1.4.1.2007.1.1.127",
+    "class": "objectidentity"
+  },
+  "equipo_g3plus": {
+    "name": "equipo_g3plus",
+    "oid": "1.3.6.1.4.1.2007.1.1.128",
+    "class": "objectidentity"
+  },
+  "equipo_g1plus": {
+    "name": "equipo_g1plus",
+    "oid": "1.3.6.1.4.1.2007.1.1.129",
+    "class": "objectidentity"
+  },
+  "equipo_g4iplus": {
+    "name": "equipo_g4iplus",
+    "oid": "1.3.6.1.4.1.2007.1.1.130",
+    "class": "objectidentity"
+  },
+  "equipo_g3iplus": {
+    "name": "equipo_g3iplus",
+    "oid": "1.3.6.1.4.1.2007.1.1.131",
+    "class": "objectidentity"
+  },
+  "equipo_g1iplus": {
+    "name": "equipo_g1iplus",
+    "oid": "1.3.6.1.4.1.2007.1.1.132",
+    "class": "objectidentity"
+  },
+  "equipo_atlas_250SW": {
+    "name": "equipo_atlas_250SW",
+    "oid": "1.3.6.1.4.1.2007.1.1.133",
+    "class": "objectidentity"
+  },
+  "equipo_atlas_150SW": {
+    "name": "equipo_atlas_150SW",
+    "oid": "1.3.6.1.4.1.2007.1.1.134",
+    "class": "objectidentity"
+  },
+  "equipo_atlas_50SW": {
+    "name": "equipo_atlas_50SW",
+    "oid": "1.3.6.1.4.1.2007.1.1.135",
+    "class": "objectidentity"
+  },
+  "equipo_vyda_1M": {
+    "name": "equipo_vyda_1M",
+    "oid": "1.3.6.1.4.1.2007.1.1.136",
+    "class": "objectidentity"
+  },
+  "equipo_vyda_2M": {
+    "name": "equipo_vyda_2M",
+    "oid": "1.3.6.1.4.1.2007.1.1.137",
+    "class": "objectidentity"
+  },
+  "equipo_vyda_3M": {
+    "name": "equipo_vyda_3M",
+    "oid": "1.3.6.1.4.1.2007.1.1.138",
+    "class": "objectidentity"
+  },
+  "equipo_atlas_300": {
+    "name": "equipo_atlas_300",
+    "oid": "1.3.6.1.4.1.2007.1.1.139",
+    "class": "objectidentity"
+  },
+  "equipo_atlas_152": {
+    "name": "equipo_atlas_152",
+    "oid": "1.3.6.1.4.1.2007.1.1.140",
+    "class": "objectidentity"
+  },
+  "equipo_vyda_compact": {
+    "name": "equipo_vyda_compact",
+    "oid": "1.3.6.1.4.1.2007.1.1.141",
+    "class": "objectidentity"
+  },
+  "equipo_C8plus": {
+    "name": "equipo_C8plus",
+    "oid": "1.3.6.1.4.1.2007.1.1.142",
+    "class": "objectidentity"
+  },
+  "equipo_C8iplus": {
+    "name": "equipo_C8iplus",
+    "oid": "1.3.6.1.4.1.2007.1.1.143",
+    "class": "objectidentity"
+  },
+  "equipo_C9plus": {
+    "name": "equipo_C9plus",
+    "oid": "1.3.6.1.4.1.2007.1.1.144",
+    "class": "objectidentity"
+  },
+  "equipo_C9iplus": {
+    "name": "equipo_C9iplus",
+    "oid": "1.3.6.1.4.1.2007.1.1.145",
+    "class": "objectidentity"
+  },
+  "equipo_atlas_360": {
+    "name": "equipo_atlas_360",
+    "oid": "1.3.6.1.4.1.2007.1.1.146",
+    "class": "objectidentity"
+  },
+  "equipo_c1plus_SW": {
+    "name": "equipo_c1plus_SW",
+    "oid": "1.3.6.1.4.1.2007.1.1.147",
+    "class": "objectidentity"
+  },
+  "equipo_c1a": {
+    "name": "equipo_c1a",
+    "oid": "1.3.6.1.4.1.2007.1.1.148",
+    "class": "objectidentity"
+  },
+  "equipo_s1a": {
+    "name": "equipo_s1a",
+    "oid": "1.3.6.1.4.1.2007.1.1.149",
+    "class": "objectidentity"
+  },
+  "equipo_g1a": {
+    "name": "equipo_g1a",
+    "oid": "1.3.6.1.4.1.2007.1.1.150",
+    "class": "objectidentity"
+  },
+  "equipo_g1a_cdma": {
+    "name": "equipo_g1a_cdma",
+    "oid": "1.3.6.1.4.1.2007.1.1.151",
+    "class": "objectidentity"
+  },
+  "equipo_a1a": {
+    "name": "equipo_a1a",
+    "oid": "1.3.6.1.4.1.2007.1.1.152",
+    "class": "objectidentity"
+  },
+  "equipo_c2a": {
+    "name": "equipo_c2a",
+    "oid": "1.3.6.1.4.1.2007.1.1.155",
+    "class": "objectidentity"
+  },
+  "equipo_s2a": {
+    "name": "equipo_s2a",
+    "oid": "1.3.6.1.4.1.2007.1.1.156",
+    "class": "objectidentity"
+  },
+  "equipo_g2a": {
+    "name": "equipo_g2a",
+    "oid": "1.3.6.1.4.1.2007.1.1.157",
+    "class": "objectidentity"
+  },
+  "equipo_a2a": {
+    "name": "equipo_a2a",
+    "oid": "1.3.6.1.4.1.2007.1.1.158",
+    "class": "objectidentity"
+  },
+  "equipo_c4a": {
+    "name": "equipo_c4a",
+    "oid": "1.3.6.1.4.1.2007.1.1.159",
+    "class": "objectidentity"
+  },
+  "equipo_s4a": {
+    "name": "equipo_s4a",
+    "oid": "1.3.6.1.4.1.2007.1.1.160",
+    "class": "objectidentity"
+  },
+  "equipo_g4a": {
+    "name": "equipo_g4a",
+    "oid": "1.3.6.1.4.1.2007.1.1.161",
+    "class": "objectidentity"
+  },
+  "equipo_g4a_cdma": {
+    "name": "equipo_g4a_cdma",
+    "oid": "1.3.6.1.4.1.2007.1.1.162",
+    "class": "objectidentity"
+  },
+  "equipo_a4a": {
+    "name": "equipo_a4a",
+    "oid": "1.3.6.1.4.1.2007.1.1.163",
+    "class": "objectidentity"
+  },
+  "equipo_cirus": {
+    "name": "equipo_cirus",
+    "oid": "1.3.6.1.4.1.2007.1.1.165",
+    "class": "objectidentity"
+  },
+  "equipo_h1": {
+    "name": "equipo_h1",
+    "oid": "1.3.6.1.4.1.2007.1.1.166",
+    "class": "objectidentity"
+  },
+  "equipo_atlas_260": {
+    "name": "equipo_atlas_260",
+    "oid": "1.3.6.1.4.1.2007.1.1.167",
+    "class": "objectidentity"
+  },
+  "equipo_atlas_160": {
+    "name": "equipo_atlas_160",
+    "oid": "1.3.6.1.4.1.2007.1.1.168",
+    "class": "objectidentity"
+  },
+  "equipo_vyda_4M": {
+    "name": "equipo_vyda_4M",
+    "oid": "1.3.6.1.4.1.2007.1.1.169",
+    "class": "objectidentity"
+  },
+  "equipo_t200g": {
+    "name": "equipo_t200g",
+    "oid": "1.3.6.1.4.1.2007.1.1.170",
+    "class": "objectidentity"
+  },
+  "equipo_h1_auto": {
+    "name": "equipo_h1_auto",
+    "oid": "1.3.6.1.4.1.2007.1.1.171",
+    "class": "objectidentity"
+  },
+  "equipo_g1n": {
+    "name": "equipo_g1n",
+    "oid": "1.3.6.1.4.1.2007.1.1.172",
+    "class": "objectidentity"
+  },
+  "equipo_v1": {
+    "name": "equipo_v1",
+    "oid": "1.3.6.1.4.1.2007.1.1.173",
+    "class": "objectidentity"
+  },
+  "equipo_c1plusl": {
+    "name": "equipo_c1plusl",
+    "oid": "1.3.6.1.4.1.2007.1.1.174",
+    "class": "objectidentity"
+  },
+  "equipo_h4": {
+    "name": "equipo_h4",
+    "oid": "1.3.6.1.4.1.2007.1.1.175",
+    "class": "objectidentity"
+  },
+  "equipo_t200": {
+    "name": "equipo_t200",
+    "oid": "1.3.6.1.4.1.2007.1.1.176",
+    "class": "objectidentity"
+  },
+  "equipo_h1plus": {
+    "name": "equipo_h1plus",
+    "oid": "1.3.6.1.4.1.2007.1.1.177",
+    "class": "objectidentity"
+  },
+  "equipo_regesta_rp81": {
+    "name": "equipo_regesta_rp81",
+    "oid": "1.3.6.1.4.1.2007.1.1.178",
+    "class": "objectidentity"
+  },
+  "equipo_regesta_rp82": {
+    "name": "equipo_regesta_rp82",
+    "oid": "1.3.6.1.4.1.2007.1.1.179",
+    "class": "objectidentity"
+  },
+  "equipo_regesta_1": {
+    "name": "equipo_regesta_1",
+    "oid": "1.3.6.1.4.1.2007.1.1.180",
+    "class": "objectidentity"
+  },
+  "equipo_f1plus": {
+    "name": "equipo_f1plus",
+    "oid": "1.3.6.1.4.1.2007.1.1.181",
+    "class": "objectidentity"
+  },
+  "equipo_l1plus": {
+    "name": "equipo_l1plus",
+    "oid": "1.3.6.1.4.1.2007.1.1.183",
+    "class": "objectidentity"
+  },
+  "equipo_regesta_rp61er": {
+    "name": "equipo_regesta_rp61er",
+    "oid": "1.3.6.1.4.1.2007.1.1.184",
+    "class": "objectidentity"
+  },
+  "equipo_regesta_rp62er": {
+    "name": "equipo_regesta_rp62er",
+    "oid": "1.3.6.1.4.1.2007.1.1.185",
+    "class": "objectidentity"
+  },
+  "equipo_3geplus": {
+    "name": "equipo_3geplus",
+    "oid": "1.3.6.1.4.1.2007.1.1.186",
+    "class": "objectidentity"
+  },
+  "equipo_atlas_60": {
+    "name": "equipo_atlas_60",
+    "oid": "1.3.6.1.4.1.2007.1.1.187",
+    "class": "objectidentity"
+  },
+  "equipo_3geplus_cdma": {
+    "name": "equipo_3geplus_cdma",
+    "oid": "1.3.6.1.4.1.2007.1.1.188",
+    "class": "objectidentity"
+  },
+  "equipo_h1auto_plus": {
+    "name": "equipo_h1auto_plus",
+    "oid": "1.3.6.1.4.1.2007.1.1.189",
+    "class": "objectidentity"
+  },
+  "equipo_k": {
+    "name": "equipo_k",
+    "oid": "1.3.6.1.4.1.2007.1.1.190",
+    "class": "objectidentity"
+  },
+  "equipo_v": {
+    "name": "equipo_v",
+    "oid": "1.3.6.1.4.1.2007.1.1.191",
+    "class": "objectidentity"
+  },
+  "equipo_connect_104": {
+    "name": "equipo_connect_104",
+    "oid": "1.3.6.1.4.1.2007.1.1.192",
+    "class": "objectidentity"
+  },
+  "equipo_h1rail": {
+    "name": "equipo_h1rail",
+    "oid": "1.3.6.1.4.1.2007.1.1.193",
+    "class": "objectidentity"
+  },
+  "equipo_kf": {
+    "name": "equipo_kf",
+    "oid": "1.3.6.1.4.1.2007.1.1.194",
+    "class": "objectidentity"
+  },
+  "equipo_m1": {
+    "name": "equipo_m1",
+    "oid": "1.3.6.1.4.1.2007.1.1.199",
+    "class": "objectidentity"
+  },
+  "equipo_m1f": {
+    "name": "equipo_m1f",
+    "oid": "1.3.6.1.4.1.2007.1.1.200",
+    "class": "objectidentity"
+  },
+  "equipo_4Ge": {
+    "name": "equipo_4Ge",
+    "oid": "1.3.6.1.4.1.2007.1.1.201",
+    "class": "objectidentity"
+  },
+  "router_oa5710v": {
+    "name": "router_oa5710v",
+    "oid": "1.3.6.1.4.1.2007.1.1.202",
+    "class": "objectidentity"
+  },
+  "router_oa5720": {
+    "name": "router_oa5720",
+    "oid": "1.3.6.1.4.1.2007.1.1.203",
+    "class": "objectidentity"
+  },
+  "router_oa5840": {
+    "name": "router_oa5840",
+    "oid": "1.3.6.1.4.1.2007.1.1.204",
+    "class": "objectidentity"
+  },
+  "router_oa5850": {
+    "name": "router_oa5850",
+    "oid": "1.3.6.1.4.1.2007.1.1.205",
+    "class": "objectidentity"
+  },
+  "router_oa5725r61er": {
+    "name": "router_oa5725r61er",
+    "oid": "1.3.6.1.4.1.2007.1.1.206",
+    "class": "objectidentity"
+  },
+  "router_oa5725r62er": {
+    "name": "router_oa5725r62er",
+    "oid": "1.3.6.1.4.1.2007.1.1.207",
+    "class": "objectidentity"
+  },
+  "router_oa5725a3g": {
+    "name": "router_oa5725a3g",
+    "oid": "1.3.6.1.4.1.2007.1.1.208",
+    "class": "objectidentity"
+  },
+  "router_oa5725alte": {
+    "name": "router_oa5725alte",
+    "oid": "1.3.6.1.4.1.2007.1.1.209",
+    "class": "objectidentity"
+  },
+  "router_esrwwanenabler": {
+    "name": "router_esrwwanenabler",
+    "oid": "1.3.6.1.4.1.2007.1.1.210",
+    "class": "objectidentity"
+  },
+  "equipo_connect_104_v": {
+    "name": "equipo_connect_104_v",
+    "oid": "1.3.6.1.4.1.2007.1.1.211",
+    "class": "objectidentity"
+  },
+  "equipo_connect_104_kf": {
+    "name": "equipo_connect_104_kf",
+    "oid": "1.3.6.1.4.1.2007.1.1.212",
+    "class": "objectidentity"
+  },
+  "equipo_connect_4ge": {
+    "name": "equipo_connect_4ge",
+    "oid": "1.3.6.1.4.1.2007.1.1.213",
+    "class": "objectidentity"
+  },
+  "equipo_bintecrsc": {
+    "name": "equipo_bintecrsc",
+    "oid": "1.3.6.1.4.1.2007.1.1.214",
+    "class": "objectidentity"
+  },
+  "equipo_regesta_lite": {
+    "name": "equipo_regesta_lite",
+    "oid": "1.3.6.1.4.1.2007.1.1.215",
+    "class": "objectidentity"
+  },
+  "equipo_bintecrvc": {
+    "name": "equipo_bintecrvc",
+    "oid": "1.3.6.1.4.1.2007.1.1.216",
+    "class": "objectidentity"
+  },
+  "equipo_H2auto": {
+    "name": "equipo_H2auto",
+    "oid": "1.3.6.1.4.1.2007.1.1.217",
+    "class": "objectidentity"
+  },
+  "equipo_iM8": {
+    "name": "equipo_iM8",
+    "oid": "1.3.6.1.4.1.2007.1.1.219",
+    "class": "objectidentity"
+  },
+  "equipo_iM8_Plus": {
+    "name": "equipo_iM8_Plus",
+    "oid": "1.3.6.1.4.1.2007.1.1.220",
+    "class": "objectidentity"
+  },
+  "equipo_H2auto_Plus": {
+    "name": "equipo_H2auto_Plus",
+    "oid": "1.3.6.1.4.1.2007.1.1.221",
+    "class": "objectidentity"
+  },
+  "equipo_regesta_plc": {
+    "name": "equipo_regesta_plc",
+    "oid": "1.3.6.1.4.1.2007.1.1.222",
+    "class": "objectidentity"
+  },
+  "equipo_Atlas_i70": {
+    "name": "equipo_Atlas_i70",
+    "oid": "1.3.6.1.4.1.2007.1.1.223",
+    "class": "objectidentity"
+  },
+  "equipo_Atlas_i70_Plus": {
+    "name": "equipo_Atlas_i70_Plus",
+    "oid": "1.3.6.1.4.1.2007.1.1.224",
+    "class": "objectidentity"
+  },
+  "equipo_h2rail_lite": {
+    "name": "equipo_h2rail_lite",
+    "oid": "1.3.6.1.4.1.2007.1.1.225",
+    "class": "objectidentity"
+  },
+  "equipo_h2rail_lite2": {
+    "name": "equipo_h2rail_lite2",
+    "oid": "1.3.6.1.4.1.2007.1.1.226",
+    "class": "objectidentity"
+  },
+  "equipo_h2rail": {
+    "name": "equipo_h2rail",
+    "oid": "1.3.6.1.4.1.2007.1.1.227",
+    "class": "objectidentity"
+  },
+  "equipo_regesta_comp_plc": {
+    "name": "equipo_regesta_comp_plc",
+    "oid": "1.3.6.1.4.1.2007.1.1.229",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap": {
+    "name": "teldatSreTrap",
+    "oid": "1.3.6.1.4.1.2007.1.1.1",
+    "class": "objectidentity"
+  },
+  "sreTrapSubSist": {
+    "name": "sreTrapSubSist",
+    "oid": "1.3.6.1.4.1.2007.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreTrapEvento": {
+    "name": "sreTrapEvento",
+    "oid": "1.3.6.1.4.1.2007.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreTrapVar1": {
+    "name": "sreTrapVar1",
+    "oid": "1.3.6.1.4.1.2007.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Opaque",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreTrapVar2": {
+    "name": "sreTrapVar2",
+    "oid": "1.3.6.1.4.1.2007.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Opaque",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreTrapVar3": {
+    "name": "sreTrapVar3",
+    "oid": "1.3.6.1.4.1.2007.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Opaque",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreTrapVar4": {
+    "name": "sreTrapVar4",
+    "oid": "1.3.6.1.4.1.2007.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Opaque",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreTrapVar5": {
+    "name": "sreTrapVar5",
+    "oid": "1.3.6.1.4.1.2007.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Opaque",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreTrapVar6": {
+    "name": "sreTrapVar6",
+    "oid": "1.3.6.1.4.1.2007.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Opaque",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreTrapVar7": {
+    "name": "sreTrapVar7",
+    "oid": "1.3.6.1.4.1.2007.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Opaque",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreTrapVar8": {
+    "name": "sreTrapVar8",
+    "oid": "1.3.6.1.4.1.2007.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Opaque",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreTrapVar9": {
+    "name": "sreTrapVar9",
+    "oid": "1.3.6.1.4.1.2007.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Opaque",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatSreTrap_GW": {
+    "name": "teldatSreTrap_GW",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_FLT": {
+    "name": "teldatSreTrap_FLT",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_BRS": {
+    "name": "teldatSreTrap_BRS",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.3",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_ARP": {
+    "name": "teldatSreTrap_ARP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.5",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_IP": {
+    "name": "teldatSreTrap_IP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.10",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_ICMP": {
+    "name": "teldatSreTrap_ICMP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.11",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_TCP": {
+    "name": "teldatSreTrap_TCP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.12",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_UDP": {
+    "name": "teldatSreTrap_UDP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.13",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_ORIP": {
+    "name": "teldatSreTrap_ORIP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.15",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_SPF": {
+    "name": "teldatSreTrap_SPF",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.17",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_TFTP": {
+    "name": "teldatSreTrap_TFTP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.19",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_SNMP": {
+    "name": "teldatSreTrap_SNMP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.21",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_SRT": {
+    "name": "teldatSreTrap_SRT",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.72",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_BR": {
+    "name": "teldatSreTrap_BR",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.74",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_FTP": {
+    "name": "teldatSreTrap_FTP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.80",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_ETH": {
+    "name": "teldatSreTrap_ETH",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.81",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_SL": {
+    "name": "teldatSreTrap_SL",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.83",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_TKR": {
+    "name": "teldatSreTrap_TKR",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.84",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_SDLC": {
+    "name": "teldatSreTrap_SDLC",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.90",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_FR": {
+    "name": "teldatSreTrap_FR",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.92",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_PPP": {
+    "name": "teldatSreTrap_PPP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.95",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_X252": {
+    "name": "teldatSreTrap_X252",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.97",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_X253": {
+    "name": "teldatSreTrap_X253",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.98",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_RDSI": {
+    "name": "teldatSreTrap_RDSI",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.99",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_LLC": {
+    "name": "teldatSreTrap_LLC",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.103",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_BAN": {
+    "name": "teldatSreTrap_BAN",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.109",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_NBS": {
+    "name": "teldatSreTrap_NBS",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.110",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_CIF": {
+    "name": "teldatSreTrap_CIF",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.111",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_GSTP": {
+    "name": "teldatSreTrap_GSTP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.112",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_FRBK": {
+    "name": "teldatSreTrap_FRBK",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.114",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_PRI": {
+    "name": "teldatSreTrap_PRI",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.115",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_DLS": {
+    "name": "teldatSreTrap_DLS",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.116",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_PCMC": {
+    "name": "teldatSreTrap_PCMC",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.118",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_LAPD": {
+    "name": "teldatSreTrap_LAPD",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.119",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_TNIP": {
+    "name": "teldatSreTrap_TNIP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.120",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_MBBU": {
+    "name": "teldatSreTrap_MBBU",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.123",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_BIR64": {
+    "name": "teldatSreTrap_BIR64",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.124",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_REXISMRU": {
+    "name": "teldatSreTrap_REXISMRU",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.125",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_REXISFT": {
+    "name": "teldatSreTrap_REXISFT",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.126",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_ICUPLUS": {
+    "name": "teldatSreTrap_ICUPLUS",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.127",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_Q933": {
+    "name": "teldatSreTrap_Q933",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.128",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_IPPN": {
+    "name": "teldatSreTrap_IPPN",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.129",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_RAD": {
+    "name": "teldatSreTrap_RAD",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.130",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_H323": {
+    "name": "teldatSreTrap_H323",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.131",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_DHCP": {
+    "name": "teldatSreTrap_DHCP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.133",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_IP6": {
+    "name": "teldatSreTrap_IP6",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.134",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_TVRP": {
+    "name": "teldatSreTrap_TVRP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.135",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_ATM": {
+    "name": "teldatSreTrap_ATM",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.136",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_IPSEC": {
+    "name": "teldatSreTrap_IPSEC",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.138",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_NTP": {
+    "name": "teldatSreTrap_NTP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.139",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_ADSL": {
+    "name": "teldatSreTrap_ADSL",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.140",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_HTTP": {
+    "name": "teldatSreTrap_HTTP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.142",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_DEP": {
+    "name": "teldatSreTrap_DEP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.144",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_ASDP": {
+    "name": "teldatSreTrap_ASDP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.145",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_LDAP": {
+    "name": "teldatSreTrap_LDAP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.146",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_SCEP": {
+    "name": "teldatSreTrap_SCEP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.147",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_P3OE": {
+    "name": "teldatSreTrap_P3OE",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.148",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_AT": {
+    "name": "teldatSreTrap_AT",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.149",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_ASYNC": {
+    "name": "teldatSreTrap_ASYNC",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.150",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_SYNC": {
+    "name": "teldatSreTrap_SYNC",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.151",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_DNS": {
+    "name": "teldatSreTrap_DNS",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.152",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_VSN": {
+    "name": "teldatSreTrap_VSN",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.153",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_NAPT": {
+    "name": "teldatSreTrap_NAPT",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.154",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_VID": {
+    "name": "teldatSreTrap_VID",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.155",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_PRL": {
+    "name": "teldatSreTrap_PRL",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.156",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_HDSL": {
+    "name": "teldatSreTrap_HDSL",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.157",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_PGMO": {
+    "name": "teldatSreTrap_PGMO",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.158",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_RTSP": {
+    "name": "teldatSreTrap_RTSP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.159",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_DNAT": {
+    "name": "teldatSreTrap_DNAT",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.160",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_G703": {
+    "name": "teldatSreTrap_G703",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.161",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_POLR": {
+    "name": "teldatSreTrap_POLR",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.162",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_XN": {
+    "name": "teldatSreTrap_XN",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.163",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_XNS": {
+    "name": "teldatSreTrap_XNS",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.164",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_IPX": {
+    "name": "teldatSreTrap_IPX",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.165",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_IGMP": {
+    "name": "teldatSreTrap_IGMP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.166",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_AINST": {
+    "name": "teldatSreTrap_AINST",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.167",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_BGP": {
+    "name": "teldatSreTrap_BGP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.169",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_NSM": {
+    "name": "teldatSreTrap_NSM",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.170",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_TLNT": {
+    "name": "teldatSreTrap_TLNT",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.171",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_L2TP": {
+    "name": "teldatSreTrap_L2TP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.172",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_NSLA": {
+    "name": "teldatSreTrap_NSLA",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.173",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_VOIP": {
+    "name": "teldatSreTrap_VOIP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.174",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_TTTP": {
+    "name": "teldatSreTrap_TTTP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.175",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_IKE": {
+    "name": "teldatSreTrap_IKE",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.176",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_HSSI": {
+    "name": "teldatSreTrap_HSSI",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.177",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_SCADA": {
+    "name": "teldatSreTrap_SCADA",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.178",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_VRRP": {
+    "name": "teldatSreTrap_VRRP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.179",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_SIP": {
+    "name": "teldatSreTrap_SIP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.180",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_IPHC": {
+    "name": "teldatSreTrap_IPHC",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.181",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_DHCPC": {
+    "name": "teldatSreTrap_DHCPC",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.182",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_CNSL": {
+    "name": "teldatSreTrap_CNSL",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.183",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_TLPHY": {
+    "name": "teldatSreTrap_TLPHY",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.184",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_NHRP": {
+    "name": "teldatSreTrap_NHRP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.185",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_SNAT": {
+    "name": "teldatSreTrap_SNAT",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.186",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_STUN": {
+    "name": "teldatSreTrap_STUN",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.187",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_WLAN": {
+    "name": "teldatSreTrap_WLAN",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.188",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_SCDFW": {
+    "name": "teldatSreTrap_SCDFW",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.189",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_HDLC": {
+    "name": "teldatSreTrap_HDLC",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.190",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_EAP": {
+    "name": "teldatSreTrap_EAP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.191",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_EIBZ": {
+    "name": "teldatSreTrap_EIBZ",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.192",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_PHYS": {
+    "name": "teldatSreTrap_PHYS",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.193",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_SPOOF": {
+    "name": "teldatSreTrap_SPOOF",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.194",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_IRVOZ": {
+    "name": "teldatSreTrap_IRVOZ",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.195",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_RSTP": {
+    "name": "teldatSreTrap_RSTP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.196",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_TIDP": {
+    "name": "teldatSreTrap_TIDP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.197",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_NOE": {
+    "name": "teldatSreTrap_NOE",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.198",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_AFS": {
+    "name": "teldatSreTrap_AFS",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.199",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_X28": {
+    "name": "teldatSreTrap_X28",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.200",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_BFD": {
+    "name": "teldatSreTrap_BFD",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.203",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_DNSU": {
+    "name": "teldatSreTrap_DNSU",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.204",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_UDP6": {
+    "name": "teldatSreTrap_UDP6",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.205",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_ICM6O": {
+    "name": "teldatSreTrap_ICM6O",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.206",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_CELL": {
+    "name": "teldatSreTrap_CELL",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.208",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_SSL": {
+    "name": "teldatSreTrap_SSL",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.209",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_SCCP": {
+    "name": "teldatSreTrap_SCCP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.210",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_WWAN": {
+    "name": "teldatSreTrap_WWAN",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.211",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_ISTD": {
+    "name": "teldatSreTrap_ISTD",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.212",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_DOT1X": {
+    "name": "teldatSreTrap_DOT1X",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.213",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_EOAM": {
+    "name": "teldatSreTrap_EOAM",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.214",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_SSH": {
+    "name": "teldatSreTrap_SSH",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.215",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_CDP": {
+    "name": "teldatSreTrap_CDP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.216",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_PIO": {
+    "name": "teldatSreTrap_PIO",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.217",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_FLOW": {
+    "name": "teldatSreTrap_FLOW",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.218",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_RIP": {
+    "name": "teldatSreTrap_RIP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.219",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_MGCP": {
+    "name": "teldatSreTrap_MGCP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.220",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_TIPS": {
+    "name": "teldatSreTrap_TIPS",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.221",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_SRVP": {
+    "name": "teldatSreTrap_SRVP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.222",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_SPI": {
+    "name": "teldatSreTrap_SPI",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.223",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_VLI": {
+    "name": "teldatSreTrap_VLI",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.224",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_ACAT": {
+    "name": "teldatSreTrap_ACAT",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.225",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_AAA": {
+    "name": "teldatSreTrap_AAA",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.226",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_SDEV": {
+    "name": "teldatSreTrap_SDEV",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.227",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_G104": {
+    "name": "teldatSreTrap_G104",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.228",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_I101": {
+    "name": "teldatSreTrap_I101",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.229",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_IPSF": {
+    "name": "teldatSreTrap_IPSF",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.230",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_DH6C": {
+    "name": "teldatSreTrap_DH6C",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.231",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_NEIG": {
+    "name": "teldatSreTrap_NEIG",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.232",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_ND": {
+    "name": "teldatSreTrap_ND",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.233",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_ICM6": {
+    "name": "teldatSreTrap_ICM6",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.234",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_LLDP": {
+    "name": "teldatSreTrap_LLDP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.235",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_RIP6": {
+    "name": "teldatSreTrap_RIP6",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.236",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_MLD6": {
+    "name": "teldatSreTrap_MLD6",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.237",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_PIM": {
+    "name": "teldatSreTrap_PIM",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.238",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_MRTE": {
+    "name": "teldatSreTrap_MRTE",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.239",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_ACL": {
+    "name": "teldatSreTrap_ACL",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.240",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_SPF6": {
+    "name": "teldatSreTrap_SPF6",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.241",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_NIC": {
+    "name": "teldatSreTrap_NIC",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.242",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_MSDP": {
+    "name": "teldatSreTrap_MSDP",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.244",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_ACT": {
+    "name": "teldatSreTrap_ACT",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.245",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_TDGS": {
+    "name": "teldatSreTrap_TDGS",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.255",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_GPSF": {
+    "name": "teldatSreTrap_GPSF",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.256",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_WNMS": {
+    "name": "teldatSreTrap_WNMS",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.257",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_DH6S": {
+    "name": "teldatSreTrap_DH6S",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.259",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_CFM": {
+    "name": "teldatSreTrap_CFM",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.264",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_PRIME": {
+    "name": "teldatSreTrap_PRIME",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.265",
+    "class": "objectidentity"
+  },
+  "teldatSreTrap_SMGT": {
+    "name": "teldatSreTrap_SMGT",
+    "oid": "1.3.6.1.4.1.2007.1.1.1.266",
+    "class": "objectidentity"
+  },
+  "telstatus": {
+    "name": "telstatus",
+    "oid": "1.3.6.1.4.1.2007.1.2",
+    "class": "objectidentity"
+  },
+  "telAdminStatusSystem": {
+    "name": "telAdminStatusSystem",
+    "oid": "1.3.6.1.4.1.2007.1.2.1",
+    "class": "objectidentity"
+  },
+  "telAdminStatusSystemCode": {
+    "name": "telAdminStatusSystemCode",
+    "oid": "1.3.6.1.4.1.2007.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rexis-mru": 15,
+          "mbbu": 16,
+          "bir-u": 20,
+          "ebano": 21,
+          "nucleox-plus": 32,
+          "cbra": 33,
+          "centrix-b": 34,
+          "centrix-p": 35,
+          "temis": 36,
+          "novacom": 37,
+          "master-router": 38,
+          "cbra2x": 39,
+          "np2xh": 40,
+          "icu-plus": 41,
+          "centrix-f": 42,
+          "cbra-tar": 43,
+          "aura": 44,
+          "kronos": 45,
+          "teldat-C": 46,
+          "remote-operator": 47,
+          "visor": 48,
+          "voxnet": 49,
+          "dusac32": 50,
+          "novacom-x25": 51,
+          "enaplan": 52,
+          "teldat-C3": 53,
+          "atlas": 56,
+          "c2B": 57,
+          "web-probe": 58,
+          "c3-1": 59,
+          "c3B-1": 60,
+          "c2BM": 61,
+          "basic-atlas": 62,
+          "c2i": 63,
+          "c3i": 64,
+          "c3B": 65,
+          "c3G": 66,
+          "c4": 67,
+          "c4i": 68,
+          "c4B": 69,
+          "centrix-sec": 70,
+          "centrix-d": 71,
+          "c2-UP": 72,
+          "c6": 73,
+          "centrix-ng": 74,
+          "atlas-voxnet": 75,
+          "s2": 76,
+          "s4": 77,
+          "s2i": 78,
+          "s4i": 79,
+          "g2": 80,
+          "g3": 81,
+          "g4": 82,
+          "g2i": 83,
+          "g3i": 84,
+          "g4i": 85,
+          "c1": 86,
+          "c1B": 87,
+          "c1i": 88,
+          "s1": 89,
+          "s1i": 90,
+          "g1": 91,
+          "g1i": 92,
+          "g3-lite": 93,
+          "c3G-lite": 94,
+          "atlas-100": 96,
+          "atlas-300V": 97,
+          "c1G": 98,
+          "atlas-250": 101,
+          "c4G": 102,
+          "atlas-100B": 103,
+          "atlas-150": 104,
+          "a2": 105,
+          "a3": 106,
+          "a4": 107,
+          "a2i": 108,
+          "a3i": 109,
+          "a4i": 110,
+          "a1": 111,
+          "a1i": 112,
+          "g4-cdma": 114,
+          "g4i-cdma": 115,
+          "g3-cdma": 116,
+          "g3i-cdma": 117,
+          "g1-cdma": 118,
+          "g1i-cdma": 119,
+          "c1plus": 122,
+          "c1iplus": 123,
+          "atlas-50": 126,
+          "g4plus": 127,
+          "g3plus": 128,
+          "g1plus": 129,
+          "g4iplus": 130,
+          "g3iplus": 131,
+          "g1iplus": 132,
+          "atlas-250-web-probe": 133,
+          "atlas-150-web-probe": 134,
+          "atlas-50-web-probe": 135,
+          "vyda-1M": 136,
+          "vyda-2M": 137,
+          "vyda-3M": 138,
+          "atlas-300": 139,
+          "atlas-152": 140,
+          "vyda-compact": 141,
+          "c8plus": 142,
+          "c8iplus": 143,
+          "c9plus": 144,
+          "c9iplus": 145,
+          "atlas-360": 146,
+          "c1plus-web-probe": 147,
+          "c1a": 148,
+          "s1a": 149,
+          "g1a": 150,
+          "g1a-cdma": 151,
+          "a1a": 152,
+          "c2a": 155,
+          "s2a": 156,
+          "g2a": 157,
+          "a2a": 158,
+          "c4a": 159,
+          "s4a": 160,
+          "g4a": 161,
+          "g4a-cdma": 162,
+          "a4a": 163,
+          "cirus": 165,
+          "h1": 166,
+          "atlas-260": 167,
+          "atlas-160": 168,
+          "vyda-4M": 169,
+          "teldat-t200g": 170,
+          "teldat-h1-auto": 171,
+          "teldat-g1n": 172,
+          "teldat-v1": 173,
+          "teldat-c1plusl": 174,
+          "teldat-h4": 175,
+          "teldat-t200": 176,
+          "teldat-h1plus": 177,
+          "regesta-rp81": 178,
+          "regesta-rp82": 179,
+          "regesta-1": 180,
+          "teldat-f1plus": 181,
+          "teldat-l1plus": 183,
+          "regesta-rp61er": 184,
+          "regesta-rp62er": 185,
+          "teldat-3geplus": 186,
+          "atlas-60": 187,
+          "teldat-3geplus-cdma": 188,
+          "teldat-h1auto-plus": 189,
+          "teldat-k": 190,
+          "teldat-v": 191,
+          "connect-104": 192,
+          "teldat-h1rail": 193,
+          "teldat-kf": 194,
+          "teldat-m1": 199,
+          "teldat-m1f": 200,
+          "teldat-4Ge": 201,
+          "oa5710v": 202,
+          "oa5720": 203,
+          "oa5840": 204,
+          "oa5850": 205,
+          "oa5725r61er": 206,
+          "oa5725r62er": 207,
+          "oa5725a3g": 208,
+          "oa5725alte": 209,
+          "esrwwanenabler": 210,
+          "connect-104v": 211,
+          "connect-104kf": 212,
+          "connect-4ge": 213,
+          "bintecrsc": 214,
+          "regesta-lite": 215,
+          "bintecrvc": 216,
+          "teldat-h2auto": 217,
+          "teldat-im8": 219,
+          "teldat-im8plus": 220,
+          "teldat-h2auto-plus": 221,
+          "regesta-plc": 222,
+          "atlasi70": 223,
+          "atlasi70plus": 224,
+          "teldat-h2rail-lite": 225,
+          "teldat-h2rail-lite2": 226,
+          "teldat-h2rail": 227,
+          "regesta-compact-plc": 229
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telAdminStatusSystemSwLicLev": {
+    "name": "telAdminStatusSystemSwLicLev",
+    "oid": "1.3.6.1.4.1.2007.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "teldatC": 1,
+          "atlas": 2,
+          "visornet": 3,
+          "teldatS": 4,
+          "teldatG": 5,
+          "atlas2G": 6,
+          "atlas150": 7,
+          "teldatA": 8,
+          "atlas50": 9,
+          "atlas300": 10,
+          "atlas152": 11,
+          "teldatc1plus": 12,
+          "teldatc8plus": 13,
+          "teldatc9plus": 14,
+          "atlas360": 15,
+          "teldatH1": 16,
+          "atlas260": 17,
+          "atlas160": 18,
+          "teldatt200g": 19,
+          "teldath1auto": 20,
+          "teldatg1n": 21,
+          "teldatc1pluslite": 22,
+          "teldatv1": 23,
+          "teldatH4-teldatl1plus": 24,
+          "teldatt200": 25,
+          "teldath1plus-teldatf1plus-teldat3Geplus": 26,
+          "regestaPro-ER": 27,
+          "atlas60": 28,
+          "teldath1autoplus": 29,
+          "teldatv": 30,
+          "teldatconnect104": 31,
+          "teldatk": 32,
+          "teldathrail": 33,
+          "teldatm1": 34,
+          "teldat4ge": 35,
+          "teldatconnect104v": 36,
+          "teldatconnect104kf": 37,
+          "teldatconnect4ge": 38,
+          "teldath2auto": 39,
+          "teldatim8": 40,
+          "teldatim8plus": 41,
+          "atlasi70": 42,
+          "atlasi70plus": 43,
+          "teldath2autoplus": 44,
+          "teldath2rail": 45
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telAdminStatusSystemSwLicSub": {
+    "name": "telAdminStatusSystemSwLicSub",
+    "oid": "1.3.6.1.4.1.2007.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telAdminStatusSystemNumSerie": {
+    "name": "telAdminStatusSystemNumSerie",
+    "oid": "1.3.6.1.4.1.2007.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telAdminStatusSystemPcbType": {
+    "name": "telAdminStatusSystemPcbType",
+    "oid": "1.3.6.1.4.1.2007.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telAdminStatusSystemAppVersion": {
+    "name": "telAdminStatusSystemAppVersion",
+    "oid": "1.3.6.1.4.1.2007.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telAdminStatusSystemBootVersion": {
+    "name": "telAdminStatusSystemBootVersion",
+    "oid": "1.3.6.1.4.1.2007.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telAdminStatusSystemClock": {
+    "name": "telAdminStatusSystemClock",
+    "oid": "1.3.6.1.4.1.2007.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telAdminStatusSystemBoardType": {
+    "name": "telAdminStatusSystemBoardType",
+    "oid": "1.3.6.1.4.1.2007.1.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "adsl-860": 8,
+          "visornet-860": 16,
+          "h1-autoplus": 24,
+          "adsl-855": 32,
+          "h1-rail": 40,
+          "cbra-univ": 56,
+          "visornet-2C": 48,
+          "atlas": 64,
+          "cbra-dual": 72,
+          "tldt-new-C3": 80,
+          "univ-tjt": 88,
+          "tldt-m": 96,
+          "hermes": 112,
+          "univ-bas": 120,
+          "zeus": 128,
+          "nike": 136,
+          "minos": 144,
+          "pnlp": 152,
+          "hades": 160,
+          "tldt-m-a": 168,
+          "univ-tjt-a": 184,
+          "at-h1": 192,
+          "tldt-t200": 176,
+          "h1-auto": 200,
+          "at-h4": 208,
+          "tldt-t200-w": 216,
+          "h1-like-h2-rail": 224,
+          "ares": 272,
+          "at-160": 288,
+          "iropro": 296,
+          "tldt-k": 304,
+          "tldt-m1": 312,
+          "anteth4g": 320,
+          "tldt-im1": 328,
+          "tldt-im2": 336,
+          "tldt-h2-auto-plus": 368,
+          "tldt-h2-rail": 376,
+          "c1plusl": 520,
+          "v1": 528,
+          "h1plus": 536,
+          "c1plusl-b": 544,
+          "c1plusl-ur2": 552,
+          "c1plusl-annexm": 560,
+          "rp61er": 576,
+          "rp62er": 584,
+          "rp61er-ac": 592,
+          "rp62er-ac": 600,
+          "vdsl2": 608,
+          "rp62er-ur2": 616,
+          "rp61er-ur2": 624,
+          "rp62er-ac-ur2": 632,
+          "rp61er-ac-ur2": 640,
+          "rp62er-bj": 648,
+          "rp61er-bj": 656,
+          "rp62er-ac-bj": 664,
+          "rp61er-ac-bj": 672,
+          "rp62er-j": 680,
+          "rp61er-j": 688,
+          "rp62er-ac-j": 696,
+          "rp61er-ac-j": 704,
+          "rp62er-b": 712,
+          "rp61er-b": 720,
+          "rp62er-ac-b": 728,
+          "rp61er-ac-b": 736,
+          "rp21er": 744,
+          "rp22er": 752,
+          "v1-bj": 760,
+          "rp-plc": 872,
+          "rp-cmp-plc": 880
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telAdminStatusSystemBoardRevision": {
+    "name": "telAdminStatusSystemBoardRevision",
+    "oid": "1.3.6.1.4.1.2007.1.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telAdminStatusSystemSmartCard": {
+    "name": "telAdminStatusSystemSmartCard",
+    "oid": "1.3.6.1.4.1.2007.1.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telAdminStatusLedsTable": {
+    "name": "telAdminStatusLedsTable",
+    "oid": "1.3.6.1.4.1.2007.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "telAdminStatusLedsEntry": {
+    "name": "telAdminStatusLedsEntry",
+    "oid": "1.3.6.1.4.1.2007.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MIB",
+        "object": "telAdminStatusLedNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "telAdminStatusLedNum": {
+    "name": "telAdminStatusLedNum",
+    "oid": "1.3.6.1.4.1.2007.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "led-1": 1,
+          "led-2": 2,
+          "led-3": 3,
+          "led-4": 4,
+          "led-5": 5,
+          "led-6": 6,
+          "led-7": 7,
+          "led-8": 8,
+          "led-9": 9,
+          "led-10": 10,
+          "led-11": 11,
+          "led-12": 12,
+          "led-13": 13,
+          "led-14": 14,
+          "led-15": 15,
+          "led-16": 16,
+          "led-17": 17,
+          "led-18": 18,
+          "led-19": 19,
+          "led-20": 20,
+          "led-21": 21,
+          "led-22": 22,
+          "led-23": 23,
+          "led-24": 24
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telAdminStatusLedStatus": {
+    "name": "telAdminStatusLedStatus",
+    "oid": "1.3.6.1.4.1.2007.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "red": 1,
+          "green": 2,
+          "orange": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telAdminStatusBugsTable": {
+    "name": "telAdminStatusBugsTable",
+    "oid": "1.3.6.1.4.1.2007.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "telAdminStatusBugsEntry": {
+    "name": "telAdminStatusBugsEntry",
+    "oid": "1.3.6.1.4.1.2007.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MIB",
+        "object": "telAdminStatusBugNum",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "telAdminStatusBugNum": {
+    "name": "telAdminStatusBugNum",
+    "oid": "1.3.6.1.4.1.2007.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telAdminStatusBugMsg": {
+    "name": "telAdminStatusBugMsg",
+    "oid": "1.3.6.1.4.1.2007.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telAdminStatusBugsClear": {
+    "name": "telAdminStatusBugsClear",
+    "oid": "1.3.6.1.4.1.2007.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-delete-bugs": 0,
+          "delete-bugs": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "telAdminStatusReload": {
+    "name": "telAdminStatusReload",
+    "oid": "1.3.6.1.4.1.2007.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "reset": 1,
+          "already-reset": 2,
+          "not-reset": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telAdminStatusRestart": {
+    "name": "telAdminStatusRestart",
+    "oid": "1.3.6.1.4.1.2007.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "restart": 1,
+          "restarted": 2,
+          "not-restarted": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telAdminStatusSaveConfig": {
+    "name": "telAdminStatusSaveConfig",
+    "oid": "1.3.6.1.4.1.2007.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "save-configuration": 1,
+          "saved-configuration": 2,
+          "not-saved-configuration": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telAdminStatusSram": {
+    "name": "telAdminStatusSram",
+    "oid": "1.3.6.1.4.1.2007.1.2.8",
+    "class": "objectidentity"
+  },
+  "telAdminStatusSramRecordTable": {
+    "name": "telAdminStatusSramRecordTable",
+    "oid": "1.3.6.1.4.1.2007.1.2.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "telAdminStatusSramRecordEntry": {
+    "name": "telAdminStatusSramRecordEntry",
+    "oid": "1.3.6.1.4.1.2007.1.2.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MIB",
+        "object": "sramRecordType",
+        "implied": 0
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "sramRecordSubtype",
+        "implied": 0
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "sramRecordInstance",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "sramRecordType": {
+    "name": "sramRecordType",
+    "oid": "1.3.6.1.4.1.2007.1.2.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "sramRecordSubtype": {
+    "name": "sramRecordSubtype",
+    "oid": "1.3.6.1.4.1.2007.1.2.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "sramRecordInstance": {
+    "name": "sramRecordInstance",
+    "oid": "1.3.6.1.4.1.2007.1.2.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "sramRecordItem": {
+    "name": "sramRecordItem",
+    "oid": "1.3.6.1.4.1.2007.1.2.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Opaque",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "telAdminStatusSRE": {
+    "name": "telAdminStatusSRE",
+    "oid": "1.3.6.1.4.1.2007.1.2.9",
+    "class": "objectidentity"
+  },
+  "telAdminStatusSRESubRecordTable": {
+    "name": "telAdminStatusSRESubRecordTable",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "telAdminStatusSRESubRecordEntry": {
+    "name": "telAdminStatusSRESubRecordEntry",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MIB",
+        "object": "sreSubId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sreSubId": {
+    "name": "sreSubId",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreSubShortName": {
+    "name": "sreSubShortName",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreSubLongName": {
+    "name": "sreSubLongName",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreSubNumEvent": {
+    "name": "sreSubNumEvent",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreSubTraceLvlConf": {
+    "name": "sreSubTraceLvlConf",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sreSubSyslogLvlConf": {
+    "name": "sreSubSyslogLvlConf",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sreSubTrapLvlConf": {
+    "name": "sreSubTrapLvlConf",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sreSubTrap1LvlConf": {
+    "name": "sreSubTrap1LvlConf",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sreSubTrap2LvlConf": {
+    "name": "sreSubTrap2LvlConf",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sreSubTrap3LvlConf": {
+    "name": "sreSubTrap3LvlConf",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sreSubTrap4LvlConf": {
+    "name": "sreSubTrap4LvlConf",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telAdminStatusSREEventRecordTable": {
+    "name": "telAdminStatusSREEventRecordTable",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "telAdminStatusSREEventRecordEntry": {
+    "name": "telAdminStatusSREEventRecordEntry",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MIB",
+        "object": "sreEvnSubId",
+        "implied": 0
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "sreEvnEvnId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sreEvnSubId": {
+    "name": "sreEvnSubId",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreEvnEvnId": {
+    "name": "sreEvnEvnId",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreEvnMsg": {
+    "name": "sreEvnMsg",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreEvnLvl": {
+    "name": "sreEvnLvl",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreEvnMeter": {
+    "name": "sreEvnMeter",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreEvnStatusAct": {
+    "name": "sreEvnStatusAct",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sreEvnStatusCon": {
+    "name": "sreEvnStatusCon",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telAdminStatusSREGroupRecordTable": {
+    "name": "telAdminStatusSREGroupRecordTable",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "telAdminStatusSREGroupRecordEntry": {
+    "name": "telAdminStatusSREGroupRecordEntry",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MIB",
+        "object": "sreGrpId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sreGrpId": {
+    "name": "sreGrpId",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpName": {
+    "name": "sreGrpName",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpStatusCon": {
+    "name": "sreGrpStatusCon",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sreGrpGrpSub1Id": {
+    "name": "sreGrpGrpSub1Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpEvn1Id": {
+    "name": "sreGrpGrpEvn1Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpSub2Id": {
+    "name": "sreGrpGrpSub2Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpEvn2Id": {
+    "name": "sreGrpGrpEvn2Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpSub3Id": {
+    "name": "sreGrpGrpSub3Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpEvn3Id": {
+    "name": "sreGrpGrpEvn3Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpSub4Id": {
+    "name": "sreGrpGrpSub4Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpEvn4Id": {
+    "name": "sreGrpGrpEvn4Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpSub5Id": {
+    "name": "sreGrpGrpSub5Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpEvn5Id": {
+    "name": "sreGrpGrpEvn5Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpSub6Id": {
+    "name": "sreGrpGrpSub6Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpEvn6Id": {
+    "name": "sreGrpGrpEvn6Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpSub7Id": {
+    "name": "sreGrpGrpSub7Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpEvn7Id": {
+    "name": "sreGrpGrpEvn7Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpSub8Id": {
+    "name": "sreGrpGrpSub8Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpEvn8Id": {
+    "name": "sreGrpGrpEvn8Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpSub9Id": {
+    "name": "sreGrpGrpSub9Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpEvn9Id": {
+    "name": "sreGrpGrpEvn9Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpSub10Id": {
+    "name": "sreGrpGrpSub10Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpEvn10Id": {
+    "name": "sreGrpGrpEvn10Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpSub11Id": {
+    "name": "sreGrpGrpSub11Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpEvn11Id": {
+    "name": "sreGrpGrpEvn11Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpSub12Id": {
+    "name": "sreGrpGrpSub12Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpEvn12Id": {
+    "name": "sreGrpGrpEvn12Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpSub13Id": {
+    "name": "sreGrpGrpSub13Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpEvn13Id": {
+    "name": "sreGrpGrpEvn13Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpSub14Id": {
+    "name": "sreGrpGrpSub14Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpEvn14Id": {
+    "name": "sreGrpGrpEvn14Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpSub15Id": {
+    "name": "sreGrpGrpSub15Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpEvn15Id": {
+    "name": "sreGrpGrpEvn15Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpSub16Id": {
+    "name": "sreGrpGrpSub16Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpEvn16Id": {
+    "name": "sreGrpGrpEvn16Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpSub17Id": {
+    "name": "sreGrpGrpSub17Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpEvn17Id": {
+    "name": "sreGrpGrpEvn17Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpSub18Id": {
+    "name": "sreGrpGrpSub18Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpEvn18Id": {
+    "name": "sreGrpGrpEvn18Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpSub19Id": {
+    "name": "sreGrpGrpSub19Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpEvn19Id": {
+    "name": "sreGrpGrpEvn19Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpSub20Id": {
+    "name": "sreGrpGrpSub20Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sreGrpGrpEvn20Id": {
+    "name": "sreGrpGrpEvn20Id",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.3.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telAdminStatusSREClearConf": {
+    "name": "telAdminStatusSREClearConf",
+    "oid": "1.3.6.1.4.1.2007.1.2.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "with-configuration": 0,
+          "without-configuration": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telAdminStatusIfTable": {
+    "name": "telAdminStatusIfTable",
+    "oid": "1.3.6.1.4.1.2007.1.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "telAdminStatusIfEntry": {
+    "name": "telAdminStatusIfEntry",
+    "oid": "1.3.6.1.4.1.2007.1.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MIB",
+        "object": "telAdminStatusIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "telAdminStatusIfIndex": {
+    "name": "telAdminStatusIfIndex",
+    "oid": "1.3.6.1.4.1.2007.1.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telAdminStatusIfType": {
+    "name": "telAdminStatusIfType",
+    "oid": "1.3.6.1.4.1.2007.1.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sr-MICRO-NODE-X25-NET": 1,
+          "sr-PCI-WAN-PQ2-SDLC": 2,
+          "sr-MICRO-NODE-ISAC-NET": 3,
+          "sr-MICRO-NODE-XOT-NET": 4,
+          "sr-MICRO-NODE-270-NET": 5,
+          "sr-COM4": 6,
+          "sr-PRO4": 7,
+          "sr-IBD": 8,
+          "sr-PCI-AMDETH": 9,
+          "sr-AMDETH": 10,
+          "sr-QUIC-SL-X28": 11,
+          "sr-QUIC-SL-ASTM": 12,
+          "sr-QUIC-SL-UDAFO": 13,
+          "sr-FASTETH": 14,
+          "sr-VCOM4": 15,
+          "sr-dummy-voip": 16,
+          "sr-PCI-CELLULAR-VOIP": 17,
+          "sr-ATC2": 18,
+          "sr-DIAL-G-HDLC": 19,
+          "sr-DIAL-G-FR": 20,
+          "sr-DIAL-G-PPP": 21,
+          "sr-DIAL-G-X25": 22,
+          "sr-SRLY-GWSL": 23,
+          "sr-SRLY-ATC2": 24,
+          "sr-SRLY-G1SL": 25,
+          "sr-FRGENSL": 26,
+          "sr-NSETH": 27,
+          "sr-TELDAT-BVI-SUBIFC": 28,
+          "sr-TELDAT-FR-SUBIFC": 29,
+          "sr-PPPGENSL": 30,
+          "sr-PPPATC2": 31,
+          "sr-PPPCOM2": 32,
+          "sr-QSL": 33,
+          "sr-PPPQSL": 34,
+          "sr-FRQSL": 35,
+          "sr-SRLY-QSL": 36,
+          "sr-XQSL": 37,
+          "sr-NULL-DEV": 38,
+          "sr-YDC-ISDN": 39,
+          "sr-DIAL-FR": 40,
+          "sr-DIAL-PPP": 41,
+          "sr-QUIC-PRI-SIG": 42,
+          "sr-SDLC-QSL": 43,
+          "sr-QSLCH": 44,
+          "sr-SDLC-QSLCH": 45,
+          "sr-PPP-QSLCH": 46,
+          "sr-FR-QSLCH": 47,
+          "sr-XQSLCH": 48,
+          "sr-SRLY-QSLCH": 49,
+          "sr-PCI-PRI-ACODES": 50,
+          "sr-PCI-BRI-ACODES": 51,
+          "sr-ISDN-VOIP": 52,
+          "sr-SL-HSSI": 53,
+          "sr-FR-HSSI": 54,
+          "sr-PPP-HSSI": 55,
+          "sr-QUIC-ETH": 56,
+          "sr-QUIC-TKR": 57,
+          "sr-QUIC-SL-PSL": 58,
+          "sr-QUIC-SL-PPP": 59,
+          "sr-QUIC-SL-X25": 60,
+          "sr-QUIC-SL-FR": 61,
+          "sr-QUIC-SL-SRLY": 62,
+          "sr-QUIC-SL-SDLC": 63,
+          "sr-QUIC-SL-V25B": 64,
+          "sr-QUIC-ISDNH": 65,
+          "sr-TEL-PRU": 66,
+          "sr-TEL-PRU-FAST": 67,
+          "sr-TEL-MOTOROLA": 68,
+          "sr-TELDAT-TKR": 69,
+          "sr-TELDAT-ETH": 70,
+          "sr-TELDAT-ISAC": 71,
+          "sr-TELDAT-XOT": 72,
+          "sr-TELDAT-270": 73,
+          "sr-TELDAT-TNIP": 74,
+          "sr-TELDAT-MPPP": 75,
+          "sr-FR-ISDN": 76,
+          "sr-TELDAT-ATM": 77,
+          "sr-TELDAT-ATM-SUBIFC": 78,
+          "sr-TELDAT-ASDP": 79,
+          "sr-QMC-BRI": 80,
+          "sr-TELDAT-SYNC-SL": 81,
+          "sr-TELDAT-ASYNC-SL": 82,
+          "sr-QUIC-SL-APTB": 83,
+          "sr-TELDAT-ATM-FS": 84,
+          "sr-TELDAT-LPBK": 85,
+          "sr-TELDAT-PCI-PRI-M32X": 86,
+          "sr-TELDAT-DIALROUT": 87,
+          "sr-PCI-WAN-PQ2-ASYNC": 88,
+          "sr-DSCC4-ATC2": 89,
+          "sr-PCI-WAN-PQ2-SYN": 90,
+          "sr-PCI-AMD-MICREL-ETH": 91,
+          "sr-MOT-MICREL-ETH": 92,
+          "sr-ALARM-RELY": 93,
+          "sr-PCI-MEMORY-CARD": 94,
+          "sr-TELDAT-ETH-SUBIFC": 95,
+          "sr-PCI-POTS-VOIP-CARD": 96,
+          "sr-PCI-BRI-VOIP-CARD": 97,
+          "sr-PCI-PRI-VOIP-CARD": 98,
+          "sr-PCI-E-M-VOIP-CARD": 99,
+          "sr-TELDAT-LOOPBACK": 100,
+          "sr-TELDAT-L2TP": 101,
+          "sr-FCC-ETH": 102,
+          "sr-PCMCIA-SERIAL": 103,
+          "sr-DSCC4-HSSI": 104,
+          "sr-TELDAT-BVI": 105,
+          "sr-QUIC-SL-SCADA": 106,
+          "sr-TELDAT-ATM-PQ2SAR": 107,
+          "sr-PCI-QMC-BRI": 108,
+          "sr-PCI-POTS-3S10VOIP-CARD": 109,
+          "sr-PCI-POTS-2S2OVOIP-CARD": 110,
+          "sr-PCI-INTEL-GIGABIT-ETH": 111,
+          "sr-ATHEROS-WLAN-BASE": 112,
+          "sr-FCC-MARVELL": 113,
+          "sr-TELDAT-SEPI": 114,
+          "sr-FCC-MICREL": 115,
+          "sr-ETSEC-ETH": 116,
+          "sr-EIB-ZENNIO": 117,
+          "sr-GPIO-12": 118,
+          "sr-QUIC-AUTO-INST-SL": 119,
+          "sr-PCI-PRI-PQ2": 120,
+          "sr-ETSEC-MARVELL-ETH": 121,
+          "sr-QUIC-SL-MODEMEMU": 122,
+          "sr-PCI-VALARM-SL-MDMEMU": 123,
+          "sr-PCI-VALARM-SL-SEPI": 124,
+          "sr-PCI-CELLULAR": 125,
+          "sr-REMOTE-CELLULAR": 126,
+          "sr-PCI-WAN-PQ2-SCADA": 127,
+          "sr-TELDAT-ETH-SOFTETH": 128,
+          "sr-TELDAT-ATM-SOFTSAR": 129,
+          "sr-PCI-PQII-FCC-MARVELL-ETH": 130,
+          "sr-TELDAT-ETH-SOFTPTM": 131,
+          "sr-TELDAT-SERIAL-SOFTUSB": 132,
+          "sr-PCI-PQII-WDMPON": 133,
+          "sr-TELDAT-SOFTWLAN-BASE": 134,
+          "sr-PCI-WAN-PQ2-ASTM": 135,
+          "sr-PCI-WAN-PQ2-X28": 136,
+          "sr-PCI-WAN-PQ2-ASDP": 137,
+          "sr-TELDAT-SOFTNIC": 138,
+          "sr-DIAL-G-DIP": 139,
+          "sr-TELDAT-USBNIC": 140,
+          "sr-ATHEROS-WLAN-VAP": 141,
+          "sr-TELDAT-SOFTWAN": 142,
+          "sr-TELDAT-SWETH": 143,
+          "sr-QUIC-SL-IEC101GW": 144,
+          "sr-PCI-WAN-PQ2-IEC101GW": 145,
+          "sr-TELDAT-SOFTUART": 146,
+          "sr-TELDAT-SOFTSCADA": 147,
+          "sr-TELDAT-SOFTIEC101GW": 148,
+          "sr-TELDAT-SOFTASDP": 149,
+          "sr-STANDALONE-GPS": 150,
+          "sr-SL-GPSDATA": 151,
+          "sr-SOFTWLAN-VAP": 152,
+          "sr-FSL-CELLULAR": 153,
+          "sr-SOFTETH-SWITCH": 154,
+          "sr-TELDAT-USBETH": 155,
+          "sr-TELDAT-SOFTUSBETH": 156,
+          "sr-TELDAT-ETH-FMAN": 157,
+          "sr-TELDAT-ETH-FMAN-SWITCH": 158,
+          "sr-TELDAT-SOFTPRIME": 159,
+          "sr-FSL-GPSUSB": 160,
+          "sr-TELDAT-ETH-FMAN-MII": 161,
+          "sr-XHCI-CELLULAR": 162,
+          "sr-MICRO-NODE-ROUTER": 61441,
+          "sr-MICRO-NODE-RDSI-B": 61442,
+          "sr-MICRO-NODE-ISAC": 61443,
+          "sr-MICRO-NODE-X25": 61444,
+          "sr-MICRO-NODE-XOT": 61445,
+          "sr-MICRO-NODE-270": 61446
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telAdminStatusIfCon": {
+    "name": "telAdminStatusIfCon",
+    "oid": "1.3.6.1.4.1.2007.1.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-conn": 0,
+          "lan-conn": 1,
+          "wan1-conn": 2,
+          "wan2-conn": 3,
+          "wan3-conn": 4,
+          "wan4-conn": 5,
+          "wan5-conn": 6,
+          "wan6-conn": 7,
+          "wan7-conn": 8,
+          "wan8-conn": 9,
+          "rdsi1-conn": 10,
+          "rdsi2-conn": 11,
+          "adsl1-conn": 12,
+          "adsl2-conn": 13,
+          "adsl3-conn": 14,
+          "adsl4-conn": 15,
+          "lan-conn-exp": 16,
+          "uart1-conn": 17,
+          "uart2-conn": 18,
+          "uart3-conn": 19,
+          "uart4-conn": 20,
+          "rs232-conn": 21,
+          "rs485-conn": 22,
+          "slot1-conn": 23,
+          "slot2-conn": 24,
+          "slot3-conn": 25,
+          "rf-conn": 26,
+          "lan1-conn": 27,
+          "lan2-conn": 28,
+          "lan3-conn": 29,
+          "lan4-conn": 30,
+          "pots-conn": 31,
+          "slot4-conn": 32,
+          "slot5-conn": 33,
+          "exp-switch1": 34,
+          "usb-conn": 35,
+          "ethwan-conn": 36,
+          "config-conn": 37,
+          "lan1-switch-conn": 38,
+          "irp-slot3-conn": 39,
+          "usb-uart-conn-1": 40,
+          "usb-uart-conn-2": 41,
+          "gps-conn": 42,
+          "rf-conn-1": 43,
+          "rf-conn-2": 44,
+          "usb-conn-1": 45,
+          "usb-conn-2": 46,
+          "irp-slot2-conn": 47,
+          "wifi1-conn": 48,
+          "wifi2-conn": 49,
+          "im-slot1-conn": 50,
+          "im-slot2-conn": 51,
+          "prime-pw-conn": 52,
+          "slot1-switch-0-conn": 53,
+          "slot1-switch-1-conn": 54
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telAdminStatusIfHdw": {
+    "name": "telAdminStatusIfHdw",
+    "oid": "1.3.6.1.4.1.2007.1.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telAdminStatusEthTime": {
+    "name": "telAdminStatusEthTime",
+    "oid": "1.3.6.1.4.1.2007.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telAdminConfActDev": {
+    "name": "telAdminConfActDev",
+    "oid": "1.3.6.1.4.1.2007.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "smartcard-flash": 1,
+          "smartcard": 2,
+          "flash": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telAdminConfConfSavedDev": {
+    "name": "telAdminConfConfSavedDev",
+    "oid": "1.3.6.1.4.1.2007.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "smartcard": 1,
+          "flash": 2,
+          "smartcard-flash": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telAdminStatusConfirmConfig": {
+    "name": "telAdminStatusConfirmConfig",
+    "oid": "1.3.6.1.4.1.2007.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "confirmed": 0,
+          "test-cnfg-inactive": 1,
+          "test-cnfg-active": 2,
+          "configuration-recovered": 3,
+          "undefined": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telAdminStatusConfirmEnabled": {
+    "name": "telAdminStatusConfirmEnabled",
+    "oid": "1.3.6.1.4.1.2007.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telAdminStatusTimeoutConfirm": {
+    "name": "telAdminStatusTimeoutConfirm",
+    "oid": "1.3.6.1.4.1.2007.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 3024000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telAdminStatusSaveRunningConfig": {
+    "name": "telAdminStatusSaveRunningConfig",
+    "oid": "1.3.6.1.4.1.2007.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "save-configuration": 1,
+          "saved-configuration": 2,
+          "not-saved-configuration": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telMciTraps": {
+    "name": "telMciTraps",
+    "oid": "1.3.6.1.4.1.2007.1.3",
+    "class": "objectidentity"
+  },
+  "telTrapVarIPAddr": {
+    "name": "telTrapVarIPAddr",
+    "oid": "1.3.6.1.4.1.2007.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telTrapVarVelCir": {
+    "name": "telTrapVarVelCir",
+    "oid": "1.3.6.1.4.1.2007.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telTrapVarVelBckp": {
+    "name": "telTrapVarVelBckp",
+    "oid": "1.3.6.1.4.1.2007.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telTrapVarPrioBackp": {
+    "name": "telTrapVarPrioBackp",
+    "oid": "1.3.6.1.4.1.2007.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telTrapVarTipoBackp": {
+    "name": "telTrapVarTipoBackp",
+    "oid": "1.3.6.1.4.1.2007.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telTrapVarTipoEquip": {
+    "name": "telTrapVarTipoEquip",
+    "oid": "1.3.6.1.4.1.2007.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telTrapVarCustomerName": {
+    "name": "telTrapVarCustomerName",
+    "oid": "1.3.6.1.4.1.2007.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telTrapVarRouterName": {
+    "name": "telTrapVarRouterName",
+    "oid": "1.3.6.1.4.1.2007.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telTrapVarRouterPort": {
+    "name": "telTrapVarRouterPort",
+    "oid": "1.3.6.1.4.1.2007.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telTrapVarCircuitID": {
+    "name": "telTrapVarCircuitID",
+    "oid": "1.3.6.1.4.1.2007.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telTrapVarSequenceNum": {
+    "name": "telTrapVarSequenceNum",
+    "oid": "1.3.6.1.4.1.2007.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telTECircuitTrapUp": {
+    "name": "telTECircuitTrapUp",
+    "oid": "1.3.6.1.4.1.2007.1.30.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarIPAddr"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarVelCir"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarVelBckp"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarPrioBackp"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarTipoBackp"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarTipoEquip"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarCustomerName"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarRouterName"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarRouterPort"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarCircuitID"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarSequenceNum"
+      }
+    ]
+  },
+  "telTECircuitTrapBackup": {
+    "name": "telTECircuitTrapBackup",
+    "oid": "1.3.6.1.4.1.2007.1.30.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarIPAddr"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarVelCir"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarVelBckp"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarPrioBackp"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarTipoBackp"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarTipoEquip"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarCustomerName"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarRouterName"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarRouterPort"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarCircuitID"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarSequenceNum"
+      }
+    ]
+  },
+  "telTECircuitTrapDown": {
+    "name": "telTECircuitTrapDown",
+    "oid": "1.3.6.1.4.1.2007.1.30.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarIPAddr"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarVelCir"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarVelBckp"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarPrioBackp"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarTipoBackp"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarTipoEquip"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarCustomerName"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarRouterName"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarRouterPort"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarCircuitID"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telTrapVarSequenceNum"
+      }
+    ]
+  },
+  "telproip": {
+    "name": "telproip",
+    "oid": "1.3.6.1.4.1.2007.3.2",
+    "class": "objectidentity"
+  },
+  "teldefgw": {
+    "name": "teldefgw",
+    "oid": "1.3.6.1.4.1.2007.3.2.1",
+    "class": "objectidentity"
+  },
+  "telProtoIpDefGwAddress": {
+    "name": "telProtoIpDefGwAddress",
+    "oid": "1.3.6.1.4.1.2007.3.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "telProtoIpDefGwCost": {
+    "name": "telProtoIpDefGwCost",
+    "oid": "1.3.6.1.4.1.2007.3.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "telProtoIpDefGwAge": {
+    "name": "telProtoIpDefGwAge",
+    "oid": "1.3.6.1.4.1.2007.3.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "telprofr": {
+    "name": "telprofr",
+    "oid": "1.3.6.1.4.1.2007.3.3",
+    "class": "objectidentity"
+  },
+  "telfrLmiTable": {
+    "name": "telfrLmiTable",
+    "oid": "1.3.6.1.4.1.2007.3.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "telfrLmiEntry": {
+    "name": "telfrLmiEntry",
+    "oid": "1.3.6.1.4.1.2007.3.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MIB",
+        "object": "telfrLmiifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "telfrLmiifIndex": {
+    "name": "telfrLmiifIndex",
+    "oid": "1.3.6.1.4.1.2007.3.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telfrLmiBroadcas": {
+    "name": "telfrLmiBroadcas",
+    "oid": "1.3.6.1.4.1.2007.3.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telfrLmiMonitConges": {
+    "name": "telfrLmiMonitConges",
+    "oid": "1.3.6.1.4.1.2007.3.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telfrLmiMonitCIR": {
+    "name": "telfrLmiMonitCIR",
+    "oid": "1.3.6.1.4.1.2007.3.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telfrLmiOrphans": {
+    "name": "telfrLmiOrphans",
+    "oid": "1.3.6.1.4.1.2007.3.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telfrLmiIRIncrement": {
+    "name": "telfrLmiIRIncrement",
+    "oid": "1.3.6.1.4.1.2007.3.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telfrLmiIRDecrement": {
+    "name": "telfrLmiIRDecrement",
+    "oid": "1.3.6.1.4.1.2007.3.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telfrLmiMIRCIR": {
+    "name": "telfrLmiMIRCIR",
+    "oid": "1.3.6.1.4.1.2007.3.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telfrCircuitTable": {
+    "name": "telfrCircuitTable",
+    "oid": "1.3.6.1.4.1.2007.3.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "telfrCircuitEntry": {
+    "name": "telfrCircuitEntry",
+    "oid": "1.3.6.1.4.1.2007.3.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MIB",
+        "object": "telfrCircuitifIndex",
+        "implied": 0
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "telfrCircuitDlci",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "telfrCircuitifIndex": {
+    "name": "telfrCircuitifIndex",
+    "oid": "1.3.6.1.4.1.2007.3.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telfrCircuitDlci": {
+    "name": "telfrCircuitDlci",
+    "oid": "1.3.6.1.4.1.2007.3.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telfrCircuitCifrar": {
+    "name": "telfrCircuitCifrar",
+    "oid": "1.3.6.1.4.1.2007.3.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telfrCircuitBack_Up_FR": {
+    "name": "telfrCircuitBack_Up_FR",
+    "oid": "1.3.6.1.4.1.2007.3.3.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 1007
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telfrCircuitBack_Up_RDSI": {
+    "name": "telfrCircuitBack_Up_RDSI",
+    "oid": "1.3.6.1.4.1.2007.3.3.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 1007
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telfrCircuitBack_Up_RDSI_siempre": {
+    "name": "telfrCircuitBack_Up_RDSI_siempre",
+    "oid": "1.3.6.1.4.1.2007.3.3.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telfrCircuitName": {
+    "name": "telfrCircuitName",
+    "oid": "1.3.6.1.4.1.2007.3.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telproisdn": {
+    "name": "telproisdn",
+    "oid": "1.3.6.1.4.1.2007.3.4",
+    "class": "objectidentity"
+  },
+  "telproisdncallTable": {
+    "name": "telproisdncallTable",
+    "oid": "1.3.6.1.4.1.2007.3.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "telproisdncallEntry": {
+    "name": "telproisdncallEntry",
+    "oid": "1.3.6.1.4.1.2007.3.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MIB",
+        "object": "telproisdncallid",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "telproisdncallstatus": {
+    "name": "telproisdncallstatus",
+    "oid": "1.3.6.1.4.1.2007.3.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telproisdncalltype": {
+    "name": "telproisdncalltype",
+    "oid": "1.3.6.1.4.1.2007.3.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "incoming": 0,
+          "outgoing": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telproisdncallref": {
+    "name": "telproisdncallref",
+    "oid": "1.3.6.1.4.1.2007.3.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telproisdncallchannel": {
+    "name": "telproisdncallchannel",
+    "oid": "1.3.6.1.4.1.2007.3.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telproisdncallid": {
+    "name": "telproisdncallid",
+    "oid": "1.3.6.1.4.1.2007.3.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telproisdncallcallednum": {
+    "name": "telproisdncallcallednum",
+    "oid": "1.3.6.1.4.1.2007.3.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telproisdncallcallingnum": {
+    "name": "telproisdncallcallingnum",
+    "oid": "1.3.6.1.4.1.2007.3.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telproisdncallchargedunits": {
+    "name": "telproisdncallchargedunits",
+    "oid": "1.3.6.1.4.1.2007.3.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telproisdncallinittime": {
+    "name": "telproisdncallinittime",
+    "oid": "1.3.6.1.4.1.2007.3.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telproisdncallinitdate": {
+    "name": "telproisdncallinitdate",
+    "oid": "1.3.6.1.4.1.2007.3.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telproisdncallhistoryTable": {
+    "name": "telproisdncallhistoryTable",
+    "oid": "1.3.6.1.4.1.2007.3.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "telproisdncallhistoryEntry": {
+    "name": "telproisdncallhistoryEntry",
+    "oid": "1.3.6.1.4.1.2007.3.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MIB",
+        "object": "telproisdncallhistoryindex",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "telproisdncallhistoryindex": {
+    "name": "telproisdncallhistoryindex",
+    "oid": "1.3.6.1.4.1.2007.3.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telproisdncallhistorytype": {
+    "name": "telproisdncallhistorytype",
+    "oid": "1.3.6.1.4.1.2007.3.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "incoming": 0,
+          "outgoing": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telproisdncallhistoryref": {
+    "name": "telproisdncallhistoryref",
+    "oid": "1.3.6.1.4.1.2007.3.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telproisdncallhistorychannel": {
+    "name": "telproisdncallhistorychannel",
+    "oid": "1.3.6.1.4.1.2007.3.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telproisdncallhistoryid": {
+    "name": "telproisdncallhistoryid",
+    "oid": "1.3.6.1.4.1.2007.3.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telproisdncallhistorycallednum": {
+    "name": "telproisdncallhistorycallednum",
+    "oid": "1.3.6.1.4.1.2007.3.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telproisdncallhistorycallingnum": {
+    "name": "telproisdncallhistorycallingnum",
+    "oid": "1.3.6.1.4.1.2007.3.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telproisdncallhistorychargedunits": {
+    "name": "telproisdncallhistorychargedunits",
+    "oid": "1.3.6.1.4.1.2007.3.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telproisdncallhistorycause": {
+    "name": "telproisdncallhistorycause",
+    "oid": "1.3.6.1.4.1.2007.3.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "non-attributed-number": 1,
+          "no-route-to-destination": 3,
+          "unacceptable-channel": 6,
+          "normal-call-release": 16,
+          "user-busy": 17,
+          "user-do-not-answer": 18,
+          "notified-user-no-answer-from-user": 19,
+          "rejected-call": 21,
+          "changed-number": 22,
+          "destination-out-of-service": 27,
+          "non-valid-number-format": 28,
+          "normal": 31,
+          "no-circuit-or-available-channel": 34,
+          "network-out-of-service": 38,
+          "temporal-failure": 41,
+          "congestion-in-switching-node": 42,
+          "demanded-circuit-or-non-available-channel": 44,
+          "non-available-resources": 47,
+          "non-available-quality-of-service": 49,
+          "not-authorized-carrier-capacity": 57,
+          "not-authorized-carrier-capacity-at-the-moment": 58,
+          "service-class-or-non-available-option": 63,
+          "not-performed-carrier-capacity": 65,
+          "not-performed-channel-type": 66,
+          "not-performed-option-or-service": 79,
+          "non-valid-call-reference-value": 81,
+          "non-existent-identified-channel": 82,
+          "incompatible-destination": 88,
+          "non-valid-message": 95,
+          "mandatory-information-element-absent": 96,
+          "message-type-non-existent-or-non-performed": 97,
+          "message-non-existent-or-non-performed": 98,
+          "information-element-non-existent-or-non-performed": 99,
+          "information-element-content-non-valid": 100,
+          "incompatible-message-with-call-status": 101,
+          "recovering-at-timer-expiration": 102,
+          "protocol-error": 111,
+          "interworking": 127
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telproisdncallhistorydiagnostic": {
+    "name": "telproisdncallhistorydiagnostic",
+    "oid": "1.3.6.1.4.1.2007.3.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telproisdncallhistoryinittime": {
+    "name": "telproisdncallhistoryinittime",
+    "oid": "1.3.6.1.4.1.2007.3.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telproisdncallhistoryendtime": {
+    "name": "telproisdncallhistoryendtime",
+    "oid": "1.3.6.1.4.1.2007.3.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telproisdncallhistoryinitdate": {
+    "name": "telproisdncallhistoryinitdate",
+    "oid": "1.3.6.1.4.1.2007.3.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telproisdncallhistoryenddate": {
+    "name": "telproisdncallhistoryenddate",
+    "oid": "1.3.6.1.4.1.2007.3.4.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telSistemaEventos": {
+    "name": "telSistemaEventos",
+    "oid": "1.3.6.1.4.1.20070.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELDAT-MIB",
+        "object": "sreTrapSubSist"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "sreTrapEvento"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "sreTrapVar1"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "sreTrapVar2"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "sreTrapVar3"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "sreTrapVar4"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "sreTrapVar5"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "sreTrapVar6"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "sreTrapVar7"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "sreTrapVar8"
+      },
+      {
+        "module": "TELDAT-MIB",
+        "object": "sreTrapVar9"
+      }
+    ]
+  },
+  "telEventTraps": {
+    "name": "telEventTraps",
+    "oid": "1.3.6.1.4.1.2007.1.4",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/teldat/TELDAT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TELDAT-MIB"
+  }
+}

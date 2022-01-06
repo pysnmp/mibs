@@ -1,0 +1,303 @@
+{
+  "imports": {
+    "class": "imports",
+    "CALIX-SMI": [
+      "calixProducts",
+      "calixRegistrations",
+      "calixModules",
+      "calixManagement"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "IpAddress",
+      "Gauge32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "calixProduct": {
+    "name": "calixProduct",
+    "oid": "1.3.6.1.4.1.6321.1.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-12-10 00:00",
+        "description": "Changed E5 references to E7, with comments."
+      },
+      {
+        "revision": "2007-06-28 00:00",
+        "description": "Updated for E5 and E5-100."
+      },
+      {
+        "revision": "2000-08-31 00:26",
+        "description": "Initial release."
+      }
+    ]
+  },
+  "c7": {
+    "name": "c7",
+    "oid": "1.3.6.1.4.1.6321.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "e7": {
+    "name": "e7",
+    "oid": "1.3.6.1.4.1.6321.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "e7Modules": {
+    "name": "e7Modules",
+    "oid": "1.3.6.1.4.1.6321.1.2.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "e7Devices": {
+    "name": "e7Devices",
+    "oid": "1.3.6.1.4.1.6321.1.2.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "e5x312": {
+    "name": "e5x312",
+    "oid": "1.3.6.1.4.1.6321.1.2.2.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "e5x400": {
+    "name": "e5x400",
+    "oid": "1.3.6.1.4.1.6321.1.2.2.5.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "e7x2": {
+    "name": "e7x2",
+    "oid": "1.3.6.1.4.1.6321.1.2.2.5.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "e7x20": {
+    "name": "e7x20",
+    "oid": "1.3.6.1.4.1.6321.1.2.2.5.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "e3x48": {
+    "name": "e3x48",
+    "oid": "1.3.6.1.4.1.6321.1.2.2.5.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "e5x48": {
+    "name": "e5x48",
+    "oid": "1.3.6.1.4.1.6321.1.2.2.5.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "e3x8g": {
+    "name": "e3x8g",
+    "oid": "1.3.6.1.4.1.6321.1.2.2.5.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "e5x100": {
+    "name": "e5x100",
+    "oid": "1.3.6.1.4.1.6321.1.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "c7ShelfAssembly": {
+    "name": "c7ShelfAssembly",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "c7Backplane": {
+    "name": "c7Backplane",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "c7Slot": {
+    "name": "c7Slot",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "c7Card": {
+    "name": "c7Card",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "c7Port": {
+    "name": "c7Port",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "amp": {
+    "name": "amp",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.4.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mta": {
+    "name": "mta",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.4.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rapOc": {
+    "name": "rapOc",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.4.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rapDs3": {
+    "name": "rapDs3",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.4.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rpots24": {
+    "name": "rpots24",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.4.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "adsl24": {
+    "name": "adsl24",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.4.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ds1x12": {
+    "name": "ds1x12",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.4.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ds3x12s": {
+    "name": "ds3x12s",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.4.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ds3x12p": {
+    "name": "ds3x12p",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.4.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "oc3x4ir": {
+    "name": "oc3x4ir",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.4.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "oc12x4ir": {
+    "name": "oc12x4ir",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.4.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "oc48x1lr": {
+    "name": "oc48x1lr",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.4.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fta": {
+    "name": "fta",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.4.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dfta": {
+    "name": "dfta",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.4.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mspa": {
+    "name": "mspa",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.4.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mspb": {
+    "name": "mspb",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.4.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ds0": {
+    "name": "ds0",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "c7Ds1": {
+    "name": "c7Ds1",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.5.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "c7Ds3": {
+    "name": "c7Ds3",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.5.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "adsl": {
+    "name": "adsl",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.5.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "oc3": {
+    "name": "oc3",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.5.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "oc12": {
+    "name": "oc12",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.5.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "oc48": {
+    "name": "oc48",
+    "oid": "1.3.6.1.4.1.6321.1.2.1.5.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/CALIX-PRODUCT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:20:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CALIX-PRODUCT-MIB"
+  }
+}

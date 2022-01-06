@@ -1,0 +1,1783 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Bits",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "phion": {
+    "name": "phion",
+    "oid": "1.3.6.1.4.1.10704",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-01-08 00:00",
+        "description": "insert OBJECT-GROUPS"
+      },
+      {
+        "revision": "2014-01-07 00:00",
+        "description": "Removed syntax errors"
+      },
+      {
+        "revision": "2013-12-03 00:00",
+        "description": "Removed errors and warnings"
+      }
+    ]
+  },
+  "event": {
+    "name": "event",
+    "oid": "1.3.6.1.4.1.10704.10",
+    "class": "objectidentity"
+  },
+  "firewall": {
+    "name": "firewall",
+    "oid": "1.3.6.1.4.1.10704.1",
+    "class": "objectidentity"
+  },
+  "fwCompliances": {
+    "name": "fwCompliances",
+    "oid": "1.3.6.1.4.1.10704.20",
+    "class": "objectidentity"
+  },
+  "fwGroups": {
+    "name": "fwGroups",
+    "oid": "1.3.6.1.4.1.10704.21",
+    "class": "objectidentity"
+  },
+  "fwCompliance": {
+    "name": "fwCompliance",
+    "oid": "1.3.6.1.4.1.10704.20.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "boxGroup",
+        "module": "PHION-MIB"
+      },
+      {
+        "object": "serverGroup",
+        "module": "PHION-MIB"
+      },
+      {
+        "object": "releaseGroup",
+        "module": "PHION-MIB"
+      },
+      {
+        "object": "hotfixGroup",
+        "module": "PHION-MIB"
+      },
+      {
+        "object": "hwGroup",
+        "module": "PHION-MIB"
+      },
+      {
+        "object": "raidGroup",
+        "module": "PHION-MIB"
+      },
+      {
+        "object": "vpnGroup",
+        "module": "PHION-MIB"
+      },
+      {
+        "object": "bgpGroup",
+        "module": "PHION-MIB"
+      },
+      {
+        "object": "ospfGroup",
+        "module": "PHION-MIB"
+      },
+      {
+        "object": "ripGroup",
+        "module": "PHION-MIB"
+      },
+      {
+        "object": "fwstatsGroup",
+        "module": "PHION-MIB"
+      },
+      {
+        "object": "vpnusersGroup",
+        "module": "PHION-MIB"
+      },
+      {
+        "object": "trafficshapeGroup",
+        "module": "PHION-MIB"
+      },
+      {
+        "object": "diskspaceGroup",
+        "module": "PHION-MIB"
+      },
+      {
+        "object": "eventGroup",
+        "module": "PHION-MIB"
+      },
+      {
+        "object": "notificationGroup",
+        "module": "PHION-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "serviceGroups": {
+    "name": "serviceGroups",
+    "oid": "1.3.6.1.4.1.10704.21.1",
+    "class": "objectidentity"
+  },
+  "firmwareGroups": {
+    "name": "firmwareGroups",
+    "oid": "1.3.6.1.4.1.10704.21.2",
+    "class": "objectidentity"
+  },
+  "hwGroups": {
+    "name": "hwGroups",
+    "oid": "1.3.6.1.4.1.10704.21.3",
+    "class": "objectidentity"
+  },
+  "netGroups": {
+    "name": "netGroups",
+    "oid": "1.3.6.1.4.1.10704.21.4",
+    "class": "objectidentity"
+  },
+  "eventGroups": {
+    "name": "eventGroups",
+    "oid": "1.3.6.1.4.1.10704.21.5",
+    "class": "objectidentity"
+  },
+  "ServiceState": {
+    "name": "ServiceState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": -1,
+          "stopped": 0,
+          "started": 1,
+          "blocked": 2,
+          "removed": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SensorType": {
+    "name": "SensorType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": -1,
+          "voltage": 0,
+          "fan": 1,
+          "temperature": 2,
+          "psu-status": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RaidEventSeverity": {
+    "name": "RaidEventSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "error": 1,
+          "warning": 2,
+          "information": 3,
+          "debug": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VpnStates": {
+    "name": "VpnStates",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": -1,
+          "down-disabled": 0,
+          "active": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "boxServices": {
+    "name": "boxServices",
+    "oid": "1.3.6.1.4.1.10704.1.0",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "boxServicesEntry": {
+    "name": "boxServicesEntry",
+    "oid": "1.3.6.1.4.1.10704.1.0.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PHION-MIB",
+        "object": "boxServiceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "boxServiceName": {
+    "name": "boxServiceName",
+    "oid": "1.3.6.1.4.1.10704.1.0.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boxServiceState": {
+    "name": "boxServiceState",
+    "oid": "1.3.6.1.4.1.10704.1.0.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boxGroup": {
+    "name": "boxGroup",
+    "oid": "1.3.6.1.4.1.10704.21.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PHION-MIB",
+        "object": "boxServiceName"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "boxServiceState"
+      }
+    ],
+    "status": "current"
+  },
+  "serverServices": {
+    "name": "serverServices",
+    "oid": "1.3.6.1.4.1.10704.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "serverServicesEntry": {
+    "name": "serverServicesEntry",
+    "oid": "1.3.6.1.4.1.10704.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PHION-MIB",
+        "object": "serverServiceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "serverServiceName": {
+    "name": "serverServiceName",
+    "oid": "1.3.6.1.4.1.10704.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverServiceState": {
+    "name": "serverServiceState",
+    "oid": "1.3.6.1.4.1.10704.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverGroup": {
+    "name": "serverGroup",
+    "oid": "1.3.6.1.4.1.10704.21.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PHION-MIB",
+        "object": "serverServiceName"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "serverServiceState"
+      }
+    ],
+    "status": "current"
+  },
+  "phionRelease": {
+    "name": "phionRelease",
+    "oid": "1.3.6.1.4.1.10704.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "releaseGroup": {
+    "name": "releaseGroup",
+    "oid": "1.3.6.1.4.1.10704.21.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PHION-MIB",
+        "object": "phionRelease"
+      }
+    ],
+    "status": "current"
+  },
+  "phionHotfixes": {
+    "name": "phionHotfixes",
+    "oid": "1.3.6.1.4.1.10704.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "phionHotfixesEntry": {
+    "name": "phionHotfixesEntry",
+    "oid": "1.3.6.1.4.1.10704.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PHION-MIB",
+        "object": "hotfixName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hotfixName": {
+    "name": "hotfixName",
+    "oid": "1.3.6.1.4.1.10704.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hotfixInstallTime": {
+    "name": "hotfixInstallTime",
+    "oid": "1.3.6.1.4.1.10704.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hotfixGroup": {
+    "name": "hotfixGroup",
+    "oid": "1.3.6.1.4.1.10704.21.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PHION-MIB",
+        "object": "hotfixName"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "hotfixInstallTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSensors": {
+    "name": "hwSensors",
+    "oid": "1.3.6.1.4.1.10704.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSensorsEntry": {
+    "name": "hwSensorsEntry",
+    "oid": "1.3.6.1.4.1.10704.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PHION-MIB",
+        "object": "hwSensorName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSensorName": {
+    "name": "hwSensorName",
+    "oid": "1.3.6.1.4.1.10704.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSensorType": {
+    "name": "hwSensorType",
+    "oid": "1.3.6.1.4.1.10704.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSensorValue": {
+    "name": "hwSensorValue",
+    "oid": "1.3.6.1.4.1.10704.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGroup": {
+    "name": "hwGroup",
+    "oid": "1.3.6.1.4.1.10704.21.3.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PHION-MIB",
+        "object": "hwSensorName"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "hwSensorType"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "hwSensorValue"
+      }
+    ],
+    "status": "current"
+  },
+  "raidEvents": {
+    "name": "raidEvents",
+    "oid": "1.3.6.1.4.1.10704.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raidEventsEntry": {
+    "name": "raidEventsEntry",
+    "oid": "1.3.6.1.4.1.10704.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PHION-MIB",
+        "object": "raidEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raidEventIndex": {
+    "name": "raidEventIndex",
+    "oid": "1.3.6.1.4.1.10704.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidEventSev": {
+    "name": "raidEventSev",
+    "oid": "1.3.6.1.4.1.10704.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RaidEventSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidEventTime": {
+    "name": "raidEventTime",
+    "oid": "1.3.6.1.4.1.10704.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidEventText": {
+    "name": "raidEventText",
+    "oid": "1.3.6.1.4.1.10704.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidGroup": {
+    "name": "raidGroup",
+    "oid": "1.3.6.1.4.1.10704.21.3.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PHION-MIB",
+        "object": "raidEventIndex"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "raidEventSev"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "raidEventTime"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "raidEventText"
+      }
+    ],
+    "status": "current"
+  },
+  "vpnTunnels": {
+    "name": "vpnTunnels",
+    "oid": "1.3.6.1.4.1.10704.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vpnTunnelsEntry": {
+    "name": "vpnTunnelsEntry",
+    "oid": "1.3.6.1.4.1.10704.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PHION-MIB",
+        "object": "vpnName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vpnName": {
+    "name": "vpnName",
+    "oid": "1.3.6.1.4.1.10704.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnState": {
+    "name": "vpnState",
+    "oid": "1.3.6.1.4.1.10704.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VpnStates",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnGroup": {
+    "name": "vpnGroup",
+    "oid": "1.3.6.1.4.1.10704.21.4.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PHION-MIB",
+        "object": "vpnName"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "vpnState"
+      }
+    ],
+    "status": "current"
+  },
+  "bgpNeighbors": {
+    "name": "bgpNeighbors",
+    "oid": "1.3.6.1.4.1.10704.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bgpNeighborsEntry": {
+    "name": "bgpNeighborsEntry",
+    "oid": "1.3.6.1.4.1.10704.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PHION-MIB",
+        "object": "bgpNeighborAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bgpNeighborAddress": {
+    "name": "bgpNeighborAddress",
+    "oid": "1.3.6.1.4.1.10704.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpNeighborState": {
+    "name": "bgpNeighborState",
+    "oid": "1.3.6.1.4.1.10704.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpGroup": {
+    "name": "bgpGroup",
+    "oid": "1.3.6.1.4.1.10704.21.4.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PHION-MIB",
+        "object": "bgpNeighborAddress"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "bgpNeighborState"
+      }
+    ],
+    "status": "current"
+  },
+  "ospfNeighbors": {
+    "name": "ospfNeighbors",
+    "oid": "1.3.6.1.4.1.10704.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfNeighborsEntry": {
+    "name": "ospfNeighborsEntry",
+    "oid": "1.3.6.1.4.1.10704.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PHION-MIB",
+        "object": "ospfNeighborId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ospfNeighborId": {
+    "name": "ospfNeighborId",
+    "oid": "1.3.6.1.4.1.10704.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfNeighborAddress": {
+    "name": "ospfNeighborAddress",
+    "oid": "1.3.6.1.4.1.10704.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfNeighborInterface": {
+    "name": "ospfNeighborInterface",
+    "oid": "1.3.6.1.4.1.10704.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfNeighborStatus": {
+    "name": "ospfNeighborStatus",
+    "oid": "1.3.6.1.4.1.10704.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfGroup": {
+    "name": "ospfGroup",
+    "oid": "1.3.6.1.4.1.10704.21.4.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PHION-MIB",
+        "object": "ospfNeighborId"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "ospfNeighborAddress"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "ospfNeighborInterface"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "ospfNeighborStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ripNeighbors": {
+    "name": "ripNeighbors",
+    "oid": "1.3.6.1.4.1.10704.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ripNeighborsEntry": {
+    "name": "ripNeighborsEntry",
+    "oid": "1.3.6.1.4.1.10704.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PHION-MIB",
+        "object": "ripNeighborAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ripNeighborAddress": {
+    "name": "ripNeighborAddress",
+    "oid": "1.3.6.1.4.1.10704.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ripNeighborState": {
+    "name": "ripNeighborState",
+    "oid": "1.3.6.1.4.1.10704.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ripGroup": {
+    "name": "ripGroup",
+    "oid": "1.3.6.1.4.1.10704.21.4.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PHION-MIB",
+        "object": "ripNeighborAddress"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "ripNeighborState"
+      }
+    ],
+    "status": "current"
+  },
+  "fwStats": {
+    "name": "fwStats",
+    "oid": "1.3.6.1.4.1.10704.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fwStatsEntry": {
+    "name": "fwStatsEntry",
+    "oid": "1.3.6.1.4.1.10704.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PHION-MIB",
+        "object": "firewallSessions",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "firewallSessions": {
+    "name": "firewallSessions",
+    "oid": "1.3.6.1.4.1.10704.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "packetThroughput": {
+    "name": "packetThroughput",
+    "oid": "1.3.6.1.4.1.10704.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataThroughput": {
+    "name": "dataThroughput",
+    "oid": "1.3.6.1.4.1.10704.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "firewallSessions64": {
+    "name": "firewallSessions64",
+    "oid": "1.3.6.1.4.1.10704.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "packetThroughput64": {
+    "name": "packetThroughput64",
+    "oid": "1.3.6.1.4.1.10704.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataThroughput64": {
+    "name": "dataThroughput64",
+    "oid": "1.3.6.1.4.1.10704.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwstatsGroup": {
+    "name": "fwstatsGroup",
+    "oid": "1.3.6.1.4.1.10704.21.3.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PHION-MIB",
+        "object": "firewallSessions"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "packetThroughput"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "dataThroughput"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "firewallSessions64"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "packetThroughput64"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "dataThroughput64"
+      }
+    ],
+    "status": "current"
+  },
+  "vpnUsers": {
+    "name": "vpnUsers",
+    "oid": "1.3.6.1.4.1.10704.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnusersGroup": {
+    "name": "vpnusersGroup",
+    "oid": "1.3.6.1.4.1.10704.21.4.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PHION-MIB",
+        "object": "vpnUsers"
+      }
+    ],
+    "status": "current"
+  },
+  "trafficShape": {
+    "name": "trafficShape",
+    "oid": "1.3.6.1.4.1.10704.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "trafficShapeEntry": {
+    "name": "trafficShapeEntry",
+    "oid": "1.3.6.1.4.1.10704.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PHION-MIB",
+        "object": "connectorName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "connectorName": {
+    "name": "connectorName",
+    "oid": "1.3.6.1.4.1.10704.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rate": {
+    "name": "rate",
+    "oid": "1.3.6.1.4.1.10704.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sessions": {
+    "name": "sessions",
+    "oid": "1.3.6.1.4.1.10704.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "class1Total": {
+    "name": "class1Total",
+    "oid": "1.3.6.1.4.1.10704.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "class1Pakets": {
+    "name": "class1Pakets",
+    "oid": "1.3.6.1.4.1.10704.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "class1Drop": {
+    "name": "class1Drop",
+    "oid": "1.3.6.1.4.1.10704.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "class2Total": {
+    "name": "class2Total",
+    "oid": "1.3.6.1.4.1.10704.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "class2Pakets": {
+    "name": "class2Pakets",
+    "oid": "1.3.6.1.4.1.10704.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "class2Drop": {
+    "name": "class2Drop",
+    "oid": "1.3.6.1.4.1.10704.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "class3Total": {
+    "name": "class3Total",
+    "oid": "1.3.6.1.4.1.10704.1.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "class3Pakets": {
+    "name": "class3Pakets",
+    "oid": "1.3.6.1.4.1.10704.1.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "class3Drop": {
+    "name": "class3Drop",
+    "oid": "1.3.6.1.4.1.10704.1.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "noDelayTotal": {
+    "name": "noDelayTotal",
+    "oid": "1.3.6.1.4.1.10704.1.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "noDelayPakets": {
+    "name": "noDelayPakets",
+    "oid": "1.3.6.1.4.1.10704.1.12.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "noDelayDrop": {
+    "name": "noDelayDrop",
+    "oid": "1.3.6.1.4.1.10704.1.12.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trafficshapeGroup": {
+    "name": "trafficshapeGroup",
+    "oid": "1.3.6.1.4.1.10704.21.3.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PHION-MIB",
+        "object": "connectorName"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "rate"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "sessions"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "class1Total"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "class1Pakets"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "class1Drop"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "class2Total"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "class2Pakets"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "class2Drop"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "class3Total"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "class3Pakets"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "class3Drop"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "noDelayTotal"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "noDelayPakets"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "noDelayDrop"
+      }
+    ],
+    "status": "current"
+  },
+  "diskSpace": {
+    "name": "diskSpace",
+    "oid": "1.3.6.1.4.1.10704.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diskSpaceEntry": {
+    "name": "diskSpaceEntry",
+    "oid": "1.3.6.1.4.1.10704.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PHION-MIB",
+        "object": "partitionName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "partitionName": {
+    "name": "partitionName",
+    "oid": "1.3.6.1.4.1.10704.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "partitionMaxSpace": {
+    "name": "partitionMaxSpace",
+    "oid": "1.3.6.1.4.1.10704.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "partitionFreeSpace": {
+    "name": "partitionFreeSpace",
+    "oid": "1.3.6.1.4.1.10704.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "partitionUsedSpace": {
+    "name": "partitionUsedSpace",
+    "oid": "1.3.6.1.4.1.10704.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "partitionUsedSpacePercent": {
+    "name": "partitionUsedSpacePercent",
+    "oid": "1.3.6.1.4.1.10704.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskspaceGroup": {
+    "name": "diskspaceGroup",
+    "oid": "1.3.6.1.4.1.10704.21.3.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PHION-MIB",
+        "object": "partitionName"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "partitionMaxSpace"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "partitionFreeSpace"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "partitionUsedSpace"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "partitionUsedSpacePercent"
+      }
+    ],
+    "status": "current"
+  },
+  "eventID": {
+    "name": "eventID",
+    "oid": "1.3.6.1.4.1.10704.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventIDDescription": {
+    "name": "eventIDDescription",
+    "oid": "1.3.6.1.4.1.10704.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventType": {
+    "name": "eventType",
+    "oid": "1.3.6.1.4.1.10704.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventAlarmTime": {
+    "name": "eventAlarmTime",
+    "oid": "1.3.6.1.4.1.10704.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventLayerDescription": {
+    "name": "eventLayerDescription",
+    "oid": "1.3.6.1.4.1.10704.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventClassification": {
+    "name": "eventClassification",
+    "oid": "1.3.6.1.4.1.10704.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventRepresentation": {
+    "name": "eventRepresentation",
+    "oid": "1.3.6.1.4.1.10704.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventSeverity": {
+    "name": "eventSeverity",
+    "oid": "1.3.6.1.4.1.10704.10.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventGroup": {
+    "name": "eventGroup",
+    "oid": "1.3.6.1.4.1.10704.21.5.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PHION-MIB",
+        "object": "eventID"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "eventIDDescription"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "eventType"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "eventAlarmTime"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "eventLayerDescription"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "eventClassification"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "eventRepresentation"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "eventSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "eventTrap": {
+    "name": "eventTrap",
+    "oid": "1.3.6.1.4.1.10704.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PHION-MIB",
+        "object": "eventID"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "eventIDDescription"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "eventType"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "eventAlarmTime"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "eventLayerDescription"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "eventClassification"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "eventRepresentation"
+      },
+      {
+        "module": "PHION-MIB",
+        "object": "eventSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "notificationGroup": {
+    "name": "notificationGroup",
+    "oid": "1.3.6.1.4.1.10704.21.5.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "PHION-MIB",
+        "object": "eventTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/barracuda/PHION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:13 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PHION-MIB"
+  }
+}

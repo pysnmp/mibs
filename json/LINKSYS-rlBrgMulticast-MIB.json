@@ -1,0 +1,2053 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetVersion",
+      "InetAddressType"
+    ],
+    "LINKSYS-DEVICEPARAMS-MIB": [
+      "rndErrorDesc",
+      "rndErrorSeverity"
+    ],
+    "LINKSYS-MIB": [
+      "rndNotifications",
+      "rnd",
+      "rlMacMulticast"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList",
+      "VlanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "rlMacMulticastEnable": {
+    "name": "rlMacMulticastEnable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIgmpSnoop": {
+    "name": "rlIgmpSnoop",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2",
+    "class": "objectidentity"
+  },
+  "rlIgmpSnoopMibVersion": {
+    "name": "rlIgmpSnoopMibVersion",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpSnoopEnable": {
+    "name": "rlIgmpSnoopEnable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIgmpSnoopHostAgingTime": {
+    "name": "rlIgmpSnoopHostAgingTime",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 260,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rlIgmpSnoopRouterAgingTime": {
+    "name": "rlIgmpSnoopRouterAgingTime",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "IgmpVersion": {
+    "name": "IgmpVersion",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "v1": 1,
+          "v2": 2,
+          "v3": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlIgmpSnoopVlanTable": {
+    "name": "rlIgmpSnoopVlanTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "rlIgmpSnoopVlanEntry": {
+    "name": "rlIgmpSnoopVlanEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-rlBrgMulticast-MIB",
+        "object": "rlIgmpSnoopVlanTag",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "rlIgmpSnoopVlanTag": {
+    "name": "rlIgmpSnoopVlanTag",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "rlIgmpSnoopVlanEnable": {
+    "name": "rlIgmpSnoopVlanEnable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rlIgmpSnoopVlanRouterLearn": {
+    "name": "rlIgmpSnoopVlanRouterLearn",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rlIgmpSnoopVlanHostTimeOut": {
+    "name": "rlIgmpSnoopVlanHostTimeOut",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 260,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rlIgmpSnoopVlanQuerierTimeOut": {
+    "name": "rlIgmpSnoopVlanQuerierTimeOut",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 260,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rlIgmpSnoopVlanRouterTimeOut": {
+    "name": "rlIgmpSnoopVlanRouterTimeOut",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rlIgmpSnoopVlanLeaveTimeOut": {
+    "name": "rlIgmpSnoopVlanLeaveTimeOut",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rlIgmpSnoopVlanIgmpVersion": {
+    "name": "rlIgmpSnoopVlanIgmpVersion",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IgmpVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "rlIgmpSnoopVlanRouterPortlist": {
+    "name": "rlIgmpSnoopVlanRouterPortlist",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "rlIgmpSnoopIGMP224ReportsHandle": {
+    "name": "rlIgmpSnoopIGMP224ReportsHandle",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allow": 1,
+          "ignore": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIgmpSnoopMulticastTvTable": {
+    "name": "rlIgmpSnoopMulticastTvTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIgmpSnoopMulticastTvEntry": {
+    "name": "rlIgmpSnoopMulticastTvEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-rlBrgMulticast-MIB",
+        "object": "rlIgmpSnoopMulticastTvVID",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlBrgMulticast-MIB",
+        "object": "rlIgmpSnoopMulticastTvGroup",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIgmpSnoopMulticastTvVID": {
+    "name": "rlIgmpSnoopMulticastTvVID",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpSnoopMulticastTvGroup": {
+    "name": "rlIgmpSnoopMulticastTvGroup",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpSnoopMulticastTvStatus": {
+    "name": "rlIgmpSnoopMulticastTvStatus",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIgmpSnoopMembershipTable": {
+    "name": "rlIgmpSnoopMembershipTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIgmpSnoopMembershipEntry": {
+    "name": "rlIgmpSnoopMembershipEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-rlBrgMulticast-MIB",
+        "object": "rlIgmpSnoopMembershipVlanTag",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlBrgMulticast-MIB",
+        "object": "rlIgmpSnoopMembershipGroupIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlBrgMulticast-MIB",
+        "object": "rlIgmpSnoopMembershipSourceIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIgmpSnoopMembershipVlanTag": {
+    "name": "rlIgmpSnoopMembershipVlanTag",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpSnoopMembershipGroupIpAddress": {
+    "name": "rlIgmpSnoopMembershipGroupIpAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpSnoopMembershipSourceIpAddress": {
+    "name": "rlIgmpSnoopMembershipSourceIpAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpSnoopMembershipIncPortlist": {
+    "name": "rlIgmpSnoopMembershipIncPortlist",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpSnoopMembershipExcPortlist": {
+    "name": "rlIgmpSnoopMembershipExcPortlist",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpSnoopMembershipExpiryTime": {
+    "name": "rlIgmpSnoopMembershipExpiryTime",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "rlIgmpSnoopMembershipCompatibilityMode": {
+    "name": "rlIgmpSnoopMembershipCompatibilityMode",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IgmpVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpSnoopQuerierVlanTable": {
+    "name": "rlIgmpSnoopQuerierVlanTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIgmpSnoopQuerierVlanEntry": {
+    "name": "rlIgmpSnoopQuerierVlanEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-rlBrgMulticast-MIB",
+        "object": "rlIgmpSnoopQuerierVlanTag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIgmpSnoopQuerierVlanTag": {
+    "name": "rlIgmpSnoopQuerierVlanTag",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpSnoopQuerierAdminEnable": {
+    "name": "rlIgmpSnoopQuerierAdminEnable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIgmpSnoopQuerierOperEnable": {
+    "name": "rlIgmpSnoopQuerierOperEnable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpSnoopQuerierAdminAddr": {
+    "name": "rlIgmpSnoopQuerierAdminAddr",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIgmpSnoopQuerierOperAddr": {
+    "name": "rlIgmpSnoopQuerierOperAddr",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpSnoopQuerierAdminVersionNumber": {
+    "name": "rlIgmpSnoopQuerierAdminVersionNumber",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IgmpVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIgmpSnoopQuerierOperVersionNumber": {
+    "name": "rlIgmpSnoopQuerierOperVersionNumber",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IgmpVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpSnoopQuerierElectionEnable": {
+    "name": "rlIgmpSnoopQuerierElectionEnable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIgmpSnoopQuerierEnable": {
+    "name": "rlIgmpSnoopQuerierEnable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlMacMulticastMaxEntriesNum": {
+    "name": "rlMacMulticastMaxEntriesNum",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlMacMulticastFilter": {
+    "name": "rlMacMulticastFilter",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.4",
+    "class": "objectidentity"
+  },
+  "rlMacMulticastUnregFilterEnable": {
+    "name": "rlMacMulticastUnregFilterEnable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlMldSnoop": {
+    "name": "rlMldSnoop",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5",
+    "class": "objectidentity"
+  },
+  "rlMldSnoopEnable": {
+    "name": "rlMldSnoopEnable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlMldSnoopHostAgingTime": {
+    "name": "rlMldSnoopHostAgingTime",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 260,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rlMldSnoopRouterAgingTime": {
+    "name": "rlMldSnoopRouterAgingTime",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rlIgmpMldSnoopMembershipTable": {
+    "name": "rlIgmpMldSnoopMembershipTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopMembershipEntry": {
+    "name": "rlIgmpMldSnoopMembershipEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-rlBrgMulticast-MIB",
+        "object": "rlIgmpMldSnoopMembershipVlanTag",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlBrgMulticast-MIB",
+        "object": "rlIgmpMldSnoopMembershipGroupIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlBrgMulticast-MIB",
+        "object": "rlIgmpMldSnoopMembershipGroupIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlBrgMulticast-MIB",
+        "object": "rlIgmpMldSnoopMembershipSourceIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlBrgMulticast-MIB",
+        "object": "rlIgmpMldSnoopMembershipSourceIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIgmpMldSnoopMembershipVlanTag": {
+    "name": "rlIgmpMldSnoopMembershipVlanTag",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopMembershipGroupIpAddressType": {
+    "name": "rlIgmpMldSnoopMembershipGroupIpAddressType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopMembershipGroupIpAddress": {
+    "name": "rlIgmpMldSnoopMembershipGroupIpAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopMembershipSourceIpAddressType": {
+    "name": "rlIgmpMldSnoopMembershipSourceIpAddressType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopMembershipSourceIpAddress": {
+    "name": "rlIgmpMldSnoopMembershipSourceIpAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopMembershipIncPortlist": {
+    "name": "rlIgmpMldSnoopMembershipIncPortlist",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopMembershipExcPortlist": {
+    "name": "rlIgmpMldSnoopMembershipExcPortlist",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopMembershipExpiryTime": {
+    "name": "rlIgmpMldSnoopMembershipExpiryTime",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "rlIgmpMldSnoopMembershipCompatibilityMode": {
+    "name": "rlIgmpMldSnoopMembershipCompatibilityMode",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IgmpVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanTable": {
+    "name": "rlIgmpMldSnoopVlanTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanEntry": {
+    "name": "rlIgmpMldSnoopVlanEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-rlBrgMulticast-MIB",
+        "object": "rlIgmpMldSnoopVlanInetAddressType",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlBrgMulticast-MIB",
+        "object": "rlIgmpMldSnoopVlanTag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanInetAddressType": {
+    "name": "rlIgmpMldSnoopVlanInetAddressType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanTag": {
+    "name": "rlIgmpMldSnoopVlanTag",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanEnable": {
+    "name": "rlIgmpMldSnoopVlanEnable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanRouterLearn": {
+    "name": "rlIgmpMldSnoopVlanRouterLearn",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanHostTimeOut": {
+    "name": "rlIgmpMldSnoopVlanHostTimeOut",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 260,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rlIgmpMldSnoopVlanQuerierTimeOut": {
+    "name": "rlIgmpMldSnoopVlanQuerierTimeOut",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 260,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rlIgmpMldSnoopVlanRouterTimeOut": {
+    "name": "rlIgmpMldSnoopVlanRouterTimeOut",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rlIgmpMldSnoopVlanLeaveTimeOut": {
+    "name": "rlIgmpMldSnoopVlanLeaveTimeOut",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rlIgmpMldSnoopVlanIgmpVersion": {
+    "name": "rlIgmpMldSnoopVlanIgmpVersion",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IgmpVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanRouterPortlist": {
+    "name": "rlIgmpMldSnoopVlanRouterPortlist",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanRouterStaticPortlist": {
+    "name": "rlIgmpMldSnoopVlanRouterStaticPortlist",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanRouterForbiddenPortlist": {
+    "name": "rlIgmpMldSnoopVlanRouterForbiddenPortlist",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanQueryOverride": {
+    "name": "rlIgmpMldSnoopVlanQueryOverride",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanOperRobustness": {
+    "name": "rlIgmpMldSnoopVlanOperRobustness",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanOperQueryInterval": {
+    "name": "rlIgmpMldSnoopVlanOperQueryInterval",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1000,
+            "max": 31744000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 125000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanOperQueryMaxResponseTime": {
+    "name": "rlIgmpMldSnoopVlanOperQueryMaxResponseTime",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8387584
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanOperLastMemberQueryInterval": {
+    "name": "rlIgmpMldSnoopVlanOperLastMemberQueryInterval",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8387584
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanOperLastMemberQueryCount": {
+    "name": "rlIgmpMldSnoopVlanOperLastMemberQueryCount",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanOperStartupQueryInterval": {
+    "name": "rlIgmpMldSnoopVlanOperStartupQueryInterval",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31744000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanOperStartupQueryCount": {
+    "name": "rlIgmpMldSnoopVlanOperStartupQueryCount",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanOperHostTimeOut": {
+    "name": "rlIgmpMldSnoopVlanOperHostTimeOut",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanOperRouterTimeOut": {
+    "name": "rlIgmpMldSnoopVlanOperRouterTimeOut",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanOperLeaveTimeOut": {
+    "name": "rlIgmpMldSnoopVlanOperLeaveTimeOut",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanAdminRobustness": {
+    "name": "rlIgmpMldSnoopVlanAdminRobustness",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanAdminQueryInterval": {
+    "name": "rlIgmpMldSnoopVlanAdminQueryInterval",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1000,
+            "max": 18000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 125000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanAdminQueryMaxResponseTime": {
+    "name": "rlIgmpMldSnoopVlanAdminQueryMaxResponseTime",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1000,
+            "max": 20000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanAdminLastMemberQueryInterval": {
+    "name": "rlIgmpMldSnoopVlanAdminLastMemberQueryInterval",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 25500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanAdminLastMemberQueryCount": {
+    "name": "rlIgmpMldSnoopVlanAdminLastMemberQueryCount",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanAdminStartupQueryInterval": {
+    "name": "rlIgmpMldSnoopVlanAdminStartupQueryInterval",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4500000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanAdminStartupQueryCount": {
+    "name": "rlIgmpMldSnoopVlanAdminStartupQueryCount",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopVlanAdminHostTimeOut": {
+    "name": "rlIgmpMldSnoopVlanAdminHostTimeOut",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rlIgmpMldSnoopVlanAdminRouterTimeOut": {
+    "name": "rlIgmpMldSnoopVlanAdminRouterTimeOut",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rlIgmpMldSnoopVlanAdminLeaveTimeOut": {
+    "name": "rlIgmpMldSnoopVlanAdminLeaveTimeOut",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rlIgmpMldSnoopVlanIsImmediateLeave": {
+    "name": "rlIgmpMldSnoopVlanIsImmediateLeave",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.5.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopMulticastTvTable": {
+    "name": "rlIgmpMldSnoopMulticastTvTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopMulticastTvEntry": {
+    "name": "rlIgmpMldSnoopMulticastTvEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-rlBrgMulticast-MIB",
+        "object": "rlIgmpMldSnoopMulticastTvInetAddressType",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlBrgMulticast-MIB",
+        "object": "rlIgmpMldSnoopMulticastTvVID",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlBrgMulticast-MIB",
+        "object": "rlIgmpMldSnoopMulticastTvGroupAddressType",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-rlBrgMulticast-MIB",
+        "object": "rlIgmpMldSnoopMulticastTvGroup",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIgmpMldSnoopMulticastTvInetAddressType": {
+    "name": "rlIgmpMldSnoopMulticastTvInetAddressType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopMulticastTvVID": {
+    "name": "rlIgmpMldSnoopMulticastTvVID",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopMulticastTvGroupAddressType": {
+    "name": "rlIgmpMldSnoopMulticastTvGroupAddressType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopMulticastTvGroup": {
+    "name": "rlIgmpMldSnoopMulticastTvGroup",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopMulticastTvStatus": {
+    "name": "rlIgmpMldSnoopMulticastTvStatus",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "MldVersion": {
+    "name": "MldVersion",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "v1": 1,
+          "v2": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlMldSnoopQuerierVlanTable": {
+    "name": "rlMldSnoopQuerierVlanTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlMldSnoopQuerierVlanEntry": {
+    "name": "rlMldSnoopQuerierVlanEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-rlBrgMulticast-MIB",
+        "object": "rlMldSnoopQuerierVlanTag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlMldSnoopQuerierVlanTag": {
+    "name": "rlMldSnoopQuerierVlanTag",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlMldSnoopQuerierAdminEnable": {
+    "name": "rlMldSnoopQuerierAdminEnable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlMldSnoopQuerierOperEnable": {
+    "name": "rlMldSnoopQuerierOperEnable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlMldSnoopQuerierAdminAddrInetAddressType": {
+    "name": "rlMldSnoopQuerierAdminAddrInetAddressType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlMldSnoopQuerierAdminAddr": {
+    "name": "rlMldSnoopQuerierAdminAddr",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlMldSnoopQuerierOperAddrInetAddressType": {
+    "name": "rlMldSnoopQuerierOperAddrInetAddressType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlMldSnoopQuerierOperAddr": {
+    "name": "rlMldSnoopQuerierOperAddr",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlMldSnoopQuerierAdminVersionNumber": {
+    "name": "rlMldSnoopQuerierAdminVersionNumber",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MldVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlMldSnoopQuerierOperVersionNumber": {
+    "name": "rlMldSnoopQuerierOperVersionNumber",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MldVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlMldSnoopQuerierElectionEnable": {
+    "name": "rlMldSnoopQuerierElectionEnable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlMldSnoopQuerierEnable": {
+    "name": "rlMldSnoopQuerierEnable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopQuerierGlobalAddressTable": {
+    "name": "rlIgmpMldSnoopQuerierGlobalAddressTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopQuerierGlobalAddressEntry": {
+    "name": "rlIgmpMldSnoopQuerierGlobalAddressEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-rlBrgMulticast-MIB",
+        "object": "rlIgmpMldSnoopQuerierGlobalAddressIPVersion",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIgmpMldSnoopQuerierGlobalAddressIPVersion": {
+    "name": "rlIgmpMldSnoopQuerierGlobalAddressIPVersion",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetVersion",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopQuerierGlobalAddressType": {
+    "name": "rlIgmpMldSnoopQuerierGlobalAddressType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIgmpMldSnoopQuerierGlobalAddress": {
+    "name": "rlIgmpMldSnoopQuerierGlobalAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.55.5.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlMacMulticastUnregFilterFailed": {
+    "name": "rlMacMulticastUnregFilterFailed",
+    "oid": "1.3.6.1.4.1.3955.1000.2010.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "LINKSYS-DEVICEPARAMS-MIB",
+        "object": "rndErrorDesc"
+      },
+      {
+        "module": "LINKSYS-DEVICEPARAMS-MIB",
+        "object": "rndErrorSeverity"
+      }
+    ]
+  },
+  "rlIgmpMldSnoopTriplePlayPort": {
+    "name": "rlIgmpMldSnoopTriplePlayPort",
+    "oid": "1.3.6.1.4.1.3955.1000.201.0.208",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "LINKSYS-DEVICEPARAMS-MIB",
+        "object": "rndErrorDesc"
+      },
+      {
+        "module": "LINKSYS-DEVICEPARAMS-MIB",
+        "object": "rndErrorSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "rlbrgIgmpSnoopQrrDuplicateIP": {
+    "name": "rlbrgIgmpSnoopQrrDuplicateIP",
+    "oid": "1.3.6.1.4.1.3955.1000.201.0.227",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "LINKSYS-DEVICEPARAMS-MIB",
+        "object": "rndErrorDesc"
+      },
+      {
+        "module": "LINKSYS-DEVICEPARAMS-MIB",
+        "object": "rndErrorSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-rlBrgMulticast-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:41:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "LINKSYS-rlBrgMulticast-MIB"
+  }
+}

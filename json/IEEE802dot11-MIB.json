@@ -1,0 +1,3833 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "member_body": {
+    "name": "member_body",
+    "oid": "1.2",
+    "class": "objectidentity"
+  },
+  "us": {
+    "name": "us",
+    "oid": "1.2.840",
+    "class": "objectidentity"
+  },
+  "ieee802dot11": {
+    "name": "ieee802dot11",
+    "oid": "1.2.840.10036",
+    "class": "moduleidentity"
+  },
+  "dot11smt": {
+    "name": "dot11smt",
+    "oid": "1.2.840.10036.1",
+    "class": "objectidentity"
+  },
+  "dot11mac": {
+    "name": "dot11mac",
+    "oid": "1.2.840.10036.2",
+    "class": "objectidentity"
+  },
+  "dot11res": {
+    "name": "dot11res",
+    "oid": "1.2.840.10036.3",
+    "class": "objectidentity"
+  },
+  "dot11resAttribute": {
+    "name": "dot11resAttribute",
+    "oid": "1.2.840.10036.3.1",
+    "class": "objectidentity"
+  },
+  "dot11phy": {
+    "name": "dot11phy",
+    "oid": "1.2.840.10036.4",
+    "class": "objectidentity"
+  },
+  "WEPKeytype": {
+    "name": "WEPKeytype",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 5,
+            "max": 5
+          }
+        ]
+      }
+    }
+  },
+  "dot11StationConfigTable": {
+    "name": "dot11StationConfigTable",
+    "oid": "1.2.840.10036.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11StationConfigEntry": {
+    "name": "dot11StationConfigEntry",
+    "oid": "1.2.840.10036.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11StationID": {
+    "name": "dot11StationID",
+    "oid": "1.2.840.10036.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "dot11MediumOccupancyLimit": {
+    "name": "dot11MediumOccupancyLimit",
+    "oid": "1.2.840.10036.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11CFPollable": {
+    "name": "dot11CFPollable",
+    "oid": "1.2.840.10036.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11CFPPeriod": {
+    "name": "dot11CFPPeriod",
+    "oid": "1.2.840.10036.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11CFPMaxDuration": {
+    "name": "dot11CFPMaxDuration",
+    "oid": "1.2.840.10036.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11AuthenticationResponseTimeOut": {
+    "name": "dot11AuthenticationResponseTimeOut",
+    "oid": "1.2.840.10036.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11PrivacyOptionImplemented": {
+    "name": "dot11PrivacyOptionImplemented",
+    "oid": "1.2.840.10036.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11PowerManagementMode": {
+    "name": "dot11PowerManagementMode",
+    "oid": "1.2.840.10036.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "powersave": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11DesiredSSID": {
+    "name": "dot11DesiredSSID",
+    "oid": "1.2.840.10036.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11DesiredBSSType": {
+    "name": "dot11DesiredBSSType",
+    "oid": "1.2.840.10036.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "infrastructure": 1,
+          "independent": 2,
+          "any": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11OperationalRateSet": {
+    "name": "dot11OperationalRateSet",
+    "oid": "1.2.840.10036.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 126
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11BeaconPeriod": {
+    "name": "dot11BeaconPeriod",
+    "oid": "1.2.840.10036.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11DTIMPeriod": {
+    "name": "dot11DTIMPeriod",
+    "oid": "1.2.840.10036.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11AssociationResponseTimeOut": {
+    "name": "dot11AssociationResponseTimeOut",
+    "oid": "1.2.840.10036.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11DisassociateReason": {
+    "name": "dot11DisassociateReason",
+    "oid": "1.2.840.10036.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11DisassociateStation": {
+    "name": "dot11DisassociateStation",
+    "oid": "1.2.840.10036.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11DeauthenticateReason": {
+    "name": "dot11DeauthenticateReason",
+    "oid": "1.2.840.10036.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11DeauthenticateStation": {
+    "name": "dot11DeauthenticateStation",
+    "oid": "1.2.840.10036.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11AuthenticateFailStatus": {
+    "name": "dot11AuthenticateFailStatus",
+    "oid": "1.2.840.10036.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11AuthenticateFailStation": {
+    "name": "dot11AuthenticateFailStation",
+    "oid": "1.2.840.10036.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11MultiDomainCapabilityImplemented": {
+    "name": "dot11MultiDomainCapabilityImplemented",
+    "oid": "1.2.840.10036.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11MultiDomainCapabilityEnabled": {
+    "name": "dot11MultiDomainCapabilityEnabled",
+    "oid": "1.2.840.10036.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11CountryString": {
+    "name": "dot11CountryString",
+    "oid": "1.2.840.10036.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11AuthenticationAlgorithmsTable": {
+    "name": "dot11AuthenticationAlgorithmsTable",
+    "oid": "1.2.840.10036.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11AuthenticationAlgorithmsEntry": {
+    "name": "dot11AuthenticationAlgorithmsEntry",
+    "oid": "1.2.840.10036.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11AuthenticationAlgorithmsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11AuthenticationAlgorithmsIndex": {
+    "name": "dot11AuthenticationAlgorithmsIndex",
+    "oid": "1.2.840.10036.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11AuthenticationAlgorithm": {
+    "name": "dot11AuthenticationAlgorithm",
+    "oid": "1.2.840.10036.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "openSystem": 1,
+          "sharedKey": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11AuthenticationAlgorithmsEnable": {
+    "name": "dot11AuthenticationAlgorithmsEnable",
+    "oid": "1.2.840.10036.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11WEPDefaultKeysTable": {
+    "name": "dot11WEPDefaultKeysTable",
+    "oid": "1.2.840.10036.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11WEPDefaultKeysEntry": {
+    "name": "dot11WEPDefaultKeysEntry",
+    "oid": "1.2.840.10036.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11WEPDefaultKeyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11WEPDefaultKeyIndex": {
+    "name": "dot11WEPDefaultKeyIndex",
+    "oid": "1.2.840.10036.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11WEPDefaultKeyValue": {
+    "name": "dot11WEPDefaultKeyValue",
+    "oid": "1.2.840.10036.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WEPKeytype",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11WEPKeyMappingsTable": {
+    "name": "dot11WEPKeyMappingsTable",
+    "oid": "1.2.840.10036.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11WEPKeyMappingsEntry": {
+    "name": "dot11WEPKeyMappingsEntry",
+    "oid": "1.2.840.10036.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11WEPKeyMappingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11WEPKeyMappingIndex": {
+    "name": "dot11WEPKeyMappingIndex",
+    "oid": "1.2.840.10036.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11WEPKeyMappingAddress": {
+    "name": "dot11WEPKeyMappingAddress",
+    "oid": "1.2.840.10036.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot11WEPKeyMappingWEPOn": {
+    "name": "dot11WEPKeyMappingWEPOn",
+    "oid": "1.2.840.10036.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot11WEPKeyMappingValue": {
+    "name": "dot11WEPKeyMappingValue",
+    "oid": "1.2.840.10036.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WEPKeytype",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot11WEPKeyMappingStatus": {
+    "name": "dot11WEPKeyMappingStatus",
+    "oid": "1.2.840.10036.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "active",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot11PrivacyTable": {
+    "name": "dot11PrivacyTable",
+    "oid": "1.2.840.10036.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11PrivacyEntry": {
+    "name": "dot11PrivacyEntry",
+    "oid": "1.2.840.10036.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11PrivacyInvoked": {
+    "name": "dot11PrivacyInvoked",
+    "oid": "1.2.840.10036.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11WEPDefaultKeyID": {
+    "name": "dot11WEPDefaultKeyID",
+    "oid": "1.2.840.10036.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11WEPKeyMappingLength": {
+    "name": "dot11WEPKeyMappingLength",
+    "oid": "1.2.840.10036.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11ExcludeUnencrypted": {
+    "name": "dot11ExcludeUnencrypted",
+    "oid": "1.2.840.10036.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11WEPICVErrorCount": {
+    "name": "dot11WEPICVErrorCount",
+    "oid": "1.2.840.10036.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11WEPExcludedCount": {
+    "name": "dot11WEPExcludedCount",
+    "oid": "1.2.840.10036.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11SMTnotification": {
+    "name": "dot11SMTnotification",
+    "oid": "1.2.840.10036.1.6",
+    "class": "objectidentity"
+  },
+  "dot11Disassociate": {
+    "name": "dot11Disassociate",
+    "oid": "1.2.840.10036.1.6.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11DisassociateReason"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11DisassociateStation"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11Deauthenticate": {
+    "name": "dot11Deauthenticate",
+    "oid": "1.2.840.10036.1.6.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11DeauthenticateReason"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11DeauthenticateStation"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11AuthenticateFail": {
+    "name": "dot11AuthenticateFail",
+    "oid": "1.2.840.10036.1.6.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11AuthenticateFailStatus"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11AuthenticateFailStation"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11MultiDomainCapabilityTable": {
+    "name": "dot11MultiDomainCapabilityTable",
+    "oid": "1.2.840.10036.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11MultiDomainCapabilityEntry": {
+    "name": "dot11MultiDomainCapabilityEntry",
+    "oid": "1.2.840.10036.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11MultiDomainCapabilityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11MultiDomainCapabilityIndex": {
+    "name": "dot11MultiDomainCapabilityIndex",
+    "oid": "1.2.840.10036.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11FirstChannelNumber": {
+    "name": "dot11FirstChannelNumber",
+    "oid": "1.2.840.10036.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11NumberofChannels": {
+    "name": "dot11NumberofChannels",
+    "oid": "1.2.840.10036.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11MaximumTransmitPowerLevel": {
+    "name": "dot11MaximumTransmitPowerLevel",
+    "oid": "1.2.840.10036.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11OperationTable": {
+    "name": "dot11OperationTable",
+    "oid": "1.2.840.10036.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11OperationEntry": {
+    "name": "dot11OperationEntry",
+    "oid": "1.2.840.10036.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11MACAddress": {
+    "name": "dot11MACAddress",
+    "oid": "1.2.840.10036.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11RTSThreshold": {
+    "name": "dot11RTSThreshold",
+    "oid": "1.2.840.10036.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2347
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11ShortRetryLimit": {
+    "name": "dot11ShortRetryLimit",
+    "oid": "1.2.840.10036.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11LongRetryLimit": {
+    "name": "dot11LongRetryLimit",
+    "oid": "1.2.840.10036.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11FragmentationThreshold": {
+    "name": "dot11FragmentationThreshold",
+    "oid": "1.2.840.10036.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 256,
+            "max": 2346
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11MaxTransmitMSDULifetime": {
+    "name": "dot11MaxTransmitMSDULifetime",
+    "oid": "1.2.840.10036.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11MaxReceiveLifetime": {
+    "name": "dot11MaxReceiveLifetime",
+    "oid": "1.2.840.10036.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11ManufacturerID": {
+    "name": "dot11ManufacturerID",
+    "oid": "1.2.840.10036.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11ProductID": {
+    "name": "dot11ProductID",
+    "oid": "1.2.840.10036.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11CountersTable": {
+    "name": "dot11CountersTable",
+    "oid": "1.2.840.10036.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11CountersEntry": {
+    "name": "dot11CountersEntry",
+    "oid": "1.2.840.10036.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11TransmittedFragmentCount": {
+    "name": "dot11TransmittedFragmentCount",
+    "oid": "1.2.840.10036.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11MulticastTransmittedFrameCount": {
+    "name": "dot11MulticastTransmittedFrameCount",
+    "oid": "1.2.840.10036.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11FailedCount": {
+    "name": "dot11FailedCount",
+    "oid": "1.2.840.10036.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11RetryCount": {
+    "name": "dot11RetryCount",
+    "oid": "1.2.840.10036.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11MultipleRetryCount": {
+    "name": "dot11MultipleRetryCount",
+    "oid": "1.2.840.10036.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11FrameDuplicateCount": {
+    "name": "dot11FrameDuplicateCount",
+    "oid": "1.2.840.10036.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11RTSSuccessCount": {
+    "name": "dot11RTSSuccessCount",
+    "oid": "1.2.840.10036.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11RTSFailureCount": {
+    "name": "dot11RTSFailureCount",
+    "oid": "1.2.840.10036.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11ACKFailureCount": {
+    "name": "dot11ACKFailureCount",
+    "oid": "1.2.840.10036.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11ReceivedFragmentCount": {
+    "name": "dot11ReceivedFragmentCount",
+    "oid": "1.2.840.10036.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11MulticastReceivedFrameCount": {
+    "name": "dot11MulticastReceivedFrameCount",
+    "oid": "1.2.840.10036.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11FCSErrorCount": {
+    "name": "dot11FCSErrorCount",
+    "oid": "1.2.840.10036.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11TransmittedFrameCount": {
+    "name": "dot11TransmittedFrameCount",
+    "oid": "1.2.840.10036.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11WEPUndecryptableCount": {
+    "name": "dot11WEPUndecryptableCount",
+    "oid": "1.2.840.10036.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11GroupAddressesTable": {
+    "name": "dot11GroupAddressesTable",
+    "oid": "1.2.840.10036.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11GroupAddressesEntry": {
+    "name": "dot11GroupAddressesEntry",
+    "oid": "1.2.840.10036.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11GroupAddressesIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11GroupAddressesIndex": {
+    "name": "dot11GroupAddressesIndex",
+    "oid": "1.2.840.10036.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11Address": {
+    "name": "dot11Address",
+    "oid": "1.2.840.10036.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot11GroupAddressesStatus": {
+    "name": "dot11GroupAddressesStatus",
+    "oid": "1.2.840.10036.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "active",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot11ResourceTypeIDName": {
+    "name": "dot11ResourceTypeIDName",
+    "oid": "1.2.840.10036.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "RTID",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11ResourceInfoTable": {
+    "name": "dot11ResourceInfoTable",
+    "oid": "1.2.840.10036.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11ResourceInfoEntry": {
+    "name": "dot11ResourceInfoEntry",
+    "oid": "1.2.840.10036.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11manufacturerOUI": {
+    "name": "dot11manufacturerOUI",
+    "oid": "1.2.840.10036.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11manufacturerName": {
+    "name": "dot11manufacturerName",
+    "oid": "1.2.840.10036.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11manufacturerProductName": {
+    "name": "dot11manufacturerProductName",
+    "oid": "1.2.840.10036.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11manufacturerProductVersion": {
+    "name": "dot11manufacturerProductVersion",
+    "oid": "1.2.840.10036.3.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11PhyOperationTable": {
+    "name": "dot11PhyOperationTable",
+    "oid": "1.2.840.10036.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11PhyOperationEntry": {
+    "name": "dot11PhyOperationEntry",
+    "oid": "1.2.840.10036.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11PHYType": {
+    "name": "dot11PHYType",
+    "oid": "1.2.840.10036.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fhss": 1,
+          "dsss": 2,
+          "irbaseband": 3,
+          "ofdm": 4,
+          "hrdsss": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11CurrentRegDomain": {
+    "name": "dot11CurrentRegDomain",
+    "oid": "1.2.840.10036.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11TempType": {
+    "name": "dot11TempType",
+    "oid": "1.2.840.10036.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tempType1": 1,
+          "tempType2": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11PhyAntennaTable": {
+    "name": "dot11PhyAntennaTable",
+    "oid": "1.2.840.10036.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11PhyAntennaEntry": {
+    "name": "dot11PhyAntennaEntry",
+    "oid": "1.2.840.10036.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11CurrentTxAntenna": {
+    "name": "dot11CurrentTxAntenna",
+    "oid": "1.2.840.10036.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11DiversitySupport": {
+    "name": "dot11DiversitySupport",
+    "oid": "1.2.840.10036.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixedlist": 1,
+          "notsupported": 2,
+          "dynamic": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11CurrentRxAntenna": {
+    "name": "dot11CurrentRxAntenna",
+    "oid": "1.2.840.10036.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11PhyTxPowerTable": {
+    "name": "dot11PhyTxPowerTable",
+    "oid": "1.2.840.10036.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11PhyTxPowerEntry": {
+    "name": "dot11PhyTxPowerEntry",
+    "oid": "1.2.840.10036.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11NumberSupportedPowerLevels": {
+    "name": "dot11NumberSupportedPowerLevels",
+    "oid": "1.2.840.10036.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11TxPowerLevel1": {
+    "name": "dot11TxPowerLevel1",
+    "oid": "1.2.840.10036.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11TxPowerLevel2": {
+    "name": "dot11TxPowerLevel2",
+    "oid": "1.2.840.10036.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11TxPowerLevel3": {
+    "name": "dot11TxPowerLevel3",
+    "oid": "1.2.840.10036.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11TxPowerLevel4": {
+    "name": "dot11TxPowerLevel4",
+    "oid": "1.2.840.10036.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11TxPowerLevel5": {
+    "name": "dot11TxPowerLevel5",
+    "oid": "1.2.840.10036.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11TxPowerLevel6": {
+    "name": "dot11TxPowerLevel6",
+    "oid": "1.2.840.10036.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11TxPowerLevel7": {
+    "name": "dot11TxPowerLevel7",
+    "oid": "1.2.840.10036.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11TxPowerLevel8": {
+    "name": "dot11TxPowerLevel8",
+    "oid": "1.2.840.10036.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11CurrentTxPowerLevel": {
+    "name": "dot11CurrentTxPowerLevel",
+    "oid": "1.2.840.10036.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11PhyFHSSTable": {
+    "name": "dot11PhyFHSSTable",
+    "oid": "1.2.840.10036.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11PhyFHSSEntry": {
+    "name": "dot11PhyFHSSEntry",
+    "oid": "1.2.840.10036.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11HopTime": {
+    "name": "dot11HopTime",
+    "oid": "1.2.840.10036.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 224,
+            "max": 224
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11CurrentChannelNumber": {
+    "name": "dot11CurrentChannelNumber",
+    "oid": "1.2.840.10036.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11MaxDwellTime": {
+    "name": "dot11MaxDwellTime",
+    "oid": "1.2.840.10036.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11CurrentDwellTime": {
+    "name": "dot11CurrentDwellTime",
+    "oid": "1.2.840.10036.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11CurrentSet": {
+    "name": "dot11CurrentSet",
+    "oid": "1.2.840.10036.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11CurrentPattern": {
+    "name": "dot11CurrentPattern",
+    "oid": "1.2.840.10036.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11CurrentIndex": {
+    "name": "dot11CurrentIndex",
+    "oid": "1.2.840.10036.4.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11EHCCPrimeRadix": {
+    "name": "dot11EHCCPrimeRadix",
+    "oid": "1.2.840.10036.4.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11EHCCNumberofChannelsFamilyIndex": {
+    "name": "dot11EHCCNumberofChannelsFamilyIndex",
+    "oid": "1.2.840.10036.4.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11EHCCCapabilityImplemented": {
+    "name": "dot11EHCCCapabilityImplemented",
+    "oid": "1.2.840.10036.4.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11EHCCCapabilityEnabled": {
+    "name": "dot11EHCCCapabilityEnabled",
+    "oid": "1.2.840.10036.4.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11HopAlgorithmAdopted": {
+    "name": "dot11HopAlgorithmAdopted",
+    "oid": "1.2.840.10036.4.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "crnt": 1,
+          "hopindex": 2,
+          "hcc": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11RandomTableFlag": {
+    "name": "dot11RandomTableFlag",
+    "oid": "1.2.840.10036.4.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11NumberofHoppingSets": {
+    "name": "dot11NumberofHoppingSets",
+    "oid": "1.2.840.10036.4.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11HopModulus": {
+    "name": "dot11HopModulus",
+    "oid": "1.2.840.10036.4.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11HopOffset": {
+    "name": "dot11HopOffset",
+    "oid": "1.2.840.10036.4.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11PhyDSSSTable": {
+    "name": "dot11PhyDSSSTable",
+    "oid": "1.2.840.10036.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11PhyDSSSEntry": {
+    "name": "dot11PhyDSSSEntry",
+    "oid": "1.2.840.10036.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11CurrentChannel": {
+    "name": "dot11CurrentChannel",
+    "oid": "1.2.840.10036.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11CCAModeSupported": {
+    "name": "dot11CCAModeSupported",
+    "oid": "1.2.840.10036.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11CurrentCCAMode": {
+    "name": "dot11CurrentCCAMode",
+    "oid": "1.2.840.10036.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "edonly": 1,
+          "csonly": 2,
+          "edandcs": 4,
+          "cswithtimer": 8,
+          "hrcsanded": 16
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11EDThreshold": {
+    "name": "dot11EDThreshold",
+    "oid": "1.2.840.10036.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11PhyIRTable": {
+    "name": "dot11PhyIRTable",
+    "oid": "1.2.840.10036.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11PhyIREntry": {
+    "name": "dot11PhyIREntry",
+    "oid": "1.2.840.10036.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11CCAWatchdogTimerMax": {
+    "name": "dot11CCAWatchdogTimerMax",
+    "oid": "1.2.840.10036.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11CCAWatchdogCountMax": {
+    "name": "dot11CCAWatchdogCountMax",
+    "oid": "1.2.840.10036.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11CCAWatchdogTimerMin": {
+    "name": "dot11CCAWatchdogTimerMin",
+    "oid": "1.2.840.10036.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11CCAWatchdogCountMin": {
+    "name": "dot11CCAWatchdogCountMin",
+    "oid": "1.2.840.10036.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11RegDomainsSupportedTable": {
+    "name": "dot11RegDomainsSupportedTable",
+    "oid": "1.2.840.10036.4.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11RegDomainsSupportedEntry": {
+    "name": "dot11RegDomainsSupportedEntry",
+    "oid": "1.2.840.10036.4.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11RegDomainsSupportedIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11RegDomainsSupportedIndex": {
+    "name": "dot11RegDomainsSupportedIndex",
+    "oid": "1.2.840.10036.4.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11RegDomainsSupportedValue": {
+    "name": "dot11RegDomainsSupportedValue",
+    "oid": "1.2.840.10036.4.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fcc": 16,
+          "doc": 32,
+          "etsi": 48,
+          "spain": 49,
+          "france": 50,
+          "mkk": 64
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11AntennasListTable": {
+    "name": "dot11AntennasListTable",
+    "oid": "1.2.840.10036.4.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11AntennasListEntry": {
+    "name": "dot11AntennasListEntry",
+    "oid": "1.2.840.10036.4.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11AntennaListIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11AntennaListIndex": {
+    "name": "dot11AntennaListIndex",
+    "oid": "1.2.840.10036.4.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11SupportedTxAntenna": {
+    "name": "dot11SupportedTxAntenna",
+    "oid": "1.2.840.10036.4.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11SupportedRxAntenna": {
+    "name": "dot11SupportedRxAntenna",
+    "oid": "1.2.840.10036.4.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11DiversitySelectionRx": {
+    "name": "dot11DiversitySelectionRx",
+    "oid": "1.2.840.10036.4.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11SupportedDataRatesTxTable": {
+    "name": "dot11SupportedDataRatesTxTable",
+    "oid": "1.2.840.10036.4.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11SupportedDataRatesTxEntry": {
+    "name": "dot11SupportedDataRatesTxEntry",
+    "oid": "1.2.840.10036.4.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11SupportedDataRatesTxIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11SupportedDataRatesTxIndex": {
+    "name": "dot11SupportedDataRatesTxIndex",
+    "oid": "1.2.840.10036.4.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11SupportedDataRatesTxValue": {
+    "name": "dot11SupportedDataRatesTxValue",
+    "oid": "1.2.840.10036.4.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11SupportedDataRatesRxTable": {
+    "name": "dot11SupportedDataRatesRxTable",
+    "oid": "1.2.840.10036.4.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11SupportedDataRatesRxEntry": {
+    "name": "dot11SupportedDataRatesRxEntry",
+    "oid": "1.2.840.10036.4.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11SupportedDataRatesRxIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11SupportedDataRatesRxIndex": {
+    "name": "dot11SupportedDataRatesRxIndex",
+    "oid": "1.2.840.10036.4.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11SupportedDataRatesRxValue": {
+    "name": "dot11SupportedDataRatesRxValue",
+    "oid": "1.2.840.10036.4.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11PhyOFDMTable": {
+    "name": "dot11PhyOFDMTable",
+    "oid": "1.2.840.10036.4.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11PhyOFDMEntry": {
+    "name": "dot11PhyOFDMEntry",
+    "oid": "1.2.840.10036.4.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11CurrentFrequency": {
+    "name": "dot11CurrentFrequency",
+    "oid": "1.2.840.10036.4.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11TIThreshold": {
+    "name": "dot11TIThreshold",
+    "oid": "1.2.840.10036.4.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11FrequencyBandsSupported": {
+    "name": "dot11FrequencyBandsSupported",
+    "oid": "1.2.840.10036.4.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11PhyHRDSSSTable": {
+    "name": "dot11PhyHRDSSSTable",
+    "oid": "1.2.840.10036.4.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11PhyHRDSSSEntry": {
+    "name": "dot11PhyHRDSSSEntry",
+    "oid": "1.2.840.10036.4.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11ShortPreambleOptionImplemented": {
+    "name": "dot11ShortPreambleOptionImplemented",
+    "oid": "1.2.840.10036.4.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11PBCCOptionImplemented": {
+    "name": "dot11PBCCOptionImplemented",
+    "oid": "1.2.840.10036.4.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11ChannelAgilityPresent": {
+    "name": "dot11ChannelAgilityPresent",
+    "oid": "1.2.840.10036.4.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11ChannelAgilityEnabled": {
+    "name": "dot11ChannelAgilityEnabled",
+    "oid": "1.2.840.10036.4.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11HRCCAModeSupported": {
+    "name": "dot11HRCCAModeSupported",
+    "oid": "1.2.840.10036.4.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot11HoppingPatternTable": {
+    "name": "dot11HoppingPatternTable",
+    "oid": "1.2.840.10036.4.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11HoppingPatternEntry": {
+    "name": "dot11HoppingPatternEntry",
+    "oid": "1.2.840.10036.4.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11HoppingPatternIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11HoppingPatternIndex": {
+    "name": "dot11HoppingPatternIndex",
+    "oid": "1.2.840.10036.4.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11RandomTableFieldNumber": {
+    "name": "dot11RandomTableFieldNumber",
+    "oid": "1.2.840.10036.4.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11Conformance": {
+    "name": "dot11Conformance",
+    "oid": "1.2.840.10036.5",
+    "class": "objectidentity"
+  },
+  "dot11Groups": {
+    "name": "dot11Groups",
+    "oid": "1.2.840.10036.5.1",
+    "class": "objectidentity"
+  },
+  "dot11Compliances": {
+    "name": "dot11Compliances",
+    "oid": "1.2.840.10036.5.2",
+    "class": "objectidentity"
+  },
+  "dot11Compliance": {
+    "name": "dot11Compliance",
+    "oid": "1.2.840.10036.5.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dot11SMTbase2",
+        "module": "IEEE802dot11-MIB"
+      },
+      {
+        "object": "dot11MACbase",
+        "module": "IEEE802dot11-MIB"
+      },
+      {
+        "object": "dot11CountersGroup",
+        "module": "IEEE802dot11-MIB"
+      },
+      {
+        "object": "dot11SmtAuthenticationAlgorithms",
+        "module": "IEEE802dot11-MIB"
+      },
+      {
+        "object": "dot11ResourceTypeID",
+        "module": "IEEE802dot11-MIB"
+      },
+      {
+        "object": "dot11PhyOperationComplianceGroup",
+        "module": "IEEE802dot11-MIB"
+      },
+      {
+        "object": "dot11PhyDSSSComplianceGroup",
+        "module": "IEEE802dot11-MIB"
+      },
+      {
+        "object": "dot11PhyIRComplianceGroup",
+        "module": "IEEE802dot11-MIB"
+      },
+      {
+        "object": "dot11PhyFHSSComplianceGroup",
+        "module": "IEEE802dot11-MIB"
+      },
+      {
+        "object": "dot11PhyOFDMComplianceGroup",
+        "module": "IEEE802dot11-MIB"
+      },
+      {
+        "object": "dot11PhyHRDSSSComplianceGroup",
+        "module": "IEEE802dot11-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11SMTbase": {
+    "name": "dot11SMTbase",
+    "oid": "1.2.840.10036.5.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11StationID"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11MediumOccupancyLimit"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CFPollable"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CFPPeriod"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CFPMaxDuration"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11AuthenticationResponseTimeOut"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11PrivacyOptionImplemented"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11PowerManagementMode"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11DesiredSSID"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11DesiredBSSType"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11OperationalRateSet"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11BeaconPeriod"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11DTIMPeriod"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11AssociationResponseTimeOut"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dot11SMTprivacy": {
+    "name": "dot11SMTprivacy",
+    "oid": "1.2.840.10036.5.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11PrivacyInvoked"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11WEPKeyMappingLength"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11ExcludeUnencrypted"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11WEPICVErrorCount"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11WEPExcludedCount"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11WEPDefaultKeyID"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11WEPDefaultKeyValue"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11WEPKeyMappingWEPOn"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11WEPKeyMappingValue"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11WEPKeyMappingAddress"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11WEPKeyMappingStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11MACbase": {
+    "name": "dot11MACbase",
+    "oid": "1.2.840.10036.5.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11MACAddress"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11Address"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11GroupAddressesStatus"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11RTSThreshold"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11ShortRetryLimit"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11LongRetryLimit"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11FragmentationThreshold"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11MaxTransmitMSDULifetime"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11MaxReceiveLifetime"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11ManufacturerID"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11ProductID"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11MACStatistics": {
+    "name": "dot11MACStatistics",
+    "oid": "1.2.840.10036.5.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11RetryCount"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11MultipleRetryCount"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11RTSSuccessCount"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11RTSFailureCount"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11ACKFailureCount"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11FrameDuplicateCount"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11ResourceTypeID": {
+    "name": "dot11ResourceTypeID",
+    "oid": "1.2.840.10036.5.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11ResourceTypeIDName"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11manufacturerOUI"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11manufacturerName"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11manufacturerProductName"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11manufacturerProductVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11SmtAuthenticationAlgorithms": {
+    "name": "dot11SmtAuthenticationAlgorithms",
+    "oid": "1.2.840.10036.5.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11AuthenticationAlgorithm"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11AuthenticationAlgorithmsEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11PhyOperationComplianceGroup": {
+    "name": "dot11PhyOperationComplianceGroup",
+    "oid": "1.2.840.10036.5.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11PHYType"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CurrentRegDomain"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11TempType"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11PhyAntennaComplianceGroup": {
+    "name": "dot11PhyAntennaComplianceGroup",
+    "oid": "1.2.840.10036.5.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CurrentTxAntenna"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11DiversitySupport"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CurrentRxAntenna"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11PhyTxPowerComplianceGroup": {
+    "name": "dot11PhyTxPowerComplianceGroup",
+    "oid": "1.2.840.10036.5.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11NumberSupportedPowerLevels"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11TxPowerLevel1"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11TxPowerLevel2"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11TxPowerLevel3"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11TxPowerLevel4"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11TxPowerLevel5"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11TxPowerLevel6"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11TxPowerLevel7"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11TxPowerLevel8"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CurrentTxPowerLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11PhyFHSSComplianceGroup": {
+    "name": "dot11PhyFHSSComplianceGroup",
+    "oid": "1.2.840.10036.5.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11HopTime"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CurrentChannelNumber"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11MaxDwellTime"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CurrentDwellTime"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CurrentSet"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CurrentPattern"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CurrentIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11PhyDSSSComplianceGroup": {
+    "name": "dot11PhyDSSSComplianceGroup",
+    "oid": "1.2.840.10036.5.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CurrentChannel"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CCAModeSupported"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CurrentCCAMode"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11EDThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11PhyIRComplianceGroup": {
+    "name": "dot11PhyIRComplianceGroup",
+    "oid": "1.2.840.10036.5.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CCAWatchdogTimerMax"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CCAWatchdogCountMax"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CCAWatchdogTimerMin"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CCAWatchdogCountMin"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11PhyRegDomainsSupportGroup": {
+    "name": "dot11PhyRegDomainsSupportGroup",
+    "oid": "1.2.840.10036.5.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11RegDomainsSupportedValue"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11PhyAntennasListGroup": {
+    "name": "dot11PhyAntennasListGroup",
+    "oid": "1.2.840.10036.5.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11SupportedTxAntenna"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11SupportedRxAntenna"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11DiversitySelectionRx"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11PhyRateGroup": {
+    "name": "dot11PhyRateGroup",
+    "oid": "1.2.840.10036.5.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11SupportedDataRatesTxValue"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11SupportedDataRatesRxValue"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11CountersGroup": {
+    "name": "dot11CountersGroup",
+    "oid": "1.2.840.10036.5.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11TransmittedFragmentCount"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11MulticastTransmittedFrameCount"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11FailedCount"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11ReceivedFragmentCount"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11MulticastReceivedFrameCount"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11FCSErrorCount"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11WEPUndecryptableCount"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11TransmittedFrameCount"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11NotificationGroup": {
+    "name": "dot11NotificationGroup",
+    "oid": "1.2.840.10036.5.1.17",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11Disassociate"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11Deauthenticate"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11AuthenticateFail"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11SMTbase2": {
+    "name": "dot11SMTbase2",
+    "oid": "1.2.840.10036.5.1.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11MediumOccupancyLimit"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CFPollable"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CFPPeriod"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CFPMaxDuration"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11AuthenticationResponseTimeOut"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11PrivacyOptionImplemented"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11PowerManagementMode"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11DesiredSSID"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11DesiredBSSType"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11OperationalRateSet"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11BeaconPeriod"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11DTIMPeriod"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11AssociationResponseTimeOut"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11DisassociateReason"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11DisassociateStation"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11DeauthenticateReason"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11DeauthenticateStation"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11AuthenticateFailStatus"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11AuthenticateFailStation"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11PhyOFDMComplianceGroup": {
+    "name": "dot11PhyOFDMComplianceGroup",
+    "oid": "1.2.840.10036.5.1.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CurrentFrequency"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11TIThreshold"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11FrequencyBandsSupported"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11SMTbase3": {
+    "name": "dot11SMTbase3",
+    "oid": "1.2.840.10036.5.1.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11MediumOccupancyLimit"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CFPollable"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CFPPeriod"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CFPMaxDuration"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11AuthenticationResponseTimeOut"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11PrivacyOptionImplemented"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11PowerManagementMode"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11DesiredSSID"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11DesiredBSSType"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11OperationalRateSet"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11BeaconPeriod"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11DTIMPeriod"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11AssociationResponseTimeOut"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11DisassociateReason"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11DisassociateStation"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11DeauthenticateReason"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11DeauthenticateStation"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11AuthenticateFailStatus"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11AuthenticateFailStation"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11MultiDomainCapabilityImplemented"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11MultiDomainCapabilityEnabled"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CountryString"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11MultiDomainCapabilityGroup": {
+    "name": "dot11MultiDomainCapabilityGroup",
+    "oid": "1.2.840.10036.5.1.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11FirstChannelNumber"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11NumberofChannels"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11MaximumTransmitPowerLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11PhyFHSSComplianceGroup2": {
+    "name": "dot11PhyFHSSComplianceGroup2",
+    "oid": "1.2.840.10036.5.1.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11HopTime"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CurrentChannelNumber"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11MaxDwellTime"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CurrentDwellTime"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CurrentSet"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CurrentPattern"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CurrentIndex"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11EHCCPrimeRadix"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11EHCCNumberofChannelsFamilyIndex"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11EHCCCapabilityImplemented"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11EHCCCapabilityEnabled"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11HopAlgorithmAdopted"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11RandomTableFlag"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11NumberofHoppingSets"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11HopModulus"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11HopOffset"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11RandomTableFieldNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11PhyHRDSSSComplianceGroup": {
+    "name": "dot11PhyHRDSSSComplianceGroup",
+    "oid": "1.2.840.10036.5.1.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CurrentChannel"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CCAModeSupported"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11CurrentCCAMode"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11EDThreshold"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11ShortPreambleOptionImplemented"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11PBCCOptionImplemented"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11ChannelAgilityPresent"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11ChannelAgilityEnabled"
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11HRCCAModeSupported"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IEEE802dot11-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IEEE802dot11-MIB"
+  }
+}

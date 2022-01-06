@@ -1,0 +1,171 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoL2L3IfConfigMIB": {
+    "name": "ciscoL2L3IfConfigMIB",
+    "oid": "1.3.6.1.4.1.9.9.151",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-05-10 19:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoL2L3IfConfigMIBObjects": {
+    "name": "ciscoL2L3IfConfigMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.151.1",
+    "class": "objectidentity"
+  },
+  "cL2L3IfConfig": {
+    "name": "cL2L3IfConfig",
+    "oid": "1.3.6.1.4.1.9.9.151.1.1",
+    "class": "objectidentity"
+  },
+  "CL2L3InterfaceMode": {
+    "name": "CL2L3InterfaceMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "routed": 1,
+          "switchport": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cL2L3IfTable": {
+    "name": "cL2L3IfTable",
+    "oid": "1.3.6.1.4.1.9.9.151.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cL2L3IfEntry": {
+    "name": "cL2L3IfEntry",
+    "oid": "1.3.6.1.4.1.9.9.151.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cL2L3IfModeAdmin": {
+    "name": "cL2L3IfModeAdmin",
+    "oid": "1.3.6.1.4.1.9.9.151.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CL2L3InterfaceMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cL2L3IfModeOper": {
+    "name": "cL2L3IfModeOper",
+    "oid": "1.3.6.1.4.1.9.9.151.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CL2L3InterfaceMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoL2L3IfConfigMIBConformance": {
+    "name": "ciscoL2L3IfConfigMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.151.3",
+    "class": "objectidentity"
+  },
+  "ciscoL2L3IfConfigMIBCompliances": {
+    "name": "ciscoL2L3IfConfigMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.151.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoL2L3IfConfigMIBGroups": {
+    "name": "ciscoL2L3IfConfigMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.151.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoL2L3IfConfigMIBCompliance": {
+    "name": "ciscoL2L3IfConfigMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.151.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoL2L3IfConfigMIBGroup",
+        "module": "CISCO-L2L3-INTERFACE-CONFIG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoL2L3IfConfigMIBGroup": {
+    "name": "ciscoL2L3IfConfigMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.151.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2L3-INTERFACE-CONFIG-MIB",
+        "object": "cL2L3IfModeAdmin"
+      },
+      {
+        "module": "CISCO-L2L3-INTERFACE-CONFIG-MIB",
+        "object": "cL2L3IfModeOper"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-L2L3-INTERFACE-CONFIG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-L2L3-INTERFACE-CONFIG-MIB"
+  }
+}

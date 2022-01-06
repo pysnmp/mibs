@@ -1,0 +1,1280 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoIetfBfdMIB": {
+    "name": "ciscoIetfBfdMIB",
+    "oid": "1.3.6.1.4.1.9.10.137",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-03-14 00:00",
+        "description": "Modify value for 'ciscoBfdSessRemoteDiscr' and 'CiscoBfdInterval' to allow value 0 to conform to latest draft, draft-ietf-bfd-mib-10.txt."
+      },
+      {
+        "revision": "2010-02-18 00:00",
+        "description": "Modify value for ciscoBfdDiag textual convention to conform to latest draft-ietf-bfd-mib-07.txt"
+      },
+      {
+        "revision": "2008-04-24 00:00",
+        "description": "Revised version includes support for draft-ietf-bfd-mib-03.txt and draft-ietf-bfd-mib-04.txt. In addition to small description changes made throughout this MIB, following changes are made: * ciscoBfdObjects.ciscoBfdSessTable.ciscoBfdSessEntry - ciscoBfdSessState : failing state added - ciscoBfdSessVersionNumber : new object added - ciscoBfdSessType : new object added - ciscoBfdSessInterface : new object added * ciscoBfdObjects - ciscoBfdSessDiscMapTable : new table added - ciscoBfdSessIpMapTable : new table added * ciscoBfdComformance - ciscoBfdSessGroup : object group deprecated - ciscoBfdSess03Group : new object group added - ciscoBfdSess04Group : new object group added - ciscoBfdSess0304Group : new object group added * ciscoBfdCompliances - ciscoBfdModuleFullCompliance : module compliance deprecated - ciscoBfdModuleFullComplianceRev2 : new module compliance added"
+      },
+      {
+        "revision": "2007-06-04 00:00",
+        "description": "Initial version based on draft-ietf-bfd-mib-03.txt"
+      }
+    ]
+  },
+  "ciscoBfdNotifications": {
+    "name": "ciscoBfdNotifications",
+    "oid": "1.3.6.1.4.1.9.10.137.0",
+    "class": "objectidentity"
+  },
+  "ciscoBfdObjects": {
+    "name": "ciscoBfdObjects",
+    "oid": "1.3.6.1.4.1.9.10.137.1",
+    "class": "objectidentity"
+  },
+  "ciscoBfdConformance": {
+    "name": "ciscoBfdConformance",
+    "oid": "1.3.6.1.4.1.9.10.137.3",
+    "class": "objectidentity"
+  },
+  "ciscoBfdScalarObjects": {
+    "name": "ciscoBfdScalarObjects",
+    "oid": "1.3.6.1.4.1.9.10.137.1.1",
+    "class": "objectidentity"
+  },
+  "CiscoBfdSessIndexTC": {
+    "name": "CiscoBfdSessIndexTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "CiscoBfdInterval": {
+    "name": "CiscoBfdInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiscoBfdDiag": {
+    "name": "CiscoBfdDiag",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noDiagnostic": 0,
+          "controlDetectionTimeExpired": 1,
+          "echoFunctionFailed": 2,
+          "neighborSignaledSessionDown": 3,
+          "forwardingPlaneReset": 4,
+          "pathDown": 5,
+          "concatenatedPathDown": 6,
+          "administrativelyDown": 7,
+          "reverseConcatenatedPathDown": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoBfdAdminStatus": {
+    "name": "ciscoBfdAdminStatus",
+    "oid": "1.3.6.1.4.1.9.10.137.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoBfdVersionNumber": {
+    "name": "ciscoBfdVersionNumber",
+    "oid": "1.3.6.1.4.1.9.10.137.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBfdSessTable": {
+    "name": "ciscoBfdSessTable",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoBfdSessEntry": {
+    "name": "ciscoBfdSessEntry",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBfdSessIndex": {
+    "name": "ciscoBfdSessIndex",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoBfdSessIndexTC",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoBfdSessApplicationId": {
+    "name": "ciscoBfdSessApplicationId",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBfdSessDiscriminator": {
+    "name": "ciscoBfdSessDiscriminator",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBfdSessRemoteDiscr": {
+    "name": "ciscoBfdSessRemoteDiscr",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBfdSessUdpPort": {
+    "name": "ciscoBfdSessUdpPort",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoBfdSessState": {
+    "name": "ciscoBfdSessState",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "adminDown": 1,
+          "down": 2,
+          "init": 3,
+          "up": 4,
+          "failing": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBfdSessRemoteHeardFlag": {
+    "name": "ciscoBfdSessRemoteHeardFlag",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBfdSessDiag": {
+    "name": "ciscoBfdSessDiag",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoBfdDiag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBfdSessOperMode": {
+    "name": "ciscoBfdSessOperMode",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "asyncModeWEchoFun": 1,
+          "asynchModeWOEchoFun": 2,
+          "demandModeWEchoFunction": 3,
+          "demandModeWOEchoFunction": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBfdSessDemandModeDesiredFlag": {
+    "name": "ciscoBfdSessDemandModeDesiredFlag",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoBfdSessEchoFuncModeDesiredFlag": {
+    "name": "ciscoBfdSessEchoFuncModeDesiredFlag",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoBfdSessControlPlanIndepFlag": {
+    "name": "ciscoBfdSessControlPlanIndepFlag",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoBfdSessAddrType": {
+    "name": "ciscoBfdSessAddrType",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoBfdSessAddr": {
+    "name": "ciscoBfdSessAddr",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoBfdSessDesiredMinTxInterval": {
+    "name": "ciscoBfdSessDesiredMinTxInterval",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoBfdInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoBfdSessReqMinRxInterval": {
+    "name": "ciscoBfdSessReqMinRxInterval",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoBfdInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoBfdSessReqMinEchoRxInterval": {
+    "name": "ciscoBfdSessReqMinEchoRxInterval",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoBfdInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoBfdSessDetectMult": {
+    "name": "ciscoBfdSessDetectMult",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoBfdSessStorType": {
+    "name": "ciscoBfdSessStorType",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoBfdSessRowStatus": {
+    "name": "ciscoBfdSessRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoBfdSessAuthPresFlag": {
+    "name": "ciscoBfdSessAuthPresFlag",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoBfdSessAuthenticationType": {
+    "name": "ciscoBfdSessAuthenticationType",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "simplePassword": 1,
+          "keyedMD5": 2,
+          "meticulousKeyedMD5": 3,
+          "keyedSHA1": 4,
+          "meticulousKeyedSHA1": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoBfdSessVersionNumber": {
+    "name": "ciscoBfdSessVersionNumber",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBfdSessType": {
+    "name": "ciscoBfdSessType",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singleHop": 1,
+          "multiHop": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBfdSessInterface": {
+    "name": "ciscoBfdSessInterface",
+    "oid": "1.3.6.1.4.1.9.10.137.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBfdSessPerfTable": {
+    "name": "ciscoBfdSessPerfTable",
+    "oid": "1.3.6.1.4.1.9.10.137.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoBfdSessPerfEntry": {
+    "name": "ciscoBfdSessPerfEntry",
+    "oid": "1.3.6.1.4.1.9.10.137.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ciscoBfdSessPerfEntry",
+      "module": "CISCO-IETF-BFD-MIB",
+      "object": "ciscoBfdSessEntry"
+    },
+    "status": "current"
+  },
+  "ciscoBfdSessPerfPktIn": {
+    "name": "ciscoBfdSessPerfPktIn",
+    "oid": "1.3.6.1.4.1.9.10.137.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBfdSessPerfPktOut": {
+    "name": "ciscoBfdSessPerfPktOut",
+    "oid": "1.3.6.1.4.1.9.10.137.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBfdSessUpTime": {
+    "name": "ciscoBfdSessUpTime",
+    "oid": "1.3.6.1.4.1.9.10.137.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBfdSessPerfLastSessDownTime": {
+    "name": "ciscoBfdSessPerfLastSessDownTime",
+    "oid": "1.3.6.1.4.1.9.10.137.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBfdSessPerfLastCommLostDiag": {
+    "name": "ciscoBfdSessPerfLastCommLostDiag",
+    "oid": "1.3.6.1.4.1.9.10.137.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoBfdDiag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBfdSessPerfSessUpCount": {
+    "name": "ciscoBfdSessPerfSessUpCount",
+    "oid": "1.3.6.1.4.1.9.10.137.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBfdSessPerfDiscTime": {
+    "name": "ciscoBfdSessPerfDiscTime",
+    "oid": "1.3.6.1.4.1.9.10.137.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBfdSessPerfPktInHC": {
+    "name": "ciscoBfdSessPerfPktInHC",
+    "oid": "1.3.6.1.4.1.9.10.137.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBfdSessPerfPktOutHC": {
+    "name": "ciscoBfdSessPerfPktOutHC",
+    "oid": "1.3.6.1.4.1.9.10.137.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBfdSessMapTable": {
+    "name": "ciscoBfdSessMapTable",
+    "oid": "1.3.6.1.4.1.9.10.137.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoBfdSessMapEntry": {
+    "name": "ciscoBfdSessMapEntry",
+    "oid": "1.3.6.1.4.1.9.10.137.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessApplicationId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessDiscriminator",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBfdSessMapBfdIndex": {
+    "name": "ciscoBfdSessMapBfdIndex",
+    "oid": "1.3.6.1.4.1.9.10.137.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoBfdSessIndexTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBfdSessDiscMapTable": {
+    "name": "ciscoBfdSessDiscMapTable",
+    "oid": "1.3.6.1.4.1.9.10.137.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoBfdSessDiscMapEntry": {
+    "name": "ciscoBfdSessDiscMapEntry",
+    "oid": "1.3.6.1.4.1.9.10.137.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessDiscriminator",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBfdSessDiscMapIndex": {
+    "name": "ciscoBfdSessDiscMapIndex",
+    "oid": "1.3.6.1.4.1.9.10.137.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoBfdSessIndexTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBfdSessIpMapTable": {
+    "name": "ciscoBfdSessIpMapTable",
+    "oid": "1.3.6.1.4.1.9.10.137.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoBfdSessIpMapEntry": {
+    "name": "ciscoBfdSessIpMapEntry",
+    "oid": "1.3.6.1.4.1.9.10.137.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessInterface",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBfdSessIpMapIndex": {
+    "name": "ciscoBfdSessIpMapIndex",
+    "oid": "1.3.6.1.4.1.9.10.137.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoBfdSessIndexTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBfdSessNotificationsEnable": {
+    "name": "ciscoBfdSessNotificationsEnable",
+    "oid": "1.3.6.1.4.1.9.10.137.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoBfdSessUp": {
+    "name": "ciscoBfdSessUp",
+    "oid": "1.3.6.1.4.1.9.10.137.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessDiag"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessDiag"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBfdSessDown": {
+    "name": "ciscoBfdSessDown",
+    "oid": "1.3.6.1.4.1.9.10.137.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessDiag"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessDiag"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBfdGroups": {
+    "name": "ciscoBfdGroups",
+    "oid": "1.3.6.1.4.1.9.10.137.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoBfdCompliances": {
+    "name": "ciscoBfdCompliances",
+    "oid": "1.3.6.1.4.1.9.10.137.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoBfdModuleFullCompliance": {
+    "name": "ciscoBfdModuleFullCompliance",
+    "oid": "1.3.6.1.4.1.9.10.137.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoBfdSessionGroup",
+        "module": "CISCO-IETF-BFD-MIB"
+      },
+      {
+        "object": "ciscoBfdSessionPerfGroup",
+        "module": "CISCO-IETF-BFD-MIB"
+      },
+      {
+        "object": "ciscoBfdSessionPerfHCGroup",
+        "module": "CISCO-IETF-BFD-MIB"
+      },
+      {
+        "object": "ciscoBfdNotificationGroup",
+        "module": "CISCO-IETF-BFD-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoBfdModuleFullComplianceRev2": {
+    "name": "ciscoBfdModuleFullComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.10.137.3.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoBfdSession0304Group",
+        "module": "CISCO-IETF-BFD-MIB"
+      },
+      {
+        "object": "ciscoBfdSessionPerfGroup",
+        "module": "CISCO-IETF-BFD-MIB"
+      },
+      {
+        "object": "ciscoBfdSessionPerfHCGroup",
+        "module": "CISCO-IETF-BFD-MIB"
+      },
+      {
+        "object": "ciscoBfdNotificationGroup",
+        "module": "CISCO-IETF-BFD-MIB"
+      },
+      {
+        "object": "ciscoBfdSession03Group",
+        "module": "CISCO-IETF-BFD-MIB"
+      },
+      {
+        "object": "ciscoBfdSession04Group",
+        "module": "CISCO-IETF-BFD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBfdSessionGroup": {
+    "name": "ciscoBfdSessionGroup",
+    "oid": "1.3.6.1.4.1.9.10.137.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessNotificationsEnable"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdAdminStatus"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdVersionNumber"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessApplicationId"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessDiscriminator"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessAddrType"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessAddr"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessRemoteDiscr"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessUdpPort"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessState"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessRemoteHeardFlag"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessDiag"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessOperMode"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessDemandModeDesiredFlag"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessEchoFuncModeDesiredFlag"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessControlPlanIndepFlag"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessDesiredMinTxInterval"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessReqMinRxInterval"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessReqMinEchoRxInterval"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessDetectMult"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessStorType"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessMapBfdIndex"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessAuthPresFlag"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessAuthenticationType"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoBfdSessionPerfGroup": {
+    "name": "ciscoBfdSessionPerfGroup",
+    "oid": "1.3.6.1.4.1.9.10.137.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessPerfPktIn"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessPerfPktOut"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessUpTime"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessPerfLastSessDownTime"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessPerfLastCommLostDiag"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessPerfSessUpCount"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessPerfDiscTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBfdSessionPerfHCGroup": {
+    "name": "ciscoBfdSessionPerfHCGroup",
+    "oid": "1.3.6.1.4.1.9.10.137.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessPerfPktInHC"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessPerfPktOutHC"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBfdNotificationGroup": {
+    "name": "ciscoBfdNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.10.137.3.1.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessUp"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessDown"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBfdSession0304Group": {
+    "name": "ciscoBfdSession0304Group",
+    "oid": "1.3.6.1.4.1.9.10.137.3.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessNotificationsEnable"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdAdminStatus"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessDiscriminator"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessAddrType"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessAddr"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessRemoteDiscr"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessUdpPort"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessState"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessRemoteHeardFlag"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessDiag"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessOperMode"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessDemandModeDesiredFlag"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessEchoFuncModeDesiredFlag"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessControlPlanIndepFlag"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessDesiredMinTxInterval"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessReqMinRxInterval"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessReqMinEchoRxInterval"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessDetectMult"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessStorType"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessAuthPresFlag"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessAuthenticationType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBfdSession03Group": {
+    "name": "ciscoBfdSession03Group",
+    "oid": "1.3.6.1.4.1.9.10.137.3.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdVersionNumber"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessApplicationId"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessMapBfdIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBfdSession04Group": {
+    "name": "ciscoBfdSession04Group",
+    "oid": "1.3.6.1.4.1.9.10.137.3.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessVersionNumber"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessType"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessInterface"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessDiscMapIndex"
+      },
+      {
+        "module": "CISCO-IETF-BFD-MIB",
+        "object": "ciscoBfdSessIpMapIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-BFD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IETF-BFD-MIB"
+  }
+}

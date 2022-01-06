@@ -1,0 +1,1705 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressPrefixLength",
+      "InetAddressIPv6"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ]
+  },
+  "dlinkSwDhcp6ServerMIB": {
+    "name": "dlinkSwDhcp6ServerMIB",
+    "oid": "1.3.6.1.4.1.171.14.223",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-01-18 00:00",
+        "description": "This is the first version of the MIB file for 'DHCPv6 Server' functionality. "
+      },
+      {
+        "revision": "2013-10-09 00:00",
+        "description": "modify node dDhcp6SBindExpire syntax to DateAndTime."
+      }
+    ]
+  },
+  "dDhcp6ServerMIBNotifications": {
+    "name": "dDhcp6ServerMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.223.0",
+    "class": "objectidentity"
+  },
+  "dDhcp6ServerMIBObjects": {
+    "name": "dDhcp6ServerMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.223.1",
+    "class": "objectidentity"
+  },
+  "dDhcp6ServerMIBConformance": {
+    "name": "dDhcp6ServerMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.223.2",
+    "class": "objectidentity"
+  },
+  "dDhcp6ServGeneral": {
+    "name": "dDhcp6ServGeneral",
+    "oid": "1.3.6.1.4.1.171.14.223.1.1",
+    "class": "objectidentity"
+  },
+  "dDhcp6ServiceEnabled": {
+    "name": "dDhcp6ServiceEnabled",
+    "oid": "1.3.6.1.4.1.171.14.223.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcp6SCfgChanged": {
+    "name": "dDhcp6SCfgChanged",
+    "oid": "1.3.6.1.4.1.171.14.223.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDhcp6SExcludedAddressTable": {
+    "name": "dDhcp6SExcludedAddressTable",
+    "oid": "1.3.6.1.4.1.171.14.223.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6SExcludedAddressEntry": {
+    "name": "dDhcp6SExcludedAddressEntry",
+    "oid": "1.3.6.1.4.1.171.14.223.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SExcludedAddressBeginAddr",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SExcludedAddressEndAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcp6SExcludedAddressBeginAddr": {
+    "name": "dDhcp6SExcludedAddressBeginAddr",
+    "oid": "1.3.6.1.4.1.171.14.223.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6SExcludedAddressEndAddr": {
+    "name": "dDhcp6SExcludedAddressEndAddr",
+    "oid": "1.3.6.1.4.1.171.14.223.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6SExcludedAddressRowStatus": {
+    "name": "dDhcp6SExcludedAddressRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.223.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SLocalPoolTable": {
+    "name": "dDhcp6SLocalPoolTable",
+    "oid": "1.3.6.1.4.1.171.14.223.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6SLocalPoolEntry": {
+    "name": "dDhcp6SLocalPoolEntry",
+    "oid": "1.3.6.1.4.1.171.14.223.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SLocalPoolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcp6SLocalPoolName": {
+    "name": "dDhcp6SLocalPoolName",
+    "oid": "1.3.6.1.4.1.171.14.223.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6SLocalPoolPrefix": {
+    "name": "dDhcp6SLocalPoolPrefix",
+    "oid": "1.3.6.1.4.1.171.14.223.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SLocalPoolPrefixLen": {
+    "name": "dDhcp6SLocalPoolPrefixLen",
+    "oid": "1.3.6.1.4.1.171.14.223.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SLocalPoolPrefixAssignLen": {
+    "name": "dDhcp6SLocalPoolPrefixAssignLen",
+    "oid": "1.3.6.1.4.1.171.14.223.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SLocalPoolFreeAddrNum": {
+    "name": "dDhcp6SLocalPoolFreeAddrNum",
+    "oid": "1.3.6.1.4.1.171.14.223.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDhcp6SLocalPoolInUseAddrNum": {
+    "name": "dDhcp6SLocalPoolInUseAddrNum",
+    "oid": "1.3.6.1.4.1.171.14.223.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDhcp6SLocalPoolRowStatus": {
+    "name": "dDhcp6SLocalPoolRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.223.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6ServPoolMgmt": {
+    "name": "dDhcp6ServPoolMgmt",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2",
+    "class": "objectidentity"
+  },
+  "dDhcp6SPoolTable": {
+    "name": "dDhcp6SPoolTable",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6SPoolEntry": {
+    "name": "dDhcp6SPoolEntry",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcp6SPoolName": {
+    "name": "dDhcp6SPoolName",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6SPoolRowStatus": {
+    "name": "dDhcp6SPoolRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolDomainNameTable": {
+    "name": "dDhcp6SPoolDomainNameTable",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6SPoolDomainNameEntry": {
+    "name": "dDhcp6SPoolDomainNameEntry",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolDomainNameAdminIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcp6SPoolDomainNameAdminIndex": {
+    "name": "dDhcp6SPoolDomainNameAdminIndex",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6SPoolDomainName": {
+    "name": "dDhcp6SPoolDomainName",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcp6ServerDomainNameRowStatus": {
+    "name": "dhcp6ServerDomainNameRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolDnsServerTable": {
+    "name": "dDhcp6SPoolDnsServerTable",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6SPoolDnsServerEntry": {
+    "name": "dDhcp6SPoolDnsServerEntry",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolDnsServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcp6SPoolDnsServerIndex": {
+    "name": "dDhcp6SPoolDnsServerIndex",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6SPoolDnsServerAddr": {
+    "name": "dDhcp6SPoolDnsServerAddr",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolDnsServerRowStatus": {
+    "name": "dDhcp6SPoolDnsServerRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolAddrPrefixTable": {
+    "name": "dDhcp6SPoolAddrPrefixTable",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6SPoolAddrPrefixEntry": {
+    "name": "dDhcp6SPoolAddrPrefixEntry",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcp6SPoolAddrPrefixAddr": {
+    "name": "dDhcp6SPoolAddrPrefixAddr",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolAddrPrefixLength": {
+    "name": "dDhcp6SPoolAddrPrefixLength",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolAddrPrefixVLtime": {
+    "name": "dDhcp6SPoolAddrPrefixVLtime",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2592000,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolAddrPrefixPLtime": {
+    "name": "dDhcp6SPoolAddrPrefixPLtime",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 604800,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolAddrPrefixRowStatus": {
+    "name": "dDhcp6SPoolAddrPrefixRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolAddrAssignTable": {
+    "name": "dDhcp6SPoolAddrAssignTable",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6SPoolAddrAssignEntry": {
+    "name": "dDhcp6SPoolAddrAssignEntry",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolAddrAssignAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcp6SPoolAddrAssignAddr": {
+    "name": "dDhcp6SPoolAddrAssignAddr",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolAddrAssignLength": {
+    "name": "dDhcp6SPoolAddrAssignLength",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolAddrAssignClientDuid": {
+    "name": "dDhcp6SPoolAddrAssignClientDuid",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolAddrAssignSetIaid": {
+    "name": "dDhcp6SPoolAddrAssignSetIaid",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolAddrAssignIaid": {
+    "name": "dDhcp6SPoolAddrAssignIaid",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolAddrAssignVLtime": {
+    "name": "dDhcp6SPoolAddrAssignVLtime",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2592000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolAddrAssignPLtime": {
+    "name": "dDhcp6SPoolAddrAssignPLtime",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 604800,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolAddrAssignRowStatus": {
+    "name": "dDhcp6SPoolAddrAssignRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolPdTable": {
+    "name": "dDhcp6SPoolPdTable",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6SPoolPdEntry": {
+    "name": "dDhcp6SPoolPdEntry",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolPdPrefix",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolPdPrefixLength",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcp6SPoolPdPrefix": {
+    "name": "dDhcp6SPoolPdPrefix",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolPdPrefixLength": {
+    "name": "dDhcp6SPoolPdPrefixLength",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolPdClientDuid": {
+    "name": "dDhcp6SPoolPdClientDuid",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolPdSetIaid": {
+    "name": "dDhcp6SPoolPdSetIaid",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolPdIaid": {
+    "name": "dDhcp6SPoolPdIaid",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolPdVLtime": {
+    "name": "dDhcp6SPoolPdVLtime",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2592000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolPdPLtime": {
+    "name": "dDhcp6SPoolPdPLtime",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 604800,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolPdRowStatus": {
+    "name": "dDhcp6SPoolPdRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolPdLocPoolTable": {
+    "name": "dDhcp6SPoolPdLocPoolTable",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6SPoolPdLocPoolEntry": {
+    "name": "dDhcp6SPoolPdLocPoolEntry",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcp6SPoolPdLocPoolName": {
+    "name": "dDhcp6SPoolPdLocPoolName",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolPdLocPoolVLtime": {
+    "name": "dDhcp6SPoolPdLocPoolVLtime",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2592000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolPdLocPoolPLtime": {
+    "name": "dDhcp6SPoolPdLocPoolPLtime",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 604800,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6SPoolPdLocPoolRowStatus": {
+    "name": "dDhcp6SPoolPdLocPoolRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.223.1.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6ServIfMgmt": {
+    "name": "dDhcp6ServIfMgmt",
+    "oid": "1.3.6.1.4.1.171.14.223.1.3",
+    "class": "objectidentity"
+  },
+  "dDhcp6ServIfTable": {
+    "name": "dDhcp6ServIfTable",
+    "oid": "1.3.6.1.4.1.171.14.223.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6ServIfEntry": {
+    "name": "dDhcp6ServIfEntry",
+    "oid": "1.3.6.1.4.1.171.14.223.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6ServIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcp6ServIfIndex": {
+    "name": "dDhcp6ServIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.223.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6ServIfPoolName": {
+    "name": "dDhcp6ServIfPoolName",
+    "oid": "1.3.6.1.4.1.171.14.223.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6ServIfRapidCommit": {
+    "name": "dDhcp6ServIfRapidCommit",
+    "oid": "1.3.6.1.4.1.171.14.223.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6ServIfAllowHint": {
+    "name": "dDhcp6ServIfAllowHint",
+    "oid": "1.3.6.1.4.1.171.14.223.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6ServIfPreference": {
+    "name": "dDhcp6ServIfPreference",
+    "oid": "1.3.6.1.4.1.171.14.223.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6ServIfRowStatus": {
+    "name": "dDhcp6ServIfRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.223.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6ServInfo": {
+    "name": "dDhcp6ServInfo",
+    "oid": "1.3.6.1.4.1.171.14.223.1.4",
+    "class": "objectidentity"
+  },
+  "dDhcp6SBindingTable": {
+    "name": "dDhcp6SBindingTable",
+    "oid": "1.3.6.1.4.1.171.14.223.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6SBindingEntry": {
+    "name": "dDhcp6SBindingEntry",
+    "oid": "1.3.6.1.4.1.171.14.223.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SBindIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SBindClientDuid",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SBindIaType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SBindIaId",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SBindAddrOrPrefix",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SBindAddrOrPrefixLen",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcp6SBindIfIndex": {
+    "name": "dDhcp6SBindIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.223.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6SBindClientDuid": {
+    "name": "dDhcp6SBindClientDuid",
+    "oid": "1.3.6.1.4.1.171.14.223.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6SBindIaType": {
+    "name": "dDhcp6SBindIaType",
+    "oid": "1.3.6.1.4.1.171.14.223.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "iapd": 1,
+          "iana": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6SBindIaId": {
+    "name": "dDhcp6SBindIaId",
+    "oid": "1.3.6.1.4.1.171.14.223.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6SBindAddrOrPrefix": {
+    "name": "dDhcp6SBindAddrOrPrefix",
+    "oid": "1.3.6.1.4.1.171.14.223.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6SBindAddrOrPrefixLen": {
+    "name": "dDhcp6SBindAddrOrPrefixLen",
+    "oid": "1.3.6.1.4.1.171.14.223.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6SBindClientLinkLocalAddr": {
+    "name": "dDhcp6SBindClientLinkLocalAddr",
+    "oid": "1.3.6.1.4.1.171.14.223.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDhcp6SBindIaT1": {
+    "name": "dDhcp6SBindIaT1",
+    "oid": "1.3.6.1.4.1.171.14.223.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDhcp6SBindIaT2": {
+    "name": "dDhcp6SBindIaT2",
+    "oid": "1.3.6.1.4.1.171.14.223.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDhcp6SBindVLtime": {
+    "name": "dDhcp6SBindVLtime",
+    "oid": "1.3.6.1.4.1.171.14.223.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDhcp6SBindPLtime": {
+    "name": "dDhcp6SBindPLtime",
+    "oid": "1.3.6.1.4.1.171.14.223.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDhcp6SBindExpire": {
+    "name": "dDhcp6SBindExpire",
+    "oid": "1.3.6.1.4.1.171.14.223.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDhcp6SBindClear": {
+    "name": "dDhcp6SBindClear",
+    "oid": "1.3.6.1.4.1.171.14.223.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcp6ServerCompliances": {
+    "name": "dDhcp6ServerCompliances",
+    "oid": "1.3.6.1.4.1.171.14.223.2.1",
+    "class": "objectidentity"
+  },
+  "dDhcp6ServerCompliance": {
+    "name": "dDhcp6ServerCompliance",
+    "oid": "1.3.6.1.4.1.171.14.223.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dDhcp6SGblCfgGroup",
+        "module": "DLINKSW-DHCP6-SERVER-MIB"
+      },
+      {
+        "object": "dDhcp6SLocalPoolGroup",
+        "module": "DLINKSW-DHCP6-SERVER-MIB"
+      },
+      {
+        "object": "dDhcp6SPoolGroup",
+        "module": "DLINKSW-DHCP6-SERVER-MIB"
+      },
+      {
+        "object": "dDhcp6SInterfaceGroup",
+        "module": "DLINKSW-DHCP6-SERVER-MIB"
+      },
+      {
+        "object": "dDhcp6SNonTempAddrAssignGroup",
+        "module": "DLINKSW-DHCP6-SERVER-MIB"
+      },
+      {
+        "object": "dDhcp6SInfoGroup",
+        "module": "DLINKSW-DHCP6-SERVER-MIB"
+      },
+      {
+        "object": "dDhcp6SPrefixDelegationGroup",
+        "module": "DLINKSW-DHCP6-SERVER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcp6ServerGroups": {
+    "name": "dDhcp6ServerGroups",
+    "oid": "1.3.6.1.4.1.171.14.223.2.2",
+    "class": "objectidentity"
+  },
+  "dDhcp6SGblCfgGroup": {
+    "name": "dDhcp6SGblCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.223.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6ServiceEnabled"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SCfgChanged"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SExcludedAddressRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcp6SLocalPoolGroup": {
+    "name": "dDhcp6SLocalPoolGroup",
+    "oid": "1.3.6.1.4.1.171.14.223.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SLocalPoolPrefix"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SLocalPoolPrefixLen"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SLocalPoolPrefixAssignLen"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SLocalPoolRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcp6SPoolGroup": {
+    "name": "dDhcp6SPoolGroup",
+    "oid": "1.3.6.1.4.1.171.14.223.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolRowStatus"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolDomainName"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dhcp6ServerDomainNameRowStatus"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolDnsServerAddr"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolDnsServerRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcp6SInterfaceGroup": {
+    "name": "dDhcp6SInterfaceGroup",
+    "oid": "1.3.6.1.4.1.171.14.223.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6ServIfPoolName"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6ServIfRapidCommit"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6ServIfAllowHint"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6ServIfPreference"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6ServIfRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcp6SNonTempAddrAssignGroup": {
+    "name": "dDhcp6SNonTempAddrAssignGroup",
+    "oid": "1.3.6.1.4.1.171.14.223.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolAddrPrefixAddr"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolAddrPrefixLength"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolAddrPrefixVLtime"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolAddrPrefixPLtime"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolAddrPrefixRowStatus"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolAddrAssignAddr"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolAddrAssignLength"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolAddrAssignClientDuid"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolAddrAssignSetIaid"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolAddrAssignIaid"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolAddrAssignVLtime"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolAddrAssignPLtime"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolAddrAssignRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcp6SPrefixDelegationGroup": {
+    "name": "dDhcp6SPrefixDelegationGroup",
+    "oid": "1.3.6.1.4.1.171.14.223.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolPdPrefix"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolPdPrefixLength"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolPdClientDuid"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolPdSetIaid"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolPdIaid"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolPdVLtime"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolPdPLtime"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolPdRowStatus"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolPdLocPoolName"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolPdLocPoolVLtime"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolPdLocPoolPLtime"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SPoolPdLocPoolRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcp6SInfoGroup": {
+    "name": "dDhcp6SInfoGroup",
+    "oid": "1.3.6.1.4.1.171.14.223.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SLocalPoolFreeAddrNum"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SLocalPoolInUseAddrNum"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SBindClientLinkLocalAddr"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SBindIaT1"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SBindIaT2"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SBindVLtime"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SBindPLtime"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SBindExpire"
+      },
+      {
+        "module": "DLINKSW-DHCP6-SERVER-MIB",
+        "object": "dDhcp6SBindClear"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-DHCP6-SERVER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-DHCP6-SERVER-MIB"
+  }
+}

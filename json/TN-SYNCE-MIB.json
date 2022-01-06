@@ -1,0 +1,681 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "entPhysicalIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TRANSITION-SMI": [
+      "tnProducts"
+    ]
+  },
+  "tnSynceMIB": {
+    "name": "tnSynceMIB",
+    "oid": "1.3.6.1.4.1.868.2.5.122",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-05-16 00:00",
+        "description": "Initial Revision of this module"
+      }
+    ]
+  },
+  "tnSynce": {
+    "name": "tnSynce",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1",
+    "class": "objectidentity"
+  },
+  "tnSyncETable": {
+    "name": "tnSyncETable",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnSyncEEntry": {
+    "name": "tnSyncEEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnSyncEStateMode": {
+    "name": "tnSyncEStateMode",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "selected": 2,
+          "nonrevertive": 3,
+          "revertive": 4,
+          "holdover": 5,
+          "freerun": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSyncEStateWTRTime": {
+    "name": "tnSyncEStateWTRTime",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSyncEStateSSMHoldOver": {
+    "name": "tnSyncEStateSSMHoldOver",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "prc": 1,
+          "ssua": 2,
+          "ssub": 3,
+          "eec2": 4,
+          "eec1": 5,
+          "dnu": 6,
+          "inv": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSyncEStateSSMFreeRun": {
+    "name": "tnSyncEStateSSMFreeRun",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "prc": 1,
+          "ssua": 2,
+          "ssub": 3,
+          "eec2": 4,
+          "eec1": 5,
+          "dnu": 6,
+          "inv": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSyncEAlarmStateLOL": {
+    "name": "tnSyncEAlarmStateLOL",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnSyncEAlarmStateDHOLD": {
+    "name": "tnSyncEAlarmStateDHOLD",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnSyncESelState": {
+    "name": "tnSyncESelState",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lockedto": 1,
+          "holdover": 2,
+          "freerun": 3,
+          "prelock2": 4,
+          "prelock": 5,
+          "lossoflock": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnSyncEClkSrc": {
+    "name": "tnSyncEClkSrc",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSyncEClkSourceTable": {
+    "name": "tnSyncEClkSourceTable",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnSyncEClkSourceEntry": {
+    "name": "tnSyncEClkSourceEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN-SYNCE-MIB",
+        "object": "tnSyncEClkSourceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnSyncEClkSourceIndex": {
+    "name": "tnSyncEClkSourceIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnSyncEConfPort": {
+    "name": "tnSyncEConfPort",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSyncEConfSSMOverwrite": {
+    "name": "tnSyncEConfSSMOverwrite",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "prc": 1,
+          "ssua": 2,
+          "ssub": 3,
+          "eec2": 4,
+          "eec1": 5,
+          "dnu": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSyncEConfHoldOff": {
+    "name": "tnSyncEConfHoldOff",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSyncEConfANEG": {
+    "name": "tnSyncEConfANEG",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "slave": 1,
+          "master": 2,
+          "forced": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSyncEPriority": {
+    "name": "tnSyncEPriority",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSyncEClear": {
+    "name": "tnSyncEClear",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSyncEAlarmStateLOCS": {
+    "name": "tnSyncEAlarmStateLOCS",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnSyncEAlarmStateSSM": {
+    "name": "tnSyncEAlarmStateSSM",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnSyncEAlarmStateWTR": {
+    "name": "tnSyncEAlarmStateWTR",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnSyncENominated": {
+    "name": "tnSyncENominated",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSyncEPortTable": {
+    "name": "tnSyncEPortTable",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnSyncEPortEntry": {
+    "name": "tnSyncEPortEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN-SYNCE-MIB",
+        "object": "tnSyncEStatePortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnSyncEStatePortIndex": {
+    "name": "tnSyncEStatePortIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnSyncEStateTxSSM": {
+    "name": "tnSyncEStateTxSSM",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "prc": 1,
+          "ssua": 2,
+          "ssub": 3,
+          "dnu": 4,
+          "eec2": 5,
+          "eec1": 6,
+          "inv": 7,
+          "fail": 8,
+          "link": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnSyncEStateRxSSM": {
+    "name": "tnSyncEStateRxSSM",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "prc": 1,
+          "ssua": 2,
+          "ssub": 3,
+          "dnu": 4,
+          "eec2": 5,
+          "eec1": 6,
+          "inv": 7,
+          "fail": 8,
+          "link": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnSyncEStateSSMMode": {
+    "name": "tnSyncEStateSSMMode",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnSyncESSMEnabled": {
+    "name": "tnSyncESSMEnabled",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSyncEExtTable": {
+    "name": "tnSyncEExtTable",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnSyncEExtEntry": {
+    "name": "tnSyncEExtEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnSyncEExtInState": {
+    "name": "tnSyncEExtInState",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSyncEExtOutState": {
+    "name": "tnSyncEExtOutState",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSyncEExtInFreq": {
+    "name": "tnSyncEExtInFreq",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "f8kHz": 1,
+          "f64kHz": 2,
+          "f1544kHz": 3,
+          "f2048kHz": 4,
+          "f10000kHz": 5,
+          "f19440kHz": 6,
+          "f25Mhz": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSyncEExtOutFreq": {
+    "name": "tnSyncEExtOutFreq",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "f8kHz": 1,
+          "f64kHz": 2,
+          "f1544kHz": 3,
+          "f2048kHz": 4,
+          "f10000kHz": 5,
+          "f19440kHz": 6,
+          "f25Mhz": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSyncEExtImpedance": {
+    "name": "tnSyncEExtImpedance",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "imp50": 1,
+          "imp75": 2,
+          "hi-Z": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSyncEActualInFreq": {
+    "name": "tnSyncEActualInFreq",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnSyncEActualOutFreq": {
+    "name": "tnSyncEActualOutFreq",
+    "oid": "1.3.6.1.4.1.868.2.5.122.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-SYNCE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-SYNCE-MIB"
+  }
+}

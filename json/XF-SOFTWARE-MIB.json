@@ -1,0 +1,1220 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "Counter32",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "DisplayString"
+    ],
+    "XF-TOP-MIB": [
+      "xfPlatform",
+      "XfProductRevision",
+      "XfProductnumber"
+    ]
+  },
+  "xfSoftwareMIB": {
+    "name": "xfSoftwareMIB",
+    "oid": "1.3.6.1.4.1.193.81.2.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-03-05 18:03",
+        "description": "N : Removed BITS"
+      },
+      {
+        "revision": "2007-11-26 12:44",
+        "description": "M Extended xfSwLmUpgradeOperStatus and xfSwReleaseOperStatus with ftp error codes"
+      },
+      {
+        "revision": "2007-06-11 09:12",
+        "description": " K added preparingForTest(9) to xfSwGlobalState"
+      },
+      {
+        "revision": "2007-04-10 09:09",
+        "description": "J Added extra value testingFromManual(8) to xfSwReleaseOperStatus Added xfSwGlobalState "
+      },
+      {
+        "revision": "2003-06-19 10:30",
+        "description": "D Changed description of xfSwNpuPassiveSwitch to state that a warm restart is required to activate the fallback Added noFailure(3) to xfSwLoadModuleFailure"
+      },
+      {
+        "revision": "2002-03-08 08:41",
+        "description": "C Changed contact info Added one state to the xfSWBoardStatus Added objects for multiple load modules per board and type of the load module. "
+      },
+      {
+        "revision": "2002-01-14 09:11",
+        "description": "B write to xfSwReleaseAdminStatus for active release has no effect Added conformance Change syntax for product number and revision Change name to xfSwBoardStatus"
+      },
+      {
+        "revision": "2001-10-10 12:15",
+        "description": "A Initial Revision"
+      },
+      {
+        "revision": "2004-01-30 13:51",
+        "description": "E Added objects for progress indication, Better fault indication. New release handling."
+      },
+      {
+        "revision": "2004-08-03 08:23",
+        "description": "F due to new scope in Neptune removed ..AdditionalInfo, xfSwLmUpgradeNewProductNumber and xfSwLmUpgrade/xfSwLoadModuleDescription. added xfSwReleaseSBLType and xfBoardTrafficDisturbance changed the values of xfSwLmUpgradeOper and AdminStatus. Removed not used values and removed 'holes' in the enum values."
+      },
+      {
+        "revision": "2005-01-31 08:26",
+        "description": "G Added xfSwLoadModuleDescription, minSoftwareRevision(5)to xfSwBoardStatus and xfSuLmUpgradeDescription"
+      },
+      {
+        "revision": "2005-02-09 08:13",
+        "description": "H reintroduced xfSwBoardLoadModuleIndex as index"
+      }
+    ]
+  },
+  "XfSwRelease": {
+    "name": "XfSwRelease",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "XfSwEnableDisable": {
+    "name": "XfSwEnableDisable",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "xfSwObjects": {
+    "name": "xfSwObjects",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1",
+    "class": "objectidentity"
+  },
+  "xfSwLoadModuleTable": {
+    "name": "xfSwLoadModuleTable",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfSwLoadModuleEntry": {
+    "name": "xfSwLoadModuleEntry",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwRelease",
+        "implied": 0
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwLoadModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfSwRelease": {
+    "name": "xfSwRelease",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XfSwRelease",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwLoadModuleIndex": {
+    "name": "xfSwLoadModuleIndex",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwLoadModuleProductNumber": {
+    "name": "xfSwLoadModuleProductNumber",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XfProductnumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwLoadModuleRevision": {
+    "name": "xfSwLoadModuleRevision",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XfProductRevision",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwLoadModuleOperStatus": {
+    "name": "xfSwLoadModuleOperStatus",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "passive": 1,
+          "upgradeStarted": 2,
+          "upgradeFinished": 3,
+          "upgradeFailed": 4,
+          "upgradeAborted": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwLoadModuleFailure": {
+    "name": "xfSwLoadModuleFailure",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "downloadFailure": 1,
+          "programFailure": 2,
+          "noFailure": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwLoadModuleProgress": {
+    "name": "xfSwLoadModuleProgress",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwLoadModuleDescription": {
+    "name": "xfSwLoadModuleDescription",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwReleaseTable": {
+    "name": "xfSwReleaseTable",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfSwReleaseEntry": {
+    "name": "xfSwReleaseEntry",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwReleaseIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfSwReleaseIndex": {
+    "name": "xfSwReleaseIndex",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XfSwRelease",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwReleaseProductNumber": {
+    "name": "xfSwReleaseProductNumber",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XfProductnumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfSwReleaseRevision": {
+    "name": "xfSwReleaseRevision",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XfProductRevision",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfSwReleaseAdminStatus": {
+    "name": "xfSwReleaseAdminStatus",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "upgradeStarted": 1,
+          "upgradeAborted": 2,
+          "activeAndRunning": 5,
+          "upgradeTest": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfSwReleaseOperStatus": {
+    "name": "xfSwReleaseOperStatus",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "passive": 1,
+          "upgradeStarted": 2,
+          "upgradeFinished": 3,
+          "testing": 4,
+          "upgradeFailed": 5,
+          "upgradeAborted": 6,
+          "running": 7,
+          "testingFromManual": 8,
+          "errorInternal": 50,
+          "errorFileStorage": 51,
+          "ftpPingFailed": 52,
+          "ftpNoAccess": 53,
+          "ftpConnectionDetailsMissing": 54,
+          "ftpConnectionDetailsInvalid": 55,
+          "ftpConnectionTimeout": 56,
+          "ftpNoSuchRemoteFile": 57,
+          "ftpNoSuchRemoteDir": 58,
+          "ftpServiceNotAvailable": 421,
+          "ftpUnableToOpenDataConnection": 425,
+          "ftpConnectionClosed": 426,
+          "ftpFileBusy": 450,
+          "ftpLocalError": 451,
+          "ftpInsufficientStorageSpace": 452,
+          "ftpSyntaxError": 501,
+          "ftpCommandNotImplemented": 502,
+          "ftpBadSequenceCommands": 503,
+          "ftpParameterNotImplemented": 504,
+          "ftpNoLoggedIn": 530,
+          "ftpNeedAccount": 532,
+          "ftpFileUnavailable": 550,
+          "ftpExceededStorageAllocation": 552,
+          "ftpFileNameNotAllowed": 553
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwReleaseSBLType": {
+    "name": "xfSwReleaseSBLType",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "definedByEricsson": 1,
+          "definedByOperator": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwActiveRelease": {
+    "name": "xfSwActiveRelease",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XfSwRelease",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwBootTime": {
+    "name": "xfSwBootTime",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfSwCommitType": {
+    "name": "xfSwCommitType",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "operatorCommit": 1,
+          "nodeCommit": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfSwBoardTable": {
+    "name": "xfSwBoardTable",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfSwBoardEntry": {
+    "name": "xfSwBoardEntry",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwLoadModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfSwBoardLoadModuleIndex": {
+    "name": "xfSwBoardLoadModuleIndex",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwBoardLoadModuleType": {
+    "name": "xfSwBoardLoadModuleType",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "xfSwBoardProductNumber": {
+    "name": "xfSwBoardProductNumber",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XfProductnumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwBoardRevision": {
+    "name": "xfSwBoardRevision",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XfProductRevision",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwBoardStatus": {
+    "name": "xfSwBoardStatus",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "active": 2,
+          "upgrading": 3,
+          "wrongSoftware": 4,
+          "minSoftwareRevision": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwBoardSuProgress": {
+    "name": "xfSwBoardSuProgress",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwBoardMinProductNumber": {
+    "name": "xfSwBoardMinProductNumber",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XfProductnumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwBoardMinRevision": {
+    "name": "xfSwBoardMinRevision",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XfProductRevision",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwBoardTrafficDisturbance": {
+    "name": "xfSwBoardTrafficDisturbance",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "disturbing": 2,
+          "notDisturbing": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwNpuObjects": {
+    "name": "xfSwNpuObjects",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.7",
+    "class": "objectidentity"
+  },
+  "xfSwNpuPassiveProductNumber": {
+    "name": "xfSwNpuPassiveProductNumber",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XfProductnumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwNpuPassiveRevision": {
+    "name": "xfSwNpuPassiveRevision",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XfProductRevision",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwNpuPassiveSwitch": {
+    "name": "xfSwNpuPassiveSwitch",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switch": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfSwLoadModuleTypes": {
+    "name": "xfSwLoadModuleTypes",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.8",
+    "class": "objectidentity"
+  },
+  "xfDeviceProcessorSoftware": {
+    "name": "xfDeviceProcessorSoftware",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.8.1",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "xfPciFpgaCode": {
+    "name": "xfPciFpgaCode",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.8.2",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "xfSwUpgradePreferences": {
+    "name": "xfSwUpgradePreferences",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.9",
+    "class": "objectidentity"
+  },
+  "xfSwVersionControl": {
+    "name": "xfSwVersionControl",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XfSwEnableDisable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfSwAutoUpgrade": {
+    "name": "xfSwAutoUpgrade",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XfSwEnableDisable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfSwAutoDowngrade": {
+    "name": "xfSwAutoDowngrade",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XfSwEnableDisable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfSwAcceptFailure": {
+    "name": "xfSwAcceptFailure",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XfSwEnableDisable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfSwLmUpgradeTable": {
+    "name": "xfSwLmUpgradeTable",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfSwLmUpgradeEntry": {
+    "name": "xfSwLmUpgradeEntry",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwLmUpgradeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfSwLmUpgradeIndex": {
+    "name": "xfSwLmUpgradeIndex",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwLmUpgradeProductNumber": {
+    "name": "xfSwLmUpgradeProductNumber",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XfProductnumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwLmUpgradeRevision": {
+    "name": "xfSwLmUpgradeRevision",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XfProductRevision",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfSwLmUpgradeAdminStatus": {
+    "name": "xfSwLmUpgradeAdminStatus",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "upgradeStarted": 1,
+          "upgradeAborted": 2,
+          "activeAndRunning": 3,
+          "upgradeTest": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfSwLmUpgradeOperStatus": {
+    "name": "xfSwLmUpgradeOperStatus",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "upgradeStarted": 2,
+          "upgradeFinished": 3,
+          "upgradeTested": 4,
+          "upgradeFailed": 5,
+          "upgradeAborted": 6,
+          "errorInternalError": 50,
+          "errorFileStorage": 51,
+          "ftpPingFailed": 52,
+          "ftpNoAccess": 53,
+          "ftpConnectionDetailsMissing": 54,
+          "ftpConnectionDetailsInvalid": 55,
+          "ftpConnectionTimeout": 56,
+          "ftpNoSuchRemoteFile": 57,
+          "ftpNoSuchRemoteDir": 58,
+          "ftpServiceNotAvailable": 421,
+          "ftpUnableToOpenDataConnection": 425,
+          "ftpConnectionClosed": 426,
+          "ftpFileBusy": 450,
+          "ftpLocalError": 451,
+          "ftpInsufficienStorageSpace": 452,
+          "ftpSyntaxError": 501,
+          "ftpCommandNotImplemented": 502,
+          "ftpBadSequenceCommands": 503,
+          "ftpParameterNotImplemented": 504,
+          "ftpNotLoggedIn": 530,
+          "ftpNeedAccount": 532,
+          "ftpFileUnavailable": 550,
+          "ftpExceededStorageAllocation": 552,
+          "ftpFileNameNotAllowed": 553
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwLmUpgradeProgress": {
+    "name": "xfSwLmUpgradeProgress",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwLmUpgradeFailure": {
+    "name": "xfSwLmUpgradeFailure",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "downloadFailure": 1,
+          "programFailure": 2,
+          "noFailure": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwLmUpgradeDescription": {
+    "name": "xfSwLmUpgradeDescription",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwGlobalState": {
+    "name": "xfSwGlobalState",
+    "oid": "1.3.6.1.4.1.193.81.2.7.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "noUpgrade": 0,
+        "sblStarted": 1,
+        "sblWaitForActivate": 2,
+        "sblWaitForCommit": 3,
+        "manualStarted": 4,
+        "manualWaitForActivate": 5,
+        "manualWaitForCommit": 6,
+        "unitUpgrade": 7,
+        "cachingLoadModules": 8,
+        "preparingForTest": 9
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfSwConformance": {
+    "name": "xfSwConformance",
+    "oid": "1.3.6.1.4.1.193.81.2.7.2",
+    "class": "objectidentity"
+  },
+  "xfSwCompliances": {
+    "name": "xfSwCompliances",
+    "oid": "1.3.6.1.4.1.193.81.2.7.2.1",
+    "class": "objectidentity"
+  },
+  "xfSwFullCompliance": {
+    "name": "xfSwFullCompliance",
+    "oid": "1.3.6.1.4.1.193.81.2.7.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "xfSwGroup",
+        "module": "XF-SOFTWARE-MIB"
+      },
+      {
+        "object": "xSwGroupR2",
+        "module": "XF-SOFTWARE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "xfSwGroups": {
+    "name": "xfSwGroups",
+    "oid": "1.3.6.1.4.1.193.81.2.7.2.2",
+    "class": "objectidentity"
+  },
+  "xfSwGroup": {
+    "name": "xfSwGroup",
+    "oid": "1.3.6.1.4.1.193.81.2.7.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwRelease"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwLoadModuleIndex"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwLoadModuleProductNumber"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwLoadModuleRevision"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwLoadModuleOperStatus"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwReleaseIndex"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwReleaseProductNumber"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwReleaseRevision"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwReleaseAdminStatus"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwReleaseOperStatus"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwActiveRelease"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwBootTime"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwCommitType"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwBoardProductNumber"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwBoardRevision"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwNpuPassiveProductNumber"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwNpuPassiveSwitch"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwLoadModuleFailure"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwNpuPassiveRevision"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwBoardStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "xSwGroupR2": {
+    "name": "xSwGroupR2",
+    "oid": "1.3.6.1.4.1.193.81.2.7.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwBoardSuProgress"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwLmUpgradeIndex"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwLmUpgradeProductNumber"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwLmUpgradeRevision"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwLmUpgradeAdminStatus"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwLmUpgradeOperStatus"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwBoardMinProductNumber"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwBoardMinRevision"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwVersionControl"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwLoadModuleProgress"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwLmUpgradeFailure"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwBoardTrafficDisturbance"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwReleaseSBLType"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwLmUpgradeProgress"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwAutoUpgrade"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwAutoDowngrade"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwGlobalState"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwAcceptFailure"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwLoadModuleDescription"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwLmUpgradeDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "xfSwObsoleteGroup": {
+    "name": "xfSwObsoleteGroup",
+    "oid": "1.3.6.1.4.1.193.81.2.7.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwBoardLoadModuleIndex"
+      },
+      {
+        "module": "XF-SOFTWARE-MIB",
+        "object": "xfSwBoardLoadModuleType"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/XF-SOFTWARE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:31 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "XF-SOFTWARE-MIB"
+  }
+}

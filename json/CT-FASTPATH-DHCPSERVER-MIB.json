@@ -1,0 +1,1258 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-MIB-NAMES": [
+      "ctDhcpServerExpMib"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "PhysAddress",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "StorageType",
+      "RowStatus",
+      "MacAddress",
+      "RowPointer"
+    ]
+  },
+  "ctFastPathDHCPServerMIB": {
+    "name": "ctFastPathDHCPServerMIB",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1",
+    "class": "moduleidentity"
+  },
+  "ctAgentDhcpServerGroup": {
+    "name": "ctAgentDhcpServerGroup",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.1",
+    "class": "objectidentity"
+  },
+  "ctAgentDhcpServerAdminMode": {
+    "name": "ctAgentDhcpServerAdminMode",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPingPktNos": {
+    "name": "ctAgentDhcpServerPingPktNos",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerAutomaticBindingsNos": {
+    "name": "ctAgentDhcpServerAutomaticBindingsNos",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerExpiredBindingsNos": {
+    "name": "ctAgentDhcpServerExpiredBindingsNos",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerMalformedMessagesReceived": {
+    "name": "ctAgentDhcpServerMalformedMessagesReceived",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerDISCOVERMessagesReceived": {
+    "name": "ctAgentDhcpServerDISCOVERMessagesReceived",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerREQUESTMessagesReceived": {
+    "name": "ctAgentDhcpServerREQUESTMessagesReceived",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerDECLINEMessagesReceived": {
+    "name": "ctAgentDhcpServerDECLINEMessagesReceived",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerRELEASEMessagesReceived": {
+    "name": "ctAgentDhcpServerRELEASEMessagesReceived",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerINFORMMessagesReceived": {
+    "name": "ctAgentDhcpServerINFORMMessagesReceived",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerOFFERMessagesSent": {
+    "name": "ctAgentDhcpServerOFFERMessagesSent",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerACKMessagesSent": {
+    "name": "ctAgentDhcpServerACKMessagesSent",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerNAKMessagesSent": {
+    "name": "ctAgentDhcpServerNAKMessagesSent",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerClearStatistics": {
+    "name": "ctAgentDhcpServerClearStatistics",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerBootpAutomatic": {
+    "name": "ctAgentDhcpServerBootpAutomatic",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolConfigGroup": {
+    "name": "ctAgentDhcpServerPoolConfigGroup",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2",
+    "class": "objectidentity"
+  },
+  "ctAgentDhcpServerPoolNameCreate": {
+    "name": "ctAgentDhcpServerPoolNameCreate",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolConfigTable": {
+    "name": "ctAgentDhcpServerPoolConfigTable",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolConfigEntry": {
+    "name": "ctAgentDhcpServerPoolConfigEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CT-FASTPATH-DHCPSERVER-MIB",
+        "object": "ctAgentDhcpServerPoolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolIndex": {
+    "name": "ctAgentDhcpServerPoolIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolName": {
+    "name": "ctAgentDhcpServerPoolName",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolDefRouter": {
+    "name": "ctAgentDhcpServerPoolDefRouter",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolDNSServer": {
+    "name": "ctAgentDhcpServerPoolDNSServer",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolLeaseTime": {
+    "name": "ctAgentDhcpServerPoolLeaseTime",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolType": {
+    "name": "ctAgentDhcpServerPoolType",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "un-allocated": 0,
+          "dynamic": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolNetbiosNameServer": {
+    "name": "ctAgentDhcpServerPoolNetbiosNameServer",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolNetbiosNodeType": {
+    "name": "ctAgentDhcpServerPoolNetbiosNodeType",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "b-node": 1,
+          "p-node": 2,
+          "m-node": 4,
+          "h-node": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolNextServer": {
+    "name": "ctAgentDhcpServerPoolNextServer",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolDomainName": {
+    "name": "ctAgentDhcpServerPoolDomainName",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolBootfile": {
+    "name": "ctAgentDhcpServerPoolBootfile",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolRowStatus": {
+    "name": "ctAgentDhcpServerPoolRowStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolAllocationTable": {
+    "name": "ctAgentDhcpServerPoolAllocationTable",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolAllocationEntry": {
+    "name": "ctAgentDhcpServerPoolAllocationEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ctAgentDhcpServerPoolAllocationEntry",
+      "module": "CT-FASTPATH-DHCPSERVER-MIB",
+      "object": "ctAgentDhcpServerPoolConfigEntry"
+    },
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolAllocationName": {
+    "name": "ctAgentDhcpServerPoolAllocationName",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerDynamicPoolIpAddress": {
+    "name": "ctAgentDhcpServerDynamicPoolIpAddress",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerDynamicPoolIpMask": {
+    "name": "ctAgentDhcpServerDynamicPoolIpMask",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerDynamicPoolIpPrefixLength": {
+    "name": "ctAgentDhcpServerDynamicPoolIpPrefixLength",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolAllocationType": {
+    "name": "ctAgentDhcpServerPoolAllocationType",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "un-allocated": 0,
+          "dynamic": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerManualPoolClientIdentifier": {
+    "name": "ctAgentDhcpServerManualPoolClientIdentifier",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerManualPoolClientName": {
+    "name": "ctAgentDhcpServerManualPoolClientName",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerManualPoolClientHWAddr": {
+    "name": "ctAgentDhcpServerManualPoolClientHWAddr",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerManualPoolClientHWType": {
+    "name": "ctAgentDhcpServerManualPoolClientHWType",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet": 1,
+          "ieee802": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ethernet",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerManualPoolIpAddress": {
+    "name": "ctAgentDhcpServerManualPoolIpAddress",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerManualPoolIpMask": {
+    "name": "ctAgentDhcpServerManualPoolIpMask",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerManualPoolIpPrefixLength": {
+    "name": "ctAgentDhcpServerManualPoolIpPrefixLength",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerExcludedAddressRangeCreate": {
+    "name": "ctAgentDhcpServerExcludedAddressRangeCreate",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerExcludedAddressRangeTable": {
+    "name": "ctAgentDhcpServerExcludedAddressRangeTable",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctAgentDhcpServerExcludedAddressRangeEntry": {
+    "name": "ctAgentDhcpServerExcludedAddressRangeEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CT-FASTPATH-DHCPSERVER-MIB",
+        "object": "ctAgentDhcpServerExcludedRangeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctAgentDhcpServerExcludedRangeIndex": {
+    "name": "ctAgentDhcpServerExcludedRangeIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerExcludedStartIpAddress": {
+    "name": "ctAgentDhcpServerExcludedStartIpAddress",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerExcludedEndIpAddress": {
+    "name": "ctAgentDhcpServerExcludedEndIpAddress",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerExcludedAddressRangeStatus": {
+    "name": "ctAgentDhcpServerExcludedAddressRangeStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolOptionCreate": {
+    "name": "ctAgentDhcpServerPoolOptionCreate",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolOptionTable": {
+    "name": "ctAgentDhcpServerPoolOptionTable",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolOptionEntry": {
+    "name": "ctAgentDhcpServerPoolOptionEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CT-FASTPATH-DHCPSERVER-MIB",
+        "object": "ctAgentDhcpServerPoolOptionIndex",
+        "implied": 0
+      },
+      {
+        "module": "CT-FASTPATH-DHCPSERVER-MIB",
+        "object": "ctAgentDhcpServerPoolOptionCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolOptionIndex": {
+    "name": "ctAgentDhcpServerPoolOptionIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolOptionCode": {
+    "name": "ctAgentDhcpServerPoolOptionCode",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerOptionPoolName": {
+    "name": "ctAgentDhcpServerOptionPoolName",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolOptionAsciiData": {
+    "name": "ctAgentDhcpServerPoolOptionAsciiData",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 441
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolOptionHexData": {
+    "name": "ctAgentDhcpServerPoolOptionHexData",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1324
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolOptionIpAddressData": {
+    "name": "ctAgentDhcpServerPoolOptionIpAddressData",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerPoolOptionStatus": {
+    "name": "ctAgentDhcpServerPoolOptionStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerLeaseGroup": {
+    "name": "ctAgentDhcpServerLeaseGroup",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.3",
+    "class": "objectidentity"
+  },
+  "ctAgentDhcpServerLeaseClearAllBindings": {
+    "name": "ctAgentDhcpServerLeaseClearAllBindings",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerLeaseTable": {
+    "name": "ctAgentDhcpServerLeaseTable",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctAgentDhcpServerLeaseEntry": {
+    "name": "ctAgentDhcpServerLeaseEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CT-FASTPATH-DHCPSERVER-MIB",
+        "object": "ctAgentDhcpServerLeaseIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctAgentDhcpServerLeaseIPAddress": {
+    "name": "ctAgentDhcpServerLeaseIPAddress",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerLeaseIPMask": {
+    "name": "ctAgentDhcpServerLeaseIPMask",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerLeaseHWAddress": {
+    "name": "ctAgentDhcpServerLeaseHWAddress",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerLeaseRemainingTime": {
+    "name": "ctAgentDhcpServerLeaseRemainingTime",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerLeaseType": {
+    "name": "ctAgentDhcpServerLeaseType",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "automatic": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerLeaseStatus": {
+    "name": "ctAgentDhcpServerLeaseStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerAddressConflictGroup": {
+    "name": "ctAgentDhcpServerAddressConflictGroup",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.4",
+    "class": "objectidentity"
+  },
+  "ctAgentDhcpServerClearAllAddressConflicts": {
+    "name": "ctAgentDhcpServerClearAllAddressConflicts",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerAddressConflictLogging": {
+    "name": "ctAgentDhcpServerAddressConflictLogging",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctAgentDhcpServerAddressConflictTable": {
+    "name": "ctAgentDhcpServerAddressConflictTable",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctAgentDhcpServerAddressConflictEntry": {
+    "name": "ctAgentDhcpServerAddressConflictEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CT-FASTPATH-DHCPSERVER-MIB",
+        "object": "ctAgentDhcpServerAddressConflictIP",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctAgentDhcpServerAddressConflictIP": {
+    "name": "ctAgentDhcpServerAddressConflictIP",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerAddressConflictDetectionType": {
+    "name": "ctAgentDhcpServerAddressConflictDetectionType",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ping": 1,
+          "gratuitousArp": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerAddressConflictDetectionTime": {
+    "name": "ctAgentDhcpServerAddressConflictDetectionTime",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctAgentDhcpServerAddressConflictStatus": {
+    "name": "ctAgentDhcpServerAddressConflictStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.32.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CT-FASTPATH-DHCPSERVER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CT-FASTPATH-DHCPSERVER-MIB"
+  }
+}

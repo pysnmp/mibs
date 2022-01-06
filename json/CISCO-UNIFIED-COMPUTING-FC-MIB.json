@@ -1,0 +1,3302 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoInetAddressMask",
+      "Unsigned64",
+      "CiscoNetworkAddress",
+      "TimeIntervalSec",
+      "CiscoAlarmSeverity"
+    ],
+    "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectId",
+      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectDn"
+    ],
+    "CISCO-UNIFIED-COMPUTING-TC-MIB": [
+      "CucsFabricAdminState",
+      "CucsNetworkPortRole",
+      "CucsNetworkLocale",
+      "CucsNetworkTransport",
+      "CucsFcPIoFsmStageName",
+      "CucsPortEncap",
+      "CucsLicenseState",
+      "CucsNetworkConnectionType",
+      "CucsFcStatsHistThresholded",
+      "CucsFcErrStatsThresholded",
+      "CucsFsmLifecycle",
+      "CucsEquipmentXcvrType",
+      "CucsFcPIoFsmCurrentFsm",
+      "CucsFsmFsmStageStatus",
+      "CucsConditionRemoteInvRslt",
+      "CucsNetworkSwitchId",
+      "CucsFcErrStatsHistThresholded",
+      "CucsNetworkPhysEpIfType",
+      "CucsFcStatsThresholded",
+      "CucsPortSpeed",
+      "CucsPortMode",
+      "CucsNetworkPortOperState"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6",
+      "InetAddressIPv4"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "RowPointer",
+      "TimeInterval",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cucsFcObjects": {
+    "name": "cucsFcObjects",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20",
+    "class": "moduleidentity"
+  },
+  "cucsFcErrStatsTable": {
+    "name": "cucsFcErrStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFcErrStatsEntry": {
+    "name": "cucsFcErrStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-FC-MIB",
+        "object": "cucsFcErrStatsInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsFcErrStatsInstanceId": {
+    "name": "cucsFcErrStatsInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFcErrStatsDn": {
+    "name": "cucsFcErrStatsDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsRn": {
+    "name": "cucsFcErrStatsRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsCrcRx": {
+    "name": "cucsFcErrStatsCrcRx",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsCrcRxDelta": {
+    "name": "cucsFcErrStatsCrcRxDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsCrcRxDeltaAvg": {
+    "name": "cucsFcErrStatsCrcRxDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsCrcRxDeltaMax": {
+    "name": "cucsFcErrStatsCrcRxDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsCrcRxDeltaMin": {
+    "name": "cucsFcErrStatsCrcRxDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsDiscardRx": {
+    "name": "cucsFcErrStatsDiscardRx",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsDiscardRxDelta": {
+    "name": "cucsFcErrStatsDiscardRxDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsDiscardRxDeltaAvg": {
+    "name": "cucsFcErrStatsDiscardRxDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsDiscardRxDeltaMax": {
+    "name": "cucsFcErrStatsDiscardRxDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsDiscardRxDeltaMin": {
+    "name": "cucsFcErrStatsDiscardRxDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsDiscardTx": {
+    "name": "cucsFcErrStatsDiscardTx",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsDiscardTxDelta": {
+    "name": "cucsFcErrStatsDiscardTxDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsDiscardTxDeltaAvg": {
+    "name": "cucsFcErrStatsDiscardTxDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsDiscardTxDeltaMax": {
+    "name": "cucsFcErrStatsDiscardTxDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsDiscardTxDeltaMin": {
+    "name": "cucsFcErrStatsDiscardTxDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsIntervals": {
+    "name": "cucsFcErrStatsIntervals",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsLinkFailures": {
+    "name": "cucsFcErrStatsLinkFailures",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsLinkFailuresDelta": {
+    "name": "cucsFcErrStatsLinkFailuresDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsLinkFailuresDeltaAvg": {
+    "name": "cucsFcErrStatsLinkFailuresDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsLinkFailuresDeltaMax": {
+    "name": "cucsFcErrStatsLinkFailuresDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsLinkFailuresDeltaMin": {
+    "name": "cucsFcErrStatsLinkFailuresDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsRx": {
+    "name": "cucsFcErrStatsRx",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsRxDelta": {
+    "name": "cucsFcErrStatsRxDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsRxDeltaAvg": {
+    "name": "cucsFcErrStatsRxDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsRxDeltaMax": {
+    "name": "cucsFcErrStatsRxDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsRxDeltaMin": {
+    "name": "cucsFcErrStatsRxDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsSignalLosses": {
+    "name": "cucsFcErrStatsSignalLosses",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsSignalLossesDelta": {
+    "name": "cucsFcErrStatsSignalLossesDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsSignalLossesDeltaAvg": {
+    "name": "cucsFcErrStatsSignalLossesDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsSignalLossesDeltaMax": {
+    "name": "cucsFcErrStatsSignalLossesDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsSignalLossesDeltaMin": {
+    "name": "cucsFcErrStatsSignalLossesDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsSuspect": {
+    "name": "cucsFcErrStatsSuspect",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsSyncLosses": {
+    "name": "cucsFcErrStatsSyncLosses",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsSyncLossesDelta": {
+    "name": "cucsFcErrStatsSyncLossesDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsSyncLossesDeltaAvg": {
+    "name": "cucsFcErrStatsSyncLossesDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsSyncLossesDeltaMax": {
+    "name": "cucsFcErrStatsSyncLossesDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsSyncLossesDeltaMin": {
+    "name": "cucsFcErrStatsSyncLossesDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsThresholded": {
+    "name": "cucsFcErrStatsThresholded",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFcErrStatsThresholded",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsTimeCollected": {
+    "name": "cucsFcErrStatsTimeCollected",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsTooLongRx": {
+    "name": "cucsFcErrStatsTooLongRx",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsTooLongRxDelta": {
+    "name": "cucsFcErrStatsTooLongRxDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsTooLongRxDeltaAvg": {
+    "name": "cucsFcErrStatsTooLongRxDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsTooLongRxDeltaMax": {
+    "name": "cucsFcErrStatsTooLongRxDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsTooLongRxDeltaMin": {
+    "name": "cucsFcErrStatsTooLongRxDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsTooShortRx": {
+    "name": "cucsFcErrStatsTooShortRx",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsTooShortRxDelta": {
+    "name": "cucsFcErrStatsTooShortRxDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsTooShortRxDeltaAvg": {
+    "name": "cucsFcErrStatsTooShortRxDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsTooShortRxDeltaMax": {
+    "name": "cucsFcErrStatsTooShortRxDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsTooShortRxDeltaMin": {
+    "name": "cucsFcErrStatsTooShortRxDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsTx": {
+    "name": "cucsFcErrStatsTx",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsTxDelta": {
+    "name": "cucsFcErrStatsTxDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsTxDeltaAvg": {
+    "name": "cucsFcErrStatsTxDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsTxDeltaMax": {
+    "name": "cucsFcErrStatsTxDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsTxDeltaMin": {
+    "name": "cucsFcErrStatsTxDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsUpdate": {
+    "name": "cucsFcErrStatsUpdate",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistTable": {
+    "name": "cucsFcErrStatsHistTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistEntry": {
+    "name": "cucsFcErrStatsHistEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-FC-MIB",
+        "object": "cucsFcErrStatsHistInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsFcErrStatsHistInstanceId": {
+    "name": "cucsFcErrStatsHistInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistDn": {
+    "name": "cucsFcErrStatsHistDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistRn": {
+    "name": "cucsFcErrStatsHistRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistCrcRx": {
+    "name": "cucsFcErrStatsHistCrcRx",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistCrcRxDelta": {
+    "name": "cucsFcErrStatsHistCrcRxDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistCrcRxDeltaAvg": {
+    "name": "cucsFcErrStatsHistCrcRxDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistCrcRxDeltaMax": {
+    "name": "cucsFcErrStatsHistCrcRxDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistCrcRxDeltaMin": {
+    "name": "cucsFcErrStatsHistCrcRxDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistDiscardRx": {
+    "name": "cucsFcErrStatsHistDiscardRx",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistDiscardRxDelta": {
+    "name": "cucsFcErrStatsHistDiscardRxDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistDiscardRxDeltaAvg": {
+    "name": "cucsFcErrStatsHistDiscardRxDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistDiscardRxDeltaMax": {
+    "name": "cucsFcErrStatsHistDiscardRxDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistDiscardRxDeltaMin": {
+    "name": "cucsFcErrStatsHistDiscardRxDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistDiscardTx": {
+    "name": "cucsFcErrStatsHistDiscardTx",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistDiscardTxDelta": {
+    "name": "cucsFcErrStatsHistDiscardTxDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistDiscardTxDeltaAvg": {
+    "name": "cucsFcErrStatsHistDiscardTxDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistDiscardTxDeltaMax": {
+    "name": "cucsFcErrStatsHistDiscardTxDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistDiscardTxDeltaMin": {
+    "name": "cucsFcErrStatsHistDiscardTxDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistId": {
+    "name": "cucsFcErrStatsHistId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistLinkFailures": {
+    "name": "cucsFcErrStatsHistLinkFailures",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistLinkFailuresDelta": {
+    "name": "cucsFcErrStatsHistLinkFailuresDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistLinkFailuresDeltaAvg": {
+    "name": "cucsFcErrStatsHistLinkFailuresDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistLinkFailuresDeltaMax": {
+    "name": "cucsFcErrStatsHistLinkFailuresDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistLinkFailuresDeltaMin": {
+    "name": "cucsFcErrStatsHistLinkFailuresDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistMostRecent": {
+    "name": "cucsFcErrStatsHistMostRecent",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistRx": {
+    "name": "cucsFcErrStatsHistRx",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistRxDelta": {
+    "name": "cucsFcErrStatsHistRxDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistRxDeltaAvg": {
+    "name": "cucsFcErrStatsHistRxDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistRxDeltaMax": {
+    "name": "cucsFcErrStatsHistRxDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistRxDeltaMin": {
+    "name": "cucsFcErrStatsHistRxDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistSignalLosses": {
+    "name": "cucsFcErrStatsHistSignalLosses",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistSignalLossesDelta": {
+    "name": "cucsFcErrStatsHistSignalLossesDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistSignalLossesDeltaAvg": {
+    "name": "cucsFcErrStatsHistSignalLossesDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistSignalLossesDeltaMax": {
+    "name": "cucsFcErrStatsHistSignalLossesDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistSignalLossesDeltaMin": {
+    "name": "cucsFcErrStatsHistSignalLossesDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistSuspect": {
+    "name": "cucsFcErrStatsHistSuspect",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistSyncLosses": {
+    "name": "cucsFcErrStatsHistSyncLosses",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistSyncLossesDelta": {
+    "name": "cucsFcErrStatsHistSyncLossesDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistSyncLossesDeltaAvg": {
+    "name": "cucsFcErrStatsHistSyncLossesDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistSyncLossesDeltaMax": {
+    "name": "cucsFcErrStatsHistSyncLossesDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistSyncLossesDeltaMin": {
+    "name": "cucsFcErrStatsHistSyncLossesDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistThresholded": {
+    "name": "cucsFcErrStatsHistThresholded",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFcErrStatsHistThresholded",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistTimeCollected": {
+    "name": "cucsFcErrStatsHistTimeCollected",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistTooLongRx": {
+    "name": "cucsFcErrStatsHistTooLongRx",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistTooLongRxDelta": {
+    "name": "cucsFcErrStatsHistTooLongRxDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistTooLongRxDeltaAvg": {
+    "name": "cucsFcErrStatsHistTooLongRxDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistTooLongRxDeltaMax": {
+    "name": "cucsFcErrStatsHistTooLongRxDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistTooLongRxDeltaMin": {
+    "name": "cucsFcErrStatsHistTooLongRxDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistTooShortRx": {
+    "name": "cucsFcErrStatsHistTooShortRx",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistTooShortRxDelta": {
+    "name": "cucsFcErrStatsHistTooShortRxDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistTooShortRxDeltaAvg": {
+    "name": "cucsFcErrStatsHistTooShortRxDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistTooShortRxDeltaMax": {
+    "name": "cucsFcErrStatsHistTooShortRxDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistTooShortRxDeltaMin": {
+    "name": "cucsFcErrStatsHistTooShortRxDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistTx": {
+    "name": "cucsFcErrStatsHistTx",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistTxDelta": {
+    "name": "cucsFcErrStatsHistTxDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistTxDeltaAvg": {
+    "name": "cucsFcErrStatsHistTxDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistTxDeltaMax": {
+    "name": "cucsFcErrStatsHistTxDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcErrStatsHistTxDeltaMin": {
+    "name": "cucsFcErrStatsHistTxDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.2.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcNicIfConfigTable": {
+    "name": "cucsFcNicIfConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFcNicIfConfigEntry": {
+    "name": "cucsFcNicIfConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-FC-MIB",
+        "object": "cucsFcNicIfConfigInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsFcNicIfConfigInstanceId": {
+    "name": "cucsFcNicIfConfigInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFcNicIfConfigDn": {
+    "name": "cucsFcNicIfConfigDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcNicIfConfigRn": {
+    "name": "cucsFcNicIfConfigRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoTable": {
+    "name": "cucsFcPIoTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFcPIoEntry": {
+    "name": "cucsFcPIoEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-FC-MIB",
+        "object": "cucsFcPIoInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsFcPIoInstanceId": {
+    "name": "cucsFcPIoInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFcPIoDn": {
+    "name": "cucsFcPIoDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoRn": {
+    "name": "cucsFcPIoRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoAdminState": {
+    "name": "cucsFcPIoAdminState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFabricAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoChassisId": {
+    "name": "cucsFcPIoChassisId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoEncap": {
+    "name": "cucsFcPIoEncap",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPortEncap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoEpDn": {
+    "name": "cucsFcPIoEpDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFltAggr": {
+    "name": "cucsFcPIoFltAggr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoIfRole": {
+    "name": "cucsFcPIoIfRole",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNetworkPortRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoIfType": {
+    "name": "cucsFcPIoIfType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNetworkPhysEpIfType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoLocale": {
+    "name": "cucsFcPIoLocale",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNetworkLocale",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoMode": {
+    "name": "cucsFcPIoMode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPortMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoModel": {
+    "name": "cucsFcPIoModel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoName": {
+    "name": "cucsFcPIoName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoOperSpeed": {
+    "name": "cucsFcPIoOperSpeed",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPortSpeed",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoOperState": {
+    "name": "cucsFcPIoOperState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNetworkPortOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoPeerDn": {
+    "name": "cucsFcPIoPeerDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoPeerPortId": {
+    "name": "cucsFcPIoPeerPortId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoPeerSlotId": {
+    "name": "cucsFcPIoPeerSlotId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoPortId": {
+    "name": "cucsFcPIoPortId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoRevision": {
+    "name": "cucsFcPIoRevision",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoSerial": {
+    "name": "cucsFcPIoSerial",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoSlotId": {
+    "name": "cucsFcPIoSlotId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoStateQual": {
+    "name": "cucsFcPIoStateQual",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoSwitchId": {
+    "name": "cucsFcPIoSwitchId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNetworkSwitchId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoTransport": {
+    "name": "cucsFcPIoTransport",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNetworkTransport",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoTs": {
+    "name": "cucsFcPIoTs",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoType": {
+    "name": "cucsFcPIoType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNetworkConnectionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoUsrLbl": {
+    "name": "cucsFcPIoUsrLbl",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoVendor": {
+    "name": "cucsFcPIoVendor",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoWwn": {
+    "name": "cucsFcPIoWwn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmDescr": {
+    "name": "cucsFcPIoFsmDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmPrev": {
+    "name": "cucsFcPIoFsmPrev",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmProgr": {
+    "name": "cucsFcPIoFsmProgr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmRmtInvErrCode": {
+    "name": "cucsFcPIoFsmRmtInvErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmRmtInvErrDescr": {
+    "name": "cucsFcPIoFsmRmtInvErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmRmtInvRslt": {
+    "name": "cucsFcPIoFsmRmtInvRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmStageDescr": {
+    "name": "cucsFcPIoFsmStageDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmStamp": {
+    "name": "cucsFcPIoFsmStamp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmStatus": {
+    "name": "cucsFcPIoFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmTry": {
+    "name": "cucsFcPIoFsmTry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoLicGP": {
+    "name": "cucsFcPIoLicGP",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoLicState": {
+    "name": "cucsFcPIoLicState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLicenseState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoXcvrType": {
+    "name": "cucsFcPIoXcvrType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentXcvrType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoPeerChassisId": {
+    "name": "cucsFcPIoPeerChassisId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoAdminTransport": {
+    "name": "cucsFcPIoAdminTransport",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNetworkTransport",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoLc": {
+    "name": "cucsFcPIoLc",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmLifecycle",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoUnifiedPort": {
+    "name": "cucsFcPIoUnifiedPort",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoMaxSpeed": {
+    "name": "cucsFcPIoMaxSpeed",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPortSpeed",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoIsPortChannelMember": {
+    "name": "cucsFcPIoIsPortChannelMember",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoAggrPortId": {
+    "name": "cucsFcPIoAggrPortId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoPeerAggrPortId": {
+    "name": "cucsFcPIoPeerAggrPortId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.4.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmTable": {
+    "name": "cucsFcPIoFsmTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFcPIoFsmEntry": {
+    "name": "cucsFcPIoFsmEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-FC-MIB",
+        "object": "cucsFcPIoFsmInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsFcPIoFsmInstanceId": {
+    "name": "cucsFcPIoFsmInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFcPIoFsmDn": {
+    "name": "cucsFcPIoFsmDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmRn": {
+    "name": "cucsFcPIoFsmRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmCompletionTime": {
+    "name": "cucsFcPIoFsmCompletionTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmCurrentFsm": {
+    "name": "cucsFcPIoFsmCurrentFsm",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFcPIoFsmCurrentFsm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmDescrData": {
+    "name": "cucsFcPIoFsmDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmFsmStatus": {
+    "name": "cucsFcPIoFsmFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmProgress": {
+    "name": "cucsFcPIoFsmProgress",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmRmtErrCode": {
+    "name": "cucsFcPIoFsmRmtErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmRmtErrDescr": {
+    "name": "cucsFcPIoFsmRmtErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmRmtRslt": {
+    "name": "cucsFcPIoFsmRmtRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmStageTable": {
+    "name": "cucsFcPIoFsmStageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFcPIoFsmStageEntry": {
+    "name": "cucsFcPIoFsmStageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-FC-MIB",
+        "object": "cucsFcPIoFsmStageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsFcPIoFsmStageInstanceId": {
+    "name": "cucsFcPIoFsmStageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFcPIoFsmStageDn": {
+    "name": "cucsFcPIoFsmStageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmStageRn": {
+    "name": "cucsFcPIoFsmStageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmStageDescrData": {
+    "name": "cucsFcPIoFsmStageDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmStageLastUpdateTime": {
+    "name": "cucsFcPIoFsmStageLastUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmStageName": {
+    "name": "cucsFcPIoFsmStageName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFcPIoFsmStageName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmStageOrder": {
+    "name": "cucsFcPIoFsmStageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmStageRetry": {
+    "name": "cucsFcPIoFsmStageRetry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcPIoFsmStageStageStatus": {
+    "name": "cucsFcPIoFsmStageStageStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsTable": {
+    "name": "cucsFcStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFcStatsEntry": {
+    "name": "cucsFcStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-FC-MIB",
+        "object": "cucsFcStatsInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsFcStatsInstanceId": {
+    "name": "cucsFcStatsInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFcStatsDn": {
+    "name": "cucsFcStatsDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsRn": {
+    "name": "cucsFcStatsRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsBytesRx": {
+    "name": "cucsFcStatsBytesRx",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsBytesRxDelta": {
+    "name": "cucsFcStatsBytesRxDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsBytesRxDeltaAvg": {
+    "name": "cucsFcStatsBytesRxDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsBytesRxDeltaMax": {
+    "name": "cucsFcStatsBytesRxDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsBytesRxDeltaMin": {
+    "name": "cucsFcStatsBytesRxDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsBytesTx": {
+    "name": "cucsFcStatsBytesTx",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsBytesTxDelta": {
+    "name": "cucsFcStatsBytesTxDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsBytesTxDeltaAvg": {
+    "name": "cucsFcStatsBytesTxDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsBytesTxDeltaMax": {
+    "name": "cucsFcStatsBytesTxDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsBytesTxDeltaMin": {
+    "name": "cucsFcStatsBytesTxDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsIntervals": {
+    "name": "cucsFcStatsIntervals",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsPacketsRx": {
+    "name": "cucsFcStatsPacketsRx",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsPacketsRxDelta": {
+    "name": "cucsFcStatsPacketsRxDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsPacketsRxDeltaAvg": {
+    "name": "cucsFcStatsPacketsRxDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsPacketsRxDeltaMax": {
+    "name": "cucsFcStatsPacketsRxDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsPacketsRxDeltaMin": {
+    "name": "cucsFcStatsPacketsRxDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsPacketsTx": {
+    "name": "cucsFcStatsPacketsTx",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsPacketsTxDelta": {
+    "name": "cucsFcStatsPacketsTxDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsPacketsTxDeltaAvg": {
+    "name": "cucsFcStatsPacketsTxDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsPacketsTxDeltaMax": {
+    "name": "cucsFcStatsPacketsTxDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsPacketsTxDeltaMin": {
+    "name": "cucsFcStatsPacketsTxDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsSuspect": {
+    "name": "cucsFcStatsSuspect",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsThresholded": {
+    "name": "cucsFcStatsThresholded",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFcStatsThresholded",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsTimeCollected": {
+    "name": "cucsFcStatsTimeCollected",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsUpdate": {
+    "name": "cucsFcStatsUpdate",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.5.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistTable": {
+    "name": "cucsFcStatsHistTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFcStatsHistEntry": {
+    "name": "cucsFcStatsHistEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-FC-MIB",
+        "object": "cucsFcStatsHistInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsFcStatsHistInstanceId": {
+    "name": "cucsFcStatsHistInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFcStatsHistDn": {
+    "name": "cucsFcStatsHistDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistRn": {
+    "name": "cucsFcStatsHistRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistBytesRx": {
+    "name": "cucsFcStatsHistBytesRx",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistBytesRxDelta": {
+    "name": "cucsFcStatsHistBytesRxDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistBytesRxDeltaAvg": {
+    "name": "cucsFcStatsHistBytesRxDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistBytesRxDeltaMax": {
+    "name": "cucsFcStatsHistBytesRxDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistBytesRxDeltaMin": {
+    "name": "cucsFcStatsHistBytesRxDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistBytesTx": {
+    "name": "cucsFcStatsHistBytesTx",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistBytesTxDelta": {
+    "name": "cucsFcStatsHistBytesTxDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistBytesTxDeltaAvg": {
+    "name": "cucsFcStatsHistBytesTxDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistBytesTxDeltaMax": {
+    "name": "cucsFcStatsHistBytesTxDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistBytesTxDeltaMin": {
+    "name": "cucsFcStatsHistBytesTxDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistId": {
+    "name": "cucsFcStatsHistId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistMostRecent": {
+    "name": "cucsFcStatsHistMostRecent",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistPacketsRx": {
+    "name": "cucsFcStatsHistPacketsRx",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistPacketsRxDelta": {
+    "name": "cucsFcStatsHistPacketsRxDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistPacketsRxDeltaAvg": {
+    "name": "cucsFcStatsHistPacketsRxDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistPacketsRxDeltaMax": {
+    "name": "cucsFcStatsHistPacketsRxDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistPacketsRxDeltaMin": {
+    "name": "cucsFcStatsHistPacketsRxDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistPacketsTx": {
+    "name": "cucsFcStatsHistPacketsTx",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistPacketsTxDelta": {
+    "name": "cucsFcStatsHistPacketsTxDelta",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistPacketsTxDeltaAvg": {
+    "name": "cucsFcStatsHistPacketsTxDeltaAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistPacketsTxDeltaMax": {
+    "name": "cucsFcStatsHistPacketsTxDeltaMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistPacketsTxDeltaMin": {
+    "name": "cucsFcStatsHistPacketsTxDeltaMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistSuspect": {
+    "name": "cucsFcStatsHistSuspect",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistThresholded": {
+    "name": "cucsFcStatsHistThresholded",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFcStatsHistThresholded",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcStatsHistTimeCollected": {
+    "name": "cucsFcStatsHistTimeCollected",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.6.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcSwIfConfigTable": {
+    "name": "cucsFcSwIfConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFcSwIfConfigEntry": {
+    "name": "cucsFcSwIfConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-FC-MIB",
+        "object": "cucsFcSwIfConfigInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsFcSwIfConfigInstanceId": {
+    "name": "cucsFcSwIfConfigInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFcSwIfConfigDn": {
+    "name": "cucsFcSwIfConfigDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFcSwIfConfigRn": {
+    "name": "cucsFcSwIfConfigRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.20.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-FC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-UNIFIED-COMPUTING-FC-MIB"
+  }
+}

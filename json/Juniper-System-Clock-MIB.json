@@ -1,0 +1,2275 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "Juniper-TC": [
+      "JuniEnable"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniSysClockMIB": {
+    "name": "juniSysClockMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.56",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-03-22 14:00",
+        "description": "Incorporate 2007 U.S.A. Daylight Saving Time changes."
+      },
+      {
+        "revision": "2005-12-14 14:01",
+        "description": "Added juniNtpPeerLastUpdateTime to Peer Table."
+      },
+      {
+        "revision": "2003-09-15 14:01",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2003-09-12 13:37",
+        "description": "Added an indicator to stratum number that no stratum is set. Added traps for significant NTP state changes. Added replacement clock offset and frequency error objects with DisplaySting syntax."
+      },
+      {
+        "revision": "2002-04-04 14:56",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "JuniSysClockMonth": {
+    "name": "JuniSysClockMonth",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "january": 1,
+          "february": 2,
+          "march": 3,
+          "april": 4,
+          "may": 5,
+          "june": 6,
+          "july": 7,
+          "august": 8,
+          "september": 9,
+          "october": 10,
+          "november": 11,
+          "december": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JuniSysClockWeekOfTheMonth": {
+    "name": "JuniSysClockWeekOfTheMonth",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "weekFirst": 0,
+          "weekOne": 1,
+          "weekTwo": 2,
+          "weekThree": 3,
+          "weekFour": 4,
+          "weekFive": 5,
+          "weekLast": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JuniSysClockDayOfTheWeek": {
+    "name": "JuniSysClockDayOfTheWeek",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sunday": 0,
+          "monday": 1,
+          "tuesday": 2,
+          "wednesday": 3,
+          "thursday": 4,
+          "friday": 5,
+          "saturday": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JuniSysClockHour": {
+    "name": "JuniSysClockHour",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "JuniSysClockMinute": {
+    "name": "JuniSysClockMinute",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "JuniNtpTimeStamp": {
+    "name": "JuniNtpTimeStamp",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 21
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "JuniNtpClockSignedTime": {
+    "name": "JuniNtpClockSignedTime",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "JuniNtpClockUnsignedTime": {
+    "name": "JuniNtpClockUnsignedTime",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "juniSysClockObjects": {
+    "name": "juniSysClockObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.1",
+    "class": "objectidentity"
+  },
+  "juniNtpObjects": {
+    "name": "juniNtpObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2",
+    "class": "objectidentity"
+  },
+  "juniSysClockTime": {
+    "name": "juniSysClockTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.1.1",
+    "class": "objectidentity"
+  },
+  "juniSysClockDst": {
+    "name": "juniSysClockDst",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.1.2",
+    "class": "objectidentity"
+  },
+  "juniSysClockDateAndTime": {
+    "name": "juniSysClockDateAndTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSysClockTimeZoneName": {
+    "name": "juniSysClockTimeZoneName",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSysClockDstName": {
+    "name": "juniSysClockDstName",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSysClockDstOffset": {
+    "name": "juniSysClockDstOffset",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSysClockDstStatus": {
+    "name": "juniSysClockDstStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "recurrent": 1,
+          "absolute": 2,
+          "recognizedUS": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSysClockDstAbsoluteStartTime": {
+    "name": "juniSysClockDstAbsoluteStartTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSysClockDstAbsoluteStopTime": {
+    "name": "juniSysClockDstAbsoluteStopTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSysClockDstRecurStartMonth": {
+    "name": "juniSysClockDstRecurStartMonth",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSysClockMonth",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "march",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSysClockDstRecurStartWeek": {
+    "name": "juniSysClockDstRecurStartWeek",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSysClockWeekOfTheMonth",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "weekTwo",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSysClockDstRecurStartDay": {
+    "name": "juniSysClockDstRecurStartDay",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSysClockDayOfTheWeek",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "sunday",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSysClockDstRecurStartHour": {
+    "name": "juniSysClockDstRecurStartHour",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSysClockHour",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSysClockDstRecurStartMinute": {
+    "name": "juniSysClockDstRecurStartMinute",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSysClockMinute",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSysClockDstRecurStopMonth": {
+    "name": "juniSysClockDstRecurStopMonth",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSysClockMonth",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "november",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSysClockDstRecurStopWeek": {
+    "name": "juniSysClockDstRecurStopWeek",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSysClockWeekOfTheMonth",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "weekFirst",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSysClockDstRecurStopDay": {
+    "name": "juniSysClockDstRecurStopDay",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSysClockDayOfTheWeek",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "sunday",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSysClockDstRecurStopHour": {
+    "name": "juniSysClockDstRecurStopHour",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSysClockHour",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSysClockDstRecurStopMinute": {
+    "name": "juniSysClockDstRecurStopMinute",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSysClockMinute",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniNtpSysClock": {
+    "name": "juniNtpSysClock",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.1",
+    "class": "objectidentity"
+  },
+  "juniNtpClient": {
+    "name": "juniNtpClient",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.2",
+    "class": "objectidentity"
+  },
+  "juniNtpServer": {
+    "name": "juniNtpServer",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.3",
+    "class": "objectidentity"
+  },
+  "juniNtpPeers": {
+    "name": "juniNtpPeers",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4",
+    "class": "objectidentity"
+  },
+  "juniNtpAccessGroup": {
+    "name": "juniNtpAccessGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.5",
+    "class": "objectidentity"
+  },
+  "juniNtpSysClockState": {
+    "name": "juniNtpSysClockState",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "neverFrequencyCalibrated": 0,
+          "frequencyCalibrated": 1,
+          "setToServerTime": 2,
+          "frequencyCalibrationIsGoingOn": 3,
+          "synchronized": 4,
+          "spikeDetected": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpSysClockOffsetError": {
+    "name": "juniNtpSysClockOffsetError",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNtpClockSignedTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "juniNtpSysClockFrequencyError": {
+    "name": "juniNtpSysClockFrequencyError",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "ppm",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "juniNtpSysClockRootDelay": {
+    "name": "juniNtpSysClockRootDelay",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNtpClockSignedTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpSysClockRootDispersion": {
+    "name": "juniNtpSysClockRootDispersion",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNtpClockUnsignedTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpSysClockStratumNumber": {
+    "name": "juniNtpSysClockStratumNumber",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpSysClockLastUpdateTime": {
+    "name": "juniNtpSysClockLastUpdateTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNtpTimeStamp",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpSysClockLastUpdateServer": {
+    "name": "juniNtpSysClockLastUpdateServer",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpSysClockOffsetErrorNew": {
+    "name": "juniNtpSysClockOffsetErrorNew",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpSysClockFrequencyErrorNew": {
+    "name": "juniNtpSysClockFrequencyErrorNew",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "units": "ppm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpClientAdminStatus": {
+    "name": "juniNtpClientAdminStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniNtpClientSystemRouterIndex": {
+    "name": "juniNtpClientSystemRouterIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpClientPacketSourceIfIndex": {
+    "name": "juniNtpClientPacketSourceIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniNtpClientBroadcastDelay": {
+    "name": "juniNtpClientBroadcastDelay",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999999
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3000,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniNtpClientIfTable": {
+    "name": "juniNtpClientIfTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniNtpClientIfEntry": {
+    "name": "juniNtpClientIfEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpClientIfRouterIndex",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpClientIfIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniNtpClientIfRouterIndex": {
+    "name": "juniNtpClientIfRouterIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniNtpClientIfIfIndex": {
+    "name": "juniNtpClientIfIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniNtpClientIfDisable": {
+    "name": "juniNtpClientIfDisable",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniNtpClientIfIsBroadcastClient": {
+    "name": "juniNtpClientIfIsBroadcastClient",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniNtpClientIfIsBroadcastServer": {
+    "name": "juniNtpClientIfIsBroadcastServer",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniNtpClientIfIsBroadcastServerVersion": {
+    "name": "juniNtpClientIfIsBroadcastServerVersion",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniNtpClientIfIsBroadcastServerDelay": {
+    "name": "juniNtpClientIfIsBroadcastServerDelay",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniNtpServerStratumNumber": {
+    "name": "juniNtpServerStratumNumber",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniNtpServerAdminStatus": {
+    "name": "juniNtpServerAdminStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniNtpPeerCfgTable": {
+    "name": "juniNtpPeerCfgTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniNtpPeerCfgEntry": {
+    "name": "juniNtpPeerCfgEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpClientIfRouterIndex",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerCfgIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniNtpPeerCfgIpAddress": {
+    "name": "juniNtpPeerCfgIpAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniNtpPeerCfgNtpVersion": {
+    "name": "juniNtpPeerCfgNtpVersion",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniNtpPeerCfgPacketSourceIfIndex": {
+    "name": "juniNtpPeerCfgPacketSourceIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniNtpPeerCfgIsPreferred": {
+    "name": "juniNtpPeerCfgIsPreferred",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniNtpPeerCfgRowStatus": {
+    "name": "juniNtpPeerCfgRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniNtpPeerTable": {
+    "name": "juniNtpPeerTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniNtpPeerEntry": {
+    "name": "juniNtpPeerEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpClientIfRouterIndex",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerCfgIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniNtpPeerState": {
+    "name": "juniNtpPeerState",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpPeerStratumNumber": {
+    "name": "juniNtpPeerStratumNumber",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpPeerAssociationMode": {
+    "name": "juniNtpPeerAssociationMode",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "broacastServer": 0,
+          "multicastServer": 1,
+          "unicastServer": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpPeerBroadcastInterval": {
+    "name": "juniNtpPeerBroadcastInterval",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpPeerPolledInterval": {
+    "name": "juniNtpPeerPolledInterval",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpPeerPollingInterval": {
+    "name": "juniNtpPeerPollingInterval",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpPeerDelay": {
+    "name": "juniNtpPeerDelay",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNtpClockSignedTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpPeerDispersion": {
+    "name": "juniNtpPeerDispersion",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNtpClockUnsignedTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpPeerOffsetError": {
+    "name": "juniNtpPeerOffsetError",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNtpClockSignedTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpPeerReachability": {
+    "name": "juniNtpPeerReachability",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpPeerRootDelay": {
+    "name": "juniNtpPeerRootDelay",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNtpClockSignedTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpPeerRootDispersion": {
+    "name": "juniNtpPeerRootDispersion",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNtpClockUnsignedTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpPeerRootSyncDistance": {
+    "name": "juniNtpPeerRootSyncDistance",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNtpClockSignedTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpPeerRootTime": {
+    "name": "juniNtpPeerRootTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNtpTimeStamp",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpPeerRootTimeUpdateServer": {
+    "name": "juniNtpPeerRootTimeUpdateServer",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpPeerReceiveTime": {
+    "name": "juniNtpPeerReceiveTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNtpTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpPeerTransmitTime": {
+    "name": "juniNtpPeerTransmitTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNtpTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpPeerRequestTime": {
+    "name": "juniNtpPeerRequestTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNtpTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpPeerPrecision": {
+    "name": "juniNtpPeerPrecision",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNtpClockSignedTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpPeerLastUpdateTime": {
+    "name": "juniNtpPeerLastUpdateTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpPeerFilterRegisterTable": {
+    "name": "juniNtpPeerFilterRegisterTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniNtpPeerFilterRegisterEntry": {
+    "name": "juniNtpPeerFilterRegisterEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerCfgIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerFilterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniNtpPeerFilterIndex": {
+    "name": "juniNtpPeerFilterIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniNtpPeerFilterOffset": {
+    "name": "juniNtpPeerFilterOffset",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNtpClockSignedTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpPeerFilterDelay": {
+    "name": "juniNtpPeerFilterDelay",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNtpClockSignedTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpPeerFilterDispersion": {
+    "name": "juniNtpPeerFilterDispersion",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNtpClockUnsignedTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniNtpRouterAccessGroupPeer": {
+    "name": "juniNtpRouterAccessGroupPeer",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniNtpRouterAccessGroupServe": {
+    "name": "juniNtpRouterAccessGroupServe",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniNtpRouterAccessGroupServeOnly": {
+    "name": "juniNtpRouterAccessGroupServeOnly",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniNtpRouterAccessGroupQueryOnly": {
+    "name": "juniNtpRouterAccessGroupQueryOnly",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniNtpTraps": {
+    "name": "juniNtpTraps",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.0",
+    "class": "objectidentity"
+  },
+  "juniNtpFrequencyCalibrationStart": {
+    "name": "juniNtpFrequencyCalibrationStart",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockFrequencyError"
+      }
+    ],
+    "status": "current"
+  },
+  "juniNtpFrequencyCalibrationEnd": {
+    "name": "juniNtpFrequencyCalibrationEnd",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockFrequencyError"
+      }
+    ],
+    "status": "current"
+  },
+  "juniNtpTimeSynUp": {
+    "name": "juniNtpTimeSynUp",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.0.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "juniNtpTimeSynDown": {
+    "name": "juniNtpTimeSynDown",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.0.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "juniNtpTimeServerSynUp": {
+    "name": "juniNtpTimeServerSynUp",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerCfgIsPreferred"
+      }
+    ],
+    "status": "current"
+  },
+  "juniNtpTimeServerSynDown": {
+    "name": "juniNtpTimeServerSynDown",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerCfgIsPreferred"
+      }
+    ],
+    "status": "current"
+  },
+  "juniNtpFirstSystemClockSet": {
+    "name": "juniNtpFirstSystemClockSet",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockOffsetError"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockState"
+      }
+    ],
+    "status": "current"
+  },
+  "juniNtpClockOffSetLimitCrossed": {
+    "name": "juniNtpClockOffSetLimitCrossed",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockOffsetError"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockState"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSysClockConformance": {
+    "name": "juniSysClockConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.3",
+    "class": "objectidentity"
+  },
+  "juniSysClockCompliances": {
+    "name": "juniSysClockCompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.3.1",
+    "class": "objectidentity"
+  },
+  "juniSysClockGroups": {
+    "name": "juniSysClockGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.3.2",
+    "class": "objectidentity"
+  },
+  "juniSysClockCompliance": {
+    "name": "juniSysClockCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniSysClockTimeGroup",
+        "module": "Juniper-System-Clock-MIB"
+      },
+      {
+        "object": "juniSysClockDstGroup",
+        "module": "Juniper-System-Clock-MIB"
+      },
+      {
+        "object": "juniNtpSysClockGroup",
+        "module": "Juniper-System-Clock-MIB"
+      },
+      {
+        "object": "juniNtpClientGroup",
+        "module": "Juniper-System-Clock-MIB"
+      },
+      {
+        "object": "juniNtpServerGroup",
+        "module": "Juniper-System-Clock-MIB"
+      },
+      {
+        "object": "juniNtpPeersGroup",
+        "module": "Juniper-System-Clock-MIB"
+      },
+      {
+        "object": "juniNtpAccessGroupGroup",
+        "module": "Juniper-System-Clock-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSysClockCompliance2": {
+    "name": "juniSysClockCompliance2",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniSysClockTimeGroup",
+        "module": "Juniper-System-Clock-MIB"
+      },
+      {
+        "object": "juniSysClockDstGroup",
+        "module": "Juniper-System-Clock-MIB"
+      },
+      {
+        "object": "juniNtpSysClockGroup",
+        "module": "Juniper-System-Clock-MIB"
+      },
+      {
+        "object": "juniNtpClientGroup",
+        "module": "Juniper-System-Clock-MIB"
+      },
+      {
+        "object": "juniNtpServerGroup",
+        "module": "Juniper-System-Clock-MIB"
+      },
+      {
+        "object": "juniNtpPeersGroup",
+        "module": "Juniper-System-Clock-MIB"
+      },
+      {
+        "object": "juniNtpAccessGroupGroup",
+        "module": "Juniper-System-Clock-MIB"
+      },
+      {
+        "object": "juniNtpNotificationGroup",
+        "module": "Juniper-System-Clock-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSysClockCompliance3": {
+    "name": "juniSysClockCompliance3",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniSysClockTimeGroup",
+        "module": "Juniper-System-Clock-MIB"
+      },
+      {
+        "object": "juniSysClockDstGroup",
+        "module": "Juniper-System-Clock-MIB"
+      },
+      {
+        "object": "juniNtpSysClockGroup2",
+        "module": "Juniper-System-Clock-MIB"
+      },
+      {
+        "object": "juniNtpClientGroup",
+        "module": "Juniper-System-Clock-MIB"
+      },
+      {
+        "object": "juniNtpServerGroup",
+        "module": "Juniper-System-Clock-MIB"
+      },
+      {
+        "object": "juniNtpPeersGroup",
+        "module": "Juniper-System-Clock-MIB"
+      },
+      {
+        "object": "juniNtpAccessGroupGroup",
+        "module": "Juniper-System-Clock-MIB"
+      },
+      {
+        "object": "juniNtpNotificationGroup",
+        "module": "Juniper-System-Clock-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSysClockTimeGroup": {
+    "name": "juniSysClockTimeGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniSysClockDateAndTime"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniSysClockTimeZoneName"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSysClockDstGroup": {
+    "name": "juniSysClockDstGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniSysClockDstName"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniSysClockDstOffset"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniSysClockDstStatus"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniSysClockDstAbsoluteStartTime"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniSysClockDstAbsoluteStopTime"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniSysClockDstRecurStartMonth"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniSysClockDstRecurStartWeek"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniSysClockDstRecurStartDay"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniSysClockDstRecurStartHour"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniSysClockDstRecurStartMinute"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniSysClockDstRecurStopMonth"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniSysClockDstRecurStopWeek"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniSysClockDstRecurStopDay"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniSysClockDstRecurStopHour"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniSysClockDstRecurStopMinute"
+      }
+    ],
+    "status": "current"
+  },
+  "juniNtpSysClockGroup": {
+    "name": "juniNtpSysClockGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockState"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockOffsetError"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockFrequencyError"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockRootDelay"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockRootDispersion"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockStratumNumber"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockLastUpdateTime"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockLastUpdateServer"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniNtpClientGroup": {
+    "name": "juniNtpClientGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpClientAdminStatus"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpClientSystemRouterIndex"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpClientPacketSourceIfIndex"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpClientBroadcastDelay"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpClientIfDisable"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpClientIfIsBroadcastClient"
+      }
+    ],
+    "status": "current"
+  },
+  "juniNtpServerGroup": {
+    "name": "juniNtpServerGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpServerAdminStatus"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpServerStratumNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "juniNtpPeersGroup": {
+    "name": "juniNtpPeersGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerState"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerStratumNumber"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerAssociationMode"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerBroadcastInterval"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerPolledInterval"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerPollingInterval"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerDelay"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerDispersion"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerOffsetError"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerReachability"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerPrecision"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerRootDelay"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerRootDispersion"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerRootSyncDistance"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerRootTime"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerRootTimeUpdateServer"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerReceiveTime"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerTransmitTime"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerRequestTime"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerFilterOffset"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerFilterDelay"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerFilterDispersion"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerCfgNtpVersion"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerCfgPacketSourceIfIndex"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerCfgIsPreferred"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerCfgRowStatus"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniNtpAccessGroupGroup": {
+    "name": "juniNtpAccessGroupGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpRouterAccessGroupPeer"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpRouterAccessGroupServe"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpRouterAccessGroupServeOnly"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpRouterAccessGroupQueryOnly"
+      }
+    ],
+    "status": "current"
+  },
+  "juniNtpNotificationGroup": {
+    "name": "juniNtpNotificationGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.3.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpFrequencyCalibrationStart"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpFrequencyCalibrationEnd"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpTimeSynUp"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpTimeSynDown"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpTimeServerSynUp"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpTimeServerSynDown"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpFirstSystemClockSet"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpClockOffSetLimitCrossed"
+      }
+    ],
+    "status": "current"
+  },
+  "juniNtpSysClockGroup2": {
+    "name": "juniNtpSysClockGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockState"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockRootDelay"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockRootDispersion"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockStratumNumber"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockLastUpdateTime"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockLastUpdateServer"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockOffsetErrorNew"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockFrequencyErrorNew"
+      }
+    ],
+    "status": "current"
+  },
+  "juniNtpSysClockDeprecatedGroup": {
+    "name": "juniNtpSysClockDeprecatedGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockOffsetError"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpSysClockFrequencyError"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniNtpPeersGroup1": {
+    "name": "juniNtpPeersGroup1",
+    "oid": "1.3.6.1.4.1.4874.2.2.56.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerState"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerStratumNumber"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerAssociationMode"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerBroadcastInterval"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerPolledInterval"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerPollingInterval"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerDelay"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerDispersion"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerOffsetError"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerReachability"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerPrecision"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerRootDelay"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerRootDispersion"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerRootSyncDistance"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerRootTime"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerRootTimeUpdateServer"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerReceiveTime"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerTransmitTime"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerRequestTime"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerFilterOffset"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerFilterDelay"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerFilterDispersion"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerCfgNtpVersion"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerCfgPacketSourceIfIndex"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerCfgIsPreferred"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerCfgRowStatus"
+      },
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "object": "juniNtpPeerLastUpdateTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-System-Clock-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-System-Clock-MIB"
+  }
+}

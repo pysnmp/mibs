@@ -1,0 +1,4100 @@
+{
+  "imports": {
+    "class": "imports",
+    "CADANT-PRODUCTS-MIB": [
+      "cadEquipment"
+    ],
+    "CADANT-TC": [
+      "AdminState",
+      "DiskVolumeUsageLevel",
+      "CardType",
+      "PortId",
+      "PortMode",
+      "EqActionType",
+      "PortDetectedMode",
+      "FlowControlMode",
+      "SecondaryState",
+      "CardId",
+      "DuplexStatus",
+      "FirmwareSource",
+      "PortType",
+      "ShelfId",
+      "PicType",
+      "PrimaryState",
+      "UnknownState",
+      "CardSubType"
+    ],
+    "DOCS-IF-MIB": [
+      "TenthdBmV"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "iso",
+      "MibIdentifier",
+      "Counter64",
+      "Unsigned32",
+      "Counter32",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "DateAndTime",
+      "MacAddress",
+      "RowStatus",
+      "DisplayString",
+      "TruthValue"
+    ]
+  },
+  "cadEquipmentMib": {
+    "name": "cadEquipmentMib",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-03-03 00:00",
+        "description": "Change syntax of cmIpAddress from IpAddress to OCTET STRING to handle IPv4 and v6."
+      },
+      {
+        "revision": "2009-01-05 00:00",
+        "description": "Add restrictions on the size of some strings in card table."
+      },
+      {
+        "revision": "2008-10-14 00:00",
+        "description": "Add shelf id back into trap messages."
+      },
+      {
+        "revision": "2008-10-01 00:00",
+        "description": "Add ranges for allowable card temperatures."
+      },
+      {
+        "revision": "2008-07-03 00:00",
+        "description": "Remove portGroupId since cable-mac replaced this MIB object. Add shelfNumber to portPrStateChange, portSecStateChange and portDplxStatusChange to match the variable binding list seen on trap monitor."
+      },
+      {
+        "revision": "2008-06-18 00:00",
+        "description": "Additional support for disk sizes."
+      },
+      {
+        "revision": "2008-04-28 00:00",
+        "description": "Initial support for MPM carrier cards."
+      },
+      {
+        "revision": "2008-04-02 00:00",
+        "description": "Support various levels of temperature warnings."
+      },
+      {
+        "revision": "2008-02-25 00:00",
+        "description": "Allowed Event Ids to range 0x00000000 to 0xFFFFFFFF for fpgaErrorEvent Table."
+      },
+      {
+        "revision": "2007-11-05 00:00",
+        "description": "Add port flow control parameters and remove gbic support."
+      },
+      {
+        "revision": "2007-01-10 00:00",
+        "description": "Remove cardSwBuildTime"
+      },
+      {
+        "revision": "2006-11-13 00:00",
+        "description": "Remove portMacPortId"
+      },
+      {
+        "revision": "2006-09-12 00:00",
+        "description": "Change syntax of portMacPortId from MacPortId to MacPortIdWithInvalid (65536 is invalid)"
+      },
+      {
+        "revision": "2006-08-23 00:00",
+        "description": "Add portMacPortId"
+      },
+      {
+        "revision": "2006-02-14 00:00",
+        "description": "Add additional variable-binding cmIpAddress cmRegistrationNotification"
+      },
+      {
+        "revision": "2005-08-30 00:00",
+        "description": "Add support for RCM module."
+      },
+      {
+        "revision": "2005-04-06 00:00",
+        "description": "Add support for CM registration notification"
+      },
+      {
+        "revision": "2005-02-04 00:00",
+        "description": "Add downstream power loss notification."
+      },
+      {
+        "revision": "2005-01-24 00:00",
+        "description": "Add last card reset reason to card table."
+      },
+      {
+        "revision": "2004-12-01 00:00",
+        "description": "Add downstream power visibility to port table."
+      },
+      {
+        "revision": "2004-11-18 00:00",
+        "description": "(1) Add 2 additional variable-bindings to cmResetClearNotification. (2) Add 1 additional variable-binding to cmResetNotification."
+      },
+      {
+        "revision": "2004-11-11 00:00",
+        "description": "Add preliminary support for customized FPGA error event handling."
+      },
+      {
+        "revision": "2004-09-07 00:00",
+        "description": "Add cardSubType, portGroupId and portDocsIfIndex to C4 Port Primary and Secondary Trap."
+      },
+      {
+        "revision": "2004-07-23 00:00",
+        "description": "(1) Modify the TEXTUAL-CONVENTION of TestId. (2) Add diagTestId for cardTestResultNotification."
+      },
+      {
+        "revision": "2004-03-22 00:00",
+        "description": "Added portDescription."
+      },
+      {
+        "revision": "2004-03-18 00:00",
+        "description": "(1) Add support for card temperature trap control. (2) Fix smidump error by changing diskVolumeFileName object mibtree"
+      },
+      {
+        "revision": "2004-02-04 00:00",
+        "description": "Add CmResetClear notification."
+      },
+      {
+        "revision": "2003-12-18 00:00",
+        "description": "Add support for logical uchannel port type and preliminary support for extended gbic information."
+      },
+      {
+        "revision": "2003-03-31 00:00",
+        "description": "Add preliminary pic support."
+      },
+      {
+        "revision": "2003-03-17 00:00",
+        "description": "Add card detail support."
+      },
+      {
+        "revision": "2003-03-05 00:00",
+        "description": "Replacing portGroupId with portCardSubType and renaming portDPortId to portGroupId."
+      },
+      {
+        "revision": "2003-03-02 00:00",
+        "description": "Add card temperature monitoring."
+      },
+      {
+        "revision": "2003-01-29 00:00",
+        "description": "Adding portDPortId and portConnectorId objects to portTable to support 2D12U CAM."
+      },
+      {
+        "revision": "2002-12-14 00:00",
+        "description": "Revise audit entries. Add auditAutoScheduling and auditLogOutput control. Remove auditResultNotification"
+      },
+      {
+        "revision": "2002-11-07 00:00",
+        "description": "Add support for diskVolume"
+      },
+      {
+        "revision": "2002-09-25 00:00",
+        "description": "Undo previous change."
+      },
+      {
+        "revision": "2002-09-01 00:00",
+        "description": "Make cardsubtype backward compatible."
+      },
+      {
+        "revision": "2002-05-01 00:00",
+        "description": "Add support for cardFpgaToCpuSendRate."
+      },
+      {
+        "revision": "2001-12-28 16:30",
+        "description": "Add support for cardSwBuildTime."
+      },
+      {
+        "revision": "2001-12-21 16:30",
+        "description": "Add support for cardUpTime."
+      },
+      {
+        "revision": "2001-10-03 00:00",
+        "description": "Add support for card detected trap."
+      },
+      {
+        "revision": "2001-07-17 00:00",
+        "description": "Add support for card sparing."
+      }
+    ]
+  },
+  "TestId": {
+    "name": "TestId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TestType": {
+    "name": "TestType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "test": 1,
+          "diagnostic": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TestCommand": {
+    "name": "TestCommand",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noop": 1,
+          "stop": 2,
+          "disable": 3,
+          "enable": 4,
+          "runNow": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TestScheduleCommand": {
+    "name": "TestScheduleCommand",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noop": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TestSchedule": {
+    "name": "TestSchedule",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "TestResult": {
+    "name": "TestResult",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notRun": 1,
+          "inProgress": 2,
+          "pass": 3,
+          "fail": 4,
+          "inconclusive": 5,
+          "timeOut": 6,
+          "abort": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TestTransactionId": {
+    "name": "TestTransactionId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "equipmentTraps": {
+    "name": "equipmentTraps",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.0",
+    "class": "objectidentity"
+  },
+  "systemGeneral": {
+    "name": "systemGeneral",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.1",
+    "class": "objectidentity"
+  },
+  "systemClock": {
+    "name": "systemClock",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "trapCounter": {
+    "name": "trapCounter",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapSeverity": {
+    "name": "trapSeverity",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "indeterminate": 2,
+          "warning": 3,
+          "minor": 4,
+          "major": 5,
+          "critical": 6,
+          "informational": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "cleared",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemKey": {
+    "name": "systemKey",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardNumber": {
+    "name": "cardNumber",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.1.98",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CardId",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 99,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "portNumber": {
+    "name": "portNumber",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.1.99",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortId",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 99,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "diskDriveNumber": {
+    "name": "diskDriveNumber",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.1.100",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 99,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "diskVolumeNumber": {
+    "name": "diskVolumeNumber",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.1.101",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 99,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "shelfObjects": {
+    "name": "shelfObjects",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.2",
+    "class": "objectidentity"
+  },
+  "shelfNumber": {
+    "name": "shelfNumber",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ShelfId",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "shelfName": {
+    "name": "shelfName",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "Cadant C4 CMTS",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "shelfSwVersion": {
+    "name": "shelfSwVersion",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "equipmentState": {
+    "name": "equipmentState",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.3",
+    "class": "objectidentity"
+  },
+  "cardLastChangeTime": {
+    "name": "cardLastChangeTime",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portLastChangeTime": {
+    "name": "portLastChangeTime",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "equipmentTbl": {
+    "name": "equipmentTbl",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4",
+    "class": "objectidentity"
+  },
+  "cardTable": {
+    "name": "cardTable",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cardEntry": {
+    "name": "cardEntry",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardShelfId",
+        "implied": 0
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cardShelfId": {
+    "name": "cardShelfId",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ShelfId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cardId": {
+    "name": "cardId",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CardId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cardName": {
+    "name": "cardName",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cardType": {
+    "name": "cardType",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CardType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardSubType": {
+    "name": "cardSubType",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CardSubType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cardSerialNum": {
+    "name": "cardSerialNum",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardFwVersion": {
+    "name": "cardFwVersion",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardHwVersion": {
+    "name": "cardHwVersion",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardSwVersion": {
+    "name": "cardSwVersion",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardAdminState": {
+    "name": "cardAdminState",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cardPrState": {
+    "name": "cardPrState",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrimaryState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardSecState": {
+    "name": "cardSecState",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SecondaryState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardDplxStatus": {
+    "name": "cardDplxStatus",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DuplexStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardAction": {
+    "name": "cardAction",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cardTrapInh": {
+    "name": "cardTrapInh",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "primary": 0,
+        "secondary": 1,
+        "duplex": 2,
+        "detected": 3,
+        "tempoutofrange": 4,
+        "tempnoreport": 5,
+        "tempoverheat": 6
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cardNumPorts": {
+    "name": "cardNumPorts",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardDetected": {
+    "name": "cardDetected",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CardType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardSubDetected": {
+    "name": "cardSubDetected",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CardSubType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardFwUpdateStatus": {
+    "name": "cardFwUpdateStatus",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardSpareGroupId": {
+    "name": "cardSpareGroupId",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CardId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cardSpareGroupMode": {
+    "name": "cardSpareGroupMode",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "auto": 2,
+          "invalid": 99
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cardUpTime": {
+    "name": "cardUpTime",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardTemperature": {
+    "name": "cardTemperature",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -30,
+            "max": 120
+          },
+          {
+            "min": 999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 999,
+        "format": "decimal"
+      }
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardCpuType": {
+    "name": "cardCpuType",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardCpuSpeed": {
+    "name": "cardCpuSpeed",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "MHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardBusSpeed": {
+    "name": "cardBusSpeed",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hertz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardRamSize": {
+    "name": "cardRamSize",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardFlashSize": {
+    "name": "cardFlashSize",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardCPLDVersion": {
+    "name": "cardCPLDVersion",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardFpgaSource": {
+    "name": "cardFpgaSource",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FirmwareSource",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "committed",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardBootVersion": {
+    "name": "cardBootVersion",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 90
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardLastBootVersion": {
+    "name": "cardLastBootVersion",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardLastBootSource": {
+    "name": "cardLastBootSource",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FirmwareSource",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "boot1",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardPicDetected": {
+    "name": "cardPicDetected",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PicType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "invalid",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardPicSerialNum": {
+    "name": "cardPicSerialNum",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardPicHwVersion": {
+    "name": "cardPicHwVersion",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardLastResetReason": {
+    "name": "cardLastResetReason",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardTemperatureHighWarn": {
+    "name": "cardTemperatureHighWarn",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 70,
+        "format": "decimal"
+      }
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cardTemperatureHighError": {
+    "name": "cardTemperatureHighError",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cardCarrierSerialNum": {
+    "name": "cardCarrierSerialNum",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardCarrierFwVersion": {
+    "name": "cardCarrierFwVersion",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardCarrierHwVersion": {
+    "name": "cardCarrierHwVersion",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portTable": {
+    "name": "portTable",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portEntry": {
+    "name": "portEntry",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portShelfId",
+        "implied": 0
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portCardId",
+        "implied": 0
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portShelfId": {
+    "name": "portShelfId",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ShelfId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "portCardId": {
+    "name": "portCardId",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CardId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portId": {
+    "name": "portId",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portType": {
+    "name": "portType",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portAdminState": {
+    "name": "portAdminState",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portPrState": {
+    "name": "portPrState",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrimaryState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSecState": {
+    "name": "portSecState",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SecondaryState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portDplxStatus": {
+    "name": "portDplxStatus",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DuplexStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portAction": {
+    "name": "portAction",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portTrapInh": {
+    "name": "portTrapInh",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "primary": 0,
+        "secondary": 1,
+        "duplex": 2,
+        "linkUpLinkDown": 3
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portNumChans": {
+    "name": "portNumChans",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portDocsIfIndex": {
+    "name": "portDocsIfIndex",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portMacAddress": {
+    "name": "portMacAddress",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portMode": {
+    "name": "portMode",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "autoNegotiate",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portDetectedMode": {
+    "name": "portDetectedMode",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortDetectedMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portBgpId": {
+    "name": "portBgpId",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portConnectorId": {
+    "name": "portConnectorId",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortId",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 99,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portCardSubType": {
+    "name": "portCardSubType",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CardSubType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portDescription": {
+    "name": "portDescription",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portCurrDsPower": {
+    "name": "portCurrDsPower",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TenthdBmV",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portMinDsPower": {
+    "name": "portMinDsPower",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TenthdBmV",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portMaxDsPower": {
+    "name": "portMaxDsPower",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TenthdBmV",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portTxFlowControlMode": {
+    "name": "portTxFlowControlMode",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowControlMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "desired",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portRxFlowControlMode": {
+    "name": "portRxFlowControlMode",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowControlMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "desired",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portTxFlowControlDetected": {
+    "name": "portTxFlowControlDetected",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowControlMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portRxFlowControlDetected": {
+    "name": "portRxFlowControlDetected",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowControlMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portMacIfIndex": {
+    "name": "portMacIfIndex",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.3.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskVolumeTable": {
+    "name": "diskVolumeTable",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diskVolumeEntry": {
+    "name": "diskVolumeEntry",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "diskVolumeShelfId",
+        "implied": 0
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "diskVolumeCardId",
+        "implied": 0
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "diskVolumeDriveId",
+        "implied": 0
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "diskVolumeId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diskVolumeShelfId": {
+    "name": "diskVolumeShelfId",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ShelfId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "diskVolumeCardId": {
+    "name": "diskVolumeCardId",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CardId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diskVolumeDriveId": {
+    "name": "diskVolumeDriveId",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diskVolumeId": {
+    "name": "diskVolumeId",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diskVolumeName": {
+    "name": "diskVolumeName",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskVolumeSize": {
+    "name": "diskVolumeSize",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskVolumeUsageLevel": {
+    "name": "diskVolumeUsageLevel",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DiskVolumeUsageLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskVolumeUsagePercentage": {
+    "name": "diskVolumeUsagePercentage",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskVolumeUsageCriticalThreshold": {
+    "name": "diskVolumeUsageCriticalThreshold",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "diskVolumeUsageMajorThreshold": {
+    "name": "diskVolumeUsageMajorThreshold",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 80,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "diskVolumeUsageMinorThreshold": {
+    "name": "diskVolumeUsageMinorThreshold",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 70,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "diskVolumeAutoDeleteUnusedFile": {
+    "name": "diskVolumeAutoDeleteUnusedFile",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "diskVolumeTrapInh": {
+    "name": "diskVolumeTrapInh",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "criticalUsageLevel": 0,
+        "majorUsageLevel": 1,
+        "minorUsageLevel": 2,
+        "autoDeleteFiles": 3
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "diskVolumeDiskSize": {
+    "name": "diskVolumeDiskSize",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskVolumeFileName": {
+    "name": "diskVolumeFileName",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "equipmentDiag": {
+    "name": "equipmentDiag",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.5",
+    "class": "objectidentity"
+  },
+  "eqDiagConfig": {
+    "name": "eqDiagConfig",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.5.1",
+    "class": "objectidentity"
+  },
+  "remainInDiagMode": {
+    "name": "remainInDiagMode",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "consoleOutput": {
+    "name": "consoleOutput",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "verboseLevel": {
+    "name": "verboseLevel",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "diagTestId": {
+    "name": "diagTestId",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestId",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cardTestTable": {
+    "name": "cardTestTable",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cardTestEntry": {
+    "name": "cardTestEntry",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardShelfTestIndex",
+        "implied": 0
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardTestIndex",
+        "implied": 0
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardTestId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cardShelfTestIndex": {
+    "name": "cardShelfTestIndex",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ShelfId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cardTestIndex": {
+    "name": "cardTestIndex",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CardId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cardTestId": {
+    "name": "cardTestId",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cardTestName": {
+    "name": "cardTestName",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardTestType": {
+    "name": "cardTestType",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardTestDescription": {
+    "name": "cardTestDescription",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardTestCommand": {
+    "name": "cardTestCommand",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestCommand",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "noop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cardTestScheduleCommand": {
+    "name": "cardTestScheduleCommand",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.5.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestScheduleCommand",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "noop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cardTestSchedule": {
+    "name": "cardTestSchedule",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.5.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestSchedule",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cardTestTime": {
+    "name": "cardTestTime",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.5.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cardTestResult": {
+    "name": "cardTestResult",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.5.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestResult",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notRun",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardTestResultDesc": {
+    "name": "cardTestResultDesc",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.5.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardTestTransId": {
+    "name": "cardTestTransId",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.5.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestTransactionId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "equipmentAudit": {
+    "name": "equipmentAudit",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.6",
+    "class": "objectidentity"
+  },
+  "auditAutoScheduling": {
+    "name": "auditAutoScheduling",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "auditLogOutput": {
+    "name": "auditLogOutput",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "auditLogThrottle": {
+    "name": "auditLogThrottle",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "auditTable": {
+    "name": "auditTable",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "auditEntry": {
+    "name": "auditEntry",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "auditShelfId",
+        "implied": 0
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "auditCardId",
+        "implied": 0
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "auditId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "auditShelfId": {
+    "name": "auditShelfId",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.6.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ShelfId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "auditCardId": {
+    "name": "auditCardId",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.6.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CardId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "auditId": {
+    "name": "auditId",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.6.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "auditName": {
+    "name": "auditName",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.6.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "auditDescription": {
+    "name": "auditDescription",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.6.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "auditTime": {
+    "name": "auditTime",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.6.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "auditCommand": {
+    "name": "auditCommand",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.6.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "runnow": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "auditStatus": {
+    "name": "auditStatus",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.6.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "auditResult": {
+    "name": "auditResult",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.6.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "passed": 1,
+          "failed": 2,
+          "abort": 4,
+          "notRun": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "auditPassedCount": {
+    "name": "auditPassedCount",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.6.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "auditFailedCount": {
+    "name": "auditFailedCount",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.6.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "auditCycleCount": {
+    "name": "auditCycleCount",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.6.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "auditTotalPassedCount": {
+    "name": "auditTotalPassedCount",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.6.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "auditTotalFailedCount": {
+    "name": "auditTotalFailedCount",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.6.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmDevice": {
+    "name": "cmDevice",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.8",
+    "class": "objectidentity"
+  },
+  "cmMacAddress": {
+    "name": "cmMacAddress",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cmVendor": {
+    "name": "cmVendor",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cmResetReason": {
+    "name": "cmResetReason",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cmUChannelID": {
+    "name": "cmUChannelID",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cmPrimarySID": {
+    "name": "cmPrimarySID",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cmResetStatus": {
+    "name": "cmResetStatus",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cmResetUpTime": {
+    "name": "cmResetUpTime",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cmResetInfo": {
+    "name": "cmResetInfo",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cmIpAddress": {
+    "name": "cmIpAddress",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "equipmentError": {
+    "name": "equipmentError",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.9",
+    "class": "objectidentity"
+  },
+  "fpgaErrorEventTable": {
+    "name": "fpgaErrorEventTable",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fpgaErrorEventEntry": {
+    "name": "fpgaErrorEventEntry",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardId",
+        "implied": 0
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "errEventId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "errEventId": {
+    "name": "errEventId",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "errEvRecoveryEnabled": {
+    "name": "errEvRecoveryEnabled",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "errEvLoggingEnabled": {
+    "name": "errEvLoggingEnabled",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "errEvLogLevel": {
+    "name": "errEvLogLevel",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "errEvRowStatus": {
+    "name": "errEvRowStatus",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cadEquipmentMibConformance": {
+    "name": "cadEquipmentMibConformance",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.10",
+    "class": "objectidentity"
+  },
+  "cadEquipmentMibCompliances": {
+    "name": "cadEquipmentMibCompliances",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.10.1",
+    "class": "objectidentity"
+  },
+  "cadEquipmentMibGroup": {
+    "name": "cadEquipmentMibGroup",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.10.2",
+    "class": "objectidentity"
+  },
+  "cardPrStateChange": {
+    "name": "cardPrStateChange",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapCounter"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapSeverity"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "shelfNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardType"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardSubType"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardPrState"
+      }
+    ],
+    "status": "current"
+  },
+  "cardSecStateChange": {
+    "name": "cardSecStateChange",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapCounter"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapSeverity"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "shelfNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardType"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardSubType"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardSecState"
+      }
+    ],
+    "status": "current"
+  },
+  "cardDetectedChange": {
+    "name": "cardDetectedChange",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapCounter"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapSeverity"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "shelfNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardDetected"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardSubDetected"
+      }
+    ],
+    "status": "current"
+  },
+  "cardDplxStatusChange": {
+    "name": "cardDplxStatusChange",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapCounter"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapSeverity"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "shelfNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardType"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardSubType"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardDplxStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "portPrStateChange": {
+    "name": "portPrStateChange",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapCounter"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapSeverity"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "shelfNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portType"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portPrState"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portCardSubType"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portDocsIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "portSecStateChange": {
+    "name": "portSecStateChange",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapCounter"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapSeverity"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "shelfNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portType"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portSecState"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portCardSubType"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portDocsIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "portDplxStatusChange": {
+    "name": "portDplxStatusChange",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapCounter"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapSeverity"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "shelfNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portType"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardDplxStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cardTestResultNotification": {
+    "name": "cardTestResultNotification",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapCounter"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapSeverity"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "shelfNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "diagTestId"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardTestName"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardTestResult"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardTestResultDesc"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardTestTransId"
+      }
+    ],
+    "status": "current"
+  },
+  "cmResetClearNotification": {
+    "name": "cmResetClearNotification",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapCounter"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "systemClock"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapSeverity"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cmMacAddress"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cmUChannelID"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "cmResetNotification": {
+    "name": "cmResetNotification",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapCounter"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "systemClock"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapSeverity"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cmMacAddress"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cmVendor"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cmResetReason"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cmUChannelID"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cmPrimarySID"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cmResetStatus"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cmResetUpTime"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cmResetInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "diskVolumeUsageNotification": {
+    "name": "diskVolumeUsageNotification",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapCounter"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapSeverity"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "shelfNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "diskDriveNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "diskVolumeNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "diskVolumeUsageLevel"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "diskVolumeName"
+      }
+    ],
+    "status": "current"
+  },
+  "diskVolumeAutoDeleteFileNotification": {
+    "name": "diskVolumeAutoDeleteFileNotification",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapCounter"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapSeverity"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "shelfNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "diskDriveNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "diskVolumeNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "diskVolumeName"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "diskVolumeFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "cardTempOutOfRangeNotification": {
+    "name": "cardTempOutOfRangeNotification",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapCounter"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapSeverity"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "cardTempNoReportNotification": {
+    "name": "cardTempNoReportNotification",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapCounter"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapSeverity"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "cardTempOverHeatNotification": {
+    "name": "cardTempOverHeatNotification",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapCounter"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapSeverity"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "downstreamPowerLoss": {
+    "name": "downstreamPowerLoss",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapCounter"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapSeverity"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "cmRegistrationNotification": {
+    "name": "cmRegistrationNotification",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapCounter"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "systemClock"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapSeverity"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cmMacAddress"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cmVendor"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cmUChannelID"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardNumber"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cmIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "systemGeneralGroup": {
+    "name": "systemGeneralGroup",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.10.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "systemClock"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapCounter"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "trapSeverity"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "systemKey"
+      }
+    ],
+    "status": "current"
+  },
+  "equipmentStateGroup": {
+    "name": "equipmentStateGroup",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.10.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardLastChangeTime"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portLastChangeTime"
+      }
+    ],
+    "status": "current"
+  },
+  "equipmentShelfGroup": {
+    "name": "equipmentShelfGroup",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.10.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "shelfName"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "shelfSwVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "equipmentCardGroup": {
+    "name": "equipmentCardGroup",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.10.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardName"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardType"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardSubType"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardSerialNum"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardFwVersion"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardHwVersion"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardSwVersion"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardAdminState"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardPrState"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardSecState"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardDplxStatus"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardAction"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardTrapInh"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardNumPorts"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardDetected"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardSubDetected"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardFwUpdateStatus"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardSpareGroupId"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardSpareGroupMode"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardUpTime"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardTemperature"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardCpuType"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardCpuSpeed"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardBusSpeed"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardRamSize"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardFlashSize"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardCPLDVersion"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardFpgaSource"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardBootVersion"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardLastBootVersion"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardLastBootSource"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardPicDetected"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardPicSerialNum"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardPicHwVersion"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardTemperatureHighWarn"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardTemperatureHighError"
+      }
+    ],
+    "status": "current"
+  },
+  "equipmentPortGroup": {
+    "name": "equipmentPortGroup",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.10.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portType"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portAdminState"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portPrState"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portSecState"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portDplxStatus"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portAction"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portTrapInh"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portNumChans"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portMacAddress"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portMode"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portDetectedMode"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portDocsIfIndex"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portBgpId"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portConnectorId"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portCardSubType"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portDescription"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portCurrDsPower"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portMinDsPower"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portMaxDsPower"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portTxFlowControlMode"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portRxFlowControlMode"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portTxFlowControlDetected"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "portRxFlowControlDetected"
+      }
+    ],
+    "status": "current"
+  },
+  "equipmentDiagGroup": {
+    "name": "equipmentDiagGroup",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.10.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "remainInDiagMode"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "verboseLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "equipmentCardTestGroup": {
+    "name": "equipmentCardTestGroup",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.10.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardTestName"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardTestType"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardTestDescription"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardTestCommand"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardTestScheduleCommand"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardTestSchedule"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardTestTime"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardTestResult"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardTestResultDesc"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "cardTestTransId"
+      }
+    ],
+    "status": "current"
+  },
+  "equipmentAuditGroup": {
+    "name": "equipmentAuditGroup",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.10.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "auditAutoScheduling"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "auditLogOutput"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "auditLogThrottle"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "auditName"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "auditDescription"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "auditTime"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "auditCommand"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "auditStatus"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "auditResult"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "auditPassedCount"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "auditFailedCount"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "auditCycleCount"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "auditTotalPassedCount"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "auditTotalFailedCount"
+      }
+    ],
+    "status": "current"
+  },
+  "diskVolumeGroup": {
+    "name": "diskVolumeGroup",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.10.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "diskVolumeName"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "diskVolumeSize"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "diskVolumeUsageLevel"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "diskVolumeUsagePercentage"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "diskVolumeUsageCriticalThreshold"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "diskVolumeUsageMajorThreshold"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "diskVolumeUsageMinorThreshold"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "diskVolumeAutoDeleteUnusedFile"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "diskVolumeTrapInh"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "diskVolumeFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "fpgaErrorEventGroup": {
+    "name": "fpgaErrorEventGroup",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.10.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "errEvRecoveryEnabled"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "errEvLoggingEnabled"
+      },
+      {
+        "module": "CADANT-CMTS-EQUIPMENT-MIB",
+        "object": "errEvLogLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "cadEquipmentMibCompliance": {
+    "name": "cadEquipmentMibCompliance",
+    "oid": "1.3.6.1.4.1.4998.1.1.10.1.10.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "systemGeneralGroup",
+        "module": "CADANT-CMTS-EQUIPMENT-MIB"
+      },
+      {
+        "object": "equipmentStateGroup",
+        "module": "CADANT-CMTS-EQUIPMENT-MIB"
+      },
+      {
+        "object": "equipmentShelfGroup",
+        "module": "CADANT-CMTS-EQUIPMENT-MIB"
+      },
+      {
+        "object": "equipmentCardGroup",
+        "module": "CADANT-CMTS-EQUIPMENT-MIB"
+      },
+      {
+        "object": "equipmentPortGroup",
+        "module": "CADANT-CMTS-EQUIPMENT-MIB"
+      },
+      {
+        "object": "equipmentDiagGroup",
+        "module": "CADANT-CMTS-EQUIPMENT-MIB"
+      },
+      {
+        "object": "equipmentCardTestGroup",
+        "module": "CADANT-CMTS-EQUIPMENT-MIB"
+      },
+      {
+        "object": "equipmentAuditGroup",
+        "module": "CADANT-CMTS-EQUIPMENT-MIB"
+      },
+      {
+        "object": "diskVolumeGroup",
+        "module": "CADANT-CMTS-EQUIPMENT-MIB"
+      },
+      {
+        "object": "fpgaErrorEventGroup",
+        "module": "CADANT-CMTS-EQUIPMENT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/CADANT-CMTS-EQUIPMENT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:05 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CADANT-CMTS-EQUIPMENT-MIB"
+  }
+}

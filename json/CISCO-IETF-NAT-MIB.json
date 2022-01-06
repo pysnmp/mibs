@@ -1,0 +1,2247 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoIetfNatMIB": {
+    "name": "ciscoIetfNatMIB",
+    "oid": "1.3.6.1.4.1.9.10.77",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-03-01 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoNatMIBObjects": {
+    "name": "ciscoNatMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.77.1",
+    "class": "objectidentity"
+  },
+  "cnatConfig": {
+    "name": "cnatConfig",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1",
+    "class": "objectidentity"
+  },
+  "cnatBind": {
+    "name": "cnatBind",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2",
+    "class": "objectidentity"
+  },
+  "cnatStatistics": {
+    "name": "cnatStatistics",
+    "oid": "1.3.6.1.4.1.9.10.77.1.3",
+    "class": "objectidentity"
+  },
+  "NATProtocolType": {
+    "name": "NATProtocolType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "icmp": 2,
+          "udp": 3,
+          "tcp": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cnatConfTable": {
+    "name": "cnatConfTable",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnatConfEntry": {
+    "name": "cnatConfEntry",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "cnatConfName": {
+    "name": "cnatConfName",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnatConfServiceType": {
+    "name": "cnatConfServiceType",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "basicNat": 1,
+          "napt": 2,
+          "bidirectionalNat": 3,
+          "twiceNat": 4,
+          "multihomedNat": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfTimeoutIcmpIdle": {
+    "name": "cnatConfTimeoutIcmpIdle",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfTimeoutUdpIdle": {
+    "name": "cnatConfTimeoutUdpIdle",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfTimeoutTcpIdle": {
+    "name": "cnatConfTimeoutTcpIdle",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 86400,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfTimeoutTcpNeg": {
+    "name": "cnatConfTimeoutTcpNeg",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfTimeoutOther": {
+    "name": "cnatConfTimeoutOther",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfMaxBindLeaseTime": {
+    "name": "cnatConfMaxBindLeaseTime",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfMaxBindIdleTime": {
+    "name": "cnatConfMaxBindIdleTime",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfStorageType": {
+    "name": "cnatConfStorageType",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfStatus": {
+    "name": "cnatConfStatus",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfStaticAddrMapTable": {
+    "name": "cnatConfStaticAddrMapTable",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnatConfStaticAddrMapEntry": {
+    "name": "cnatConfStaticAddrMapEntry",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfStaticAddrMapName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnatConfStaticAddrMapName": {
+    "name": "cnatConfStaticAddrMapName",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnatConfStaticAddrMapType": {
+    "name": "cnatConfStaticAddrMapType",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfStaticLocalAddrFrom": {
+    "name": "cnatConfStaticLocalAddrFrom",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfStaticLocalAddrTo": {
+    "name": "cnatConfStaticLocalAddrTo",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfStaticLocalPortFrom": {
+    "name": "cnatConfStaticLocalPortFrom",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfStaticLocalPortTo": {
+    "name": "cnatConfStaticLocalPortTo",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfStaticGlobalAddrFrom": {
+    "name": "cnatConfStaticGlobalAddrFrom",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfStaticGlobalAddrTo": {
+    "name": "cnatConfStaticGlobalAddrTo",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfStaticGlobalPortFrom": {
+    "name": "cnatConfStaticGlobalPortFrom",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfStaticGlobalPortTo": {
+    "name": "cnatConfStaticGlobalPortTo",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfStaticProtocol": {
+    "name": "cnatConfStaticProtocol",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "all": 0,
+        "other": 1,
+        "icmp": 2,
+        "udp": 3,
+        "tcp": 4
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfStaticAddrMapStorageType": {
+    "name": "cnatConfStaticAddrMapStorageType",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfStaticAddrMapStatus": {
+    "name": "cnatConfStaticAddrMapStatus",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfDynAddrMapTable": {
+    "name": "cnatConfDynAddrMapTable",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnatConfDynAddrMapEntry": {
+    "name": "cnatConfDynAddrMapEntry",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfDynAddrMapName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnatConfDynAddrMapName": {
+    "name": "cnatConfDynAddrMapName",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnatConfDynAddressMapType": {
+    "name": "cnatConfDynAddressMapType",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfDynLocalAddrFrom": {
+    "name": "cnatConfDynLocalAddrFrom",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfDynLocalAddrTo": {
+    "name": "cnatConfDynLocalAddrTo",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfDynLocalPortFrom": {
+    "name": "cnatConfDynLocalPortFrom",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfDynLocalPortTo": {
+    "name": "cnatConfDynLocalPortTo",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatConfDynGlobalAddrFrom": {
+    "name": "cnatConfDynGlobalAddrFrom",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfDynGlobalAddrTo": {
+    "name": "cnatConfDynGlobalAddrTo",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfDynGlobalPortFrom": {
+    "name": "cnatConfDynGlobalPortFrom",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfDynGlobalPortTo": {
+    "name": "cnatConfDynGlobalPortTo",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfDynProtocol": {
+    "name": "cnatConfDynProtocol",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "all": 0,
+        "other": 1,
+        "icmp": 2,
+        "udp": 3,
+        "tcp": 4
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfDynAddrMapStorageType": {
+    "name": "cnatConfDynAddrMapStorageType",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatConfDynAddrMapStatus": {
+    "name": "cnatConfDynAddrMapStatus",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatInterfaceTable": {
+    "name": "cnatInterfaceTable",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnatInterfaceEntry": {
+    "name": "cnatInterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnatInterfaceIndex": {
+    "name": "cnatInterfaceIndex",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnatInterfaceRealm": {
+    "name": "cnatInterfaceRealm",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "private": 1,
+          "public": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "public",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatInterfaceStorageType": {
+    "name": "cnatInterfaceStorageType",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatInterfaceStatus": {
+    "name": "cnatInterfaceStatus",
+    "oid": "1.3.6.1.4.1.9.10.77.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnatAddrBindNumberOfEntries": {
+    "name": "cnatAddrBindNumberOfEntries",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrBindTable": {
+    "name": "cnatAddrBindTable",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnatAddrBindEntry": {
+    "name": "cnatAddrBindEntry",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrBindLocalAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnatAddrBindLocalAddr": {
+    "name": "cnatAddrBindLocalAddr",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnatAddrBindGlobalAddr": {
+    "name": "cnatAddrBindGlobalAddr",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrBindId": {
+    "name": "cnatAddrBindId",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrBindDirection": {
+    "name": "cnatAddrBindDirection",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uniDirectional": 1,
+          "biDirectional": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrBindType": {
+    "name": "cnatAddrBindType",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrBindConfName": {
+    "name": "cnatAddrBindConfName",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrBindSessionCount": {
+    "name": "cnatAddrBindSessionCount",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrBindCurrentIdleTime": {
+    "name": "cnatAddrBindCurrentIdleTime",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrBindInTranslate": {
+    "name": "cnatAddrBindInTranslate",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrBindOutTranslate": {
+    "name": "cnatAddrBindOutTranslate",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrPortBindNumberOfEntries": {
+    "name": "cnatAddrPortBindNumberOfEntries",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrPortBindTable": {
+    "name": "cnatAddrPortBindTable",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnatAddrPortBindEntry": {
+    "name": "cnatAddrPortBindEntry",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrPortBindLocalAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrPortBindLocalPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrPortBindProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnatAddrPortBindLocalAddr": {
+    "name": "cnatAddrPortBindLocalAddr",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnatAddrPortBindLocalPort": {
+    "name": "cnatAddrPortBindLocalPort",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnatAddrPortBindProtocol": {
+    "name": "cnatAddrPortBindProtocol",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "all": 0,
+        "other": 1,
+        "icmp": 2,
+        "udp": 3,
+        "tcp": 4
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnatAddrPortBindGlobalAddr": {
+    "name": "cnatAddrPortBindGlobalAddr",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrPortBindGlobalPort": {
+    "name": "cnatAddrPortBindGlobalPort",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrPortBindId": {
+    "name": "cnatAddrPortBindId",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrPortBindDirection": {
+    "name": "cnatAddrPortBindDirection",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uniDirectional": 1,
+          "biDirectional": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrPortBindType": {
+    "name": "cnatAddrPortBindType",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrPortBindConfName": {
+    "name": "cnatAddrPortBindConfName",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrPortBindSessionCount": {
+    "name": "cnatAddrPortBindSessionCount",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrPortBindCurrentIdleTime": {
+    "name": "cnatAddrPortBindCurrentIdleTime",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrPortBindInTranslate": {
+    "name": "cnatAddrPortBindInTranslate",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrPortBindOutTranslate": {
+    "name": "cnatAddrPortBindOutTranslate",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatSessionTable": {
+    "name": "cnatSessionTable",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnatSessionEntry": {
+    "name": "cnatSessionEntry",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatSessionBindId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatSessionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnatSessionBindId": {
+    "name": "cnatSessionBindId",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnatSessionId": {
+    "name": "cnatSessionId",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnatSessionDirection": {
+    "name": "cnatSessionDirection",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatSessionUpTime": {
+    "name": "cnatSessionUpTime",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatSessionProtocolType": {
+    "name": "cnatSessionProtocolType",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NATProtocolType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatSessionOrigPrivateAddr": {
+    "name": "cnatSessionOrigPrivateAddr",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatSessionTransPrivateAddr": {
+    "name": "cnatSessionTransPrivateAddr",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatSessionOrigPrivatePort": {
+    "name": "cnatSessionOrigPrivatePort",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatSessionTransPrivatePort": {
+    "name": "cnatSessionTransPrivatePort",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatSessionOrigPublicAddr": {
+    "name": "cnatSessionOrigPublicAddr",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatSessionTransPublicAddr": {
+    "name": "cnatSessionTransPublicAddr",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatSessionOrigPublicPort": {
+    "name": "cnatSessionOrigPublicPort",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatSessionTransPublicPort": {
+    "name": "cnatSessionTransPublicPort",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatSessionCurrentIdletime": {
+    "name": "cnatSessionCurrentIdletime",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatSessionSecondBindId": {
+    "name": "cnatSessionSecondBindId",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatSessionInTranslate": {
+    "name": "cnatSessionInTranslate",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatSessionOutTranslate": {
+    "name": "cnatSessionOutTranslate",
+    "oid": "1.3.6.1.4.1.9.10.77.1.2.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatProtocolStatsTable": {
+    "name": "cnatProtocolStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.77.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnatProtocolStatsEntry": {
+    "name": "cnatProtocolStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.77.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatProtocolStatsName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnatProtocolStatsName": {
+    "name": "cnatProtocolStatsName",
+    "oid": "1.3.6.1.4.1.9.10.77.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NATProtocolType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnatProtocolStatsInTranslate": {
+    "name": "cnatProtocolStatsInTranslate",
+    "oid": "1.3.6.1.4.1.9.10.77.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatProtocolStatsOutTranslate": {
+    "name": "cnatProtocolStatsOutTranslate",
+    "oid": "1.3.6.1.4.1.9.10.77.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatProtocolStatsRejectCount": {
+    "name": "cnatProtocolStatsRejectCount",
+    "oid": "1.3.6.1.4.1.9.10.77.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrMapStatsTable": {
+    "name": "cnatAddrMapStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.77.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnatAddrMapStatsEntry": {
+    "name": "cnatAddrMapStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.77.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrMapStatsConfName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrMapStatsMapName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnatAddrMapStatsConfName": {
+    "name": "cnatAddrMapStatsConfName",
+    "oid": "1.3.6.1.4.1.9.10.77.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnatAddrMapStatsMapName": {
+    "name": "cnatAddrMapStatsMapName",
+    "oid": "1.3.6.1.4.1.9.10.77.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnatAddrMapStatsInTranslate": {
+    "name": "cnatAddrMapStatsInTranslate",
+    "oid": "1.3.6.1.4.1.9.10.77.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrMapStatsOutTranslate": {
+    "name": "cnatAddrMapStatsOutTranslate",
+    "oid": "1.3.6.1.4.1.9.10.77.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrMapStatsNoResource": {
+    "name": "cnatAddrMapStatsNoResource",
+    "oid": "1.3.6.1.4.1.9.10.77.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatAddrMapStatsAddrUsed": {
+    "name": "cnatAddrMapStatsAddrUsed",
+    "oid": "1.3.6.1.4.1.9.10.77.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatInterfaceStatsTable": {
+    "name": "cnatInterfaceStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.77.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnatInterfaceStatsEntry": {
+    "name": "cnatInterfaceStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.77.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cnatInterfaceStatsEntry",
+      "module": "CISCO-IETF-NAT-MIB",
+      "object": "cnatInterfaceEntry"
+    },
+    "status": "current"
+  },
+  "cnatInterfacePktsIn": {
+    "name": "cnatInterfacePktsIn",
+    "oid": "1.3.6.1.4.1.9.10.77.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnatInterfacePktsOut": {
+    "name": "cnatInterfacePktsOut",
+    "oid": "1.3.6.1.4.1.9.10.77.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoNatMIBNotificationPrefix": {
+    "name": "ciscoNatMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.10.77.2",
+    "class": "objectidentity"
+  },
+  "ciscoNatMIBNotifications": {
+    "name": "ciscoNatMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.10.77.2.0",
+    "class": "objectidentity"
+  },
+  "ciscoNatMIBConformance": {
+    "name": "ciscoNatMIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.77.3",
+    "class": "objectidentity"
+  },
+  "ciscoNatMIBCompliances": {
+    "name": "ciscoNatMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.77.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoNatMIBGroups": {
+    "name": "ciscoNatMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.77.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoNatMIBCompliance": {
+    "name": "ciscoNatMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.77.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cnatConfigGroup",
+        "module": "CISCO-IETF-NAT-MIB"
+      },
+      {
+        "object": "cnatBindGroup",
+        "module": "CISCO-IETF-NAT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cnatConfigGroup": {
+    "name": "cnatConfigGroup",
+    "oid": "1.3.6.1.4.1.9.10.77.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfServiceType"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfTimeoutIcmpIdle"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfTimeoutUdpIdle"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfTimeoutTcpIdle"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfTimeoutTcpNeg"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfTimeoutOther"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfMaxBindLeaseTime"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfMaxBindIdleTime"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfStorageType"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfStatus"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfStaticAddrMapType"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfStaticLocalAddrFrom"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfStaticLocalAddrTo"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfStaticLocalPortFrom"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfStaticLocalPortTo"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfStaticGlobalAddrFrom"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfStaticGlobalAddrTo"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfStaticGlobalPortFrom"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfStaticGlobalPortTo"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfStaticProtocol"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfStaticAddrMapStorageType"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfStaticAddrMapStatus"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfDynAddressMapType"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfDynLocalAddrFrom"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfDynLocalAddrTo"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfDynLocalPortFrom"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfDynLocalPortTo"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfDynGlobalAddrFrom"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfDynGlobalAddrTo"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfDynGlobalPortFrom"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfDynGlobalPortTo"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfDynProtocol"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfDynAddrMapStorageType"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatConfDynAddrMapStatus"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatInterfaceRealm"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatInterfaceStorageType"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatInterfaceStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cnatBindGroup": {
+    "name": "cnatBindGroup",
+    "oid": "1.3.6.1.4.1.9.10.77.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrBindNumberOfEntries"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrBindGlobalAddr"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrBindId"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrBindDirection"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrBindType"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrBindConfName"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrBindSessionCount"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrBindCurrentIdleTime"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrBindInTranslate"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrBindOutTranslate"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrPortBindNumberOfEntries"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrPortBindGlobalAddr"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrPortBindGlobalPort"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrPortBindId"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrPortBindDirection"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrPortBindType"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrPortBindConfName"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrPortBindSessionCount"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrPortBindCurrentIdleTime"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrPortBindInTranslate"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrPortBindOutTranslate"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatSessionDirection"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatSessionUpTime"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatSessionProtocolType"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatSessionOrigPrivateAddr"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatSessionTransPrivateAddr"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatSessionOrigPrivatePort"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatSessionTransPrivatePort"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatSessionOrigPublicAddr"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatSessionTransPublicAddr"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatSessionOrigPublicPort"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatSessionTransPublicPort"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatSessionCurrentIdletime"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatSessionSecondBindId"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatSessionInTranslate"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatSessionOutTranslate"
+      }
+    ],
+    "status": "current"
+  },
+  "cnatStatsGroup": {
+    "name": "cnatStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.77.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatProtocolStatsInTranslate"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatProtocolStatsOutTranslate"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatProtocolStatsRejectCount"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrMapStatsInTranslate"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrMapStatsOutTranslate"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrMapStatsNoResource"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatAddrMapStatsAddrUsed"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatInterfacePktsIn"
+      },
+      {
+        "module": "CISCO-IETF-NAT-MIB",
+        "object": "cnatInterfacePktsOut"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-NAT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IETF-NAT-MIB"
+  }
+}

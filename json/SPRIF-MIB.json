@@ -1,0 +1,768 @@
+{
+  "imports": {
+    "class": "imports",
+    "EQUIPMENT-MIB": [
+      "SagemBoolean"
+    ],
+    "SAGEM-DR-MIB": [
+      "sagemDr"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sprif": {
+    "name": "sprif",
+    "oid": "1.3.6.1.4.1.1038.180",
+    "class": "moduleidentity"
+  },
+  "debug": {
+    "name": "debug",
+    "oid": "1.3.6.1.4.1.1038.180.10",
+    "class": "objectidentity"
+  },
+  "debug3": {
+    "name": "debug3",
+    "oid": "1.3.6.1.4.1.1038.180.30",
+    "class": "objectidentity"
+  },
+  "NodeId": {
+    "name": "NodeId",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "node0": 0,
+          "node1": 1,
+          "node2": 2,
+          "node3": 3,
+          "node4": 4,
+          "node5": 5,
+          "node6": 6,
+          "node7": 7,
+          "node8": 8,
+          "node9": 9,
+          "node10": 10,
+          "node11": 11,
+          "node12": 12,
+          "node13": 13,
+          "node14": 14,
+          "node15": 15,
+          "nodeUNK": 255
+        }
+      }
+    }
+  },
+  "STATE": {
+    "name": "STATE",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "idle": 1,
+          "pass": 2,
+          "switch": 3,
+          "unknown": 4
+        }
+      }
+    }
+  },
+  "SWITCHSTATUS": {
+    "name": "SWITCHSTATUS",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSw": 0,
+          "br": 1,
+          "sw": 2,
+          "brsw": 3,
+          "unknown": 4
+        }
+      }
+    }
+  },
+  "K1ASK": {
+    "name": "K1ASK",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lps": 15,
+          "fsr": 13,
+          "sfr": 11,
+          "sdr": 8,
+          "msr": 6,
+          "wtr": 5,
+          "exerr": 3,
+          "rr": 1,
+          "nr": 0
+        }
+      }
+    }
+  },
+  "LOGTYPE": {
+    "name": "LOGTYPE",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "receiveK": 0,
+          "transmitK": 1,
+          "opCmd": 2,
+          "failure": 3,
+          "timer": 4,
+          "unknown": 5
+        }
+      }
+    }
+  },
+  "LOCALCOMMAND": {
+    "name": "LOCALCOMMAND",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 20,
+          "off": 19,
+          "lopas": 18,
+          "lowr": 17,
+          "clear": 16,
+          "lps": 15,
+          "fsr": 13,
+          "msr": 6,
+          "wtr": 5,
+          "exerr": 3,
+          "none": 0
+        }
+      }
+    }
+  },
+  "LOCALFAIL": {
+    "name": "LOCALFAIL",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "endsf": 27,
+          "endsd": 24,
+          "sf": 11,
+          "sd": 8,
+          "none": 0
+        }
+      }
+    }
+  },
+  "K2STAT": {
+    "name": "K2STAT",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "msais": 7,
+          "msrdi": 6,
+          "extra": 3,
+          "brsw": 2,
+          "br": 1,
+          "idle": 0
+        }
+      }
+    }
+  },
+  "K2PATH": {
+    "name": "K2PATH",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "short": 0,
+          "long": 1
+        }
+      }
+    }
+  },
+  "TrafficStatus": {
+    "name": "TrafficStatus",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "working": 1,
+          "protection": 2
+        }
+      }
+    }
+  },
+  "LINE": {
+    "name": "LINE",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "west": 0,
+          "east": 1,
+          "unknown": 2
+        }
+      }
+    }
+  },
+  "TIMER": {
+    "name": "TIMER",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stop": 0,
+          "start": 1,
+          "restart": 2
+        }
+      }
+    }
+  },
+  "debugNumber": {
+    "name": "debugNumber",
+    "oid": "1.3.6.1.4.1.1038.180.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugTable": {
+    "name": "debugTable",
+    "oid": "1.3.6.1.4.1.1038.180.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "debugEntry": {
+    "name": "debugEntry",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPRIF-MIB",
+        "object": "debugIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "debugIndex": {
+    "name": "debugIndex",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugDate": {
+    "name": "debugDate",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugNodeID": {
+    "name": "debugNodeID",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugLogType": {
+    "name": "debugLogType",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LOGTYPE",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugLine": {
+    "name": "debugLine",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LINE",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugNodeState": {
+    "name": "debugNodeState",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "STATE",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugTrafficStatus": {
+    "name": "debugTrafficStatus",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrafficStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugSwitchingState": {
+    "name": "debugSwitchingState",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SWITCHSTATUS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugTxK1Ask": {
+    "name": "debugTxK1Ask",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "K1ASK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugTxK1Dst": {
+    "name": "debugTxK1Dst",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugTxK2Src": {
+    "name": "debugTxK2Src",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugTxK2Path": {
+    "name": "debugTxK2Path",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "K2PATH",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugTxK2Stat": {
+    "name": "debugTxK2Stat",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "K2STAT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugRxK1Ask": {
+    "name": "debugRxK1Ask",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "K1ASK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugRxK1Dst": {
+    "name": "debugRxK1Dst",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugRxK2Src": {
+    "name": "debugRxK2Src",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugRxK2Path": {
+    "name": "debugRxK2Path",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "K2PATH",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugRxK2Stat": {
+    "name": "debugRxK2Stat",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "K2STAT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugWtr": {
+    "name": "debugWtr",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugLastDistantCommand": {
+    "name": "debugLastDistantCommand",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "K1ASK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugLastDetectedFailure": {
+    "name": "debugLastDetectedFailure",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LOCALFAIL",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugLastLocalCommand": {
+    "name": "debugLastLocalCommand",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LOCALCOMMAND",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugTimerAction": {
+    "name": "debugTimerAction",
+    "oid": "1.3.6.1.4.1.1038.180.10.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TIMER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debugActivated": {
+    "name": "debugActivated",
+    "oid": "1.3.6.1.4.1.1038.180.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "debug3Table": {
+    "name": "debug3Table",
+    "oid": "1.3.6.1.4.1.1038.180.30.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "debug3Entry": {
+    "name": "debug3Entry",
+    "oid": "1.3.6.1.4.1.1038.180.30.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPRIF-MIB",
+        "object": "debugIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "debug3Date": {
+    "name": "debug3Date",
+    "oid": "1.3.6.1.4.1.1038.180.30.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debug3Line": {
+    "name": "debug3Line",
+    "oid": "1.3.6.1.4.1.1038.180.30.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LINE",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debug3arv": {
+    "name": "debug3arv",
+    "oid": "1.3.6.1.4.1.1038.180.30.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SagemBoolean",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debug3ato": {
+    "name": "debug3ato",
+    "oid": "1.3.6.1.4.1.1038.180.30.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SagemBoolean",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debug3aun": {
+    "name": "debug3aun",
+    "oid": "1.3.6.1.4.1.1038.180.30.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SagemBoolean",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debug3ptm": {
+    "name": "debug3ptm",
+    "oid": "1.3.6.1.4.1.1038.180.30.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SagemBoolean",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debug3mms": {
+    "name": "debug3mms",
+    "oid": "1.3.6.1.4.1.1038.180.30.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SagemBoolean",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "debug3exr": {
+    "name": "debug3exr",
+    "oid": "1.3.6.1.4.1.1038.180.30.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SagemBoolean",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sagemcom/SPRIF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SPRIF-MIB"
+  }
+}

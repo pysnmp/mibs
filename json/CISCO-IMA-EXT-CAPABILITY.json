@@ -1,0 +1,92 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "IMA-MIB": [
+      "MilliSeconds"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "AGENT-CAPABILITIES"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoImaExtCapability": {
+    "name": "ciscoImaExtCapability",
+    "oid": "1.3.6.1.4.1.9.7.524",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-11-24 00:00",
+        "description": "Added ciscoImaExtCapabilityV12R05 for Cisco 2800, 3700 and 3800 Series Routers."
+      },
+      {
+        "revision": "2006-09-26 00:00",
+        "description": "Added ciscoImaExtAxsmeCapabilityV5R320 and ciscoImaExtCapabilityV5R320."
+      },
+      {
+        "revision": "2002-03-04 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoImaExtAxsmeCapabilityV3R0": {
+    "name": "ciscoImaExtAxsmeCapabilityV3R0",
+    "oid": "1.3.6.1.4.1.9.7.524.1",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 3.0",
+    "status": "current"
+  },
+  "ciscoImaExtAxsmeCapabilityV5R320": {
+    "name": "ciscoImaExtAxsmeCapabilityV5R320",
+    "oid": "1.3.6.1.4.1.9.7.524.2",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 5.3.20",
+    "status": "current"
+  },
+  "ciscoImaExtCapabilityV5R320": {
+    "name": "ciscoImaExtCapabilityV5R320",
+    "oid": "1.3.6.1.4.1.9.7.524.3",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8950  and MGX8850 Release 5.3.20",
+    "status": "current"
+  },
+  "ciscoImaExtCapabilityV12R05": {
+    "name": "ciscoImaExtCapabilityV12R05",
+    "oid": "1.3.6.1.4.1.9.7.524.4",
+    "class": "agentcapabilities",
+    "productrelease": "IOS 12.5 for Cisco Access Routers and ISRs",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IMA-EXT-CAPABILITY",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IMA-EXT-CAPABILITY"
+  }
+}

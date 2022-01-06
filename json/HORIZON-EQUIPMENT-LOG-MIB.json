@@ -1,0 +1,755 @@
+{
+  "imports": {
+    "class": "imports",
+    "HORIZON-MIB": [
+      "horizon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Gauge32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
+    ]
+  },
+  "horizonEquipmentLogMib": {
+    "name": "horizonEquipmentLogMib",
+    "oid": "1.3.6.1.4.1.7262.2.100",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-01-21 00:00",
+        "description": "Initial Revision"
+      }
+    ]
+  },
+  "EnableType": {
+    "name": "EnableType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "horizonEquipmentLogMibObjects": {
+    "name": "horizonEquipmentLogMibObjects",
+    "oid": "1.3.6.1.4.1.7262.2.100.1",
+    "class": "objectidentity"
+  },
+  "horizonEquipmentConfigLog": {
+    "name": "horizonEquipmentConfigLog",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.1",
+    "class": "objectidentity"
+  },
+  "horizonEquipmentLog": {
+    "name": "horizonEquipmentLog",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.2",
+    "class": "objectidentity"
+  },
+  "horizonEquipmentAlarmList": {
+    "name": "horizonEquipmentAlarmList",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.3",
+    "class": "objectidentity"
+  },
+  "horizonEquipmentSnmpTrap": {
+    "name": "horizonEquipmentSnmpTrap",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.4",
+    "class": "objectidentity"
+  },
+  "horizonEquipmentPseudoEventsObjects": {
+    "name": "horizonEquipmentPseudoEventsObjects",
+    "oid": "1.3.6.1.4.1.7262.2.100.2",
+    "class": "objectidentity"
+  },
+  "horizonEquipmentMirrorObjects": {
+    "name": "horizonEquipmentMirrorObjects",
+    "oid": "1.3.6.1.4.1.7262.2.100.3",
+    "class": "objectidentity"
+  },
+  "horizonEquipmentEventLogEntryLimit": {
+    "name": "horizonEquipmentEventLogEntryLimit",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4096,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentEventLogLastEntry": {
+    "name": "horizonEquipmentEventLogLastEntry",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentEventLogTable": {
+    "name": "horizonEquipmentEventLogTable",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "horizonEquipmentEventLogEntry": {
+    "name": "horizonEquipmentEventLogEntry",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HORIZON-EQUIPMENT-LOG-MIB",
+        "object": "horizonEquipmentEventLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "horizonEquipmentEventLogIndex": {
+    "name": "horizonEquipmentEventLogIndex",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "horizonEquipmentEventLogTime": {
+    "name": "horizonEquipmentEventLogTime",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentEventLogDateAndTime": {
+    "name": "horizonEquipmentEventLogDateAndTime",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentEventLogNotificationID": {
+    "name": "horizonEquipmentEventLogNotificationID",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentEventLogVariables": {
+    "name": "horizonEquipmentEventLogVariables",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentEventLogVariableTable": {
+    "name": "horizonEquipmentEventLogVariableTable",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "horizonEquipmentEventLogVariableEntry": {
+    "name": "horizonEquipmentEventLogVariableEntry",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HORIZON-EQUIPMENT-LOG-MIB",
+        "object": "horizonEquipmentEventLogIndex",
+        "implied": 0
+      },
+      {
+        "module": "HORIZON-EQUIPMENT-LOG-MIB",
+        "object": "horizonEquipmentEventLogVariableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "horizonEquipmentEventLogVariableIndex": {
+    "name": "horizonEquipmentEventLogVariableIndex",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "horizonEquipmentEventLogVariableID": {
+    "name": "horizonEquipmentEventLogVariableID",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentEventLogVariableValueType": {
+    "name": "horizonEquipmentEventLogVariableValueType",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "counter32": 1,
+          "unsigned32": 2,
+          "timeTicks": 3,
+          "integer32": 4,
+          "ipAddress": 5,
+          "octetString": 6,
+          "objectId": 7,
+          "counter64": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentEventLogVariableCounter32Val": {
+    "name": "horizonEquipmentEventLogVariableCounter32Val",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentEventLogVariableUnsigned32Val": {
+    "name": "horizonEquipmentEventLogVariableUnsigned32Val",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentEventLogVariableTimeTicksVal": {
+    "name": "horizonEquipmentEventLogVariableTimeTicksVal",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentEventLogVariableInteger32Val": {
+    "name": "horizonEquipmentEventLogVariableInteger32Val",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentEventLogVariableOctetStringVal": {
+    "name": "horizonEquipmentEventLogVariableOctetStringVal",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentEventLogVariableIpAddressVal": {
+    "name": "horizonEquipmentEventLogVariableIpAddressVal",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentEventLogVariableOidVal": {
+    "name": "horizonEquipmentEventLogVariableOidVal",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentEventLogVariableCounter64Val": {
+    "name": "horizonEquipmentEventLogVariableCounter64Val",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentAlarmActiveLastChanged": {
+    "name": "horizonEquipmentAlarmActiveLastChanged",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentAlarmActiveRowCounter": {
+    "name": "horizonEquipmentAlarmActiveRowCounter",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentAlarmActiveTable": {
+    "name": "horizonEquipmentAlarmActiveTable",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "horizonEquipmentAlarmActiveEntry": {
+    "name": "horizonEquipmentAlarmActiveEntry",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HORIZON-EQUIPMENT-LOG-MIB",
+        "object": "horizonEquipmentAlarmActiveTime",
+        "implied": 0
+      },
+      {
+        "module": "HORIZON-EQUIPMENT-LOG-MIB",
+        "object": "horizonEquipmentAlarmActiveIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "horizonEquipmentAlarmActiveIndex": {
+    "name": "horizonEquipmentAlarmActiveIndex",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "horizonEquipmentAlarmActiveTime": {
+    "name": "horizonEquipmentAlarmActiveTime",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "horizonEquipmentAlarmActiveDateAndTime": {
+    "name": "horizonEquipmentAlarmActiveDateAndTime",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentAlarmActiveSourceID": {
+    "name": "horizonEquipmentAlarmActiveSourceID",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentOutTrapsCounter": {
+    "name": "horizonEquipmentOutTrapsCounter",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentLastOutTrapTimeStamp": {
+    "name": "horizonEquipmentLastOutTrapTimeStamp",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentTrapDestTable": {
+    "name": "horizonEquipmentTrapDestTable",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "horizonEquipmentTrapDestEntry": {
+    "name": "horizonEquipmentTrapDestEntry",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HORIZON-EQUIPMENT-LOG-MIB",
+        "object": "horizonEquipmentTrapDestAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "horizonEquipmentTrapDestAddress": {
+    "name": "horizonEquipmentTrapDestAddress",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "horizonEquipmentTrapDestCommString": {
+    "name": "horizonEquipmentTrapDestCommString",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "horizonEquipmentTrapDestUdpPort": {
+    "name": "horizonEquipmentTrapDestUdpPort",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 162,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "horizonEquipmentTrapDestSnmpVer": {
+    "name": "horizonEquipmentTrapDestSnmpVer",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 0,
+          "v2": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "v2",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "horizonEquipmentTrapDestEraseTime": {
+    "name": "horizonEquipmentTrapDestEraseTime",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1440000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "horizonEquipmentTrapDestRowStatus": {
+    "name": "horizonEquipmentTrapDestRowStatus",
+    "oid": "1.3.6.1.4.1.7262.2.100.1.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "horizonEquipmentConfChangeOid": {
+    "name": "horizonEquipmentConfChangeOid",
+    "oid": "1.3.6.1.4.1.7262.2.100.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentConfChangeMode": {
+    "name": "horizonEquipmentConfChangeMode",
+    "oid": "1.3.6.1.4.1.7262.2.100.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "horizonEquipmentConfChangeNotification": {
+    "name": "horizonEquipmentConfChangeNotification",
+    "oid": "1.3.6.1.4.1.7262.2.100.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HORIZON-EQUIPMENT-LOG-MIB",
+        "object": "horizonEquipmentConfChangeOid"
+      },
+      {
+        "module": "HORIZON-EQUIPMENT-LOG-MIB",
+        "object": "horizonEquipmentOutTrapsCounter"
+      }
+    ],
+    "status": "current"
+  },
+  "horizonEquipmentMirrorFlag": {
+    "name": "horizonEquipmentMirrorFlag",
+    "oid": "1.3.6.1.4.1.7262.2.100.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "horizonEquipmentMirrorColdStart": {
+    "name": "horizonEquipmentMirrorColdStart",
+    "oid": "1.3.6.1.4.1.7262.2.100.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HORIZON-EQUIPMENT-LOG-MIB",
+        "object": "horizonEquipmentMirrorFlag"
+      },
+      {
+        "module": "HORIZON-EQUIPMENT-LOG-MIB",
+        "object": "horizonEquipmentOutTrapsCounter"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dragonwave/HORIZON-EQUIPMENT-LOG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:48 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HORIZON-EQUIPMENT-LOG-MIB"
+  }
+}

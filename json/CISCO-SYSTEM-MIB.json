@@ -1,0 +1,663 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CountryCode"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "ciscoSystemMIB": {
+    "name": "ciscoSystemMIB",
+    "oid": "1.3.6.1.4.1.9.9.131",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-09-16 00:00",
+        "description": "Removed default values for csySummerTimeStatus, csySummerTimeOffset, csySummerTimeRecurringStart and csySummerTimeRecurringEnd objects."
+      },
+      {
+        "revision": "2007-05-29 00:00",
+        "description": "Added the following new object: - csyStandardTmZnGMTOffset - csySummerTmZnGMTOffset"
+      },
+      {
+        "revision": "2001-06-22 00:00",
+        "description": "Added SNMP authentication failure objects and clock changed notification."
+      },
+      {
+        "revision": "2000-01-25 17:00",
+        "description": "Added Summertime and ScheduledReset objects."
+      },
+      {
+        "revision": "1999-02-02 17:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSystemMIBObjects": {
+    "name": "ciscoSystemMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.131.1",
+    "class": "objectidentity"
+  },
+  "csyClock": {
+    "name": "csyClock",
+    "oid": "1.3.6.1.4.1.9.9.131.1.1",
+    "class": "objectidentity"
+  },
+  "csyLocation": {
+    "name": "csyLocation",
+    "oid": "1.3.6.1.4.1.9.9.131.1.2",
+    "class": "objectidentity"
+  },
+  "csySummerTime": {
+    "name": "csySummerTime",
+    "oid": "1.3.6.1.4.1.9.9.131.1.3",
+    "class": "objectidentity"
+  },
+  "csyScheduledReset": {
+    "name": "csyScheduledReset",
+    "oid": "1.3.6.1.4.1.9.9.131.1.4",
+    "class": "objectidentity"
+  },
+  "csySnmpAuthentication": {
+    "name": "csySnmpAuthentication",
+    "oid": "1.3.6.1.4.1.9.9.131.1.5",
+    "class": "objectidentity"
+  },
+  "csyGeneral": {
+    "name": "csyGeneral",
+    "oid": "1.3.6.1.4.1.9.9.131.1.6",
+    "class": "objectidentity"
+  },
+  "csyClockDateAndTime": {
+    "name": "csyClockDateAndTime",
+    "oid": "1.3.6.1.4.1.9.9.131.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csyClockLostOnReboot": {
+    "name": "csyClockLostOnReboot",
+    "oid": "1.3.6.1.4.1.9.9.131.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csyLocationCountry": {
+    "name": "csyLocationCountry",
+    "oid": "1.3.6.1.4.1.9.9.131.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CountryCode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csySummerTimeStatus": {
+    "name": "csySummerTimeStatus",
+    "oid": "1.3.6.1.4.1.9.9.131.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csySummerTimeOffset": {
+    "name": "csySummerTimeOffset",
+    "oid": "1.3.6.1.4.1.9.9.131.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "units": "Minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csySummerTimeRecurringStart": {
+    "name": "csySummerTimeRecurringStart",
+    "oid": "1.3.6.1.4.1.9.9.131.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csySummerTimeRecurringEnd": {
+    "name": "csySummerTimeRecurringEnd",
+    "oid": "1.3.6.1.4.1.9.9.131.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csyStandardTmZnGMTOffset": {
+    "name": "csyStandardTmZnGMTOffset",
+    "oid": "1.3.6.1.4.1.9.9.131.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -720,
+            "max": 720
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csySummerTmZnGMTOffset": {
+    "name": "csySummerTmZnGMTOffset",
+    "oid": "1.3.6.1.4.1.9.9.131.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -720,
+            "max": 720
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csyScheduledResetTime": {
+    "name": "csyScheduledResetTime",
+    "oid": "1.3.6.1.4.1.9.9.131.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csyScheduledResetAction": {
+    "name": "csyScheduledResetAction",
+    "oid": "1.3.6.1.4.1.9.9.131.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "resetMinDown": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "reset",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csyScheduledResetReason": {
+    "name": "csyScheduledResetReason",
+    "oid": "1.3.6.1.4.1.9.9.131.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csySnmpAuthFail": {
+    "name": "csySnmpAuthFail",
+    "oid": "1.3.6.1.4.1.9.9.131.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csySnmpAuthFailAddressType": {
+    "name": "csySnmpAuthFailAddressType",
+    "oid": "1.3.6.1.4.1.9.9.131.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csySnmpAuthFailAddress": {
+    "name": "csySnmpAuthFailAddress",
+    "oid": "1.3.6.1.4.1.9.9.131.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csyNotificationsEnable": {
+    "name": "csyNotificationsEnable",
+    "oid": "1.3.6.1.4.1.9.9.131.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoSystemMIBNotificationPrefix": {
+    "name": "ciscoSystemMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.131.2",
+    "class": "objectidentity"
+  },
+  "ciscoSystemMIBNotifications": {
+    "name": "ciscoSystemMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.131.2.0",
+    "class": "objectidentity"
+  },
+  "ciscoSystemClockChanged": {
+    "name": "ciscoSystemClockChanged",
+    "oid": "1.3.6.1.4.1.9.9.131.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-MIB",
+        "object": "csyClockDateAndTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemMIBConformance": {
+    "name": "ciscoSystemMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.131.3",
+    "class": "objectidentity"
+  },
+  "ciscoSystemMIBCompliances": {
+    "name": "ciscoSystemMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.131.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoSystemMIBGroups": {
+    "name": "ciscoSystemMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.131.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoSystemMIBCompliance": {
+    "name": "ciscoSystemMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.131.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSystemClockGroup",
+        "module": "CISCO-SYSTEM-MIB"
+      },
+      {
+        "object": "ciscoSystemLocationGroup",
+        "module": "CISCO-SYSTEM-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSystemMIBCompliance2": {
+    "name": "ciscoSystemMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.131.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSystemClockGroup",
+        "module": "CISCO-SYSTEM-MIB"
+      },
+      {
+        "object": "ciscoSystemLocationGroup",
+        "module": "CISCO-SYSTEM-MIB"
+      },
+      {
+        "object": "ciscoSystemSummerTimeGroup",
+        "module": "CISCO-SYSTEM-MIB"
+      },
+      {
+        "object": "ciscoSystemScheduledResetGroup",
+        "module": "CISCO-SYSTEM-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSystemMIBCompliance3": {
+    "name": "ciscoSystemMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.131.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSystemClockGroup",
+        "module": "CISCO-SYSTEM-MIB"
+      },
+      {
+        "object": "ciscoSystemLocationGroup",
+        "module": "CISCO-SYSTEM-MIB"
+      },
+      {
+        "object": "ciscoSystemSummerTimeGroup",
+        "module": "CISCO-SYSTEM-MIB"
+      },
+      {
+        "object": "ciscoSystemScheduledResetGroup",
+        "module": "CISCO-SYSTEM-MIB"
+      },
+      {
+        "object": "ciscoSystemSnmpAuthGroup",
+        "module": "CISCO-SYSTEM-MIB"
+      },
+      {
+        "object": "ciscoSystemGeneralGroup",
+        "module": "CISCO-SYSTEM-MIB"
+      },
+      {
+        "object": "ciscoSystemNotificationsGroup",
+        "module": "CISCO-SYSTEM-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSystemMIBCompliance4": {
+    "name": "ciscoSystemMIBCompliance4",
+    "oid": "1.3.6.1.4.1.9.9.131.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSystemClockGroup",
+        "module": "CISCO-SYSTEM-MIB"
+      },
+      {
+        "object": "ciscoSystemLocationGroup",
+        "module": "CISCO-SYSTEM-MIB"
+      },
+      {
+        "object": "ciscoSystemSummerTimeGroupRev1",
+        "module": "CISCO-SYSTEM-MIB"
+      },
+      {
+        "object": "ciscoSystemScheduledResetGroup",
+        "module": "CISCO-SYSTEM-MIB"
+      },
+      {
+        "object": "ciscoSystemSnmpAuthGroup",
+        "module": "CISCO-SYSTEM-MIB"
+      },
+      {
+        "object": "ciscoSystemGeneralGroup",
+        "module": "CISCO-SYSTEM-MIB"
+      },
+      {
+        "object": "ciscoSystemNotificationsGroup",
+        "module": "CISCO-SYSTEM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemClockGroup": {
+    "name": "ciscoSystemClockGroup",
+    "oid": "1.3.6.1.4.1.9.9.131.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-MIB",
+        "object": "csyClockDateAndTime"
+      },
+      {
+        "module": "CISCO-SYSTEM-MIB",
+        "object": "csyClockLostOnReboot"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemLocationGroup": {
+    "name": "ciscoSystemLocationGroup",
+    "oid": "1.3.6.1.4.1.9.9.131.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-MIB",
+        "object": "csyLocationCountry"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemSummerTimeGroup": {
+    "name": "ciscoSystemSummerTimeGroup",
+    "oid": "1.3.6.1.4.1.9.9.131.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-MIB",
+        "object": "csySummerTimeStatus"
+      },
+      {
+        "module": "CISCO-SYSTEM-MIB",
+        "object": "csySummerTimeOffset"
+      },
+      {
+        "module": "CISCO-SYSTEM-MIB",
+        "object": "csySummerTimeRecurringStart"
+      },
+      {
+        "module": "CISCO-SYSTEM-MIB",
+        "object": "csySummerTimeRecurringEnd"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSystemScheduledResetGroup": {
+    "name": "ciscoSystemScheduledResetGroup",
+    "oid": "1.3.6.1.4.1.9.9.131.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-MIB",
+        "object": "csyScheduledResetTime"
+      },
+      {
+        "module": "CISCO-SYSTEM-MIB",
+        "object": "csyScheduledResetAction"
+      },
+      {
+        "module": "CISCO-SYSTEM-MIB",
+        "object": "csyScheduledResetReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemSnmpAuthGroup": {
+    "name": "ciscoSystemSnmpAuthGroup",
+    "oid": "1.3.6.1.4.1.9.9.131.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-MIB",
+        "object": "csySnmpAuthFail"
+      },
+      {
+        "module": "CISCO-SYSTEM-MIB",
+        "object": "csySnmpAuthFailAddressType"
+      },
+      {
+        "module": "CISCO-SYSTEM-MIB",
+        "object": "csySnmpAuthFailAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemGeneralGroup": {
+    "name": "ciscoSystemGeneralGroup",
+    "oid": "1.3.6.1.4.1.9.9.131.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-MIB",
+        "object": "csyNotificationsEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemNotificationsGroup": {
+    "name": "ciscoSystemNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.131.3.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-MIB",
+        "object": "ciscoSystemClockChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSystemSummerTimeGroupRev1": {
+    "name": "ciscoSystemSummerTimeGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.131.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSTEM-MIB",
+        "object": "csySummerTimeStatus"
+      },
+      {
+        "module": "CISCO-SYSTEM-MIB",
+        "object": "csySummerTimeOffset"
+      },
+      {
+        "module": "CISCO-SYSTEM-MIB",
+        "object": "csySummerTimeRecurringStart"
+      },
+      {
+        "module": "CISCO-SYSTEM-MIB",
+        "object": "csySummerTimeRecurringEnd"
+      },
+      {
+        "module": "CISCO-SYSTEM-MIB",
+        "object": "csyStandardTmZnGMTOffset"
+      },
+      {
+        "module": "CISCO-SYSTEM-MIB",
+        "object": "csySummerTmZnGMTOffset"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SYSTEM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SYSTEM-MIB"
+  }
+}

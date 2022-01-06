@@ -1,0 +1,1936 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-FRAME-RELAY-MIB": [
+      "DlciNumber"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "SAPType"
+    ],
+    "DLSW-MIB": [
+      "dlswIfEntry",
+      "dlswTConnTcpConfigEntry",
+      "dlswCircuitState",
+      "dlswTConnOperEntry",
+      "dlswTConnOperState",
+      "DlcType",
+      "LFSize",
+      "MacAddressNC",
+      "dlswTConnConfigIndex",
+      "dlswTConnConfigEntry",
+      "TAddress",
+      "dlswCircuitEntry"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoDlswExtMIB": {
+    "name": "ciscoDlswExtMIB",
+    "oid": "1.3.6.1.4.1.9.9.74",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1997-03-11 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoDlswExtMIBObjects": {
+    "name": "ciscoDlswExtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.74.1",
+    "class": "objectidentity"
+  },
+  "cdeDomains": {
+    "name": "cdeDomains",
+    "oid": "1.3.6.1.4.1.9.9.74.1.1",
+    "class": "objectidentity"
+  },
+  "cdeNode": {
+    "name": "cdeNode",
+    "oid": "1.3.6.1.4.1.9.9.74.1.2",
+    "class": "objectidentity"
+  },
+  "cdeTConn": {
+    "name": "cdeTConn",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3",
+    "class": "objectidentity"
+  },
+  "cdeInterface": {
+    "name": "cdeInterface",
+    "oid": "1.3.6.1.4.1.9.9.74.1.4",
+    "class": "objectidentity"
+  },
+  "cdeCircuit": {
+    "name": "cdeCircuit",
+    "oid": "1.3.6.1.4.1.9.9.74.1.5",
+    "class": "objectidentity"
+  },
+  "cdeFast": {
+    "name": "cdeFast",
+    "oid": "1.3.6.1.4.1.9.9.74.1.6",
+    "class": "objectidentity"
+  },
+  "cdeTrapControl": {
+    "name": "cdeTrapControl",
+    "oid": "1.3.6.1.4.1.9.9.74.1.7",
+    "class": "objectidentity"
+  },
+  "TDomainType": {
+    "name": "TDomainType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcp": 1,
+          "fst": 2,
+          "directHdlc": 3,
+          "directFrameRelay": 4,
+          "llc2": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Cost": {
+    "name": "Cost",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "KeepaliveInterval": {
+    "name": "KeepaliveInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1200
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TCPQueueMax": {
+    "name": "TCPQueueMax",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 25,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cdeFSTDomain": {
+    "name": "cdeFSTDomain",
+    "oid": "1.3.6.1.4.1.9.9.74.1.1.1",
+    "class": "objectidentity"
+  },
+  "cdeDirectHdlcDomain": {
+    "name": "cdeDirectHdlcDomain",
+    "oid": "1.3.6.1.4.1.9.9.74.1.1.2",
+    "class": "objectidentity"
+  },
+  "cdeDirectFrameRelayDomain": {
+    "name": "cdeDirectFrameRelayDomain",
+    "oid": "1.3.6.1.4.1.9.9.74.1.1.3",
+    "class": "objectidentity"
+  },
+  "cdeLlc2Domain": {
+    "name": "cdeLlc2Domain",
+    "oid": "1.3.6.1.4.1.9.9.74.1.1.4",
+    "class": "objectidentity"
+  },
+  "cdeNodeTAddr": {
+    "name": "cdeNodeTAddr",
+    "oid": "1.3.6.1.4.1.9.9.74.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeNodeGroup": {
+    "name": "cdeNodeGroup",
+    "oid": "1.3.6.1.4.1.9.9.74.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeNodeBorder": {
+    "name": "cdeNodeBorder",
+    "oid": "1.3.6.1.4.1.9.9.74.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeNodeCost": {
+    "name": "cdeNodeCost",
+    "oid": "1.3.6.1.4.1.9.9.74.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Cost",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeNodeKeepaliveInterval": {
+    "name": "cdeNodeKeepaliveInterval",
+    "oid": "1.3.6.1.4.1.9.9.74.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "KeepaliveInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeNodePassiveConnect": {
+    "name": "cdeNodePassiveConnect",
+    "oid": "1.3.6.1.4.1.9.9.74.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeNodeBiuSegment": {
+    "name": "cdeNodeBiuSegment",
+    "oid": "1.3.6.1.4.1.9.9.74.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeNodeInitPacingWindow": {
+    "name": "cdeNodeInitPacingWindow",
+    "oid": "1.3.6.1.4.1.9.9.74.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeNodeMaxPacingWindow": {
+    "name": "cdeNodeMaxPacingWindow",
+    "oid": "1.3.6.1.4.1.9.9.74.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeNodePromiscuous": {
+    "name": "cdeNodePromiscuous",
+    "oid": "1.3.6.1.4.1.9.9.74.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeNodePromPeerDefaultsCost": {
+    "name": "cdeNodePromPeerDefaultsCost",
+    "oid": "1.3.6.1.4.1.9.9.74.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Cost",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeNodePromPeerDefaultsDestMac": {
+    "name": "cdeNodePromPeerDefaultsDestMac",
+    "oid": "1.3.6.1.4.1.9.9.74.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddressNC",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeNodePromPeerDefaultsKeepaliveInterval": {
+    "name": "cdeNodePromPeerDefaultsKeepaliveInterval",
+    "oid": "1.3.6.1.4.1.9.9.74.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "KeepaliveInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeNodePromPeerDefaultsLFSize": {
+    "name": "cdeNodePromPeerDefaultsLFSize",
+    "oid": "1.3.6.1.4.1.9.9.74.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LFSize",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "lfs17749",
+        "format": "enum"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeNodePromPeerDefaultsTCPQueueMax": {
+    "name": "cdeNodePromPeerDefaultsTCPQueueMax",
+    "oid": "1.3.6.1.4.1.9.9.74.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TCPQueueMax",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeNodePeerOnDemandDefaultsCost": {
+    "name": "cdeNodePeerOnDemandDefaultsCost",
+    "oid": "1.3.6.1.4.1.9.9.74.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Cost",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeNodePeerOnDemandDefaultsFst": {
+    "name": "cdeNodePeerOnDemandDefaultsFst",
+    "oid": "1.3.6.1.4.1.9.9.74.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeNodePeerOnDemandDefaultsInactivityInterval": {
+    "name": "cdeNodePeerOnDemandDefaultsInactivityInterval",
+    "oid": "1.3.6.1.4.1.9.9.74.1.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "Minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeNodePeerOnDemandDefaultsKeepaliveInterval": {
+    "name": "cdeNodePeerOnDemandDefaultsKeepaliveInterval",
+    "oid": "1.3.6.1.4.1.9.9.74.1.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "KeepaliveInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeNodePeerOnDemandDefaultsLFSize": {
+    "name": "cdeNodePeerOnDemandDefaultsLFSize",
+    "oid": "1.3.6.1.4.1.9.9.74.1.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LFSize",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "lfs17749",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeNodePeerOnDemandDefaultsPriority": {
+    "name": "cdeNodePeerOnDemandDefaultsPriority",
+    "oid": "1.3.6.1.4.1.9.9.74.1.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeNodePeerOnDemandDefaultsTCPQueueMax": {
+    "name": "cdeNodePeerOnDemandDefaultsTCPQueueMax",
+    "oid": "1.3.6.1.4.1.9.9.74.1.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TCPQueueMax",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeTConnConfigTable": {
+    "name": "cdeTConnConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdeTConnConfigEntry": {
+    "name": "cdeTConnConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cdeTConnConfigEntry",
+      "module": "CISCO-DLSW-EXT-MIB",
+      "object": "dlswTConnConfigEntry"
+    },
+    "status": "current"
+  },
+  "cdeTConnConfigTDomainType": {
+    "name": "cdeTConnConfigTDomainType",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TDomainType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "tcp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdeTConnConfigLocalAck": {
+    "name": "cdeTConnConfigLocalAck",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdeTConnConfigCost": {
+    "name": "cdeTConnConfigCost",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Cost",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdeTConnConfigLFSize": {
+    "name": "cdeTConnConfigLFSize",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LFSize",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "lfs17749",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdeTConnConfigKeepaliveInterval": {
+    "name": "cdeTConnConfigKeepaliveInterval",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "KeepaliveInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdeTConnConfigBackup": {
+    "name": "cdeTConnConfigBackup",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdeTConnConfigBackupTAddr": {
+    "name": "cdeTConnConfigBackupTAddr",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdeTConnConfigBackupLinger": {
+    "name": "cdeTConnConfigBackupLinger",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdeTConnConfigBackupLingerInterval": {
+    "name": "cdeTConnConfigBackupLingerInterval",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "units": "Minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdeTConnConfigPriority": {
+    "name": "cdeTConnConfigPriority",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdeTConnConfigDestMac": {
+    "name": "cdeTConnConfigDestMac",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddressNC",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdeTConnConfigDynamic": {
+    "name": "cdeTConnConfigDynamic",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdeTConnConfigDynamicNoLlc": {
+    "name": "cdeTConnConfigDynamicNoLlc",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "Minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdeTConnConfigDynamicInactivityInterval": {
+    "name": "cdeTConnConfigDynamicInactivityInterval",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "units": "Minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdeTConnOperTable": {
+    "name": "cdeTConnOperTable",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdeTConnOperEntry": {
+    "name": "cdeTConnOperEntry",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cdeTConnOperEntry",
+      "module": "CISCO-DLSW-EXT-MIB",
+      "object": "dlswTConnOperEntry"
+    },
+    "status": "current"
+  },
+  "cdeTConnOperPartnerCost": {
+    "name": "cdeTConnOperPartnerCost",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Cost",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdeTConnOperPartnerPriority": {
+    "name": "cdeTConnOperPartnerPriority",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdeTConnOperPartnerBorderPeer": {
+    "name": "cdeTConnOperPartnerBorderPeer",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdeTConnOperPartnerGroupNum": {
+    "name": "cdeTConnOperPartnerGroupNum",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdeTConnOperTDomainType": {
+    "name": "cdeTConnOperTDomainType",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TDomainType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdeTConnSpecific": {
+    "name": "cdeTConnSpecific",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.3",
+    "class": "objectidentity"
+  },
+  "cdeTConnTcp": {
+    "name": "cdeTConnTcp",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.3.1",
+    "class": "objectidentity"
+  },
+  "cdeTConnDirect": {
+    "name": "cdeTConnDirect",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.3.2",
+    "class": "objectidentity"
+  },
+  "cdeTConnTcpConfigTable": {
+    "name": "cdeTConnTcpConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdeTConnTcpConfigEntry": {
+    "name": "cdeTConnTcpConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cdeTConnTcpConfigEntry",
+      "module": "CISCO-DLSW-EXT-MIB",
+      "object": "dlswTConnTcpConfigEntry"
+    },
+    "status": "current"
+  },
+  "cdeTConnTcpConfigQueueMax": {
+    "name": "cdeTConnTcpConfigQueueMax",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TCPQueueMax",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdeTConnDirectConfigTable": {
+    "name": "cdeTConnDirectConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdeTConnDirectConfigEntry": {
+    "name": "cdeTConnDirectConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLSW-MIB",
+        "object": "dlswTConnConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdeTConnDirectConfigIfIndex": {
+    "name": "cdeTConnDirectConfigIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdeTConnDirectConfigMediaEncap": {
+    "name": "cdeTConnDirectConfigMediaEncap",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "directHdlc": 1,
+          "directFrameRelay": 2,
+          "llc2": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "directHdlc",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdeTConnDirectConfigFrameRelayDlci": {
+    "name": "cdeTConnDirectConfigFrameRelayDlci",
+    "oid": "1.3.6.1.4.1.9.9.74.1.3.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlciNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdeIfTable": {
+    "name": "cdeIfTable",
+    "oid": "1.3.6.1.4.1.9.9.74.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdeIfEntry": {
+    "name": "cdeIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.74.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cdeIfEntry",
+      "module": "CISCO-DLSW-EXT-MIB",
+      "object": "dlswIfEntry"
+    },
+    "status": "current"
+  },
+  "cdeIfType": {
+    "name": "cdeIfType",
+    "oid": "1.3.6.1.4.1.9.9.74.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlcType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdeCircuitTable": {
+    "name": "cdeCircuitTable",
+    "oid": "1.3.6.1.4.1.9.9.74.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdeCircuitEntry": {
+    "name": "cdeCircuitEntry",
+    "oid": "1.3.6.1.4.1.9.9.74.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cdeCircuitEntry",
+      "module": "CISCO-DLSW-EXT-MIB",
+      "object": "dlswCircuitEntry"
+    },
+    "status": "current"
+  },
+  "cdeCircuitS1Name": {
+    "name": "cdeCircuitS1Name",
+    "oid": "1.3.6.1.4.1.9.9.74.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdeCircuitS2Name": {
+    "name": "cdeCircuitS2Name",
+    "oid": "1.3.6.1.4.1.9.9.74.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdeCircuitS1IdBlock": {
+    "name": "cdeCircuitS1IdBlock",
+    "oid": "1.3.6.1.4.1.9.9.74.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdeCircuitS1IdNum": {
+    "name": "cdeCircuitS1IdNum",
+    "oid": "1.3.6.1.4.1.9.9.74.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdeFastTable": {
+    "name": "cdeFastTable",
+    "oid": "1.3.6.1.4.1.9.9.74.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdeFastEntry": {
+    "name": "cdeFastEntry",
+    "oid": "1.3.6.1.4.1.9.9.74.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeFastS1Mac",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeFastS1Sap",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeFastS2Mac",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeFastS2Sap",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdeFastS1Mac": {
+    "name": "cdeFastS1Mac",
+    "oid": "1.3.6.1.4.1.9.9.74.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddressNC",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdeFastS1Sap": {
+    "name": "cdeFastS1Sap",
+    "oid": "1.3.6.1.4.1.9.9.74.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SAPType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdeFastS2Mac": {
+    "name": "cdeFastS2Mac",
+    "oid": "1.3.6.1.4.1.9.9.74.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddressNC",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdeFastS2Sap": {
+    "name": "cdeFastS2Sap",
+    "oid": "1.3.6.1.4.1.9.9.74.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SAPType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdeFastS1IfIndex": {
+    "name": "cdeFastS1IfIndex",
+    "oid": "1.3.6.1.4.1.9.9.74.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdeFastS1RouteInfo": {
+    "name": "cdeFastS1RouteInfo",
+    "oid": "1.3.6.1.4.1.9.9.74.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdeFastS1CacheId": {
+    "name": "cdeFastS1CacheId",
+    "oid": "1.3.6.1.4.1.9.9.74.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdeFastS2TDomain": {
+    "name": "cdeFastS2TDomain",
+    "oid": "1.3.6.1.4.1.9.9.74.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdeFastS2TAddress": {
+    "name": "cdeFastS2TAddress",
+    "oid": "1.3.6.1.4.1.9.9.74.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdeFastS2CacheId": {
+    "name": "cdeFastS2CacheId",
+    "oid": "1.3.6.1.4.1.9.9.74.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdeFastOrigin": {
+    "name": "cdeFastOrigin",
+    "oid": "1.3.6.1.4.1.9.9.74.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "s1": 1,
+          "s2": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdeFastTimeToLive": {
+    "name": "cdeFastTimeToLive",
+    "oid": "1.3.6.1.4.1.9.9.74.1.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "hundredths of a second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdeTrapCntlTConn": {
+    "name": "cdeTrapCntlTConn",
+    "oid": "1.3.6.1.4.1.9.9.74.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeTrapCntlCircuit": {
+    "name": "cdeTrapCntlCircuit",
+    "oid": "1.3.6.1.4.1.9.9.74.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdeTrapsPrefix": {
+    "name": "cdeTrapsPrefix",
+    "oid": "1.3.6.1.4.1.9.9.74.2",
+    "class": "objectidentity"
+  },
+  "cdeTraps": {
+    "name": "cdeTraps",
+    "oid": "1.3.6.1.4.1.9.9.74.2.0",
+    "class": "objectidentity"
+  },
+  "cdeTrapTConnUpDown": {
+    "name": "cdeTrapTConnUpDown",
+    "oid": "1.3.6.1.4.1.9.9.74.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DLSW-MIB",
+        "object": "dlswTConnOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "cdeTrapCircuitUpDown": {
+    "name": "cdeTrapCircuitUpDown",
+    "oid": "1.3.6.1.4.1.9.9.74.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DLSW-MIB",
+        "object": "dlswCircuitState"
+      }
+    ],
+    "status": "current"
+  },
+  "cdeMIBConformance": {
+    "name": "cdeMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.74.3",
+    "class": "objectidentity"
+  },
+  "cdeMIBCompliances": {
+    "name": "cdeMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.74.3.1",
+    "class": "objectidentity"
+  },
+  "cdeMIBGroups": {
+    "name": "cdeMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.74.3.2",
+    "class": "objectidentity"
+  },
+  "cdeMIBCompliance": {
+    "name": "cdeMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.74.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdeMIBNodeGroup",
+        "module": "CISCO-DLSW-EXT-MIB"
+      },
+      {
+        "object": "cdeMIBTConnConfigGroup",
+        "module": "CISCO-DLSW-EXT-MIB"
+      },
+      {
+        "object": "cdeMIBTConnOperGroup",
+        "module": "CISCO-DLSW-EXT-MIB"
+      },
+      {
+        "object": "cdeMIBTConnTcpConfigGroup",
+        "module": "CISCO-DLSW-EXT-MIB"
+      },
+      {
+        "object": "cdeMIBTConnDirectConfigGroup",
+        "module": "CISCO-DLSW-EXT-MIB"
+      },
+      {
+        "object": "cdeMIBInterfaceGroup",
+        "module": "CISCO-DLSW-EXT-MIB"
+      },
+      {
+        "object": "cdeMIBCircuitGroup",
+        "module": "CISCO-DLSW-EXT-MIB"
+      },
+      {
+        "object": "cdeMIBFastGroup",
+        "module": "CISCO-DLSW-EXT-MIB"
+      },
+      {
+        "object": "cdeTrapControlGroup",
+        "module": "CISCO-DLSW-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cdeMIBNodeGroup": {
+    "name": "cdeMIBNodeGroup",
+    "oid": "1.3.6.1.4.1.9.9.74.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeNodeTAddr"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeNodeGroup"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeNodeBorder"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeNodeCost"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeNodeKeepaliveInterval"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeNodePassiveConnect"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeNodeBiuSegment"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeNodeInitPacingWindow"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeNodeMaxPacingWindow"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeNodePromiscuous"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeNodePromPeerDefaultsCost"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeNodePromPeerDefaultsDestMac"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeNodePromPeerDefaultsKeepaliveInterval"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeNodePromPeerDefaultsLFSize"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeNodePromPeerDefaultsTCPQueueMax"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeNodePeerOnDemandDefaultsCost"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeNodePeerOnDemandDefaultsFst"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeNodePeerOnDemandDefaultsInactivityInterval"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeNodePeerOnDemandDefaultsKeepaliveInterval"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeNodePeerOnDemandDefaultsLFSize"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeNodePeerOnDemandDefaultsPriority"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeNodePeerOnDemandDefaultsTCPQueueMax"
+      }
+    ],
+    "status": "current"
+  },
+  "cdeMIBTConnConfigGroup": {
+    "name": "cdeMIBTConnConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.74.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTConnConfigTDomainType"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTConnConfigLocalAck"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTConnConfigCost"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTConnConfigLFSize"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTConnConfigKeepaliveInterval"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTConnConfigBackup"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTConnConfigBackupTAddr"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTConnConfigBackupLinger"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTConnConfigBackupLingerInterval"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTConnConfigPriority"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTConnConfigDestMac"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTConnConfigDynamic"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTConnConfigDynamicNoLlc"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTConnConfigDynamicInactivityInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "cdeMIBTConnOperGroup": {
+    "name": "cdeMIBTConnOperGroup",
+    "oid": "1.3.6.1.4.1.9.9.74.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTConnOperPartnerCost"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTConnOperPartnerPriority"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTConnOperPartnerBorderPeer"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTConnOperPartnerGroupNum"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTConnOperTDomainType"
+      }
+    ],
+    "status": "current"
+  },
+  "cdeMIBTConnTcpConfigGroup": {
+    "name": "cdeMIBTConnTcpConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.74.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTConnTcpConfigQueueMax"
+      }
+    ],
+    "status": "current"
+  },
+  "cdeMIBTConnDirectConfigGroup": {
+    "name": "cdeMIBTConnDirectConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.74.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTConnDirectConfigIfIndex"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTConnDirectConfigMediaEncap"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTConnDirectConfigFrameRelayDlci"
+      }
+    ],
+    "status": "current"
+  },
+  "cdeMIBInterfaceGroup": {
+    "name": "cdeMIBInterfaceGroup",
+    "oid": "1.3.6.1.4.1.9.9.74.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeIfType"
+      }
+    ],
+    "status": "current"
+  },
+  "cdeMIBCircuitGroup": {
+    "name": "cdeMIBCircuitGroup",
+    "oid": "1.3.6.1.4.1.9.9.74.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeCircuitS1Name"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeCircuitS2Name"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeCircuitS1IdBlock"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeCircuitS1IdNum"
+      }
+    ],
+    "status": "current"
+  },
+  "cdeMIBFastGroup": {
+    "name": "cdeMIBFastGroup",
+    "oid": "1.3.6.1.4.1.9.9.74.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeFastS1IfIndex"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeFastS1RouteInfo"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeFastS1CacheId"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeFastS2TDomain"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeFastS2TAddress"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeFastS2CacheId"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeFastOrigin"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeFastTimeToLive"
+      }
+    ],
+    "status": "current"
+  },
+  "cdeTrapControlGroup": {
+    "name": "cdeTrapControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.74.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTrapCntlTConn"
+      },
+      {
+        "module": "CISCO-DLSW-EXT-MIB",
+        "object": "cdeTrapCntlCircuit"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DLSW-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DLSW-EXT-MIB"
+  }
+}

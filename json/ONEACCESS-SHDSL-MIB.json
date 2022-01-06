@@ -1,0 +1,885 @@
+{
+  "imports": {
+    "class": "imports",
+    "HDSL2-SHDSL-LINE-MIB": [
+      "hdsl2ShdslEndpointCurrEntry",
+      "hdsl2ShdslSpanStatusEntry",
+      "hdsl2ShdslSpanConfProfileEntry"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "ONEACCESS-GLOBAL-REG": [
+      "oacExpIMSystem"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Bits",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "iso",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "oacSHDSLMIBModule": {
+    "name": "oacSHDSLMIBModule",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-06-15 00:00",
+        "description": "This MIB module describes private extensions to the RFC4319 MIB."
+      },
+      {
+        "revision": "2010-08-20 00:01",
+        "description": "Added oacSHDSLSpanConfProfileEocManagement, oacSHDSLSpanConfProfileEocStatusPollDelay and oacSHDSLSpanConfProfileEocStatusPollInterval."
+      },
+      {
+        "revision": "2010-07-30 00:01",
+        "description": "Added oacSHDSLSpanConfProfileTable."
+      },
+      {
+        "revision": "2010-07-08 00:01",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "oacSHDSLObjects": {
+    "name": "oacSHDSLObjects",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1",
+    "class": "objectidentity"
+  },
+  "oacSHDSLSpanStatusTable": {
+    "name": "oacSHDSLSpanStatusTable",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "oacSHDSLSpanStatusEntry": {
+    "name": "oacSHDSLSpanStatusEntry",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "oacSHDSLSpanStatusEntry",
+      "module": "ONEACCESS-SHDSL-MIB",
+      "object": "hdsl2ShdslSpanStatusEntry"
+    },
+    "status": "current"
+  },
+  "oacSHDSLSpanStatusUpDown": {
+    "name": "oacSHDSLSpanStatusUpDown",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLSpanStatusCurrStatus": {
+    "name": "oacSHDSLSpanStatusCurrStatus",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 30,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLSpanStatusCurrShowtimeStart": {
+    "name": "oacSHDSLSpanStatusCurrShowtimeStart",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLSpanStatusCurrCellDelin": {
+    "name": "oacSHDSLSpanStatusCurrCellDelin",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLSpanStatusCurrCRCanomalies": {
+    "name": "oacSHDSLSpanStatusCurrCRCanomalies",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLSpanStatusCurrHECErrors": {
+    "name": "oacSHDSLSpanStatusCurrHECErrors",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLSpanStatusCurrRxCells": {
+    "name": "oacSHDSLSpanStatusCurrRxCells",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLSpanStatusCurrTxCells": {
+    "name": "oacSHDSLSpanStatusCurrTxCells",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLSpanStatusCurrRxDrops": {
+    "name": "oacSHDSLSpanStatusCurrRxDrops",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLSpanStatusCurrES": {
+    "name": "oacSHDSLSpanStatusCurrES",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLSpanStatusCurrSES": {
+    "name": "oacSHDSLSpanStatusCurrSES",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLSpanStatusCurrLOSWS": {
+    "name": "oacSHDSLSpanStatusCurrLOSWS",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLSpanStatusCurrUAS": {
+    "name": "oacSHDSLSpanStatusCurrUAS",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLSpanStatusCurrConstellation": {
+    "name": "oacSHDSLSpanStatusCurrConstellation",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcPam16": 2,
+          "tcPam32": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrTable": {
+    "name": "oacSHDSLEndpointCurrTable",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrEntry": {
+    "name": "oacSHDSLEndpointCurrEntry",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "oacSHDSLEndpointCurrEntry",
+      "module": "ONEACCESS-SHDSL-MIB",
+      "object": "hdsl2ShdslEndpointCurrEntry"
+    },
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrAtn": {
+    "name": "oacSHDSLEndpointCurrAtn",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1270,
+            "max": 1280
+          }
+        ]
+      }
+    },
+    "units": "dB/10",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrSnrMgn": {
+    "name": "oacSHDSLEndpointCurrSnrMgn",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1270,
+            "max": 1280
+          }
+        ]
+      }
+    },
+    "units": "dB/10",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrTxPwr": {
+    "name": "oacSHDSLEndpointCurrTxPwr",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB/10",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrRxGain": {
+    "name": "oacSHDSLEndpointCurrRxGain",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB/10",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrMaxAttainableLineRate": {
+    "name": "oacSHDSLEndpointCurrMaxAttainableLineRate",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrCommands": {
+    "name": "oacSHDSLEndpointCurrCommands",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrResponses": {
+    "name": "oacSHDSLEndpointCurrResponses",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrdiscardedCommands": {
+    "name": "oacSHDSLEndpointCurrdiscardedCommands",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrerroredCommands": {
+    "name": "oacSHDSLEndpointCurrerroredCommands",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrReceivedFrames": {
+    "name": "oacSHDSLEndpointCurrReceivedFrames",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrBadTransparency": {
+    "name": "oacSHDSLEndpointCurrBadTransparency",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrBadFCS": {
+    "name": "oacSHDSLEndpointCurrBadFCS",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrEOCStatus": {
+    "name": "oacSHDSLEndpointCurrEOCStatus",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 50,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrretrainTable": {
+    "name": "oacSHDSLEndpointCurrretrainTable",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrretrainEntry": {
+    "name": "oacSHDSLEndpointCurrretrainEntry",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "oacSHDSLEndpointCurrretrainEntry",
+      "module": "ONEACCESS-SHDSL-MIB",
+      "object": "hdsl2ShdslEndpointCurrEntry"
+    },
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrretrainSQPAIR": {
+    "name": "oacSHDSLEndpointCurrretrainSQPAIR",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "SQPAIR",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrretrainSQLINE": {
+    "name": "oacSHDSLEndpointCurrretrainSQLINE",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "SQLINE",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrretrainCRCPAIR": {
+    "name": "oacSHDSLEndpointCurrretrainCRCPAIR",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "CRCPAIR",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrretrainCRCLINE": {
+    "name": "oacSHDSLEndpointCurrretrainCRCLINE",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "CRCLINE",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrretrainFsyncPAIR": {
+    "name": "oacSHDSLEndpointCurrretrainFsyncPAIR",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "FsyncPAIR",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrretrainFsyncLINE": {
+    "name": "oacSHDSLEndpointCurrretrainFsyncLINE",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "FsyncLINE",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrretrainFSyncSQPAIR": {
+    "name": "oacSHDSLEndpointCurrretrainFSyncSQPAIR",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "FSync&SQPAIR",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLEndpointCurrretrainFSyncSQLINE": {
+    "name": "oacSHDSLEndpointCurrretrainFSyncSQLINE",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "FSync&SQLINE",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLTraps": {
+    "name": "oacSHDSLTraps",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.2",
+    "class": "objectidentity"
+  },
+  "oacSHDSLTrapPrefix": {
+    "name": "oacSHDSLTrapPrefix",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.2.0",
+    "class": "objectidentity"
+  },
+  "oacSHDSLHardDownTrap": {
+    "name": "oacSHDSLHardDownTrap",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.2.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "oacSHDSLSpanConfProfileTable": {
+    "name": "oacSHDSLSpanConfProfileTable",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "oacSHDSLSpanConfProfileEntry": {
+    "name": "oacSHDSLSpanConfProfileEntry",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "oacSHDSLSpanConfProfileEntry",
+      "module": "ONEACCESS-SHDSL-MIB",
+      "object": "hdsl2ShdslSpanConfProfileEntry"
+    },
+    "status": "current"
+  },
+  "oacSHDSLSpanConfProfileConstellation": {
+    "name": "oacSHDSLSpanConfProfileConstellation",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "tcPam16": 2,
+          "tcPam32": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLSpanConfProfileAutoConfig": {
+    "name": "oacSHDSLSpanConfProfileAutoConfig",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLSpanConfProfileCaplist": {
+    "name": "oacSHDSLSpanConfProfileCaplist",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "newstyle": 1,
+          "oldstyle": 2,
+          "auto": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLSpanConfProfileEfmAggregation": {
+    "name": "oacSHDSLSpanConfProfileEfmAggregation",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "auto": 2,
+          "negotiated": 3,
+          "static": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLSpanConfProfileCrcCheck": {
+    "name": "oacSHDSLSpanConfProfileCrcCheck",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLSpanConfProfileMeansqCheck": {
+    "name": "oacSHDSLSpanConfProfileMeansqCheck",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLSpanConfProfileMeansqThreshold": {
+    "name": "oacSHDSLSpanConfProfileMeansqThreshold",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLSpanConfProfileLineProbing": {
+    "name": "oacSHDSLSpanConfProfileLineProbing",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "adaptive": 1,
+          "normal": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oacSHDSLSpanConfProfileEocManagement": {
+    "name": "oacSHDSLSpanConfProfileEocManagement",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "oacSHDSLSpanConfProfileEocStatusPollDelay": {
+    "name": "oacSHDSLSpanConfProfileEocStatusPollDelay",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 29
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "oacSHDSLSpanConfProfileEocStatusPollInterval": {
+    "name": "oacSHDSLSpanConfProfileEocStatusPollInterval",
+    "oid": "1.3.6.1.4.1.13191.10.3.3.3.1.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 30
+          },
+          {
+            "min": 60,
+            "max": 60
+          },
+          {
+            "min": 90,
+            "max": 90
+          },
+          {
+            "min": 120,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oneaccess/ONEACCESS-SHDSL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:25 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ONEACCESS-SHDSL-MIB"
+  }
+}

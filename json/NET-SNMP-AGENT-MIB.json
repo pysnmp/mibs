@@ -1,0 +1,776 @@
+{
+  "imports": {
+    "class": "imports",
+    "NET-SNMP-MIB": [
+      "netSnmpModuleIDs",
+      "netSnmpObjects",
+      "netSnmpGroups",
+      "netSnmpNotifications"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
+      "IpAddress",
+      "Unsigned32",
+      "iso",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "netSnmpAgentMIB": {
+    "name": "netSnmpAgentMIB",
+    "oid": "1.3.6.1.4.1.8072.3.1.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-03-17 00:00",
+        "description": "Made sure that this MIB can be compiled by MIB compilers that do not recognize a double dash as end-of-comments."
+      },
+      {
+        "revision": "2005-02-07 00:00",
+        "description": "Fixing syntax errors"
+      },
+      {
+        "revision": "2002-02-09 00:00",
+        "description": "First revision."
+      }
+    ]
+  },
+  "nsVersion": {
+    "name": "nsVersion",
+    "oid": "1.3.6.1.4.1.8072.1.1",
+    "class": "objectidentity"
+  },
+  "nsMibRegistry": {
+    "name": "nsMibRegistry",
+    "oid": "1.3.6.1.4.1.8072.1.2",
+    "class": "objectidentity"
+  },
+  "nsExtensions": {
+    "name": "nsExtensions",
+    "oid": "1.3.6.1.4.1.8072.1.3",
+    "class": "objectidentity"
+  },
+  "nsDLMod": {
+    "name": "nsDLMod",
+    "oid": "1.3.6.1.4.1.8072.1.4",
+    "class": "objectidentity"
+  },
+  "nsCache": {
+    "name": "nsCache",
+    "oid": "1.3.6.1.4.1.8072.1.5",
+    "class": "objectidentity"
+  },
+  "nsErrorHistory": {
+    "name": "nsErrorHistory",
+    "oid": "1.3.6.1.4.1.8072.1.6",
+    "class": "objectidentity"
+  },
+  "nsConfiguration": {
+    "name": "nsConfiguration",
+    "oid": "1.3.6.1.4.1.8072.1.7",
+    "class": "objectidentity"
+  },
+  "nsTransactions": {
+    "name": "nsTransactions",
+    "oid": "1.3.6.1.4.1.8072.1.8",
+    "class": "objectidentity"
+  },
+  "NetsnmpCacheStatus": {
+    "name": "NetsnmpCacheStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "empty": 3,
+          "cached": 4,
+          "expired": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "nsCacheDefaultTimeout": {
+    "name": "nsCacheDefaultTimeout",
+    "oid": "1.3.6.1.4.1.8072.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nsCacheEnabled": {
+    "name": "nsCacheEnabled",
+    "oid": "1.3.6.1.4.1.8072.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nsCacheTable": {
+    "name": "nsCacheTable",
+    "oid": "1.3.6.1.4.1.8072.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsCacheEntry": {
+    "name": "nsCacheEntry",
+    "oid": "1.3.6.1.4.1.8072.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsCachedOID",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "nsCachedOID": {
+    "name": "nsCachedOID",
+    "oid": "1.3.6.1.4.1.8072.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsCacheTimeout": {
+    "name": "nsCacheTimeout",
+    "oid": "1.3.6.1.4.1.8072.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nsCacheStatus": {
+    "name": "nsCacheStatus",
+    "oid": "1.3.6.1.4.1.8072.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NetsnmpCacheStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nsConfigDebug": {
+    "name": "nsConfigDebug",
+    "oid": "1.3.6.1.4.1.8072.1.7.1",
+    "class": "objectidentity"
+  },
+  "nsConfigLogging": {
+    "name": "nsConfigLogging",
+    "oid": "1.3.6.1.4.1.8072.1.7.2",
+    "class": "objectidentity"
+  },
+  "nsDebugEnabled": {
+    "name": "nsDebugEnabled",
+    "oid": "1.3.6.1.4.1.8072.1.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nsDebugOutputAll": {
+    "name": "nsDebugOutputAll",
+    "oid": "1.3.6.1.4.1.8072.1.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nsDebugDumpPdu": {
+    "name": "nsDebugDumpPdu",
+    "oid": "1.3.6.1.4.1.8072.1.7.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nsDebugTokenTable": {
+    "name": "nsDebugTokenTable",
+    "oid": "1.3.6.1.4.1.8072.1.7.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsDebugTokenEntry": {
+    "name": "nsDebugTokenEntry",
+    "oid": "1.3.6.1.4.1.8072.1.7.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsDebugTokenPrefix",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "nsDebugTokenPrefix": {
+    "name": "nsDebugTokenPrefix",
+    "oid": "1.3.6.1.4.1.8072.1.7.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsDebugTokenStatus": {
+    "name": "nsDebugTokenStatus",
+    "oid": "1.3.6.1.4.1.8072.1.7.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsLoggingTable": {
+    "name": "nsLoggingTable",
+    "oid": "1.3.6.1.4.1.8072.1.7.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsLoggingEntry": {
+    "name": "nsLoggingEntry",
+    "oid": "1.3.6.1.4.1.8072.1.7.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsLogLevel",
+        "implied": 0
+      },
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsLogToken",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "nsLogLevel": {
+    "name": "nsLogLevel",
+    "oid": "1.3.6.1.4.1.8072.1.7.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergency": 0,
+          "alert": 1,
+          "critical": 2,
+          "error": 3,
+          "warning": 4,
+          "notice": 5,
+          "info": 6,
+          "debug": 7
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsLogToken": {
+    "name": "nsLogToken",
+    "oid": "1.3.6.1.4.1.8072.1.7.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsLogType": {
+    "name": "nsLogType",
+    "oid": "1.3.6.1.4.1.8072.1.7.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stdout": 1,
+          "stderr": 2,
+          "file": 3,
+          "syslog": 4,
+          "callback": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsLogMaxLevel": {
+    "name": "nsLogMaxLevel",
+    "oid": "1.3.6.1.4.1.8072.1.7.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergency": 0,
+          "alert": 1,
+          "critical": 2,
+          "error": 3,
+          "warning": 4,
+          "notice": 5,
+          "info": 6,
+          "debug": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "emergency",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsLogStatus": {
+    "name": "nsLogStatus",
+    "oid": "1.3.6.1.4.1.8072.1.7.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsTransactionTable": {
+    "name": "nsTransactionTable",
+    "oid": "1.3.6.1.4.1.8072.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsTransactionEntry": {
+    "name": "nsTransactionEntry",
+    "oid": "1.3.6.1.4.1.8072.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsTransactionID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsTransactionID": {
+    "name": "nsTransactionID",
+    "oid": "1.3.6.1.4.1.8072.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsTransactionMode": {
+    "name": "nsTransactionMode",
+    "oid": "1.3.6.1.4.1.8072.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsModuleTable": {
+    "name": "nsModuleTable",
+    "oid": "1.3.6.1.4.1.8072.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsModuleEntry": {
+    "name": "nsModuleEntry",
+    "oid": "1.3.6.1.4.1.8072.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsmContextName",
+        "implied": 0
+      },
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsmRegistrationPoint",
+        "implied": 0
+      },
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsmRegistrationPriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsmContextName": {
+    "name": "nsmContextName",
+    "oid": "1.3.6.1.4.1.8072.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsmRegistrationPoint": {
+    "name": "nsmRegistrationPoint",
+    "oid": "1.3.6.1.4.1.8072.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsmRegistrationPriority": {
+    "name": "nsmRegistrationPriority",
+    "oid": "1.3.6.1.4.1.8072.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsModuleName": {
+    "name": "nsModuleName",
+    "oid": "1.3.6.1.4.1.8072.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsModuleModes": {
+    "name": "nsModuleModes",
+    "oid": "1.3.6.1.4.1.8072.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "getAndGetNext": 0,
+        "set": 1,
+        "getBulk": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsModuleTimeout": {
+    "name": "nsModuleTimeout",
+    "oid": "1.3.6.1.4.1.8072.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsNotifyStart": {
+    "name": "nsNotifyStart",
+    "oid": "1.3.6.1.4.1.8072.4.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "nsNotifyShutdown": {
+    "name": "nsNotifyShutdown",
+    "oid": "1.3.6.1.4.1.8072.4.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "nsNotifyRestart": {
+    "name": "nsNotifyRestart",
+    "oid": "1.3.6.1.4.1.8072.4.0.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "nsModuleGroup": {
+    "name": "nsModuleGroup",
+    "oid": "1.3.6.1.4.1.8072.5.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsModuleName"
+      },
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsModuleModes"
+      },
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsModuleTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "nsCacheGroup": {
+    "name": "nsCacheGroup",
+    "oid": "1.3.6.1.4.1.8072.5.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsCacheDefaultTimeout"
+      },
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsCacheEnabled"
+      },
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsCacheTimeout"
+      },
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsCacheStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "nsConfigGroups": {
+    "name": "nsConfigGroups",
+    "oid": "1.3.6.1.4.1.8072.5.2.7",
+    "class": "objectidentity"
+  },
+  "nsDebugGroup": {
+    "name": "nsDebugGroup",
+    "oid": "1.3.6.1.4.1.8072.5.2.7.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsDebugEnabled"
+      },
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsDebugOutputAll"
+      },
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsDebugDumpPdu"
+      },
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsDebugTokenStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "nsLoggingGroup": {
+    "name": "nsLoggingGroup",
+    "oid": "1.3.6.1.4.1.8072.5.2.7.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsLogType"
+      },
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsLogMaxLevel"
+      },
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsLogStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "nsTransactionGroup": {
+    "name": "nsTransactionGroup",
+    "oid": "1.3.6.1.4.1.8072.5.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsTransactionMode"
+      }
+    ],
+    "status": "current"
+  },
+  "nsAgentNotifyGroup": {
+    "name": "nsAgentNotifyGroup",
+    "oid": "1.3.6.1.4.1.8072.5.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsNotifyStart"
+      },
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsNotifyShutdown"
+      },
+      {
+        "module": "NET-SNMP-AGENT-MIB",
+        "object": "nsNotifyRestart"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netsnmp/NET-SNMP-AGENT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:42:39 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NET-SNMP-AGENT-MIB"
+  }
+}

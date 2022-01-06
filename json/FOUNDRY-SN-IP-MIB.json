@@ -1,0 +1,6730 @@
+{
+  "imports": {
+    "class": "imports",
+    "FOUNDRY-SN-AGENT-MIB": [
+      "DisplayString"
+    ],
+    "FOUNDRY-SN-ROOT-MIB": [
+      "router",
+      "snLoopbackIf",
+      "snRip",
+      "snDvmrp",
+      "snFsrp",
+      "snGblRt",
+      "snPim"
+    ],
+    "FOUNDRY-SN-SWITCH-GROUP-MIB": [
+      "PortMask"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Bits",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter32",
+      "iso",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "snIp": {
+    "name": "snIp",
+    "oid": "1.3.6.1.4.1.1991.1.2.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-06-02 00:00",
+        "description": "Changed the ORGANIZATION, CONTACT-INFO and DESCRIPTION fields."
+      },
+      {
+        "revision": "2009-09-30 00:00",
+        "description": "convert from SMIv1 to SMIv2"
+      }
+    ]
+  },
+  "RtrStatus": {
+    "name": "RtrStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ClearStatus": {
+    "name": "ClearStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "clear": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RowSts": {
+    "name": "RowSts",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PortIndex": {
+    "name": "PortIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "Action": {
+    "name": "Action",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 0,
+          "permit": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Metric": {
+    "name": "Metric",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "snGblRtGeneral": {
+    "name": "snGblRtGeneral",
+    "oid": "1.3.6.1.4.1.1991.1.2.8.1",
+    "class": "objectidentity"
+  },
+  "snGblRtRouteOnly": {
+    "name": "snGblRtRouteOnly",
+    "oid": "1.3.6.1.4.1.1991.1.2.8.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RtrStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpGeneral": {
+    "name": "snRtIpGeneral",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.1",
+    "class": "objectidentity"
+  },
+  "snRtClearArpCache": {
+    "name": "snRtClearArpCache",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClearStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtClearIpCache": {
+    "name": "snRtClearIpCache",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClearStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtClearIpRoute": {
+    "name": "snRtClearIpRoute",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClearStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtBootpServer": {
+    "name": "snRtBootpServer",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snRtBootpRelayMax": {
+    "name": "snRtBootpRelayMax",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtArpAge": {
+    "name": "snRtArpAge",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpIrdpEnable": {
+    "name": "snRtIpIrdpEnable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RtrStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpLoadShare": {
+    "name": "snRtIpLoadShare",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RtrStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpProxyArp": {
+    "name": "snRtIpProxyArp",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RtrStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRarp": {
+    "name": "snRtIpRarp",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RtrStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpTtl": {
+    "name": "snRtIpTtl",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpSetAllPortConfig": {
+    "name": "snRtIpSetAllPortConfig",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpFwdCacheMaxEntries": {
+    "name": "snRtIpFwdCacheMaxEntries",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpFwdCacheCurEntries": {
+    "name": "snRtIpFwdCacheCurEntries",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpMaxStaticRouteEntries": {
+    "name": "snRtIpMaxStaticRouteEntries",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpDirBcastFwd": {
+    "name": "snRtIpDirBcastFwd",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RtrStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpLoadShareNumOfPaths": {
+    "name": "snRtIpLoadShareNumOfPaths",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpLoadShareMaxPaths": {
+    "name": "snRtIpLoadShareMaxPaths",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpLoadShareMinPaths": {
+    "name": "snRtIpLoadShareMinPaths",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpProtocolRouterId": {
+    "name": "snRtIpProtocolRouterId",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpSourceRoute": {
+    "name": "snRtIpSourceRoute",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RtrStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpStaticRouteTable": {
+    "name": "snRtIpStaticRouteTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snRtIpStaticRouteEntry": {
+    "name": "snRtIpStaticRouteEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpStaticRouteIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snRtIpStaticRouteIndex": {
+    "name": "snRtIpStaticRouteIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpStaticRouteDest": {
+    "name": "snRtIpStaticRouteDest",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpStaticRouteMask": {
+    "name": "snRtIpStaticRouteMask",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpStaticRouteNextHop": {
+    "name": "snRtIpStaticRouteNextHop",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpStaticRouteMetric": {
+    "name": "snRtIpStaticRouteMetric",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpStaticRouteRowStatus": {
+    "name": "snRtIpStaticRouteRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpStaticRouteDistance": {
+    "name": "snRtIpStaticRouteDistance",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpFilterTable": {
+    "name": "snRtIpFilterTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snRtIpFilterEntry": {
+    "name": "snRtIpFilterEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpFilterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snRtIpFilterIndex": {
+    "name": "snRtIpFilterIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpFilterAction": {
+    "name": "snRtIpFilterAction",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 0,
+          "permit": 1,
+          "qosEnabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpFilterProtocol": {
+    "name": "snRtIpFilterProtocol",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpFilterSourceIp": {
+    "name": "snRtIpFilterSourceIp",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpFilterSourceMask": {
+    "name": "snRtIpFilterSourceMask",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpFilterDestIp": {
+    "name": "snRtIpFilterDestIp",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpFilterDestMask": {
+    "name": "snRtIpFilterDestMask",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpFilterOperator": {
+    "name": "snRtIpFilterOperator",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "greater": 1,
+          "equal": 2,
+          "less": 3,
+          "notEqual": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpFilterOperand": {
+    "name": "snRtIpFilterOperand",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpFilterRowStatus": {
+    "name": "snRtIpFilterRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpFilterEstablished": {
+    "name": "snRtIpFilterEstablished",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RtrStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpFilterQosPriority": {
+    "name": "snRtIpFilterQosPriority",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level0": 0,
+          "level1": 1,
+          "level2": 2,
+          "level3": 3,
+          "level4": 4,
+          "level5": 5,
+          "level6": 6,
+          "level7": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRarpTable": {
+    "name": "snRtIpRarpTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snRtIpRarpEntry": {
+    "name": "snRtIpRarpEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpRarpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snRtIpRarpIndex": {
+    "name": "snRtIpRarpIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpRarpMac": {
+    "name": "snRtIpRarpMac",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRarpIp": {
+    "name": "snRtIpRarpIp",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRarpRowStatus": {
+    "name": "snRtIpRarpRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtStaticArpTable": {
+    "name": "snRtStaticArpTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snRtStaticArpEntry": {
+    "name": "snRtStaticArpEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtStaticArpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snRtStaticArpIndex": {
+    "name": "snRtStaticArpIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtStaticArpIp": {
+    "name": "snRtStaticArpIp",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtStaticArpMac": {
+    "name": "snRtStaticArpMac",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtStaticArpPort": {
+    "name": "snRtStaticArpPort",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtStaticArpRowStatus": {
+    "name": "snRtStaticArpRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpPortAddrTable": {
+    "name": "snRtIpPortAddrTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "snRtIpPortAddrEntry": {
+    "name": "snRtIpPortAddrEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpPortAddrPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpPortAddress",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "snRtIpPortAddrPortIndex": {
+    "name": "snRtIpPortAddrPortIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snRtIpPortAddress": {
+    "name": "snRtIpPortAddress",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snRtIpPortSubnetMask": {
+    "name": "snRtIpPortSubnetMask",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snRtIpPortAddrType": {
+    "name": "snRtIpPortAddrType",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "primary",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snRtIpPortRowStatus": {
+    "name": "snRtIpPortRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snRtIpPortAccessTable": {
+    "name": "snRtIpPortAccessTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "snRtIpPortAccessEntry": {
+    "name": "snRtIpPortAccessEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpPortAccessPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpPortAccessDirection",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "snRtIpPortAccessPortIndex": {
+    "name": "snRtIpPortAccessPortIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snRtIpPortAccessDirection": {
+    "name": "snRtIpPortAccessDirection",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in": 1,
+          "out": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snRtIpPortAccessFilters": {
+    "name": "snRtIpPortAccessFilters",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snRtIpPortAccessRowStatus": {
+    "name": "snRtIpPortAccessRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snRtIpPortConfigTable": {
+    "name": "snRtIpPortConfigTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "snRtIpPortConfigEntry": {
+    "name": "snRtIpPortConfigEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpPortConfigPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "snRtIpPortConfigPortIndex": {
+    "name": "snRtIpPortConfigPortIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snRtIpPortMtu": {
+    "name": "snRtIpPortMtu",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 576,
+            "max": 4470
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snRtIpPortEncap": {
+    "name": "snRtIpPortEncap",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet": 1,
+          "snap": 2,
+          "hdlc": 3,
+          "ppp": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snRtIpPortMetric": {
+    "name": "snRtIpPortMetric",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snRtIpPortDirBcastFwd": {
+    "name": "snRtIpPortDirBcastFwd",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RtrStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snRtIpPortIfAddrTable": {
+    "name": "snRtIpPortIfAddrTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snRtIpPortIfAddrEntry": {
+    "name": "snRtIpPortIfAddrEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpPortIfAddrInterfaceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpPortIfAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snRtIpPortIfAddrInterfaceIndex": {
+    "name": "snRtIpPortIfAddrInterfaceIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpPortIfAddress": {
+    "name": "snRtIpPortIfAddress",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpPortIfSubnetMask": {
+    "name": "snRtIpPortIfSubnetMask",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpPortIfAddrType": {
+    "name": "snRtIpPortIfAddrType",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "primary",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpPortIfRowStatus": {
+    "name": "snRtIpPortIfRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpPortIfAccessTable": {
+    "name": "snRtIpPortIfAccessTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snRtIpPortIfAccessEntry": {
+    "name": "snRtIpPortIfAccessEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpPortIfAccessInterfaceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpPortIfAccessDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snRtIpPortIfAccessInterfaceIndex": {
+    "name": "snRtIpPortIfAccessInterfaceIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpPortIfAccessDirection": {
+    "name": "snRtIpPortIfAccessDirection",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in": 1,
+          "out": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpPortIfAccessFilters": {
+    "name": "snRtIpPortIfAccessFilters",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpPortIfAccessRowStatus": {
+    "name": "snRtIpPortIfAccessRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpPortIfConfigTable": {
+    "name": "snRtIpPortIfConfigTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snRtIpPortIfConfigEntry": {
+    "name": "snRtIpPortIfConfigEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpPortIfConfigInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snRtIpPortIfConfigInterfaceIndex": {
+    "name": "snRtIpPortIfConfigInterfaceIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpPortIfMtu": {
+    "name": "snRtIpPortIfMtu",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpPortIfEncap": {
+    "name": "snRtIpPortIfEncap",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet": 1,
+          "snap": 2,
+          "hdlc": 3,
+          "ppp": 4,
+          "other": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpPortIfMetric": {
+    "name": "snRtIpPortIfMetric",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpPortIfDirBcastFwd": {
+    "name": "snRtIpPortIfDirBcastFwd",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RtrStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpPortConfigIfDonorInterface": {
+    "name": "snRtIpPortConfigIfDonorInterface",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agIpPortCounterTable": {
+    "name": "agIpPortCounterTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agIpPortCounterEntry": {
+    "name": "agIpPortCounterEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "agIpPortCounterIpVersion",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agIpPortCounterIpVersion": {
+    "name": "agIpPortCounterIpVersion",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agIpPortCounterRxPacket": {
+    "name": "agIpPortCounterRxPacket",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agIpPortCounterRxOctet": {
+    "name": "agIpPortCounterRxOctet",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agIpPortCounterTxPacket": {
+    "name": "agIpPortCounterTxPacket",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agIpPortCounterTxOctet": {
+    "name": "agIpPortCounterTxOctet",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtBcastFwd": {
+    "name": "snRtBcastFwd",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9",
+    "class": "objectidentity"
+  },
+  "snRtBcastFwdGeneral": {
+    "name": "snRtBcastFwdGeneral",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.1",
+    "class": "objectidentity"
+  },
+  "snRtUdpBcastFwdPort": {
+    "name": "snRtUdpBcastFwdPort",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.2",
+    "class": "objectidentity"
+  },
+  "snRtUdpHelper": {
+    "name": "snRtUdpHelper",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.3",
+    "class": "objectidentity"
+  },
+  "snRtUdpBcastFwdEnable": {
+    "name": "snRtUdpBcastFwdEnable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RtrStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtUdpBcastFwdPortTable": {
+    "name": "snRtUdpBcastFwdPortTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snRtUdpBcastFwdPortEntry": {
+    "name": "snRtUdpBcastFwdPortEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtUdpBcastFwdPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snRtUdpBcastFwdPortIndex": {
+    "name": "snRtUdpBcastFwdPortIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtUdpBcastFwdPortNumber": {
+    "name": "snRtUdpBcastFwdPortNumber",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtUdpBcastFwdPortRowStatus": {
+    "name": "snRtUdpBcastFwdPortRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtUdpBroadcastFwdPortTable": {
+    "name": "snRtUdpBroadcastFwdPortTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snRtUdpBroadcastFwdPortEntry": {
+    "name": "snRtUdpBroadcastFwdPortEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtUdpBroadcastFwdPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snRtUdpBroadcastFwdPortNumber": {
+    "name": "snRtUdpBroadcastFwdPortNumber",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snRtUdpBroadcastFwdPortRowStatus": {
+    "name": "snRtUdpBroadcastFwdPortRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtUdpHelperTable": {
+    "name": "snRtUdpHelperTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snRtUdpHelperEntry": {
+    "name": "snRtUdpHelperEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtUdpHelperPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtUdpHelperIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snRtUdpHelperPortIndex": {
+    "name": "snRtUdpHelperPortIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtUdpHelperIndex": {
+    "name": "snRtUdpHelperIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtUdpHelperAddr": {
+    "name": "snRtUdpHelperAddr",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtUdpHelperRowStatus": {
+    "name": "snRtUdpHelperRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtUdpIfHelperTable": {
+    "name": "snRtUdpIfHelperTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snRtUdpIfHelperEntry": {
+    "name": "snRtUdpIfHelperEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtUdpIfHelperPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtUdpIfHelperAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snRtUdpIfHelperPortIndex": {
+    "name": "snRtUdpIfHelperPortIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snRtUdpIfHelperAddr": {
+    "name": "snRtUdpIfHelperAddr",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snRtUdpIfHelperAddrType": {
+    "name": "snRtUdpIfHelperAddrType",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unicast": 1,
+          "broabcast": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtUdpIfHelperRowStatus": {
+    "name": "snRtUdpIfHelperRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.9.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpTraceRoute": {
+    "name": "snRtIpTraceRoute",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.10",
+    "class": "objectidentity"
+  },
+  "snRtIpTraceRouteGeneral": {
+    "name": "snRtIpTraceRouteGeneral",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.10.1",
+    "class": "objectidentity"
+  },
+  "snRtIpTraceRouteResult": {
+    "name": "snRtIpTraceRouteResult",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.10.2",
+    "class": "objectidentity"
+  },
+  "snRtIpTraceRouteTargetAddr": {
+    "name": "snRtIpTraceRouteTargetAddr",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.10.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpTraceRouteMinTtl": {
+    "name": "snRtIpTraceRouteMinTtl",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.10.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpTraceRouteMaxTtl": {
+    "name": "snRtIpTraceRouteMaxTtl",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.10.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpTraceRouteTimeOut": {
+    "name": "snRtIpTraceRouteTimeOut",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.10.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpTraceRouteControl": {
+    "name": "snRtIpTraceRouteControl",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.10.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "abort": 2,
+          "success": 3,
+          "failure": 4,
+          "inProgress": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpTraceRouteResultTable": {
+    "name": "snRtIpTraceRouteResultTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.10.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snRtIpTraceRouteResultEntry": {
+    "name": "snRtIpTraceRouteResultEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.10.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpTraceRouteResultIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snRtIpTraceRouteResultIndex": {
+    "name": "snRtIpTraceRouteResultIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.10.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpTraceRouteResultAddr": {
+    "name": "snRtIpTraceRouteResultAddr",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.10.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpTraceRouteResultRoundTripTime1": {
+    "name": "snRtIpTraceRouteResultRoundTripTime1",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.10.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpTraceRouteResultRoundTripTime2": {
+    "name": "snRtIpTraceRouteResultRoundTripTime2",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.10.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpFwdCacheTable": {
+    "name": "snRtIpFwdCacheTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snRtIpFwdCacheEntry": {
+    "name": "snRtIpFwdCacheEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpFwdCacheIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snRtIpFwdCacheIndex": {
+    "name": "snRtIpFwdCacheIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpFwdCacheIp": {
+    "name": "snRtIpFwdCacheIp",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpFwdCacheMac": {
+    "name": "snRtIpFwdCacheMac",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpFwdCacheNextHopIp": {
+    "name": "snRtIpFwdCacheNextHopIp",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpFwdCacheOutgoingPort": {
+    "name": "snRtIpFwdCacheOutgoingPort",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3900
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpFwdCacheType": {
+    "name": "snRtIpFwdCacheType",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 1,
+          "permanent": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpFwdCacheAction": {
+    "name": "snRtIpFwdCacheAction",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "forward": 2,
+          "forUs": 3,
+          "waitForArp": 4,
+          "complexFilter": 5,
+          "icmpDeny": 6,
+          "dropPacket": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpFwdCacheFragCheck": {
+    "name": "snRtIpFwdCacheFragCheck",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpFwdCacheSnapHdr": {
+    "name": "snRtIpFwdCacheSnapHdr",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpFwdCacheVLanId": {
+    "name": "snRtIpFwdCacheVLanId",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpFwdCacheOutgoingIf": {
+    "name": "snRtIpFwdCacheOutgoingIf",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snIpAsPathAccessListTable": {
+    "name": "snIpAsPathAccessListTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snIpAsPathAccessListEntry": {
+    "name": "snIpAsPathAccessListEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snIpAsPathAccessListIndex",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snIpAsPathAccessListSequence",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snIpAsPathAccessListIndex": {
+    "name": "snIpAsPathAccessListIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snIpAsPathAccessListSequence": {
+    "name": "snIpAsPathAccessListSequence",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snIpAsPathAccessListAction": {
+    "name": "snIpAsPathAccessListAction",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 0,
+          "permit": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpAsPathAccessListRegExpression": {
+    "name": "snIpAsPathAccessListRegExpression",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpAsPathAccessListRowStatus": {
+    "name": "snIpAsPathAccessListRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpCommunityListTable": {
+    "name": "snIpCommunityListTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snIpCommunityListEntry": {
+    "name": "snIpCommunityListEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snIpCommunityListIndex",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snIpCommunityListSequence",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snIpCommunityListIndex": {
+    "name": "snIpCommunityListIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snIpCommunityListSequence": {
+    "name": "snIpCommunityListSequence",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snIpCommunityListAction": {
+    "name": "snIpCommunityListAction",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 0,
+          "permit": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpCommunityListCommNum": {
+    "name": "snIpCommunityListCommNum",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpCommunityListInternet": {
+    "name": "snIpCommunityListInternet",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpCommunityListNoAdvertise": {
+    "name": "snIpCommunityListNoAdvertise",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpCommunityListNoExport": {
+    "name": "snIpCommunityListNoExport",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpCommunityListRowStatus": {
+    "name": "snIpCommunityListRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpCommunityListLocalAs": {
+    "name": "snIpCommunityListLocalAs",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpPrefixListTable": {
+    "name": "snIpPrefixListTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snIpPrefixListEntry": {
+    "name": "snIpPrefixListEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snIpPrefixListName",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snIpPrefixListSequence",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snIpPrefixListName": {
+    "name": "snIpPrefixListName",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snIpPrefixListSequence": {
+    "name": "snIpPrefixListSequence",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snIpPrefixListDesc": {
+    "name": "snIpPrefixListDesc",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpPrefixListAction": {
+    "name": "snIpPrefixListAction",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 0,
+          "permit": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpPrefixListAddr": {
+    "name": "snIpPrefixListAddr",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpPrefixListMask": {
+    "name": "snIpPrefixListMask",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpPrefixListGeValue": {
+    "name": "snIpPrefixListGeValue",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpPrefixListLeValue": {
+    "name": "snIpPrefixListLeValue",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpPrefixListRowStatus": {
+    "name": "snIpPrefixListRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpPrefixListLength": {
+    "name": "snIpPrefixListLength",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpAsPathAccessListStringTable": {
+    "name": "snIpAsPathAccessListStringTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snIpAsPathAccessListStringEntry": {
+    "name": "snIpAsPathAccessListStringEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snIpAsPathAccessListStringName",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snIpAsPathAccessListStringSequence",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snIpAsPathAccessListStringName": {
+    "name": "snIpAsPathAccessListStringName",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snIpAsPathAccessListStringSequence": {
+    "name": "snIpAsPathAccessListStringSequence",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snIpAsPathAccessListStringAction": {
+    "name": "snIpAsPathAccessListStringAction",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 0,
+          "permit": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpAsPathAccessListStringRegExpression": {
+    "name": "snIpAsPathAccessListStringRegExpression",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpAsPathAccessListStringRowStatus": {
+    "name": "snIpAsPathAccessListStringRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpCommunityListStringTable": {
+    "name": "snIpCommunityListStringTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snIpCommunityListStringEntry": {
+    "name": "snIpCommunityListStringEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snIpCommunityListStringName",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snIpCommunityListStringSequence",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snIpCommunityListStringName": {
+    "name": "snIpCommunityListStringName",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snIpCommunityListStringSequence": {
+    "name": "snIpCommunityListStringSequence",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snIpCommunityListStringAction": {
+    "name": "snIpCommunityListStringAction",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 0,
+          "permit": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpCommunityListStringCommNum": {
+    "name": "snIpCommunityListStringCommNum",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpCommunityListStringInternet": {
+    "name": "snIpCommunityListStringInternet",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpCommunityListStringNoAdvertise": {
+    "name": "snIpCommunityListStringNoAdvertise",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpCommunityListStringNoExport": {
+    "name": "snIpCommunityListStringNoExport",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpCommunityListStringRowStatus": {
+    "name": "snIpCommunityListStringRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.17.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpCommunityListStringLocalAs": {
+    "name": "snIpCommunityListStringLocalAs",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.17.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpCommunityListStringType": {
+    "name": "snIpCommunityListStringType",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.17.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standard": 0,
+          "extended": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snIpCommunityListStringRegExpr": {
+    "name": "snIpCommunityListStringRegExpr",
+    "oid": "1.3.6.1.4.1.1991.1.2.2.17.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipGeneral": {
+    "name": "snRtIpRipGeneral",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.1",
+    "class": "objectidentity"
+  },
+  "snRtIpRipEnable": {
+    "name": "snRtIpRipEnable",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RtrStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipUpdateTime": {
+    "name": "snRtIpRipUpdateTime",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 21845
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipRedisEnable": {
+    "name": "snRtIpRipRedisEnable",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RtrStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipRedisDefMetric": {
+    "name": "snRtIpRipRedisDefMetric",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipSetAllPortConfig": {
+    "name": "snRtIpRipSetAllPortConfig",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipGblFiltList": {
+    "name": "snRtIpRipGblFiltList",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipFiltOnAllPort": {
+    "name": "snRtIpRipFiltOnAllPort",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "deleteAllInBound": 2,
+          "deleteAllOutBound": 3,
+          "addAllInBound": 4,
+          "addAllOutBound": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipDistance": {
+    "name": "snRtIpRipDistance",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipEcmpEnable": {
+    "name": "snRtIpRipEcmpEnable",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RtrStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipPortConfigTable": {
+    "name": "snRtIpRipPortConfigTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "snRtIpRipPortConfigEntry": {
+    "name": "snRtIpRipPortConfigEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpRipPortConfigPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "snRtIpRipPortConfigPortIndex": {
+    "name": "snRtIpRipPortConfigPortIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snRtIpRipPortVersion": {
+    "name": "snRtIpRipPortVersion",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "v1Only": 1,
+          "v2Only": 2,
+          "v1CompatibleV2": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snRtIpRipPortPoisonReverse": {
+    "name": "snRtIpRipPortPoisonReverse",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RtrStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snRtIpRipPortLearnDefault": {
+    "name": "snRtIpRipPortLearnDefault",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snRtIpRipRedisTable": {
+    "name": "snRtIpRipRedisTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snRtIpRipRedisEntry": {
+    "name": "snRtIpRipRedisEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpRipRedisIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snRtIpRipRedisIndex": {
+    "name": "snRtIpRipRedisIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpRipRedisAction": {
+    "name": "snRtIpRipRedisAction",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Action",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipRedisProtocol": {
+    "name": "snRtIpRipRedisProtocol",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "all": 2,
+          "static": 3,
+          "ospf": 4,
+          "bgp": 5,
+          "isis": 6,
+          "connected": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipRedisIp": {
+    "name": "snRtIpRipRedisIp",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipRedisMask": {
+    "name": "snRtIpRipRedisMask",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipRedisMatchMetric": {
+    "name": "snRtIpRipRedisMatchMetric",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Metric",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipRedisSetMetric": {
+    "name": "snRtIpRipRedisSetMetric",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipRedisRowStatus": {
+    "name": "snRtIpRipRedisRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipRedisRouteMapName": {
+    "name": "snRtIpRipRedisRouteMapName",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipRouteFilterTable": {
+    "name": "snRtIpRipRouteFilterTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snRtIpRipRouteFilterEntry": {
+    "name": "snRtIpRipRouteFilterEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpRipRouteFilterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snRtIpRipRouteFilterId": {
+    "name": "snRtIpRipRouteFilterId",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpRipRouteFilterAction": {
+    "name": "snRtIpRipRouteFilterAction",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Action",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipRouteFilterIpAddr": {
+    "name": "snRtIpRipRouteFilterIpAddr",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipRouteFilterSubnetMask": {
+    "name": "snRtIpRipRouteFilterSubnetMask",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipRouteFilterRowStatus": {
+    "name": "snRtIpRipRouteFilterRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipNbrFilterTable": {
+    "name": "snRtIpRipNbrFilterTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snRtIpRipNbrFilterEntry": {
+    "name": "snRtIpRipNbrFilterEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpRipNbrFilterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snRtIpRipNbrFilterId": {
+    "name": "snRtIpRipNbrFilterId",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpRipNbrFilterAction": {
+    "name": "snRtIpRipNbrFilterAction",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Action",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipNbrFilterSourceIp": {
+    "name": "snRtIpRipNbrFilterSourceIp",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipNbrFilterRowStatus": {
+    "name": "snRtIpRipNbrFilterRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipPortAccessTable": {
+    "name": "snRtIpRipPortAccessTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "snRtIpRipPortAccessEntry": {
+    "name": "snRtIpRipPortAccessEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpRipPortAccessPort",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpRipPortAccessDir",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "snRtIpRipPortAccessPort": {
+    "name": "snRtIpRipPortAccessPort",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snRtIpRipPortAccessDir": {
+    "name": "snRtIpRipPortAccessDir",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in": 1,
+          "out": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snRtIpRipPortAccessFilterList": {
+    "name": "snRtIpRipPortAccessFilterList",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snRtIpRipPortAccessRowStatus": {
+    "name": "snRtIpRipPortAccessRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snRtIpRipPortIfConfigTable": {
+    "name": "snRtIpRipPortIfConfigTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snRtIpRipPortIfConfigEntry": {
+    "name": "snRtIpRipPortIfConfigEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpRipPortIfConfigInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snRtIpRipPortIfConfigInterfaceIndex": {
+    "name": "snRtIpRipPortIfConfigInterfaceIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpRipPortIfVersion": {
+    "name": "snRtIpRipPortIfVersion",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "v1Only": 1,
+          "v2Only": 2,
+          "v1CompatibleV2": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipPortIfPoisonReverse": {
+    "name": "snRtIpRipPortIfPoisonReverse",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RtrStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipPortIfLearnDefault": {
+    "name": "snRtIpRipPortIfLearnDefault",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipPortIfAccessTable": {
+    "name": "snRtIpRipPortIfAccessTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snRtIpRipPortIfAccessEntry": {
+    "name": "snRtIpRipPortIfAccessEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpRipPortIfAccessPort",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snRtIpRipPortIfAccessDir",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snRtIpRipPortIfAccessPort": {
+    "name": "snRtIpRipPortIfAccessPort",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpRipPortIfAccessDir": {
+    "name": "snRtIpRipPortIfAccessDir",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in": 1,
+          "out": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpRipPortIfAccessFilterList": {
+    "name": "snRtIpRipPortIfAccessFilterList",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipPortIfAccessRowStatus": {
+    "name": "snRtIpRipPortIfAccessRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snRtIpRipStats": {
+    "name": "snRtIpRipStats",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.9",
+    "class": "objectidentity"
+  },
+  "snRtIpRipStatsOutRequest": {
+    "name": "snRtIpRipStatsOutRequest",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpRipStatsOutResponse": {
+    "name": "snRtIpRipStatsOutResponse",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpRipStatsInRequest": {
+    "name": "snRtIpRipStatsInRequest",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpRipStatsInResponse": {
+    "name": "snRtIpRipStatsInResponse",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpRipStatsUnrecognized": {
+    "name": "snRtIpRipStatsUnrecognized",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpRipStatsBadVersion": {
+    "name": "snRtIpRipStatsBadVersion",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpRipStatsBadAddrFamily": {
+    "name": "snRtIpRipStatsBadAddrFamily",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpRipStatsBadRequestFormat": {
+    "name": "snRtIpRipStatsBadRequestFormat",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.9.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpRipStatsBadMetrics": {
+    "name": "snRtIpRipStatsBadMetrics",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.9.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpRipStatsBadRespFormat": {
+    "name": "snRtIpRipStatsBadRespFormat",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.9.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpRipStatsRespFromNonRipPort": {
+    "name": "snRtIpRipStatsRespFromNonRipPort",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.9.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpRipStatsResponseFromLoopback": {
+    "name": "snRtIpRipStatsResponseFromLoopback",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.9.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snRtIpRipStatsPacketRejected": {
+    "name": "snRtIpRipStatsPacketRejected",
+    "oid": "1.3.6.1.4.1.1991.1.2.3.9.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpMIBObjects": {
+    "name": "snDvmrpMIBObjects",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1",
+    "class": "objectidentity"
+  },
+  "snDvmrpVersion": {
+    "name": "snDvmrpVersion",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpEnable": {
+    "name": "snDvmrpEnable",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RtrStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snDvmrpGenerationId": {
+    "name": "snDvmrpGenerationId",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpProbeInterval": {
+    "name": "snDvmrpProbeInterval",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snDvmrpReportInterval": {
+    "name": "snDvmrpReportInterval",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snDvmrpTriggerInterval": {
+    "name": "snDvmrpTriggerInterval",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snDvmrpNeighborRouterTimeout": {
+    "name": "snDvmrpNeighborRouterTimeout",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 8000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snDvmrpRouteExpireTime": {
+    "name": "snDvmrpRouteExpireTime",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 4000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snDvmrpRouteDiscardTime": {
+    "name": "snDvmrpRouteDiscardTime",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 40,
+            "max": 8000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 340,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snDvmrpPruneAge": {
+    "name": "snDvmrpPruneAge",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snDvmrpGraftRetransmitTime": {
+    "name": "snDvmrpGraftRetransmitTime",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snDvmrpDefaultRoute": {
+    "name": "snDvmrpDefaultRoute",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snDvmrpVInterfaceTable": {
+    "name": "snDvmrpVInterfaceTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snDvmrpVInterfaceEntry": {
+    "name": "snDvmrpVInterfaceEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snDvmrpVInterfaceVifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snDvmrpVInterfaceVifIndex": {
+    "name": "snDvmrpVInterfaceVifIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpVInterfaceType": {
+    "name": "snDvmrpVInterfaceType",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tunnel": 1,
+          "querier": 2,
+          "subnet": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snDvmrpVInterfaceOperState": {
+    "name": "snDvmrpVInterfaceOperState",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpVInterfaceLocalAddress": {
+    "name": "snDvmrpVInterfaceLocalAddress",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snDvmrpVInterfaceRemoteAddress": {
+    "name": "snDvmrpVInterfaceRemoteAddress",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snDvmrpVInterfaceRemoteSubnetMask": {
+    "name": "snDvmrpVInterfaceRemoteSubnetMask",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpVInterfaceMetric": {
+    "name": "snDvmrpVInterfaceMetric",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snDvmrpVInterfaceTtlThreshold": {
+    "name": "snDvmrpVInterfaceTtlThreshold",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snDvmrpVInterfaceAdvertiseLocal": {
+    "name": "snDvmrpVInterfaceAdvertiseLocal",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RtrStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snDvmrpVInterfaceEncapsulation": {
+    "name": "snDvmrpVInterfaceEncapsulation",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RtrStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snDvmrpVInterfaceStatus": {
+    "name": "snDvmrpVInterfaceStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snDvmrpNeighborTable": {
+    "name": "snDvmrpNeighborTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snDvmrpNeighborEntry": {
+    "name": "snDvmrpNeighborEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snDvmrpNeighborEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snDvmrpNeighborEntryIndex": {
+    "name": "snDvmrpNeighborEntryIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpNeighborVifIndex": {
+    "name": "snDvmrpNeighborVifIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpNeighborAddress": {
+    "name": "snDvmrpNeighborAddress",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpNeighborUpTime": {
+    "name": "snDvmrpNeighborUpTime",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpNeighborExpiryTime": {
+    "name": "snDvmrpNeighborExpiryTime",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpNeighborGenerationId": {
+    "name": "snDvmrpNeighborGenerationId",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpNeighborMajorVersion": {
+    "name": "snDvmrpNeighborMajorVersion",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpNeighborMinorVersion": {
+    "name": "snDvmrpNeighborMinorVersion",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpNeighborCapabilities": {
+    "name": "snDvmrpNeighborCapabilities",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpRouteTable": {
+    "name": "snDvmrpRouteTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snDvmrpRouteEntry": {
+    "name": "snDvmrpRouteEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snDvmrpRouteEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snDvmrpRouteEntryIndex": {
+    "name": "snDvmrpRouteEntryIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpRouteSource": {
+    "name": "snDvmrpRouteSource",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpRouteSourceMask": {
+    "name": "snDvmrpRouteSourceMask",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpRouteUpstreamNeighbor": {
+    "name": "snDvmrpRouteUpstreamNeighbor",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpRouteVifIndex": {
+    "name": "snDvmrpRouteVifIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpRouteMetric": {
+    "name": "snDvmrpRouteMetric",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpRouteExpiryTime": {
+    "name": "snDvmrpRouteExpiryTime",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpRouteNextHopTable": {
+    "name": "snDvmrpRouteNextHopTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snDvmrpRouteNextHopEntry": {
+    "name": "snDvmrpRouteNextHopEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snDvmrpRouteNextHopSource",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snDvmrpRouteNextHopSourceMask",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snDvmrpRouteNextHopVifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snDvmrpRouteNextHopSource": {
+    "name": "snDvmrpRouteNextHopSource",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpRouteNextHopSourceMask": {
+    "name": "snDvmrpRouteNextHopSourceMask",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpRouteNextHopVifIndex": {
+    "name": "snDvmrpRouteNextHopVifIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpRouteNextHopType": {
+    "name": "snDvmrpRouteNextHopType",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "leaf": 1,
+          "branch": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpVIfStatTable": {
+    "name": "snDvmrpVIfStatTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snDvmrpVIfStatEntry": {
+    "name": "snDvmrpVIfStatEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snDvmrpVIfStatVifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snDvmrpVIfStatVifIndex": {
+    "name": "snDvmrpVIfStatVifIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpVIfStatInPkts": {
+    "name": "snDvmrpVIfStatInPkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpVIfStatOutPkts": {
+    "name": "snDvmrpVIfStatOutPkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpVIfStatInOctets": {
+    "name": "snDvmrpVIfStatInOctets",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpVIfStatOutOctets": {
+    "name": "snDvmrpVIfStatOutOctets",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpVIfStatInProbePkts": {
+    "name": "snDvmrpVIfStatInProbePkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpVIfStatOutProbePkts": {
+    "name": "snDvmrpVIfStatOutProbePkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpVIfStatDiscardProbePkts": {
+    "name": "snDvmrpVIfStatDiscardProbePkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.17.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpVIfStatInRtUpdatePkts": {
+    "name": "snDvmrpVIfStatInRtUpdatePkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.17.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpVIfStatOutRtUpdatePkts": {
+    "name": "snDvmrpVIfStatOutRtUpdatePkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.17.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpVIfStatDiscardRtUpdatePkts": {
+    "name": "snDvmrpVIfStatDiscardRtUpdatePkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.17.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpVIfStatInGraftPkts": {
+    "name": "snDvmrpVIfStatInGraftPkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.17.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpVIfStatOutGraftPkts": {
+    "name": "snDvmrpVIfStatOutGraftPkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.17.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpVIfStatDiscardGraftPkts": {
+    "name": "snDvmrpVIfStatDiscardGraftPkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.17.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpVIfStatInGraftAckPkts": {
+    "name": "snDvmrpVIfStatInGraftAckPkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.17.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpVIfStatOutGraftAckPkts": {
+    "name": "snDvmrpVIfStatOutGraftAckPkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.17.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpVIfStatDiscardGraftAckPkts": {
+    "name": "snDvmrpVIfStatDiscardGraftAckPkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.17.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpVIfStatInPrunePkts": {
+    "name": "snDvmrpVIfStatInPrunePkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.17.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpVIfStatOutPrunePkts": {
+    "name": "snDvmrpVIfStatOutPrunePkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.17.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDvmrpVIfStatDiscardPrunePkts": {
+    "name": "snDvmrpVIfStatDiscardPrunePkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.5.1.17.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snFsrpGlobal": {
+    "name": "snFsrpGlobal",
+    "oid": "1.3.6.1.4.1.1991.1.2.7.1",
+    "class": "objectidentity"
+  },
+  "snFsrpIntf": {
+    "name": "snFsrpIntf",
+    "oid": "1.3.6.1.4.1.1991.1.2.7.2",
+    "class": "objectidentity"
+  },
+  "snFsrpGroupOperMode": {
+    "name": "snFsrpGroupOperMode",
+    "oid": "1.3.6.1.4.1.1991.1.2.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snFsrpIfStateChangeTrap": {
+    "name": "snFsrpIfStateChangeTrap",
+    "oid": "1.3.6.1.4.1.1991.1.2.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snFsrpIfTable": {
+    "name": "snFsrpIfTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.7.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snFsrpIfEntry": {
+    "name": "snFsrpIfEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.7.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snFsrpIfPort",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snFsrpIfIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snFsrpIfPort": {
+    "name": "snFsrpIfPort",
+    "oid": "1.3.6.1.4.1.1991.1.2.7.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snFsrpIfIpAddress": {
+    "name": "snFsrpIfIpAddress",
+    "oid": "1.3.6.1.4.1.1991.1.2.7.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snFsrpIfVirRtrIpAddr": {
+    "name": "snFsrpIfVirRtrIpAddr",
+    "oid": "1.3.6.1.4.1.1991.1.2.7.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snFsrpIfOtherRtrIpAddr": {
+    "name": "snFsrpIfOtherRtrIpAddr",
+    "oid": "1.3.6.1.4.1.1991.1.2.7.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snFsrpIfPreferLevel": {
+    "name": "snFsrpIfPreferLevel",
+    "oid": "1.3.6.1.4.1.1991.1.2.7.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snFsrpIfTrackPortMask": {
+    "name": "snFsrpIfTrackPortMask",
+    "oid": "1.3.6.1.4.1.1991.1.2.7.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snFsrpIfRowStatus": {
+    "name": "snFsrpIfRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.7.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snFsrpIfState": {
+    "name": "snFsrpIfState",
+    "oid": "1.3.6.1.4.1.1991.1.2.7.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 0,
+          "negotiating": 1,
+          "standby": 2,
+          "active": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snFsrpIfKeepAliveTime": {
+    "name": "snFsrpIfKeepAliveTime",
+    "oid": "1.3.6.1.4.1.1991.1.2.7.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snFsrpIfRouterDeadTime": {
+    "name": "snFsrpIfRouterDeadTime",
+    "oid": "1.3.6.1.4.1.1991.1.2.7.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 9,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snFsrpIfChassisTrackPortMask": {
+    "name": "snFsrpIfChassisTrackPortMask",
+    "oid": "1.3.6.1.4.1.1991.1.2.7.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snFsrpIfTrackPortList": {
+    "name": "snFsrpIfTrackPortList",
+    "oid": "1.3.6.1.4.1.1991.1.2.7.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snPimMIBObjects": {
+    "name": "snPimMIBObjects",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1",
+    "class": "objectidentity"
+  },
+  "snPimSMMIBObjects": {
+    "name": "snPimSMMIBObjects",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.2",
+    "class": "objectidentity"
+  },
+  "snPimEnable": {
+    "name": "snPimEnable",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RtrStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snPimNeighborRouterTimeout": {
+    "name": "snPimNeighborRouterTimeout",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 8000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snPimHelloTime": {
+    "name": "snPimHelloTime",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snPimPruneTime": {
+    "name": "snPimPruneTime",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snPimGraftRetransmitTime": {
+    "name": "snPimGraftRetransmitTime",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snPimInactivityTime": {
+    "name": "snPimInactivityTime",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snPimVInterfaceTable": {
+    "name": "snPimVInterfaceTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snPimVInterfaceEntry": {
+    "name": "snPimVInterfaceEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snPimVInterfaceVifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snPimVInterfaceVifIndex": {
+    "name": "snPimVInterfaceVifIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimVInterfaceType": {
+    "name": "snPimVInterfaceType",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tunnel": 1,
+          "subnet": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snPimVInterfaceLocalAddress": {
+    "name": "snPimVInterfaceLocalAddress",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snPimVInterfaceLocalSubnetMask": {
+    "name": "snPimVInterfaceLocalSubnetMask",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimVInterfaceRemoteAddress": {
+    "name": "snPimVInterfaceRemoteAddress",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snPimVInterfaceDR": {
+    "name": "snPimVInterfaceDR",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimVInterfaceTtlThreshold": {
+    "name": "snPimVInterfaceTtlThreshold",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snPimVInterfaceStatus": {
+    "name": "snPimVInterfaceStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snPimVInterfaceMode": {
+    "name": "snPimVInterfaceMode",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dense": 1,
+          "sparse": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "dense",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snPimNeighborTable": {
+    "name": "snPimNeighborTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snPimNeighborEntry": {
+    "name": "snPimNeighborEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snPimNeighborEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snPimNeighborEntryIndex": {
+    "name": "snPimNeighborEntryIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimNeighborVifIndex": {
+    "name": "snPimNeighborVifIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimNeighborAddress": {
+    "name": "snPimNeighborAddress",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimNeighborUpTime": {
+    "name": "snPimNeighborUpTime",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimNeighborExpiryTime": {
+    "name": "snPimNeighborExpiryTime",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimVIfStatTable": {
+    "name": "snPimVIfStatTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snPimVIfStatEntry": {
+    "name": "snPimVIfStatEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snPimVIfStatVifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snPimVIfStatVifIndex": {
+    "name": "snPimVIfStatVifIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimVIfStatInJoinPkts": {
+    "name": "snPimVIfStatInJoinPkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimVIfStatOutJoinPkts": {
+    "name": "snPimVIfStatOutJoinPkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimVIfStatDiscardJoinPkts": {
+    "name": "snPimVIfStatDiscardJoinPkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimVIfStatInPrunePkts": {
+    "name": "snPimVIfStatInPrunePkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimVIfStatOutPrunePkts": {
+    "name": "snPimVIfStatOutPrunePkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimVIfStatDiscardPrunePkts": {
+    "name": "snPimVIfStatDiscardPrunePkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimVIfStatInAssertPkts": {
+    "name": "snPimVIfStatInAssertPkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimVIfStatOutAssertPkts": {
+    "name": "snPimVIfStatOutAssertPkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimVIfStatDiscardAssertPkts": {
+    "name": "snPimVIfStatDiscardAssertPkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimVIfStatInHelloPkts": {
+    "name": "snPimVIfStatInHelloPkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimVIfStatOutHelloPkts": {
+    "name": "snPimVIfStatOutHelloPkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimVIfStatDiscardHelloPkts": {
+    "name": "snPimVIfStatDiscardHelloPkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimVIfStatInGraftPkts": {
+    "name": "snPimVIfStatInGraftPkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimVIfStatOutGraftPkts": {
+    "name": "snPimVIfStatOutGraftPkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimVIfStatDiscardGraftPkts": {
+    "name": "snPimVIfStatDiscardGraftPkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.9.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimVIfStatInGraftAckPkts": {
+    "name": "snPimVIfStatInGraftAckPkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.9.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimVIfStatOutGraftAckPkts": {
+    "name": "snPimVIfStatOutGraftAckPkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.9.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimVIfStatDiscardGraftAckPkts": {
+    "name": "snPimVIfStatDiscardGraftAckPkts",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.1.9.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimJoinPruneInterval": {
+    "name": "snPimJoinPruneInterval",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snPimCandidateBSRTable": {
+    "name": "snPimCandidateBSRTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snPimCandidateBSREntry": {
+    "name": "snPimCandidateBSREntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snPimCandidateBSRPortID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snPimCandidateBSRPortID": {
+    "name": "snPimCandidateBSRPortID",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snPimCandidateBSRIPAddress": {
+    "name": "snPimCandidateBSRIPAddress",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimCandidateBSRHashMaskLen": {
+    "name": "snPimCandidateBSRHashMaskLen",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snPimCandidateBSRPreference": {
+    "name": "snPimCandidateBSRPreference",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snPimRPSetTable": {
+    "name": "snPimRPSetTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snPimRPSetEntry": {
+    "name": "snPimRPSetEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snPimRPSetGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snPimRPSetMask",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snPimRPSetIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snPimRPSetGroupAddress": {
+    "name": "snPimRPSetGroupAddress",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimRPSetMask": {
+    "name": "snPimRPSetMask",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimRPSetIPAddress": {
+    "name": "snPimRPSetIPAddress",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimRPSetHoldTime": {
+    "name": "snPimRPSetHoldTime",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimCandidateRPTable": {
+    "name": "snPimCandidateRPTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snPimCandidateRPEntry": {
+    "name": "snPimCandidateRPEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snPimCandidateRPGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snPimCandidateRPMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snPimCandidateRPGroupAddress": {
+    "name": "snPimCandidateRPGroupAddress",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimCandidateRPMask": {
+    "name": "snPimCandidateRPMask",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snPimCandidateRPIPAddress": {
+    "name": "snPimCandidateRPIPAddress",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snPimCandidateRPRowStatus": {
+    "name": "snPimCandidateRPRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.9.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noSuch": 0,
+          "other": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snLoopbackIntfConfigTable": {
+    "name": "snLoopbackIntfConfigTable",
+    "oid": "1.3.6.1.4.1.1991.1.2.13.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snLoopbackIntfConfigEntry": {
+    "name": "snLoopbackIntfConfigEntry",
+    "oid": "1.3.6.1.4.1.1991.1.2.13.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-IP-MIB",
+        "object": "snLoopbackIntfConfigPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snLoopbackIntfConfigPortIndex": {
+    "name": "snLoopbackIntfConfigPortIndex",
+    "oid": "1.3.6.1.4.1.1991.1.2.13.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snLoopbackIntfMode": {
+    "name": "snLoopbackIntfMode",
+    "oid": "1.3.6.1.4.1.1991.1.2.13.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snLoopbackIntfRowStatus": {
+    "name": "snLoopbackIntfRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.2.13.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/brocade/FOUNDRY-SN-IP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:54 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "FOUNDRY-SN-IP-MIB"
+  }
+}

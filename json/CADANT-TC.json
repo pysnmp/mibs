@@ -1,0 +1,1391 @@
+{
+  "imports": {
+    "class": "imports",
+    "CADANT-PRODUCTS-MIB": [
+      "cadant"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "iso",
+      "Counter64",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cadTextualConventions": {
+    "name": "cadTextualConventions",
+    "oid": "1.3.6.1.4.1.4998.0",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-10-15 00:00",
+        "description": "Add CadCpeDeviceTypes."
+      },
+      {
+        "revision": "2009-09-14 00:00",
+        "description": "Add ipv6-access-list(5) to CadAclType."
+      },
+      {
+        "revision": "2009-08-28 00:00",
+        "description": "Add CadCpeDeviceTypes."
+      },
+      {
+        "revision": "2008-10-23 00:00",
+        "description": "Remove superGreedy(4) from FlowActivityState."
+      },
+      {
+        "revision": "2008-08-06 00:00",
+        "description": "Add support for 16D CAM PIC types."
+      },
+      {
+        "revision": "2007-11-05 00:00",
+        "description": "Add support for port flow control."
+      },
+      {
+        "revision": "2007-06-25 00:00",
+        "description": "Add support for EUI IPv6 addresses."
+      },
+      {
+        "revision": "2006-10-16 00:00",
+        "description": "Add new card subtype rcardhcp to represent the HCP on the RCM."
+      },
+      {
+        "revision": "2006-08-23 00:00",
+        "description": "Add new card type dmm(15) and new card subtype dcard0d12u(35), dmm16m16p4iu(36) and dmm16m(37)."
+      },
+      {
+        "revision": "2006-07-27 00:00",
+        "description": "This MIB modules contains textual conventions that are shared among two or more Cadant MIBs."
+      },
+      {
+        "revision": "2006-07-27 00:00",
+        "description": "This MIB modules contains textual conventions that are shared among two or more Cadant MIBs."
+      },
+      {
+        "revision": "2005-12-02 00:00",
+        "description": "Add support from scheduling types from DISMAN-SCHEDULE-MIB."
+      },
+      {
+        "revision": "2005-08-30 00:00",
+        "description": "Added support for RCM ports."
+      },
+      {
+        "revision": "2005-09-23 00:00",
+        "description": "Remove SshSession and SshConnectionState. Add SshService, SshAuthMethod, SshMacAlg, SshCipherType, and SshMacAlg."
+      },
+      {
+        "revision": "2005-08-31 00:00",
+        "description": "Added another ACL type to support embedded remarks."
+      },
+      {
+        "revision": "2004-11-12 00:00",
+        "description": "Added OUIAddress"
+      },
+      {
+        "revision": "2004-09-15 00:00",
+        "description": "Add support for CAR feature."
+      },
+      {
+        "revision": "2004-03-09 00:00",
+        "description": "Add cadIfDirection"
+      },
+      {
+        "revision": "2003-12-18 00:00",
+        "description": "Add port type to support logical uchannels."
+      },
+      {
+        "revision": "2003-08-20 00:00",
+        "description": "Add type to support start-stop and stop-only accounting."
+      },
+      {
+        "revision": "2003-06-08 00:00",
+        "description": "Add additional port types to support gbic detection."
+      },
+      {
+        "revision": "2003-05-08 00:00",
+        "description": "Add serverType for INET service support."
+      },
+      {
+        "revision": "2003-04-21 00:00",
+        "description": "Add cadExtAclCondition for IPSec/IKE support."
+      },
+      {
+        "revision": "2003-04-04 00:00",
+        "description": "Fixed comment for FlowActivityState"
+      },
+      {
+        "revision": "2003-04-01 00:00",
+        "description": "Rename AuthenticationMethod as AAAmethod."
+      },
+      {
+        "revision": "2003-03-31 00:00",
+        "description": "Add premilinary pic support and card reset action"
+      },
+      {
+        "revision": "2003-03-17 00:00",
+        "description": "Add card detail support."
+      },
+      {
+        "revision": "2002-11-01 00:00",
+        "description": "Add diskVolume support."
+      },
+      {
+        "revision": "2002-10-25 00:00",
+        "description": "Remove enable authentication method type."
+      },
+      {
+        "revision": "2002-10-16 00:00",
+        "description": "Change SshCipher to bitmask."
+      },
+      {
+        "revision": "2002-09-25 00:00",
+        "description": "Align card subtypes and types."
+      },
+      {
+        "revision": "2001-02-03 00:00",
+        "description": "Created."
+      }
+    ]
+  },
+  "ShelfId": {
+    "name": "ShelfId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CardId": {
+    "name": "CardId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CardSubId": {
+    "name": "CardSubId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "PortId": {
+    "name": "PortId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CardType": {
+    "name": "CardType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dcard": 1,
+          "ecard": 2,
+          "fcard": 3,
+          "mcard": 4,
+          "rcard": 6,
+          "fanA": 7,
+          "fanB": 8,
+          "fanC": 9,
+          "fanD": 10,
+          "powerA": 11,
+          "powerB": 12,
+          "discdriveA": 13,
+          "discdriveB": 14,
+          "dmm": 15,
+          "unknown": 98,
+          "invalid": 99
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CardSubType": {
+    "name": "CardSubType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dcardiu1d8u": 1,
+          "ecard4e": 2,
+          "fcard": 3,
+          "mcard": 4,
+          "rcard": 6,
+          "fanA": 7,
+          "fanB": 8,
+          "fanC": 9,
+          "fanD": 10,
+          "powerA": 11,
+          "powerB": 12,
+          "discdriveA": 13,
+          "discdriveB": 14,
+          "dcard1d8u": 20,
+          "dcard2d8u": 21,
+          "dcardiu2d8u": 22,
+          "dcardiu2d12u": 23,
+          "ecard8e": 30,
+          "ecard4oc3": 31,
+          "ecard7oc3": 32,
+          "ecard1oc12": 33,
+          "ecard1gig": 34,
+          "dcard0d12u": 35,
+          "dmm16m16p4iu": 36,
+          "dmm16m": 37,
+          "rcardhcp": 40,
+          "unknown": 98,
+          "invalid": 99
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PortType": {
+    "name": "PortType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dport": 1,
+          "uport": 2,
+          "eport10BaseT": 3,
+          "eport100BaseT": 4,
+          "macport": 5,
+          "mport": 6,
+          "eport1000BaseT": 7,
+          "uchannel": 8,
+          "eport10000BaseT": 9,
+          "dportMac": 10,
+          "invalid": 99
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MacChlPortType": {
+    "name": "MacChlPortType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dport": 1,
+          "uchannel": 8,
+          "invalid": 99
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PortMode": {
+    "name": "PortMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoNegotiate": 1,
+          "fullDuplex100Mpbs": 2,
+          "halfDuplex100Mpbs": 3,
+          "fullDuplex10Mpbs": 4,
+          "halfDuplex10Mpbs": 5,
+          "fullDuplex1000Mpbs": 6,
+          "halfDuplex1000Mpbs": 7,
+          "fullDuplex10000Mpbs": 8,
+          "invalid": 99
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PortDetectedMode": {
+    "name": "PortDetectedMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fullDuplex100Mpbs": 2,
+          "halfDuplex100Mpbs": 3,
+          "fullDuplex10Mpbs": 4,
+          "halfDuplex10Mpbs": 5,
+          "sfpFullDuplex1000BaseT": 9,
+          "sfpHalfDuplex1000BaseT": 10,
+          "sfpFullDuplex100BaseT": 11,
+          "sfpHalfDuplex100BaseT": 12,
+          "sfpFullDuplex10BaseT": 13,
+          "sfpHalfDuplex10BaseT": 14,
+          "sfpFullDuplex1000BaseSX": 15,
+          "sfpFullDuplex1000BaseLX": 16,
+          "sfpFullDuplex1000BaseLH": 17,
+          "sfpFullDuplex1000BaseLXLH": 18,
+          "sfpFullDuplex1000BaseZX": 19,
+          "sfpFullDuplex1000BaseCWDM": 20,
+          "sfpFullDuplex1000BaseDWDM": 21,
+          "xfpFullDuplex10GBaseSR": 22,
+          "xfpFullDuplex10GBaseLRM": 23,
+          "xfpFullDuplex10GBaseLR": 24,
+          "xfpFullDuplex10GBaseER": 25,
+          "xfpFullDuplex10GBaseZR": 26,
+          "xfpFullDuplex10GBaseLX4": 27,
+          "unknown": 98,
+          "invalid": 99
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FlowControlMode": {
+    "name": "FlowControlMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "desired": 3,
+          "unknown": 98,
+          "invalid": 99
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AdminState": {
+    "name": "AdminState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrimaryState": {
+    "name": "PrimaryState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "is": 1,
+          "oos": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SecondaryState": {
+    "name": "SecondaryState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notapplicable": 0,
+          "manual": 1,
+          "fault": 2,
+          "diagnostic": 3,
+          "overload": 4,
+          "normal": 5,
+          "degrade": 6,
+          "initializing": 7,
+          "swdownload": 8,
+          "firmwarepump": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "UnknownState": {
+    "name": "UnknownState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "known": 0,
+          "unknown": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DuplexStatus": {
+    "name": "DuplexStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notapplicable": 0,
+          "active": 1,
+          "standby": 2,
+          "simplex": 3,
+          "protected": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MacPortId": {
+    "name": "MacPortId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 448
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "MacPortIdWithInvalid": {
+    "name": "MacPortIdWithInvalid",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 449
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EqActionType": {
+    "name": "EqActionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notapplicable": 0,
+          "initialize": 1,
+          "switch": 2,
+          "remove": 3,
+          "restorecond": 4,
+          "restoreuncd": 5,
+          "systemreset": 6,
+          "cardreset": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OverloadStatus": {
+    "name": "OverloadStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "yellow": 2,
+          "red": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DiskVolumeUsageLevel": {
+    "name": "DiskVolumeUsageLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "minor": 2,
+          "major": 3,
+          "critical": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CadBridgeGroupId": {
+    "name": "CadBridgeGroupId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 33,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CadBridgePortType": {
+    "name": "CadBridgePortType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cm": 1,
+          "cpeauth": 2,
+          "cpeunauth": 3,
+          "any": 4,
+          "none": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VlanId": {
+    "name": "VlanId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FlowActivityState": {
+    "name": "FlowActivityState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "needy": 1,
+          "normal": 2,
+          "greedy": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "InetAddressIPv4or6": {
+    "name": "InetAddressIPv4or6",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "LineType": {
+    "name": "LineType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "console": 1,
+          "vty": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AAAmethod": {
+    "name": "AAAmethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "line": 2,
+          "local": 4,
+          "group": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SshService": {
+    "name": "SshService",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "terminal": 1,
+          "sftp": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SshAuthMethod": {
+    "name": "SshAuthMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "password": 1,
+          "public-key": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SshCipher": {
+    "name": "SshCipher",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "other": 0,
+        "threedes": 1,
+        "arcfour": 2,
+        "blowfish": 3,
+        "cast": 4,
+        "aes": 5
+      }
+    },
+    "status": "current"
+  },
+  "SshCipherType": {
+    "name": "SshCipherType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "threedes": 2,
+          "arcfour": 3,
+          "blowfish": 4,
+          "cast128": 5,
+          "aes128": 6,
+          "aes192": 7,
+          "aes256": 8,
+          "des": 9,
+          "rc4": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SshMacAlg": {
+    "name": "SshMacAlg",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "hmac-sha1": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SshProtocol": {
+    "name": "SshProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ssh1": 1,
+          "ssh2": 2,
+          "ssh1ssh2": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CadDouble": {
+    "name": "CadDouble",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "displayhint": "d-10",
+    "status": "current"
+  },
+  "FirmwareSource": {
+    "name": "FirmwareSource",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "committed": 1,
+          "transient": 2,
+          "boot1": 3,
+          "boot2": 4,
+          "unknown": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PicType": {
+    "name": "PicType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cameven": 1,
+          "camevensp1to1": 2,
+          "camevensp2to1": 3,
+          "camevensp4to1": 4,
+          "camevensp8to1": 5,
+          "camodd": 6,
+          "camoddsp1to1": 7,
+          "camoddsp2to1": 8,
+          "camoddsp4to1": 9,
+          "camoddsp8to1": 10,
+          "camspare": 11,
+          "nam": 12,
+          "scm": 13,
+          "cam16d": 14,
+          "cam16dspare": 15,
+          "unknown": 98,
+          "invalid": 99
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CadExtAclCondition": {
+    "name": "CadExtAclCondition",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 0,
+          "eq": 1,
+          "ne": 2,
+          "lt": 3,
+          "le": 4,
+          "gt": 5,
+          "ge": 6,
+          "range": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ServerType": {
+    "name": "ServerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "telnet": 1,
+          "ftp": 2,
+          "snmp": 3,
+          "syslog": 4,
+          "radius": 5,
+          "tacacs": 6,
+          "other": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AccountingType": {
+    "name": "AccountingType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start-stop": 1,
+          "stop-only": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CadIfDirection": {
+    "name": "CadIfDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in": 1,
+          "out": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CadIpPort": {
+    "name": "CadIpPort",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          },
+          {
+            "min": -1,
+            "max": -1
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CadIpTos": {
+    "name": "CadIpTos",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CadIpTosMask": {
+    "name": "CadIpTosMask",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 30,
+            "max": 30
+          },
+          {
+            "min": 224,
+            "max": 224
+          },
+          {
+            "min": 254,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CadProtocolType": {
+    "name": "CadProtocolType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          },
+          {
+            "min": -1,
+            "max": -1
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CadTcpFlags": {
+    "name": "CadTcpFlags",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "urg": 0,
+        "ack": 1,
+        "push": 2,
+        "rst": 3,
+        "syn": 4,
+        "fin": 5
+      }
+    },
+    "status": "current"
+  },
+  "CadAclType": {
+    "name": "CadAclType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "std-access-list": 1,
+          "ext-access-list": 2,
+          "rate-limit-access-list": 3,
+          "remark": 4,
+          "ipv6-access-list": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CadAclString": {
+    "name": "CadAclString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "OUIAddress": {
+    "name": "OUIAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "displayhint": "1x:",
+    "status": "current"
+  },
+  "SchedWeekDay": {
+    "name": "SchedWeekDay",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "sunday": 0,
+        "monday": 1,
+        "tuesday": 2,
+        "wednesday": 3,
+        "thursday": 4,
+        "friday": 5,
+        "saturday": 6
+      }
+    },
+    "status": "current"
+  },
+  "SchedMonth": {
+    "name": "SchedMonth",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "january": 0,
+        "february": 1,
+        "march": 2,
+        "april": 3,
+        "may": 4,
+        "june": 5,
+        "july": 6,
+        "august": 7,
+        "september": 8,
+        "october": 9,
+        "november": 10,
+        "december": 11
+      }
+    },
+    "status": "current"
+  },
+  "SchedDay": {
+    "name": "SchedDay",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "d1": 0,
+        "d2": 1,
+        "d3": 2,
+        "d4": 3,
+        "d5": 4,
+        "d6": 5,
+        "d7": 6,
+        "d8": 7,
+        "d9": 8,
+        "d10": 9,
+        "d11": 10,
+        "d12": 11,
+        "d13": 12,
+        "d14": 13,
+        "d15": 14,
+        "d16": 15,
+        "d17": 16,
+        "d18": 17,
+        "d19": 18,
+        "d20": 19,
+        "d21": 20,
+        "d22": 21,
+        "d23": 22,
+        "d24": 23,
+        "d25": 24,
+        "d26": 25,
+        "d27": 26,
+        "d28": 27,
+        "d29": 28,
+        "d30": 29,
+        "d31": 30,
+        "r1": 31,
+        "r2": 32,
+        "r3": 33,
+        "r4": 34,
+        "r5": 35,
+        "r6": 36,
+        "r7": 37,
+        "r8": 38,
+        "r9": 39,
+        "r10": 40,
+        "r11": 41,
+        "r12": 42,
+        "r13": 43,
+        "r14": 44,
+        "r15": 45,
+        "r16": 46,
+        "r17": 47,
+        "r18": 48,
+        "r19": 49,
+        "r20": 50,
+        "r21": 51,
+        "r22": 52,
+        "r23": 53,
+        "r24": 54,
+        "r25": 55,
+        "r26": 56,
+        "r27": 57,
+        "r28": 58,
+        "r29": 59,
+        "r30": 60,
+        "r31": 61
+      }
+    },
+    "status": "current"
+  },
+  "SchedHour": {
+    "name": "SchedHour",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "h0": 0,
+        "h1": 1,
+        "h2": 2,
+        "h3": 3,
+        "h4": 4,
+        "h5": 5,
+        "h6": 6,
+        "h7": 7,
+        "h8": 8,
+        "h9": 9,
+        "h10": 10,
+        "h11": 11,
+        "h12": 12,
+        "h13": 13,
+        "h14": 14,
+        "h15": 15,
+        "h16": 16,
+        "h17": 17,
+        "h18": 18,
+        "h19": 19,
+        "h20": 20,
+        "h21": 21,
+        "h22": 22,
+        "h23": 23
+      }
+    },
+    "status": "current"
+  },
+  "SchedMinute": {
+    "name": "SchedMinute",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "m0": 0,
+        "m1": 1,
+        "m2": 2,
+        "m3": 3,
+        "m4": 4,
+        "m5": 5,
+        "m6": 6,
+        "m7": 7,
+        "m8": 8,
+        "m9": 9,
+        "m10": 10,
+        "m11": 11,
+        "m12": 12,
+        "m13": 13,
+        "m14": 14,
+        "m15": 15,
+        "m16": 16,
+        "m17": 17,
+        "m18": 18,
+        "m19": 19,
+        "m20": 20,
+        "m21": 21,
+        "m22": 22,
+        "m23": 23,
+        "m24": 24,
+        "m25": 25,
+        "m26": 26,
+        "m27": 27,
+        "m28": 28,
+        "m29": 29,
+        "m30": 30,
+        "m31": 31,
+        "m32": 32,
+        "m33": 33,
+        "m34": 34,
+        "m35": 35,
+        "m36": 36,
+        "m37": 37,
+        "m38": 38,
+        "m39": 39,
+        "m40": 40,
+        "m41": 41,
+        "m42": 42,
+        "m43": 43,
+        "m44": 44,
+        "m45": 45,
+        "m46": 46,
+        "m47": 47,
+        "m48": 48,
+        "m49": 49,
+        "m50": 50,
+        "m51": 51,
+        "m52": 52,
+        "m53": 53,
+        "m54": 54,
+        "m55": 55,
+        "m56": 56,
+        "m57": 57,
+        "m58": 58,
+        "m59": 59
+      }
+    },
+    "status": "current"
+  },
+  "CadCpeDeviceTypes": {
+    "name": "CadCpeDeviceTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "cable-modem": 0,
+        "cpe": 1,
+        "ps": 2,
+        "mta": 3,
+        "stb": 4,
+        "tea": 5,
+        "erouter": 6,
+        "dva": 7,
+        "sg": 8,
+        "reserved9": 9,
+        "reserved10": 10,
+        "reserved11": 11,
+        "reserved12": 12,
+        "reserved13": 13,
+        "reserved14": 14,
+        "reserved15": 15,
+        "reserved16": 16,
+        "reserved17": 17,
+        "reserved18": 18,
+        "reserved19": 19,
+        "reserved20": 20,
+        "reserved21": 21,
+        "reserved22": 22,
+        "reserved23": 23,
+        "reserved24": 24,
+        "reserved25": 25,
+        "reserved26": 26,
+        "reserved27": 27,
+        "reserved28": 28,
+        "reserved29": 29,
+        "reserved30": 30,
+        "reserved31": 31
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/CADANT-TC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:05 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CADANT-TC"
+  }
+}

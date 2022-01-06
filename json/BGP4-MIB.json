@@ -1,0 +1,1339 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "Integer32",
+      "Counter32",
+      "mib-2",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "bgp": {
+    "name": "bgp",
+    "oid": "1.3.6.1.2.1.15",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-01-11 00:00",
+        "description": "Changes from RFC 1657: 1) Fixed the definitions of the notifications to make them equivalent to their initial definition in RFC 1269. 2) Added compliance and conformance info. 3) Updated information for the values of bgpPeerNegotiatedVersion, bgp4PathAttrLocalPref, bgp4PathAttrCalcLocalPref, bgp4PathAttrMultiExitDisc, bgp4PathAttrASPathSegement. 4) Added additional clarification comments where needed. 5) Noted where objects do not fully reflect the protocol as Known Issues. 6) Updated the DESCRIPTION for the bgp4PathAttrAtomicAggregate object. 7) The following objects have had their DESCRIPTION clause modified to remove the text that suggested (using 'should' verb) initializing the counter to zero on a transition to the established state: bgpPeerInUpdates, bgpPeerOutUpdates, bgpPeerInTotalMessages, bgpPeerOutTotalMessages Those implementations that still do this are still compliant with this new wording. Applications should not assume counters have started at zero. Published as RFC 4273."
+      },
+      {
+        "revision": "1994-05-05 00:00",
+        "description": "Translated to SMIv2 and published as RFC 1657."
+      },
+      {
+        "revision": "1991-10-26 18:39",
+        "description": "Initial version, published as RFC 1269."
+      }
+    ]
+  },
+  "bgpVersion": {
+    "name": "bgpVersion",
+    "oid": "1.3.6.1.2.1.15.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpLocalAs": {
+    "name": "bgpLocalAs",
+    "oid": "1.3.6.1.2.1.15.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpPeerTable": {
+    "name": "bgpPeerTable",
+    "oid": "1.3.6.1.2.1.15.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bgpPeerEntry": {
+    "name": "bgpPeerEntry",
+    "oid": "1.3.6.1.2.1.15.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerRemoteAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bgpPeerIdentifier": {
+    "name": "bgpPeerIdentifier",
+    "oid": "1.3.6.1.2.1.15.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpPeerState": {
+    "name": "bgpPeerState",
+    "oid": "1.3.6.1.2.1.15.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "connect": 2,
+          "active": 3,
+          "opensent": 4,
+          "openconfirm": 5,
+          "established": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpPeerAdminStatus": {
+    "name": "bgpPeerAdminStatus",
+    "oid": "1.3.6.1.2.1.15.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stop": 1,
+          "start": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bgpPeerNegotiatedVersion": {
+    "name": "bgpPeerNegotiatedVersion",
+    "oid": "1.3.6.1.2.1.15.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpPeerLocalAddr": {
+    "name": "bgpPeerLocalAddr",
+    "oid": "1.3.6.1.2.1.15.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpPeerLocalPort": {
+    "name": "bgpPeerLocalPort",
+    "oid": "1.3.6.1.2.1.15.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpPeerRemoteAddr": {
+    "name": "bgpPeerRemoteAddr",
+    "oid": "1.3.6.1.2.1.15.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpPeerRemotePort": {
+    "name": "bgpPeerRemotePort",
+    "oid": "1.3.6.1.2.1.15.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpPeerRemoteAs": {
+    "name": "bgpPeerRemoteAs",
+    "oid": "1.3.6.1.2.1.15.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpPeerInUpdates": {
+    "name": "bgpPeerInUpdates",
+    "oid": "1.3.6.1.2.1.15.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpPeerOutUpdates": {
+    "name": "bgpPeerOutUpdates",
+    "oid": "1.3.6.1.2.1.15.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpPeerInTotalMessages": {
+    "name": "bgpPeerInTotalMessages",
+    "oid": "1.3.6.1.2.1.15.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpPeerOutTotalMessages": {
+    "name": "bgpPeerOutTotalMessages",
+    "oid": "1.3.6.1.2.1.15.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpPeerLastError": {
+    "name": "bgpPeerLastError",
+    "oid": "1.3.6.1.2.1.15.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpPeerFsmEstablishedTransitions": {
+    "name": "bgpPeerFsmEstablishedTransitions",
+    "oid": "1.3.6.1.2.1.15.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpPeerFsmEstablishedTime": {
+    "name": "bgpPeerFsmEstablishedTime",
+    "oid": "1.3.6.1.2.1.15.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpPeerConnectRetryInterval": {
+    "name": "bgpPeerConnectRetryInterval",
+    "oid": "1.3.6.1.2.1.15.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bgpPeerHoldTime": {
+    "name": "bgpPeerHoldTime",
+    "oid": "1.3.6.1.2.1.15.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpPeerKeepAlive": {
+    "name": "bgpPeerKeepAlive",
+    "oid": "1.3.6.1.2.1.15.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 21845
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpPeerHoldTimeConfigured": {
+    "name": "bgpPeerHoldTimeConfigured",
+    "oid": "1.3.6.1.2.1.15.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bgpPeerKeepAliveConfigured": {
+    "name": "bgpPeerKeepAliveConfigured",
+    "oid": "1.3.6.1.2.1.15.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 21845
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bgpPeerMinASOriginationInterval": {
+    "name": "bgpPeerMinASOriginationInterval",
+    "oid": "1.3.6.1.2.1.15.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bgpPeerMinRouteAdvertisementInterval": {
+    "name": "bgpPeerMinRouteAdvertisementInterval",
+    "oid": "1.3.6.1.2.1.15.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bgpPeerInUpdateElapsedTime": {
+    "name": "bgpPeerInUpdateElapsedTime",
+    "oid": "1.3.6.1.2.1.15.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpIdentifier": {
+    "name": "bgpIdentifier",
+    "oid": "1.3.6.1.2.1.15.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpRcvdPathAttrTable": {
+    "name": "bgpRcvdPathAttrTable",
+    "oid": "1.3.6.1.2.1.15.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "bgpPathAttrEntry": {
+    "name": "bgpPathAttrEntry",
+    "oid": "1.3.6.1.2.1.15.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPathAttrDestNetwork",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPathAttrPeer",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "bgpPathAttrPeer": {
+    "name": "bgpPathAttrPeer",
+    "oid": "1.3.6.1.2.1.15.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "bgpPathAttrDestNetwork": {
+    "name": "bgpPathAttrDestNetwork",
+    "oid": "1.3.6.1.2.1.15.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "bgpPathAttrOrigin": {
+    "name": "bgpPathAttrOrigin",
+    "oid": "1.3.6.1.2.1.15.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "igp": 1,
+          "egp": 2,
+          "incomplete": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "bgpPathAttrASPath": {
+    "name": "bgpPathAttrASPath",
+    "oid": "1.3.6.1.2.1.15.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "bgpPathAttrNextHop": {
+    "name": "bgpPathAttrNextHop",
+    "oid": "1.3.6.1.2.1.15.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "bgpPathAttrInterASMetric": {
+    "name": "bgpPathAttrInterASMetric",
+    "oid": "1.3.6.1.2.1.15.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "bgp4PathAttrTable": {
+    "name": "bgp4PathAttrTable",
+    "oid": "1.3.6.1.2.1.15.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bgp4PathAttrEntry": {
+    "name": "bgp4PathAttrEntry",
+    "oid": "1.3.6.1.2.1.15.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-MIB",
+        "object": "bgp4PathAttrIpAddrPrefix",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgp4PathAttrIpAddrPrefixLen",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgp4PathAttrPeer",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bgp4PathAttrPeer": {
+    "name": "bgp4PathAttrPeer",
+    "oid": "1.3.6.1.2.1.15.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgp4PathAttrIpAddrPrefixLen": {
+    "name": "bgp4PathAttrIpAddrPrefixLen",
+    "oid": "1.3.6.1.2.1.15.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgp4PathAttrIpAddrPrefix": {
+    "name": "bgp4PathAttrIpAddrPrefix",
+    "oid": "1.3.6.1.2.1.15.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgp4PathAttrOrigin": {
+    "name": "bgp4PathAttrOrigin",
+    "oid": "1.3.6.1.2.1.15.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "igp": 1,
+          "egp": 2,
+          "incomplete": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgp4PathAttrASPathSegment": {
+    "name": "bgp4PathAttrASPathSegment",
+    "oid": "1.3.6.1.2.1.15.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgp4PathAttrNextHop": {
+    "name": "bgp4PathAttrNextHop",
+    "oid": "1.3.6.1.2.1.15.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgp4PathAttrMultiExitDisc": {
+    "name": "bgp4PathAttrMultiExitDisc",
+    "oid": "1.3.6.1.2.1.15.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgp4PathAttrLocalPref": {
+    "name": "bgp4PathAttrLocalPref",
+    "oid": "1.3.6.1.2.1.15.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgp4PathAttrAtomicAggregate": {
+    "name": "bgp4PathAttrAtomicAggregate",
+    "oid": "1.3.6.1.2.1.15.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lessSpecificRouteNotSelected": 1,
+          "lessSpecificRouteSelected": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgp4PathAttrAggregatorAS": {
+    "name": "bgp4PathAttrAggregatorAS",
+    "oid": "1.3.6.1.2.1.15.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgp4PathAttrAggregatorAddr": {
+    "name": "bgp4PathAttrAggregatorAddr",
+    "oid": "1.3.6.1.2.1.15.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgp4PathAttrCalcLocalPref": {
+    "name": "bgp4PathAttrCalcLocalPref",
+    "oid": "1.3.6.1.2.1.15.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgp4PathAttrBest": {
+    "name": "bgp4PathAttrBest",
+    "oid": "1.3.6.1.2.1.15.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "true": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgp4PathAttrUnknown": {
+    "name": "bgp4PathAttrUnknown",
+    "oid": "1.3.6.1.2.1.15.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bgpNotification": {
+    "name": "bgpNotification",
+    "oid": "1.3.6.1.2.1.15.0",
+    "class": "objectidentity"
+  },
+  "bgpEstablishedNotification": {
+    "name": "bgpEstablishedNotification",
+    "oid": "1.3.6.1.2.1.15.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerRemoteAddr"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerLastError"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerState"
+      }
+    ],
+    "status": "current"
+  },
+  "bgpBackwardTransNotification": {
+    "name": "bgpBackwardTransNotification",
+    "oid": "1.3.6.1.2.1.15.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerRemoteAddr"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerLastError"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerState"
+      }
+    ],
+    "status": "current"
+  },
+  "bgpTraps": {
+    "name": "bgpTraps",
+    "oid": "1.3.6.1.2.1.15.7",
+    "class": "objectidentity"
+  },
+  "bgpEstablished": {
+    "name": "bgpEstablished",
+    "oid": "1.3.6.1.2.1.15.7.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerLastError"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerState"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "bgpBackwardTransition": {
+    "name": "bgpBackwardTransition",
+    "oid": "1.3.6.1.2.1.15.7.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerLastError"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerState"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "bgp4MIBConformance": {
+    "name": "bgp4MIBConformance",
+    "oid": "1.3.6.1.2.1.15.8",
+    "class": "objectidentity"
+  },
+  "bgp4MIBCompliances": {
+    "name": "bgp4MIBCompliances",
+    "oid": "1.3.6.1.2.1.15.8.1",
+    "class": "objectidentity"
+  },
+  "bgp4MIBGroups": {
+    "name": "bgp4MIBGroups",
+    "oid": "1.3.6.1.2.1.15.8.2",
+    "class": "objectidentity"
+  },
+  "bgp4MIBCompliance": {
+    "name": "bgp4MIBCompliance",
+    "oid": "1.3.6.1.2.1.15.8.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "bgp4MIBGlobalsGroup",
+        "module": "BGP4-MIB"
+      },
+      {
+        "object": "bgp4MIBPeerGroup",
+        "module": "BGP4-MIB"
+      },
+      {
+        "object": "bgp4MIBPathAttrGroup",
+        "module": "BGP4-MIB"
+      },
+      {
+        "object": "bgp4MIBNotificationGroup",
+        "module": "BGP4-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "bgp4MIBDeprecatedCompliances": {
+    "name": "bgp4MIBDeprecatedCompliances",
+    "oid": "1.3.6.1.2.1.15.8.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "bgp4MIBTrapGroup",
+        "module": "BGP4-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "bgp4MIBObsoleteCompliances": {
+    "name": "bgp4MIBObsoleteCompliances",
+    "oid": "1.3.6.1.2.1.15.8.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "bgpRcvdPathAttrGroup",
+        "module": "BGP4-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "bgp4MIBGlobalsGroup": {
+    "name": "bgp4MIBGlobalsGroup",
+    "oid": "1.3.6.1.2.1.15.8.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpVersion"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpLocalAs"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpIdentifier"
+      }
+    ],
+    "status": "current"
+  },
+  "bgp4MIBPeerGroup": {
+    "name": "bgp4MIBPeerGroup",
+    "oid": "1.3.6.1.2.1.15.8.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerIdentifier"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerState"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerAdminStatus"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerNegotiatedVersion"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerLocalAddr"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerLocalPort"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerRemoteAddr"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerRemotePort"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerRemoteAs"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerInUpdates"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerOutUpdates"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerInTotalMessages"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerOutTotalMessages"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerLastError"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerFsmEstablishedTransitions"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerFsmEstablishedTime"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerConnectRetryInterval"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerHoldTime"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerKeepAlive"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerHoldTimeConfigured"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerKeepAliveConfigured"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerMinASOriginationInterval"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerMinRouteAdvertisementInterval"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerInUpdateElapsedTime"
+      }
+    ],
+    "status": "current"
+  },
+  "bgpRcvdPathAttrGroup": {
+    "name": "bgpRcvdPathAttrGroup",
+    "oid": "1.3.6.1.2.1.15.8.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPathAttrPeer"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPathAttrDestNetwork"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPathAttrOrigin"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPathAttrASPath"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPathAttrNextHop"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPathAttrInterASMetric"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "bgp4MIBPathAttrGroup": {
+    "name": "bgp4MIBPathAttrGroup",
+    "oid": "1.3.6.1.2.1.15.8.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BGP4-MIB",
+        "object": "bgp4PathAttrPeer"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgp4PathAttrIpAddrPrefixLen"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgp4PathAttrIpAddrPrefix"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgp4PathAttrOrigin"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgp4PathAttrASPathSegment"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgp4PathAttrNextHop"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgp4PathAttrMultiExitDisc"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgp4PathAttrLocalPref"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgp4PathAttrAtomicAggregate"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgp4PathAttrAggregatorAS"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgp4PathAttrAggregatorAddr"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgp4PathAttrCalcLocalPref"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgp4PathAttrBest"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgp4PathAttrUnknown"
+      }
+    ],
+    "status": "current"
+  },
+  "bgp4MIBTrapGroup": {
+    "name": "bgp4MIBTrapGroup",
+    "oid": "1.3.6.1.2.1.15.8.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpEstablished"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpBackwardTransition"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "bgp4MIBNotificationGroup": {
+    "name": "bgp4MIBNotificationGroup",
+    "oid": "1.3.6.1.2.1.15.8.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpEstablishedNotification"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpBackwardTransNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/BGP4-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BGP4-MIB"
+  }
+}

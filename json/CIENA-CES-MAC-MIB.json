@@ -1,0 +1,497 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-SMI": [
+      "cienaCesStatistics",
+      "cienaCesConfig",
+      "cienaCesNotifications"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaCesMacMIB": {
+    "name": "cienaCesMacMIB",
+    "oid": "1.3.6.1.4.1.1271.2.1.26",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-06-07 00:00",
+        "description": "Updated contact info."
+      },
+      {
+        "revision": "2015-07-03 00:00",
+        "description": "Added cienaCesMacScanPortChannelId to support channelized interfaces"
+      },
+      {
+        "revision": "2012-05-15 00:00",
+        "description": "Initial creation."
+      }
+    ]
+  },
+  "cienaCesMacMIBObjects": {
+    "name": "cienaCesMacMIBObjects",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.1",
+    "class": "objectidentity"
+  },
+  "cienaCesMacScan": {
+    "name": "cienaCesMacScan",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesMacScanAttr": {
+    "name": "cienaCesMacScanAttr",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.1.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesMacMIBNotificationPrefix": {
+    "name": "cienaCesMacMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.2",
+    "class": "objectidentity"
+  },
+  "cienaCesMacMIBNotifications": {
+    "name": "cienaCesMacMIBNotifications",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.2.0",
+    "class": "objectidentity"
+  },
+  "cienaCesMacMIBConformance": {
+    "name": "cienaCesMacMIBConformance",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.3",
+    "class": "objectidentity"
+  },
+  "cienaCesMacMIBCompliances": {
+    "name": "cienaCesMacMIBCompliances",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.3.1",
+    "class": "objectidentity"
+  },
+  "cienaCesMacMIBGroups": {
+    "name": "cienaCesMacMIBGroups",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.3.2",
+    "class": "objectidentity"
+  },
+  "cienaCesMacScanAttrVs": {
+    "name": "cienaCesMacScanAttrVs",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesMacScanAttrRlan": {
+    "name": "cienaCesMacScanAttrRlan",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesMacScanAttrMac": {
+    "name": "cienaCesMacScanAttrMac",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesMacScanAttrMask": {
+    "name": "cienaCesMacScanAttrMask",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesMacScanTable": {
+    "name": "cienaCesMacScanTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesMacScanEntry": {
+    "name": "cienaCesMacScanEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-MAC-MIB",
+        "object": "cienaCesMacScanVsIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-MAC-MIB",
+        "object": "cienaCesMacScanRlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-MAC-MIB",
+        "object": "cienaCesMacScanMacIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesMacScanVsIndex": {
+    "name": "cienaCesMacScanVsIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesMacScanRlanIndex": {
+    "name": "cienaCesMacScanRlanIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesMacScanMacIndex": {
+    "name": "cienaCesMacScanMacIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesMacScanVsId": {
+    "name": "cienaCesMacScanVsId",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesMacScanRlanId": {
+    "name": "cienaCesMacScanRlanId",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesMacScanMacAddr": {
+    "name": "cienaCesMacScanMacAddr",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesMacScanLiType": {
+    "name": "cienaCesMacScanLiType",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "port": 2,
+          "tunnelEncapPbt": 3,
+          "tunnelDecapPbt": 4,
+          "tunnelGroupPbt": 5,
+          "transitPbt": 6,
+          "tunnelEncapMpls": 7,
+          "tunnelDecapMpls": 8,
+          "transitMpls": 9,
+          "subPort": 10,
+          "qosFlow": 11,
+          "accessFlow": 12,
+          "servicePbt": 13,
+          "servicePbb": 14,
+          "serviceMplsMesh": 15,
+          "cpuInterface": 16,
+          "cpuSubInterface": 17,
+          "tunnelGroupMpls": 18,
+          "vcMpls": 19,
+          "lspEncapMpls": 20,
+          "lspDecapMpls": 21,
+          "l3Interface": 22
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesMacScanLiIndex": {
+    "name": "cienaCesMacScanLiIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesMacScanPortBayIndex": {
+    "name": "cienaCesMacScanPortBayIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesMacScanPortShelfIndex": {
+    "name": "cienaCesMacScanPortShelfIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesMacScanPortSlotIndex": {
+    "name": "cienaCesMacScanPortSlotIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesMacScanPortPortId": {
+    "name": "cienaCesMacScanPortPortId",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesMacScanMacType": {
+    "name": "cienaCesMacScanMacType",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 1,
+          "static": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesMacScanPortChannelId": {
+    "name": "cienaCesMacScanPortChannelId",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesMacScanGroup": {
+    "name": "cienaCesMacScanGroup",
+    "oid": "1.3.6.1.4.1.1271.2.1.26.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CIENA-CES-MAC-MIB",
+        "object": "cienaCesMacScanAttrVs"
+      },
+      {
+        "module": "CIENA-CES-MAC-MIB",
+        "object": "cienaCesMacScanAttrRlan"
+      },
+      {
+        "module": "CIENA-CES-MAC-MIB",
+        "object": "cienaCesMacScanAttrMac"
+      },
+      {
+        "module": "CIENA-CES-MAC-MIB",
+        "object": "cienaCesMacScanAttrMask"
+      },
+      {
+        "module": "CIENA-CES-MAC-MIB",
+        "object": "cienaCesMacScanVsId"
+      },
+      {
+        "module": "CIENA-CES-MAC-MIB",
+        "object": "cienaCesMacScanMacAddr"
+      },
+      {
+        "module": "CIENA-CES-MAC-MIB",
+        "object": "cienaCesMacScanLiType"
+      },
+      {
+        "module": "CIENA-CES-MAC-MIB",
+        "object": "cienaCesMacScanLiIndex"
+      },
+      {
+        "module": "CIENA-CES-MAC-MIB",
+        "object": "cienaCesMacScanPortBayIndex"
+      },
+      {
+        "module": "CIENA-CES-MAC-MIB",
+        "object": "cienaCesMacScanPortShelfIndex"
+      },
+      {
+        "module": "CIENA-CES-MAC-MIB",
+        "object": "cienaCesMacScanPortSlotIndex"
+      },
+      {
+        "module": "CIENA-CES-MAC-MIB",
+        "object": "cienaCesMacScanPortPortId"
+      },
+      {
+        "module": "CIENA-CES-MAC-MIB",
+        "object": "cienaCesMacScanMacType"
+      },
+      {
+        "module": "CIENA-CES-MAC-MIB",
+        "object": "cienaCesMacScanPortChannelId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-MAC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-CES-MAC-MIB"
+  }
+}

@@ -1,0 +1,877 @@
+{
+  "imports": {
+    "class": "imports",
+    "MY-SMI": [
+      "myMgmt"
+    ],
+    "MY-TC": [
+      "MemberMap",
+      "IfIndex",
+      "ConfigStatus"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "myInterfaceMIB": {
+    "name": "myInterfaceMIB",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-03-20 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "myIfConfigMIBObjects": {
+    "name": "myIfConfigMIBObjects",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1",
+    "class": "objectidentity"
+  },
+  "myIfTable": {
+    "name": "myIfTable",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "myIfEntry": {
+    "name": "myIfEntry",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "myIfIndex": {
+    "name": "myIfIndex",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "myIfPortType": {
+    "name": "myIfPortType",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "port10M100MBASETX": 2,
+          "port100MBASEFXL": 3,
+          "port100MBASEFXS": 4,
+          "port1000MBASESX": 5,
+          "port1000MBASELX": 6,
+          "port1000MBASETX": 7,
+          "portGBIC": 8,
+          "port100MBASEFX": 9,
+          "port1000MBASEFX": 10,
+          "portSFP": 11,
+          "port10GBASESR": 12,
+          "port10GBASELR": 13,
+          "port10GBASEER": 14,
+          "port10GBASELX4": 15,
+          "port10GBASESW": 16,
+          "port10GBASELW": 17,
+          "port10GBASEEW": 18
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "myIfFlowControlAdminStatus": {
+    "name": "myIfFlowControlAdminStatus",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "autonego": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "myIfFlowControlOperStatus": {
+    "name": "myIfFlowControlOperStatus",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "myIfAdminSpeed": {
+    "name": "myIfAdminSpeed",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "speed10Mb": 1,
+          "speed100Mb": 2,
+          "speed1000Mb": 3,
+          "autonego": 4,
+          "speed10Gb": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "myIfAdminDuplex": {
+    "name": "myIfAdminDuplex",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "full": 1,
+          "half": 2,
+          "autonego": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "myIfOperSpeed": {
+    "name": "myIfOperSpeed",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "speed10Mb": 1,
+          "speed100Mb": 2,
+          "speed1000Mb": 3,
+          "unknown": 4,
+          "speed10Gb": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "myIfOperDuplex": {
+    "name": "myIfOperDuplex",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "full": 1,
+          "half": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "myIfManageStatus": {
+    "name": "myIfManageStatus",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "myIfIpBroadcast": {
+    "name": "myIfIpBroadcast",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "myIfLayer": {
+    "name": "myIfLayer",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "layer-2": 1,
+          "layer-3": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "myIfMode": {
+    "name": "myIfMode",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "access": 1,
+          "trunk": 2,
+          "dot1q-tunnel": 3,
+          "hybrid": 4,
+          "other": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "myIfCounterClear": {
+    "name": "myIfCounterClear",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "myIfEntryStatus": {
+    "name": "myIfEntryStatus",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "myIfIpTable": {
+    "name": "myIfIpTable",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "myIfIpEntry": {
+    "name": "myIfIpEntry",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfIpIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfIpId",
+        "implied": 0
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "myIfIpIfIndex": {
+    "name": "myIfIpIfIndex",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "myIfIpId": {
+    "name": "myIfIpId",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "myIfIp": {
+    "name": "myIfIp",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "myIfIpMask": {
+    "name": "myIfIpMask",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "myIfIpEntryStatus": {
+    "name": "myIfIpEntryStatus",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "myIfStatusTable": {
+    "name": "myIfStatusTable",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "myIfStatusEntry": {
+    "name": "myIfStatusEntry",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "myIfStatusIndex": {
+    "name": "myIfStatusIndex",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "myIfStatusLoopBackExamine": {
+    "name": "myIfStatusLoopBackExamine",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "myIfErrorStatus": {
+    "name": "myIfErrorStatus",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-error": 1,
+          "err-disable-bpduguard": 2,
+          "err-disable-ptsecurity": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "myIfLineDetect": {
+    "name": "myIfLineDetect",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "myGlobalIfDisableRecovery": {
+    "name": "myGlobalIfDisableRecovery",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "myPortTypeChooseTable": {
+    "name": "myPortTypeChooseTable",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "myPortTypeChooseEntry": {
+    "name": "myPortTypeChooseEntry",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myPortTypeChooseIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "myPortTypeChooseIndex": {
+    "name": "myPortTypeChooseIndex",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "myPortTypeChooseType": {
+    "name": "myPortTypeChooseType",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fiber": 1,
+          "copper": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "myIfMTUTable": {
+    "name": "myIfMTUTable",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "myIfMTUEntry": {
+    "name": "myIfMTUEntry",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfMTUIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "myIfMTUIndex": {
+    "name": "myIfMTUIndex",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "myIfMTU": {
+    "name": "myIfMTU",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "myInterfaceTraps": {
+    "name": "myInterfaceTraps",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.2",
+    "class": "objectidentity"
+  },
+  "lineDetectStatus": {
+    "name": "lineDetectStatus",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "open": 2,
+          "short": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "lineDetectPosition": {
+    "name": "lineDetectPosition",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "lineQualityDetect": {
+    "name": "lineQualityDetect",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "lineDetectStatus"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "lineDetectPosition"
+      }
+    ],
+    "status": "current"
+  },
+  "myInterfaceMIBConformance": {
+    "name": "myInterfaceMIBConformance",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.3",
+    "class": "objectidentity"
+  },
+  "myInterfaceMIBCompliances": {
+    "name": "myInterfaceMIBCompliances",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.3.1",
+    "class": "objectidentity"
+  },
+  "myInterfaceMIBGroups": {
+    "name": "myInterfaceMIBGroups",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.3.2",
+    "class": "objectidentity"
+  },
+  "myInterfaceMIBCompliance": {
+    "name": "myInterfaceMIBCompliance",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "myInterfaceMIBGroup",
+        "module": "MY-INTERFACE-MIB"
+      },
+      {
+        "object": "myPortTypeChooseMibGroup",
+        "module": "MY-INTERFACE-MIB"
+      },
+      {
+        "object": "myIfMTUMibGroup",
+        "module": "MY-INTERFACE-MIB"
+      },
+      {
+        "object": "myIfLineDetectGroup",
+        "module": "MY-INTERFACE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "myInterfaceMIBGroup": {
+    "name": "myInterfaceMIBGroup",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfIndex"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfPortType"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfFlowControlAdminStatus"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfFlowControlOperStatus"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfAdminSpeed"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfAdminDuplex"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfOperSpeed"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfOperDuplex"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfManageStatus"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfIpBroadcast"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfLayer"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfMode"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfCounterClear"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfEntryStatus"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfIpIfIndex"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfIpId"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfIp"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfIpMask"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfIpEntryStatus"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfStatusIndex"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfStatusLoopBackExamine"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfErrorStatus"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myGlobalIfDisableRecovery"
+      }
+    ],
+    "status": "current"
+  },
+  "myPortTypeChooseMibGroup": {
+    "name": "myPortTypeChooseMibGroup",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myPortTypeChooseIndex"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myPortTypeChooseType"
+      }
+    ],
+    "status": "current"
+  },
+  "myIfMTUMibGroup": {
+    "name": "myIfMTUMibGroup",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfMTUIndex"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfMTU"
+      }
+    ],
+    "status": "current"
+  },
+  "myIfLineDetectGroup": {
+    "name": "myIfLineDetectGroup",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.10.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "myIfLineDetect"
+      },
+      {
+        "module": "MY-INTERFACE-MIB",
+        "object": "lineQualityDetect"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruijie/MY-INTERFACE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:29 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MY-INTERFACE-MIB"
+  }
+}

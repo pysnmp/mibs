@@ -1,0 +1,878 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType",
+      "InetAddressIPv4"
+    ],
+    "JUNIPER-JS-SMI": [
+      "jnxJsNAT"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxJsNatMIB": {
+    "name": "jnxJsNatMIB",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-04-13 20:22",
+        "description": "Creation Date"
+      },
+      {
+        "revision": "2012-03-01 11:22",
+        "description": "Deprecated jnxJsNatRuleTransHits and jnxJsNatPoolTransHits, added jnxJsNatRuleHits and jnxJsNatPoolHits."
+      },
+      {
+        "revision": "2013-01-05 10:22",
+        "description": "added jnxJsNatRuleNumOfSessions in jnxJsNatRuleEntry; added jnxJsNatPoolUtil in jnxJsNatPoolEntry; added jnxJsNatTrapRuleName, jnxJsNatTrapRuleType, jnxJsNatTrapRuleNumOfSessions and jnxJsNatRuleThresholdStatus."
+      },
+      {
+        "revision": "2018-07-10 10:22",
+        "description": "added jnxJsNatSrcNumPortAvail, jnxJsNatSrcNumAddressAvail and jnxJsNatSrcNumAddressInuse in jnxJsSrcNatStatsEntry; added jnxJsNatTransType in jnxJsNatRuleTable."
+      }
+    ]
+  },
+  "jnxJsNatNotifications": {
+    "name": "jnxJsNatNotifications",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.0",
+    "class": "objectidentity"
+  },
+  "jnxJsNatObjects": {
+    "name": "jnxJsNatObjects",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1",
+    "class": "objectidentity"
+  },
+  "jnxJsNatTrapVars": {
+    "name": "jnxJsNatTrapVars",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.2",
+    "class": "objectidentity"
+  },
+  "jnxJsSrcNatNumOfEntries": {
+    "name": "jnxJsSrcNatNumOfEntries",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsSrcNatTable": {
+    "name": "jnxJsSrcNatTable",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxJsSrcNatEntry": {
+    "name": "jnxJsSrcNatEntry",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-JS-NAT-MIB",
+        "object": "jnxJsNatSrcIpPoolName",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-JS-NAT-MIB",
+        "object": "jnxJsNatSrcGlobalAddr",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxJsNatSrcIpPoolName": {
+    "name": "jnxJsNatSrcIpPoolName",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "jnxJsNatSrcGlobalAddr": {
+    "name": "jnxJsNatSrcGlobalAddr",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxJsNatSrcPortPoolType": {
+    "name": "jnxJsNatSrcPortPoolType",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "withPAT": 1,
+          "withoutPAT": 2,
+          "static": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxJsNatSrcNumOfPortInuse": {
+    "name": "jnxJsNatSrcNumOfPortInuse",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxJsNatSrcNumOfSessions": {
+    "name": "jnxJsNatSrcNumOfSessions",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxJsNatSrcAssocatedIf": {
+    "name": "jnxJsNatSrcAssocatedIf",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxJsNatIfSrcPoolPortTable": {
+    "name": "jnxJsNatIfSrcPoolPortTable",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxJsNatIfSrcPoolPortEntry": {
+    "name": "jnxJsNatIfSrcPoolPortEntry",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-JS-NAT-MIB",
+        "object": "jnxJsNatIfSrcPoolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJsNatIfSrcPoolIndex": {
+    "name": "jnxJsNatIfSrcPoolIndex",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxJsNatIfSrcPoolTotalSinglePorts": {
+    "name": "jnxJsNatIfSrcPoolTotalSinglePorts",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsNatIfSrcPoolAllocSinglePorts": {
+    "name": "jnxJsNatIfSrcPoolAllocSinglePorts",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsNatIfSrcPoolTotalTwinPorts": {
+    "name": "jnxJsNatIfSrcPoolTotalTwinPorts",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsNatIfSrcPoolAllocTwinPorts": {
+    "name": "jnxJsNatIfSrcPoolAllocTwinPorts",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsSrcNatStatsTable": {
+    "name": "jnxJsSrcNatStatsTable",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxJsSrcNatStatsEntry": {
+    "name": "jnxJsSrcNatStatsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-JS-NAT-MIB",
+        "object": "jnxJsNatSrcPoolName",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-JS-NAT-MIB",
+        "object": "jnxJsNatSrcXlatedAddrType",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-JS-NAT-MIB",
+        "object": "jnxJsNatSrcXlatedAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJsNatSrcPoolName": {
+    "name": "jnxJsNatSrcPoolName",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsNatSrcXlatedAddrType": {
+    "name": "jnxJsNatSrcXlatedAddrType",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsNatSrcXlatedAddr": {
+    "name": "jnxJsNatSrcXlatedAddr",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxJsNatSrcPoolType": {
+    "name": "jnxJsNatSrcPoolType",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "withPAT": 1,
+          "withoutPAT": 2,
+          "static": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsNatSrcNumPortInuse": {
+    "name": "jnxJsNatSrcNumPortInuse",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsNatSrcNumSessions": {
+    "name": "jnxJsNatSrcNumSessions",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsNatSrcNumPortAvail": {
+    "name": "jnxJsNatSrcNumPortAvail",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsNatSrcNumAddressAvail": {
+    "name": "jnxJsNatSrcNumAddressAvail",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsNatSrcNumAddressInuse": {
+    "name": "jnxJsNatSrcNumAddressInuse",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsNatRuleTable": {
+    "name": "jnxJsNatRuleTable",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxJsNatRuleEntry": {
+    "name": "jnxJsNatRuleEntry",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-JS-NAT-MIB",
+        "object": "jnxJsNatRuleName",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-JS-NAT-MIB",
+        "object": "jnxJsNatRuleType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJsNatRuleName": {
+    "name": "jnxJsNatRuleName",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsNatRuleType": {
+    "name": "jnxJsNatRuleType",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "source": 1,
+          "destination": 2,
+          "static": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsNatRuleTransHits": {
+    "name": "jnxJsNatRuleTransHits",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxJsNatRuleHits": {
+    "name": "jnxJsNatRuleHits",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsNatRuleNumOfSessions": {
+    "name": "jnxJsNatRuleNumOfSessions",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsNatTransType": {
+    "name": "jnxJsNatTransType",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trans-type-none": 10,
+          "basic-nat-pt": 11,
+          "basic-nat44": 12,
+          "basic-nat66": 13,
+          "det-napt44": 14,
+          "dynamic-nat44": 15,
+          "napt-44": 16,
+          "napt-66": 17,
+          "napt-pt": 18,
+          "det-napt64": 19,
+          "stateful-nat464": 20,
+          "stateful-nat64": 21,
+          "dnat-44": 22
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsNatPoolTable": {
+    "name": "jnxJsNatPoolTable",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxJsNatPoolEntry": {
+    "name": "jnxJsNatPoolEntry",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-JS-NAT-MIB",
+        "object": "jnxJsNatPoolName",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-JS-NAT-MIB",
+        "object": "jnxJsNatPoolType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJsNatPoolName": {
+    "name": "jnxJsNatPoolName",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsNatPoolType": {
+    "name": "jnxJsNatPoolType",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "source": 1,
+          "destination": 2,
+          "static": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsNatPoolTransHits": {
+    "name": "jnxJsNatPoolTransHits",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxJsNatPoolHits": {
+    "name": "jnxJsNatPoolHits",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsNatPoolUtil": {
+    "name": "jnxJsNatPoolUtil",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsNatAddrPoolUtil": {
+    "name": "jnxJsNatAddrPoolUtil",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsNatTrapPoolName": {
+    "name": "jnxJsNatTrapPoolName",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsNatPatPoolUtil": {
+    "name": "jnxJsNatPatPoolUtil",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsNatTrapRuleName": {
+    "name": "jnxJsNatTrapRuleName",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsNatTrapRuleType": {
+    "name": "jnxJsNatTrapRuleType",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "source": 1,
+          "destination": 2,
+          "static": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsNatTrapRuleNumOfSessions": {
+    "name": "jnxJsNatTrapRuleNumOfSessions",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsNatAddrPoolThresholdStatus": {
+    "name": "jnxJsNatAddrPoolThresholdStatus",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-JS-NAT-MIB",
+        "object": "jnxJsNatSrcIpPoolName"
+      },
+      {
+        "module": "JUNIPER-JS-NAT-MIB",
+        "object": "jnxJsNatAddrPoolUtil"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxJsSrcNatPoolThresholdStatus": {
+    "name": "jnxJsSrcNatPoolThresholdStatus",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-JS-NAT-MIB",
+        "object": "jnxJsNatTrapPoolName"
+      },
+      {
+        "module": "JUNIPER-JS-NAT-MIB",
+        "object": "jnxJsNatAddrPoolUtil"
+      },
+      {
+        "module": "JUNIPER-JS-NAT-MIB",
+        "object": "jnxJsNatPatPoolUtil"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJsNatRuleThresholdStatus": {
+    "name": "jnxJsNatRuleThresholdStatus",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.7.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-JS-NAT-MIB",
+        "object": "jnxJsNatTrapRuleName"
+      },
+      {
+        "module": "JUNIPER-JS-NAT-MIB",
+        "object": "jnxJsNatTrapRuleType"
+      },
+      {
+        "module": "JUNIPER-JS-NAT-MIB",
+        "object": "jnxJsNatTrapRuleNumOfSessions"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-JS-NAT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-JS-NAT-MIB"
+  }
+}

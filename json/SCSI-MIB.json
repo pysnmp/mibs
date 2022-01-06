@@ -1,0 +1,2841 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "Bits",
+      "TimeTicks",
+      "Counter32",
+      "Integer32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "mib-2",
+      "iso",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TruthValue",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowPointer",
+      "AutonomousType"
+    ]
+  },
+  "scsiModule": {
+    "name": "scsiModule",
+    "oid": "1.3.6.1.2.1.999",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-02-25 00:00",
+        "description": " Initial version published as RFC nnnn."
+      }
+    ]
+  },
+  "ScsiLUNOrZero": {
+    "name": "ScsiLUNOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2,
+            "max": 2
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ScsiIndexValue": {
+    "name": "ScsiIndexValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ScsiPortIndexValueOrZero": {
+    "name": "ScsiPortIndexValueOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ScsiIndexValueOrZero": {
+    "name": "ScsiIndexValueOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ScsiIdentifier": {
+    "name": "ScsiIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 1
+          },
+          {
+            "min": 2,
+            "max": 2
+          },
+          {
+            "min": 3,
+            "max": 3
+          },
+          {
+            "min": 11,
+            "max": 11
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 256,
+            "max": 256
+          },
+          {
+            "min": 258,
+            "max": 258
+          },
+          {
+            "min": 262,
+            "max": 262
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ScsiName": {
+    "name": "ScsiName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 11,
+            "max": 11
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 256,
+            "max": 256
+          },
+          {
+            "min": 258,
+            "max": 258
+          },
+          {
+            "min": 262,
+            "max": 262
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ScsiNameIdOrZero": {
+    "name": "ScsiNameIdOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ScsiDeviceOrPort": {
+    "name": "ScsiDeviceOrPort",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "device": 1,
+          "port": 2,
+          "other": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ScsiIdCodeSet": {
+    "name": "ScsiIdCodeSet",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ScsiIdAssociation": {
+    "name": "ScsiIdAssociation",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ScsiIdType": {
+    "name": "ScsiIdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ScsiIdValue": {
+    "name": "ScsiIdValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "HrSWInstalledIndexOrZero": {
+    "name": "HrSWInstalledIndexOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "scsiObjects": {
+    "name": "scsiObjects",
+    "oid": "1.3.6.1.2.1.999.1",
+    "class": "objectidentity"
+  },
+  "scsiNotifications": {
+    "name": "scsiNotifications",
+    "oid": "1.3.6.1.2.1.999.2",
+    "class": "objectidentity"
+  },
+  "scsiConformance": {
+    "name": "scsiConformance",
+    "oid": "1.3.6.1.2.1.999.3",
+    "class": "objectidentity"
+  },
+  "scsiTransportTypes": {
+    "name": "scsiTransportTypes",
+    "oid": "1.3.6.1.2.1.999.1.1",
+    "class": "objectidentity"
+  },
+  "scsiGeneral": {
+    "name": "scsiGeneral",
+    "oid": "1.3.6.1.2.1.999.1.2",
+    "class": "objectidentity"
+  },
+  "scsiInitiator": {
+    "name": "scsiInitiator",
+    "oid": "1.3.6.1.2.1.999.1.3",
+    "class": "objectidentity"
+  },
+  "scsiTarget": {
+    "name": "scsiTarget",
+    "oid": "1.3.6.1.2.1.999.1.4",
+    "class": "objectidentity"
+  },
+  "scsiLogicalUnit": {
+    "name": "scsiLogicalUnit",
+    "oid": "1.3.6.1.2.1.999.1.5",
+    "class": "objectidentity"
+  },
+  "scsiTranportOther": {
+    "name": "scsiTranportOther",
+    "oid": "1.3.6.1.2.1.999.1.1.1",
+    "class": "objectidentity"
+  },
+  "scsiTranportSPI": {
+    "name": "scsiTranportSPI",
+    "oid": "1.3.6.1.2.1.999.1.1.2",
+    "class": "objectidentity"
+  },
+  "scsiTransportFCP": {
+    "name": "scsiTransportFCP",
+    "oid": "1.3.6.1.2.1.999.1.1.3",
+    "class": "objectidentity"
+  },
+  "scsiTransportSRP": {
+    "name": "scsiTransportSRP",
+    "oid": "1.3.6.1.2.1.999.1.1.4",
+    "class": "objectidentity"
+  },
+  "scsiTransportISCSI": {
+    "name": "scsiTransportISCSI",
+    "oid": "1.3.6.1.2.1.999.1.1.5",
+    "class": "objectidentity"
+  },
+  "scsiTransportSBP": {
+    "name": "scsiTransportSBP",
+    "oid": "1.3.6.1.2.1.999.1.1.6",
+    "class": "objectidentity"
+  },
+  "scsiInstanceTable": {
+    "name": "scsiInstanceTable",
+    "oid": "1.3.6.1.2.1.999.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiInstanceEntry": {
+    "name": "scsiInstanceEntry",
+    "oid": "1.3.6.1.2.1.999.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiInstIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scsiInstIndex": {
+    "name": "scsiInstIndex",
+    "oid": "1.3.6.1.2.1.999.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiInstAlias": {
+    "name": "scsiInstAlias",
+    "oid": "1.3.6.1.2.1.999.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 79
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scsiInstSoftwareIndex": {
+    "name": "scsiInstSoftwareIndex",
+    "oid": "1.3.6.1.2.1.999.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HrSWInstalledIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiInstVendorVersion": {
+    "name": "scsiInstVendorVersion",
+    "oid": "1.3.6.1.2.1.999.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 79
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiInstScsiNotificationsEnable": {
+    "name": "scsiInstScsiNotificationsEnable",
+    "oid": "1.3.6.1.2.1.999.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scsiDeviceTable": {
+    "name": "scsiDeviceTable",
+    "oid": "1.3.6.1.2.1.999.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiDeviceEntry": {
+    "name": "scsiDeviceEntry",
+    "oid": "1.3.6.1.2.1.999.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scsiDeviceIndex": {
+    "name": "scsiDeviceIndex",
+    "oid": "1.3.6.1.2.1.999.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiDeviceAlias": {
+    "name": "scsiDeviceAlias",
+    "oid": "1.3.6.1.2.1.999.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 79
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scsiDeviceRole": {
+    "name": "scsiDeviceRole",
+    "oid": "1.3.6.1.2.1.999.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "target": 0,
+        "initiator": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiDevicePortNumber": {
+    "name": "scsiDevicePortNumber",
+    "oid": "1.3.6.1.2.1.999.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiDeviceResets": {
+    "name": "scsiDeviceResets",
+    "oid": "1.3.6.1.2.1.999.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiPortTable": {
+    "name": "scsiPortTable",
+    "oid": "1.3.6.1.2.1.999.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiPortEntry": {
+    "name": "scsiPortEntry",
+    "oid": "1.3.6.1.2.1.999.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scsiPortIndex": {
+    "name": "scsiPortIndex",
+    "oid": "1.3.6.1.2.1.999.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiPortRole": {
+    "name": "scsiPortRole",
+    "oid": "1.3.6.1.2.1.999.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "target": 0,
+        "initiator": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiPortTrnsptPtr": {
+    "name": "scsiPortTrnsptPtr",
+    "oid": "1.3.6.1.2.1.999.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiPortBusyStatuses": {
+    "name": "scsiPortBusyStatuses",
+    "oid": "1.3.6.1.2.1.999.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiTrnsptTable": {
+    "name": "scsiTrnsptTable",
+    "oid": "1.3.6.1.2.1.999.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiTrnsptEntry": {
+    "name": "scsiTrnsptEntry",
+    "oid": "1.3.6.1.2.1.999.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiTrnsptIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scsiTrnsptIndex": {
+    "name": "scsiTrnsptIndex",
+    "oid": "1.3.6.1.2.1.999.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiTrnsptType": {
+    "name": "scsiTrnsptType",
+    "oid": "1.3.6.1.2.1.999.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiTrnsptPointer": {
+    "name": "scsiTrnsptPointer",
+    "oid": "1.3.6.1.2.1.999.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiTrnsptDevName": {
+    "name": "scsiTrnsptDevName",
+    "oid": "1.3.6.1.2.1.999.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiIntrDevTable": {
+    "name": "scsiIntrDevTable",
+    "oid": "1.3.6.1.2.1.999.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiIntrDevEntry": {
+    "name": "scsiIntrDevEntry",
+    "oid": "1.3.6.1.2.1.999.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scsiIntrDevTgtAccessMode": {
+    "name": "scsiIntrDevTgtAccessMode",
+    "oid": "1.3.6.1.2.1.999.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "autoEnable": 2,
+          "manualEnable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scsiIntrDevOutResets": {
+    "name": "scsiIntrDevOutResets",
+    "oid": "1.3.6.1.2.1.999.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiIntrPrtTable": {
+    "name": "scsiIntrPrtTable",
+    "oid": "1.3.6.1.2.1.999.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiIntrPrtEntry": {
+    "name": "scsiIntrPrtEntry",
+    "oid": "1.3.6.1.2.1.999.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scsiIntrPrtName": {
+    "name": "scsiIntrPrtName",
+    "oid": "1.3.6.1.2.1.999.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiIntrPrtIdentifier": {
+    "name": "scsiIntrPrtIdentifier",
+    "oid": "1.3.6.1.2.1.999.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiIntrPrtOutCommands": {
+    "name": "scsiIntrPrtOutCommands",
+    "oid": "1.3.6.1.2.1.999.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "commands",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiIntrPrtWrittenMegaBytes": {
+    "name": "scsiIntrPrtWrittenMegaBytes",
+    "oid": "1.3.6.1.2.1.999.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiIntrPrtReadMegaBytes": {
+    "name": "scsiIntrPrtReadMegaBytes",
+    "oid": "1.3.6.1.2.1.999.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiIntrPrtHSOutCommands": {
+    "name": "scsiIntrPrtHSOutCommands",
+    "oid": "1.3.6.1.2.1.999.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "commands",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiRemoteTarget": {
+    "name": "scsiRemoteTarget",
+    "oid": "1.3.6.1.2.1.999.1.3.4",
+    "class": "objectidentity"
+  },
+  "scsiDscTgtTable": {
+    "name": "scsiDscTgtTable",
+    "oid": "1.3.6.1.2.1.999.1.3.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiDscTgtEntry": {
+    "name": "scsiDscTgtEntry",
+    "oid": "1.3.6.1.2.1.999.1.3.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscTgtIntrPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscTgtIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scsiDscTgtIntrPortIndex": {
+    "name": "scsiDscTgtIntrPortIndex",
+    "oid": "1.3.6.1.2.1.999.1.3.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiPortIndexValueOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiDscTgtIndex": {
+    "name": "scsiDscTgtIndex",
+    "oid": "1.3.6.1.2.1.999.1.3.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiDscTgtDevOrPort": {
+    "name": "scsiDscTgtDevOrPort",
+    "oid": "1.3.6.1.2.1.999.1.3.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiDeviceOrPort",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "scsiDscTgtName": {
+    "name": "scsiDscTgtName",
+    "oid": "1.3.6.1.2.1.999.1.3.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "scsiDscTgtConfigured": {
+    "name": "scsiDscTgtConfigured",
+    "oid": "1.3.6.1.2.1.999.1.3.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "scsiDscTgtDiscovered": {
+    "name": "scsiDscTgtDiscovered",
+    "oid": "1.3.6.1.2.1.999.1.3.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiDscTgtInCommands": {
+    "name": "scsiDscTgtInCommands",
+    "oid": "1.3.6.1.2.1.999.1.3.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "commands",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiDscTgtWrittenMegaBytes": {
+    "name": "scsiDscTgtWrittenMegaBytes",
+    "oid": "1.3.6.1.2.1.999.1.3.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiDscTgtReadMegaBytes": {
+    "name": "scsiDscTgtReadMegaBytes",
+    "oid": "1.3.6.1.2.1.999.1.3.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiDscTgtHSInCommands": {
+    "name": "scsiDscTgtHSInCommands",
+    "oid": "1.3.6.1.2.1.999.1.3.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "commands",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiDscTgtLastCreation": {
+    "name": "scsiDscTgtLastCreation",
+    "oid": "1.3.6.1.2.1.999.1.3.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiDscTgtRowStatus": {
+    "name": "scsiDscTgtRowStatus",
+    "oid": "1.3.6.1.2.1.999.1.3.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "scsiDscLunTable": {
+    "name": "scsiDscLunTable",
+    "oid": "1.3.6.1.2.1.999.1.3.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiDscLunEntry": {
+    "name": "scsiDscLunEntry",
+    "oid": "1.3.6.1.2.1.999.1.3.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscTgtIntrPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscTgtIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscLunIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scsiDscLunIndex": {
+    "name": "scsiDscLunIndex",
+    "oid": "1.3.6.1.2.1.999.1.3.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiDscLunLun": {
+    "name": "scsiDscLunLun",
+    "oid": "1.3.6.1.2.1.999.1.3.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiLUNOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiDscLunIdTable": {
+    "name": "scsiDscLunIdTable",
+    "oid": "1.3.6.1.2.1.999.1.3.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiDscLunIdEntry": {
+    "name": "scsiDscLunIdEntry",
+    "oid": "1.3.6.1.2.1.999.1.3.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscTgtIntrPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscTgtIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscLunIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscLunIdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scsiDscLunIdIndex": {
+    "name": "scsiDscLunIdIndex",
+    "oid": "1.3.6.1.2.1.999.1.3.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiDscLunIdCodeSet": {
+    "name": "scsiDscLunIdCodeSet",
+    "oid": "1.3.6.1.2.1.999.1.3.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdCodeSet",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiDscLunIdAssociation": {
+    "name": "scsiDscLunIdAssociation",
+    "oid": "1.3.6.1.2.1.999.1.3.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdAssociation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiDscLunIdType": {
+    "name": "scsiDscLunIdType",
+    "oid": "1.3.6.1.2.1.999.1.3.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiDscLunIdValue": {
+    "name": "scsiDscLunIdValue",
+    "oid": "1.3.6.1.2.1.999.1.3.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiAttTgtPortTable": {
+    "name": "scsiAttTgtPortTable",
+    "oid": "1.3.6.1.2.1.999.1.3.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiAttTgtPortEntry": {
+    "name": "scsiAttTgtPortEntry",
+    "oid": "1.3.6.1.2.1.999.1.3.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiAttTgtPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scsiAttTgtPortIndex": {
+    "name": "scsiAttTgtPortIndex",
+    "oid": "1.3.6.1.2.1.999.1.3.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiAttTgtPortDscTgtIdx": {
+    "name": "scsiAttTgtPortDscTgtIdx",
+    "oid": "1.3.6.1.2.1.999.1.3.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValueOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiAttTgtPortName": {
+    "name": "scsiAttTgtPortName",
+    "oid": "1.3.6.1.2.1.999.1.3.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiAttTgtPortIdentifier": {
+    "name": "scsiAttTgtPortIdentifier",
+    "oid": "1.3.6.1.2.1.999.1.3.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiTgtDevTable": {
+    "name": "scsiTgtDevTable",
+    "oid": "1.3.6.1.2.1.999.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiTgtDevEntry": {
+    "name": "scsiTgtDevEntry",
+    "oid": "1.3.6.1.2.1.999.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scsiTgtDevNumberOfLUs": {
+    "name": "scsiTgtDevNumberOfLUs",
+    "oid": "1.3.6.1.2.1.999.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiTgtDeviceStatus": {
+    "name": "scsiTgtDeviceStatus",
+    "oid": "1.3.6.1.2.1.999.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "available": 2,
+          "broken": 3,
+          "readying": 4,
+          "abnormal": 5,
+          "nonAddrFailure": 6,
+          "nonAddrFailReadying": 7,
+          "nonAddrFailAbnormal": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiTgtDevNonAccessibleLUs": {
+    "name": "scsiTgtDevNonAccessibleLUs",
+    "oid": "1.3.6.1.2.1.999.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiTgtPortTable": {
+    "name": "scsiTgtPortTable",
+    "oid": "1.3.6.1.2.1.999.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiTgtPortEntry": {
+    "name": "scsiTgtPortEntry",
+    "oid": "1.3.6.1.2.1.999.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scsiTgtPortName": {
+    "name": "scsiTgtPortName",
+    "oid": "1.3.6.1.2.1.999.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiTgtPortIdentifier": {
+    "name": "scsiTgtPortIdentifier",
+    "oid": "1.3.6.1.2.1.999.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiTgtPortInCommands": {
+    "name": "scsiTgtPortInCommands",
+    "oid": "1.3.6.1.2.1.999.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "commands",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiTgtPortWrittenMegaBytes": {
+    "name": "scsiTgtPortWrittenMegaBytes",
+    "oid": "1.3.6.1.2.1.999.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiTgtPortReadMegaBytes": {
+    "name": "scsiTgtPortReadMegaBytes",
+    "oid": "1.3.6.1.2.1.999.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiTgtPortHSInCommands": {
+    "name": "scsiTgtPortHSInCommands",
+    "oid": "1.3.6.1.2.1.999.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "commands",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiRemoteInitiators": {
+    "name": "scsiRemoteInitiators",
+    "oid": "1.3.6.1.2.1.999.1.4.3",
+    "class": "objectidentity"
+  },
+  "scsiAuthorizedIntrTable": {
+    "name": "scsiAuthorizedIntrTable",
+    "oid": "1.3.6.1.2.1.999.1.4.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiAuthorizedIntrEntry": {
+    "name": "scsiAuthorizedIntrEntry",
+    "oid": "1.3.6.1.2.1.999.1.4.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiAuthIntrTgtPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiAuthIntrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scsiAuthIntrTgtPortIndex": {
+    "name": "scsiAuthIntrTgtPortIndex",
+    "oid": "1.3.6.1.2.1.999.1.4.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiPortIndexValueOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiAuthIntrIndex": {
+    "name": "scsiAuthIntrIndex",
+    "oid": "1.3.6.1.2.1.999.1.4.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiAuthIntrDevOrPort": {
+    "name": "scsiAuthIntrDevOrPort",
+    "oid": "1.3.6.1.2.1.999.1.4.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiDeviceOrPort",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "scsiAuthIntrName": {
+    "name": "scsiAuthIntrName",
+    "oid": "1.3.6.1.2.1.999.1.4.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "scsiAuthIntrLunMapIndex": {
+    "name": "scsiAuthIntrLunMapIndex",
+    "oid": "1.3.6.1.2.1.999.1.4.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValueOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "scsiAuthIntrAttachedTimes": {
+    "name": "scsiAuthIntrAttachedTimes",
+    "oid": "1.3.6.1.2.1.999.1.4.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Times",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiAuthIntrOutCommands": {
+    "name": "scsiAuthIntrOutCommands",
+    "oid": "1.3.6.1.2.1.999.1.4.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "commands",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiAuthIntrReadMegaBytes": {
+    "name": "scsiAuthIntrReadMegaBytes",
+    "oid": "1.3.6.1.2.1.999.1.4.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiAuthIntrWrittenMegaBytes": {
+    "name": "scsiAuthIntrWrittenMegaBytes",
+    "oid": "1.3.6.1.2.1.999.1.4.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiAuthIntrHSOutCommands": {
+    "name": "scsiAuthIntrHSOutCommands",
+    "oid": "1.3.6.1.2.1.999.1.4.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "commands",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiAuthIntrLastCreation": {
+    "name": "scsiAuthIntrLastCreation",
+    "oid": "1.3.6.1.2.1.999.1.4.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiAuthIntrRowStatus": {
+    "name": "scsiAuthIntrRowStatus",
+    "oid": "1.3.6.1.2.1.999.1.4.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "scsiAttIntrPrtTable": {
+    "name": "scsiAttIntrPrtTable",
+    "oid": "1.3.6.1.2.1.999.1.4.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiAttIntrPrtEntry": {
+    "name": "scsiAttIntrPrtEntry",
+    "oid": "1.3.6.1.2.1.999.1.4.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiAttIntrPrtIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scsiAttIntrPrtIdx": {
+    "name": "scsiAttIntrPrtIdx",
+    "oid": "1.3.6.1.2.1.999.1.4.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiAttIntrPrtAuthIntrIdx": {
+    "name": "scsiAttIntrPrtAuthIntrIdx",
+    "oid": "1.3.6.1.2.1.999.1.4.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValueOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiAttIntrPrtName": {
+    "name": "scsiAttIntrPrtName",
+    "oid": "1.3.6.1.2.1.999.1.4.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiAttIntrPrtId": {
+    "name": "scsiAttIntrPrtId",
+    "oid": "1.3.6.1.2.1.999.1.4.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiLuTable": {
+    "name": "scsiLuTable",
+    "oid": "1.3.6.1.2.1.999.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiLuEntry": {
+    "name": "scsiLuEntry",
+    "oid": "1.3.6.1.2.1.999.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scsiLuIndex": {
+    "name": "scsiLuIndex",
+    "oid": "1.3.6.1.2.1.999.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiLuDefaultLun": {
+    "name": "scsiLuDefaultLun",
+    "oid": "1.3.6.1.2.1.999.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiLUNOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiLuWwnName": {
+    "name": "scsiLuWwnName",
+    "oid": "1.3.6.1.2.1.999.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiLuVendorId": {
+    "name": "scsiLuVendorId",
+    "oid": "1.3.6.1.2.1.999.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 79
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiLuProductId": {
+    "name": "scsiLuProductId",
+    "oid": "1.3.6.1.2.1.999.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 79
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiLuRevisionId": {
+    "name": "scsiLuRevisionId",
+    "oid": "1.3.6.1.2.1.999.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 79
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiLuPeripheralType": {
+    "name": "scsiLuPeripheralType",
+    "oid": "1.3.6.1.2.1.999.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiLuStatus": {
+    "name": "scsiLuStatus",
+    "oid": "1.3.6.1.2.1.999.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "available": 2,
+          "notAvailable": 3,
+          "broken": 4,
+          "readying": 5,
+          "abnormal": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiLuState": {
+    "name": "scsiLuState",
+    "oid": "1.3.6.1.2.1.999.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "dataLost": 0,
+        "dynamicReconfigurationInProgress": 1,
+        "exposed": 2,
+        "fractionallyExposed": 3,
+        "partiallyExposed": 4,
+        "protectedRebuild": 5,
+        "protectionDisabled": 6,
+        "rebuild": 7,
+        "recalculate": 8,
+        "spareInUse": 9,
+        "verifyInProgress": 10
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiLuInCommands": {
+    "name": "scsiLuInCommands",
+    "oid": "1.3.6.1.2.1.999.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "commands",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiLuReadMegaBytes": {
+    "name": "scsiLuReadMegaBytes",
+    "oid": "1.3.6.1.2.1.999.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiLuWrittenMegaBytes": {
+    "name": "scsiLuWrittenMegaBytes",
+    "oid": "1.3.6.1.2.1.999.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiLuInResets": {
+    "name": "scsiLuInResets",
+    "oid": "1.3.6.1.2.1.999.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "resets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiLuOutQueueFullStatus": {
+    "name": "scsiLuOutQueueFullStatus",
+    "oid": "1.3.6.1.2.1.999.1.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiLuHSInCommands": {
+    "name": "scsiLuHSInCommands",
+    "oid": "1.3.6.1.2.1.999.1.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "commands",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiLuIdTable": {
+    "name": "scsiLuIdTable",
+    "oid": "1.3.6.1.2.1.999.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiLuIdEntry": {
+    "name": "scsiLuIdEntry",
+    "oid": "1.3.6.1.2.1.999.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLuIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLuIdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scsiLuIdIndex": {
+    "name": "scsiLuIdIndex",
+    "oid": "1.3.6.1.2.1.999.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiLuIdCodeSet": {
+    "name": "scsiLuIdCodeSet",
+    "oid": "1.3.6.1.2.1.999.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdCodeSet",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiLuIdAssociation": {
+    "name": "scsiLuIdAssociation",
+    "oid": "1.3.6.1.2.1.999.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdAssociation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiLuIdType": {
+    "name": "scsiLuIdType",
+    "oid": "1.3.6.1.2.1.999.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiLuIdValue": {
+    "name": "scsiLuIdValue",
+    "oid": "1.3.6.1.2.1.999.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsiLunMapTable": {
+    "name": "scsiLunMapTable",
+    "oid": "1.3.6.1.2.1.999.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiLunMapEntry": {
+    "name": "scsiLunMapEntry",
+    "oid": "1.3.6.1.2.1.999.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLunMapIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLunMapLun",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scsiLunMapIndex": {
+    "name": "scsiLunMapIndex",
+    "oid": "1.3.6.1.2.1.999.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiLunMapLun": {
+    "name": "scsiLunMapLun",
+    "oid": "1.3.6.1.2.1.999.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiLUNOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scsiLunMapLuIndex": {
+    "name": "scsiLunMapLuIndex",
+    "oid": "1.3.6.1.2.1.999.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "scsiLunMapRowStatus": {
+    "name": "scsiLunMapRowStatus",
+    "oid": "1.3.6.1.2.1.999.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "scsiNotificationsPrefix": {
+    "name": "scsiNotificationsPrefix",
+    "oid": "1.3.6.1.2.1.999.2.0",
+    "class": "objectidentity"
+  },
+  "scsiTgtDeviceStatusChanged": {
+    "name": "scsiTgtDeviceStatusChanged",
+    "oid": "1.3.6.1.2.1.999.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiTgtDeviceStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "scsiLuStatusChanged": {
+    "name": "scsiLuStatusChanged",
+    "oid": "1.3.6.1.2.1.999.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLuStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "scsiCompliances": {
+    "name": "scsiCompliances",
+    "oid": "1.3.6.1.2.1.999.3.1",
+    "class": "objectidentity"
+  },
+  "scsiCompliance": {
+    "name": "scsiCompliance",
+    "oid": "1.3.6.1.2.1.999.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "scsiDeviceGroup",
+        "module": "SCSI-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "scsiGroups": {
+    "name": "scsiGroups",
+    "oid": "1.3.6.1.2.1.999.3.2",
+    "class": "objectidentity"
+  },
+  "scsiDeviceGroup": {
+    "name": "scsiDeviceGroup",
+    "oid": "1.3.6.1.2.1.999.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiInstAlias"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiInstSoftwareIndex"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiInstVendorVersion"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiInstScsiNotificationsEnable"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDeviceAlias"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDeviceRole"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDevicePortNumber"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiPortRole"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiPortTrnsptPtr"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiTrnsptType"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiTrnsptPointer"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiTrnsptDevName"
+      }
+    ],
+    "status": "current"
+  },
+  "scsiInitiatorGroup": {
+    "name": "scsiInitiatorGroup",
+    "oid": "1.3.6.1.2.1.999.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiIntrDevTgtAccessMode"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiIntrPrtName"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiIntrPrtIdentifier"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiAttTgtPortDscTgtIdx"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiAttTgtPortName"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiAttTgtPortIdentifier"
+      }
+    ],
+    "status": "current"
+  },
+  "scsiDiscoveryGroup": {
+    "name": "scsiDiscoveryGroup",
+    "oid": "1.3.6.1.2.1.999.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscTgtDevOrPort"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscTgtName"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscTgtConfigured"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscTgtDiscovered"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscTgtRowStatus"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscTgtLastCreation"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscLunLun"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscLunIdCodeSet"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscLunIdAssociation"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscLunIdType"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscLunIdValue"
+      }
+    ],
+    "status": "current"
+  },
+  "scsiTargetGroup": {
+    "name": "scsiTargetGroup",
+    "oid": "1.3.6.1.2.1.999.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiTgtDevNumberOfLUs"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiTgtDeviceStatus"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiTgtDevNonAccessibleLUs"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiTgtPortName"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiTgtPortIdentifier"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiAttIntrPrtAuthIntrIdx"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiAttIntrPrtName"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiAttIntrPrtId"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLuDefaultLun"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLuWwnName"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLuVendorId"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLuProductId"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLuRevisionId"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLuPeripheralType"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLuStatus"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLuState"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLuIdCodeSet"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLuIdAssociation"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLuIdType"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLuIdValue"
+      }
+    ],
+    "status": "current"
+  },
+  "scsiLunMapGroup": {
+    "name": "scsiLunMapGroup",
+    "oid": "1.3.6.1.2.1.999.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLunMapLuIndex"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLunMapRowStatus"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiAuthIntrDevOrPort"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiAuthIntrName"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiAuthIntrLunMapIndex"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiAuthIntrLastCreation"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiAuthIntrRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "scsiTargetStatsGroup": {
+    "name": "scsiTargetStatsGroup",
+    "oid": "1.3.6.1.2.1.999.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiTgtPortInCommands"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiTgtPortWrittenMegaBytes"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiTgtPortReadMegaBytes"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLuInCommands"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLuReadMegaBytes"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLuWrittenMegaBytes"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLuInResets"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLuOutQueueFullStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "scsiTargetHSStatsGroup": {
+    "name": "scsiTargetHSStatsGroup",
+    "oid": "1.3.6.1.2.1.999.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiTgtPortHSInCommands"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiLuHSInCommands"
+      }
+    ],
+    "status": "current"
+  },
+  "scsiLunMapStatsGroup": {
+    "name": "scsiLunMapStatsGroup",
+    "oid": "1.3.6.1.2.1.999.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiAuthIntrAttachedTimes"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiAuthIntrOutCommands"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiAuthIntrReadMegaBytes"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiAuthIntrWrittenMegaBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "scsiLunMapHSStatsGroup": {
+    "name": "scsiLunMapHSStatsGroup",
+    "oid": "1.3.6.1.2.1.999.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiAuthIntrHSOutCommands"
+      }
+    ],
+    "status": "current"
+  },
+  "scsiInitiatorStatsGroup": {
+    "name": "scsiInitiatorStatsGroup",
+    "oid": "1.3.6.1.2.1.999.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiIntrDevOutResets"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiIntrPrtOutCommands"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiIntrPrtWrittenMegaBytes"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiIntrPrtReadMegaBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "scsiInitiatorHSStatsGroup": {
+    "name": "scsiInitiatorHSStatsGroup",
+    "oid": "1.3.6.1.2.1.999.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiIntrPrtHSOutCommands"
+      }
+    ],
+    "status": "current"
+  },
+  "scsiDiscoveryStatsGroup": {
+    "name": "scsiDiscoveryStatsGroup",
+    "oid": "1.3.6.1.2.1.999.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscTgtInCommands"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscTgtReadMegaBytes"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscTgtWrittenMegaBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "scsiDiscoveryHSStatsGroup": {
+    "name": "scsiDiscoveryHSStatsGroup",
+    "oid": "1.3.6.1.2.1.999.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDscTgtHSInCommands"
+      }
+    ],
+    "status": "current"
+  },
+  "scsiDeviceStatGroup": {
+    "name": "scsiDeviceStatGroup",
+    "oid": "1.3.6.1.2.1.999.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiDeviceResets"
+      },
+      {
+        "module": "SCSI-MIB",
+        "object": "scsiPortBusyStatuses"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/SCSI-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:25 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SCSI-MIB"
+  }
+}

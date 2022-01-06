@@ -1,0 +1,808 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cMDC": {
+    "name": "hh3cMDC",
+    "oid": "1.3.6.1.4.1.25506.2.136",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-03-05 14:48",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "Hh3cMdcActionValue": {
+    "name": "Hh3cMdcActionValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "stop": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cMdcRunStatus": {
+    "name": "Hh3cMdcRunStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "starting": 2,
+          "active": 3,
+          "stopping": 4,
+          "updating": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cMDCScalarObjects": {
+    "name": "hh3cMDCScalarObjects",
+    "oid": "1.3.6.1.4.1.25506.2.136.1",
+    "class": "objectidentity"
+  },
+  "hh3cMDCMaxMDCNum": {
+    "name": "hh3cMDCMaxMDCNum",
+    "oid": "1.3.6.1.4.1.25506.2.136.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMDCCurrentMDCNum": {
+    "name": "hh3cMDCCurrentMDCNum",
+    "oid": "1.3.6.1.4.1.25506.2.136.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMDCTables": {
+    "name": "hh3cMDCTables",
+    "oid": "1.3.6.1.4.1.25506.2.136.2",
+    "class": "objectidentity"
+  },
+  "hh3cMDCControl": {
+    "name": "hh3cMDCControl",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.1",
+    "class": "objectidentity"
+  },
+  "hh3cMDCControlTable": {
+    "name": "hh3cMDCControlTable",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMDCControlEntry": {
+    "name": "hh3cMDCControlEntry",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MDC-MIB",
+        "object": "hh3cMDCIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMDCIndex": {
+    "name": "hh3cMDCIndex",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cMDCName": {
+    "name": "hh3cMDCName",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMDCAction": {
+    "name": "hh3cMDCAction",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cMdcActionValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "stop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cMDCStatus": {
+    "name": "hh3cMDCStatus",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cMdcRunStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMDCRowStatus": {
+    "name": "hh3cMDCRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMDCResource": {
+    "name": "hh3cMDCResource",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.2",
+    "class": "objectidentity"
+  },
+  "hh3cMDCDISKResourceTable": {
+    "name": "hh3cMDCDISKResourceTable",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMDCDISKResourceEntry": {
+    "name": "hh3cMDCDISKResourceEntry",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-MDC-MIB",
+        "object": "hh3cMDCIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-MDC-MIB",
+        "object": "hh3cMDCDISKResourceInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMDCDISKResourceInstance": {
+    "name": "hh3cMDCDISKResourceInstance",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMDCDISKResourceInstanceName": {
+    "name": "hh3cMDCDISKResourceInstanceName",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMDCDISKResourceMinLimit": {
+    "name": "hh3cMDCDISKResourceMinLimit",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cMDCDISKResourceMaxLimit": {
+    "name": "hh3cMDCDISKResourceMaxLimit",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cMDCDISKResourceReserve": {
+    "name": "hh3cMDCDISKResourceReserve",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMDCDISKResourceQuota": {
+    "name": "hh3cMDCDISKResourceQuota",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMDCDISKResourceUsage": {
+    "name": "hh3cMDCDISKResourceUsage",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMDCDISKResourceAvailable": {
+    "name": "hh3cMDCDISKResourceAvailable",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMDCMemoryResourceTable": {
+    "name": "hh3cMDCMemoryResourceTable",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMDCMemoryResourceEntry": {
+    "name": "hh3cMDCMemoryResourceEntry",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-MDC-MIB",
+        "object": "hh3cMDCIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMDCMemoryResourceMinLimit": {
+    "name": "hh3cMDCMemoryResourceMinLimit",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cMDCMemoryResourceMaxLimit": {
+    "name": "hh3cMDCMemoryResourceMaxLimit",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cMDCMemoryResourceReserve": {
+    "name": "hh3cMDCMemoryResourceReserve",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMDCMemoryResourceQuota": {
+    "name": "hh3cMDCMemoryResourceQuota",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMDCMemoryResourceUsage": {
+    "name": "hh3cMDCMemoryResourceUsage",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMDCMemoryResourceAvailable": {
+    "name": "hh3cMDCMemoryResourceAvailable",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMDCCPUResourceTable": {
+    "name": "hh3cMDCCPUResourceTable",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMDCCPUResourceEntry": {
+    "name": "hh3cMDCCPUResourceEntry",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-MDC-MIB",
+        "object": "hh3cMDCIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMDCCPUResourceLimit": {
+    "name": "hh3cMDCCPUResourceLimit",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "weight",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cMDCCPUResourceUsage": {
+    "name": "hh3cMDCCPUResourceUsage",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMDCLocation": {
+    "name": "hh3cMDCLocation",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.3",
+    "class": "objectidentity"
+  },
+  "hh3cMDCLocationTable": {
+    "name": "hh3cMDCLocationTable",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMDCLocationEntry": {
+    "name": "hh3cMDCLocationEntry",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-MDC-MIB",
+        "object": "hh3cMDCIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMDCLocationStatus": {
+    "name": "hh3cMDCLocationStatus",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cMDCAllocate": {
+    "name": "hh3cMDCAllocate",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.4",
+    "class": "objectidentity"
+  },
+  "hh3cMDCGroupIfTable": {
+    "name": "hh3cMDCGroupIfTable",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMDCGroupIfEntry": {
+    "name": "hh3cMDCGroupIfEntry",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMDCGroupIdentity": {
+    "name": "hh3cMDCGroupIdentity",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMDCAllocateTable": {
+    "name": "hh3cMDCAllocateTable",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMDCAllocateEntry": {
+    "name": "hh3cMDCAllocateEntry",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MDC-MIB",
+        "object": "hh3cMDCAllocateGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMDCAllocateGroupIndex": {
+    "name": "hh3cMDCAllocateGroupIndex",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMDCAllocateGroupDescription": {
+    "name": "hh3cMDCAllocateGroupDescription",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMDCAllocateMDCId": {
+    "name": "hh3cMDCAllocateMDCId",
+    "oid": "1.3.6.1.4.1.25506.2.136.2.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cMDCNotification": {
+    "name": "hh3cMDCNotification",
+    "oid": "1.3.6.1.4.1.25506.2.136.3",
+    "class": "objectidentity"
+  },
+  "hh3cMDCNotificationObjects": {
+    "name": "hh3cMDCNotificationObjects",
+    "oid": "1.3.6.1.4.1.25506.2.136.3.0",
+    "class": "objectidentity"
+  },
+  "hh3cMDCStateChangeToActive": {
+    "name": "hh3cMDCStateChangeToActive",
+    "oid": "1.3.6.1.4.1.25506.2.136.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-MDC-MIB",
+        "object": "hh3cMDCIndex"
+      },
+      {
+        "module": "HH3C-MDC-MIB",
+        "object": "hh3cMDCName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMDCStateChangeToInactive": {
+    "name": "hh3cMDCStateChangeToInactive",
+    "oid": "1.3.6.1.4.1.25506.2.136.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-MDC-MIB",
+        "object": "hh3cMDCIndex"
+      },
+      {
+        "module": "HH3C-MDC-MIB",
+        "object": "hh3cMDCName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-MDC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-MDC-MIB"
+  }
+}

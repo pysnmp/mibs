@@ -1,0 +1,1083 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "IF-MIB": [
+      "ifDescr",
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TAddress",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "hh3cTrap": {
+    "name": "hh3cTrap",
+    "oid": "1.3.6.1.4.1.25506.2.38",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-06-05 10:50",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hh3cTableGroup": {
+    "name": "hh3cTableGroup",
+    "oid": "1.3.6.1.4.1.25506.2.38.1",
+    "class": "objectidentity"
+  },
+  "hh3cMacTabStatGroup": {
+    "name": "hh3cMacTabStatGroup",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cMacTabTrapEnable": {
+    "name": "hh3cMacTabTrapEnable",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cMacTabTrapInterval": {
+    "name": "hh3cMacTabTrapInterval",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cMacTabTrapInfo": {
+    "name": "hh3cMacTabTrapInfo",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.1.3",
+    "class": "objectidentity"
+  },
+  "hh3cMacTabLen": {
+    "name": "hh3cMacTabLen",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cMacTabTrap": {
+    "name": "hh3cMacTabTrap",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.1.4",
+    "class": "objectidentity"
+  },
+  "hh3cMacTabFullTrap": {
+    "name": "hh3cMacTabFullTrap",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.1.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-TRAP-MIB",
+        "object": "hh3cMacTabLen"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMacTabAlmostFullTrap": {
+    "name": "hh3cMacTabAlmostFullTrap",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.1.4.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hh3cArpTabStatGroup": {
+    "name": "hh3cArpTabStatGroup",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cArpTabTrapEnable": {
+    "name": "hh3cArpTabTrapEnable",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cArpTabTrapInterval": {
+    "name": "hh3cArpTabTrapInterval",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cArpTabTrapInfo": {
+    "name": "hh3cArpTabTrapInfo",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.2.3",
+    "class": "objectidentity"
+  },
+  "hh3cArpTabLen": {
+    "name": "hh3cArpTabLen",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cArpTabTrap": {
+    "name": "hh3cArpTabTrap",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.2.4",
+    "class": "objectidentity"
+  },
+  "hh3cArpTabFullTrap": {
+    "name": "hh3cArpTabFullTrap",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.2.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-TRAP-MIB",
+        "object": "hh3cArpTabLen"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cArpPortDynamicEntryFullTrap": {
+    "name": "hh3cArpPortDynamicEntryFullTrap",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.2.4.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-TRAP-MIB",
+        "object": "hh3cArpTabLen"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRtTabStatGroup": {
+    "name": "hh3cRtTabStatGroup",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.3",
+    "class": "objectidentity"
+  },
+  "hh3cDetailRtTrapTable": {
+    "name": "hh3cDetailRtTrapTable",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDetailRtTrapEntry": {
+    "name": "hh3cDetailRtTrapEntry",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-TRAP-MIB",
+        "object": "hh3cDetailRtProType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDetailRtProType": {
+    "name": "hh3cDetailRtProType",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "local": 2,
+          "rip": 3,
+          "isis": 4,
+          "ospf": 5,
+          "bgp": 6
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cDetailRtEnable": {
+    "name": "hh3cDetailRtEnable",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cRtTabTrapEnable": {
+    "name": "hh3cRtTabTrapEnable",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cRtTabTrapInterval": {
+    "name": "hh3cRtTabTrapInterval",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cRtTabTrapInfo": {
+    "name": "hh3cRtTabTrapInfo",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.3.4",
+    "class": "objectidentity"
+  },
+  "hh3cRtTabLen": {
+    "name": "hh3cRtTabLen",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cDefaultRtNextHopType": {
+    "name": "hh3cDefaultRtNextHopType",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cDefaultRtNextHop": {
+    "name": "hh3cDefaultRtNextHop",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.3.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cDefaultRtOutIf": {
+    "name": "hh3cDefaultRtOutIf",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.3.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cRtTabTrap": {
+    "name": "hh3cRtTabTrap",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.3.5",
+    "class": "objectidentity"
+  },
+  "hh3cRtTabFullTrap": {
+    "name": "hh3cRtTabFullTrap",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.3.5.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-TRAP-MIB",
+        "object": "hh3cRtTabLen"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDetailRtTabFullTrap": {
+    "name": "hh3cDetailRtTabFullTrap",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.3.5.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-TRAP-MIB",
+        "object": "hh3cDetailRtProType"
+      },
+      {
+        "module": "HH3C-TRAP-MIB",
+        "object": "hh3cRtTabLen"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDefaultRtDelTrap": {
+    "name": "hh3cDefaultRtDelTrap",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.3.5.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-TRAP-MIB",
+        "object": "hh3cDetailRtProType"
+      },
+      {
+        "module": "HH3C-TRAP-MIB",
+        "object": "hh3cDefaultRtNextHopType"
+      },
+      {
+        "module": "HH3C-TRAP-MIB",
+        "object": "hh3cDefaultRtNextHop"
+      },
+      {
+        "module": "HH3C-TRAP-MIB",
+        "object": "hh3cDefaultRtOutIf"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDefaultRtDelTrapEnable": {
+    "name": "hh3cDefaultRtDelTrapEnable",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cMulticastTabStatGroup": {
+    "name": "hh3cMulticastTabStatGroup",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.4",
+    "class": "objectidentity"
+  },
+  "hh3cMulticastTabTrapEnable": {
+    "name": "hh3cMulticastTabTrapEnable",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cMulticastTabTrapInterval": {
+    "name": "hh3cMulticastTabTrapInterval",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cMulticastTabTrapInfo": {
+    "name": "hh3cMulticastTabTrapInfo",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.4.3",
+    "class": "objectidentity"
+  },
+  "hh3cMulticastTabType": {
+    "name": "hh3cMulticastTabType",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lay2": 1,
+          "lay3": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cMulticastTabLen": {
+    "name": "hh3cMulticastTabLen",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cMulticastTabTrap": {
+    "name": "hh3cMulticastTabTrap",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.4.4",
+    "class": "objectidentity"
+  },
+  "hh3cMulticastTabFullTrap": {
+    "name": "hh3cMulticastTabFullTrap",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.4.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-TRAP-MIB",
+        "object": "hh3cMulticastTabType"
+      },
+      {
+        "module": "HH3C-TRAP-MIB",
+        "object": "hh3cMulticastTabLen"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNdTabStatGroup": {
+    "name": "hh3cNdTabStatGroup",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.5",
+    "class": "objectidentity"
+  },
+  "hh3cNdTabTrapEnable": {
+    "name": "hh3cNdTabTrapEnable",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cNdTabTrapInterval": {
+    "name": "hh3cNdTabTrapInterval",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cNdTabTrapInfo": {
+    "name": "hh3cNdTabTrapInfo",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.5.3",
+    "class": "objectidentity"
+  },
+  "hh3cNdTabLen": {
+    "name": "hh3cNdTabLen",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.5.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cNdTabTrap": {
+    "name": "hh3cNdTabTrap",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.5.4",
+    "class": "objectidentity"
+  },
+  "hh3cNdTabFullTrap": {
+    "name": "hh3cNdTabFullTrap",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.5.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-TRAP-MIB",
+        "object": "hh3cNdTabLen"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPeriodicalTrapGroup": {
+    "name": "hh3cPeriodicalTrapGroup",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.6",
+    "class": "objectidentity"
+  },
+  "hh3cPeriodicalTrapObjects": {
+    "name": "hh3cPeriodicalTrapObjects",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.6.1",
+    "class": "objectidentity"
+  },
+  "hh3cPeriodicalTrapInterval": {
+    "name": "hh3cPeriodicalTrapInterval",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 10,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPeriodicalTrapSwitch": {
+    "name": "hh3cPeriodicalTrapSwitch",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.6.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPeriodicalTrapSwitch2": {
+    "name": "hh3cPeriodicalTrapSwitch2",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.6.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "on",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPeriodicalTrapInfo": {
+    "name": "hh3cPeriodicalTrapInfo",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.6.2",
+    "class": "objectidentity"
+  },
+  "hh3cPeriodicalNotification": {
+    "name": "hh3cPeriodicalNotification",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.6.3",
+    "class": "objectidentity"
+  },
+  "hh3cPeriodicalNotificationPrefix": {
+    "name": "hh3cPeriodicalNotificationPrefix",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.6.3.0",
+    "class": "objectidentity"
+  },
+  "hh3cPeriodicalTrap": {
+    "name": "hh3cPeriodicalTrap",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.6.3.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hh3cTrapDesInfo": {
+    "name": "hh3cTrapDesInfo",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.7",
+    "class": "objectidentity"
+  },
+  "hh3cTrapDesInfoTable": {
+    "name": "hh3cTrapDesInfoTable",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cTrapDesInfoEntry": {
+    "name": "hh3cTrapDesInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-TRAP-MIB",
+        "object": "hh3cTrapDesInfoIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cTrapDesInfoIndex": {
+    "name": "hh3cTrapDesInfoIndex",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cTrapDesIPAddress": {
+    "name": "hh3cTrapDesIPAddress",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cTrapDesPort": {
+    "name": "hh3cTrapDesPort",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cTrapDesRowStatus": {
+    "name": "hh3cTrapDesRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cTrapDesAddrTAddress": {
+    "name": "hh3cTrapDesAddrTAddress",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cTrapConfig": {
+    "name": "hh3cTrapConfig",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.8",
+    "class": "objectidentity"
+  },
+  "hh3cTrapConfigTable": {
+    "name": "hh3cTrapConfigTable",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cTrapConfigEntry": {
+    "name": "hh3cTrapConfigEntry",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-TRAP-MIB",
+        "object": "hh3cTrapConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cTrapConfigIndex": {
+    "name": "hh3cTrapConfigIndex",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cTrapConfigName": {
+    "name": "hh3cTrapConfigName",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cTrapConfigDescr": {
+    "name": "hh3cTrapConfigDescr",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cTrapConfigSwitch": {
+    "name": "hh3cTrapConfigSwitch",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cTrapConfigSwitch2": {
+    "name": "hh3cTrapConfigSwitch2",
+    "oid": "1.3.6.1.4.1.25506.2.38.1.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "on",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-TRAP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-TRAP-MIB"
+  }
+}

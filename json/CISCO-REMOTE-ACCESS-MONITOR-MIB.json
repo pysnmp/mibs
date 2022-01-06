@@ -1,0 +1,2630 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "zeroDotZero",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoRemoteAccessMonitorMIB": {
+    "name": "ciscoRemoteAccessMonitorMIB",
+    "oid": "1.3.6.1.4.1.9.9.392",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-08-28 00:00",
+        "description": "Added crasEmailNumSessions crasEmailCumulateSessions crasEmailPeakConcurrentSessions crasIPSecNumSessions crasIPSecCumulateSessions crasIPSecPeakConcurrentSessions crasL2LNumSessions crasL2LCumulateSessions crasL2LPeakConcurrentSessions crasLBNumSessions crasLBCumulateSessions crasLBPeakConcurrentSessions crasSVCNumSessions crasSVCCumulateSessions crasSVCPeakConcurrentSessions crasWebvpnNumSessions crasWebvpnCumulateSessions crasWebvpnPeakConcurrentSessions objects "
+      }
+    ]
+  },
+  "RasProtocol": {
+    "name": "RasProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ipsec": 2,
+          "l2tp": 3,
+          "l2tpoveripsec": 4,
+          "pptp": 5,
+          "l2f": 6,
+          "ssl": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "UserAuthenMethod": {
+    "name": "UserAuthenMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "radius": 3,
+          "tacacsplus": 4,
+          "kerberos": 5,
+          "local": 6,
+          "ldap": 7,
+          "ntlm": 8,
+          "sdi": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "UserAuthorMethod": {
+    "name": "UserAuthorMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "radius": 3,
+          "tacacsplus": 4,
+          "kerberos": 5,
+          "local": 6,
+          "ldap": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SessionEncrAlgo": {
+    "name": "SessionEncrAlgo",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "des": 2,
+          "des3": 3,
+          "rc4": 4,
+          "rc5": 5,
+          "idea": 6,
+          "cast": 7,
+          "blowfish": 8,
+          "aes": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SessionAuthAlgo": {
+    "name": "SessionAuthAlgo",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "hmacMd5": 3,
+          "hmacSha": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SessionCompressionAlgo": {
+    "name": "SessionCompressionAlgo",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "lzs": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SessionStatus": {
+    "name": "SessionStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initializing": 1,
+          "established": 2,
+          "terminating": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SessionIndex": {
+    "name": "SessionIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FailureRecordIndex": {
+    "name": "FailureRecordIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ciscoRasMonitorMIBNotifs": {
+    "name": "ciscoRasMonitorMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.392.0",
+    "class": "objectidentity"
+  },
+  "ciscoRasMonitorMIBObjects": {
+    "name": "ciscoRasMonitorMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.392.1",
+    "class": "objectidentity"
+  },
+  "ciscoRasMonitorMIBConform": {
+    "name": "ciscoRasMonitorMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.392.2",
+    "class": "objectidentity"
+  },
+  "crasCapacity": {
+    "name": "crasCapacity",
+    "oid": "1.3.6.1.4.1.9.9.392.1.1",
+    "class": "objectidentity"
+  },
+  "crasResourceUsage": {
+    "name": "crasResourceUsage",
+    "oid": "1.3.6.1.4.1.9.9.392.1.2",
+    "class": "objectidentity"
+  },
+  "crasActivity": {
+    "name": "crasActivity",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3",
+    "class": "objectidentity"
+  },
+  "crasFailures": {
+    "name": "crasFailures",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4",
+    "class": "objectidentity"
+  },
+  "crasSecurity": {
+    "name": "crasSecurity",
+    "oid": "1.3.6.1.4.1.9.9.392.1.5",
+    "class": "objectidentity"
+  },
+  "crasThresholds": {
+    "name": "crasThresholds",
+    "oid": "1.3.6.1.4.1.9.9.392.1.6",
+    "class": "objectidentity"
+  },
+  "crasNotifCntl": {
+    "name": "crasNotifCntl",
+    "oid": "1.3.6.1.4.1.9.9.392.1.7",
+    "class": "objectidentity"
+  },
+  "crasMaxSessionsSupportable": {
+    "name": "crasMaxSessionsSupportable",
+    "oid": "1.3.6.1.4.1.9.9.392.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasMaxUsersSupportable": {
+    "name": "crasMaxUsersSupportable",
+    "oid": "1.3.6.1.4.1.9.9.392.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Users",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasMaxGroupsSupportable": {
+    "name": "crasMaxGroupsSupportable",
+    "oid": "1.3.6.1.4.1.9.9.392.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Groups",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasNumCryptoAccelerators": {
+    "name": "crasNumCryptoAccelerators",
+    "oid": "1.3.6.1.4.1.9.9.392.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Users",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasGlobalBwUsage": {
+    "name": "crasGlobalBwUsage",
+    "oid": "1.3.6.1.4.1.9.9.392.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "MBytes/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasNumSessions": {
+    "name": "crasNumSessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasNumPrevSessions": {
+    "name": "crasNumPrevSessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasNumUsers": {
+    "name": "crasNumUsers",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Users",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasNumGroups": {
+    "name": "crasNumGroups",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Groups",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasGlobalInPkts": {
+    "name": "crasGlobalInPkts",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasGlobalOutPkts": {
+    "name": "crasGlobalOutPkts",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasGlobalInOctets": {
+    "name": "crasGlobalInOctets",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasGlobalInDecompOctets": {
+    "name": "crasGlobalInDecompOctets",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasGlobalOutOctets": {
+    "name": "crasGlobalOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasGlobalOutUncompOctets": {
+    "name": "crasGlobalOutUncompOctets",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasGlobalInDropPkts": {
+    "name": "crasGlobalInDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasGlobalOutDropPkts": {
+    "name": "crasGlobalOutDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSessionTable": {
+    "name": "crasSessionTable",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crasSessionEntry": {
+    "name": "crasSessionEntry",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasUsername",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "crasUsername": {
+    "name": "crasUsername",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crasGroup": {
+    "name": "crasGroup",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSessionIndex": {
+    "name": "crasSessionIndex",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SessionIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crasAuthenMethod": {
+    "name": "crasAuthenMethod",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UserAuthenMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasAuthorMethod": {
+    "name": "crasAuthorMethod",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UserAuthorMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSessionDuration": {
+    "name": "crasSessionDuration",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasLocalAddressType": {
+    "name": "crasLocalAddressType",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasLocalAddress": {
+    "name": "crasLocalAddress",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasISPAddressType": {
+    "name": "crasISPAddressType",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasISPAddress": {
+    "name": "crasISPAddress",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSessionProtocol": {
+    "name": "crasSessionProtocol",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RasProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasProtocolElement": {
+    "name": "crasProtocolElement",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSessionEncryptionAlgo": {
+    "name": "crasSessionEncryptionAlgo",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SessionEncrAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSessionPktAuthenAlgo": {
+    "name": "crasSessionPktAuthenAlgo",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SessionAuthAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSessionCompressionAlgo": {
+    "name": "crasSessionCompressionAlgo",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SessionCompressionAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasHeartbeatInterval": {
+    "name": "crasHeartbeatInterval",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasClientVendorString": {
+    "name": "crasClientVendorString",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasClientVersionString": {
+    "name": "crasClientVersionString",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasClientOSVendorString": {
+    "name": "crasClientOSVendorString",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasClientOSVersionString": {
+    "name": "crasClientOSVersionString",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasPrimWINSServerAddrType": {
+    "name": "crasPrimWINSServerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasPrimWINSServer": {
+    "name": "crasPrimWINSServer",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSecWINSServerAddrType": {
+    "name": "crasSecWINSServerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSecWINSServer": {
+    "name": "crasSecWINSServer",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasPrimDNSServerAddrType": {
+    "name": "crasPrimDNSServerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasPrimDNSServer": {
+    "name": "crasPrimDNSServer",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSecDNSServerAddrType": {
+    "name": "crasSecDNSServerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSecDNSServer": {
+    "name": "crasSecDNSServer",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasDHCPServerAddrType": {
+    "name": "crasDHCPServerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasDHCPServer": {
+    "name": "crasDHCPServer",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSessionInPkts": {
+    "name": "crasSessionInPkts",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSessionOutPkts": {
+    "name": "crasSessionOutPkts",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSessionInDropPkts": {
+    "name": "crasSessionInDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSessionOutDropPkts": {
+    "name": "crasSessionOutDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSessionInOctets": {
+    "name": "crasSessionInOctets",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSessionOutOctets": {
+    "name": "crasSessionOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSessionState": {
+    "name": "crasSessionState",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.21.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SessionStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crasActGroupTable": {
+    "name": "crasActGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crasActGroupEntry": {
+    "name": "crasActGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasActGrpName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "crasActGrpName": {
+    "name": "crasActGrpName",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crasActGrNumUsers": {
+    "name": "crasActGrNumUsers",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasActGrpInPkts": {
+    "name": "crasActGrpInPkts",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasActGrpOutPkts": {
+    "name": "crasActGrpOutPkts",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasActGrpInDropPkts": {
+    "name": "crasActGrpInDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasActGrpOutDropPkts": {
+    "name": "crasActGrpOutDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.22.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasActGrpInOctets": {
+    "name": "crasActGrpInOctets",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.22.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasActGrpOutOctets": {
+    "name": "crasActGrpOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.22.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasEmailNumSessions": {
+    "name": "crasEmailNumSessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasEmailCumulateSessions": {
+    "name": "crasEmailCumulateSessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasEmailPeakConcurrentSessions": {
+    "name": "crasEmailPeakConcurrentSessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasIPSecNumSessions": {
+    "name": "crasIPSecNumSessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasIPSecCumulateSessions": {
+    "name": "crasIPSecCumulateSessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasIPSecPeakConcurrentSessions": {
+    "name": "crasIPSecPeakConcurrentSessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasL2LNumSessions": {
+    "name": "crasL2LNumSessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasL2LCumulateSessions": {
+    "name": "crasL2LCumulateSessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasL2LPeakConcurrentSessions": {
+    "name": "crasL2LPeakConcurrentSessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasLBNumSessions": {
+    "name": "crasLBNumSessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasLBCumulateSessions": {
+    "name": "crasLBCumulateSessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasLBPeakConcurrentSessions": {
+    "name": "crasLBPeakConcurrentSessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSVCNumSessions": {
+    "name": "crasSVCNumSessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSVCCumulateSessions": {
+    "name": "crasSVCCumulateSessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSVCPeakConcurrentSessions": {
+    "name": "crasSVCPeakConcurrentSessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasWebvpnNumSessions": {
+    "name": "crasWebvpnNumSessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasWebvpnCumulateSessions": {
+    "name": "crasWebvpnCumulateSessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasWebvpnPeakConcurrentSessions": {
+    "name": "crasWebvpnPeakConcurrentSessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.3.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasFailuresGlobals": {
+    "name": "crasFailuresGlobals",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.1",
+    "class": "objectidentity"
+  },
+  "crasNumTotalFailures": {
+    "name": "crasNumTotalFailures",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasNumDeclinedSessions": {
+    "name": "crasNumDeclinedSessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasNumSetupFailInsufResources": {
+    "name": "crasNumSetupFailInsufResources",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasNumAbortedSessions": {
+    "name": "crasNumAbortedSessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasFailGlobalCntl": {
+    "name": "crasFailGlobalCntl",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.2",
+    "class": "objectidentity"
+  },
+  "crasFailTableSize": {
+    "name": "crasFailTableSize",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crasSessFailures": {
+    "name": "crasSessFailures",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.3",
+    "class": "objectidentity"
+  },
+  "crasSessFailTable": {
+    "name": "crasSessFailTable",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crasSessFailEntry": {
+    "name": "crasSessFailEntry",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessFailIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "crasSessFailIndex": {
+    "name": "crasSessFailIndex",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FailureRecordIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crasSessFailUsername": {
+    "name": "crasSessFailUsername",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSessFailGroupname": {
+    "name": "crasSessFailGroupname",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSessFailType": {
+    "name": "crasSessFailType",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setupFailure": 1,
+          "operationalFailure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSessFailReason": {
+    "name": "crasSessFailReason",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "internalError": 2,
+          "authenticationFailure": 3,
+          "authorizationFailure": 4,
+          "sysCapExceeded": 5,
+          "peerAbortRequest": 6,
+          "peerLost": 7,
+          "operRequest": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSessFailTime": {
+    "name": "crasSessFailTime",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSessFailSessionIndex": {
+    "name": "crasSessFailSessionIndex",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SessionIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSessFailISPAddrType": {
+    "name": "crasSessFailISPAddrType",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSessFailISPAddr": {
+    "name": "crasSessFailISPAddr",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSessFailLocalAddrType": {
+    "name": "crasSessFailLocalAddrType",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSessFailLocalAddr": {
+    "name": "crasSessFailLocalAddr",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasFailLastFailIndex": {
+    "name": "crasFailLastFailIndex",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FailureRecordIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasGroupFailures": {
+    "name": "crasGroupFailures",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.4",
+    "class": "objectidentity"
+  },
+  "crasGrpFailTable": {
+    "name": "crasGrpFailTable",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crasGrpFailEntry": {
+    "name": "crasGrpFailEntry",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasGrpFailGroupname",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "crasGrpFailGroupname": {
+    "name": "crasGrpFailGroupname",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crasGrpFailNumFailAuths": {
+    "name": "crasGrpFailNumFailAuths",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasGrpFailNumResourceFailures": {
+    "name": "crasGrpFailNumResourceFailures",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasGrpFailNumDeclined": {
+    "name": "crasGrpFailNumDeclined",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasGrpFailNumTerminatedMgmt": {
+    "name": "crasGrpFailNumTerminatedMgmt",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasGrpFailNumTerminatedOther": {
+    "name": "crasGrpFailNumTerminatedOther",
+    "oid": "1.3.6.1.4.1.9.9.392.1.4.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasSecurityGlobals": {
+    "name": "crasSecurityGlobals",
+    "oid": "1.3.6.1.4.1.9.9.392.1.5.1",
+    "class": "objectidentity"
+  },
+  "crasNumDisabledAccounts": {
+    "name": "crasNumDisabledAccounts",
+    "oid": "1.3.6.1.4.1.9.9.392.1.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Users",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasThrMaxSessions": {
+    "name": "crasThrMaxSessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasThrMaxFailedAuths": {
+    "name": "crasThrMaxFailedAuths",
+    "oid": "1.3.6.1.4.1.9.9.392.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasThrMaxThroughput": {
+    "name": "crasThrMaxThroughput",
+    "oid": "1.3.6.1.4.1.9.9.392.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Octets Per Second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crasCntlTooManySessions": {
+    "name": "crasCntlTooManySessions",
+    "oid": "1.3.6.1.4.1.9.9.392.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crasCntlTooManyFailedAuths": {
+    "name": "crasCntlTooManyFailedAuths",
+    "oid": "1.3.6.1.4.1.9.9.392.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crasCntlTooHighThroughput": {
+    "name": "crasCntlTooHighThroughput",
+    "oid": "1.3.6.1.4.1.9.9.392.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoRasTooManySessions": {
+    "name": "ciscoRasTooManySessions",
+    "oid": "1.3.6.1.4.1.9.9.392.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasNumSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasNumUsers"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasMaxSessionsSupportable"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasMaxUsersSupportable"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasThrMaxSessions"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRasTooManyFailedAuths": {
+    "name": "ciscoRasTooManyFailedAuths",
+    "oid": "1.3.6.1.4.1.9.9.392.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasNumDeclinedSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasThrMaxFailedAuths"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRasTooHighThroughput": {
+    "name": "ciscoRasTooHighThroughput",
+    "oid": "1.3.6.1.4.1.9.9.392.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasGlobalInOctets"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasGlobalOutOctets"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasThrMaxThroughput"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRasMonitorMIBCompliances": {
+    "name": "ciscoRasMonitorMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.392.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoRasMonitorMIBGroups": {
+    "name": "ciscoRasMonitorMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.392.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoRasMonitorMIBCompliance": {
+    "name": "ciscoRasMonitorMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.392.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoRasCapacityGroup",
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB"
+      },
+      {
+        "object": "ciscoRasResourceUsageGroup",
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB"
+      },
+      {
+        "object": "ciscoRasActivityGroup",
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB"
+      },
+      {
+        "object": "ciscoRasMandatoryFailureGroup",
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB"
+      },
+      {
+        "object": "ciscoRasGrpActivityGroup",
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB"
+      },
+      {
+        "object": "ciscoRasOptionalFailureGroup",
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB"
+      },
+      {
+        "object": "ciscoRasSecurityGroup",
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB"
+      },
+      {
+        "object": "ciscoRasThresholdsGroup",
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB"
+      },
+      {
+        "object": "ciscoRasNotificationsGroup",
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB"
+      },
+      {
+        "object": "ciscoRasNotificationCntlGroup",
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoRasMonitorMIBComplianceRev1": {
+    "name": "ciscoRasMonitorMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.392.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoRasCapacityGroup",
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB"
+      },
+      {
+        "object": "ciscoRasResourceUsageGroup",
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB"
+      },
+      {
+        "object": "ciscoRasActivityGroup",
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB"
+      },
+      {
+        "object": "ciscoRasActivityGroupRev1",
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB"
+      },
+      {
+        "object": "ciscoRasMandatoryFailureGroup",
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB"
+      },
+      {
+        "object": "ciscoRasGrpActivityGroup",
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB"
+      },
+      {
+        "object": "ciscoRasOptionalFailureGroup",
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB"
+      },
+      {
+        "object": "ciscoRasSecurityGroup",
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB"
+      },
+      {
+        "object": "ciscoRasThresholdsGroup",
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB"
+      },
+      {
+        "object": "ciscoRasNotificationsGroup",
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB"
+      },
+      {
+        "object": "ciscoRasNotificationCntlGroup",
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRasCapacityGroup": {
+    "name": "ciscoRasCapacityGroup",
+    "oid": "1.3.6.1.4.1.9.9.392.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasMaxSessionsSupportable"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasMaxUsersSupportable"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasMaxGroupsSupportable"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasNumCryptoAccelerators"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRasResourceUsageGroup": {
+    "name": "ciscoRasResourceUsageGroup",
+    "oid": "1.3.6.1.4.1.9.9.392.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasGlobalBwUsage"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRasActivityGroup": {
+    "name": "ciscoRasActivityGroup",
+    "oid": "1.3.6.1.4.1.9.9.392.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasNumSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasNumPrevSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasNumUsers"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasGlobalInPkts"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasGlobalOutPkts"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasGlobalInOctets"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasGlobalOutOctets"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasGlobalInDecompOctets"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasGlobalOutUncompOctets"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasGlobalInDropPkts"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasGlobalOutDropPkts"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasGroup"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasAuthenMethod"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasAuthorMethod"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessionDuration"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasLocalAddressType"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasLocalAddress"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasISPAddressType"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasISPAddress"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessionProtocol"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasProtocolElement"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessionEncryptionAlgo"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessionPktAuthenAlgo"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessionCompressionAlgo"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasHeartbeatInterval"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasClientVendorString"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasClientVersionString"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasClientOSVendorString"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasClientOSVersionString"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasPrimWINSServerAddrType"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasPrimWINSServer"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSecWINSServerAddrType"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSecWINSServer"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasPrimDNSServerAddrType"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasPrimDNSServer"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSecDNSServerAddrType"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSecDNSServer"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasDHCPServerAddrType"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasDHCPServer"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessionInPkts"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessionOutPkts"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessionInDropPkts"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessionOutDropPkts"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessionInOctets"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessionOutOctets"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessionState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRasGrpActivityGroup": {
+    "name": "ciscoRasGrpActivityGroup",
+    "oid": "1.3.6.1.4.1.9.9.392.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasNumGroups"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasActGrNumUsers"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasActGrpInPkts"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasActGrpOutPkts"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasActGrpInDropPkts"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasActGrpOutDropPkts"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasActGrpInOctets"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasActGrpOutOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRasMandatoryFailureGroup": {
+    "name": "ciscoRasMandatoryFailureGroup",
+    "oid": "1.3.6.1.4.1.9.9.392.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasNumTotalFailures"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasNumDeclinedSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasNumAbortedSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasFailTableSize"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRasOptionalFailureGroup": {
+    "name": "ciscoRasOptionalFailureGroup",
+    "oid": "1.3.6.1.4.1.9.9.392.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasNumSetupFailInsufResources"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessFailUsername"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessFailGroupname"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessFailType"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessFailReason"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessFailTime"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessFailSessionIndex"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessFailISPAddr"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessFailLocalAddr"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessFailISPAddrType"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSessFailLocalAddrType"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasFailLastFailIndex"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasGrpFailNumFailAuths"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasGrpFailNumResourceFailures"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasGrpFailNumDeclined"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasGrpFailNumTerminatedMgmt"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasGrpFailNumTerminatedOther"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRasSecurityGroup": {
+    "name": "ciscoRasSecurityGroup",
+    "oid": "1.3.6.1.4.1.9.9.392.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasNumDisabledAccounts"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRasThresholdsGroup": {
+    "name": "ciscoRasThresholdsGroup",
+    "oid": "1.3.6.1.4.1.9.9.392.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasThrMaxSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasThrMaxFailedAuths"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasThrMaxThroughput"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRasNotificationCntlGroup": {
+    "name": "ciscoRasNotificationCntlGroup",
+    "oid": "1.3.6.1.4.1.9.9.392.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasCntlTooManySessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasCntlTooManyFailedAuths"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasCntlTooHighThroughput"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRasNotificationsGroup": {
+    "name": "ciscoRasNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.392.2.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "ciscoRasTooHighThroughput"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "ciscoRasTooManyFailedAuths"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "ciscoRasTooManySessions"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRasActivityGroupRev1": {
+    "name": "ciscoRasActivityGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.392.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasEmailNumSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasEmailCumulateSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasEmailPeakConcurrentSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasIPSecNumSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasIPSecCumulateSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasIPSecPeakConcurrentSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasL2LNumSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasL2LCumulateSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasL2LPeakConcurrentSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasLBNumSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasLBCumulateSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasLBPeakConcurrentSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSVCNumSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSVCCumulateSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasSVCPeakConcurrentSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasWebvpnNumSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasWebvpnCumulateSessions"
+      },
+      {
+        "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB",
+        "object": "crasWebvpnPeakConcurrentSessions"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-REMOTE-ACCESS-MONITOR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-REMOTE-ACCESS-MONITOR-MIB"
+  }
+}

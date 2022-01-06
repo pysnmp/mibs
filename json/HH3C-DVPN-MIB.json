@@ -1,0 +1,2866 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cDvpn": {
+    "name": "hh3cDvpn",
+    "oid": "1.3.6.1.4.1.25506.2.57",
+    "class": "moduleidentity"
+  },
+  "DvpnAlgorithmSuite": {
+    "name": "DvpnAlgorithmSuite",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dvpnDesCbcMd5PreShaModp768": 1,
+          "dvpnDesCbcMd5PreShaModp1024": 2,
+          "dvpnDesCbcSha1PreShaModp768": 3,
+          "dvpnDesCbcSha1PreShaModp1024": 4,
+          "dvpn3DesCbcMd5PreShaModp768": 5,
+          "dvpn3DesCbcMd5PreShaModp1024": 6,
+          "dvpn3DesCbcSha1PreShaModp768": 7,
+          "dvpn3DesCbcSha1PreShaModp1024": 8,
+          "dvpnAesCbcMd5PreShaModp768": 9,
+          "dvpnAesCbcMd5PreShaModp1024": 10,
+          "dvpnAesCbcSHA1Sha1PreShaModp768": 11,
+          "dvpnAesCbcSHA1Sha1PreShaModp1024": 12,
+          "dvpnAlgorithmNone": 13
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DvpnCommunicateType": {
+    "name": "DvpnCommunicateType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clientToserver": 1,
+          "serverToclient": 2,
+          "serverToserver": 3,
+          "clientToclient": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cDvpnMibObjects": {
+    "name": "hh3cDvpnMibObjects",
+    "oid": "1.3.6.1.4.1.25506.2.57.1",
+    "class": "objectidentity"
+  },
+  "hh3cDvpnMibGlobal": {
+    "name": "hh3cDvpnMibGlobal",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cDvpnMibTableTroop": {
+    "name": "hh3cDvpnMibTableTroop",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cDvpnMibNotification": {
+    "name": "hh3cDvpnMibNotification",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.3",
+    "class": "objectidentity"
+  },
+  "hh3cDvpnMibConformance": {
+    "name": "hh3cDvpnMibConformance",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.4",
+    "class": "objectidentity"
+  },
+  "hh3cDvpnServiceEnable": {
+    "name": "hh3cDvpnServiceEnable",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDvpnClassNumber": {
+    "name": "hh3cDvpnClassNumber",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnClientNumber": {
+    "name": "hh3cDvpnClientNumber",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnMapAgeTime": {
+    "name": "hh3cDvpnMapAgeTime",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 180
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDvpnClientRegisterInterval": {
+    "name": "hh3cDvpnClientRegisterInterval",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDvpnClientRegisterDumb": {
+    "name": "hh3cDvpnClientRegisterDumb",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDvpnClientRegisterRetry": {
+    "name": "hh3cDvpnClientRegisterRetry",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDvpnInputPkt": {
+    "name": "hh3cDvpnInputPkt",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnDropPkt": {
+    "name": "hh3cDvpnDropPkt",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnOutputPkt": {
+    "name": "hh3cDvpnOutputPkt",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnOutputErrorPkt": {
+    "name": "hh3cDvpnOutputErrorPkt",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnEncryptErrorPkt": {
+    "name": "hh3cDvpnEncryptErrorPkt",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnCurrentDeviceRole": {
+    "name": "hh3cDvpnCurrentDeviceRole",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "server": 2,
+          "client": 3,
+          "both": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnDomainNumber": {
+    "name": "hh3cDvpnDomainNumber",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnMapNumber": {
+    "name": "hh3cDvpnMapNumber",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionNumber": {
+    "name": "hh3cDvpnSessionNumber",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnServerPreSharedKey": {
+    "name": "hh3cDvpnServerPreSharedKey",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDvpnMapTrapEnable": {
+    "name": "hh3cDvpnMapTrapEnable",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDvpnSessionTrapEnable": {
+    "name": "hh3cDvpnSessionTrapEnable",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDvpnVersion": {
+    "name": "hh3cDvpnVersion",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version2": 1,
+          "version3": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnClearDomainAllConection": {
+    "name": "hh3cDvpnClearDomainAllConection",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDvpnClearDvpnStaInfo": {
+    "name": "hh3cDvpnClearDvpnStaInfo",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDvpnTotalRedirectNumber": {
+    "name": "hh3cDvpnTotalRedirectNumber",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnGlobalAuthenClientType": {
+    "name": "hh3cDvpnGlobalAuthenClientType",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "pap": 2,
+          "chap": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDvpnGlobalUserDefAAADomain": {
+    "name": "hh3cDvpnGlobalUserDefAAADomain",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDvpnLocalDeviceId": {
+    "name": "hh3cDvpnLocalDeviceId",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionHisAgeTime": {
+    "name": "hh3cDvpnSessionHisAgeTime",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDvpnSessionHisReset": {
+    "name": "hh3cDvpnSessionHisReset",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDvpnPolicyTable": {
+    "name": "hh3cDvpnPolicyTable",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDvpnPolicyEntry": {
+    "name": "hh3cDvpnPolicyEntry",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDvpnPolicyName": {
+    "name": "hh3cDvpnPolicyName",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDvpnPoAuthenClientType": {
+    "name": "hh3cDvpnPoAuthenClientType",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "pap": 2,
+          "chap": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDvpnPoSessionAlgorithmSuite": {
+    "name": "hh3cDvpnPoSessionAlgorithmSuite",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DvpnAlgorithmSuite",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "dvpnDesCbcMd5PreShaModp768",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDvpnPoSessionIdleTime": {
+    "name": "hh3cDvpnPoSessionIdleTime",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDvpnPoSessionKeepTime": {
+    "name": "hh3cDvpnPoSessionKeepTime",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDvpnPoSessionSetupInterval": {
+    "name": "hh3cDvpnPoSessionSetupInterval",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDvpnPoDataAlgorithmSuite": {
+    "name": "hh3cDvpnPoDataAlgorithmSuite",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DvpnAlgorithmSuite",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "dvpnDesCbcMd5PreShaModp768",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDvpnPoSaSeconds": {
+    "name": "hh3cDvpnPoSaSeconds",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 180,
+            "max": 604800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDvpnPoUserDefAAADomain": {
+    "name": "hh3cDvpnPoUserDefAAADomain",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDvpnPoRefTimes": {
+    "name": "hh3cDvpnPoRefTimes",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnPoRowStatus": {
+    "name": "hh3cDvpnPoRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDvpnDomainInfoTable": {
+    "name": "hh3cDvpnDomainInfoTable",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDvpnDomainInfoEntry": {
+    "name": "hh3cDvpnDomainInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnDomainID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDvpnDomainID": {
+    "name": "hh3cDvpnDomainID",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDvpnDomainSessionNum": {
+    "name": "hh3cDvpnDomainSessionNum",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnDomainRedirectNum": {
+    "name": "hh3cDvpnDomainRedirectNum",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnDomainInputPkt": {
+    "name": "hh3cDvpnDomainInputPkt",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnDomainDropPkt": {
+    "name": "hh3cDvpnDomainDropPkt",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnDomainOutputPkt": {
+    "name": "hh3cDvpnDomainOutputPkt",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnDomainOutputErrorPkt": {
+    "name": "hh3cDvpnDomainOutputErrorPkt",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnDomainEncryptErrorPkt": {
+    "name": "hh3cDvpnDomainEncryptErrorPkt",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnClassTable": {
+    "name": "hh3cDvpnClassTable",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDvpnClassEntry": {
+    "name": "hh3cDvpnClassEntry",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnClassName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDvpnClassName": {
+    "name": "hh3cDvpnClassName",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDvpnClServerPublicIpType": {
+    "name": "hh3cDvpnClServerPublicIpType",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDvpnClServerPublicIp": {
+    "name": "hh3cDvpnClServerPublicIp",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDvpnClServerPriIpType": {
+    "name": "hh3cDvpnClServerPriIpType",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDvpnClServerPriIp": {
+    "name": "hh3cDvpnClServerPriIp",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDvpnClAlgorithmSuite": {
+    "name": "hh3cDvpnClAlgorithmSuite",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DvpnAlgorithmSuite",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "dvpnDesCbcMd5PreShaModp768",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDvpnClAuthenServerType": {
+    "name": "hh3cDvpnClAuthenServerType",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "preShareKey": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDvpnClPreShareKey": {
+    "name": "hh3cDvpnClPreShareKey",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDvpnClUserName": {
+    "name": "hh3cDvpnClUserName",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDvpnClPwdEncrypted": {
+    "name": "hh3cDvpnClPwdEncrypted",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "simple": 1,
+          "cipher": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDvpnClPasswd": {
+    "name": "hh3cDvpnClPasswd",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDvpnClassRowStatus": {
+    "name": "hh3cDvpnClassRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDvpnTunnelTable": {
+    "name": "hh3cDvpnTunnelTable",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDvpnTunnelEntry": {
+    "name": "hh3cDvpnTunnelEntry",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDvpnTunnelInterfaceType": {
+    "name": "hh3cDvpnTunnelInterfaceType",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "client": 1,
+          "server": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "client",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDvpnTunnelAcl": {
+    "name": "hh3cDvpnTunnelAcl",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDvpnTunnelClientRegType": {
+    "name": "hh3cDvpnTunnelClientRegType",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undistributed": 1,
+          "forward": 2,
+          "undistributedandforward": 3,
+          "normal": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "normal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDvpnTunnelDvpnId": {
+    "name": "hh3cDvpnTunnelDvpnId",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDvpnTunnelPolicy": {
+    "name": "hh3cDvpnTunnelPolicy",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDvpnTunnelClass": {
+    "name": "hh3cDvpnTunnelClass",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDvpnMapTable": {
+    "name": "hh3cDvpnMapTable",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDvpnMapEntry": {
+    "name": "hh3cDvpnMapEntry",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDvpnMapIndex": {
+    "name": "hh3cDvpnMapIndex",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cDvpnMapPeerDeviceId": {
+    "name": "hh3cDvpnMapPeerDeviceId",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnMapDvpnId": {
+    "name": "hh3cDvpnMapDvpnId",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnMapBuildTime": {
+    "name": "hh3cDvpnMapBuildTime",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnMapPeerPriIpType": {
+    "name": "hh3cDvpnMapPeerPriIpType",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnMapPeerPriIp": {
+    "name": "hh3cDvpnMapPeerPriIp",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnMapPeerPublicIpType": {
+    "name": "hh3cDvpnMapPeerPublicIpType",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnMapPeerPublicIp": {
+    "name": "hh3cDvpnMapPeerPublicIp",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnMapLocalPriIpType": {
+    "name": "hh3cDvpnMapLocalPriIpType",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnMapLocalPriIp": {
+    "name": "hh3cDvpnMapLocalPriIp",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnMapLocalPublicIpType": {
+    "name": "hh3cDvpnMapLocalPublicIpType",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnMapLocalPublicIp": {
+    "name": "hh3cDvpnMapLocalPublicIp",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnMapUserName": {
+    "name": "hh3cDvpnMapUserName",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnMapUdpPort": {
+    "name": "hh3cDvpnMapUdpPort",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnMapControlId": {
+    "name": "hh3cDvpnMapControlId",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnMapType": {
+    "name": "hh3cDvpnMapType",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DvpnCommunicateType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnMapState": {
+    "name": "hh3cDvpnMapState",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mapClientInit": 1,
+          "mapClientBegin": 2,
+          "mapClientAlgreq": 3,
+          "mapClientKexReq": 4,
+          "mapClientAuthenReq": 5,
+          "mapClientConfigReq": 6,
+          "mapClientReq": 7,
+          "mapClientSuccess": 8,
+          "mapServerBegin": 9,
+          "mapServerAlgorithm": 10,
+          "mapServerKexInit": 11,
+          "mapServerAuthenInit": 12,
+          "mapServerConfigInit": 13,
+          "mapServerInit": 14,
+          "mapServerFinished": 15
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionTable": {
+    "name": "hh3cDvpnSessionTable",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDvpnSessionEntry": {
+    "name": "hh3cDvpnSessionEntry",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionDvpnId",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionPeerPriIpType",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionPeerPriIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDvpnSessionDvpnId": {
+    "name": "hh3cDvpnSessionDvpnId",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cDvpnSessionPeerPriIpType": {
+    "name": "hh3cDvpnSessionPeerPriIpType",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cDvpnSessionPeerPriIp": {
+    "name": "hh3cDvpnSessionPeerPriIp",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cDvpnSessionPeerDeviceId": {
+    "name": "hh3cDvpnSessionPeerDeviceId",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionBuildTime": {
+    "name": "hh3cDvpnSessionBuildTime",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionPeerPubIpType": {
+    "name": "hh3cDvpnSessionPeerPubIpType",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionPeerPubIp": {
+    "name": "hh3cDvpnSessionPeerPubIp",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionLocalPubIpType": {
+    "name": "hh3cDvpnSessionLocalPubIpType",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionLocalPubIp": {
+    "name": "hh3cDvpnSessionLocalPubIp",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionLocalPriIpType": {
+    "name": "hh3cDvpnSessionLocalPriIpType",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionLocalPriIp": {
+    "name": "hh3cDvpnSessionLocalPriIp",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionPeerUdpPort": {
+    "name": "hh3cDvpnSessionPeerUdpPort",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionInitiator": {
+    "name": "hh3cDvpnSessionInitiator",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionUserName": {
+    "name": "hh3cDvpnSessionUserName",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionState": {
+    "name": "hh3cDvpnSessionState",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sessionSetupInit": 1,
+          "sessionSetupReq": 2,
+          "sessionSetupSuccess": 3,
+          "sessionRekeyReq": 4,
+          "sessionRekeyRep": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionType": {
+    "name": "hh3cDvpnSessionType",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DvpnCommunicateType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionPeerType": {
+    "name": "hh3cDvpnSessionPeerType",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "router": 1,
+          "pcClient": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionHisTable": {
+    "name": "hh3cDvpnSessionHisTable",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDvpnSessionHisEntry": {
+    "name": "hh3cDvpnSessionHisEntry",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionHisDvpnID",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionHisPeerPriIPType",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionHisPeerPriIP",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDvpnSessionHisDvpnID": {
+    "name": "hh3cDvpnSessionHisDvpnID",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDvpnSessionHisPeerPriIPType": {
+    "name": "hh3cDvpnSessionHisPeerPriIPType",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionHisPeerPriIP": {
+    "name": "hh3cDvpnSessionHisPeerPriIP",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDvpnSessionHisSendPkt": {
+    "name": "hh3cDvpnSessionHisSendPkt",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionHisRcvPkt": {
+    "name": "hh3cDvpnSessionHisRcvPkt",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionHisOnlineNumber": {
+    "name": "hh3cDvpnSessionHisOnlineNumber",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionHisFirstUpTime": {
+    "name": "hh3cDvpnSessionHisFirstUpTime",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionHisLastUpTime": {
+    "name": "hh3cDvpnSessionHisLastUpTime",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionHisLastDownTime": {
+    "name": "hh3cDvpnSessionHisLastDownTime",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionHisOnlineFlag": {
+    "name": "hh3cDvpnSessionHisOnlineFlag",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnSessionHisPeerDeviceId": {
+    "name": "hh3cDvpnSessionHisPeerDeviceId",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.2.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDvpnNotification": {
+    "name": "hh3cDvpnNotification",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.3.0",
+    "class": "objectidentity"
+  },
+  "hh3cDvpnSessionBuildNotification": {
+    "name": "hh3cDvpnSessionBuildNotification",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionDvpnId"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionPeerPriIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionPeerPriIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnLocalDeviceId"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionLocalPriIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionLocalPriIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionLocalPubIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionLocalPubIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionPeerDeviceId"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionPeerPubIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionPeerPubIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionPeerUdpPort"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionPeerType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionUserName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDvpnSessionDelNotification": {
+    "name": "hh3cDvpnSessionDelNotification",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionDvpnId"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionPeerPriIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionPeerPriIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnLocalDeviceId"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionLocalPriIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionLocalPriIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionLocalPubIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionLocalPubIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionPeerDeviceId"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionPeerPubIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionPeerPubIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionPeerUdpPort"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionPeerType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionUserName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDvpnMapBuildNotification": {
+    "name": "hh3cDvpnMapBuildNotification",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapIndex"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapDvpnId"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapPeerDeviceId"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapPeerPriIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapPeerPriIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapPeerPublicIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapPeerPublicIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnLocalDeviceId"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapLocalPriIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapLocalPriIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapLocalPublicIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapLocalPublicIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapUserName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDvpnMapDelNotification": {
+    "name": "hh3cDvpnMapDelNotification",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapIndex"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapDvpnId"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapPeerDeviceId"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapPeerPriIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapPeerPriIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapPeerPublicIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapPeerPublicIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnLocalDeviceId"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapLocalPriIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapLocalPriIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapLocalPublicIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapLocalPublicIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapUserName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDvpnMibCompliances": {
+    "name": "hh3cDvpnMibCompliances",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.4.1",
+    "class": "objectidentity"
+  },
+  "hh3cDvpnMibCompliance": {
+    "name": "hh3cDvpnMibCompliance",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hh3cDvpnGlobalGroup",
+        "module": "HH3C-DVPN-MIB"
+      },
+      {
+        "object": "hh3cDvpnDomainInfoGroup",
+        "module": "HH3C-DVPN-MIB"
+      },
+      {
+        "object": "hh3cDvpnPolicyGroup",
+        "module": "HH3C-DVPN-MIB"
+      },
+      {
+        "object": "hh3cDvpnClassGroup",
+        "module": "HH3C-DVPN-MIB"
+      },
+      {
+        "object": "hh3cDvpnTunnelGroup",
+        "module": "HH3C-DVPN-MIB"
+      },
+      {
+        "object": "hh3cDvpnMapGroup",
+        "module": "HH3C-DVPN-MIB"
+      },
+      {
+        "object": "hh3cDvpnSessionGroup",
+        "module": "HH3C-DVPN-MIB"
+      },
+      {
+        "object": "hh3cDvpnSessionHisGroup",
+        "module": "HH3C-DVPN-MIB"
+      },
+      {
+        "object": "hh3cDvpnNotificationGroup",
+        "module": "HH3C-DVPN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDvpnMibGroups": {
+    "name": "hh3cDvpnMibGroups",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.4.2",
+    "class": "objectidentity"
+  },
+  "hh3cDvpnGlobalGroup": {
+    "name": "hh3cDvpnGlobalGroup",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnServiceEnable"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnClassNumber"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnClientNumber"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapAgeTime"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnClientRegisterInterval"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnClientRegisterDumb"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnClientRegisterRetry"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnInputPkt"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnDropPkt"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnOutputPkt"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnOutputErrorPkt"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnEncryptErrorPkt"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnCurrentDeviceRole"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnDomainNumber"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapNumber"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionNumber"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnServerPreSharedKey"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapTrapEnable"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionTrapEnable"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnVersion"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnClearDomainAllConection"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnClearDvpnStaInfo"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnTotalRedirectNumber"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnGlobalAuthenClientType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnGlobalUserDefAAADomain"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnLocalDeviceId"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionHisAgeTime"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionHisReset"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDvpnPolicyGroup": {
+    "name": "hh3cDvpnPolicyGroup",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnPoAuthenClientType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnPoSessionAlgorithmSuite"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnPoSessionIdleTime"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnPoSessionKeepTime"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnPoSessionSetupInterval"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnPoDataAlgorithmSuite"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnPoSaSeconds"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnPoUserDefAAADomain"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnPoRefTimes"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnPoRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDvpnDomainInfoGroup": {
+    "name": "hh3cDvpnDomainInfoGroup",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnDomainSessionNum"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnDomainRedirectNum"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnDomainInputPkt"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnDomainDropPkt"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnDomainOutputPkt"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnDomainOutputErrorPkt"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnDomainEncryptErrorPkt"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDvpnClassGroup": {
+    "name": "hh3cDvpnClassGroup",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.4.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnClServerPublicIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnClServerPublicIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnClServerPriIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnClServerPriIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnClAlgorithmSuite"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnClAuthenServerType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnClPreShareKey"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnClUserName"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnClPwdEncrypted"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnClPasswd"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnClassRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDvpnTunnelGroup": {
+    "name": "hh3cDvpnTunnelGroup",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.4.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnTunnelInterfaceType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnTunnelAcl"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnTunnelClientRegType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnTunnelDvpnId"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnTunnelPolicy"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnTunnelClass"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDvpnMapGroup": {
+    "name": "hh3cDvpnMapGroup",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.4.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapIndex"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapPeerDeviceId"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapDvpnId"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapBuildTime"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapPeerPriIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapPeerPriIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapPeerPublicIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapPeerPublicIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapLocalPriIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapLocalPriIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapLocalPublicIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapLocalPublicIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapUserName"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapUdpPort"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapControlId"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapState"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDvpnSessionGroup": {
+    "name": "hh3cDvpnSessionGroup",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.4.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionDvpnId"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionPeerDeviceId"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionBuildTime"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionPeerPubIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionPeerPubIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionPeerPriIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionPeerPriIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionLocalPubIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionLocalPubIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionLocalPriIpType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionLocalPriIp"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionPeerUdpPort"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionInitiator"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionUserName"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionState"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionPeerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDvpnSessionHisGroup": {
+    "name": "hh3cDvpnSessionHisGroup",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.4.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionHisPeerPriIPType"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionHisSendPkt"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionHisRcvPkt"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionHisOnlineNumber"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionHisFirstUpTime"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionHisLastUpTime"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionHisLastDownTime"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionHisOnlineFlag"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionHisPeerDeviceId"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDvpnNotificationGroup": {
+    "name": "hh3cDvpnNotificationGroup",
+    "oid": "1.3.6.1.4.1.25506.2.57.1.4.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionBuildNotification"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnSessionDelNotification"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapBuildNotification"
+      },
+      {
+        "module": "HH3C-DVPN-MIB",
+        "object": "hh3cDvpnMapDelNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DVPN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-DVPN-MIB"
+  }
+}

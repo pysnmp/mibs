@@ -1,0 +1,5334 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalName",
+      "entPhysicalIndex"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "huaweiStackMIB": {
+    "name": "huaweiStackMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.183",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-05-08 11:00",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2017-04-27 15:00",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2016-12-14 15:11",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2016-09-22 15:11",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2016-08-11 15:11",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2016-07-27 15:11",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2016-03-17 11:20",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2016-03-02 11:20",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2016-02-29 11:20",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2016-02-05 15:47",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2016-01-20 16:06",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2015-12-22 14:59",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2015-10-26 09:25",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2015-08-07 09:25",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2015-06-24 09:25",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2015-04-15 09:25",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2015-03-06 09:25",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2015-02-15 09:25",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2015-02-10 14:25",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2014-12-17 14:25",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2014-10-25 14:25",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2014-10-21 15:21",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2014-09-18 16:50",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2014-09-01 14:34",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2014-08-19 21:09",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2014-08-04 17:11",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2014-07-11 15:58",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2014-06-21 15:13",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2014-06-18 13:48",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2014-06-13 16:17",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2014-06-09 10:43",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2014-04-14 00:00",
+        "description": "Add hwStackSysOid"
+      },
+      {
+        "revision": "2014-03-18 17:30",
+        "description": "Updated to include support for MPUA"
+      },
+      {
+        "revision": "2014-03-04 15:10",
+        "description": "Updated to include support for MPUA"
+      },
+      {
+        "revision": "2014-02-24 18:31",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2014-02-22 10:24",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2014-02-19 00:00",
+        "description": "Add hwAddingPhyPortToFabricPortTable and hwFabricPortTable"
+      },
+      {
+        "revision": "2014-01-26 10:44",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2014-01-14 14:59",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2014-01-13 15:54",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2013-12-31 08:45",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2013-12-24 09:22",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2013-12-10 11:22",
+        "description": "Updated to include support for SRUA/SRUB"
+      },
+      {
+        "revision": "2013-12-06 13:00",
+        "description": "Updated to include support for MPUA"
+      },
+      {
+        "revision": "2013-11-08 15:36",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2013-11-06 19:38",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2013-11-05 15:37",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2013-10-11 09:31",
+        "description": "Updated to include support for MPUA"
+      },
+      {
+        "revision": "2013-04-20 17:03",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2013-03-28 14:35",
+        "description": "Updated to include support for STACK"
+      },
+      {
+        "revision": "2012-08-30 09:36",
+        "description": "Updated to include support for SRUC"
+      }
+    ]
+  },
+  "hwStackObject": {
+    "name": "hwStackObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1",
+    "class": "objectidentity"
+  },
+  "hwStackRun": {
+    "name": "hwStackRun",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStackTopoType": {
+    "name": "hwStackTopoType",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ring": 1,
+          "link": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStackMacAddressSwitchTime": {
+    "name": "hwStackMacAddressSwitchTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStackSystemMac": {
+    "name": "hwStackSystemMac",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStackIsStackDevice": {
+    "name": "hwStackIsStackDevice",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStackReservedVlanId": {
+    "name": "hwStackReservedVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStackClearUnsupportCfg": {
+    "name": "hwStackClearUnsupportCfg",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStackLinkAlarmThreshold": {
+    "name": "hwStackLinkAlarmThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStackMemberThreshold": {
+    "name": "hwStackMemberThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStackMode": {
+    "name": "hwStackMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "card": 1,
+          "serviceport": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStackMemberSpec": {
+    "name": "hwStackMemberSpec",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackMacAddressAlarmTime": {
+    "name": "hwStackMacAddressAlarmTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwLeafMaxNumber": {
+    "name": "hwLeafMaxNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFabricCurrentForwardModel": {
+    "name": "hwFabricCurrentForwardModel",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "distributed": 1,
+          "centralized": 2,
+          "hybrid": 3,
+          "unknown": 255
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFabricConfigForwardModel": {
+    "name": "hwFabricConfigForwardModel",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "distributed": 1,
+          "centralized": 2,
+          "hybrid": 3,
+          "unknown": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwLeafSingleHomedAlarmEnable": {
+    "name": "hwLeafSingleHomedAlarmEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "unknown": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwFabricExcludeLeafType": {
+    "name": "hwFabricExcludeLeafType",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "ce5810ei": 1,
+          "unknown": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStackUpgradeRollbackTimer": {
+    "name": "hwStackUpgradeRollbackTimer",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStackMemberInfoTable": {
+    "name": "hwStackMemberInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStackMemberInfoEntry": {
+    "name": "hwStackMemberInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberCurrentStackId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMemberCurrentStackId": {
+    "name": "hwMemberCurrentStackId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMemberStackPriority": {
+    "name": "hwMemberStackPriority",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMemberStackRole": {
+    "name": "hwMemberStackRole",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "standby": 2,
+          "slave": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMemberStackMacAddress": {
+    "name": "hwMemberStackMacAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMemberStackDeviceType": {
+    "name": "hwMemberStackDeviceType",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMemberConfigStackId": {
+    "name": "hwMemberConfigStackId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMemberStackObjectId": {
+    "name": "hwMemberStackObjectId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.20.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStackMemberInformationTable": {
+    "name": "hwStackMemberInformationTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStackMemberInformationEntry": {
+    "name": "hwStackMemberInformationEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackIdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackIdIndex": {
+    "name": "hwStackIdIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStackPriority": {
+    "name": "hwStackPriority",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStackRole": {
+    "name": "hwStackRole",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "standby": 2,
+          "slave": 3,
+          "leaf": 4,
+          "spine": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStackMacAddress": {
+    "name": "hwStackMacAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStackDeviceType": {
+    "name": "hwStackDeviceType",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStackId": {
+    "name": "hwStackId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStackConfigId": {
+    "name": "hwStackConfigId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStackSysOid": {
+    "name": "hwStackSysOid",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStackDescription": {
+    "name": "hwStackDescription",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 81
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStackCurrentUplinkPort": {
+    "name": "hwStackCurrentUplinkPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoNegotiation": 1,
+          "port8x10ge": 2,
+          "port4x40ge": 3,
+          "port4x10ge": 4,
+          "port2x40ge": 5,
+          "port6x40ge": 6,
+          "unknown": 255
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStackConfigUplinkPort": {
+    "name": "hwStackConfigUplinkPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoNegotiation": 1,
+          "port8x10ge": 2,
+          "port4x40ge": 3,
+          "port4x10ge": 4,
+          "port2x40ge": 5,
+          "port6x40ge": 6,
+          "unknown": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStackCurrentSwitchMode": {
+    "name": "hwStackCurrentSwitchMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoNegotiation": 1,
+          "leaf": 2,
+          "stack": 3,
+          "unknown": 255
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStackConfigSwitchMode": {
+    "name": "hwStackConfigSwitchMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoNegotiation": 1,
+          "leaf": 2,
+          "stack": 3,
+          "unknown": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwFabricPhyLinkTable": {
+    "name": "hwFabricPhyLinkTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.28",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwFabricPhyLinkEntry": {
+    "name": "hwFabricPhyLinkEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.28.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwSpinePortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSpinePortIndex": {
+    "name": "hwSpinePortIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.28.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSpineStackId": {
+    "name": "hwSpineStackId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.28.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSpinePortName": {
+    "name": "hwSpinePortName",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.28.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSpinePortStatus": {
+    "name": "hwSpinePortStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.28.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLeafPortIndex": {
+    "name": "hwLeafPortIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.28.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLeafStackId": {
+    "name": "hwLeafStackId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.28.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 101,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLeafPortName": {
+    "name": "hwLeafPortName",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.28.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLeafPortStatus": {
+    "name": "hwLeafPortStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.28.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "null": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStackPortTable": {
+    "name": "hwStackPortTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStackPortEntry": {
+    "name": "hwStackPortEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortStackId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackPortStackId": {
+    "name": "hwStackPortStackId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackPortId": {
+    "name": "hwStackPortId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackPortName": {
+    "name": "hwStackPortName",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStackNeighborInfo": {
+    "name": "hwStackNeighborInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStackPortStatus": {
+    "name": "hwStackPortStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStackEventsV2": {
+    "name": "hwStackEventsV2",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22",
+    "class": "objectidentity"
+  },
+  "hwStackLinkUp": {
+    "name": "hwStackLinkUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackLinkDown": {
+    "name": "hwStackLinkDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackStandbyChange": {
+    "name": "hwStackStandbyChange",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberCurrentStackId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackSwitchOver": {
+    "name": "hwStackSwitchOver",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberCurrentStackId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackSystemRestart": {
+    "name": "hwStackSystemRestart",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberCurrentStackId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackStackMemberAdd": {
+    "name": "hwStackStackMemberAdd",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberCurrentStackId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackStackMemberLeave": {
+    "name": "hwStackStackMemberLeave",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberCurrentStackId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackStackMacChange": {
+    "name": "hwStackStackMacChange",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberStackMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackLogicStackPortLinkErr": {
+    "name": "hwStackLogicStackPortLinkErr",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPeerIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackPhyStackPortLinkErr": {
+    "name": "hwStackPhyStackPortLinkErr",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPeerIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPhyStackPortIsDown": {
+    "name": "hwPhyStackPortIsDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPhyStackPortIsUp": {
+    "name": "hwPhyStackPortIsUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackLogicStackPortLinkErrResume": {
+    "name": "hwStackLogicStackPortLinkErrResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPeerIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackPortConfigureFailed": {
+    "name": "hwStackPortConfigureFailed",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwConfigureFailedStackId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackLinkLimitAlarm": {
+    "name": "hwStackLinkLimitAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackCurrentLinkNum"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLinkAlarmThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackLinkLimitAlarmResume": {
+    "name": "hwStackLinkLimitAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackCurrentLinkNum"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLinkAlarmThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackConfigConflict": {
+    "name": "hwStackConfigConflict",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberCurrentStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackCfgConflictStackId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackFabricPortLinkErr": {
+    "name": "hwStackFabricPortLinkErr",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricPort"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricMemberPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackFabricPortLinkErrResume": {
+    "name": "hwStackFabricPortLinkErrResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricPort"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricMemberPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackLeafSingleHomedAlarm": {
+    "name": "hwStackLeafSingleHomedAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLeafMemberId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackLeafSingleHomedAlarmResume": {
+    "name": "hwStackLeafSingleHomedAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLeafMemberId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackMemberLimit": {
+    "name": "hwStackMemberLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackMemberAdd": {
+    "name": "hwStackMemberAdd",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackMemberLeave": {
+    "name": "hwStackMemberLeave",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackConfigDifferent": {
+    "name": "hwStackConfigDifferent",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackLeafConfigConflict": {
+    "name": "hwStackLeafConfigConflict",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLeafPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackChipSingleHomedAlarm": {
+    "name": "hwStackChipSingleHomedAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLeafMemberId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackChipSingleHomedAlarmResume": {
+    "name": "hwStackChipSingleHomedAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLeafMemberId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackLeafMemberAdd": {
+    "name": "hwStackLeafMemberAdd",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFabricLinkLimitAlarm": {
+    "name": "hwFabricLinkLimitAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricPort"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricCurrentLinkNum"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricConfiguredLinkNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFabricLinkLimitAlarmResume": {
+    "name": "hwFabricLinkLimitAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricPort"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricCurrentLinkNum"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricConfiguredLinkNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackMemberExceedSpec": {
+    "name": "hwStackMemberExceedSpec",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberSpec"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackMacInconsistence": {
+    "name": "hwStackMacInconsistence",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackSystemMac"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackMacInconsistenceResume": {
+    "name": "hwStackMacInconsistenceResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackSystemMac"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFabricLinkProtocolAlarm": {
+    "name": "hwFabricLinkProtocolAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFabricLinkProtocolAlarmResume": {
+    "name": "hwFabricLinkProtocolAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFabricMemberPortProtocolAlarm": {
+    "name": "hwFabricMemberPortProtocolAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricMemberPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFabricMemberPortProtocolAlarmResume": {
+    "name": "hwFabricMemberPortProtocolAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricMemberPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLeafMaxNumberExceededAlarm": {
+    "name": "hwLeafMaxNumberExceededAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwLeafMaxNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLeafMaxNumberExceededAlarmResume": {
+    "name": "hwLeafMaxNumberExceededAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwLeafMaxNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPhyStackPortErrorDown": {
+    "name": "hwPhyStackPortErrorDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPhyStackPortErrorDownRecover": {
+    "name": "hwPhyStackPortErrorDownRecover",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackErrorDownRecoverReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSvfFabricPortConfigurationNotActiveAlarm": {
+    "name": "hwSvfFabricPortConfigurationNotActiveAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSvfFabricPortConfigurationNotActiveAlarmResume": {
+    "name": "hwSvfFabricPortConfigurationNotActiveAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackMemberPortSpeedDifferentAlarm": {
+    "name": "hwStackMemberPortSpeedDifferentAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackMemberPortSpeedDifferentAlarmResume": {
+    "name": "hwStackMemberPortSpeedDifferentAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackMemberPortProtocolAlarm": {
+    "name": "hwStackMemberPortProtocolAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.47",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackMemberPortProtocolAlarmResume": {
+    "name": "hwStackMemberPortProtocolAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.48",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPhyStackVlanConflict": {
+    "name": "hwPhyStackVlanConflict",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.49",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackVlanConflictDescription"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackVlanID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackLinkTopoAlarm": {
+    "name": "hwStackLinkTopoAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.51",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwStackLinkTopoAlarmResume": {
+    "name": "hwStackLinkTopoAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.52",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwStackMemberPortTypeDifferentAlarm": {
+    "name": "hwStackMemberPortTypeDifferentAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.53",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackMemberPortTypeDifferentAlarmResume": {
+    "name": "hwStackMemberPortTypeDifferentAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.54",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackLinkTopoSinglePortAlarm": {
+    "name": "hwStackLinkTopoSinglePortAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.55",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackLinkTopoSinglePortAlarmResume": {
+    "name": "hwStackLinkTopoSinglePortAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.56",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackSipPortSingleLinkAlarm": {
+    "name": "hwStackSipPortSingleLinkAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.57",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackSipPortSingleLinkAlarmResume": {
+    "name": "hwStackSipPortSingleLinkAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.58",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackPortErrorDown": {
+    "name": "hwStackPortErrorDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.59",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortErrorDownType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackPortErrorDownRecovery": {
+    "name": "hwStackPortErrorDownRecovery",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.60",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortErrorDownType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackSetUpFailure": {
+    "name": "hwStackSetUpFailure",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.61",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalSlotID"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPeerSlotID"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackSetUpFailureDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackMemberPortLoopAlarm": {
+    "name": "hwStackMemberPortLoopAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.62",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackMemberPortLoopAlarmResume": {
+    "name": "hwStackMemberPortLoopAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.63",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackAutoConfigFailed": {
+    "name": "hwStackAutoConfigFailed",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.64",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackAutoConfigFailedSlotID"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackAutoConfigFailedIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackAutoConfigFailedReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackUpgradeTable": {
+    "name": "hwStackUpgradeTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStackUpgradeEntry": {
+    "name": "hwStackUpgradeEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackUpgradeIndex": {
+    "name": "hwStackUpgradeIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStackUpgradeGrpType": {
+    "name": "hwStackUpgradeGrpType",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allMembers": 1,
+          "memberIdList": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "allMembers",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStackUpgradeGrpValue": {
+    "name": "hwStackUpgradeGrpValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 18
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStackUpgradeFileType": {
+    "name": "hwStackUpgradeFileType",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "startupFile": 1,
+          "patchFile": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStackUpgradeFileInfo": {
+    "name": "hwStackUpgradeFileInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStackUpgradeFtpIp": {
+    "name": "hwStackUpgradeFtpIp",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "FFFFFFFF",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStackUpgradeFtpUserName": {
+    "name": "hwStackUpgradeFtpUserName",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStackUpgradeFtpPassword": {
+    "name": "hwStackUpgradeFtpPassword",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStackUpgradeServerPort": {
+    "name": "hwStackUpgradeServerPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStackUpgradeFileSize": {
+    "name": "hwStackUpgradeFileSize",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStackUpgradeTransmitProtocol": {
+    "name": "hwStackUpgradeTransmitProtocol",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 1,
+          "sftp": 2,
+          "tftp": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ftp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStackUpgradeRowStatus": {
+    "name": "hwStackUpgradeRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStackMemberPortEnableTable": {
+    "name": "hwStackMemberPortEnableTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStackMemberPortEnableEntry": {
+    "name": "hwStackMemberPortEnableEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEnableStackMode": {
+    "name": "hwEnableStackMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "no",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAddingPhyPortToStackPortTable": {
+    "name": "hwAddingPhyPortToStackPortTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAddingPhyPortToStackPortEntry": {
+    "name": "hwAddingPhyPortToStackPortEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwEnabledStackModePhyPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEnabledStackModePhyPortIndex": {
+    "name": "hwEnabledStackModePhyPortIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStackPortID": {
+    "name": "hwStackPortID",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "port1": 1,
+          "port2": 2,
+          "unjoinable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAddingPhyPortToFabricPortTable": {
+    "name": "hwAddingPhyPortToFabricPortTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.26",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAddingPhyPortToFabricPortEntry": {
+    "name": "hwAddingPhyPortToFabricPortEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.26.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwEnabledStackModePortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEnabledStackModePortIndex": {
+    "name": "hwEnabledStackModePortIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.26.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFabricPortID": {
+    "name": "hwFabricPortID",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.26.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwFabricPortTable": {
+    "name": "hwFabricPortTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.27",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwFabricPortEntry": {
+    "name": "hwFabricPortEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.27.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwFabricPortIndex": {
+    "name": "hwFabricPortIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.27.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFabricMemberID": {
+    "name": "hwFabricMemberID",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.27.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 101,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwFabricLoadBalance": {
+    "name": "hwFabricLoadBalance",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.27.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sourceMac": 1,
+          "destinationMac": 2,
+          "sourceAndDestinationMac": 3,
+          "sourceIp": 4,
+          "destinationIp": 5,
+          "sourceAndDestinationIp": 6,
+          "enhanced": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwFabricProtocolState": {
+    "name": "hwFabricProtocolState",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.27.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFabricConfiguredLinkNum": {
+    "name": "hwFabricConfiguredLinkNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.27.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStackUpgradeResultTable": {
+    "name": "hwStackUpgradeResultTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.31",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStackUpgradeResultEntry": {
+    "name": "hwStackUpgradeResultEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.31.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeResultIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeResultMemberId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackUpgradeResultIndex": {
+    "name": "hwStackUpgradeResultIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.31.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStackUpgradeResultMemberId": {
+    "name": "hwStackUpgradeResultMemberId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.31.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStackUpgradeResult": {
+    "name": "hwStackUpgradeResult",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.31.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "failure": 2,
+          "running": 3,
+          "timeout": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStackUpgradeResultInProcess": {
+    "name": "hwStackUpgradeResultInProcess",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.31.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStackUpgradeResultFailReason": {
+    "name": "hwStackUpgradeResultFailReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.31.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opUpgradeSuccess": 1,
+          "opMasterDiskNoSpace": 2,
+          "opNonmasterDiskNoSpace": 3,
+          "opInvalidFileInfo": 4,
+          "opInvalidFileType": 5,
+          "opInvalidServerAddress": 6,
+          "opInvalidUserOrPassword": 7,
+          "opDeviceBusy": 8,
+          "opFileTransferError": 9,
+          "opFileChecksumError": 10,
+          "opNoMemory": 11,
+          "opVersionFileNotMatch": 12,
+          "opUpgradeDeviceAbsent": 13,
+          "opUnknownFailure": 14,
+          "opUpgradeInvalidValue": 15
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStackTrapObject": {
+    "name": "hwStackTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32",
+    "class": "objectidentity"
+  },
+  "hwStackLocalIfName": {
+    "name": "hwStackLocalIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackPeerIfName": {
+    "name": "hwStackPeerIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackConnectErrReason": {
+    "name": "hwStackConnectErrReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwConfigureFailedStackId": {
+    "name": "hwConfigureFailedStackId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCssTrapErrorPortId": {
+    "name": "hwCssTrapErrorPortId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackConnectMethod": {
+    "name": "hwStackConnectMethod",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackCfgConflictStackId": {
+    "name": "hwStackCfgConflictStackId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackFabricPort": {
+    "name": "hwStackFabricPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackFabricMemberPort": {
+    "name": "hwStackFabricMemberPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackMemberId": {
+    "name": "hwStackMemberId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackLeafMemberId": {
+    "name": "hwStackLeafMemberId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 101,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackReason": {
+    "name": "hwStackReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackLeafPort": {
+    "name": "hwStackLeafPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackCurrentLinkNum": {
+    "name": "hwStackCurrentLinkNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwFabricCurrentLinkNum": {
+    "name": "hwFabricCurrentLinkNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackErrorDownRecoverReason": {
+    "name": "hwStackErrorDownRecoverReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackVlanConflictDescription": {
+    "name": "hwStackVlanConflictDescription",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackVlanID": {
+    "name": "hwStackVlanID",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackPortErrorDownType": {
+    "name": "hwStackPortErrorDownType",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackSetUpFailureDescription": {
+    "name": "hwStackSetUpFailureDescription",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackLocalSlotID": {
+    "name": "hwStackLocalSlotID",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackPeerSlotID": {
+    "name": "hwStackPeerSlotID",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackAutoConfigFailedSlotID": {
+    "name": "hwStackAutoConfigFailedSlotID",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackAutoConfigFailedIfName": {
+    "name": "hwStackAutoConfigFailedIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStackAutoConfigFailedReason": {
+    "name": "hwStackAutoConfigFailedReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCssObject": {
+    "name": "hwCssObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3",
+    "class": "objectidentity"
+  },
+  "hwCssGlobalObject": {
+    "name": "hwCssGlobalObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.1",
+    "class": "objectidentity"
+  },
+  "hwCssEnable": {
+    "name": "hwCssEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwCssMemberInfoTable": {
+    "name": "hwCssMemberInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCssMemberInfoEntry": {
+    "name": "hwCssMemberInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssMemberFrameId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwCssMemberFrameId": {
+    "name": "hwCssMemberFrameId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssMemberConfigFrameId": {
+    "name": "hwCssMemberConfigFrameId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwCssMemberPriority": {
+    "name": "hwCssMemberPriority",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssMemberConfigPriority": {
+    "name": "hwCssMemberConfigPriority",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwCssMemberMasterForce": {
+    "name": "hwCssMemberMasterForce",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "unknown": 255
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssMemberConfigMasterForce": {
+    "name": "hwCssMemberConfigMasterForce",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "unknown": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwCssMemberConfigEnable": {
+    "name": "hwCssMemberConfigEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "unknown": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwCssMemberRole": {
+    "name": "hwCssMemberRole",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "standby": 2,
+          "slave": 3,
+          "single": 4,
+          "unknown": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssTrap": {
+    "name": "hwCssTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3",
+    "class": "objectidentity"
+  },
+  "hwCssTrapObjects": {
+    "name": "hwCssTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.1",
+    "class": "objectidentity"
+  },
+  "hwCssTrapFrameId1": {
+    "name": "hwCssTrapFrameId1",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCssTrapSlotId1": {
+    "name": "hwCssTrapSlotId1",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCssTrapPortId1": {
+    "name": "hwCssTrapPortId1",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCssTrapFrameId2": {
+    "name": "hwCssTrapFrameId2",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCssTrapSlotId2": {
+    "name": "hwCssTrapSlotId2",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCssTrapPortId2": {
+    "name": "hwCssTrapPortId2",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCssTrapFrameId3": {
+    "name": "hwCssTrapFrameId3",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCssTrapSlotId3": {
+    "name": "hwCssTrapSlotId3",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCssTrapPortId3": {
+    "name": "hwCssTrapPortId3",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCssTrapConfigureFailedSlotId": {
+    "name": "hwCssTrapConfigureFailedSlotId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCssTraps": {
+    "name": "hwCssTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2",
+    "class": "objectidentity"
+  },
+  "hwCssLinkDown": {
+    "name": "hwCssLinkDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapFrameId1"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapSlotId1"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapPortId1"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCssLinkUp": {
+    "name": "hwCssLinkUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapFrameId1"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapSlotId1"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapPortId1"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCssSwitchOver": {
+    "name": "hwCssSwitchOver",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapFrameId1"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCssConnectError": {
+    "name": "hwCssConnectError",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapFrameId1"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapSlotId1"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapPortId1"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapFrameId2"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapSlotId2"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapPortId2"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapFrameId3"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapSlotId3"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapPortId3"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCssSplit": {
+    "name": "hwCssSplit",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.5",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwCssEstablish": {
+    "name": "hwCssEstablish",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.6",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwCssFastUpgradeFail": {
+    "name": "hwCssFastUpgradeFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.7",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwCssPhyCsuConnectError": {
+    "name": "hwCssPhyCsuConnectError",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPeerIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackConnectErrReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCssLpuInvalidLicense": {
+    "name": "hwCssLpuInvalidLicense",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.9",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwCssPortConfigureFailed": {
+    "name": "hwCssPortConfigureFailed",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapConfigureFailedSlotId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCssPortUpDownAlarm": {
+    "name": "hwCssPortUpDownAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapErrorPortId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCssPortCrcErrorAlarm": {
+    "name": "hwCssPortCrcErrorAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapErrorPortId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCssPortErrorDown": {
+    "name": "hwCssPortErrorDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapErrorPortId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCssPortErrorDownRecover": {
+    "name": "hwCssPortErrorDownRecover",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapErrorPortId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCssPhyVs08ConnectError": {
+    "name": "hwCssPhyVs08ConnectError",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPeerIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackConnectMethod"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCssStandbyError": {
+    "name": "hwCssStandbyError",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.16",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwCssStandbyErrorRestore": {
+    "name": "hwCssStandbyErrorRestore",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.17",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwCssPortStateError": {
+    "name": "hwCssPortStateError",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapErrorPortId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCssPhyCardConnectError": {
+    "name": "hwCssPhyCardConnectError",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPeerIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackConnectErrReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCssPortInfoTable": {
+    "name": "hwCssPortInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCssPortInfoEntry": {
+    "name": "hwCssPortInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPortFrameId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPortSlotId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPortCardId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPortPortId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPortName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwCssPortFrameId": {
+    "name": "hwCssPortFrameId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCssPortSlotId": {
+    "name": "hwCssPortSlotId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 18
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCssPortCardId": {
+    "name": "hwCssPortCardId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCssPortPortId": {
+    "name": "hwCssPortPortId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCssPortName": {
+    "name": "hwCssPortName",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssPortSpeed": {
+    "name": "hwCssPortSpeed",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssPortOperStatus": {
+    "name": "hwCssPortOperStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssPortAdminStatus": {
+    "name": "hwCssPortAdminStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undoshutdown": 0,
+          "shutdown": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssPortInOctets": {
+    "name": "hwCssPortInOctets",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssPortInUcastPkts": {
+    "name": "hwCssPortInUcastPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssPortInMcastPkts": {
+    "name": "hwCssPortInMcastPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssPortInBcastPkts": {
+    "name": "hwCssPortInBcastPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssPortInDiscards": {
+    "name": "hwCssPortInDiscards",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssPortInErrors": {
+    "name": "hwCssPortInErrors",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssPortInCRCErrors": {
+    "name": "hwCssPortInCRCErrors",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssPortOutOctets": {
+    "name": "hwCssPortOutOctets",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssPortOutUcastPkts": {
+    "name": "hwCssPortOutUcastPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssPortOutMcastPkts": {
+    "name": "hwCssPortOutMcastPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssPortOutBcastPkts": {
+    "name": "hwCssPortOutBcastPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssPortOutDiscards": {
+    "name": "hwCssPortOutDiscards",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssPortOutErrors": {
+    "name": "hwCssPortOutErrors",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssLinkInfoTable": {
+    "name": "hwCssLinkInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCssLinkInfoEntry": {
+    "name": "hwCssLinkInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssLinkLocFrameId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssLinkLocSlotId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssLinkLocCardId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssLinkLocPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwCssLinkLocFrameId": {
+    "name": "hwCssLinkLocFrameId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCssLinkLocSlotId": {
+    "name": "hwCssLinkLocSlotId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 18
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCssLinkLocCardId": {
+    "name": "hwCssLinkLocCardId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCssLinkLocPortId": {
+    "name": "hwCssLinkLocPortId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCssLinkLocPortName": {
+    "name": "hwCssLinkLocPortName",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssLinkRemFrameId": {
+    "name": "hwCssLinkRemFrameId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssLinkRemSlotId": {
+    "name": "hwCssLinkRemSlotId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 18
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssLinkRemCardId": {
+    "name": "hwCssLinkRemCardId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssLinkRemPortId": {
+    "name": "hwCssLinkRemPortId",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssLinkRemPortName": {
+    "name": "hwCssLinkRemPortName",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCssLinkSpeed": {
+    "name": "hwCssLinkSpeed",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStackConformance": {
+    "name": "hwStackConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.100",
+    "class": "objectidentity"
+  },
+  "hwStackCompliances": {
+    "name": "hwStackCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.100.1",
+    "class": "objectidentity"
+  },
+  "hwStackCompliance": {
+    "name": "hwStackCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.100.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwStackObjectGroup",
+        "module": "HUAWEI-STACK-MIB"
+      },
+      {
+        "object": "hwStackNotificationGroup",
+        "module": "HUAWEI-STACK-MIB"
+      },
+      {
+        "object": "hwStackTrapGroup",
+        "module": "HUAWEI-STACK-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackGroups": {
+    "name": "hwStackGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.100.1.2",
+    "class": "objectidentity"
+  },
+  "hwStackObjectGroup": {
+    "name": "hwStackObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.100.1.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackRun"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackTopoType"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMacAddressSwitchTime"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackSystemMac"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackIsStackDevice"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackReservedVlanId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackClearUnsupportCfg"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLinkAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberThreshold"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMode"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberSpec"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwLeafMaxNumber"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricCurrentForwardModel"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricConfigForwardModel"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwLeafSingleHomedAlarmEnable"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricExcludeLeafType"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeRollbackTimer"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberCurrentStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberStackPriority"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberStackRole"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberStackMacAddress"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberStackDeviceType"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberConfigStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberStackObjectId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPriority"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackRole"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMacAddress"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackDeviceType"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackConfigId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackSysOid"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackDescription"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackCurrentUplinkPort"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackConfigUplinkPort"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackCurrentSwitchMode"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackConfigSwitchMode"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwEnabledStackModePortIndex"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricPortID"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricPortIndex"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricMemberID"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricLoadBalance"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricProtocolState"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricConfiguredLinkNum"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwSpineStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwSpinePortName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwSpinePortStatus"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwLeafPortIndex"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwLeafStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwLeafPortName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwLeafPortStatus"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackNeighborInfo"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortStatus"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeGrpType"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeGrpValue"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeFileType"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeFileInfo"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeFtpIp"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeFtpUserName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeFtpPassword"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeServerPort"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeFileSize"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeTransmitProtocol"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeRowStatus"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeResultMemberId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeResult"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeResultInProcess"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeResultFailReason"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMacAddressAlarmTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackNotificationGroup": {
+    "name": "hwStackNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.100.1.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLinkUp"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLinkDown"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackStandbyChange"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackSwitchOver"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackSystemRestart"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackStackMemberAdd"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackStackMemberLeave"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackStackMacChange"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLogicStackPortLinkErr"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPhyStackPortLinkErr"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwPhyStackPortIsDown"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwPhyStackPortIsUp"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLogicStackPortLinkErrResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortConfigureFailed"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLinkLimitAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLinkLimitAlarmResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackConfigConflict"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricPortLinkErr"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricPortLinkErrResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLeafSingleHomedAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLeafSingleHomedAlarmResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberLimit"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberAdd"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberLeave"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackConfigDifferent"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLeafConfigConflict"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackChipSingleHomedAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackChipSingleHomedAlarmResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLeafMemberAdd"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricLinkLimitAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricLinkLimitAlarmResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberExceedSpec"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMacInconsistence"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMacInconsistenceResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricLinkProtocolAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricLinkProtocolAlarmResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricMemberPortProtocolAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricMemberPortProtocolAlarmResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwLeafMaxNumberExceededAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwLeafMaxNumberExceededAlarmResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwPhyStackPortErrorDown"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwPhyStackPortErrorDownRecover"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwSvfFabricPortConfigurationNotActiveAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwSvfFabricPortConfigurationNotActiveAlarmResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberPortSpeedDifferentAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberPortSpeedDifferentAlarmResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberPortProtocolAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberPortProtocolAlarmResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwPhyStackVlanConflict"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLinkTopoAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLinkTopoAlarmResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberPortTypeDifferentAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberPortTypeDifferentAlarmResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLinkTopoSinglePortAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLinkTopoSinglePortAlarmResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackSipPortSingleLinkAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackSipPortSingleLinkAlarmResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortErrorDown"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortErrorDownRecovery"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackSetUpFailure"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberPortLoopAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberPortLoopAlarmResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackAutoConfigFailed"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStackTrapGroup": {
+    "name": "hwStackTrapGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.100.1.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPeerIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackVlanID"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackVlanConflictDescription"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwConfigureFailedStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackConnectErrReason"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapErrorPortId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackConnectMethod"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackCfgConflictStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricPort"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricMemberPort"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLeafMemberId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackReason"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLeafPort"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackCurrentLinkNum"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricCurrentLinkNum"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackErrorDownRecoverReason"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortErrorDownType"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackSetUpFailureDescription"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalSlotID"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPeerSlotID"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackAutoConfigFailedSlotID"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackAutoConfigFailedIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackAutoConfigFailedReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCssConformance": {
+    "name": "hwCssConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.101",
+    "class": "objectidentity"
+  },
+  "hwCssCompliances": {
+    "name": "hwCssCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.101.1",
+    "class": "objectidentity"
+  },
+  "hwCssCompliance": {
+    "name": "hwCssCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.101.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwCssObjectGroup",
+        "module": "HUAWEI-STACK-MIB"
+      },
+      {
+        "object": "hwCssTrapObjectGroup",
+        "module": "HUAWEI-STACK-MIB"
+      },
+      {
+        "object": "hwCssNotificationGroup",
+        "module": "HUAWEI-STACK-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCssGroups": {
+    "name": "hwCssGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.101.1.2",
+    "class": "objectidentity"
+  },
+  "hwCssObjectGroup": {
+    "name": "hwCssObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.101.1.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssMemberFrameId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssMemberConfigFrameId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssMemberPriority"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssMemberConfigPriority"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssMemberMasterForce"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssMemberConfigMasterForce"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssMemberConfigEnable"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssMemberRole"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCssTrapObjectGroup": {
+    "name": "hwCssTrapObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.101.1.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapFrameId2"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapSlotId2"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapPortId2"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapFrameId3"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapSlotId3"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapPortId3"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapFrameId1"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapSlotId1"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapPortId1"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapConfigureFailedSlotId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCssNotificationGroup": {
+    "name": "hwCssNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.101.1.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssLinkDown"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssLinkUp"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssSwitchOver"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssConnectError"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssSplit"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssEstablish"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssFastUpgradeFail"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPhyCsuConnectError"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssLpuInvalidLicense"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPortConfigureFailed"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPortUpDownAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPortCrcErrorAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPortErrorDown"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPortErrorDownRecover"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPhyVs08ConnectError"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssStandbyError"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssStandbyErrorRestore"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPortStateError"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPhyCardConnectError"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-STACK-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-STACK-MIB"
+  }
+}

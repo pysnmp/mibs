@@ -1,0 +1,759 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALARM-MIB": [
+      "alarmModelIndex",
+      "alarmModelState",
+      "alarmClearIndex",
+      "alarmListName",
+      "alarmClearDateAndTime",
+      "alarmActiveIndex",
+      "alarmActiveDateAndTime"
+    ],
+    "CIENA-SMI": [
+      "cienaCesConfig"
+    ],
+    "ITU-ALARM-TC-MIB": [
+      "ItuPerceivedSeverity"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaCesAlarmMIB": {
+    "name": "cienaCesAlarmMIB",
+    "oid": "1.3.6.1.4.1.1271.2.1.24",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-11-07 00:00",
+        "description": "Added cienaCesAlarmActiveTimeStamp to the cienaCesAlarmActiveTable."
+      },
+      {
+        "revision": "2016-02-22 00:00",
+        "description": "Added cienaCesAlarmSense to the cienaCesAlarmEntry object Added cienaCesAlarmTrigger to the cienaCesAlarmEntry object."
+      },
+      {
+        "revision": "2015-09-16 00:00",
+        "description": "Added cienaCesAlarmLogModelIndex and cienaCesAlarmLogTimeStamp to the cienaCesAlarmLogEntry object"
+      },
+      {
+        "revision": "2015-05-13 00:00",
+        "description": "Change MAX-ACCESS of cienaCesAlarmCutoff from 'read-only' to 'read-write'."
+      },
+      {
+        "revision": "2012-03-14 01:30",
+        "description": "Initial creation."
+      }
+    ]
+  },
+  "cienaCesAlarmMIBObjects": {
+    "name": "cienaCesAlarmMIBObjects",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1",
+    "class": "objectidentity"
+  },
+  "cienaCesAlarmGlobal": {
+    "name": "cienaCesAlarmGlobal",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesAlarm": {
+    "name": "cienaCesAlarm",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.2",
+    "class": "objectidentity"
+  },
+  "cienaCesAlarmActive": {
+    "name": "cienaCesAlarmActive",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.3",
+    "class": "objectidentity"
+  },
+  "cienaCesAlarmClear": {
+    "name": "cienaCesAlarmClear",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.4",
+    "class": "objectidentity"
+  },
+  "cienaCesAlarmLog": {
+    "name": "cienaCesAlarmLog",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.5",
+    "class": "objectidentity"
+  },
+  "cienaCesAlarmMIBNotificationPrefix": {
+    "name": "cienaCesAlarmMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.2",
+    "class": "objectidentity"
+  },
+  "cienaCesAlarmMIBNotifications": {
+    "name": "cienaCesAlarmMIBNotifications",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.2.0",
+    "class": "objectidentity"
+  },
+  "cienaCesAlarmMIBConformance": {
+    "name": "cienaCesAlarmMIBConformance",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.3",
+    "class": "objectidentity"
+  },
+  "cienaCesAlarmMIBCompliances": {
+    "name": "cienaCesAlarmMIBCompliances",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.3.1",
+    "class": "objectidentity"
+  },
+  "cienaCesAlarmMIBGroups": {
+    "name": "cienaCesAlarmMIBGroups",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.3.2",
+    "class": "objectidentity"
+  },
+  "cienaCesAlarmCutOff": {
+    "name": "cienaCesAlarmCutOff",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesAlarmTable": {
+    "name": "cienaCesAlarmTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesAlarmEntry": {
+    "name": "cienaCesAlarmEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmListName",
+        "implied": 0
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmModelIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmModelState",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesAlarmDescription": {
+    "name": "cienaCesAlarmDescription",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmThreshold": {
+    "name": "cienaCesAlarmThreshold",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmLeak": {
+    "name": "cienaCesAlarmLeak",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmGPO": {
+    "name": "cienaCesAlarmGPO",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmEvery": {
+    "name": "cienaCesAlarmEvery",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmToMinor": {
+    "name": "cienaCesAlarmToMinor",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmToMajor": {
+    "name": "cienaCesAlarmToMajor",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmToCritical": {
+    "name": "cienaCesAlarmToCritical",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmSense": {
+    "name": "cienaCesAlarmSense",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmTrigger": {
+    "name": "cienaCesAlarmTrigger",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmSeverityTable": {
+    "name": "cienaCesAlarmSeverityTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesAlarmSeverityEntry": {
+    "name": "cienaCesAlarmSeverityEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmListName",
+        "implied": 0
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmModelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesAlarmSeverity": {
+    "name": "cienaCesAlarmSeverity",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ItuPerceivedSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmActiveTable": {
+    "name": "cienaCesAlarmActiveTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesAlarmActiveEntry": {
+    "name": "cienaCesAlarmActiveEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmListName",
+        "implied": 0
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveDateAndTime",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesAlarmActiveSeverity": {
+    "name": "cienaCesAlarmActiveSeverity",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ItuPerceivedSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmActiveInvokeId": {
+    "name": "cienaCesAlarmActiveInvokeId",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmActiveManagedObjectClass": {
+    "name": "cienaCesAlarmActiveManagedObjectClass",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "chassis": 2,
+          "slot": 3,
+          "port": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmActiveManagedObjectInterpret": {
+    "name": "cienaCesAlarmActiveManagedObjectInterpret",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmActiveManagedObjectInstance": {
+    "name": "cienaCesAlarmActiveManagedObjectInstance",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmActiveAck": {
+    "name": "cienaCesAlarmActiveAck",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmActiveDescription": {
+    "name": "cienaCesAlarmActiveDescription",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmActiveTimeStamp": {
+    "name": "cienaCesAlarmActiveTimeStamp",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmClearTable": {
+    "name": "cienaCesAlarmClearTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesAlarmClearEntry": {
+    "name": "cienaCesAlarmClearEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmListName",
+        "implied": 0
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmClearIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmClearDateAndTime",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesAlarmClearManagedObjectClass": {
+    "name": "cienaCesAlarmClearManagedObjectClass",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "chassis": 2,
+          "slot": 3,
+          "port": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmClearManagedObjectInterpret": {
+    "name": "cienaCesAlarmClearManagedObjectInterpret",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmClearManagedObjectInstance": {
+    "name": "cienaCesAlarmClearManagedObjectInstance",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmLogTable": {
+    "name": "cienaCesAlarmLogTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesAlarmLogEntry": {
+    "name": "cienaCesAlarmLogEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmListName",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-ALARM-MIB",
+        "object": "cienaCesAlarmLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesAlarmLogIndex": {
+    "name": "cienaCesAlarmLogIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesAlarmLogSeverity": {
+    "name": "cienaCesAlarmLogSeverity",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ItuPerceivedSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmLogManagedObjectClass": {
+    "name": "cienaCesAlarmLogManagedObjectClass",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "chassis": 2,
+          "slot": 3,
+          "port": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmLogManagedObjectInterpret": {
+    "name": "cienaCesAlarmLogManagedObjectInterpret",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmLogManagedObjectInstance": {
+    "name": "cienaCesAlarmLogManagedObjectInstance",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmLogModelIndex": {
+    "name": "cienaCesAlarmLogModelIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAlarmLogTimeStamp": {
+    "name": "cienaCesAlarmLogTimeStamp",
+    "oid": "1.3.6.1.4.1.1271.2.1.24.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-ALARM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-CES-ALARM-MIB"
+  }
+}

@@ -1,0 +1,974 @@
+{
+  "imports": {
+    "class": "imports",
+    "FOUNDRY-SN-ROOT-MIB": [
+      "bfd"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetPortNumber",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Bits",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TruthValue",
+      "DisplayString",
+      "StorageType",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "bfdMIB": {
+    "name": "bfdMIB",
+    "oid": "1.3.6.1.4.1.1991.3.3.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-08-22 12:00",
+        "description": "Initial version. Published as RFC xxxx."
+      }
+    ]
+  },
+  "bfdNotifications": {
+    "name": "bfdNotifications",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.0",
+    "class": "objectidentity"
+  },
+  "bfdObjects": {
+    "name": "bfdObjects",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1",
+    "class": "objectidentity"
+  },
+  "bfdConformance": {
+    "name": "bfdConformance",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.3",
+    "class": "objectidentity"
+  },
+  "bfdScalarObjects": {
+    "name": "bfdScalarObjects",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.1",
+    "class": "objectidentity"
+  },
+  "BfdSessIndexTC": {
+    "name": "BfdSessIndexTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "BfdInterval": {
+    "name": "BfdInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "BfdDiag": {
+    "name": "BfdDiag",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noDiagnostic": 1,
+          "controlDetectionTimeExpired": 2,
+          "echoFunctionFailed": 3,
+          "neighborSignaledSessionDown": 4,
+          "forwardingPlaneReset": 5,
+          "pathDown": 6,
+          "concatenatedPathDown": 7,
+          "administrativelyDown": 8,
+          "reverseConcatenatedPathDown": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "bfdAdminStatus": {
+    "name": "bfdAdminStatus",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bfdVersionNumber": {
+    "name": "bfdVersionNumber",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessTable": {
+    "name": "bfdSessTable",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bfdSessEntry": {
+    "name": "bfdSessEntry",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bfdSessIndex": {
+    "name": "bfdSessIndex",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BfdSessIndexTC",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bfdSessApplicationId": {
+    "name": "bfdSessApplicationId",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessDiscriminator": {
+    "name": "bfdSessDiscriminator",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessRemoteDiscr": {
+    "name": "bfdSessRemoteDiscr",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessUdpPort": {
+    "name": "bfdSessUdpPort",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bfdSessState": {
+    "name": "bfdSessState",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "adminDown": 1,
+          "down": 2,
+          "init": 3,
+          "up": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessRemoteHeardFlag": {
+    "name": "bfdSessRemoteHeardFlag",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessDiag": {
+    "name": "bfdSessDiag",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "bfdSessOperMode": {
+    "name": "bfdSessOperMode",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "asyncModeWEchoFun": 1,
+          "asynchModeWOEchoFun": 2,
+          "demandModeWEchoFunction": 3,
+          "demandModeWOEchoFunction": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessDemandModeDesiredFlag": {
+    "name": "bfdSessDemandModeDesiredFlag",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bfdSessEchoFuncModeDesiredFlag": {
+    "name": "bfdSessEchoFuncModeDesiredFlag",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bfdSessControlPlanIndepFlag": {
+    "name": "bfdSessControlPlanIndepFlag",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bfdSessAddrType": {
+    "name": "bfdSessAddrType",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bfdSessAddr": {
+    "name": "bfdSessAddr",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bfdSessDesiredMinTxInterval": {
+    "name": "bfdSessDesiredMinTxInterval",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BfdInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bfdSessReqMinRxInterval": {
+    "name": "bfdSessReqMinRxInterval",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BfdInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bfdSessReqMinEchoRxInterval": {
+    "name": "bfdSessReqMinEchoRxInterval",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BfdInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bfdSessDetectMult": {
+    "name": "bfdSessDetectMult",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bfdSessStorType": {
+    "name": "bfdSessStorType",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bfdSessRowStatus": {
+    "name": "bfdSessRowStatus",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bfdSessAuthPresFlag": {
+    "name": "bfdSessAuthPresFlag",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bfdSessAuthenticationType": {
+    "name": "bfdSessAuthenticationType",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "simplePassword": 1,
+          "keyedMD5": 2,
+          "meticulousKeyedMD5": 3,
+          "keyedSHA1": 4,
+          "meticulousKeyedSHA1": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bfdSessPerfTable": {
+    "name": "bfdSessPerfTable",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bfdSessPerfEntry": {
+    "name": "bfdSessPerfEntry",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "bfdSessPerfEntry",
+      "module": "FOUNDRY-BFD-STD-MIB",
+      "object": "bfdSessEntry"
+    },
+    "status": "current"
+  },
+  "bfdSessPerfPktIn": {
+    "name": "bfdSessPerfPktIn",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessPerfPktOut": {
+    "name": "bfdSessPerfPktOut",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessPerfUpTime": {
+    "name": "bfdSessPerfUpTime",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessPerfLastSessDownTime": {
+    "name": "bfdSessPerfLastSessDownTime",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessPerfLastCommLostDiag": {
+    "name": "bfdSessPerfLastCommLostDiag",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BfdDiag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessPerfSessUpCount": {
+    "name": "bfdSessPerfSessUpCount",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessPerfDiscTime": {
+    "name": "bfdSessPerfDiscTime",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessPerfPktInHC": {
+    "name": "bfdSessPerfPktInHC",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessPerfPktOutHC": {
+    "name": "bfdSessPerfPktOutHC",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessMapTable": {
+    "name": "bfdSessMapTable",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bfdSessMapEntry": {
+    "name": "bfdSessMapEntry",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessApplicationId",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessDiscriminator",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessAddrType",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bfdSessMapBfdIndex": {
+    "name": "bfdSessMapBfdIndex",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BfdSessIndexTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessNotificationsEnable": {
+    "name": "bfdSessNotificationsEnable",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bfdSessUp": {
+    "name": "bfdSessUp",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessDiag"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessDiag"
+      }
+    ],
+    "status": "current"
+  },
+  "bfdSessDown": {
+    "name": "bfdSessDown",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessDiag"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessDiag"
+      }
+    ],
+    "status": "current"
+  },
+  "bfdGroups": {
+    "name": "bfdGroups",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.3.1",
+    "class": "objectidentity"
+  },
+  "bfdCompliances": {
+    "name": "bfdCompliances",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.3.2",
+    "class": "objectidentity"
+  },
+  "bfdModuleFullCompliance": {
+    "name": "bfdModuleFullCompliance",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "bfdSessionGroup",
+        "module": "FOUNDRY-BFD-STD-MIB"
+      },
+      {
+        "object": "bfdSessionPerfGroup",
+        "module": "FOUNDRY-BFD-STD-MIB"
+      },
+      {
+        "object": "bfdSessionPerfHCGroup",
+        "module": "FOUNDRY-BFD-STD-MIB"
+      },
+      {
+        "object": "bfdNotificationGroup",
+        "module": "FOUNDRY-BFD-STD-MIB"
+      },
+      {
+        "object": "bfdSessionPerfHCGroup",
+        "module": "FOUNDRY-BFD-STD-MIB"
+      },
+      {
+        "object": "bfdNotificationGroup",
+        "module": "FOUNDRY-BFD-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "bfdSessionGroup": {
+    "name": "bfdSessionGroup",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessNotificationsEnable"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdAdminStatus"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdVersionNumber"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessApplicationId"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessDiscriminator"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessAddrType"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessAddr"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessRemoteDiscr"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessUdpPort"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessState"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessRemoteHeardFlag"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessDiag"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessOperMode"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessDemandModeDesiredFlag"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessEchoFuncModeDesiredFlag"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessControlPlanIndepFlag"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessDesiredMinTxInterval"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessReqMinRxInterval"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessReqMinEchoRxInterval"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessDetectMult"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessStorType"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessRowStatus"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessMapBfdIndex"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessAuthPresFlag"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessAuthenticationType"
+      }
+    ],
+    "status": "current"
+  },
+  "bfdSessionPerfGroup": {
+    "name": "bfdSessionPerfGroup",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessPerfPktIn"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessPerfPktOut"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessPerfUpTime"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessPerfLastSessDownTime"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessPerfLastCommLostDiag"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessPerfSessUpCount"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessPerfDiscTime"
+      }
+    ],
+    "status": "current"
+  },
+  "bfdSessionPerfHCGroup": {
+    "name": "bfdSessionPerfHCGroup",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessPerfPktInHC"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessPerfPktOutHC"
+      }
+    ],
+    "status": "current"
+  },
+  "bfdNotificationGroup": {
+    "name": "bfdNotificationGroup",
+    "oid": "1.3.6.1.4.1.1991.3.3.1.3.1.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessUp"
+      },
+      {
+        "module": "FOUNDRY-BFD-STD-MIB",
+        "object": "bfdSessDown"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/brocade/FOUNDRY-BFD-STD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:54 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "FOUNDRY-BFD-STD-MIB"
+  }
+}

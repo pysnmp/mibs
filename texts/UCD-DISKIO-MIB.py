@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module UCD-DISKIO-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netsnmp/UCD-DISKIO-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:08:34 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:42:38 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, ObjectIdentity, TimeTicks, NotificationType, ModuleIdentity, Integer32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, MibIdentifier, iso, Unsigned32, Gauge32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "ObjectIdentity", "TimeTicks", "NotificationType", "ModuleIdentity", "Integer32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "MibIdentifier", "iso", "Unsigned32", "Gauge32", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+NotificationType, ModuleIdentity, Bits, Gauge32, IpAddress, iso, MibIdentifier, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ObjectIdentity, Counter32, Counter64, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "ModuleIdentity", "Bits", "Gauge32", "IpAddress", "iso", "MibIdentifier", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ObjectIdentity", "Counter32", "Counter64", "Integer32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ucdExperimental, = mibBuilder.importSymbols("UCD-SNMP-MIB", "ucdExperimental")
 ucdDiskIOMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2021, 13, 15))
 ucdDiskIOMIB.setRevisions(('2016-04-04 00:00', '2005-04-20 00:00', '2002-02-13 00:00', '2000-01-26 00:00',))
@@ -63,4 +63,4 @@ if mibBuilder.loadTexts: diskIONWrittenX.setDescription('The number of bytes wri
 diskIOBusyTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 14), Counter64()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: diskIOBusyTime.setStatus('current')
 if mibBuilder.loadTexts: diskIOBusyTime.setDescription('The number of usecs the drive has been busy since boot.')
-mibBuilder.exportSymbols("UCD-DISKIO-MIB", diskIOReads=diskIOReads, diskIONRead=diskIONRead, diskIOLA1=diskIOLA1, diskIOIndex=diskIOIndex, diskIOTable=diskIOTable, diskIONWritten=diskIONWritten, diskIOEntry=diskIOEntry, diskIODevice=diskIODevice, diskIOBusyTime=diskIOBusyTime, diskIONWrittenX=diskIONWrittenX, PYSNMP_MODULE_ID=ucdDiskIOMIB, diskIOLA5=diskIOLA5, diskIONReadX=diskIONReadX, diskIOLA15=diskIOLA15, ucdDiskIOMIB=ucdDiskIOMIB, diskIOWrites=diskIOWrites)
+mibBuilder.exportSymbols("UCD-DISKIO-MIB", ucdDiskIOMIB=ucdDiskIOMIB, diskIOLA15=diskIOLA15, diskIOLA5=diskIOLA5, diskIOBusyTime=diskIOBusyTime, diskIOEntry=diskIOEntry, diskIONWritten=diskIONWritten, diskIONWrittenX=diskIONWrittenX, diskIOLA1=diskIOLA1, diskIONRead=diskIONRead, diskIOReads=diskIOReads, diskIOWrites=diskIOWrites, diskIODevice=diskIODevice, diskIOTable=diskIOTable, diskIONReadX=diskIONReadX, PYSNMP_MODULE_ID=ucdDiskIOMIB, diskIOIndex=diskIOIndex)

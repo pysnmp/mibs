@@ -1,0 +1,330 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-FLOW-MONITOR-MIB": [
+      "cfmFlowMetricsIntNumber",
+      "cfmFlowId",
+      "cfmFlowMonitorId"
+    ],
+    "CISCO-FLOW-MONITOR-TC-MIB": [
+      "FlowMetricPrecision",
+      "FlowMetricValue",
+      "FlowMetricScale"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoTcpMetricsMIB": {
+    "name": "ciscoTcpMetricsMIB",
+    "oid": "1.3.6.1.4.1.9.9.770",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-03-06 00:00",
+        "description": "Latest version of this MIB module."
+      }
+    ]
+  },
+  "ciscoTcpMetricsMIBNotifs": {
+    "name": "ciscoTcpMetricsMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.770.0",
+    "class": "objectidentity"
+  },
+  "ciscoTcpMetricsMIBObjects": {
+    "name": "ciscoTcpMetricsMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.770.1",
+    "class": "objectidentity"
+  },
+  "ciscoTcpMetricsMIBConform": {
+    "name": "ciscoTcpMetricsMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.770.2",
+    "class": "objectidentity"
+  },
+  "ciscoTcpMetricsMIBIds": {
+    "name": "ciscoTcpMetricsMIBIds",
+    "oid": "1.3.6.1.4.1.9.9.770.3",
+    "class": "objectidentity"
+  },
+  "ciscoTcpMetricsMIBCompliances": {
+    "name": "ciscoTcpMetricsMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.770.2.1",
+    "class": "objectidentity"
+  },
+  "cfmTcpMetrics": {
+    "name": "cfmTcpMetrics",
+    "oid": "1.3.6.1.4.1.9.9.770.1.1",
+    "class": "objectidentity"
+  },
+  "cfmTcpMetricsTable": {
+    "name": "cfmTcpMetricsTable",
+    "oid": "1.3.6.1.4.1.9.9.770.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmTcpMetricsEntry": {
+    "name": "cfmTcpMetricsEntry",
+    "oid": "1.3.6.1.4.1.9.9.770.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmTcpMetricsValid": {
+    "name": "cfmTcpMetricsValid",
+    "oid": "1.3.6.1.4.1.9.9.770.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "roundTripTime": 0
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmTcpMetricsRoundTripTimeScale": {
+    "name": "cfmTcpMetricsRoundTripTimeScale",
+    "oid": "1.3.6.1.4.1.9.9.770.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMetricScale",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmTcpMetricsRoundTripTimePrecision": {
+    "name": "cfmTcpMetricsRoundTripTimePrecision",
+    "oid": "1.3.6.1.4.1.9.9.770.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMetricPrecision",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmTcpMetricsRoundTripTime": {
+    "name": "cfmTcpMetricsRoundTripTime",
+    "oid": "1.3.6.1.4.1.9.9.770.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMetricValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmTcpMetricsTableChanged": {
+    "name": "cfmTcpMetricsTableChanged",
+    "oid": "1.3.6.1.4.1.9.9.770.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmTcpMetricsIntTable": {
+    "name": "cfmTcpMetricsIntTable",
+    "oid": "1.3.6.1.4.1.9.9.770.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmTcpMetricsIntEntry": {
+    "name": "cfmTcpMetricsIntEntry",
+    "oid": "1.3.6.1.4.1.9.9.770.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsIntNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmTcpMetricsIntValid": {
+    "name": "cfmTcpMetricsIntValid",
+    "oid": "1.3.6.1.4.1.9.9.770.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "roundTripTime": 0
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmTcpMetricsIntRoundTripTimeScale": {
+    "name": "cfmTcpMetricsIntRoundTripTimeScale",
+    "oid": "1.3.6.1.4.1.9.9.770.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMetricScale",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmTcpMetricsIntRoundTripTimePrecision": {
+    "name": "cfmTcpMetricsIntRoundTripTimePrecision",
+    "oid": "1.3.6.1.4.1.9.9.770.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMetricPrecision",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmTcpMetricsIntRoundTripTime": {
+    "name": "cfmTcpMetricsIntRoundTripTime",
+    "oid": "1.3.6.1.4.1.9.9.770.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMetricValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoTcpMetricsMIBGroups": {
+    "name": "ciscoTcpMetricsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.770.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoTcpMetricsMIBCompliance01": {
+    "name": "ciscoTcpMetricsMIBCompliance01",
+    "oid": "1.3.6.1.4.1.9.9.770.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoTcpMetricsGroup",
+        "module": "CISCO-TCP-METRICS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTcpMetricsGroup": {
+    "name": "ciscoTcpMetricsGroup",
+    "oid": "1.3.6.1.4.1.9.9.770.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TCP-METRICS-MIB",
+        "object": "cfmTcpMetricsValid"
+      },
+      {
+        "module": "CISCO-TCP-METRICS-MIB",
+        "object": "cfmTcpMetricsRoundTripTimeScale"
+      },
+      {
+        "module": "CISCO-TCP-METRICS-MIB",
+        "object": "cfmTcpMetricsRoundTripTimePrecision"
+      },
+      {
+        "module": "CISCO-TCP-METRICS-MIB",
+        "object": "cfmTcpMetricsRoundTripTime"
+      },
+      {
+        "module": "CISCO-TCP-METRICS-MIB",
+        "object": "cfmTcpMetricsTableChanged"
+      },
+      {
+        "module": "CISCO-TCP-METRICS-MIB",
+        "object": "cfmTcpMetricsIntValid"
+      },
+      {
+        "module": "CISCO-TCP-METRICS-MIB",
+        "object": "cfmTcpMetricsIntRoundTripTimeScale"
+      },
+      {
+        "module": "CISCO-TCP-METRICS-MIB",
+        "object": "cfmTcpMetricsIntRoundTripTimePrecision"
+      },
+      {
+        "module": "CISCO-TCP-METRICS-MIB",
+        "object": "cfmTcpMetricsIntRoundTripTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-TCP-METRICS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-TCP-METRICS-MIB"
+  }
+}

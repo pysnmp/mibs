@@ -1,0 +1,1478 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "AutonomousType",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoEnhancedMemPoolMIB": {
+    "name": "ciscoEnhancedMemPoolMIB",
+    "oid": "1.3.6.1.4.1.9.9.221",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-12-05 00:00",
+        "description": "Added the following High Capacity and Overflow objects in cempMemPoolTable. cempMemPoolUsedOvrflw, cempMemPoolHCUsed, cempMemPoolFreeOvrflw, cempMemPoolHCFree, cempMemPoolLargestFreeOvrflw, cempMemPoolHCLargestFree, cempMemPoolLowestFreeOvrflw, cempMemPoolHCLowestFree, cempMemPoolUsedLowWaterMarkOvrflw, cempMemPoolHCUsedLowWaterMark, cempMemPoolSharedOvrflw, cempMemPoolHCShared. Added couple of new groups cempMemPoolHCGroup and cempMemPoolOvrflwGroup. Added a new compliance cempMIBComplianceRev3 which deprecates cempMIBComplianceRev2."
+      },
+      {
+        "revision": "2008-05-07 00:00",
+        "description": "Added a new object cempMemPoolShared in cempMemPoolTable. Deprecated cempMemPoolGroup OBJECT-GROUP. Added cempMemPoolGroupRev1 OBJECT-GROUP. Deprecated cempMIBComplianceRev1 MODULE-COMPLIANCE. Added cempMIBComplianceRev2 MODULE-COMPLIANCE."
+      },
+      {
+        "revision": "2003-02-24 00:00",
+        "description": "Revised version of this MIB,added Objects to the existing cempMemPoolTable, added buffer pools. Different types of memory buffer pools may be present in a managed device. For example: 1. Public buffers, these are standard pools of packets of different sizes (eg: 104B, 600B, 1536B, 4520B, 5024B, 18024B ...). 2. Private [Interface] buffers (eg. ipc, channel ...). 3. Header pool. Pool of dynamic packet headers. Header buffers have no associated data blocks or particles. (Particles are a mechanism for representing a data packet as a collection of discontigious buffers.). The new objects added are cempMemPoolUsedLowWaterMark, cempMemPoolAllocHit, cempMemPoolAllocMiss, cempMemPoolFreeHit, cempMemPoolFreeMiss, cempMemBufferPoolTable & cempMemBufferCachePoolTable."
+      },
+      {
+        "revision": "2001-06-05 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "cempMIBNotifications": {
+    "name": "cempMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.221.0",
+    "class": "objectidentity"
+  },
+  "cempMIBObjects": {
+    "name": "cempMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.221.1",
+    "class": "objectidentity"
+  },
+  "cempMemPool": {
+    "name": "cempMemPool",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1",
+    "class": "objectidentity"
+  },
+  "cempNotificationConfig": {
+    "name": "cempNotificationConfig",
+    "oid": "1.3.6.1.4.1.9.9.221.1.2",
+    "class": "objectidentity"
+  },
+  "CempMemPoolIndex": {
+    "name": "CempMemPoolIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CempMemPoolIndexOrNone": {
+    "name": "CempMemPoolIndexOrNone",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CempMemPoolTypes": {
+    "name": "CempMemPoolTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "processorMemory": 2,
+          "ioMemory": 3,
+          "pciMemory": 4,
+          "fastMemory": 5,
+          "multibusMemory": 6,
+          "interruptStackMemory": 7,
+          "processStackMemory": 8,
+          "localExceptionMemory": 9,
+          "virtualMemory": 10,
+          "reservedMemory": 11,
+          "imageMemory": 12,
+          "asicMemory": 13,
+          "posixMemory": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CempMemBufferPoolIndex": {
+    "name": "CempMemBufferPoolIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cempMemPoolTable": {
+    "name": "cempMemPoolTable",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cempMemPoolEntry": {
+    "name": "cempMemPoolEntry",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cempMemPoolIndex": {
+    "name": "cempMemPoolIndex",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CempMemPoolIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cempMemPoolType": {
+    "name": "cempMemPoolType",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CempMemPoolTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolName": {
+    "name": "cempMemPoolName",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolPlatformMemory": {
+    "name": "cempMemPoolPlatformMemory",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolAlternate": {
+    "name": "cempMemPoolAlternate",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CempMemPoolIndexOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolValid": {
+    "name": "cempMemPoolValid",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolUsed": {
+    "name": "cempMemPoolUsed",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolFree": {
+    "name": "cempMemPoolFree",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolLargestFree": {
+    "name": "cempMemPoolLargestFree",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolLowestFree": {
+    "name": "cempMemPoolLowestFree",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolUsedLowWaterMark": {
+    "name": "cempMemPoolUsedLowWaterMark",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolAllocHit": {
+    "name": "cempMemPoolAllocHit",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolAllocMiss": {
+    "name": "cempMemPoolAllocMiss",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolFreeHit": {
+    "name": "cempMemPoolFreeHit",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolFreeMiss": {
+    "name": "cempMemPoolFreeMiss",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolShared": {
+    "name": "cempMemPoolShared",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolUsedOvrflw": {
+    "name": "cempMemPoolUsedOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolHCUsed": {
+    "name": "cempMemPoolHCUsed",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolFreeOvrflw": {
+    "name": "cempMemPoolFreeOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolHCFree": {
+    "name": "cempMemPoolHCFree",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolLargestFreeOvrflw": {
+    "name": "cempMemPoolLargestFreeOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolHCLargestFree": {
+    "name": "cempMemPoolHCLargestFree",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolLowestFreeOvrflw": {
+    "name": "cempMemPoolLowestFreeOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolHCLowestFree": {
+    "name": "cempMemPoolHCLowestFree",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolUsedLowWaterMarkOvrflw": {
+    "name": "cempMemPoolUsedLowWaterMarkOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolHCUsedLowWaterMark": {
+    "name": "cempMemPoolHCUsedLowWaterMark",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolSharedOvrflw": {
+    "name": "cempMemPoolSharedOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemPoolHCShared": {
+    "name": "cempMemPoolHCShared",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferPoolTable": {
+    "name": "cempMemBufferPoolTable",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cempMemBufferPoolEntry": {
+    "name": "cempMemBufferPoolEntry",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferPoolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cempMemBufferPoolIndex": {
+    "name": "cempMemBufferPoolIndex",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CempMemBufferPoolIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cempMemBufferMemPoolIndex": {
+    "name": "cempMemBufferMemPoolIndex",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CempMemPoolIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferName": {
+    "name": "cempMemBufferName",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferDynamic": {
+    "name": "cempMemBufferDynamic",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferSize": {
+    "name": "cempMemBufferSize",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cempMemBufferMin": {
+    "name": "cempMemBufferMin",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cempMemBufferMax": {
+    "name": "cempMemBufferMax",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cempMemBufferPermanent": {
+    "name": "cempMemBufferPermanent",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cempMemBufferTransient": {
+    "name": "cempMemBufferTransient",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cempMemBufferTotal": {
+    "name": "cempMemBufferTotal",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferFree": {
+    "name": "cempMemBufferFree",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferHit": {
+    "name": "cempMemBufferHit",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferMiss": {
+    "name": "cempMemBufferMiss",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferFreeHit": {
+    "name": "cempMemBufferFreeHit",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferFreeMiss": {
+    "name": "cempMemBufferFreeMiss",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferPermChange": {
+    "name": "cempMemBufferPermChange",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferPeak": {
+    "name": "cempMemBufferPeak",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferPeakTime": {
+    "name": "cempMemBufferPeakTime",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferTrim": {
+    "name": "cempMemBufferTrim",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferGrow": {
+    "name": "cempMemBufferGrow",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferFailures": {
+    "name": "cempMemBufferFailures",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferNoStorage": {
+    "name": "cempMemBufferNoStorage",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferCachePoolTable": {
+    "name": "cempMemBufferCachePoolTable",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cempMemBufferCachePoolEntry": {
+    "name": "cempMemBufferCachePoolEntry",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferPoolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cempMemBufferCacheSize": {
+    "name": "cempMemBufferCacheSize",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferCacheTotal": {
+    "name": "cempMemBufferCacheTotal",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferCacheUsed": {
+    "name": "cempMemBufferCacheUsed",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferCacheHit": {
+    "name": "cempMemBufferCacheHit",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferCacheMiss": {
+    "name": "cempMemBufferCacheMiss",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferCacheThreshold": {
+    "name": "cempMemBufferCacheThreshold",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferCacheThresholdCount": {
+    "name": "cempMemBufferCacheThresholdCount",
+    "oid": "1.3.6.1.4.1.9.9.221.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cempMemBufferNotifyEnabled": {
+    "name": "cempMemBufferNotifyEnabled",
+    "oid": "1.3.6.1.4.1.9.9.221.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cempMemBufferNotify": {
+    "name": "cempMemBufferNotify",
+    "oid": "1.3.6.1.4.1.9.9.221.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferName"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferPeak"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferPeakTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cempMIBConformance": {
+    "name": "cempMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.221.3",
+    "class": "objectidentity"
+  },
+  "cempMIBCompliances": {
+    "name": "cempMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.221.3.1",
+    "class": "objectidentity"
+  },
+  "cempMIBGroups": {
+    "name": "cempMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.221.3.2",
+    "class": "objectidentity"
+  },
+  "cempMIBCompliance": {
+    "name": "cempMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.221.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cempMemPoolGroup",
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB"
+      },
+      {
+        "object": "cempMemPoolExtGroup",
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cempMIBComplianceRev1": {
+    "name": "cempMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.221.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cempMemPoolGroup",
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB"
+      },
+      {
+        "object": "cempMemBufferGroup",
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB"
+      },
+      {
+        "object": "cempMemPoolExtGroupRev1",
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB"
+      },
+      {
+        "object": "cempMemBufferExtGroup",
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB"
+      },
+      {
+        "object": "cempMemBufferNotifyEnableGroup",
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB"
+      },
+      {
+        "object": "cempMemBufferNotifyGroup",
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cempMIBComplianceRev2": {
+    "name": "cempMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.221.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cempMemPoolGroupRev1",
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB"
+      },
+      {
+        "object": "cempMemBufferGroup",
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB"
+      },
+      {
+        "object": "cempMemPoolExtGroupRev1",
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB"
+      },
+      {
+        "object": "cempMemBufferExtGroup",
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB"
+      },
+      {
+        "object": "cempMemBufferNotifyEnableGroup",
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB"
+      },
+      {
+        "object": "cempMemBufferNotifyGroup",
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cempMIBComplianceRev3": {
+    "name": "cempMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.221.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cempMemPoolGroupRev1",
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB"
+      },
+      {
+        "object": "cempMemBufferGroup",
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB"
+      },
+      {
+        "object": "cempMemPoolExtGroupRev1",
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB"
+      },
+      {
+        "object": "cempMemBufferExtGroup",
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB"
+      },
+      {
+        "object": "cempMemBufferNotifyEnableGroup",
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB"
+      },
+      {
+        "object": "cempMemBufferNotifyGroup",
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB"
+      },
+      {
+        "object": "cempMemPoolHCGroup",
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB"
+      },
+      {
+        "object": "cempMemPoolOvrflwGroup",
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cempMemPoolGroup": {
+    "name": "cempMemPoolGroup",
+    "oid": "1.3.6.1.4.1.9.9.221.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolType"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolName"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolValid"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolUsed"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolFree"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cempMemPoolExtGroup": {
+    "name": "cempMemPoolExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.221.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolPlatformMemory"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolAlternate"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolLargestFree"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolLowestFree"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cempMemBufferGroup": {
+    "name": "cempMemBufferGroup",
+    "oid": "1.3.6.1.4.1.9.9.221.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferMemPoolIndex"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferName"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferDynamic"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferSize"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferMin"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferMax"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferPermanent"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferTransient"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferTotal"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferFree"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferHit"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferMiss"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferFreeHit"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferFreeMiss"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferPermChange"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferPeak"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferPeakTime"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferTrim"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferGrow"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferFailures"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferNoStorage"
+      }
+    ],
+    "status": "current"
+  },
+  "cempMemBufferExtGroup": {
+    "name": "cempMemBufferExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.221.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferCacheSize"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferCacheTotal"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferCacheUsed"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferCacheHit"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferCacheMiss"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferCacheThreshold"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferCacheThresholdCount"
+      }
+    ],
+    "status": "current"
+  },
+  "cempMemBufferNotifyEnableGroup": {
+    "name": "cempMemBufferNotifyEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.221.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferNotifyEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cempMemBufferNotifyGroup": {
+    "name": "cempMemBufferNotifyGroup",
+    "oid": "1.3.6.1.4.1.9.9.221.3.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemBufferNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "cempMemPoolExtGroupRev1": {
+    "name": "cempMemPoolExtGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.221.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolPlatformMemory"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolAlternate"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolLargestFree"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolLowestFree"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolUsedLowWaterMark"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolAllocHit"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolAllocMiss"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolFreeHit"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolFreeMiss"
+      }
+    ],
+    "status": "current"
+  },
+  "cempMemPoolGroupRev1": {
+    "name": "cempMemPoolGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.221.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolType"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolName"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolValid"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolUsed"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolFree"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolShared"
+      }
+    ],
+    "status": "current"
+  },
+  "cempMemPoolHCGroup": {
+    "name": "cempMemPoolHCGroup",
+    "oid": "1.3.6.1.4.1.9.9.221.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolHCUsed"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolHCFree"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolHCLargestFree"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolHCLowestFree"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolHCUsedLowWaterMark"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolHCShared"
+      }
+    ],
+    "status": "current"
+  },
+  "cempMemPoolOvrflwGroup": {
+    "name": "cempMemPoolOvrflwGroup",
+    "oid": "1.3.6.1.4.1.9.9.221.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolUsedOvrflw"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolFreeOvrflw"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolLargestFreeOvrflw"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolLowestFreeOvrflw"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolUsedLowWaterMarkOvrflw"
+      },
+      {
+        "module": "CISCO-ENHANCED-MEMPOOL-MIB",
+        "object": "cempMemPoolSharedOvrflw"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENHANCED-MEMPOOL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ENHANCED-MEMPOOL-MIB"
+  }
+}

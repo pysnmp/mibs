@@ -1,0 +1,997 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "entPhysicalIndex"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "IP-MIB": [
+      "IpAddressOriginTC"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TRANSITION-SMI": [
+      "tnProducts"
+    ]
+  },
+  "tnDevSysIpMgmtMIB": {
+    "name": "tnDevSysIpMgmtMIB",
+    "oid": "1.3.6.1.4.1.868.2.5.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-08-07 00:00",
+        "description": "Initial Revision of this module"
+      }
+    ]
+  },
+  "tnDevSysIpmgmt": {
+    "name": "tnDevSysIpmgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1",
+    "class": "objectidentity"
+  },
+  "tnIpMgmtTable": {
+    "name": "tnIpMgmtTable",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIpMgmtEntry": {
+    "name": "tnIpMgmtEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnIpAddressMode": {
+    "name": "tnIpAddressMode",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "dhcp": 1,
+          "static": 2,
+          "bootpc": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIpMgmtAccess": {
+    "name": "tnIpMgmtAccess",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIpAddrType": {
+    "name": "tnIpAddrType",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIpAddr": {
+    "name": "tnIpAddr",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSubnetMask": {
+    "name": "tnSubnetMask",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDefaultGateway": {
+    "name": "tnDefaultGateway",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDnsServerTable": {
+    "name": "tnDnsServerTable",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDnsServerEntry": {
+    "name": "tnDnsServerEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN-DEV-SYS-IPMGMT-MIB",
+        "object": "tnDnsServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnDnsServerIndex": {
+    "name": "tnDnsServerIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDnsServerIPAddrType": {
+    "name": "tnDnsServerIPAddrType",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDnsServerIPAddr": {
+    "name": "tnDnsServerIPAddr",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDnsServerStatus": {
+    "name": "tnDnsServerStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnIpextMgmtTable": {
+    "name": "tnIpextMgmtTable",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIpextMgmtEntry": {
+    "name": "tnIpextMgmtEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnIpv6status": {
+    "name": "tnIpv6status",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIpv6AddressLinklocal": {
+    "name": "tnIpv6AddressLinklocal",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIpv6Method": {
+    "name": "tnIpv6Method",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dhcpv6": 2,
+          "stateless": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIpv6Addr": {
+    "name": "tnIpv6Addr",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIpv6prefix": {
+    "name": "tnIpv6prefix",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIpv6DupAddrDetected": {
+    "name": "tnIpv6DupAddrDetected",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIpv6GwMethod": {
+    "name": "tnIpv6GwMethod",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "routeDisc": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIpv6defaultGW": {
+    "name": "tnIpv6defaultGW",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIpv6DynRouteTable": {
+    "name": "tnIpv6DynRouteTable",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIpv6DynRouteEntry": {
+    "name": "tnIpv6DynRouteEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-DEV-SYS-IPMGMT-MIB",
+        "object": "tnIpv6DynRouteIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnIpv6DynRouteIndex": {
+    "name": "tnIpv6DynRouteIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIpv6DynRouteDest": {
+    "name": "tnIpv6DynRouteDest",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIpv6DynRoutePfxLen": {
+    "name": "tnIpv6DynRoutePfxLen",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIpv6DynRouteNextHop": {
+    "name": "tnIpv6DynRouteNextHop",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIpv6DynRouteAge": {
+    "name": "tnIpv6DynRouteAge",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnHostToIpTable": {
+    "name": "tnHostToIpTable",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnHostToIpEntry": {
+    "name": "tnHostToIpEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-DEV-SYS-IPMGMT-MIB",
+        "object": "tnHostToIpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnHostToIpIndex": {
+    "name": "tnHostToIpIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnHostIPAddrType": {
+    "name": "tnHostIPAddrType",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnHostIPAddr": {
+    "name": "tnHostIPAddr",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnHostName": {
+    "name": "tnHostName",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnAliasName": {
+    "name": "tnAliasName",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnEntryStatus": {
+    "name": "tnEntryStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnIPv4MgmtTable": {
+    "name": "tnIPv4MgmtTable",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIPv4MgmtEntry": {
+    "name": "tnIPv4MgmtEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-DEV-SYS-IPMGMT-MIB",
+        "object": "tnIpv4Interface",
+        "implied": 0
+      },
+      {
+        "module": "TN-DEV-SYS-IPMGMT-MIB",
+        "object": "tnIPv4Index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnIpv4Interface": {
+    "name": "tnIpv4Interface",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIPv4Index": {
+    "name": "tnIPv4Index",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIPv4ConfigMode": {
+    "name": "tnIPv4ConfigMode",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dhcp": 1,
+          "static": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIPv4Origin": {
+    "name": "tnIPv4Origin",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddressOriginTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIPv4AddrType": {
+    "name": "tnIPv4AddrType",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIPv4Addr": {
+    "name": "tnIPv4Addr",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIPv4SubnetMask": {
+    "name": "tnIPv4SubnetMask",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIPv4DefaultGateway": {
+    "name": "tnIPv4DefaultGateway",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIPv4Status": {
+    "name": "tnIPv4Status",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "disabled": 2,
+          "renew": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIPv6MgmtTable": {
+    "name": "tnIPv6MgmtTable",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIPv6MgmtEntry": {
+    "name": "tnIPv6MgmtEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "indices": [
+      {
+        "module": "TN-DEV-SYS-IPMGMT-MIB",
+        "object": "tnIpv6Interface",
+        "implied": 0
+      },
+      {
+        "module": "TN-DEV-SYS-IPMGMT-MIB",
+        "object": "tnIPv6Index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnIpv6Interface": {
+    "name": "tnIpv6Interface",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIPv6Index": {
+    "name": "tnIPv6Index",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIPv6Origin": {
+    "name": "tnIPv6Origin",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddressOriginTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIPv6CfgMethod": {
+    "name": "tnIPv6CfgMethod",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "link-local": 1,
+          "stateless": 2,
+          "auto": 3,
+          "manual": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIPv6AddressType": {
+    "name": "tnIPv6AddressType",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "anycast": 1,
+          "unicast": 2,
+          "multicast": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIPv6Prefix": {
+    "name": "tnIPv6Prefix",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIPv6PrefixLen": {
+    "name": "tnIPv6PrefixLen",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIPv6Address": {
+    "name": "tnIPv6Address",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIPv6RouterAddr": {
+    "name": "tnIPv6RouterAddr",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIPv6DupAddressDetected": {
+    "name": "tnIPv6DupAddressDetected",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIPv6Scope": {
+    "name": "tnIPv6Scope",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "node": 1,
+          "link": 2,
+          "site": 3,
+          "organization": 4,
+          "host": 5,
+          "global": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIPv6MTU": {
+    "name": "tnIPv6MTU",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIPv6LinkMTU": {
+    "name": "tnIPv6LinkMTU",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIPv6Status": {
+    "name": "tnIPv6Status",
+    "oid": "1.3.6.1.4.1.868.2.5.10.1.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "disabled": 2,
+          "renew": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-DEV-SYS-IPMGMT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-DEV-SYS-IPMGMT-MIB"
+  }
+}

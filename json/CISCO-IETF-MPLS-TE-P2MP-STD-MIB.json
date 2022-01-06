@@ -1,0 +1,1357 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "DIFFSERV-MIB": [
+      "IndexInteger",
+      "IndexIntegerNextFree"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "MPLS-LSR-STD-MIB": [
+      "MplsIndexType"
+    ],
+    "MPLS-TC-STD-MIB": [
+      "MplsPathIndexOrZero",
+      "MplsLabel"
+    ],
+    "MPLS-TE-STD-MIB": [
+      "mplsTunnelInstance",
+      "mplsTunnelEgressLSRId",
+      "mplsTunnelIngressLSRId",
+      "mplsTunnelIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "cmplsTeP2mpStdMIB": {
+    "name": "cmplsTeP2mpStdMIB",
+    "oid": "1.3.6.1.4.1.9.10.142",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-09-30 00:00",
+        "description": "Added the following cmplsTeP2mpTunnelBranchInIfIndex"
+      },
+      {
+        "revision": "2009-09-01 00:00",
+        "description": "Added the following new objects to CmplsTeP2mpTunnelBranchPerfEntry: cmplsTeP2mpTunnelBranchLocalLabel, cmplsTeP2mpTunnelBranchOutIfIndex, cmplsTeP2mpTunnelBranchOutLabel, cmplsTeP2mpTunnelBranchSignalArea."
+      },
+      {
+        "revision": "2009-05-07 00:00",
+        "description": "Ciscoized version of draft-ietf-mpls-p2mp-te-mib-09.txt"
+      }
+    ]
+  },
+  "cmplsTeP2mpNotifications": {
+    "name": "cmplsTeP2mpNotifications",
+    "oid": "1.3.6.1.4.1.9.10.142.0",
+    "class": "objectidentity"
+  },
+  "cmplsTeP2mpScalars": {
+    "name": "cmplsTeP2mpScalars",
+    "oid": "1.3.6.1.4.1.9.10.142.1",
+    "class": "objectidentity"
+  },
+  "cmplsTeP2mpObjects": {
+    "name": "cmplsTeP2mpObjects",
+    "oid": "1.3.6.1.4.1.9.10.142.2",
+    "class": "objectidentity"
+  },
+  "cmplsTeP2mpConformance": {
+    "name": "cmplsTeP2mpConformance",
+    "oid": "1.3.6.1.4.1.9.10.142.3",
+    "class": "objectidentity"
+  },
+  "cmplsTeP2mpTunnelConfigured": {
+    "name": "cmplsTeP2mpTunnelConfigured",
+    "oid": "1.3.6.1.4.1.9.10.142.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelActive": {
+    "name": "cmplsTeP2mpTunnelActive",
+    "oid": "1.3.6.1.4.1.9.10.142.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelTotalMaxHops": {
+    "name": "cmplsTeP2mpTunnelTotalMaxHops",
+    "oid": "1.3.6.1.4.1.9.10.142.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelTable": {
+    "name": "cmplsTeP2mpTunnelTable",
+    "oid": "1.3.6.1.4.1.9.10.142.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelEntry": {
+    "name": "cmplsTeP2mpTunnelEntry",
+    "oid": "1.3.6.1.4.1.9.10.142.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelIndex",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelInstance",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelIngressLSRId",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelEgressLSRId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelP2mpIntegrity": {
+    "name": "cmplsTeP2mpTunnelP2mpIntegrity",
+    "oid": "1.3.6.1.4.1.9.10.142.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelBranchRole": {
+    "name": "cmplsTeP2mpTunnelBranchRole",
+    "oid": "1.3.6.1.4.1.9.10.142.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notBranch": 1,
+          "branch": 2,
+          "bud": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notBranch",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelP2mpXcIndex": {
+    "name": "cmplsTeP2mpTunnelP2mpXcIndex",
+    "oid": "1.3.6.1.4.1.9.10.142.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelRowStatus": {
+    "name": "cmplsTeP2mpTunnelRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.142.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelStorageType": {
+    "name": "cmplsTeP2mpTunnelStorageType",
+    "oid": "1.3.6.1.4.1.9.10.142.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelSubGroupIDNext": {
+    "name": "cmplsTeP2mpTunnelSubGroupIDNext",
+    "oid": "1.3.6.1.4.1.9.10.142.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexIntegerNextFree",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestTable": {
+    "name": "cmplsTeP2mpTunnelDestTable",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestEntry": {
+    "name": "cmplsTeP2mpTunnelDestEntry",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelIndex",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelInstance",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelIngressLSRId",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelEgressLSRId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestSrcSubGroupOriginType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestSrcSubGroupOrigin",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestSrcSubGroupID",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestSubGroupOriginType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestSubGroupOrigin",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestSubGroupID",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestDestinationType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestDestination",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestSrcSubGroupOriginType": {
+    "name": "cmplsTeP2mpTunnelDestSrcSubGroupOriginType",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestSrcSubGroupOrigin": {
+    "name": "cmplsTeP2mpTunnelDestSrcSubGroupOrigin",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestSrcSubGroupID": {
+    "name": "cmplsTeP2mpTunnelDestSrcSubGroupID",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexInteger",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestSubGroupOriginType": {
+    "name": "cmplsTeP2mpTunnelDestSubGroupOriginType",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestSubGroupOrigin": {
+    "name": "cmplsTeP2mpTunnelDestSubGroupOrigin",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestSubGroupID": {
+    "name": "cmplsTeP2mpTunnelDestSubGroupID",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexInteger",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestDestinationType": {
+    "name": "cmplsTeP2mpTunnelDestDestinationType",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestDestination": {
+    "name": "cmplsTeP2mpTunnelDestDestination",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestBranchOutSegment": {
+    "name": "cmplsTeP2mpTunnelDestBranchOutSegment",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestHopTableIndex": {
+    "name": "cmplsTeP2mpTunnelDestHopTableIndex",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsPathIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestPathInUse": {
+    "name": "cmplsTeP2mpTunnelDestPathInUse",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsPathIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestCHopTableIndex": {
+    "name": "cmplsTeP2mpTunnelDestCHopTableIndex",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsPathIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestARHopTableIndex": {
+    "name": "cmplsTeP2mpTunnelDestARHopTableIndex",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsPathIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestTotalUpTime": {
+    "name": "cmplsTeP2mpTunnelDestTotalUpTime",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestInstanceUpTime": {
+    "name": "cmplsTeP2mpTunnelDestInstanceUpTime",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestPathChanges": {
+    "name": "cmplsTeP2mpTunnelDestPathChanges",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestLastPathChange": {
+    "name": "cmplsTeP2mpTunnelDestLastPathChange",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestCreationTime": {
+    "name": "cmplsTeP2mpTunnelDestCreationTime",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestStateTransitions": {
+    "name": "cmplsTeP2mpTunnelDestStateTransitions",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestDiscontinuityTime": {
+    "name": "cmplsTeP2mpTunnelDestDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestAdminStatus": {
+    "name": "cmplsTeP2mpTunnelDestAdminStatus",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "up",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestOperStatus": {
+    "name": "cmplsTeP2mpTunnelDestOperStatus",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3,
+          "unknown": 4,
+          "lowerLayerDown": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestRowStatus": {
+    "name": "cmplsTeP2mpTunnelDestRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestStorageType": {
+    "name": "cmplsTeP2mpTunnelDestStorageType",
+    "oid": "1.3.6.1.4.1.9.10.142.2.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelBranchPerfTable": {
+    "name": "cmplsTeP2mpTunnelBranchPerfTable",
+    "oid": "1.3.6.1.4.1.9.10.142.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelBranchPerfEntry": {
+    "name": "cmplsTeP2mpTunnelBranchPerfEntry",
+    "oid": "1.3.6.1.4.1.9.10.142.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelIndex",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelInstance",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelIngressLSRId",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelEgressLSRId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelBranchPerfBranch",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelBranchPerfBranch": {
+    "name": "cmplsTeP2mpTunnelBranchPerfBranch",
+    "oid": "1.3.6.1.4.1.9.10.142.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsIndexType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelBranchPerfPackets": {
+    "name": "cmplsTeP2mpTunnelBranchPerfPackets",
+    "oid": "1.3.6.1.4.1.9.10.142.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelBranchPerfHCPackets": {
+    "name": "cmplsTeP2mpTunnelBranchPerfHCPackets",
+    "oid": "1.3.6.1.4.1.9.10.142.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelBranchPerfErrors": {
+    "name": "cmplsTeP2mpTunnelBranchPerfErrors",
+    "oid": "1.3.6.1.4.1.9.10.142.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelBranchPerfBytes": {
+    "name": "cmplsTeP2mpTunnelBranchPerfBytes",
+    "oid": "1.3.6.1.4.1.9.10.142.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelBranchPerfHCBytes": {
+    "name": "cmplsTeP2mpTunnelBranchPerfHCBytes",
+    "oid": "1.3.6.1.4.1.9.10.142.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelBranchDiscontinuityTime": {
+    "name": "cmplsTeP2mpTunnelBranchDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.9.10.142.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelBranchLocalLabel": {
+    "name": "cmplsTeP2mpTunnelBranchLocalLabel",
+    "oid": "1.3.6.1.4.1.9.10.142.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelBranchOutIfIndex": {
+    "name": "cmplsTeP2mpTunnelBranchOutIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.142.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelBranchOutLabel": {
+    "name": "cmplsTeP2mpTunnelBranchOutLabel",
+    "oid": "1.3.6.1.4.1.9.10.142.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelBranchSignalArea": {
+    "name": "cmplsTeP2mpTunnelBranchSignalArea",
+    "oid": "1.3.6.1.4.1.9.10.142.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelBranchInIfIndex": {
+    "name": "cmplsTeP2mpTunnelBranchInIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.142.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelNotificationEnable": {
+    "name": "cmplsTeP2mpTunnelNotificationEnable",
+    "oid": "1.3.6.1.4.1.9.10.142.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestUp": {
+    "name": "cmplsTeP2mpTunnelDestUp",
+    "oid": "1.3.6.1.4.1.9.10.142.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestAdminStatus"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cmplsTeP2mpTunnelDestDown": {
+    "name": "cmplsTeP2mpTunnelDestDown",
+    "oid": "1.3.6.1.4.1.9.10.142.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestAdminStatus"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cmplsTeP2mpGroups": {
+    "name": "cmplsTeP2mpGroups",
+    "oid": "1.3.6.1.4.1.9.10.142.3.1",
+    "class": "objectidentity"
+  },
+  "cmplsTeP2mpCompliances": {
+    "name": "cmplsTeP2mpCompliances",
+    "oid": "1.3.6.1.4.1.9.10.142.3.2",
+    "class": "objectidentity"
+  },
+  "cmplsTeP2mpModuleFullCompliance": {
+    "name": "cmplsTeP2mpModuleFullCompliance",
+    "oid": "1.3.6.1.4.1.9.10.142.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmplsTeP2mpGeneralGroup",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      },
+      {
+        "object": "cmplsTeP2mpNotifGroup",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      },
+      {
+        "object": "cmplsTeP2mpScalarGroup",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cmplsTeP2mpModuleReadOnlyCompliance": {
+    "name": "cmplsTeP2mpModuleReadOnlyCompliance",
+    "oid": "1.3.6.1.4.1.9.10.142.3.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmplsTeP2mpGeneralGroup",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      },
+      {
+        "object": "cmplsTeP2mpScalarGroup",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      },
+      {
+        "object": "cmplsTeP2mpNotifGroup",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cmplsTeP2mpModuleFullComplianceRev1": {
+    "name": "cmplsTeP2mpModuleFullComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.10.142.3.2.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmplsTeP2mpGeneralGroup",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      },
+      {
+        "object": "cmplsTeP2mpGeneralGroupSup1",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      },
+      {
+        "object": "cmplsTeP2mpNotifGroup",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      },
+      {
+        "object": "cmplsTeP2mpScalarGroup",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cmplsTeP2mpModuleReadOnlyComplianceRev1": {
+    "name": "cmplsTeP2mpModuleReadOnlyComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.10.142.3.2.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmplsTeP2mpGeneralGroup",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      },
+      {
+        "object": "cmplsTeP2mpGeneralGroupSup1",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      },
+      {
+        "object": "cmplsTeP2mpScalarGroup",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      },
+      {
+        "object": "cmplsTeP2mpNotifGroup",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cmplsTeP2mpModuleFullComplianceRev2": {
+    "name": "cmplsTeP2mpModuleFullComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.10.142.3.2.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmplsTeP2mpGeneralGroup",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      },
+      {
+        "object": "cmplsTeP2mpGeneralGroupSup1",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      },
+      {
+        "object": "cmplsTeP2mpGeneralGroupSup2",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      },
+      {
+        "object": "cmplsTeP2mpNotifGroup",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      },
+      {
+        "object": "cmplsTeP2mpScalarGroup",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cmplsTeP2mpModuleReadOnlyComplianceRev2": {
+    "name": "cmplsTeP2mpModuleReadOnlyComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.10.142.3.2.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmplsTeP2mpGeneralGroup",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      },
+      {
+        "object": "cmplsTeP2mpGeneralGroupSup1",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      },
+      {
+        "object": "cmplsTeP2mpGeneralGroupSup2",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      },
+      {
+        "object": "cmplsTeP2mpScalarGroup",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      },
+      {
+        "object": "cmplsTeP2mpNotifGroup",
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cmplsTeP2mpGeneralGroup": {
+    "name": "cmplsTeP2mpGeneralGroup",
+    "oid": "1.3.6.1.4.1.9.10.142.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelConfigured"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelActive"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelTotalMaxHops"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelP2mpIntegrity"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelBranchRole"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelP2mpXcIndex"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelStorageType"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelSubGroupIDNext"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestBranchOutSegment"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestHopTableIndex"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestPathInUse"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestCHopTableIndex"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestARHopTableIndex"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestTotalUpTime"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestInstanceUpTime"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestPathChanges"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestLastPathChange"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestCreationTime"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestStateTransitions"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestDiscontinuityTime"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestAdminStatus"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestOperStatus"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestStorageType"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelBranchPerfPackets"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelBranchPerfHCPackets"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelBranchPerfErrors"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelBranchPerfBytes"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelBranchPerfHCBytes"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelBranchDiscontinuityTime"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelBranchLocalLabel"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelBranchOutIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelBranchOutLabel"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelBranchSignalArea"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelBranchInIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelNotificationEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cmplsTeP2mpNotifGroup": {
+    "name": "cmplsTeP2mpNotifGroup",
+    "oid": "1.3.6.1.4.1.9.10.142.3.1.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestUp"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelDestDown"
+      }
+    ],
+    "status": "current"
+  },
+  "cmplsTeP2mpScalarGroup": {
+    "name": "cmplsTeP2mpScalarGroup",
+    "oid": "1.3.6.1.4.1.9.10.142.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelConfigured"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelActive"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelTotalMaxHops"
+      }
+    ],
+    "status": "current"
+  },
+  "cmplsTeP2mpGeneralGroupSup1": {
+    "name": "cmplsTeP2mpGeneralGroupSup1",
+    "oid": "1.3.6.1.4.1.9.10.142.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelBranchLocalLabel"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelBranchOutIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelBranchOutLabel"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelBranchSignalArea"
+      }
+    ],
+    "status": "current"
+  },
+  "cmplsTeP2mpGeneralGroupSup2": {
+    "name": "cmplsTeP2mpGeneralGroupSup2",
+    "oid": "1.3.6.1.4.1.9.10.142.3.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+        "object": "cmplsTeP2mpTunnelBranchInIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
+  }
+}

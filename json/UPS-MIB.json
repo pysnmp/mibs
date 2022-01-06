@@ -1,0 +1,2157 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "mib-2",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeInterval",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
+      "AutonomousType"
+    ]
+  },
+  "upsMIB": {
+    "name": "upsMIB",
+    "oid": "1.3.6.1.2.1.33",
+    "class": "moduleidentity"
+  },
+  "PositiveInteger": {
+    "name": "PositiveInteger",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "NonNegativeInteger": {
+    "name": "NonNegativeInteger",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "upsObjects": {
+    "name": "upsObjects",
+    "oid": "1.3.6.1.2.1.33.1",
+    "class": "objectidentity"
+  },
+  "upsIdent": {
+    "name": "upsIdent",
+    "oid": "1.3.6.1.2.1.33.1.1",
+    "class": "objectidentity"
+  },
+  "upsIdentManufacturer": {
+    "name": "upsIdentManufacturer",
+    "oid": "1.3.6.1.2.1.33.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsIdentModel": {
+    "name": "upsIdentModel",
+    "oid": "1.3.6.1.2.1.33.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsIdentUPSSoftwareVersion": {
+    "name": "upsIdentUPSSoftwareVersion",
+    "oid": "1.3.6.1.2.1.33.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsIdentAgentSoftwareVersion": {
+    "name": "upsIdentAgentSoftwareVersion",
+    "oid": "1.3.6.1.2.1.33.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsIdentName": {
+    "name": "upsIdentName",
+    "oid": "1.3.6.1.2.1.33.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upsIdentAttachedDevices": {
+    "name": "upsIdentAttachedDevices",
+    "oid": "1.3.6.1.2.1.33.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upsBattery": {
+    "name": "upsBattery",
+    "oid": "1.3.6.1.2.1.33.1.2",
+    "class": "objectidentity"
+  },
+  "upsBatteryStatus": {
+    "name": "upsBatteryStatus",
+    "oid": "1.3.6.1.2.1.33.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "batteryNormal": 2,
+          "batteryLow": 3,
+          "batteryDepleted": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsSecondsOnBattery": {
+    "name": "upsSecondsOnBattery",
+    "oid": "1.3.6.1.2.1.33.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsEstimatedMinutesRemaining": {
+    "name": "upsEstimatedMinutesRemaining",
+    "oid": "1.3.6.1.2.1.33.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsEstimatedChargeRemaining": {
+    "name": "upsEstimatedChargeRemaining",
+    "oid": "1.3.6.1.2.1.33.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsBatteryVoltage": {
+    "name": "upsBatteryVoltage",
+    "oid": "1.3.6.1.2.1.33.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "0.1 Volt DC",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsBatteryCurrent": {
+    "name": "upsBatteryCurrent",
+    "oid": "1.3.6.1.2.1.33.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Amp DC",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsBatteryTemperature": {
+    "name": "upsBatteryTemperature",
+    "oid": "1.3.6.1.2.1.33.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsInput": {
+    "name": "upsInput",
+    "oid": "1.3.6.1.2.1.33.1.3",
+    "class": "objectidentity"
+  },
+  "upsInputLineBads": {
+    "name": "upsInputLineBads",
+    "oid": "1.3.6.1.2.1.33.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsInputNumLines": {
+    "name": "upsInputNumLines",
+    "oid": "1.3.6.1.2.1.33.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsInputTable": {
+    "name": "upsInputTable",
+    "oid": "1.3.6.1.2.1.33.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "upsInputEntry": {
+    "name": "upsInputEntry",
+    "oid": "1.3.6.1.2.1.33.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsInputLineIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "upsInputLineIndex": {
+    "name": "upsInputLineIndex",
+    "oid": "1.3.6.1.2.1.33.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "upsInputFrequency": {
+    "name": "upsInputFrequency",
+    "oid": "1.3.6.1.2.1.33.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "0.1 Hertz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsInputVoltage": {
+    "name": "upsInputVoltage",
+    "oid": "1.3.6.1.2.1.33.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "RMS Volts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsInputCurrent": {
+    "name": "upsInputCurrent",
+    "oid": "1.3.6.1.2.1.33.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "0.1 RMS Amp",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsInputTruePower": {
+    "name": "upsInputTruePower",
+    "oid": "1.3.6.1.2.1.33.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsOutput": {
+    "name": "upsOutput",
+    "oid": "1.3.6.1.2.1.33.1.4",
+    "class": "objectidentity"
+  },
+  "upsOutputSource": {
+    "name": "upsOutputSource",
+    "oid": "1.3.6.1.2.1.33.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "none": 2,
+          "normal": 3,
+          "bypass": 4,
+          "battery": 5,
+          "booster": 6,
+          "reducer": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsOutputFrequency": {
+    "name": "upsOutputFrequency",
+    "oid": "1.3.6.1.2.1.33.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "0.1 Hertz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsOutputNumLines": {
+    "name": "upsOutputNumLines",
+    "oid": "1.3.6.1.2.1.33.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsOutputTable": {
+    "name": "upsOutputTable",
+    "oid": "1.3.6.1.2.1.33.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "upsOutputEntry": {
+    "name": "upsOutputEntry",
+    "oid": "1.3.6.1.2.1.33.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsOutputLineIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "upsOutputLineIndex": {
+    "name": "upsOutputLineIndex",
+    "oid": "1.3.6.1.2.1.33.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "upsOutputVoltage": {
+    "name": "upsOutputVoltage",
+    "oid": "1.3.6.1.2.1.33.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "RMS Volts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsOutputCurrent": {
+    "name": "upsOutputCurrent",
+    "oid": "1.3.6.1.2.1.33.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "0.1 RMS Amp",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsOutputPower": {
+    "name": "upsOutputPower",
+    "oid": "1.3.6.1.2.1.33.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsOutputPercentLoad": {
+    "name": "upsOutputPercentLoad",
+    "oid": "1.3.6.1.2.1.33.1.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsBypass": {
+    "name": "upsBypass",
+    "oid": "1.3.6.1.2.1.33.1.5",
+    "class": "objectidentity"
+  },
+  "upsBypassFrequency": {
+    "name": "upsBypassFrequency",
+    "oid": "1.3.6.1.2.1.33.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "0.1 Hertz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsBypassNumLines": {
+    "name": "upsBypassNumLines",
+    "oid": "1.3.6.1.2.1.33.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsBypassTable": {
+    "name": "upsBypassTable",
+    "oid": "1.3.6.1.2.1.33.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "upsBypassEntry": {
+    "name": "upsBypassEntry",
+    "oid": "1.3.6.1.2.1.33.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsBypassLineIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "upsBypassLineIndex": {
+    "name": "upsBypassLineIndex",
+    "oid": "1.3.6.1.2.1.33.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "upsBypassVoltage": {
+    "name": "upsBypassVoltage",
+    "oid": "1.3.6.1.2.1.33.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "RMS Volts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsBypassCurrent": {
+    "name": "upsBypassCurrent",
+    "oid": "1.3.6.1.2.1.33.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "0.1 RMS Amp",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsBypassPower": {
+    "name": "upsBypassPower",
+    "oid": "1.3.6.1.2.1.33.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsAlarm": {
+    "name": "upsAlarm",
+    "oid": "1.3.6.1.2.1.33.1.6",
+    "class": "objectidentity"
+  },
+  "upsAlarmsPresent": {
+    "name": "upsAlarmsPresent",
+    "oid": "1.3.6.1.2.1.33.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsAlarmTable": {
+    "name": "upsAlarmTable",
+    "oid": "1.3.6.1.2.1.33.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "upsAlarmEntry": {
+    "name": "upsAlarmEntry",
+    "oid": "1.3.6.1.2.1.33.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsAlarmId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "upsAlarmId": {
+    "name": "upsAlarmId",
+    "oid": "1.3.6.1.2.1.33.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "upsAlarmDescr": {
+    "name": "upsAlarmDescr",
+    "oid": "1.3.6.1.2.1.33.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsAlarmTime": {
+    "name": "upsAlarmTime",
+    "oid": "1.3.6.1.2.1.33.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsWellKnownAlarms": {
+    "name": "upsWellKnownAlarms",
+    "oid": "1.3.6.1.2.1.33.1.6.3",
+    "class": "objectidentity"
+  },
+  "upsAlarmBatteryBad": {
+    "name": "upsAlarmBatteryBad",
+    "oid": "1.3.6.1.2.1.33.1.6.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsAlarmOnBattery": {
+    "name": "upsAlarmOnBattery",
+    "oid": "1.3.6.1.2.1.33.1.6.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsAlarmLowBattery": {
+    "name": "upsAlarmLowBattery",
+    "oid": "1.3.6.1.2.1.33.1.6.3.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsAlarmDepletedBattery": {
+    "name": "upsAlarmDepletedBattery",
+    "oid": "1.3.6.1.2.1.33.1.6.3.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsAlarmTempBad": {
+    "name": "upsAlarmTempBad",
+    "oid": "1.3.6.1.2.1.33.1.6.3.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsAlarmInputBad": {
+    "name": "upsAlarmInputBad",
+    "oid": "1.3.6.1.2.1.33.1.6.3.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsAlarmOutputBad": {
+    "name": "upsAlarmOutputBad",
+    "oid": "1.3.6.1.2.1.33.1.6.3.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsAlarmOutputOverload": {
+    "name": "upsAlarmOutputOverload",
+    "oid": "1.3.6.1.2.1.33.1.6.3.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsAlarmOnBypass": {
+    "name": "upsAlarmOnBypass",
+    "oid": "1.3.6.1.2.1.33.1.6.3.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsAlarmBypassBad": {
+    "name": "upsAlarmBypassBad",
+    "oid": "1.3.6.1.2.1.33.1.6.3.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsAlarmOutputOffAsRequested": {
+    "name": "upsAlarmOutputOffAsRequested",
+    "oid": "1.3.6.1.2.1.33.1.6.3.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsAlarmUpsOffAsRequested": {
+    "name": "upsAlarmUpsOffAsRequested",
+    "oid": "1.3.6.1.2.1.33.1.6.3.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsAlarmChargerFailed": {
+    "name": "upsAlarmChargerFailed",
+    "oid": "1.3.6.1.2.1.33.1.6.3.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsAlarmUpsOutputOff": {
+    "name": "upsAlarmUpsOutputOff",
+    "oid": "1.3.6.1.2.1.33.1.6.3.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsAlarmUpsSystemOff": {
+    "name": "upsAlarmUpsSystemOff",
+    "oid": "1.3.6.1.2.1.33.1.6.3.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsAlarmFanFailure": {
+    "name": "upsAlarmFanFailure",
+    "oid": "1.3.6.1.2.1.33.1.6.3.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsAlarmFuseFailure": {
+    "name": "upsAlarmFuseFailure",
+    "oid": "1.3.6.1.2.1.33.1.6.3.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsAlarmGeneralFault": {
+    "name": "upsAlarmGeneralFault",
+    "oid": "1.3.6.1.2.1.33.1.6.3.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsAlarmDiagnosticTestFailed": {
+    "name": "upsAlarmDiagnosticTestFailed",
+    "oid": "1.3.6.1.2.1.33.1.6.3.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsAlarmCommunicationsLost": {
+    "name": "upsAlarmCommunicationsLost",
+    "oid": "1.3.6.1.2.1.33.1.6.3.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsAlarmAwaitingPower": {
+    "name": "upsAlarmAwaitingPower",
+    "oid": "1.3.6.1.2.1.33.1.6.3.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsAlarmShutdownPending": {
+    "name": "upsAlarmShutdownPending",
+    "oid": "1.3.6.1.2.1.33.1.6.3.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsAlarmShutdownImminent": {
+    "name": "upsAlarmShutdownImminent",
+    "oid": "1.3.6.1.2.1.33.1.6.3.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsAlarmTestInProgress": {
+    "name": "upsAlarmTestInProgress",
+    "oid": "1.3.6.1.2.1.33.1.6.3.24",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsTest": {
+    "name": "upsTest",
+    "oid": "1.3.6.1.2.1.33.1.7",
+    "class": "objectidentity"
+  },
+  "upsTestId": {
+    "name": "upsTestId",
+    "oid": "1.3.6.1.2.1.33.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upsTestSpinLock": {
+    "name": "upsTestSpinLock",
+    "oid": "1.3.6.1.2.1.33.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upsTestResultsSummary": {
+    "name": "upsTestResultsSummary",
+    "oid": "1.3.6.1.2.1.33.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "donePass": 1,
+          "doneWarning": 2,
+          "doneError": 3,
+          "aborted": 4,
+          "inProgress": 5,
+          "noTestsInitiated": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsTestResultsDetail": {
+    "name": "upsTestResultsDetail",
+    "oid": "1.3.6.1.2.1.33.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsTestStartTime": {
+    "name": "upsTestStartTime",
+    "oid": "1.3.6.1.2.1.33.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsTestElapsedTime": {
+    "name": "upsTestElapsedTime",
+    "oid": "1.3.6.1.2.1.33.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsWellKnownTests": {
+    "name": "upsWellKnownTests",
+    "oid": "1.3.6.1.2.1.33.1.7.7",
+    "class": "objectidentity"
+  },
+  "upsTestNoTestsInitiated": {
+    "name": "upsTestNoTestsInitiated",
+    "oid": "1.3.6.1.2.1.33.1.7.7.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsTestAbortTestInProgress": {
+    "name": "upsTestAbortTestInProgress",
+    "oid": "1.3.6.1.2.1.33.1.7.7.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsTestGeneralSystemsTest": {
+    "name": "upsTestGeneralSystemsTest",
+    "oid": "1.3.6.1.2.1.33.1.7.7.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsTestQuickBatteryTest": {
+    "name": "upsTestQuickBatteryTest",
+    "oid": "1.3.6.1.2.1.33.1.7.7.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsTestDeepBatteryCalibration": {
+    "name": "upsTestDeepBatteryCalibration",
+    "oid": "1.3.6.1.2.1.33.1.7.7.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "upsControl": {
+    "name": "upsControl",
+    "oid": "1.3.6.1.2.1.33.1.8",
+    "class": "objectidentity"
+  },
+  "upsShutdownType": {
+    "name": "upsShutdownType",
+    "oid": "1.3.6.1.2.1.33.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "output": 1,
+          "system": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upsShutdownAfterDelay": {
+    "name": "upsShutdownAfterDelay",
+    "oid": "1.3.6.1.2.1.33.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483648
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upsStartupAfterDelay": {
+    "name": "upsStartupAfterDelay",
+    "oid": "1.3.6.1.2.1.33.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483648
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upsRebootWithDuration": {
+    "name": "upsRebootWithDuration",
+    "oid": "1.3.6.1.2.1.33.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upsAutoRestart": {
+    "name": "upsAutoRestart",
+    "oid": "1.3.6.1.2.1.33.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upsConfig": {
+    "name": "upsConfig",
+    "oid": "1.3.6.1.2.1.33.1.9",
+    "class": "objectidentity"
+  },
+  "upsConfigInputVoltage": {
+    "name": "upsConfigInputVoltage",
+    "oid": "1.3.6.1.2.1.33.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "RMS Volts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upsConfigInputFreq": {
+    "name": "upsConfigInputFreq",
+    "oid": "1.3.6.1.2.1.33.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "0.1 Hertz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upsConfigOutputVoltage": {
+    "name": "upsConfigOutputVoltage",
+    "oid": "1.3.6.1.2.1.33.1.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "RMS Volts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upsConfigOutputFreq": {
+    "name": "upsConfigOutputFreq",
+    "oid": "1.3.6.1.2.1.33.1.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "0.1 Hertz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upsConfigOutputVA": {
+    "name": "upsConfigOutputVA",
+    "oid": "1.3.6.1.2.1.33.1.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "Volt-Amps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsConfigOutputPower": {
+    "name": "upsConfigOutputPower",
+    "oid": "1.3.6.1.2.1.33.1.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsConfigLowBattTime": {
+    "name": "upsConfigLowBattTime",
+    "oid": "1.3.6.1.2.1.33.1.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upsConfigAudibleStatus": {
+    "name": "upsConfigAudibleStatus",
+    "oid": "1.3.6.1.2.1.33.1.9.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2,
+          "muted": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upsConfigLowVoltageTransferPoint": {
+    "name": "upsConfigLowVoltageTransferPoint",
+    "oid": "1.3.6.1.2.1.33.1.9.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "RMS Volts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upsConfigHighVoltageTransferPoint": {
+    "name": "upsConfigHighVoltageTransferPoint",
+    "oid": "1.3.6.1.2.1.33.1.9.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "RMS Volts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upsTraps": {
+    "name": "upsTraps",
+    "oid": "1.3.6.1.2.1.33.2",
+    "class": "objectidentity"
+  },
+  "upsTrapOnBattery": {
+    "name": "upsTrapOnBattery",
+    "oid": "1.3.6.1.2.1.33.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsEstimatedMinutesRemaining"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsSecondsOnBattery"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsConfigLowBattTime"
+      }
+    ],
+    "status": "current"
+  },
+  "upsTrapTestCompleted": {
+    "name": "upsTrapTestCompleted",
+    "oid": "1.3.6.1.2.1.33.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsTestId"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsTestSpinLock"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsTestResultsSummary"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsTestResultsDetail"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsTestStartTime"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsTestElapsedTime"
+      }
+    ],
+    "status": "current"
+  },
+  "upsTrapAlarmEntryAdded": {
+    "name": "upsTrapAlarmEntryAdded",
+    "oid": "1.3.6.1.2.1.33.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsAlarmId"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsAlarmDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "upsTrapAlarmEntryRemoved": {
+    "name": "upsTrapAlarmEntryRemoved",
+    "oid": "1.3.6.1.2.1.33.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsAlarmId"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsAlarmDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "upsConformance": {
+    "name": "upsConformance",
+    "oid": "1.3.6.1.2.1.33.3",
+    "class": "objectidentity"
+  },
+  "upsCompliances": {
+    "name": "upsCompliances",
+    "oid": "1.3.6.1.2.1.33.3.1",
+    "class": "objectidentity"
+  },
+  "upsSubsetCompliance": {
+    "name": "upsSubsetCompliance",
+    "oid": "1.3.6.1.2.1.33.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "upsSubsetIdentGroup",
+        "module": "UPS-MIB"
+      },
+      {
+        "object": "upsSubsetBatteryGroup",
+        "module": "UPS-MIB"
+      },
+      {
+        "object": "upsSubsetInputGroup",
+        "module": "UPS-MIB"
+      },
+      {
+        "object": "upsSubsetOutputGroup",
+        "module": "UPS-MIB"
+      },
+      {
+        "object": "upsSubsetAlarmGroup",
+        "module": "UPS-MIB"
+      },
+      {
+        "object": "upsSubsetControlGroup",
+        "module": "UPS-MIB"
+      },
+      {
+        "object": "upsSubsetConfigGroup",
+        "module": "UPS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "upsBasicCompliance": {
+    "name": "upsBasicCompliance",
+    "oid": "1.3.6.1.2.1.33.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "upsBasicIdentGroup",
+        "module": "UPS-MIB"
+      },
+      {
+        "object": "upsBasicBatteryGroup",
+        "module": "UPS-MIB"
+      },
+      {
+        "object": "upsBasicInputGroup",
+        "module": "UPS-MIB"
+      },
+      {
+        "object": "upsBasicOutputGroup",
+        "module": "UPS-MIB"
+      },
+      {
+        "object": "upsBasicAlarmGroup",
+        "module": "UPS-MIB"
+      },
+      {
+        "object": "upsBasicTestGroup",
+        "module": "UPS-MIB"
+      },
+      {
+        "object": "upsBasicControlGroup",
+        "module": "UPS-MIB"
+      },
+      {
+        "object": "upsBasicConfigGroup",
+        "module": "UPS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "upsFullCompliance": {
+    "name": "upsFullCompliance",
+    "oid": "1.3.6.1.2.1.33.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "upsFullIdentGroup",
+        "module": "UPS-MIB"
+      },
+      {
+        "object": "upsFullBatteryGroup",
+        "module": "UPS-MIB"
+      },
+      {
+        "object": "upsFullInputGroup",
+        "module": "UPS-MIB"
+      },
+      {
+        "object": "upsFullOutputGroup",
+        "module": "UPS-MIB"
+      },
+      {
+        "object": "upsFullAlarmGroup",
+        "module": "UPS-MIB"
+      },
+      {
+        "object": "upsFullTestGroup",
+        "module": "UPS-MIB"
+      },
+      {
+        "object": "upsFullControlGroup",
+        "module": "UPS-MIB"
+      },
+      {
+        "object": "upsFullConfigGroup",
+        "module": "UPS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "upsGroups": {
+    "name": "upsGroups",
+    "oid": "1.3.6.1.2.1.33.3.2",
+    "class": "objectidentity"
+  },
+  "upsSubsetGroups": {
+    "name": "upsSubsetGroups",
+    "oid": "1.3.6.1.2.1.33.3.2.1",
+    "class": "objectidentity"
+  },
+  "upsSubsetIdentGroup": {
+    "name": "upsSubsetIdentGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsIdentManufacturer"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsIdentModel"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsIdentAgentSoftwareVersion"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsIdentName"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsIdentAttachedDevices"
+      }
+    ],
+    "status": "current"
+  },
+  "upsSubsetBatteryGroup": {
+    "name": "upsSubsetBatteryGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsBatteryStatus"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsSecondsOnBattery"
+      }
+    ],
+    "status": "current"
+  },
+  "upsSubsetInputGroup": {
+    "name": "upsSubsetInputGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsInputLineBads"
+      }
+    ],
+    "status": "current"
+  },
+  "upsSubsetOutputGroup": {
+    "name": "upsSubsetOutputGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsOutputSource"
+      }
+    ],
+    "status": "current"
+  },
+  "upsSubsetAlarmGroup": {
+    "name": "upsSubsetAlarmGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsAlarmsPresent"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsAlarmDescr"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsAlarmTime"
+      }
+    ],
+    "status": "current"
+  },
+  "upsSubsetControlGroup": {
+    "name": "upsSubsetControlGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsShutdownType"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsShutdownAfterDelay"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsAutoRestart"
+      }
+    ],
+    "status": "current"
+  },
+  "upsSubsetConfigGroup": {
+    "name": "upsSubsetConfigGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsConfigInputVoltage"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsConfigInputFreq"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsConfigOutputVoltage"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsConfigOutputFreq"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsConfigOutputVA"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsConfigOutputPower"
+      }
+    ],
+    "status": "current"
+  },
+  "upsBasicGroups": {
+    "name": "upsBasicGroups",
+    "oid": "1.3.6.1.2.1.33.3.2.2",
+    "class": "objectidentity"
+  },
+  "upsBasicIdentGroup": {
+    "name": "upsBasicIdentGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsIdentManufacturer"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsIdentModel"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsIdentUPSSoftwareVersion"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsIdentAgentSoftwareVersion"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsIdentName"
+      }
+    ],
+    "status": "current"
+  },
+  "upsBasicBatteryGroup": {
+    "name": "upsBasicBatteryGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsBatteryStatus"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsSecondsOnBattery"
+      }
+    ],
+    "status": "current"
+  },
+  "upsBasicInputGroup": {
+    "name": "upsBasicInputGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsInputLineBads"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsInputNumLines"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsInputFrequency"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsInputVoltage"
+      }
+    ],
+    "status": "current"
+  },
+  "upsBasicOutputGroup": {
+    "name": "upsBasicOutputGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsOutputSource"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsOutputFrequency"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsOutputNumLines"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsOutputVoltage"
+      }
+    ],
+    "status": "current"
+  },
+  "upsBasicBypassGroup": {
+    "name": "upsBasicBypassGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsBypassFrequency"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsBypassNumLines"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsBypassVoltage"
+      }
+    ],
+    "status": "current"
+  },
+  "upsBasicAlarmGroup": {
+    "name": "upsBasicAlarmGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsAlarmsPresent"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsAlarmDescr"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsAlarmTime"
+      }
+    ],
+    "status": "current"
+  },
+  "upsBasicTestGroup": {
+    "name": "upsBasicTestGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsTestId"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsTestSpinLock"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsTestResultsSummary"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsTestResultsDetail"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsTestStartTime"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsTestElapsedTime"
+      }
+    ],
+    "status": "current"
+  },
+  "upsBasicControlGroup": {
+    "name": "upsBasicControlGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsShutdownType"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsShutdownAfterDelay"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsStartupAfterDelay"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsRebootWithDuration"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsAutoRestart"
+      }
+    ],
+    "status": "current"
+  },
+  "upsBasicConfigGroup": {
+    "name": "upsBasicConfigGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsConfigInputVoltage"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsConfigInputFreq"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsConfigOutputVoltage"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsConfigOutputFreq"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsConfigOutputVA"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsConfigOutputPower"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsConfigLowBattTime"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsConfigAudibleStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "upsFullGroups": {
+    "name": "upsFullGroups",
+    "oid": "1.3.6.1.2.1.33.3.2.3",
+    "class": "objectidentity"
+  },
+  "upsFullIdentGroup": {
+    "name": "upsFullIdentGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.3.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsIdentManufacturer"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsIdentModel"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsIdentUPSSoftwareVersion"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsIdentAgentSoftwareVersion"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsIdentName"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsIdentAttachedDevices"
+      }
+    ],
+    "status": "current"
+  },
+  "upsFullBatteryGroup": {
+    "name": "upsFullBatteryGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.3.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsBatteryStatus"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsSecondsOnBattery"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsEstimatedMinutesRemaining"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsEstimatedChargeRemaining"
+      }
+    ],
+    "status": "current"
+  },
+  "upsFullInputGroup": {
+    "name": "upsFullInputGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.3.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsInputLineBads"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsInputNumLines"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsInputFrequency"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsInputVoltage"
+      }
+    ],
+    "status": "current"
+  },
+  "upsFullOutputGroup": {
+    "name": "upsFullOutputGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.3.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsOutputSource"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsOutputFrequency"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsOutputNumLines"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsOutputVoltage"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsOutputCurrent"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsOutputPower"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsOutputPercentLoad"
+      }
+    ],
+    "status": "current"
+  },
+  "upsFullBypassGroup": {
+    "name": "upsFullBypassGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.3.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsBypassFrequency"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsBypassNumLines"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsBypassVoltage"
+      }
+    ],
+    "status": "current"
+  },
+  "upsFullAlarmGroup": {
+    "name": "upsFullAlarmGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.3.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsAlarmsPresent"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsAlarmDescr"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsAlarmTime"
+      }
+    ],
+    "status": "current"
+  },
+  "upsFullTestGroup": {
+    "name": "upsFullTestGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.3.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsTestId"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsTestSpinLock"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsTestResultsSummary"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsTestResultsDetail"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsTestStartTime"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsTestElapsedTime"
+      }
+    ],
+    "status": "current"
+  },
+  "upsFullControlGroup": {
+    "name": "upsFullControlGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.3.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsShutdownType"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsShutdownAfterDelay"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsStartupAfterDelay"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsRebootWithDuration"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsAutoRestart"
+      }
+    ],
+    "status": "current"
+  },
+  "upsFullConfigGroup": {
+    "name": "upsFullConfigGroup",
+    "oid": "1.3.6.1.2.1.33.3.2.3.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UPS-MIB",
+        "object": "upsConfigInputVoltage"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsConfigInputFreq"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsConfigOutputVoltage"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsConfigOutputFreq"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsConfigOutputVA"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsConfigOutputPower"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsConfigLowBattTime"
+      },
+      {
+        "module": "UPS-MIB",
+        "object": "upsConfigAudibleStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/UPS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "UPS-MIB"
+  }
+}

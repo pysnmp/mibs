@@ -1,0 +1,234 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoH323TCMIB": {
+    "name": "ciscoH323TCMIB",
+    "oid": "1.3.6.1.4.1.9.10.41",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1998-10-09 12:00",
+        "description": "The initial version of the mib."
+      },
+      {
+        "revision": "2000-03-10 00:00",
+        "description": "Removed CgkUtf8String as it is a duplicate definition of SnmpAdminString."
+      }
+    ]
+  },
+  "CgkIA5String": {
+    "name": "CgkIA5String",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "displayhint": "128a",
+    "status": "current"
+  },
+  "CgkE164String": {
+    "name": "CgkE164String",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "displayhint": "128a",
+    "status": "current"
+  },
+  "CgkTAddressTag": {
+    "name": "CgkTAddressTag",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "ipv4": 1,
+          "ipv6": 2,
+          "ipx": 3,
+          "nsap": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CgkNAddressTag": {
+    "name": "CgkNAddressTag",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "ipv4": 1,
+          "ipv6": 2,
+          "ipx": 3,
+          "nsap": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CgkNAddress": {
+    "name": "CgkNAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CgkGlobalIdentifier": {
+    "name": "CgkGlobalIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CgkAliasTag": {
+    "name": "CgkAliasTag",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "e164": 1,
+          "h323Id": 2,
+          "urlId": 3,
+          "transportId": 4,
+          "emailId": 5,
+          "partyNumber": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CgkAliasAddress": {
+    "name": "CgkAliasAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "displayhint": "512a",
+    "status": "current"
+  },
+  "CgkEndpointID": {
+    "name": "CgkEndpointID",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CgkGatekeeperID": {
+    "name": "CgkGatekeeperID",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-H323-TC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-H323-TC-MIB"
+  }
+}

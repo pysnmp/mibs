@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BCN-SMI-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/BCN-SMI-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:29:58 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:19:40 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 bluecatnetworks, = mibBuilder.importSymbols("BLUECATNETWORKS-MIB", "bluecatnetworks")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, ModuleIdentity, IpAddress, Counter32, Unsigned32, ObjectIdentity, TimeTicks, MibIdentifier, NotificationType, iso, Bits, Counter64, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "ModuleIdentity", "IpAddress", "Counter32", "Unsigned32", "ObjectIdentity", "TimeTicks", "MibIdentifier", "NotificationType", "iso", "Bits", "Counter64", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, ObjectIdentity, Integer32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, TimeTicks, Gauge32, Bits, NotificationType, iso, Unsigned32, IpAddress, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "ObjectIdentity", "Integer32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "TimeTicks", "Gauge32", "Bits", "NotificationType", "iso", "Unsigned32", "IpAddress", "ModuleIdentity")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 bcnSMI = ModuleIdentity((1, 3, 6, 1, 4, 1, 13315, 4, 1))
 bcnSMI.setRevisions(('2010-11-30 00:00',))
 if mibBuilder.loadTexts: bcnSMI.setLastUpdated('201011300000Z')
@@ -26,4 +26,4 @@ bcnModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 13315, 4))
 if mibBuilder.loadTexts: bcnModules.setStatus('current')
 bcnExperimental = ObjectIdentity((1, 3, 6, 1, 4, 1, 13315, 5))
 if mibBuilder.loadTexts: bcnExperimental.setStatus('current')
-mibBuilder.exportSymbols("BCN-SMI-MIB", PYSNMP_MODULE_ID=bcnSMI, bcnSMI=bcnSMI, bcnModules=bcnModules, bcnProducts=bcnProducts, bcnServices=bcnServices, bcnExperimental=bcnExperimental, bcnMgmt=bcnMgmt)
+mibBuilder.exportSymbols("BCN-SMI-MIB", bcnModules=bcnModules, bcnSMI=bcnSMI, bcnMgmt=bcnMgmt, bcnExperimental=bcnExperimental, PYSNMP_MODULE_ID=bcnSMI, bcnServices=bcnServices, bcnProducts=bcnProducts)

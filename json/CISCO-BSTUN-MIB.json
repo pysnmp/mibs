@@ -1,0 +1,1260 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoBstunMIB": {
+    "name": "ciscoBstunMIB",
+    "oid": "1.3.6.1.4.1.9.9.35",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-02-10 00:00",
+        "description": "Added Asynchronous POS to IP conversion support"
+      },
+      {
+        "revision": "2001-06-19 00:00",
+        "description": "Added Bisync to IP conversion peer support"
+      },
+      {
+        "revision": "1997-01-22 00:00",
+        "description": "Added frame-relay and other support"
+      },
+      {
+        "revision": "1995-08-21 00:00",
+        "description": "Minor cleanups to pacify mib compiler."
+      }
+    ]
+  },
+  "bstunObjects": {
+    "name": "bstunObjects",
+    "oid": "1.3.6.1.4.1.9.9.35.1",
+    "class": "objectidentity"
+  },
+  "bstunGlobal": {
+    "name": "bstunGlobal",
+    "oid": "1.3.6.1.4.1.9.9.35.1.1",
+    "class": "objectidentity"
+  },
+  "bstunGroups": {
+    "name": "bstunGroups",
+    "oid": "1.3.6.1.4.1.9.9.35.1.2",
+    "class": "objectidentity"
+  },
+  "bstunPorts": {
+    "name": "bstunPorts",
+    "oid": "1.3.6.1.4.1.9.9.35.1.3",
+    "class": "objectidentity"
+  },
+  "bstunRoutes": {
+    "name": "bstunRoutes",
+    "oid": "1.3.6.1.4.1.9.9.35.1.4",
+    "class": "objectidentity"
+  },
+  "bstunIPAddr": {
+    "name": "bstunIPAddr",
+    "oid": "1.3.6.1.4.1.9.9.35.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunLisnSap": {
+    "name": "bstunLisnSap",
+    "oid": "1.3.6.1.4.1.9.9.35.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunPeerKeepaliveInterval": {
+    "name": "bstunPeerKeepaliveInterval",
+    "oid": "1.3.6.1.4.1.9.9.35.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "units": "deciseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunPeerKeepaliveLimit": {
+    "name": "bstunPeerKeepaliveLimit",
+    "oid": "1.3.6.1.4.1.9.9.35.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunGroupTable": {
+    "name": "bstunGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.35.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bstunGroupEntry": {
+    "name": "bstunGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.35.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bstunGroupIndex": {
+    "name": "bstunGroupIndex",
+    "oid": "1.3.6.1.4.1.9.9.35.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bstunProtocolType": {
+    "name": "bstunProtocolType",
+    "oid": "1.3.6.1.4.1.9.9.35.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bsc": 1,
+          "adtVariPoll": 2,
+          "adtPollSelect": 3,
+          "adplex": 4,
+          "diebold": 5,
+          "asyncGeneric": 6,
+          "mdi": 7,
+          "mosec": 8,
+          "gddb": 9,
+          "apos": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunLocalAck": {
+    "name": "bstunLocalAck",
+    "oid": "1.3.6.1.4.1.9.9.35.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunGroupUnroutableTransmit": {
+    "name": "bstunGroupUnroutableTransmit",
+    "oid": "1.3.6.1.4.1.9.9.35.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunGroupUnroutableReceive": {
+    "name": "bstunGroupUnroutableReceive",
+    "oid": "1.3.6.1.4.1.9.9.35.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunPortTable": {
+    "name": "bstunPortTable",
+    "oid": "1.3.6.1.4.1.9.9.35.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bstunPortEntry": {
+    "name": "bstunPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.35.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bstunPortGroupNumber": {
+    "name": "bstunPortGroupNumber",
+    "oid": "1.3.6.1.4.1.9.9.35.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunPortDefaultPeerType": {
+    "name": "bstunPortDefaultPeerType",
+    "oid": "1.3.6.1.4.1.9.9.35.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "ip": 2,
+          "serial": 3,
+          "serialDirect": 4,
+          "serialFrameRelay": 5,
+          "serialLLC2": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunPortDefaultPeerIP": {
+    "name": "bstunPortDefaultPeerIP",
+    "oid": "1.3.6.1.4.1.9.9.35.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunPortDefaultPeerSerial": {
+    "name": "bstunPortDefaultPeerSerial",
+    "oid": "1.3.6.1.4.1.9.9.35.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunRouteTable": {
+    "name": "bstunRouteTable",
+    "oid": "1.3.6.1.4.1.9.9.35.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bstunRouteEntry": {
+    "name": "bstunRouteEntry",
+    "oid": "1.3.6.1.4.1.9.9.35.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteStationAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bstunRouteGroupIndex": {
+    "name": "bstunRouteGroupIndex",
+    "oid": "1.3.6.1.4.1.9.9.35.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bstunRouteStationAddress": {
+    "name": "bstunRouteStationAddress",
+    "oid": "1.3.6.1.4.1.9.9.35.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bstunRouteType": {
+    "name": "bstunRouteType",
+    "oid": "1.3.6.1.4.1.9.9.35.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "ip": 2,
+          "serial": 3,
+          "serialDirect": 4,
+          "serialFrameRelay": 5,
+          "serialLLC2": 6,
+          "bip": 7,
+          "apip": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunRouteIP": {
+    "name": "bstunRouteIP",
+    "oid": "1.3.6.1.4.1.9.9.35.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunRouteSerial": {
+    "name": "bstunRouteSerial",
+    "oid": "1.3.6.1.4.1.9.9.35.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunRoutePriority": {
+    "name": "bstunRoutePriority",
+    "oid": "1.3.6.1.4.1.9.9.35.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "normal": 2,
+          "medium": 3,
+          "high": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunRoutePeerState": {
+    "name": "bstunRoutePeerState",
+    "oid": "1.3.6.1.4.1.9.9.35.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dead": 1,
+          "closed": 2,
+          "opening": 3,
+          "openWait": 4,
+          "connected": 5,
+          "direct": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunRouteRxPackets": {
+    "name": "bstunRouteRxPackets",
+    "oid": "1.3.6.1.4.1.9.9.35.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunRouteTxPackets": {
+    "name": "bstunRouteTxPackets",
+    "oid": "1.3.6.1.4.1.9.9.35.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunRouteRxBytes": {
+    "name": "bstunRouteRxBytes",
+    "oid": "1.3.6.1.4.1.9.9.35.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunRouteTxBytes": {
+    "name": "bstunRouteTxBytes",
+    "oid": "1.3.6.1.4.1.9.9.35.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunRouteDLCI": {
+    "name": "bstunRouteDLCI",
+    "oid": "1.3.6.1.4.1.9.9.35.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 1007
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunRouteRSAP": {
+    "name": "bstunRouteRSAP",
+    "oid": "1.3.6.1.4.1.9.9.35.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunLLC2Priority": {
+    "name": "bstunLLC2Priority",
+    "oid": "1.3.6.1.4.1.9.9.35.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunRouteBIPPassive": {
+    "name": "bstunRouteBIPPassive",
+    "oid": "1.3.6.1.4.1.9.9.35.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunRouteBIPLocalPort": {
+    "name": "bstunRouteBIPLocalPort",
+    "oid": "1.3.6.1.4.1.9.9.35.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1025,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunRouteBIPForeignPort": {
+    "name": "bstunRouteBIPForeignPort",
+    "oid": "1.3.6.1.4.1.9.9.35.1.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1025,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunRouteBIPDeviceStatus": {
+    "name": "bstunRouteBIPDeviceStatus",
+    "oid": "1.3.6.1.4.1.9.9.35.1.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "operationcheck": 0,
+        "reservedBit1": 1,
+        "datacheck": 2,
+        "equipmentcheck": 3,
+        "interventionrequired": 4,
+        "commandreject": 5,
+        "deviceinactive": 6,
+        "deviceactive": 7,
+        "reservedBit8": 8,
+        "deviceend": 9,
+        "unitspecify": 10,
+        "devicebusy": 11
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunRouteAPIPHeaderVersion": {
+    "name": "bstunRouteAPIPHeaderVersion",
+    "oid": "1.3.6.1.4.1.9.9.35.1.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v0": 1,
+          "v1": 2,
+          "v2": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bstunNotificationPrefix": {
+    "name": "bstunNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.35.2",
+    "class": "objectidentity"
+  },
+  "bstunNotifications": {
+    "name": "bstunNotifications",
+    "oid": "1.3.6.1.4.1.9.9.35.2.0",
+    "class": "objectidentity"
+  },
+  "bstunPeerStateChangeNotification": {
+    "name": "bstunPeerStateChangeNotification",
+    "oid": "1.3.6.1.4.1.9.9.35.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRoutePeerState"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "bstunPeerStateChangeNotification2": {
+    "name": "bstunPeerStateChangeNotification2",
+    "oid": "1.3.6.1.4.1.9.9.35.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRoutePeerState"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteType"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteRxPackets"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteTxPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "bstunCUStatusChangeNotification": {
+    "name": "bstunCUStatusChangeNotification",
+    "oid": "1.3.6.1.4.1.9.9.35.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteIP"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteBIPForeignPort"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteBIPLocalPort"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteBIPDeviceStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "bstunMibConformance": {
+    "name": "bstunMibConformance",
+    "oid": "1.3.6.1.4.1.9.9.35.3",
+    "class": "objectidentity"
+  },
+  "bstunMibCompliances": {
+    "name": "bstunMibCompliances",
+    "oid": "1.3.6.1.4.1.9.9.35.3.1",
+    "class": "objectidentity"
+  },
+  "bstunMibGroups": {
+    "name": "bstunMibGroups",
+    "oid": "1.3.6.1.4.1.9.9.35.3.2",
+    "class": "objectidentity"
+  },
+  "bstunMibCompliance": {
+    "name": "bstunMibCompliance",
+    "oid": "1.3.6.1.4.1.9.9.35.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "bstunGlobalGroup",
+        "module": "CISCO-BSTUN-MIB"
+      },
+      {
+        "object": "bstunGroupGroup",
+        "module": "CISCO-BSTUN-MIB"
+      },
+      {
+        "object": "bstunPortGroup",
+        "module": "CISCO-BSTUN-MIB"
+      },
+      {
+        "object": "bstunRouteGroup",
+        "module": "CISCO-BSTUN-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "bstunMibComplianceRev1": {
+    "name": "bstunMibComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.35.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "bstunGlobalGroupRev1",
+        "module": "CISCO-BSTUN-MIB"
+      },
+      {
+        "object": "bstunGroupGroup",
+        "module": "CISCO-BSTUN-MIB"
+      },
+      {
+        "object": "bstunPortGroup",
+        "module": "CISCO-BSTUN-MIB"
+      },
+      {
+        "object": "bstunRouteGroupRev1",
+        "module": "CISCO-BSTUN-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "bstunMibComplianceRev2": {
+    "name": "bstunMibComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.35.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "bstunGlobalGroupRev1",
+        "module": "CISCO-BSTUN-MIB"
+      },
+      {
+        "object": "bstunGroupGroup",
+        "module": "CISCO-BSTUN-MIB"
+      },
+      {
+        "object": "bstunPortGroup",
+        "module": "CISCO-BSTUN-MIB"
+      },
+      {
+        "object": "bstunRouteGroupRev2",
+        "module": "CISCO-BSTUN-MIB"
+      },
+      {
+        "object": "bstunNotificationGroupRev1",
+        "module": "CISCO-BSTUN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "bstunMibComplianceRev3": {
+    "name": "bstunMibComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.35.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "bstunGlobalGroupRev1",
+        "module": "CISCO-BSTUN-MIB"
+      },
+      {
+        "object": "bstunGroupGroup",
+        "module": "CISCO-BSTUN-MIB"
+      },
+      {
+        "object": "bstunPortGroup",
+        "module": "CISCO-BSTUN-MIB"
+      },
+      {
+        "object": "bstunRouteGroupRev1",
+        "module": "CISCO-BSTUN-MIB"
+      },
+      {
+        "object": "bstunNotificationGroupRev1",
+        "module": "CISCO-BSTUN-MIB"
+      },
+      {
+        "object": "bstunRouteBipGroup",
+        "module": "CISCO-BSTUN-MIB"
+      },
+      {
+        "object": "bstunRoutePortsGroup",
+        "module": "CISCO-BSTUN-MIB"
+      },
+      {
+        "object": "bstunRouteApipGroup",
+        "module": "CISCO-BSTUN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "bstunGlobalGroup": {
+    "name": "bstunGlobalGroup",
+    "oid": "1.3.6.1.4.1.9.9.35.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunIPAddr"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "bstunGroupGroup": {
+    "name": "bstunGroupGroup",
+    "oid": "1.3.6.1.4.1.9.9.35.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunProtocolType"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunLocalAck"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunGroupUnroutableTransmit"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunGroupUnroutableReceive"
+      }
+    ],
+    "status": "current"
+  },
+  "bstunPortGroup": {
+    "name": "bstunPortGroup",
+    "oid": "1.3.6.1.4.1.9.9.35.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunPortGroupNumber"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunPortDefaultPeerType"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunPortDefaultPeerIP"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunPortDefaultPeerSerial"
+      }
+    ],
+    "status": "current"
+  },
+  "bstunRouteGroup": {
+    "name": "bstunRouteGroup",
+    "oid": "1.3.6.1.4.1.9.9.35.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteType"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteIP"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteSerial"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRoutePriority"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRoutePeerState"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteRxPackets"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteTxPackets"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteRxBytes"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteTxBytes"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "bstunGlobalGroupRev1": {
+    "name": "bstunGlobalGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.35.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunIPAddr"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunLisnSap"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunPeerKeepaliveInterval"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunPeerKeepaliveLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "bstunRouteGroupRev1": {
+    "name": "bstunRouteGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.35.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteType"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteIP"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteSerial"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRoutePriority"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRoutePeerState"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteRxPackets"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteTxPackets"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteRxBytes"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteTxBytes"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteDLCI"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteRSAP"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunLLC2Priority"
+      }
+    ],
+    "status": "current"
+  },
+  "bstunRouteGroupRev2": {
+    "name": "bstunRouteGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.35.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteType"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteIP"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteSerial"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRoutePriority"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRoutePeerState"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteRxPackets"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteTxPackets"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteRxBytes"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteTxBytes"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteDLCI"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteRSAP"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunLLC2Priority"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteBIPPassive"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteBIPLocalPort"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteBIPForeignPort"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteBIPDeviceStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "bstunNotificationGroup": {
+    "name": "bstunNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.35.3.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunPeerStateChangeNotification"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "bstunNotificationGroupRev1": {
+    "name": "bstunNotificationGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.35.3.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunPeerStateChangeNotification2"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunCUStatusChangeNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "bstunRouteBipGroup": {
+    "name": "bstunRouteBipGroup",
+    "oid": "1.3.6.1.4.1.9.9.35.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteBIPPassive"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteBIPDeviceStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "bstunRoutePortsGroup": {
+    "name": "bstunRoutePortsGroup",
+    "oid": "1.3.6.1.4.1.9.9.35.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteBIPLocalPort"
+      },
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteBIPForeignPort"
+      }
+    ],
+    "status": "current"
+  },
+  "bstunRouteApipGroup": {
+    "name": "bstunRouteApipGroup",
+    "oid": "1.3.6.1.4.1.9.9.35.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-BSTUN-MIB",
+        "object": "bstunRouteAPIPHeaderVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-BSTUN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-BSTUN-MIB"
+  }
+}

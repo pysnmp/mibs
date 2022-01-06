@@ -1,0 +1,415 @@
+{
+  "imports": {
+    "class": "imports",
+    "COLUBRIS-SMI": [
+      "colubrisMgmtV2"
+    ],
+    "COLUBRIS-TC": [
+      "ColubrisProfileIndex",
+      "ColubrisServerIndexOrZero",
+      "ColubrisServerIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Counter32",
+      "Integer32",
+      "iso",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "colubrisAAAClientMIB": {
+    "name": "colubrisAAAClientMIB",
+    "oid": "1.3.6.1.4.1.8744.5.5",
+    "class": "moduleidentity"
+  },
+  "colubrisAAAClientObjects": {
+    "name": "colubrisAAAClientObjects",
+    "oid": "1.3.6.1.4.1.8744.5.5.1",
+    "class": "objectidentity"
+  },
+  "colubrisAAAProfileGroup": {
+    "name": "colubrisAAAProfileGroup",
+    "oid": "1.3.6.1.4.1.8744.5.5.1.1",
+    "class": "objectidentity"
+  },
+  "colubrisAAAServerGroup": {
+    "name": "colubrisAAAServerGroup",
+    "oid": "1.3.6.1.4.1.8744.5.5.1.2",
+    "class": "objectidentity"
+  },
+  "colubrisAAAProfileTable": {
+    "name": "colubrisAAAProfileTable",
+    "oid": "1.3.6.1.4.1.8744.5.5.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "colubrisAAAProfileEntry": {
+    "name": "colubrisAAAProfileEntry",
+    "oid": "1.3.6.1.4.1.8744.5.5.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COLUBRIS-AAA-CLIENT-MIB",
+        "object": "colubrisAAAProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisAAAProfileIndex": {
+    "name": "colubrisAAAProfileIndex",
+    "oid": "1.3.6.1.4.1.8744.5.5.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisProfileIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "colubrisAAAProfileName": {
+    "name": "colubrisAAAProfileName",
+    "oid": "1.3.6.1.4.1.8744.5.5.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "colubrisAAAProfilePrimaryServerIndex": {
+    "name": "colubrisAAAProfilePrimaryServerIndex",
+    "oid": "1.3.6.1.4.1.8744.5.5.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisServerIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisAAAProfileSecondaryServerIndex": {
+    "name": "colubrisAAAProfileSecondaryServerIndex",
+    "oid": "1.3.6.1.4.1.8744.5.5.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisServerIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisAAAServerTable": {
+    "name": "colubrisAAAServerTable",
+    "oid": "1.3.6.1.4.1.8744.5.5.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "colubrisAAAServerEntry": {
+    "name": "colubrisAAAServerEntry",
+    "oid": "1.3.6.1.4.1.8744.5.5.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COLUBRIS-AAA-CLIENT-MIB",
+        "object": "colubrisAAAServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisAAAServerIndex": {
+    "name": "colubrisAAAServerIndex",
+    "oid": "1.3.6.1.4.1.8744.5.5.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisServerIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "colubrisAAAAuthenProtocol": {
+    "name": "colubrisAAAAuthenProtocol",
+    "oid": "1.3.6.1.4.1.8744.5.5.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "radius": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisAAAAuthenMethod": {
+    "name": "colubrisAAAAuthenMethod",
+    "oid": "1.3.6.1.4.1.8744.5.5.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pap": 1,
+          "chap": 2,
+          "mschap": 3,
+          "mschapv2": 4,
+          "eapMd5": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisAAAServerName": {
+    "name": "colubrisAAAServerName",
+    "oid": "1.3.6.1.4.1.8744.5.5.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "colubrisAAASharedSecret": {
+    "name": "colubrisAAASharedSecret",
+    "oid": "1.3.6.1.4.1.8744.5.5.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "colubrisAAAAuthenticationPort": {
+    "name": "colubrisAAAAuthenticationPort",
+    "oid": "1.3.6.1.4.1.8744.5.5.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisAAAAccountingPort": {
+    "name": "colubrisAAAAccountingPort",
+    "oid": "1.3.6.1.4.1.8744.5.5.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisAAATimeout": {
+    "name": "colubrisAAATimeout",
+    "oid": "1.3.6.1.4.1.8744.5.5.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisAAANASId": {
+    "name": "colubrisAAANASId",
+    "oid": "1.3.6.1.4.1.8744.5.5.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisAAAClientMIBConformance": {
+    "name": "colubrisAAAClientMIBConformance",
+    "oid": "1.3.6.1.4.1.8744.5.5.2",
+    "class": "objectidentity"
+  },
+  "colubrisAAAClientMIBCompliances": {
+    "name": "colubrisAAAClientMIBCompliances",
+    "oid": "1.3.6.1.4.1.8744.5.5.2.1",
+    "class": "objectidentity"
+  },
+  "colubrisAAAClientMIBGroups": {
+    "name": "colubrisAAAClientMIBGroups",
+    "oid": "1.3.6.1.4.1.8744.5.5.2.2",
+    "class": "objectidentity"
+  },
+  "colubrisAAAClientMIBCompliance": {
+    "name": "colubrisAAAClientMIBCompliance",
+    "oid": "1.3.6.1.4.1.8744.5.5.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "colubrisAAAProfileMIBGroup",
+        "module": "COLUBRIS-AAA-CLIENT-MIB"
+      },
+      {
+        "object": "colubrisAAAClientMIBGroup",
+        "module": "COLUBRIS-AAA-CLIENT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisAAAProfileMIBGroup": {
+    "name": "colubrisAAAProfileMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.5.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-AAA-CLIENT-MIB",
+        "object": "colubrisAAAProfileName"
+      },
+      {
+        "module": "COLUBRIS-AAA-CLIENT-MIB",
+        "object": "colubrisAAAProfilePrimaryServerIndex"
+      },
+      {
+        "module": "COLUBRIS-AAA-CLIENT-MIB",
+        "object": "colubrisAAAProfileSecondaryServerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisAAAClientMIBGroup": {
+    "name": "colubrisAAAClientMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.5.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-AAA-CLIENT-MIB",
+        "object": "colubrisAAAAuthenProtocol"
+      },
+      {
+        "module": "COLUBRIS-AAA-CLIENT-MIB",
+        "object": "colubrisAAAAuthenMethod"
+      },
+      {
+        "module": "COLUBRIS-AAA-CLIENT-MIB",
+        "object": "colubrisAAAServerName"
+      },
+      {
+        "module": "COLUBRIS-AAA-CLIENT-MIB",
+        "object": "colubrisAAASharedSecret"
+      },
+      {
+        "module": "COLUBRIS-AAA-CLIENT-MIB",
+        "object": "colubrisAAAAuthenticationPort"
+      },
+      {
+        "module": "COLUBRIS-AAA-CLIENT-MIB",
+        "object": "colubrisAAAAccountingPort"
+      },
+      {
+        "module": "COLUBRIS-AAA-CLIENT-MIB",
+        "object": "colubrisAAATimeout"
+      },
+      {
+        "module": "COLUBRIS-AAA-CLIENT-MIB",
+        "object": "colubrisAAANASId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-AAA-CLIENT-MIB.my",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:36:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "COLUBRIS-AAA-CLIENT-MIB"
+  }
+}

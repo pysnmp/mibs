@@ -1,0 +1,644 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "RMON-MIB": [
+      "OwnerString",
+      "rmonEventGroup"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "VariablePointer",
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoHcAlarmMIB": {
+    "name": "ciscoHcAlarmMIB",
+    "oid": "1.3.6.1.4.1.9.10.93",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-10-05 00:00",
+        "description": "Initial version of the High Capacity Alarm MIB module. RFC Editor)."
+      }
+    ]
+  },
+  "cHcAlarmObjects": {
+    "name": "cHcAlarmObjects",
+    "oid": "1.3.6.1.4.1.9.10.93.1",
+    "class": "objectidentity"
+  },
+  "cHcAlarmNotifications": {
+    "name": "cHcAlarmNotifications",
+    "oid": "1.3.6.1.4.1.9.10.93.2",
+    "class": "objectidentity"
+  },
+  "cHcAlarmConformance": {
+    "name": "cHcAlarmConformance",
+    "oid": "1.3.6.1.4.1.9.10.93.3",
+    "class": "objectidentity"
+  },
+  "cHcAlarmControlObjects": {
+    "name": "cHcAlarmControlObjects",
+    "oid": "1.3.6.1.4.1.9.10.93.1.1",
+    "class": "objectidentity"
+  },
+  "cHcAlarmCapabilitiesObjects": {
+    "name": "cHcAlarmCapabilitiesObjects",
+    "oid": "1.3.6.1.4.1.9.10.93.1.2",
+    "class": "objectidentity"
+  },
+  "CHcValueStatus": {
+    "name": "CHcValueStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valueNotAvailable": 1,
+          "valuePositive": 2,
+          "valueNegative": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cHcAlarmTable": {
+    "name": "cHcAlarmTable",
+    "oid": "1.3.6.1.4.1.9.10.93.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cHcAlarmEntry": {
+    "name": "cHcAlarmEntry",
+    "oid": "1.3.6.1.4.1.9.10.93.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cHcAlarmIndex": {
+    "name": "cHcAlarmIndex",
+    "oid": "1.3.6.1.4.1.9.10.93.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cHcAlarmInterval": {
+    "name": "cHcAlarmInterval",
+    "oid": "1.3.6.1.4.1.9.10.93.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cHcAlarmVariable": {
+    "name": "cHcAlarmVariable",
+    "oid": "1.3.6.1.4.1.9.10.93.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cHcAlarmSampleType": {
+    "name": "cHcAlarmSampleType",
+    "oid": "1.3.6.1.4.1.9.10.93.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absoluteValue": 1,
+          "deltaValue": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cHcAlarmAbsValue": {
+    "name": "cHcAlarmAbsValue",
+    "oid": "1.3.6.1.4.1.9.10.93.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cHcAlarmValueStatus": {
+    "name": "cHcAlarmValueStatus",
+    "oid": "1.3.6.1.4.1.9.10.93.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CHcValueStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cHcAlarmStartupAlarm": {
+    "name": "cHcAlarmStartupAlarm",
+    "oid": "1.3.6.1.4.1.9.10.93.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "risingAlarm": 1,
+          "fallingAlarm": 2,
+          "risingOrFallingAlarm": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cHcAlarmRisingThreshAbsValueLo": {
+    "name": "cHcAlarmRisingThreshAbsValueLo",
+    "oid": "1.3.6.1.4.1.9.10.93.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cHcAlarmRisingThreshAbsValueHi": {
+    "name": "cHcAlarmRisingThreshAbsValueHi",
+    "oid": "1.3.6.1.4.1.9.10.93.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cHcAlarmRisingThresholdValStatus": {
+    "name": "cHcAlarmRisingThresholdValStatus",
+    "oid": "1.3.6.1.4.1.9.10.93.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CHcValueStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cHcAlarmFallingThreshAbsValueLo": {
+    "name": "cHcAlarmFallingThreshAbsValueLo",
+    "oid": "1.3.6.1.4.1.9.10.93.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cHcAlarmFallingThreshAbsValueHi": {
+    "name": "cHcAlarmFallingThreshAbsValueHi",
+    "oid": "1.3.6.1.4.1.9.10.93.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cHcAlarmFallingThrsholdValStatus": {
+    "name": "cHcAlarmFallingThrsholdValStatus",
+    "oid": "1.3.6.1.4.1.9.10.93.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CHcValueStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cHcAlarmRisingEventIndex": {
+    "name": "cHcAlarmRisingEventIndex",
+    "oid": "1.3.6.1.4.1.9.10.93.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cHcAlarmFallingEventIndex": {
+    "name": "cHcAlarmFallingEventIndex",
+    "oid": "1.3.6.1.4.1.9.10.93.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cHcAlarmValueFailedAttempts": {
+    "name": "cHcAlarmValueFailedAttempts",
+    "oid": "1.3.6.1.4.1.9.10.93.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cHcAlarmOwner": {
+    "name": "cHcAlarmOwner",
+    "oid": "1.3.6.1.4.1.9.10.93.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cHcAlarmStorageType": {
+    "name": "cHcAlarmStorageType",
+    "oid": "1.3.6.1.4.1.9.10.93.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cHcAlarmStatus": {
+    "name": "cHcAlarmStatus",
+    "oid": "1.3.6.1.4.1.9.10.93.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cHcAlarmCapabilities": {
+    "name": "cHcAlarmCapabilities",
+    "oid": "1.3.6.1.4.1.9.10.93.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "cHcAlarmCreation": 0,
+        "cHcAlarmNvStorage": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cHcAlarmNotifPrefix": {
+    "name": "cHcAlarmNotifPrefix",
+    "oid": "1.3.6.1.4.1.9.10.93.2.0",
+    "class": "objectidentity"
+  },
+  "cHcRisingAlarm": {
+    "name": "cHcRisingAlarm",
+    "oid": "1.3.6.1.4.1.9.10.93.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmVariable"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmSampleType"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmAbsValue"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmValueStatus"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmRisingThreshAbsValueLo"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmRisingThreshAbsValueHi"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmRisingThresholdValStatus"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmRisingEventIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "cHcFallingAlarm": {
+    "name": "cHcFallingAlarm",
+    "oid": "1.3.6.1.4.1.9.10.93.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmVariable"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmSampleType"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmAbsValue"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmValueStatus"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmFallingThreshAbsValueLo"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmFallingThreshAbsValueHi"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmFallingThrsholdValStatus"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmFallingEventIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "cHcAlarmCompliances": {
+    "name": "cHcAlarmCompliances",
+    "oid": "1.3.6.1.4.1.9.10.93.3.1",
+    "class": "objectidentity"
+  },
+  "cHcAlarmGroups": {
+    "name": "cHcAlarmGroups",
+    "oid": "1.3.6.1.4.1.9.10.93.3.2",
+    "class": "objectidentity"
+  },
+  "cHcAlarmCompliance": {
+    "name": "cHcAlarmCompliance",
+    "oid": "1.3.6.1.4.1.9.10.93.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cHcAlarmControlGroup",
+        "module": "CISCO-HC-ALARM-MIB"
+      },
+      {
+        "object": "cHcAlarmCapabilitiesGroup",
+        "module": "CISCO-HC-ALARM-MIB"
+      },
+      {
+        "object": "cHcAlarmNotificationsGroup",
+        "module": "CISCO-HC-ALARM-MIB"
+      },
+      {
+        "object": "rmonEventGroup",
+        "module": "RMON-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cHcAlarmControlGroup": {
+    "name": "cHcAlarmControlGroup",
+    "oid": "1.3.6.1.4.1.9.10.93.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmInterval"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmVariable"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmSampleType"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmAbsValue"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmValueStatus"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmStartupAlarm"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmRisingThreshAbsValueLo"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmRisingThreshAbsValueHi"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmRisingThresholdValStatus"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmFallingThreshAbsValueLo"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmFallingThreshAbsValueHi"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmFallingThrsholdValStatus"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmRisingEventIndex"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmFallingEventIndex"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmValueFailedAttempts"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmOwner"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmStorageType"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cHcAlarmCapabilitiesGroup": {
+    "name": "cHcAlarmCapabilitiesGroup",
+    "oid": "1.3.6.1.4.1.9.10.93.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcAlarmCapabilities"
+      }
+    ],
+    "status": "current"
+  },
+  "cHcAlarmNotificationsGroup": {
+    "name": "cHcAlarmNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.10.93.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcRisingAlarm"
+      },
+      {
+        "module": "CISCO-HC-ALARM-MIB",
+        "object": "cHcFallingAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-HC-ALARM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-HC-ALARM-MIB"
+  }
+}

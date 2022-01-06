@@ -1,0 +1,3578 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "PRVT-SERV-MIB": [
+      "sapPortId",
+      "svcId",
+      "sapEncapValue",
+      "sdpId"
+    ],
+    "PRVT-SWITCH-MIB": [
+      "ipSwitch"
+    ],
+    "Q-BRIDGE-MIB": [
+      "dot1qVlanStatus",
+      "dot1qVlanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "prvtSwitchAccessListMib": {
+    "name": "prvtSwitchAccessListMib",
+    "oid": "1.3.6.1.4.1.738.1.6.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-02-07 00:00",
+        "description": "Addeed accessListInterfaceRateStatistics object"
+      },
+      {
+        "revision": "2010-11-16 00:00",
+        "description": "Added accessListSapTable and accessListSapStatisticsTable"
+      },
+      {
+        "revision": "2010-11-03 00:00",
+        "description": "Added new OIDs standardAccessListDropLevel, extendedAccessListDropLevel, macAccessListDropLevel, standardAccessListDscp, extendedAccessListDscp"
+      },
+      {
+        "revision": "2009-04-17 00:00",
+        "description": "Created AccessListRemarkString TC."
+      },
+      {
+        "revision": "2008-11-20 00:00",
+        "description": "Added objects for Egress Access Lists"
+      },
+      {
+        "revision": "2008-02-14 00:00",
+        "description": "Added Access List Interface Statistics"
+      },
+      {
+        "revision": "2008-01-01 00:00",
+        "description": "Removed redefined OIDs in private vendor extension definitions."
+      },
+      {
+        "revision": "2007-12-05 00:00",
+        "description": " "
+      },
+      {
+        "revision": "2006-03-22 00:00",
+        "description": "Added the tag filter object in the interface and VLAN access group tables and changed some description with TMetro specific information."
+      },
+      {
+        "revision": "2005-10-03 00:00",
+        "description": "Switched the values of greater-than and less-than in PortDef textual convention."
+      },
+      {
+        "revision": "2005-09-30 00:00",
+        "description": "Changed the Rate textual convention to include the value of 0 (zero)."
+      },
+      {
+        "revision": "2005-02-28 00:00",
+        "description": "Added the span track objects in the interface tables."
+      },
+      {
+        "revision": "2005-02-24 00:00",
+        "description": "Added the source and destination range objects in the extended access list table."
+      },
+      {
+        "revision": "2005-02-16 00:00",
+        "description": "Fixed spelling errors and changed the contact info."
+      },
+      {
+        "revision": "2004-12-15 00:00",
+        "description": "1. accessListControlTable is now indexed only by accessListControlListGroup and the row status creates whole groups. 2. Added standardAccessListIndex and extendedAccessListIndex as indices of standardAccessListTable and extendedAccessListTable to replace accessGroupControlListIndex. 3. Added standardAccessListRowStatus and extendedAccessListRowStatus to enable creation of rules. Rules, however, cannot be deleted using these objects. 4. Added support for enabling the loggin of ACLs (standardAccessListLog, extendedAccessListLog). 5. Added support for redirection traffic to a vlan and ip next hop (accessListInterfaceRedirectVlanID,accessListVLANRedirectVlanID,accessListInterfaceRedirectNexthop,accessListVLANRedirectNexthop). 6. Added objects for configuring the Peak rate and peak burst when dual rate limit is used. (accessListInterfacePeakRate, accessListInterfacePeakBurst, accessListVLANPeakRate,accessListVLANPeakBurst) 7. Added objects for toggling the traffic metering color awareness and remarking policy. (accessListInterfaceColorAware, accessListVlanColorAware,accessListInterfacePolicy, accessListVlanPolicy) "
+      },
+      {
+        "revision": "2003-10-15 00:00",
+        "description": "Global changes: 1. Added support for VLAN IP access-group. 2. Added support for redirecting traffic to an interface (accessListInterfaceRedirectIfIndex,accessListVLANRedirectIfIndex). 3. Renamed accessListControlListGroupIndex to accessListInterfaceGroupIndex 4. Changes in AccessListAction, removed shaper. 5. Removed Burst TEXTUAL-CONVENTION. Changes for E-Series 1. Introduced changes in PortDef,ExceedAction,AccessListDiscard TEXTUAL-CONVENTION for E-Series. 2. The objects extendedAccessListIgmpType and accessListInterfaceShaper are not supported for E-Series. 3. Added accessListInterfaceBurst,accessListVLANBurst for E-Series. 4. The range of accessListInterfaceDscp is now 0..63 for E-Series."
+      },
+      {
+        "revision": "2003-05-08 00:00",
+        "description": "Moved to SMI-V2. Removed extendedAccessListEstablished and extendedAccessListMSS."
+      },
+      {
+        "revision": "2002-11-12 00:00",
+        "description": "Changed mapping of AccessListAction enum."
+      },
+      {
+        "revision": "2001-11-05 00:00",
+        "description": "Added shaper to access group."
+      },
+      {
+        "revision": "2001-09-30 00:00",
+        "description": "Added ICMP type,ICMP code and IGMP to extended access list."
+      },
+      {
+        "revision": "2001-08-27 00:00",
+        "description": "Added access group with rate limit."
+      },
+      {
+        "revision": "2001-07-31 00:00",
+        "description": "Added routed ISP."
+      },
+      {
+        "revision": "2001-05-14 00:00",
+        "description": "1. Added remark, MSS and Established to access list. 2. Added Priority and Discard to access group."
+      },
+      {
+        "revision": "2001-02-20 00:00",
+        "description": "Added the ability to modify TOS in extended access list."
+      },
+      {
+        "revision": "2001-02-15 00:00",
+        "description": "Added shaper mode for access list action."
+      },
+      {
+        "revision": "2001-01-28 00:00",
+        "description": "Added support for access group in ISP."
+      },
+      {
+        "revision": "2000-11-13 09:59",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "AccessListAction": {
+    "name": "AccessListAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 0,
+          "deny": 1,
+          "shaper": 2,
+          "remark": 3,
+          "undefined": 100
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IpProtocol": {
+    "name": "IpProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "PortDef": {
+    "name": "PortDef",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "equal": 1,
+          "range": 2,
+          "greater-than": 3,
+          "less-than": 4,
+          "undefined": 0
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Rate": {
+    "name": "Rate",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 13,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ExceedAction": {
+    "name": "ExceedAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 0,
+          "markDiscardable": 1,
+          "undefined": 2,
+          "green": 3,
+          "yellow": 4,
+          "red": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VlanTag": {
+    "name": "VlanTag",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "untagged": 0,
+          "tagged": 1,
+          "undefined": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ISPType": {
+    "name": "ISPType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connectivity": 0,
+          "normal": 1,
+          "routed": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Shaper": {
+    "name": "Shaper",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ConformAction": {
+    "name": "ConformAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transmit": 0
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AssigenValue": {
+    "name": "AssigenValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AccessListModifyTos": {
+    "name": "AccessListModifyTos",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AccessListEstablished": {
+    "name": "AccessListEstablished",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AccessListDiscard": {
+    "name": "AccessListDiscard",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "discardable": 1,
+          "green": 2,
+          "yellow": 3,
+          "red": 4,
+          "undefined": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AccessListRemarkString": {
+    "name": "AccessListRemarkString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "displayhint": "40a",
+    "status": "current"
+  },
+  "TxqDropLevel": {
+    "name": "TxqDropLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "green": 1,
+          "yellow": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MatchTraffic": {
+    "name": "MatchTraffic",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "untagged": 1,
+          "unknown-unicast": 2,
+          "multicast": 3,
+          "broadcast": 4,
+          "known-unicast": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AccessListStatistics": {
+    "name": "AccessListStatistics",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AccessListDirection": {
+    "name": "AccessListDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ingress": 0,
+          "egress": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "prvtSwitchAccessListNotifications": {
+    "name": "prvtSwitchAccessListNotifications",
+    "oid": "1.3.6.1.4.1.738.1.6.1.0",
+    "class": "objectidentity"
+  },
+  "accessLists": {
+    "name": "accessLists",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1",
+    "class": "objectidentity"
+  },
+  "isp": {
+    "name": "isp",
+    "oid": "1.3.6.1.4.1.738.1.6.1.2",
+    "class": "objectidentity"
+  },
+  "prvtSwitchAccessListConformance": {
+    "name": "prvtSwitchAccessListConformance",
+    "oid": "1.3.6.1.4.1.738.1.6.1.3",
+    "class": "objectidentity"
+  },
+  "accessListTemplate": {
+    "name": "accessListTemplate",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standard": 1,
+          "vlan-priority": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessGroupsDefinitions": {
+    "name": "accessGroupsDefinitions",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2",
+    "class": "objectidentity"
+  },
+  "accessListsInterfaces": {
+    "name": "accessListsInterfaces",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3",
+    "class": "objectidentity"
+  },
+  "accessListsVLAN": {
+    "name": "accessListsVLAN",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4",
+    "class": "objectidentity"
+  },
+  "accessListsServices": {
+    "name": "accessListsServices",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.5",
+    "class": "objectidentity"
+  },
+  "accessListsInterfaceStatistics": {
+    "name": "accessListsInterfaceStatistics",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.6",
+    "class": "objectidentity"
+  },
+  "accessListsServicesStatistics": {
+    "name": "accessListsServicesStatistics",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.7",
+    "class": "objectidentity"
+  },
+  "accessListControlTable": {
+    "name": "accessListControlTable",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "accessListControlEntry": {
+    "name": "accessListControlEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "accessListControlListGroup",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "accessListControlListGroup": {
+    "name": "accessListControlListGroup",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "accessListControlRowStatus": {
+    "name": "accessListControlRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "standardAccessListTable": {
+    "name": "standardAccessListTable",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "standardAccessListEntry": {
+    "name": "standardAccessListEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "accessListControlListGroup",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "standardAccessListIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "standardAccessListIndex": {
+    "name": "standardAccessListIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "standardAccessListAction": {
+    "name": "standardAccessListAction",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AccessListAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "standardAccessListIpSrc": {
+    "name": "standardAccessListIpSrc",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "standardAccessListIpMASKsrc": {
+    "name": "standardAccessListIpMASKsrc",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "standardAccessListRemark": {
+    "name": "standardAccessListRemark",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AccessListRemarkString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "standardAccessListLog": {
+    "name": "standardAccessListLog",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "log": 1,
+          "log-input": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "standardAccessListVpt": {
+    "name": "standardAccessListVpt",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vpt-value0": 0,
+          "vpt-value1": 1,
+          "vpt-value2": 2,
+          "vpt-value3": 3,
+          "vpt-value4": 4,
+          "vpt-value5": 5,
+          "vpt-value6": 6,
+          "vpt-value7": 7,
+          "undefined": 8,
+          "fc-be": 241,
+          "fc-l2": 242,
+          "fc-af": 243,
+          "fc-l1": 244,
+          "fc-h2": 245,
+          "fc-ef": 246,
+          "fc-h1": 247,
+          "fc-nc": 248
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "standardAccessListRowStatus": {
+    "name": "standardAccessListRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "standardAccessListVlanId": {
+    "name": "standardAccessListVlanId",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4092
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "standardAccessListVlanMask": {
+    "name": "standardAccessListVlanMask",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "standardAccessListProviderVlanId": {
+    "name": "standardAccessListProviderVlanId",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4092
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "standardAccessListProviderVlanMask": {
+    "name": "standardAccessListProviderVlanMask",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "standardAccessListProviderVpt": {
+    "name": "standardAccessListProviderVpt",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "standardAccessListUntaggedMode": {
+    "name": "standardAccessListUntaggedMode",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "standardAccessListDropLevel": {
+    "name": "standardAccessListDropLevel",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "green": 0,
+          "yellow": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "standardAccessListDscp": {
+    "name": "standardAccessListDscp",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListTable": {
+    "name": "extendedAccessListTable",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extendedAccessListEntry": {
+    "name": "extendedAccessListEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "accessListControlListGroup",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "extendedAccessListIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extendedAccessListIndex": {
+    "name": "extendedAccessListIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extendedAccessListAction": {
+    "name": "extendedAccessListAction",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AccessListAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListIpProtocol": {
+    "name": "extendedAccessListIpProtocol",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListIpSrc": {
+    "name": "extendedAccessListIpSrc",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListIpMASKsrc": {
+    "name": "extendedAccessListIpMASKsrc",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListPortDefSrc": {
+    "name": "extendedAccessListPortDefSrc",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortDef",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListPortNumSrc": {
+    "name": "extendedAccessListPortNumSrc",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListPortRangeSrc": {
+    "name": "extendedAccessListPortRangeSrc",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListIpDest": {
+    "name": "extendedAccessListIpDest",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListIpMASKdst": {
+    "name": "extendedAccessListIpMASKdst",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListPortDefDst": {
+    "name": "extendedAccessListPortDefDst",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortDef",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListPortNumDst": {
+    "name": "extendedAccessListPortNumDst",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListPortRangeDst": {
+    "name": "extendedAccessListPortRangeDst",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListTos": {
+    "name": "extendedAccessListTos",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListPrec": {
+    "name": "extendedAccessListPrec",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListModifyTos": {
+    "name": "extendedAccessListModifyTos",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AccessListModifyTos",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListRemark": {
+    "name": "extendedAccessListRemark",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AccessListRemarkString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListIcmpType": {
+    "name": "extendedAccessListIcmpType",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListIcmpCode": {
+    "name": "extendedAccessListIcmpCode",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListIgmpType": {
+    "name": "extendedAccessListIgmpType",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListEstablished": {
+    "name": "extendedAccessListEstablished",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AccessListEstablished",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListLog": {
+    "name": "extendedAccessListLog",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "log": 1,
+          "log-input": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListVpt": {
+    "name": "extendedAccessListVpt",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vpt-value0": 0,
+          "vpt-value1": 1,
+          "vpt-value2": 2,
+          "vpt-value3": 3,
+          "vpt-value4": 4,
+          "vpt-value5": 5,
+          "vpt-value6": 6,
+          "vpt-value7": 7,
+          "undefined": 8,
+          "fc-be": 241,
+          "fc-l2": 242,
+          "fc-af": 243,
+          "fc-l1": 244,
+          "fc-h2": 245,
+          "fc-ef": 246,
+          "fc-h1": 247,
+          "fc-nc": 248
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListRowStatus": {
+    "name": "extendedAccessListRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extendedAccessListVlanId": {
+    "name": "extendedAccessListVlanId",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4092
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListVlanMask": {
+    "name": "extendedAccessListVlanMask",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListProviderVlanId": {
+    "name": "extendedAccessListProviderVlanId",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4092
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListProviderVlanMask": {
+    "name": "extendedAccessListProviderVlanMask",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListProviderVpt": {
+    "name": "extendedAccessListProviderVpt",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListUntaggedMode": {
+    "name": "extendedAccessListUntaggedMode",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListDropLevel": {
+    "name": "extendedAccessListDropLevel",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "green": 0,
+          "yellow": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extendedAccessListDscp": {
+    "name": "extendedAccessListDscp",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "macAccessListTable": {
+    "name": "macAccessListTable",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "macAccessListEntry": {
+    "name": "macAccessListEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "accessListControlListGroup",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "macAccessListIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "macAccessListIndex": {
+    "name": "macAccessListIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "macAccessListAction": {
+    "name": "macAccessListAction",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AccessListAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "macAccessListMacSrc": {
+    "name": "macAccessListMacSrc",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "macAccessListMacSrcMask": {
+    "name": "macAccessListMacSrcMask",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "macAccessListMacDst": {
+    "name": "macAccessListMacDst",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "macAccessListMacDstMask": {
+    "name": "macAccessListMacDstMask",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "macAccessListRemark": {
+    "name": "macAccessListRemark",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AccessListRemarkString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "macAccessListLog": {
+    "name": "macAccessListLog",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "log": 1,
+          "log-input": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "macAccessListRowStatus": {
+    "name": "macAccessListRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "macAccessListTos": {
+    "name": "macAccessListTos",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "macAccessListPrecedence": {
+    "name": "macAccessListPrecedence",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "macAccessListVpt": {
+    "name": "macAccessListVpt",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vpt-value0": 0,
+          "vpt-value1": 1,
+          "vpt-value2": 2,
+          "vpt-value3": 3,
+          "vpt-value4": 4,
+          "vpt-value5": 5,
+          "vpt-value6": 6,
+          "vpt-value7": 7,
+          "undefined": 8,
+          "fc-be": 241,
+          "fc-l2": 242,
+          "fc-af": 243,
+          "fc-l1": 244,
+          "fc-h2": 245,
+          "fc-ef": 246,
+          "fc-h1": 247,
+          "fc-nc": 248
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "macAccessListVlanId": {
+    "name": "macAccessListVlanId",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4092
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "macAccessListVlanMask": {
+    "name": "macAccessListVlanMask",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "macAccessListInnerVlanId": {
+    "name": "macAccessListInnerVlanId",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4092
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "macAccessListInnerVlanMask": {
+    "name": "macAccessListInnerVlanMask",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "macAccessListInnerVpt": {
+    "name": "macAccessListInnerVpt",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "macAccessListEtherType": {
+    "name": "macAccessListEtherType",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "macAccessListDscp": {
+    "name": "macAccessListDscp",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "macAccessListMatchTraffic": {
+    "name": "macAccessListMatchTraffic",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MatchTraffic",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "macAccessListMatchTrafficPort": {
+    "name": "macAccessListMatchTrafficPort",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "macAccessListUntaggedMode": {
+    "name": "macAccessListUntaggedMode",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "macAccessListDropLevel": {
+    "name": "macAccessListDropLevel",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "green": 0,
+          "yellow": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "etherTypeAccessListTable": {
+    "name": "etherTypeAccessListTable",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "etherTypeAccessListEntry": {
+    "name": "etherTypeAccessListEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "accessListControlListGroup",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "etherTypeAccessListIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "etherTypeAccessListIndex": {
+    "name": "etherTypeAccessListIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "etherTypeAccessListAction": {
+    "name": "etherTypeAccessListAction",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AccessListAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "etherTypeAccessListEtherType": {
+    "name": "etherTypeAccessListEtherType",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "etherTypeAccessListEtherTypeCodeMask": {
+    "name": "etherTypeAccessListEtherTypeCodeMask",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "etherTypeAccessListRemark": {
+    "name": "etherTypeAccessListRemark",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AccessListRemarkString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "etherTypeAccessListLog": {
+    "name": "etherTypeAccessListLog",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "log": 1,
+          "log-input": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "etherTypeAccessListRowStatus": {
+    "name": "etherTypeAccessListRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "etherTypeAccessListVlanId": {
+    "name": "etherTypeAccessListVlanId",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4092
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "etherTypeAccessListVlanMask": {
+    "name": "etherTypeAccessListVlanMask",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "etherTypeAccessListProviderVlanId": {
+    "name": "etherTypeAccessListProviderVlanId",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4092
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "etherTypeAccessListProviderVlanMask": {
+    "name": "etherTypeAccessListProviderVlanMask",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "etherTypeAccessListProviderVpt": {
+    "name": "etherTypeAccessListProviderVpt",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessListInterfaceTable": {
+    "name": "accessListInterfaceTable",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "accessListInterfaceEntry": {
+    "name": "accessListInterfaceEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "accessListInterfaceTableIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "accessListInterfaceGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "accessListInterfaceTableIndex": {
+    "name": "accessListInterfaceTableIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "accessListInterfaceGroupIndex": {
+    "name": "accessListInterfaceGroupIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "accessListInterfaceDscp": {
+    "name": "accessListInterfaceDscp",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessListInterfaceRowStatus": {
+    "name": "accessListInterfaceRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListInterfacePriority": {
+    "name": "accessListInterfacePriority",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListInterfaceDiscard": {
+    "name": "accessListInterfaceDiscard",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AccessListDiscard",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListInterfaceRateLimit": {
+    "name": "accessListInterfaceRateLimit",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Rate",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListInterfaceExceedAction": {
+    "name": "accessListInterfaceExceedAction",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ExceedAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListInterfaceShaper": {
+    "name": "accessListInterfaceShaper",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Shaper",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListInterfaceBurst": {
+    "name": "accessListInterfaceBurst",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Rate",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListInterfaceRedirectIfIndex": {
+    "name": "accessListInterfaceRedirectIfIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListInterfaceRedirectVlanID": {
+    "name": "accessListInterfaceRedirectVlanID",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListInterfaceRedirectNexthop": {
+    "name": "accessListInterfaceRedirectNexthop",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListInterfacePeakRate": {
+    "name": "accessListInterfacePeakRate",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Rate",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListInterfacePeakBurst": {
+    "name": "accessListInterfacePeakBurst",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Rate",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListInterfaceColorAware": {
+    "name": "accessListInterfaceColorAware",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListInterfacePolicy": {
+    "name": "accessListInterfacePolicy",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "dcsp": 1,
+          "priority": 2,
+          "priority-dp": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListInterfaceTrafficClass": {
+    "name": "accessListInterfaceTrafficClass",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListInterfaceSpanRootTrack": {
+    "name": "accessListInterfaceSpanRootTrack",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessListInterfaceUntagFilter": {
+    "name": "accessListInterfaceUntagFilter",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessListInterfaceTxq": {
+    "name": "accessListInterfaceTxq",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessListInterfaceTxqDropLevel": {
+    "name": "accessListInterfaceTxqDropLevel",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TxqDropLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessListInterfaceApplyMirror": {
+    "name": "accessListInterfaceApplyMirror",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessListInterfaceStatistics": {
+    "name": "accessListInterfaceStatistics",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AccessListStatistics",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessListInterfaceDirection": {
+    "name": "accessListInterfaceDirection",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AccessListDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessListInterfaceRateStatistics": {
+    "name": "accessListInterfaceRateStatistics",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.3.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AccessListStatistics",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessListVLANTable": {
+    "name": "accessListVLANTable",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "accessListVLANEntry": {
+    "name": "accessListVLANEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "accessListVLANTableIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "accessListVLANGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "accessListVLANTableIndex": {
+    "name": "accessListVLANTableIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "accessListVLANGroupIndex": {
+    "name": "accessListVLANGroupIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "accessListVLANDscp": {
+    "name": "accessListVLANDscp",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessListVLANRowStatus": {
+    "name": "accessListVLANRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListVLANPriority": {
+    "name": "accessListVLANPriority",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListVLANDiscard": {
+    "name": "accessListVLANDiscard",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AccessListDiscard",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListVLANRateLimit": {
+    "name": "accessListVLANRateLimit",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Rate",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListVLANExceedAction": {
+    "name": "accessListVLANExceedAction",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ExceedAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListVLANBurst": {
+    "name": "accessListVLANBurst",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Rate",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListVLANRedirectIfIndex": {
+    "name": "accessListVLANRedirectIfIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListVLANRedirectVlanID": {
+    "name": "accessListVLANRedirectVlanID",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListVLANRedirectNexthop": {
+    "name": "accessListVLANRedirectNexthop",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListVLANPeakRate": {
+    "name": "accessListVLANPeakRate",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Rate",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListVLANPeakBurst": {
+    "name": "accessListVLANPeakBurst",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Rate",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListVLANColorAware": {
+    "name": "accessListVLANColorAware",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListVLANPolicy": {
+    "name": "accessListVLANPolicy",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "dcsp": 1,
+          "priority": 2,
+          "priority-dp": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListVLANTrafficClass": {
+    "name": "accessListVLANTrafficClass",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListVLANSpanRootTrack": {
+    "name": "accessListVLANSpanRootTrack",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessListVLANUntagFilter": {
+    "name": "accessListVLANUntagFilter",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessListVLANApplyMirror": {
+    "name": "accessListVLANApplyMirror",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessListVLANStatistics": {
+    "name": "accessListVLANStatistics",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AccessListStatistics",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessListVLANDirection": {
+    "name": "accessListVLANDirection",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.4.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AccessListDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessListSapTable": {
+    "name": "accessListSapTable",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "accessListSapEntry": {
+    "name": "accessListSapEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapPortId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapEncapValue",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "accessListSapTableIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "accessListSapGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "accessListSapTableIndex": {
+    "name": "accessListSapTableIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "accessListSapGroupIndex": {
+    "name": "accessListSapGroupIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "accessListSapRowStatus": {
+    "name": "accessListSapRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListSapRateLimit": {
+    "name": "accessListSapRateLimit",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Rate",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListSapExceedAction": {
+    "name": "accessListSapExceedAction",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ExceedAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListSapBurst": {
+    "name": "accessListSapBurst",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Rate",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListSapPeakRate": {
+    "name": "accessListSapPeakRate",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Rate",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListSapPeakBurst": {
+    "name": "accessListSapPeakBurst",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Rate",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListSapColorAware": {
+    "name": "accessListSapColorAware",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessListSapTxq": {
+    "name": "accessListSapTxq",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessListSapTxqDropLevel": {
+    "name": "accessListSapTxqDropLevel",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TxqDropLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessListSapStatistics": {
+    "name": "accessListSapStatistics",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AccessListStatistics",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessListSapRateStatistics": {
+    "name": "accessListSapRateStatistics",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AccessListStatistics",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessListSapDirection": {
+    "name": "accessListSapDirection",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AccessListDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessListInterfaceStatisticsTable": {
+    "name": "accessListInterfaceStatisticsTable",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "accessListInterfaceStatisticsEntry": {
+    "name": "accessListInterfaceStatisticsEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "accessListInterfaceStatisticsGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "accessListInterfaceStatisticsGroupIndex": {
+    "name": "accessListInterfaceStatisticsGroupIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "accessListInterfaceGreenBytes": {
+    "name": "accessListInterfaceGreenBytes",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "accessListInterfaceYellowBytes": {
+    "name": "accessListInterfaceYellowBytes",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "accessListInterfaceRedBytes": {
+    "name": "accessListInterfaceRedBytes",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "accessListInterfaceClassifiedPackets": {
+    "name": "accessListInterfaceClassifiedPackets",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "accessListSapStatisticsTable": {
+    "name": "accessListSapStatisticsTable",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "accessListSapStatisticsEntry": {
+    "name": "accessListSapStatisticsEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapPortId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapEncapValue",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "accessListSapStatisticsGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "accessListSapStatisticsGroupIndex": {
+    "name": "accessListSapStatisticsGroupIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "accessListSapGreenBytes": {
+    "name": "accessListSapGreenBytes",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "accessListSapYellowBytes": {
+    "name": "accessListSapYellowBytes",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "accessListSapRedBytes": {
+    "name": "accessListSapRedBytes",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "accessListSapClassifiedPackets": {
+    "name": "accessListSapClassifiedPackets",
+    "oid": "1.3.6.1.4.1.738.1.6.1.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ispUpLinkTable": {
+    "name": "ispUpLinkTable",
+    "oid": "1.3.6.1.4.1.738.1.6.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ispUpLinkEntry": {
+    "name": "ispUpLinkEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "ispUpLinkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ispUpLinkIndex": {
+    "name": "ispUpLinkIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ispUpLinkIfIndex": {
+    "name": "ispUpLinkIfIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ispUpLinkType": {
+    "name": "ispUpLinkType",
+    "oid": "1.3.6.1.4.1.738.1.6.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ISPType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ispUpLinkAccessGroup": {
+    "name": "ispUpLinkAccessGroup",
+    "oid": "1.3.6.1.4.1.738.1.6.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 199
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ispUpLinkVLANid": {
+    "name": "ispUpLinkVLANid",
+    "oid": "1.3.6.1.4.1.738.1.6.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ispUpLinkVLANtag": {
+    "name": "ispUpLinkVLANtag",
+    "oid": "1.3.6.1.4.1.738.1.6.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanTag",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ispUpLinkRowStatus": {
+    "name": "ispUpLinkRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ispUserInterfaceTable": {
+    "name": "ispUserInterfaceTable",
+    "oid": "1.3.6.1.4.1.738.1.6.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ispUserInterfaceEntry": {
+    "name": "ispUserInterfaceEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ispUserInterfaceAssigen": {
+    "name": "ispUserInterfaceAssigen",
+    "oid": "1.3.6.1.4.1.738.1.6.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AssigenValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ispUserInterfaceIspUplinkIndex": {
+    "name": "ispUserInterfaceIspUplinkIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ispUserInterfaceRateLimit": {
+    "name": "ispUserInterfaceRateLimit",
+    "oid": "1.3.6.1.4.1.738.1.6.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Rate",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ispUserInterfaceConformAction": {
+    "name": "ispUserInterfaceConformAction",
+    "oid": "1.3.6.1.4.1.738.1.6.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConformAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ispUserInterfaceExceedAction": {
+    "name": "ispUserInterfaceExceedAction",
+    "oid": "1.3.6.1.4.1.738.1.6.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ExceedAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ispUserInterfaceShaper": {
+    "name": "ispUserInterfaceShaper",
+    "oid": "1.3.6.1.4.1.738.1.6.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Shaper",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "standardAccessListRuleMatched": {
+    "name": "standardAccessListRuleMatched",
+    "oid": "1.3.6.1.4.1.738.1.6.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanStatus"
+      },
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "standardAccessListAction"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedAccessListRuleMatched": {
+    "name": "extendedAccessListRuleMatched",
+    "oid": "1.3.6.1.4.1.738.1.6.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanStatus"
+      },
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "extendedAccessListAction"
+      }
+    ],
+    "status": "current"
+  },
+  "macAccessListRuleMatched": {
+    "name": "macAccessListRuleMatched",
+    "oid": "1.3.6.1.4.1.738.1.6.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanStatus"
+      },
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "macAccessListAction"
+      }
+    ],
+    "status": "current"
+  },
+  "etherTypeAccessListRuleMatched": {
+    "name": "etherTypeAccessListRuleMatched",
+    "oid": "1.3.6.1.4.1.738.1.6.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanStatus"
+      },
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "etherTypeAccessListAction"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSwitchAccessListMibGroups": {
+    "name": "prvtSwitchAccessListMibGroups",
+    "oid": "1.3.6.1.4.1.738.1.6.1.3.1",
+    "class": "objectidentity"
+  },
+  "prvtSwitchAccessListNotificationGroup": {
+    "name": "prvtSwitchAccessListNotificationGroup",
+    "oid": "1.3.6.1.4.1.738.1.6.1.3.1.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "standardAccessListRuleMatched"
+      },
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "extendedAccessListRuleMatched"
+      },
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "macAccessListRuleMatched"
+      },
+      {
+        "module": "PRVT-SWITCH-ACCESS-LIST-MIB",
+        "object": "etherTypeAccessListRuleMatched"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-SWITCH-ACCESS-LIST-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-SWITCH-ACCESS-LIST-MIB"
+  }
+}

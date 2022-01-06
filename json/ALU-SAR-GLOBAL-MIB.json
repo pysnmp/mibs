@@ -1,0 +1,327 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TIMETRA-GLOBAL-MIB": [
+      "tmnxBasedProducts"
+    ]
+  },
+  "aluSARGlobalMIBModule": {
+    "name": "aluSARGlobalMIBModule",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1911-12-06 10:00",
+        "description": "Rev 6.1 06 May 2013 00:00 This is the 6.1 release of the ALU-SAR-GLOBAL-MIB."
+      },
+      {
+        "revision": "1911-12-06 00:00",
+        "description": "Rev 6.0 06 Dec 2011 00:00 This is the 6.0 release of the ALU-SAR-GLOBAL-MIB."
+      },
+      {
+        "revision": "1910-12-20 00:00",
+        "description": "Rev 5.0 20 Dec 2010 00:00 This is the 5.0 release of the ALU-SAR-GLOBAL-MIB."
+      },
+      {
+        "revision": "1910-08-13 00:00",
+        "description": "Rev 4.0 13 Aug 2010 00:00 This is the 4.0 release of the ALU-SAR-GLOBAL-MIB."
+      },
+      {
+        "revision": "1908-01-23 00:00",
+        "description": "Rev 2.1 23 Jan 2009 00:00 This is the 2.1 release of the ALU-SAR-GLOBAL-MIB."
+      },
+      {
+        "revision": "1908-08-27 00:00",
+        "description": "Rev 2.0 27 Aug 2008 00:00 This is the 2.0 release of the ALU-SAR-GLOBAL-MIB."
+      },
+      {
+        "revision": "1908-06-03 00:00",
+        "description": "Rev 1.1 03 Jun 2008 00:00 This is the 1.1 release of the ALU-SAR-GLOBAL-MIB."
+      },
+      {
+        "revision": "1908-01-09 00:00",
+        "description": "Rev 1.0 09 Jan 2008 00:00 This is the 1.0 release of the ALU-SAR-GLOBAL-MIB."
+      }
+    ]
+  },
+  "aluServiceAggrRouters": {
+    "name": "aluServiceAggrRouters",
+    "oid": "1.3.6.1.4.1.6527.6.1",
+    "class": "objectidentity"
+  },
+  "aluSARRegistry": {
+    "name": "aluSARRegistry",
+    "oid": "1.3.6.1.4.1.6527.6.1.1",
+    "class": "objectidentity"
+  },
+  "aluSARModules": {
+    "name": "aluSARModules",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.1",
+    "class": "objectidentity"
+  },
+  "aluSARMIBModules": {
+    "name": "aluSARMIBModules",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.1.3",
+    "class": "objectidentity"
+  },
+  "aluSARCapabilityModule": {
+    "name": "aluSARCapabilityModule",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.1.4",
+    "class": "objectidentity"
+  },
+  "aluSAR7705CapModule": {
+    "name": "aluSAR7705CapModule",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.1.4.1",
+    "class": "objectidentity"
+  },
+  "aluSAR7705ServiceAggrRouters": {
+    "name": "aluSAR7705ServiceAggrRouters",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.2",
+    "class": "objectidentity"
+  },
+  "aluSARModel7705SAR8Reg": {
+    "name": "aluSARModel7705SAR8Reg",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluSARModel7705SARfReg": {
+    "name": "aluSARModel7705SARfReg",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluSARModel7705SAR18Reg": {
+    "name": "aluSARModel7705SAR18Reg",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluSARModel7705SARmReg": {
+    "name": "aluSARModel7705SARmReg",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluSARModel7705SARmeReg": {
+    "name": "aluSARModel7705SARmeReg",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluSARModel7705SARmlAReg": {
+    "name": "aluSARModel7705SARmlAReg",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.2.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluSARModel7705SARmlBReg": {
+    "name": "aluSARModel7705SARmlBReg",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.2.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluSARModel7705SARmlCReg": {
+    "name": "aluSARModel7705SARmlCReg",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.2.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluSARModel7705SARmlDReg": {
+    "name": "aluSARModel7705SARmlDReg",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.2.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluSARModel7705SARmlEReg": {
+    "name": "aluSARModel7705SARmlEReg",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.2.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluSARModel7705SARHReg": {
+    "name": "aluSARModel7705SARHReg",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.2.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluSARModel7705SARHCReg": {
+    "name": "aluSARModel7705SARHCReg",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.2.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluSARModel7705SARWxAReg": {
+    "name": "aluSARModel7705SARWxAReg",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.2.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluSARModel7705SARWxBReg": {
+    "name": "aluSARModel7705SARWxBReg",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.2.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluSARModel7705SARWxCReg": {
+    "name": "aluSARModel7705SARWxCReg",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.2.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluSARModel7705SARWxDReg": {
+    "name": "aluSARModel7705SARWxDReg",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.2.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluSARModel7705SARWxEReg": {
+    "name": "aluSARModel7705SARWxEReg",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.2.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluSARModel7705SARWxFReg": {
+    "name": "aluSARModel7705SARWxFReg",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.2.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluSARModel7705SARXReg": {
+    "name": "aluSARModel7705SARXReg",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.2.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluSARModel7705SARWxGReg": {
+    "name": "aluSARModel7705SARWxGReg",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.2.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluSARModel7705SARWxHReg": {
+    "name": "aluSARModel7705SARWxHReg",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.2.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluSARModel7705SARWxIReg": {
+    "name": "aluSARModel7705SARWxIReg",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.2.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluSARMIB": {
+    "name": "aluSARMIB",
+    "oid": "1.3.6.1.4.1.6527.6.1.2",
+    "class": "objectidentity"
+  },
+  "aluSARConfs": {
+    "name": "aluSARConfs",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.1",
+    "class": "objectidentity"
+  },
+  "aluSARObjs": {
+    "name": "aluSARObjs",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2",
+    "class": "objectidentity"
+  },
+  "aluSARNotifyPrefix": {
+    "name": "aluSARNotifyPrefix",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3",
+    "class": "objectidentity"
+  },
+  "aluSARProductCapability": {
+    "name": "aluSARProductCapability",
+    "oid": "1.3.6.1.4.1.6527.6.1.3",
+    "class": "objectidentity"
+  },
+  "aluSAR7705Capability": {
+    "name": "aluSAR7705Capability",
+    "oid": "1.3.6.1.4.1.6527.6.1.3.1",
+    "class": "objectidentity"
+  },
+  "aluSAR7705V1v0": {
+    "name": "aluSAR7705V1v0",
+    "oid": "1.3.6.1.4.1.6527.6.1.3.1.1",
+    "class": "objectidentity"
+  },
+  "aluSAR7705V1v1": {
+    "name": "aluSAR7705V1v1",
+    "oid": "1.3.6.1.4.1.6527.6.1.3.1.2",
+    "class": "objectidentity"
+  },
+  "aluSAR7705V2v0": {
+    "name": "aluSAR7705V2v0",
+    "oid": "1.3.6.1.4.1.6527.6.1.3.1.3",
+    "class": "objectidentity"
+  },
+  "aluSAR7705V2v1": {
+    "name": "aluSAR7705V2v1",
+    "oid": "1.3.6.1.4.1.6527.6.1.3.1.4",
+    "class": "objectidentity"
+  },
+  "aluSAR7705V3v0": {
+    "name": "aluSAR7705V3v0",
+    "oid": "1.3.6.1.4.1.6527.6.1.3.1.5",
+    "class": "objectidentity"
+  },
+  "aluSAR7705V4v0": {
+    "name": "aluSAR7705V4v0",
+    "oid": "1.3.6.1.4.1.6527.6.1.3.1.6",
+    "class": "objectidentity"
+  },
+  "aluSAR7705V5v0": {
+    "name": "aluSAR7705V5v0",
+    "oid": "1.3.6.1.4.1.6527.6.1.3.1.7",
+    "class": "objectidentity"
+  },
+  "aluSAR7705V6v0": {
+    "name": "aluSAR7705V6v0",
+    "oid": "1.3.6.1.4.1.6527.6.1.3.1.8",
+    "class": "objectidentity"
+  },
+  "aluSAR7705V6v1": {
+    "name": "aluSAR7705V6v1",
+    "oid": "1.3.6.1.4.1.6527.6.1.3.1.9",
+    "class": "objectidentity"
+  },
+  "aluSAR7705V7v0": {
+    "name": "aluSAR7705V7v0",
+    "oid": "1.3.6.1.4.1.6527.6.1.3.1.10",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALU-SAR-GLOBAL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALU-SAR-GLOBAL-MIB"
+  }
+}

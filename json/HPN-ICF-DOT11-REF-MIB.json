@@ -1,0 +1,618 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfDot11": {
+    "name": "hpnicfDot11",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-01-07 20:00",
+        "description": "Modified for CMCC of GuangDong province."
+      },
+      {
+        "revision": "2009-05-07 20:00",
+        "description": "Modified for CMCC of GuangDong province."
+      },
+      {
+        "revision": "2007-06-21 20:00",
+        "description": "Modified for CMCC(China Mobile Communication Corporation) requirements."
+      },
+      {
+        "revision": "2007-04-27 20:00",
+        "description": "Modified to add new TC."
+      },
+      {
+        "revision": "2006-05-10 19:00",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "HpnicfDot11ObjectIDType": {
+    "name": "HpnicfDot11ObjectIDType",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDot11RadioScopeType": {
+    "name": "HpnicfDot11RadioScopeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "HpnicfDot11RadioType": {
+    "name": "HpnicfDot11RadioType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot11a": 1,
+          "dot11b": 2,
+          "dot11g": 4,
+          "dot11n": 8,
+          "dot11gn": 16,
+          "dot11an": 32,
+          "dot11ac": 64
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDot11RadioType2": {
+    "name": "HpnicfDot11RadioType2",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot11a": 1,
+          "dot11b": 2,
+          "dot11g": 4,
+          "dot11an": 8,
+          "dot11gn": 16,
+          "dot11ac": 32
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDot11MACModeType": {
+    "name": "HpnicfDot11MACModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "split": 1,
+          "localtunnel": 2,
+          "localbridge": 3,
+          "fatAP": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDot11ChannelScopeType": {
+    "name": "HpnicfDot11ChannelScopeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "HpnicfDot11NotifyReasonType": {
+    "name": "HpnicfDot11NotifyReasonType",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDot11SSIDStringType": {
+    "name": "HpnicfDot11SSIDStringType",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "HpnicfDot11ServicePolicyIDType": {
+    "name": "HpnicfDot11ServicePolicyIDType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "HpnicfDot11SSIDEncryptModeType": {
+    "name": "HpnicfDot11SSIDEncryptModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleartxt": 1,
+          "cipher": 2,
+          "ext": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDot11PreambleType": {
+    "name": "HpnicfDot11PreambleType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "long": 1,
+          "short": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDot11TxPwrLevelScopeType": {
+    "name": "HpnicfDot11TxPwrLevelScopeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "HpnicfDot11RFModeType": {
+    "name": "HpnicfDot11RFModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "auto": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDot11TunnelSecSchemType": {
+    "name": "HpnicfDot11TunnelSecSchemType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleartxt": 1,
+          "dtls": 2,
+          "ipsec": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDot11SecIEStatusType": {
+    "name": "HpnicfDot11SecIEStatusType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "rsn": 2,
+          "wpa": 3,
+          "all": 4,
+          "ext": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDot11CipherType": {
+    "name": "HpnicfDot11CipherType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "wep40": 2,
+          "tkip": 4,
+          "aesccmp": 16,
+          "wep104": 32,
+          "wpisms4": 64,
+          "wep128": 128
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDot11AuthenType": {
+    "name": "HpnicfDot11AuthenType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "opensystem": 2,
+          "sharedkey": 3,
+          "all": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDot11AKMType": {
+    "name": "HpnicfDot11AKMType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "psk": 2,
+          "dot1x": 3,
+          "ext": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDot11AssocFailType": {
+    "name": "HpnicfDot11AssocFailType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknownfailure": 1,
+          "toomanyassoc": 2,
+          "invalidie": 3,
+          "unsupportedrate": 4,
+          "unsupportedpwrcap": 5,
+          "unsupportedcap": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDot11AuthorFailType": {
+    "name": "HpnicfDot11AuthorFailType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknownfailure": 1,
+          "invalidie": 2,
+          "rsnieversionunsupported": 3,
+          "wpaieversionunsupported": 4,
+          "groupcipherinvalid": 5,
+          "pairwisecipherinvalid": 6,
+          "akminvalid": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDot11QosAcType": {
+    "name": "HpnicfDot11QosAcType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acbk": 1,
+          "acbe": 2,
+          "acvi": 3,
+          "acvo": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDot11RadioElementIndex": {
+    "name": "HpnicfDot11RadioElementIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "HpnicfDot11WorkMode": {
+    "name": "HpnicfDot11WorkMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "monitor": 2,
+          "hybrid": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDot11CirMode": {
+    "name": "HpnicfDot11CirMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDot11SaIntfDevType": {
+    "name": "HpnicfDot11SaIntfDevType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "microwave": 1,
+          "microwaveInverter": 2,
+          "bluetooth": 3,
+          "fixedFreqOthers": 4,
+          "fixedFreqCordlessPhone": 5,
+          "fixedFreqVideo": 6,
+          "fixedFreqAudio": 7,
+          "freqHopperOthers": 8,
+          "freqHopperCordlessBase": 9,
+          "freqHopperCordlessNetwork": 10,
+          "freqHopperXbox": 11,
+          "genericInterferer": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDot11TruthValueCM": {
+    "name": "HpnicfDot11TruthValueCM",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot11false": 0,
+          "dot11true": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hpnicfDot11Common": {
+    "name": "hpnicfDot11Common",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.12",
+    "class": "objectidentity"
+  },
+  "hpnicfDot11ElementGroup": {
+    "name": "hpnicfDot11ElementGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.12.1",
+    "class": "objectidentity"
+  },
+  "hpnicfDot11APElementTable": {
+    "name": "hpnicfDot11APElementTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.12.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11APElementEntry": {
+    "name": "hpnicfDot11APElementEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.12.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-REF-MIB",
+        "object": "hpnicfDot11APElementIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11APElementIndex": {
+    "name": "hpnicfDot11APElementIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.12.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11APElementTemplateName": {
+    "name": "hpnicfDot11APElementTemplateName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.12.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11APElementSerialID": {
+    "name": "hpnicfDot11APElementSerialID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.12.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11APElementModelAlias": {
+    "name": "hpnicfDot11APElementModelAlias",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.12.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RadioElementTable": {
+    "name": "hpnicfDot11RadioElementTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.12.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11RadioElementEntry": {
+    "name": "hpnicfDot11RadioElementEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.12.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-REF-MIB",
+        "object": "hpnicfDot11APElementIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-DOT11-REF-MIB",
+        "object": "hpnicfDot11RadioElementRadioNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11RadioElementRadioNum": {
+    "name": "hpnicfDot11RadioElementRadioNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.12.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11RadioElementRadioPolicy": {
+    "name": "hpnicfDot11RadioElementRadioPolicy",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.12.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11RadioElementRadioIndex": {
+    "name": "hpnicfDot11RadioElementRadioIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.12.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11-REF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-DOT11-REF-MIB"
+  }
+}

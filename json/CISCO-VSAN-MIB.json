@@ -1,0 +1,2007 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-ST-TC": [
+      "FcNameId",
+      "VsanIndex"
+    ],
+    "CISCO-TC": [
+      "CiscoMilliSeconds",
+      "ListIndexOrZero",
+      "ListIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoVsanMIB": {
+    "name": "ciscoVsanMIB",
+    "oid": "1.3.6.1.4.1.9.9.282",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-02-06 00:00",
+        "description": "Enhanced the description of vsanInterOperValue object."
+      },
+      {
+        "revision": "2005-12-07 00:00",
+        "description": "Added new object group vsanGroupRev3 to contain vsanFcFeElementName object-type. Added new compliance vsanMIBCompliance7 to include new compliance group vsanGroupRev3. Updated comments section for vsanFcFeElementName."
+      },
+      {
+        "revision": "2005-10-07 00:00",
+        "description": "Added new notification vsanPortMembershipChange for port-vsan changes for interfaces. Added new compliance vsanMIBCompliance6 to include new compliance group vsanNotificationGroupRev1."
+      },
+      {
+        "revision": "2005-06-07 00:00",
+        "description": " Extended the vsanMembershipSummaryTable to contain not just static assignments but also dynamic assignments. Added new compliance vsanMIBCompliance5 to include new compliance group vsanMembershipSummaryGroupRev1."
+      },
+      {
+        "revision": "2004-02-18 00:00",
+        "description": "Added two new objects vsanInorderDelivery and vsanNetworkDropLatency to vsanTable. Added a new compliance statement vsanMIBCompliance4."
+      },
+      {
+        "revision": "2003-12-02 00:00",
+        "description": "Added a conformance for the range of vsanInterOperValue. Added a new table 'vsanFcTimerTable', to configure FC timer values for VSANs."
+      },
+      {
+        "revision": "2003-05-07 00:00",
+        "description": "Deprecated vsanInterOperMode object which is superceded by a new object vsanInterOperValue. Added new compliance statement vsanMIBCompliance1."
+      },
+      {
+        "revision": "2003-04-23 00:00",
+        "description": "Added a new table vsanMembershipSummaryTable."
+      },
+      {
+        "revision": "2002-12-18 00:00",
+        "description": "Use CiscoMilliSeconds instead MilliSeconds from CISCO-TC."
+      },
+      {
+        "revision": "2002-11-04 00:00",
+        "description": "Changed the MIB descriptors fcSwitchLatency and fcNetworkLatency to fcSwitchDropLatency and fcNetworkDropLatency respectively. MAX-ACCESS for fcSwitchLatency is changed to read-write."
+      },
+      {
+        "revision": "2002-09-23 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoVsanMIBObjects": {
+    "name": "ciscoVsanMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.282.1",
+    "class": "objectidentity"
+  },
+  "vsanMIBConformance": {
+    "name": "vsanMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.282.3",
+    "class": "objectidentity"
+  },
+  "vsanConfiguration": {
+    "name": "vsanConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.282.1.1",
+    "class": "objectidentity"
+  },
+  "vsanMembership": {
+    "name": "vsanMembership",
+    "oid": "1.3.6.1.4.1.9.9.282.1.2",
+    "class": "objectidentity"
+  },
+  "vsanNotification": {
+    "name": "vsanNotification",
+    "oid": "1.3.6.1.4.1.9.9.282.1.3",
+    "class": "objectidentity"
+  },
+  "vsanFcConfiguration": {
+    "name": "vsanFcConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.282.1.4",
+    "class": "objectidentity"
+  },
+  "vsanStats": {
+    "name": "vsanStats",
+    "oid": "1.3.6.1.4.1.9.9.282.1.5",
+    "class": "objectidentity"
+  },
+  "vsanNotifications": {
+    "name": "vsanNotifications",
+    "oid": "1.3.6.1.4.1.9.9.282.1.3.0",
+    "class": "objectidentity"
+  },
+  "VsanMediaType": {
+    "name": "VsanMediaType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fibreChannel": 1,
+          "ethernet": 2,
+          "infiniband": 3,
+          "other": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VsanAdminState": {
+    "name": "VsanAdminState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "suspended": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VsanOperationalState": {
+    "name": "VsanOperationalState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VsanLoadBalancingType": {
+    "name": "VsanLoadBalancingType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "srcIdDestId": 1,
+          "srcIdDestIdOxId": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "vsanNumber": {
+    "name": "vsanNumber",
+    "oid": "1.3.6.1.4.1.9.9.282.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsanLastChange": {
+    "name": "vsanLastChange",
+    "oid": "1.3.6.1.4.1.9.9.282.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsanTable": {
+    "name": "vsanTable",
+    "oid": "1.3.6.1.4.1.9.9.282.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vsanEntry": {
+    "name": "vsanEntry",
+    "oid": "1.3.6.1.4.1.9.9.282.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vsanIndex": {
+    "name": "vsanIndex",
+    "oid": "1.3.6.1.4.1.9.9.282.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vsanName": {
+    "name": "vsanName",
+    "oid": "1.3.6.1.4.1.9.9.282.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vsanMediaType": {
+    "name": "vsanMediaType",
+    "oid": "1.3.6.1.4.1.9.9.282.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanMediaType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "fibreChannel",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vsanAdminState": {
+    "name": "vsanAdminState",
+    "oid": "1.3.6.1.4.1.9.9.282.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanAdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "active",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vsanMtu": {
+    "name": "vsanMtu",
+    "oid": "1.3.6.1.4.1.9.9.282.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2112,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vsanLoadBalancingType": {
+    "name": "vsanLoadBalancingType",
+    "oid": "1.3.6.1.4.1.9.9.282.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanLoadBalancingType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "srcIdDestIdOxId",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vsanInterOperMode": {
+    "name": "vsanInterOperMode",
+    "oid": "1.3.6.1.4.1.9.9.282.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "vsanOperState": {
+    "name": "vsanOperState",
+    "oid": "1.3.6.1.4.1.9.9.282.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanOperationalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsanRowStatus": {
+    "name": "vsanRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.282.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vsanInterOperValue": {
+    "name": "vsanInterOperValue",
+    "oid": "1.3.6.1.4.1.9.9.282.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vsanInorderDelivery": {
+    "name": "vsanInorderDelivery",
+    "oid": "1.3.6.1.4.1.9.9.282.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vsanNetworkDropLatency": {
+    "name": "vsanNetworkDropLatency",
+    "oid": "1.3.6.1.4.1.9.9.282.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMilliSeconds",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2000,
+        "format": "decimal"
+      }
+    },
+    "units": "msec",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "notifyVsanIndex": {
+    "name": "notifyVsanIndex",
+    "oid": "1.3.6.1.4.1.9.9.282.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vsanDenyUnknownWwn": {
+    "name": "vsanDenyUnknownWwn",
+    "oid": "1.3.6.1.4.1.9.9.282.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vsanWwnListNumber": {
+    "name": "vsanWwnListNumber",
+    "oid": "1.3.6.1.4.1.9.9.282.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsanWwnListTable": {
+    "name": "vsanWwnListTable",
+    "oid": "1.3.6.1.4.1.9.9.282.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vsanWwnListEntry": {
+    "name": "vsanWwnListEntry",
+    "oid": "1.3.6.1.4.1.9.9.282.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanWwnListIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanWwnListWwnIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vsanWwnListIndex": {
+    "name": "vsanWwnListIndex",
+    "oid": "1.3.6.1.4.1.9.9.282.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ListIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vsanWwnListWwnIndex": {
+    "name": "vsanWwnListWwnIndex",
+    "oid": "1.3.6.1.4.1.9.9.282.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vsanWwnListWwn": {
+    "name": "vsanWwnListWwn",
+    "oid": "1.3.6.1.4.1.9.9.282.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vsanWwnListRowStatus": {
+    "name": "vsanWwnListRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.282.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vsanIfNumber": {
+    "name": "vsanIfNumber",
+    "oid": "1.3.6.1.4.1.9.9.282.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsanIfTable": {
+    "name": "vsanIfTable",
+    "oid": "1.3.6.1.4.1.9.9.282.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vsanIfEntry": {
+    "name": "vsanIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.282.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vsanIfVsan": {
+    "name": "vsanIfVsan",
+    "oid": "1.3.6.1.4.1.9.9.282.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vsanIfDenyList": {
+    "name": "vsanIfDenyList",
+    "oid": "1.3.6.1.4.1.9.9.282.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ListIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vsanDynamicListNumber": {
+    "name": "vsanDynamicListNumber",
+    "oid": "1.3.6.1.4.1.9.9.282.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsanDynamicTable": {
+    "name": "vsanDynamicTable",
+    "oid": "1.3.6.1.4.1.9.9.282.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vsanDynamicEntry": {
+    "name": "vsanDynamicEntry",
+    "oid": "1.3.6.1.4.1.9.9.282.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanWwnListIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vsanDynamicVsan": {
+    "name": "vsanDynamicVsan",
+    "oid": "1.3.6.1.4.1.9.9.282.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vsanDynamicRowStatus": {
+    "name": "vsanDynamicRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.282.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vsanMembershipSummaryTable": {
+    "name": "vsanMembershipSummaryTable",
+    "oid": "1.3.6.1.4.1.9.9.282.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vsanMembershipSummaryEntry": {
+    "name": "vsanMembershipSummaryEntry",
+    "oid": "1.3.6.1.4.1.9.9.282.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanMembershipSummaryInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vsanMembershipSummaryInterface": {
+    "name": "vsanMembershipSummaryInterface",
+    "oid": "1.3.6.1.4.1.9.9.282.1.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsanMembershipSummaryIntfType": {
+    "name": "vsanMembershipSummaryIntfType",
+    "oid": "1.3.6.1.4.1.9.9.282.1.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "static": 2,
+          "dynamic": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcTimerRatov": {
+    "name": "fcTimerRatov",
+    "oid": "1.3.6.1.4.1.9.9.282.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMilliSeconds",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5000,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10000,
+        "format": "decimal"
+      }
+    },
+    "units": "msec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcTimerEdtov": {
+    "name": "fcTimerEdtov",
+    "oid": "1.3.6.1.4.1.9.9.282.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMilliSeconds",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1000,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2000,
+        "format": "decimal"
+      }
+    },
+    "units": "msec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcTimerFstov": {
+    "name": "fcTimerFstov",
+    "oid": "1.3.6.1.4.1.9.9.282.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMilliSeconds",
+      "class": "type"
+    },
+    "units": "msec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcTimerDstov": {
+    "name": "fcTimerDstov",
+    "oid": "1.3.6.1.4.1.9.9.282.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMilliSeconds",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5000,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "units": "msec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcNetworkDropLatency": {
+    "name": "fcNetworkDropLatency",
+    "oid": "1.3.6.1.4.1.9.9.282.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMilliSeconds",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2000,
+        "format": "decimal"
+      }
+    },
+    "units": "msec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcSwitchDropLatency": {
+    "name": "fcSwitchDropLatency",
+    "oid": "1.3.6.1.4.1.9.9.282.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMilliSeconds",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "units": "msec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcInorderDelivery": {
+    "name": "fcInorderDelivery",
+    "oid": "1.3.6.1.4.1.9.9.282.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vsanFcTimerTable": {
+    "name": "vsanFcTimerTable",
+    "oid": "1.3.6.1.4.1.9.9.282.1.4.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vsanFcTimerEntry": {
+    "name": "vsanFcTimerEntry",
+    "oid": "1.3.6.1.4.1.9.9.282.1.4.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "vsanFcTimerEntry",
+      "module": "CISCO-VSAN-MIB",
+      "object": "vsanEntry"
+    },
+    "status": "current"
+  },
+  "vsanFcTimerForceFlag": {
+    "name": "vsanFcTimerForceFlag",
+    "oid": "1.3.6.1.4.1.9.9.282.1.4.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ratov": 0,
+        "edtov": 1,
+        "dstov": 2
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vsanFcTimerRatov": {
+    "name": "vsanFcTimerRatov",
+    "oid": "1.3.6.1.4.1.9.9.282.1.4.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMilliSeconds",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5000,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10000,
+        "format": "decimal"
+      }
+    },
+    "units": "msec",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vsanFcTimerEdtov": {
+    "name": "vsanFcTimerEdtov",
+    "oid": "1.3.6.1.4.1.9.9.282.1.4.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMilliSeconds",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1000,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2000,
+        "format": "decimal"
+      }
+    },
+    "units": "msec",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vsanFcTimerDstov": {
+    "name": "vsanFcTimerDstov",
+    "oid": "1.3.6.1.4.1.9.9.282.1.4.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMilliSeconds",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5000,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "units": "msec",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vsanFcTimerFstov": {
+    "name": "vsanFcTimerFstov",
+    "oid": "1.3.6.1.4.1.9.9.282.1.4.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMilliSeconds",
+      "class": "type"
+    },
+    "units": "msec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsanFcFeElementName": {
+    "name": "vsanFcFeElementName",
+    "oid": "1.3.6.1.4.1.9.9.282.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vsanStatusChange": {
+    "name": "vsanStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.282.1.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "notifyVsanIndex"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanAdminState"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "vsanPortMembershipChange": {
+    "name": "vsanPortMembershipChange",
+    "oid": "1.3.6.1.4.1.9.9.282.1.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanFcFeElementName"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "notifyVsanIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "vsanMIBCompliances": {
+    "name": "vsanMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.282.3.1",
+    "class": "objectidentity"
+  },
+  "vsanMIBGroups": {
+    "name": "vsanMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.282.3.2",
+    "class": "objectidentity"
+  },
+  "vsanMIBCompliance": {
+    "name": "vsanMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.282.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vsanGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanStaticMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanNotificationGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanFcTimerGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanFcLatencyGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanDynamicMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanWWNListGroup",
+        "module": "CISCO-VSAN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vsanMIBCompliance1": {
+    "name": "vsanMIBCompliance1",
+    "oid": "1.3.6.1.4.1.9.9.282.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vsanGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanStaticMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanNotificationGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanFcTimerGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanFcLatencyGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanVsanMembershipSummaryGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanDynamicMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanWWNListGroup",
+        "module": "CISCO-VSAN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vsanMIBCompliance2": {
+    "name": "vsanMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.282.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vsanGroupRev1",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanStaticMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanNotificationGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanFcTimerGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanFcLatencyGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanVsanMembershipSummaryGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanDynamicMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanWWNListGroup",
+        "module": "CISCO-VSAN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vsanMIBCompliance3": {
+    "name": "vsanMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.282.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vsanGroupRev1",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanStaticMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanNotificationGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanFcTimerGroupRev1",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanFcLatencyGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanVsanMembershipSummaryGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanDynamicMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanWWNListGroup",
+        "module": "CISCO-VSAN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vsanMIBCompliance4": {
+    "name": "vsanMIBCompliance4",
+    "oid": "1.3.6.1.4.1.9.9.282.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vsanGroupRev2",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanStaticMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanNotificationGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanFcTimerGroupRev1",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanFcLatencyGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanVsanMembershipSummaryGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanDynamicMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanWWNListGroup",
+        "module": "CISCO-VSAN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vsanMIBCompliance5": {
+    "name": "vsanMIBCompliance5",
+    "oid": "1.3.6.1.4.1.9.9.282.3.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vsanGroupRev2",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanStaticMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanNotificationGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanFcTimerGroupRev1",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanFcLatencyGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanVsanMembershipSummaryGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanMembershipSummaryGroupRev1",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanDynamicMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanWWNListGroup",
+        "module": "CISCO-VSAN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vsanMIBCompliance6": {
+    "name": "vsanMIBCompliance6",
+    "oid": "1.3.6.1.4.1.9.9.282.3.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vsanGroupRev2",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanStaticMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanNotificationGroupRev1",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanFcTimerGroupRev1",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanFcLatencyGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanVsanMembershipSummaryGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanMembershipSummaryGroupRev1",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanDynamicMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanWWNListGroup",
+        "module": "CISCO-VSAN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vsanMIBCompliance7": {
+    "name": "vsanMIBCompliance7",
+    "oid": "1.3.6.1.4.1.9.9.282.3.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vsanGroupRev3",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanStaticMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanNotificationGroupRev1",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanFcTimerGroupRev1",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanFcLatencyGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanVsanMembershipSummaryGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanMembershipSummaryGroupRev1",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanDynamicMembershipGroup",
+        "module": "CISCO-VSAN-MIB"
+      },
+      {
+        "object": "vsanWWNListGroup",
+        "module": "CISCO-VSAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "vsanGroup": {
+    "name": "vsanGroup",
+    "oid": "1.3.6.1.4.1.9.9.282.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanNumber"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanLastChange"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanName"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanMediaType"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanMtu"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanAdminState"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanLoadBalancingType"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanInterOperMode"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanOperState"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanRowStatus"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "notifyVsanIndex"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "fcInorderDelivery"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vsanMembershipGroup": {
+    "name": "vsanMembershipGroup",
+    "oid": "1.3.6.1.4.1.9.9.282.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanDenyUnknownWwn"
+      }
+    ],
+    "status": "current"
+  },
+  "vsanStaticMembershipGroup": {
+    "name": "vsanStaticMembershipGroup",
+    "oid": "1.3.6.1.4.1.9.9.282.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIfNumber"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIfVsan"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIfDenyList"
+      }
+    ],
+    "status": "current"
+  },
+  "vsanWWNListGroup": {
+    "name": "vsanWWNListGroup",
+    "oid": "1.3.6.1.4.1.9.9.282.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanWwnListNumber"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanWwnListWwn"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanWwnListRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "vsanDynamicMembershipGroup": {
+    "name": "vsanDynamicMembershipGroup",
+    "oid": "1.3.6.1.4.1.9.9.282.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanDynamicListNumber"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanDynamicVsan"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanDynamicRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "vsanNotificationGroup": {
+    "name": "vsanNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.282.3.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanStatusChange"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vsanFcTimerGroup": {
+    "name": "vsanFcTimerGroup",
+    "oid": "1.3.6.1.4.1.9.9.282.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "fcTimerRatov"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "fcTimerEdtov"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "fcTimerFstov"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "fcTimerDstov"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vsanFcLatencyGroup": {
+    "name": "vsanFcLatencyGroup",
+    "oid": "1.3.6.1.4.1.9.9.282.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "fcNetworkDropLatency"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "fcSwitchDropLatency"
+      }
+    ],
+    "status": "current"
+  },
+  "vsanVsanMembershipSummaryGroup": {
+    "name": "vsanVsanMembershipSummaryGroup",
+    "oid": "1.3.6.1.4.1.9.9.282.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanMembershipSummaryInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "vsanGroupRev1": {
+    "name": "vsanGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.282.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanNumber"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanLastChange"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanName"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanMediaType"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanMtu"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanAdminState"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanLoadBalancingType"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanOperState"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanRowStatus"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanInterOperValue"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "notifyVsanIndex"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "fcInorderDelivery"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vsanFcTimerGroupRev1": {
+    "name": "vsanFcTimerGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.282.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "fcTimerRatov"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "fcTimerEdtov"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "fcTimerDstov"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "fcTimerFstov"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanFcTimerForceFlag"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanFcTimerRatov"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanFcTimerEdtov"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanFcTimerDstov"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanFcTimerFstov"
+      }
+    ],
+    "status": "current"
+  },
+  "vsanGroupRev2": {
+    "name": "vsanGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.282.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanNumber"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanLastChange"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanName"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanMediaType"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanMtu"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanAdminState"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanLoadBalancingType"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanOperState"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanRowStatus"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanInterOperValue"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "notifyVsanIndex"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "fcInorderDelivery"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanInorderDelivery"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanNetworkDropLatency"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vsanMembershipSummaryGroupRev1": {
+    "name": "vsanMembershipSummaryGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.282.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanMembershipSummaryIntfType"
+      }
+    ],
+    "status": "current"
+  },
+  "vsanNotificationGroupRev1": {
+    "name": "vsanNotificationGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.282.3.2.15",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanStatusChange"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanPortMembershipChange"
+      }
+    ],
+    "status": "current"
+  },
+  "vsanGroupRev3": {
+    "name": "vsanGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.282.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanNumber"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanLastChange"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanName"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanMediaType"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanMtu"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanAdminState"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanLoadBalancingType"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanOperState"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanRowStatus"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanInterOperValue"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "notifyVsanIndex"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "fcInorderDelivery"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanInorderDelivery"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanNetworkDropLatency"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanFcFeElementName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VSAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-VSAN-MIB"
+  }
+}

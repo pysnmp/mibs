@@ -1,0 +1,3298 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "TN-TC": [
+      "TNDisplayString",
+      "TNInterfaceIndex",
+      "TNRowEditorState",
+      "TNInteger64",
+      "TNUnsigned8",
+      "TNUnsigned16",
+      "TNUnsigned64"
+    ],
+    "TRANSITION-SMI": [
+      "tnProducts"
+    ]
+  },
+  "tnLldpMib": {
+    "name": "tnLldpMib",
+    "oid": "1.3.6.1.4.1.868.2.5.151",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-06-08 00:00",
+        "description": "Initial version"
+      }
+    ]
+  },
+  "TNlldpAdminState": {
+    "name": "TNlldpAdminState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "txAndRx": 1,
+          "txOnly": 2,
+          "rxOnly": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TNlldpmedAltitudeType": {
+    "name": "TNlldpmedAltitudeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "meters": 1,
+          "floors": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TNlldpmedCivicAddressType": {
+    "name": "TNlldpmedCivicAddressType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "state": 1,
+          "county": 2,
+          "city": 3,
+          "district": 4,
+          "block": 5,
+          "street": 6,
+          "leadingStreetDirection": 16,
+          "trailingStreetSuffix": 17,
+          "streetSuffix": 18,
+          "houseNo": 19,
+          "houseNoSuffix": 20,
+          "landmark": 21,
+          "additionalInformation": 22,
+          "name": 23,
+          "zipCode": 24,
+          "building": 25,
+          "apartment": 26,
+          "floor": 27,
+          "roomNumber": 28,
+          "placeType": 29,
+          "postalCommunityName": 30,
+          "poBox": 31,
+          "additionalCode": 32
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TNlldpmedDatumType": {
+    "name": "TNlldpmedDatumType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wgs84": 1,
+          "nad83navd88": 2,
+          "nad83mllw": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TNlldpmedDeviceType": {
+    "name": "TNlldpmedDeviceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connectivity": 0,
+          "endpoint": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TNlldpmedRemoteDeviceType": {
+    "name": "TNlldpmedRemoteDeviceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notDefined": 0,
+          "endpointClassI": 1,
+          "endpointClassII": 2,
+          "endpointClassIII": 3,
+          "networkConnectivity": 4,
+          "reserved": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TNlldpmedRemoteNetworkPolicyApplicationType": {
+    "name": "TNlldpmedRemoteNetworkPolicyApplicationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "voice": 1,
+          "voiceSignaling": 2,
+          "guestVoice": 3,
+          "guestVoiceSignaling": 4,
+          "softphoneVoice": 5,
+          "videoConferencing": 6,
+          "streamingVideo": 7,
+          "videoSignaling": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "tnLldpMibObjects": {
+    "name": "tnLldpMibObjects",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1",
+    "class": "objectidentity"
+  },
+  "tnLldpConfig": {
+    "name": "tnLldpConfig",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2",
+    "class": "objectidentity"
+  },
+  "tnLldpConfigGlobal": {
+    "name": "tnLldpConfigGlobal",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.1",
+    "class": "objectidentity"
+  },
+  "tnLldpConfigGlobalReInitDelay": {
+    "name": "tnLldpConfigGlobalReInitDelay",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigGlobalMsgTxHold": {
+    "name": "tnLldpConfigGlobalMsgTxHold",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigGlobalMsgTxInterval": {
+    "name": "tnLldpConfigGlobalMsgTxInterval",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigGlobalTxDelay": {
+    "name": "tnLldpConfigGlobalTxDelay",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigTable": {
+    "name": "tnLldpConfigTable",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpConfigEntry": {
+    "name": "tnLldpConfigEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpConfigIfIndex": {
+    "name": "tnLldpConfigIfIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNInterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpConfigAdminState": {
+    "name": "tnLldpConfigAdminState",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNlldpAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigCdpAware": {
+    "name": "tnLldpConfigCdpAware",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigOptionalTlvs": {
+    "name": "tnLldpConfigOptionalTlvs",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned8",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMed": {
+    "name": "tnLldpConfigMed",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3",
+    "class": "objectidentity"
+  },
+  "tnLldpConfigMedTable": {
+    "name": "tnLldpConfigMedTable",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpConfigMedEntry": {
+    "name": "tnLldpConfigMedEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpConfigMedIfIndex": {
+    "name": "tnLldpConfigMedIfIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNInterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpConfigMedOptionalTlvs": {
+    "name": "tnLldpConfigMedOptionalTlvs",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned8",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedDeviceType": {
+    "name": "tnLldpConfigMedDeviceType",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNlldpmedDeviceType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyTable": {
+    "name": "tnLldpConfigMedPolicyTable",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyEntry": {
+    "name": "tnLldpConfigMedPolicyEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedPolicyLldpmedPolicy",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyLldpmedPolicy": {
+    "name": "tnLldpConfigMedPolicyLldpmedPolicy",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyApplicationType": {
+    "name": "tnLldpConfigMedPolicyApplicationType",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNlldpmedRemoteNetworkPolicyApplicationType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyTagged": {
+    "name": "tnLldpConfigMedPolicyTagged",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyVlanId": {
+    "name": "tnLldpConfigMedPolicyVlanId",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned16",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyL2Priority": {
+    "name": "tnLldpConfigMedPolicyL2Priority",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned8",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyDscp": {
+    "name": "tnLldpConfigMedPolicyDscp",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned8",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyAction": {
+    "name": "tnLldpConfigMedPolicyAction",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.2.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNRowEditorState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyListTable": {
+    "name": "tnLldpConfigMedPolicyListTable",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyListEntry": {
+    "name": "tnLldpConfigMedPolicyListEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedPolicyListIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedPolicyListLldpmedPolicy",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyListIfIndex": {
+    "name": "tnLldpConfigMedPolicyListIfIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNInterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyListLldpmedPolicy": {
+    "name": "tnLldpConfigMedPolicyListLldpmedPolicy",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyListLldpmedPoliciesList": {
+    "name": "tnLldpConfigMedPolicyListLldpmedPoliciesList",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedGlobal": {
+    "name": "tnLldpConfigMedGlobal",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.4",
+    "class": "objectidentity"
+  },
+  "tnLldpConfigMedGlobalFastRepeatCount": {
+    "name": "tnLldpConfigMedGlobalFastRepeatCount",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned8",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedGlobalLatitude": {
+    "name": "tnLldpConfigMedGlobalLatitude",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNInteger64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedGlobalLongitude": {
+    "name": "tnLldpConfigMedGlobalLongitude",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNInteger64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedGlobalAltitudeType": {
+    "name": "tnLldpConfigMedGlobalAltitudeType",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNlldpmedAltitudeType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedGlobalAltitude": {
+    "name": "tnLldpConfigMedGlobalAltitude",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedGlobalElinAddr": {
+    "name": "tnLldpConfigMedGlobalElinAddr",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedGlobalDatum": {
+    "name": "tnLldpConfigMedGlobalDatum",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNlldpmedDatumType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedGlobalCountryCode": {
+    "name": "tnLldpConfigMedGlobalCountryCode",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedLocationInformationTable": {
+    "name": "tnLldpConfigMedLocationInformationTable",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpConfigMedLocationInformationEntry": {
+    "name": "tnLldpConfigMedLocationInformationEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedLocationInformationLldpmedIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpConfigMedLocationInformationLldpmedIndex": {
+    "name": "tnLldpConfigMedLocationInformationLldpmedIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNlldpmedCivicAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpConfigMedLocationInformationCivicAddress": {
+    "name": "tnLldpConfigMedLocationInformationCivicAddress",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyRowEditor": {
+    "name": "tnLldpConfigMedPolicyRowEditor",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.6",
+    "class": "objectidentity"
+  },
+  "tnLldpConfigMedPolicyRowEditorLldpmedPolicy": {
+    "name": "tnLldpConfigMedPolicyRowEditorLldpmedPolicy",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyRowEditorApplicationType": {
+    "name": "tnLldpConfigMedPolicyRowEditorApplicationType",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNlldpmedRemoteNetworkPolicyApplicationType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyRowEditorTagged": {
+    "name": "tnLldpConfigMedPolicyRowEditorTagged",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyRowEditorVlanId": {
+    "name": "tnLldpConfigMedPolicyRowEditorVlanId",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned16",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyRowEditorL2Priority": {
+    "name": "tnLldpConfigMedPolicyRowEditorL2Priority",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned8",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyRowEditorDscp": {
+    "name": "tnLldpConfigMedPolicyRowEditorDscp",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned8",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyRowEditorAction": {
+    "name": "tnLldpConfigMedPolicyRowEditorAction",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.2.3.6.100",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNRowEditorState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpStatus": {
+    "name": "tnLldpStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3",
+    "class": "objectidentity"
+  },
+  "tnLldpStatusStatistics": {
+    "name": "tnLldpStatusStatistics",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.1",
+    "class": "objectidentity"
+  },
+  "tnLldpStatusStatisticsGlobalCounters": {
+    "name": "tnLldpStatusStatisticsGlobalCounters",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.1.1",
+    "class": "objectidentity"
+  },
+  "tnLldpStatusStatisticsGlobalCountersTableInserts": {
+    "name": "tnLldpStatusStatisticsGlobalCountersTableInserts",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusStatisticsGlobalCountersTableDeletes": {
+    "name": "tnLldpStatusStatisticsGlobalCountersTableDeletes",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusStatisticsGlobalCountersTableDrops": {
+    "name": "tnLldpStatusStatisticsGlobalCountersTableDrops",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusStatisticsGlobalCountersTableAgeOuts": {
+    "name": "tnLldpStatusStatisticsGlobalCountersTableAgeOuts",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusStatisticsGlobalCountersLastChangeTime": {
+    "name": "tnLldpStatusStatisticsGlobalCountersLastChangeTime",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusStatisticsTable": {
+    "name": "tnLldpStatusStatisticsTable",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpStatusStatisticsEntry": {
+    "name": "tnLldpStatusStatisticsEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusStatisticsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpStatusStatisticsIfIndex": {
+    "name": "tnLldpStatusStatisticsIfIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNInterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpStatusStatisticsTxTotal": {
+    "name": "tnLldpStatusStatisticsTxTotal",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusStatisticsRxTotal": {
+    "name": "tnLldpStatusStatisticsRxTotal",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusStatisticsRxError": {
+    "name": "tnLldpStatusStatisticsRxError",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusStatisticsRxDiscarded": {
+    "name": "tnLldpStatusStatisticsRxDiscarded",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusStatisticsTLVsDiscarded": {
+    "name": "tnLldpStatusStatisticsTLVsDiscarded",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusStatisticsTLVsUnrecognized": {
+    "name": "tnLldpStatusStatisticsTLVsUnrecognized",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusStatisticsTLVsOrgDiscarded": {
+    "name": "tnLldpStatusStatisticsTLVsOrgDiscarded",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusStatisticsAgeOuts": {
+    "name": "tnLldpStatusStatisticsAgeOuts",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusNeighborsInformationTable": {
+    "name": "tnLldpStatusNeighborsInformationTable",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpStatusNeighborsInformationEntry": {
+    "name": "tnLldpStatusNeighborsInformationEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusNeighborsInformationIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusNeighborsInformationLldpmedIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpStatusNeighborsInformationIfIndex": {
+    "name": "tnLldpStatusNeighborsInformationIfIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNInterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpStatusNeighborsInformationLldpmedIndex": {
+    "name": "tnLldpStatusNeighborsInformationLldpmedIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 192
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpStatusNeighborsInformationChassisId": {
+    "name": "tnLldpStatusNeighborsInformationChassisId",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusNeighborsInformationPortId": {
+    "name": "tnLldpStatusNeighborsInformationPortId",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusNeighborsInformationPortDescription": {
+    "name": "tnLldpStatusNeighborsInformationPortDescription",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusNeighborsInformationSystemName": {
+    "name": "tnLldpStatusNeighborsInformationSystemName",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusNeighborsInformationSystemDescription": {
+    "name": "tnLldpStatusNeighborsInformationSystemDescription",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusNeighborsInformationSystemCapabilities": {
+    "name": "tnLldpStatusNeighborsInformationSystemCapabilities",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusNeighborsInformationSystemCapabilitiesEnable": {
+    "name": "tnLldpStatusNeighborsInformationSystemCapabilitiesEnable",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusNeighborsMgmtInformationTable": {
+    "name": "tnLldpStatusNeighborsMgmtInformationTable",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpStatusNeighborsMgmtInformationEntry": {
+    "name": "tnLldpStatusNeighborsMgmtInformationEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusNeighborsMgmtInformationIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusNeighborsMgmtInformationLldpmedIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusNeighborsMgmtInformationLldpManagement",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpStatusNeighborsMgmtInformationIfIndex": {
+    "name": "tnLldpStatusNeighborsMgmtInformationIfIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNInterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpStatusNeighborsMgmtInformationLldpmedIndex": {
+    "name": "tnLldpStatusNeighborsMgmtInformationLldpmedIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 192
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpStatusNeighborsMgmtInformationLldpManagement": {
+    "name": "tnLldpStatusNeighborsMgmtInformationLldpManagement",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpStatusNeighborsMgmtInformationSystemMgmAddressSubtype": {
+    "name": "tnLldpStatusNeighborsMgmtInformationSystemMgmAddressSubtype",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned8",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusNeighborsMgmtInformationSystemMgmtAddress": {
+    "name": "tnLldpStatusNeighborsMgmtInformationSystemMgmtAddress",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusNeighborsMgmtInformationSystemMgmtInterfaceSubtype": {
+    "name": "tnLldpStatusNeighborsMgmtInformationSystemMgmtInterfaceSubtype",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusNeighborsMgmtInformationSystemMgmtInterface": {
+    "name": "tnLldpStatusNeighborsMgmtInformationSystemMgmtInterface",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusNeighborsMgmtInformationSystemMgmtOid": {
+    "name": "tnLldpStatusNeighborsMgmtInformationSystemMgmtOid",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMed": {
+    "name": "tnLldpStatusMed",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4",
+    "class": "objectidentity"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoTable": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoTable",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoEntry": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceInfoIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceInfoLldpmedIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoIfIndex": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoIfIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNInterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoLldpmedIndex": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoLldpmedIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 192
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoCapabilities": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoCapabilities",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoCapabilitiesEnabled": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoCapabilitiesEnabled",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoLatitude": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoLatitude",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNInteger64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoLongitude": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoLongitude",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNInteger64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoAltitudeType": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoAltitudeType",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNlldpmedAltitudeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoAltitude": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoAltitude",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoDatum": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoDatum",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNlldpmedDatumType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoElinaddr": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoElinaddr",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoDeviceType": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoDeviceType",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNlldpmedRemoteDeviceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoHwRev": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoHwRev",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoFwRev": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoFwRev",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoSwRev": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoSwRev",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoSerialNo": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoSerialNo",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoManufacturerName": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoManufacturerName",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoModelName": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoModelName",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoAssetId": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoAssetId",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoEeeRxTwSys": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoEeeRxTwSys",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoEeeTxTwSys": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoEeeTxTwSys",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoEeeFbTwSys": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoEeeFbTwSys",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoEeeTxTwSysEcho": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoEeeTxTwSysEcho",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoEeeRxTwSysEcho": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoEeeRxTwSysEcho",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoTable": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoTable",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoEntry": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoLldpmedIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoIfIndex": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoIfIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNInterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoLldpmedIndex": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoLldpmedIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 192
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoState": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoState",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoCounty": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoCounty",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoCity": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoCity",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoDistrict": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoDistrict",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoBlock": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoBlock",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoStreet": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoStreet",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoLeadingStreetDirection": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoLeadingStreetDirection",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoTrailingStreetSuffix": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoTrailingStreetSuffix",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoStreetSuffix": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoStreetSuffix",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoHouseNo": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoHouseNo",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoHouseNoSuffix": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoHouseNoSuffix",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoLandmark": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoLandmark",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoAdditionalInfo": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoAdditionalInfo",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoName": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoName",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoZipCode": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoZipCode",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoBuilding": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoBuilding",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoApartment": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoApartment",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoFloor": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoFloor",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoRoomNumber": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoRoomNumber",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoPlaceType": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoPlaceType",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoPostalCommunityName": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoPostalCommunityName",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoPoBox": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoPoBox",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoAdditionalCode": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoAdditionalCode",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoCountryCode": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoCountryCode",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoTable": {
+    "name": "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoTable",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoEntry": {
+    "name": "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoLldpmedIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoLldpmedPolicy",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoIfIndex": {
+    "name": "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoIfIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNInterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoLldpmedIndex": {
+    "name": "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoLldpmedIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 192
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoLldpmedPolicy": {
+    "name": "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoLldpmedPolicy",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoApplicationType": {
+    "name": "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoApplicationType",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNlldpmedRemoteNetworkPolicyApplicationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoUnknownPolicy": {
+    "name": "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoUnknownPolicy",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoTagged": {
+    "name": "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoTagged",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoVlanId": {
+    "name": "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoVlanId",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned16",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoL2Priority": {
+    "name": "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoL2Priority",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned8",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoDscp": {
+    "name": "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoDscp",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.3.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned8",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnLldpControl": {
+    "name": "tnLldpControl",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.4",
+    "class": "objectidentity"
+  },
+  "tnLldpControlStatisticsClear": {
+    "name": "tnLldpControlStatisticsClear",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.4.1",
+    "class": "objectidentity"
+  },
+  "tnLldpControlStatisticsClearTable": {
+    "name": "tnLldpControlStatisticsClearTable",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpControlStatisticsClearEntry": {
+    "name": "tnLldpControlStatisticsClearEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpControlStatisticsClearIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpControlStatisticsClearIfIndex": {
+    "name": "tnLldpControlStatisticsClearIfIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNInterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnLldpControlStatisticsClearStatisticsClear": {
+    "name": "tnLldpControlStatisticsClearStatisticsClear",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpControlStatisticsClearGlobal": {
+    "name": "tnLldpControlStatisticsClearGlobal",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.4.1.2",
+    "class": "objectidentity"
+  },
+  "tnLldpControlStatisticsClearGlobalClear": {
+    "name": "tnLldpControlStatisticsClearGlobalClear",
+    "oid": "1.3.6.1.4.1.868.2.5.151.1.4.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNUnsigned8",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnLldpMibConformance": {
+    "name": "tnLldpMibConformance",
+    "oid": "1.3.6.1.4.1.868.2.5.151.2",
+    "class": "objectidentity"
+  },
+  "tnLldpMibCompliances": {
+    "name": "tnLldpMibCompliances",
+    "oid": "1.3.6.1.4.1.868.2.5.151.2.1",
+    "class": "objectidentity"
+  },
+  "tnLldpMibGroups": {
+    "name": "tnLldpMibGroups",
+    "oid": "1.3.6.1.4.1.868.2.5.151.2.2",
+    "class": "objectidentity"
+  },
+  "tnLldpConfigGlobalInfoGroup": {
+    "name": "tnLldpConfigGlobalInfoGroup",
+    "oid": "1.3.6.1.4.1.868.2.5.151.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigGlobalReInitDelay"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigGlobalMsgTxHold"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigGlobalMsgTxInterval"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigGlobalTxDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpConfigInfoGroup": {
+    "name": "tnLldpConfigInfoGroup",
+    "oid": "1.3.6.1.4.1.868.2.5.151.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigAdminState"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigCdpAware"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigOptionalTlvs"
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpConfigMedInfoGroup": {
+    "name": "tnLldpConfigMedInfoGroup",
+    "oid": "1.3.6.1.4.1.868.2.5.151.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedOptionalTlvs"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedDeviceType"
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyInfoGroup": {
+    "name": "tnLldpConfigMedPolicyInfoGroup",
+    "oid": "1.3.6.1.4.1.868.2.5.151.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedPolicyApplicationType"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedPolicyTagged"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedPolicyVlanId"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedPolicyL2Priority"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedPolicyDscp"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedPolicyAction"
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyListInfoGroup": {
+    "name": "tnLldpConfigMedPolicyListInfoGroup",
+    "oid": "1.3.6.1.4.1.868.2.5.151.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedPolicyListLldpmedPoliciesList"
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpConfigMedGlobalInfoGroup": {
+    "name": "tnLldpConfigMedGlobalInfoGroup",
+    "oid": "1.3.6.1.4.1.868.2.5.151.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedGlobalFastRepeatCount"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedGlobalLatitude"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedGlobalLongitude"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedGlobalAltitudeType"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedGlobalAltitude"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedGlobalElinAddr"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedGlobalDatum"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedGlobalCountryCode"
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpConfigMedLocationInformationInfoGroup": {
+    "name": "tnLldpConfigMedLocationInformationInfoGroup",
+    "oid": "1.3.6.1.4.1.868.2.5.151.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedLocationInformationCivicAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpConfigMedPolicyRowEditorInfoGroup": {
+    "name": "tnLldpConfigMedPolicyRowEditorInfoGroup",
+    "oid": "1.3.6.1.4.1.868.2.5.151.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedPolicyRowEditorLldpmedPolicy"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedPolicyRowEditorApplicationType"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedPolicyRowEditorTagged"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedPolicyRowEditorVlanId"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedPolicyRowEditorL2Priority"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedPolicyRowEditorDscp"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpConfigMedPolicyRowEditorAction"
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpStatusStatisticsGlobalCountersInfoGroup": {
+    "name": "tnLldpStatusStatisticsGlobalCountersInfoGroup",
+    "oid": "1.3.6.1.4.1.868.2.5.151.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusStatisticsGlobalCountersTableInserts"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusStatisticsGlobalCountersTableDeletes"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusStatisticsGlobalCountersTableDrops"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusStatisticsGlobalCountersTableAgeOuts"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusStatisticsGlobalCountersLastChangeTime"
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpStatusStatisticsTableInfoGroup": {
+    "name": "tnLldpStatusStatisticsTableInfoGroup",
+    "oid": "1.3.6.1.4.1.868.2.5.151.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusStatisticsTxTotal"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusStatisticsRxTotal"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusStatisticsRxError"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusStatisticsRxDiscarded"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusStatisticsTLVsDiscarded"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusStatisticsTLVsUnrecognized"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusStatisticsTLVsOrgDiscarded"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusStatisticsAgeOuts"
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpStatusNeighborsInformationInfoGroup": {
+    "name": "tnLldpStatusNeighborsInformationInfoGroup",
+    "oid": "1.3.6.1.4.1.868.2.5.151.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusNeighborsInformationChassisId"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusNeighborsInformationPortId"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusNeighborsInformationPortDescription"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusNeighborsInformationSystemName"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusNeighborsInformationSystemDescription"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusNeighborsInformationSystemCapabilities"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusNeighborsInformationSystemCapabilitiesEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpStatusNeighborsMgmtInformationInfoGroup": {
+    "name": "tnLldpStatusNeighborsMgmtInformationInfoGroup",
+    "oid": "1.3.6.1.4.1.868.2.5.151.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusNeighborsMgmtInformationSystemMgmAddressSubtype"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusNeighborsMgmtInformationSystemMgmtAddress"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusNeighborsMgmtInformationSystemMgmtInterfaceSubtype"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusNeighborsMgmtInformationSystemMgmtInterface"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusNeighborsMgmtInformationSystemMgmtOid"
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceInfoInfoGroup": {
+    "name": "tnLldpStatusMedRemoteDeviceInfoInfoGroup",
+    "oid": "1.3.6.1.4.1.868.2.5.151.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceInfoCapabilities"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceInfoCapabilitiesEnabled"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceInfoLatitude"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceInfoLongitude"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceInfoAltitudeType"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceInfoAltitude"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceInfoDatum"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceInfoElinaddr"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceInfoDeviceType"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceInfoHwRev"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceInfoFwRev"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceInfoSwRev"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceInfoSerialNo"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceInfoManufacturerName"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceInfoModelName"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceInfoAssetId"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceInfoEeeRxTwSys"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceInfoEeeTxTwSys"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceInfoEeeFbTwSys"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceInfoEeeTxTwSysEcho"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceInfoEeeRxTwSysEcho"
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceLocInfoInfoGroup": {
+    "name": "tnLldpStatusMedRemoteDeviceLocInfoInfoGroup",
+    "oid": "1.3.6.1.4.1.868.2.5.151.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoState"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoCounty"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoCity"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoDistrict"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoBlock"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoStreet"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoLeadingStreetDirection"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoTrailingStreetSuffix"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoStreetSuffix"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoHouseNo"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoHouseNoSuffix"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoLandmark"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoAdditionalInfo"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoName"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoZipCode"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoBuilding"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoApartment"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoFloor"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoRoomNumber"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoPlaceType"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoPostalCommunityName"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoPoBox"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoAdditionalCode"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoCountryCode"
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoInfoGroup": {
+    "name": "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoInfoGroup",
+    "oid": "1.3.6.1.4.1.868.2.5.151.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoApplicationType"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoUnknownPolicy"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoTagged"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoVlanId"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoL2Priority"
+      },
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoDscp"
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpControlStatisticsClearTableInfoGroup": {
+    "name": "tnLldpControlStatisticsClearTableInfoGroup",
+    "oid": "1.3.6.1.4.1.868.2.5.151.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpControlStatisticsClearStatisticsClear"
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpControlStatisticsClearGlobalInfoGroup": {
+    "name": "tnLldpControlStatisticsClearGlobalInfoGroup",
+    "oid": "1.3.6.1.4.1.868.2.5.151.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN-LLDP-MIB",
+        "object": "tnLldpControlStatisticsClearGlobalClear"
+      }
+    ],
+    "status": "current"
+  },
+  "tnLldpMibCompliance": {
+    "name": "tnLldpMibCompliance",
+    "oid": "1.3.6.1.4.1.868.2.5.151.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "tnLldpConfigGlobalInfoGroup",
+        "module": "TN-LLDP-MIB"
+      },
+      {
+        "object": "tnLldpConfigInfoGroup",
+        "module": "TN-LLDP-MIB"
+      },
+      {
+        "object": "tnLldpConfigMedInfoGroup",
+        "module": "TN-LLDP-MIB"
+      },
+      {
+        "object": "tnLldpConfigMedPolicyInfoGroup",
+        "module": "TN-LLDP-MIB"
+      },
+      {
+        "object": "tnLldpConfigMedPolicyListInfoGroup",
+        "module": "TN-LLDP-MIB"
+      },
+      {
+        "object": "tnLldpConfigMedGlobalInfoGroup",
+        "module": "TN-LLDP-MIB"
+      },
+      {
+        "object": "tnLldpConfigMedLocationInformationInfoGroup",
+        "module": "TN-LLDP-MIB"
+      },
+      {
+        "object": "tnLldpConfigMedPolicyRowEditorInfoGroup",
+        "module": "TN-LLDP-MIB"
+      },
+      {
+        "object": "tnLldpStatusStatisticsGlobalCountersInfoGroup",
+        "module": "TN-LLDP-MIB"
+      },
+      {
+        "object": "tnLldpStatusStatisticsTableInfoGroup",
+        "module": "TN-LLDP-MIB"
+      },
+      {
+        "object": "tnLldpStatusNeighborsInformationInfoGroup",
+        "module": "TN-LLDP-MIB"
+      },
+      {
+        "object": "tnLldpStatusNeighborsMgmtInformationInfoGroup",
+        "module": "TN-LLDP-MIB"
+      },
+      {
+        "object": "tnLldpStatusMedRemoteDeviceInfoInfoGroup",
+        "module": "TN-LLDP-MIB"
+      },
+      {
+        "object": "tnLldpStatusMedRemoteDeviceLocInfoInfoGroup",
+        "module": "TN-LLDP-MIB"
+      },
+      {
+        "object": "tnLldpStatusMedRemoteDeviceNetworkPolicyInfoInfoGroup",
+        "module": "TN-LLDP-MIB"
+      },
+      {
+        "object": "tnLldpControlStatisticsClearTableInfoGroup",
+        "module": "TN-LLDP-MIB"
+      },
+      {
+        "object": "tnLldpControlStatisticsClearGlobalInfoGroup",
+        "module": "TN-LLDP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-LLDP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-LLDP-MIB"
+  }
+}

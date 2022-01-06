@@ -1,0 +1,272 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfTotalCount",
+      "PerfCurrentCount",
+      "PerfIntervalCount"
+    ],
+    "SL-MAIN-MIB": [
+      "slMain"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DateAndTime",
+      "TruthValue",
+      "TimeStamp"
+    ]
+  },
+  "slTests": {
+    "name": "slTests",
+    "oid": "1.3.6.1.4.1.4515.1.3.13",
+    "class": "moduleidentity"
+  },
+  "slTestsIfLoop": {
+    "name": "slTestsIfLoop",
+    "oid": "1.3.6.1.4.1.4515.1.3.13.1",
+    "class": "objectidentity"
+  },
+  "slTestsTraps": {
+    "name": "slTestsTraps",
+    "oid": "1.3.6.1.4.1.4515.1.3.13.2",
+    "class": "objectidentity"
+  },
+  "slTestsTraps0": {
+    "name": "slTestsTraps0",
+    "oid": "1.3.6.1.4.1.4515.1.3.13.2.0",
+    "class": "objectidentity"
+  },
+  "slTestsIfLoopTable": {
+    "name": "slTestsIfLoopTable",
+    "oid": "1.3.6.1.4.1.4515.1.3.13.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slTestsIfLoopEntry": {
+    "name": "slTestsIfLoopEntry",
+    "oid": "1.3.6.1.4.1.4515.1.3.13.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-TESTS-MIB",
+        "object": "slTestsIfLoopIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slTestsIfLoopIfIndex": {
+    "name": "slTestsIfLoopIfIndex",
+    "oid": "1.3.6.1.4.1.4515.1.3.13.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slTestsIfLoopDuration": {
+    "name": "slTestsIfLoopDuration",
+    "oid": "1.3.6.1.4.1.4515.1.3.13.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slTestsIfLoopStatus": {
+    "name": "slTestsIfLoopStatus",
+    "oid": "1.3.6.1.4.1.4515.1.3.13.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "stop": 2,
+          "fail": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slTestsIfLoopType": {
+    "name": "slTestsIfLoopType",
+    "oid": "1.3.6.1.4.1.4515.1.3.13.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "terminal": 1,
+          "facility": 2,
+          "prbs": 3,
+          "otnPrbs": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slTestsIfLoopMode": {
+    "name": "slTestsIfLoopMode",
+    "oid": "1.3.6.1.4.1.4515.1.3.13.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "timeout": 1,
+          "toggle": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slTestsIfLoopErrors": {
+    "name": "slTestsIfLoopErrors",
+    "oid": "1.3.6.1.4.1.4515.1.3.13.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slTestsIfLoopResult": {
+    "name": "slTestsIfLoopResult",
+    "oid": "1.3.6.1.4.1.4515.1.3.13.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "fail": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slTestsIfLoopPassedSeconds": {
+    "name": "slTestsIfLoopPassedSeconds",
+    "oid": "1.3.6.1.4.1.4515.1.3.13.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slTestsTrapsLoopbackActive": {
+    "name": "slTestsTrapsLoopbackActive",
+    "oid": "1.3.6.1.4.1.4515.1.3.13.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slTestsTrapsLoopbackTableChanged": {
+    "name": "slTestsTrapsLoopbackTableChanged",
+    "oid": "1.3.6.1.4.1.4515.1.3.13.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-TESTS-MIB",
+        "object": "slTestsIfLoopIfIndex"
+      },
+      {
+        "module": "SL-TESTS-MIB",
+        "object": "slTestsIfLoopType"
+      },
+      {
+        "module": "SL-TESTS-MIB",
+        "object": "slTestsTrapsLoopbackActive"
+      }
+    ],
+    "status": "current"
+  },
+  "slTestsTrapsLoopbackTableChanged0": {
+    "name": "slTestsTrapsLoopbackTableChanged0",
+    "oid": "1.3.6.1.4.1.4515.1.3.13.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-TESTS-MIB",
+        "object": "slTestsIfLoopIfIndex"
+      },
+      {
+        "module": "SL-TESTS-MIB",
+        "object": "slTestsIfLoopType"
+      },
+      {
+        "module": "SL-TESTS-MIB",
+        "object": "slTestsTrapsLoopbackActive"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-TESTS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:54 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SL-TESTS-MIB"
+  }
+}

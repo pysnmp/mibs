@@ -1,0 +1,332 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMP-USER-BASED-SM-MIB": [
+      "usmUserEntry"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "experimental",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "snmpUsmDHObjectsMIB": {
+    "name": "snmpUsmDHObjectsMIB",
+    "oid": "1.3.6.1.3.101",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-03-06 00:00",
+        "description": "Initial version published as RFC 2786."
+      }
+    ]
+  },
+  "usmDHKeyObjects": {
+    "name": "usmDHKeyObjects",
+    "oid": "1.3.6.1.3.101.1",
+    "class": "objectidentity"
+  },
+  "usmDHKeyConformance": {
+    "name": "usmDHKeyConformance",
+    "oid": "1.3.6.1.3.101.2",
+    "class": "objectidentity"
+  },
+  "DHKeyChange": {
+    "name": "DHKeyChange",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "usmDHPublicObjects": {
+    "name": "usmDHPublicObjects",
+    "oid": "1.3.6.1.3.101.1.1",
+    "class": "objectidentity"
+  },
+  "usmDHParameters": {
+    "name": "usmDHParameters",
+    "oid": "1.3.6.1.3.101.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usmDHUserKeyTable": {
+    "name": "usmDHUserKeyTable",
+    "oid": "1.3.6.1.3.101.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "usmDHUserKeyEntry": {
+    "name": "usmDHUserKeyEntry",
+    "oid": "1.3.6.1.3.101.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "usmDHUserKeyEntry",
+      "module": "SNMP-USM-DH-OBJECTS-MIB",
+      "object": "usmUserEntry"
+    },
+    "status": "current"
+  },
+  "usmDHUserAuthKeyChange": {
+    "name": "usmDHUserAuthKeyChange",
+    "oid": "1.3.6.1.3.101.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DHKeyChange",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "usmDHUserOwnAuthKeyChange": {
+    "name": "usmDHUserOwnAuthKeyChange",
+    "oid": "1.3.6.1.3.101.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DHKeyChange",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "usmDHUserPrivKeyChange": {
+    "name": "usmDHUserPrivKeyChange",
+    "oid": "1.3.6.1.3.101.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DHKeyChange",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "usmDHUserOwnPrivKeyChange": {
+    "name": "usmDHUserOwnPrivKeyChange",
+    "oid": "1.3.6.1.3.101.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DHKeyChange",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "usmDHKickstartGroup": {
+    "name": "usmDHKickstartGroup",
+    "oid": "1.3.6.1.3.101.1.2",
+    "class": "objectidentity"
+  },
+  "usmDHKickstartTable": {
+    "name": "usmDHKickstartTable",
+    "oid": "1.3.6.1.3.101.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "usmDHKickstartEntry": {
+    "name": "usmDHKickstartEntry",
+    "oid": "1.3.6.1.3.101.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNMP-USM-DH-OBJECTS-MIB",
+        "object": "usmDHKickstartIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "usmDHKickstartIndex": {
+    "name": "usmDHKickstartIndex",
+    "oid": "1.3.6.1.3.101.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "usmDHKickstartMyPublic": {
+    "name": "usmDHKickstartMyPublic",
+    "oid": "1.3.6.1.3.101.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "usmDHKickstartMgrPublic": {
+    "name": "usmDHKickstartMgrPublic",
+    "oid": "1.3.6.1.3.101.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "usmDHKickstartSecurityName": {
+    "name": "usmDHKickstartSecurityName",
+    "oid": "1.3.6.1.3.101.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "usmDHKeyMIBCompliances": {
+    "name": "usmDHKeyMIBCompliances",
+    "oid": "1.3.6.1.3.101.2.1",
+    "class": "objectidentity"
+  },
+  "usmDHKeyMIBGroups": {
+    "name": "usmDHKeyMIBGroups",
+    "oid": "1.3.6.1.3.101.2.2",
+    "class": "objectidentity"
+  },
+  "usmDHKeyMIBCompliance": {
+    "name": "usmDHKeyMIBCompliance",
+    "oid": "1.3.6.1.3.101.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "usmDHKeyMIBBasicGroup",
+        "module": "SNMP-USM-DH-OBJECTS-MIB"
+      },
+      {
+        "object": "usmDHKeyParamGroup",
+        "module": "SNMP-USM-DH-OBJECTS-MIB"
+      },
+      {
+        "object": "usmDHKeyKickstartGroup",
+        "module": "SNMP-USM-DH-OBJECTS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "usmDHKeyMIBBasicGroup": {
+    "name": "usmDHKeyMIBBasicGroup",
+    "oid": "1.3.6.1.3.101.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMP-USM-DH-OBJECTS-MIB",
+        "object": "usmDHUserAuthKeyChange"
+      },
+      {
+        "module": "SNMP-USM-DH-OBJECTS-MIB",
+        "object": "usmDHUserOwnAuthKeyChange"
+      },
+      {
+        "module": "SNMP-USM-DH-OBJECTS-MIB",
+        "object": "usmDHUserPrivKeyChange"
+      },
+      {
+        "module": "SNMP-USM-DH-OBJECTS-MIB",
+        "object": "usmDHUserOwnPrivKeyChange"
+      }
+    ],
+    "status": "current"
+  },
+  "usmDHKeyParamGroup": {
+    "name": "usmDHKeyParamGroup",
+    "oid": "1.3.6.1.3.101.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMP-USM-DH-OBJECTS-MIB",
+        "object": "usmDHParameters"
+      }
+    ],
+    "status": "current"
+  },
+  "usmDHKeyKickstartGroup": {
+    "name": "usmDHKeyKickstartGroup",
+    "oid": "1.3.6.1.3.101.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMP-USM-DH-OBJECTS-MIB",
+        "object": "usmDHKickstartMyPublic"
+      },
+      {
+        "module": "SNMP-USM-DH-OBJECTS-MIB",
+        "object": "usmDHKickstartMgrPublic"
+      },
+      {
+        "module": "SNMP-USM-DH-OBJECTS-MIB",
+        "object": "usmDHKickstartSecurityName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/SNMP-USM-DH-OBJECTS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SNMP-USM-DH-OBJECTS-MIB"
+  }
+}

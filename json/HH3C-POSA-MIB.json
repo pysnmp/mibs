@@ -1,0 +1,2620 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "IF-MIB": [
+      "ifDescr",
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cPosa": {
+    "name": "hh3cPosa",
+    "oid": "1.3.6.1.4.1.25506.2.92",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-08-26 00:00",
+        "description": "Added hh3cPosaNiiStatTable. Added hh3cPosaE1StatTable. Added new nodes hh3cPosaTradeSuccessFallingTrapEnable, hh3cPosaTradeSuccessFallingThreshold, hh3cPosaE1DialFallingTrapEnable, hh3cPosaE1DialFallingThreshold and hh3cPosaFcmTradeAbnormalTrapEnable in hh3cPosaContro. Added new node hh3cPosaTermianlTcpConnectionNumber in hh3cPosaTerminalStatTable. Added new nodes hh3cPosaTradeSuccessFalling, hh3cPosaE1DialFalling and hh3cPosaFcmTradeAbnormal in hh3cPosaTrapPrex. Added new object hh3cPosaCallerStatCallerID to hh3cPosaTerminalHangUp. Added new object hh3cPosaCallerStatCallerID to hh3cPosaFcmLinkNegoFailed. Added new object hh3cPosaCallerStatCallerID to hh3cPosaFcmPhyNegoFailed. Modified the MAX-ACCESS of hh3cPosaCallerStatCallerID to be accessible-for-notify."
+      },
+      {
+        "revision": "2014-11-14 00:00",
+        "description": "Modified the range for hh3cPosaTerminalID in hh3cPosaTerminalTable. Modified the range for hh3cPosaBatchTerminalFirstID in hh3cPosaBatchTerminalTable. Modified the default value for hh3cPosaFcmConnectionThreshold"
+      },
+      {
+        "revision": "2008-03-12 09:33",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "Hh3cAppServiceType": {
+    "name": "Hh3cAppServiceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcp": 1,
+          "flow": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cAppMode": {
+    "name": "Hh3cAppMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "temporary": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cPeerState": {
+    "name": "Hh3cPeerState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notset": 1,
+          "down": 2,
+          "up": 3,
+          "kept": 4,
+          "linking": 5,
+          "linked": 6,
+          "multilink": 7,
+          "blocked": 8,
+          "error": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cTerminalAccessType": {
+    "name": "Hh3cTerminalAccessType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fcm": 1,
+          "flow": 2,
+          "tcp": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cTpduChangeStrategy": {
+    "name": "Hh3cTpduChangeStrategy",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "changeTpduSrc": 1,
+          "changeTpduDest": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cPosaControl": {
+    "name": "hh3cPosaControl",
+    "oid": "1.3.6.1.4.1.25506.2.92.1",
+    "class": "objectidentity"
+  },
+  "hh3cPosaServerEnable": {
+    "name": "hh3cPosaServerEnable",
+    "oid": "1.3.6.1.4.1.25506.2.92.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaFcmAnswerTimeout": {
+    "name": "hh3cPosaFcmAnswerTimeout",
+    "oid": "1.3.6.1.4.1.25506.2.92.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaFcmTradeTimeout": {
+    "name": "hh3cPosaFcmTradeTimeout",
+    "oid": "1.3.6.1.4.1.25506.2.92.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30000,
+            "max": 12000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 12000000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaFcmIdleTimeout": {
+    "name": "hh3cPosaFcmIdleTimeout",
+    "oid": "1.3.6.1.4.1.25506.2.92.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaSrvStateChangeTrapEnable": {
+    "name": "hh3cPosaSrvStateChangeTrapEnable",
+    "oid": "1.3.6.1.4.1.25506.2.92.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaAppStateChangeTrapEnable": {
+    "name": "hh3cPosaAppStateChangeTrapEnable",
+    "oid": "1.3.6.1.4.1.25506.2.92.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaTerminalHangUpTrapEnable": {
+    "name": "hh3cPosaTerminalHangUpTrapEnable",
+    "oid": "1.3.6.1.4.1.25506.2.92.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaFcmLnkNegoFailTrapEnable": {
+    "name": "hh3cPosaFcmLnkNegoFailTrapEnable",
+    "oid": "1.3.6.1.4.1.25506.2.92.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaFcmPhyNegoFailTrapEnable": {
+    "name": "hh3cPosaFcmPhyNegoFailTrapEnable",
+    "oid": "1.3.6.1.4.1.25506.2.92.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaTcpConnectionNumber": {
+    "name": "hh3cPosaTcpConnectionNumber",
+    "oid": "1.3.6.1.4.1.25506.2.92.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaFcmConnectionNumber": {
+    "name": "hh3cPosaFcmConnectionNumber",
+    "oid": "1.3.6.1.4.1.25506.2.92.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaTcpConnectionThreshold": {
+    "name": "hh3cPosaTcpConnectionThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.92.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4096,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaFcmConnectionThreshold": {
+    "name": "hh3cPosaFcmConnectionThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.92.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1024,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaTcpConnectionTrapEnable": {
+    "name": "hh3cPosaTcpConnectionTrapEnable",
+    "oid": "1.3.6.1.4.1.25506.2.92.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaFcmConnectionTrapEnable": {
+    "name": "hh3cPosaFcmConnectionTrapEnable",
+    "oid": "1.3.6.1.4.1.25506.2.92.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaTcpTradeLimit": {
+    "name": "hh3cPosaTcpTradeLimit",
+    "oid": "1.3.6.1.4.1.25506.2.92.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaTcpTradeTrapEnable": {
+    "name": "hh3cPosaTcpTradeTrapEnable",
+    "oid": "1.3.6.1.4.1.25506.2.92.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaTcpTradeTimeout": {
+    "name": "hh3cPosaTcpTradeTimeout",
+    "oid": "1.3.6.1.4.1.25506.2.92.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 240,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaTradeSuccessFallingTrapEnable": {
+    "name": "hh3cPosaTradeSuccessFallingTrapEnable",
+    "oid": "1.3.6.1.4.1.25506.2.92.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaTradeSuccessFallingThreshold": {
+    "name": "hh3cPosaTradeSuccessFallingThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.92.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaE1DialFallingTrapEnable": {
+    "name": "hh3cPosaE1DialFallingTrapEnable",
+    "oid": "1.3.6.1.4.1.25506.2.92.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaE1DialFallingThreshold": {
+    "name": "hh3cPosaE1DialFallingThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.92.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaFcmTradeAbnormalTrapEnable": {
+    "name": "hh3cPosaFcmTradeAbnormalTrapEnable",
+    "oid": "1.3.6.1.4.1.25506.2.92.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaTables": {
+    "name": "hh3cPosaTables",
+    "oid": "1.3.6.1.4.1.25506.2.92.2",
+    "class": "objectidentity"
+  },
+  "hh3cPosaAppTable": {
+    "name": "hh3cPosaAppTable",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPosaAppEntry": {
+    "name": "hh3cPosaAppEntry",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaAppID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPosaAppID": {
+    "name": "hh3cPosaAppID",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cPosaAppServiceType": {
+    "name": "hh3cPosaAppServiceType",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cAppServiceType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "tcp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaAppIfIndex": {
+    "name": "hh3cPosaAppIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaAppMode": {
+    "name": "hh3cPosaAppMode",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cAppMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "normal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaAppHostIPType": {
+    "name": "hh3cPosaAppHostIPType",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaAppHostIP": {
+    "name": "hh3cPosaAppHostIP",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaAppHostPort": {
+    "name": "hh3cPosaAppHostPort",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaAppRouterIPType": {
+    "name": "hh3cPosaAppRouterIPType",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaAppRouterIP": {
+    "name": "hh3cPosaAppRouterIP",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaAppKeepAliveInterval": {
+    "name": "hh3cPosaAppKeepAliveInterval",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7200
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaAppKeepAliveCount": {
+    "name": "hh3cPosaAppKeepAliveCount",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaAppConnectTimeout": {
+    "name": "hh3cPosaAppConnectTimeout",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaAppState": {
+    "name": "hh3cPosaAppState",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cPeerState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaAppRowStatus": {
+    "name": "hh3cPosaAppRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaAppName": {
+    "name": "hh3cPosaAppName",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaCallerIDTransEnable": {
+    "name": "hh3cPosaCallerIDTransEnable",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaTpduChangeStrategy": {
+    "name": "hh3cPosaTpduChangeStrategy",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cTpduChangeStrategy",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "changeTpduSrc",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaBackupAppID": {
+    "name": "hh3cPosaBackupAppID",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaQuietTimeOut": {
+    "name": "hh3cPosaQuietTimeOut",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaAppHello": {
+    "name": "hh3cPosaAppHello",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaAppHelloInterval": {
+    "name": "hh3cPosaAppHelloInterval",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaAppRouterPort": {
+    "name": "hh3cPosaAppRouterPort",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaTerminalTable": {
+    "name": "hh3cPosaTerminalTable",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPosaTerminalEntry": {
+    "name": "hh3cPosaTerminalEntry",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaTerminalID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPosaTerminalID": {
+    "name": "hh3cPosaTerminalID",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cPosaTerminalAccessType": {
+    "name": "hh3cPosaTerminalAccessType",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cTerminalAccessType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "fcm",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaTerminalIfIndex": {
+    "name": "hh3cPosaTerminalIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaTerminalTransAppID": {
+    "name": "hh3cPosaTerminalTransAppID",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaTerminalListenPort": {
+    "name": "hh3cPosaTerminalListenPort",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaTerminalState": {
+    "name": "hh3cPosaTerminalState",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cPeerState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaTerminalRowStatus": {
+    "name": "hh3cPosaTerminalRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaTerminalName": {
+    "name": "hh3cPosaTerminalName",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaTerminalCfgIfIndex": {
+    "name": "hh3cPosaTerminalCfgIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaMapTable": {
+    "name": "hh3cPosaMapTable",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPosaMapEntry": {
+    "name": "hh3cPosaMapEntry",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaMapSrcCode",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaMapDestCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPosaMapDestCode": {
+    "name": "hh3cPosaMapDestCode",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPosaMapAppID": {
+    "name": "hh3cPosaMapAppID",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaMapRowStatus": {
+    "name": "hh3cPosaMapRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaMapSrcCode": {
+    "name": "hh3cPosaMapSrcCode",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPosaFcmStatTable": {
+    "name": "hh3cPosaFcmStatTable",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPosaFcmStatEntry": {
+    "name": "hh3cPosaFcmStatEntry",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaFcmStatIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPosaFcmStatIfIndex": {
+    "name": "hh3cPosaFcmStatIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPosaFcmStatTimeoutCnts": {
+    "name": "hh3cPosaFcmStatTimeoutCnts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaFcmStatConnectFailCnts": {
+    "name": "hh3cPosaFcmStatConnectFailCnts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaFcmStatTransCnts": {
+    "name": "hh3cPosaFcmStatTransCnts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaFcmStatTransSuccessCnts": {
+    "name": "hh3cPosaFcmStatTransSuccessCnts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaFcmStatTransCntsClear": {
+    "name": "hh3cPosaFcmStatTransCntsClear",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaAppStatTable": {
+    "name": "hh3cPosaAppStatTable",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPosaAppStatEntry": {
+    "name": "hh3cPosaAppStatEntry",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaAppID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPosaAppRecvPkts": {
+    "name": "hh3cPosaAppRecvPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaAppSendPkts": {
+    "name": "hh3cPosaAppSendPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaAppErrPkts": {
+    "name": "hh3cPosaAppErrPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaAppDistributeErrCnts": {
+    "name": "hh3cPosaAppDistributeErrCnts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaAppInDiscardedPkts": {
+    "name": "hh3cPosaAppInDiscardedPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaAppOutDiscardedPkts": {
+    "name": "hh3cPosaAppOutDiscardedPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaTerminalStatTable": {
+    "name": "hh3cPosaTerminalStatTable",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPosaTerminalStatEntry": {
+    "name": "hh3cPosaTerminalStatEntry",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaTerminalID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPosaTerminalRecvPkts": {
+    "name": "hh3cPosaTerminalRecvPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaTerminalSendPkts": {
+    "name": "hh3cPosaTerminalSendPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaTerminalErrPkts": {
+    "name": "hh3cPosaTerminalErrPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaTerminalMapErrCnts": {
+    "name": "hh3cPosaTerminalMapErrCnts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaTerminalInDiscardedPkts": {
+    "name": "hh3cPosaTerminalInDiscardedPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaTerminalOutDiscardedPkts": {
+    "name": "hh3cPosaTerminalOutDiscardedPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaTermianlTcpConnectionNumber": {
+    "name": "hh3cPosaTermianlTcpConnectionNumber",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaBatchTerminalTable": {
+    "name": "hh3cPosaBatchTerminalTable",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPosaBatchTerminalEntry": {
+    "name": "hh3cPosaBatchTerminalEntry",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPosaBatchTerminalFirstID": {
+    "name": "hh3cPosaBatchTerminalFirstID",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaBatchTerminalRowStatus": {
+    "name": "hh3cPosaBatchTerminalRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaTcpTermStatTable": {
+    "name": "hh3cPosaTcpTermStatTable",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPosaTcpTermStatEntry": {
+    "name": "hh3cPosaTcpTermStatEntry",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaTcpTermStatIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPosaTcpTermStatIndex": {
+    "name": "hh3cPosaTcpTermStatIndex",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPosaTcpTermStatIPType": {
+    "name": "hh3cPosaTcpTermStatIPType",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaTcpTermStatIP": {
+    "name": "hh3cPosaTcpTermStatIP",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaTcpTermStatIPMask": {
+    "name": "hh3cPosaTcpTermStatIPMask",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaTcpTermRecvPkts": {
+    "name": "hh3cPosaTcpTermRecvPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaTcpTermSendPkts": {
+    "name": "hh3cPosaTcpTermSendPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaTcpTermErrPkts": {
+    "name": "hh3cPosaTcpTermErrPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaTcpTermMapErrCnts": {
+    "name": "hh3cPosaTcpTermMapErrCnts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaTcpTermInDiscardedPkts": {
+    "name": "hh3cPosaTcpTermInDiscardedPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaTcpTermOutDiscardedPkts": {
+    "name": "hh3cPosaTcpTermOutDiscardedPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaTcpTermStatRowStatus": {
+    "name": "hh3cPosaTcpTermStatRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaFcmConfTable": {
+    "name": "hh3cPosaFcmConfTable",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPosaFcmConfEntry": {
+    "name": "hh3cPosaFcmConfEntry",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPosaFcmNegoHookOff": {
+    "name": "hh3cPosaFcmNegoHookOff",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 6000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaFcmNegoSilence": {
+    "name": "hh3cPosaFcmNegoSilence",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaFcmNegoScrmbBinary1": {
+    "name": "hh3cPosaFcmNegoScrmbBinary1",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 250,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaFcmNegoUnscrmbBinary1": {
+    "name": "hh3cPosaFcmNegoUnscrmbBinary1",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 300,
+            "max": 1500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 400,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaFcmThresholdRlsdOff": {
+    "name": "hh3cPosaFcmThresholdRlsdOff",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 75
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 48,
+        "format": "decimal"
+      }
+    },
+    "units": "-dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaFcmThresholdRlsdOn": {
+    "name": "hh3cPosaFcmThresholdRlsdOn",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 75
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 43,
+        "format": "decimal"
+      }
+    },
+    "units": "-dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaFcmThresholdTxPower": {
+    "name": "hh3cPosaFcmThresholdTxPower",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 42
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "-dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaFcmThresholdAnswerTone": {
+    "name": "hh3cPosaFcmThresholdAnswerTone",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 42
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 9,
+        "format": "decimal"
+      }
+    },
+    "units": "-dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPosaCallerStatTable": {
+    "name": "hh3cPosaCallerStatTable",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPosaCallerStatEntry": {
+    "name": "hh3cPosaCallerStatEntry",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaCallerStatCallerID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPosaCallerStatCallerID": {
+    "name": "hh3cPosaCallerStatCallerID",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cPosaCallerRecvPkts": {
+    "name": "hh3cPosaCallerRecvPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaCallerSendPkts": {
+    "name": "hh3cPosaCallerSendPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaCallerErrPkts": {
+    "name": "hh3cPosaCallerErrPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaCallerMapErrCnts": {
+    "name": "hh3cPosaCallerMapErrCnts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaCallerInDiscardedPkts": {
+    "name": "hh3cPosaCallerInDiscardedPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaCallerOutDiscardedPkts": {
+    "name": "hh3cPosaCallerOutDiscardedPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaCallerStatRowStatus": {
+    "name": "hh3cPosaCallerStatRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPosaNiiStatTable": {
+    "name": "hh3cPosaNiiStatTable",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPosaNiiStatEntry": {
+    "name": "hh3cPosaNiiStatEntry",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaNiiStatIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPosaNiiStatIndex": {
+    "name": "hh3cPosaNiiStatIndex",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cPosaNiiRecvPkts": {
+    "name": "hh3cPosaNiiRecvPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaNiiSendPkts": {
+    "name": "hh3cPosaNiiSendPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaNiiSuccessTradeCnt": {
+    "name": "hh3cPosaNiiSuccessTradeCnt",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaNiiTradeCnt": {
+    "name": "hh3cPosaNiiTradeCnt",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaE1StatTable": {
+    "name": "hh3cPosaE1StatTable",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPosaE1StatEntry": {
+    "name": "hh3cPosaE1StatEntry",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaE1StatIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPosaE1StatIndex": {
+    "name": "hh3cPosaE1StatIndex",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPosaE1DialCnt": {
+    "name": "hh3cPosaE1DialCnt",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaE1DialSuccess": {
+    "name": "hh3cPosaE1DialSuccess",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaE1RecvPkts": {
+    "name": "hh3cPosaE1RecvPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaE1SendPkts": {
+    "name": "hh3cPosaE1SendPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaE1ErrPkts": {
+    "name": "hh3cPosaE1ErrPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaE1MapErrCnts": {
+    "name": "hh3cPosaE1MapErrCnts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaE1InDiscardedPkts": {
+    "name": "hh3cPosaE1InDiscardedPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaE1OutDiscardedPkts": {
+    "name": "hh3cPosaE1OutDiscardedPkts",
+    "oid": "1.3.6.1.4.1.25506.2.92.2.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPosaTrap": {
+    "name": "hh3cPosaTrap",
+    "oid": "1.3.6.1.4.1.25506.2.92.3",
+    "class": "objectidentity"
+  },
+  "hh3cPosaTrapPrex": {
+    "name": "hh3cPosaTrapPrex",
+    "oid": "1.3.6.1.4.1.25506.2.92.3.0",
+    "class": "objectidentity"
+  },
+  "hh3cPosaServerStatusChange": {
+    "name": "hh3cPosaServerStatusChange",
+    "oid": "1.3.6.1.4.1.25506.2.92.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaServerEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPosaAppStateChange": {
+    "name": "hh3cPosaAppStateChange",
+    "oid": "1.3.6.1.4.1.25506.2.92.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaAppID"
+      },
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaAppStateChangeObject"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPosaTerminalHangUp": {
+    "name": "hh3cPosaTerminalHangUp",
+    "oid": "1.3.6.1.4.1.25506.2.92.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaCallerStatCallerID"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPosaFcmLinkNegoFailed": {
+    "name": "hh3cPosaFcmLinkNegoFailed",
+    "oid": "1.3.6.1.4.1.25506.2.92.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaCallerStatCallerID"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPosaFcmPhyNegoFailed": {
+    "name": "hh3cPosaFcmPhyNegoFailed",
+    "oid": "1.3.6.1.4.1.25506.2.92.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaCallerStatCallerID"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPosaTcpConnectionExceed": {
+    "name": "hh3cPosaTcpConnectionExceed",
+    "oid": "1.3.6.1.4.1.25506.2.92.3.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaTcpConnectionThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPosaFcmConnectionExceed": {
+    "name": "hh3cPosaFcmConnectionExceed",
+    "oid": "1.3.6.1.4.1.25506.2.92.3.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaFcmConnectionThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPosaTcpTradeExceed": {
+    "name": "hh3cPosaTcpTradeExceed",
+    "oid": "1.3.6.1.4.1.25506.2.92.3.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaTcpTradeLimit"
+      },
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaTerminalID"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPosaTradeSuccessFalling": {
+    "name": "hh3cPosaTradeSuccessFalling",
+    "oid": "1.3.6.1.4.1.25506.2.92.3.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaNiiStatIndex"
+      },
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaTradeSuccessFallingThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPosaE1DialFalling": {
+    "name": "hh3cPosaE1DialFalling",
+    "oid": "1.3.6.1.4.1.25506.2.92.3.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaE1DialFallingThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPosaFcmTradeAbnormal": {
+    "name": "hh3cPosaFcmTradeAbnormal",
+    "oid": "1.3.6.1.4.1.25506.2.92.3.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HH3C-POSA-MIB",
+        "object": "hh3cPosaCallerStatCallerID"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPosaTrapObjects": {
+    "name": "hh3cPosaTrapObjects",
+    "oid": "1.3.6.1.4.1.25506.2.92.3.1",
+    "class": "objectidentity"
+  },
+  "hh3cPosaAppStateChangeObject": {
+    "name": "hh3cPosaAppStateChangeObject",
+    "oid": "1.3.6.1.4.1.25506.2.92.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 1,
+          "unavailable": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-POSA-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-POSA-MIB"
+  }
+}

@@ -1,0 +1,1668 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "BridgeId"
+    ],
+    "HP-SWITCH-PL-MIB": [
+      "hpSwitchBladeType2-Mgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "qos": {
+    "name": "qos",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8",
+    "class": "moduleidentity"
+  },
+  "qosConfigs": {
+    "name": "qosConfigs",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1",
+    "class": "objectidentity"
+  },
+  "qosStats": {
+    "name": "qosStats",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.2",
+    "class": "objectidentity"
+  },
+  "qosInfo": {
+    "name": "qosInfo",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.3",
+    "class": "objectidentity"
+  },
+  "qosOper": {
+    "name": "qosOper",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.4",
+    "class": "objectidentity"
+  },
+  "qos8021p": {
+    "name": "qos8021p",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1",
+    "class": "objectidentity"
+  },
+  "aclCfg": {
+    "name": "aclCfg",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2",
+    "class": "objectidentity"
+  },
+  "qosCurCfgPortPriorityTable": {
+    "name": "qosCurCfgPortPriorityTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosCurCfgPortPriorityEntry": {
+    "name": "qosCurCfgPortPriorityEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BLADETYPE2-QOS-MIB",
+        "object": "qosCurCfgPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosCurCfgPortIndex": {
+    "name": "qosCurCfgPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosCurCfgPortPriority": {
+    "name": "qosCurCfgPortPriority",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosNewCfgPortPriorityTable": {
+    "name": "qosNewCfgPortPriorityTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosNewCfgPortPriorityEntry": {
+    "name": "qosNewCfgPortPriorityEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BLADETYPE2-QOS-MIB",
+        "object": "qosNewCfgPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosNewCfgPortIndex": {
+    "name": "qosNewCfgPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosNewCfgPortPriority": {
+    "name": "qosNewCfgPortPriority",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosCurCfgPriorityCoSTable": {
+    "name": "qosCurCfgPriorityCoSTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosCurCfgPriorityCoSEntry": {
+    "name": "qosCurCfgPriorityCoSEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BLADETYPE2-QOS-MIB",
+        "object": "qosCurCfgPriorityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosCurCfgPriorityIndex": {
+    "name": "qosCurCfgPriorityIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosCurCfgPriorityCoSq": {
+    "name": "qosCurCfgPriorityCoSq",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosNewCfgPriorityCoSTable": {
+    "name": "qosNewCfgPriorityCoSTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosNewCfgPriorityCoSEntry": {
+    "name": "qosNewCfgPriorityCoSEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BLADETYPE2-QOS-MIB",
+        "object": "qosNewCfgPriorityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosNewCfgPriorityIndex": {
+    "name": "qosNewCfgPriorityIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosNewCfgPriorityCoSq": {
+    "name": "qosNewCfgPriorityCoSq",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosCurCfgCosWeightTable": {
+    "name": "qosCurCfgCosWeightTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosCurCfgCosWeightEntry": {
+    "name": "qosCurCfgCosWeightEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BLADETYPE2-QOS-MIB",
+        "object": "qosCurCfgCosIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosCurCfgCosIndex": {
+    "name": "qosCurCfgCosIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosCurCfgCosWeight": {
+    "name": "qosCurCfgCosWeight",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosNewCfgCosWeightTable": {
+    "name": "qosNewCfgCosWeightTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosNewCfgCosWeightEntry": {
+    "name": "qosNewCfgCosWeightEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BLADETYPE2-QOS-MIB",
+        "object": "qosNewCfgCosIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosNewCfgCosIndex": {
+    "name": "qosNewCfgCosIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosNewCfgCosWeight": {
+    "name": "qosNewCfgCosWeight",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosCurCfgCosNum": {
+    "name": "qosCurCfgCosNum",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "num2": 2,
+          "num8": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosNewCfgCosNum": {
+    "name": "qosNewCfgCosNum",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "num2": 2,
+          "num8": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclCurCfgPortTable": {
+    "name": "aclCurCfgPortTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aclCurCfgPortTableEntry": {
+    "name": "aclCurCfgPortTableEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BLADETYPE2-QOS-MIB",
+        "object": "aclCurCfgPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aclCurCfgPortIndex": {
+    "name": "aclCurCfgPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclCurCfgPortAclBmap": {
+    "name": "aclCurCfgPortAclBmap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclCurCfgPortAclBlkBmap": {
+    "name": "aclCurCfgPortAclBlkBmap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclCurCfgPortAclGrpBmap": {
+    "name": "aclCurCfgPortAclGrpBmap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclNewCfgPortTable": {
+    "name": "aclNewCfgPortTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aclNewCfgPortTableEntry": {
+    "name": "aclNewCfgPortTableEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BLADETYPE2-QOS-MIB",
+        "object": "aclNewCfgPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aclNewCfgPortIndex": {
+    "name": "aclNewCfgPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclNewCfgPortAddAcl": {
+    "name": "aclNewCfgPortAddAcl",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgPortAddAclBlk": {
+    "name": "aclNewCfgPortAddAclBlk",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgPortAddAclGrp": {
+    "name": "aclNewCfgPortAddAclGrp",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgPortRemoveAcl": {
+    "name": "aclNewCfgPortRemoveAcl",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgPortRemoveAclBlk": {
+    "name": "aclNewCfgPortRemoveAclBlk",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgPortRemoveAclGrp": {
+    "name": "aclNewCfgPortRemoveAclGrp",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgPortAclBmap": {
+    "name": "aclNewCfgPortAclBmap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclNewCfgPortAclBlkBmap": {
+    "name": "aclNewCfgPortAclBlkBmap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclNewCfgPortAclGrpBmap": {
+    "name": "aclNewCfgPortAclGrpBmap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclCurCfgPortAclMeterTable": {
+    "name": "aclCurCfgPortAclMeterTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aclCurCfgPortAclMeterTableEntry": {
+    "name": "aclCurCfgPortAclMeterTableEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BLADETYPE2-QOS-MIB",
+        "object": "aclCurCfgPortMeterConfigIndex",
+        "implied": 0
+      },
+      {
+        "module": "BLADETYPE2-QOS-MIB",
+        "object": "aclCurCfgAclMeterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aclCurCfgPortMeterConfigIndex": {
+    "name": "aclCurCfgPortMeterConfigIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclCurCfgAclMeterIndex": {
+    "name": "aclCurCfgAclMeterIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclCurCfgAclMeterCommitRate": {
+    "name": "aclCurCfgAclMeterCommitRate",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1000,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclCurCfgAclMeterMaxBurstSize": {
+    "name": "aclCurCfgAclMeterMaxBurstSize",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "k32": 32,
+          "k64": 64,
+          "k128": 128,
+          "k256": 256,
+          "k512": 512,
+          "k1024": 1024,
+          "k2048": 2048,
+          "k4096": 4096
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclCurCfgAclMeterStatus": {
+    "name": "aclCurCfgAclMeterStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclCurCfgAclMeterDropOrPass": {
+    "name": "aclCurCfgAclMeterDropOrPass",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "drop": 2,
+          "pass": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclCurCfgAclMeterAclBmap": {
+    "name": "aclCurCfgAclMeterAclBmap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclCurCfgAclMeterAclBlkBmap": {
+    "name": "aclCurCfgAclMeterAclBlkBmap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclCurCfgAclMeterAclGrpBmap": {
+    "name": "aclCurCfgAclMeterAclGrpBmap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclNewCfgPortAclMeterTable": {
+    "name": "aclNewCfgPortAclMeterTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aclNewCfgPortAclMeterTableEntry": {
+    "name": "aclNewCfgPortAclMeterTableEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BLADETYPE2-QOS-MIB",
+        "object": "aclNewCfgPortMeterConfigIndex",
+        "implied": 0
+      },
+      {
+        "module": "BLADETYPE2-QOS-MIB",
+        "object": "aclNewCfgAclMeterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aclNewCfgPortMeterConfigIndex": {
+    "name": "aclNewCfgPortMeterConfigIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclNewCfgAclMeterIndex": {
+    "name": "aclNewCfgAclMeterIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclNewCfgAclMeterCommitRate": {
+    "name": "aclNewCfgAclMeterCommitRate",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1000,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgAclMeterMaxBurstSize": {
+    "name": "aclNewCfgAclMeterMaxBurstSize",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "k32": 32,
+          "k64": 64,
+          "k128": 128,
+          "k256": 256,
+          "k512": 512,
+          "k1024": 1024,
+          "k2048": 2048,
+          "k4096": 4096
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgAclMeterStatus": {
+    "name": "aclNewCfgAclMeterStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgAclMeterDropOrPass": {
+    "name": "aclNewCfgAclMeterDropOrPass",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "drop": 2,
+          "pass": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgAclMeterAssignAcl": {
+    "name": "aclNewCfgAclMeterAssignAcl",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgAclMeterAssignAclBlk": {
+    "name": "aclNewCfgAclMeterAssignAclBlk",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgAclMeterAssignAclGrp": {
+    "name": "aclNewCfgAclMeterAssignAclGrp",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgAclMeterUnAssignAcl": {
+    "name": "aclNewCfgAclMeterUnAssignAcl",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgAclMeterUnAssignAclBlk": {
+    "name": "aclNewCfgAclMeterUnAssignAclBlk",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgAclMeterUnAssignAclGrp": {
+    "name": "aclNewCfgAclMeterUnAssignAclGrp",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgAclMeterAclBmap": {
+    "name": "aclNewCfgAclMeterAclBmap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclNewCfgAclMeterAclBlkBmap": {
+    "name": "aclNewCfgAclMeterAclBlkBmap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclNewCfgAclMeterAclGrpBmap": {
+    "name": "aclNewCfgAclMeterAclGrpBmap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclCurCfgPortAclRemarkTable": {
+    "name": "aclCurCfgPortAclRemarkTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aclCurCfgPortAclRemarkTableEntry": {
+    "name": "aclCurCfgPortAclRemarkTableEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BLADETYPE2-QOS-MIB",
+        "object": "aclCurCfgPortRemarkConfigIndex",
+        "implied": 0
+      },
+      {
+        "module": "BLADETYPE2-QOS-MIB",
+        "object": "aclCurCfgAclRemarkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aclCurCfgPortRemarkConfigIndex": {
+    "name": "aclCurCfgPortRemarkConfigIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclCurCfgAclRemarkIndex": {
+    "name": "aclCurCfgAclRemarkIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclCurCfgAclRemarkInProfUpdatePri": {
+    "name": "aclCurCfgAclRemarkInProfUpdatePri",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclCurCfgAclRemarkInProfUpdateTosPrec": {
+    "name": "aclCurCfgAclRemarkInProfUpdateTosPrec",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclCurCfgAclRemarkInProfUpdateDscp": {
+    "name": "aclCurCfgAclRemarkInProfUpdateDscp",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclCurCfgAclRemarkOutProfUpdateDscp": {
+    "name": "aclCurCfgAclRemarkOutProfUpdateDscp",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclCurCfgAclRemarkAclBmap": {
+    "name": "aclCurCfgAclRemarkAclBmap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclCurCfgAclRemarkAclBlkBmap": {
+    "name": "aclCurCfgAclRemarkAclBlkBmap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclCurCfgAclRemarkAclGrpBmap": {
+    "name": "aclCurCfgAclRemarkAclGrpBmap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclNewCfgPortAclRemarkTable": {
+    "name": "aclNewCfgPortAclRemarkTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aclNewCfgPortAclRemarkTableEntry": {
+    "name": "aclNewCfgPortAclRemarkTableEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BLADETYPE2-QOS-MIB",
+        "object": "aclNewCfgPortRemarkConfigIndex",
+        "implied": 0
+      },
+      {
+        "module": "BLADETYPE2-QOS-MIB",
+        "object": "aclNewCfgAclRemarkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aclNewCfgPortRemarkConfigIndex": {
+    "name": "aclNewCfgPortRemarkConfigIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclNewCfgAclRemarkIndex": {
+    "name": "aclNewCfgAclRemarkIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclNewCfgAclRemarkInProfUpdatePri": {
+    "name": "aclNewCfgAclRemarkInProfUpdatePri",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgAclRemarkInProfUpdateTosPrec": {
+    "name": "aclNewCfgAclRemarkInProfUpdateTosPrec",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgAclRemarkInProfUpdateDscp": {
+    "name": "aclNewCfgAclRemarkInProfUpdateDscp",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgAclRemarkOutProfUpdateDscp": {
+    "name": "aclNewCfgAclRemarkOutProfUpdateDscp",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgAclRemarkAssignAcl": {
+    "name": "aclNewCfgAclRemarkAssignAcl",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgAclRemarkAssignAclBlk": {
+    "name": "aclNewCfgAclRemarkAssignAclBlk",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgAclRemarkAssignAclGrp": {
+    "name": "aclNewCfgAclRemarkAssignAclGrp",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgAclRemarkUnAssignAcl": {
+    "name": "aclNewCfgAclRemarkUnAssignAcl",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgAclRemarkUnAssignAclBlk": {
+    "name": "aclNewCfgAclRemarkUnAssignAclBlk",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgAclRemarkUnAssignAclGrp": {
+    "name": "aclNewCfgAclRemarkUnAssignAclGrp",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclNewCfgAclRemarkAclBmap": {
+    "name": "aclNewCfgAclRemarkAclBmap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclNewCfgAclRemarkAclBlkBmap": {
+    "name": "aclNewCfgAclRemarkAclBlkBmap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclNewCfgAclRemarkAclGrpBmap": {
+    "name": "aclNewCfgAclRemarkAclGrpBmap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclNewCfgAclRemarkReset": {
+    "name": "aclNewCfgAclRemarkReset",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.8.1.2.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/BLADETYPE2-QOS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BLADETYPE2-QOS-MIB"
+  }
+}

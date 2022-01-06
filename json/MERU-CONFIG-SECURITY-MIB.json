@@ -1,0 +1,1733 @@
+{
+  "imports": {
+    "class": "imports",
+    "IPV6-TC": [
+      "Ipv6Address"
+    ],
+    "MERU-SMI": [
+      "mwConfiguration"
+    ],
+    "MERU-TC": [
+      "MwlAuthenticationType",
+      "MwlRadiusPasswordType",
+      "MwlCaptivePortalMode",
+      "MwlL2SecurityModeBits",
+      "MwlKDDI",
+      "MwlRadiusMacDelimiter",
+      "MwlCaptivePortalAuthenticationType",
+      "MwlRadiusCalledStationIdType",
+      "MwlCaptivePortalAuthMethod",
+      "MwlTunnelTerminationModeBits",
+      "MwlManagementFrameProtection",
+      "MwlCypherSuiteBits",
+      "MwlFirewallCapability",
+      "MwlAclEnvState",
+      "MwlProfileOwner",
+      "MwlCaptivePortalExternalServerType",
+      "MwlOnOffSwitch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "iso",
+      "Unsigned32",
+      "enterprises",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "MacAddress",
+      "DateAndTime",
+      "TruthValue",
+      "TimeInterval",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "mwConfigSecurity": {
+    "name": "mwConfigSecurity",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9",
+    "class": "moduleidentity"
+  },
+  "mwWapiServer": {
+    "name": "mwWapiServer",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.6",
+    "class": "objectidentity"
+  },
+  "mwSecurityProfileTable": {
+    "name": "mwSecurityProfileTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwSecurityProfileEntry": {
+    "name": "mwSecurityProfileEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-SECURITY-MIB",
+        "object": "mwSecurityProfileTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwSecurityProfileTableIndex": {
+    "name": "mwSecurityProfileTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwSecurityProfileName": {
+    "name": "mwSecurityProfileName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileKDDI": {
+    "name": "mwSecurityProfileKDDI",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlKDDI",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileReKeyPeriod": {
+    "name": "mwSecurityProfileReKeyPeriod",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileCypherSuites": {
+    "name": "mwSecurityProfileCypherSuites",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlCypherSuiteBits",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileReAuthEnable": {
+    "name": "mwSecurityProfileReAuthEnable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlOnOffSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileL2ModesAllowed": {
+    "name": "mwSecurityProfileL2ModesAllowed",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlL2SecurityModeBits",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileStaticWepKeyPos": {
+    "name": "mwSecurityProfileStaticWepKeyPos",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileSecurityLogging": {
+    "name": "mwSecurityProfileSecurityLogging",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlOnOffSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileGroupKeyInterval": {
+    "name": "mwSecurityProfileGroupKeyInterval",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileFirewallFilterId": {
+    "name": "mwSecurityProfileFirewallFilterId",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileSharedAuthEnabled": {
+    "name": "mwSecurityProfileSharedAuthEnabled",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlOnOffSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileEnableMacFiltering": {
+    "name": "mwSecurityProfileEnableMacFiltering",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlOnOffSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileFirewallCapability": {
+    "name": "mwSecurityProfileFirewallCapability",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlFirewallCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileCaptivePortalEnabled": {
+    "name": "mwSecurityProfileCaptivePortalEnabled",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlCaptivePortalMode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileNetworkInitiation8021x": {
+    "name": "mwSecurityProfileNetworkInitiation8021x",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlOnOffSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfilePrimaryRadiusProfileName": {
+    "name": "mwSecurityProfilePrimaryRadiusProfileName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileSecondaryRadiusProfileName": {
+    "name": "mwSecurityProfileSecondaryRadiusProfileName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfilePskKey": {
+    "name": "mwSecurityProfilePskKey",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 66
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileStaticWepKey": {
+    "name": "mwSecurityProfileStaticWepKey",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 28
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfilePassthroughFirewallFilterId": {
+    "name": "mwSecurityProfilePassthroughFirewallFilterId",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileOwner": {
+    "name": "mwSecurityProfileOwner",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlProfileOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwSecurityProfileCaptivePortalAuthenticationMethod": {
+    "name": "mwSecurityProfileCaptivePortalAuthenticationMethod",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlCaptivePortalAuthMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileTunnelTermination": {
+    "name": "mwSecurityProfileTunnelTermination",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlTunnelTerminationModeBits",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileBKSACachingPeriod": {
+    "name": "mwSecurityProfileBKSACachingPeriod",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfilePMKCachingStatus": {
+    "name": "mwSecurityProfilePMKCachingStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlOnOffSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileEnvState": {
+    "name": "mwSecurityProfileEnvState",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlAclEnvState",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileMACAuthPrimaryRadiusProfileName": {
+    "name": "mwSecurityProfileMACAuthPrimaryRadiusProfileName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileMACAuthSecondaryRadiusProfileName": {
+    "name": "mwSecurityProfileMACAuthSecondaryRadiusProfileName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileCaptivePortalProfile": {
+    "name": "mwSecurityProfileCaptivePortalProfile",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileMFP11wSupport": {
+    "name": "mwSecurityProfileMFP11wSupport",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlManagementFrameProtection",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileMACAccountingPrimaryRadiusProfileName": {
+    "name": "mwSecurityProfileMACAccountingPrimaryRadiusProfileName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileMACAccountingSecondaryRadiusProfileName": {
+    "name": "mwSecurityProfileMACAccountingSecondaryRadiusProfileName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileCaptivePortalBypassForMAC": {
+    "name": "mwSecurityProfileCaptivePortalBypassForMAC",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlOnOffSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSecurityProfileRowStatus": {
+    "name": "mwSecurityProfileRowStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwSslVarsTable": {
+    "name": "mwSslVarsTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwSslVarsEntry": {
+    "name": "mwSslVarsEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-SECURITY-MIB",
+        "object": "mwSslVarsTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwSslVarsTableIndex": {
+    "name": "mwSslVarsTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwSslVarsSslLifeTime": {
+    "name": "mwSslVarsSslLifeTime",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwSslVarsCertificateFileName": {
+    "name": "mwSslVarsCertificateFileName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwSslVarsCPCertificate": {
+    "name": "mwSslVarsCPCertificate",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwRadiusProfileTable": {
+    "name": "mwRadiusProfileTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwRadiusProfileEntry": {
+    "name": "mwRadiusProfileEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-SECURITY-MIB",
+        "object": "mwRadiusProfileTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwRadiusProfileTableIndex": {
+    "name": "mwRadiusProfileTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwRadiusProfileName": {
+    "name": "mwRadiusProfileName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRadiusProfileDescr": {
+    "name": "mwRadiusProfileDescr",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRadiusProfileRadiusIp": {
+    "name": "mwRadiusProfileRadiusIp",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRadiusProfileRadiusPort": {
+    "name": "mwRadiusProfileRadiusPort",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRadiusProfileRadiusMacDelimiter": {
+    "name": "mwRadiusProfileRadiusMacDelimiter",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlRadiusMacDelimiter",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRadiusProfileRadiusPasswordType": {
+    "name": "mwRadiusProfileRadiusPasswordType",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlRadiusPasswordType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRadiusProfileRadiusSecret": {
+    "name": "mwRadiusProfileRadiusSecret",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRadiusProfileOwner": {
+    "name": "mwRadiusProfileOwner",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlProfileOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwRadiusProfileCalledStationIdType": {
+    "name": "mwRadiusProfileCalledStationIdType",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlRadiusCalledStationIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRadiusProfileCoaFlag": {
+    "name": "mwRadiusProfileCoaFlag",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlOnOffSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRadiusProfileRadiusRelayApId": {
+    "name": "mwRadiusProfileRadiusRelayApId",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRadiusProfileRemoteRadiusServerFlag": {
+    "name": "mwRadiusProfileRemoteRadiusServerFlag",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlOnOffSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRadiusProfileRadiusServerTimeout": {
+    "name": "mwRadiusProfileRadiusServerTimeout",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRadiusProfileRadiusServerRetries": {
+    "name": "mwRadiusProfileRadiusServerRetries",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwRadiusProfileRowStatus": {
+    "name": "mwRadiusProfileRowStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwGuestUserTable": {
+    "name": "mwGuestUserTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwGuestUserEntry": {
+    "name": "mwGuestUserEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-SECURITY-MIB",
+        "object": "mwGuestUserTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwGuestUserTableIndex": {
+    "name": "mwGuestUserTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwGuestUserGuestName": {
+    "name": "mwGuestUserGuestName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwGuestUserEndTimestamp": {
+    "name": "mwGuestUserEndTimestamp",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwGuestUserStartTimestamp": {
+    "name": "mwGuestUserStartTimestamp",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwGuestUserGuestPasswd": {
+    "name": "mwGuestUserGuestPasswd",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwGuestUserRowStatus": {
+    "name": "mwGuestUserRowStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwAuthModeTable": {
+    "name": "mwAuthModeTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwAuthModeEntry": {
+    "name": "mwAuthModeEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-SECURITY-MIB",
+        "object": "mwAuthModeTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwAuthModeTableIndex": {
+    "name": "mwAuthModeTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwAuthModeAuthType": {
+    "name": "mwAuthModeAuthType",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlAuthenticationType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwAuthModePrimaryRadiusIp": {
+    "name": "mwAuthModePrimaryRadiusIp",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwAuthModePrimaryRadiusPort": {
+    "name": "mwAuthModePrimaryRadiusPort",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwAuthModePrimaryRadiusSecret": {
+    "name": "mwAuthModePrimaryRadiusSecret",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwAuthModeSecondaryRadiusIp": {
+    "name": "mwAuthModeSecondaryRadiusIp",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwAuthModeSecondaryRadiusPort": {
+    "name": "mwAuthModeSecondaryRadiusPort",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwAuthModeSecondaryRadiusSecret": {
+    "name": "mwAuthModeSecondaryRadiusSecret",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwAuthModePrimaryTacacsIp": {
+    "name": "mwAuthModePrimaryTacacsIp",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwAuthModePrimaryTacacsPort": {
+    "name": "mwAuthModePrimaryTacacsPort",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwAuthModePrimaryTacacsSecret": {
+    "name": "mwAuthModePrimaryTacacsSecret",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwAuthModeSecondaryTacacsIp": {
+    "name": "mwAuthModeSecondaryTacacsIp",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwAuthModeSecondaryTacacsPort": {
+    "name": "mwAuthModeSecondaryTacacsPort",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwAuthModeSecondaryTacacsSecret": {
+    "name": "mwAuthModeSecondaryTacacsSecret",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwWapiServerServerIp": {
+    "name": "mwWapiServerServerIp",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwWapiServerServerPort": {
+    "name": "mwWapiServerServerPort",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1024,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwCaptivePortalProfileTable": {
+    "name": "mwCaptivePortalProfileTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwCaptivePortalProfileEntry": {
+    "name": "mwCaptivePortalProfileEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-SECURITY-MIB",
+        "object": "mwCaptivePortalProfileTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwCaptivePortalProfileTableIndex": {
+    "name": "mwCaptivePortalProfileTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwCaptivePortalProfileName": {
+    "name": "mwCaptivePortalProfileName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwCaptivePortalProfileRadiusProfileName": {
+    "name": "mwCaptivePortalProfileRadiusProfileName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwCaptivePortalProfileSecondaryRadiusProfileName": {
+    "name": "mwCaptivePortalProfileSecondaryRadiusProfileName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwCaptivePortalProfilePrimaryAccountingRadiusServer": {
+    "name": "mwCaptivePortalProfilePrimaryAccountingRadiusServer",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwCaptivePortalProfileSecondaryAccountingRadiusServer": {
+    "name": "mwCaptivePortalProfileSecondaryAccountingRadiusServer",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwCaptivePortalProfileAccountingInterimInterval": {
+    "name": "mwCaptivePortalProfileAccountingInterimInterval",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwCaptivePortalProfileOverrideRadius": {
+    "name": "mwCaptivePortalProfileOverrideRadius",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlCaptivePortalAuthenticationType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwCaptivePortalProfileExternalCPURL": {
+    "name": "mwCaptivePortalProfileExternalCPURL",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwCaptivePortalProfileExternalCPIP": {
+    "name": "mwCaptivePortalProfileExternalCPIP",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwCaptivePortalProfileCaptivePortalSessionTimeout": {
+    "name": "mwCaptivePortalProfileCaptivePortalSessionTimeout",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwCaptivePortalProfileCaptivePortalActivityTimeout": {
+    "name": "mwCaptivePortalProfileCaptivePortalActivityTimeout",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwCaptivePortalProfileL3UserSessionTimeout": {
+    "name": "mwCaptivePortalProfileL3UserSessionTimeout",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwCaptivePortalProfileAutoLogin": {
+    "name": "mwCaptivePortalProfileAutoLogin",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlOnOffSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwCaptivePortalProfileOwner": {
+    "name": "mwCaptivePortalProfileOwner",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.7.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlProfileOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwCaptivePortalProfileExternalServer": {
+    "name": "mwCaptivePortalProfileExternalServer",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.7.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlCaptivePortalExternalServerType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwCaptivePortalProfileCpExemptionProfile": {
+    "name": "mwCaptivePortalProfileCpExemptionProfile",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.7.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwCaptivePortalProfileRowStatus": {
+    "name": "mwCaptivePortalProfileRowStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.7.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwCaptivePortalExemptionTable": {
+    "name": "mwCaptivePortalExemptionTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwCaptivePortalExemptionEntry": {
+    "name": "mwCaptivePortalExemptionEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-SECURITY-MIB",
+        "object": "mwCaptivePortalExemptionTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwCaptivePortalExemptionTableIndex": {
+    "name": "mwCaptivePortalExemptionTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwCaptivePortalExemptionName": {
+    "name": "mwCaptivePortalExemptionName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwCaptivePortalExemptionDescr": {
+    "name": "mwCaptivePortalExemptionDescr",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwCaptivePortalExemptionFqdn": {
+    "name": "mwCaptivePortalExemptionFqdn",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwCaptivePortalExemptionOwner": {
+    "name": "mwCaptivePortalExemptionOwner",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlProfileOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwCaptivePortalExemptionRowStatus": {
+    "name": "mwCaptivePortalExemptionRowStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.9.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-SECURITY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:30:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MERU-CONFIG-SECURITY-MIB"
+  }
+}

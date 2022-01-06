@@ -1,0 +1,2654 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalName",
+      "entPhysicalDescr",
+      "entPhysicalIndex"
+    ],
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
+    ]
+  },
+  "hh3cEntityExtend": {
+    "name": "hh3cEntityExtend",
+    "oid": "1.3.6.1.4.1.25506.2.6",
+    "class": "moduleidentity"
+  },
+  "Hh3cAdminState": {
+    "name": "Hh3cAdminState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "locked": 2,
+          "shuttingDown": 3,
+          "unlocked": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cOperState": {
+    "name": "Hh3cOperState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "disabled": 2,
+          "enabled": 3,
+          "dangerous": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cAlarmStatus": {
+    "name": "Hh3cAlarmStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "notSupported": 0,
+        "underRepair": 1,
+        "critical": 2,
+        "major": 3,
+        "minor": 4,
+        "alarmOutstanding": 5,
+        "warning": 6,
+        "indeterminate": 7
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cStandbyStatus": {
+    "name": "Hh3cStandbyStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "hotStandby": 2,
+          "coldStandby": 3,
+          "providingService": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cEntityExtObjects": {
+    "name": "hh3cEntityExtObjects",
+    "oid": "1.3.6.1.4.1.25506.2.6.1",
+    "class": "objectidentity"
+  },
+  "hh3cEntityExtState": {
+    "name": "hh3cEntityExtState",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cEntityExtStateTable": {
+    "name": "hh3cEntityExtStateTable",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cEntityExtStateEntry": {
+    "name": "hh3cEntityExtStateEntry",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtPhysicalIndex": {
+    "name": "hh3cEntityExtPhysicalIndex",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cEntityExtAdminStatus": {
+    "name": "hh3cEntityExtAdminStatus",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cEntityExtOperStatus": {
+    "name": "hh3cEntityExtOperStatus",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtStandbyStatus": {
+    "name": "hh3cEntityExtStandbyStatus",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cStandbyStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtAlarmLight": {
+    "name": "hh3cEntityExtAlarmLight",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cAlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtCpuUsage": {
+    "name": "hh3cEntityExtCpuUsage",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtCpuUsageThreshold": {
+    "name": "hh3cEntityExtCpuUsageThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cEntityExtMemUsage": {
+    "name": "hh3cEntityExtMemUsage",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtMemUsageThreshold": {
+    "name": "hh3cEntityExtMemUsageThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cEntityExtMemSize": {
+    "name": "hh3cEntityExtMemSize",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtUpTime": {
+    "name": "hh3cEntityExtUpTime",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtTemperature": {
+    "name": "hh3cEntityExtTemperature",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtTemperatureThreshold": {
+    "name": "hh3cEntityExtTemperatureThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cEntityExtVoltage": {
+    "name": "hh3cEntityExtVoltage",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtVoltageLowThreshold": {
+    "name": "hh3cEntityExtVoltageLowThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cEntityExtVoltageHighThreshold": {
+    "name": "hh3cEntityExtVoltageHighThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cEntityExtCriticalTemperatureThreshold": {
+    "name": "hh3cEntityExtCriticalTemperatureThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cEntityExtMacAddress": {
+    "name": "hh3cEntityExtMacAddress",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtErrorStatus": {
+    "name": "hh3cEntityExtErrorStatus",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "normal": 2,
+          "postFailure": 3,
+          "entityAbsent": 4,
+          "poeError": 11,
+          "stackError": 21,
+          "stackPortBlocked": 22,
+          "stackPortFailed": 23,
+          "sfpRecvError": 31,
+          "sfpSendError": 32,
+          "sfpBothError": 33,
+          "fanError": 41,
+          "psuError": 51,
+          "rpsError": 61,
+          "moduleFaulty": 71,
+          "sensorError": 81,
+          "hardwareFaulty": 91
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtCpuMaxUsage": {
+    "name": "hh3cEntityExtCpuMaxUsage",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtLowerTemperatureThreshold": {
+    "name": "hh3cEntityExtLowerTemperatureThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cEntityExtShutdownTemperatureThreshold": {
+    "name": "hh3cEntityExtShutdownTemperatureThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cEntityExtPhyMemSize": {
+    "name": "hh3cEntityExtPhyMemSize",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtPhyCpuFrequency": {
+    "name": "hh3cEntityExtPhyCpuFrequency",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtFirstUsedDate": {
+    "name": "hh3cEntityExtFirstUsedDate",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtCpuAvgUsage": {
+    "name": "hh3cEntityExtCpuAvgUsage",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtMemAvgUsage": {
+    "name": "hh3cEntityExtMemAvgUsage",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtMemType": {
+    "name": "hh3cEntityExtMemType",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtCriticalLowerTemperatureThreshold": {
+    "name": "hh3cEntityExtCriticalLowerTemperatureThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cEntityExtShutdownLowerTemperatureThreshold": {
+    "name": "hh3cEntityExtShutdownLowerTemperatureThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cEntityExtCpuUsageRecoverThreshold": {
+    "name": "hh3cEntityExtCpuUsageRecoverThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cEntityExtMemSizeRev": {
+    "name": "hh3cEntityExtMemSizeRev",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtCpuUsageIn1Minute": {
+    "name": "hh3cEntityExtCpuUsageIn1Minute",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtCpuUsageIn5Minutes": {
+    "name": "hh3cEntityExtCpuUsageIn5Minutes",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtManu": {
+    "name": "hh3cEntityExtManu",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cEntityExtManuTable": {
+    "name": "hh3cEntityExtManuTable",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cEntityExtManuEntry": {
+    "name": "hh3cEntityExtManuEntry",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtManuPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtManuPhysicalIndex": {
+    "name": "hh3cEntityExtManuPhysicalIndex",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cEntityExtManuSerialNum": {
+    "name": "hh3cEntityExtManuSerialNum",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtManuBuildInfo": {
+    "name": "hh3cEntityExtManuBuildInfo",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtManuBOM": {
+    "name": "hh3cEntityExtManuBOM",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtMacAddressCount": {
+    "name": "hh3cEntityExtMacAddressCount",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtPower": {
+    "name": "hh3cEntityExtPower",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.3",
+    "class": "objectidentity"
+  },
+  "hh3cEntityExtPowerTable": {
+    "name": "hh3cEntityExtPowerTable",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cEntityExtPowerEntry": {
+    "name": "hh3cEntityExtPowerEntry",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPowerPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtPowerPhysicalIndex": {
+    "name": "hh3cEntityExtPowerPhysicalIndex",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cEntityExtNominalPower": {
+    "name": "hh3cEntityExtNominalPower",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtCurrentPower": {
+    "name": "hh3cEntityExtCurrentPower",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtAveragePower": {
+    "name": "hh3cEntityExtAveragePower",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cEntityExtPeakPower": {
+    "name": "hh3cEntityExtPeakPower",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cProcessObjects": {
+    "name": "hh3cProcessObjects",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.4",
+    "class": "objectidentity"
+  },
+  "hh3cProcessTable": {
+    "name": "hh3cProcessTable",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cProcessEntry": {
+    "name": "hh3cProcessEntry",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cProcessID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cProcessID": {
+    "name": "hh3cProcessID",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cProcessName": {
+    "name": "hh3cProcessName",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cProcessUtil5Min": {
+    "name": "hh3cProcessUtil5Min",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtVoltageObjects": {
+    "name": "hh3cEntityExtVoltageObjects",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.5",
+    "class": "objectidentity"
+  },
+  "hh3cEntityExtVoltageTable": {
+    "name": "hh3cEntityExtVoltageTable",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cEntityExtVoltageEntry": {
+    "name": "hh3cEntityExtVoltageEntry",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtCurrentVoltage": {
+    "name": "hh3cEntityExtCurrentVoltage",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtNominalVoltage": {
+    "name": "hh3cEntityExtNominalVoltage",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtVoltageState": {
+    "name": "hh3cEntityExtVoltageState",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "low": 1,
+          "tooLow": 2,
+          "high": 3,
+          "tooHigh": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtVoltageMajorLowThreshold": {
+    "name": "hh3cEntityExtVoltageMajorLowThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtVoltageFatalLowThreshold": {
+    "name": "hh3cEntityExtVoltageFatalLowThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtVoltageMajorHighThreshold": {
+    "name": "hh3cEntityExtVoltageMajorHighThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtVoltageFatalHighThreshold": {
+    "name": "hh3cEntityExtVoltageFatalHighThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.6.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEntityExtTraps": {
+    "name": "hh3cEntityExtTraps",
+    "oid": "1.3.6.1.4.1.25506.2.6.2",
+    "class": "objectidentity"
+  },
+  "hh3cEntityExtTrapsPrefix": {
+    "name": "hh3cEntityExtTrapsPrefix",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0",
+    "class": "objectidentity"
+  },
+  "hh3cEntityExtTrapsInfor": {
+    "name": "hh3cEntityExtTrapsInfor",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.1",
+    "class": "objectidentity"
+  },
+  "hh3cEntityExtTemperatureThresholdNotification": {
+    "name": "hh3cEntityExtTemperatureThresholdNotification",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtTemperature"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtTemperatureThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtVoltageLowThresholdNotification": {
+    "name": "hh3cEntityExtVoltageLowThresholdNotification",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtVoltage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtVoltageLowThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtVoltageHighThresholdNotification": {
+    "name": "hh3cEntityExtVoltageHighThresholdNotification",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtVoltage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtVoltageHighThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtCpuUsageThresholdNotfication": {
+    "name": "hh3cEntityExtCpuUsageThresholdNotfication",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCpuUsage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCpuUsageThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAlarmLight"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCpuUsageRecoverThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtMemUsageThresholdNotification": {
+    "name": "hh3cEntityExtMemUsageThresholdNotification",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMemUsage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMemUsageThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMemSize"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAlarmLight"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtOperEnabled": {
+    "name": "hh3cEntityExtOperEnabled",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtOperDisabled": {
+    "name": "hh3cEntityExtOperDisabled",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtCriticalTemperatureThresholdNotification": {
+    "name": "hh3cEntityExtCriticalTemperatureThresholdNotification",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtTemperature"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCriticalTemperatureThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtSFPAlarmOn": {
+    "name": "hh3cEntityExtSFPAlarmOn",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtErrorStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtSFPAlarmOff": {
+    "name": "hh3cEntityExtSFPAlarmOff",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtErrorStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtSFPPhony": {
+    "name": "hh3cEntityExtSFPPhony",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityInsert": {
+    "name": "hh3cEntityInsert",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityRemove": {
+    "name": "hh3cEntityRemove",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtForcedPowerOff": {
+    "name": "hh3cEntityExtForcedPowerOff",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtForcedPowerOn": {
+    "name": "hh3cEntityExtForcedPowerOn",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtFaultAlarmOn": {
+    "name": "hh3cEntityExtFaultAlarmOn",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtErrorStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtFaultAlarmOff": {
+    "name": "hh3cEntityExtFaultAlarmOff",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtErrorStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtResourceLack": {
+    "name": "hh3cEntityExtResourceLack",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtResourceEnough": {
+    "name": "hh3cEntityExtResourceEnough",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtTemperatureLower": {
+    "name": "hh3cEntityExtTemperatureLower",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtTemperature"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtLowerTemperatureThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtTemperatureTooUp": {
+    "name": "hh3cEntityExtTemperatureTooUp",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtTemperature"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtShutdownTemperatureThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtTemperatureNormal": {
+    "name": "hh3cEntityExtTemperatureNormal",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtTemperature"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtLowerTemperatureThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtTemperatureThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExternalAlarmOccur": {
+    "name": "hh3cEntityExternalAlarmOccur",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExternalAlarmRecover": {
+    "name": "hh3cEntityExternalAlarmRecover",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtCpuUsageThresholdRecover": {
+    "name": "hh3cEntityExtCpuUsageThresholdRecover",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCpuUsage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCpuUsageThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAlarmLight"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCpuUsageRecoverThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtMemUsageThresholdRecover": {
+    "name": "hh3cEntityExtMemUsageThresholdRecover",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMemUsage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMemUsageThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMemSize"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAlarmLight"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtMemAllocatedFailed": {
+    "name": "hh3cEntityExtMemAllocatedFailed",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtTrapDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtECCParityAlarm": {
+    "name": "hh3cEntityExtECCParityAlarm",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtECCParityAlarmStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtTrapDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtCritLowerTempThresholdNotification": {
+    "name": "hh3cEntityExtCritLowerTempThresholdNotification",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtTemperature"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCriticalLowerTemperatureThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtTemperatureTooLow": {
+    "name": "hh3cEntityExtTemperatureTooLow",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtTemperature"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtShutdownLowerTemperatureThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtFanDirectionNotPreferred": {
+    "name": "hh3cEntityExtFanDirectionNotPreferred",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtFanDirectionNotAccord": {
+    "name": "hh3cEntityExtFanDirectionNotAccord",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtSFPInvalid": {
+    "name": "hh3cEntityExtSFPInvalid",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtSFPInvalidInDays"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtSFPInvalidNow": {
+    "name": "hh3cEntityExtSFPInvalidNow",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtMemUsageThresholdOverTrap": {
+    "name": "hh3cEntityExtMemUsageThresholdOverTrap",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMemUsage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMemUsageThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMemSizeRev"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtMemUsageThresholdRecoverTrap": {
+    "name": "hh3cEntityExtMemUsageThresholdRecoverTrap",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMemUsage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMemUsageThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMemSizeRev"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtVoltageNormal": {
+    "name": "hh3cEntityExtVoltageNormal",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCurrentVoltage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtNominalVoltage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtVoltageMajorLowThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtVoltageMajorHighThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtVoltageLower": {
+    "name": "hh3cEntityExtVoltageLower",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCurrentVoltage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtNominalVoltage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtVoltageMajorLowThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtVoltageTooLow": {
+    "name": "hh3cEntityExtVoltageTooLow",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCurrentVoltage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtNominalVoltage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtVoltageFatalLowThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtVoltageHigher": {
+    "name": "hh3cEntityExtVoltageHigher",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCurrentVoltage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtNominalVoltage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtVoltageMajorHighThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtVoltageTooHigh": {
+    "name": "hh3cEntityExtVoltageTooHigh",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCurrentVoltage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtNominalVoltage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtVoltageFatalHighThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtSFPAlarmOnEx": {
+    "name": "hh3cEntityExtSFPAlarmOnEx",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAlarmLight"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtErrorStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtSFPAlarmOffEx": {
+    "name": "hh3cEntityExtSFPAlarmOffEx",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.0.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAlarmLight"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtErrorStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtTrapDescription": {
+    "name": "hh3cEntityExtTrapDescription",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cEntityExtECCParityAlarmStatus": {
+    "name": "hh3cEntityExtECCParityAlarmStatus",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "l1cache": 2,
+          "l2cache": 3,
+          "sdram": 4,
+          "mac": 5,
+          "tcam": 6,
+          "ingressbuffer": 7,
+          "egressbuffer": 8,
+          "lpm": 9,
+          "controlmemory": 10
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cEntityExtSFPInvalidInDays": {
+    "name": "hh3cEntityExtSFPInvalidInDays",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cEntityExtFirstTrapTime": {
+    "name": "hh3cEntityExtFirstTrapTime",
+    "oid": "1.3.6.1.4.1.25506.2.6.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cEntityExtConformance": {
+    "name": "hh3cEntityExtConformance",
+    "oid": "1.3.6.1.4.1.25506.2.6.3",
+    "class": "objectidentity"
+  },
+  "hh3cEntityExtCompliances": {
+    "name": "hh3cEntityExtCompliances",
+    "oid": "1.3.6.1.4.1.25506.2.6.3.1",
+    "class": "objectidentity"
+  },
+  "hh3cEntityExtCompliance": {
+    "name": "hh3cEntityExtCompliance",
+    "oid": "1.3.6.1.4.1.25506.2.6.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hh3cEntityExtGroup",
+        "module": "HH3C-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "hh3cEntityExtNotificationGroup",
+        "module": "HH3C-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "hh3cEntityExtManuGroup",
+        "module": "HH3C-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "hh3cEntityExtPowerGroup",
+        "module": "HH3C-ENTITY-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtGroups": {
+    "name": "hh3cEntityExtGroups",
+    "oid": "1.3.6.1.4.1.25506.2.6.3.2",
+    "class": "objectidentity"
+  },
+  "hh3cEntityExtGroup": {
+    "name": "hh3cEntityExtGroup",
+    "oid": "1.3.6.1.4.1.25506.2.6.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAdminStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtOperStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtStandbyStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAlarmLight"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCpuUsage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCpuUsageThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMemUsage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMemUsageThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMemSize"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtUpTime"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtTemperature"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtTemperatureThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtVoltage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtVoltageLowThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtVoltageHighThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCriticalTemperatureThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMacAddress"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtErrorStatus"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCpuMaxUsage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtLowerTemperatureThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtShutdownTemperatureThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhyMemSize"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPhyCpuFrequency"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtFirstUsedDate"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCpuAvgUsage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMemAvgUsage"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMemType"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCriticalLowerTemperatureThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtShutdownLowerTemperatureThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCpuUsageRecoverThreshold"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMemSizeRev"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCpuUsageIn1Minute"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCpuUsageIn5Minutes"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtNotificationGroup": {
+    "name": "hh3cEntityExtNotificationGroup",
+    "oid": "1.3.6.1.4.1.25506.2.6.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtTemperatureThresholdNotification"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtVoltageLowThresholdNotification"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtVoltageHighThresholdNotification"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCpuUsageThresholdNotfication"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMemUsageThresholdNotification"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtOperEnabled"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtOperDisabled"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCriticalTemperatureThresholdNotification"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtSFPAlarmOn"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtSFPAlarmOff"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtSFPPhony"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityInsert"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityRemove"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtForcedPowerOff"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtForcedPowerOn"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtFaultAlarmOn"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtFaultAlarmOff"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtResourceLack"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtResourceEnough"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtTemperatureLower"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtTemperatureTooUp"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtTemperatureNormal"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExternalAlarmOccur"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExternalAlarmRecover"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCpuUsageThresholdRecover"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMemUsageThresholdRecover"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMemAllocatedFailed"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtECCParityAlarm"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCritLowerTempThresholdNotification"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtTemperatureTooLow"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtFanDirectionNotPreferred"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtFanDirectionNotAccord"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtSFPInvalid"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtSFPInvalidNow"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMemUsageThresholdOverTrap"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMemUsageThresholdRecoverTrap"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtVoltageNormal"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtVoltageTooLow"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtVoltageLower"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtVoltageHigher"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtVoltageTooHigh"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtSFPAlarmOnEx"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtSFPAlarmOffEx"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtManuGroup": {
+    "name": "hh3cEntityExtManuGroup",
+    "oid": "1.3.6.1.4.1.25506.2.6.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtManuPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtManuSerialNum"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtManuBuildInfo"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtManuBOM"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtMacAddressCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEntityExtPowerGroup": {
+    "name": "hh3cEntityExtPowerGroup",
+    "oid": "1.3.6.1.4.1.25506.2.6.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPowerPhysicalIndex"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtNominalPower"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtCurrentPower"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtAveragePower"
+      },
+      {
+        "module": "HH3C-ENTITY-EXT-MIB",
+        "object": "hh3cEntityExtPeakPower"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-ENTITY-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-ENTITY-EXT-MIB"
+  }
+}

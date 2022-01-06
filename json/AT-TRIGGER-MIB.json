@@ -1,0 +1,485 @@
+{
+  "imports": {
+    "class": "imports",
+    "AT-SMI-MIB": [
+      "modules"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter64",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Bits",
+      "iso",
+      "Unsigned32",
+      "Integer32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "trigger": {
+    "name": "trigger",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-11-28 16:00",
+        "description": "Added trigger configuration details for AW+"
+      },
+      {
+        "revision": "2010-06-15 00:15",
+        "description": "MIB revision history dates in descriptions updated."
+      },
+      {
+        "revision": "2010-09-07 00:00",
+        "description": "Generic syntax tidy up"
+      }
+    ]
+  },
+  "triggerTraps": {
+    "name": "triggerTraps",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.0",
+    "class": "objectidentity"
+  },
+  "triggerTrap": {
+    "name": "triggerTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-TRIGGER-MIB",
+        "object": "triggerLastTriggerActivated"
+      }
+    ],
+    "status": "current"
+  },
+  "triggerLastTriggerActivated": {
+    "name": "triggerLastTriggerActivated",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerConfigInfoTable": {
+    "name": "triggerConfigInfoTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "triggerConfigInfoEntry": {
+    "name": "triggerConfigInfoEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-TRIGGER-MIB",
+        "object": "triggerNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "triggerNumber": {
+    "name": "triggerNumber",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerName": {
+    "name": "triggerName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerTypeDetail": {
+    "name": "triggerTypeDetail",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerActiveDaysOrDate": {
+    "name": "triggerActiveDaysOrDate",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerActivateAfter": {
+    "name": "triggerActivateAfter",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerActivateBefore": {
+    "name": "triggerActivateBefore",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerActiveStatus": {
+    "name": "triggerActiveStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerTestMode": {
+    "name": "triggerTestMode",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerSnmpTrap": {
+    "name": "triggerSnmpTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerRepeatTimes": {
+    "name": "triggerRepeatTimes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerLasttimeModified": {
+    "name": "triggerLasttimeModified",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerNumberOfActivation": {
+    "name": "triggerNumberOfActivation",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerLasttimeActivation": {
+    "name": "triggerLasttimeActivation",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerNumberOfScripts": {
+    "name": "triggerNumberOfScripts",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerScript1": {
+    "name": "triggerScript1",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerScript2": {
+    "name": "triggerScript2",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.9.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerScript3": {
+    "name": "triggerScript3",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.9.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerScript4": {
+    "name": "triggerScript4",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.9.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerScript5": {
+    "name": "triggerScript5",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.9.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerCounters": {
+    "name": "triggerCounters",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.10",
+    "class": "objectidentity"
+  },
+  "triggerNumOfActivation": {
+    "name": "triggerNumOfActivation",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerNumOfActivationToday": {
+    "name": "triggerNumOfActivationToday",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerNumOfPerodicActivationToday": {
+    "name": "triggerNumOfPerodicActivationToday",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerNumOfInterfaceActivationToday": {
+    "name": "triggerNumOfInterfaceActivationToday",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerNumOfResourceActivationToday": {
+    "name": "triggerNumOfResourceActivationToday",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerNumOfRebootActivationToday": {
+    "name": "triggerNumOfRebootActivationToday",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerNumOfPingPollActivationToday": {
+    "name": "triggerNumOfPingPollActivationToday",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerNumOfStackMasterFailActivationToday": {
+    "name": "triggerNumOfStackMasterFailActivationToday",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.10.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerNumOfStackMemberActivationToday": {
+    "name": "triggerNumOfStackMemberActivationToday",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.10.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "triggerNumOfStackXemStkActivationToday": {
+    "name": "triggerNumOfStackXemStkActivationToday",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.53.10.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-TRIGGER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:17:09 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AT-TRIGGER-MIB"
+  }
+}

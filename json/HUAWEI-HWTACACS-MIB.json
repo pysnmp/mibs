@@ -1,0 +1,5093 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwTACACS": {
+    "name": "hwTACACS",
+    "oid": "1.3.6.1.4.1.2011.5.25.20",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-11-02 16:20",
+        "description": "Add shared key hwGlobalTACACSServerIPAddr"
+      },
+      {
+        "revision": "2016-08-15 16:20",
+        "description": "Add shared key hwTACACSServerPriAuthenKey"
+      },
+      {
+        "revision": "2015-07-29 19:15",
+        "description": "hwTACACSServerGroupKey range is changed from 0-255 to 0-392"
+      },
+      {
+        "revision": "2015-05-06 16:00",
+        "description": "Modify hwTACACSServerGroupTimer value range."
+      },
+      {
+        "revision": "2013-08-24 11:00",
+        "description": "Add hwTacacsSetting table."
+      },
+      {
+        "revision": "2013-07-05 11:00",
+        "description": "Add hwTacacsSetting table."
+      },
+      {
+        "revision": "2013-03-08 16:00",
+        "description": "The MIB contains objects of module HWTACACS."
+      },
+      {
+        "revision": "2014-02-25 16:00",
+        "description": "Shared-key range is changed from 0-255 to 0-392"
+      },
+      {
+        "revision": "2015-04-01 16:00",
+        "description": "Added common server mib table"
+      }
+    ]
+  },
+  "hwTACACSServerConfig": {
+    "name": "hwTACACSServerConfig",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1",
+    "class": "objectidentity"
+  },
+  "hwTACACSServerGroupTable": {
+    "name": "hwTACACSServerGroupTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTACACSServerGroupEntry": {
+    "name": "hwTACACSServerGroupEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwTACACSServerGroupIndex": {
+    "name": "hwTACACSServerGroupIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSServerGroupName": {
+    "name": "hwTACACSServerGroupName",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerGroupSourceIP": {
+    "name": "hwTACACSServerGroupSourceIP",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerGroupKey": {
+    "name": "hwTACACSServerGroupKey",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 392
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerGroupTimer": {
+    "name": "hwTACACSServerGroupTimer",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerGroupDomain": {
+    "name": "hwTACACSServerGroupDomain",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "close": 2,
+          "original": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerGroupOctFmt": {
+    "name": "hwTACACSServerGroupOctFmt",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "byte": 1,
+          "kbyte": 2,
+          "mbyte": 3,
+          "gbyte": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerGroupTimeout": {
+    "name": "hwTACACSServerGroupTimeout",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerGroupPriAuthenAddr": {
+    "name": "hwTACACSServerGroupPriAuthenAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerGroupPriAuthenPort": {
+    "name": "hwTACACSServerGroupPriAuthenPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 49,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerGroupPriAuthorAddr": {
+    "name": "hwTACACSServerGroupPriAuthorAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerGroupPriAuthorPort": {
+    "name": "hwTACACSServerGroupPriAuthorPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 49,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerGroupPriAccoutAddr": {
+    "name": "hwTACACSServerGroupPriAccoutAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerGroupPriAccoutPort": {
+    "name": "hwTACACSServerGroupPriAccoutPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 49,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerGroupSecAuthenAddr": {
+    "name": "hwTACACSServerGroupSecAuthenAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerGroupSecAuthenPort": {
+    "name": "hwTACACSServerGroupSecAuthenPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 49,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerGroupSecAuthorAddr": {
+    "name": "hwTACACSServerGroupSecAuthorAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerGroupSecAuthorPort": {
+    "name": "hwTACACSServerGroupSecAuthorPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 49,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerGroupSecAccoutAddr": {
+    "name": "hwTACACSServerGroupSecAccoutAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerGroupSecAccoutPort": {
+    "name": "hwTACACSServerGroupSecAccoutPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 49,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerGroupCurAuthenAddr": {
+    "name": "hwTACACSServerGroupCurAuthenAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSServerGroupCurAuthorAddr": {
+    "name": "hwTACACSServerGroupCurAuthorAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSServerGroupCurAccoutAddr": {
+    "name": "hwTACACSServerGroupCurAccoutAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthenClientRoundTripTime": {
+    "name": "hwTACACSPriAuthenClientRoundTripTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthenClientAccessReqPacket": {
+    "name": "hwTACACSPriAuthenClientAccessReqPacket",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthenClientAccessReqLogin": {
+    "name": "hwTACACSPriAuthenClientAccessReqLogin",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthenClientAccessReqChaPass": {
+    "name": "hwTACACSPriAuthenClientAccessReqChaPass",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthenClientAccessReqSendPass": {
+    "name": "hwTACACSPriAuthenClientAccessReqSendPass",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthenClientAccessReqSendAuth": {
+    "name": "hwTACACSPriAuthenClientAccessReqSendAuth",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthenClientAccessResPack": {
+    "name": "hwTACACSPriAuthenClientAccessResPack",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthenClientAccessResPass": {
+    "name": "hwTACACSPriAuthenClientAccessResPass",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthenClientAccessResFail": {
+    "name": "hwTACACSPriAuthenClientAccessResFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthenClientAccessResGetData": {
+    "name": "hwTACACSPriAuthenClientAccessResGetData",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthenClientAccessResGetUser": {
+    "name": "hwTACACSPriAuthenClientAccessResGetUser",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthenClientAccessResGetPass": {
+    "name": "hwTACACSPriAuthenClientAccessResGetPass",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthenClientAccessResRestart": {
+    "name": "hwTACACSPriAuthenClientAccessResRestart",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthenClientAccessResError": {
+    "name": "hwTACACSPriAuthenClientAccessResError",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthenClientAccessResFollow": {
+    "name": "hwTACACSPriAuthenClientAccessResFollow",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthenClientMalformedAccessResponses": {
+    "name": "hwTACACSPriAuthenClientMalformedAccessResponses",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthenClientAccessConPack": {
+    "name": "hwTACACSPriAuthenClientAccessConPack",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthenClientAccessConAbort": {
+    "name": "hwTACACSPriAuthenClientAccessConAbort",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthenClientPendingRequests": {
+    "name": "hwTACACSPriAuthenClientPendingRequests",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthenClientTimeouts": {
+    "name": "hwTACACSPriAuthenClientTimeouts",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthenClientUnknownTypes": {
+    "name": "hwTACACSPriAuthenClientUnknownTypes",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthenClientPacketsDropped": {
+    "name": "hwTACACSPriAuthenClientPacketsDropped",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthorClientRoundTripTime": {
+    "name": "hwTACACSPriAuthorClientRoundTripTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthorClientReqPacket": {
+    "name": "hwTACACSPriAuthorClientReqPacket",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthorClientReqEXEC": {
+    "name": "hwTACACSPriAuthorClientReqEXEC",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthorClientReqVPDN": {
+    "name": "hwTACACSPriAuthorClientReqVPDN",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthorClientResPack": {
+    "name": "hwTACACSPriAuthorClientResPack",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthorClientResEXEC": {
+    "name": "hwTACACSPriAuthorClientResEXEC",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthorClientResVPDN": {
+    "name": "hwTACACSPriAuthorClientResVPDN",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthorClientResError": {
+    "name": "hwTACACSPriAuthorClientResError",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthorClientReqPending": {
+    "name": "hwTACACSPriAuthorClientReqPending",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthorClientTimeouts": {
+    "name": "hwTACACSPriAuthorClientTimeouts",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthorClientUnknownTypes": {
+    "name": "hwTACACSPriAuthorClientUnknownTypes",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAuthorClientPacketsDropped": {
+    "name": "hwTACACSPriAuthorClientPacketsDropped",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAccClientRoundTripTime": {
+    "name": "hwTACACSPriAccClientRoundTripTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAccClientReqPacket": {
+    "name": "hwTACACSPriAccClientReqPacket",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAccClientReqNetwork": {
+    "name": "hwTACACSPriAccClientReqNetwork",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAccClientReqConnection": {
+    "name": "hwTACACSPriAccClientReqConnection",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAccClientReqEXEC": {
+    "name": "hwTACACSPriAccClientReqEXEC",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAccClientReqSysEvent": {
+    "name": "hwTACACSPriAccClientReqSysEvent",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAccClientReqCommandLevel": {
+    "name": "hwTACACSPriAccClientReqCommandLevel",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAccClientReqUpdate": {
+    "name": "hwTACACSPriAccClientReqUpdate",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAccClientResPacket": {
+    "name": "hwTACACSPriAccClientResPacket",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAccClientResError": {
+    "name": "hwTACACSPriAccClientResError",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAccClientReqPending": {
+    "name": "hwTACACSPriAccClientReqPending",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAccClientTimeouts": {
+    "name": "hwTACACSPriAccClientTimeouts",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAccClientUnknownTypes": {
+    "name": "hwTACACSPriAccClientUnknownTypes",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSPriAccClientPacketsDropped": {
+    "name": "hwTACACSPriAccClientPacketsDropped",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthenClientRoundTripTime": {
+    "name": "hwTACACSSecAuthenClientRoundTripTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthenClientAccessReqPacket": {
+    "name": "hwTACACSSecAuthenClientAccessReqPacket",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthenClientAccessReqLogin": {
+    "name": "hwTACACSSecAuthenClientAccessReqLogin",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthenClientAccessReqChaPass": {
+    "name": "hwTACACSSecAuthenClientAccessReqChaPass",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthenClientAccessReqSendPass": {
+    "name": "hwTACACSSecAuthenClientAccessReqSendPass",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthenClientAccessReqSendAuth": {
+    "name": "hwTACACSSecAuthenClientAccessReqSendAuth",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthenClientAccessResPack": {
+    "name": "hwTACACSSecAuthenClientAccessResPack",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthenClientAccessResPass": {
+    "name": "hwTACACSSecAuthenClientAccessResPass",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.79",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthenClientAccessResFail": {
+    "name": "hwTACACSSecAuthenClientAccessResFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthenClientAccessResGetData": {
+    "name": "hwTACACSSecAuthenClientAccessResGetData",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthenClientAccessResGetUser": {
+    "name": "hwTACACSSecAuthenClientAccessResGetUser",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.82",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthenClientAccessResGetPass": {
+    "name": "hwTACACSSecAuthenClientAccessResGetPass",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthenClientAccessResRestart": {
+    "name": "hwTACACSSecAuthenClientAccessResRestart",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.84",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthenClientAccessResError": {
+    "name": "hwTACACSSecAuthenClientAccessResError",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthenClientAccessResFollow": {
+    "name": "hwTACACSSecAuthenClientAccessResFollow",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.86",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthenClientMalformedAccessResponses": {
+    "name": "hwTACACSSecAuthenClientMalformedAccessResponses",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.87",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthenClientAccessConPack": {
+    "name": "hwTACACSSecAuthenClientAccessConPack",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.88",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthenClientAccessConAbort": {
+    "name": "hwTACACSSecAuthenClientAccessConAbort",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.89",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthenClientPendingRequests": {
+    "name": "hwTACACSSecAuthenClientPendingRequests",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.90",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthenClientTimeouts": {
+    "name": "hwTACACSSecAuthenClientTimeouts",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.91",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthenClientUnknownTypes": {
+    "name": "hwTACACSSecAuthenClientUnknownTypes",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.92",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthenClientPacketsDropped": {
+    "name": "hwTACACSSecAuthenClientPacketsDropped",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.93",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthorClientRoundTripTime": {
+    "name": "hwTACACSSecAuthorClientRoundTripTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.94",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthorClientReqPacket": {
+    "name": "hwTACACSSecAuthorClientReqPacket",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.95",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthorClientReqEXEC": {
+    "name": "hwTACACSSecAuthorClientReqEXEC",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.96",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthorClientReqVPDN": {
+    "name": "hwTACACSSecAuthorClientReqVPDN",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.97",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthorClientResPack": {
+    "name": "hwTACACSSecAuthorClientResPack",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.98",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthorClientResEXEC": {
+    "name": "hwTACACSSecAuthorClientResEXEC",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthorClientResVPDN": {
+    "name": "hwTACACSSecAuthorClientResVPDN",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthorClientResError": {
+    "name": "hwTACACSSecAuthorClientResError",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.101",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthorClientReqPending": {
+    "name": "hwTACACSSecAuthorClientReqPending",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.102",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthorClientTimeouts": {
+    "name": "hwTACACSSecAuthorClientTimeouts",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.103",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthorClientUnknownTypes": {
+    "name": "hwTACACSSecAuthorClientUnknownTypes",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.104",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAuthorClientPacketsDropped": {
+    "name": "hwTACACSSecAuthorClientPacketsDropped",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.105",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAccClientRoundTripTime": {
+    "name": "hwTACACSSecAccClientRoundTripTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.106",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAccClientReqPacket": {
+    "name": "hwTACACSSecAccClientReqPacket",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.107",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAccClientReqNetwork": {
+    "name": "hwTACACSSecAccClientReqNetwork",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.108",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAccClientReqConnection": {
+    "name": "hwTACACSSecAccClientReqConnection",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.109",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAccClientReqEXEC": {
+    "name": "hwTACACSSecAccClientReqEXEC",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.110",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAccClientReqSysEvent": {
+    "name": "hwTACACSSecAccClientReqSysEvent",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.111",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAccClientReqCommandLevel": {
+    "name": "hwTACACSSecAccClientReqCommandLevel",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.112",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAccClientReqUpdate": {
+    "name": "hwTACACSSecAccClientReqUpdate",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.113",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAccClientResPacket": {
+    "name": "hwTACACSSecAccClientResPacket",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.114",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAccClientResError": {
+    "name": "hwTACACSSecAccClientResError",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.115",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAccClientReqPending": {
+    "name": "hwTACACSSecAccClientReqPending",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.116",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAccClientTimeouts": {
+    "name": "hwTACACSSecAccClientTimeouts",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.117",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAccClientUnknownTypes": {
+    "name": "hwTACACSSecAccClientUnknownTypes",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.118",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSSecAccClientPacketsDropped": {
+    "name": "hwTACACSSecAccClientPacketsDropped",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.119",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSServerGroupRowStatus": {
+    "name": "hwTACACSServerGroupRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.120",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerPriAuthenKey": {
+    "name": "hwTACACSServerPriAuthenKey",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.121",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 392
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerPriAuthorKey": {
+    "name": "hwTACACSServerPriAuthorKey",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.122",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 392
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerPriAccoutKey": {
+    "name": "hwTACACSServerPriAccoutKey",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.123",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 392
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerSecAuthenKey": {
+    "name": "hwTACACSServerSecAuthenKey",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.124",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 392
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerSecAuthorKey": {
+    "name": "hwTACACSServerSecAuthorKey",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.125",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 392
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerSecAccoutKey": {
+    "name": "hwTACACSServerSecAccoutKey",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.126",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 392
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerThiAuthenKey": {
+    "name": "hwTACACSServerThiAuthenKey",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.127",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 392
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerThiAuthorKey": {
+    "name": "hwTACACSServerThiAuthorKey",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.128",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 392
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSServerThiAccoutKey": {
+    "name": "hwTACACSServerThiAccoutKey",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.129",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 392
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTacacsConformance": {
+    "name": "hwTacacsConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.2",
+    "class": "objectidentity"
+  },
+  "hwTacacsCompliances": {
+    "name": "hwTacacsCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.2.1",
+    "class": "objectidentity"
+  },
+  "hwTacacsCompliance": {
+    "name": "hwTacacsCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwTacacsTableGroup",
+        "module": "HUAWEI-HWTACACS-MIB"
+      },
+      {
+        "object": "hwTacacsSettingGroup",
+        "module": "HUAWEI-HWTACACS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTacacsObjectGroups": {
+    "name": "hwTacacsObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.2.2",
+    "class": "objectidentity"
+  },
+  "hwTacacsTableGroup": {
+    "name": "hwTacacsTableGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupIndex"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupName"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupSourceIP"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupKey"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupTimer"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupDomain"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupOctFmt"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupTimeout"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupPriAuthenAddr"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupPriAuthenPort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupPriAuthorAddr"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupPriAuthorPort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupPriAccoutAddr"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupPriAccoutPort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupSecAuthenAddr"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupSecAuthenPort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupSecAuthorAddr"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupSecAuthorPort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupSecAccoutAddr"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupSecAccoutPort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupCurAuthenAddr"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupCurAuthorAddr"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupCurAccoutAddr"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientRoundTripTime"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessReqPacket"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessReqLogin"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessReqChaPass"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessReqSendPass"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessReqSendAuth"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessResPack"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessResPass"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessResFail"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessResGetData"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessResGetUser"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessResGetPass"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessResRestart"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessResError"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessResFollow"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientMalformedAccessResponses"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessConPack"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessConAbort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientPendingRequests"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientTimeouts"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientUnknownTypes"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientPacketsDropped"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientRoundTripTime"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientReqPacket"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientReqEXEC"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientReqVPDN"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientResPack"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientResEXEC"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientResVPDN"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientResError"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientReqPending"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientTimeouts"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientUnknownTypes"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientPacketsDropped"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientRoundTripTime"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientReqPacket"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientReqNetwork"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientReqConnection"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientReqEXEC"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientReqSysEvent"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientReqCommandLevel"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientReqUpdate"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientResPacket"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientResError"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientReqPending"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientTimeouts"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientUnknownTypes"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientPacketsDropped"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientRoundTripTime"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessReqPacket"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessReqLogin"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessReqChaPass"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessReqSendPass"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessReqSendAuth"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessResPack"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessResPass"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessResFail"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessResGetData"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessResGetUser"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessResGetPass"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessResRestart"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessResError"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessResFollow"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientMalformedAccessResponses"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessConPack"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessConAbort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientPendingRequests"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientTimeouts"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientUnknownTypes"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientPacketsDropped"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientRoundTripTime"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientReqPacket"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientReqEXEC"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientReqVPDN"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientResPack"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientResEXEC"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientResVPDN"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientResError"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientReqPending"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientTimeouts"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientUnknownTypes"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientPacketsDropped"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientRoundTripTime"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientReqPacket"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientReqNetwork"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientReqConnection"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientReqEXEC"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientReqSysEvent"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientReqCommandLevel"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientReqUpdate"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientResPacket"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientResError"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientReqPending"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientTimeouts"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientUnknownTypes"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientPacketsDropped"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupRowStatus"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerPriAuthenKey"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerPriAuthorKey"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerPriAccoutKey"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerSecAuthenKey"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerSecAuthorKey"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerSecAccoutKey"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerThiAuthenKey"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerThiAuthorKey"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerThiAccoutKey"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTacacsSettingGroup": {
+    "name": "hwTacacsSettingGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSEnable"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSAcctStopResendDisable"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSAcctStopResendNumber"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwGlobalTACACSServerKey"
+      }
+    ],
+    "status": "current"
+  },
+  "hwtacacsClientMng": {
+    "name": "hwtacacsClientMng",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3",
+    "class": "objectidentity"
+  },
+  "hwtacacsClient": {
+    "name": "hwtacacsClient",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1",
+    "class": "objectidentity"
+  },
+  "hwtacacsClientAuthenRequestPackets": {
+    "name": "hwtacacsClientAuthenRequestPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenAcceptPackets": {
+    "name": "hwtacacsClientAuthenAcceptPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenRejectPackets": {
+    "name": "hwtacacsClientAuthenRejectPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenPendRequests": {
+    "name": "hwtacacsClientAuthenPendRequests",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorReqPackets": {
+    "name": "hwtacacsClientAuthorReqPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorAcceptPackets": {
+    "name": "hwtacacsClientAuthorAcceptPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorRejectPackets": {
+    "name": "hwtacacsClientAuthorRejectPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorPendRequests": {
+    "name": "hwtacacsClientAuthorPendRequests",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientDroppedPackets": {
+    "name": "hwtacacsClientDroppedPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAcctRequestPackets": {
+    "name": "hwtacacsClientAcctRequestPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAcctResponsePackets": {
+    "name": "hwtacacsClientAcctResponsePackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAcctErrorPackets": {
+    "name": "hwtacacsClientAcctErrorPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAcctPendingPackets": {
+    "name": "hwtacacsClientAcctPendingPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsTemplateTable": {
+    "name": "hwtacacsTemplateTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwtacacsTemplateEntry": {
+    "name": "hwtacacsTemplateEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientTemplateIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwtacacsClientTemplateIndex": {
+    "name": "hwtacacsClientTemplateIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwtacacsClientTemplateName": {
+    "name": "hwtacacsClientTemplateName",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientSharedKey": {
+    "name": "hwtacacsClientSharedKey",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 392
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientSourceIP": {
+    "name": "hwtacacsClientSourceIP",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientQuietTimer": {
+    "name": "hwtacacsClientQuietTimer",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientResponseTimeout": {
+    "name": "hwtacacsClientResponseTimeout",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientDomainNameIncluded": {
+    "name": "hwtacacsClientDomainNameIncluded",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientRowStatus": {
+    "name": "hwtacacsClientRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenServerTable": {
+    "name": "hwtacacsClientAuthenServerTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenServerEntry": {
+    "name": "hwtacacsClientAuthenServerEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenTemplateIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwtacacsClientAuthenTemplateIndex": {
+    "name": "hwtacacsClientAuthenTemplateIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenServerIndex": {
+    "name": "hwtacacsClientAuthenServerIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenServerAddress": {
+    "name": "hwtacacsClientAuthenServerAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenServerPort": {
+    "name": "hwtacacsClientAuthenServerPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 49,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenServerType": {
+    "name": "hwtacacsClientAuthenServerType",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenServerState": {
+    "name": "hwtacacsClientAuthenServerState",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenServerMode": {
+    "name": "hwtacacsClientAuthenServerMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenRoundTripTime": {
+    "name": "hwtacacsClientAuthenRoundTripTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenAccessReqPackets": {
+    "name": "hwtacacsClientAuthenAccessReqPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenAccessChngPassRequests": {
+    "name": "hwtacacsClientAuthenAccessChngPassRequests",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenAccessSendPassPackets": {
+    "name": "hwtacacsClientAuthenAccessSendPassPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenAccessSendAuthenPackets": {
+    "name": "hwtacacsClientAuthenAccessSendAuthenPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenStartPackets": {
+    "name": "hwtacacsClientAuthenStartPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenContinuePackets": {
+    "name": "hwtacacsClientAuthenContinuePackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenContinueAbortPackets": {
+    "name": "hwtacacsClientAuthenContinueAbortPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenReplyPackets": {
+    "name": "hwtacacsClientAuthenReplyPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenReplyPassPackets": {
+    "name": "hwtacacsClientAuthenReplyPassPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenReplyFailPackets": {
+    "name": "hwtacacsClientAuthenReplyFailPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenReplyGetDataPackets": {
+    "name": "hwtacacsClientAuthenReplyGetDataPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenReplyGetUserPackets": {
+    "name": "hwtacacsClientAuthenReplyGetUserPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenReplyGetPassPackets": {
+    "name": "hwtacacsClientAuthenReplyGetPassPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenReplyErrorPackets": {
+    "name": "hwtacacsClientAuthenReplyErrorPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenReplyRestartPackets": {
+    "name": "hwtacacsClientAuthenReplyRestartPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenReplyFollowPackets": {
+    "name": "hwtacacsClientAuthenReplyFollowPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenPendingRequests": {
+    "name": "hwtacacsClientAuthenPendingRequests",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenTimeouts": {
+    "name": "hwtacacsClientAuthenTimeouts",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenUnknownTypePackets": {
+    "name": "hwtacacsClientAuthenUnknownTypePackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenDroppedPackets": {
+    "name": "hwtacacsClientAuthenDroppedPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenVPNName": {
+    "name": "hwtacacsClientAuthenVPNName",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenRowStatus": {
+    "name": "hwtacacsClientAuthenRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorServerTable": {
+    "name": "hwtacacsClientAuthorServerTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorServerEntry": {
+    "name": "hwtacacsClientAuthorServerEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorTemplateIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwtacacsClientAuthorTemplateIndex": {
+    "name": "hwtacacsClientAuthorTemplateIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorServerIndex": {
+    "name": "hwtacacsClientAuthorServerIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorServerAddress": {
+    "name": "hwtacacsClientAuthorServerAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorServerPort": {
+    "name": "hwtacacsClientAuthorServerPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 49,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorServerType": {
+    "name": "hwtacacsClientAuthorServerType",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorServerState": {
+    "name": "hwtacacsClientAuthorServerState",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorServerMode": {
+    "name": "hwtacacsClientAuthorServerMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorRoundTripTime": {
+    "name": "hwtacacsClientAuthorRoundTripTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorRequestPackets": {
+    "name": "hwtacacsClientAuthorRequestPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorResponseAcceptPackets": {
+    "name": "hwtacacsClientAuthorResponseAcceptPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorResponseRejectPackets": {
+    "name": "hwtacacsClientAuthorResponseRejectPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorResponseErrorPackets": {
+    "name": "hwtacacsClientAuthorResponseErrorPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorPendingRequests": {
+    "name": "hwtacacsClientAuthorPendingRequests",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorTimeouts": {
+    "name": "hwtacacsClientAuthorTimeouts",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorUnknownTypePackets": {
+    "name": "hwtacacsClientAuthorUnknownTypePackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorDroppedPackets": {
+    "name": "hwtacacsClientAuthorDroppedPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorVPNName": {
+    "name": "hwtacacsClientAuthorVPNName",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorRowStatus": {
+    "name": "hwtacacsClientAuthorRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientAccountServerTable": {
+    "name": "hwtacacsClientAccountServerTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwtacacsClientAccountServerEntry": {
+    "name": "hwtacacsClientAccountServerEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountTemplateIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwtacacsClientAccountTemplateIndex": {
+    "name": "hwtacacsClientAccountTemplateIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwtacacsClientAccountServerIndex": {
+    "name": "hwtacacsClientAccountServerIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwtacacsClientAccountServerAddress": {
+    "name": "hwtacacsClientAccountServerAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientAccountServerPort": {
+    "name": "hwtacacsClientAccountServerPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 49,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientAccountServerType": {
+    "name": "hwtacacsClientAccountServerType",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientAccountServerState": {
+    "name": "hwtacacsClientAccountServerState",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAccountServerMode": {
+    "name": "hwtacacsClientAccountServerMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientAccountRoundTripTime": {
+    "name": "hwtacacsClientAccountRoundTripTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAccountRequestPackets": {
+    "name": "hwtacacsClientAccountRequestPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAccountReqNetwork": {
+    "name": "hwtacacsClientAccountReqNetwork",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAccountReqConnection": {
+    "name": "hwtacacsClientAccountReqConnection",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAccountReqEXEC": {
+    "name": "hwtacacsClientAccountReqEXEC",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAccountReqSysEvent": {
+    "name": "hwtacacsClientAccountReqSysEvent",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAccountReqCommandLevel": {
+    "name": "hwtacacsClientAccountReqCommandLevel",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAccountReqUpdate": {
+    "name": "hwtacacsClientAccountReqUpdate",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAccountResponsePackets": {
+    "name": "hwtacacsClientAccountResponsePackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAccountResponseErrorPackets": {
+    "name": "hwtacacsClientAccountResponseErrorPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAccountReqPending": {
+    "name": "hwtacacsClientAccountReqPending",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAccountTimeouts": {
+    "name": "hwtacacsClientAccountTimeouts",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAccountUnKnownTypes": {
+    "name": "hwtacacsClientAccountUnKnownTypes",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAccountPacketsDropped": {
+    "name": "hwtacacsClientAccountPacketsDropped",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAccountVPNName": {
+    "name": "hwtacacsClientAccountVPNName",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientAccountRowStatus": {
+    "name": "hwtacacsClientAccountRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientCommonServerTable": {
+    "name": "hwtacacsClientCommonServerTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwtacacsClientCommonServerEntry": {
+    "name": "hwtacacsClientCommonServerEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonTemplateIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwtacacsClientCommonTemplateIndex": {
+    "name": "hwtacacsClientCommonTemplateIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwtacacsClientCommonServerIndex": {
+    "name": "hwtacacsClientCommonServerIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwtacacsClientCommonServerAddress": {
+    "name": "hwtacacsClientCommonServerAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientCommonServerPort": {
+    "name": "hwtacacsClientCommonServerPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 49,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientCommonServerType": {
+    "name": "hwtacacsClientCommonServerType",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientCommonServerState": {
+    "name": "hwtacacsClientCommonServerState",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonServerMode": {
+    "name": "hwtacacsClientCommonServerMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientCommonRoundTripTime": {
+    "name": "hwtacacsClientCommonRoundTripTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonRequestPackets": {
+    "name": "hwtacacsClientCommonRequestPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonAccessChngPassRequests": {
+    "name": "hwtacacsClientCommonAccessChngPassRequests",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonAccessSendPassPackets": {
+    "name": "hwtacacsClientCommonAccessSendPassPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonAccessSendAuthenPackets": {
+    "name": "hwtacacsClientCommonAccessSendAuthenPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonStartPackets": {
+    "name": "hwtacacsClientCommonStartPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonContinuePackets": {
+    "name": "hwtacacsClientCommonContinuePackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommomContinueAbortPackets": {
+    "name": "hwtacacsClientCommomContinueAbortPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonReplyPackets": {
+    "name": "hwtacacsClientCommonReplyPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonReplyPassPackets": {
+    "name": "hwtacacsClientCommonReplyPassPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonReplyFailPackets": {
+    "name": "hwtacacsClientCommonReplyFailPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonReplyGetDataPackets": {
+    "name": "hwtacacsClientCommonReplyGetDataPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonReplyGetUserPackets": {
+    "name": "hwtacacsClientCommonReplyGetUserPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonReplyGetPassPackets": {
+    "name": "hwtacacsClientCommonReplyGetPassPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonReplyErrorPackets": {
+    "name": "hwtacacsClientCommonReplyErrorPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonReplyRestartPackets": {
+    "name": "hwtacacsClientCommonReplyRestartPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonReplyFollowPackets": {
+    "name": "hwtacacsClientCommonReplyFollowPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonReqNetwork": {
+    "name": "hwtacacsClientCommonReqNetwork",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonReqConnection": {
+    "name": "hwtacacsClientCommonReqConnection",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonReqEXEC": {
+    "name": "hwtacacsClientCommonReqEXEC",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonReqSysEvent": {
+    "name": "hwtacacsClientCommonReqSysEvent",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonReqCommandLevel": {
+    "name": "hwtacacsClientCommonReqCommandLevel",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonReqUpdate": {
+    "name": "hwtacacsClientCommonReqUpdate",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonPendingRequests": {
+    "name": "hwtacacsClientCommonPendingRequests",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonTimeouts": {
+    "name": "hwtacacsClientCommonTimeouts",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonUnknownTypePackets": {
+    "name": "hwtacacsClientCommonUnknownTypePackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonDroppedPackets": {
+    "name": "hwtacacsClientCommonDroppedPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonVPNName": {
+    "name": "hwtacacsClientCommonVPNName",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwtacacsClientCommonRowStatus": {
+    "name": "hwtacacsClientCommonRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwtacacsClientConformance": {
+    "name": "hwtacacsClientConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.2",
+    "class": "objectidentity"
+  },
+  "hwtacacsClientCompliances": {
+    "name": "hwtacacsClientCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.2.1",
+    "class": "objectidentity"
+  },
+  "hwtacacsClientCompliance": {
+    "name": "hwtacacsClientCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwtacacsClientTemplateGroup",
+        "module": "HUAWEI-HWTACACS-MIB"
+      },
+      {
+        "object": "hwtacacsClientGroup",
+        "module": "HUAWEI-HWTACACS-MIB"
+      },
+      {
+        "object": "hwtacacsClientAuthorServerGroup",
+        "module": "HUAWEI-HWTACACS-MIB"
+      },
+      {
+        "object": "hwtacacsClientAuthenServerGroup",
+        "module": "HUAWEI-HWTACACS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwtacacsClientObjectGroups": {
+    "name": "hwtacacsClientObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.2.2",
+    "class": "objectidentity"
+  },
+  "hwtacacsClientGroup": {
+    "name": "hwtacacsClientGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenRequestPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenAcceptPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenRejectPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenPendRequests"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorReqPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorAcceptPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorRejectPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorPendRequests"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientDroppedPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAcctRequestPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAcctResponsePackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAcctErrorPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAcctPendingPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "hwtacacsClientTemplateGroup": {
+    "name": "hwtacacsClientTemplateGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientTemplateName"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientSharedKey"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientSourceIP"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientResponseTimeout"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientDomainNameIncluded"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientQuietTimer"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwtacacsClientAuthenServerGroup": {
+    "name": "hwtacacsClientAuthenServerGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenServerAddress"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenServerPort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenServerType"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenServerState"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenServerMode"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenRoundTripTime"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenAccessReqPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenAccessChngPassRequests"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenAccessSendPassPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenAccessSendAuthenPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenStartPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenContinuePackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenContinueAbortPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenReplyPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenReplyPassPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenReplyFailPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenReplyGetDataPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenReplyGetUserPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenReplyGetPassPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenReplyErrorPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenReplyRestartPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenReplyFollowPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenPendingRequests"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenTimeouts"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenUnknownTypePackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenDroppedPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenVPNName"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwtacacsClientAuthorServerGroup": {
+    "name": "hwtacacsClientAuthorServerGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorServerAddress"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorServerPort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorServerType"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorServerState"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorServerMode"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorRoundTripTime"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorRequestPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorResponseAcceptPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorResponseRejectPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorResponseErrorPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorPendingRequests"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorTimeouts"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorUnknownTypePackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorDroppedPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorVPNName"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwtacacsClientAccountServerGroup": {
+    "name": "hwtacacsClientAccountServerGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountServerAddress"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountServerPort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountServerType"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountServerState"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountServerMode"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountRoundTripTime"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountRequestPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountResponsePackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountResponseErrorPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountVPNName"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwtacacsClientCommonServerGroup": {
+    "name": "hwtacacsClientCommonServerGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonServerAddress"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonServerPort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonServerType"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonServerState"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonServerMode"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonRoundTripTime"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonRequestPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonAccessChngPassRequests"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonAccessSendPassPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonAccessSendAuthenPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonStartPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonContinuePackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommomContinueAbortPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReplyPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReplyPassPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReplyFailPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReplyGetDataPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReplyGetUserPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReplyGetPassPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReplyErrorPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReplyRestartPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReplyFollowPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReqNetwork"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReqConnection"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReqEXEC"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReqSysEvent"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReqCommandLevel"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReqUpdate"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonPendingRequests"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonTimeouts"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonUnknownTypePackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonDroppedPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonVPNName"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTacacsSetting": {
+    "name": "hwTacacsSetting",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.4",
+    "class": "objectidentity"
+  },
+  "hwTacacsSettingEntry": {
+    "name": "hwTacacsSettingEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.4.1",
+    "class": "objectidentity"
+  },
+  "hwTACACSEnable": {
+    "name": "hwTACACSEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTACACSAcctStopResendDisable": {
+    "name": "hwTACACSAcctStopResendDisable",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTACACSAcctStopResendNumber": {
+    "name": "hwTACACSAcctStopResendNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwGlobalTACACSServerKey": {
+    "name": "hwGlobalTACACSServerKey",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 392
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwGlobalTACACSServerIPAddr": {
+    "name": "hwGlobalTACACSServerIPAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-HWTACACS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-HWTACACS-MIB"
+  }
+}

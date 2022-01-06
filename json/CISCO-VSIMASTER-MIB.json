@@ -1,0 +1,1852 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoVsiMasterMIB": {
+    "name": "ciscoVsiMasterMIB",
+    "oid": "1.3.6.1.4.1.9.9.162",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-10-17 00:00",
+        "description": "This version introduces NOTIFICATIONS capability."
+      },
+      {
+        "revision": "2000-06-01 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "VsiControllerIndex": {
+    "name": "VsiControllerIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "VsiSessionIndex": {
+    "name": "VsiSessionIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "VsiLogicalIfIndex": {
+    "name": "VsiLogicalIfIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "VsiXCIndex": {
+    "name": "VsiXCIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ciscoVsiMasterObjects": {
+    "name": "ciscoVsiMasterObjects",
+    "oid": "1.3.6.1.4.1.9.9.162.1",
+    "class": "objectidentity"
+  },
+  "ciscoVsiMasterNotifications": {
+    "name": "ciscoVsiMasterNotifications",
+    "oid": "1.3.6.1.4.1.9.9.162.2",
+    "class": "objectidentity"
+  },
+  "ciscoVsiMasterConformance": {
+    "name": "ciscoVsiMasterConformance",
+    "oid": "1.3.6.1.4.1.9.9.162.3",
+    "class": "objectidentity"
+  },
+  "vsiMasterControllerTable": {
+    "name": "vsiMasterControllerTable",
+    "oid": "1.3.6.1.4.1.9.9.162.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vsiMasterControllerEntry": {
+    "name": "vsiMasterControllerEntry",
+    "oid": "1.3.6.1.4.1.9.9.162.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiControllerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vsiControllerIndex": {
+    "name": "vsiControllerIndex",
+    "oid": "1.3.6.1.4.1.9.9.162.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsiControllerIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiControllerId": {
+    "name": "vsiControllerId",
+    "oid": "1.3.6.1.4.1.9.9.162.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiCrossConnects": {
+    "name": "vsiCrossConnects",
+    "oid": "1.3.6.1.4.1.9.9.162.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiControllerType": {
+    "name": "vsiControllerType",
+    "oid": "1.3.6.1.4.1.9.9.162.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "mpls": 2,
+          "pnni": 3,
+          "par": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiBaseVersionSupported": {
+    "name": "vsiBaseVersionSupported",
+    "oid": "1.3.6.1.4.1.9.9.162.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiTopVersionSupported": {
+    "name": "vsiTopVersionSupported",
+    "oid": "1.3.6.1.4.1.9.9.162.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiVersionInUse": {
+    "name": "vsiVersionInUse",
+    "oid": "1.3.6.1.4.1.9.9.162.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiSpecifiedVersion": {
+    "name": "vsiSpecifiedVersion",
+    "oid": "1.3.6.1.4.1.9.9.162.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vsiControlInterface": {
+    "name": "vsiControlInterface",
+    "oid": "1.3.6.1.4.1.9.9.162.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalControlInterface": {
+    "name": "vsiLogicalControlInterface",
+    "oid": "1.3.6.1.4.1.9.9.162.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsiLogicalIfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiControlIfIpAddress": {
+    "name": "vsiControlIfIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.162.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiAvailableChnlWarnThreshold": {
+    "name": "vsiAvailableChnlWarnThreshold",
+    "oid": "1.3.6.1.4.1.9.9.162.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vsiAvailableChnlAlarmThreshold": {
+    "name": "vsiAvailableChnlAlarmThreshold",
+    "oid": "1.3.6.1.4.1.9.9.162.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vsiAvailableChnlThresholdStatus": {
+    "name": "vsiAvailableChnlThresholdStatus",
+    "oid": "1.3.6.1.4.1.9.9.162.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "warning": 1,
+          "alarm": 2,
+          "recovery": 3,
+          "normal": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiSessionTable": {
+    "name": "vsiSessionTable",
+    "oid": "1.3.6.1.4.1.9.9.162.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vsiSessionEntry": {
+    "name": "vsiSessionEntry",
+    "oid": "1.3.6.1.4.1.9.9.162.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiSessionControllerIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiSessionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vsiSessionControllerIndex": {
+    "name": "vsiSessionControllerIndex",
+    "oid": "1.3.6.1.4.1.9.9.162.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsiControllerIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vsiSessionIndex": {
+    "name": "vsiSessionIndex",
+    "oid": "1.3.6.1.4.1.9.9.162.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsiSessionIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vsiSessionVpi": {
+    "name": "vsiSessionVpi",
+    "oid": "1.3.6.1.4.1.9.9.162.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiSessionVci": {
+    "name": "vsiSessionVci",
+    "oid": "1.3.6.1.4.1.9.9.162.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiSessionSwitchId": {
+    "name": "vsiSessionSwitchId",
+    "oid": "1.3.6.1.4.1.9.9.162.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiSessionSwitchName": {
+    "name": "vsiSessionSwitchName",
+    "oid": "1.3.6.1.4.1.9.9.162.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiSessionSlaveId": {
+    "name": "vsiSessionSlaveId",
+    "oid": "1.3.6.1.4.1.9.9.162.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiSessionState": {
+    "name": "vsiSessionState",
+    "oid": "1.3.6.1.4.1.9.9.162.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "unknown": 2,
+          "configuring": 3,
+          "resyncStarting": 4,
+          "resyncUnderway": 5,
+          "resyncEnding": 6,
+          "discovery": 7,
+          "established": 8,
+          "shutdownStarting": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiSessionWindowSize": {
+    "name": "vsiSessionWindowSize",
+    "oid": "1.3.6.1.4.1.9.9.162.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiSessionCmdsPending": {
+    "name": "vsiSessionCmdsPending",
+    "oid": "1.3.6.1.4.1.9.9.162.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiSessionActiveId": {
+    "name": "vsiSessionActiveId",
+    "oid": "1.3.6.1.4.1.9.9.162.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiSessionPowerupId": {
+    "name": "vsiSessionPowerupId",
+    "oid": "1.3.6.1.4.1.9.9.162.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfTable": {
+    "name": "vsiLogicalIfTable",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vsiLogicalIfEntry": {
+    "name": "vsiLogicalIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfControllerIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vsiLogicalIfControllerIndex": {
+    "name": "vsiLogicalIfControllerIndex",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsiControllerIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfIndex": {
+    "name": "vsiLogicalIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsiLogicalIfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfName": {
+    "name": "vsiLogicalIfName",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfOperState": {
+    "name": "vsiLogicalIfOperState",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "removed": 1,
+          "active": 2,
+          "failedExternal": 3,
+          "failedInternal": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfAdminState": {
+    "name": "vsiLogicalIfAdminState",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "up": 2,
+          "pendingDown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfRxCells": {
+    "name": "vsiLogicalIfRxCells",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfTxCells": {
+    "name": "vsiLogicalIfTxCells",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfRxCellsDiscarded": {
+    "name": "vsiLogicalIfRxCellsDiscarded",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfTxCellsDiscarded": {
+    "name": "vsiLogicalIfTxCellsDiscarded",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfRxHeaderErrors": {
+    "name": "vsiLogicalIfRxHeaderErrors",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfRxInvalidAddrs": {
+    "name": "vsiLogicalIfRxInvalidAddrs",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfEndPointsInUse": {
+    "name": "vsiLogicalIfEndPointsInUse",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfAvailIngressChnls": {
+    "name": "vsiLogicalIfAvailIngressChnls",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfAvailEgressChnls": {
+    "name": "vsiLogicalIfAvailEgressChnls",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfAvailIngressCellRate": {
+    "name": "vsiLogicalIfAvailIngressCellRate",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfAvailEgressCellRate": {
+    "name": "vsiLogicalIfAvailEgressCellRate",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfVcMergeSupported": {
+    "name": "vsiLogicalIfVcMergeSupported",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfMulticastSupported": {
+    "name": "vsiLogicalIfMulticastSupported",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfVpiTranslated": {
+    "name": "vsiLogicalIfVpiTranslated",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfStrictSigRange": {
+    "name": "vsiLogicalIfStrictSigRange",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfMaxIngressCellRate": {
+    "name": "vsiLogicalIfMaxIngressCellRate",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfMaxEgressCellRate": {
+    "name": "vsiLogicalIfMaxEgressCellRate",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfMinVpi": {
+    "name": "vsiLogicalIfMinVpi",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfMaxVpi": {
+    "name": "vsiLogicalIfMaxVpi",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfMinVci": {
+    "name": "vsiLogicalIfMinVci",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfMaxVci": {
+    "name": "vsiLogicalIfMaxVci",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalControlIfIndex": {
+    "name": "vsiLogicalControlIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiLogicalIfSessionIndex": {
+    "name": "vsiLogicalIfSessionIndex",
+    "oid": "1.3.6.1.4.1.9.9.162.1.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsiSessionIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiXCTable": {
+    "name": "vsiXCTable",
+    "oid": "1.3.6.1.4.1.9.9.162.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vsiXCEntry": {
+    "name": "vsiXCEntry",
+    "oid": "1.3.6.1.4.1.9.9.162.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiXCControllerIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiXCLogicalIfLow",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiXCLogicalIfHi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiXCIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vsiXCControllerIndex": {
+    "name": "vsiXCControllerIndex",
+    "oid": "1.3.6.1.4.1.9.9.162.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsiControllerIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiXCLogicalIfLow": {
+    "name": "vsiXCLogicalIfLow",
+    "oid": "1.3.6.1.4.1.9.9.162.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsiLogicalIfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiXCLogicalIfHi": {
+    "name": "vsiXCLogicalIfHi",
+    "oid": "1.3.6.1.4.1.9.9.162.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsiLogicalIfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiXCIndex": {
+    "name": "vsiXCIndex",
+    "oid": "1.3.6.1.4.1.9.9.162.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsiXCIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiXCState": {
+    "name": "vsiXCState",
+    "oid": "1.3.6.1.4.1.9.9.162.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deleted": 1,
+          "reserved": 2,
+          "committed": 3,
+          "reservedFail": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiXCVpiLow": {
+    "name": "vsiXCVpiLow",
+    "oid": "1.3.6.1.4.1.9.9.162.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiXCVciLow": {
+    "name": "vsiXCVciLow",
+    "oid": "1.3.6.1.4.1.9.9.162.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiXCVpiHi": {
+    "name": "vsiXCVpiHi",
+    "oid": "1.3.6.1.4.1.9.9.162.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiXCVciHi": {
+    "name": "vsiXCVciHi",
+    "oid": "1.3.6.1.4.1.9.9.162.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsiControllerTrapEnable": {
+    "name": "vsiControllerTrapEnable",
+    "oid": "1.3.6.1.4.1.9.9.162.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vsiSessionTrapEnable": {
+    "name": "vsiSessionTrapEnable",
+    "oid": "1.3.6.1.4.1.9.9.162.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vsiLogicalIfTrapEnable": {
+    "name": "vsiLogicalIfTrapEnable",
+    "oid": "1.3.6.1.4.1.9.9.162.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vsiXCTrapEnable": {
+    "name": "vsiXCTrapEnable",
+    "oid": "1.3.6.1.4.1.9.9.162.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vsiVSITrapEnable": {
+    "name": "vsiVSITrapEnable",
+    "oid": "1.3.6.1.4.1.9.9.162.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vsiControllerAdded": {
+    "name": "vsiControllerAdded",
+    "oid": "1.3.6.1.4.1.9.9.162.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiControllerType"
+      }
+    ],
+    "status": "current"
+  },
+  "vsiControllerDeleted": {
+    "name": "vsiControllerDeleted",
+    "oid": "1.3.6.1.4.1.9.9.162.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiControllerType"
+      }
+    ],
+    "status": "current"
+  },
+  "vsiSessionUp": {
+    "name": "vsiSessionUp",
+    "oid": "1.3.6.1.4.1.9.9.162.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiSessionState"
+      }
+    ],
+    "status": "current"
+  },
+  "vsiSessionDown": {
+    "name": "vsiSessionDown",
+    "oid": "1.3.6.1.4.1.9.9.162.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiSessionState"
+      }
+    ],
+    "status": "current"
+  },
+  "vsiLogicalIfUp": {
+    "name": "vsiLogicalIfUp",
+    "oid": "1.3.6.1.4.1.9.9.162.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "vsiLogicalIfDown": {
+    "name": "vsiLogicalIfDown",
+    "oid": "1.3.6.1.4.1.9.9.162.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "vsiXCFailed": {
+    "name": "vsiXCFailed",
+    "oid": "1.3.6.1.4.1.9.9.162.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiXCControllerIndex"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiXCLogicalIfLow"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiXCLogicalIfHi"
+      }
+    ],
+    "status": "current"
+  },
+  "vsiLcnExhaustionNotice": {
+    "name": "vsiLcnExhaustionNotice",
+    "oid": "1.3.6.1.4.1.9.9.162.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiControllerIndex"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiAvailableChnlThresholdStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVsiMasterGroups": {
+    "name": "ciscoVsiMasterGroups",
+    "oid": "1.3.6.1.4.1.9.9.162.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoVsiMasterCompliances": {
+    "name": "ciscoVsiMasterCompliances",
+    "oid": "1.3.6.1.4.1.9.9.162.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoVsiMasterModuleCompliance": {
+    "name": "ciscoVsiMasterModuleCompliance",
+    "oid": "1.3.6.1.4.1.9.9.162.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoVsiMasterGeneralGroup",
+        "module": "CISCO-VSIMASTER-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoVsi2MasterModuleCompliance": {
+    "name": "ciscoVsi2MasterModuleCompliance",
+    "oid": "1.3.6.1.4.1.9.9.162.3.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoVsiMasterGeneralGroup",
+        "module": "CISCO-VSIMASTER-MIB"
+      },
+      {
+        "object": "ciscoVsi2MasterGroup",
+        "module": "CISCO-VSIMASTER-MIB"
+      },
+      {
+        "object": "ciscoVsi2AlarmControlGroup",
+        "module": "CISCO-VSIMASTER-MIB"
+      },
+      {
+        "object": "ciscoVsi2MasterNotificationGroup",
+        "module": "CISCO-VSIMASTER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVsiMasterGeneralGroup": {
+    "name": "ciscoVsiMasterGeneralGroup",
+    "oid": "1.3.6.1.4.1.9.9.162.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiControllerIndex"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiControllerId"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiCrossConnects"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiControllerType"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiBaseVersionSupported"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiTopVersionSupported"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiVersionInUse"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiSpecifiedVersion"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiControlInterface"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalControlInterface"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiSessionVpi"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiSessionVci"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiSessionSwitchId"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiSessionSwitchName"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiSessionSlaveId"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiSessionState"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiSessionWindowSize"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiSessionCmdsPending"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiSessionActiveId"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiSessionPowerupId"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfControllerIndex"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfIndex"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfName"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfOperState"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfAdminState"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfRxCells"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfTxCells"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfRxCellsDiscarded"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfTxCellsDiscarded"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfRxHeaderErrors"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfRxInvalidAddrs"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfEndPointsInUse"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfAvailIngressChnls"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfAvailEgressChnls"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfAvailIngressCellRate"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfAvailEgressCellRate"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfMaxIngressCellRate"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfMaxEgressCellRate"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfVcMergeSupported"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfMulticastSupported"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfVpiTranslated"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfStrictSigRange"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfMinVpi"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfMaxVpi"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfMinVci"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfMaxVci"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalControlIfIndex"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfSessionIndex"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiXCControllerIndex"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiXCLogicalIfLow"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiXCLogicalIfHi"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiXCIndex"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiXCState"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiXCVpiLow"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiXCVciLow"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiXCVpiHi"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiXCVciHi"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVsi2MasterGroup": {
+    "name": "ciscoVsi2MasterGroup",
+    "oid": "1.3.6.1.4.1.9.9.162.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiControlIfIpAddress"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiAvailableChnlWarnThreshold"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiAvailableChnlAlarmThreshold"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiAvailableChnlThresholdStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVsi2AlarmControlGroup": {
+    "name": "ciscoVsi2AlarmControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.162.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiControllerTrapEnable"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiSessionTrapEnable"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfTrapEnable"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiXCTrapEnable"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiVSITrapEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVsi2MasterNotificationGroup": {
+    "name": "ciscoVsi2MasterNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.162.3.1.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiControllerAdded"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiControllerDeleted"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiSessionUp"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiSessionDown"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfUp"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLogicalIfDown"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiXCFailed"
+      },
+      {
+        "module": "CISCO-VSIMASTER-MIB",
+        "object": "vsiLcnExhaustionNotice"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VSIMASTER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-VSIMASTER-MIB"
+  }
+}

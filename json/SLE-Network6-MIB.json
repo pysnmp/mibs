@@ -1,0 +1,4071 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-SMI": [
+      "sleMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressPrefixLength",
+      "InetAddressIPv6"
+    ],
+    "SLE-NETWORK-MIB": [
+      "sleIpVRFIndex"
+    ],
+    "SLE-TC-MIB": [
+      "SleControlStatusType",
+      "SleControlRequestResultType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "BITS"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sleNetwork6": {
+    "name": "sleNetwork6",
+    "oid": "1.3.6.1.4.1.6296.101.26",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-01-07 09:01",
+        "description": "sleNetwork6 MIB"
+      }
+    ]
+  },
+  "sleNetInterface6": {
+    "name": "sleNetInterface6",
+    "oid": "1.3.6.1.4.1.6296.101.26.1",
+    "class": "objectidentity"
+  },
+  "sleNetIf6Table": {
+    "name": "sleNetIf6Table",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleNetIf6Entry": {
+    "name": "sleNetIf6Entry",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6Index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleNetIf6Index": {
+    "name": "sleNetIf6Index",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6Name": {
+    "name": "sleNetIf6Name",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6Ipv6State": {
+    "name": "sleNetIf6Ipv6State",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6Mode": {
+    "name": "sleNetIf6Mode",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "host": 1,
+          "router": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6RouteMap": {
+    "name": "sleNetIf6RouteMap",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6AddrAutoConf": {
+    "name": "sleNetIf6AddrAutoConf",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6AddrAutoConfDefault": {
+    "name": "sleNetIf6AddrAutoConfDefault",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6NdRouterPref": {
+    "name": "sleNetIf6NdRouterPref",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "high": 1,
+          "low": 2,
+          "medium": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6SuppressRA": {
+    "name": "sleNetIf6SuppressRA",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unset": 0,
+          "set": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6NdRaMaxInterval": {
+    "name": "sleNetIf6NdRaMaxInterval",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 3,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6NdRaMinInterval": {
+    "name": "sleNetIf6NdRaMinInterval",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 3,
+            "max": 1350
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6NdRaLifeTime": {
+    "name": "sleNetIf6NdRaLifeTime",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 9000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6NdRaReachTime": {
+    "name": "sleNetIf6NdRaReachTime",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 3600000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6NdRaHopLimit": {
+    "name": "sleNetIf6NdRaHopLimit",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6NdRetransTime": {
+    "name": "sleNetIf6NdRetransTime",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6NdMFlag": {
+    "name": "sleNetIf6NdMFlag",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unset": 0,
+          "set": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6NdOFlag": {
+    "name": "sleNetIf6NdOFlag",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unset": 0,
+          "set": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6NdProxy": {
+    "name": "sleNetIf6NdProxy",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6NdDadAttempt": {
+    "name": "sleNetIf6NdDadAttempt",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6Identifier": {
+    "name": "sleNetIf6Identifier",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleNetIf6Ip6MartianFilter": {
+    "name": "sleNetIf6Ip6MartianFilter",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleNetIf6Control": {
+    "name": "sleNetIf6Control",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2",
+    "class": "objectidentity"
+  },
+  "sleNetIf6ControlRequest": {
+    "name": "sleNetIf6ControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setIPv6State": 1,
+          "setMode": 2,
+          "setAddrAutoConf": 3,
+          "setNdProfile": 4,
+          "setRouteMap": 5,
+          "unsetRouteMap": 6,
+          "setIdentifier": 7,
+          "setIp6MartianFilter": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlStatus": {
+    "name": "sleNetIf6ControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlTimer": {
+    "name": "sleNetIf6ControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlTimeStamp": {
+    "name": "sleNetIf6ControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlReqResult": {
+    "name": "sleNetIf6ControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlIndex": {
+    "name": "sleNetIf6ControlIndex",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlIpv6State": {
+    "name": "sleNetIf6ControlIpv6State",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlMode": {
+    "name": "sleNetIf6ControlMode",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "host": 1,
+          "router": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlRouteMap": {
+    "name": "sleNetIf6ControlRouteMap",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlAutoConf": {
+    "name": "sleNetIf6ControlAutoConf",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlAutoConfDefault": {
+    "name": "sleNetIf6ControlAutoConfDefault",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlNdRouterPref": {
+    "name": "sleNetIf6ControlNdRouterPref",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "high": 1,
+          "row": 2,
+          "medium": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlNdSuppressRA": {
+    "name": "sleNetIf6ControlNdSuppressRA",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unset": 0,
+          "set": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlNdMaxInterval": {
+    "name": "sleNetIf6ControlNdMaxInterval",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 3,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlNdMinInterval": {
+    "name": "sleNetIf6ControlNdMinInterval",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 3,
+            "max": 1350
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlNdRaLifeTime": {
+    "name": "sleNetIf6ControlNdRaLifeTime",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 9000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlNdRaReachTime": {
+    "name": "sleNetIf6ControlNdRaReachTime",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 3600000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlNdRaHopLimit": {
+    "name": "sleNetIf6ControlNdRaHopLimit",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlNdRetransTime": {
+    "name": "sleNetIf6ControlNdRetransTime",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlNdMFlag": {
+    "name": "sleNetIf6ControlNdMFlag",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unset": 0,
+          "set": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlNdOFlag": {
+    "name": "sleNetIf6ControlNdOFlag",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unset": 0,
+          "set": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlNdProxy": {
+    "name": "sleNetIf6ControlNdProxy",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlNdDadAttempt": {
+    "name": "sleNetIf6ControlNdDadAttempt",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlIdentifier": {
+    "name": "sleNetIf6ControlIdentifier",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6ControlIp6MartianFilter": {
+    "name": "sleNetIf6ControlIp6MartianFilter",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.2.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetIf6Notification": {
+    "name": "sleNetIf6Notification",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.3",
+    "class": "objectidentity"
+  },
+  "sleIp6StateChanged": {
+    "name": "sleIp6StateChanged",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlReqResult"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6Index"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6Ipv6State"
+      }
+    ],
+    "status": "current"
+  },
+  "sleIfModeChanged": {
+    "name": "sleIfModeChanged",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlReqResult"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6Index"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6Mode"
+      }
+    ],
+    "status": "current"
+  },
+  "sleAddrAutoConfChanged": {
+    "name": "sleAddrAutoConfChanged",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlReqResult"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6Index"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6AddrAutoConf"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6AddrAutoConfDefault"
+      }
+    ],
+    "status": "current"
+  },
+  "sleNdProfileChanged": {
+    "name": "sleNdProfileChanged",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlReqResult"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6Index"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6NdRouterPref"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6SuppressRA"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6NdRaMaxInterval"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6NdRaMinInterval"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6NdRaLifeTime"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6NdRaReachTime"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6NdRaHopLimit"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6NdRetransTime"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6NdMFlag"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6NdOFlag"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6NdProxy"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6NdDadAttempt"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRouteMapSet": {
+    "name": "sleRouteMapSet",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRouteMapUnset": {
+    "name": "sleRouteMapUnset",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.3.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleIdentifierChanged": {
+    "name": "sleIdentifierChanged",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.3.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlReqResult"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlIndex"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlIdentifier"
+      }
+    ],
+    "status": "current"
+  },
+  "sleIp6MartianFilterChanged": {
+    "name": "sleIp6MartianFilterChanged",
+    "oid": "1.3.6.1.4.1.6296.101.26.1.3.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlReqResult"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlIndex"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlIp6MartianFilter"
+      }
+    ],
+    "status": "current"
+  },
+  "sleIpAddress6": {
+    "name": "sleIpAddress6",
+    "oid": "1.3.6.1.4.1.6296.101.26.2",
+    "class": "objectidentity"
+  },
+  "sleIpAddr6Table": {
+    "name": "sleIpAddr6Table",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleIpAddr6Entry": {
+    "name": "sleIpAddr6Entry",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6Index",
+        "implied": 0
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpAddr6Value",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleIpAddr6Value": {
+    "name": "sleIpAddr6Value",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIpAddr6Mask": {
+    "name": "sleIpAddr6Mask",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIpAddr6Score": {
+    "name": "sleIpAddr6Score",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linklocal": 1,
+          "global": 2,
+          "anycast": 3,
+          "host": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIpAddr6Type": {
+    "name": "sleIpAddr6Type",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIpAddr6Status": {
+    "name": "sleIpAddr6Status",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "dadfailed": 2,
+          "tentative": 3,
+          "deprecated": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIpAddr6ValidTime": {
+    "name": "sleIpAddr6ValidTime",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIpAddr6UsedTime": {
+    "name": "sleIpAddr6UsedTime",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIpAddr6Control": {
+    "name": "sleIpAddr6Control",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.2",
+    "class": "objectidentity"
+  },
+  "sleIpAddr6ControlRequest": {
+    "name": "sleIpAddr6ControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createIP6Addr": 1,
+          "deleteIP6Addr": 2,
+          "deleteIP6AddrAll": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleIpAddr6ControlStatus": {
+    "name": "sleIpAddr6ControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIpAddr6ControlTimer": {
+    "name": "sleIpAddr6ControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleIpAddr6ControlTimeStamp": {
+    "name": "sleIpAddr6ControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIpAddr6ControlReqResult": {
+    "name": "sleIpAddr6ControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleIPAddr6ControlIfIndex": {
+    "name": "sleIPAddr6ControlIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleIPAddr6ControlValue": {
+    "name": "sleIPAddr6ControlValue",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleIPAddr6ControlMask": {
+    "name": "sleIPAddr6ControlMask",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleIPAddr6ControlScore": {
+    "name": "sleIPAddr6ControlScore",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linklocal": 1,
+          "global": 2,
+          "anycast": 3,
+          "host": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleIPAddr6ControlType": {
+    "name": "sleIPAddr6ControlType",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleIPAddr6ControlStatus": {
+    "name": "sleIPAddr6ControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "dadfailed": 2,
+          "tentative": 3,
+          "deprecated": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleIPAddr6ControlValidTime": {
+    "name": "sleIPAddr6ControlValidTime",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleIPAddr6ControlUsedTime": {
+    "name": "sleIPAddr6ControlUsedTime",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleIpAddr6Notification": {
+    "name": "sleIpAddr6Notification",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.3",
+    "class": "objectidentity"
+  },
+  "sleIPAddr6Created": {
+    "name": "sleIPAddr6Created",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpAddr6Score"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpAddr6Type"
+      }
+    ],
+    "status": "current"
+  },
+  "sleIPAddr6Deleted": {
+    "name": "sleIPAddr6Deleted",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIPAddr6ControlIfIndex"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIPAddr6ControlValue"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIPAddr6ControlMask"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIPAddr6ControlScore"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIPAddr6ControlType"
+      }
+    ],
+    "status": "current"
+  },
+  "sleIPAddr6AllDeleted": {
+    "name": "sleIPAddr6AllDeleted",
+    "oid": "1.3.6.1.4.1.6296.101.26.2.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIPAddr6ControlIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "sleNdPrefix": {
+    "name": "sleNdPrefix",
+    "oid": "1.3.6.1.4.1.6296.101.26.3",
+    "class": "objectidentity"
+  },
+  "sleNdPrefixTable": {
+    "name": "sleNdPrefixTable",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleNdPrefixEntry": {
+    "name": "sleNdPrefixEntry",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6Index",
+        "implied": 0
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixDefault",
+        "implied": 0
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixValue",
+        "implied": 0
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleNdPrefixDefault": {
+    "name": "sleNdPrefixDefault",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNdPrefixValue": {
+    "name": "sleNdPrefixValue",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNdPrefixMask": {
+    "name": "sleNdPrefixMask",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNdPrefixValTime": {
+    "name": "sleNdPrefixValTime",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNdPrefixPreTime": {
+    "name": "sleNdPrefixPreTime",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNdPrefixOffLink": {
+    "name": "sleNdPrefixOffLink",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNdPrefixNoAutoconfig": {
+    "name": "sleNdPrefixNoAutoconfig",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNdPrefixControl": {
+    "name": "sleNdPrefixControl",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.2",
+    "class": "objectidentity"
+  },
+  "sleNdPrefixControlRequest": {
+    "name": "sleNdPrefixControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createNdPrefix": 1,
+          "deleteNdPrefix": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNdPrefixControlStatus": {
+    "name": "sleNdPrefixControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNdPrefixControlTimer": {
+    "name": "sleNdPrefixControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNdPrefixControlTimeStamp": {
+    "name": "sleNdPrefixControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNdPrefixControlReqResult": {
+    "name": "sleNdPrefixControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNdPrefixControlIfIndex": {
+    "name": "sleNdPrefixControlIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNdPrefixControlDefault": {
+    "name": "sleNdPrefixControlDefault",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNdPrefixControlValue": {
+    "name": "sleNdPrefixControlValue",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNdPrefixControlMask": {
+    "name": "sleNdPrefixControlMask",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNdPrefixControlValTime": {
+    "name": "sleNdPrefixControlValTime",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNdPrefixControlPreTime": {
+    "name": "sleNdPrefixControlPreTime",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNdPrefixControlOffLink": {
+    "name": "sleNdPrefixControlOffLink",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNdPrefixControlNoAutoconfig": {
+    "name": "sleNdPrefixControlNoAutoconfig",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNdPrefixNotification": {
+    "name": "sleNdPrefixNotification",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.3",
+    "class": "objectidentity"
+  },
+  "sleNdPrefixCreated": {
+    "name": "sleNdPrefixCreated",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlReqResult"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlIfIndex"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixDefault"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixValue"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixMask"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixValTime"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixPreTime"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixOffLink"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixNoAutoconfig"
+      }
+    ],
+    "status": "current"
+  },
+  "sleNdPrefixDeleted": {
+    "name": "sleNdPrefixDeleted",
+    "oid": "1.3.6.1.4.1.6296.101.26.3.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlReqResult"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlIfIndex"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlDefault"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlValue"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlMask"
+      }
+    ],
+    "status": "current"
+  },
+  "sleNeighbour6": {
+    "name": "sleNeighbour6",
+    "oid": "1.3.6.1.4.1.6296.101.26.4",
+    "class": "objectidentity"
+  },
+  "sleNeighbour6Table": {
+    "name": "sleNeighbour6Table",
+    "oid": "1.3.6.1.4.1.6296.101.26.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleNeighbour6Entry": {
+    "name": "sleNeighbour6Entry",
+    "oid": "1.3.6.1.4.1.6296.101.26.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6Index",
+        "implied": 0
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6Address",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleNeighbour6Address": {
+    "name": "sleNeighbour6Address",
+    "oid": "1.3.6.1.4.1.6296.101.26.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNeighbour6PhyAddress": {
+    "name": "sleNeighbour6PhyAddress",
+    "oid": "1.3.6.1.4.1.6296.101.26.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNeighbour6PortIndex": {
+    "name": "sleNeighbour6PortIndex",
+    "oid": "1.3.6.1.4.1.6296.101.26.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNeighbour6State": {
+    "name": "sleNeighbour6State",
+    "oid": "1.3.6.1.4.1.6296.101.26.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 0,
+          "dynamic": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNeighbour6HwType": {
+    "name": "sleNeighbour6HwType",
+    "oid": "1.3.6.1.4.1.6296.101.26.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNeighbour6HwUsed": {
+    "name": "sleNeighbour6HwUsed",
+    "oid": "1.3.6.1.4.1.6296.101.26.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonused": 0,
+          "used": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNeighbour6Control": {
+    "name": "sleNeighbour6Control",
+    "oid": "1.3.6.1.4.1.6296.101.26.4.2",
+    "class": "objectidentity"
+  },
+  "sleNeighbour6ControlRequest": {
+    "name": "sleNeighbour6ControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.26.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createNeighbour6": 1,
+          "deleteNeighbour6": 2,
+          "clearNeighbour6": 3,
+          "clearNeighbour6ByAddr": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNeighbour6ControlStatus": {
+    "name": "sleNeighbour6ControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.26.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNeighbour6ControlTimer": {
+    "name": "sleNeighbour6ControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.26.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNeighbour6ControlTimeStamp": {
+    "name": "sleNeighbour6ControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.26.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNeighbour6ControlReqResult": {
+    "name": "sleNeighbour6ControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.26.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNeighbour6ControlIfIndex": {
+    "name": "sleNeighbour6ControlIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.26.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNeighbour6ControlAddress": {
+    "name": "sleNeighbour6ControlAddress",
+    "oid": "1.3.6.1.4.1.6296.101.26.4.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNeighbour6ControlPhyAddress": {
+    "name": "sleNeighbour6ControlPhyAddress",
+    "oid": "1.3.6.1.4.1.6296.101.26.4.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNeighbour6ControlMask": {
+    "name": "sleNeighbour6ControlMask",
+    "oid": "1.3.6.1.4.1.6296.101.26.4.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNeighbour6Notification": {
+    "name": "sleNeighbour6Notification",
+    "oid": "1.3.6.1.4.1.6296.101.26.4.3",
+    "class": "objectidentity"
+  },
+  "sleNeighbour6Created": {
+    "name": "sleNeighbour6Created",
+    "oid": "1.3.6.1.4.1.6296.101.26.4.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlReqResult"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6PhyAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "sleNeighbour6Deleted": {
+    "name": "sleNeighbour6Deleted",
+    "oid": "1.3.6.1.4.1.6296.101.26.4.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlReqResult"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlAddress"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlMask"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "sleNeighbour6Cleared": {
+    "name": "sleNeighbour6Cleared",
+    "oid": "1.3.6.1.4.1.6296.101.26.4.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlReqResult"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlIfIndex"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlAddress"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlMask"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRoute6": {
+    "name": "sleRoute6",
+    "oid": "1.3.6.1.4.1.6296.101.26.5",
+    "class": "objectidentity"
+  },
+  "sleRoute6Table": {
+    "name": "sleRoute6Table",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleRoute6Entry": {
+    "name": "sleRoute6Entry",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-NETWORK-MIB",
+        "object": "sleIpVRFIndex",
+        "implied": 0
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6DstAddress",
+        "implied": 0
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6DstMask",
+        "implied": 0
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6Gateway",
+        "implied": 0
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6Proto",
+        "implied": 0
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6Index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleRoute6DstAddress": {
+    "name": "sleRoute6DstAddress",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRoute6DstMask": {
+    "name": "sleRoute6DstMask",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRoute6Proto": {
+    "name": "sleRoute6Proto",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "local": 2,
+          "netmgmt": 3,
+          "icmp": 4,
+          "egp": 5,
+          "ggp": 6,
+          "hello": 7,
+          "rip": 8,
+          "isis": 9,
+          "esis": 10,
+          "ciscoIgrp": 11,
+          "bbnSpfIgp": 12,
+          "ospf": 13,
+          "bgp": 14,
+          "idpr": 15,
+          "ciscoEigrp": 16,
+          "dhcp": 17
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRoute6Gateway": {
+    "name": "sleRoute6Gateway",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRoute6Type": {
+    "name": "sleRoute6Type",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "invalid": 2,
+          "direct": 3,
+          "indirect": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRoute6Subtype": {
+    "name": "sleRoute6Subtype",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ospfIa": 1,
+          "ospfNssa1": 2,
+          "ospfNssa2": 3,
+          "ospfExternal1": 4,
+          "ospfExternal2": 5,
+          "isisL1": 8,
+          "isisL2": 9,
+          "isisIa": 10,
+          "bgpMpls": 11
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRoute6Distance": {
+    "name": "sleRoute6Distance",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRoute6Metric": {
+    "name": "sleRoute6Metric",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRoute6Active": {
+    "name": "sleRoute6Active",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRoute6NexthopStatus": {
+    "name": "sleRoute6NexthopStatus",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "active": 0,
+        "fib": 1,
+        "recursive": 2
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRoute6RibStatus": {
+    "name": "sleRoute6RibStatus",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "internal": 0,
+        "selfroute": 1,
+        "blackhole": 2,
+        "nonfib": 3,
+        "selected": 4,
+        "changed": 5,
+        "static": 6,
+        "stale": 7
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRoute6BfdState": {
+    "name": "sleRoute6BfdState",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRoute6Control": {
+    "name": "sleRoute6Control",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.2",
+    "class": "objectidentity"
+  },
+  "sleRoute6ControlRequest": {
+    "name": "sleRoute6ControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createStaticRoute6": 1,
+          "deleteStaticRoute6": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRoute6ControlStatus": {
+    "name": "sleRoute6ControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRoute6ControlTimer": {
+    "name": "sleRoute6ControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRoute6ControlTimeStamp": {
+    "name": "sleRoute6ControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRoute6ControlReqResult": {
+    "name": "sleRoute6ControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRoute6ControlVRFIndex": {
+    "name": "sleRoute6ControlVRFIndex",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRoute6ControlDstAddress": {
+    "name": "sleRoute6ControlDstAddress",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRoute6ControlDstMask": {
+    "name": "sleRoute6ControlDstMask",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRoute6ControlGateway": {
+    "name": "sleRoute6ControlGateway",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRoute6ControlInterface": {
+    "name": "sleRoute6ControlInterface",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 11023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRoute6ControlDistance": {
+    "name": "sleRoute6ControlDistance",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRoute6Notification": {
+    "name": "sleRoute6Notification",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.3",
+    "class": "objectidentity"
+  },
+  "sleRoute6Created": {
+    "name": "sleRoute6Created",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6ControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6ControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6ControlReqResult"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6DstAddress"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6DstMask"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6Proto"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6Gateway"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6Distance"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRoute6Deleted": {
+    "name": "sleRoute6Deleted",
+    "oid": "1.3.6.1.4.1.6296.101.26.5.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6ControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6ControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6ControlReqResult"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6ControlVRFIndex"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6ControlDstAddress"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6ControlDstMask"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6ControlGateway"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6ControlInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "sleNetworkBase6": {
+    "name": "sleNetworkBase6",
+    "oid": "1.3.6.1.4.1.6296.101.26.6",
+    "class": "objectidentity"
+  },
+  "sleNetworkBase6Info": {
+    "name": "sleNetworkBase6Info",
+    "oid": "1.3.6.1.4.1.6296.101.26.6.1",
+    "class": "objectidentity"
+  },
+  "sleNetwork6DADinterval": {
+    "name": "sleNetwork6DADinterval",
+    "oid": "1.3.6.1.4.1.6296.101.26.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 50000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetworkBase6Control": {
+    "name": "sleNetworkBase6Control",
+    "oid": "1.3.6.1.4.1.6296.101.26.6.2",
+    "class": "objectidentity"
+  },
+  "sleNetworkBase6ControlRequest": {
+    "name": "sleNetworkBase6ControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.26.6.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setDADInterval": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetworkBase6ControlStatus": {
+    "name": "sleNetworkBase6ControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.26.6.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetworkBase6ControlTimer": {
+    "name": "sleNetworkBase6ControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.26.6.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetworkBase6ControlTimeStamp": {
+    "name": "sleNetworkBase6ControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.26.6.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetworkBase6ControlReqResult": {
+    "name": "sleNetworkBase6ControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.26.6.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetworkBase6ControlDADinterval": {
+    "name": "sleNetworkBase6ControlDADinterval",
+    "oid": "1.3.6.1.4.1.6296.101.26.6.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 50000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleNetworkBase6Notification": {
+    "name": "sleNetworkBase6Notification",
+    "oid": "1.3.6.1.4.1.6296.101.26.6.3",
+    "class": "objectidentity"
+  },
+  "sleNetworkBase6DADIntervalChanged": {
+    "name": "sleNetworkBase6DADIntervalChanged",
+    "oid": "1.3.6.1.4.1.6296.101.26.6.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetworkBase6ControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetworkBase6ControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetworkBase6ControlReqResult"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetworkBase6ControlDADinterval"
+      }
+    ],
+    "status": "current"
+  },
+  "sleIpVRF6": {
+    "name": "sleIpVRF6",
+    "oid": "1.3.6.1.4.1.6296.101.26.7",
+    "class": "objectidentity"
+  },
+  "sleIpVRF6SelectionSourceTable": {
+    "name": "sleIpVRF6SelectionSourceTable",
+    "oid": "1.3.6.1.4.1.6296.101.26.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleIpVRF6SelectionSourceEntry": {
+    "name": "sleIpVRF6SelectionSourceEntry",
+    "oid": "1.3.6.1.4.1.6296.101.26.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceAddr",
+        "implied": 0
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleIpVRF6SelectionSourceAddr": {
+    "name": "sleIpVRF6SelectionSourceAddr",
+    "oid": "1.3.6.1.4.1.6296.101.26.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleIpVRF6SelectionSourceMask": {
+    "name": "sleIpVRF6SelectionSourceMask",
+    "oid": "1.3.6.1.4.1.6296.101.26.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleIpVRF6SelectionSourceVRFIndex": {
+    "name": "sleIpVRF6SelectionSourceVRFIndex",
+    "oid": "1.3.6.1.4.1.6296.101.26.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleIpVRF6SelectionSourceControl": {
+    "name": "sleIpVRF6SelectionSourceControl",
+    "oid": "1.3.6.1.4.1.6296.101.26.7.2",
+    "class": "objectidentity"
+  },
+  "sleIpVRF6SelectionSourceControlRequest": {
+    "name": "sleIpVRF6SelectionSourceControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.26.7.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createVRF6SelectionSource": 1,
+          "deleteVRF6SelectionSource": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleIpVRF6SelectionSourceControlStatus": {
+    "name": "sleIpVRF6SelectionSourceControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.26.7.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleIpVRF6SelectionSourceControlTimer": {
+    "name": "sleIpVRF6SelectionSourceControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.26.7.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleIpVRF6SelectionSourceControlTimeStamp": {
+    "name": "sleIpVRF6SelectionSourceControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.26.7.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleIpVRF6SelectionSourceControlReqResult": {
+    "name": "sleIpVRF6SelectionSourceControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.26.7.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleIpVRF6SelectionSourceControlAddr": {
+    "name": "sleIpVRF6SelectionSourceControlAddr",
+    "oid": "1.3.6.1.4.1.6296.101.26.7.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleIpVRF6SelectionSourceControlMask": {
+    "name": "sleIpVRF6SelectionSourceControlMask",
+    "oid": "1.3.6.1.4.1.6296.101.26.7.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleIpVRF6SelectionSourceControlVRFIndex": {
+    "name": "sleIpVRF6SelectionSourceControlVRFIndex",
+    "oid": "1.3.6.1.4.1.6296.101.26.7.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleIpVRF6SelectionSourceNotification": {
+    "name": "sleIpVRF6SelectionSourceNotification",
+    "oid": "1.3.6.1.4.1.6296.101.26.7.3",
+    "class": "objectidentity"
+  },
+  "sleIpVRF6SelectionSourceCreated": {
+    "name": "sleIpVRF6SelectionSourceCreated",
+    "oid": "1.3.6.1.4.1.6296.101.26.7.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceControlReqResult"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceVRFIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "sleIpVRF6SelectionSourceDeleted": {
+    "name": "sleIpVRF6SelectionSourceDeleted",
+    "oid": "1.3.6.1.4.1.6296.101.26.7.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceControlMask"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceControlAddr"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleNetwork6Group": {
+    "name": "sleNetwork6Group",
+    "oid": "1.3.6.1.4.1.6296.101.26.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIPAddr6ControlIfIndex"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIPAddr6ControlValue"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIPAddr6ControlMask"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIPAddr6ControlScore"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIPAddr6ControlType"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIPAddr6ControlValidTime"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIPAddr6ControlUsedTime"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpAddr6Mask"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpAddr6Score"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpAddr6Status"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpAddr6ValidTime"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpAddr6UsedTime"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpAddr6ControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpAddr6ControlTimer"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpAddr6ControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpAddr6ControlReqResult"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6Index"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6Name"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6Ipv6State"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6Mode"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6RouteMap"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6AddrAutoConf"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6AddrAutoConfDefault"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6NdRouterPref"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6SuppressRA"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6NdRaMaxInterval"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6NdRaMinInterval"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6NdRaLifeTime"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6NdRaReachTime"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6NdRaHopLimit"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6NdRetransTime"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6NdMFlag"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6NdOFlag"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlStatus"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlTimer"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlReqResult"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlIndex"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlIpv6State"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlMode"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlRouteMap"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlAutoConf"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlAutoConfDefault"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlNdRouterPref"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlNdSuppressRA"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlNdMaxInterval"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlNdMinInterval"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlNdRaLifeTime"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlNdRaReachTime"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlNdRaHopLimit"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlNdRetransTime"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlNdMFlag"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlNdOFlag"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixValue"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixValTime"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixPreTime"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixOffLink"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixNoAutoconfig"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlStatus"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlTimer"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlReqResult"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlIfIndex"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlValue"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlValTime"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlPreTime"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlOffLink"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlNoAutoconfig"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6NdProxy"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlNdProxy"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6NdDadAttempt"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlNdDadAttempt"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6HwUsed"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlIfIndex"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlAddress"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlPhyAddress"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlMask"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlStatus"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlTimer"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6ControlReqResult"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6Address"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6PhyAddress"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6PortIndex"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6State"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6HwType"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixMask"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlMask"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixDefault"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixControlDefault"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6DstAddress"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6DstMask"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6Proto"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6Gateway"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6Type"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6Subtype"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6Distance"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6Metric"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6Active"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6NexthopStatus"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6RibStatus"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6BfdState"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6ControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6ControlStatus"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6ControlTimer"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6ControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6ControlReqResult"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6ControlVRFIndex"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6ControlDstAddress"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6ControlDstMask"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6ControlGateway"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6ControlInterface"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6ControlDistance"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetwork6DADinterval"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetworkBase6ControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetworkBase6ControlStatus"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetworkBase6ControlTimer"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetworkBase6ControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetworkBase6ControlReqResult"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetworkBase6ControlDADinterval"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpAddr6Value"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpAddr6Type"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceControlVRFIndex"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceControlMask"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceControlAddr"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceControlReqResult"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceControlTimeStamp"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceControlTimer"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceControlStatus"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceControlRequest"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceVRFIndex"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceMask"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceAddr"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpAddr6ControlStatus"
+      },
+      {
+        "module": "SLE-NETWORK-MIB",
+        "object": "sleIpVRFIndex"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6Identifier"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6Ip6MartianFilter"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlIdentifier"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetIf6ControlIp6MartianFilter"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIPAddr6ControlStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "sleNetwork6NotificationGroup": {
+    "name": "sleNetwork6NotificationGroup",
+    "oid": "1.3.6.1.4.1.6296.101.26.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIPAddr6Created"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixCreated"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdPrefixDeleted"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIPAddr6AllDeleted"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6Created"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6Deleted"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNeighbour6Cleared"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceDeleted"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIpVRF6SelectionSourceCreated"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIdentifierChanged"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIp6MartianFilterChanged"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIPAddr6Deleted"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIp6StateChanged"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleIfModeChanged"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleAddrAutoConfChanged"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNdProfileChanged"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRouteMapSet"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRouteMapUnset"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6Created"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleRoute6Deleted"
+      },
+      {
+        "module": "SLE-Network6-MIB",
+        "object": "sleNetworkBase6DADIntervalChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-Network6-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:16 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SLE-Network6-MIB"
+  }
+}

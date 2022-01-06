@@ -1,0 +1,3800 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-DEVICE-MIB": [
+      "hwFrameIndex"
+    ],
+    "HUAWEI-MIB": [
+      "huaweiUtility"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "BITS",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwEnvironment": {
+    "name": "hwEnvironment",
+    "oid": "1.3.6.1.4.1.2011.6.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-06-17 09:00",
+        "description": "V3.53, modified the range of hwORRFPowerLowThreshold and hwORRFPowerHighThreshold for Optical-Receiver in hwEnvironmentInfoTable leaf node."
+      },
+      {
+        "revision": "2013-05-13 09:00",
+        "description": "V3.52, add hwOpticalReceiverFailTrap, hwOpticalReceiverRecoverTrap, hwOpticalReceiverPowerFailTrap, hwOpticalReceiverPowerRecoverTrap, hwOpticalReceiverRFPowerFailTrap, hwOpticalReceiverRFPowerRecoverTrap for Optical-Receiver."
+      },
+      {
+        "revision": "2013-01-24 09:00",
+        "description": "V3.51, modified this MIB for supporting Optical-receiver.add hwOpticalreceiverTable (optical-receiver) in hwEnvironmentInfoTable leaf node."
+      },
+      {
+        "revision": "2012-11-19 09:00",
+        "description": "V3.50, add Digital alarm type(hard-fault:23) in hwDigAlarmID leaf node."
+      },
+      {
+        "revision": "2012-11-05 10:00",
+        "description": "V3.49, add emu type(H801PMU:44) in hwEnvEmuType leaf node."
+      },
+      {
+        "revision": "2012-10-25 17:00",
+        "description": "V3.48, add emu type(LeadAcidBattery:43) in hwEnvEmuType leaf node."
+      },
+      {
+        "revision": "2012-09-24 17:00",
+        "description": "V3.47, add hwEnvEmuTypeName the length is 30 bytes"
+      },
+      {
+        "revision": "2012-07-23 17:00",
+        "description": "V3.46, add emu type(H801VESC:42) in hwEnvEmuType leaf node."
+      },
+      {
+        "revision": "2012-01-14 09:00",
+        "description": "V3.45, add emu type(vpea:41) in hwEnvEmuType leaf node."
+      },
+      {
+        "revision": "2011-11-10 09:00",
+        "description": "V3.44, add emu type(smu:40) in hwEnvEmuType leaf node."
+      },
+      {
+        "revision": "2011-08-08 09:00",
+        "description": "V3.43, add the leaf of hwEmmDigitalSwitchOpenTrap and hwEmmDigitalSwitchCloseTrap for ESC digital alarm."
+      },
+      {
+        "revision": "2011-05-12 09:00",
+        "description": "V3.42, modified the value list of hwFanControlMode. "
+      },
+      {
+        "revision": "2011-03-18 09:00",
+        "description": "V3.41, added emu type(transemu:39) in hwEnvEmuType leaf node. added digital-alarm(DC voltage and Output switch) in hwDigAlarmID leaf node."
+      },
+      {
+        "revision": "2011-01-18 09:00",
+        "description": "V3.40, added hwEmmFanCriticalBlockFaultTrap and hwEmmFanCriticalBlockRecoverTrap for Fan critical block."
+      },
+      {
+        "revision": "2010-11-10 00:00",
+        "description": "V3.39, modified the description of the alarm objects in this MIB file for standard trap. modified the description of the hwEnvironmentInfoEntry,hwEnvEmuType,hwAnaChannelEntry, hwDigChannelEntry,hwDigAlarmID,hwControlOutEntry,hwControlOutAdminStatus and hwFanEntry."
+      },
+      {
+        "revision": "2010-08-20 09:00",
+        "description": "V3.38, modified the description of the objects in this MIB file for standard trap. Deleted hwEmmDigMainsupplyFaultTrap and hwEmmDigMainsupplyRecoverTrap,which were moved to HUAWEI-POWER-MIB."
+      },
+      {
+        "revision": "2010-07-19 09:00",
+        "description": "V3.37, modified the Objects of the hwEmmEmuHardwareRecoverTrap and hwEmmEmuHardwareFaultTrap for standard trap. Modified the value of hwFailureCause. Modified the description of hwFailureCause, hwFanStatus, hwEnvAutofindNodeId, and hwEnvAutofindEmuType."
+      },
+      {
+        "revision": "2010-06-10 09:00",
+        "description": "V3.36, added enum elabel(liFeBattery:38) in hwEnvEmuType leaf node for the supporting LiFeBattery. "
+      },
+      {
+        "revision": "2010-05-30 09:00",
+        "description": "V3.35, modified description of hwEnvironmentInfoTable."
+      },
+      {
+        "revision": "2010-05-18 09:00",
+        "description": "V3.34, modified this MIB for supporting Power3000."
+      },
+      {
+        "revision": "2010-04-08 09:00",
+        "description": "V3.33, modified this MIB for supporting Temperature Heat Exchange Unit"
+      },
+      {
+        "revision": "2010-03-27 09:00",
+        "description": "V3.32, modified this MIB for clearing Simple Tester errors and warnings."
+      },
+      {
+        "revision": "2010-03-24 09:00",
+        "description": "V3.31, modified this MIB for clearing Simple Tester errors and warnings."
+      },
+      {
+        "revision": "2010-02-22 09:00",
+        "description": "V3.30, added hwEnvAutofindNodeId for DT."
+      },
+      {
+        "revision": "2010-02-06 09:00",
+        "description": "V3.29, added hwEnvironTraps for DT."
+      },
+      {
+        "revision": "2010-01-29 09:00",
+        "description": "V3.28, deleted simptester mib compile errors and warnings."
+      },
+      {
+        "revision": "2009-07-20 09:00",
+        "description": "V3.27, added hwEnvEmuPower."
+      },
+      {
+        "revision": "2009-05-05 00:00",
+        "description": "V3.26, added hwEnvCLEICode."
+      },
+      {
+        "revision": "2002-11-29 00:00",
+        "description": "V1.00, initial version."
+      }
+    ]
+  },
+  "hwEnvironmentMon": {
+    "name": "hwEnvironmentMon",
+    "oid": "1.3.6.1.4.1.2011.6.1.1",
+    "class": "objectidentity"
+  },
+  "hwEnvironmentInfoTable": {
+    "name": "hwEnvironmentInfoTable",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEnvironmentInfoEntry": {
+    "name": "hwEnvironmentInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEnvEmuIndex": {
+    "name": "hwEnvEmuIndex",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEnvEmuType": {
+    "name": "hwEnvEmuType",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "h302ESC": 1,
+          "h303ESC": 2,
+          "h4875": 3,
+          "h301ESC": 4,
+          "switch": 5,
+          "fanEscFrame": 6,
+          "fanFrame": 7,
+          "h4845": 8,
+          "fanFCBFrame": 9,
+          "fanFDMUFrame": 10,
+          "h304ESC": 11,
+          "pwma": 12,
+          "h561esc": 13,
+          "h801esc": 14,
+          "h612pwbp": 15,
+          "pse158": 16,
+          "h4805": 19,
+          "pdu": 20,
+          "acrmu": 21,
+          "acfan": 22,
+          "dcfan": 23,
+          "rmun1509": 24,
+          "onps150": 25,
+          "h801pmix": 26,
+          "h4875L": 27,
+          "miniESC": 28,
+          "h831VESC": 29,
+          "h601VESC": 30,
+          "h4830L": 31,
+          "h801citx": 32,
+          "h801citd": 33,
+          "h831ccuh": 34,
+          "h831pmu": 35,
+          "pwr3000": 36,
+          "tcu": 37,
+          "liFeBattery": 38,
+          "transemu": 39,
+          "smu": 40,
+          "vpea": 41,
+          "h801VESC": 42,
+          "leadAcidBattery": 43,
+          "h801PMU": 44,
+          "other": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEnvBoardName": {
+    "name": "hwEnvBoardName",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEnvCommState": {
+    "name": "hwEnvCommState",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "shutdown": 2,
+          "fault": 3,
+          "abnormal": 4,
+          "config": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEnvRowStatus": {
+    "name": "hwEnvRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEnvVersion": {
+    "name": "hwEnvVersion",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEnvFrameId": {
+    "name": "hwEnvFrameId",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEnvAdminStatus": {
+    "name": "hwEnvAdminStatus",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOperation": 1,
+          "reset": 2,
+          "manage": 3,
+          "unmanage": 4,
+          "clearsmokealarm": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEnvSlaveNodeId": {
+    "name": "hwEnvSlaveNodeId",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEnvComType": {
+    "name": "hwEnvComType",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "serialRS485": 2,
+          "serialRS232": 3,
+          "serialRS422": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEnvCLEICode": {
+    "name": "hwEnvCLEICode",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 640
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEnvEmuPower": {
+    "name": "hwEnvEmuPower",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEnvEmuTypeName": {
+    "name": "hwEnvEmuTypeName",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAnaChannelTable": {
+    "name": "hwAnaChannelTable",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAnaChannelEntry": {
+    "name": "hwAnaChannelEntry",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaChannelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAnaChannelIndex": {
+    "name": "hwAnaChannelIndex",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAnaName": {
+    "name": "hwAnaName",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAnaType": {
+    "name": "hwAnaType",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": -1,
+          "voltage": 1,
+          "current": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAnaMeasureType": {
+    "name": "hwAnaMeasureType",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAnaWorkHigh": {
+    "name": "hwAnaWorkHigh",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAnaWorkLow": {
+    "name": "hwAnaWorkLow",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAnaAlmHigh": {
+    "name": "hwAnaAlmHigh",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAnaAlmLow": {
+    "name": "hwAnaAlmLow",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAnaCurrentValue": {
+    "name": "hwAnaCurrentValue",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milli",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAnaAlarmState": {
+    "name": "hwAnaAlarmState",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "overWorkHigh": 2,
+          "belowWorkLow": 3,
+          "abnormal": 4,
+          "invalid": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAnaRowStatus": {
+    "name": "hwAnaRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAnaAlarmID": {
+    "name": "hwAnaAlarmID",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "temperature": 1,
+          "humidity": 2,
+          "voltage": 3,
+          "current": 4,
+          "userDefinedAlarm0": 100,
+          "userDefinedAlarm1": 101,
+          "userDefinedAlarm2": 102,
+          "userDefinedAlarm3": 103,
+          "userDefinedAlarm4": 104,
+          "userDefinedAlarm5": 105,
+          "userDefinedAlarm6": 106,
+          "userDefinedAlarm7": 107,
+          "userDefinedAlarm8": 108,
+          "userDefinedAlarm9": 109,
+          "userDefinedAlarm10": 110,
+          "userDefinedAlarm11": 111,
+          "userDefinedAlarm12": 112,
+          "userDefinedAlarm13": 113,
+          "userDefinedAlarm14": 114,
+          "userDefinedAlarm15": 115,
+          "default": 65535
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDigChannelTable": {
+    "name": "hwDigChannelTable",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDigChannelEntry": {
+    "name": "hwDigChannelEntry",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwDigChannelIndex": {
+    "name": "hwDigChannelIndex",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDigChannelName": {
+    "name": "hwDigChannelName",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAlmCondition": {
+    "name": "hwAlmCondition",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lowLevelAlarm": 1,
+          "highLevelAlarm": 2,
+          "invalid": -1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDigChannelState": {
+    "name": "hwDigChannelState",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "alarm": 2,
+          "invalid": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDigRowStatus": {
+    "name": "hwDigRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDigAlarmID": {
+    "name": "hwDigAlarmID",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acvoltage": 1,
+          "acswitch": 2,
+          "batteryvoltage": 3,
+          "batteryfuse": 4,
+          "loadfuse": 5,
+          "rectifier": 6,
+          "dcpower": 7,
+          "cupboarddoor": 8,
+          "roomdoor": 9,
+          "window": 10,
+          "thief": 11,
+          "wiring": 12,
+          "fan": 13,
+          "fire": 14,
+          "fog": 15,
+          "water": 16,
+          "diesel": 17,
+          "smell": 18,
+          "aircondition": 19,
+          "arrester": 20,
+          "dcvoltage": 21,
+          "outputswitch": 22,
+          "hard-fault": 23,
+          "userDefinedAlarm0": 100,
+          "userDefinedAlarm1": 101,
+          "userDefinedAlarm2": 102,
+          "userDefinedAlarm3": 103,
+          "userDefinedAlarm4": 104,
+          "userDefinedAlarm5": 105,
+          "userDefinedAlarm6": 106,
+          "userDefinedAlarm7": 107,
+          "userDefinedAlarm8": 108,
+          "userDefinedAlarm9": 109,
+          "userDefinedAlarm10": 110,
+          "userDefinedAlarm11": 111,
+          "userDefinedAlarm12": 112,
+          "userDefinedAlarm13": 113,
+          "userDefinedAlarm14": 114,
+          "userDefinedAlarm15": 115,
+          "userDefinedAlarm16": 116,
+          "userDefinedAlarm17": 117,
+          "userDefinedAlarm18": 118,
+          "userDefinedAlarm19": 119,
+          "userDefinedAlarm20": 120,
+          "userDefinedAlarm21": 121,
+          "userDefinedAlarm22": 122,
+          "userDefinedAlarm23": 123,
+          "userDefinedAlarm24": 124,
+          "userDefinedAlarm25": 125,
+          "userDefinedAlarm26": 126,
+          "userDefinedAlarm27": 127,
+          "userDefinedAlarm28": 128,
+          "userDefinedAlarm29": 129,
+          "userDefinedAlarm30": 130,
+          "userDefinedAlarm31": 131,
+          "default": 65535
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwControlOutTable": {
+    "name": "hwControlOutTable",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwControlOutEntry": {
+    "name": "hwControlOutEntry",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwControlOutIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwControlOutIndex": {
+    "name": "hwControlOutIndex",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwControlOutName": {
+    "name": "hwControlOutName",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwControlOutAdminStatus": {
+    "name": "hwControlOutAdminStatus",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwControlOutRowStatus": {
+    "name": "hwControlOutRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwFanTable": {
+    "name": "hwFanTable",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwFanEntry": {
+    "name": "hwFanEntry",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwFanName": {
+    "name": "hwFanName",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwFanControlMode": {
+    "name": "hwFanControlMode",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "emuAuto": 2,
+          "fixed": 3,
+          "mainboardAuto": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwFanControlState": {
+    "name": "hwFanControlState",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "fan1": 0,
+        "fan2": 1,
+        "fan3": 2,
+        "fan4": 3,
+        "fan5": 4,
+        "fan6": 5
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwESCFanTempAutoOn": {
+    "name": "hwESCFanTempAutoOn",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwESCFanTempAutoOff": {
+    "name": "hwESCFanTempAutoOff",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwFanRowStatus": {
+    "name": "hwFanRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwCurrentTemp": {
+    "name": "hwCurrentTemp",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFanSpeedMode": {
+    "name": "hwFanSpeedMode",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "continue": 1,
+          "discontinue": 2,
+          "percent": 3,
+          "invalid": -1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwFanSpeed": {
+    "name": "hwFanSpeed",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwFanTypeDescription": {
+    "name": "hwFanTypeDescription",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTcuTable": {
+    "name": "hwTcuTable",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTcuEntry": {
+    "name": "hwTcuEntry",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwTcuHeatExchangerType": {
+    "name": "hwTcuHeatExchangerType",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTcuExternalFanRev": {
+    "name": "hwTcuExternalFanRev",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTcuInternalFanRev": {
+    "name": "hwTcuInternalFanRev",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTcuStartHeatTemp": {
+    "name": "hwTcuStartHeatTemp",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTcuStopHeatTemp": {
+    "name": "hwTcuStopHeatTemp",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwOpticalreceiverTable": {
+    "name": "hwOpticalreceiverTable",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwOpticalreceiverEntry": {
+    "name": "hwOpticalreceiverEntry",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwORCOMState": {
+    "name": "hwORCOMState",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "online": 1,
+          "offline": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwORModelNumber": {
+    "name": "hwORModelNumber",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwORHardwareVer": {
+    "name": "hwORHardwareVer",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwORSoftwareVer": {
+    "name": "hwORSoftwareVer",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwORProductDate": {
+    "name": "hwORProductDate",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwOROpticalPowerValue": {
+    "name": "hwOROpticalPowerValue",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwOROpticalPowerAlarmState": {
+    "name": "hwOROpticalPowerAlarmState",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "low": 2,
+          "high": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwOROpticalPowerLowThreshold": {
+    "name": "hwOROpticalPowerLowThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwOROpticalPowerHighThreshold": {
+    "name": "hwOROpticalPowerHighThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwOROpticalAGCStart": {
+    "name": "hwOROpticalAGCStart",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwORRFPowerValue": {
+    "name": "hwORRFPowerValue",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwORRFPowerAlarmState": {
+    "name": "hwORRFPowerAlarmState",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "low": 2,
+          "high": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwORRFPowerLowThreshold": {
+    "name": "hwORRFPowerLowThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwORRFPowerHighThreshold": {
+    "name": "hwORRFPowerHighThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwORRFAttValue": {
+    "name": "hwORRFAttValue",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwORRFSwitch": {
+    "name": "hwORRFSwitch",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwORBarcode": {
+    "name": "hwORBarcode",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwOR5VVoltage": {
+    "name": "hwOR5VVoltage",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwOR24VVoltage": {
+    "name": "hwOR24VVoltage",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.7.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwORAGCRange": {
+    "name": "hwORAGCRange",
+    "oid": "1.3.6.1.4.1.2011.6.1.1.7.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snmpTrapsDef": {
+    "name": "snmpTrapsDef",
+    "oid": "1.3.6.1.4.1.2011.6.1.2",
+    "class": "objectidentity"
+  },
+  "emmsnmpTraps": {
+    "name": "emmsnmpTraps",
+    "oid": "1.3.6.1.4.1.2011.6.1.2.0",
+    "class": "objectidentity"
+  },
+  "envCommAlarm": {
+    "name": "envCommAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "envCommAlarmResume": {
+    "name": "envCommAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.1.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "anaFaultAlarm": {
+    "name": "anaFaultAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.1.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaChannelIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "anaFaultAlarmResume": {
+    "name": "anaFaultAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.1.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaChannelIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "anaTooHighAlarm": {
+    "name": "anaTooHighAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.1.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaChannelIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "anaTooHighAlarmResume": {
+    "name": "anaTooHighAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.1.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaChannelIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "anaTooLowAlarm": {
+    "name": "anaTooLowAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.1.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaChannelIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "anaTooLowAlarmResume": {
+    "name": "anaTooLowAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.1.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaChannelIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "controlAlarm": {
+    "name": "controlAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.1.2.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwControlOutIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "controlAlarmResume": {
+    "name": "controlAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.1.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwControlOutIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "digtalMeasureAlarm": {
+    "name": "digtalMeasureAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.1.2.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "digtaleasureAlarmResume": {
+    "name": "digtaleasureAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.1.2.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "fanExistsAlarm": {
+    "name": "fanExistsAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.1.2.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "fanExistsAlarmResume": {
+    "name": "fanExistsAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.1.2.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "fanRunStateAlarm": {
+    "name": "fanRunStateAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.1.2.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "envConformance": {
+    "name": "envConformance",
+    "oid": "1.3.6.1.4.1.2011.6.1.3",
+    "class": "objectidentity"
+  },
+  "envCompliances": {
+    "name": "envCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.1.3.1",
+    "class": "objectidentity"
+  },
+  "envGroups": {
+    "name": "envGroups",
+    "oid": "1.3.6.1.4.1.2011.6.1.3.2",
+    "class": "objectidentity"
+  },
+  "hwEnvironTraps": {
+    "name": "hwEnvironTraps",
+    "oid": "1.3.6.1.4.1.2011.6.1.4",
+    "class": "objectidentity"
+  },
+  "hwEnvironCommonTraps": {
+    "name": "hwEnvironCommonTraps",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.1",
+    "class": "objectidentity"
+  },
+  "hwEnvironCommonTrapsPrefix": {
+    "name": "hwEnvironCommonTrapsPrefix",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.1.0",
+    "class": "objectidentity"
+  },
+  "hwEmmEmuAutofindTrap": {
+    "name": "hwEmmEmuAutofindTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEnvironAlarmTraps": {
+    "name": "hwEnvironAlarmTraps",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2",
+    "class": "objectidentity"
+  },
+  "hwEnvironEmuAlarmTraps": {
+    "name": "hwEnvironEmuAlarmTraps",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.1",
+    "class": "objectidentity"
+  },
+  "hwEnvironEmuAlarmTrapsPrefix": {
+    "name": "hwEnvironEmuAlarmTrapsPrefix",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.1.0",
+    "class": "objectidentity"
+  },
+  "hwEmmEmufailTrap": {
+    "name": "hwEmmEmufailTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvBoardName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmEmuRecoverTrap": {
+    "name": "hwEmmEmuRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvBoardName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmEmuHardwareFaultTrap": {
+    "name": "hwEmmEmuHardwareFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmEmuHardwareRecoverTrap": {
+    "name": "hwEmmEmuHardwareRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmEmuAutofindFailTrap": {
+    "name": "hwEmmEmuAutofindFailTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvAutofindNodeId"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvAutofindEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvAutofindBoardName"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwFailureCause"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmEmuFanStateTrap": {
+    "name": "hwEmmEmuFanStateTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwFanStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwOpticalReceiverFailTrap": {
+    "name": "hwOpticalReceiverFailTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.1.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwOpticalReceiverRecoverTrap": {
+    "name": "hwOpticalReceiverRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.1.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwOpticalReceiverPowerFailTrap": {
+    "name": "hwOpticalReceiverPowerFailTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.1.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwOROpticalPowerValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwOpticalReceiverPowerRecoverTrap": {
+    "name": "hwOpticalReceiverPowerRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.1.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwOROpticalPowerValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwOpticalReceiverRFPowerFailTrap": {
+    "name": "hwOpticalReceiverRFPowerFailTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.1.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwORRFPowerValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwOpticalReceiverRFPowerRecoverTrap": {
+    "name": "hwOpticalReceiverRFPowerRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.1.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwORRFPowerValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEnvironAnaAlarmTraps": {
+    "name": "hwEnvironAnaAlarmTraps",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.2",
+    "class": "objectidentity"
+  },
+  "hwEnvironAnaAlarmTrapsPrefix": {
+    "name": "hwEnvironAnaAlarmTrapsPrefix",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.2.0",
+    "class": "objectidentity"
+  },
+  "hwEmmAnaUnnamedFaultTrap": {
+    "name": "hwEmmAnaUnnamedFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaAlarmID"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmAnaUnnamedRecoverTrap": {
+    "name": "hwEmmAnaUnnamedRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaAlarmID"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmAnaTempFaultTrap": {
+    "name": "hwEmmAnaTempFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaAlarmID"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmAnaTempRecoverTrap": {
+    "name": "hwEmmAnaTempRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaAlarmID"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmAnaHumyFaultTrap": {
+    "name": "hwEmmAnaHumyFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaAlarmID"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmAnaHumyRecoverTrap": {
+    "name": "hwEmmAnaHumyRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaAlarmID"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmAnaVoltFaultTrap": {
+    "name": "hwEmmAnaVoltFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaAlarmID"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmAnaVoltRecoverTrap": {
+    "name": "hwEmmAnaVoltRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaAlarmID"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmAnaCurrentFaultTrap": {
+    "name": "hwEmmAnaCurrentFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.2.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaAlarmID"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmAnaCurrentRecoverTrap": {
+    "name": "hwEmmAnaCurrentRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaAlarmID"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwAnaName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEnvironDigAlarmTraps": {
+    "name": "hwEnvironDigAlarmTraps",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3",
+    "class": "objectidentity"
+  },
+  "hwEnvironDigAlarmTrapsPrefix": {
+    "name": "hwEnvironDigAlarmTrapsPrefix",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0",
+    "class": "objectidentity"
+  },
+  "hwEmmDigFanBlockFaultTrap": {
+    "name": "hwEmmDigFanBlockFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigFanBlockRecoverTrap": {
+    "name": "hwEmmDigFanBlockRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigFanTempHighFaultTrap": {
+    "name": "hwEmmDigFanTempHighFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigFanTempHighRecoverTrap": {
+    "name": "hwEmmDigFanTempHighRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigUnnamedFaultTrap": {
+    "name": "hwEmmDigUnnamedFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigUnnamedRecoverTrap": {
+    "name": "hwEmmDigUnnamedRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigOutputswitchFaultTrap": {
+    "name": "hwEmmDigOutputswitchFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigOutputswitchRecoverTrap": {
+    "name": "hwEmmDigOutputswitchRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigAcvolFaultTrap": {
+    "name": "hwEmmDigAcvolFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigAcvolRecoverTrap": {
+    "name": "hwEmmDigAcvolRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigAcswitchFaultTrap": {
+    "name": "hwEmmDigAcswitchFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigAcswitchRecoverTrap": {
+    "name": "hwEmmDigAcswitchRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigBattvolFaultTrap": {
+    "name": "hwEmmDigBattvolFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigBattvolRecoverTrap": {
+    "name": "hwEmmDigBattvolRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigBattfuseFaultTrap": {
+    "name": "hwEmmDigBattfuseFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigBattfuseRecoverTrap": {
+    "name": "hwEmmDigBattfuseRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigLoadfuseFaultTrap": {
+    "name": "hwEmmDigLoadfuseFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigLoadfuseRecoverTrap": {
+    "name": "hwEmmDigLoadfuseRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigRectifierFaultTrap": {
+    "name": "hwEmmDigRectifierFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigRectifierRecoverTrap": {
+    "name": "hwEmmDigRectifierRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigDcpowerFaultTrap": {
+    "name": "hwEmmDigDcpowerFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigDcpowerRecoverTrap": {
+    "name": "hwEmmDigDcpowerRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigRoomdoorFaultTrap": {
+    "name": "hwEmmDigRoomdoorFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigRoomdoorRecoverTrap": {
+    "name": "hwEmmDigRoomdoorRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigTheftFaultTrap": {
+    "name": "hwEmmDigTheftFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigTheftRecoverTrap": {
+    "name": "hwEmmDigTheftRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigWiringFaultTrap": {
+    "name": "hwEmmDigWiringFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigWiringRecoverTrap": {
+    "name": "hwEmmDigWiringRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigFanFaultTrap": {
+    "name": "hwEmmDigFanFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigFanRecoverTrap": {
+    "name": "hwEmmDigFanRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigFireFaultTrap": {
+    "name": "hwEmmDigFireFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigFireRecoverTrap": {
+    "name": "hwEmmDigFireRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigFogFaultTrap": {
+    "name": "hwEmmDigFogFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigFogRecoverTrap": {
+    "name": "hwEmmDigFogRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigWaterFaultTrap": {
+    "name": "hwEmmDigWaterFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigWaterRecoverTrap": {
+    "name": "hwEmmDigWaterRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigDieselFaultTrap": {
+    "name": "hwEmmDigDieselFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigDieselRecoverTrap": {
+    "name": "hwEmmDigDieselRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigSmellFaultTrap": {
+    "name": "hwEmmDigSmellFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigSmellRecoverTrap": {
+    "name": "hwEmmDigSmellRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigAirconditionFaultTrap": {
+    "name": "hwEmmDigAirconditionFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigAirconditionRecoverTrap": {
+    "name": "hwEmmDigAirconditionRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigArrsterFaultTrap": {
+    "name": "hwEmmDigArrsterFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigArrsterRecoverTrap": {
+    "name": "hwEmmDigArrsterRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigDcvolFaultTrap": {
+    "name": "hwEmmDigDcvolFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.47",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigDcvolRecoverTrap": {
+    "name": "hwEmmDigDcvolRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.48",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmFanCriticalBlockFaultTrap": {
+    "name": "hwEmmFanCriticalBlockFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.49",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmFanCriticalBlockRecoverTrap": {
+    "name": "hwEmmFanCriticalBlockRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.50",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigitalSwitchOpenTrap": {
+    "name": "hwEmmDigitalSwitchOpenTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.51",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigitalSwitchCloseTrap": {
+    "name": "hwEmmDigitalSwitchCloseTrap",
+    "oid": "1.3.6.1.4.1.2011.6.1.4.2.3.0.52",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmTrapVbOids": {
+    "name": "hwEmmTrapVbOids",
+    "oid": "1.3.6.1.4.1.2011.6.1.5",
+    "class": "objectidentity"
+  },
+  "hwFanStatus": {
+    "name": "hwFanStatus",
+    "oid": "1.3.6.1.4.1.2011.6.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notconfig": 1,
+          "failure": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwFailureCause": {
+    "name": "hwFailureCause",
+    "oid": "1.3.6.1.4.1.2011.6.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fullemu": 1,
+          "shelfnotsupport": 2,
+          "emunotsupportautofind": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEnvAutofindNodeId": {
+    "name": "hwEnvAutofindNodeId",
+    "oid": "1.3.6.1.4.1.2011.6.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEnvAutofindEmuType": {
+    "name": "hwEnvAutofindEmuType",
+    "oid": "1.3.6.1.4.1.2011.6.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEnvAutofindBoardName": {
+    "name": "hwEnvAutofindBoardName",
+    "oid": "1.3.6.1.4.1.2011.6.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-ENVIRONMENT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-ENVIRONMENT-MIB"
+  }
+}

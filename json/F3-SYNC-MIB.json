@@ -1,0 +1,2538 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADVA-MIB": [
+      "fsp150cm"
+    ],
+    "CM-COMMON-MIB": [
+      "OperationalState",
+      "RestartType",
+      "SecondaryState",
+      "F3DisplayString",
+      "AdminState"
+    ],
+    "CM-ENTITY-MIB": [
+      "slotIndex",
+      "neIndex",
+      "shelfIndex"
+    ],
+    "CM-REDUNDANCY-MIB": [
+      "CmGenPgSwitchoverReason"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowStatus",
+      "DisplayString",
+      "StorageType",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "VariablePointer"
+    ]
+  },
+  "f3SyncMIB": {
+    "name": "f3SyncMIB",
+    "oid": "1.3.6.1.4.1.2544.1.12.12",
+    "class": "moduleidentity"
+  },
+  "f3SyncObjects": {
+    "name": "f3SyncObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1",
+    "class": "objectidentity"
+  },
+  "f3SyncConformance": {
+    "name": "f3SyncConformance",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.2",
+    "class": "objectidentity"
+  },
+  "NetworkClockType": {
+    "name": "NetworkClockType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "option1": 1,
+          "option2": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ClockMode": {
+    "name": "ClockMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvailable": 0,
+          "freerun": 1,
+          "holdover": 2,
+          "tracking": 3,
+          "lossoflock": 4,
+          "locked": 5,
+          "bypass": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SSMQualityLevel": {
+    "name": "SSMQualityLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "ql-dnu": 1,
+          "ql-eec1": 2,
+          "ql-eec2": 3,
+          "ql-inv": 4,
+          "ql-inv0": 5,
+          "ql-inv1": 6,
+          "ql-inv2": 7,
+          "ql-inv3": 8,
+          "ql-inv5": 9,
+          "ql-inv7": 10,
+          "ql-inv8": 11,
+          "ql-inv9": 12,
+          "ql-inv10": 13,
+          "ql-inv11": 14,
+          "ql-inv12": 15,
+          "ql-none": 16,
+          "ql-nsupp": 17,
+          "ql-prc": 18,
+          "ql-prov": 19,
+          "ql-prs": 20,
+          "ql-smc": 21,
+          "ql-ssu-a": 22,
+          "ql-ssu-b": 23,
+          "ql-st2": 24,
+          "ql-st3e": 25,
+          "ql-stu": 26,
+          "ql-tnc": 27,
+          "ql-unc": 28,
+          "ql-failed": 29,
+          "ql-inv6": 30,
+          "ql-inv13": 31,
+          "ql-inv14": 32,
+          "ql-dus": 33,
+          "ql-na": 34
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SyncRefStatus": {
+    "name": "SyncRefStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "ref-ok": 1,
+          "ref-failed": 2,
+          "ref-freq-ok": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SyncRefState": {
+    "name": "SyncRefState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "active": 1,
+          "standby": 2,
+          "unavailable": 3,
+          "lockedout": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SyncDomainType": {
+    "name": "SyncDomainType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "chassis": 1,
+          "linecard": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SyncOperationType": {
+    "name": "SyncOperationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "forcedswitch": 2,
+          "manualswitch": 3,
+          "lockout": 4,
+          "clearwtr": 5,
+          "clearlockout": 6,
+          "clearswitch": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SyncSelectionMode": {
+    "name": "SyncSelectionMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ql-mode": 1,
+          "priority-mode": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TimeScale": {
+    "name": "TimeScale",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ptp": 1,
+          "arb": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TODSource": {
+    "name": "TODSource",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 1,
+          "system-tod": 2,
+          "manual": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SquelchControl": {
+    "name": "SquelchControl",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "never": 1,
+          "holdover": 2,
+          "lock": 3,
+          "squelch-ql": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TimeClockMode": {
+    "name": "TimeClockMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "freerun": 1,
+          "warmup": 2,
+          "tracking": 3,
+          "transition": 4,
+          "holdover": 5,
+          "locked": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TimeTraceAbilityStatus": {
+    "name": "TimeTraceAbilityStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notTraceAble": 1,
+          "timeLocked": 2,
+          "timeFreqLock": 3,
+          "timeHoldover": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HoldoverAccuracy": {
+    "name": "HoldoverAccuracy",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "time-500ns": 1,
+          "time-1000ns": 2,
+          "time-1500ns": 3,
+          "time-5000ns": 4,
+          "time-10000ns": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TimeHoldoverPerformance": {
+    "name": "TimeHoldoverPerformance",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "time-500ns": 1,
+          "time-1000ns": 2,
+          "time-1500ns": 3,
+          "time-5000ns": 4,
+          "time-10000ns": 5,
+          "time-0ns": 6,
+          "time-100ns": 7,
+          "na": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TimeSource": {
+    "name": "TimeSource",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atomic": 1,
+          "gps": 2,
+          "ptp": 3,
+          "internal": 4,
+          "other": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PLLBw": {
+    "name": "PLLBw",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eec": 1,
+          "ssu": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SsmMode": {
+    "name": "SsmMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disbled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AcknowledgeType": {
+    "name": "AcknowledgeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-action": 1,
+          "accuracy-adjust": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ClkSignalType": {
+    "name": "ClkSignalType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "freq-10mhz": 1,
+          "freq-2048khz": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "f3SyncTable": {
+    "name": "f3SyncTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3SyncEntry": {
+    "name": "f3SyncEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "shelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "slotIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3SyncIndex": {
+    "name": "f3SyncIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SyncAdminState": {
+    "name": "f3SyncAdminState",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SyncOperationalState": {
+    "name": "f3SyncOperationalState",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperationalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SyncSecondaryState": {
+    "name": "f3SyncSecondaryState",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SecondaryState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SyncNetworkClockType": {
+    "name": "f3SyncNetworkClockType",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NetworkClockType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SyncSelectedReference": {
+    "name": "f3SyncSelectedReference",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SyncClockMode": {
+    "name": "f3SyncClockMode",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SyncQL": {
+    "name": "f3SyncQL",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SSMQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SyncAlias": {
+    "name": "f3SyncAlias",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3SyncDomain": {
+    "name": "f3SyncDomain",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyncDomainType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SyncSelectionMode": {
+    "name": "f3SyncSelectionMode",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyncSelectionMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SyncWaitToRestoreTime": {
+    "name": "f3SyncWaitToRestoreTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SyncOperationSyncRef": {
+    "name": "f3SyncOperationSyncRef",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SyncOperationType": {
+    "name": "f3SyncOperationType",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyncOperationType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SyncPLLBw": {
+    "name": "f3SyncPLLBw",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PLLBw",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SyncRefTable": {
+    "name": "f3SyncRefTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3SyncRefEntry": {
+    "name": "f3SyncRefEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "shelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "slotIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncRefIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3SyncRefIndex": {
+    "name": "f3SyncRefIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SyncRefReference": {
+    "name": "f3SyncRefReference",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3SyncRefPriority": {
+    "name": "f3SyncRefPriority",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3SyncRefStatus": {
+    "name": "f3SyncRefStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyncRefStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SyncRefState": {
+    "name": "f3SyncRefState",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyncRefState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SyncRefReceivedQL": {
+    "name": "f3SyncRefReceivedQL",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SSMQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SyncRefStorageType": {
+    "name": "f3SyncRefStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3SyncRefRowStatus": {
+    "name": "f3SyncRefRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3SyncRefAlias": {
+    "name": "f3SyncRefAlias",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3SyncRefEffectiveQL": {
+    "name": "f3SyncRefEffectiveQL",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SSMQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SyncRefOperationType": {
+    "name": "f3SyncRefOperationType",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyncOperationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockTable": {
+    "name": "f3TimeClockTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3TimeClockEntry": {
+    "name": "f3TimeClockEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "shelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "slotIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3TimeClockIndex": {
+    "name": "f3TimeClockIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3TimeClockAlias": {
+    "name": "f3TimeClockAlias",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F3DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeClockAdminState": {
+    "name": "f3TimeClockAdminState",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeClockOperationalState": {
+    "name": "f3TimeClockOperationalState",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperationalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockSecondaryState": {
+    "name": "f3TimeClockSecondaryState",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SecondaryState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockSelectedReference": {
+    "name": "f3TimeClockSelectedReference",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockClockMode": {
+    "name": "f3TimeClockClockMode",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeClockMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockClockClass": {
+    "name": "f3TimeClockClockClass",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "f3TimeClockSelectionMode": {
+    "name": "f3TimeClockSelectionMode",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyncSelectionMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeClockWaitToRestoreTime": {
+    "name": "f3TimeClockWaitToRestoreTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeClockOperationTimeClockRef": {
+    "name": "f3TimeClockOperationTimeClockRef",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeClockOperationType": {
+    "name": "f3TimeClockOperationType",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyncOperationType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeClockLeap59": {
+    "name": "f3TimeClockLeap59",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockLeap61": {
+    "name": "f3TimeClockLeap61",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockTimeTraceAbilityStatus": {
+    "name": "f3TimeClockTimeTraceAbilityStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTraceAbilityStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockExpectedQL": {
+    "name": "f3TimeClockExpectedQL",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SSMQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeClockCurrentQL": {
+    "name": "f3TimeClockCurrentQL",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SSMQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockSyncRefCandidate": {
+    "name": "f3TimeClockSyncRefCandidate",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeClockTimeHoldoverPerformance": {
+    "name": "f3TimeClockTimeHoldoverPerformance",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeHoldoverPerformance",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeClockUtcOffset": {
+    "name": "f3TimeClockUtcOffset",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockCurrentTimeOfDay": {
+    "name": "f3TimeClockCurrentTimeOfDay",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockFrequencyReference": {
+    "name": "f3TimeClockFrequencyReference",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeClockFrequencyClockMode": {
+    "name": "f3TimeClockFrequencyClockMode",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockTimeScale": {
+    "name": "f3TimeClockTimeScale",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeScale",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeClockTODSource": {
+    "name": "f3TimeClockTODSource",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TODSource",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockEPRTCModeEnabled": {
+    "name": "f3TimeClockEPRTCModeEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeClockTimeHoldoverTimeout": {
+    "name": "f3TimeClockTimeHoldoverTimeout",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeClockTimeInHoldover": {
+    "name": "f3TimeClockTimeInHoldover",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockAtoiCurrentOffset": {
+    "name": "f3TimeClockAtoiCurrentOffset",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -32768,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockAtoiJumpSeconds": {
+    "name": "f3TimeClockAtoiJumpSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -32768,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockAtoiTimeOfNextJump": {
+    "name": "f3TimeClockAtoiTimeOfNextJump",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockAtoiDisplayName": {
+    "name": "f3TimeClockAtoiDisplayName",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockPhaseAdjust": {
+    "name": "f3TimeClockPhaseAdjust",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 250000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeClockRefTable": {
+    "name": "f3TimeClockRefTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3TimeClockRefEntry": {
+    "name": "f3TimeClockRefEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "shelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "slotIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockRefIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3TimeClockRefIndex": {
+    "name": "f3TimeClockRefIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3TimeClockRefAlias": {
+    "name": "f3TimeClockRefAlias",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F3DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3TimeClockRefReference": {
+    "name": "f3TimeClockRefReference",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3TimeClockRefPriority": {
+    "name": "f3TimeClockRefPriority",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3TimeClockRefStatus": {
+    "name": "f3TimeClockRefStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyncRefStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockRefState": {
+    "name": "f3TimeClockRefState",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyncRefState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockRefOperationType": {
+    "name": "f3TimeClockRefOperationType",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyncOperationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockRefStorageType": {
+    "name": "f3TimeClockRefStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3TimeClockRefRowStatus": {
+    "name": "f3TimeClockRefRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3PrcTable": {
+    "name": "f3PrcTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3PrcEntry": {
+    "name": "f3PrcEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "shelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "slotIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3PrcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3PrcIndex": {
+    "name": "f3PrcIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3PrcAlias": {
+    "name": "f3PrcAlias",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F3DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3PrcAdminState": {
+    "name": "f3PrcAdminState",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3PrcOperationalState": {
+    "name": "f3PrcOperationalState",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperationalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3PrcSecondaryState": {
+    "name": "f3PrcSecondaryState",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SecondaryState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3PrcSsmMode": {
+    "name": "f3PrcSsmMode",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SsmMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3PrcClockMode": {
+    "name": "f3PrcClockMode",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeClockMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3PrcAccuracyAdjustement": {
+    "name": "f3PrcAccuracyAdjustement",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000000,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3PrcCurrentQL": {
+    "name": "f3PrcCurrentQL",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SSMQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3PrcAcknowledgeAction": {
+    "name": "f3PrcAcknowledgeAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AcknowledgeType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3PrcRestartAction": {
+    "name": "f3PrcRestartAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RestartType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SyncProtGroupTable": {
+    "name": "f3SyncProtGroupTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3SyncProtGroupEntry": {
+    "name": "f3SyncProtGroupEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncProtGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3SyncProtGroupIndex": {
+    "name": "f3SyncProtGroupIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SyncProtGroupAdminState": {
+    "name": "f3SyncProtGroupAdminState",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SyncProtGroupActiveMember": {
+    "name": "f3SyncProtGroupActiveMember",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SyncProtGroupLastSwitchOverTime": {
+    "name": "f3SyncProtGroupLastSwitchOverTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SyncProtGroupLastSwitchOverReason": {
+    "name": "f3SyncProtGroupLastSwitchOverReason",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmGenPgSwitchoverReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SyncProtGroupStorageType": {
+    "name": "f3SyncProtGroupStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3SyncProtGroupRowStatus": {
+    "name": "f3SyncProtGroupRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3SyncProtMemberTable": {
+    "name": "f3SyncProtMemberTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3SyncProtMemberEntry": {
+    "name": "f3SyncProtMemberEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncProtGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncProtMemberObject",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3SyncProtMemberObject": {
+    "name": "f3SyncProtMemberObject",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3SyncProtMemberStorageType": {
+    "name": "f3SyncProtMemberStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3SyncProtMemberRowStatus": {
+    "name": "f3SyncProtMemberRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3TimeClockProtGroupTable": {
+    "name": "f3TimeClockProtGroupTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3TimeClockProtGroupEntry": {
+    "name": "f3TimeClockProtGroupEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockProtGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3TimeClockProtGroupIndex": {
+    "name": "f3TimeClockProtGroupIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockProtGroupAdminState": {
+    "name": "f3TimeClockProtGroupAdminState",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeClockProtGroupActiveMember": {
+    "name": "f3TimeClockProtGroupActiveMember",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockProtGroupLastSwitchOverTime": {
+    "name": "f3TimeClockProtGroupLastSwitchOverTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockProtGroupLastSwitchOverReason": {
+    "name": "f3TimeClockProtGroupLastSwitchOverReason",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmGenPgSwitchoverReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3TimeClockProtGroupStorageType": {
+    "name": "f3TimeClockProtGroupStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3TimeClockProtGroupRowStatus": {
+    "name": "f3TimeClockProtGroupRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3TimeClockProtMemberTable": {
+    "name": "f3TimeClockProtMemberTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3TimeClockProtMemberEntry": {
+    "name": "f3TimeClockProtMemberEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockProtGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockProtMemberObject",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3TimeClockProtMemberObject": {
+    "name": "f3TimeClockProtMemberObject",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3TimeClockProtMemberStorageType": {
+    "name": "f3TimeClockProtMemberStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3TimeClockProtMemberRowStatus": {
+    "name": "f3TimeClockProtMemberRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3SyncCompliances": {
+    "name": "f3SyncCompliances",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.2.1",
+    "class": "objectidentity"
+  },
+  "f3SyncGroups": {
+    "name": "f3SyncGroups",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.2.2",
+    "class": "objectidentity"
+  },
+  "f3SyncCompliance": {
+    "name": "f3SyncCompliance",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "f3SyncObjectGroup",
+        "module": "F3-SYNC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "f3SyncObjectGroup": {
+    "name": "f3SyncObjectGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncIndex"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncAdminState"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncOperationalState"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncSecondaryState"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncNetworkClockType"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncSelectedReference"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncClockMode"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncQL"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncAlias"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncDomain"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncSelectionMode"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncWaitToRestoreTime"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncOperationSyncRef"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncOperationType"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncPLLBw"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncRefIndex"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncRefReference"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncRefPriority"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncRefStatus"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncRefState"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncRefReceivedQL"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncRefStorageType"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncRefRowStatus"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncRefAlias"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncRefEffectiveQL"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncRefOperationType"
+      }
+    ],
+    "status": "current"
+  },
+  "f3TimeClockObjectGroup": {
+    "name": "f3TimeClockObjectGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockIndex"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockAlias"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockAdminState"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockOperationalState"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockSecondaryState"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockSelectedReference"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockClockMode"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockClockClass"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockSelectionMode"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockWaitToRestoreTime"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockOperationTimeClockRef"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockOperationType"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockLeap59"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockLeap61"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockTimeTraceAbilityStatus"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockExpectedQL"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockCurrentQL"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockSyncRefCandidate"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockTimeHoldoverPerformance"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockUtcOffset"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockCurrentTimeOfDay"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockFrequencyReference"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockFrequencyClockMode"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockTimeScale"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockTODSource"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockEPRTCModeEnabled"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockTimeHoldoverTimeout"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockTimeInHoldover"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockAtoiCurrentOffset"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockAtoiJumpSeconds"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockAtoiTimeOfNextJump"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockAtoiDisplayName"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockPhaseAdjust"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockRefIndex"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockRefAlias"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockRefReference"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockRefPriority"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockRefStatus"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockRefState"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockRefOperationType"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockRefStorageType"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockRefRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "f3PrcObjectGroup": {
+    "name": "f3PrcObjectGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3PrcIndex"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3PrcAlias"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3PrcAdminState"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3PrcOperationalState"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3PrcSecondaryState"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3PrcClockMode"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3PrcSsmMode"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3PrcAccuracyAdjustement"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3PrcCurrentQL"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3PrcAcknowledgeAction"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3PrcRestartAction"
+      }
+    ],
+    "status": "current"
+  },
+  "f3ProtObjectGroup": {
+    "name": "f3ProtObjectGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.12.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncProtGroupIndex"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncProtGroupAdminState"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncProtGroupActiveMember"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncProtGroupLastSwitchOverTime"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncProtGroupLastSwitchOverReason"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncProtGroupStorageType"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncProtGroupRowStatus"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncProtMemberObject"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncProtMemberStorageType"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3SyncProtMemberRowStatus"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockProtGroupIndex"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockProtGroupAdminState"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockProtGroupActiveMember"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockProtGroupLastSwitchOverTime"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockProtGroupLastSwitchOverReason"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockProtGroupStorageType"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockProtGroupRowStatus"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockProtMemberObject"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockProtMemberStorageType"
+      },
+      {
+        "module": "F3-SYNC-MIB",
+        "object": "f3TimeClockProtMemberRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-SYNC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "F3-SYNC-MIB"
+  }
+}

@@ -1,0 +1,633 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "huaweistorage": {
+    "name": "huaweistorage",
+    "oid": "1.3.6.1.4.1.34774",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-04-07 19:15",
+        "description": " "
+      }
+    ]
+  },
+  "NodeCodeString": {
+    "name": "NodeCodeString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 15,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "hwStorage": {
+    "name": "hwStorage",
+    "oid": "1.3.6.1.4.1.34774.4",
+    "class": "objectidentity"
+  },
+  "hwISM": {
+    "name": "hwISM",
+    "oid": "1.3.6.1.4.1.34774.4.1",
+    "class": "objectidentity"
+  },
+  "trapAddress": {
+    "name": "trapAddress",
+    "oid": "1.3.6.1.4.1.34774.4.1.2",
+    "class": "objectidentity"
+  },
+  "forwardAddrTable": {
+    "name": "forwardAddrTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "forwardAddrEntry": {
+    "name": "forwardAddrEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "forwardAddrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "forwardAddrIndex": {
+    "name": "forwardAddrIndex",
+    "oid": "1.3.6.1.4.1.34774.4.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "forwardAddrIP": {
+    "name": "forwardAddrIP",
+    "oid": "1.3.6.1.4.1.34774.4.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "forwardAddrPort": {
+    "name": "forwardAddrPort",
+    "oid": "1.3.6.1.4.1.34774.4.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "forwardAddrTrapVer": {
+    "name": "forwardAddrTrapVer",
+    "oid": "1.3.6.1.4.1.34774.4.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "forwardAddrRowStatus": {
+    "name": "forwardAddrRowStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "forwardAddrIPNew": {
+    "name": "forwardAddrIPNew",
+    "oid": "1.3.6.1.4.1.34774.4.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "forwardAddrTrapType": {
+    "name": "forwardAddrTrapType",
+    "oid": "1.3.6.1.4.1.34774.4.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "event": {
+    "name": "event",
+    "oid": "1.3.6.1.4.1.34774.4.1.3",
+    "class": "objectidentity"
+  },
+  "eventTable": {
+    "name": "eventTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eventEntry": {
+    "name": "eventEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmEventSequence",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsmEventType": {
+    "name": "hwIsmEventType",
+    "oid": "1.3.6.1.4.1.34774.4.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIsmEventID": {
+    "name": "hwIsmEventID",
+    "oid": "1.3.6.1.4.1.34774.4.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIsmEventLevel": {
+    "name": "hwIsmEventLevel",
+    "oid": "1.3.6.1.4.1.34774.4.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIsmEventSequence": {
+    "name": "hwIsmEventSequence",
+    "oid": "1.3.6.1.4.1.34774.4.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIsmEventTime": {
+    "name": "hwIsmEventTime",
+    "oid": "1.3.6.1.4.1.34774.4.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIsmEventRecoveryTime": {
+    "name": "hwIsmEventRecoveryTime",
+    "oid": "1.3.6.1.4.1.34774.4.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIsmEventParameter": {
+    "name": "hwIsmEventParameter",
+    "oid": "1.3.6.1.4.1.34774.4.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIsmEventRowStatus": {
+    "name": "hwIsmEventRowStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapEvent": {
+    "name": "trapEvent",
+    "oid": "1.3.6.1.4.1.34774.4.1.3.3",
+    "class": "objectidentity"
+  },
+  "hwIsmTrapEventType": {
+    "name": "hwIsmTrapEventType",
+    "oid": "1.3.6.1.4.1.34774.4.1.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsmTrapEventID": {
+    "name": "hwIsmTrapEventID",
+    "oid": "1.3.6.1.4.1.34774.4.1.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsmTrapEventLevel": {
+    "name": "hwIsmTrapEventLevel",
+    "oid": "1.3.6.1.4.1.34774.4.1.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsmTrapEventSequence": {
+    "name": "hwIsmTrapEventSequence",
+    "oid": "1.3.6.1.4.1.34774.4.1.3.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsmTrapEventTime": {
+    "name": "hwIsmTrapEventTime",
+    "oid": "1.3.6.1.4.1.34774.4.1.3.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsmTrapEventRecoveryTime": {
+    "name": "hwIsmTrapEventRecoveryTime",
+    "oid": "1.3.6.1.4.1.34774.4.1.3.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsmTrapEventParameter": {
+    "name": "hwIsmTrapEventParameter",
+    "oid": "1.3.6.1.4.1.34774.4.1.3.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsmTrapEventID32Bit": {
+    "name": "hwIsmTrapEventID32Bit",
+    "oid": "1.3.6.1.4.1.34774.4.1.3.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsmTrapEventTimeStr": {
+    "name": "hwIsmTrapEventTimeStr",
+    "oid": "1.3.6.1.4.1.34774.4.1.3.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsmTrapEventRecoveryTimeStr": {
+    "name": "hwIsmTrapEventRecoveryTimeStr",
+    "oid": "1.3.6.1.4.1.34774.4.1.3.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "notificationType": {
+    "name": "notificationType",
+    "oid": "1.3.6.1.4.1.34774.4.1.4",
+    "class": "objectidentity"
+  },
+  "eventType": {
+    "name": "eventType",
+    "oid": "1.3.6.1.4.1.34774.4.1.4.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmTrapEventType"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmTrapEventID"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmTrapEventLevel"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmTrapEventSequence"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmTrapEventTime"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmTrapEventRecoveryTime"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmTrapEventParameter"
+      }
+    ],
+    "status": "current"
+  },
+  "isoConformance": {
+    "name": "isoConformance",
+    "oid": "1.6",
+    "class": "objectidentity"
+  },
+  "isoGroups": {
+    "name": "isoGroups",
+    "oid": "1.6.1",
+    "class": "objectidentity"
+  },
+  "currentObjectGroup": {
+    "name": "currentObjectGroup",
+    "oid": "1.6.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "forwardAddrIndex"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "forwardAddrIP"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "forwardAddrPort"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "forwardAddrTrapVer"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "forwardAddrRowStatus"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmTrapEventType"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmTrapEventID"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmTrapEventLevel"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmTrapEventSequence"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmTrapEventTime"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmTrapEventRecoveryTime"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "forwardAddrIPNew"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "forwardAddrTrapType"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmTrapEventID32Bit"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmTrapEventTimeStr"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmTrapEventRecoveryTimeStr"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmTrapEventParameter"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmEventType"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmEventID"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmEventLevel"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmEventSequence"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmEventTime"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmEventRecoveryTime"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmEventParameter"
+      },
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "hwIsmEventRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "currentNotificationGroup": {
+    "name": "currentNotificationGroup",
+    "oid": "1.6.1.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ISM-TRAP-MIB",
+        "object": "eventType"
+      }
+    ],
+    "status": "current"
+  },
+  "isoCompliances": {
+    "name": "isoCompliances",
+    "oid": "1.6.2",
+    "class": "objectidentity"
+  },
+  "basicCompliance": {
+    "name": "basicCompliance",
+    "oid": "1.6.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "currentObjectGroup",
+        "module": "ISM-TRAP-MIB"
+      },
+      {
+        "object": "currentNotificationGroup",
+        "module": "ISM-TRAP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/ISM-TRAP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ISM-TRAP-MIB"
+  }
+}

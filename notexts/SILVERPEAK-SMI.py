@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module SILVERPEAK-SMI (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/silverpeak/SILVERPEAK-SMI
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:15:30 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:50:09 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
+ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-iso, Counter64, IpAddress, Gauge32, Unsigned32, ObjectIdentity, ModuleIdentity, TimeTicks, enterprises, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Bits, NotificationType, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter64", "IpAddress", "Gauge32", "Unsigned32", "ObjectIdentity", "ModuleIdentity", "TimeTicks", "enterprises", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Bits", "NotificationType", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+iso, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, ModuleIdentity, NotificationType, IpAddress, Integer32, Unsigned32, MibIdentifier, Bits, Counter64, Gauge32, TimeTicks, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "ModuleIdentity", "NotificationType", "IpAddress", "Integer32", "Unsigned32", "MibIdentifier", "Bits", "Counter64", "Gauge32", "TimeTicks", "Counter32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 silverpeakNW = ModuleIdentity((1, 3, 6, 1, 4, 1, 23867))
 if mibBuilder.loadTexts: silverpeakNW.setLastUpdated('201101240000Z')
 if mibBuilder.loadTexts: silverpeakNW.setOrganization('Silver Peak Systems, Inc.')
@@ -24,4 +24,4 @@ silverpeakNotifications = ObjectIdentity((1, 3, 6, 1, 4, 1, 23867, 4))
 if mibBuilder.loadTexts: silverpeakNotifications.setStatus('current')
 silverpeakAgentCapability = ObjectIdentity((1, 3, 6, 1, 4, 1, 23867, 5))
 if mibBuilder.loadTexts: silverpeakAgentCapability.setStatus('current')
-mibBuilder.exportSymbols("SILVERPEAK-SMI", PYSNMP_MODULE_ID=silverpeakNW, silverpeakMgmt=silverpeakMgmt, silverpeakAgentCapability=silverpeakAgentCapability, silverpeakNW=silverpeakNW, silverpeakProducts=silverpeakProducts, silverpeakNotifications=silverpeakNotifications, silverpeakModules=silverpeakModules)
+mibBuilder.exportSymbols("SILVERPEAK-SMI", silverpeakMgmt=silverpeakMgmt, silverpeakNW=silverpeakNW, silverpeakModules=silverpeakModules, silverpeakAgentCapability=silverpeakAgentCapability, PYSNMP_MODULE_ID=silverpeakNW, silverpeakNotifications=silverpeakNotifications, silverpeakProducts=silverpeakProducts)

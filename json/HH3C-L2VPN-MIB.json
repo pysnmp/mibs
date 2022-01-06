@@ -1,0 +1,1250 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cL2vpn": {
+    "name": "hh3cL2vpn",
+    "oid": "1.3.6.1.4.1.25506.2.162",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-04-27 18:00",
+        "description": "Added node hh3cL2vpnPwcFlowLabel."
+      },
+      {
+        "revision": "2018-01-17 15:00",
+        "description": "Added hh3cL2vpnLinkTable."
+      },
+      {
+        "revision": "2017-11-21 15:00",
+        "description": "Added hh3cL2vpnAcCfgTable and hh3cL2vpnPwCfgTable."
+      },
+      {
+        "revision": "2016-09-30 18:00",
+        "description": "This MIB contains objects to manage L2VPN."
+      },
+      {
+        "revision": "2015-01-16 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "hh3cL2vpnPwNotifications": {
+    "name": "hh3cL2vpnPwNotifications",
+    "oid": "1.3.6.1.4.1.25506.2.162.0",
+    "class": "objectidentity"
+  },
+  "hh3cL2vpnGlobalTable": {
+    "name": "hh3cL2vpnGlobalTable",
+    "oid": "1.3.6.1.4.1.25506.2.162.2",
+    "class": "objectidentity"
+  },
+  "hh3cL2vpnPwcTable": {
+    "name": "hh3cL2vpnPwcTable",
+    "oid": "1.3.6.1.4.1.25506.2.162.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL2vpnPwcEntry": {
+    "name": "hh3cL2vpnPwcEntry",
+    "oid": "1.3.6.1.4.1.25506.2.162.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnPwcName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cL2vpnPwcName": {
+    "name": "hh3cL2vpnPwcName",
+    "oid": "1.3.6.1.4.1.25506.2.162.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL2vpnPwcCvType": {
+    "name": "hh3cL2vpnPwcCvType",
+    "oid": "1.3.6.1.4.1.25506.2.162.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "bfd": 2,
+          "rawBFD": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL2vpnPwcCcType": {
+    "name": "hh3cL2vpnPwcCcType",
+    "oid": "1.3.6.1.4.1.25506.2.162.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "controlWord": 2,
+          "routerAlert": 3,
+          "ttl": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL2vpnPwcControlWord": {
+    "name": "hh3cL2vpnPwcControlWord",
+    "oid": "1.3.6.1.4.1.25506.2.162.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL2vpnPwcPwType": {
+    "name": "hh3cL2vpnPwcPwType",
+    "oid": "1.3.6.1.4.1.25506.2.162.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vlan": 4,
+          "ethernet": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "vlan",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL2vpnPwcRowStatus": {
+    "name": "hh3cL2vpnPwcRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.162.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL2vpnPwcFlowLabel": {
+    "name": "hh3cL2vpnPwcFlowLabel",
+    "oid": "1.3.6.1.4.1.25506.2.162.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "send": 2,
+          "receive": 3,
+          "both": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL2vpnLinkTable": {
+    "name": "hh3cL2vpnLinkTable",
+    "oid": "1.3.6.1.4.1.25506.2.162.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL2vpnLinkEntry": {
+    "name": "hh3cL2vpnLinkEntry",
+    "oid": "1.3.6.1.4.1.25506.2.162.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnLinkVsiIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnLinkLinkID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cL2vpnLinkVsiIndex": {
+    "name": "hh3cL2vpnLinkVsiIndex",
+    "oid": "1.3.6.1.4.1.25506.2.162.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL2vpnLinkLinkID": {
+    "name": "hh3cL2vpnLinkLinkID",
+    "oid": "1.3.6.1.4.1.25506.2.162.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL2vpnLinkType": {
+    "name": "hh3cL2vpnLinkType",
+    "oid": "1.3.6.1.4.1.25506.2.162.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ac": 2,
+          "tunnel": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL2vpnLinkIfIndex": {
+    "name": "hh3cL2vpnLinkIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.162.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL2vpnLinkSrvID": {
+    "name": "hh3cL2vpnLinkSrvID",
+    "oid": "1.3.6.1.4.1.25506.2.162.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL2vpnLinkTunnelID": {
+    "name": "hh3cL2vpnLinkTunnelID",
+    "oid": "1.3.6.1.4.1.25506.2.162.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL2vpnVpwsTable": {
+    "name": "hh3cL2vpnVpwsTable",
+    "oid": "1.3.6.1.4.1.25506.2.162.3",
+    "class": "objectidentity"
+  },
+  "hh3cL2vpnXcgTable": {
+    "name": "hh3cL2vpnXcgTable",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL2vpnXcgEntry": {
+    "name": "hh3cL2vpnXcgEntry",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnXcgName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cL2vpnXcgName": {
+    "name": "hh3cL2vpnXcgName",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL2vpnXcgAdminState": {
+    "name": "hh3cL2vpnXcgAdminState",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "adminUp": 1,
+          "adminDown": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL2vpnXcgRowStatus": {
+    "name": "hh3cL2vpnXcgRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL2vpnXcgConnTable": {
+    "name": "hh3cL2vpnXcgConnTable",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL2vpnXcgConnEntry": {
+    "name": "hh3cL2vpnXcgConnEntry",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnXcgName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnXcgConnName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cL2vpnXcgConnName": {
+    "name": "hh3cL2vpnXcgConnName",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL2vpnXcgConnRowStatus": {
+    "name": "hh3cL2vpnXcgConnRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL2vpnXcgConnRedundancy": {
+    "name": "hh3cL2vpnXcgConnRedundancy",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "slave": 1,
+          "master": 2,
+          "independent": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "slave",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL2vpnXcgAcTable": {
+    "name": "hh3cL2vpnXcgAcTable",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL2vpnXcgAcEntry": {
+    "name": "hh3cL2vpnXcgAcEntry",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnXcgName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnXcgConnName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnXcgAcIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnXcgAcEvcSrvInstId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cL2vpnXcgAcIfIndex": {
+    "name": "hh3cL2vpnXcgAcIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL2vpnXcgAcEvcSrvInstId": {
+    "name": "hh3cL2vpnXcgAcEvcSrvInstId",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL2vpnXcgAcAccessMode": {
+    "name": "hh3cL2vpnXcgAcAccessMode",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vlan": 1,
+          "ethernet": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL2vpnXcgAcRowStatus": {
+    "name": "hh3cL2vpnXcgAcRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL2vpnXcgPwTable": {
+    "name": "hh3cL2vpnXcgPwTable",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL2vpnXcgPwEntry": {
+    "name": "hh3cL2vpnXcgPwEntry",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnXcgName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnXcgConnName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnXcgPwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cL2vpnXcgPwIndex": {
+    "name": "hh3cL2vpnXcgPwIndex",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cL2vpnXcgPwCfgType": {
+    "name": "hh3cL2vpnXcgPwCfgType",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "backup": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL2vpnXcgPwClassName": {
+    "name": "hh3cL2vpnXcgPwClassName",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL2vpnXcgPwTunnelPolicy": {
+    "name": "hh3cL2vpnXcgPwTunnelPolicy",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL2vpnXcgPwPeerIp": {
+    "name": "hh3cL2vpnXcgPwPeerIp",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cL2vpnXcgPwPwID": {
+    "name": "hh3cL2vpnXcgPwPwID",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cL2vpnXcgPwRowStatus": {
+    "name": "hh3cL2vpnXcgPwRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL2vpnXcgPwIgnoreStandby": {
+    "name": "hh3cL2vpnXcgPwIgnoreStandby",
+    "oid": "1.3.6.1.4.1.25506.2.162.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL2vpnPwSwitchPtoB": {
+    "name": "hh3cL2vpnPwSwitchPtoB",
+    "oid": "1.3.6.1.4.1.25506.2.162.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnXcgPwIndex"
+      },
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnXcgPwPeerIp"
+      },
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnXcgPwPwID"
+      },
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnXcgPwIndex"
+      },
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnXcgPwPeerIp"
+      },
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnXcgPwPwID"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cL2vpnPwSwitchBtoP": {
+    "name": "hh3cL2vpnPwSwitchBtoP",
+    "oid": "1.3.6.1.4.1.25506.2.162.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnXcgPwIndex"
+      },
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnXcgPwPeerIp"
+      },
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnXcgPwPwID"
+      },
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnXcgPwIndex"
+      },
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnXcgPwPeerIp"
+      },
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnXcgPwPwID"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cL2vpnAcTable": {
+    "name": "hh3cL2vpnAcTable",
+    "oid": "1.3.6.1.4.1.25506.2.162.4",
+    "class": "objectidentity"
+  },
+  "hh3cL2vpnAcCfgTable": {
+    "name": "hh3cL2vpnAcCfgTable",
+    "oid": "1.3.6.1.4.1.25506.2.162.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL2vpnAcCfgEntry": {
+    "name": "hh3cL2vpnAcCfgEntry",
+    "oid": "1.3.6.1.4.1.25506.2.162.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnAcIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnAcSrvId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cL2vpnAcIfIndex": {
+    "name": "hh3cL2vpnAcIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.162.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL2vpnAcSrvId": {
+    "name": "hh3cL2vpnAcSrvId",
+    "oid": "1.3.6.1.4.1.25506.2.162.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL2vpnAcIfName": {
+    "name": "hh3cL2vpnAcIfName",
+    "oid": "1.3.6.1.4.1.25506.2.162.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL2vpnAcVsiName": {
+    "name": "hh3cL2vpnAcVsiName",
+    "oid": "1.3.6.1.4.1.25506.2.162.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL2vpnAcXcgName": {
+    "name": "hh3cL2vpnAcXcgName",
+    "oid": "1.3.6.1.4.1.25506.2.162.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL2vpnAcXcgConnName": {
+    "name": "hh3cL2vpnAcXcgConnName",
+    "oid": "1.3.6.1.4.1.25506.2.162.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL2vpnAcDot1qType": {
+    "name": "hh3cL2vpnAcDot1qType",
+    "oid": "1.3.6.1.4.1.25506.2.162.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "default": 2,
+          "singletag": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL2vpnAcVLANID": {
+    "name": "hh3cL2vpnAcVLANID",
+    "oid": "1.3.6.1.4.1.25506.2.162.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL2vpnPwTable": {
+    "name": "hh3cL2vpnPwTable",
+    "oid": "1.3.6.1.4.1.25506.2.162.5",
+    "class": "objectidentity"
+  },
+  "hh3cL2vpnPwCfgTable": {
+    "name": "hh3cL2vpnPwCfgTable",
+    "oid": "1.3.6.1.4.1.25506.2.162.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL2vpnPwCfgEntry": {
+    "name": "hh3cL2vpnPwCfgEntry",
+    "oid": "1.3.6.1.4.1.25506.2.162.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnPwPeerIp",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-L2VPN-MIB",
+        "object": "hh3cL2vpnPwId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cL2vpnPwPeerIp": {
+    "name": "hh3cL2vpnPwPeerIp",
+    "oid": "1.3.6.1.4.1.25506.2.162.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL2vpnPwId": {
+    "name": "hh3cL2vpnPwId",
+    "oid": "1.3.6.1.4.1.25506.2.162.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL2vpnPwAcIfIndex": {
+    "name": "hh3cL2vpnPwAcIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.162.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL2vpnPwAcIfName": {
+    "name": "hh3cL2vpnPwAcIfName",
+    "oid": "1.3.6.1.4.1.25506.2.162.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL2vpnPwAcSrvId": {
+    "name": "hh3cL2vpnPwAcSrvId",
+    "oid": "1.3.6.1.4.1.25506.2.162.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL2vpnPwVsiName": {
+    "name": "hh3cL2vpnPwVsiName",
+    "oid": "1.3.6.1.4.1.25506.2.162.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL2vpnPwXcgName": {
+    "name": "hh3cL2vpnPwXcgName",
+    "oid": "1.3.6.1.4.1.25506.2.162.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL2vpnPwXcgConnName": {
+    "name": "hh3cL2vpnPwXcgConnName",
+    "oid": "1.3.6.1.4.1.25506.2.162.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL2vpnPwQosDirection": {
+    "name": "hh3cL2vpnPwQosDirection",
+    "oid": "1.3.6.1.4.1.25506.2.162.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "inbound": 2,
+          "outbound": 3,
+          "both": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL2vpnPwInboundQosCir": {
+    "name": "hh3cL2vpnPwInboundQosCir",
+    "oid": "1.3.6.1.4.1.25506.2.162.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL2vpnPwInboundQosCbs": {
+    "name": "hh3cL2vpnPwInboundQosCbs",
+    "oid": "1.3.6.1.4.1.25506.2.162.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL2vpnPwInboundQosEbs": {
+    "name": "hh3cL2vpnPwInboundQosEbs",
+    "oid": "1.3.6.1.4.1.25506.2.162.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL2vpnPwOutboundQosCir": {
+    "name": "hh3cL2vpnPwOutboundQosCir",
+    "oid": "1.3.6.1.4.1.25506.2.162.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL2vpnPwOutboundQosCbs": {
+    "name": "hh3cL2vpnPwOutboundQosCbs",
+    "oid": "1.3.6.1.4.1.25506.2.162.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL2vpnPwOutboundQosEbs": {
+    "name": "hh3cL2vpnPwOutboundQosEbs",
+    "oid": "1.3.6.1.4.1.25506.2.162.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-L2VPN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-L2VPN-MIB"
+  }
+}

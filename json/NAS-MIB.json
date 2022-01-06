@@ -1,0 +1,4116 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "enterprises",
+      "iso",
+      "IpAddress",
+      "MibIdentifier",
+      "TimeTicks",
+      "Unsigned32",
+      "Integer32",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "DisplayString": {
+    "name": "DisplayString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "storage": {
+    "name": "storage",
+    "oid": "1.3.6.1.4.1.24681",
+    "class": "objectidentity"
+  },
+  "storageSystem": {
+    "name": "storageSystem",
+    "oid": "1.3.6.1.4.1.24681.1",
+    "class": "objectidentity"
+  },
+  "systemEventMsg": {
+    "name": "systemEventMsg",
+    "oid": "1.3.6.1.4.1.24681.1.1",
+    "class": "objectidentity"
+  },
+  "eventInformMsg": {
+    "name": "eventInformMsg",
+    "oid": "1.3.6.1.4.1.24681.1.1.101",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventWarningMsg": {
+    "name": "eventWarningMsg",
+    "oid": "1.3.6.1.4.1.24681.1.1.102",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventErrorMsg": {
+    "name": "eventErrorMsg",
+    "oid": "1.3.6.1.4.1.24681.1.1.103",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemTraps": {
+    "name": "systemTraps",
+    "oid": "1.3.6.1.4.1.24681.1.10",
+    "class": "objectidentity"
+  },
+  "eventInform": {
+    "name": "eventInform",
+    "oid": "1.3.6.1.4.1.24681.1.100.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NAS-MIB",
+        "object": "eventInformMsg"
+      }
+    ]
+  },
+  "eventWarning": {
+    "name": "eventWarning",
+    "oid": "1.3.6.1.4.1.24681.1.100.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NAS-MIB",
+        "object": "eventWarningMsg"
+      }
+    ]
+  },
+  "eventError": {
+    "name": "eventError",
+    "oid": "1.3.6.1.4.1.24681.1.100.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NAS-MIB",
+        "object": "eventErrorMsg"
+      }
+    ]
+  },
+  "systemInfo": {
+    "name": "systemInfo",
+    "oid": "1.3.6.1.4.1.24681.1.2",
+    "class": "objectidentity"
+  },
+  "systemCPU_Usage": {
+    "name": "systemCPU_Usage",
+    "oid": "1.3.6.1.4.1.24681.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemTotalMem": {
+    "name": "systemTotalMem",
+    "oid": "1.3.6.1.4.1.24681.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemFreeMem": {
+    "name": "systemFreeMem",
+    "oid": "1.3.6.1.4.1.24681.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemUptime": {
+    "name": "systemUptime",
+    "oid": "1.3.6.1.4.1.24681.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpu_Temperature": {
+    "name": "cpu_Temperature",
+    "oid": "1.3.6.1.4.1.24681.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemTemperature": {
+    "name": "systemTemperature",
+    "oid": "1.3.6.1.4.1.24681.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifNumber": {
+    "name": "ifNumber",
+    "oid": "1.3.6.1.4.1.24681.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemIfTable": {
+    "name": "systemIfTable",
+    "oid": "1.3.6.1.4.1.24681.1.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ifEntry": {
+    "name": "ifEntry",
+    "oid": "1.3.6.1.4.1.24681.1.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ifIndex": {
+    "name": "ifIndex",
+    "oid": "1.3.6.1.4.1.24681.1.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ifDescr": {
+    "name": "ifDescr",
+    "oid": "1.3.6.1.4.1.24681.1.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ifPacketsReceived": {
+    "name": "ifPacketsReceived",
+    "oid": "1.3.6.1.4.1.24681.1.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ifPacketsSent": {
+    "name": "ifPacketsSent",
+    "oid": "1.3.6.1.4.1.24681.1.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ifErrorPackets": {
+    "name": "ifErrorPackets",
+    "oid": "1.3.6.1.4.1.24681.1.2.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hdNumber": {
+    "name": "hdNumber",
+    "oid": "1.3.6.1.4.1.24681.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemHdTable": {
+    "name": "systemHdTable",
+    "oid": "1.3.6.1.4.1.24681.1.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hdEntry": {
+    "name": "hdEntry",
+    "oid": "1.3.6.1.4.1.24681.1.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "hdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hdIndex": {
+    "name": "hdIndex",
+    "oid": "1.3.6.1.4.1.24681.1.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hdDescr": {
+    "name": "hdDescr",
+    "oid": "1.3.6.1.4.1.24681.1.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hdTemperature": {
+    "name": "hdTemperature",
+    "oid": "1.3.6.1.4.1.24681.1.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hdStatus": {
+    "name": "hdStatus",
+    "oid": "1.3.6.1.4.1.24681.1.2.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 0,
+          "noDisk": -5,
+          "invalid": -6,
+          "rwError": -9,
+          "unknown": -4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hdModel": {
+    "name": "hdModel",
+    "oid": "1.3.6.1.4.1.24681.1.2.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hdCapacity": {
+    "name": "hdCapacity",
+    "oid": "1.3.6.1.4.1.24681.1.2.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hdSmartInfo": {
+    "name": "hdSmartInfo",
+    "oid": "1.3.6.1.4.1.24681.1.2.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "modelName": {
+    "name": "modelName",
+    "oid": "1.3.6.1.4.1.24681.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostName": {
+    "name": "hostName",
+    "oid": "1.3.6.1.4.1.24681.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFanNumber": {
+    "name": "sysFanNumber",
+    "oid": "1.3.6.1.4.1.24681.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemFanTable": {
+    "name": "systemFanTable",
+    "oid": "1.3.6.1.4.1.24681.1.2.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sysFanEntry": {
+    "name": "sysFanEntry",
+    "oid": "1.3.6.1.4.1.24681.1.2.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "sysFanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sysFanIndex": {
+    "name": "sysFanIndex",
+    "oid": "1.3.6.1.4.1.24681.1.2.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysFanDescr": {
+    "name": "sysFanDescr",
+    "oid": "1.3.6.1.4.1.24681.1.2.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysFanSpeed": {
+    "name": "sysFanSpeed",
+    "oid": "1.3.6.1.4.1.24681.1.2.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysVolumeNumber": {
+    "name": "sysVolumeNumber",
+    "oid": "1.3.6.1.4.1.24681.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemVolumeTable": {
+    "name": "systemVolumeTable",
+    "oid": "1.3.6.1.4.1.24681.1.2.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sysVolumeEntry": {
+    "name": "sysVolumeEntry",
+    "oid": "1.3.6.1.4.1.24681.1.2.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "sysVolumeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sysVolumeIndex": {
+    "name": "sysVolumeIndex",
+    "oid": "1.3.6.1.4.1.24681.1.2.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysVolumeDescr": {
+    "name": "sysVolumeDescr",
+    "oid": "1.3.6.1.4.1.24681.1.2.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysVolumeFS": {
+    "name": "sysVolumeFS",
+    "oid": "1.3.6.1.4.1.24681.1.2.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysVolumeTotalSize": {
+    "name": "sysVolumeTotalSize",
+    "oid": "1.3.6.1.4.1.24681.1.2.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysVolumeFreeSize": {
+    "name": "sysVolumeFreeSize",
+    "oid": "1.3.6.1.4.1.24681.1.2.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysVolumeStatus": {
+    "name": "sysVolumeStatus",
+    "oid": "1.3.6.1.4.1.24681.1.2.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODInfo": {
+    "name": "jBODInfo",
+    "oid": "1.3.6.1.4.1.24681.1.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODBitmap": {
+    "name": "jBODBitmap",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODInfos": {
+    "name": "jBODInfos",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "jBODInfosEntry": {
+    "name": "jBODInfosEntry",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "jBODid",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "jBODid": {
+    "name": "jBODid",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdNumber": {
+    "name": "jBODHdNumber",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdTable1": {
+    "name": "jBODHdTable1",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "jBODHdEntry1": {
+    "name": "jBODHdEntry1",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "jBODHdIndex1",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "jBODHdIndex1": {
+    "name": "jBODHdIndex1",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdDescr1": {
+    "name": "jBODHdDescr1",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdTemperature1": {
+    "name": "jBODHdTemperature1",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdStatus1": {
+    "name": "jBODHdStatus1",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 0,
+          "noDisk": -5,
+          "invalid": -6,
+          "rwError": -9,
+          "unknown": -4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdModel1": {
+    "name": "jBODHdModel1",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdCapacity1": {
+    "name": "jBODHdCapacity1",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdSmartInfo1": {
+    "name": "jBODHdSmartInfo1",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdTable2": {
+    "name": "jBODHdTable2",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "jBODHdEntry2": {
+    "name": "jBODHdEntry2",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "jBODHdIndex2",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "jBODHdIndex2": {
+    "name": "jBODHdIndex2",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdDescr2": {
+    "name": "jBODHdDescr2",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdTemperature2": {
+    "name": "jBODHdTemperature2",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdStatus2": {
+    "name": "jBODHdStatus2",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 0,
+          "noDisk": -5,
+          "invalid": -6,
+          "rwError": -9,
+          "unknown": -4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdModel2": {
+    "name": "jBODHdModel2",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdCapacity2": {
+    "name": "jBODHdCapacity2",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdSmartInfo2": {
+    "name": "jBODHdSmartInfo2",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdTable3": {
+    "name": "jBODHdTable3",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "jBODHdEntry3": {
+    "name": "jBODHdEntry3",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "jBODHdIndex3",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "jBODHdIndex3": {
+    "name": "jBODHdIndex3",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdDescr3": {
+    "name": "jBODHdDescr3",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdTemperature3": {
+    "name": "jBODHdTemperature3",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdStatus3": {
+    "name": "jBODHdStatus3",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 0,
+          "noDisk": -5,
+          "invalid": -6,
+          "rwError": -9,
+          "unknown": -4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdModel3": {
+    "name": "jBODHdModel3",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdCapacity3": {
+    "name": "jBODHdCapacity3",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdSmartInfo3": {
+    "name": "jBODHdSmartInfo3",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdTable4": {
+    "name": "jBODHdTable4",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "jBODHdEntry4": {
+    "name": "jBODHdEntry4",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "jBODHdIndex4",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "jBODHdIndex4": {
+    "name": "jBODHdIndex4",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdDescr4": {
+    "name": "jBODHdDescr4",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdTemperature4": {
+    "name": "jBODHdTemperature4",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdStatus4": {
+    "name": "jBODHdStatus4",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 0,
+          "noDisk": -5,
+          "invalid": -6,
+          "rwError": -9,
+          "unknown": -4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdModel4": {
+    "name": "jBODHdModel4",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdCapacity4": {
+    "name": "jBODHdCapacity4",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdSmartInfo4": {
+    "name": "jBODHdSmartInfo4",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdTable5": {
+    "name": "jBODHdTable5",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "jBODHdEntry5": {
+    "name": "jBODHdEntry5",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "jBODHdIndex5",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "jBODHdIndex5": {
+    "name": "jBODHdIndex5",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdDescr5": {
+    "name": "jBODHdDescr5",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdTemperature5": {
+    "name": "jBODHdTemperature5",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdStatus5": {
+    "name": "jBODHdStatus5",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 0,
+          "noDisk": -5,
+          "invalid": -6,
+          "rwError": -9,
+          "unknown": -4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdModel5": {
+    "name": "jBODHdModel5",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdCapacity5": {
+    "name": "jBODHdCapacity5",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdSmartInfo5": {
+    "name": "jBODHdSmartInfo5",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdTable6": {
+    "name": "jBODHdTable6",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "jBODHdEntry6": {
+    "name": "jBODHdEntry6",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "jBODHdIndex6",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "jBODHdIndex6": {
+    "name": "jBODHdIndex6",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdDescr6": {
+    "name": "jBODHdDescr6",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdTemperature6": {
+    "name": "jBODHdTemperature6",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdStatus6": {
+    "name": "jBODHdStatus6",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 0,
+          "noDisk": -5,
+          "invalid": -6,
+          "rwError": -9,
+          "unknown": -4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdModel6": {
+    "name": "jBODHdModel6",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdCapacity6": {
+    "name": "jBODHdCapacity6",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdSmartInfo6": {
+    "name": "jBODHdSmartInfo6",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdTable7": {
+    "name": "jBODHdTable7",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "jBODHdEntry7": {
+    "name": "jBODHdEntry7",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "jBODHdIndex7",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "jBODHdIndex7": {
+    "name": "jBODHdIndex7",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdDescr7": {
+    "name": "jBODHdDescr7",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdTemperature7": {
+    "name": "jBODHdTemperature7",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdStatus7": {
+    "name": "jBODHdStatus7",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 0,
+          "noDisk": -5,
+          "invalid": -6,
+          "rwError": -9,
+          "unknown": -4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdModel7": {
+    "name": "jBODHdModel7",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdCapacity7": {
+    "name": "jBODHdCapacity7",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdSmartInfo7": {
+    "name": "jBODHdSmartInfo7",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdTable8": {
+    "name": "jBODHdTable8",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "jBODHdEntry8": {
+    "name": "jBODHdEntry8",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "jBODHdIndex8",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "jBODHdIndex8": {
+    "name": "jBODHdIndex8",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdDescr8": {
+    "name": "jBODHdDescr8",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdTemperature8": {
+    "name": "jBODHdTemperature8",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdStatus8": {
+    "name": "jBODHdStatus8",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 0,
+          "noDisk": -5,
+          "invalid": -6,
+          "rwError": -9,
+          "unknown": -4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdModel8": {
+    "name": "jBODHdModel8",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdCapacity8": {
+    "name": "jBODHdCapacity8",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jBODHdSmartInfo8": {
+    "name": "jBODHdSmartInfo8",
+    "oid": "1.3.6.1.4.1.24681.1.2.18.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemInfoEx": {
+    "name": "systemInfoEx",
+    "oid": "1.3.6.1.4.1.24681.1.3",
+    "class": "objectidentity"
+  },
+  "systemCPU_UsageEX": {
+    "name": "systemCPU_UsageEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemTotalMemEX": {
+    "name": "systemTotalMemEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemFreeMemEX": {
+    "name": "systemFreeMemEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemUptimeEX": {
+    "name": "systemUptimeEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpu_TemperatureEX": {
+    "name": "cpu_TemperatureEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemTemperatureEX": {
+    "name": "systemTemperatureEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifNumberEX": {
+    "name": "ifNumberEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemIfTableEx": {
+    "name": "systemIfTableEx",
+    "oid": "1.3.6.1.4.1.24681.1.3.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ifEntryEx": {
+    "name": "ifEntryEx",
+    "oid": "1.3.6.1.4.1.24681.1.3.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "ifIndexEX",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ifIndexEX": {
+    "name": "ifIndexEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ifDescrEX": {
+    "name": "ifDescrEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ifPacketsReceivedEX": {
+    "name": "ifPacketsReceivedEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ifPacketsSentEX": {
+    "name": "ifPacketsSentEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ifErrorPacketsEX": {
+    "name": "ifErrorPacketsEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hdNumberEX": {
+    "name": "hdNumberEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemHdTableEX": {
+    "name": "systemHdTableEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hdEntryEx": {
+    "name": "hdEntryEx",
+    "oid": "1.3.6.1.4.1.24681.1.3.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "hdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hdIndexEX": {
+    "name": "hdIndexEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hdDescrEX": {
+    "name": "hdDescrEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hdTemperatureEX": {
+    "name": "hdTemperatureEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hdStatusEX": {
+    "name": "hdStatusEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 0,
+          "noDisk": -5,
+          "invalid": -6,
+          "rwError": -9,
+          "unknown": -4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hdModelEX": {
+    "name": "hdModelEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hdCapacityEX": {
+    "name": "hdCapacityEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hdSmartInfoEX": {
+    "name": "hdSmartInfoEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "modelNameEX": {
+    "name": "modelNameEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostNameEX": {
+    "name": "hostNameEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFanNumberEX": {
+    "name": "sysFanNumberEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemFanTableEx": {
+    "name": "systemFanTableEx",
+    "oid": "1.3.6.1.4.1.24681.1.3.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sysFanEntryEx": {
+    "name": "sysFanEntryEx",
+    "oid": "1.3.6.1.4.1.24681.1.3.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "sysFanIndexEX",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sysFanIndexEX": {
+    "name": "sysFanIndexEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysFanDescrEX": {
+    "name": "sysFanDescrEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysFanSpeedEX": {
+    "name": "sysFanSpeedEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysVolumeNumberEX": {
+    "name": "sysVolumeNumberEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemVolumeTableEx": {
+    "name": "systemVolumeTableEx",
+    "oid": "1.3.6.1.4.1.24681.1.3.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sysVolumeEntryEx": {
+    "name": "sysVolumeEntryEx",
+    "oid": "1.3.6.1.4.1.24681.1.3.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "sysVolumeIndexEX",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sysVolumeIndexEX": {
+    "name": "sysVolumeIndexEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysVolumeDescrEX": {
+    "name": "sysVolumeDescrEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysVolumeFSEX": {
+    "name": "sysVolumeFSEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysVolumeTotalSizeEX": {
+    "name": "sysVolumeTotalSizeEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysVolumeFreeSizeEX": {
+    "name": "sysVolumeFreeSizeEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysVolumeStatusEX": {
+    "name": "sysVolumeStatusEX",
+    "oid": "1.3.6.1.4.1.24681.1.3.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "storageSystemEx": {
+    "name": "storageSystemEx",
+    "oid": "1.3.6.1.4.1.24681.1.4",
+    "class": "objectidentity"
+  },
+  "systemSettings": {
+    "name": "systemSettings",
+    "oid": "1.3.6.1.4.1.24681.1.4.1",
+    "class": "objectidentity"
+  },
+  "storageManager": {
+    "name": "storageManager",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1",
+    "class": "objectidentity"
+  },
+  "systemStatus": {
+    "name": "systemStatus",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.11",
+    "class": "objectidentity"
+  },
+  "nasStorage": {
+    "name": "nasStorage",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1",
+    "class": "objectidentity"
+  },
+  "components": {
+    "name": "components",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "enclosure": {
+    "name": "enclosure",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "systemFan": {
+    "name": "systemFan",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "systemPower": {
+    "name": "systemPower",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.3",
+    "class": "objectidentity"
+  },
+  "cpu": {
+    "name": "cpu",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.4",
+    "class": "objectidentity"
+  },
+  "disk": {
+    "name": "disk",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.5",
+    "class": "objectidentity"
+  },
+  "msataDisk": {
+    "name": "msataDisk",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.6",
+    "class": "objectidentity"
+  },
+  "storageSpace": {
+    "name": "storageSpace",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "raid": {
+    "name": "raid",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "pool": {
+    "name": "pool",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "volume": {
+    "name": "volume",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.3",
+    "class": "objectidentity"
+  },
+  "cacheAcceleration": {
+    "name": "cacheAcceleration",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.3",
+    "class": "objectidentity"
+  },
+  "iSCSI": {
+    "name": "iSCSI",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2",
+    "class": "objectidentity"
+  },
+  "iSCSIStorage": {
+    "name": "iSCSIStorage",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "lun": {
+    "name": "lun",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.10",
+    "class": "objectidentity"
+  },
+  "target": {
+    "name": "target",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.11",
+    "class": "objectidentity"
+  },
+  "resourceMonitor": {
+    "name": "resourceMonitor",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.11.5",
+    "class": "objectidentity"
+  },
+  "diskPerformance": {
+    "name": "diskPerformance",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.11.5.6",
+    "class": "objectidentity"
+  },
+  "iSCSIService": {
+    "name": "iSCSIService",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "iSCSIServicePort": {
+    "name": "iSCSIServicePort",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "iSNSService": {
+    "name": "iSNSService",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "iSNSIP": {
+    "name": "iSNSIP",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lunNumber": {
+    "name": "lunNumber",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lunTable": {
+    "name": "lunTable",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "lunTableEntry": {
+    "name": "lunTableEntry",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "lunIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "lunIndex": {
+    "name": "lunIndex",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lunID": {
+    "name": "lunID",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lunCapacity": {
+    "name": "lunCapacity",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lunUsedPercent": {
+    "name": "lunUsedPercent",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.10.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lunStatus": {
+    "name": "lunStatus",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.10.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lunName": {
+    "name": "lunName",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.10.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lunBackupStatus": {
+    "name": "lunBackupStatus",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.10.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "backup": 1,
+          "restore": 2,
+          "snapshot": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lunIsMap": {
+    "name": "lunIsMap",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.10.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unmapped": 0,
+          "mapped": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "targetNumber": {
+    "name": "targetNumber",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "targeTable": {
+    "name": "targeTable",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.11.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "targeTableEntry": {
+    "name": "targeTableEntry",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.11.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "targetIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "targetIndex": {
+    "name": "targetIndex",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.11.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "targetID": {
+    "name": "targetID",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.11.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "targetName": {
+    "name": "targetName",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.11.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "targetIQN": {
+    "name": "targetIQN",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.11.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "targetStatus": {
+    "name": "targetStatus",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.2.1.11.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ready": 0,
+          "connected": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "volumeNumber": {
+    "name": "volumeNumber",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "volumeTable": {
+    "name": "volumeTable",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "volumeTableEntry": {
+    "name": "volumeTableEntry",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "volumeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "volumeIndex": {
+    "name": "volumeIndex",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "volumeID": {
+    "name": "volumeID",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "volumeCapacity": {
+    "name": "volumeCapacity",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "volumeFreeSize": {
+    "name": "volumeFreeSize",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "volumeStatus": {
+    "name": "volumeStatus",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "volumeSSDCache": {
+    "name": "volumeSSDCache",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "volumeThin": {
+    "name": "volumeThin",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "volumeName": {
+    "name": "volumeName",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "poolNumber": {
+    "name": "poolNumber",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "poolTable": {
+    "name": "poolTable",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "poolTableEntry": {
+    "name": "poolTableEntry",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "poolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "poolIndex": {
+    "name": "poolIndex",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "poolID": {
+    "name": "poolID",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "poolCapacity": {
+    "name": "poolCapacity",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "poolFreeSize": {
+    "name": "poolFreeSize",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "poolStatus": {
+    "name": "poolStatus",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 0,
+          "warning": -1,
+          "notReady": -2,
+          "error": -3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "raidNumber": {
+    "name": "raidNumber",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidGroupTable": {
+    "name": "raidGroupTable",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "raidGroupTableEntry": {
+    "name": "raidGroupTableEntry",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "raidIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "raidIndex": {
+    "name": "raidIndex",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "raidID": {
+    "name": "raidID",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "raidCapacity": {
+    "name": "raidCapacity",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "raidFreeSize": {
+    "name": "raidFreeSize",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "raidStatus": {
+    "name": "raidStatus",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "raidBitmap": {
+    "name": "raidBitmap",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "raidLevel": {
+    "name": "raidLevel",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "service": {
+    "name": "service",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "availablePercent": {
+    "name": "availablePercent",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "readHitRate": {
+    "name": "readHitRate",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "writeHitRate": {
+    "name": "writeHitRate",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "status": {
+    "name": "status",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskNumber": {
+    "name": "diskNumber",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskTable": {
+    "name": "diskTable",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "diskTableEntry": {
+    "name": "diskTableEntry",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "diskIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "diskIndex": {
+    "name": "diskIndex",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "diskID": {
+    "name": "diskID",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "diskEnclosureID": {
+    "name": "diskEnclosureID",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "diskSummary": {
+    "name": "diskSummary",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "diskSmartInfo": {
+    "name": "diskSmartInfo",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abnormal": 2,
+          "warning": 1,
+          "good": 0,
+          "error": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "diskTemperture": {
+    "name": "diskTemperture",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "diskGlobalSpare": {
+    "name": "diskGlobalSpare",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "diskModel": {
+    "name": "diskModel",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "diskCapacity": {
+    "name": "diskCapacity",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "msataDiskNumber": {
+    "name": "msataDiskNumber",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msataDiskTable": {
+    "name": "msataDiskTable",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "msataDiskTableEntry": {
+    "name": "msataDiskTableEntry",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "msataDiskIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "msataDiskIndex": {
+    "name": "msataDiskIndex",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "msataDiskID": {
+    "name": "msataDiskID",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "msataDiskEnclosureID": {
+    "name": "msataDiskEnclosureID",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "msataDiskSummary": {
+    "name": "msataDiskSummary",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "msataDiskSmartInfo": {
+    "name": "msataDiskSmartInfo",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abnormal": 2,
+          "warning": 1,
+          "good": 0,
+          "error": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "msataDiskTemperture": {
+    "name": "msataDiskTemperture",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "msataDiskGlobalSpare": {
+    "name": "msataDiskGlobalSpare",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "msataDiskModel": {
+    "name": "msataDiskModel",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "msataDiskCapacity": {
+    "name": "msataDiskCapacity",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "enclosurelNumber": {
+    "name": "enclosurelNumber",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "enclosureTable": {
+    "name": "enclosureTable",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "enclosureTableEntry": {
+    "name": "enclosureTableEntry",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "enclosureIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "enclosureIndex": {
+    "name": "enclosureIndex",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "enclosureID": {
+    "name": "enclosureID",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "enclosureModel": {
+    "name": "enclosureModel",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "enclosureSerialNum": {
+    "name": "enclosureSerialNum",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "enclosureSlot": {
+    "name": "enclosureSlot",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "enclosureName": {
+    "name": "enclosureName",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "enclosureSystemTemp": {
+    "name": "enclosureSystemTemp",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemFanNumber": {
+    "name": "systemFanNumber",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemFan2Table": {
+    "name": "systemFan2Table",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "systemFan2TableEntry": {
+    "name": "systemFan2TableEntry",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "systemFanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "systemFanIndex": {
+    "name": "systemFanIndex",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemFanID": {
+    "name": "systemFanID",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemFanEnclosureID": {
+    "name": "systemFanEnclosureID",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemFanStatus": {
+    "name": "systemFanStatus",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "fail": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemFanSpeed": {
+    "name": "systemFanSpeed",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemPowerNumber": {
+    "name": "systemPowerNumber",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemPowerTable": {
+    "name": "systemPowerTable",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "systemPowerTableEntry": {
+    "name": "systemPowerTableEntry",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "systemPowerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "systemPowerIndex": {
+    "name": "systemPowerIndex",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemPowerID": {
+    "name": "systemPowerID",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemPowerEnclosureID": {
+    "name": "systemPowerEnclosureID",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemPowerStatus": {
+    "name": "systemPowerStatus",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "fail": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemPowerFanSpeed": {
+    "name": "systemPowerFanSpeed",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemPowerTemp": {
+    "name": "systemPowerTemp",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpuNumber": {
+    "name": "cpuNumber",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuTemp": {
+    "name": "cpuTemp",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuTable": {
+    "name": "cpuTable",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpuTableEntry": {
+    "name": "cpuTableEntry",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "cpuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpuIndex": {
+    "name": "cpuIndex",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpuID": {
+    "name": "cpuID",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpuUsage": {
+    "name": "cpuUsage",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "diskPerformanceNumber": {
+    "name": "diskPerformanceNumber",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.11.5.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskPerformanceTable": {
+    "name": "diskPerformanceTable",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.11.5.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "diskPerformanceTableEntry": {
+    "name": "diskPerformanceTableEntry",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.11.5.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAS-MIB",
+        "object": "diskPerformanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "diskPerformanceIndex": {
+    "name": "diskPerformanceIndex",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.11.5.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "blvID": {
+    "name": "blvID",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.11.5.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "iops": {
+    "name": "iops",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.11.5.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "latency": {
+    "name": "latency",
+    "oid": "1.3.6.1.4.1.24681.1.4.1.11.5.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/qnap/NAS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:47:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NAS-MIB"
+  }
+}

@@ -1,0 +1,1161 @@
+{
+  "imports": {
+    "class": "imports",
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "JUNIPER-SMI": [
+      "jnxSubscriberMibRoot"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
+    ]
+  },
+  "jnxSubscriberMIB": {
+    "name": "jnxSubscriberMIB",
+    "oid": "1.3.6.1.4.1.2636.3.64.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-05-11 00:00",
+        "description": "Initial version of jnxSubscriberMIB module."
+      },
+      {
+        "revision": "2012-05-02 00:00",
+        "description": "Updated related to subscriber accounting session id."
+      },
+      {
+        "revision": "2013-12-13 00:00",
+        "description": "Added jnxSubscriberAccountingTable MIB."
+      },
+      {
+        "revision": "2014-11-03 00:00",
+        "description": "Added jnxSubscriberPicCountTable and jnxSubscriberSlotCountTable."
+      },
+      {
+        "revision": "2016-02-16 00:00",
+        "description": "Added jnxSubscriberUnderlyingInterface and jnxSubscriberPhysicalInterface objects."
+      }
+    ]
+  },
+  "JnxSubscriberState": {
+    "name": "JnxSubscriberState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 0,
+          "configured": 1,
+          "active": 2,
+          "terminating": 3,
+          "terminated": 4,
+          "unknown": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxSubscriberClientType": {
+    "name": "JnxSubscriberClientType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "none": 0,
+        "dhcp": 1,
+        "vlan": 2,
+        "generic": 3,
+        "mobileIp": 4,
+        "vplsPw": 5,
+        "ppp": 6,
+        "ppppoe": 7,
+        "l2tp": 8,
+        "static": 9,
+        "mlppp": 10,
+        "xauth": 11,
+        "fwauth": 12,
+        "dot1x": 13,
+        "essm": 14,
+        "l2ald": 15,
+        "gre": 16,
+        "vlanOob": 17,
+        "hagTunnel": 18,
+        "hagBundle": 19,
+        "fwa": 20
+      }
+    },
+    "status": "current"
+  },
+  "jnxSubscriberObjects": {
+    "name": "jnxSubscriberObjects",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1",
+    "class": "objectidentity"
+  },
+  "jnxSubscriberGeneral": {
+    "name": "jnxSubscriberGeneral",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1",
+    "class": "objectidentity"
+  },
+  "jnxSubscriberLogicalSystemObjects": {
+    "name": "jnxSubscriberLogicalSystemObjects",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.2",
+    "class": "objectidentity"
+  },
+  "jnxSubscriberRoutingInstanceObjects": {
+    "name": "jnxSubscriberRoutingInstanceObjects",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.3",
+    "class": "objectidentity"
+  },
+  "jnxSubscriberTotalCount": {
+    "name": "jnxSubscriberTotalCount",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberActiveCount": {
+    "name": "jnxSubscriberActiveCount",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberTable": {
+    "name": "jnxSubscriberTable",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSubscriberInterfaceHardwareIndexTable": {
+    "name": "jnxSubscriberInterfaceHardwareIndexTable",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSubscriberPortCountTable": {
+    "name": "jnxSubscriberPortCountTable",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSubscriberAccountingTable": {
+    "name": "jnxSubscriberAccountingTable",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSubscriberAccountingTotalCount": {
+    "name": "jnxSubscriberAccountingTotalCount",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberPicCountTable": {
+    "name": "jnxSubscriberPicCountTable",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSubscriberSlotCountTable": {
+    "name": "jnxSubscriberSlotCountTable",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSubscriberInterfaceHardwareIndexEntry": {
+    "name": "jnxSubscriberInterfaceHardwareIndexEntry",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-SUBSCRIBER-MIB",
+        "object": "jnxSubscriberInterfaceHardwareIndexHandleHiWord",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SUBSCRIBER-MIB",
+        "object": "jnxSubscriberInterfaceHardwareIndexHandleLoWord",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSubscriberInterfaceHardwareIndexHandleHiWord": {
+    "name": "jnxSubscriberInterfaceHardwareIndexHandleHiWord",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSubscriberInterfaceHardwareIndexHandleLoWord": {
+    "name": "jnxSubscriberInterfaceHardwareIndexHandleLoWord",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSubscriberInterfaceHardwareIndex": {
+    "name": "jnxSubscriberInterfaceHardwareIndex",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberEntry": {
+    "name": "jnxSubscriberEntry",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-SUBSCRIBER-MIB",
+        "object": "jnxSubscriberHandleHiWord",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SUBSCRIBER-MIB",
+        "object": "jnxSubscriberHandleLoWord",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSubscriberHandleHiWord": {
+    "name": "jnxSubscriberHandleHiWord",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSubscriberHandleLoWord": {
+    "name": "jnxSubscriberHandleLoWord",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSubscriberUserName": {
+    "name": "jnxSubscriberUserName",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberClientType": {
+    "name": "jnxSubscriberClientType",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSubscriberClientType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberIpAddress": {
+    "name": "jnxSubscriberIpAddress",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberIpAddressMask": {
+    "name": "jnxSubscriberIpAddressMask",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberLogicalSystem": {
+    "name": "jnxSubscriberLogicalSystem",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberRoutingInstance": {
+    "name": "jnxSubscriberRoutingInstance",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberInterface": {
+    "name": "jnxSubscriberInterface",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberInterfaceType": {
+    "name": "jnxSubscriberInterfaceType",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberMacAddress": {
+    "name": "jnxSubscriberMacAddress",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberState": {
+    "name": "jnxSubscriberState",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSubscriberState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberLoginTime": {
+    "name": "jnxSubscriberLoginTime",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberAcctSessionId": {
+    "name": "jnxSubscriberAcctSessionId",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberUnderlyingInterface": {
+    "name": "jnxSubscriberUnderlyingInterface",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberPhysicalInterface": {
+    "name": "jnxSubscriberPhysicalInterface",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberPortCountEntry": {
+    "name": "jnxSubscriberPortCountEntry",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-SUBSCRIBER-MIB",
+        "object": "jnxSubscriberPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSubscriberPort": {
+    "name": "jnxSubscriberPort",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSubscriberPortTunneledCounter": {
+    "name": "jnxSubscriberPortTunneledCounter",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberPortTerminatedCounter": {
+    "name": "jnxSubscriberPortTerminatedCounter",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberPortL2CrossConnectCounter": {
+    "name": "jnxSubscriberPortL2CrossConnectCounter",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberLogicalSystemTotalCount": {
+    "name": "jnxSubscriberLogicalSystemTotalCount",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberLogicalSystemActiveCount": {
+    "name": "jnxSubscriberLogicalSystemActiveCount",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberLogicalSystemTable": {
+    "name": "jnxSubscriberLogicalSystemTable",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSubscriberLogicalSystemEntry": {
+    "name": "jnxSubscriberLogicalSystemEntry",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-SUBSCRIBER-MIB",
+        "object": "jnxSubscriberLogicalSystemHandleHiWord",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SUBSCRIBER-MIB",
+        "object": "jnxSubscriberLogicalSystemHandleLoWord",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSubscriberLogicalSystemHandleHiWord": {
+    "name": "jnxSubscriberLogicalSystemHandleHiWord",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSubscriberLogicalSystemHandleLoWord": {
+    "name": "jnxSubscriberLogicalSystemHandleLoWord",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSubscriberLogicalSystemState": {
+    "name": "jnxSubscriberLogicalSystemState",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSubscriberState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberRoutingInstanceTotalCount": {
+    "name": "jnxSubscriberRoutingInstanceTotalCount",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberRoutingInstanceActiveCount": {
+    "name": "jnxSubscriberRoutingInstanceActiveCount",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberRoutingInstanceTable": {
+    "name": "jnxSubscriberRoutingInstanceTable",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSubscriberRoutingInstanceEntry": {
+    "name": "jnxSubscriberRoutingInstanceEntry",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-SUBSCRIBER-MIB",
+        "object": "jnxSubscriberRoutingInstanceHandleHiWord",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SUBSCRIBER-MIB",
+        "object": "jnxSubscriberRoutingInstanceHandleLoWord",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSubscriberRoutingInstanceHandleHiWord": {
+    "name": "jnxSubscriberRoutingInstanceHandleHiWord",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSubscriberRoutingInstanceHandleLoWord": {
+    "name": "jnxSubscriberRoutingInstanceHandleLoWord",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSubscriberRoutingInstanceState": {
+    "name": "jnxSubscriberRoutingInstanceState",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSubscriberState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberAccountingEntry": {
+    "name": "jnxSubscriberAccountingEntry",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-SUBSCRIBER-MIB",
+        "object": "jnxSubscriberAccountingHandleHiWord",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SUBSCRIBER-MIB",
+        "object": "jnxSubscriberAccountingHandleLoWord",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSubscriberAccountingHandleHiWord": {
+    "name": "jnxSubscriberAccountingHandleHiWord",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSubscriberAccountingHandleLoWord": {
+    "name": "jnxSubscriberAccountingHandleLoWord",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSubscriberAccountingUserName": {
+    "name": "jnxSubscriberAccountingUserName",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberAccountingClientType": {
+    "name": "jnxSubscriberAccountingClientType",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSubscriberClientType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberAccountingIpAddress": {
+    "name": "jnxSubscriberAccountingIpAddress",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberAccountingIpAddressMask": {
+    "name": "jnxSubscriberAccountingIpAddressMask",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberAccountingLogicalSystem": {
+    "name": "jnxSubscriberAccountingLogicalSystem",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberAccountingRoutingInstance": {
+    "name": "jnxSubscriberAccountingRoutingInstance",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberAccountingInterface": {
+    "name": "jnxSubscriberAccountingInterface",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberAccountingInterfaceType": {
+    "name": "jnxSubscriberAccountingInterfaceType",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberAccountingMacAddress": {
+    "name": "jnxSubscriberAccountingMacAddress",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberAccountingState": {
+    "name": "jnxSubscriberAccountingState",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSubscriberState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberAccountingLoginTime": {
+    "name": "jnxSubscriberAccountingLoginTime",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberAccountingAcctSessionId": {
+    "name": "jnxSubscriberAccountingAcctSessionId",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberPicCountEntry": {
+    "name": "jnxSubscriberPicCountEntry",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-SUBSCRIBER-MIB",
+        "object": "jnxSubscriberPic",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSubscriberPic": {
+    "name": "jnxSubscriberPic",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSubscriberPicTotalCounter": {
+    "name": "jnxSubscriberPicTotalCounter",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSubscriberSlotCountEntry": {
+    "name": "jnxSubscriberSlotCountEntry",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-SUBSCRIBER-MIB",
+        "object": "jnxSubscriberSlot",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSubscriberSlot": {
+    "name": "jnxSubscriberSlot",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSubscriberSlotTotalCounter": {
+    "name": "jnxSubscriberSlotTotalCounter",
+    "oid": "1.3.6.1.4.1.2636.3.64.1.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-SUBSCRIBER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-SUBSCRIBER-MIB"
+  }
+}

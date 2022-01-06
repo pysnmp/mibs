@@ -1,0 +1,442 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TruthValue",
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "peplink": {
+    "name": "peplink",
+    "oid": "1.3.6.1.4.1.23695",
+    "class": "objectidentity"
+  },
+  "productMib": {
+    "name": "productMib",
+    "oid": "1.3.6.1.4.1.23695.200",
+    "class": "objectidentity"
+  },
+  "generalMib": {
+    "name": "generalMib",
+    "oid": "1.3.6.1.4.1.23695.200.1",
+    "class": "objectidentity"
+  },
+  "deviceMib": {
+    "name": "deviceMib",
+    "oid": "1.3.6.1.4.1.23695.200.1.1",
+    "class": "objectidentity"
+  },
+  "deviceInfo": {
+    "name": "deviceInfo",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1",
+    "class": "moduleidentity"
+  },
+  "deviceInfoSystem": {
+    "name": "deviceInfoSystem",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "deviceModel": {
+    "name": "deviceModel",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceSerialNumber": {
+    "name": "deviceSerialNumber",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceFirmwareVersion": {
+    "name": "deviceFirmwareVersion",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceInfoTime": {
+    "name": "deviceInfoTime",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "deviceSystemTime": {
+    "name": "deviceSystemTime",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceSystemUpTime": {
+    "name": "deviceSystemUpTime",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceInfoUsage": {
+    "name": "deviceInfoUsage",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.3",
+    "class": "objectidentity"
+  },
+  "deviceCpuLoad": {
+    "name": "deviceCpuLoad",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceTotalMemory": {
+    "name": "deviceTotalMemory",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceMemoryUsage": {
+    "name": "deviceMemoryUsage",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceInfoHardware": {
+    "name": "deviceInfoHardware",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.4",
+    "class": "objectidentity"
+  },
+  "devicePSUTable": {
+    "name": "devicePSUTable",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "devicePSUEntry": {
+    "name": "devicePSUEntry",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DEVICE",
+        "object": "devicePSUId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "devicePSUId": {
+    "name": "devicePSUId",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devicePSUStatus": {
+    "name": "devicePSUStatus",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceCurrentPower": {
+    "name": "deviceCurrentPower",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceMaxPower": {
+    "name": "deviceMaxPower",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devicePSUPercentage": {
+    "name": "devicePSUPercentage",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceFanTable": {
+    "name": "deviceFanTable",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "deviceFanEntry": {
+    "name": "deviceFanEntry",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DEVICE",
+        "object": "deviceFanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "deviceFanId": {
+    "name": "deviceFanId",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceFanStatus": {
+    "name": "deviceFanStatus",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceFanSpeed": {
+    "name": "deviceFanSpeed",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devicePowerSourceTable": {
+    "name": "devicePowerSourceTable",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "devicePowerSourceEntry": {
+    "name": "devicePowerSourceEntry",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DEVICE",
+        "object": "devicePowerSourceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "devicePowerSourceId": {
+    "name": "devicePowerSourceId",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devicePowerSourceName": {
+    "name": "devicePowerSourceName",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devicePowerSourceStatus": {
+    "name": "devicePowerSourceStatus",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noCableDetected": 0,
+          "connected": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceInfoTemperature": {
+    "name": "deviceInfoTemperature",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.4.4",
+    "class": "objectidentity"
+  },
+  "deviceTemperatureCelsius": {
+    "name": "deviceTemperatureCelsius",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.4.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "mC",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceTemperatureFahrenheit": {
+    "name": "deviceTemperatureFahrenheit",
+    "oid": "1.3.6.1.4.1.23695.200.1.1.1.4.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "mF",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/peplink/DEVICE",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:46:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DEVICE"
+  }
+}

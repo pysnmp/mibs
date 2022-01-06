@@ -1,0 +1,1331 @@
+{
+  "imports": {
+    "class": "imports",
+    "BENU-WAG-MIB": [
+      "benuWAG"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "benuTWagStatsMIB": {
+    "name": "benuTWagStatsMIB",
+    "oid": "1.3.6.1.4.1.39406.2.1.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-07-19 00:00",
+        "description": "Initial Version"
+      },
+      {
+        "revision": "2016-07-27 00:00",
+        "description": "Added counter bTWagPmip6DeletedDueToLmaInitBriMsg to indicate subs del by lma"
+      }
+    ]
+  },
+  "bTWagNotifications": {
+    "name": "bTWagNotifications",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bTWagS2aSubscriberMIBObjects": {
+    "name": "bTWagS2aSubscriberMIBObjects",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bTWagS2aSubscriberNotifObjects": {
+    "name": "bTWagS2aSubscriberNotifObjects",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bTWagS2aStatsMIBObjects": {
+    "name": "bTWagS2aStatsMIBObjects",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bTWagS2aNotifObjects": {
+    "name": "bTWagS2aNotifObjects",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bTWagGTPStatsMIBObjects": {
+    "name": "bTWagGTPStatsMIBObjects",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bTWagGTPNotifObjects": {
+    "name": "bTWagGTPNotifObjects",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bTWagGnGpSubscriberMIBObjects": {
+    "name": "bTWagGnGpSubscriberMIBObjects",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bTWagGnGpSubscriberNotifObjects": {
+    "name": "bTWagGnGpSubscriberNotifObjects",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bTWagGnGpStatsMIBObjects": {
+    "name": "bTWagGnGpStatsMIBObjects",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bTWagGnGpNotifObjects": {
+    "name": "bTWagGnGpNotifObjects",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bTWagPmip6MIBObjects": {
+    "name": "bTWagPmip6MIBObjects",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bTWagGTPCurrentNumOfTunnels": {
+    "name": "bTWagGTPCurrentNumOfTunnels",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagNumCurrentSecureSSIDS2aSubscribers": {
+    "name": "bTWagNumCurrentSecureSSIDS2aSubscribers",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagNumPreAuthenticatedS2aSubscribers": {
+    "name": "bTWagNumPreAuthenticatedS2aSubscribers",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagNumCurrentSecureSSIDGnGpSubscribers": {
+    "name": "bTWagNumCurrentSecureSSIDGnGpSubscribers",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagNumPreAuthenticatedGnGpSubscribers": {
+    "name": "bTWagNumPreAuthenticatedGnGpSubscribers",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagNumPreAuthenticatedPmip6Subscribers": {
+    "name": "bTWagNumPreAuthenticatedPmip6Subscribers",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagNumGrePmip6Tunnels": {
+    "name": "bTWagNumGrePmip6Tunnels",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagPmip6StatsTable": {
+    "name": "bTWagPmip6StatsTable",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.11.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bTWagPmip6StatsEntry": {
+    "name": "bTWagPmip6StatsEntry",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.11.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BENU-TWAG-STATS-MIB",
+        "object": "bTWagPmip6StatsInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bTWagPmip6StatsInterval": {
+    "name": "bTWagPmip6StatsInterval",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.11.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bTWagPmip6IntervalDuration": {
+    "name": "bTWagPmip6IntervalDuration",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.11.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagPmip6TotalPacketsRxvd": {
+    "name": "bTWagPmip6TotalPacketsRxvd",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.11.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagPmip6TotalPacketsRxvdError": {
+    "name": "bTWagPmip6TotalPacketsRxvdError",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.11.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagPmip6TotalPacketHeaderDecodeError": {
+    "name": "bTWagPmip6TotalPacketHeaderDecodeError",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.11.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagPmip6TotalPbuSent": {
+    "name": "bTWagPmip6TotalPbuSent",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.11.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagPmip6TotalPbuSendError": {
+    "name": "bTWagPmip6TotalPbuSendError",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.11.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagPmip6TotalPbaReceived": {
+    "name": "bTWagPmip6TotalPbaReceived",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.11.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagPmip6TotalBriReceived": {
+    "name": "bTWagPmip6TotalBriReceived",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.11.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagPmip6TotalBraSent": {
+    "name": "bTWagPmip6TotalBraSent",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.11.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagPmip6HeartBeatReqSent": {
+    "name": "bTWagPmip6HeartBeatReqSent",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.11.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagPmip6HeartBeatRspSent": {
+    "name": "bTWagPmip6HeartBeatRspSent",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.11.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagPmip6HeartBeatReqRestartCountMismatch": {
+    "name": "bTWagPmip6HeartBeatReqRestartCountMismatch",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.11.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagPmip6HeartBeatReqSeqMismatch": {
+    "name": "bTWagPmip6HeartBeatReqSeqMismatch",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.11.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagPmip6DeletedDueToLmaInitBriMsg": {
+    "name": "bTWagPmip6DeletedDueToLmaInitBriMsg",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.11.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aSubscriberTable": {
+    "name": "bTWagS2aSubscriberTable",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bTWagS2aSubscriberEntry": {
+    "name": "bTWagS2aSubscriberEntry",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BENU-TWAG-STATS-MIB",
+        "object": "bTWagS2aSubsStatsInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bTWagS2aSubsStatsInterval": {
+    "name": "bTWagS2aSubsStatsInterval",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bTWagS2aSubsIntervalDuration": {
+    "name": "bTWagS2aSubsIntervalDuration",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagSecureSSIDS2aSubsAdded": {
+    "name": "bTWagSecureSSIDS2aSubsAdded",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagPreAuthenticatedS2aSubsAdded": {
+    "name": "bTWagPreAuthenticatedS2aSubsAdded",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aSubsDeletionsByDMinitiatedByPGW": {
+    "name": "bTWagS2aSubsDeletionsByDMinitiatedByPGW",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aSubsGtpSessionCreateFailed": {
+    "name": "bTWagS2aSubsGtpSessionCreateFailed",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aSubsCSRQSendFailed": {
+    "name": "bTWagS2aSubsCSRQSendFailed",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aSubsInvalidGtpVersion": {
+    "name": "bTWagS2aSubsInvalidGtpVersion",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aSubsRadiusMissingMandatoryParams": {
+    "name": "bTWagS2aSubsRadiusMissingMandatoryParams",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aSubsRadiusInvalidPGWIPAddr": {
+    "name": "bTWagS2aSubsRadiusInvalidPGWIPAddr",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aSubsRadiusMSISDN": {
+    "name": "bTWagS2aSubsRadiusMSISDN",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aSubsRadiusQoSProfile": {
+    "name": "bTWagS2aSubsRadiusQoSProfile",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aSubsRadiusGBRQoS": {
+    "name": "bTWagS2aSubsRadiusGBRQoS",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aSubsRadiusNonGBRQoS": {
+    "name": "bTWagS2aSubsRadiusNonGBRQoS",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aSubsGtpIPAddFailed": {
+    "name": "bTWagS2aSubsGtpIPAddFailed",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aSubsRadiusEapAkaHash": {
+    "name": "bTWagS2aSubsRadiusEapAkaHash",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aTable": {
+    "name": "bTWagS2aTable",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bTWagS2aEntry": {
+    "name": "bTWagS2aEntry",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BENU-TWAG-STATS-MIB",
+        "object": "bTWagS2aStatsInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bTWagS2aStatsInterval": {
+    "name": "bTWagS2aStatsInterval",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bTWagS2aIntervalDuration": {
+    "name": "bTWagS2aIntervalDuration",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aSessCreateReqSent": {
+    "name": "bTWagS2aSessCreateReqSent",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aSessCreateRespRcvd": {
+    "name": "bTWagS2aSessCreateRespRcvd",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aSessCreateRespAccepted": {
+    "name": "bTWagS2aSessCreateRespAccepted",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aSessCreateRespRej": {
+    "name": "bTWagS2aSessCreateRespRej",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aSessDelReqSent": {
+    "name": "bTWagS2aSessDelReqSent",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aSessDelRespRcvd": {
+    "name": "bTWagS2aSessDelRespRcvd",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aSessDelRespRejRcvd": {
+    "name": "bTWagS2aSessDelRespRejRcvd",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aDBRQRcvd": {
+    "name": "bTWagS2aDBRQRcvd",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aDBRPSent": {
+    "name": "bTWagS2aDBRPSent",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aCBRQRcvd": {
+    "name": "bTWagS2aCBRQRcvd",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aCBRPSent": {
+    "name": "bTWagS2aCBRPSent",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aUBRQRcvd": {
+    "name": "bTWagS2aUBRQRcvd",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagS2aUBRPSent": {
+    "name": "bTWagS2aUBRPSent",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpSubscriberTable": {
+    "name": "bTWagGnGpSubscriberTable",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bTWagGnGpSubscriberEntry": {
+    "name": "bTWagGnGpSubscriberEntry",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BENU-TWAG-STATS-MIB",
+        "object": "bTWagGnGpSubsStatsInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bTWagGnGpSubsStatsInterval": {
+    "name": "bTWagGnGpSubsStatsInterval",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bTWagGnGpSubsIntervalDuration": {
+    "name": "bTWagGnGpSubsIntervalDuration",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagSecureSSIDGnGpSubsAdded": {
+    "name": "bTWagSecureSSIDGnGpSubsAdded",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagPreAuthenticatedGnGpSubsAdded": {
+    "name": "bTWagPreAuthenticatedGnGpSubsAdded",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.7.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpSubsDeletionsByDMinitiatedByGGSN": {
+    "name": "bTWagGnGpSubsDeletionsByDMinitiatedByGGSN",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.7.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpSubsGtpSessionCreateFailed": {
+    "name": "bTWagGnGpSubsGtpSessionCreateFailed",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.7.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpSubsCPCRQSendFailed": {
+    "name": "bTWagGnGpSubsCPCRQSendFailed",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.7.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpSubsPDPCtxSendFailed": {
+    "name": "bTWagGnGpSubsPDPCtxSendFailed",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.7.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpSubsInvalidGtpVersion": {
+    "name": "bTWagGnGpSubsInvalidGtpVersion",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.7.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpSubsRadiusMissingMandatoryParams": {
+    "name": "bTWagGnGpSubsRadiusMissingMandatoryParams",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.7.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpSubsRadiusInvalidGGSNIPAddr": {
+    "name": "bTWagGnGpSubsRadiusInvalidGGSNIPAddr",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.7.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpSubsRadiusMSISDN": {
+    "name": "bTWagGnGpSubsRadiusMSISDN",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.7.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpSubsRadiusQoSProfile": {
+    "name": "bTWagGnGpSubsRadiusQoSProfile",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.7.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpSubsRadiusGBRQoS": {
+    "name": "bTWagGnGpSubsRadiusGBRQoS",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.7.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpSubsRadiusNonGBRQoS": {
+    "name": "bTWagGnGpSubsRadiusNonGBRQoS",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.7.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpSubsGtpIPAddFailed": {
+    "name": "bTWagGnGpSubsGtpIPAddFailed",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.7.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpSubsRadiusEapAkaHash": {
+    "name": "bTWagGnGpSubsRadiusEapAkaHash",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.7.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpTable": {
+    "name": "bTWagGnGpTable",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bTWagGnGpEntry": {
+    "name": "bTWagGnGpEntry",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BENU-TWAG-STATS-MIB",
+        "object": "bTWagGnGpStatsInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bTWagGnGpStatsInterval": {
+    "name": "bTWagGnGpStatsInterval",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bTWagGnGpIntervalDuration": {
+    "name": "bTWagGnGpIntervalDuration",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpCPCRQSent": {
+    "name": "bTWagGnGpCPCRQSent",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpCPCRPRcvd": {
+    "name": "bTWagGnGpCPCRPRcvd",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpCPCRPAccepted": {
+    "name": "bTWagGnGpCPCRPAccepted",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpCPCRPRej": {
+    "name": "bTWagGnGpCPCRPRej",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpDPCRQSent": {
+    "name": "bTWagGnGpDPCRQSent",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.9.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpDPCRPRcvd": {
+    "name": "bTWagGnGpDPCRPRcvd",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.9.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpDPCRPRejRcvd": {
+    "name": "bTWagGnGpDPCRPRejRcvd",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.9.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpDPCRQRcvd": {
+    "name": "bTWagGnGpDPCRQRcvd",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.9.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpDPCRPSent": {
+    "name": "bTWagGnGpDPCRPSent",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.9.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpCPCRQRcvd": {
+    "name": "bTWagGnGpCPCRQRcvd",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.9.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpCPCRPSent": {
+    "name": "bTWagGnGpCPCRPSent",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.9.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpUPCRQRcvd": {
+    "name": "bTWagGnGpUPCRQRcvd",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.9.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGnGpUPCRPSent": {
+    "name": "bTWagGnGpUPCRPSent",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.9.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bTWagGTPMaxNumOfTunnels": {
+    "name": "bTWagGTPMaxNumOfTunnels",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "bTWagGTPHighThreshold": {
+    "name": "bTWagGTPHighThreshold",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "bTWagGTPLowThreshold": {
+    "name": "bTWagGTPLowThreshold",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "bTWagGTPHighThresholdReached": {
+    "name": "bTWagGTPHighThresholdReached",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BENU-TWAG-STATS-MIB",
+        "object": "bTWagGTPMaxNumOfTunnels"
+      },
+      {
+        "module": "BENU-TWAG-STATS-MIB",
+        "object": "bTWagGTPHighThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "bTWagGTPLowThresholdReached": {
+    "name": "bTWagGTPLowThresholdReached",
+    "oid": "1.3.6.1.4.1.39406.2.1.7.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BENU-TWAG-STATS-MIB",
+        "object": "bTWagGTPMaxNumOfTunnels"
+      },
+      {
+        "module": "BENU-TWAG-STATS-MIB",
+        "object": "bTWagGTPLowThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-TWAG-STATS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BENU-TWAG-STATS-MIB"
+  }
+}

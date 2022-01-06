@@ -1,0 +1,7567 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-MEDIA-GATEWAY-MIB": [
+      "cmgwIndex"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeInterval",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIpSecFlowMonitorMIB": {
+    "name": "ciscoIpSecFlowMonitorMIB",
+    "oid": "1.3.6.1.4.1.9.9.171",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-10-24 00:00",
+        "description": "In the description of cipSecTunHistHcInDecompOctets, cipSecTunHcInOctets has been changed to cipSecTunHistHcInOctets. In the description of cipSecTunHistOutUncompOctets, cipSecTunOutOctets has been changed to cipSecTunHistOutOctets. In the description of cipSecTunHistHcOutUncompOctets, cipSecTunHcOutOctets has been changed to cipSecTunHistHcOutOctets. In the description of cipSecTunHistInDecompOctets, cipSecTunInOctets has been changed to cipSecTunHistInOctets."
+      },
+      {
+        "revision": "2004-10-12 00:00",
+        "description": "Added two table for media gateway stats information: cikePhase1GWStatsTable (phase-1 IKE) cipSecPhase2GWStatsTable (phase-2 IPsec)"
+      },
+      {
+        "revision": "2000-10-13 18:00",
+        "description": "Changed cipSecSpiValue to Unsigned32. Changed Protocol ranges to start at 0 instead of 1. Removed comment(s) incorrectly indicating this MIB was CiscoExperiment."
+      },
+      {
+        "revision": "2000-08-17 12:59",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "IPSIpAddress": {
+    "name": "IPSIpAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "IkePeerType": {
+    "name": "IkePeerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipAddrPeer": 1,
+          "namePeer": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IkeNegoMode": {
+    "name": "IkeNegoMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "main": 1,
+          "aggressive": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IkeHashAlgo": {
+    "name": "IkeHashAlgo",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "md5": 2,
+          "sha": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IkeAuthMethod": {
+    "name": "IkeAuthMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "preSharedKey": 2,
+          "rsaSig": 3,
+          "rsaEncrypt": 4,
+          "revPublicKey": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DiffHellmanGrp": {
+    "name": "DiffHellmanGrp",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "dhGroup1": 2,
+          "dhGroup2": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "KeyType": {
+    "name": "KeyType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ike": 1,
+          "manual": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EncapMode": {
+    "name": "EncapMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tunnel": 1,
+          "transport": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EncryptAlgo": {
+    "name": "EncryptAlgo",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "des": 2,
+          "des3": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AuthAlgo": {
+    "name": "AuthAlgo",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "hmacMd5": 2,
+          "hmacSha": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CompAlgo": {
+    "name": "CompAlgo",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "ldf": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EndPtType": {
+    "name": "EndPtType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singleIpAddr": 1,
+          "ipAddrRange": 2,
+          "ipSubnet": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TunnelStatus": {
+    "name": "TunnelStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "destroy": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TrapStatus": {
+    "name": "TrapStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cipSecMIBObjects": {
+    "name": "cipSecMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.171.1",
+    "class": "objectidentity"
+  },
+  "cipSecLevels": {
+    "name": "cipSecLevels",
+    "oid": "1.3.6.1.4.1.9.9.171.1.1",
+    "class": "objectidentity"
+  },
+  "cipSecPhaseOne": {
+    "name": "cipSecPhaseOne",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2",
+    "class": "objectidentity"
+  },
+  "cipSecPhaseTwo": {
+    "name": "cipSecPhaseTwo",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3",
+    "class": "objectidentity"
+  },
+  "cipSecHistory": {
+    "name": "cipSecHistory",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4",
+    "class": "objectidentity"
+  },
+  "cipSecFailures": {
+    "name": "cipSecFailures",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5",
+    "class": "objectidentity"
+  },
+  "cipSecTrapCntl": {
+    "name": "cipSecTrapCntl",
+    "oid": "1.3.6.1.4.1.9.9.171.1.6",
+    "class": "objectidentity"
+  },
+  "cipSecMibLevel": {
+    "name": "cipSecMibLevel",
+    "oid": "1.3.6.1.4.1.9.9.171.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalStats": {
+    "name": "cikeGlobalStats",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1",
+    "class": "objectidentity"
+  },
+  "cikeGlobalActiveTunnels": {
+    "name": "cikeGlobalActiveTunnels",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalPreviousTunnels": {
+    "name": "cikeGlobalPreviousTunnels",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SAs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalInOctets": {
+    "name": "cikeGlobalInOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalInPkts": {
+    "name": "cikeGlobalInPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalInDropPkts": {
+    "name": "cikeGlobalInDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalInNotifys": {
+    "name": "cikeGlobalInNotifys",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Notification Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalInP2Exchgs": {
+    "name": "cikeGlobalInP2Exchgs",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalInP2ExchgInvalids": {
+    "name": "cikeGlobalInP2ExchgInvalids",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalInP2ExchgRejects": {
+    "name": "cikeGlobalInP2ExchgRejects",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalInP2SaDelRequests": {
+    "name": "cikeGlobalInP2SaDelRequests",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Notification Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalOutOctets": {
+    "name": "cikeGlobalOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalOutPkts": {
+    "name": "cikeGlobalOutPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalOutDropPkts": {
+    "name": "cikeGlobalOutDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalOutNotifys": {
+    "name": "cikeGlobalOutNotifys",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Notification Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalOutP2Exchgs": {
+    "name": "cikeGlobalOutP2Exchgs",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalOutP2ExchgInvalids": {
+    "name": "cikeGlobalOutP2ExchgInvalids",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalOutP2ExchgRejects": {
+    "name": "cikeGlobalOutP2ExchgRejects",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalOutP2SaDelRequests": {
+    "name": "cikeGlobalOutP2SaDelRequests",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Notification Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalInitTunnels": {
+    "name": "cikeGlobalInitTunnels",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SAs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalInitTunnelFails": {
+    "name": "cikeGlobalInitTunnelFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SAs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalRespTunnelFails": {
+    "name": "cikeGlobalRespTunnelFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SAs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalSysCapFails": {
+    "name": "cikeGlobalSysCapFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalAuthFails": {
+    "name": "cikeGlobalAuthFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalDecryptFails": {
+    "name": "cikeGlobalDecryptFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalHashValidFails": {
+    "name": "cikeGlobalHashValidFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeGlobalNoSaFails": {
+    "name": "cikeGlobalNoSaFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePeerTable": {
+    "name": "cikePeerTable",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cikePeerEntry": {
+    "name": "cikePeerEntry",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerLocalType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerLocalValue",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerRemoteType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerRemoteValue",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerIntIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cikePeerLocalType": {
+    "name": "cikePeerLocalType",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IkePeerType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cikePeerLocalValue": {
+    "name": "cikePeerLocalValue",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cikePeerRemoteType": {
+    "name": "cikePeerRemoteType",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IkePeerType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cikePeerRemoteValue": {
+    "name": "cikePeerRemoteValue",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cikePeerIntIndex": {
+    "name": "cikePeerIntIndex",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cikePeerLocalAddr": {
+    "name": "cikePeerLocalAddr",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPSIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePeerRemoteAddr": {
+    "name": "cikePeerRemoteAddr",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPSIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePeerActiveTime": {
+    "name": "cikePeerActiveTime",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePeerActiveTunnelIndex": {
+    "name": "cikePeerActiveTunnelIndex",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunnelTable": {
+    "name": "cikeTunnelTable",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cikeTunnelEntry": {
+    "name": "cikeTunnelEntry",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cikeTunIndex": {
+    "name": "cikeTunIndex",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cikeTunLocalType": {
+    "name": "cikeTunLocalType",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IkePeerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunLocalValue": {
+    "name": "cikeTunLocalValue",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunLocalAddr": {
+    "name": "cikeTunLocalAddr",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPSIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunLocalName": {
+    "name": "cikeTunLocalName",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunRemoteType": {
+    "name": "cikeTunRemoteType",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IkePeerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunRemoteValue": {
+    "name": "cikeTunRemoteValue",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunRemoteAddr": {
+    "name": "cikeTunRemoteAddr",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPSIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunRemoteName": {
+    "name": "cikeTunRemoteName",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunNegoMode": {
+    "name": "cikeTunNegoMode",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IkeNegoMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunDiffHellmanGrp": {
+    "name": "cikeTunDiffHellmanGrp",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DiffHellmanGrp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunEncryptAlgo": {
+    "name": "cikeTunEncryptAlgo",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EncryptAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHashAlgo": {
+    "name": "cikeTunHashAlgo",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IkeHashAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunAuthMethod": {
+    "name": "cikeTunAuthMethod",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IkeAuthMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunLifeTime": {
+    "name": "cikeTunLifeTime",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunActiveTime": {
+    "name": "cikeTunActiveTime",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunSaRefreshThreshold": {
+    "name": "cikeTunSaRefreshThreshold",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunTotalRefreshes": {
+    "name": "cikeTunTotalRefreshes",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "QM Exchanges",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunInOctets": {
+    "name": "cikeTunInOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunInPkts": {
+    "name": "cikeTunInPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunInDropPkts": {
+    "name": "cikeTunInDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunInNotifys": {
+    "name": "cikeTunInNotifys",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Notification Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunInP2Exchgs": {
+    "name": "cikeTunInP2Exchgs",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunInP2ExchgInvalids": {
+    "name": "cikeTunInP2ExchgInvalids",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunInP2ExchgRejects": {
+    "name": "cikeTunInP2ExchgRejects",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunInP2SaDelRequests": {
+    "name": "cikeTunInP2SaDelRequests",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Notification Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunOutOctets": {
+    "name": "cikeTunOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunOutPkts": {
+    "name": "cikeTunOutPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunOutDropPkts": {
+    "name": "cikeTunOutDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunOutNotifys": {
+    "name": "cikeTunOutNotifys",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Notification Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunOutP2Exchgs": {
+    "name": "cikeTunOutP2Exchgs",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunOutP2ExchgInvalids": {
+    "name": "cikeTunOutP2ExchgInvalids",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunOutP2ExchgRejects": {
+    "name": "cikeTunOutP2ExchgRejects",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunOutP2SaDelRequests": {
+    "name": "cikeTunOutP2SaDelRequests",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Notification Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunStatus": {
+    "name": "cikeTunStatus",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.3.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TunnelStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cikePeerCorrTable": {
+    "name": "cikePeerCorrTable",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cikePeerCorrEntry": {
+    "name": "cikePeerCorrEntry",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerCorrLocalType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerCorrLocalValue",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerCorrRemoteType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerCorrRemoteValue",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerCorrIntIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerCorrSeqNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cikePeerCorrLocalType": {
+    "name": "cikePeerCorrLocalType",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IkePeerType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cikePeerCorrLocalValue": {
+    "name": "cikePeerCorrLocalValue",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cikePeerCorrRemoteType": {
+    "name": "cikePeerCorrRemoteType",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IkePeerType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cikePeerCorrRemoteValue": {
+    "name": "cikePeerCorrRemoteValue",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cikePeerCorrIntIndex": {
+    "name": "cikePeerCorrIntIndex",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cikePeerCorrSeqNum": {
+    "name": "cikePeerCorrSeqNum",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cikePeerCorrIpSecTunIndex": {
+    "name": "cikePeerCorrIpSecTunIndex",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWStatsTable": {
+    "name": "cikePhase1GWStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cikePhase1GWStatsEntry": {
+    "name": "cikePhase1GWStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIA-GATEWAY-MIB",
+        "object": "cmgwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cikePhase1GWActiveTunnels": {
+    "name": "cikePhase1GWActiveTunnels",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWPreviousTunnels": {
+    "name": "cikePhase1GWPreviousTunnels",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SAs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWInOctets": {
+    "name": "cikePhase1GWInOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWInPkts": {
+    "name": "cikePhase1GWInPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWInDropPkts": {
+    "name": "cikePhase1GWInDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWInNotifys": {
+    "name": "cikePhase1GWInNotifys",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Notification Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWInP2Exchgs": {
+    "name": "cikePhase1GWInP2Exchgs",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWInP2ExchgInvalids": {
+    "name": "cikePhase1GWInP2ExchgInvalids",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWInP2ExchgRejects": {
+    "name": "cikePhase1GWInP2ExchgRejects",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWInP2SaDelRequests": {
+    "name": "cikePhase1GWInP2SaDelRequests",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Notification Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWOutOctets": {
+    "name": "cikePhase1GWOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWOutPkts": {
+    "name": "cikePhase1GWOutPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWOutDropPkts": {
+    "name": "cikePhase1GWOutDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWOutNotifys": {
+    "name": "cikePhase1GWOutNotifys",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Notification Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWOutP2Exchgs": {
+    "name": "cikePhase1GWOutP2Exchgs",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWOutP2ExchgInvalids": {
+    "name": "cikePhase1GWOutP2ExchgInvalids",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWOutP2ExchgRejects": {
+    "name": "cikePhase1GWOutP2ExchgRejects",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWOutP2SaDelRequests": {
+    "name": "cikePhase1GWOutP2SaDelRequests",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Notification Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWInitTunnels": {
+    "name": "cikePhase1GWInitTunnels",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SAs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWInitTunnelFails": {
+    "name": "cikePhase1GWInitTunnelFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SAs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWRespTunnelFails": {
+    "name": "cikePhase1GWRespTunnelFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SAs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWSysCapFails": {
+    "name": "cikePhase1GWSysCapFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWAuthFails": {
+    "name": "cikePhase1GWAuthFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWDecryptFails": {
+    "name": "cikePhase1GWDecryptFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWHashValidFails": {
+    "name": "cikePhase1GWHashValidFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikePhase1GWNoSaFails": {
+    "name": "cikePhase1GWNoSaFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.2.5.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalStats": {
+    "name": "cipSecGlobalStats",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1",
+    "class": "objectidentity"
+  },
+  "cipSecGlobalActiveTunnels": {
+    "name": "cipSecGlobalActiveTunnels",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalPreviousTunnels": {
+    "name": "cipSecGlobalPreviousTunnels",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Phase-2 Tunnels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalInOctets": {
+    "name": "cipSecGlobalInOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalHcInOctets": {
+    "name": "cipSecGlobalHcInOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalInOctWraps": {
+    "name": "cipSecGlobalInOctWraps",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Integral units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalInDecompOctets": {
+    "name": "cipSecGlobalInDecompOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalHcInDecompOctets": {
+    "name": "cipSecGlobalHcInDecompOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalInDecompOctWraps": {
+    "name": "cipSecGlobalInDecompOctWraps",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Integral units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalInPkts": {
+    "name": "cipSecGlobalInPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalInDrops": {
+    "name": "cipSecGlobalInDrops",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalInReplayDrops": {
+    "name": "cipSecGlobalInReplayDrops",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalInAuths": {
+    "name": "cipSecGlobalInAuths",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalInAuthFails": {
+    "name": "cipSecGlobalInAuthFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalInDecrypts": {
+    "name": "cipSecGlobalInDecrypts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalInDecryptFails": {
+    "name": "cipSecGlobalInDecryptFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalOutOctets": {
+    "name": "cipSecGlobalOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalHcOutOctets": {
+    "name": "cipSecGlobalHcOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalOutOctWraps": {
+    "name": "cipSecGlobalOutOctWraps",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Integral units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalOutUncompOctets": {
+    "name": "cipSecGlobalOutUncompOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalHcOutUncompOctets": {
+    "name": "cipSecGlobalHcOutUncompOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalOutUncompOctWraps": {
+    "name": "cipSecGlobalOutUncompOctWraps",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Integral units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalOutPkts": {
+    "name": "cipSecGlobalOutPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalOutDrops": {
+    "name": "cipSecGlobalOutDrops",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalOutAuths": {
+    "name": "cipSecGlobalOutAuths",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalOutAuthFails": {
+    "name": "cipSecGlobalOutAuthFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalOutEncrypts": {
+    "name": "cipSecGlobalOutEncrypts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalOutEncryptFails": {
+    "name": "cipSecGlobalOutEncryptFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalProtocolUseFails": {
+    "name": "cipSecGlobalProtocolUseFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalNoSaFails": {
+    "name": "cipSecGlobalNoSaFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecGlobalSysCapFails": {
+    "name": "cipSecGlobalSysCapFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunnelTable": {
+    "name": "cipSecTunnelTable",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipSecTunnelEntry": {
+    "name": "cipSecTunnelEntry",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipSecTunIndex": {
+    "name": "cipSecTunIndex",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipSecTunIkeTunnelIndex": {
+    "name": "cipSecTunIkeTunnelIndex",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunIkeTunnelAlive": {
+    "name": "cipSecTunIkeTunnelAlive",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunLocalAddr": {
+    "name": "cipSecTunLocalAddr",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPSIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunRemoteAddr": {
+    "name": "cipSecTunRemoteAddr",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPSIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunKeyType": {
+    "name": "cipSecTunKeyType",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "KeyType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunEncapMode": {
+    "name": "cipSecTunEncapMode",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EncapMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunLifeSize": {
+    "name": "cipSecTunLifeSize",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunLifeTime": {
+    "name": "cipSecTunLifeTime",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunActiveTime": {
+    "name": "cipSecTunActiveTime",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunSaLifeSizeThreshold": {
+    "name": "cipSecTunSaLifeSizeThreshold",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunSaLifeTimeThreshold": {
+    "name": "cipSecTunSaLifeTimeThreshold",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunTotalRefreshes": {
+    "name": "cipSecTunTotalRefreshes",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "QM Exchanges",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunExpiredSaInstances": {
+    "name": "cipSecTunExpiredSaInstances",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SAs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunCurrentSaInstances": {
+    "name": "cipSecTunCurrentSaInstances",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunInSaDiffHellmanGrp": {
+    "name": "cipSecTunInSaDiffHellmanGrp",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DiffHellmanGrp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunInSaEncryptAlgo": {
+    "name": "cipSecTunInSaEncryptAlgo",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EncryptAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunInSaAhAuthAlgo": {
+    "name": "cipSecTunInSaAhAuthAlgo",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AuthAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunInSaEspAuthAlgo": {
+    "name": "cipSecTunInSaEspAuthAlgo",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AuthAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunInSaDecompAlgo": {
+    "name": "cipSecTunInSaDecompAlgo",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CompAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunOutSaDiffHellmanGrp": {
+    "name": "cipSecTunOutSaDiffHellmanGrp",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DiffHellmanGrp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunOutSaEncryptAlgo": {
+    "name": "cipSecTunOutSaEncryptAlgo",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EncryptAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunOutSaAhAuthAlgo": {
+    "name": "cipSecTunOutSaAhAuthAlgo",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AuthAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunOutSaEspAuthAlgo": {
+    "name": "cipSecTunOutSaEspAuthAlgo",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AuthAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunOutSaCompAlgo": {
+    "name": "cipSecTunOutSaCompAlgo",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CompAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunInOctets": {
+    "name": "cipSecTunInOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHcInOctets": {
+    "name": "cipSecTunHcInOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunInOctWraps": {
+    "name": "cipSecTunInOctWraps",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Integral units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunInDecompOctets": {
+    "name": "cipSecTunInDecompOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHcInDecompOctets": {
+    "name": "cipSecTunHcInDecompOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunInDecompOctWraps": {
+    "name": "cipSecTunInDecompOctWraps",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Integral units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunInPkts": {
+    "name": "cipSecTunInPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunInDropPkts": {
+    "name": "cipSecTunInDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunInReplayDropPkts": {
+    "name": "cipSecTunInReplayDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunInAuths": {
+    "name": "cipSecTunInAuths",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunInAuthFails": {
+    "name": "cipSecTunInAuthFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunInDecrypts": {
+    "name": "cipSecTunInDecrypts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunInDecryptFails": {
+    "name": "cipSecTunInDecryptFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunOutOctets": {
+    "name": "cipSecTunOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHcOutOctets": {
+    "name": "cipSecTunHcOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunOutOctWraps": {
+    "name": "cipSecTunOutOctWraps",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Integral units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunOutUncompOctets": {
+    "name": "cipSecTunOutUncompOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHcOutUncompOctets": {
+    "name": "cipSecTunHcOutUncompOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunOutUncompOctWraps": {
+    "name": "cipSecTunOutUncompOctWraps",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Integral units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunOutPkts": {
+    "name": "cipSecTunOutPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunOutDropPkts": {
+    "name": "cipSecTunOutDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunOutAuths": {
+    "name": "cipSecTunOutAuths",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunOutAuthFails": {
+    "name": "cipSecTunOutAuthFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunOutEncrypts": {
+    "name": "cipSecTunOutEncrypts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunOutEncryptFails": {
+    "name": "cipSecTunOutEncryptFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunStatus": {
+    "name": "cipSecTunStatus",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TunnelStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipSecEndPtTable": {
+    "name": "cipSecEndPtTable",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipSecEndPtEntry": {
+    "name": "cipSecEndPtEntry",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipSecEndPtIndex": {
+    "name": "cipSecEndPtIndex",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipSecEndPtLocalName": {
+    "name": "cipSecEndPtLocalName",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtLocalType": {
+    "name": "cipSecEndPtLocalType",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EndPtType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtLocalAddr1": {
+    "name": "cipSecEndPtLocalAddr1",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPSIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtLocalAddr2": {
+    "name": "cipSecEndPtLocalAddr2",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPSIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtLocalProtocol": {
+    "name": "cipSecEndPtLocalProtocol",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtLocalPort": {
+    "name": "cipSecEndPtLocalPort",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtRemoteName": {
+    "name": "cipSecEndPtRemoteName",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtRemoteType": {
+    "name": "cipSecEndPtRemoteType",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EndPtType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtRemoteAddr1": {
+    "name": "cipSecEndPtRemoteAddr1",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPSIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtRemoteAddr2": {
+    "name": "cipSecEndPtRemoteAddr2",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPSIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtRemoteProtocol": {
+    "name": "cipSecEndPtRemoteProtocol",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtRemotePort": {
+    "name": "cipSecEndPtRemotePort",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecSpiTable": {
+    "name": "cipSecSpiTable",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipSecSpiEntry": {
+    "name": "cipSecSpiEntry",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecSpiIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipSecSpiIndex": {
+    "name": "cipSecSpiIndex",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipSecSpiDirection": {
+    "name": "cipSecSpiDirection",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in": 1,
+          "out": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecSpiValue": {
+    "name": "cipSecSpiValue",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecSpiProtocol": {
+    "name": "cipSecSpiProtocol",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ah": 1,
+          "esp": 2,
+          "ipcomp": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecSpiStatus": {
+    "name": "cipSecSpiStatus",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "expiring": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWStatsTable": {
+    "name": "cipSecPhase2GWStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipSecPhase2GWStatsEntry": {
+    "name": "cipSecPhase2GWStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIA-GATEWAY-MIB",
+        "object": "cmgwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipSecPhase2GWActiveTunnels": {
+    "name": "cipSecPhase2GWActiveTunnels",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWPreviousTunnels": {
+    "name": "cipSecPhase2GWPreviousTunnels",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Phase-2 Tunnels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWInOctets": {
+    "name": "cipSecPhase2GWInOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWInOctWraps": {
+    "name": "cipSecPhase2GWInOctWraps",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Integral units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWInDecompOctets": {
+    "name": "cipSecPhase2GWInDecompOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWInDecompOctWraps": {
+    "name": "cipSecPhase2GWInDecompOctWraps",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Integral units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWInPkts": {
+    "name": "cipSecPhase2GWInPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWInDrops": {
+    "name": "cipSecPhase2GWInDrops",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWInReplayDrops": {
+    "name": "cipSecPhase2GWInReplayDrops",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWInAuths": {
+    "name": "cipSecPhase2GWInAuths",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWInAuthFails": {
+    "name": "cipSecPhase2GWInAuthFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWInDecrypts": {
+    "name": "cipSecPhase2GWInDecrypts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWInDecryptFails": {
+    "name": "cipSecPhase2GWInDecryptFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWOutOctets": {
+    "name": "cipSecPhase2GWOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWOutOctWraps": {
+    "name": "cipSecPhase2GWOutOctWraps",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Integral units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWOutUncompOctets": {
+    "name": "cipSecPhase2GWOutUncompOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWOutUncompOctWraps": {
+    "name": "cipSecPhase2GWOutUncompOctWraps",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Integral units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWOutPkts": {
+    "name": "cipSecPhase2GWOutPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWOutDrops": {
+    "name": "cipSecPhase2GWOutDrops",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWOutAuths": {
+    "name": "cipSecPhase2GWOutAuths",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWOutAuthFails": {
+    "name": "cipSecPhase2GWOutAuthFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWOutEncrypts": {
+    "name": "cipSecPhase2GWOutEncrypts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWOutEncryptFails": {
+    "name": "cipSecPhase2GWOutEncryptFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWProtocolUseFails": {
+    "name": "cipSecPhase2GWProtocolUseFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWNoSaFails": {
+    "name": "cipSecPhase2GWNoSaFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecPhase2GWSysCapFails": {
+    "name": "cipSecPhase2GWSysCapFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.3.5.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecHistGlobal": {
+    "name": "cipSecHistGlobal",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.1",
+    "class": "objectidentity"
+  },
+  "cipSecHistPhaseOne": {
+    "name": "cipSecHistPhaseOne",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2",
+    "class": "objectidentity"
+  },
+  "cipSecHistPhaseTwo": {
+    "name": "cipSecHistPhaseTwo",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3",
+    "class": "objectidentity"
+  },
+  "cipSecHistGlobalCntl": {
+    "name": "cipSecHistGlobalCntl",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.1.1",
+    "class": "objectidentity"
+  },
+  "cipSecHistTableSize": {
+    "name": "cipSecHistTableSize",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipSecHistCheckPoint": {
+    "name": "cipSecHistCheckPoint",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "checkPoint": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cikeTunnelHistTable": {
+    "name": "cikeTunnelHistTable",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cikeTunnelHistEntry": {
+    "name": "cikeTunnelHistEntry",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cikeTunHistIndex": {
+    "name": "cikeTunHistIndex",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cikeTunHistTermReason": {
+    "name": "cikeTunHistTermReason",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "normal": 2,
+          "operRequest": 3,
+          "peerDelRequest": 4,
+          "peerLost": 5,
+          "localFailure": 6,
+          "checkPointReg": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistActiveIndex": {
+    "name": "cikeTunHistActiveIndex",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistPeerLocalType": {
+    "name": "cikeTunHistPeerLocalType",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IkePeerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistPeerLocalValue": {
+    "name": "cikeTunHistPeerLocalValue",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistPeerIntIndex": {
+    "name": "cikeTunHistPeerIntIndex",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistPeerRemoteType": {
+    "name": "cikeTunHistPeerRemoteType",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IkePeerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistPeerRemoteValue": {
+    "name": "cikeTunHistPeerRemoteValue",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistLocalAddr": {
+    "name": "cikeTunHistLocalAddr",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPSIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistLocalName": {
+    "name": "cikeTunHistLocalName",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistRemoteAddr": {
+    "name": "cikeTunHistRemoteAddr",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPSIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistRemoteName": {
+    "name": "cikeTunHistRemoteName",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistNegoMode": {
+    "name": "cikeTunHistNegoMode",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IkeNegoMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistDiffHellmanGrp": {
+    "name": "cikeTunHistDiffHellmanGrp",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DiffHellmanGrp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistEncryptAlgo": {
+    "name": "cikeTunHistEncryptAlgo",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EncryptAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistHashAlgo": {
+    "name": "cikeTunHistHashAlgo",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IkeHashAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistAuthMethod": {
+    "name": "cikeTunHistAuthMethod",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IkeAuthMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistLifeTime": {
+    "name": "cikeTunHistLifeTime",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistStartTime": {
+    "name": "cikeTunHistStartTime",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistActiveTime": {
+    "name": "cikeTunHistActiveTime",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistTotalRefreshes": {
+    "name": "cikeTunHistTotalRefreshes",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "QM Exchanges",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistTotalSas": {
+    "name": "cikeTunHistTotalSas",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SAs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistInOctets": {
+    "name": "cikeTunHistInOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistInPkts": {
+    "name": "cikeTunHistInPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistInDropPkts": {
+    "name": "cikeTunHistInDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistInNotifys": {
+    "name": "cikeTunHistInNotifys",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Notification Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistInP2Exchgs": {
+    "name": "cikeTunHistInP2Exchgs",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistInP2ExchgInvalids": {
+    "name": "cikeTunHistInP2ExchgInvalids",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistInP2ExchgRejects": {
+    "name": "cikeTunHistInP2ExchgRejects",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistInP2SaDelRequests": {
+    "name": "cikeTunHistInP2SaDelRequests",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Notification Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistOutOctets": {
+    "name": "cikeTunHistOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistOutPkts": {
+    "name": "cikeTunHistOutPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistOutDropPkts": {
+    "name": "cikeTunHistOutDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistOutNotifys": {
+    "name": "cikeTunHistOutNotifys",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Notification Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistOutP2Exchgs": {
+    "name": "cikeTunHistOutP2Exchgs",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistOutP2ExchgInvalids": {
+    "name": "cikeTunHistOutP2ExchgInvalids",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistOutP2ExchgRejects": {
+    "name": "cikeTunHistOutP2ExchgRejects",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SA Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeTunHistOutP2SaDelRequests": {
+    "name": "cikeTunHistOutP2SaDelRequests",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.2.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Notification Payloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunnelHistTable": {
+    "name": "cipSecTunnelHistTable",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipSecTunnelHistEntry": {
+    "name": "cipSecTunnelHistEntry",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipSecTunHistIndex": {
+    "name": "cipSecTunHistIndex",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipSecTunHistTermReason": {
+    "name": "cipSecTunHistTermReason",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "normal": 2,
+          "operRequest": 3,
+          "peerDelRequest": 4,
+          "peerLost": 5,
+          "seqNumRollOver": 6,
+          "checkPointReq": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistActiveIndex": {
+    "name": "cipSecTunHistActiveIndex",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistIkeTunnelIndex": {
+    "name": "cipSecTunHistIkeTunnelIndex",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistLocalAddr": {
+    "name": "cipSecTunHistLocalAddr",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPSIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistRemoteAddr": {
+    "name": "cipSecTunHistRemoteAddr",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPSIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistKeyType": {
+    "name": "cipSecTunHistKeyType",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "KeyType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistEncapMode": {
+    "name": "cipSecTunHistEncapMode",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EncapMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistLifeSize": {
+    "name": "cipSecTunHistLifeSize",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistLifeTime": {
+    "name": "cipSecTunHistLifeTime",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistStartTime": {
+    "name": "cipSecTunHistStartTime",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistActiveTime": {
+    "name": "cipSecTunHistActiveTime",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistTotalRefreshes": {
+    "name": "cipSecTunHistTotalRefreshes",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "QM Exchanges",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistTotalSas": {
+    "name": "cipSecTunHistTotalSas",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SAs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistInSaDiffHellmanGrp": {
+    "name": "cipSecTunHistInSaDiffHellmanGrp",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DiffHellmanGrp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistInSaEncryptAlgo": {
+    "name": "cipSecTunHistInSaEncryptAlgo",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EncryptAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistInSaAhAuthAlgo": {
+    "name": "cipSecTunHistInSaAhAuthAlgo",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AuthAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistInSaEspAuthAlgo": {
+    "name": "cipSecTunHistInSaEspAuthAlgo",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AuthAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistInSaDecompAlgo": {
+    "name": "cipSecTunHistInSaDecompAlgo",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CompAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistOutSaDiffHellmanGrp": {
+    "name": "cipSecTunHistOutSaDiffHellmanGrp",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DiffHellmanGrp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistOutSaEncryptAlgo": {
+    "name": "cipSecTunHistOutSaEncryptAlgo",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EncryptAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistOutSaAhAuthAlgo": {
+    "name": "cipSecTunHistOutSaAhAuthAlgo",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AuthAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistOutSaEspAuthAlgo": {
+    "name": "cipSecTunHistOutSaEspAuthAlgo",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AuthAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistOutSaCompAlgo": {
+    "name": "cipSecTunHistOutSaCompAlgo",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CompAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistInOctets": {
+    "name": "cipSecTunHistInOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistHcInOctets": {
+    "name": "cipSecTunHistHcInOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistInOctWraps": {
+    "name": "cipSecTunHistInOctWraps",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Integral units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistInDecompOctets": {
+    "name": "cipSecTunHistInDecompOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistHcInDecompOctets": {
+    "name": "cipSecTunHistHcInDecompOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistInDecompOctWraps": {
+    "name": "cipSecTunHistInDecompOctWraps",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Integral units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistInPkts": {
+    "name": "cipSecTunHistInPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistInDropPkts": {
+    "name": "cipSecTunHistInDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistInReplayDropPkts": {
+    "name": "cipSecTunHistInReplayDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistInAuths": {
+    "name": "cipSecTunHistInAuths",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistInAuthFails": {
+    "name": "cipSecTunHistInAuthFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistInDecrypts": {
+    "name": "cipSecTunHistInDecrypts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistInDecryptFails": {
+    "name": "cipSecTunHistInDecryptFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistOutOctets": {
+    "name": "cipSecTunHistOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistHcOutOctets": {
+    "name": "cipSecTunHistHcOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistOutOctWraps": {
+    "name": "cipSecTunHistOutOctWraps",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Integral units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistOutUncompOctets": {
+    "name": "cipSecTunHistOutUncompOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistHcOutUncompOctets": {
+    "name": "cipSecTunHistHcOutUncompOctets",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistOutUncompOctWraps": {
+    "name": "cipSecTunHistOutUncompOctWraps",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Integral units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistOutPkts": {
+    "name": "cipSecTunHistOutPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistOutDropPkts": {
+    "name": "cipSecTunHistOutDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistOutAuths": {
+    "name": "cipSecTunHistOutAuths",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistOutAuthFails": {
+    "name": "cipSecTunHistOutAuthFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistOutEncrypts": {
+    "name": "cipSecTunHistOutEncrypts",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTunHistOutEncryptFails": {
+    "name": "cipSecTunHistOutEncryptFails",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtHistTable": {
+    "name": "cipSecEndPtHistTable",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipSecEndPtHistEntry": {
+    "name": "cipSecEndPtHistEntry",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtHistIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipSecEndPtHistIndex": {
+    "name": "cipSecEndPtHistIndex",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipSecEndPtHistTunIndex": {
+    "name": "cipSecEndPtHistTunIndex",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtHistActiveIndex": {
+    "name": "cipSecEndPtHistActiveIndex",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtHistLocalName": {
+    "name": "cipSecEndPtHistLocalName",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtHistLocalType": {
+    "name": "cipSecEndPtHistLocalType",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EndPtType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtHistLocalAddr1": {
+    "name": "cipSecEndPtHistLocalAddr1",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPSIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtHistLocalAddr2": {
+    "name": "cipSecEndPtHistLocalAddr2",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPSIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtHistLocalProtocol": {
+    "name": "cipSecEndPtHistLocalProtocol",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtHistLocalPort": {
+    "name": "cipSecEndPtHistLocalPort",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtHistRemoteName": {
+    "name": "cipSecEndPtHistRemoteName",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtHistRemoteType": {
+    "name": "cipSecEndPtHistRemoteType",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EndPtType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtHistRemoteAddr1": {
+    "name": "cipSecEndPtHistRemoteAddr1",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPSIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtHistRemoteAddr2": {
+    "name": "cipSecEndPtHistRemoteAddr2",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPSIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtHistRemoteProtocol": {
+    "name": "cipSecEndPtHistRemoteProtocol",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecEndPtHistRemotePort": {
+    "name": "cipSecEndPtHistRemotePort",
+    "oid": "1.3.6.1.4.1.9.9.171.1.4.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecFailGlobal": {
+    "name": "cipSecFailGlobal",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.1",
+    "class": "objectidentity"
+  },
+  "cipSecFailPhaseOne": {
+    "name": "cipSecFailPhaseOne",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.2",
+    "class": "objectidentity"
+  },
+  "cipSecFailPhaseTwo": {
+    "name": "cipSecFailPhaseTwo",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.3",
+    "class": "objectidentity"
+  },
+  "cipSecFailGlobalCntl": {
+    "name": "cipSecFailGlobalCntl",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.1.1",
+    "class": "objectidentity"
+  },
+  "cipSecFailTableSize": {
+    "name": "cipSecFailTableSize",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cikeFailTable": {
+    "name": "cikeFailTable",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cikeFailEntry": {
+    "name": "cikeFailEntry",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeFailIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cikeFailIndex": {
+    "name": "cikeFailIndex",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cikeFailReason": {
+    "name": "cikeFailReason",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "peerDelRequest": 2,
+          "peerLost": 3,
+          "localFailure": 4,
+          "authFailure": 5,
+          "hashValidation": 6,
+          "encryptFailure": 7,
+          "internalError": 8,
+          "sysCapExceeded": 9,
+          "proposalFailure": 10,
+          "peerCertUnavailable": 11,
+          "peerCertNotValid": 12,
+          "localCertExpired": 13,
+          "crlFailure": 14,
+          "peerEncodingError": 15,
+          "nonExistentSa": 16,
+          "operRequest": 17
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeFailTime": {
+    "name": "cikeFailTime",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeFailLocalType": {
+    "name": "cikeFailLocalType",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IkePeerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeFailLocalValue": {
+    "name": "cikeFailLocalValue",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeFailRemoteType": {
+    "name": "cikeFailRemoteType",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IkePeerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeFailRemoteValue": {
+    "name": "cikeFailRemoteValue",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeFailLocalAddr": {
+    "name": "cikeFailLocalAddr",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPSIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cikeFailRemoteAddr": {
+    "name": "cikeFailRemoteAddr",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPSIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecFailTable": {
+    "name": "cipSecFailTable",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipSecFailEntry": {
+    "name": "cipSecFailEntry",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecFailIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipSecFailIndex": {
+    "name": "cipSecFailIndex",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipSecFailReason": {
+    "name": "cipSecFailReason",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "internalError": 2,
+          "peerEncodingError": 3,
+          "proposalFailure": 4,
+          "protocolUseFail": 5,
+          "nonExistentSa": 6,
+          "decryptFailure": 7,
+          "encryptFailure": 8,
+          "inAuthFailure": 9,
+          "outAuthFailure": 10,
+          "compression": 11,
+          "sysCapExceeded": 12,
+          "peerDelRequest": 13,
+          "peerLost": 14,
+          "seqNumRollOver": 15,
+          "operRequest": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecFailTime": {
+    "name": "cipSecFailTime",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecFailTunnelIndex": {
+    "name": "cipSecFailTunnelIndex",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecFailSaSpi": {
+    "name": "cipSecFailSaSpi",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecFailPktSrcAddr": {
+    "name": "cipSecFailPktSrcAddr",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPSIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecFailPktDstAddr": {
+    "name": "cipSecFailPktDstAddr",
+    "oid": "1.3.6.1.4.1.9.9.171.1.5.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPSIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipSecTrapCntlIkeTunnelStart": {
+    "name": "cipSecTrapCntlIkeTunnelStart",
+    "oid": "1.3.6.1.4.1.9.9.171.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipSecTrapCntlIkeTunnelStop": {
+    "name": "cipSecTrapCntlIkeTunnelStop",
+    "oid": "1.3.6.1.4.1.9.9.171.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipSecTrapCntlIkeSysFailure": {
+    "name": "cipSecTrapCntlIkeSysFailure",
+    "oid": "1.3.6.1.4.1.9.9.171.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipSecTrapCntlIkeCertCrlFailure": {
+    "name": "cipSecTrapCntlIkeCertCrlFailure",
+    "oid": "1.3.6.1.4.1.9.9.171.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipSecTrapCntlIkeProtocolFail": {
+    "name": "cipSecTrapCntlIkeProtocolFail",
+    "oid": "1.3.6.1.4.1.9.9.171.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipSecTrapCntlIkeNoSa": {
+    "name": "cipSecTrapCntlIkeNoSa",
+    "oid": "1.3.6.1.4.1.9.9.171.1.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipSecTrapCntlIpSecTunnelStart": {
+    "name": "cipSecTrapCntlIpSecTunnelStart",
+    "oid": "1.3.6.1.4.1.9.9.171.1.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipSecTrapCntlIpSecTunnelStop": {
+    "name": "cipSecTrapCntlIpSecTunnelStop",
+    "oid": "1.3.6.1.4.1.9.9.171.1.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipSecTrapCntlIpSecSysFailure": {
+    "name": "cipSecTrapCntlIpSecSysFailure",
+    "oid": "1.3.6.1.4.1.9.9.171.1.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipSecTrapCntlIpSecSetUpFailure": {
+    "name": "cipSecTrapCntlIpSecSetUpFailure",
+    "oid": "1.3.6.1.4.1.9.9.171.1.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipSecTrapCntlIpSecEarlyTunTerm": {
+    "name": "cipSecTrapCntlIpSecEarlyTunTerm",
+    "oid": "1.3.6.1.4.1.9.9.171.1.6.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipSecTrapCntlIpSecProtocolFail": {
+    "name": "cipSecTrapCntlIpSecProtocolFail",
+    "oid": "1.3.6.1.4.1.9.9.171.1.6.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipSecTrapCntlIpSecNoSa": {
+    "name": "cipSecTrapCntlIpSecNoSa",
+    "oid": "1.3.6.1.4.1.9.9.171.1.6.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipSecMIBNotificationPrefix": {
+    "name": "cipSecMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.171.2",
+    "class": "objectidentity"
+  },
+  "cipSecMIBNotifications": {
+    "name": "cipSecMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.171.2.0",
+    "class": "objectidentity"
+  },
+  "cikeTunnelStart": {
+    "name": "cikeTunnelStart",
+    "oid": "1.3.6.1.4.1.9.9.171.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerLocalAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerRemoteAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunLifeTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cikeTunnelStop": {
+    "name": "cikeTunnelStop",
+    "oid": "1.3.6.1.4.1.9.9.171.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerLocalAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerRemoteAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunActiveTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cikeSysFailure": {
+    "name": "cikeSysFailure",
+    "oid": "1.3.6.1.4.1.9.9.171.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerLocalAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerRemoteAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "cikeCertCrlFailure": {
+    "name": "cikeCertCrlFailure",
+    "oid": "1.3.6.1.4.1.9.9.171.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerLocalAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerRemoteAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "cikeProtocolFailure": {
+    "name": "cikeProtocolFailure",
+    "oid": "1.3.6.1.4.1.9.9.171.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerLocalAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerRemoteAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "cikeNoSa": {
+    "name": "cikeNoSa",
+    "oid": "1.3.6.1.4.1.9.9.171.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerLocalAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerRemoteAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "cipSecTunnelStart": {
+    "name": "cipSecTunnelStart",
+    "oid": "1.3.6.1.4.1.9.9.171.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunLifeTime"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunLifeSize"
+      }
+    ],
+    "status": "current"
+  },
+  "cipSecTunnelStop": {
+    "name": "cipSecTunnelStop",
+    "oid": "1.3.6.1.4.1.9.9.171.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunActiveTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cipSecSysFailure": {
+    "name": "cipSecSysFailure",
+    "oid": "1.3.6.1.4.1.9.9.171.2.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerLocalAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerRemoteAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunActiveTime"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecSpiProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "cipSecSetUpFailure": {
+    "name": "cipSecSetUpFailure",
+    "oid": "1.3.6.1.4.1.9.9.171.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerLocalAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerRemoteAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "cipSecEarlyTunTerm": {
+    "name": "cipSecEarlyTunTerm",
+    "oid": "1.3.6.1.4.1.9.9.171.2.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunActiveTime"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecSpiProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "cipSecProtocolFailure": {
+    "name": "cipSecProtocolFailure",
+    "oid": "1.3.6.1.4.1.9.9.171.2.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunActiveTime"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecSpiProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "cipSecNoSa": {
+    "name": "cipSecNoSa",
+    "oid": "1.3.6.1.4.1.9.9.171.2.0.13",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cipSecMIBConformance": {
+    "name": "cipSecMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.171.3",
+    "class": "objectidentity"
+  },
+  "cipSecMIBGroups": {
+    "name": "cipSecMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.171.3.1",
+    "class": "objectidentity"
+  },
+  "cipSecMIBCompliances": {
+    "name": "cipSecMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.171.3.2",
+    "class": "objectidentity"
+  },
+  "cipSecMIBCompliance": {
+    "name": "cipSecMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.171.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cipSecLevelsGroup",
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB"
+      },
+      {
+        "object": "cipSecPhaseOneGroup",
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB"
+      },
+      {
+        "object": "cipSecPhaseTwoGroup",
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cipSecMIBComplianceRev1": {
+    "name": "cipSecMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.171.3.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cipSecLevelsGroup",
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB"
+      },
+      {
+        "object": "cipSecPhaseOneGroup",
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB"
+      },
+      {
+        "object": "cipSecPhaseTwoGroup",
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB"
+      },
+      {
+        "object": "cipSecGWStatsGroup",
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cipSecLevelsGroup": {
+    "name": "cipSecLevelsGroup",
+    "oid": "1.3.6.1.4.1.9.9.171.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecMibLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "cipSecPhaseOneGroup": {
+    "name": "cipSecPhaseOneGroup",
+    "oid": "1.3.6.1.4.1.9.9.171.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalActiveTunnels"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalPreviousTunnels"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalInOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalInPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalInDropPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalInNotifys"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalInP2Exchgs"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalInP2ExchgInvalids"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalInP2ExchgRejects"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalInP2SaDelRequests"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalOutOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalOutPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalOutDropPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalOutNotifys"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalOutP2Exchgs"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalOutP2ExchgInvalids"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalOutP2ExchgRejects"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalOutP2SaDelRequests"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalInitTunnels"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalInitTunnelFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalRespTunnelFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalSysCapFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalAuthFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalDecryptFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalHashValidFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeGlobalNoSaFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerLocalAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerRemoteAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerActiveTime"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerActiveTunnelIndex"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunLocalType"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunLocalValue"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunLocalAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunLocalName"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunRemoteType"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunRemoteValue"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunRemoteAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunRemoteName"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunNegoMode"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunDiffHellmanGrp"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunEncryptAlgo"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHashAlgo"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunAuthMethod"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunLifeTime"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunActiveTime"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunSaRefreshThreshold"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunTotalRefreshes"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunInOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunInPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunInDropPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunInNotifys"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunInP2Exchgs"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunInP2ExchgInvalids"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunInP2ExchgRejects"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunInP2SaDelRequests"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunOutOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunOutPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunOutDropPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunOutNotifys"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunOutP2Exchgs"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunOutP2ExchgInvalids"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunOutP2ExchgRejects"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunOutP2SaDelRequests"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunStatus"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePeerCorrIpSecTunIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "cipSecPhaseTwoGroup": {
+    "name": "cipSecPhaseTwoGroup",
+    "oid": "1.3.6.1.4.1.9.9.171.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalActiveTunnels"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalPreviousTunnels"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalInOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalHcInOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalInOctWraps"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalInDecompOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalHcInDecompOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalInDecompOctWraps"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalInPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalInDrops"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalInReplayDrops"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalInAuths"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalInAuthFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalInDecrypts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalInDecryptFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalOutOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalHcOutOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalOutOctWraps"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalOutUncompOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalHcOutUncompOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalOutUncompOctWraps"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalOutPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalOutDrops"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalOutAuths"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalOutAuthFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalOutEncrypts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalOutEncryptFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalProtocolUseFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalNoSaFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecGlobalSysCapFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunIkeTunnelIndex"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunIkeTunnelAlive"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunLocalAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunRemoteAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunKeyType"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunEncapMode"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunLifeSize"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunLifeTime"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunActiveTime"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunSaLifeSizeThreshold"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunSaLifeTimeThreshold"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunTotalRefreshes"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunExpiredSaInstances"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunCurrentSaInstances"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunInSaDiffHellmanGrp"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunInSaEncryptAlgo"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunInSaAhAuthAlgo"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunInSaEspAuthAlgo"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunInSaDecompAlgo"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunOutSaDiffHellmanGrp"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunOutSaEncryptAlgo"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunOutSaAhAuthAlgo"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunOutSaEspAuthAlgo"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunOutSaCompAlgo"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunInOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHcInOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunInOctWraps"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunInDecompOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHcInDecompOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunInDecompOctWraps"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunInPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunInDropPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunInReplayDropPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunInAuths"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunInAuthFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunInDecrypts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunInDecryptFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunOutOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHcOutOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunOutOctWraps"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunOutUncompOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHcOutUncompOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunOutUncompOctWraps"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunOutPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunOutDropPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunOutAuths"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunOutAuthFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunOutEncrypts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunOutEncryptFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunStatus"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtLocalName"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtLocalType"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtLocalAddr1"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtLocalAddr2"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtLocalProtocol"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtLocalPort"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtRemoteName"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtRemoteType"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtRemoteAddr1"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtRemoteAddr2"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtRemoteProtocol"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtRemotePort"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecSpiDirection"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecSpiValue"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecSpiProtocol"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecSpiStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cipSecHistoryGroup": {
+    "name": "cipSecHistoryGroup",
+    "oid": "1.3.6.1.4.1.9.9.171.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecHistTableSize"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecHistCheckPoint"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistTermReason"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistActiveIndex"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistPeerLocalType"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistPeerLocalValue"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistPeerIntIndex"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistPeerRemoteType"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistPeerRemoteValue"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistLocalAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistLocalName"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistRemoteAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistRemoteName"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistNegoMode"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistDiffHellmanGrp"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistEncryptAlgo"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistHashAlgo"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistAuthMethod"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistLifeTime"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistStartTime"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistActiveTime"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistTotalRefreshes"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistTotalSas"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistInOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistInPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistInDropPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistInNotifys"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistInP2Exchgs"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistInP2ExchgInvalids"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistInP2ExchgRejects"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistInP2SaDelRequests"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistOutOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistOutPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistOutDropPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistOutNotifys"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistOutP2Exchgs"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistOutP2ExchgInvalids"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistOutP2ExchgRejects"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunHistOutP2SaDelRequests"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistTermReason"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistActiveIndex"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistIkeTunnelIndex"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistLocalAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistRemoteAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistKeyType"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistEncapMode"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistLifeSize"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistLifeTime"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistStartTime"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistActiveTime"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistTotalRefreshes"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistTotalSas"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistInSaDiffHellmanGrp"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistInSaEncryptAlgo"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistInSaAhAuthAlgo"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistInSaEspAuthAlgo"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistInSaDecompAlgo"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistOutSaDiffHellmanGrp"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistOutSaEncryptAlgo"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistOutSaAhAuthAlgo"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistOutSaEspAuthAlgo"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistOutSaCompAlgo"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistInOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistHcInOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistInOctWraps"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistInDecompOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistHcInDecompOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistInDecompOctWraps"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistInPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistInDropPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistInReplayDropPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistInAuths"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistInAuthFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistInDecrypts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistInDecryptFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistOutOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistHcOutOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistOutOctWraps"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistOutUncompOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistHcOutUncompOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistOutUncompOctWraps"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistOutPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistOutDropPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistOutAuths"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistOutAuthFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistOutEncrypts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunHistOutEncryptFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtHistTunIndex"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtHistActiveIndex"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtHistLocalName"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtHistLocalType"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtHistLocalAddr1"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtHistLocalAddr2"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtHistLocalProtocol"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtHistLocalPort"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtHistRemoteName"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtHistRemoteType"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtHistRemoteAddr1"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtHistRemoteAddr2"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtHistRemoteProtocol"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEndPtHistRemotePort"
+      }
+    ],
+    "status": "current"
+  },
+  "cipSecFailuresGroup": {
+    "name": "cipSecFailuresGroup",
+    "oid": "1.3.6.1.4.1.9.9.171.3.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecFailTableSize"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeFailReason"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeFailTime"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeFailLocalType"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeFailLocalValue"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeFailRemoteType"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeFailRemoteValue"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeFailLocalAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeFailRemoteAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecFailReason"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecFailTime"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecFailTunnelIndex"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecFailSaSpi"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecFailPktSrcAddr"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecFailPktDstAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "cipSecTrapCntlGroup": {
+    "name": "cipSecTrapCntlGroup",
+    "oid": "1.3.6.1.4.1.9.9.171.3.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTrapCntlIkeTunnelStart"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTrapCntlIkeTunnelStop"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTrapCntlIkeSysFailure"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTrapCntlIkeCertCrlFailure"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTrapCntlIkeProtocolFail"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTrapCntlIkeNoSa"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTrapCntlIpSecTunnelStart"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTrapCntlIpSecTunnelStop"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTrapCntlIpSecSysFailure"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTrapCntlIpSecSetUpFailure"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTrapCntlIpSecEarlyTunTerm"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTrapCntlIpSecProtocolFail"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTrapCntlIpSecNoSa"
+      }
+    ],
+    "status": "current"
+  },
+  "cipSecNotificationGroup": {
+    "name": "cipSecNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.171.3.1.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunnelStart"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeTunnelStop"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeSysFailure"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeCertCrlFailure"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeProtocolFailure"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikeNoSa"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunnelStart"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecTunnelStop"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecSysFailure"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecSetUpFailure"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecEarlyTunTerm"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecProtocolFailure"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecNoSa"
+      }
+    ],
+    "status": "current"
+  },
+  "cipSecGWStatsGroup": {
+    "name": "cipSecGWStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.171.3.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWActiveTunnels"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWPreviousTunnels"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWInOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWInPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWInDropPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWInNotifys"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWInP2Exchgs"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWInP2ExchgInvalids"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWInP2ExchgRejects"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWInP2SaDelRequests"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWOutOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWOutPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWOutDropPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWOutNotifys"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWOutP2Exchgs"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWOutP2ExchgInvalids"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWOutP2ExchgRejects"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWOutP2SaDelRequests"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWInitTunnels"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWInitTunnelFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWRespTunnelFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWSysCapFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWAuthFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWDecryptFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWHashValidFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cikePhase1GWNoSaFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWActiveTunnels"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWPreviousTunnels"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWInOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWInOctWraps"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWInDecompOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWInDecompOctWraps"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWInPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWInDrops"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWInReplayDrops"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWInAuths"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWInAuthFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWInDecrypts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWInDecryptFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWOutOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWOutOctWraps"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWOutUncompOctets"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWOutUncompOctWraps"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWOutPkts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWOutDrops"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWOutAuths"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWOutAuthFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWOutEncrypts"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWOutEncryptFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWProtocolUseFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWNoSaFails"
+      },
+      {
+        "module": "CISCO-IPSEC-FLOW-MONITOR-MIB",
+        "object": "cipSecPhase2GWSysCapFails"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IPSEC-FLOW-MONITOR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IPSEC-FLOW-MONITOR-MIB"
+  }
+}

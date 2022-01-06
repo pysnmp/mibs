@@ -1,0 +1,3577 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "dot1dBasePort",
+      "Timeout",
+      "BridgeId",
+      "MacAddress",
+      "dot1dStpPort"
+    ],
+    "CISCOSB-MIB": [
+      "switch001"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "VlanList1": {
+    "name": "VlanList1",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "VlanList2": {
+    "name": "VlanList2",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "VlanList3": {
+    "name": "VlanList3",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "VlanList4": {
+    "name": "VlanList4",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "rlpBridgeMIBObjects": {
+    "name": "rlpBridgeMIBObjects",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-01-02 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "rldot1dPriority": {
+    "name": "rldot1dPriority",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.1",
+    "class": "objectidentity"
+  },
+  "rldot1dPriorityMibVersion": {
+    "name": "rldot1dPriorityMibVersion",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dPriorityPortGroupTable": {
+    "name": "rldot1dPriorityPortGroupTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1dPriorityPortGroupEntry": {
+    "name": "rldot1dPriorityPortGroupEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1dPriorityPortGroupNumber": {
+    "name": "rldot1dPriorityPortGroupNumber",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStp": {
+    "name": "rldot1dStp",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2",
+    "class": "objectidentity"
+  },
+  "rldot1dStpMibVersion": {
+    "name": "rldot1dStpMibVersion",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpType": {
+    "name": "rldot1dStpType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "perDevice": 1,
+          "mstp": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpEnable": {
+    "name": "rldot1dStpEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dStpPortMustBelongToVlan": {
+    "name": "rldot1dStpPortMustBelongToVlan",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dStpExtendedPortNumberFormat": {
+    "name": "rldot1dStpExtendedPortNumberFormat",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dStpVlanTable": {
+    "name": "rldot1dStpVlanTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1dStpVlanEntry": {
+    "name": "rldot1dStpVlanEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rldot1dStpVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1dStpVlan": {
+    "name": "rldot1dStpVlan",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpVlanEnable": {
+    "name": "rldot1dStpVlanEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dStpTimeSinceTopologyChange": {
+    "name": "rldot1dStpTimeSinceTopologyChange",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpTopChanges": {
+    "name": "rldot1dStpTopChanges",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpDesignatedRoot": {
+    "name": "rldot1dStpDesignatedRoot",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpRootCost": {
+    "name": "rldot1dStpRootCost",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpRootPort": {
+    "name": "rldot1dStpRootPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpMaxAge": {
+    "name": "rldot1dStpMaxAge",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpHelloTime": {
+    "name": "rldot1dStpHelloTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpHoldTime": {
+    "name": "rldot1dStpHoldTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpForwardDelay": {
+    "name": "rldot1dStpForwardDelay",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpVlanPortTable": {
+    "name": "rldot1dStpVlanPortTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1dStpVlanPortEntry": {
+    "name": "rldot1dStpVlanPortEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rldot1dStpVlanPortVlan",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rldot1dStpVlanPortPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1dStpVlanPortVlan": {
+    "name": "rldot1dStpVlanPortVlan",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpVlanPortPort": {
+    "name": "rldot1dStpVlanPortPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpVlanPortPriority": {
+    "name": "rldot1dStpVlanPortPriority",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dStpVlanPortState": {
+    "name": "rldot1dStpVlanPortState",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "blocking": 2,
+          "listening": 3,
+          "learning": 4,
+          "forwarding": 5,
+          "broken": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpVlanPortEnable": {
+    "name": "rldot1dStpVlanPortEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dStpVlanPortPathCost": {
+    "name": "rldot1dStpVlanPortPathCost",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dStpVlanPortDesignatedRoot": {
+    "name": "rldot1dStpVlanPortDesignatedRoot",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpVlanPortDesignatedCost": {
+    "name": "rldot1dStpVlanPortDesignatedCost",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpVlanPortDesignatedBridge": {
+    "name": "rldot1dStpVlanPortDesignatedBridge",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpVlanPortDesignatedPort": {
+    "name": "rldot1dStpVlanPortDesignatedPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpVlanPortForwardTransitions": {
+    "name": "rldot1dStpVlanPortForwardTransitions",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpTrapVariable": {
+    "name": "rldot1dStpTrapVariable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.8",
+    "class": "objectidentity"
+  },
+  "rldot1dStpTrapVrblifIndex": {
+    "name": "rldot1dStpTrapVrblifIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpTrapVrblVID": {
+    "name": "rldot1dStpTrapVrblVID",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpTypeAfterReset": {
+    "name": "rldot1dStpTypeAfterReset",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "perDevice": 1,
+          "mstp": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "perDevice",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dStpMonitorTime": {
+    "name": "rldot1dStpMonitorTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dStpBpduCount": {
+    "name": "rldot1dStpBpduCount",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dStpLastChanged": {
+    "name": "rldot1dStpLastChanged",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpPortTable": {
+    "name": "rldot1dStpPortTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1dStpPortEntry": {
+    "name": "rldot1dStpPortEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rldot1dStpPortPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1dStpPortPort": {
+    "name": "rldot1dStpPortPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpPortDampEnable": {
+    "name": "rldot1dStpPortDampEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dStpPortDampStable": {
+    "name": "rldot1dStpPortDampStable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpPortFilterBpdu": {
+    "name": "rldot1dStpPortFilterBpdu",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1,
+          "none": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dStpPortBpduSent": {
+    "name": "rldot1dStpPortBpduSent",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpPortBpduReceived": {
+    "name": "rldot1dStpPortBpduReceived",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpPortRole": {
+    "name": "rldot1dStpPortRole",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "disabled": 1,
+          "alternate": 2,
+          "backup": 3,
+          "root": 4,
+          "designated": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpBpduType": {
+    "name": "rldot1dStpBpduType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stp": 0,
+          "rstp": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpPortRestrictedRole": {
+    "name": "rldot1dStpPortRestrictedRole",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dStpPortAutoEdgePort": {
+    "name": "rldot1dStpPortAutoEdgePort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dStpPortLoopback": {
+    "name": "rldot1dStpPortLoopback",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpPortBpduOperStatus": {
+    "name": "rldot1dStpPortBpduOperStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "filter": 0,
+          "flood": 1,
+          "bridge": 2,
+          "stp": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpPortTcnGuardEnable": {
+    "name": "rldot1dStpPortTcnGuardEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.13.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dStpPortsEnable": {
+    "name": "rldot1dStpPortsEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpTaggedFlooding": {
+    "name": "rldot1dStpTaggedFlooding",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpPortBelongToVlanDefault": {
+    "name": "rldot1dStpPortBelongToVlanDefault",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpEnableByDefault": {
+    "name": "rldot1dStpEnableByDefault",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpPortToDefault": {
+    "name": "rldot1dStpPortToDefault",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dStpSupportedType": {
+    "name": "rldot1dStpSupportedType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "perDevice": 1,
+          "perVlan": 2,
+          "mstp": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpEdgeportSupportInStp": {
+    "name": "rldot1dStpEdgeportSupportInStp",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpFilterBpdu": {
+    "name": "rldot1dStpFilterBpdu",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dStpFloodBpduMethod": {
+    "name": "rldot1dStpFloodBpduMethod",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "classic": 0,
+          "bridging": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dStpSeparatedBridges": {
+    "name": "rldot1dStpSeparatedBridges",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.23",
+    "class": "objectidentity"
+  },
+  "rldot1dStpPortBpduGuardTable": {
+    "name": "rldot1dStpPortBpduGuardTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1dStpPortBpduGuardEntry": {
+    "name": "rldot1dStpPortBpduGuardEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1dStpPortBpduGuardEnable": {
+    "name": "rldot1dStpPortBpduGuardEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dStpLoopbackGuardEnable": {
+    "name": "rldot1dStpLoopbackGuardEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dStpSeparatedBridgesTable": {
+    "name": "rldot1dStpSeparatedBridgesTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.23.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1dStpSeparatedBridgesEntry": {
+    "name": "rldot1dStpSeparatedBridgesEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.23.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1dStpSeparatedBridgesPortEnable": {
+    "name": "rldot1dStpSeparatedBridgesPortEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.23.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dStpSeparatedBridgesEnable": {
+    "name": "rldot1dStpSeparatedBridgesEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.23.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dStpSeparatedBridgesAutoConfig": {
+    "name": "rldot1dStpSeparatedBridgesAutoConfig",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.23.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dStpDisabledPortStateTable": {
+    "name": "rldot1dStpDisabledPortStateTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.26",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1dStpDisabledPortStateEntry": {
+    "name": "rldot1dStpDisabledPortStateEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.26.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1dStpDisabledPortState": {
+    "name": "rldot1dStpDisabledPortState",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.26.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blocking": 2,
+          "listening": 3,
+          "learning": 4,
+          "forwarding": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "forwarding",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1dExtBase": {
+    "name": "rldot1dExtBase",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.3",
+    "class": "objectidentity"
+  },
+  "rldot1dExtBaseMibVersion": {
+    "name": "rldot1dExtBaseMibVersion",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dDeviceCapabilities": {
+    "name": "rldot1dDeviceCapabilities",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dStpClearPortCounters": {
+    "name": "rldot1dStpClearPortCounters",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.2.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1wRStp": {
+    "name": "rldot1wRStp",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.4",
+    "class": "objectidentity"
+  },
+  "rldot1wRStpVlanEdgePortTable": {
+    "name": "rldot1wRStpVlanEdgePortTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1wRStpVlanEdgePortEntry": {
+    "name": "rldot1wRStpVlanEdgePortEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rldot1wRStpVlanEdgePortVlan",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rldot1wRStpVlanEdgePortPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1wRStpVlanEdgePortVlan": {
+    "name": "rldot1wRStpVlanEdgePortVlan",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1wRStpVlanEdgePortPort": {
+    "name": "rldot1wRStpVlanEdgePortPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1wRStpEdgePortStatus": {
+    "name": "rldot1wRStpEdgePortStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1wRStpForceVersionTable": {
+    "name": "rldot1wRStpForceVersionTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1wRStpForceVersionEntry": {
+    "name": "rldot1wRStpForceVersionEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rldot1wRStpForceVersionVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1wRStpForceVersionVlan": {
+    "name": "rldot1wRStpForceVersionVlan",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1wRStpForceVersionState": {
+    "name": "rldot1wRStpForceVersionState",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1pPriorityMap": {
+    "name": "rldot1pPriorityMap",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.5",
+    "class": "objectidentity"
+  },
+  "rldot1pPriorityMapState": {
+    "name": "rldot1pPriorityMapState",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1pPriorityMapTable": {
+    "name": "rldot1pPriorityMapTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1pPriorityMapEntry": {
+    "name": "rldot1pPriorityMapEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rldot1pPriorityMapName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1pPriorityMapName": {
+    "name": "rldot1pPriorityMapName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1pPriorityMapPriority": {
+    "name": "rldot1pPriorityMapPriority",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rldot1pPriorityMapPort": {
+    "name": "rldot1pPriorityMapPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rldot1pPriorityMapPortList": {
+    "name": "rldot1pPriorityMapPortList",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1pPriorityMapStatus": {
+    "name": "rldot1pPriorityMapStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rldot1sMstp": {
+    "name": "rldot1sMstp",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6",
+    "class": "objectidentity"
+  },
+  "rldot1sMstpInstanceTable": {
+    "name": "rldot1sMstpInstanceTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1sMstpInstanceEntry": {
+    "name": "rldot1sMstpInstanceEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rldot1sMstpInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1sMstpInstanceId": {
+    "name": "rldot1sMstpInstanceId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstanceEnable": {
+    "name": "rldot1sMstpInstanceEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstanceTimeSinceTopologyChange": {
+    "name": "rldot1sMstpInstanceTimeSinceTopologyChange",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstanceTopChanges": {
+    "name": "rldot1sMstpInstanceTopChanges",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstanceDesignatedRoot": {
+    "name": "rldot1sMstpInstanceDesignatedRoot",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstanceRootCost": {
+    "name": "rldot1sMstpInstanceRootCost",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstanceRootPort": {
+    "name": "rldot1sMstpInstanceRootPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstanceMaxAge": {
+    "name": "rldot1sMstpInstanceMaxAge",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstanceHelloTime": {
+    "name": "rldot1sMstpInstanceHelloTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstanceHoldTime": {
+    "name": "rldot1sMstpInstanceHoldTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstanceForwardDelay": {
+    "name": "rldot1sMstpInstanceForwardDelay",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstancePriority": {
+    "name": "rldot1sMstpInstancePriority",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 61440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1sMstpInstanceRemainingHopes": {
+    "name": "rldot1sMstpInstanceRemainingHopes",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstanceSwId": {
+    "name": "rldot1sMstpInstanceSwId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstancePortTable": {
+    "name": "rldot1sMstpInstancePortTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1sMstpInstancePortEntry": {
+    "name": "rldot1sMstpInstancePortEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rldot1sMstpInstancePortMstiId",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rldot1sMstpInstancePortPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1sMstpInstancePortMstiId": {
+    "name": "rldot1sMstpInstancePortMstiId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstancePortPort": {
+    "name": "rldot1sMstpInstancePortPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstancePortPriority": {
+    "name": "rldot1sMstpInstancePortPriority",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1sMstpInstancePortState": {
+    "name": "rldot1sMstpInstancePortState",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "blocking": 2,
+          "listening": 3,
+          "learning": 4,
+          "forwarding": 5,
+          "broken": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstancePortEnable": {
+    "name": "rldot1sMstpInstancePortEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstancePortPathCost": {
+    "name": "rldot1sMstpInstancePortPathCost",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstancePortDesignatedRoot": {
+    "name": "rldot1sMstpInstancePortDesignatedRoot",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstancePortDesignatedCost": {
+    "name": "rldot1sMstpInstancePortDesignatedCost",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstancePortDesignatedBridge": {
+    "name": "rldot1sMstpInstancePortDesignatedBridge",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstancePortDesignatedPort": {
+    "name": "rldot1sMstpInstancePortDesignatedPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstancePortForwardTransitions": {
+    "name": "rldot1sMstpInstancePortForwardTransitions",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMStpInstancePortAdminPathCost": {
+    "name": "rldot1sMStpInstancePortAdminPathCost",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1sMStpInstancePortRole": {
+    "name": "rldot1sMStpInstancePortRole",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "disabled": 1,
+          "alternate": 2,
+          "backup": 3,
+          "root": 4,
+          "designated": 5,
+          "master": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpMaxHopes": {
+    "name": "rldot1sMstpMaxHopes",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1sMstpConfigurationName": {
+    "name": "rldot1sMstpConfigurationName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpRevisionLevel": {
+    "name": "rldot1sMstpRevisionLevel",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpVlanTable": {
+    "name": "rldot1sMstpVlanTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1sMstpVlanEntry": {
+    "name": "rldot1sMstpVlanEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rldot1sMstpVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1sMstpVlan": {
+    "name": "rldot1sMstpVlan",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpGroup": {
+    "name": "rldot1sMstpGroup",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpPendingGroup": {
+    "name": "rldot1sMstpPendingGroup",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1sMstpExtPortTable": {
+    "name": "rldot1sMstpExtPortTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1sMstpExtPortEntry": {
+    "name": "rldot1sMstpExtPortEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rldot1sMstpExtPortPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1sMstpExtPortPort": {
+    "name": "rldot1sMstpExtPortPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpExtPortInternalOperPathCost": {
+    "name": "rldot1sMstpExtPortInternalOperPathCost",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpExtPortDesignatedRegionalRoot": {
+    "name": "rldot1sMstpExtPortDesignatedRegionalRoot",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpExtPortDesignatedRegionalCost": {
+    "name": "rldot1sMstpExtPortDesignatedRegionalCost",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpExtPortBoundary": {
+    "name": "rldot1sMstpExtPortBoundary",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpExtPortInternalAdminPathCost": {
+    "name": "rldot1sMstpExtPortInternalAdminPathCost",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1sMstpDesignatedMaxHopes": {
+    "name": "rldot1sMstpDesignatedMaxHopes",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpRegionalRoot": {
+    "name": "rldot1sMstpRegionalRoot",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpRegionalRootCost": {
+    "name": "rldot1sMstpRegionalRootCost",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpPendingConfigurationName": {
+    "name": "rldot1sMstpPendingConfigurationName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1sMstpPendingRevisionLevel": {
+    "name": "rldot1sMstpPendingRevisionLevel",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1sMstpPendingAction": {
+    "name": "rldot1sMstpPendingAction",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copyPendingActive": 1,
+          "copyActivePending": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1sMstpRemainingHops": {
+    "name": "rldot1sMstpRemainingHops",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstanceVlanTable": {
+    "name": "rldot1sMstpInstanceVlanTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1sMstpInstanceVlanEntry": {
+    "name": "rldot1sMstpInstanceVlanEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rldot1sMstpInstanceVlanId",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rldot1sMstpInstanceVlanDbType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1sMstpInstanceVlanId": {
+    "name": "rldot1sMstpInstanceVlanId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstanceVlanDbType": {
+    "name": "rldot1sMstpInstanceVlanDbType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "pending": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstanceVlanId1To1024": {
+    "name": "rldot1sMstpInstanceVlanId1To1024",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList1",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstanceVlanId1025To2048": {
+    "name": "rldot1sMstpInstanceVlanId1025To2048",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList2",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstanceVlanId2049To3072": {
+    "name": "rldot1sMstpInstanceVlanId2049To3072",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList3",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpInstanceVlanId3073To4094": {
+    "name": "rldot1sMstpInstanceVlanId3073To4094",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpSwInstanceTable": {
+    "name": "rldot1sMstpSwInstanceTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1sMstpSwInstanceEntry": {
+    "name": "rldot1sMstpSwInstanceEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rldot1sMstpSwInstanceSwId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1sMstpSwInstanceSwId": {
+    "name": "rldot1sMstpSwInstanceSwId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpSwInstanceId": {
+    "name": "rldot1sMstpSwInstanceId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpSwInstanceStatus": {
+    "name": "rldot1sMstpSwInstanceStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rldot1dTpAgingTime": {
+    "name": "rldot1dTpAgingTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.7",
+    "class": "objectidentity"
+  },
+  "rldot1dTpAgingTimeMin": {
+    "name": "rldot1dTpAgingTimeMin",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1dTpAgingTimeMax": {
+    "name": "rldot1dTpAgingTimeMax",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpConfigurationDigest": {
+    "name": "rldot1sMstpConfigurationDigest",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1sMstpPendingConfigurationDigest": {
+    "name": "rldot1sMstpPendingConfigurationDigest",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.6.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvst": {
+    "name": "rlBrgPvst",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9",
+    "class": "objectidentity"
+  },
+  "rlBrgPvstVlanTable": {
+    "name": "rlBrgPvstVlanTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlBrgPvstVlanEntry": {
+    "name": "rlBrgPvstVlanEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rlBrgPvstVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlBrgPvstVlanId": {
+    "name": "rlBrgPvstVlanId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstVlanHelloTime": {
+    "name": "rlBrgPvstVlanHelloTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlBrgPvstVlanForwardDelay": {
+    "name": "rlBrgPvstVlanForwardDelay",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlBrgPvstVlanMaxAge": {
+    "name": "rlBrgPvstVlanMaxAge",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 6,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlBrgPvstVlanPriority": {
+    "name": "rlBrgPvstVlanPriority",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 61440
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32768,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlBrgPvstVlanStatus": {
+    "name": "rlBrgPvstVlanStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlBrgPvstOperVlanTable": {
+    "name": "rlBrgPvstOperVlanTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlBrgPvstOperVlanEntry": {
+    "name": "rlBrgPvstOperVlanEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rlBrgPvstOperVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlBrgPvstOperVlanId": {
+    "name": "rlBrgPvstOperVlanId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperVlanEnable": {
+    "name": "rlBrgPvstOperVlanEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperVlanTimeSinceTopologyChange": {
+    "name": "rlBrgPvstOperVlanTimeSinceTopologyChange",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperVlanTopChanges": {
+    "name": "rlBrgPvstOperVlanTopChanges",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperVlanDesignatedRoot": {
+    "name": "rlBrgPvstOperVlanDesignatedRoot",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperVlanRootCost": {
+    "name": "rlBrgPvstOperVlanRootCost",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperVlanRootPort": {
+    "name": "rlBrgPvstOperVlanRootPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperVlanRootMaxAge": {
+    "name": "rlBrgPvstOperVlanRootMaxAge",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperVlanRootHelloTime": {
+    "name": "rlBrgPvstOperVlanRootHelloTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperVlanRootForwardDelay": {
+    "name": "rlBrgPvstOperVlanRootForwardDelay",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperVlanMaxAge": {
+    "name": "rlBrgPvstOperVlanMaxAge",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperVlanHelloTime": {
+    "name": "rlBrgPvstOperVlanHelloTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperVlanForwardDelay": {
+    "name": "rlBrgPvstOperVlanForwardDelay",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperVlanPriority": {
+    "name": "rlBrgPvstOperVlanPriority",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstPortTable": {
+    "name": "rlBrgPvstPortTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlBrgPvstPortEntry": {
+    "name": "rlBrgPvstPortEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rlBrgPvstPortVlanId",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rlBrgPvstPortPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlBrgPvstPortVlanId": {
+    "name": "rlBrgPvstPortVlanId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstPortPort": {
+    "name": "rlBrgPvstPortPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstPortPathCost": {
+    "name": "rlBrgPvstPortPathCost",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlBrgPvstPortPriority": {
+    "name": "rlBrgPvstPortPriority",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 128,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlBrgPvstPortStatus": {
+    "name": "rlBrgPvstPortStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlBrgPvstOperPortTable": {
+    "name": "rlBrgPvstOperPortTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlBrgPvstOperPortEntry": {
+    "name": "rlBrgPvstOperPortEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rlBrgPvstOperPortVlanId",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rlBrgPvstOperPortPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlBrgPvstOperPortVlanId": {
+    "name": "rlBrgPvstOperPortVlanId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperPortPort": {
+    "name": "rlBrgPvstOperPortPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperPortEnable": {
+    "name": "rlBrgPvstOperPortEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperPortPathCost": {
+    "name": "rlBrgPvstOperPortPathCost",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperPortPriority": {
+    "name": "rlBrgPvstOperPortPriority",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperPortState": {
+    "name": "rlBrgPvstOperPortState",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "blocking": 2,
+          "listening": 3,
+          "learning": 4,
+          "forwarding": 5,
+          "broken": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperPortRole": {
+    "name": "rlBrgPvstOperPortRole",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "disabled": 1,
+          "alternate": 2,
+          "backup": 3,
+          "root": 4,
+          "designated": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperPortBpduType": {
+    "name": "rlBrgPvstOperPortBpduType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pvst": 2,
+          "rpvst": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperPortDesignatedRoot": {
+    "name": "rlBrgPvstOperPortDesignatedRoot",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperPortDesignatedCost": {
+    "name": "rlBrgPvstOperPortDesignatedCost",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperPortDesignatedBridge": {
+    "name": "rlBrgPvstOperPortDesignatedBridge",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperPortDesignatedPort": {
+    "name": "rlBrgPvstOperPortDesignatedPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperPortForwardTransitions": {
+    "name": "rlBrgPvstOperPortForwardTransitions",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperPortEdgePort": {
+    "name": "rlBrgPvstOperPortEdgePort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperPortBpduSent": {
+    "name": "rlBrgPvstOperPortBpduSent",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstOperPortBpduReceived": {
+    "name": "rlBrgPvstOperPortBpduReceived",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstInconsistencyPortTable": {
+    "name": "rlBrgPvstInconsistencyPortTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlBrgPvstInconsistencyPortEntry": {
+    "name": "rlBrgPvstInconsistencyPortEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rlBrgPvstInconsistencyVlanId",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB",
+        "object": "rlBrgPvstInconsistencyPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlBrgPvstInconsistencyVlanId": {
+    "name": "rlBrgPvstInconsistencyVlanId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstInconsistencyPort": {
+    "name": "rlBrgPvstInconsistencyPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgPvstInconsistencyState": {
+    "name": "rlBrgPvstInconsistencyState",
+    "oid": "1.3.6.1.4.1.9.6.1.101.57.9.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "type": 0,
+        "pvid": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-BRIDGEMIBOBJECTS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB"
+  }
+}

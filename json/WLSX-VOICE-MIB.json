@@ -1,0 +1,1089 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARUBA-MIB": [
+      "wlsxEnterpriseMibModules"
+    ],
+    "ARUBA-TC": [
+      "ArubaEnableValue",
+      "ArubaVoiceCacBit",
+      "ArubaVlanValidRange",
+      "ArubaVoipProtocol",
+      "ArubaVoiceCdrDirection",
+      "ArubaVoipRegState",
+      "ArubaCallStates"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "snmpModules",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "IpAddress",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter32",
+      "TimeTicks",
+      "Integer32",
+      "iso",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "RowStatus",
+      "StorageType",
+      "TestAndIncr",
+      "TruthValue",
+      "MacAddress",
+      "TDomain",
+      "DisplayString",
+      "DateAndTime",
+      "TAddress",
+      "PhysAddress"
+    ],
+    "WLSX-WLAN-MIB": [
+      "wlanAPRadioNumber",
+      "wlanAPMacAddress",
+      "wlanStaPhyAddress",
+      "wlanAPBSSID"
+    ]
+  },
+  "wlsxVoiceMIB": {
+    "name": "wlsxVoiceMIB",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-08-14 17:45",
+        "description": "The initial revision."
+      }
+    ]
+  },
+  "wlsxVoiceStatsGroup": {
+    "name": "wlsxVoiceStatsGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1",
+    "class": "objectidentity"
+  },
+  "wlsxVoiceCdrInfoGroup": {
+    "name": "wlsxVoiceCdrInfoGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1",
+    "class": "objectidentity"
+  },
+  "wlsxVoiceCallCtrsGroup": {
+    "name": "wlsxVoiceCallCtrsGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.2",
+    "class": "objectidentity"
+  },
+  "wlsxVoiceClientInfoGroup": {
+    "name": "wlsxVoiceClientInfoGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.3",
+    "class": "objectidentity"
+  },
+  "wlsxVoiceCallCtrPerClientInfoGroup": {
+    "name": "wlsxVoiceCallCtrPerClientInfoGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.4",
+    "class": "objectidentity"
+  },
+  "wlsxVoiceClientLocationInfoGroup": {
+    "name": "wlsxVoiceClientLocationInfoGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.5",
+    "class": "objectidentity"
+  },
+  "wlsxVoiceCdrTotal": {
+    "name": "wlsxVoiceCdrTotal",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxVoiceCdrTable": {
+    "name": "wlsxVoiceCdrTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxVoiceCdrEntry": {
+    "name": "wlsxVoiceCdrEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-VOICE-MIB",
+        "object": "voiceCdrId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "voiceCdrId": {
+    "name": "voiceCdrId",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "voiceCdrIp": {
+    "name": "voiceCdrIp",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCdrMac": {
+    "name": "voiceCdrMac",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCdrName": {
+    "name": "voiceCdrName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCdrDialNum": {
+    "name": "voiceCdrDialNum",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCdrDir": {
+    "name": "voiceCdrDir",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaVoiceCdrDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCdrOrigTime": {
+    "name": "voiceCdrOrigTime",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCdrSetupTime": {
+    "name": "voiceCdrSetupTime",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "voiceCdrTeardownTime": {
+    "name": "voiceCdrTeardownTime",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "voiceCdrStatus": {
+    "name": "voiceCdrStatus",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaCallStates",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCdrReason": {
+    "name": "voiceCdrReason",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCdrDuration": {
+    "name": "voiceCdrDuration",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCdrRValueA": {
+    "name": "voiceCdrRValueA",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCdrApSwitchDelay": {
+    "name": "voiceCdrApSwitchDelay",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "voiceCdrCodec": {
+    "name": "voiceCdrCodec",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCdrApName": {
+    "name": "voiceCdrApName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCdrApMac": {
+    "name": "voiceCdrApMac",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCdrBssid": {
+    "name": "voiceCdrBssid",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCdrEssid": {
+    "name": "voiceCdrEssid",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCdrHandovers": {
+    "name": "voiceCdrHandovers",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCdrMOS": {
+    "name": "voiceCdrMOS",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCdrDelayA": {
+    "name": "voiceCdrDelayA",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCdrJitterA": {
+    "name": "voiceCdrJitterA",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCdrPktLossA": {
+    "name": "voiceCdrPktLossA",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCdrRValueC": {
+    "name": "voiceCdrRValueC",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCdrDelayC": {
+    "name": "voiceCdrDelayC",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCdrJitterC": {
+    "name": "voiceCdrJitterC",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCdrPktLossC": {
+    "name": "voiceCdrPktLossC",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCallCtrsTotal": {
+    "name": "voiceCallCtrsTotal",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCallCtrsSuccess": {
+    "name": "voiceCallCtrsSuccess",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCallCtrsFailed": {
+    "name": "voiceCallCtrsFailed",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCallCtrsRejected": {
+    "name": "voiceCallCtrsRejected",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCallCtrsAborted": {
+    "name": "voiceCallCtrsAborted",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCallCtrsOrig": {
+    "name": "voiceCallCtrsOrig",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCallCtrsRecvd": {
+    "name": "voiceCallCtrsRecvd",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCallCtrsActive": {
+    "name": "voiceCallCtrsActive",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCallCtrsNotFnd": {
+    "name": "voiceCallCtrsNotFnd",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "voiceCallCtrsBusy": {
+    "name": "voiceCallCtrsBusy",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "voiceCallCtrsSvc": {
+    "name": "voiceCallCtrsSvc",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "voiceCallCtrsReqTerm": {
+    "name": "voiceCallCtrsReqTerm",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "voiceCallCtrsDecline": {
+    "name": "voiceCallCtrsDecline",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "voiceCallCtrsUnauth": {
+    "name": "voiceCallCtrsUnauth",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "voiceCallCtrsMisc": {
+    "name": "voiceCallCtrsMisc",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "wlsxVoiceClientTotal": {
+    "name": "wlsxVoiceClientTotal",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxVoiceClientTable": {
+    "name": "wlsxVoiceClientTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxVoiceClientEntry": {
+    "name": "wlsxVoiceClientEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanStaPhyAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "voiceClientIp": {
+    "name": "voiceClientIp",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceClientProtocol": {
+    "name": "voiceClientProtocol",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceClientRegState": {
+    "name": "voiceClientRegState",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceClientContactName": {
+    "name": "voiceClientContactName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceClientServerName": {
+    "name": "voiceClientServerName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceClientEssid": {
+    "name": "voiceClientEssid",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceClientVlanId": {
+    "name": "voiceClientVlanId",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaVlanValidRange",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "voiceClientTunnelId": {
+    "name": "voiceClientTunnelId",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "voiceClientAvgDelay": {
+    "name": "voiceClientAvgDelay",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceClientAvgJitter": {
+    "name": "voiceClientAvgJitter",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceClientAvgPktLoss": {
+    "name": "voiceClientAvgPktLoss",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceClientAvgCallDuration": {
+    "name": "voiceClientAvgCallDuration",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxVoiceCallCtrPerClientTotal": {
+    "name": "wlsxVoiceCallCtrPerClientTotal",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxVoiceCallCtrPerClientTable": {
+    "name": "wlsxVoiceCallCtrPerClientTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxVoiceCallCtrPerClientEntry": {
+    "name": "wlsxVoiceCallCtrPerClientEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanStaPhyAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "voiceCallCtrTotal": {
+    "name": "voiceCallCtrTotal",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCallCtrSuccess": {
+    "name": "voiceCallCtrSuccess",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCallCtrFailed": {
+    "name": "voiceCallCtrFailed",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCallCtrRejected": {
+    "name": "voiceCallCtrRejected",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCallCtrAborted": {
+    "name": "voiceCallCtrAborted",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCallCtrOrig": {
+    "name": "voiceCallCtrOrig",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCallCtrRecvd": {
+    "name": "voiceCallCtrRecvd",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voiceCallCtrActive": {
+    "name": "voiceCallCtrActive",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxVoiceClientLocationTotal": {
+    "name": "wlsxVoiceClientLocationTotal",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxVoiceClientLocationTable": {
+    "name": "wlsxVoiceClientLocationTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxVoiceClientLocationEntry": {
+    "name": "wlsxVoiceClientLocationEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanStaPhyAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcLocationIp": {
+    "name": "vcLocationIp",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcLocationMac": {
+    "name": "vcLocationMac",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcLocationSwitchIp": {
+    "name": "vcLocationSwitchIp",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcLocationApName": {
+    "name": "vcLocationApName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcLocationApMac": {
+    "name": "vcLocationApMac",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcLocationApMode": {
+    "name": "vcLocationApMode",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcLocationApLoc": {
+    "name": "vcLocationApLoc",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.12.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-VOICE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:25 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "WLSX-VOICE-MIB"
+  }
+}

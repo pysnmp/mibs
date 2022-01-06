@@ -1,0 +1,889 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "mib-2",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "accountingControlMIB": {
+    "name": "accountingControlMIB",
+    "oid": "1.3.6.1.2.1.60",
+    "class": "moduleidentity"
+  },
+  "acctngMIBObjects": {
+    "name": "acctngMIBObjects",
+    "oid": "1.3.6.1.2.1.60.1",
+    "class": "objectidentity"
+  },
+  "acctngSelectionControl": {
+    "name": "acctngSelectionControl",
+    "oid": "1.3.6.1.2.1.60.1.1",
+    "class": "objectidentity"
+  },
+  "acctngFileControl": {
+    "name": "acctngFileControl",
+    "oid": "1.3.6.1.2.1.60.1.2",
+    "class": "objectidentity"
+  },
+  "acctngInterfaceControl": {
+    "name": "acctngInterfaceControl",
+    "oid": "1.3.6.1.2.1.60.1.3",
+    "class": "objectidentity"
+  },
+  "acctngTrapControl": {
+    "name": "acctngTrapControl",
+    "oid": "1.3.6.1.2.1.60.1.4",
+    "class": "objectidentity"
+  },
+  "DataCollectionSubtree": {
+    "name": "DataCollectionSubtree",
+    "class": "textualconvention",
+    "type": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "DataCollectionList": {
+    "name": "DataCollectionList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FileIndex": {
+    "name": "FileIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "acctngSelectionTable": {
+    "name": "acctngSelectionTable",
+    "oid": "1.3.6.1.2.1.60.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acctngSelectionEntry": {
+    "name": "acctngSelectionEntry",
+    "oid": "1.3.6.1.2.1.60.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngSelectionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acctngSelectionIndex": {
+    "name": "acctngSelectionIndex",
+    "oid": "1.3.6.1.2.1.60.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acctngSelectionSubtree": {
+    "name": "acctngSelectionSubtree",
+    "oid": "1.3.6.1.2.1.60.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DataCollectionSubtree",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acctngSelectionList": {
+    "name": "acctngSelectionList",
+    "oid": "1.3.6.1.2.1.60.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DataCollectionList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acctngSelectionFile": {
+    "name": "acctngSelectionFile",
+    "oid": "1.3.6.1.2.1.60.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FileIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acctngSelectionType": {
+    "name": "acctngSelectionType",
+    "oid": "1.3.6.1.2.1.60.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "svcIncoming": 0,
+        "svcOutgoing": 1,
+        "svpIncoming": 2,
+        "svpOutgoing": 3,
+        "pvc": 4,
+        "pvp": 5,
+        "spvcOriginator": 6,
+        "spvcTarget": 7,
+        "spvpOriginator": 8,
+        "spvpTarget": 9
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "svcIncoming": 0,
+          "svcOutgoing": 1,
+          "svpIncoming": 2,
+          "svpOutgoing": 3
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acctngSelectionRowStatus": {
+    "name": "acctngSelectionRowStatus",
+    "oid": "1.3.6.1.2.1.60.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acctngFileTable": {
+    "name": "acctngFileTable",
+    "oid": "1.3.6.1.2.1.60.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acctngFileEntry": {
+    "name": "acctngFileEntry",
+    "oid": "1.3.6.1.2.1.60.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acctngFileIndex": {
+    "name": "acctngFileIndex",
+    "oid": "1.3.6.1.2.1.60.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FileIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acctngFileName": {
+    "name": "acctngFileName",
+    "oid": "1.3.6.1.2.1.60.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acctngFileNameSuffix": {
+    "name": "acctngFileNameSuffix",
+    "oid": "1.3.6.1.2.1.60.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acctngFileDescription": {
+    "name": "acctngFileDescription",
+    "oid": "1.3.6.1.2.1.60.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acctngFileCommand": {
+    "name": "acctngFileCommand",
+    "oid": "1.3.6.1.2.1.60.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "cmdInProgress": 2,
+          "swapToNewFile": 3,
+          "collectNow": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "idle",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acctngFileMaximumSize": {
+    "name": "acctngFileMaximumSize",
+    "oid": "1.3.6.1.2.1.60.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5000000,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acctngFileCurrentSize": {
+    "name": "acctngFileCurrentSize",
+    "oid": "1.3.6.1.2.1.60.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acctngFileFormat": {
+    "name": "acctngFileFormat",
+    "oid": "1.3.6.1.2.1.60.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ber": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ber",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acctngFileCollectMode": {
+    "name": "acctngFileCollectMode",
+    "oid": "1.3.6.1.2.1.60.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "onRelease": 0,
+        "periodically": 1
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "onRelease": 0
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acctngFileCollectFailedAttempts": {
+    "name": "acctngFileCollectFailedAttempts",
+    "oid": "1.3.6.1.2.1.60.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "soft": 0,
+        "regular": 1
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "soft": 0,
+          "regular": 1
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acctngFileInterval": {
+    "name": "acctngFileInterval",
+    "oid": "1.3.6.1.2.1.60.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3600,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acctngFileMinAge": {
+    "name": "acctngFileMinAge",
+    "oid": "1.3.6.1.2.1.60.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3600,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acctngFileRowStatus": {
+    "name": "acctngFileRowStatus",
+    "oid": "1.3.6.1.2.1.60.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acctngAdminStatus": {
+    "name": "acctngAdminStatus",
+    "oid": "1.3.6.1.2.1.60.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acctngOperStatus": {
+    "name": "acctngOperStatus",
+    "oid": "1.3.6.1.2.1.60.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acctngProtection": {
+    "name": "acctngProtection",
+    "oid": "1.3.6.1.2.1.60.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acctngAgentMode": {
+    "name": "acctngAgentMode",
+    "oid": "1.3.6.1.2.1.60.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "swapOnCommand": 1,
+          "swapOnFull": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acctngInterfaceTable": {
+    "name": "acctngInterfaceTable",
+    "oid": "1.3.6.1.2.1.60.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acctngInterfaceEntry": {
+    "name": "acctngInterfaceEntry",
+    "oid": "1.3.6.1.2.1.60.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acctngInterfaceEnable": {
+    "name": "acctngInterfaceEnable",
+    "oid": "1.3.6.1.2.1.60.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acctngControlTrapThreshold": {
+    "name": "acctngControlTrapThreshold",
+    "oid": "1.3.6.1.2.1.60.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acctngControlTrapEnable": {
+    "name": "acctngControlTrapEnable",
+    "oid": "1.3.6.1.2.1.60.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acctngNotifications": {
+    "name": "acctngNotifications",
+    "oid": "1.3.6.1.2.1.60.2",
+    "class": "objectidentity"
+  },
+  "acctngNotifyPrefix": {
+    "name": "acctngNotifyPrefix",
+    "oid": "1.3.6.1.2.1.60.2.0",
+    "class": "objectidentity"
+  },
+  "acctngFileNearlyFull": {
+    "name": "acctngFileNearlyFull",
+    "oid": "1.3.6.1.2.1.60.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngFileName"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngFileMaximumSize"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngControlTrapThreshold"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngFileNameSuffix"
+      }
+    ],
+    "status": "current"
+  },
+  "acctngFileFull": {
+    "name": "acctngFileFull",
+    "oid": "1.3.6.1.2.1.60.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngFileName"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngFileMaximumSize"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngFileNameSuffix"
+      }
+    ],
+    "status": "current"
+  },
+  "acctngConformance": {
+    "name": "acctngConformance",
+    "oid": "1.3.6.1.2.1.60.3",
+    "class": "objectidentity"
+  },
+  "acctngGroups": {
+    "name": "acctngGroups",
+    "oid": "1.3.6.1.2.1.60.3.1",
+    "class": "objectidentity"
+  },
+  "acctngCompliances": {
+    "name": "acctngCompliances",
+    "oid": "1.3.6.1.2.1.60.3.2",
+    "class": "objectidentity"
+  },
+  "acctngCompliance": {
+    "name": "acctngCompliance",
+    "oid": "1.3.6.1.2.1.60.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "acctngBasicGroup",
+        "module": "ACCOUNTING-CONTROL-MIB"
+      },
+      {
+        "object": "acctngNotificationsGroup",
+        "module": "ACCOUNTING-CONTROL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "acctngBasicGroup": {
+    "name": "acctngBasicGroup",
+    "oid": "1.3.6.1.2.1.60.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngSelectionSubtree"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngSelectionList"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngSelectionFile"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngSelectionType"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngSelectionRowStatus"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngFileName"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngFileNameSuffix"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngFileDescription"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngFileCommand"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngFileMaximumSize"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngFileCurrentSize"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngFileRowStatus"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngFileFormat"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngFileCollectMode"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngFileCollectFailedAttempts"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngFileInterval"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngFileMinAge"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngAdminStatus"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngOperStatus"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngProtection"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngAgentMode"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngInterfaceEnable"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngControlTrapThreshold"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngControlTrapEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "acctngNotificationsGroup": {
+    "name": "acctngNotificationsGroup",
+    "oid": "1.3.6.1.2.1.60.3.1.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngFileNearlyFull"
+      },
+      {
+        "module": "ACCOUNTING-CONTROL-MIB",
+        "object": "acctngFileFull"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ACCOUNTING-CONTROL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ACCOUNTING-CONTROL-MIB"
+  }
+}

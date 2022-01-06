@@ -1,0 +1,366 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "LLDP-MIB": [
+      "lldpLocPortNum"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dlinkSwLldpExtMIB": {
+    "name": "dlinkSwLldpExtMIB",
+    "oid": "1.3.6.1.4.1.171.14.20",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-02-25 00:00",
+        "description": "This is the first version of the MIB file. "
+      }
+    ]
+  },
+  "dLldpExtMIBNotifications": {
+    "name": "dLldpExtMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.20.0",
+    "class": "objectidentity"
+  },
+  "dLldpExtMIBObjects": {
+    "name": "dLldpExtMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.20.1",
+    "class": "objectidentity"
+  },
+  "dLldpExtMIBConformance": {
+    "name": "dLldpExtMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.20.2",
+    "class": "objectidentity"
+  },
+  "dLldpExtLldpEnabled": {
+    "name": "dLldpExtLldpEnabled",
+    "oid": "1.3.6.1.4.1.171.14.20.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dLldpExtLldpForward": {
+    "name": "dLldpExtLldpForward",
+    "oid": "1.3.6.1.4.1.171.14.20.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dLldpExtLldpTrapEnabled": {
+    "name": "dLldpExtLldpTrapEnabled",
+    "oid": "1.3.6.1.4.1.171.14.20.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dLldpExtLldpMedTrapEnabled": {
+    "name": "dLldpExtLldpMedTrapEnabled",
+    "oid": "1.3.6.1.4.1.171.14.20.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dLldpExtClearStats": {
+    "name": "dLldpExtClearStats",
+    "oid": "1.3.6.1.4.1.171.14.20.1.5",
+    "class": "objectidentity"
+  },
+  "dLldpExtClearGlobalStats": {
+    "name": "dLldpExtClearGlobalStats",
+    "oid": "1.3.6.1.4.1.171.14.20.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dLldpExtClearAllPortsStats": {
+    "name": "dLldpExtClearAllPortsStats",
+    "oid": "1.3.6.1.4.1.171.14.20.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dLldpExtClearCounterByPort": {
+    "name": "dLldpExtClearCounterByPort",
+    "oid": "1.3.6.1.4.1.171.14.20.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dLldpExtClearAllNeighbors": {
+    "name": "dLldpExtClearAllNeighbors",
+    "oid": "1.3.6.1.4.1.171.14.20.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dLldpExtClearNeighborsByPort": {
+    "name": "dLldpExtClearNeighborsByPort",
+    "oid": "1.3.6.1.4.1.171.14.20.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dLldpExtPortSubTypeTable": {
+    "name": "dLldpExtPortSubTypeTable",
+    "oid": "1.3.6.1.4.1.171.14.20.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dLldpExtPortSubTypeEntry": {
+    "name": "dLldpExtPortSubTypeEntry",
+    "oid": "1.3.6.1.4.1.171.14.20.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpLocPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dLldpExtPortSubType": {
+    "name": "dLldpExtPortSubType",
+    "oid": "1.3.6.1.4.1.171.14.20.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "localPortNumber": 1,
+          "macAddress": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dLldpExtMIBCompliances": {
+    "name": "dLldpExtMIBCompliances",
+    "oid": "1.3.6.1.4.1.171.14.20.2.1",
+    "class": "objectidentity"
+  },
+  "dLldpExtMIBGroups": {
+    "name": "dLldpExtMIBGroups",
+    "oid": "1.3.6.1.4.1.171.14.20.2.2",
+    "class": "objectidentity"
+  },
+  "dLldpExtMIBCompliance": {
+    "name": "dLldpExtMIBCompliance",
+    "oid": "1.3.6.1.4.1.171.14.20.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dLldpExtBasicCfgGroup",
+        "module": "DLINKSW-LLDP-EXT-MIB"
+      },
+      {
+        "object": "dLldpExtClearStatsCounterGroup",
+        "module": "DLINKSW-LLDP-EXT-MIB"
+      },
+      {
+        "object": "dLldpExtClearNeighborGroup",
+        "module": "DLINKSW-LLDP-EXT-MIB"
+      },
+      {
+        "object": "dLldpExtPortSubtypeGroup",
+        "module": "DLINKSW-LLDP-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dLldpExtBasicCfgGroup": {
+    "name": "dLldpExtBasicCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.20.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-LLDP-EXT-MIB",
+        "object": "dLldpExtLldpEnabled"
+      },
+      {
+        "module": "DLINKSW-LLDP-EXT-MIB",
+        "object": "dLldpExtLldpForward"
+      },
+      {
+        "module": "DLINKSW-LLDP-EXT-MIB",
+        "object": "dLldpExtLldpTrapEnabled"
+      },
+      {
+        "module": "DLINKSW-LLDP-EXT-MIB",
+        "object": "dLldpExtLldpMedTrapEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "dLldpExtClearStatsCounterGroup": {
+    "name": "dLldpExtClearStatsCounterGroup",
+    "oid": "1.3.6.1.4.1.171.14.20.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-LLDP-EXT-MIB",
+        "object": "dLldpExtClearGlobalStats"
+      },
+      {
+        "module": "DLINKSW-LLDP-EXT-MIB",
+        "object": "dLldpExtClearAllPortsStats"
+      },
+      {
+        "module": "DLINKSW-LLDP-EXT-MIB",
+        "object": "dLldpExtClearCounterByPort"
+      }
+    ],
+    "status": "current"
+  },
+  "dLldpExtClearNeighborGroup": {
+    "name": "dLldpExtClearNeighborGroup",
+    "oid": "1.3.6.1.4.1.171.14.20.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-LLDP-EXT-MIB",
+        "object": "dLldpExtClearAllNeighbors"
+      },
+      {
+        "module": "DLINKSW-LLDP-EXT-MIB",
+        "object": "dLldpExtClearNeighborsByPort"
+      }
+    ],
+    "status": "current"
+  },
+  "dLldpExtPortSubtypeGroup": {
+    "name": "dLldpExtPortSubtypeGroup",
+    "oid": "1.3.6.1.4.1.171.14.20.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-LLDP-EXT-MIB",
+        "object": "dLldpExtPortSubType"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-LLDP-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-LLDP-EXT-MIB"
+  }
+}

@@ -1,0 +1,3079 @@
+{
+  "imports": {
+    "class": "imports",
+    "PRVT-QOS-MIB": [
+      "TNetworkPolicyIdOrNone",
+      "TNamedItemOrEmpty",
+      "TNamedItem",
+      "TSapIngressPolicyIdOrNone",
+      "serviceAccessSwitch",
+      "TSapEgressPolicyIdOrNone"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "prvtServicesMIB": {
+    "name": "prvtServicesMIB",
+    "oid": "1.3.6.1.4.1.738.1.7.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-08-07 00:00",
+        "description": "Added prefix prvt to Services' traps."
+      },
+      {
+        "revision": "2009-03-26 00:00",
+        "description": "Added object for Revert timer"
+      },
+      {
+        "revision": "2009-03-24 00:00",
+        "description": "Changed svcVPLSUplinkTable. Corrected various descriptions. Corrected types for some HQOS objects."
+      },
+      {
+        "revision": "2009-02-17 00:00",
+        "description": "Removed references to undefined OBJECT-GROUPs."
+      },
+      {
+        "revision": "2008-10-09 00:00",
+        "description": "Fixed the range of sdpGroupIdentifier."
+      },
+      {
+        "revision": "2008-04-10 00:00",
+        "description": "changed svcVplsMode values. Added sapLearnMode."
+      },
+      {
+        "revision": "2008-03-06 00:00",
+        "description": "changed description of svcAdminStatus."
+      },
+      {
+        "revision": "2008-01-11 00:00",
+        "description": "changed sdpOperStatus values."
+      },
+      {
+        "revision": "2008-01-09 00:00",
+        "description": "added sdpBindVlanTag."
+      },
+      {
+        "revision": "2008-01-07 00:00",
+        "description": "Fixed the range of sdpGroupIdentifier."
+      },
+      {
+        "revision": "2007-06-28 00:00",
+        "description": "Returned for backward compatibility svcMtu; Clarified few attributes descripton."
+      },
+      {
+        "revision": "2006-09-02 00:00",
+        "description": "Lots of changes: 1. Index for the service table is changed. 2. Few objects from the service tables are moved in sdp 3. svcVCId is have now more generic usage. so it's name is changed to svcVPNId 4. The descriptions for some objects are enhanced"
+      },
+      {
+        "revision": "2006-07-02 00:00",
+        "description": "Fixed the range of sdpGroupIdentifier."
+      },
+      {
+        "revision": "2006-02-04 00:00",
+        "description": "Fixed the range of the svcMtu object and changed the description of svcRowStatus."
+      },
+      {
+        "revision": "2005-11-09 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "prvtTMServObjs": {
+    "name": "prvtTMServObjs",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1",
+    "class": "objectidentity"
+  },
+  "prvtTMCustObjs": {
+    "name": "prvtTMCustObjs",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1",
+    "class": "objectidentity"
+  },
+  "prvtTMSvcObjs": {
+    "name": "prvtTMSvcObjs",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2",
+    "class": "objectidentity"
+  },
+  "prvtTMSapObjs": {
+    "name": "prvtTMSapObjs",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3",
+    "class": "objectidentity"
+  },
+  "prvtTMSdpObjs": {
+    "name": "prvtTMSdpObjs",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4",
+    "class": "objectidentity"
+  },
+  "prvtTMServVPLSGlobals": {
+    "name": "prvtTMServVPLSGlobals",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.3",
+    "class": "objectidentity"
+  },
+  "prvtServNotifications": {
+    "name": "prvtServNotifications",
+    "oid": "1.3.6.1.4.1.738.1.7.2.2",
+    "class": "objectidentity"
+  },
+  "prvtCustNotif": {
+    "name": "prvtCustNotif",
+    "oid": "1.3.6.1.4.1.738.1.7.2.2.1",
+    "class": "objectidentity"
+  },
+  "prvtSvcNotif": {
+    "name": "prvtSvcNotif",
+    "oid": "1.3.6.1.4.1.738.1.7.2.2.2",
+    "class": "objectidentity"
+  },
+  "prvtSapNotif": {
+    "name": "prvtSapNotif",
+    "oid": "1.3.6.1.4.1.738.1.7.2.2.3",
+    "class": "objectidentity"
+  },
+  "prvtSdpNotif": {
+    "name": "prvtSdpNotif",
+    "oid": "1.3.6.1.4.1.738.1.7.2.2.4",
+    "class": "objectidentity"
+  },
+  "prvtCustTraps": {
+    "name": "prvtCustTraps",
+    "oid": "1.3.6.1.4.1.738.1.7.2.2.1.0",
+    "class": "objectidentity"
+  },
+  "prvtSvcTraps": {
+    "name": "prvtSvcTraps",
+    "oid": "1.3.6.1.4.1.738.1.7.2.2.2.0",
+    "class": "objectidentity"
+  },
+  "prvtSapTraps": {
+    "name": "prvtSapTraps",
+    "oid": "1.3.6.1.4.1.738.1.7.2.2.3.0",
+    "class": "objectidentity"
+  },
+  "prvtSdpTraps": {
+    "name": "prvtSdpTraps",
+    "oid": "1.3.6.1.4.1.738.1.7.2.2.4.0",
+    "class": "objectidentity"
+  },
+  "prvtTMServConformance": {
+    "name": "prvtTMServConformance",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3",
+    "class": "objectidentity"
+  },
+  "prvtTMCustConformance": {
+    "name": "prvtTMCustConformance",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3.1",
+    "class": "objectidentity"
+  },
+  "prvtTMSvcConformance": {
+    "name": "prvtTMSvcConformance",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3.2",
+    "class": "objectidentity"
+  },
+  "prvtTMSapConformance": {
+    "name": "prvtTMSapConformance",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3.3",
+    "class": "objectidentity"
+  },
+  "prvtTMSdpConformance": {
+    "name": "prvtTMSdpConformance",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3.4",
+    "class": "objectidentity"
+  },
+  "prvtTMTstpConformance": {
+    "name": "prvtTMTstpConformance",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3.5",
+    "class": "objectidentity"
+  },
+  "ServiceAdminStatus": {
+    "name": "ServiceAdminStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ServiceOperStatus": {
+    "name": "ServiceOperStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ServObjName": {
+    "name": "ServObjName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ServObjDesc": {
+    "name": "ServObjDesc",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ServType": {
+    "name": "ServType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "epipe": 1,
+          "p3pipe": 2,
+          "tls": 3,
+          "vprn": 4,
+          "ies": 5,
+          "mirror": 6,
+          "apipe": 7,
+          "fpipe": 8,
+          "vpws": 9,
+          "vpls-pe": 10,
+          "vpls-mtu": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VpnId": {
+    "name": "VpnId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SdpIdType": {
+    "name": "SdpIdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 17407
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TMEncapVal": {
+    "name": "TMEncapVal",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "TSapEgrQueueId": {
+    "name": "TSapEgrQueueId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TSapIngQueueId": {
+    "name": "TSapIngQueueId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "custNumEntries": {
+    "name": "custNumEntries",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "custInfoTable": {
+    "name": "custInfoTable",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "custInfoEntry": {
+    "name": "custInfoEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "custName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "custName": {
+    "name": "custName",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServObjName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "custRowStatus": {
+    "name": "custRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "custContact": {
+    "name": "custContact",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServObjDesc",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "custPhone": {
+    "name": "custPhone",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServObjDesc",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "custLastMgmtChange": {
+    "name": "custLastMgmtChange",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "custMultiServiceSiteTable": {
+    "name": "custMultiServiceSiteTable",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "custMultiServiceSiteEntry": {
+    "name": "custMultiServiceSiteEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "custMultSvcSiteName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "custMultSvcSiteName": {
+    "name": "custMultSvcSiteName",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "custMultSvcSiteRowStatus": {
+    "name": "custMultSvcSiteRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "custMultSvcSiteDescription": {
+    "name": "custMultSvcSiteDescription",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServObjDesc",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "custMultSvcSiteIngressSchedulerPolicy": {
+    "name": "custMultSvcSiteIngressSchedulerPolicy",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServObjName",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "custMultSvcSiteEgressSchedulerPolicy": {
+    "name": "custMultSvcSiteEgressSchedulerPolicy",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServObjName",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "custMultSvcSiteLastMgmtChange": {
+    "name": "custMultSvcSiteLastMgmtChange",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "custMultiSvcSiteIngQosSchedStatsTable": {
+    "name": "custMultiSvcSiteIngQosSchedStatsTable",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "custMultiSvcSiteIngQosSchedStatsEntry": {
+    "name": "custMultiSvcSiteIngQosSchedStatsEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "custMultSvcSiteName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "custIngQosSchedName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "custIngQosSchedName": {
+    "name": "custIngQosSchedName",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "custIngQosSchedStatsForwardedPackets": {
+    "name": "custIngQosSchedStatsForwardedPackets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "custIngQosSchedStatsForwardedOctets": {
+    "name": "custIngQosSchedStatsForwardedOctets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "custMultiSvcSiteEgrQosSchedStatsTable": {
+    "name": "custMultiSvcSiteEgrQosSchedStatsTable",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "custMultiSvcSiteEgrQosSchedStatsEntry": {
+    "name": "custMultiSvcSiteEgrQosSchedStatsEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "custMultSvcSiteName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "custEgrQosSchedName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "custEgrQosSchedName": {
+    "name": "custEgrQosSchedName",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "custEgrQosSchedStatsForwardedPackets": {
+    "name": "custEgrQosSchedStatsForwardedPackets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "custEgrQosSchedStatsForwardedOctets": {
+    "name": "custEgrQosSchedStatsForwardedOctets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "custIngQosPortIdSchedStatsTable": {
+    "name": "custIngQosPortIdSchedStatsTable",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "custIngQosPortIdSchedStatsEntry": {
+    "name": "custIngQosPortIdSchedStatsEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "custMultSvcSiteName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "custIngQosPortIdSchedName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "custIngQosAssignmentPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "custIngQosPortIdSchedName": {
+    "name": "custIngQosPortIdSchedName",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "custIngQosAssignmentPortId": {
+    "name": "custIngQosAssignmentPortId",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "custIngQosPortSchedFwdPkts": {
+    "name": "custIngQosPortSchedFwdPkts",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "custIngQosPortSchedFwdOctets": {
+    "name": "custIngQosPortSchedFwdOctets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "custEgrQosPortIdSchedStatsTable": {
+    "name": "custEgrQosPortIdSchedStatsTable",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "custEgrQosPortIdSchedStatsEntry": {
+    "name": "custEgrQosPortIdSchedStatsEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "custMultSvcSiteName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "custEgrQosPortIdSchedName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "custEgrQosAssignmentPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "custEgrQosPortIdSchedName": {
+    "name": "custEgrQosPortIdSchedName",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "custEgrQosAssignmentPortId": {
+    "name": "custEgrQosAssignmentPortId",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "custEgrQosPortSchedFwdPkts": {
+    "name": "custEgrQosPortSchedFwdPkts",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "custEgrQosPortSchedFwdOctets": {
+    "name": "custEgrQosPortSchedFwdOctets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtCustCreated": {
+    "name": "prvtCustCreated",
+    "oid": "1.3.6.1.4.1.738.1.7.2.2.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "custName"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtCustDeleted": {
+    "name": "prvtCustDeleted",
+    "oid": "1.3.6.1.4.1.738.1.7.2.2.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "custName"
+      }
+    ],
+    "status": "current"
+  },
+  "svcNumEntries": {
+    "name": "svcNumEntries",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "svcBaseInfoTable": {
+    "name": "svcBaseInfoTable",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "svcBaseInfoEntry": {
+    "name": "svcBaseInfoEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "svcId": {
+    "name": "svcId",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "svcVpnId": {
+    "name": "svcVpnId",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VpnId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "svcRowStatus": {
+    "name": "svcRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "svcType": {
+    "name": "svcType",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "svcDescription": {
+    "name": "svcDescription",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServObjDesc",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "svcMtu": {
+    "name": "svcMtu",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 9216
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "svcAdminStatus": {
+    "name": "svcAdminStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceAdminStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "svcOperStatus": {
+    "name": "svcOperStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "svcNumSaps": {
+    "name": "svcNumSaps",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "svcNumSdps": {
+    "name": "svcNumSdps",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "svcLastMgmtChange": {
+    "name": "svcLastMgmtChange",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "svcLastStatusChange": {
+    "name": "svcLastStatusChange",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "svcEnableSecureSaps": {
+    "name": "svcEnableSecureSaps",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "svcCustName": {
+    "name": "svcCustName",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServObjName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "svcRevertTimer": {
+    "name": "svcRevertTimer",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "svcVplsMode": {
+    "name": "svcVplsMode",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "qualified": 1,
+          "unqualified": 2,
+          "enable": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unqualified",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "svcVPLSUplinkTable": {
+    "name": "svcVPLSUplinkTable",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "svcVPLSUplinkEntry": {
+    "name": "svcVPLSUplinkEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcVPLSUplinkPortID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "svcVPLSUplinkPortID": {
+    "name": "svcVPLSUplinkPortID",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "svcVPLSUplinkIfIndex": {
+    "name": "svcVPLSUplinkIfIndex",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "svcVPLSUplinkNetworkPolicy": {
+    "name": "svcVPLSUplinkNetworkPolicy",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNetworkPolicyIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "svcVPLSUplinkNetworkQueueEgressPolicy": {
+    "name": "svcVPLSUplinkNetworkQueueEgressPolicy",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItemOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "svcVPLSUplinkShaperProfile": {
+    "name": "svcVPLSUplinkShaperProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.2.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSvcCreated": {
+    "name": "prvtSvcCreated",
+    "oid": "1.3.6.1.4.1.738.1.7.2.2.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcId"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSvcDeleted": {
+    "name": "prvtSvcDeleted",
+    "oid": "1.3.6.1.4.1.738.1.7.2.2.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcId"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSvcStatusChanged": {
+    "name": "prvtSvcStatusChanged",
+    "oid": "1.3.6.1.4.1.738.1.7.2.2.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcId"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcVpnId"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcAdminStatus"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "sapNumEntries": {
+    "name": "sapNumEntries",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapBaseInfoTable": {
+    "name": "sapBaseInfoTable",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sapBaseInfoEntry": {
+    "name": "sapBaseInfoEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapPortId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapEncapValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sapPortId": {
+    "name": "sapPortId",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapEncapValue": {
+    "name": "sapEncapValue",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TMEncapVal",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapRowStatus": {
+    "name": "sapRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "sapType": {
+    "name": "sapType",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapDescription": {
+    "name": "sapDescription",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServObjDesc",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "sapAdminStatus": {
+    "name": "sapAdminStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceAdminStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "up",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sapOperStatus": {
+    "name": "sapOperStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "ingressQosMismatch": 3,
+          "egressQosMismatch": 4,
+          "svcAdminDown": 5,
+          "portMtuTooSmall": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapLastMgmtChange": {
+    "name": "sapLastMgmtChange",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapOperFlags": {
+    "name": "sapOperFlags",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "sapAdminDown": 0,
+        "svcAdminDown": 1,
+        "portOperDown": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapCustMultSvcSiteName": {
+    "name": "sapCustMultSvcSiteName",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sapIngressQosPolicyId": {
+    "name": "sapIngressQosPolicyId",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TSapIngressPolicyIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sapEgressQosPolicyId": {
+    "name": "sapEgressQosPolicyId",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TSapEgressPolicyIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sapIngressQosSchedulerPolicy": {
+    "name": "sapIngressQosSchedulerPolicy",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItemOrEmpty",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sapEgressQosSchedulerPolicy": {
+    "name": "sapEgressQosSchedulerPolicy",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItemOrEmpty",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sapLearnMode": {
+    "name": "sapLearnMode",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qualified": 1,
+          "unqualified": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtSapCreated": {
+    "name": "prvtSapCreated",
+    "oid": "1.3.6.1.4.1.738.1.7.2.2.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcId"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapPortId"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapEncapValue"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSapDeleted": {
+    "name": "prvtSapDeleted",
+    "oid": "1.3.6.1.4.1.738.1.7.2.2.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcId"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapPortId"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapEncapValue"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSapStatusChanged": {
+    "name": "prvtSapStatusChanged",
+    "oid": "1.3.6.1.4.1.738.1.7.2.2.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcId"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapPortId"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapEncapValue"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapAdminStatus"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "sapIngQosQueueStatsTable": {
+    "name": "sapIngQosQueueStatsTable",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sapIngQosQueueStatsEntry": {
+    "name": "sapIngQosQueueStatsEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapPortId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapEncapValue",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapIngQosQueueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sapIngQosQueueId": {
+    "name": "sapIngQosQueueId",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TSapIngQueueId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapIngQosQueueStatsOfferedHiPrioPackets": {
+    "name": "sapIngQosQueueStatsOfferedHiPrioPackets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapIngQosQueueStatsOfferedLoPrioPackets": {
+    "name": "sapIngQosQueueStatsOfferedLoPrioPackets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapIngQosQueueStatsOfferedHiPrioOctets": {
+    "name": "sapIngQosQueueStatsOfferedHiPrioOctets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapIngQosQueueStatsOfferedLoPrioOctets": {
+    "name": "sapIngQosQueueStatsOfferedLoPrioOctets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapIngQosQueueStatsForwardedInProfPackets": {
+    "name": "sapIngQosQueueStatsForwardedInProfPackets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapIngQosQueueStatsForwardedOutProfPackets": {
+    "name": "sapIngQosQueueStatsForwardedOutProfPackets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapIngQosQueueStatsForwardedInProfOctets": {
+    "name": "sapIngQosQueueStatsForwardedInProfOctets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapIngQosQueueStatsForwardedOutProfOctets": {
+    "name": "sapIngQosQueueStatsForwardedOutProfOctets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapIngQosQueueStatsDroppedOctets": {
+    "name": "sapIngQosQueueStatsDroppedOctets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapIngQosQueueStatsDroppedPackets": {
+    "name": "sapIngQosQueueStatsDroppedPackets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapIngQosCustName": {
+    "name": "sapIngQosCustName",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServObjName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapEgrQosQueueStatsTable": {
+    "name": "sapEgrQosQueueStatsTable",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sapEgrQosQueueStatsEntry": {
+    "name": "sapEgrQosQueueStatsEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapPortId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapEncapValue",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapEgrQosQueueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sapEgrQosQueueId": {
+    "name": "sapEgrQosQueueId",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TSapEgrQueueId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapEgrQosQueueStatsForwardedInProfPackets": {
+    "name": "sapEgrQosQueueStatsForwardedInProfPackets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapEgrQosQueueStatsForwardedOutProfPackets": {
+    "name": "sapEgrQosQueueStatsForwardedOutProfPackets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapEgrQosQueueStatsForwardedInProfOctets": {
+    "name": "sapEgrQosQueueStatsForwardedInProfOctets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapEgrQosQueueStatsForwardedOutProfOctets": {
+    "name": "sapEgrQosQueueStatsForwardedOutProfOctets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapEgrQosQueueStatsDroppedOctets": {
+    "name": "sapEgrQosQueueStatsDroppedOctets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapEgrQosQueueStatsDroppedPackets": {
+    "name": "sapEgrQosQueueStatsDroppedPackets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapEgrQosCustName": {
+    "name": "sapEgrQosCustName",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServObjName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapIngQosSchedStatsTable": {
+    "name": "sapIngQosSchedStatsTable",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sapIngQosSchedStatsEntry": {
+    "name": "sapIngQosSchedStatsEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapPortId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapEncapValue",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapIngQosSchedName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "sapIngQosSchedName": {
+    "name": "sapIngQosSchedName",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sapIngQosSchedStatsForwardedPackets": {
+    "name": "sapIngQosSchedStatsForwardedPackets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapIngQosSchedStatsForwardedOctets": {
+    "name": "sapIngQosSchedStatsForwardedOctets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapIngQosSchedCustName": {
+    "name": "sapIngQosSchedCustName",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServObjName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapEgrQosSchedStatsTable": {
+    "name": "sapEgrQosSchedStatsTable",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sapEgrQosSchedStatsEntry": {
+    "name": "sapEgrQosSchedStatsEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapPortId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapEncapValue",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapEgrQosSchedName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "sapEgrQosSchedName": {
+    "name": "sapEgrQosSchedName",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sapEgrQosSchedStatsForwardedPackets": {
+    "name": "sapEgrQosSchedStatsForwardedPackets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapEgrQosSchedStatsForwardedOctets": {
+    "name": "sapEgrQosSchedStatsForwardedOctets",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapEgrQosSchedCustName": {
+    "name": "sapEgrQosSchedCustName",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServObjName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdpNumEntries": {
+    "name": "sdpNumEntries",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdpNextFreeId": {
+    "name": "sdpNextFreeId",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdpIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdpInfoTable": {
+    "name": "sdpInfoTable",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdpInfoEntry": {
+    "name": "sdpInfoEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sdpId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdpId": {
+    "name": "sdpId",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdpIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdpRowStatus": {
+    "name": "sdpRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdpDelivery": {
+    "name": "sdpDelivery",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gre": 1,
+          "mpls": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "mpls",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdpFarEndIpAddress": {
+    "name": "sdpFarEndIpAddress",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdpDescription": {
+    "name": "sdpDescription",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServObjDesc",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdpLabelSignaling": {
+    "name": "sdpLabelSignaling",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "tldp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "tldp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdpAdminStatus": {
+    "name": "sdpAdminStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceAdminStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdpOperStatus": {
+    "name": "sdpOperStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "goingUp": 3,
+          "tunnelDown": 4,
+          "transportSelected": 5,
+          "supressed": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdpLastMgmtChange": {
+    "name": "sdpLastMgmtChange",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdpLdpEnabled": {
+    "name": "sdpLdpEnabled",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdpOperFlags": {
+    "name": "sdpOperFlags",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "sdpAdminDown": 0,
+        "signalingSessionDown": 1,
+        "transportTunnelDown": 2,
+        "invalidEgressInterface": 3,
+        "noSystemIpAddress": 4
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdpLastStatusChange": {
+    "name": "sdpLastStatusChange",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdpAdminIngressLabel": {
+    "name": "sdpAdminIngressLabel",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 1
+          },
+          {
+            "min": 2048,
+            "max": 18431
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdpAdminEgressLabel": {
+    "name": "sdpAdminEgressLabel",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 16,
+            "max": 1048575
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdpAdminIsBackup": {
+    "name": "sdpAdminIsBackup",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "sdpOperIsBackup": {
+    "name": "sdpOperIsBackup",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdpOutInterface": {
+    "name": "sdpOutInterface",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "sdpGroupIdentifier": {
+    "name": "sdpGroupIdentifier",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "sdpTransportTunnelName": {
+    "name": "sdpTransportTunnelName",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "sdpVCType": {
+    "name": "sdpVCType",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet-vlan": 4,
+          "ethernet": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "sdpType": {
+    "name": "sdpType",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalidType": 0,
+          "generic": 1,
+          "spoke": 2,
+          "mesh": 3,
+          "hub": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "sdpMtu": {
+    "name": "sdpMtu",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 9216
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "sdpBindVlanTag": {
+    "name": "sdpBindVlanTag",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdpIsPwStatusSignalingEnable": {
+    "name": "sdpIsPwStatusSignalingEnable",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "sdpEpsAdminIsPrimary": {
+    "name": "sdpEpsAdminIsPrimary",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "sdpEpsAdminIsSecondary": {
+    "name": "sdpEpsAdminIsSecondary",
+    "oid": "1.3.6.1.4.1.738.1.7.2.1.4.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtSdpCreated": {
+    "name": "prvtSdpCreated",
+    "oid": "1.3.6.1.4.1.738.1.7.2.2.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcId"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sdpId"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSdpDeleted": {
+    "name": "prvtSdpDeleted",
+    "oid": "1.3.6.1.4.1.738.1.7.2.2.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcId"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sdpId"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSdpStatusChanged": {
+    "name": "prvtSdpStatusChanged",
+    "oid": "1.3.6.1.4.1.738.1.7.2.2.4.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcId"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sdpId"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sdpAdminStatus"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sdpOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtTMCustCompliances": {
+    "name": "prvtTMCustCompliances",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3.1.1",
+    "class": "objectidentity"
+  },
+  "prvtTMCustGroups": {
+    "name": "prvtTMCustGroups",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3.1.2",
+    "class": "objectidentity"
+  },
+  "prvtTMSvcCompliances": {
+    "name": "prvtTMSvcCompliances",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3.2.1",
+    "class": "objectidentity"
+  },
+  "prvtTMSvcGroups": {
+    "name": "prvtTMSvcGroups",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3.2.2",
+    "class": "objectidentity"
+  },
+  "prvtTMSapCompliances": {
+    "name": "prvtTMSapCompliances",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3.3.1",
+    "class": "objectidentity"
+  },
+  "prvtTMSapGroups": {
+    "name": "prvtTMSapGroups",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3.3.2",
+    "class": "objectidentity"
+  },
+  "prvtTMSdpCompliances": {
+    "name": "prvtTMSdpCompliances",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3.4.1",
+    "class": "objectidentity"
+  },
+  "prvtTMSdpGroups": {
+    "name": "prvtTMSdpGroups",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3.4.2",
+    "class": "objectidentity"
+  },
+  "prvtTMCustCompliance": {
+    "name": "prvtTMCustCompliance",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3.1.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "prvtTMCustGlobalGroup",
+        "module": "PRVT-SERV-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtTMSvcCompliance": {
+    "name": "prvtTMSvcCompliance",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "prvtTMSvcGlobalGroup",
+        "module": "PRVT-SERV-MIB"
+      },
+      {
+        "object": "prvtTMSvcNotificationGroup",
+        "module": "PRVT-SERV-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtTMSapCompliance": {
+    "name": "prvtTMSapCompliance",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "prvtTMSapGlobalGroup",
+        "module": "PRVT-SERV-MIB"
+      },
+      {
+        "object": "prvtTMSapNotificationGroup",
+        "module": "PRVT-SERV-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtTMSdpCompliance": {
+    "name": "prvtTMSdpCompliance",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "prvtTMSdpGlobalGroup",
+        "module": "PRVT-SERV-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtTMCustGlobalGroup": {
+    "name": "prvtTMCustGlobalGroup",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3.1.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "custNumEntries"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "custName"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "custRowStatus"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "custContact"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "custPhone"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "custLastMgmtChange"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtTMSvcGlobalGroup": {
+    "name": "prvtTMSvcGlobalGroup",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcNumEntries"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcId"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcRowStatus"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcType"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcDescription"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcAdminStatus"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcOperStatus"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcNumSaps"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcNumSdps"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcLastMgmtChange"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcVpnId"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtTMSvcNotificationGroup": {
+    "name": "prvtTMSvcNotificationGroup",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "prvtSvcCreated"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "prvtSvcDeleted"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtTMSapGlobalGroup": {
+    "name": "prvtTMSapGlobalGroup",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapNumEntries"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapPortId"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapEncapValue"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapRowStatus"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapType"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapDescription"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapAdminStatus"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapOperStatus"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapIngressQosPolicyId"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapEgressQosPolicyId"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapLastMgmtChange"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtTMSapNotificationGroup": {
+    "name": "prvtTMSapNotificationGroup",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "prvtSapStatusChanged"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "prvtSapCreated"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "prvtSapDeleted"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtTMSdpGlobalGroup": {
+    "name": "prvtTMSdpGlobalGroup",
+    "oid": "1.3.6.1.4.1.738.1.7.2.3.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sdpNumEntries"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sdpId"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sdpNextFreeId"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sdpRowStatus"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sdpDelivery"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sdpFarEndIpAddress"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sdpDescription"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sdpLabelSignaling"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sdpAdminStatus"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sdpOperStatus"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sdpLastMgmtChange"
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sdpLdpEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-SERV-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-SERV-MIB"
+  }
+}

@@ -1,0 +1,5930 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADTRAN-AOS": [
+      "adGenAOSConformance",
+      "adGenAOSVoice"
+    ],
+    "ADTRAN-MIB": [
+      "adIdentity"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Counter32",
+      "Gauge32",
+      "Bits",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "adGenAOSVQMMib": {
+    "name": "adGenAOSVQMMib",
+    "oid": "1.3.6.1.4.1.664.6.10000.53.5.3",
+    "class": "moduleidentity"
+  },
+  "adVQM": {
+    "name": "adVQM",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3",
+    "class": "objectidentity"
+  },
+  "adVQMTrap": {
+    "name": "adVQMTrap",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.0",
+    "class": "objectidentity"
+  },
+  "adVQMTrapControl": {
+    "name": "adVQMTrapControl",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.1",
+    "class": "objectidentity"
+  },
+  "adVQMCfg": {
+    "name": "adVQMCfg",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2",
+    "class": "objectidentity"
+  },
+  "adVQMThreshold": {
+    "name": "adVQMThreshold",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.3",
+    "class": "objectidentity"
+  },
+  "adVQMSysPerf": {
+    "name": "adVQMSysPerf",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.4",
+    "class": "objectidentity"
+  },
+  "adVQMInterface": {
+    "name": "adVQMInterface",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5",
+    "class": "objectidentity"
+  },
+  "adVQMEndPoint": {
+    "name": "adVQMEndPoint",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.6",
+    "class": "objectidentity"
+  },
+  "adVQMHistory": {
+    "name": "adVQMHistory",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7",
+    "class": "objectidentity"
+  },
+  "adVQMActive": {
+    "name": "adVQMActive",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8",
+    "class": "objectidentity"
+  },
+  "MOSvalue": {
+    "name": "MOSvalue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Percentage": {
+    "name": "Percentage",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "MsecValue": {
+    "name": "MsecValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "adVQMEndOfCallTrap": {
+    "name": "adVQMEndOfCallTrap",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmTrapEventType"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistMosLq"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistMosPq"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistPktsLostTotal"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistOutOfOrder"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistPdvAverageMs"
+      }
+    ],
+    "status": "current"
+  },
+  "adVqmTrapState": {
+    "name": "adVqmTrapState",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adVqmTrapCfgSeverityLevel": {
+    "name": "adVqmTrapCfgSeverityLevel",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 1,
+          "warning": 2,
+          "notice": 3,
+          "info": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "warning",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adVqmTrapEventType": {
+    "name": "adVqmTrapEventType",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "lQMos": 0,
+        "pQMos": 1,
+        "loss": 2,
+        "outOfOrder": 3,
+        "jitter": 4
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCfgEnable": {
+    "name": "adVqmCfgEnable",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCfgSipEnable": {
+    "name": "adVqmCfgSipEnable",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCfgUdpEnable": {
+    "name": "adVqmCfgUdpEnable",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCfgInternationalCode": {
+    "name": "adVqmCfgInternationalCode",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "japan": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCfgJitterBufferType": {
+    "name": "adVqmCfgJitterBufferType",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "jitterBufferFixed": 1,
+          "jitterBufferAdaptive": 2,
+          "jitterBufferUnknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCfgJitterBufferAdaptiveMin": {
+    "name": "adVqmCfgJitterBufferAdaptiveMin",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCfgJitterBufferAdaptiveNominal": {
+    "name": "adVqmCfgJitterBufferAdaptiveNominal",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCfgJitterBufferAdaptiveMax": {
+    "name": "adVqmCfgJitterBufferAdaptiveMax",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCfgJitterBufferFixedNominal": {
+    "name": "adVqmCfgJitterBufferFixedNominal",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCfgJitterBufferFixedSize": {
+    "name": "adVqmCfgJitterBufferFixedSize",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCfgJitterBufferThresholdEarlyMs": {
+    "name": "adVqmCfgJitterBufferThresholdEarlyMs",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCfgJitterBufferThresholdLateMs": {
+    "name": "adVqmCfgJitterBufferThresholdLateMs",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCfgRoundTripPingEnabled": {
+    "name": "adVqmCfgRoundTripPingEnabled",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCfgRoundTripPingType": {
+    "name": "adVqmCfgRoundTripPingType",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ping": 1,
+          "timestamp": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCfgCallHistorySize": {
+    "name": "adVqmCfgCallHistorySize",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCfgHistoryThresholdLqmos": {
+    "name": "adVqmCfgHistoryThresholdLqmos",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCfgHistoryThresholdCqmos": {
+    "name": "adVqmCfgHistoryThresholdCqmos",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCfgHistoryThresholdPqmos": {
+    "name": "adVqmCfgHistoryThresholdPqmos",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCfgHistoryThresholdLoss": {
+    "name": "adVqmCfgHistoryThresholdLoss",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCfgHistoryThresholdOutOfOrder": {
+    "name": "adVqmCfgHistoryThresholdOutOfOrder",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCfgHistoryThresholdJitter": {
+    "name": "adVqmCfgHistoryThresholdJitter",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCfgClear": {
+    "name": "adVqmCfgClear",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adVqmCfgClearCallHistory": {
+    "name": "adVqmCfgClearCallHistory",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adVqmThresholdLqmosInfo": {
+    "name": "adVqmThresholdLqmosInfo",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmThresholdLqmosNotice": {
+    "name": "adVqmThresholdLqmosNotice",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmThresholdLqmosWarning": {
+    "name": "adVqmThresholdLqmosWarning",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmThresholdLqmosError": {
+    "name": "adVqmThresholdLqmosError",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmThresholdPqmosInfo": {
+    "name": "adVqmThresholdPqmosInfo",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmThresholdPqmosNotice": {
+    "name": "adVqmThresholdPqmosNotice",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmThresholdPqmosWarning": {
+    "name": "adVqmThresholdPqmosWarning",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmThresholdPqmosError": {
+    "name": "adVqmThresholdPqmosError",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmThresholdOutOfOrderInfo": {
+    "name": "adVqmThresholdOutOfOrderInfo",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmThresholdOutOfOrderNotice": {
+    "name": "adVqmThresholdOutOfOrderNotice",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmThresholdOutOfOrderWarning": {
+    "name": "adVqmThresholdOutOfOrderWarning",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmThresholdOutOfOrderError": {
+    "name": "adVqmThresholdOutOfOrderError",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmThresholdLossInfo": {
+    "name": "adVqmThresholdLossInfo",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmThresholdLossNotice": {
+    "name": "adVqmThresholdLossNotice",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmThresholdLossWarning": {
+    "name": "adVqmThresholdLossWarning",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmThresholdLossError": {
+    "name": "adVqmThresholdLossError",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmThresholdJitterInfo": {
+    "name": "adVqmThresholdJitterInfo",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmThresholdJitterNotice": {
+    "name": "adVqmThresholdJitterNotice",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmThresholdJitterWarning": {
+    "name": "adVqmThresholdJitterWarning",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmThresholdJitterError": {
+    "name": "adVqmThresholdJitterError",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmSysActiveCalls": {
+    "name": "adVqmSysActiveCalls",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmSysActiveExcellent": {
+    "name": "adVqmSysActiveExcellent",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmSysActiveGood": {
+    "name": "adVqmSysActiveGood",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmSysActiveFair": {
+    "name": "adVqmSysActiveFair",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmSysActivePoor": {
+    "name": "adVqmSysActivePoor",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmSysCallHistoryCalls": {
+    "name": "adVqmSysCallHistoryCalls",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmSysCallHistoryExcellent": {
+    "name": "adVqmSysCallHistoryExcellent",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmSysCallHistoryGood": {
+    "name": "adVqmSysCallHistoryGood",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmSysCallHistoryFair": {
+    "name": "adVqmSysCallHistoryFair",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmSysCallHistoryPoor": {
+    "name": "adVqmSysCallHistoryPoor",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmSysAllCallsExcellent": {
+    "name": "adVqmSysAllCallsExcellent",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmSysAllCallsGood": {
+    "name": "adVqmSysAllCallsGood",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmSysAllCallsFair": {
+    "name": "adVqmSysAllCallsFair",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmSysAllCallsPoor": {
+    "name": "adVqmSysAllCallsPoor",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVQMInterfaceTable": {
+    "name": "adVQMInterfaceTable",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adVQMInterfaceEntry": {
+    "name": "adVQMInterfaceEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adVqmIfcId": {
+    "name": "adVqmIfcId",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcName": {
+    "name": "adVqmIfcName",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcPktsRx": {
+    "name": "adVqmIfcPktsRx",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcPktsLost": {
+    "name": "adVqmIfcPktsLost",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcPktsOoo": {
+    "name": "adVqmIfcPktsOoo",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcPktsDiscarded": {
+    "name": "adVqmIfcPktsDiscarded",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcNumberActiveCalls": {
+    "name": "adVqmIfcNumberActiveCalls",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcTerminatedCalls": {
+    "name": "adVqmIfcTerminatedCalls",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcRLqMinimum": {
+    "name": "adVqmIfcRLqMinimum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcRLqAverage": {
+    "name": "adVqmIfcRLqAverage",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcRLqMaximum": {
+    "name": "adVqmIfcRLqMaximum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcRCqMinimum": {
+    "name": "adVqmIfcRCqMinimum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcRCqAverage": {
+    "name": "adVqmIfcRCqAverage",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcRCqMaximum": {
+    "name": "adVqmIfcRCqMaximum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcRG107Minimum": {
+    "name": "adVqmIfcRG107Minimum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcRG107Average": {
+    "name": "adVqmIfcRG107Average",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcRG107Maximum": {
+    "name": "adVqmIfcRG107Maximum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcMosLqMinimum": {
+    "name": "adVqmIfcMosLqMinimum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcMosLqAverage": {
+    "name": "adVqmIfcMosLqAverage",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcMosLqMaximum": {
+    "name": "adVqmIfcMosLqMaximum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcMosCqMinimum": {
+    "name": "adVqmIfcMosCqMinimum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcMosCqAverage": {
+    "name": "adVqmIfcMosCqAverage",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcMosCqMaximum": {
+    "name": "adVqmIfcMosCqMaximum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcMosPqMinimum": {
+    "name": "adVqmIfcMosPqMinimum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcMosPqAverage": {
+    "name": "adVqmIfcMosPqAverage",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcMosPqMaximum": {
+    "name": "adVqmIfcMosPqMaximum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcLossMinimum": {
+    "name": "adVqmIfcLossMinimum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcLossAverage": {
+    "name": "adVqmIfcLossAverage",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcLossMaximum": {
+    "name": "adVqmIfcLossMaximum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcDiscardsMinimum": {
+    "name": "adVqmIfcDiscardsMinimum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcDiscardsAverage": {
+    "name": "adVqmIfcDiscardsAverage",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcDiscardsMaximum": {
+    "name": "adVqmIfcDiscardsMaximum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcPdvAverageMs": {
+    "name": "adVqmIfcPdvAverageMs",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcPdvMaximumMs": {
+    "name": "adVqmIfcPdvMaximumMs",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcDelayMinMsec": {
+    "name": "adVqmIfcDelayMinMsec",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcDelayAvgMsec": {
+    "name": "adVqmIfcDelayAvgMsec",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcDelayMaxMsec": {
+    "name": "adVqmIfcDelayMaxMsec",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcNumberStreamsExcellent": {
+    "name": "adVqmIfcNumberStreamsExcellent",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcNumberStreamsGood": {
+    "name": "adVqmIfcNumberStreamsGood",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcNumberStreamsFair": {
+    "name": "adVqmIfcNumberStreamsFair",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcNumberStreamsPoor": {
+    "name": "adVqmIfcNumberStreamsPoor",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmIfcClear": {
+    "name": "adVqmIfcClear",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.5.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adVQMEndPointTable": {
+    "name": "adVQMEndPointTable",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adVQMEndPointEntry": {
+    "name": "adVQMEndPointEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmEndPointRtpSourceIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adVqmEndPointRtpSourceIp": {
+    "name": "adVqmEndPointRtpSourceIp",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmEndPointNumberCompletedCalls": {
+    "name": "adVqmEndPointNumberCompletedCalls",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmEndPointInterfaceId": {
+    "name": "adVqmEndPointInterfaceId",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmEndPointInterfaceName": {
+    "name": "adVqmEndPointInterfaceName",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmEndPointMosLqMinimum": {
+    "name": "adVqmEndPointMosLqMinimum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmEndPointMosLqAverage": {
+    "name": "adVqmEndPointMosLqAverage",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmEndPointMosLqMaximum": {
+    "name": "adVqmEndPointMosLqMaximum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmEndPointMosPqMinimum": {
+    "name": "adVqmEndPointMosPqMinimum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmEndPointMosPqAverage": {
+    "name": "adVqmEndPointMosPqAverage",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmEndPointMosPqMaximum": {
+    "name": "adVqmEndPointMosPqMaximum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmEndPointPktsLostTotal": {
+    "name": "adVqmEndPointPktsLostTotal",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmEndPointPktsOutOfOrder": {
+    "name": "adVqmEndPointPktsOutOfOrder",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmEndPointJitterMaximum": {
+    "name": "adVqmEndPointJitterMaximum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmEndPointNumberStreamsExcellent": {
+    "name": "adVqmEndPointNumberStreamsExcellent",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmEndPointNumberStreamsGood": {
+    "name": "adVqmEndPointNumberStreamsGood",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.6.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmEndPointNumberStreamsFair": {
+    "name": "adVqmEndPointNumberStreamsFair",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.6.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmEndPointNumberStreamsPoor": {
+    "name": "adVqmEndPointNumberStreamsPoor",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.6.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVQMCallHistoryTable": {
+    "name": "adVQMCallHistoryTable",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adVQMCallHistoryEntry": {
+    "name": "adVQMCallHistoryEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistRtpSourceIp",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistRtpSourcePort",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistRtpDestIp",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistRtpDestPort",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistSsrcid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adVqmCallHistRtpSourceIp": {
+    "name": "adVqmCallHistRtpSourceIp",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistRtpSourcePort": {
+    "name": "adVqmCallHistRtpSourcePort",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistRtpDestIp": {
+    "name": "adVqmCallHistRtpDestIp",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistRtpDestPort": {
+    "name": "adVqmCallHistRtpDestPort",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistSsrcid": {
+    "name": "adVqmCallHistSsrcid",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistTo": {
+    "name": "adVqmCallHistTo",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistFrom": {
+    "name": "adVqmCallHistFrom",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistRtpSourceUri": {
+    "name": "adVqmCallHistRtpSourceUri",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistCallid": {
+    "name": "adVqmCallHistCallid",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistCcmid": {
+    "name": "adVqmCallHistCcmid",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistSourceIntName": {
+    "name": "adVqmCallHistSourceIntName",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistDestIntName": {
+    "name": "adVqmCallHistDestIntName",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistSourceIntDescription": {
+    "name": "adVqmCallHistSourceIntDescription",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistDestIntDescription": {
+    "name": "adVqmCallHistDestIntDescription",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistCallStart": {
+    "name": "adVqmCallHistCallStart",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistCallDurationMs": {
+    "name": "adVqmCallHistCallDurationMs",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistCodec": {
+    "name": "adVqmCallHistCodec",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "g711U": 2,
+          "g711UPLC": 3,
+          "g723153K": 4,
+          "deprecated1": 5,
+          "g723163K": 6,
+          "deprecated2": 7,
+          "g728": 8,
+          "deprecated3": 9,
+          "g729": 10,
+          "deprecated4": 11,
+          "g729A": 12,
+          "deprecated5": 13,
+          "user1": 14,
+          "user2": 15,
+          "user3": 16,
+          "user4": 17,
+          "gsmfr": 18,
+          "reservedgsmhr": 19,
+          "gsmefr": 20,
+          "sx7300": 21,
+          "sx9600": 22,
+          "g711A": 23,
+          "g711APLC": 24,
+          "deprecated6": 25,
+          "g72616K": 26,
+          "g72624K": 27,
+          "g72632K": 28,
+          "g72640K": 29,
+          "gipse711U": 30,
+          "gipse711A": 31,
+          "gipsilbc": 32,
+          "gipsisac": 33,
+          "gipsipcmwb": 34,
+          "g729E8K0": 35,
+          "g729E11k8": 36,
+          "wblinearpcm": 37,
+          "wblinearpcmPlc": 38,
+          "g722at64k": 39,
+          "g722at56k": 40,
+          "g722at48k": 41,
+          "g7221at32k": 42,
+          "g7221at24k": 43,
+          "g7222at23k85": 44,
+          "g7222at23k05": 45,
+          "g7222at19k85": 46,
+          "g7222at18k25": 47,
+          "g7222at15k85": 48,
+          "g7222at14k25": 49,
+          "g7222at12k85": 50,
+          "g7222at8k85": 51,
+          "g7222at6k6": 52,
+          "qcelp8": 53,
+          "qcelp13": 54,
+          "evrc": 55,
+          "smv812": 56,
+          "smv579": 57,
+          "smv444": 58,
+          "smv395": 59,
+          "amrnb12k2": 60,
+          "amrnb10k2": 61,
+          "amrnb7k95": 62,
+          "amrnb7k4": 63,
+          "amrnb6k7": 64,
+          "amrnb5k9": 65,
+          "amrnb5k15": 66,
+          "amrnb4k75": 67,
+          "ilbc13k3": 68,
+          "ilbc15k2": 69,
+          "g711u56k": 70,
+          "g711uPLC56k": 71,
+          "g711A56k": 72,
+          "g711APLC56k": 73,
+          "g7231C": 74,
+          "speex2k15": 75,
+          "speex5k95": 76,
+          "speeX8k": 77,
+          "speeX11k": 78,
+          "speeX15k": 79,
+          "speeX18k2": 80,
+          "speeX24k6": 81,
+          "speeX3k95": 82,
+          "speeX12k8": 83,
+          "speeX16k8": 84,
+          "speeX20k6": 85,
+          "speeX23k8": 86,
+          "speeX27k8": 87,
+          "speeX34k2": 88,
+          "speeX42k2": 89
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistCodecClass": {
+    "name": "adVqmCallHistCodecClass",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wideband": 1,
+          "other": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistDscp": {
+    "name": "adVqmCallHistDscp",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistPktsRcvdTotal": {
+    "name": "adVqmCallHistPktsRcvdTotal",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistPktsLostTotal": {
+    "name": "adVqmCallHistPktsLostTotal",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistPktsDiscardedTotal": {
+    "name": "adVqmCallHistPktsDiscardedTotal",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistOutOfOrder": {
+    "name": "adVqmCallHistOutOfOrder",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistPdvAverageMs": {
+    "name": "adVqmCallHistPdvAverageMs",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistPdvMaximumMs": {
+    "name": "adVqmCallHistPdvMaximumMs",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistRtDelayInst": {
+    "name": "adVqmCallHistRtDelayInst",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistRtDelayAverage": {
+    "name": "adVqmCallHistRtDelayAverage",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistRtDelayMaximum": {
+    "name": "adVqmCallHistRtDelayMaximum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistOnewayDelayInst": {
+    "name": "adVqmCallHistOnewayDelayInst",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistOnewayDelayAverage": {
+    "name": "adVqmCallHistOnewayDelayAverage",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistOnewayDelayMaximum": {
+    "name": "adVqmCallHistOnewayDelayMaximum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistOrigDelayInst": {
+    "name": "adVqmCallHistOrigDelayInst",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistOrigDelayAverage": {
+    "name": "adVqmCallHistOrigDelayAverage",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistOrigDelayMaximum": {
+    "name": "adVqmCallHistOrigDelayMaximum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistTermDelayMinimum": {
+    "name": "adVqmCallHistTermDelayMinimum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistTermDelayAverage": {
+    "name": "adVqmCallHistTermDelayAverage",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistTermDelayMaximum": {
+    "name": "adVqmCallHistTermDelayMaximum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistRLq": {
+    "name": "adVqmCallHistRLq",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistRCq": {
+    "name": "adVqmCallHistRCq",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistRNominal": {
+    "name": "adVqmCallHistRNominal",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistRG107": {
+    "name": "adVqmCallHistRG107",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistMosLq": {
+    "name": "adVqmCallHistMosLq",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistMosCq": {
+    "name": "adVqmCallHistMosCq",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistMosPq": {
+    "name": "adVqmCallHistMosPq",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistMosNominal": {
+    "name": "adVqmCallHistMosNominal",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistDegLoss": {
+    "name": "adVqmCallHistDegLoss",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistDegDiscard": {
+    "name": "adVqmCallHistDegDiscard",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistDegVocoder": {
+    "name": "adVqmCallHistDegVocoder",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistDegRecency": {
+    "name": "adVqmCallHistDegRecency",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistDegDelay": {
+    "name": "adVqmCallHistDegDelay",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistDegSiglvl": {
+    "name": "adVqmCallHistDegSiglvl",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistDegNoiselvl": {
+    "name": "adVqmCallHistDegNoiselvl",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistDegEcholvl": {
+    "name": "adVqmCallHistDegEcholvl",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistBurstRLq": {
+    "name": "adVqmCallHistBurstRLq",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistBurstCount": {
+    "name": "adVqmCallHistBurstCount",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistBurstRateAvg": {
+    "name": "adVqmCallHistBurstRateAvg",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistBurstLenAvgPkts": {
+    "name": "adVqmCallHistBurstLenAvgPkts",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistBurstLenAvgMsec": {
+    "name": "adVqmCallHistBurstLenAvgMsec",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistGapR": {
+    "name": "adVqmCallHistGapR",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistGapCount": {
+    "name": "adVqmCallHistGapCount",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistGapLossRateAvg": {
+    "name": "adVqmCallHistGapLossRateAvg",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistGapLenPkts": {
+    "name": "adVqmCallHistGapLenPkts",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistGapLenMsec": {
+    "name": "adVqmCallHistGapLenMsec",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistLossRateAvg": {
+    "name": "adVqmCallHistLossRateAvg",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistNetworkLossAvg": {
+    "name": "adVqmCallHistNetworkLossAvg",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistDiscardRateAvg": {
+    "name": "adVqmCallHistDiscardRateAvg",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistExcessBurst": {
+    "name": "adVqmCallHistExcessBurst",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistExcessGap": {
+    "name": "adVqmCallHistExcessGap",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistPpdvMsec": {
+    "name": "adVqmCallHistPpdvMsec",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MsecValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistLateThresholdMs": {
+    "name": "adVqmCallHistLateThresholdMs",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MsecValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistLateThresholdPc": {
+    "name": "adVqmCallHistLateThresholdPc",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistLateUnderThresh": {
+    "name": "adVqmCallHistLateUnderThresh",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistLateTotalCount": {
+    "name": "adVqmCallHistLateTotalCount",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistLatePeakJitterMs": {
+    "name": "adVqmCallHistLatePeakJitterMs",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MsecValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistEarlyThreshMs": {
+    "name": "adVqmCallHistEarlyThreshMs",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MsecValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistEarlyThreshPc": {
+    "name": "adVqmCallHistEarlyThreshPc",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistEarlyUnderThresh": {
+    "name": "adVqmCallHistEarlyUnderThresh",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistEarlyTotalCount": {
+    "name": "adVqmCallHistEarlyTotalCount",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistEarlyPeakJitterMs": {
+    "name": "adVqmCallHistEarlyPeakJitterMs",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.79",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MsecValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistDelayIncreaseCount": {
+    "name": "adVqmCallHistDelayIncreaseCount",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistDelayDecreaseCount": {
+    "name": "adVqmCallHistDelayDecreaseCount",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistResyncCount": {
+    "name": "adVqmCallHistResyncCount",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.82",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistJitterBufferType": {
+    "name": "adVqmCallHistJitterBufferType",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 1,
+          "adaptive": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistJbCfgMin": {
+    "name": "adVqmCallHistJbCfgMin",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.84",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistJbCfgNom": {
+    "name": "adVqmCallHistJbCfgNom",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistJbCfgMax": {
+    "name": "adVqmCallHistJbCfgMax",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.86",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistDuplicatePkts": {
+    "name": "adVqmCallHistDuplicatePkts",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.87",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistEarlyPkts": {
+    "name": "adVqmCallHistEarlyPkts",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.88",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistLatePkts": {
+    "name": "adVqmCallHistLatePkts",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.89",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistOverrunDiscardPkts": {
+    "name": "adVqmCallHistOverrunDiscardPkts",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.90",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistUnderrunDiscardPkts": {
+    "name": "adVqmCallHistUnderrunDiscardPkts",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.91",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistDelayMinMsec": {
+    "name": "adVqmCallHistDelayMinMsec",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.92",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistDelayAvgMsec": {
+    "name": "adVqmCallHistDelayAvgMsec",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.93",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistDelayMaxMsec": {
+    "name": "adVqmCallHistDelayMaxMsec",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.94",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistDelayCurrentMsec": {
+    "name": "adVqmCallHistDelayCurrentMsec",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.95",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistExtRLqIn": {
+    "name": "adVqmCallHistExtRLqIn",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.96",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistExtRLqOut": {
+    "name": "adVqmCallHistExtRLqOut",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.97",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistExtRCqIn": {
+    "name": "adVqmCallHistExtRCqIn",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.98",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistExtRCqOut": {
+    "name": "adVqmCallHistExtRCqOut",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistThroughPutIndex": {
+    "name": "adVqmCallHistThroughPutIndex",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistReliabilityIndex": {
+    "name": "adVqmCallHistReliabilityIndex",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.101",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmCallHistBitrate": {
+    "name": "adVqmCallHistBitrate",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.7.1.1.102",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVQMActiveCallTable": {
+    "name": "adVQMActiveCallTable",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adVQMActiveCallEntry": {
+    "name": "adVQMActiveCallEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallRtpSourceIp",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallRtpSourcePort",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallRtpDestIp",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallRtpDestPort",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallSsrcid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adVqmActCallRtpSourceIp": {
+    "name": "adVqmActCallRtpSourceIp",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallRtpSourcePort": {
+    "name": "adVqmActCallRtpSourcePort",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallRtpDestIp": {
+    "name": "adVqmActCallRtpDestIp",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallRtpDestPort": {
+    "name": "adVqmActCallRtpDestPort",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallSsrcid": {
+    "name": "adVqmActCallSsrcid",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallTo": {
+    "name": "adVqmActCallTo",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallFrom": {
+    "name": "adVqmActCallFrom",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallRtpSourceUri": {
+    "name": "adVqmActCallRtpSourceUri",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallCallid": {
+    "name": "adVqmActCallCallid",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallCcmid": {
+    "name": "adVqmActCallCcmid",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallSourceIntName": {
+    "name": "adVqmActCallSourceIntName",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallDestIntName": {
+    "name": "adVqmActCallDestIntName",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallSourceIntDescription": {
+    "name": "adVqmActCallSourceIntDescription",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallDestIntDescription": {
+    "name": "adVqmActCallDestIntDescription",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallCallStart": {
+    "name": "adVqmActCallCallStart",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallCallDurationMs": {
+    "name": "adVqmActCallCallDurationMs",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallCodec": {
+    "name": "adVqmActCallCodec",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "g711U": 2,
+          "g711UPLC": 3,
+          "g723153K": 4,
+          "deprecated1": 5,
+          "g723163K": 6,
+          "deprecated2": 7,
+          "g728": 8,
+          "deprecated3": 9,
+          "g729": 10,
+          "deprecated4": 11,
+          "g729A": 12,
+          "deprecated5": 13,
+          "user1": 14,
+          "user2": 15,
+          "user3": 16,
+          "user4": 17,
+          "gsmfr": 18,
+          "reservedgsmhr": 19,
+          "gsmefr": 20,
+          "sx7300": 21,
+          "sx9600": 22,
+          "g711A": 23,
+          "g711APLC": 24,
+          "deprecated6": 25,
+          "g72616K": 26,
+          "g72624K": 27,
+          "g72632K": 28,
+          "g72640K": 29,
+          "gipse711U": 30,
+          "gipse711A": 31,
+          "gipsilbc": 32,
+          "gipsisac": 33,
+          "gipsipcmwb": 34,
+          "g729E8K0": 35,
+          "g729E11k8": 36,
+          "wblinearpcm": 37,
+          "wblinearpcmPlc": 38,
+          "g722at64k": 39,
+          "g722at56k": 40,
+          "g722at48k": 41,
+          "g7221at32k": 42,
+          "g7221at24k": 43,
+          "g7222at23k85": 44,
+          "g7222at23k05": 45,
+          "g7222at19k85": 46,
+          "g7222at18k25": 47,
+          "g7222at15k85": 48,
+          "g7222at14k25": 49,
+          "g7222at12k85": 50,
+          "g7222at8k85": 51,
+          "g7222at6k6": 52,
+          "qcelp8": 53,
+          "qcelp13": 54,
+          "evrc": 55,
+          "smv812": 56,
+          "smv579": 57,
+          "smv444": 58,
+          "smv395": 59,
+          "amrnb12k2": 60,
+          "amrnb10k2": 61,
+          "amrnb7k95": 62,
+          "amrnb7k4": 63,
+          "amrnb6k7": 64,
+          "amrnb5k9": 65,
+          "amrnb5k15": 66,
+          "amrnb4k75": 67,
+          "ilbc13k3": 68,
+          "ilbc15k2": 69,
+          "g711u56k": 70,
+          "g711uPLC56k": 71,
+          "g711A56k": 72,
+          "g711APLC56k": 73,
+          "g7231C": 74,
+          "speex2k15": 75,
+          "speex5k95": 76,
+          "speeX8k": 77,
+          "speeX11k": 78,
+          "speeX15k": 79,
+          "speeX18k2": 80,
+          "speeX24k6": 81,
+          "speeX3k95": 82,
+          "speeX12k8": 83,
+          "speeX16k8": 84,
+          "speeX20k6": 85,
+          "speeX23k8": 86,
+          "speeX27k8": 87,
+          "speeX34k2": 88,
+          "speeX42k2": 89
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallCodecClass": {
+    "name": "adVqmActCallCodecClass",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wideband": 1,
+          "other": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallDscp": {
+    "name": "adVqmActCallDscp",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallPktsRcvdTotal": {
+    "name": "adVqmActCallPktsRcvdTotal",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallPktsLostTotal": {
+    "name": "adVqmActCallPktsLostTotal",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallPktsDiscardedTotal": {
+    "name": "adVqmActCallPktsDiscardedTotal",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallOutOfOrder": {
+    "name": "adVqmActCallOutOfOrder",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallPdvAverageMs": {
+    "name": "adVqmActCallPdvAverageMs",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallPdvMaximumMs": {
+    "name": "adVqmActCallPdvMaximumMs",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallRtDelayInst": {
+    "name": "adVqmActCallRtDelayInst",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallRtDelayAverage": {
+    "name": "adVqmActCallRtDelayAverage",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallRtDelayMaximum": {
+    "name": "adVqmActCallRtDelayMaximum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallOnewayDelayInst": {
+    "name": "adVqmActCallOnewayDelayInst",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallOnewayDelayAverage": {
+    "name": "adVqmActCallOnewayDelayAverage",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallOnewayDelayMaximum": {
+    "name": "adVqmActCallOnewayDelayMaximum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallOrigDelayInst": {
+    "name": "adVqmActCallOrigDelayInst",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallOrigDelayAverage": {
+    "name": "adVqmActCallOrigDelayAverage",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallOrigDelayMaximum": {
+    "name": "adVqmActCallOrigDelayMaximum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallTermDelayMinimum": {
+    "name": "adVqmActCallTermDelayMinimum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallTermDelayAverage": {
+    "name": "adVqmActCallTermDelayAverage",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallTermDelayMaximum": {
+    "name": "adVqmActCallTermDelayMaximum",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallRLq": {
+    "name": "adVqmActCallRLq",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallRCq": {
+    "name": "adVqmActCallRCq",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallRNominal": {
+    "name": "adVqmActCallRNominal",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallRG107": {
+    "name": "adVqmActCallRG107",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallMosLq": {
+    "name": "adVqmActCallMosLq",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallMosCq": {
+    "name": "adVqmActCallMosCq",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallMosPq": {
+    "name": "adVqmActCallMosPq",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallMosNominal": {
+    "name": "adVqmActCallMosNominal",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MOSvalue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallDegLoss": {
+    "name": "adVqmActCallDegLoss",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallDegDiscard": {
+    "name": "adVqmActCallDegDiscard",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallDegVocoder": {
+    "name": "adVqmActCallDegVocoder",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallDegRecency": {
+    "name": "adVqmActCallDegRecency",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallDegDelay": {
+    "name": "adVqmActCallDegDelay",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallDegSiglvl": {
+    "name": "adVqmActCallDegSiglvl",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallDegNoiselvl": {
+    "name": "adVqmActCallDegNoiselvl",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallDegEcholvl": {
+    "name": "adVqmActCallDegEcholvl",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallBurstRLq": {
+    "name": "adVqmActCallBurstRLq",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallBurstCount": {
+    "name": "adVqmActCallBurstCount",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallBurstRateAvg": {
+    "name": "adVqmActCallBurstRateAvg",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallBurstLenAvgPkts": {
+    "name": "adVqmActCallBurstLenAvgPkts",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallBurstLenAvgMsec": {
+    "name": "adVqmActCallBurstLenAvgMsec",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallGapR": {
+    "name": "adVqmActCallGapR",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallGapCount": {
+    "name": "adVqmActCallGapCount",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallGapLossRateAvg": {
+    "name": "adVqmActCallGapLossRateAvg",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallGapLenPkts": {
+    "name": "adVqmActCallGapLenPkts",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallGapLenMsec": {
+    "name": "adVqmActCallGapLenMsec",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallLossRateAvg": {
+    "name": "adVqmActCallLossRateAvg",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallNetworkLossAvg": {
+    "name": "adVqmActCallNetworkLossAvg",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallDiscardRateAvg": {
+    "name": "adVqmActCallDiscardRateAvg",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallExcessBurst": {
+    "name": "adVqmActCallExcessBurst",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallExcessGap": {
+    "name": "adVqmActCallExcessGap",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallPpdvMsec": {
+    "name": "adVqmActCallPpdvMsec",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MsecValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallLateThresholdMs": {
+    "name": "adVqmActCallLateThresholdMs",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MsecValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallLateThresholdPc": {
+    "name": "adVqmActCallLateThresholdPc",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallLateUnderThresh": {
+    "name": "adVqmActCallLateUnderThresh",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallLateTotalCount": {
+    "name": "adVqmActCallLateTotalCount",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallLatePeakJitterMs": {
+    "name": "adVqmActCallLatePeakJitterMs",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MsecValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallEarlyThreshMs": {
+    "name": "adVqmActCallEarlyThreshMs",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MsecValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallEarlyThreshPc": {
+    "name": "adVqmActCallEarlyThreshPc",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallEarlyUnderThresh": {
+    "name": "adVqmActCallEarlyUnderThresh",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallEarlyTotalCount": {
+    "name": "adVqmActCallEarlyTotalCount",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallEarlyPeakJitterMs": {
+    "name": "adVqmActCallEarlyPeakJitterMs",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.79",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MsecValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallDelayIncreaseCount": {
+    "name": "adVqmActCallDelayIncreaseCount",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallDelayDecreaseCount": {
+    "name": "adVqmActCallDelayDecreaseCount",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallResyncCount": {
+    "name": "adVqmActCallResyncCount",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.82",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallJitterBufferType": {
+    "name": "adVqmActCallJitterBufferType",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 1,
+          "adaptive": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallJbCfgMin": {
+    "name": "adVqmActCallJbCfgMin",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.84",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallJbCfgNom": {
+    "name": "adVqmActCallJbCfgNom",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallJbCfgMax": {
+    "name": "adVqmActCallJbCfgMax",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.86",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallDuplicatePkts": {
+    "name": "adVqmActCallDuplicatePkts",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.87",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallEarlyPkts": {
+    "name": "adVqmActCallEarlyPkts",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.88",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallLatePkts": {
+    "name": "adVqmActCallLatePkts",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.89",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallOverrunDiscardPkts": {
+    "name": "adVqmActCallOverrunDiscardPkts",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.90",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallUnderrunDiscardPkts": {
+    "name": "adVqmActCallUnderrunDiscardPkts",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.91",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallDelayMinMsec": {
+    "name": "adVqmActCallDelayMinMsec",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.92",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallDelayAvgMsec": {
+    "name": "adVqmActCallDelayAvgMsec",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.93",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallDelayMaxMsec": {
+    "name": "adVqmActCallDelayMaxMsec",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.94",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallDelayCurrentMsec": {
+    "name": "adVqmActCallDelayCurrentMsec",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.95",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallExtRLqIn": {
+    "name": "adVqmActCallExtRLqIn",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.96",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallExtRLqOut": {
+    "name": "adVqmActCallExtRLqOut",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.97",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallExtRCqIn": {
+    "name": "adVqmActCallExtRCqIn",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.98",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallExtRCqOut": {
+    "name": "adVqmActCallExtRCqOut",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallThroughPutIndex": {
+    "name": "adVqmActCallThroughPutIndex",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallReliabilityIndex": {
+    "name": "adVqmActCallReliabilityIndex",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.101",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adVqmActCallBitrate": {
+    "name": "adVqmActCallBitrate",
+    "oid": "1.3.6.1.4.1.664.5.53.5.3.8.1.1.102",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSVqmConformance": {
+    "name": "adGenAOSVqmConformance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.10",
+    "class": "objectidentity"
+  },
+  "adGenAOSVqmGroups": {
+    "name": "adGenAOSVqmGroups",
+    "oid": "1.3.6.1.4.1.664.5.53.99.10.1",
+    "class": "objectidentity"
+  },
+  "adGenAOSVqmCompliances": {
+    "name": "adGenAOSVqmCompliances",
+    "oid": "1.3.6.1.4.1.664.5.53.99.10.2",
+    "class": "objectidentity"
+  },
+  "adGenAOSVqmFullCompliance": {
+    "name": "adGenAOSVqmFullCompliance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.10.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "adVQMCfgGroup",
+        "module": "ADTRAN-AOS-VQM"
+      },
+      {
+        "object": "adVQMThresholdGroup",
+        "module": "ADTRAN-AOS-VQM"
+      },
+      {
+        "object": "adVQMSysPerfGroup",
+        "module": "ADTRAN-AOS-VQM"
+      },
+      {
+        "object": "adVQMInterfaceGroup",
+        "module": "ADTRAN-AOS-VQM"
+      },
+      {
+        "object": "adVQMEndPointGroup",
+        "module": "ADTRAN-AOS-VQM"
+      },
+      {
+        "object": "adVQMCallHistoryGroup",
+        "module": "ADTRAN-AOS-VQM"
+      },
+      {
+        "object": "adVQMActiveCallGroup",
+        "module": "ADTRAN-AOS-VQM"
+      },
+      {
+        "object": "adVQMTrapGroup",
+        "module": "ADTRAN-AOS-VQM"
+      },
+      {
+        "object": "adVQMNotificationGroup",
+        "module": "ADTRAN-AOS-VQM"
+      }
+    ],
+    "status": "current"
+  },
+  "adVQMCfgGroup": {
+    "name": "adVQMCfgGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.10.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCfgEnable"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCfgSipEnable"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCfgUdpEnable"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCfgInternationalCode"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCfgJitterBufferType"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCfgJitterBufferAdaptiveMin"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCfgJitterBufferAdaptiveNominal"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCfgJitterBufferAdaptiveMax"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCfgJitterBufferFixedNominal"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCfgJitterBufferFixedSize"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCfgJitterBufferThresholdEarlyMs"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCfgJitterBufferThresholdLateMs"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCfgRoundTripPingEnabled"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCfgRoundTripPingType"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCfgCallHistorySize"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCfgHistoryThresholdLqmos"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCfgHistoryThresholdCqmos"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCfgHistoryThresholdPqmos"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCfgHistoryThresholdLoss"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCfgHistoryThresholdOutOfOrder"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCfgHistoryThresholdJitter"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCfgClear"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCfgClearCallHistory"
+      }
+    ],
+    "status": "current"
+  },
+  "adVQMThresholdGroup": {
+    "name": "adVQMThresholdGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.10.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmThresholdLqmosInfo"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmThresholdLqmosNotice"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmThresholdLqmosWarning"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmThresholdLqmosError"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmThresholdPqmosInfo"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmThresholdPqmosNotice"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmThresholdPqmosWarning"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmThresholdPqmosError"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmThresholdOutOfOrderInfo"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmThresholdOutOfOrderNotice"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmThresholdOutOfOrderWarning"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmThresholdOutOfOrderError"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmThresholdLossInfo"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmThresholdLossNotice"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmThresholdLossWarning"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmThresholdLossError"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmThresholdJitterInfo"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmThresholdJitterNotice"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmThresholdJitterWarning"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmThresholdJitterError"
+      }
+    ],
+    "status": "current"
+  },
+  "adVQMSysPerfGroup": {
+    "name": "adVQMSysPerfGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.10.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmSysActiveCalls"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmSysActiveExcellent"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmSysActiveGood"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmSysActiveFair"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmSysActivePoor"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmSysCallHistoryCalls"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmSysCallHistoryExcellent"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmSysCallHistoryGood"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmSysCallHistoryFair"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmSysCallHistoryPoor"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmSysAllCallsExcellent"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmSysAllCallsGood"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmSysAllCallsFair"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmSysAllCallsPoor"
+      }
+    ],
+    "status": "current"
+  },
+  "adVQMInterfaceGroup": {
+    "name": "adVQMInterfaceGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.10.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcId"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcName"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcPktsRx"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcPktsLost"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcPktsOoo"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcPktsDiscarded"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcNumberActiveCalls"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcTerminatedCalls"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcRLqMinimum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcRLqAverage"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcRLqMaximum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcRCqMinimum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcRCqAverage"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcRCqMaximum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcRG107Minimum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcRG107Average"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcRG107Maximum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcMosLqMinimum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcMosLqAverage"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcMosLqMaximum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcMosCqMinimum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcMosCqAverage"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcMosCqMaximum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcMosPqMinimum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcMosPqAverage"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcMosPqMaximum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcLossMinimum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcLossAverage"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcLossMaximum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcDiscardsMinimum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcDiscardsAverage"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcDiscardsMaximum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcPdvAverageMs"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcPdvMaximumMs"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcDelayMinMsec"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcDelayAvgMsec"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcDelayMaxMsec"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcNumberStreamsExcellent"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcNumberStreamsGood"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcNumberStreamsFair"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcNumberStreamsPoor"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmIfcClear"
+      }
+    ],
+    "status": "current"
+  },
+  "adVQMEndPointGroup": {
+    "name": "adVQMEndPointGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.10.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmEndPointRtpSourceIp"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmEndPointNumberCompletedCalls"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmEndPointInterfaceId"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmEndPointInterfaceName"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmEndPointMosLqMinimum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmEndPointMosLqAverage"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmEndPointMosLqMaximum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmEndPointMosPqMinimum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmEndPointMosPqAverage"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmEndPointMosPqMaximum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmEndPointPktsLostTotal"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmEndPointPktsOutOfOrder"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmEndPointJitterMaximum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmEndPointNumberStreamsExcellent"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmEndPointNumberStreamsGood"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmEndPointNumberStreamsFair"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmEndPointNumberStreamsPoor"
+      }
+    ],
+    "status": "current"
+  },
+  "adVQMCallHistoryGroup": {
+    "name": "adVQMCallHistoryGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.10.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistRtpSourceIp"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistRtpSourcePort"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistRtpDestIp"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistRtpDestPort"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistSsrcid"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistTo"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistFrom"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistRtpSourceUri"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistCallid"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistCcmid"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistSourceIntName"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistDestIntName"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistSourceIntDescription"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistDestIntDescription"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistCallStart"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistCallDurationMs"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistCodec"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistCodecClass"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistDscp"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistPktsRcvdTotal"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistPktsLostTotal"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistPktsDiscardedTotal"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistOutOfOrder"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistPdvAverageMs"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistPdvMaximumMs"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistRtDelayInst"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistRtDelayAverage"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistRtDelayMaximum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistOnewayDelayInst"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistOnewayDelayAverage"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistOnewayDelayMaximum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistOrigDelayInst"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistOrigDelayAverage"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistOrigDelayMaximum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistTermDelayMinimum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistTermDelayAverage"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistTermDelayMaximum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistRLq"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistRCq"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistRNominal"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistRG107"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistMosLq"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistMosCq"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistMosPq"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistMosNominal"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistDegLoss"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistDegDiscard"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistDegVocoder"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistDegRecency"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistDegDelay"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistDegSiglvl"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistDegNoiselvl"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistDegEcholvl"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistBurstRLq"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistBurstCount"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistBurstRateAvg"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistBurstLenAvgPkts"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistBurstLenAvgMsec"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistGapR"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistGapCount"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistGapLossRateAvg"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistGapLenPkts"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistGapLenMsec"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistLossRateAvg"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistNetworkLossAvg"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistDiscardRateAvg"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistExcessBurst"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistExcessGap"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistPpdvMsec"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistLateThresholdMs"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistLateThresholdPc"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistLateUnderThresh"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistLateTotalCount"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistLatePeakJitterMs"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistEarlyThreshMs"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistEarlyThreshPc"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistEarlyUnderThresh"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistEarlyTotalCount"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistEarlyPeakJitterMs"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistDelayIncreaseCount"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistDelayDecreaseCount"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistResyncCount"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistJitterBufferType"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistJbCfgMin"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistJbCfgNom"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistJbCfgMax"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistDuplicatePkts"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistEarlyPkts"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistLatePkts"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistOverrunDiscardPkts"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistUnderrunDiscardPkts"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistDelayMinMsec"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistDelayAvgMsec"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistDelayMaxMsec"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistDelayCurrentMsec"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistExtRLqIn"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistExtRLqOut"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistExtRCqIn"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistExtRCqOut"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistThroughPutIndex"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistReliabilityIndex"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmCallHistBitrate"
+      }
+    ],
+    "status": "current"
+  },
+  "adVQMActiveCallGroup": {
+    "name": "adVQMActiveCallGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.10.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallRtpSourceIp"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallRtpSourcePort"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallRtpDestIp"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallRtpDestPort"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallSsrcid"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallTo"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallFrom"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallRtpSourceUri"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallCallid"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallCcmid"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallSourceIntName"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallDestIntName"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallSourceIntDescription"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallDestIntDescription"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallCallStart"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallCallDurationMs"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallCodec"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallCodecClass"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallDscp"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallPktsRcvdTotal"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallPktsLostTotal"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallPktsDiscardedTotal"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallOutOfOrder"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallPdvAverageMs"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallPdvMaximumMs"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallRtDelayInst"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallRtDelayAverage"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallRtDelayMaximum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallOnewayDelayInst"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallOnewayDelayAverage"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallOnewayDelayMaximum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallOrigDelayInst"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallOrigDelayAverage"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallOrigDelayMaximum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallTermDelayMinimum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallTermDelayAverage"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallTermDelayMaximum"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallRLq"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallRCq"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallRNominal"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallRG107"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallMosLq"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallMosCq"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallMosPq"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallMosNominal"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallDegLoss"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallDegDiscard"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallDegVocoder"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallDegRecency"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallDegDelay"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallDegSiglvl"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallDegNoiselvl"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallDegEcholvl"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallBurstRLq"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallBurstCount"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallBurstRateAvg"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallBurstLenAvgPkts"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallBurstLenAvgMsec"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallGapR"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallGapCount"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallGapLossRateAvg"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallGapLenPkts"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallGapLenMsec"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallLossRateAvg"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallNetworkLossAvg"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallDiscardRateAvg"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallExcessBurst"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallExcessGap"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallPpdvMsec"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallLateThresholdMs"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallLateThresholdPc"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallLateUnderThresh"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallLateTotalCount"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallLatePeakJitterMs"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallEarlyThreshMs"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallEarlyThreshPc"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallEarlyUnderThresh"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallEarlyTotalCount"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallEarlyPeakJitterMs"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallDelayIncreaseCount"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallDelayDecreaseCount"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallResyncCount"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallJitterBufferType"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallJbCfgMin"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallJbCfgNom"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallJbCfgMax"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallDuplicatePkts"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallEarlyPkts"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallLatePkts"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallOverrunDiscardPkts"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallUnderrunDiscardPkts"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallDelayMinMsec"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallDelayAvgMsec"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallDelayMaxMsec"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallDelayCurrentMsec"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallExtRLqIn"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallExtRLqOut"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallExtRCqIn"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallExtRCqOut"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallThroughPutIndex"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallReliabilityIndex"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmActCallBitrate"
+      }
+    ],
+    "status": "current"
+  },
+  "adVQMTrapGroup": {
+    "name": "adVQMTrapGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.10.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmTrapState"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmTrapCfgSeverityLevel"
+      },
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVqmTrapEventType"
+      }
+    ],
+    "status": "current"
+  },
+  "adVQMNotificationGroup": {
+    "name": "adVQMNotificationGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.10.1.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-VQM",
+        "object": "adVQMEndOfCallTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-VQM",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ADTRAN-AOS-VQM"
+  }
+}

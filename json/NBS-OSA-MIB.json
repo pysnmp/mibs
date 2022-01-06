@@ -1,0 +1,721 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifAlias",
+      "InterfaceIndex"
+    ],
+    "NBS-CMMCENUM-MIB": [
+      "NbsCmmcChannelBand"
+    ],
+    "NBS-MIB": [
+      "NbsTcMHz",
+      "nbs"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "Integer32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "Counter64",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "nbsOsaMib": {
+    "name": "nbsOsaMib",
+    "oid": "1.3.6.1.4.1.629.207",
+    "class": "moduleidentity"
+  },
+  "nbsOsaPortGrp": {
+    "name": "nbsOsaPortGrp",
+    "oid": "1.3.6.1.4.1.629.207.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsOsaSpectrumGrp": {
+    "name": "nbsOsaSpectrumGrp",
+    "oid": "1.3.6.1.4.1.629.207.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsOsaChannelGrp": {
+    "name": "nbsOsaChannelGrp",
+    "oid": "1.3.6.1.4.1.629.207.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsOsaTraps": {
+    "name": "nbsOsaTraps",
+    "oid": "1.3.6.1.4.1.629.207.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsOsaPortTableSize": {
+    "name": "nbsOsaPortTableSize",
+    "oid": "1.3.6.1.4.1.629.207.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsOsaPortTable": {
+    "name": "nbsOsaPortTable",
+    "oid": "1.3.6.1.4.1.629.207.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsOsaPortEntry": {
+    "name": "nbsOsaPortEntry",
+    "oid": "1.3.6.1.4.1.629.207.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsOsaPortIfIndex": {
+    "name": "nbsOsaPortIfIndex",
+    "oid": "1.3.6.1.4.1.629.207.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsOsaPortAttenuation": {
+    "name": "nbsOsaPortAttenuation",
+    "oid": "1.3.6.1.4.1.629.207.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100000,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsOsaPortChannels": {
+    "name": "nbsOsaPortChannels",
+    "oid": "1.3.6.1.4.1.629.207.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsOsaSpectrumTableSize": {
+    "name": "nbsOsaSpectrumTableSize",
+    "oid": "1.3.6.1.4.1.629.207.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsOsaSpectrumTable": {
+    "name": "nbsOsaSpectrumTable",
+    "oid": "1.3.6.1.4.1.629.207.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsOsaSpectrumEntry": {
+    "name": "nbsOsaSpectrumEntry",
+    "oid": "1.3.6.1.4.1.629.207.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaSpectrumIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaSpectrumWavelength",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsOsaSpectrumIfIndex": {
+    "name": "nbsOsaSpectrumIfIndex",
+    "oid": "1.3.6.1.4.1.629.207.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsOsaSpectrumWavelength": {
+    "name": "nbsOsaSpectrumWavelength",
+    "oid": "1.3.6.1.4.1.629.207.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsOsaSpectrumTimestamp": {
+    "name": "nbsOsaSpectrumTimestamp",
+    "oid": "1.3.6.1.4.1.629.207.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsOsaSpectrumRxPowerOper": {
+    "name": "nbsOsaSpectrumRxPowerOper",
+    "oid": "1.3.6.1.4.1.629.207.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsOsaChannelTableSize": {
+    "name": "nbsOsaChannelTableSize",
+    "oid": "1.3.6.1.4.1.629.207.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsOsaChannelTable": {
+    "name": "nbsOsaChannelTable",
+    "oid": "1.3.6.1.4.1.629.207.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsOsaChannelEntry": {
+    "name": "nbsOsaChannelEntry",
+    "oid": "1.3.6.1.4.1.629.207.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelFrequencyNominal",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsOsaChannelIfIndex": {
+    "name": "nbsOsaChannelIfIndex",
+    "oid": "1.3.6.1.4.1.629.207.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsOsaChannelFrequencyNominal": {
+    "name": "nbsOsaChannelFrequencyNominal",
+    "oid": "1.3.6.1.4.1.629.207.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NbsTcMHz",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsOsaChannelBand": {
+    "name": "nbsOsaChannelBand",
+    "oid": "1.3.6.1.4.1.629.207.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NbsCmmcChannelBand",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsOsaChannelNumber": {
+    "name": "nbsOsaChannelNumber",
+    "oid": "1.3.6.1.4.1.629.207.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsOsaChannelStatus": {
+    "name": "nbsOsaChannelStatus",
+    "oid": "1.3.6.1.4.1.629.207.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absent": 1,
+          "present": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsOsaChannelTimestamp": {
+    "name": "nbsOsaChannelTimestamp",
+    "oid": "1.3.6.1.4.1.629.207.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsOsaChannelFrequencyOper": {
+    "name": "nbsOsaChannelFrequencyOper",
+    "oid": "1.3.6.1.4.1.629.207.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NbsTcMHz",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsOsaChannelRxPowerOper": {
+    "name": "nbsOsaChannelRxPowerOper",
+    "oid": "1.3.6.1.4.1.629.207.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -100000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsOsaChannelRxPowerMin": {
+    "name": "nbsOsaChannelRxPowerMin",
+    "oid": "1.3.6.1.4.1.629.207.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100000,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsOsaChannelRxPowerMax": {
+    "name": "nbsOsaChannelRxPowerMax",
+    "oid": "1.3.6.1.4.1.629.207.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100000,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsOsaChannelOSNROper": {
+    "name": "nbsOsaChannelOSNROper",
+    "oid": "1.3.6.1.4.1.629.207.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsOsaChannelOSNRMin": {
+    "name": "nbsOsaChannelOSNRMin",
+    "oid": "1.3.6.1.4.1.629.207.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsOsaChannelOSNRMax": {
+    "name": "nbsOsaChannelOSNRMax",
+    "oid": "1.3.6.1.4.1.629.207.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsOsaTrapPortChannelAdded": {
+    "name": "nbsOsaTrapPortChannelAdded",
+    "oid": "1.3.6.1.4.1.629.207.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelIfIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAlias"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelBand"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelNumber"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelFrequencyNominal"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsOsaTrapPortChannelDropped": {
+    "name": "nbsOsaTrapPortChannelDropped",
+    "oid": "1.3.6.1.4.1.629.207.4.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelIfIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAlias"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelBand"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelNumber"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelFrequencyNominal"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsOsaTrapPortRxPowerTooLow": {
+    "name": "nbsOsaTrapPortRxPowerTooLow",
+    "oid": "1.3.6.1.4.1.629.207.4.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelIfIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAlias"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelBand"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelNumber"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelRxPowerMin"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelRxPowerOper"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsOsaTrapPortRxPowerOK": {
+    "name": "nbsOsaTrapPortRxPowerOK",
+    "oid": "1.3.6.1.4.1.629.207.4.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelIfIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAlias"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelBand"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelNumber"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelRxPowerOper"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsOsaTrapPortRxPowerTooHigh": {
+    "name": "nbsOsaTrapPortRxPowerTooHigh",
+    "oid": "1.3.6.1.4.1.629.207.4.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelIfIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAlias"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelBand"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelNumber"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelRxPowerMax"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelRxPowerOper"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsOsaTrapPortOSNRTooLow": {
+    "name": "nbsOsaTrapPortOSNRTooLow",
+    "oid": "1.3.6.1.4.1.629.207.4.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelIfIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAlias"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelBand"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelNumber"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelOSNRMin"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelOSNROper"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsOsaTrapPortOSNROk": {
+    "name": "nbsOsaTrapPortOSNROk",
+    "oid": "1.3.6.1.4.1.629.207.4.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelIfIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAlias"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelBand"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelNumber"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelOSNROper"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsOsaTrapPortOSNRTooHigh": {
+    "name": "nbsOsaTrapPortOSNRTooHigh",
+    "oid": "1.3.6.1.4.1.629.207.4.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelIfIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAlias"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelBand"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelNumber"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelOSNRMax"
+      },
+      {
+        "module": "NBS-OSA-MIB",
+        "object": "nbsOsaChannelOSNROper"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-OSA-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:42:12 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NBS-OSA-MIB"
+  }
+}

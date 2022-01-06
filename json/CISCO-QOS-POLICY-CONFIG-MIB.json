@@ -1,0 +1,485 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-QOS-PIB-MIB": [
+      "QosInterfaceQueueType"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoQosPolicyConfigMIB": {
+    "name": "ciscoQosPolicyConfigMIB",
+    "oid": "1.3.6.1.4.1.9.9.159",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-11-02 10:30",
+        "description": "Revised version from CISCO-QOS-CONFIG-MIB. The original OID is assigned to CISCO-QOS-CONFIG-MIB and then after discussing with people in COPS group, we decided to change the name of the MIB. And also adding some objects to reflect the difference between users' QoS policy configuration and runtime QoS policy configuration."
+      },
+      {
+        "revision": "2000-02-26 19:30",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "QosPolicySource": {
+    "name": "QosPolicySource",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "local": 2,
+          "cops": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoQosPolicyConfigMIBObjects": {
+    "name": "ciscoQosPolicyConfigMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.159.1",
+    "class": "objectidentity"
+  },
+  "qosPolicyGlobalObjects": {
+    "name": "qosPolicyGlobalObjects",
+    "oid": "1.3.6.1.4.1.9.9.159.1.1",
+    "class": "objectidentity"
+  },
+  "qosPolicyInterfaceObjects": {
+    "name": "qosPolicyInterfaceObjects",
+    "oid": "1.3.6.1.4.1.9.9.159.1.2",
+    "class": "objectidentity"
+  },
+  "qosEnabled": {
+    "name": "qosEnabled",
+    "oid": "1.3.6.1.4.1.9.9.159.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosPrAdminPolicySource": {
+    "name": "qosPrAdminPolicySource",
+    "oid": "1.3.6.1.4.1.9.9.159.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosPolicySource",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "local",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosPrOperPolicySource": {
+    "name": "qosPrOperPolicySource",
+    "oid": "1.3.6.1.4.1.9.9.159.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosPolicySource",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosRsvpAdminPolicySource": {
+    "name": "qosRsvpAdminPolicySource",
+    "oid": "1.3.6.1.4.1.9.9.159.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosPolicySource",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "local",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosRsvpOperPolicySource": {
+    "name": "qosRsvpOperPolicySource",
+    "oid": "1.3.6.1.4.1.9.9.159.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosPolicySource",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosCopsPolicyStatus": {
+    "name": "qosCopsPolicyStatus",
+    "oid": "1.3.6.1.4.1.9.9.159.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "keep": 1,
+          "discard": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosPrIfTable": {
+    "name": "qosPrIfTable",
+    "oid": "1.3.6.1.4.1.9.9.159.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosPrIfEntry": {
+    "name": "qosPrIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.159.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosPrIfAdminPolicySource": {
+    "name": "qosPrIfAdminPolicySource",
+    "oid": "1.3.6.1.4.1.9.9.159.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosPolicySource",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "cops",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosPrIfOperPolicySource": {
+    "name": "qosPrIfOperPolicySource",
+    "oid": "1.3.6.1.4.1.9.9.159.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosPolicySource",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosIfCapabilityTable": {
+    "name": "qosIfCapabilityTable",
+    "oid": "1.3.6.1.4.1.9.9.159.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosIfCapabilityEntry": {
+    "name": "qosIfCapabilityEntry",
+    "oid": "1.3.6.1.4.1.9.9.159.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-QOS-POLICY-CONFIG-MIB",
+        "object": "qosIfDirection",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-QOS-POLICY-CONFIG-MIB",
+        "object": "qosIfQType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosIfDirection": {
+    "name": "qosIfDirection",
+    "oid": "1.3.6.1.4.1.9.9.159.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ingress": 1,
+          "egress": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosIfQType": {
+    "name": "qosIfQType",
+    "oid": "1.3.6.1.4.1.9.9.159.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosInterfaceQueueType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosIfCapabilities": {
+    "name": "qosIfCapabilities",
+    "oid": "1.3.6.1.4.1.9.9.159.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "unspecified": 0,
+        "inputL2Classification": 1,
+        "inputIpClassification": 2,
+        "outputL2Classification": 3,
+        "outputIpClassification": 4,
+        "inputUflowPolicing": 5,
+        "inputAggregatePolicing": 6,
+        "outputUflowPolicing": 7,
+        "outputAggregatePolicing": 8,
+        "policeByMarkingDown": 9,
+        "policeByDropping": 10,
+        "fifo": 11,
+        "wrr": 12,
+        "wfq": 13,
+        "cq": 14,
+        "pq": 15,
+        "cbwfq": 16,
+        "tailDrop": 17,
+        "wred": 18,
+        "inputPortClassification": 19,
+        "outputPortClassification": 20,
+        "inputUflowShaping": 21,
+        "inputAggregateShaping": 22,
+        "outputUflowShaping": 23,
+        "outputAggregateShaping": 24,
+        "pqWrr": 25,
+        "pqCbwfq": 26
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoQosPolicyMIBNotifications": {
+    "name": "ciscoQosPolicyMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.159.2",
+    "class": "objectidentity"
+  },
+  "ciscoQosPolicyConfigMIBConformance": {
+    "name": "ciscoQosPolicyConfigMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.159.3",
+    "class": "objectidentity"
+  },
+  "ciscoQosPolicyConfigMIBCompliances": {
+    "name": "ciscoQosPolicyConfigMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.159.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoQosPolicyConfigMIBGroups": {
+    "name": "ciscoQosPolicyConfigMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.159.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoQosPolicyConfigMIBCompliance": {
+    "name": "ciscoQosPolicyConfigMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.159.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "qosGlobalGroup",
+        "module": "CISCO-QOS-POLICY-CONFIG-MIB"
+      },
+      {
+        "object": "qosPrGlobalGroup",
+        "module": "CISCO-QOS-POLICY-CONFIG-MIB"
+      },
+      {
+        "object": "qosRsvpGlobalGroup",
+        "module": "CISCO-QOS-POLICY-CONFIG-MIB"
+      },
+      {
+        "object": "qosPrInterfaceGroup",
+        "module": "CISCO-QOS-POLICY-CONFIG-MIB"
+      },
+      {
+        "object": "qosInterfaceCapabilityGroup",
+        "module": "CISCO-QOS-POLICY-CONFIG-MIB"
+      },
+      {
+        "object": "qosCopsPolicyStatusGroup",
+        "module": "CISCO-QOS-POLICY-CONFIG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "qosGlobalGroup": {
+    "name": "qosGlobalGroup",
+    "oid": "1.3.6.1.4.1.9.9.159.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-POLICY-CONFIG-MIB",
+        "object": "qosEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "qosPrGlobalGroup": {
+    "name": "qosPrGlobalGroup",
+    "oid": "1.3.6.1.4.1.9.9.159.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-POLICY-CONFIG-MIB",
+        "object": "qosPrAdminPolicySource"
+      },
+      {
+        "module": "CISCO-QOS-POLICY-CONFIG-MIB",
+        "object": "qosPrOperPolicySource"
+      }
+    ],
+    "status": "current"
+  },
+  "qosRsvpGlobalGroup": {
+    "name": "qosRsvpGlobalGroup",
+    "oid": "1.3.6.1.4.1.9.9.159.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-POLICY-CONFIG-MIB",
+        "object": "qosRsvpAdminPolicySource"
+      },
+      {
+        "module": "CISCO-QOS-POLICY-CONFIG-MIB",
+        "object": "qosRsvpOperPolicySource"
+      }
+    ],
+    "status": "current"
+  },
+  "qosPrInterfaceGroup": {
+    "name": "qosPrInterfaceGroup",
+    "oid": "1.3.6.1.4.1.9.9.159.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-POLICY-CONFIG-MIB",
+        "object": "qosPrIfAdminPolicySource"
+      },
+      {
+        "module": "CISCO-QOS-POLICY-CONFIG-MIB",
+        "object": "qosPrIfOperPolicySource"
+      }
+    ],
+    "status": "current"
+  },
+  "qosInterfaceCapabilityGroup": {
+    "name": "qosInterfaceCapabilityGroup",
+    "oid": "1.3.6.1.4.1.9.9.159.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-POLICY-CONFIG-MIB",
+        "object": "qosIfCapabilities"
+      }
+    ],
+    "status": "current"
+  },
+  "qosCopsPolicyStatusGroup": {
+    "name": "qosCopsPolicyStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.159.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QOS-POLICY-CONFIG-MIB",
+        "object": "qosCopsPolicyStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-QOS-POLICY-CONFIG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-QOS-POLICY-CONFIG-MIB"
+  }
+}

@@ -1,0 +1,2345 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "Juniper-TC": [
+      "JuniEnable"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "Counter64",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TruthValue"
+    ]
+  },
+  "juniSnmpMIB": {
+    "name": "juniSnmpMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.16",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-09-30 06:59",
+        "description": "Added juniSnmpIntfCompTable. This provides option for interface compression based on table type. The behavior of juniSnmpInterfaceCompress scalars get modified becuase of this."
+      },
+      {
+        "revision": "2008-04-03 10:29",
+        "description": "Added juniSnmpTrapSeverityFilterTable. Added support for more traps in JuniSnmpTrapMask textual convention."
+      },
+      {
+        "revision": "2006-09-18 08:09",
+        "description": "Added support for mrouter Traps."
+      },
+      {
+        "revision": "2006-04-26 13:49",
+        "description": "Updated JuniSnmpTrapMask textual convention to support 64 trap categories."
+      },
+      {
+        "revision": "2006-01-01 00:00",
+        "description": "Added support for DOS Protection Traps."
+      },
+      {
+        "revision": "2005-06-23 13:49",
+        "description": "Added support for dynamic SNMP MIB views and secure traps."
+      },
+      {
+        "revision": "2005-05-12 21:53",
+        "description": "RLI 1925: Added support for ip traps."
+      },
+      {
+        "revision": "2004-06-23 13:49",
+        "description": "RLI 1684: Added support for route table traps."
+      },
+      {
+        "revision": "2004-01-05 16:09",
+        "description": "Added support for DHCP traps."
+      },
+      {
+        "revision": "2003-12-10 15:00",
+        "description": "Added juniSnmpManagementApplicationTable and juniSnmpAccessPermission. Added support for PIM and Disman Event traps."
+      },
+      {
+        "revision": "2003-02-05 22:24",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2002-11-20 14:40",
+        "description": "Added support for SONET layer, NTP and RADIUS client traps. Added support for ping time window and notification log data inclusion in trap varbinds."
+      },
+      {
+        "revision": "2002-08-15 20:18",
+        "description": "Added support for SNMPv3 trap."
+      },
+      {
+        "revision": "2002-08-14 19:09",
+        "description": "Added support for proxy enable/disable feature. Added support for the VRRP trap catagory."
+      },
+      {
+        "revision": "2001-11-07 17:09",
+        "description": "Added support for interface compress. New textual convention: JuniSnmpIntfCompRestrictedMask New objects: juniSnmpIntfCompCompressed juniSnmpIntfCompEnhanced juniSnmpIntfCompEnhancedDisplay juniSnmpIntfCompRestricted juniSnmpIntfCompRestrictedDisplay Obsoleted object: juniSnmpInterfaceMode Added support for trap severities and trap severity filtering at the global and host levels. New textual convention: JuniTrapSeverity New objects: juniSnmpTrapHostDiscards juniSnmpTrapHostSeverityFilter juniSnmpTrapTrapSeverity juniSnmpTrapGlobalDiscards juniSnmpTrapGlobalSeverityFilter"
+      },
+      {
+        "revision": "2001-11-07 15:00",
+        "description": "Added support for DVMRP and local address pool and ATM ping trap categories."
+      },
+      {
+        "revision": "2001-05-08 12:06",
+        "description": "Make it SMIv2 conformant."
+      },
+      {
+        "revision": "2000-08-02 00:00",
+        "description": "Added juniSnmpInterfaceMode."
+      },
+      {
+        "revision": "2000-05-09 00:00",
+        "description": "Added View support. Added Named Access List support."
+      },
+      {
+        "revision": "1999-02-17 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "JuniSnmpCommunityName": {
+    "name": "JuniSnmpCommunityName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "displayhint": "31a",
+    "status": "current"
+  },
+  "JuniSnmpAccessListName": {
+    "name": "JuniSnmpAccessListName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "displayhint": "31a",
+    "status": "current"
+  },
+  "JuniSnmpTrapMask": {
+    "name": "JuniSnmpTrapMask",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "JuniTrapSeverity": {
+    "name": "JuniTrapSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trapEmergency": 0,
+          "trapAlert": 1,
+          "trapCritical": 2,
+          "trapError": 3,
+          "trapWarning": 4,
+          "trapNotice": 5,
+          "trapInformational": 6,
+          "trapDebug": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JuniSnmpIntfCompRestrictedMask": {
+    "name": "JuniSnmpIntfCompRestrictedMask",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "JuniSnmpManagementApplicationIndex": {
+    "name": "JuniSnmpManagementApplicationIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eventMgr": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "juniSnmpObjects": {
+    "name": "juniSnmpObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1",
+    "class": "objectidentity"
+  },
+  "juniSnmpConformance": {
+    "name": "juniSnmpConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2",
+    "class": "objectidentity"
+  },
+  "juniSnmpGeneral": {
+    "name": "juniSnmpGeneral",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.1",
+    "class": "objectidentity"
+  },
+  "juniSnmpInterfaceCompress": {
+    "name": "juniSnmpInterfaceCompress",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.1.3",
+    "class": "objectidentity"
+  },
+  "juniSnmpCommunity": {
+    "name": "juniSnmpCommunity",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.2",
+    "class": "objectidentity"
+  },
+  "juniSnmpTrap": {
+    "name": "juniSnmpTrap",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3",
+    "class": "objectidentity"
+  },
+  "juniSnmpAuthFailId": {
+    "name": "juniSnmpAuthFailId",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.4",
+    "class": "objectidentity"
+  },
+  "juniSnmpMaxPduSize": {
+    "name": "juniSnmpMaxPduSize",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 484,
+            "max": 8192
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSnmpInterfaceMode": {
+    "name": "juniSnmpInterfaceMode",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "verbose": 1,
+          "compress": 2,
+          "enhanced": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "juniSnmpProxyStatus": {
+    "name": "juniSnmpProxyStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSnmpAccessPermission": {
+    "name": "juniSnmpAccessPermission",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAccess": 1,
+          "readAccess": 2,
+          "readWriteAccess": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noAccess",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSnmpIntfCompCompressed": {
+    "name": "juniSnmpIntfCompCompressed",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSnmpIntfCompEnhanced": {
+    "name": "juniSnmpIntfCompEnhanced",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 5,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSnmpIntfCompEnhancedDisplay": {
+    "name": "juniSnmpIntfCompEnhancedDisplay",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSnmpIntfCompRestricted": {
+    "name": "juniSnmpIntfCompRestricted",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSnmpIntfCompRestrictedMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSnmpIntfCompRestrictedDisplay": {
+    "name": "juniSnmpIntfCompRestrictedDisplay",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSnmpIntfCompTable": {
+    "name": "juniSnmpIntfCompTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSnmpIntfCompEntry": {
+    "name": "juniSnmpIntfCompEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompTableType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniSnmpIntfCompTableType": {
+    "name": "juniSnmpIntfCompTableType",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "others": 0,
+          "ifTables": 1,
+          "ifStackTables": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSnmpIntfCompEntryCompressed": {
+    "name": "juniSnmpIntfCompEntryCompressed",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSnmpIntfCompMask": {
+    "name": "juniSnmpIntfCompMask",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 5,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSnmpIntfCompMaskDisplay": {
+    "name": "juniSnmpIntfCompMaskDisplay",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.1.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSnmpManagementApplicationTable": {
+    "name": "juniSnmpManagementApplicationTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSnmpManagementApplicationEntry": {
+    "name": "juniSnmpManagementApplicationEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpManagementApplicationRouterIndex",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpManagementApplicationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniSnmpManagementApplicationRouterIndex": {
+    "name": "juniSnmpManagementApplicationRouterIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSnmpManagementApplicationIndex": {
+    "name": "juniSnmpManagementApplicationIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSnmpManagementApplicationIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSnmpManagementApplicationRowStatus": {
+    "name": "juniSnmpManagementApplicationRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniSnmpCommunityTable": {
+    "name": "juniSnmpCommunityTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSnmpCommunityEntry": {
+    "name": "juniSnmpCommunityEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpCommunityName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "juniSnmpCommunityName": {
+    "name": "juniSnmpCommunityName",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSnmpCommunityName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSnmpCommunityRowStatus": {
+    "name": "juniSnmpCommunityRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniSnmpCommunityPrivilege": {
+    "name": "juniSnmpCommunityPrivilege",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "readOnly": 1,
+          "readWrite": 2,
+          "admin": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "readOnly",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniSnmpCommunityAccessList": {
+    "name": "juniSnmpCommunityAccessList",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniSnmpCommunityAccessListName": {
+    "name": "juniSnmpCommunityAccessListName",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSnmpAccessListName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniSnmpCommunityView": {
+    "name": "juniSnmpCommunityView",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "user",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniSnmpTrapGlobalFilter": {
+    "name": "juniSnmpTrapGlobalFilter",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSnmpTrapMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSnmpTrapSource": {
+    "name": "juniSnmpTrapSource",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSnmpTrapHostTable": {
+    "name": "juniSnmpTrapHostTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSnmpTrapHostEntry": {
+    "name": "juniSnmpTrapHostEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniSnmpTrapHostIpAddress": {
+    "name": "juniSnmpTrapHostIpAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSnmpTrapHostRowStatus": {
+    "name": "juniSnmpTrapHostRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniSnmpTrapHostUdpPort": {
+    "name": "juniSnmpTrapHostUdpPort",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 162,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniSnmpTrapHostCommunity": {
+    "name": "juniSnmpTrapHostCommunity",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSnmpCommunityName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniSnmpTrapHostProtocolVersion": {
+    "name": "juniSnmpTrapHostProtocolVersion",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 0,
+          "v2c": 1,
+          "v3": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "v1",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniSnmpTrapHostFilter": {
+    "name": "juniSnmpTrapHostFilter",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSnmpTrapMask",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniSnmpTrapHostSends": {
+    "name": "juniSnmpTrapHostSends",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSnmpTrapHostDiscards": {
+    "name": "juniSnmpTrapHostDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSnmpTrapHostSeverityFilter": {
+    "name": "juniSnmpTrapHostSeverityFilter",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniTrapSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniSnmpTrapHostPingTimeOut": {
+    "name": "juniSnmpTrapHostPingTimeOut",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 90
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "Minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniSnmpTrapHostIncludeLogVarbinds": {
+    "name": "juniSnmpTrapHostIncludeLogVarbinds",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniSnmpTrapHostQueueSize": {
+    "name": "juniSnmpTrapHostQueueSize",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 32,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniSnmpTrapHostQueueDrainRate": {
+    "name": "juniSnmpTrapHostQueueDrainRate",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniSnmpTrapHostQueueFull": {
+    "name": "juniSnmpTrapHostQueueFull",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dropLastIn": 0,
+          "dropFirstIn": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "dropLastIn",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniSnmpTrapHostBadEncodingDiscards": {
+    "name": "juniSnmpTrapHostBadEncodingDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSnmpTrapHostQueueFullDiscards": {
+    "name": "juniSnmpTrapHostQueueFullDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSnmpTrapHostNoResponseDiscards": {
+    "name": "juniSnmpTrapHostNoResponseDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSnmpTrapProxy": {
+    "name": "juniSnmpTrapProxy",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSnmpTrapTrapSeverity": {
+    "name": "juniSnmpTrapTrapSeverity",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniTrapSeverity",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniSnmpTrapGlobalDiscards": {
+    "name": "juniSnmpTrapGlobalDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSnmpTrapGlobalSeverityFilter": {
+    "name": "juniSnmpTrapGlobalSeverityFilter",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniTrapSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSnmpTrapTotalTrapsReceived": {
+    "name": "juniSnmpTrapTotalTrapsReceived",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSnmpTrapLocalTrapsSubmitted": {
+    "name": "juniSnmpTrapLocalTrapsSubmitted",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSnmpTrapProxyTrapsSubmitted": {
+    "name": "juniSnmpTrapProxyTrapsSubmitted",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSnmpTrapTotalTrapsDiscarded": {
+    "name": "juniSnmpTrapTotalTrapsDiscarded",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSnmpTrapNoMemoryDiscards": {
+    "name": "juniSnmpTrapNoMemoryDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSnmpTrapNoQueueResourceDiscards": {
+    "name": "juniSnmpTrapNoQueueResourceDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSnmpTrapAgentSnmpNotAbleDiscards": {
+    "name": "juniSnmpTrapAgentSnmpNotAbleDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSnmpTrapTotalTrapsOut": {
+    "name": "juniSnmpTrapTotalTrapsOut",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSnmpTrapTotalProxyOut": {
+    "name": "juniSnmpTrapTotalProxyOut",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSnmpTrapSeverityFilterTable": {
+    "name": "juniSnmpTrapSeverityFilterTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSnmpTrapSeverityFilterEntry": {
+    "name": "juniSnmpTrapSeverityFilterEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapCategory",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniSnmpTrapCategory": {
+    "name": "juniSnmpTrapCategory",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSnmpTrapSeverityFilter": {
+    "name": "juniSnmpTrapSeverityFilter",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.3.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniTrapSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSnmpAuthFailIdIpAddress": {
+    "name": "juniSnmpAuthFailIdIpAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniSnmpAuthFailIdUdpPort": {
+    "name": "juniSnmpAuthFailIdUdpPort",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniSnmpAuthFailIdCommunity": {
+    "name": "juniSnmpAuthFailIdCommunity",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniSnmpAuthFailIdReason": {
+    "name": "juniSnmpAuthFailIdReason",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "badCommunityName": 1,
+          "badCommmunityUse": 2,
+          "hostDenied": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniSnmpCompliances": {
+    "name": "juniSnmpCompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2.1",
+    "class": "objectidentity"
+  },
+  "juniSnmpGroups": {
+    "name": "juniSnmpGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2.2",
+    "class": "objectidentity"
+  },
+  "juniSnmpCompliance": {
+    "name": "juniSnmpCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniSnmpGroup",
+        "module": "Juniper-SNMP-MIB"
+      },
+      {
+        "object": "juniSnmpAuthFailGroup",
+        "module": "Juniper-SNMP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSnmpCompliance2": {
+    "name": "juniSnmpCompliance2",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniSnmpGroup2",
+        "module": "Juniper-SNMP-MIB"
+      },
+      {
+        "object": "juniSnmpAuthFailGroup",
+        "module": "Juniper-SNMP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSnmpCompliance3": {
+    "name": "juniSnmpCompliance3",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniSnmpGroup3",
+        "module": "Juniper-SNMP-MIB"
+      },
+      {
+        "object": "juniSnmpAuthFailGroup",
+        "module": "Juniper-SNMP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSnmpCompliance4": {
+    "name": "juniSnmpCompliance4",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniSnmpGeneralGroup",
+        "module": "Juniper-SNMP-MIB"
+      },
+      {
+        "object": "juniSnmpAccessGroup",
+        "module": "Juniper-SNMP-MIB"
+      },
+      {
+        "object": "juniSnmpTrapGroup",
+        "module": "Juniper-SNMP-MIB"
+      },
+      {
+        "object": "juniSnmpAuthFailGroup",
+        "module": "Juniper-SNMP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSnmpCompliance5": {
+    "name": "juniSnmpCompliance5",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniSnmpGeneralGroup2",
+        "module": "Juniper-SNMP-MIB"
+      },
+      {
+        "object": "juniSnmpAccessGroup",
+        "module": "Juniper-SNMP-MIB"
+      },
+      {
+        "object": "juniSnmpTrapGroup",
+        "module": "Juniper-SNMP-MIB"
+      },
+      {
+        "object": "juniSnmpAuthFailGroup",
+        "module": "Juniper-SNMP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSnmpCompliance6": {
+    "name": "juniSnmpCompliance6",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniSnmpGeneralGroup2",
+        "module": "Juniper-SNMP-MIB"
+      },
+      {
+        "object": "juniSnmpAccessGroup",
+        "module": "Juniper-SNMP-MIB"
+      },
+      {
+        "object": "juniSnmpTrapGroup2",
+        "module": "Juniper-SNMP-MIB"
+      },
+      {
+        "object": "juniSnmpAuthFailGroup",
+        "module": "Juniper-SNMP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSnmpCompliance7": {
+    "name": "juniSnmpCompliance7",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniSnmpGeneralGroup3",
+        "module": "Juniper-SNMP-MIB"
+      },
+      {
+        "object": "juniSnmpAccessGroup",
+        "module": "Juniper-SNMP-MIB"
+      },
+      {
+        "object": "juniSnmpTrapGroup2",
+        "module": "Juniper-SNMP-MIB"
+      },
+      {
+        "object": "juniSnmpAuthFailGroup",
+        "module": "Juniper-SNMP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSnmpCompliance8": {
+    "name": "juniSnmpCompliance8",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniSnmpGeneralGroup3",
+        "module": "Juniper-SNMP-MIB"
+      },
+      {
+        "object": "juniSnmpAccessGroup",
+        "module": "Juniper-SNMP-MIB"
+      },
+      {
+        "object": "juniSnmpTrapGroup3",
+        "module": "Juniper-SNMP-MIB"
+      },
+      {
+        "object": "juniSnmpAuthFailGroup",
+        "module": "Juniper-SNMP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSnmpCompliance9": {
+    "name": "juniSnmpCompliance9",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2.1.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniSnmpGeneralGroup4",
+        "module": "Juniper-SNMP-MIB"
+      },
+      {
+        "object": "juniSnmpAccessGroup",
+        "module": "Juniper-SNMP-MIB"
+      },
+      {
+        "object": "juniSnmpTrapGroup3",
+        "module": "Juniper-SNMP-MIB"
+      },
+      {
+        "object": "juniSnmpAuthFailGroup",
+        "module": "Juniper-SNMP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSnmpGroup": {
+    "name": "juniSnmpGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpMaxPduSize"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpCommunityName"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpCommunityRowStatus"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpCommunityPrivilege"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpCommunityAccessList"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapGlobalFilter"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapSource"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapProxy"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostIpAddress"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostRowStatus"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostUdpPort"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostCommunity"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostProtocolVersion"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostFilter"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostSends"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSnmpAuthFailGroup": {
+    "name": "juniSnmpAuthFailGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpAuthFailIdIpAddress"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpAuthFailIdUdpPort"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpAuthFailIdCommunity"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpAuthFailIdReason"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSnmpGroup2": {
+    "name": "juniSnmpGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpMaxPduSize"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpCommunityName"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpCommunityRowStatus"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpCommunityPrivilege"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpCommunityAccessList"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpCommunityAccessListName"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpCommunityView"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapGlobalFilter"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapSource"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapProxy"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostIpAddress"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostRowStatus"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostUdpPort"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostCommunity"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostProtocolVersion"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostFilter"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostSends"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSnmpGroup3": {
+    "name": "juniSnmpGroup3",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpMaxPduSize"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpInterfaceMode"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpCommunityName"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpCommunityRowStatus"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpCommunityPrivilege"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpCommunityAccessList"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpCommunityAccessListName"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpCommunityView"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapGlobalFilter"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapSource"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapProxy"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostIpAddress"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostRowStatus"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostUdpPort"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostCommunity"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostProtocolVersion"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostFilter"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostSends"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSnmpGeneralGroup": {
+    "name": "juniSnmpGeneralGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpMaxPduSize"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompCompressed"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompEnhanced"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompEnhancedDisplay"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompRestricted"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompRestrictedDisplay"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSnmpAccessGroup": {
+    "name": "juniSnmpAccessGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpCommunityName"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpCommunityRowStatus"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpCommunityPrivilege"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpCommunityAccessList"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpCommunityAccessListName"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpCommunityView"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSnmpTrapGroup": {
+    "name": "juniSnmpTrapGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapGlobalFilter"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapSource"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapProxy"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostIpAddress"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostRowStatus"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostUdpPort"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostCommunity"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostProtocolVersion"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostFilter"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostSends"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostDiscards"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostSeverityFilter"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapTrapSeverity"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapGlobalDiscards"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapGlobalSeverityFilter"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSnmpGeneralGroup2": {
+    "name": "juniSnmpGeneralGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpMaxPduSize"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpProxyStatus"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompCompressed"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompEnhanced"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompEnhancedDisplay"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompRestricted"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompRestrictedDisplay"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSnmpTrapGroup2": {
+    "name": "juniSnmpTrapGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapGlobalFilter"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapSource"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapProxy"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostIpAddress"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostRowStatus"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostUdpPort"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostCommunity"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostProtocolVersion"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostFilter"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostSends"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostDiscards"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostSeverityFilter"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostPingTimeOut"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostIncludeLogVarbinds"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostQueueSize"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostQueueDrainRate"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostQueueFull"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostBadEncodingDiscards"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostQueueFullDiscards"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostNoResponseDiscards"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapTrapSeverity"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapGlobalDiscards"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapGlobalSeverityFilter"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapTotalTrapsReceived"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapLocalTrapsSubmitted"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapProxyTrapsSubmitted"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapTotalTrapsDiscarded"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapNoMemoryDiscards"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapNoQueueResourceDiscards"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapAgentSnmpNotAbleDiscards"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapTotalTrapsOut"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapTotalProxyOut"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSnmpGeneralGroup3": {
+    "name": "juniSnmpGeneralGroup3",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpMaxPduSize"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpProxyStatus"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpAccessPermission"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompCompressed"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompEnhanced"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompEnhancedDisplay"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompRestricted"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompRestrictedDisplay"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpManagementApplicationRowStatus"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSnmpTrapGroup3": {
+    "name": "juniSnmpTrapGroup3",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapGlobalFilter"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapSource"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapProxy"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostIpAddress"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostRowStatus"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostUdpPort"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostCommunity"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostProtocolVersion"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostFilter"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostSends"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostDiscards"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostSeverityFilter"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostPingTimeOut"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostIncludeLogVarbinds"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostQueueSize"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostQueueDrainRate"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostQueueFull"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostBadEncodingDiscards"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostQueueFullDiscards"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapHostNoResponseDiscards"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapTrapSeverity"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapGlobalDiscards"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapGlobalSeverityFilter"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapTotalTrapsReceived"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapLocalTrapsSubmitted"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapProxyTrapsSubmitted"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapTotalTrapsDiscarded"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapNoMemoryDiscards"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapNoQueueResourceDiscards"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapAgentSnmpNotAbleDiscards"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapTotalTrapsOut"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapTotalProxyOut"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpTrapSeverityFilter"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSnmpGeneralGroup4": {
+    "name": "juniSnmpGeneralGroup4",
+    "oid": "1.3.6.1.4.1.4874.2.2.16.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpMaxPduSize"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpProxyStatus"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpAccessPermission"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompCompressed"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompEnhanced"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompEnhancedDisplay"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompRestricted"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompRestrictedDisplay"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpManagementApplicationRowStatus"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompEntryCompressed"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompMask"
+      },
+      {
+        "module": "Juniper-SNMP-MIB",
+        "object": "juniSnmpIntfCompMaskDisplay"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-SNMP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-SNMP-MIB"
+  }
+}

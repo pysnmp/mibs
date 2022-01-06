@@ -1,0 +1,559 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TRAP-TYPE",
+      "Integer32",
+      "enterprises",
+      "Bits",
+      "OBJECT-TYPE",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Gauge32",
+      "TimeTicks",
+      "Counter32",
+      "Unsigned32",
+      "iso",
+      "MibIdentifier"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "mib_AN_Dcz_SDS": {
+    "name": "mib_AN_Dcz_SDS",
+    "oid": "1.3.6.1.4.1.33283",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-02-09 00:00",
+        "description": "PSMSmicro, by ViaNet.sk."
+      }
+    ]
+  },
+  "sdsxpublic": {
+    "name": "sdsxpublic",
+    "oid": "1.3.6.1.4.1.33283.1",
+    "class": "objectidentity"
+  },
+  "sdsBIGandSTSW": {
+    "name": "sdsBIGandSTSW",
+    "oid": "1.3.6.1.4.1.33283.1.30",
+    "class": "objectidentity"
+  },
+  "sdsOptoInput": {
+    "name": "sdsOptoInput",
+    "oid": "1.3.6.1.4.1.33283.1.30.2",
+    "class": "objectidentity"
+  },
+  "opto1": {
+    "name": "opto1",
+    "oid": "1.3.6.1.4.1.33283.1.30.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "activeSignalPresent": 0,
+          "noSignal": 32768
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "opto2": {
+    "name": "opto2",
+    "oid": "1.3.6.1.4.1.33283.1.30.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "activeSignalPresent": 0,
+          "noSignal": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "opto3": {
+    "name": "opto3",
+    "oid": "1.3.6.1.4.1.33283.1.30.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "activeSignalPresent": 0,
+          "noSignal": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdsOutputRelays": {
+    "name": "sdsOutputRelays",
+    "oid": "1.3.6.1.4.1.33283.1.30.3",
+    "class": "objectidentity"
+  },
+  "sdsOutputRelay1": {
+    "name": "sdsOutputRelay1",
+    "oid": "1.3.6.1.4.1.33283.1.30.3.1",
+    "class": "objectidentity"
+  },
+  "sdsRE1state": {
+    "name": "sdsRE1state",
+    "oid": "1.3.6.1.4.1.33283.1.30.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "activated": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdsOutputRelay2": {
+    "name": "sdsOutputRelay2",
+    "oid": "1.3.6.1.4.1.33283.1.30.3.2",
+    "class": "objectidentity"
+  },
+  "sdsRE2state": {
+    "name": "sdsRE2state",
+    "oid": "1.3.6.1.4.1.33283.1.30.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "activated": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdsOutputRelay3": {
+    "name": "sdsOutputRelay3",
+    "oid": "1.3.6.1.4.1.33283.1.30.3.3",
+    "class": "objectidentity"
+  },
+  "sdsRE3state": {
+    "name": "sdsRE3state",
+    "oid": "1.3.6.1.4.1.33283.1.30.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "activated": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sdsADCinputs": {
+    "name": "sdsADCinputs",
+    "oid": "1.3.6.1.4.1.33283.1.30.5",
+    "class": "objectidentity"
+  },
+  "sdsADCitem0": {
+    "name": "sdsADCitem0",
+    "oid": "1.3.6.1.4.1.33283.1.30.5.1",
+    "class": "objectidentity"
+  },
+  "sdsTempSensValue": {
+    "name": "sdsTempSensValue",
+    "oid": "1.3.6.1.4.1.33283.1.30.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdsTempSensName": {
+    "name": "sdsTempSensName",
+    "oid": "1.3.6.1.4.1.33283.1.30.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdsADCvalues": {
+    "name": "sdsADCvalues",
+    "oid": "1.3.6.1.4.1.33283.1.30.7",
+    "class": "objectidentity"
+  },
+  "sdsMaximumLoad": {
+    "name": "sdsMaximumLoad",
+    "oid": "1.3.6.1.4.1.33283.1.30.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdsAlarmText": {
+    "name": "sdsAlarmText",
+    "oid": "1.3.6.1.4.1.33283.1.30.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdsOutputVoltage1": {
+    "name": "sdsOutputVoltage1",
+    "oid": "1.3.6.1.4.1.33283.1.30.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdsOutputVoltage2": {
+    "name": "sdsOutputVoltage2",
+    "oid": "1.3.6.1.4.1.33283.1.30.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdsOutputCurrent": {
+    "name": "sdsOutputCurrent",
+    "oid": "1.3.6.1.4.1.33283.1.30.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdsBatteryCapacity": {
+    "name": "sdsBatteryCapacity",
+    "oid": "1.3.6.1.4.1.33283.1.30.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdsLoad": {
+    "name": "sdsLoad",
+    "oid": "1.3.6.1.4.1.33283.1.30.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdsCapTestTime": {
+    "name": "sdsCapTestTime",
+    "oid": "1.3.6.1.4.1.33283.1.30.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdsGeneralInfoEntry": {
+    "name": "sdsGeneralInfoEntry",
+    "oid": "1.3.6.1.4.1.33283.1.30.8",
+    "class": "objectidentity"
+  },
+  "sdsManufacturer": {
+    "name": "sdsManufacturer",
+    "oid": "1.3.6.1.4.1.33283.1.30.8.80",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdsModel": {
+    "name": "sdsModel",
+    "oid": "1.3.6.1.4.1.33283.1.30.8.81",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdsName": {
+    "name": "sdsName",
+    "oid": "1.3.6.1.4.1.33283.1.30.8.82",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdsSerialNumber": {
+    "name": "sdsSerialNumber",
+    "oid": "1.3.6.1.4.1.33283.1.30.8.83",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdsSoftware": {
+    "name": "sdsSoftware",
+    "oid": "1.3.6.1.4.1.33283.1.30.8.84",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "opto1_trap": {
+    "name": "opto1_trap",
+    "oid": "1.3.6.1.4.1.332830.100",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMCO-LS110-MIB",
+        "object": "opto1"
+      }
+    ]
+  },
+  "opto2_trap": {
+    "name": "opto2_trap",
+    "oid": "1.3.6.1.4.1.332830.101",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMCO-LS110-MIB",
+        "object": "opto2"
+      }
+    ]
+  },
+  "opto3_trap": {
+    "name": "opto3_trap",
+    "oid": "1.3.6.1.4.1.332830.102",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMCO-LS110-MIB",
+        "object": "opto3"
+      }
+    ]
+  },
+  "sdsRE1state_trap": {
+    "name": "sdsRE1state_trap",
+    "oid": "1.3.6.1.4.1.332830.150",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMCO-LS110-MIB",
+        "object": "sdsRE1state"
+      }
+    ]
+  },
+  "sdsRE2state_trap": {
+    "name": "sdsRE2state_trap",
+    "oid": "1.3.6.1.4.1.332830.153",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMCO-LS110-MIB",
+        "object": "sdsRE2state"
+      }
+    ]
+  },
+  "sdsTempSensValue_trap": {
+    "name": "sdsTempSensValue_trap",
+    "oid": "1.3.6.1.4.1.332830.222",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMCO-LS110-MIB",
+        "object": "sdsTempSensValue"
+      }
+    ]
+  },
+  "sdsTempSensName_trap": {
+    "name": "sdsTempSensName_trap",
+    "oid": "1.3.6.1.4.1.332830.223",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMCO-LS110-MIB",
+        "object": "sdsTempSensName"
+      }
+    ]
+  },
+  "sdsMaximumLoad_trap": {
+    "name": "sdsMaximumLoad_trap",
+    "oid": "1.3.6.1.4.1.332830.401",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMCO-LS110-MIB",
+        "object": "sdsMaximumLoad"
+      }
+    ]
+  },
+  "sdsAlarmText_trap": {
+    "name": "sdsAlarmText_trap",
+    "oid": "1.3.6.1.4.1.332830.402",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMCO-LS110-MIB",
+        "object": "sdsAlarmText"
+      }
+    ]
+  },
+  "sdsOutputVoltage1_trap": {
+    "name": "sdsOutputVoltage1_trap",
+    "oid": "1.3.6.1.4.1.332830.403",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMCO-LS110-MIB",
+        "object": "sdsOutputVoltage1"
+      }
+    ]
+  },
+  "sdsOutputVoltage2_trap": {
+    "name": "sdsOutputVoltage2_trap",
+    "oid": "1.3.6.1.4.1.332830.404",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMCO-LS110-MIB",
+        "object": "sdsOutputVoltage2"
+      }
+    ]
+  },
+  "sdsOutputCurrent_trap": {
+    "name": "sdsOutputCurrent_trap",
+    "oid": "1.3.6.1.4.1.332830.405",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMCO-LS110-MIB",
+        "object": "sdsOutputCurrent"
+      }
+    ]
+  },
+  "sdsBatteryCapacity_trap": {
+    "name": "sdsBatteryCapacity_trap",
+    "oid": "1.3.6.1.4.1.332830.406",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMCO-LS110-MIB",
+        "object": "sdsBatteryCapacity"
+      }
+    ]
+  },
+  "sdsLoad_trap": {
+    "name": "sdsLoad_trap",
+    "oid": "1.3.6.1.4.1.332830.407",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMCO-LS110-MIB",
+        "object": "sdsLoad"
+      }
+    ]
+  },
+  "sdsCapTestTime_trap": {
+    "name": "sdsCapTestTime_trap",
+    "oid": "1.3.6.1.4.1.332830.408",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMCO-LS110-MIB",
+        "object": "sdsCapTestTime"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/imco/IMCO-LS110-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:38:50 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IMCO-LS110-MIB"
+  }
+}

@@ -1,0 +1,562 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoPsdClientMIB": {
+    "name": "ciscoPsdClientMIB",
+    "oid": "1.3.6.1.4.1.9.9.495",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-08-24 18:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoPsdClientMIBNotifs": {
+    "name": "ciscoPsdClientMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.495.0",
+    "class": "objectidentity"
+  },
+  "ciscoPsdClientMIBObjects": {
+    "name": "ciscoPsdClientMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.495.1",
+    "class": "objectidentity"
+  },
+  "ciscoPsdClientStatistics": {
+    "name": "ciscoPsdClientStatistics",
+    "oid": "1.3.6.1.4.1.9.9.495.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoPsdClientNotifMgmt": {
+    "name": "ciscoPsdClientNotifMgmt",
+    "oid": "1.3.6.1.4.1.9.9.495.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoPsdClientConfigurations": {
+    "name": "ciscoPsdClientConfigurations",
+    "oid": "1.3.6.1.4.1.9.9.495.1.3",
+    "class": "objectidentity"
+  },
+  "ciscoPsdClientNotifInfo": {
+    "name": "ciscoPsdClientNotifInfo",
+    "oid": "1.3.6.1.4.1.9.9.495.1.4",
+    "class": "objectidentity"
+  },
+  "ciscoPsdClientMIBConform": {
+    "name": "ciscoPsdClientMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.495.2",
+    "class": "objectidentity"
+  },
+  "cPsdClientDSWriteReq": {
+    "name": "cPsdClientDSWriteReq",
+    "oid": "1.3.6.1.4.1.9.9.495.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPsdClientDSReadReq": {
+    "name": "cPsdClientDSReadReq",
+    "oid": "1.3.6.1.4.1.9.9.495.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPsdClientDSRdWrRetrans": {
+    "name": "cPsdClientDSRdWrRetrans",
+    "oid": "1.3.6.1.4.1.9.9.495.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPsdClientDSDiskFullTrans": {
+    "name": "cPsdClientDSDiskFullTrans",
+    "oid": "1.3.6.1.4.1.9.9.495.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPsdClientNotifEnable": {
+    "name": "cPsdClientNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.495.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cPsdClientDSTable": {
+    "name": "cPsdClientDSTable",
+    "oid": "1.3.6.1.4.1.9.9.495.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPsdClientDSEntry": {
+    "name": "cPsdClientDSEntry",
+    "oid": "1.3.6.1.4.1.9.9.495.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientDSName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cPsdClientDSName": {
+    "name": "cPsdClientDSName",
+    "oid": "1.3.6.1.4.1.9.9.495.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPsdClientDSAutoRetrieve": {
+    "name": "cPsdClientDSAutoRetrieve",
+    "oid": "1.3.6.1.4.1.9.9.495.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cPsdClientDSMaxRetrieve": {
+    "name": "cPsdClientDSMaxRetrieve",
+    "oid": "1.3.6.1.4.1.9.9.495.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "messages/minute",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cPsdClientDSRowStatus": {
+    "name": "cPsdClientDSRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.495.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cPsdClientDSServerTable": {
+    "name": "cPsdClientDSServerTable",
+    "oid": "1.3.6.1.4.1.9.9.495.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPsdClientDSServerEntry": {
+    "name": "cPsdClientDSServerEntry",
+    "oid": "1.3.6.1.4.1.9.9.495.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientDSName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientDSServerAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientDSServerAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cPsdClientDSServerAddressType": {
+    "name": "cPsdClientDSServerAddressType",
+    "oid": "1.3.6.1.4.1.9.9.495.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPsdClientDSServerAddress": {
+    "name": "cPsdClientDSServerAddress",
+    "oid": "1.3.6.1.4.1.9.9.495.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPsdClientDSRetrieveOnly": {
+    "name": "cPsdClientDSRetrieveOnly",
+    "oid": "1.3.6.1.4.1.9.9.495.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cPsdClientDSServerRowStatus": {
+    "name": "cPsdClientDSServerRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.495.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cPsdClientNotifDSServerAddrType": {
+    "name": "cPsdClientNotifDSServerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.495.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cPsdClientNotifDSServerAddress": {
+    "name": "cPsdClientNotifDSServerAddress",
+    "oid": "1.3.6.1.4.1.9.9.495.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cPsdClientDownNotif": {
+    "name": "cPsdClientDownNotif",
+    "oid": "1.3.6.1.4.1.9.9.495.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientNotifDSServerAddrType"
+      },
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientNotifDSServerAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cPsdClientUpNotif": {
+    "name": "cPsdClientUpNotif",
+    "oid": "1.3.6.1.4.1.9.9.495.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientNotifDSServerAddrType"
+      },
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientNotifDSServerAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cPsdClientDiskFullNotif": {
+    "name": "cPsdClientDiskFullNotif",
+    "oid": "1.3.6.1.4.1.9.9.495.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientNotifDSServerAddrType"
+      },
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientNotifDSServerAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cPsdClientMIBCompliances": {
+    "name": "cPsdClientMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.495.2.1",
+    "class": "objectidentity"
+  },
+  "cPsdClientMIBGroups": {
+    "name": "cPsdClientMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.495.2.2",
+    "class": "objectidentity"
+  },
+  "cPsdClientMIBCompliance": {
+    "name": "cPsdClientMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.495.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cPsdClientMIBStatisticsGroup",
+        "module": "CISCO-PSD-CLIENT-MIB"
+      },
+      {
+        "object": "cPsdClientMIBConfigurationsGroup",
+        "module": "CISCO-PSD-CLIENT-MIB"
+      },
+      {
+        "object": "cPsdClientMIBNotifGroup",
+        "module": "CISCO-PSD-CLIENT-MIB"
+      },
+      {
+        "object": "cPsdClientMIBNotifInfoGroup",
+        "module": "CISCO-PSD-CLIENT-MIB"
+      },
+      {
+        "object": "cPsdClientMIBNotifMgmtGroup",
+        "module": "CISCO-PSD-CLIENT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cPsdClientMIBStatisticsGroup": {
+    "name": "cPsdClientMIBStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.495.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientDSWriteReq"
+      },
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientDSReadReq"
+      },
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientDSRdWrRetrans"
+      },
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientDSDiskFullTrans"
+      }
+    ],
+    "status": "current"
+  },
+  "cPsdClientMIBConfigurationsGroup": {
+    "name": "cPsdClientMIBConfigurationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.495.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientDSRowStatus"
+      },
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientDSAutoRetrieve"
+      },
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientDSMaxRetrieve"
+      },
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientDSServerRowStatus"
+      },
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientDSRetrieveOnly"
+      }
+    ],
+    "status": "current"
+  },
+  "cPsdClientMIBNotifGroup": {
+    "name": "cPsdClientMIBNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.495.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientDownNotif"
+      },
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientUpNotif"
+      },
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientDiskFullNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "cPsdClientMIBNotifInfoGroup": {
+    "name": "cPsdClientMIBNotifInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.495.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientNotifDSServerAddrType"
+      },
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientNotifDSServerAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cPsdClientMIBNotifMgmtGroup": {
+    "name": "cPsdClientMIBNotifMgmtGroup",
+    "oid": "1.3.6.1.4.1.9.9.495.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSD-CLIENT-MIB",
+        "object": "cPsdClientNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-PSD-CLIENT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-PSD-CLIENT-MIB"
+  }
+}

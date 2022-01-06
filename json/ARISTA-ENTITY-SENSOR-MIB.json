@@ -1,0 +1,255 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARISTA-SMI-MIB": [
+      "aristaMibs"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex",
+      "entPhysicalDescr"
+    ],
+    "ENTITY-SENSOR-MIB": [
+      "EntitySensorValue",
+      "entPhySensorValue"
+    ],
+    "ENTITY-STATE-MIB": [
+      "entStateAlarm"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "iso",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "aristaEntSensorMIB": {
+    "name": "aristaEntSensorMIB",
+    "oid": "1.3.6.1.4.1.30065.3.12",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-08-15 00:00",
+        "description": "Updated postal and e-mail addresses."
+      },
+      {
+        "revision": "2013-05-09 09:50",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "aristaEntSensorMibNotifications": {
+    "name": "aristaEntSensorMibNotifications",
+    "oid": "1.3.6.1.4.1.30065.3.12.0",
+    "class": "objectidentity"
+  },
+  "aristaEntSensorMibObjects": {
+    "name": "aristaEntSensorMibObjects",
+    "oid": "1.3.6.1.4.1.30065.3.12.1",
+    "class": "objectidentity"
+  },
+  "aristaEntSensorMibConformance": {
+    "name": "aristaEntSensorMibConformance",
+    "oid": "1.3.6.1.4.1.30065.3.12.2",
+    "class": "objectidentity"
+  },
+  "aristaEntSensorThresholdTable": {
+    "name": "aristaEntSensorThresholdTable",
+    "oid": "1.3.6.1.4.1.30065.3.12.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aristaEntSensorThresholdEntry": {
+    "name": "aristaEntSensorThresholdEntry",
+    "oid": "1.3.6.1.4.1.30065.3.12.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aristaEntSensorThresholdLowWarning": {
+    "name": "aristaEntSensorThresholdLowWarning",
+    "oid": "1.3.6.1.4.1.30065.3.12.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntitySensorValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aristaEntSensorThresholdLowCritical": {
+    "name": "aristaEntSensorThresholdLowCritical",
+    "oid": "1.3.6.1.4.1.30065.3.12.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntitySensorValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aristaEntSensorThresholdHighWarning": {
+    "name": "aristaEntSensorThresholdHighWarning",
+    "oid": "1.3.6.1.4.1.30065.3.12.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntitySensorValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aristaEntSensorThresholdHighCritical": {
+    "name": "aristaEntSensorThresholdHighCritical",
+    "oid": "1.3.6.1.4.1.30065.3.12.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntitySensorValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aristaEntSensorStatusDescr": {
+    "name": "aristaEntSensorStatusDescr",
+    "oid": "1.3.6.1.4.1.30065.3.12.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aristaEntSensorAlarm": {
+    "name": "aristaEntSensorAlarm",
+    "oid": "1.3.6.1.4.1.30065.3.12.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      },
+      {
+        "module": "ENTITY-SENSOR-MIB",
+        "object": "entPhySensorValue"
+      },
+      {
+        "module": "ENTITY-STATE-MIB",
+        "object": "entStateAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "aristaEntSensorMibCompliances": {
+    "name": "aristaEntSensorMibCompliances",
+    "oid": "1.3.6.1.4.1.30065.3.12.2.1",
+    "class": "objectidentity"
+  },
+  "aristaEntSensorMibGroups": {
+    "name": "aristaEntSensorMibGroups",
+    "oid": "1.3.6.1.4.1.30065.3.12.2.2",
+    "class": "objectidentity"
+  },
+  "aristaEntSensorMibCompliance": {
+    "name": "aristaEntSensorMibCompliance",
+    "oid": "1.3.6.1.4.1.30065.3.12.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "aristaEntSensorThresholdGroup",
+        "module": "ARISTA-ENTITY-SENSOR-MIB"
+      },
+      {
+        "object": "aristaEntSensorNotificationsGroup",
+        "module": "ARISTA-ENTITY-SENSOR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "aristaEntSensorThresholdGroup": {
+    "name": "aristaEntSensorThresholdGroup",
+    "oid": "1.3.6.1.4.1.30065.3.12.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARISTA-ENTITY-SENSOR-MIB",
+        "object": "aristaEntSensorThresholdLowWarning"
+      },
+      {
+        "module": "ARISTA-ENTITY-SENSOR-MIB",
+        "object": "aristaEntSensorThresholdLowCritical"
+      },
+      {
+        "module": "ARISTA-ENTITY-SENSOR-MIB",
+        "object": "aristaEntSensorThresholdHighWarning"
+      },
+      {
+        "module": "ARISTA-ENTITY-SENSOR-MIB",
+        "object": "aristaEntSensorThresholdHighCritical"
+      },
+      {
+        "module": "ARISTA-ENTITY-SENSOR-MIB",
+        "object": "aristaEntSensorStatusDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "aristaEntSensorNotificationsGroup": {
+    "name": "aristaEntSensorNotificationsGroup",
+    "oid": "1.3.6.1.4.1.30065.3.12.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ARISTA-ENTITY-SENSOR-MIB",
+        "object": "aristaEntSensorAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arista/ARISTA-ENTITY-SENSOR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:17:39 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ARISTA-ENTITY-SENSOR-MIB"
+  }
+}

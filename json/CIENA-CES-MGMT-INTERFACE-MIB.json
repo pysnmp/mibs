@@ -1,0 +1,859 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-GLOBAL-MIB": [
+      "cienaGlobalMacAddress",
+      "cienaGlobalSeverity"
+    ],
+    "CIENA-SMI": [
+      "cienaCesConfig",
+      "cienaCesNotifications"
+    ],
+    "CIENA-TC": [
+      "CienaGlobalState"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType",
+      "InetAddressPrefixLength"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaCesMgmtInterfaceMIB": {
+    "name": "cienaCesMgmtInterfaceMIB",
+    "oid": "1.3.6.1.4.1.1271.2.1.27",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-05-15 00:00",
+        "description": "Added cienaCesInetIcmpPortUnreachable."
+      },
+      {
+        "revision": "2015-04-23 00:00",
+        "description": "Defined cienaCesInetMgmtPort OBJECT IDENTIFIER at cienaCesMgmtInterface 5. Defined cienaCesInetMgmtPortInterface at cienaCesInetMgmtPort 1."
+      },
+      {
+        "revision": "2015-04-06 00:00",
+        "description": "Added new object, cienaCesInetMgmtInterfaceIngressAclProfId, to the cienaCesInetMgmtInterfaceTable in order to display the ID of the ingress ACL profile attached to the management interface."
+      },
+      {
+        "revision": "2014-11-18 00:00",
+        "description": "Defined cienaCesInetTcpStack OBJECT IDENTIFIER at cienaCesMgmtInterface 4. Defined cienaCesInetTcpTimestamps at cienaCesInetTcpStack 1."
+      },
+      {
+        "revision": "2014-10-07 00:00",
+        "description": "Added cienaCesInetIcmpAcceptRedirects and cienaCesInetIcmpEchoIgnoreBroadcasts."
+      },
+      {
+        "revision": "2013-06-17 00:00",
+        "description": "Added cienaCesInetMgmtInterfaceDomainVsName to allow a correlation of the remote interface and the virtual switch being used."
+      },
+      {
+        "revision": "2012-04-04 00:00",
+        "description": "Initial creation."
+      }
+    ]
+  },
+  "cienaCesMgmtInterfaceMIBObjects": {
+    "name": "cienaCesMgmtInterfaceMIBObjects",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1",
+    "class": "objectidentity"
+  },
+  "cienaCesMgmtInterface": {
+    "name": "cienaCesMgmtInterface",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesMgmtInterfaceMIBNotificationPrefix": {
+    "name": "cienaCesMgmtInterfaceMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.1271.2.2.27",
+    "class": "objectidentity"
+  },
+  "cienaCesMgmtInterfaceMIBNotifications": {
+    "name": "cienaCesMgmtInterfaceMIBNotifications",
+    "oid": "1.3.6.1.4.1.1271.2.2.27.0",
+    "class": "objectidentity"
+  },
+  "cienaCesMgmtInterfaceMIBConformance": {
+    "name": "cienaCesMgmtInterfaceMIBConformance",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.3",
+    "class": "objectidentity"
+  },
+  "cienaCesMgmtInterfaceMIBCompliances": {
+    "name": "cienaCesMgmtInterfaceMIBCompliances",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.3.1",
+    "class": "objectidentity"
+  },
+  "cienaCesMgmtInterfaceMIBGroups": {
+    "name": "cienaCesMgmtInterfaceMIBGroups",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.3.2",
+    "class": "objectidentity"
+  },
+  "cienaCesInetMgmtInterfaceTable": {
+    "name": "cienaCesInetMgmtInterfaceTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesInetMgmtInterfaceEntry": {
+    "name": "cienaCesInetMgmtInterfaceEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetMgmtInterfaceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetMgmtInterfaceAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetMgmtInterfaceAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesInetMgmtInterfaceIndex": {
+    "name": "cienaCesInetMgmtInterfaceIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesInetMgmtInterfaceAddrType": {
+    "name": "cienaCesInetMgmtInterfaceAddrType",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesInetMgmtInterfaceAddr": {
+    "name": "cienaCesInetMgmtInterfaceAddr",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesInetMgmtInterfaceAddrPrefixLength": {
+    "name": "cienaCesInetMgmtInterfaceAddrPrefixLength",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetMgmtInterfaceName": {
+    "name": "cienaCesInetMgmtInterfaceName",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetMgmtInterfaceAdminState": {
+    "name": "cienaCesInetMgmtInterfaceAdminState",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetMgmtInterfaceOperState": {
+    "name": "cienaCesInetMgmtInterfaceOperState",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetMgmtInterfaceDomain": {
+    "name": "cienaCesInetMgmtInterfaceDomain",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "vs": 2,
+          "vlan": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetMgmtInterfaceDomainId": {
+    "name": "cienaCesInetMgmtInterfaceDomainId",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetMgmtInterfacePktPriority": {
+    "name": "cienaCesInetMgmtInterfacePktPriority",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetMgmtInterfaceMtu": {
+    "name": "cienaCesInetMgmtInterfaceMtu",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetMgmtInterfaceNotifIndex": {
+    "name": "cienaCesInetMgmtInterfaceNotifIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetMgmtInterfaceNotifAddrType": {
+    "name": "cienaCesInetMgmtInterfaceNotifAddrType",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetMgmtInterfaceNotifAddr": {
+    "name": "cienaCesInetMgmtInterfaceNotifAddr",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetMgmtInterfaceDomainVsName": {
+    "name": "cienaCesInetMgmtInterfaceDomainVsName",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetMgmtInterfaceIngressAclProfId": {
+    "name": "cienaCesInetMgmtInterfaceIngressAclProfId",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetGatewayTable": {
+    "name": "cienaCesInetGatewayTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesInetGatewayEntry": {
+    "name": "cienaCesInetGatewayEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetGatewayAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetGatewayAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesInetGatewayAddrType": {
+    "name": "cienaCesInetGatewayAddrType",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesInetGatewayAddr": {
+    "name": "cienaCesInetGatewayAddr",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesInetGatewaySource": {
+    "name": "cienaCesInetGatewaySource",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "dhcpv4": 2,
+          "userConfiguredPrimary": 3,
+          "userConfiguredBackup": 4,
+          "auto": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetGatewayOperState": {
+    "name": "cienaCesInetGatewayOperState",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "selected": 1,
+          "disabled": 2,
+          "enabled": 3,
+          "unavailable": 4,
+          "standby": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetGatewayNotifAddrType": {
+    "name": "cienaCesInetGatewayNotifAddrType",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetGatewayNotifAddr": {
+    "name": "cienaCesInetGatewayNotifAddr",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetStackTable": {
+    "name": "cienaCesInetStackTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesInetStackEntry": {
+    "name": "cienaCesInetStackEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetAddrType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesInetAddrType": {
+    "name": "cienaCesInetAddrType",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesInetForwardingState": {
+    "name": "cienaCesInetForwardingState",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetDefaultDscp": {
+    "name": "cienaCesInetDefaultDscp",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetIcmpAcceptRedirects": {
+    "name": "cienaCesInetIcmpAcceptRedirects",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetIcmpEchoIgnoreBroadcasts": {
+    "name": "cienaCesInetIcmpEchoIgnoreBroadcasts",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetIcmpPortUnreachable": {
+    "name": "cienaCesInetIcmpPortUnreachable",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetTcpStack": {
+    "name": "cienaCesInetTcpStack",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.4",
+    "class": "objectidentity"
+  },
+  "cienaCesInetTcpTimestamps": {
+    "name": "cienaCesInetTcpTimestamps",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetMgmtPort": {
+    "name": "cienaCesInetMgmtPort",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.5",
+    "class": "objectidentity"
+  },
+  "cienaCesInetMgmtPortInterface": {
+    "name": "cienaCesInetMgmtPortInterface",
+    "oid": "1.3.6.1.4.1.1271.2.1.27.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "remote": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesInetMgmtAddrChangeNotification": {
+    "name": "cienaCesInetMgmtAddrChangeNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.27.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetMgmtInterfaceNotifIndex"
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetMgmtInterfaceNotifAddrType"
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetMgmtInterfaceNotifAddr"
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetMgmtInterfaceAddrPrefixLength"
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetMgmtInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesInetMgmtAddrAddedNotification": {
+    "name": "cienaCesInetMgmtAddrAddedNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.27.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetMgmtInterfaceNotifIndex"
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetMgmtInterfaceNotifAddrType"
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetMgmtInterfaceNotifAddr"
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetMgmtInterfaceAddrPrefixLength"
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetMgmtInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesInetMgmtAddrRemovedNotification": {
+    "name": "cienaCesInetMgmtAddrRemovedNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.27.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetMgmtInterfaceNotifIndex"
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetMgmtInterfaceNotifAddrType"
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetMgmtInterfaceNotifAddr"
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetMgmtInterfaceAddrPrefixLength"
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetMgmtInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesInetGatewayAddrChangeNotification": {
+    "name": "cienaCesInetGatewayAddrChangeNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.27.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetGatewayNotifAddrType"
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetGatewayNotifAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesInetGatewayAddedNotification": {
+    "name": "cienaCesInetGatewayAddedNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.27.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetGatewayNotifAddrType"
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetGatewayNotifAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesInetGatewayRemovedNotification": {
+    "name": "cienaCesInetGatewayRemovedNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.27.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetGatewayNotifAddrType"
+      },
+      {
+        "module": "CIENA-CES-MGMT-INTERFACE-MIB",
+        "object": "cienaCesInetGatewayNotifAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-MGMT-INTERFACE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-CES-MGMT-INTERFACE-MIB"
+  }
+}

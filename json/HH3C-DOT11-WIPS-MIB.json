@@ -1,0 +1,7009 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cDot11"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "MacAddress"
+    ]
+  },
+  "hh3cDot11WIPS": {
+    "name": "hh3cDot11WIPS",
+    "oid": "1.3.6.1.4.1.25506.2.75.15",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-03-28 09:51",
+        "description": "Delete table for probe."
+      },
+      {
+        "revision": "2016-02-16 10:51",
+        "description": "Modify objects."
+      },
+      {
+        "revision": "2015-12-08 15:51",
+        "description": "Add new objects."
+      },
+      {
+        "revision": "2015-03-31 13:51",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "Hh3cDot11WIPSEnabledStatus": {
+    "name": "Hh3cDot11WIPSEnabledStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSRtLmtType": {
+    "name": "Hh3cDot11WIPSRtLmtType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ap": 1,
+          "client": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSDeviceType": {
+    "name": "Hh3cDot11WIPSDeviceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ap": 1,
+          "client": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSPolicyTypeValue": {
+    "name": "Hh3cDot11WIPSPolicyTypeValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "classification": 1,
+          "countermeasure": 2,
+          "detect": 3,
+          "signature": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSClassifyType": {
+    "name": "Hh3cDot11WIPSClassifyType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "authorizedap": 2,
+          "misconfiguredap": 3,
+          "rogueap": 4,
+          "externalap": 5,
+          "adhoc": 6,
+          "meshap": 7,
+          "potentialauthorizedap": 8,
+          "potentialrogueap": 9,
+          "potentialexternalap": 10,
+          "uncategorizedap": 11,
+          "authorizedclient": 12,
+          "unauthorizedclient": 13,
+          "misassociaionclient": 14,
+          "uncategorizedclient": 15
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSRadioType": {
+    "name": "Hh3cDot11WIPSRadioType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot11a": 1,
+          "dot11b": 2,
+          "dot11g": 4,
+          "dot11n": 8,
+          "dot11gn": 16,
+          "dot11an": 32,
+          "dot11ac": 64,
+          "dot11gac": 128
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSDevStatus": {
+    "name": "Hh3cDot11WIPSDevStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSAPType": {
+    "name": "Hh3cDot11WIPSAPType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "adhoc": 2,
+          "mesh": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSDevClassifyWay": {
+    "name": "Hh3cDot11WIPSDevClassifyWay",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "invalidOUI": 2,
+          "trustlist": 3,
+          "blocklist": 4,
+          "associated": 5,
+          "userdefined": 6,
+          "auto": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSAPClassifyType": {
+    "name": "Hh3cDot11WIPSAPClassifyType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authorized": 1,
+          "misconfigured": 2,
+          "rogue": 3,
+          "external": 4,
+          "adhoc": 5,
+          "mesh": 6,
+          "potentialAuthorized": 7,
+          "potentialRogue": 8,
+          "potentialExternal": 9,
+          "uncategorized": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSStaClassifyType": {
+    "name": "Hh3cDot11WIPSStaClassifyType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authorized": 1,
+          "unauthorized": 2,
+          "misassociated": 3,
+          "uncategorized": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSChannel": {
+    "name": "Hh3cDot11WIPSChannel",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 224
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Hh3cDot11WIPSEncryptMethod": {
+    "name": "Hh3cDot11WIPSEncryptMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Hh3cDot11WIPSAuthMethod": {
+    "name": "Hh3cDot11WIPSAuthMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Hh3cDot11WIPSAPSecurityType": {
+    "name": "Hh3cDot11WIPSAPSecurityType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Hh3cDot11WIPSMalformedType": {
+    "name": "Hh3cDot11WIPSMalformedType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "duplicatedie": 1,
+          "fatajack": 2,
+          "illegalibssess": 3,
+          "invalidaddresscombination": 4,
+          "invalidassocreq": 5,
+          "invalidauth": 6,
+          "invaliddeauthcode": 7,
+          "invaliddisassoccode": 8,
+          "invalidhtie": 9,
+          "invalidielength": 10,
+          "invalidpktlength": 11,
+          "nullproberesp": 13,
+          "overfloweapolkey": 14,
+          "overflowssid": 15,
+          "redundantie": 16
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSCtmType": {
+    "name": "Hh3cDot11WIPSCtmType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "externalAp": 1,
+          "misassociationClient": 2,
+          "misconfiguredAp": 3,
+          "potentialAuthorizedAp": 4,
+          "potentialExternalAp": 5,
+          "potentialRogueAp": 6,
+          "rogueAp": 7,
+          "unauthorizedClient": 8,
+          "uncategorizedAp": 9,
+          "uncategorizedClient": 10,
+          "attack": 11,
+          "adhoc": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSRuleTypes": {
+    "name": "Hh3cDot11WIPSRuleTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "signature": 4,
+          "apclassfication": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSSigFrameTypes": {
+    "name": "Hh3cDot11WIPSSigFrameTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "management": 1,
+          "control": 2,
+          "data": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSSigFrameSubTypes": {
+    "name": "Hh3cDot11WIPSSigFrameSubTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "assocerq": 1,
+          "assocresp": 2,
+          "probereq": 3,
+          "beacon": 4,
+          "disasso": 5,
+          "auth": 6,
+          "deauth": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSSigSsidMatchTypes": {
+    "name": "Hh3cDot11WIPSSigSsidMatchTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "equal": 1,
+          "notequal": 2,
+          "include": 3,
+          "notinclude": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSSigMacMacType": {
+    "name": "Hh3cDot11WIPSSigMacMacType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "source": 1,
+          "destination": 2,
+          "bssid": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSManualAPType": {
+    "name": "Hh3cDot11WIPSManualAPType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authap": 1,
+          "misconfiguredap": 2,
+          "rogueap": 3,
+          "externalap": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSDtcAckTypes": {
+    "name": "Hh3cDot11WIPSDtcAckTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apspoof": 1,
+          "clientspoof": 4,
+          "weakiv": 6,
+          "windowsbridge": 7,
+          "fortymhz": 8,
+          "omerta": 11,
+          "disassoc": 12,
+          "deauth": 13,
+          "prohibitedchannel": 14,
+          "authunencryptedap": 16,
+          "authunencryptedclient": 17,
+          "hotspot": 18,
+          "greenmode": 19,
+          "tableoverflow": 20,
+          "mitm": 22,
+          "wirelessbridge": 23,
+          "apchannelchange": 25
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSDtcDevTimeTypes": {
+    "name": "Hh3cDot11WIPSDtcDevTimeTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deviceap": 1,
+          "deviceclient": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSFldDctType": {
+    "name": "Hh3cDot11WIPSFldDctType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "associationrequest": 1,
+          "authentication": 2,
+          "beacon": 3,
+          "blockack": 4,
+          "cts": 5,
+          "deauthentication": 6,
+          "disassociation": 7,
+          "eapolstart": 8,
+          "nulldata": 9,
+          "proberequest": 10,
+          "reassociationrequest": 11,
+          "rts": 12,
+          "eapollogoff": 13,
+          "eapfailure": 14,
+          "eapsuccess": 15
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSAPClaAuthMethods": {
+    "name": "Hh3cDot11WIPSAPClaAuthMethods",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "dot1x": 2,
+          "psk": 3,
+          "other": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSAPClassifyCmpType": {
+    "name": "Hh3cDot11WIPSAPClassifyCmpType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "equal": 1,
+          "include": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSAPClasSsidCmpType": {
+    "name": "Hh3cDot11WIPSAPClasSsidCmpType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "equal": 1,
+          "notequal": 2,
+          "include": 3,
+          "notinclude": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSAPClaSecurityType": {
+    "name": "Hh3cDot11WIPSAPClaSecurityType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "wpa2": 2,
+          "wpa": 3,
+          "wep": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSAlyAPClaRuleType": {
+    "name": "Hh3cDot11WIPSAlyAPClaRuleType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rogue": 1,
+          "external": 2,
+          "misconfigured": 3,
+          "authorized": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WIPSOuiAddress": {
+    "name": "Hh3cDot11WIPSOuiAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "displayhint": "1x:",
+    "status": "current"
+  },
+  "hh3cDot11WIPSConfigGroup": {
+    "name": "hh3cDot11WIPSConfigGroup",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1",
+    "class": "objectidentity"
+  },
+  "hh3cDot11WIPSDataGroup": {
+    "name": "hh3cDot11WIPSDataGroup",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2",
+    "class": "objectidentity"
+  },
+  "hh3cDot11WIPSVsdTable": {
+    "name": "hh3cDot11WIPSVsdTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSVsdEntry": {
+    "name": "hh3cDot11WIPSVsdEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSVsdName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSVsdName": {
+    "name": "hh3cDot11WIPSVsdName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSVsdRowStatus": {
+    "name": "hh3cDot11WIPSVsdRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSVsdDetectPolicy": {
+    "name": "hh3cDot11WIPSVsdDetectPolicy",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSVsdCtmPolicy": {
+    "name": "hh3cDot11WIPSVsdCtmPolicy",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSVsdSignaturePolicy": {
+    "name": "hh3cDot11WIPSVsdSignaturePolicy",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSVsdClasPolicy": {
+    "name": "hh3cDot11WIPSVsdClasPolicy",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAp2VsdTable": {
+    "name": "hh3cDot11WIPSAp2VsdTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAp2VsdEntry": {
+    "name": "hh3cDot11WIPSAp2VsdEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSAp2VsdApName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSAp2VsdApName": {
+    "name": "hh3cDot11WIPSAp2VsdApName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAp2VsdRowStatus": {
+    "name": "hh3cDot11WIPSAp2VsdRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAp2VsdVsdName": {
+    "name": "hh3cDot11WIPSAp2VsdVsdName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSApRadioTable": {
+    "name": "hh3cDot11WIPSApRadioTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSApRadioEntry": {
+    "name": "hh3cDot11WIPSApRadioEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSApRadioApName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSApRadioRadioID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSApRadioApName": {
+    "name": "hh3cDot11WIPSApRadioApName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSApRadioRadioID": {
+    "name": "hh3cDot11WIPSApRadioRadioID",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSApRadioStatus": {
+    "name": "hh3cDot11WIPSApRadioStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSRuleTable": {
+    "name": "hh3cDot11WIPSRuleTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSRuleEntry": {
+    "name": "hh3cDot11WIPSRuleEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSRuleType",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSRuleType": {
+    "name": "hh3cDot11WIPSRuleType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSRuleTypes",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSRuleId": {
+    "name": "hh3cDot11WIPSRuleId",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSRuleRowStatus": {
+    "name": "hh3cDot11WIPSRuleRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAlySigRuleTable": {
+    "name": "hh3cDot11WIPSAlySigRuleTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAlySigRuleEntry": {
+    "name": "hh3cDot11WIPSAlySigRuleEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSAlySigPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSAlySigRuleID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSAlySigPolicyName": {
+    "name": "hh3cDot11WIPSAlySigPolicyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAlySigRuleID": {
+    "name": "hh3cDot11WIPSAlySigRuleID",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAlySigRowStatus": {
+    "name": "hh3cDot11WIPSAlySigRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAlyClaRuleTable": {
+    "name": "hh3cDot11WIPSAlyClaRuleTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAlyClaRuleEntry": {
+    "name": "hh3cDot11WIPSAlyClaRuleEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSAlyClaPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSAlyClasRuleID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSAlyClaPolicyName": {
+    "name": "hh3cDot11WIPSAlyClaPolicyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAlyClasRuleID": {
+    "name": "hh3cDot11WIPSAlyClasRuleID",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAlyClaRuleType": {
+    "name": "hh3cDot11WIPSAlyClaRuleType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSAlyAPClaRuleType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAlyClaRuleLevel": {
+    "name": "hh3cDot11WIPSAlyClaRuleLevel",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAlyClaRowStatus": {
+    "name": "hh3cDot11WIPSAlyClaRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSTrustMacTable": {
+    "name": "hh3cDot11WIPSTrustMacTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSTrustMacEntry": {
+    "name": "hh3cDot11WIPSTrustMacEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSTrustMacPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSTrustMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSTrustMacPolicyName": {
+    "name": "hh3cDot11WIPSTrustMacPolicyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSTrustMacAddress": {
+    "name": "hh3cDot11WIPSTrustMacAddress",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSTrustMacRowStatus": {
+    "name": "hh3cDot11WIPSTrustMacRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSBlockMacTable": {
+    "name": "hh3cDot11WIPSBlockMacTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSBlockMacEntry": {
+    "name": "hh3cDot11WIPSBlockMacEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSBlockMacPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSBlockMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSBlockMacPolicyName": {
+    "name": "hh3cDot11WIPSBlockMacPolicyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSBlockMacAddress": {
+    "name": "hh3cDot11WIPSBlockMacAddress",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSBlockMacRowStatus": {
+    "name": "hh3cDot11WIPSBlockMacRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSManulClaTable": {
+    "name": "hh3cDot11WIPSManulClaTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSManulClaEntry": {
+    "name": "hh3cDot11WIPSManulClaEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSManulClaPlyName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSManulClaMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSManulClaPlyName": {
+    "name": "hh3cDot11WIPSManulClaPlyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSManulClaMac": {
+    "name": "hh3cDot11WIPSManulClaMac",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSManulClassifyType": {
+    "name": "hh3cDot11WIPSManulClassifyType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSManualAPType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSManuClaRowStatus": {
+    "name": "hh3cDot11WIPSManuClaRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSTrustOuiTable": {
+    "name": "hh3cDot11WIPSTrustOuiTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSTrustOuiEntry": {
+    "name": "hh3cDot11WIPSTrustOuiEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSTrustOuiPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSTrustOuiMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSTrustOuiPolicyName": {
+    "name": "hh3cDot11WIPSTrustOuiPolicyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSTrustOuiMac": {
+    "name": "hh3cDot11WIPSTrustOuiMac",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSOuiAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSTrustOuiRowStatus": {
+    "name": "hh3cDot11WIPSTrustOuiRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSTrustSSidTable": {
+    "name": "hh3cDot11WIPSTrustSSidTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSTrustSSidEntry": {
+    "name": "hh3cDot11WIPSTrustSSidEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSTrustSSidPlyName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSTrustSSidName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSTrustSSidPlyName": {
+    "name": "hh3cDot11WIPSTrustSSidPlyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSTrustSSidName": {
+    "name": "hh3cDot11WIPSTrustSSidName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSTrustSSidRowStatus": {
+    "name": "hh3cDot11WIPSTrustSSidRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSMalfDtcTable": {
+    "name": "hh3cDot11WIPSMalfDtcTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSMalfDtcEntry": {
+    "name": "hh3cDot11WIPSMalfDtcEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSMalfDtcPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSMalfDtcType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSMalfDtcPolicyName": {
+    "name": "hh3cDot11WIPSMalfDtcPolicyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSMalfDtcType": {
+    "name": "hh3cDot11WIPSMalfDtcType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSMalformedType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSMalfDtcQuietTime": {
+    "name": "hh3cDot11WIPSMalfDtcQuietTime",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 604800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSMalfDtciStatus": {
+    "name": "hh3cDot11WIPSMalfDtciStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSLgeDutTable": {
+    "name": "hh3cDot11WIPSLgeDutTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSLgeDutEntry": {
+    "name": "hh3cDot11WIPSLgeDutEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSLgeDutPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSLgeDutPolicyName": {
+    "name": "hh3cDot11WIPSLgeDutPolicyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSLgeDutThreshold": {
+    "name": "hh3cDot11WIPSLgeDutThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSLgeDutQuietTime": {
+    "name": "hh3cDot11WIPSLgeDutQuietTime",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 604800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSLgeDutStatus": {
+    "name": "hh3cDot11WIPSLgeDutStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSRtLmtTable": {
+    "name": "hh3cDot11WIPSRtLmtTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSRtLmtEntry": {
+    "name": "hh3cDot11WIPSRtLmtEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSRtLmtPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSRtLmtRtLmtType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSRtLmtPolicyName": {
+    "name": "hh3cDot11WIPSRtLmtPolicyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSRtLmtRtLmtType": {
+    "name": "hh3cDot11WIPSRtLmtRtLmtType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSRtLmtType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSRtLmtInterval": {
+    "name": "hh3cDot11WIPSRtLmtInterval",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSRtLmtThreshold": {
+    "name": "hh3cDot11WIPSRtLmtThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSRtLmtQuiet": {
+    "name": "hh3cDot11WIPSRtLmtQuiet",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1200,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSRtLmtStatus": {
+    "name": "hh3cDot11WIPSRtLmtStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDtcAckTable": {
+    "name": "hh3cDot11WIPSDtcAckTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDtcAckEntry": {
+    "name": "hh3cDot11WIPSDtcAckEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSDtcAckPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSDtcAckType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSDtcAckPolicyName": {
+    "name": "hh3cDot11WIPSDtcAckPolicyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDtcAckType": {
+    "name": "hh3cDot11WIPSDtcAckType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSDtcAckTypes",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDtcAckQuietTime": {
+    "name": "hh3cDot11WIPSDtcAckQuietTime",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 604800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDtcAckInterval": {
+    "name": "hh3cDot11WIPSDtcAckInterval",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDtcAckThreshold": {
+    "name": "hh3cDot11WIPSDtcAckThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDtcAckStatus": {
+    "name": "hh3cDot11WIPSDtcAckStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDtcDevTimeTable": {
+    "name": "hh3cDot11WIPSDtcDevTimeTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDtcDevTimeEntry": {
+    "name": "hh3cDot11WIPSDtcDevTimeEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSDtcDevTimePlyName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSDtcDevTimeType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSDtcDevTimePlyName": {
+    "name": "hh3cDot11WIPSDtcDevTimePlyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDtcDevTimeType": {
+    "name": "hh3cDot11WIPSDtcDevTimeType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSDtcDevTimeTypes",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDtcDevTimeInactive": {
+    "name": "hh3cDot11WIPSDtcDevTimeInactive",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 1200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDtcDevTimeAging": {
+    "name": "hh3cDot11WIPSDtcDevTimeAging",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 120,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDtcDevTimeStatus": {
+    "name": "hh3cDot11WIPSDtcDevTimeStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSApimperTable": {
+    "name": "hh3cDot11WIPSApimperTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSApimperEntry": {
+    "name": "hh3cDot11WIPSApimperEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSApimperPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSApimperPolicyName": {
+    "name": "hh3cDot11WIPSApimperPolicyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSApimperQuiet": {
+    "name": "hh3cDot11WIPSApimperQuiet",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 604800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSApimperStatus": {
+    "name": "hh3cDot11WIPSApimperStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctSoftApTable": {
+    "name": "hh3cDot11WIPSDctSoftApTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctSoftApEntry": {
+    "name": "hh3cDot11WIPSDctSoftApEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSDctSoftApPlyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctSoftApPlyName": {
+    "name": "hh3cDot11WIPSDctSoftApPlyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctSoftApThold": {
+    "name": "hh3cDot11WIPSDctSoftApThold",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctSoftApStatus": {
+    "name": "hh3cDot11WIPSDctSoftApStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSPowerSaveTable": {
+    "name": "hh3cDot11WIPSPowerSaveTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSPowerSaveEntry": {
+    "name": "hh3cDot11WIPSPowerSaveEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSPowerSavePlyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSPowerSavePlyName": {
+    "name": "hh3cDot11WIPSPowerSavePlyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSPowerSaveInterval": {
+    "name": "hh3cDot11WIPSPowerSaveInterval",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSPowerSaveMinOffPkt": {
+    "name": "hh3cDot11WIPSPowerSaveMinOffPkt",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 150
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSPowerSaveOnOffPct": {
+    "name": "hh3cDot11WIPSPowerSaveOnOffPct",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSPowerSaveQuiet": {
+    "name": "hh3cDot11WIPSPowerSaveQuiet",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 604800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSPowerSaveStatus": {
+    "name": "hh3cDot11WIPSPowerSaveStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.19.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSIgnListMacTable": {
+    "name": "hh3cDot11WIPSIgnListMacTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSIgnListMacEntry": {
+    "name": "hh3cDot11WIPSIgnListMacEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSIgnListMacMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSIgnListMacMacAddr": {
+    "name": "hh3cDot11WIPSIgnListMacMacAddr",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSIgnListMacRowStus": {
+    "name": "hh3cDot11WIPSIgnListMacRowStus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSHoneyPotTable": {
+    "name": "hh3cDot11WIPSHoneyPotTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSHoneyPotEntry": {
+    "name": "hh3cDot11WIPSHoneyPotEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSHoneyPotPlyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSHoneyPotPlyName": {
+    "name": "hh3cDot11WIPSHoneyPotPlyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSHoneyPotSim": {
+    "name": "hh3cDot11WIPSHoneyPotSim",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 70,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSHoneyPotQuiet": {
+    "name": "hh3cDot11WIPSHoneyPotQuiet",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 604800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSHoneyPotStatus": {
+    "name": "hh3cDot11WIPSHoneyPotStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPFldTable": {
+    "name": "hh3cDot11WIPSAPFldTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPFldEntry": {
+    "name": "hh3cDot11WIPSAPFldEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSAPFldPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPFldPolicyName": {
+    "name": "hh3cDot11WIPSAPFldPolicyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPFldApnum": {
+    "name": "hh3cDot11WIPSAPFldApnum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPFldExceed": {
+    "name": "hh3cDot11WIPSAPFldExceed",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPFldQuiet": {
+    "name": "hh3cDot11WIPSAPFldQuiet",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 604800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPFldStatus": {
+    "name": "hh3cDot11WIPSAPFldStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmManualsTable": {
+    "name": "hh3cDot11WIPSCtmManualsTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmManualsEntry": {
+    "name": "hh3cDot11WIPSCtmManualsEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSCtmManualsPlyName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSCtmManualsMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmManualsPlyName": {
+    "name": "hh3cDot11WIPSCtmManualsPlyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmManualsMacAddr": {
+    "name": "hh3cDot11WIPSCtmManualsMacAddr",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmManualsRowStus": {
+    "name": "hh3cDot11WIPSCtmManualsRowStus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmSensorTable": {
+    "name": "hh3cDot11WIPSCtmSensorTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmSensorEntry": {
+    "name": "hh3cDot11WIPSCtmSensorEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSCtmSensorPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmSensorPolicyName": {
+    "name": "hh3cDot11WIPSCtmSensorPolicyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmSensoriStatus": {
+    "name": "hh3cDot11WIPSCtmSensoriStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSInvOuiStateTable": {
+    "name": "hh3cDot11WIPSInvOuiStateTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSInvOuiStateEntry": {
+    "name": "hh3cDot11WIPSInvOuiStateEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSInvOuiStaPlyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSInvOuiStaPlyName": {
+    "name": "hh3cDot11WIPSInvOuiStaPlyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSInvOuiStaiStatus": {
+    "name": "hh3cDot11WIPSInvOuiStaiStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaAuthTable": {
+    "name": "hh3cDot11WIPSAPClaAuthTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.26",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaAuthEntry": {
+    "name": "hh3cDot11WIPSAPClaAuthEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.26.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSAPClaAuthRuleID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaAuthRuleID": {
+    "name": "hh3cDot11WIPSAPClaAuthRuleID",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.26.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaAuthMethod": {
+    "name": "hh3cDot11WIPSAPClaAuthMethod",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.26.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSAPClaAuthMethods",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaAuthType": {
+    "name": "hh3cDot11WIPSAPClaAuthType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.26.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSAPClassifyCmpType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaAuthStatus": {
+    "name": "hh3cDot11WIPSAPClaAuthStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.26.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaCltOnlTable": {
+    "name": "hh3cDot11WIPSAPClaCltOnlTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.27",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaCltOnlEntry": {
+    "name": "hh3cDot11WIPSAPClaCltOnlEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.27.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSAPClaCltOnlRuleID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaCltOnlRuleID": {
+    "name": "hh3cDot11WIPSAPClaCltOnlRuleID",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.27.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaCltOnlV1": {
+    "name": "hh3cDot11WIPSAPClaCltOnlV1",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.27.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaCltOnlV2": {
+    "name": "hh3cDot11WIPSAPClaCltOnlV2",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.27.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaCltOnlSts": {
+    "name": "hh3cDot11WIPSAPClaCltOnlSts",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.27.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaDiscrTable": {
+    "name": "hh3cDot11WIPSAPClaDiscrTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.28",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaDiscrEntry": {
+    "name": "hh3cDot11WIPSAPClaDiscrEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.28.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSAPClaDiscrRuleID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaDiscrRuleID": {
+    "name": "hh3cDot11WIPSAPClaDiscrRuleID",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.28.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaDiscrV1": {
+    "name": "hh3cDot11WIPSAPClaDiscrV1",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.28.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaDiscrV2": {
+    "name": "hh3cDot11WIPSAPClaDiscrV2",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.28.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaDiscrSta": {
+    "name": "hh3cDot11WIPSAPClaDiscrSta",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.28.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaRssiTable": {
+    "name": "hh3cDot11WIPSAPClaRssiTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.29",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaRssiEntry": {
+    "name": "hh3cDot11WIPSAPClaRssiEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.29.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSAPClaRssiRuleID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaRssiRuleID": {
+    "name": "hh3cDot11WIPSAPClaRssiRuleID",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.29.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaRssiV1": {
+    "name": "hh3cDot11WIPSAPClaRssiV1",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.29.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaRssiV2": {
+    "name": "hh3cDot11WIPSAPClaRssiV2",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.29.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaRssiSta": {
+    "name": "hh3cDot11WIPSAPClaRssiSta",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.29.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaUpdurTable": {
+    "name": "hh3cDot11WIPSAPClaUpdurTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.30",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaUpdurEntry": {
+    "name": "hh3cDot11WIPSAPClaUpdurEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.30.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSAPClaUpdurRuleID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaUpdurRuleID": {
+    "name": "hh3cDot11WIPSAPClaUpdurRuleID",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.30.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaUpdurV1": {
+    "name": "hh3cDot11WIPSAPClaUpdurV1",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.30.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2592000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaUpdurV2": {
+    "name": "hh3cDot11WIPSAPClaUpdurV2",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.30.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2592000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaUpdurSta": {
+    "name": "hh3cDot11WIPSAPClaUpdurSta",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.30.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaOuiTable": {
+    "name": "hh3cDot11WIPSAPClaOuiTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.31",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaOuiEntry": {
+    "name": "hh3cDot11WIPSAPClaOuiEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.31.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSAPClaOuiRuleID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaOuiRuleID": {
+    "name": "hh3cDot11WIPSAPClaOuiRuleID",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.31.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaOuiMac": {
+    "name": "hh3cDot11WIPSAPClaOuiMac",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.31.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSOuiAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaOuiStatus": {
+    "name": "hh3cDot11WIPSAPClaOuiStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.31.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaSryTable": {
+    "name": "hh3cDot11WIPSAPClaSryTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.32",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaSryEntry": {
+    "name": "hh3cDot11WIPSAPClaSryEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.32.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSAPClaSryRuleID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaSryRuleID": {
+    "name": "hh3cDot11WIPSAPClaSryRuleID",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.32.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaSryType": {
+    "name": "hh3cDot11WIPSAPClaSryType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.32.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSAPClaSecurityType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaSryCmpType": {
+    "name": "hh3cDot11WIPSAPClaSryCmpType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.32.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSAPClassifyCmpType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaSrySta": {
+    "name": "hh3cDot11WIPSAPClaSrySta",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.32.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaSsidTable": {
+    "name": "hh3cDot11WIPSAPClaSsidTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.33",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaSsidEntry": {
+    "name": "hh3cDot11WIPSAPClaSsidEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.33.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSAPClaSsidRuleID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaSsidRuleID": {
+    "name": "hh3cDot11WIPSAPClaSsidRuleID",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.33.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaSsidName": {
+    "name": "hh3cDot11WIPSAPClaSsidName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.33.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaSsidcase": {
+    "name": "hh3cDot11WIPSAPClaSsidcase",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.33.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaSsidCmpType": {
+    "name": "hh3cDot11WIPSAPClaSsidCmpType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.33.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSAPClasSsidCmpType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAPClaSsidStatus": {
+    "name": "hh3cDot11WIPSAPClaSsidStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.33.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDtcSigTable": {
+    "name": "hh3cDot11WIPSDtcSigTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.34",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDtcSigEntry": {
+    "name": "hh3cDot11WIPSDtcSigEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.34.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSDtcSigPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSDtcSigPolicyName": {
+    "name": "hh3cDot11WIPSDtcSigPolicyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.34.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDtcSigInterval": {
+    "name": "hh3cDot11WIPSDtcSigInterval",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.34.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDtcSigQuiet": {
+    "name": "hh3cDot11WIPSDtcSigQuiet",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.34.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 604800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDtcSigThreshold": {
+    "name": "hh3cDot11WIPSDtcSigThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.34.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDtcSigStatus": {
+    "name": "hh3cDot11WIPSDtcSigStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.34.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSPolicyTable": {
+    "name": "hh3cDot11WIPSPolicyTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.35",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSPolicyEntry": {
+    "name": "hh3cDot11WIPSPolicyEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.35.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSPolicyType",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSPolicyType": {
+    "name": "hh3cDot11WIPSPolicyType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.35.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSPolicyTypeValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSPolicyName": {
+    "name": "hh3cDot11WIPSPolicyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.35.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSPolicyRowStatus": {
+    "name": "hh3cDot11WIPSPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.35.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigFrameTypeTable": {
+    "name": "hh3cDot11WIPSSigFrameTypeTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.36",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigFrameTypeEntry": {
+    "name": "hh3cDot11WIPSSigFrameTypeEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.36.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSSigFrameTypeRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigFrameTypeRuleId": {
+    "name": "hh3cDot11WIPSSigFrameTypeRuleId",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.36.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigFrameType": {
+    "name": "hh3cDot11WIPSSigFrameType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.36.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSSigFrameTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigFrameSubType": {
+    "name": "hh3cDot11WIPSSigFrameSubType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.36.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSSigFrameSubTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigFrameTypeStatus": {
+    "name": "hh3cDot11WIPSSigFrameTypeStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.36.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmTable": {
+    "name": "hh3cDot11WIPSCtmTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.37",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmEntry": {
+    "name": "hh3cDot11WIPSCtmEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.37.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSCtmPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSCtmClassifyType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmPolicyName": {
+    "name": "hh3cDot11WIPSCtmPolicyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.37.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmClassifyType": {
+    "name": "hh3cDot11WIPSCtmClassifyType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.37.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSCtmType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmStatus": {
+    "name": "hh3cDot11WIPSCtmStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.37.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigPatternTable": {
+    "name": "hh3cDot11WIPSSigPatternTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.38",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigPatternEntry": {
+    "name": "hh3cDot11WIPSSigPatternEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.38.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSSigPatternRuleId",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSSigPatternNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigPatternRuleId": {
+    "name": "hh3cDot11WIPSSigPatternRuleId",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.38.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigPatternNum": {
+    "name": "hh3cDot11WIPSSigPatternNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.38.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigPatternOffset": {
+    "name": "hh3cDot11WIPSSigPatternOffset",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.38.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2346
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigPatternMask": {
+    "name": "hh3cDot11WIPSSigPatternMask",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.38.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigPatternValue1": {
+    "name": "hh3cDot11WIPSSigPatternValue1",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.38.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigPatternValue2": {
+    "name": "hh3cDot11WIPSSigPatternValue2",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.38.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigPatternFromPld": {
+    "name": "hh3cDot11WIPSSigPatternFromPld",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.38.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigPatternRowStatus": {
+    "name": "hh3cDot11WIPSSigPatternRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.38.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigSeqNumTable": {
+    "name": "hh3cDot11WIPSSigSeqNumTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.39",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigSeqNumEntry": {
+    "name": "hh3cDot11WIPSSigSeqNumEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.39.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSSigSeqNumRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigSeqNumRuleId": {
+    "name": "hh3cDot11WIPSSigSeqNumRuleId",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.39.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigSeqNumValue1": {
+    "name": "hh3cDot11WIPSSigSeqNumValue1",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.39.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigSeqNumValue2": {
+    "name": "hh3cDot11WIPSSigSeqNumValue2",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.39.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigSeqNumStatus": {
+    "name": "hh3cDot11WIPSSigSeqNumStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.39.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigSsidTable": {
+    "name": "hh3cDot11WIPSSigSsidTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.40",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigSsidEntry": {
+    "name": "hh3cDot11WIPSSigSsidEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.40.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSSigSsidRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigSsidRuleId": {
+    "name": "hh3cDot11WIPSSigSsidRuleId",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.40.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigSsidSsid": {
+    "name": "hh3cDot11WIPSSigSsidSsid",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.40.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigSsidCase": {
+    "name": "hh3cDot11WIPSSigSsidCase",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.40.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigSsidMatchType": {
+    "name": "hh3cDot11WIPSSigSsidMatchType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.40.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSSigSsidMatchTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigSsidStatus": {
+    "name": "hh3cDot11WIPSSigSsidStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.40.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigSsidLengthTable": {
+    "name": "hh3cDot11WIPSSigSsidLengthTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.41",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigSsidLengthEntry": {
+    "name": "hh3cDot11WIPSSigSsidLengthEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.41.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSSigSsidLengthRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigSsidLengthRuleId": {
+    "name": "hh3cDot11WIPSSigSsidLengthRuleId",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.41.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigSsidLengthValue1": {
+    "name": "hh3cDot11WIPSSigSsidLengthValue1",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.41.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigSsidLengthValue2": {
+    "name": "hh3cDot11WIPSSigSsidLengthValue2",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.41.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSigSsidLengthStatus": {
+    "name": "hh3cDot11WIPSSigSsidLengthStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.41.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSFldDetectTable": {
+    "name": "hh3cDot11WIPSFldDetectTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.42",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSFldDetectEntry": {
+    "name": "hh3cDot11WIPSFldDetectEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.42.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSFldDetectPlyName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSFldDetectType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSFldDetectPlyName": {
+    "name": "hh3cDot11WIPSFldDetectPlyName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.42.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSFldDetectType": {
+    "name": "hh3cDot11WIPSFldDetectType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.42.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSFldDctType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSFldDetectInter": {
+    "name": "hh3cDot11WIPSFldDetectInter",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.42.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSFldDetectThresh": {
+    "name": "hh3cDot11WIPSFldDetectThresh",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.42.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSFldDetectQuiet": {
+    "name": "hh3cDot11WIPSFldDetectQuiet",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.42.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 604800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSFldDetectStatus": {
+    "name": "hh3cDot11WIPSFldDetectStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.42.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSignatureMacTable": {
+    "name": "hh3cDot11WIPSSignatureMacTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.43",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSignatureMacEntry": {
+    "name": "hh3cDot11WIPSSignatureMacEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.43.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSSignatureMacRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSSignatureMacRuleId": {
+    "name": "hh3cDot11WIPSSignatureMacRuleId",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.43.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSignatureMacMacTyp": {
+    "name": "hh3cDot11WIPSSignatureMacMacTyp",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.43.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSSigMacMacType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSignatureMacMacAdd": {
+    "name": "hh3cDot11WIPSSignatureMacMacAdd",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.43.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSSignatureMacStatus": {
+    "name": "hh3cDot11WIPSSignatureMacStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.43.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSNatDetectTable": {
+    "name": "hh3cDot11WIPSNatDetectTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.45",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSNatDetectEntry": {
+    "name": "hh3cDot11WIPSNatDetectEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.45.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSNatDetectApName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSNatDetectApName": {
+    "name": "hh3cDot11WIPSNatDetectApName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.45.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSNatDetectStatus": {
+    "name": "hh3cDot11WIPSNatDetectStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.1.45.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPTable": {
+    "name": "hh3cDot11WIPSDctAPTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPEntry": {
+    "name": "hh3cDot11WIPSDctAPEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSDctAPVSD",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSDctAPMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPVSD": {
+    "name": "hh3cDot11WIPSDctAPVSD",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPMac": {
+    "name": "hh3cDot11WIPSDctAPMac",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPClassifyWay": {
+    "name": "hh3cDot11WIPSDctAPClassifyWay",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSDevClassifyWay",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPClassifyType": {
+    "name": "hh3cDot11WIPSDctAPClassifyType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSAPClassifyType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPSeverityLevel": {
+    "name": "hh3cDot11WIPSDctAPSeverityLevel",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPStatus": {
+    "name": "hh3cDot11WIPSDctAPStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSDevStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPStatusDut": {
+    "name": "hh3cDot11WIPSDctAPStatusDut",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPVendor": {
+    "name": "hh3cDot11WIPSDctAPVendor",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPSSID": {
+    "name": "hh3cDot11WIPSDctAPSSID",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPSecurity": {
+    "name": "hh3cDot11WIPSDctAPSecurity",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSAPSecurityType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPEncryptMethod": {
+    "name": "hh3cDot11WIPSDctAPEncryptMethod",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSEncryptMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPAuthMethod": {
+    "name": "hh3cDot11WIPSDctAPAuthMethod",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSAuthMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPRadioType": {
+    "name": "hh3cDot11WIPSDctAPRadioType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSRadioType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPWorkChannel": {
+    "name": "hh3cDot11WIPSDctAPWorkChannel",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSChannel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPIsCountered": {
+    "name": "hh3cDot11WIPSDctAPIsCountered",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPAttachStaNum": {
+    "name": "hh3cDot11WIPSDctAPAttachStaNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPRptSensorNum": {
+    "name": "hh3cDot11WIPSDctAPRptSensorNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPIsBdcastSSID": {
+    "name": "hh3cDot11WIPSDctAPIsBdcastSSID",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPType": {
+    "name": "hh3cDot11WIPSDctAPType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSAPType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPIsQosSported": {
+    "name": "hh3cDot11WIPSDctAPIsQosSported",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPBeaconItv": {
+    "name": "hh3cDot11WIPSDctAPBeaconItv",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctAPUpDuration": {
+    "name": "hh3cDot11WIPSDctAPUpDuration",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctStaTable": {
+    "name": "hh3cDot11WIPSDctStaTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctStaEntry": {
+    "name": "hh3cDot11WIPSDctStaEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSDctStaVSD",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSDctStaMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctStaVSD": {
+    "name": "hh3cDot11WIPSDctStaVSD",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctStaMac": {
+    "name": "hh3cDot11WIPSDctStaMac",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctStaAssocBSSID": {
+    "name": "hh3cDot11WIPSDctStaAssocBSSID",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctStaClassifyWay": {
+    "name": "hh3cDot11WIPSDctStaClassifyWay",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSDevClassifyWay",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctStaClassifyType": {
+    "name": "hh3cDot11WIPSDctStaClassifyType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSStaClassifyType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctStaSeverityLevel": {
+    "name": "hh3cDot11WIPSDctStaSeverityLevel",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctStaIsDissociate": {
+    "name": "hh3cDot11WIPSDctStaIsDissociate",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctStaStatus": {
+    "name": "hh3cDot11WIPSDctStaStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSDevStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctStaStatusDurat": {
+    "name": "hh3cDot11WIPSDctStaStatusDurat",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctStaVendor": {
+    "name": "hh3cDot11WIPSDctStaVendor",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctStaRadioType": {
+    "name": "hh3cDot11WIPSDctStaRadioType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSRadioType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctStaRptSensorNum": {
+    "name": "hh3cDot11WIPSDctStaRptSensorNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctStaWorkChannel": {
+    "name": "hh3cDot11WIPSDctStaWorkChannel",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSChannel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDctStaIsCountered": {
+    "name": "hh3cDot11WIPSDctStaIsCountered",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSApAssoCltTable": {
+    "name": "hh3cDot11WIPSApAssoCltTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSApAssoCltEntry": {
+    "name": "hh3cDot11WIPSApAssoCltEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSApAssoCltVSDName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSApAssoCltApMacAddr",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSApAssoCltClMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSApAssoCltVSDName": {
+    "name": "hh3cDot11WIPSApAssoCltVSDName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSApAssoCltApMacAddr": {
+    "name": "hh3cDot11WIPSApAssoCltApMacAddr",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSApAssoCltClMacAddr": {
+    "name": "hh3cDot11WIPSApAssoCltClMacAddr",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSApAssoCltIsAsso": {
+    "name": "hh3cDot11WIPSApAssoCltIsAsso",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSApRpSenTable": {
+    "name": "hh3cDot11WIPSApRpSenTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSApRpSenEntry": {
+    "name": "hh3cDot11WIPSApRpSenEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSApRpSenVsdName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSApRpSenMacAddr",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSApRpSenName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSApRpSenVsdName": {
+    "name": "hh3cDot11WIPSApRpSenVsdName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSApRpSenMacAddr": {
+    "name": "hh3cDot11WIPSApRpSenMacAddr",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSApRpSenName": {
+    "name": "hh3cDot11WIPSApRpSenName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSApRpSenRadioID": {
+    "name": "hh3cDot11WIPSApRpSenRadioID",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSApRpSenRssi": {
+    "name": "hh3cDot11WIPSApRpSenRssi",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSApRpSenChannel": {
+    "name": "hh3cDot11WIPSApRpSenChannel",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSApRpSenFirstRpTime": {
+    "name": "hh3cDot11WIPSApRpSenFirstRpTime",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSApRpSenLastRpTime": {
+    "name": "hh3cDot11WIPSApRpSenLastRpTime",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmRecTable": {
+    "name": "hh3cDot11WIPSCtmRecTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmRecEntry": {
+    "name": "hh3cDot11WIPSCtmRecEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSCtmRecVsdName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSCtmRecMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSCtmRecCount",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmRecVsdName": {
+    "name": "hh3cDot11WIPSCtmRecVsdName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmRecMacAddress": {
+    "name": "hh3cDot11WIPSCtmRecMacAddress",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmRecCount": {
+    "name": "hh3cDot11WIPSCtmRecCount",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmRecSensorName": {
+    "name": "hh3cDot11WIPSCtmRecSensorName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmRecDeviceType": {
+    "name": "hh3cDot11WIPSCtmRecDeviceType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSDeviceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmRecClassifyType": {
+    "name": "hh3cDot11WIPSCtmRecClassifyType",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSClassifyType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmRecRadioId": {
+    "name": "hh3cDot11WIPSCtmRecRadioId",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmRecCounterTime": {
+    "name": "hh3cDot11WIPSCtmRecCounterTime",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDevTable": {
+    "name": "hh3cDot11WIPSDevTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDevEntry": {
+    "name": "hh3cDot11WIPSDevEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSDevVSDName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSDevVSDName": {
+    "name": "hh3cDot11WIPSDevVSDName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDevTotalApNum": {
+    "name": "hh3cDot11WIPSDevTotalApNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDevTotalClinetNum": {
+    "name": "hh3cDot11WIPSDevTotalClinetNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDevAuthApNum": {
+    "name": "hh3cDot11WIPSDevAuthApNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDevMisConfigApNum": {
+    "name": "hh3cDot11WIPSDevMisConfigApNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDevRogueApNum": {
+    "name": "hh3cDot11WIPSDevRogueApNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDevExternalApNum": {
+    "name": "hh3cDot11WIPSDevExternalApNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDevAdhocNum": {
+    "name": "hh3cDot11WIPSDevAdhocNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDevMeshApNum": {
+    "name": "hh3cDot11WIPSDevMeshApNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDevpotenAuthApNum": {
+    "name": "hh3cDot11WIPSDevpotenAuthApNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDevpotenRogueApNum": {
+    "name": "hh3cDot11WIPSDevpotenRogueApNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDevPotenExtApNum": {
+    "name": "hh3cDot11WIPSDevPotenExtApNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDevUncateApNum": {
+    "name": "hh3cDot11WIPSDevUncateApNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDevAuthClinetNum": {
+    "name": "hh3cDot11WIPSDevAuthClinetNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDevUnauthClinetNum": {
+    "name": "hh3cDot11WIPSDevUnauthClinetNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDevMisAssocltNum": {
+    "name": "hh3cDot11WIPSDevMisAssocltNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSDevUncatecltNum": {
+    "name": "hh3cDot11WIPSDevUncatecltNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmDevTable": {
+    "name": "hh3cDot11WIPSCtmDevTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmDevEntry": {
+    "name": "hh3cDot11WIPSCtmDevEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSCtmDevVsdName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmDevVsdName": {
+    "name": "hh3cDot11WIPSCtmDevVsdName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmDevTotalApNum": {
+    "name": "hh3cDot11WIPSCtmDevTotalApNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmDevTotalStaNum": {
+    "name": "hh3cDot11WIPSCtmDevTotalStaNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmDevMisCfgApNum": {
+    "name": "hh3cDot11WIPSCtmDevMisCfgApNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmDevRogueApNum": {
+    "name": "hh3cDot11WIPSCtmDevRogueApNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmDevExternalApNum": {
+    "name": "hh3cDot11WIPSCtmDevExternalApNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmDevpotAuthApNum": {
+    "name": "hh3cDot11WIPSCtmDevpotAuthApNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmDevpotRguApNum": {
+    "name": "hh3cDot11WIPSCtmDevpotRguApNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmDevpotenExtApNum": {
+    "name": "hh3cDot11WIPSCtmDevpotenExtApNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmDevUncateApNum": {
+    "name": "hh3cDot11WIPSCtmDevUncateApNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmDevUnauthStaNum": {
+    "name": "hh3cDot11WIPSCtmDevUnauthStaNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmDevMisAssCltNum": {
+    "name": "hh3cDot11WIPSCtmDevMisAssCltNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmDevUncatecltNum": {
+    "name": "hh3cDot11WIPSCtmDevUncatecltNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmDevAttackerNum": {
+    "name": "hh3cDot11WIPSCtmDevAttackerNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmDevManuNum": {
+    "name": "hh3cDot11WIPSCtmDevManuNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCtmDevStaCauseByAP": {
+    "name": "hh3cDot11WIPSCtmDevStaCauseByAP",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.8.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCltRptApTable": {
+    "name": "hh3cDot11WIPSCltRptApTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCltRptApEntry": {
+    "name": "hh3cDot11WIPSCltRptApEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSCltRptApVSDName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSCltRptApDevMac",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSCltRptApSensorName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSCltRptApVSDName": {
+    "name": "hh3cDot11WIPSCltRptApVSDName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCltRptApDevMac": {
+    "name": "hh3cDot11WIPSCltRptApDevMac",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCltRptApSensorName": {
+    "name": "hh3cDot11WIPSCltRptApSensorName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCltReportApRadioId": {
+    "name": "hh3cDot11WIPSCltReportApRadioId",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCltRptApRSSI": {
+    "name": "hh3cDot11WIPSCltRptApRSSI",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCltRptApWorkChannel": {
+    "name": "hh3cDot11WIPSCltRptApWorkChannel",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WIPSChannel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCltRptApFirstTime": {
+    "name": "hh3cDot11WIPSCltRptApFirstTime",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCltRptApLastTime": {
+    "name": "hh3cDot11WIPSCltRptApLastTime",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSCltRptApAssocMac": {
+    "name": "hh3cDot11WIPSCltRptApAssocMac",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSNatDtcCltTable": {
+    "name": "hh3cDot11WIPSNatDtcCltTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSNatDtcCltEntry": {
+    "name": "hh3cDot11WIPSNatDtcCltEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSNatDtcCltMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSNatDtcCltMac": {
+    "name": "hh3cDot11WIPSNatDtcCltMac",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSNatDtcCltFirstTime": {
+    "name": "hh3cDot11WIPSNatDtcCltFirstTime",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSNatDtcCltLastTime": {
+    "name": "hh3cDot11WIPSNatDtcCltLastTime",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSNatDtcCltDuraTime": {
+    "name": "hh3cDot11WIPSNatDtcCltDuraTime",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaTable": {
+    "name": "hh3cDot11WIPSAckStaTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaEntry": {
+    "name": "hh3cDot11WIPSAckStaEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-WIPS-MIB",
+        "object": "hh3cDot11WIPSAckStaSensorName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaSensorName": {
+    "name": "hh3cDot11WIPSAckStaSensorName",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaAssReqFld": {
+    "name": "hh3cDot11WIPSAckStaAssReqFld",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaAuthFld": {
+    "name": "hh3cDot11WIPSAckStaAuthFld",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaBeaconFld": {
+    "name": "hh3cDot11WIPSAckStaBeaconFld",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaBlkAckFld": {
+    "name": "hh3cDot11WIPSAckStaBlkAckFld",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaCtsFld": {
+    "name": "hh3cDot11WIPSAckStaCtsFld",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaDeauthFld": {
+    "name": "hh3cDot11WIPSAckStaDeauthFld",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaDisassFld": {
+    "name": "hh3cDot11WIPSAckStaDisassFld",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaEpolSatFld": {
+    "name": "hh3cDot11WIPSAckStaEpolSatFld",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaNullDataFld": {
+    "name": "hh3cDot11WIPSAckStaNullDataFld",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaProReqFld": {
+    "name": "hh3cDot11WIPSAckStaProReqFld",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaReassFld": {
+    "name": "hh3cDot11WIPSAckStaReassFld",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaRtsFld": {
+    "name": "hh3cDot11WIPSAckStaRtsFld",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaEapLgoffFld": {
+    "name": "hh3cDot11WIPSAckStaEapLgoffFld",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaEapFailFld": {
+    "name": "hh3cDot11WIPSAckStaEapFailFld",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaEapSucFld": {
+    "name": "hh3cDot11WIPSAckStaEapSucFld",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaDupIeMalf": {
+    "name": "hh3cDot11WIPSAckStaDupIeMalf",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaFataJackMalf": {
+    "name": "hh3cDot11WIPSAckStaFataJackMalf",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaEssMalf": {
+    "name": "hh3cDot11WIPSAckStaEssMalf",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaInvComMalf": {
+    "name": "hh3cDot11WIPSAckStaInvComMalf",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaInvAssReqMalf": {
+    "name": "hh3cDot11WIPSAckStaInvAssReqMalf",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaInvAuthMalf": {
+    "name": "hh3cDot11WIPSAckStaInvAuthMalf",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaInvDeauthMalf": {
+    "name": "hh3cDot11WIPSAckStaInvDeauthMalf",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaInvDisMalf": {
+    "name": "hh3cDot11WIPSAckStaInvDisMalf",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaInvHtIeMalf": {
+    "name": "hh3cDot11WIPSAckStaInvHtIeMalf",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaInvIeLenMalf": {
+    "name": "hh3cDot11WIPSAckStaInvIeLenMalf",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaInvPktLthMalf": {
+    "name": "hh3cDot11WIPSAckStaInvPktLthMalf",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaLgeDutMalf": {
+    "name": "hh3cDot11WIPSAckStaLgeDutMalf",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaNProRespMalf": {
+    "name": "hh3cDot11WIPSAckStaNProRespMalf",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaOverflEapMalf": {
+    "name": "hh3cDot11WIPSAckStaOverflEapMalf",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaOverfSsidMalf": {
+    "name": "hh3cDot11WIPSAckStaOverfSsidMalf",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaRedundIeMalf": {
+    "name": "hh3cDot11WIPSAckStaRedundIeMalf",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaApSpoofAp": {
+    "name": "hh3cDot11WIPSAckStaApSpoofAp",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaApSpoofclt": {
+    "name": "hh3cDot11WIPSAckStaApSpoofclt",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaApSpoofAdhoc": {
+    "name": "hh3cDot11WIPSAckStaApSpoofAdhoc",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaAdhocSpoofAp": {
+    "name": "hh3cDot11WIPSAckStaAdhocSpoofAp",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStacltSpoofAp": {
+    "name": "hh3cDot11WIPSAckStacltSpoofAp",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaWeakIv": {
+    "name": "hh3cDot11WIPSAckStaWeakIv",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaApRate": {
+    "name": "hh3cDot11WIPSAckStaApRate",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStacltRate": {
+    "name": "hh3cDot11WIPSAckStacltRate",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaSignatureRule": {
+    "name": "hh3cDot11WIPSAckStaSignatureRule",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckSta40Mhz": {
+    "name": "hh3cDot11WIPSAckSta40Mhz",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaPowerSave": {
+    "name": "hh3cDot11WIPSAckStaPowerSave",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaWinBdg": {
+    "name": "hh3cDot11WIPSAckStaWinBdg",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaOmerta": {
+    "name": "hh3cDot11WIPSAckStaOmerta",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaSoftAp": {
+    "name": "hh3cDot11WIPSAckStaSoftAp",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaBroadDis": {
+    "name": "hh3cDot11WIPSAckStaBroadDis",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaBroadDeauth": {
+    "name": "hh3cDot11WIPSAckStaBroadDeauth",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaApImp": {
+    "name": "hh3cDot11WIPSAckStaApImp",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaHtGreenField": {
+    "name": "hh3cDot11WIPSAckStaHtGreenField",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaWireBdg": {
+    "name": "hh3cDot11WIPSAckStaWireBdg",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaApFld": {
+    "name": "hh3cDot11WIPSAckStaApFld",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11WIPSAckStaAssociaOverf": {
+    "name": "hh3cDot11WIPSAckStaAssociaOverf",
+    "oid": "1.3.6.1.4.1.25506.2.75.15.2.13.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DOT11-WIPS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-DOT11-WIPS-MIB"
+  }
+}

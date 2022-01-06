@@ -1,0 +1,1381 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1Dcbx"
+    ],
+    "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB": [
+      "VfcEnableState"
+    ],
+    "IEEE8021-TC-MIB": [
+      "IEEE8021PriorityValue"
+    ],
+    "LLDP-EXT-DOT1-V2-MIB": [
+      "LldpXdot1dcbxTrafficClassValue",
+      "LldpXdot1dcbxAppProtocol",
+      "lldpXdot1dcbxAdminApplicationPriorityAEProtocol",
+      "LldpXdot1dcbxTrafficClassBandwidthValue",
+      "lldpXdot1dcbxAdminApplicationPriorityAESelector",
+      "LldpXdot1dcbxSupportedCapacity",
+      "LldpXdot1dcbxTrafficSelectionAlgorithm",
+      "LldpXdot1dcbxAppSelector"
+    ],
+    "LLDP-V2-MIB": [
+      "lldpV2LocPortIfIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "Bits",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "alcatelIND1DcbxMIB": {
+    "name": "alcatelIND1DcbxMIB",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-06-28 00:00",
+        "description": "Capability Manager is used to set system wide limitation."
+      }
+    ]
+  },
+  "alcatelIND1DcbxMIBObjects": {
+    "name": "alcatelIND1DcbxMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1DcbxMIBConformance": {
+    "name": "alcatelIND1DcbxMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1DcbxMIBGroups": {
+    "name": "alcatelIND1DcbxMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1DcbxMIBCompliances": {
+    "name": "alcatelIND1DcbxMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alaDcbxConfig": {
+    "name": "alaDcbxConfig",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1",
+    "class": "objectidentity"
+  },
+  "alaDcbxConformance": {
+    "name": "alaDcbxConformance",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.2",
+    "class": "objectidentity"
+  },
+  "DcbxTrafficFlow": {
+    "name": "DcbxTrafficFlow",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tfLossy": 0,
+          "tfLossless": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DcbxPriorityTCMap": {
+    "name": "DcbxPriorityTCMap",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "DcbxStatus": {
+    "name": "DcbxStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "pfcResourcesExhausted": 1,
+          "pfcTlvMismatch": 2,
+          "etsTlvMismatch": 3,
+          "etsPfcTlvMismatch": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DcbxActionTaken": {
+    "name": "DcbxActionTaken",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 0,
+          "restEtsAdminCfg": 1,
+          "restPfcAdminCfg": 2,
+          "disabledPfc": 3,
+          "restEtsPfcAdminCfg": 4,
+          "cfgLocalAdmin": 5,
+          "cfgLocalRecom": 6,
+          "cfgRemoteAdmin": 7,
+          "cfgRemoteRecom": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DcbxTCsPresent": {
+    "name": "DcbxTCsPresent",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "DcbxVersion": {
+    "name": "DcbxVersion",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ieee": 0,
+          "cee": 1,
+          "auto": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RemoteDcbxVersion": {
+    "name": "RemoteDcbxVersion",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ieee": 0,
+          "cee": 1,
+          "auto": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "alaDcbxDCProfileTable": {
+    "name": "alaDcbxDCProfileTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDcbxDCProfileEntry": {
+    "name": "alaDcbxDCProfileEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxDCPId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaDcbxDCPId": {
+    "name": "alaDcbxDCPId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDcbxDCPName": {
+    "name": "alaDcbxDCPName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaDcbxDCPETSTrafficClassesSupported": {
+    "name": "alaDcbxDCPETSTrafficClassesSupported",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXdot1dcbxSupportedCapacity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDcbxDCPPFCCap": {
+    "name": "alaDcbxDCPPFCCap",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXdot1dcbxSupportedCapacity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDcbxDCPPriorityTCMap": {
+    "name": "alaDcbxDCPPriorityTCMap",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DcbxPriorityTCMap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDcbxDCPTemplateDCPId": {
+    "name": "alaDcbxDCPTemplateDCPId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaDcbxDCPTemplateDCPName": {
+    "name": "alaDcbxDCPTemplateDCPName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaDcbxDCPTCsPresent": {
+    "name": "alaDcbxDCPTCsPresent",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DcbxTCsPresent",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaDcbxDCP8023xPauseReady": {
+    "name": "alaDcbxDCP8023xPauseReady",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaDcbxDCPRowStatus": {
+    "name": "alaDcbxDCPRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaDcbxDCPTrafficClassTable": {
+    "name": "alaDcbxDCPTrafficClassTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDcbxDCPTCEntry": {
+    "name": "alaDcbxDCPTCEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxDCPTCDCPId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxDCPTCTrafficClass",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaDcbxDCPTCDCPId": {
+    "name": "alaDcbxDCPTCDCPId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDcbxDCPTCTrafficClass": {
+    "name": "alaDcbxDCPTCTrafficClass",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXdot1dcbxTrafficClassValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDcbxDCPTCDCPName": {
+    "name": "alaDcbxDCPTCDCPName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDcbxDCPTCMaximumBandwidth": {
+    "name": "alaDcbxDCPTCMaximumBandwidth",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXdot1dcbxTrafficClassBandwidthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDcbxDCPTCMinimumBandwidth": {
+    "name": "alaDcbxDCPTCMinimumBandwidth",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXdot1dcbxTrafficClassBandwidthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDcbxDCPTCPFCLinkDelay": {
+    "name": "alaDcbxDCPTCPFCLinkDelay",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 10,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDcbxDCPTCPFCLinkDelayUserModified": {
+    "name": "alaDcbxDCPTCPFCLinkDelayUserModified",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDcbxDCPTCPFCTrafficFlow": {
+    "name": "alaDcbxDCPTCPFCTrafficFlow",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DcbxTrafficFlow",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDcbxDCPTCPriorityMap": {
+    "name": "alaDcbxDCPTCPriorityMap",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDcbxDCPTCTrafficScheduler": {
+    "name": "alaDcbxDCPTCTrafficScheduler",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXdot1dcbxTrafficSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDcbxDCPTCRecommendedBandwidth": {
+    "name": "alaDcbxDCPTCRecommendedBandwidth",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXdot1dcbxTrafficClassBandwidthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDcbxDCPTCRecommendedTrafficScheduler": {
+    "name": "alaDcbxDCPTCRecommendedTrafficScheduler",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXdot1dcbxTrafficSelectionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDcbxPortInstanceTable": {
+    "name": "alaDcbxPortInstanceTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDcbxPortInstanceEntry": {
+    "name": "alaDcbxPortInstanceEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPIIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaDcbxPIIfIndex": {
+    "name": "alaDcbxPIIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDcbxPIDCBXAdmin": {
+    "name": "alaDcbxPIDCBXAdmin",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaDcbxPIDCBXOper": {
+    "name": "alaDcbxPIDCBXOper",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDcbxPIAdminDCPId": {
+    "name": "alaDcbxPIAdminDCPId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaDcbxPIAdminDCPName": {
+    "name": "alaDcbxPIAdminDCPName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaDcbxPILocalModified": {
+    "name": "alaDcbxPILocalModified",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDcbxPIPFCDefense": {
+    "name": "alaDcbxPIPFCDefense",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaDcbxPIPFCStatsClear": {
+    "name": "alaDcbxPIPFCStatsClear",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaDcbxPIStatus": {
+    "name": "alaDcbxPIStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DcbxStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ok",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDcbxPIActionTaken": {
+    "name": "alaDcbxPIActionTaken",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DcbxActionTaken",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "na",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDcbxPIRowStatus": {
+    "name": "alaDcbxPIRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaDcbxPIDCBXVersion": {
+    "name": "alaDcbxPIDCBXVersion",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DcbxVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaDcbxPIDCBXOperVersion": {
+    "name": "alaDcbxPIDCBXOperVersion",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DcbxVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDcbxPIDCBXRemoteOperVersion": {
+    "name": "alaDcbxPIDCBXRemoteOperVersion",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RemoteDcbxVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDcbxPIPriorityTable": {
+    "name": "alaDcbxPIPriorityTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDcbxPIPrioEntry": {
+    "name": "alaDcbxPIPrioEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPIPrioIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPIPrioPriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaDcbxPIPrioIfIndex": {
+    "name": "alaDcbxPIPrioIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDcbxPIPrioPriority": {
+    "name": "alaDcbxPIPrioPriority",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PriorityValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDcbxPIPrioTC": {
+    "name": "alaDcbxPIPrioTC",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXdot1dcbxTrafficClassValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDcbxPIPrioPFCPacketsReceived": {
+    "name": "alaDcbxPIPrioPFCPacketsReceived",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDcbxPIPrioPFCPacketsTransmitted": {
+    "name": "alaDcbxPIPrioPFCPacketsTransmitted",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDcbxPfcLLPrioritiesUsed": {
+    "name": "alaDcbxPfcLLPrioritiesUsed",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaDcbxPfcLLPrioritiesReserved": {
+    "name": "alaDcbxPfcLLPrioritiesReserved",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaDcbxPfcLLPrioritiesAvailable": {
+    "name": "alaDcbxPfcLLPrioritiesAvailable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaDcbxPfcUsageTable": {
+    "name": "alaDcbxPfcUsageTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDcbxPfcUsageEntry": {
+    "name": "alaDcbxPfcUsageEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPfcUsageChassisId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaDcbxPfcUsageChassisId": {
+    "name": "alaDcbxPfcUsageChassisId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDcbxPfcUsagePrioritiesUsed": {
+    "name": "alaDcbxPfcUsagePrioritiesUsed",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDcbxPfcUsagePrioritiesReserved": {
+    "name": "alaDcbxPfcUsagePrioritiesReserved",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDcbxPfcUsagePrioritiesAvailable": {
+    "name": "alaDcbxPfcUsagePrioritiesAvailable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaXdot1dcbxAdminApplicationPriorityAppTable": {
+    "name": "alaXdot1dcbxAdminApplicationPriorityAppTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaXdot1dcbxAdminApplicationPriorityAppEntry": {
+    "name": "alaXdot1dcbxAdminApplicationPriorityAppEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2LocPortIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-EXT-DOT1-V2-MIB",
+        "object": "lldpXdot1dcbxAdminApplicationPriorityAESelector",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-EXT-DOT1-V2-MIB",
+        "object": "lldpXdot1dcbxAdminApplicationPriorityAEProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaXdot1dcbxAdminApplicationPriorityAEPriority": {
+    "name": "alaXdot1dcbxAdminApplicationPriorityAEPriority",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PriorityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaXdot1dcbxAdminApplicationPriorityAppRowStatus": {
+    "name": "alaXdot1dcbxAdminApplicationPriorityAppRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alcatelIND1DcbxMIBCompliance": {
+    "name": "alcatelIND1DcbxMIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alaDcbxDCProfileGroup",
+        "module": "ALCATEL-IND1-DCBX-MIB"
+      },
+      {
+        "object": "alaDcbxDCPTrafficClassGroup",
+        "module": "ALCATEL-IND1-DCBX-MIB"
+      },
+      {
+        "object": "alaDcbxPortInstanceGroup",
+        "module": "ALCATEL-IND1-DCBX-MIB"
+      },
+      {
+        "object": "alaDcbxPortInstancePriorityGroup",
+        "module": "ALCATEL-IND1-DCBX-MIB"
+      },
+      {
+        "object": "alaDcbxPfcUsageGroup",
+        "module": "ALCATEL-IND1-DCBX-MIB"
+      },
+      {
+        "object": "alaDcbxPfcUsageNewGroup",
+        "module": "ALCATEL-IND1-DCBX-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDcbxDCProfileGroup": {
+    "name": "alaDcbxDCProfileGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxDCPName"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxDCPETSTrafficClassesSupported"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxDCPPFCCap"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxDCPPriorityTCMap"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxDCPTemplateDCPId"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxDCPTemplateDCPName"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxDCPTCsPresent"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxDCP8023xPauseReady"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxDCPRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDcbxDCPTrafficClassGroup": {
+    "name": "alaDcbxDCPTrafficClassGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxDCPTCDCPName"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxDCPTCMaximumBandwidth"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxDCPTCMinimumBandwidth"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxDCPTCPFCLinkDelay"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxDCPTCPFCLinkDelayUserModified"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxDCPTCPFCTrafficFlow"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxDCPTCPriorityMap"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxDCPTCTrafficScheduler"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxDCPTCRecommendedBandwidth"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxDCPTCRecommendedTrafficScheduler"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDcbxPortInstanceGroup": {
+    "name": "alaDcbxPortInstanceGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPIDCBXAdmin"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPIDCBXOper"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPIAdminDCPId"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPIAdminDCPName"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPILocalModified"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPIPFCDefense"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPIPFCStatsClear"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPIStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPIActionTaken"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPIRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPIDCBXVersion"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPIDCBXOperVersion"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPIDCBXRemoteOperVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDcbxPortInstancePriorityGroup": {
+    "name": "alaDcbxPortInstancePriorityGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPIPrioTC"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPIPrioPFCPacketsReceived"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPIPrioPFCPacketsTransmitted"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDcbxPfcUsageGroup": {
+    "name": "alaDcbxPfcUsageGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPfcLLPrioritiesUsed"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPfcLLPrioritiesReserved"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPfcLLPrioritiesAvailable"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDcbxPfcUsageNewGroup": {
+    "name": "alaDcbxPfcUsageNewGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPfcUsagePrioritiesUsed"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPfcUsagePrioritiesReserved"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaDcbxPfcUsagePrioritiesAvailable"
+      }
+    ],
+    "status": "current"
+  },
+  "alaXdot1dcbxAdminApplicationPriorityGroup": {
+    "name": "alaXdot1dcbxAdminApplicationPriorityGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.72.1.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaXdot1dcbxAdminApplicationPriorityAEPriority"
+      },
+      {
+        "module": "ALCATEL-IND1-DCBX-MIB",
+        "object": "alaXdot1dcbxAdminApplicationPriorityAppRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/aos7/ALCATEL-IND1-DCBX-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:46 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-DCBX-MIB"
+  }
+}

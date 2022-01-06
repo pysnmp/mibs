@@ -1,0 +1,1382 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "Counter64",
+      "Bits",
+      "iso",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "enterprises",
+      "IpAddress",
+      "snmpModules",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "cnPilotMIB": {
+    "name": "cnPilotMIB",
+    "oid": "1.3.6.1.4.1.17713.22",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-09-09 12:38",
+        "description": "The initial Version."
+      }
+    ]
+  },
+  "cambium": {
+    "name": "cambium",
+    "oid": "1.3.6.1.4.1.17713",
+    "class": "objectidentity"
+  },
+  "cambiumStateGroup": {
+    "name": "cambiumStateGroup",
+    "oid": "1.3.6.1.4.1.17713.22.1",
+    "class": "objectidentity"
+  },
+  "cambiumAccessPointTable": {
+    "name": "cambiumAccessPointTable",
+    "oid": "1.3.6.1.4.1.17713.22.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cambiumAccessPointEntry": {
+    "name": "cambiumAccessPointEntry",
+    "oid": "1.3.6.1.4.1.17713.22.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CAMBIUM-MIB",
+        "object": "cambiumAPMACAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cambiumAPMACAddress": {
+    "name": "cambiumAPMACAddress",
+    "oid": "1.3.6.1.4.1.17713.22.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumAPName": {
+    "name": "cambiumAPName",
+    "oid": "1.3.6.1.4.1.17713.22.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumAPIPAddress": {
+    "name": "cambiumAPIPAddress",
+    "oid": "1.3.6.1.4.1.17713.22.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumAPSerialNum": {
+    "name": "cambiumAPSerialNum",
+    "oid": "1.3.6.1.4.1.17713.22.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumAPModel": {
+    "name": "cambiumAPModel",
+    "oid": "1.3.6.1.4.1.17713.22.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumAPCPUUtilization": {
+    "name": "cambiumAPCPUUtilization",
+    "oid": "1.3.6.1.4.1.17713.22.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumAPMemoryFree": {
+    "name": "cambiumAPMemoryFree",
+    "oid": "1.3.6.1.4.1.17713.22.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumAPSWVersion": {
+    "name": "cambiumAPSWVersion",
+    "oid": "1.3.6.1.4.1.17713.22.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumAPUptime": {
+    "name": "cambiumAPUptime",
+    "oid": "1.3.6.1.4.1.17713.22.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumAPHWType": {
+    "name": "cambiumAPHWType",
+    "oid": "1.3.6.1.4.1.17713.22.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumAPRegulatory": {
+    "name": "cambiumAPRegulatory",
+    "oid": "1.3.6.1.4.1.17713.22.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumAPCnmConstaus": {
+    "name": "cambiumAPCnmConstaus",
+    "oid": "1.3.6.1.4.1.17713.22.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumAPCnmAccID": {
+    "name": "cambiumAPCnmAccID",
+    "oid": "1.3.6.1.4.1.17713.22.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumAPTotalClients": {
+    "name": "cambiumAPTotalClients",
+    "oid": "1.3.6.1.4.1.17713.22.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumAPCheckUpgradeStatus": {
+    "name": "cambiumAPCheckUpgradeStatus",
+    "oid": "1.3.6.1.4.1.17713.22.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumRadioTable": {
+    "name": "cambiumRadioTable",
+    "oid": "1.3.6.1.4.1.17713.22.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cambiumRadioEntry": {
+    "name": "cambiumRadioEntry",
+    "oid": "1.3.6.1.4.1.17713.22.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CAMBIUM-MIB",
+        "object": "cambiumRadioIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cambiumRadioIndex": {
+    "name": "cambiumRadioIndex",
+    "oid": "1.3.6.1.4.1.17713.22.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumRadioMACAddress": {
+    "name": "cambiumRadioMACAddress",
+    "oid": "1.3.6.1.4.1.17713.22.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumRadioBandType": {
+    "name": "cambiumRadioBandType",
+    "oid": "1.3.6.1.4.1.17713.22.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumRadioWlan": {
+    "name": "cambiumRadioWlan",
+    "oid": "1.3.6.1.4.1.17713.22.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumRadioNumClients": {
+    "name": "cambiumRadioNumClients",
+    "oid": "1.3.6.1.4.1.17713.22.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumRadioChannel": {
+    "name": "cambiumRadioChannel",
+    "oid": "1.3.6.1.4.1.17713.22.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumRadioChannelWidth": {
+    "name": "cambiumRadioChannelWidth",
+    "oid": "1.3.6.1.4.1.17713.22.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumRadioTransmitPower": {
+    "name": "cambiumRadioTransmitPower",
+    "oid": "1.3.6.1.4.1.17713.22.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumRadioTotalTxPackets": {
+    "name": "cambiumRadioTotalTxPackets",
+    "oid": "1.3.6.1.4.1.17713.22.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumRadioTotalRxPackets": {
+    "name": "cambiumRadioTotalRxPackets",
+    "oid": "1.3.6.1.4.1.17713.22.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumRadioTxDataBytes": {
+    "name": "cambiumRadioTxDataBytes",
+    "oid": "1.3.6.1.4.1.17713.22.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumRadioRxDataBytes": {
+    "name": "cambiumRadioRxDataBytes",
+    "oid": "1.3.6.1.4.1.17713.22.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumRadioState": {
+    "name": "cambiumRadioState",
+    "oid": "1.3.6.1.4.1.17713.22.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumRadioDfsStatus": {
+    "name": "cambiumRadioDfsStatus",
+    "oid": "1.3.6.1.4.1.17713.22.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumRadioDfsDetect": {
+    "name": "cambiumRadioDfsDetect",
+    "oid": "1.3.6.1.4.1.17713.22.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumRadioNoiseFloor": {
+    "name": "cambiumRadioNoiseFloor",
+    "oid": "1.3.6.1.4.1.17713.22.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumRadioInterference": {
+    "name": "cambiumRadioInterference",
+    "oid": "1.3.6.1.4.1.17713.22.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumRadioAirtime": {
+    "name": "cambiumRadioAirtime",
+    "oid": "1.3.6.1.4.1.17713.22.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumClientTable": {
+    "name": "cambiumClientTable",
+    "oid": "1.3.6.1.4.1.17713.22.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cambiumClientEntry": {
+    "name": "cambiumClientEntry",
+    "oid": "1.3.6.1.4.1.17713.22.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CAMBIUM-MIB",
+        "object": "cambiumClientMACAddressIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cambiumClientMACAddressIndex": {
+    "name": "cambiumClientMACAddressIndex",
+    "oid": "1.3.6.1.4.1.17713.22.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumClientMACAddress": {
+    "name": "cambiumClientMACAddress",
+    "oid": "1.3.6.1.4.1.17713.22.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumClientIPAddress": {
+    "name": "cambiumClientIPAddress",
+    "oid": "1.3.6.1.4.1.17713.22.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumClientName": {
+    "name": "cambiumClientName",
+    "oid": "1.3.6.1.4.1.17713.22.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumClientSsid": {
+    "name": "cambiumClientSsid",
+    "oid": "1.3.6.1.4.1.17713.22.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumClientVendorName": {
+    "name": "cambiumClientVendorName",
+    "oid": "1.3.6.1.4.1.17713.22.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumClientHwmode": {
+    "name": "cambiumClientHwmode",
+    "oid": "1.3.6.1.4.1.17713.22.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumClientRadioIndex": {
+    "name": "cambiumClientRadioIndex",
+    "oid": "1.3.6.1.4.1.17713.22.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumClientWlan": {
+    "name": "cambiumClientWlan",
+    "oid": "1.3.6.1.4.1.17713.22.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumClientVlan": {
+    "name": "cambiumClientVlan",
+    "oid": "1.3.6.1.4.1.17713.22.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumClientSNR": {
+    "name": "cambiumClientSNR",
+    "oid": "1.3.6.1.4.1.17713.22.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumClientTxRate": {
+    "name": "cambiumClientTxRate",
+    "oid": "1.3.6.1.4.1.17713.22.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumClientTotalTxPackets": {
+    "name": "cambiumClientTotalTxPackets",
+    "oid": "1.3.6.1.4.1.17713.22.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumClientTxDataBytes": {
+    "name": "cambiumClientTxDataBytes",
+    "oid": "1.3.6.1.4.1.17713.22.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumClientTotalRxPackets": {
+    "name": "cambiumClientTotalRxPackets",
+    "oid": "1.3.6.1.4.1.17713.22.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumClientRxDataBytes": {
+    "name": "cambiumClientRxDataBytes",
+    "oid": "1.3.6.1.4.1.17713.22.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumWlanTable": {
+    "name": "cambiumWlanTable",
+    "oid": "1.3.6.1.4.1.17713.22.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cambiumWlanEntry": {
+    "name": "cambiumWlanEntry",
+    "oid": "1.3.6.1.4.1.17713.22.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CAMBIUM-MIB",
+        "object": "cambiumWlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cambiumWlanIndex": {
+    "name": "cambiumWlanIndex",
+    "oid": "1.3.6.1.4.1.17713.22.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumWlanSsid": {
+    "name": "cambiumWlanSsid",
+    "oid": "1.3.6.1.4.1.17713.22.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumWlanBand": {
+    "name": "cambiumWlanBand",
+    "oid": "1.3.6.1.4.1.17713.22.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumWlanVlan": {
+    "name": "cambiumWlanVlan",
+    "oid": "1.3.6.1.4.1.17713.22.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumWlanSecurity": {
+    "name": "cambiumWlanSecurity",
+    "oid": "1.3.6.1.4.1.17713.22.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumWlanGuestAccess": {
+    "name": "cambiumWlanGuestAccess",
+    "oid": "1.3.6.1.4.1.17713.22.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumWlanNumClients": {
+    "name": "cambiumWlanNumClients",
+    "oid": "1.3.6.1.4.1.17713.22.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumWlanTotalTxPackets": {
+    "name": "cambiumWlanTotalTxPackets",
+    "oid": "1.3.6.1.4.1.17713.22.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumWlanTxDataBytes": {
+    "name": "cambiumWlanTxDataBytes",
+    "oid": "1.3.6.1.4.1.17713.22.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumWlanTotalRxPackets": {
+    "name": "cambiumWlanTotalRxPackets",
+    "oid": "1.3.6.1.4.1.17713.22.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumWlanRxDataBytes": {
+    "name": "cambiumWlanRxDataBytes",
+    "oid": "1.3.6.1.4.1.17713.22.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumMeshClientTable": {
+    "name": "cambiumMeshClientTable",
+    "oid": "1.3.6.1.4.1.17713.22.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cambiumMeshClientEntry": {
+    "name": "cambiumMeshClientEntry",
+    "oid": "1.3.6.1.4.1.17713.22.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CAMBIUM-MIB",
+        "object": "cambiumMeshClientMACAddressIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cambiumMeshClientMACAddressIndex": {
+    "name": "cambiumMeshClientMACAddressIndex",
+    "oid": "1.3.6.1.4.1.17713.22.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumMeshClientMACAddress": {
+    "name": "cambiumMeshClientMACAddress",
+    "oid": "1.3.6.1.4.1.17713.22.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumMeshClientBaseMACAddress": {
+    "name": "cambiumMeshClientBaseMACAddress",
+    "oid": "1.3.6.1.4.1.17713.22.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumMeshClientIPAddress": {
+    "name": "cambiumMeshClientIPAddress",
+    "oid": "1.3.6.1.4.1.17713.22.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumMeshClientName": {
+    "name": "cambiumMeshClientName",
+    "oid": "1.3.6.1.4.1.17713.22.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumMeshClientSsid": {
+    "name": "cambiumMeshClientSsid",
+    "oid": "1.3.6.1.4.1.17713.22.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumMeshClientRadioBand": {
+    "name": "cambiumMeshClientRadioBand",
+    "oid": "1.3.6.1.4.1.17713.22.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumMeshClientSNR": {
+    "name": "cambiumMeshClientSNR",
+    "oid": "1.3.6.1.4.1.17713.22.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumMeshClientRSSI": {
+    "name": "cambiumMeshClientRSSI",
+    "oid": "1.3.6.1.4.1.17713.22.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumMeshClientStatus": {
+    "name": "cambiumMeshClientStatus",
+    "oid": "1.3.6.1.4.1.17713.22.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumMeshClientDataRate": {
+    "name": "cambiumMeshClientDataRate",
+    "oid": "1.3.6.1.4.1.17713.22.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumMeshClientTotalTxPackets": {
+    "name": "cambiumMeshClientTotalTxPackets",
+    "oid": "1.3.6.1.4.1.17713.22.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumMeshClientTxDataBytes": {
+    "name": "cambiumMeshClientTxDataBytes",
+    "oid": "1.3.6.1.4.1.17713.22.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumMeshClientTotalRxPackets": {
+    "name": "cambiumMeshClientTotalRxPackets",
+    "oid": "1.3.6.1.4.1.17713.22.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumMeshClientRxDataBytes": {
+    "name": "cambiumMeshClientRxDataBytes",
+    "oid": "1.3.6.1.4.1.17713.22.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cambiumAPSetIPAddress": {
+    "name": "cambiumAPSetIPAddress",
+    "oid": "1.3.6.1.4.1.17713.22.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cambiumAPReboot": {
+    "name": "cambiumAPReboot",
+    "oid": "1.3.6.1.4.1.17713.22.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/CAMBIUM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:20:47 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CAMBIUM-MIB"
+  }
+}

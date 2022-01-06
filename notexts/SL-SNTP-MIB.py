@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module SL-SNTP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-SNTP-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:32:26 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:45:51 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 slMain, = mibBuilder.importSymbols("SL-MAIN-MIB", "slMain")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-ObjectIdentity, NotificationType, TimeTicks, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, ModuleIdentity, Unsigned32, IpAddress, iso, Integer32, Bits, MibIdentifier, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "NotificationType", "TimeTicks", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "ModuleIdentity", "Unsigned32", "IpAddress", "iso", "Integer32", "Bits", "MibIdentifier", "Counter64")
-TextualConvention, DisplayString, TimeStamp, RowStatus, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "TimeStamp", "RowStatus", "TruthValue")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+ModuleIdentity, IpAddress, NotificationType, Bits, TimeTicks, Counter64, Unsigned32, ObjectIdentity, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Gauge32, Counter32, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "IpAddress", "NotificationType", "Bits", "TimeTicks", "Counter64", "Unsigned32", "ObjectIdentity", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Gauge32", "Counter32", "Integer32")
+RowStatus, TimeStamp, TextualConvention, DisplayString, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TimeStamp", "TextualConvention", "DisplayString", "TruthValue")
 slSntp = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 3, 21))
 if mibBuilder.loadTexts: slSntp.setLastUpdated('200007240000Z')
 if mibBuilder.loadTexts: slSntp.setOrganization('PacketLight Networks Ltd.')
@@ -55,4 +55,4 @@ slSntpPeerFailureTrap = NotificationType((1, 3, 6, 1, 4, 1, 4515, 1, 3, 21, 2, 1
 if mibBuilder.loadTexts: slSntpPeerFailureTrap.setStatus('current')
 slSntpConfigVarianceTrap = NotificationType((1, 3, 6, 1, 4, 1, 4515, 1, 3, 21, 2, 2)).setObjects(("SL-SNTP-MIB", "slSntpConfigAddress"), ("SL-SNTP-MIB", "slSntpConfigMaxVariance"), ("SL-SNTP-MIB", "slSntpConfigVariance"))
 if mibBuilder.loadTexts: slSntpConfigVarianceTrap.setStatus('current')
-mibBuilder.exportSymbols("SL-SNTP-MIB", slSntpConfigRowStatus=slSntpConfigRowStatus, slSntpConfigServerStatus=slSntpConfigServerStatus, slSntpConfigFractTimeZone=slSntpConfigFractTimeZone, slSntpConfigMode=slSntpConfigMode, slSntpConfigMaxVariance=slSntpConfigMaxVariance, PYSNMP_MODULE_ID=slSntp, slSntpConfigDayLightSaving=slSntpConfigDayLightSaving, slSntpTraps=slSntpTraps, slSntpConfigTable=slSntpConfigTable, slSntpConfig=slSntpConfig, slSntpConfigPollInterval=slSntpConfigPollInterval, slSntpConfigVarianceDetectEnable=slSntpConfigVarianceDetectEnable, slSntpConfigVarianceTrap=slSntpConfigVarianceTrap, slSntpConfigPriority=slSntpConfigPriority, slSntpConfigVariance=slSntpConfigVariance, slSntp=slSntp, slSntpConfigEntry=slSntpConfigEntry, slSntpPeerFailureTrap=slSntpPeerFailureTrap, slSntpConfigAddress=slSntpConfigAddress, slSntpConfigTimeZone=slSntpConfigTimeZone, slSntpConfigRetryCount=slSntpConfigRetryCount, slSntpConfigVersion=slSntpConfigVersion)
+mibBuilder.exportSymbols("SL-SNTP-MIB", slSntpConfig=slSntpConfig, slSntpConfigRowStatus=slSntpConfigRowStatus, slSntpConfigAddress=slSntpConfigAddress, slSntpConfigPriority=slSntpConfigPriority, slSntpConfigVarianceDetectEnable=slSntpConfigVarianceDetectEnable, slSntpConfigFractTimeZone=slSntpConfigFractTimeZone, slSntpPeerFailureTrap=slSntpPeerFailureTrap, slSntpConfigTable=slSntpConfigTable, slSntpConfigDayLightSaving=slSntpConfigDayLightSaving, slSntp=slSntp, PYSNMP_MODULE_ID=slSntp, slSntpConfigServerStatus=slSntpConfigServerStatus, slSntpConfigTimeZone=slSntpConfigTimeZone, slSntpTraps=slSntpTraps, slSntpConfigMode=slSntpConfigMode, slSntpConfigVariance=slSntpConfigVariance, slSntpConfigEntry=slSntpConfigEntry, slSntpConfigRetryCount=slSntpConfigRetryCount, slSntpConfigVersion=slSntpConfigVersion, slSntpConfigPollInterval=slSntpConfigPollInterval, slSntpConfigMaxVariance=slSntpConfigMaxVariance, slSntpConfigVarianceTrap=slSntpConfigVarianceTrap)

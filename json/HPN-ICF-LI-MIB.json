@@ -1,0 +1,1002 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType",
+      "InetAddressPrefixLength",
+      "InetPortNumber"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "MacAddress",
+      "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfLI": {
+    "name": "hpnicfLI",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-08-25 10:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "hpnicfLICommon": {
+    "name": "hpnicfLICommon",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1",
+    "class": "objectidentity"
+  },
+  "hpnicfLITrapBindObjects": {
+    "name": "hpnicfLITrapBindObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfLIBoardInformation": {
+    "name": "hpnicfLIBoardInformation",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfLINotifications": {
+    "name": "hpnicfLINotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.2",
+    "class": "objectidentity"
+  },
+  "hpnicfLINotificationsPrefix": {
+    "name": "hpnicfLINotificationsPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.2.0",
+    "class": "objectidentity"
+  },
+  "hpnicfLIActive": {
+    "name": "hpnicfLIActive",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-LI-MIB",
+        "object": "hpnicfLIStreamtype"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLITimeOut": {
+    "name": "hpnicfLITimeOut",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-LI-MIB",
+        "object": "hpnicfLIMediationRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLIFailureInformation": {
+    "name": "hpnicfLIFailureInformation",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-LI-MIB",
+        "object": "hpnicfLIStreamtype"
+      },
+      {
+        "module": "HPN-ICF-LI-MIB",
+        "object": "hpnicfLIBoardInformation"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLIObjects": {
+    "name": "hpnicfLIObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3",
+    "class": "objectidentity"
+  },
+  "hpnicfLINewIndex": {
+    "name": "hpnicfLINewIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLIMediationTable": {
+    "name": "hpnicfLIMediationTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfLIMediationEntry": {
+    "name": "hpnicfLIMediationEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-LI-MIB",
+        "object": "hpnicfLIMediationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLIMediationIndex": {
+    "name": "hpnicfLIMediationIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfLIMediationDestAddrType": {
+    "name": "hpnicfLIMediationDestAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIMediationDestAddr": {
+    "name": "hpnicfLIMediationDestAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIMediationDestPort": {
+    "name": "hpnicfLIMediationDestPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIMediationSrcInterface": {
+    "name": "hpnicfLIMediationSrcInterface",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIMediationDscp": {
+    "name": "hpnicfLIMediationDscp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 34,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIMediationTimeOut": {
+    "name": "hpnicfLIMediationTimeOut",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIMediationTransport": {
+    "name": "hpnicfLIMediationTransport",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "udp": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIMediationNotificationEnable": {
+    "name": "hpnicfLIMediationNotificationEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIMediationRowStatus": {
+    "name": "hpnicfLIMediationRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfLIStreamTable": {
+    "name": "hpnicfLIStreamTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfLIStreamEntry": {
+    "name": "hpnicfLIStreamEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-LI-MIB",
+        "object": "hpnicfLIMediationIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-LI-MIB",
+        "object": "hpnicfLIStreamIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLIStreamIndex": {
+    "name": "hpnicfLIStreamIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfLIStreamtype": {
+    "name": "hpnicfLIStreamtype",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "mac": 2,
+          "userConnection": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIStreamEnable": {
+    "name": "hpnicfLIStreamEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIStreamPackets": {
+    "name": "hpnicfLIStreamPackets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLIStreamDrops": {
+    "name": "hpnicfLIStreamDrops",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLIStreamHPackets": {
+    "name": "hpnicfLIStreamHPackets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLIStreamHDrops": {
+    "name": "hpnicfLIStreamHDrops",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLIStreamRowStatus": {
+    "name": "hpnicfLIStreamRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfLIIPStream": {
+    "name": "hpnicfLIIPStream",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.2",
+    "class": "objectidentity"
+  },
+  "hpnicfLIIPStreamObjects": {
+    "name": "hpnicfLIIPStreamObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.2.1",
+    "class": "objectidentity"
+  },
+  "hpnicfLIIPStreamTable": {
+    "name": "hpnicfLIIPStreamTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfLIIPStreamEntry": {
+    "name": "hpnicfLIIPStreamEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-LI-MIB",
+        "object": "hpnicfLIMediationIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-LI-MIB",
+        "object": "hpnicfLIStreamIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLIIPStreamInterface": {
+    "name": "hpnicfLIIPStreamInterface",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIIPStreamAddrType": {
+    "name": "hpnicfLIIPStreamAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIIPStreamDestAddr": {
+    "name": "hpnicfLIIPStreamDestAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIIPStreamDestAddrLength": {
+    "name": "hpnicfLIIPStreamDestAddrLength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIIPStreamSrcAddr": {
+    "name": "hpnicfLIIPStreamSrcAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIIPStreamSrcAddrLength": {
+    "name": "hpnicfLIIPStreamSrcAddrLength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIIPStreamTosByte": {
+    "name": "hpnicfLIIPStreamTosByte",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIIPStreamTosByteMask": {
+    "name": "hpnicfLIIPStreamTosByteMask",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIIPStreamFlowId": {
+    "name": "hpnicfLIIPStreamFlowId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 1048575
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIIPStreamProtocol": {
+    "name": "hpnicfLIIPStreamProtocol",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.2.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIIPStreamDestL4PortMin": {
+    "name": "hpnicfLIIPStreamDestL4PortMin",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.2.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIIPStreamDestL4PortMax": {
+    "name": "hpnicfLIIPStreamDestL4PortMax",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.2.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIIPStreamSrcL4PortMin": {
+    "name": "hpnicfLIIPStreamSrcL4PortMin",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.2.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIIPStreamSrcL4PortMax": {
+    "name": "hpnicfLIIPStreamSrcL4PortMax",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.2.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIIPStreamVRF": {
+    "name": "hpnicfLIIPStreamVRF",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.2.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIIPStreamRowStatus": {
+    "name": "hpnicfLIIPStreamRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.2.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfLIMACStream": {
+    "name": "hpnicfLIMACStream",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.3",
+    "class": "objectidentity"
+  },
+  "hpnicfLIMACStreamObjects": {
+    "name": "hpnicfLIMACStreamObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.3.1",
+    "class": "objectidentity"
+  },
+  "hpnicfLIMACStreamTable": {
+    "name": "hpnicfLIMACStreamTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfLIMACStreamEntry": {
+    "name": "hpnicfLIMACStreamEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-LI-MIB",
+        "object": "hpnicfLIMediationIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-LI-MIB",
+        "object": "hpnicfLIStreamIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLIMACStreamFields": {
+    "name": "hpnicfLIMACStreamFields",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "interface": 0,
+        "dstMacAddress": 1,
+        "srcMacAddress": 2,
+        "ethernetPid": 3,
+        "dSap": 4,
+        "sSap": 5
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIMACStreamInterface": {
+    "name": "hpnicfLIMACStreamInterface",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIMACStreamDestAddr": {
+    "name": "hpnicfLIMACStreamDestAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIMACStreamSrcAddr": {
+    "name": "hpnicfLIMACStreamSrcAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.3.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIMACStreamEthPid": {
+    "name": "hpnicfLIMACStreamEthPid",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIMACStreamDSap": {
+    "name": "hpnicfLIMACStreamDSap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.3.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIMACStreamSSap": {
+    "name": "hpnicfLIMACStreamSSap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.3.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIMACStreamRowStatus": {
+    "name": "hpnicfLIMACStreamRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.3.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfLIUserStream": {
+    "name": "hpnicfLIUserStream",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.4",
+    "class": "objectidentity"
+  },
+  "hpnicfLIUserStreamObjects": {
+    "name": "hpnicfLIUserStreamObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.4.1",
+    "class": "objectidentity"
+  },
+  "hpnicfLIUserStreamTable": {
+    "name": "hpnicfLIUserStreamTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfLIUserStreamEntry": {
+    "name": "hpnicfLIUserStreamEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-LI-MIB",
+        "object": "hpnicfLIMediationIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-LI-MIB",
+        "object": "hpnicfLIStreamIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLIUserStreamAcctSessID": {
+    "name": "hpnicfLIUserStreamAcctSessID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLIUserStreamRowStatus": {
+    "name": "hpnicfLIUserStreamRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.111.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-LI-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-LI-MIB"
+  }
+}

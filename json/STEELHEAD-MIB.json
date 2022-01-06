@@ -1,0 +1,2970 @@
+{
+  "imports": {
+    "class": "imports",
+    "RBT-MIB": [
+      "products"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "steelhead": {
+    "name": "steelhead",
+    "oid": "1.3.6.1.4.1.17163.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-02-03 00:00",
+        "description": "Updated for 7.0.1"
+      }
+    ]
+  },
+  "system": {
+    "name": "system",
+    "oid": "1.3.6.1.4.1.17163.1.1.1",
+    "class": "objectidentity"
+  },
+  "status": {
+    "name": "status",
+    "oid": "1.3.6.1.4.1.17163.1.1.2",
+    "class": "objectidentity"
+  },
+  "config": {
+    "name": "config",
+    "oid": "1.3.6.1.4.1.17163.1.1.3",
+    "class": "objectidentity"
+  },
+  "alarms": {
+    "name": "alarms",
+    "oid": "1.3.6.1.4.1.17163.1.1.4",
+    "class": "objectidentity"
+  },
+  "statistics": {
+    "name": "statistics",
+    "oid": "1.3.6.1.4.1.17163.1.1.5",
+    "class": "objectidentity"
+  },
+  "model": {
+    "name": "model",
+    "oid": "1.3.6.1.4.1.17163.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serialNumber": {
+    "name": "serialNumber",
+    "oid": "1.3.6.1.4.1.17163.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemVersion": {
+    "name": "systemVersion",
+    "oid": "1.3.6.1.4.1.17163.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemClock": {
+    "name": "systemClock",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "health": {
+    "name": "health",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceStatus": {
+    "name": "serviceStatus",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceUptime": {
+    "name": "serviceUptime",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "procTable": {
+    "name": "procTable",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "procEntry": {
+    "name": "procEntry",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "procIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "procIndex": {
+    "name": "procIndex",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "procName": {
+    "name": "procName",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "procStatus": {
+    "name": "procStatus",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "procNumFailures": {
+    "name": "procNumFailures",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "peerStatus": {
+    "name": "peerStatus",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.6",
+    "class": "objectidentity"
+  },
+  "peerTable": {
+    "name": "peerTable",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "peerEntry": {
+    "name": "peerEntry",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "peerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "peerIndex": {
+    "name": "peerIndex",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "peerHostname": {
+    "name": "peerHostname",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "peerVersion": {
+    "name": "peerVersion",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "peerAddress": {
+    "name": "peerAddress",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "peerModel": {
+    "name": "peerModel",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemHealth": {
+    "name": "systemHealth",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "healthy": 10000,
+          "degraded": 30000,
+          "admissionControl": 31000,
+          "critical": 50000
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optServiceStatus": {
+    "name": "optServiceStatus",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "unmanaged": 1,
+          "running": 2,
+          "sentCom1": 3,
+          "sentTerm1": 4,
+          "sentTerm2": 5,
+          "sentTerm3": 6,
+          "pending": 7,
+          "stopped": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemTemperature": {
+    "name": "systemTemperature",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "healthNotes": {
+    "name": "healthNotes",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborStatus": {
+    "name": "neighborStatus",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12",
+    "class": "objectidentity"
+  },
+  "neighborTable": {
+    "name": "neighborTable",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "neighborEntry": {
+    "name": "neighborEntry",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "neighborIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "neighborIndex": {
+    "name": "neighborIndex",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "neighborAddress": {
+    "name": "neighborAddress",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborState": {
+    "name": "neighborState",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborNatReqSent": {
+    "name": "neighborNatReqSent",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborNatDelSent": {
+    "name": "neighborNatDelSent",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborNatAckRcvd": {
+    "name": "neighborNatAckRcvd",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborNatReqRcvd": {
+    "name": "neighborNatReqRcvd",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborNatDelRcvd": {
+    "name": "neighborNatDelRcvd",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborNatAckSent": {
+    "name": "neighborNatAckSent",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborDynReqSent": {
+    "name": "neighborDynReqSent",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborDynDelSent": {
+    "name": "neighborDynDelSent",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborDynAckRcvd": {
+    "name": "neighborDynAckRcvd",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborDynReqRcvd": {
+    "name": "neighborDynReqRcvd",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborDynDelRcvd": {
+    "name": "neighborDynDelRcvd",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborDynAckSent": {
+    "name": "neighborDynAckSent",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborRedirReqSent": {
+    "name": "neighborRedirReqSent",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborRedirDelSent": {
+    "name": "neighborRedirDelSent",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborRedirAckRcvd": {
+    "name": "neighborRedirAckRcvd",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborRedirReqRcvd": {
+    "name": "neighborRedirReqRcvd",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborRedirDelRcvd": {
+    "name": "neighborRedirDelRcvd",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborRedirAckSent": {
+    "name": "neighborRedirAckSent",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborConnFailures": {
+    "name": "neighborConnFailures",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborKeepaliveTimeouts": {
+    "name": "neighborKeepaliveTimeouts",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborRequestTimeouts": {
+    "name": "neighborRequestTimeouts",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborMaxLatency": {
+    "name": "neighborMaxLatency",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neighborAggregates": {
+    "name": "neighborAggregates",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2",
+    "class": "objectidentity"
+  },
+  "nghAggrConfigured": {
+    "name": "nghAggrConfigured",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nghAggrConnected": {
+    "name": "nghAggrConnected",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nghAggrConnFailures": {
+    "name": "nghAggrConnFailures",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nghAggrKeepaliveTimouts": {
+    "name": "nghAggrKeepaliveTimouts",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nghAggrRequestTimeouts": {
+    "name": "nghAggrRequestTimeouts",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nghAggrMaxLatency": {
+    "name": "nghAggrMaxLatency",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nghAggrNatReqSent": {
+    "name": "nghAggrNatReqSent",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nghAggrNatDelSent": {
+    "name": "nghAggrNatDelSent",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nghAggrNatAckRcvd": {
+    "name": "nghAggrNatAckRcvd",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nghAggrNatReqRcvd": {
+    "name": "nghAggrNatReqRcvd",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nghAggrNatDelRcvd": {
+    "name": "nghAggrNatDelRcvd",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nghAggrNatAckSent": {
+    "name": "nghAggrNatAckSent",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nghAggrDynReqSent": {
+    "name": "nghAggrDynReqSent",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nghAggrDynDelSent": {
+    "name": "nghAggrDynDelSent",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nghAggrDynAckRcvd": {
+    "name": "nghAggrDynAckRcvd",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nghAggrDynReqRcvd": {
+    "name": "nghAggrDynReqRcvd",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nghAggrDynDelRcvd": {
+    "name": "nghAggrDynDelRcvd",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nghAggrDynAckSent": {
+    "name": "nghAggrDynAckSent",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nghAggrRedirReqSent": {
+    "name": "nghAggrRedirReqSent",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nghAggrRedirDelSent": {
+    "name": "nghAggrRedirDelSent",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nghAggrRedirAckRcvd": {
+    "name": "nghAggrRedirAckRcvd",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nghAggrRedirReqRcvd": {
+    "name": "nghAggrRedirReqRcvd",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nghAggrRedirDelRcvd": {
+    "name": "nghAggrRedirDelRcvd",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nghAggrRedirAckSent": {
+    "name": "nghAggrRedirAckSent",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.12.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crlStatus": {
+    "name": "crlStatus",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.11",
+    "class": "objectidentity"
+  },
+  "crlTable": {
+    "name": "crlTable",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crlEntry": {
+    "name": "crlEntry",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "crlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "crlIndex": {
+    "name": "crlIndex",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crlFeatureName": {
+    "name": "crlFeatureName",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crlNumCdpErr": {
+    "name": "crlNumCdpErr",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crlErrMsg": {
+    "name": "crlErrMsg",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.11.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "capabilityStatus": {
+    "name": "capabilityStatus",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.13",
+    "class": "objectidentity"
+  },
+  "shMaxConnections": {
+    "name": "shMaxConnections",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "shMaxBandwidth": {
+    "name": "shMaxBandwidth",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "asymRouteCount": {
+    "name": "asymRouteCount",
+    "oid": "1.3.6.1.4.1.17163.1.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeConfig": {
+    "name": "activeConfig",
+    "oid": "1.3.6.1.4.1.17163.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inpath": {
+    "name": "inpath",
+    "oid": "1.3.6.1.4.1.17163.1.1.3.2",
+    "class": "objectidentity"
+  },
+  "inpathSupport": {
+    "name": "inpathSupport",
+    "oid": "1.3.6.1.4.1.17163.1.1.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outofpath": {
+    "name": "outofpath",
+    "oid": "1.3.6.1.4.1.17163.1.1.3.3",
+    "class": "objectidentity"
+  },
+  "outofpathSupport": {
+    "name": "outofpathSupport",
+    "oid": "1.3.6.1.4.1.17163.1.1.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "datastoreSync": {
+    "name": "datastoreSync",
+    "oid": "1.3.6.1.4.1.17163.1.1.3.4",
+    "class": "objectidentity"
+  },
+  "datastoreSyncPort": {
+    "name": "datastoreSyncPort",
+    "oid": "1.3.6.1.4.1.17163.1.1.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "datastoreSyncAddr": {
+    "name": "datastoreSyncAddr",
+    "oid": "1.3.6.1.4.1.17163.1.1.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmsPrefix": {
+    "name": "alarmsPrefix",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0",
+    "class": "objectidentity"
+  },
+  "procCrash": {
+    "name": "procCrash",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "procName"
+      }
+    ],
+    "status": "current"
+  },
+  "procExit": {
+    "name": "procExit",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "procName"
+      }
+    ],
+    "status": "current"
+  },
+  "cpuUtil": {
+    "name": "cpuUtil",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "pagingActivity": {
+    "name": "pagingActivity",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "smartError": {
+    "name": "smartError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.5",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "peerVersionMismatch": {
+    "name": "peerVersionMismatch",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "systemVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "bypassMode": {
+    "name": "bypassMode",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.7",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "raidError": {
+    "name": "raidError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.8",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "storeCorruption": {
+    "name": "storeCorruption",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.9",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "admissionMemError": {
+    "name": "admissionMemError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.10",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "admissionConnError": {
+    "name": "admissionConnError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.11",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "haltError": {
+    "name": "haltError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.12",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "serviceError": {
+    "name": "serviceError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.13",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "scheduledJobError": {
+    "name": "scheduledJobError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.14",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "confModeEnter": {
+    "name": "confModeEnter",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.15",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "confModeExit": {
+    "name": "confModeExit",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.16",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "linkError": {
+    "name": "linkError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.17",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "nfsV2V4": {
+    "name": "nfsV2V4",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.18",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "powerSupplyError": {
+    "name": "powerSupplyError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.19",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "asymRouteError": {
+    "name": "asymRouteError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "asymRouteCount"
+      }
+    ],
+    "status": "current"
+  },
+  "fanError": {
+    "name": "fanError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.21",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "memoryError": {
+    "name": "memoryError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.22",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "ipmi": {
+    "name": "ipmi",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.23",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "configChange": {
+    "name": "configChange",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.24",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "datastoreWrapped": {
+    "name": "datastoreWrapped",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.25",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "temperatureWarning": {
+    "name": "temperatureWarning",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.26",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "temperatureCritical": {
+    "name": "temperatureCritical",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.27",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cfConnFailure": {
+    "name": "cfConnFailure",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "neighborAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cfConnLostEos": {
+    "name": "cfConnLostEos",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "neighborAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cfConnLostErr": {
+    "name": "cfConnLostErr",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "neighborAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cfKeepaliveTimeout": {
+    "name": "cfKeepaliveTimeout",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "neighborAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cfAckTimeout": {
+    "name": "cfAckTimeout",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "neighborAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cfReadInfoTimeout": {
+    "name": "cfReadInfoTimeout",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "neighborAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cfLatencyExceeded": {
+    "name": "cfLatencyExceeded",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "neighborAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "sslPeeringSCEPAutoReenrollError": {
+    "name": "sslPeeringSCEPAutoReenrollError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.35",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "crlError": {
+    "name": "crlError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "crlFeatureName"
+      },
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "crlErrMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "datastoreSyncFailure": {
+    "name": "datastoreSyncFailure",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.37",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "secureVaultNeedsUnlock": {
+    "name": "secureVaultNeedsUnlock",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.38",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "secureVaultNeedsRekey": {
+    "name": "secureVaultNeedsRekey",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.39",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "secureVaultInitError": {
+    "name": "secureVaultInitError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.40",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "configSave": {
+    "name": "configSave",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.41",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "tcpDumpStarted": {
+    "name": "tcpDumpStarted",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.42",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "tcpDumpScheduled": {
+    "name": "tcpDumpScheduled",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.43",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "newUserCreated": {
+    "name": "newUserCreated",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.44",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "diskError": {
+    "name": "diskError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.45",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "wearWarning": {
+    "name": "wearWarning",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.46",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cliUserLogin": {
+    "name": "cliUserLogin",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.47",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cliUserLogout": {
+    "name": "cliUserLogout",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.48",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "webUserLogin": {
+    "name": "webUserLogin",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.49",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "webUserLogout": {
+    "name": "webUserLogout",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.50",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "trapTest": {
+    "name": "trapTest",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.51",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "admissionCpuError": {
+    "name": "admissionCpuError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.52",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "admissionTcpError": {
+    "name": "admissionTcpError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.53",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "systemDiskFullError": {
+    "name": "systemDiskFullError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.54",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "domainJoinError": {
+    "name": "domainJoinError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.55",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "certsExpiringError": {
+    "name": "certsExpiringError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.56",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "licenseError": {
+    "name": "licenseError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.57",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hardwareError": {
+    "name": "hardwareError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.58",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "sysdetailError": {
+    "name": "sysdetailError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.59",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "admissionMapiError": {
+    "name": "admissionMapiError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.60",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "neighborIncompatibility": {
+    "name": "neighborIncompatibility",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.61",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "flashError": {
+    "name": "flashError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.62",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "lanWanLoopError": {
+    "name": "lanWanLoopError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.63",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "optimizationServiceStatusError": {
+    "name": "optimizationServiceStatusError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.64",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "upgradeFailure": {
+    "name": "upgradeFailure",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.65",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "licenseExpiring": {
+    "name": "licenseExpiring",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.66",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "licenseExpired": {
+    "name": "licenseExpired",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.67",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "clusterDisconnectedSHAlertError": {
+    "name": "clusterDisconnectedSHAlertError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.68",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "smbAlert": {
+    "name": "smbAlert",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.69",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "linkDuplex": {
+    "name": "linkDuplex",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.70",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "linkIoErrors": {
+    "name": "linkIoErrors",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.71",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "storageProfSwitchFailed": {
+    "name": "storageProfSwitchFailed",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.73",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cpuUtilClear": {
+    "name": "cpuUtilClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1003",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "pagingActivityClear": {
+    "name": "pagingActivityClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1004",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "peerVersionMismatchClear": {
+    "name": "peerVersionMismatchClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1006",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "systemVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "bypassModeClear": {
+    "name": "bypassModeClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1007",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "raidErrorClear": {
+    "name": "raidErrorClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1008",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "storeCorruptionClear": {
+    "name": "storeCorruptionClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1009",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "admissionMemErrorClear": {
+    "name": "admissionMemErrorClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1010",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "admissionConnErrorClear": {
+    "name": "admissionConnErrorClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1011",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "haltErrorClear": {
+    "name": "haltErrorClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1012",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "serviceErrorClear": {
+    "name": "serviceErrorClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1013",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "linkErrorClear": {
+    "name": "linkErrorClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1017",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "nfsV2V4Clear": {
+    "name": "nfsV2V4Clear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1018",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "powerSupplyErrorClear": {
+    "name": "powerSupplyErrorClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1019",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "asymRouteErrorClear": {
+    "name": "asymRouteErrorClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1020",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "fanErrorClear": {
+    "name": "fanErrorClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1021",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "memoryErrorClear": {
+    "name": "memoryErrorClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1022",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "ipmiClear": {
+    "name": "ipmiClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1023",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "temperatureNormal": {
+    "name": "temperatureNormal",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1026",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "temperatureNonCritical": {
+    "name": "temperatureNonCritical",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1027",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cfConnRestored": {
+    "name": "cfConnRestored",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1028",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "neighborAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cfConnLostEosClear": {
+    "name": "cfConnLostEosClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1029",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "neighborAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cfConnLostErrClear": {
+    "name": "cfConnLostErrClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1030",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "neighborAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cfKeepaliveTimeoutClear": {
+    "name": "cfKeepaliveTimeoutClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1031",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "neighborAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cfAckTimeoutClear": {
+    "name": "cfAckTimeoutClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1032",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "neighborAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cfReadInfoTimeoutClear": {
+    "name": "cfReadInfoTimeoutClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1033",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "neighborAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cfLatencyExceededClear": {
+    "name": "cfLatencyExceededClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1034",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "neighborAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "sslPeeringSCEPAutoReenrollClear": {
+    "name": "sslPeeringSCEPAutoReenrollClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1035",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "crlClear": {
+    "name": "crlClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1036",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "datastoreSyncFailureClear": {
+    "name": "datastoreSyncFailureClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1037",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "secureVaultClear": {
+    "name": "secureVaultClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1040",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "diskErrorClear": {
+    "name": "diskErrorClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1045",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "admissionCpuErrorClear": {
+    "name": "admissionCpuErrorClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1052",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "admissionTcpErrorClear": {
+    "name": "admissionTcpErrorClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1053",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "systemDiskFullErrorClear": {
+    "name": "systemDiskFullErrorClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1054",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "domainJoinErrorClear": {
+    "name": "domainJoinErrorClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1055",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "certsExpiringErrorClear": {
+    "name": "certsExpiringErrorClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1056",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "licenseErrorClear": {
+    "name": "licenseErrorClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1057",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hardwareErrorClear": {
+    "name": "hardwareErrorClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1058",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "sysdetailErrorClear": {
+    "name": "sysdetailErrorClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1059",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "admissionMapiErrorClear": {
+    "name": "admissionMapiErrorClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1060",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "neighborIncompatibilityClear": {
+    "name": "neighborIncompatibilityClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1061",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "flashErrorClear": {
+    "name": "flashErrorClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1062",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "lanWanLoopClear": {
+    "name": "lanWanLoopClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1063",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "optimizationServiceStatusClear": {
+    "name": "optimizationServiceStatusClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1064",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "upgradeFailureClear": {
+    "name": "upgradeFailureClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1065",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "clusterDisconnectedSHAlertClear": {
+    "name": "clusterDisconnectedSHAlertClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1068",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "smbAlertClear": {
+    "name": "smbAlertClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1069",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "linkDuplexClear": {
+    "name": "linkDuplexClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1070",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "linkIoErrorsClear": {
+    "name": "linkIoErrorsClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.1071",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "rspGeneralError": {
+    "name": "rspGeneralError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.20001",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "rspServiceError": {
+    "name": "rspServiceError",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.20002",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "rspGeneralClear": {
+    "name": "rspGeneralClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.21001",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "rspServiceClear": {
+    "name": "rspServiceClear",
+    "oid": "1.3.6.1.4.1.17163.1.1.4.0.21002",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cpuLoad": {
+    "name": "cpuLoad",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.1",
+    "class": "objectidentity"
+  },
+  "cpuLoad1": {
+    "name": "cpuLoad1",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuLoad5": {
+    "name": "cpuLoad5",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuLoad15": {
+    "name": "cpuLoad15",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuUtil1": {
+    "name": "cpuUtil1",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuIndivUtilTable": {
+    "name": "cpuIndivUtilTable",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpuIndivUtilEntry": {
+    "name": "cpuIndivUtilEntry",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "cpuIndivIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpuIndivIndex": {
+    "name": "cpuIndivIndex",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpuIndivId": {
+    "name": "cpuIndivId",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuIndivIdleTime": {
+    "name": "cpuIndivIdleTime",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuIndivSystemTime": {
+    "name": "cpuIndivSystemTime",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuIndivUserTime": {
+    "name": "cpuIndivUserTime",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "connectionCounts": {
+    "name": "connectionCounts",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.2",
+    "class": "objectidentity"
+  },
+  "optimizedConnections": {
+    "name": "optimizedConnections",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "passthroughConnections": {
+    "name": "passthroughConnections",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "halfOpenedConnections": {
+    "name": "halfOpenedConnections",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "halfClosedConnections": {
+    "name": "halfClosedConnections",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "establishedConnections": {
+    "name": "establishedConnections",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeConnections": {
+    "name": "activeConnections",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totalConnections": {
+    "name": "totalConnections",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bandwidth": {
+    "name": "bandwidth",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.3",
+    "class": "objectidentity"
+  },
+  "bandwidthAggregate": {
+    "name": "bandwidthAggregate",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.3.1",
+    "class": "objectidentity"
+  },
+  "bwAggInLan": {
+    "name": "bwAggInLan",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwAggInWan": {
+    "name": "bwAggInWan",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwAggOutLan": {
+    "name": "bwAggOutLan",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwAggOutWan": {
+    "name": "bwAggOutWan",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bandwidthPerPort": {
+    "name": "bandwidthPerPort",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.3.2",
+    "class": "objectidentity"
+  },
+  "bwPortTable": {
+    "name": "bwPortTable",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwPortEntry": {
+    "name": "bwPortEntry",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "bwPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwPortNumber": {
+    "name": "bwPortNumber",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwPortInLan": {
+    "name": "bwPortInLan",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwPortInWan": {
+    "name": "bwPortInWan",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwPortOutLan": {
+    "name": "bwPortOutLan",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.3.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwPortOutWan": {
+    "name": "bwPortOutWan",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.3.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bandwidthPassThrough": {
+    "name": "bandwidthPassThrough",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.3.3",
+    "class": "objectidentity"
+  },
+  "bwPassThroughIn": {
+    "name": "bwPassThroughIn",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwPassThroughOut": {
+    "name": "bwPassThroughOut",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwPassThroughTotal": {
+    "name": "bwPassThroughTotal",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "datastore": {
+    "name": "datastore",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.4",
+    "class": "objectidentity"
+  },
+  "dsHitsTotal": {
+    "name": "dsHitsTotal",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsMissTotal": {
+    "name": "dsMissTotal",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsCostPerSegment": {
+    "name": "dsCostPerSegment",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dsAveDiskUtilization": {
+    "name": "dsAveDiskUtilization",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "topTalkers": {
+    "name": "topTalkers",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5",
+    "class": "objectidentity"
+  },
+  "ttTalkersTable": {
+    "name": "ttTalkersTable",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ttTalkersEntry": {
+    "name": "ttTalkersEntry",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "ttTalkerId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ttTalkerId": {
+    "name": "ttTalkerId",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ttTalkerIp1": {
+    "name": "ttTalkerIp1",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ttTalkerPort1": {
+    "name": "ttTalkerPort1",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ttTalkerIp2": {
+    "name": "ttTalkerIp2",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ttTalkerPort2": {
+    "name": "ttTalkerPort2",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ttTalkerByteCount": {
+    "name": "ttTalkerByteCount",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ttSrcHostTable": {
+    "name": "ttSrcHostTable",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ttSrcHostEntry": {
+    "name": "ttSrcHostEntry",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "ttSrcHostId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ttSrcHostId": {
+    "name": "ttSrcHostId",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ttSrcHostIp": {
+    "name": "ttSrcHostIp",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ttSrcHostByteCount": {
+    "name": "ttSrcHostByteCount",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ttDestHostTable": {
+    "name": "ttDestHostTable",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ttDestHostEntry": {
+    "name": "ttDestHostEntry",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "ttDestHostId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ttDestHostId": {
+    "name": "ttDestHostId",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ttDestHostIp": {
+    "name": "ttDestHostIp",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ttDestHostByteCount": {
+    "name": "ttDestHostByteCount",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ttAppPortTable": {
+    "name": "ttAppPortTable",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ttAppPortEntry": {
+    "name": "ttAppPortEntry",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "ttAppPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ttAppPortId": {
+    "name": "ttAppPortId",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ttAppPort": {
+    "name": "ttAppPort",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ttAppPortByteCount": {
+    "name": "ttAppPortByteCount",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bandwidthHC": {
+    "name": "bandwidthHC",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.6",
+    "class": "objectidentity"
+  },
+  "bandwidthHCAggregate": {
+    "name": "bandwidthHCAggregate",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.6.1",
+    "class": "objectidentity"
+  },
+  "bwHCAggInLan": {
+    "name": "bwHCAggInLan",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwHCAggInWan": {
+    "name": "bwHCAggInWan",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.6.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwHCAggOutLan": {
+    "name": "bwHCAggOutLan",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.6.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwAggHCOutWan": {
+    "name": "bwAggHCOutWan",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.6.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bandwidthHCPerPort": {
+    "name": "bandwidthHCPerPort",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.6.2",
+    "class": "objectidentity"
+  },
+  "bwHCPortTable": {
+    "name": "bwHCPortTable",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.6.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwHCPortEntry": {
+    "name": "bwHCPortEntry",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.6.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STEELHEAD-MIB",
+        "object": "bwHCPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwHCPortNumber": {
+    "name": "bwHCPortNumber",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.6.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwHCPortInLan": {
+    "name": "bwHCPortInLan",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.6.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwHCPortInWan": {
+    "name": "bwHCPortInWan",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.6.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwHCPortOutLan": {
+    "name": "bwHCPortOutLan",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.6.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwHCPortOutWan": {
+    "name": "bwHCPortOutWan",
+    "oid": "1.3.6.1.4.1.17163.1.1.5.6.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/riverbed/STEELHEAD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "STEELHEAD-MIB"
+  }
+}

@@ -1,0 +1,352 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-SSR-SMI-MIB": [
+      "ssrMibs"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ssrConfigMIB": {
+    "name": "ssrConfigMIB",
+    "oid": "1.3.6.1.4.1.52.2501.1.230",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-07-15 00:00",
+        "description": "Revision #3. Update contact information for Enterasys Networks as this mib is found on the Riverstione RS product line as well as Enterasys SSR product line."
+      },
+      {
+        "revision": "2000-02-20 00:00",
+        "description": "Revision #2. add two objects to obtain current prom and firmware version."
+      },
+      {
+        "revision": "1998-08-17 00:00",
+        "description": "Revision #1. Provide startup configuration file retrieval, startup log and append new commands."
+      }
+    ]
+  },
+  "SSRErrorCode": {
+    "name": "SSRErrorCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noStatus": 1,
+          "timeout": 2,
+          "networkError": 3,
+          "noSpace": 4,
+          "invalidConfig": 5,
+          "commandCompleted": 6,
+          "internalError": 7,
+          "tftpServerError": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cfgGroup": {
+    "name": "cfgGroup",
+    "oid": "1.3.6.1.4.1.52.2501.1.231",
+    "class": "objectidentity"
+  },
+  "cfgTransferOp": {
+    "name": "cfgTransferOp",
+    "oid": "1.3.6.1.4.1.52.2501.1.231.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noop": 1,
+          "sendConfigToAgent": 2,
+          "receiveConfigFromAgent": 3,
+          "receiveBootlogFromAgent": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfgManagerAddress": {
+    "name": "cfgManagerAddress",
+    "oid": "1.3.6.1.4.1.52.2501.1.231.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfgFileName": {
+    "name": "cfgFileName",
+    "oid": "1.3.6.1.4.1.52.2501.1.231.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfgActivateTransfer": {
+    "name": "cfgActivateTransfer",
+    "oid": "1.3.6.1.4.1.52.2501.1.231.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfgTransferStatus": {
+    "name": "cfgTransferStatus",
+    "oid": "1.3.6.1.4.1.52.2501.1.231.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "sending": 2,
+          "receiving": 3,
+          "transferComplete": 4,
+          "error": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfgActivateFile": {
+    "name": "cfgActivateFile",
+    "oid": "1.3.6.1.4.1.52.2501.1.231.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfgLastError": {
+    "name": "cfgLastError",
+    "oid": "1.3.6.1.4.1.52.2501.1.231.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SSRErrorCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfgLastErrorReason": {
+    "name": "cfgLastErrorReason",
+    "oid": "1.3.6.1.4.1.52.2501.1.231.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfgActiveImageVersion": {
+    "name": "cfgActiveImageVersion",
+    "oid": "1.3.6.1.4.1.52.2501.1.231.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfgActiveImageBootLocation": {
+    "name": "cfgActiveImageBootLocation",
+    "oid": "1.3.6.1.4.1.52.2501.1.231.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "configConformance": {
+    "name": "configConformance",
+    "oid": "1.3.6.1.4.1.52.2501.1.230.3",
+    "class": "objectidentity"
+  },
+  "configCompliances": {
+    "name": "configCompliances",
+    "oid": "1.3.6.1.4.1.52.2501.1.230.3.1",
+    "class": "objectidentity"
+  },
+  "configGroups": {
+    "name": "configGroups",
+    "oid": "1.3.6.1.4.1.52.2501.1.230.3.2",
+    "class": "objectidentity"
+  },
+  "configCompliance": {
+    "name": "configCompliance",
+    "oid": "1.3.6.1.4.1.52.2501.1.230.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "configGroup10",
+        "module": "CTRON-SSR-CONFIG-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "configCompliance2": {
+    "name": "configCompliance2",
+    "oid": "1.3.6.1.4.1.52.2501.1.230.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "configGroup20",
+        "module": "CTRON-SSR-CONFIG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "configGroup10": {
+    "name": "configGroup10",
+    "oid": "1.3.6.1.4.1.52.2501.1.230.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CTRON-SSR-CONFIG-MIB",
+        "object": "cfgTransferOp"
+      },
+      {
+        "module": "CTRON-SSR-CONFIG-MIB",
+        "object": "cfgManagerAddress"
+      },
+      {
+        "module": "CTRON-SSR-CONFIG-MIB",
+        "object": "cfgFileName"
+      },
+      {
+        "module": "CTRON-SSR-CONFIG-MIB",
+        "object": "cfgActivateTransfer"
+      },
+      {
+        "module": "CTRON-SSR-CONFIG-MIB",
+        "object": "cfgTransferStatus"
+      },
+      {
+        "module": "CTRON-SSR-CONFIG-MIB",
+        "object": "cfgActivateFile"
+      },
+      {
+        "module": "CTRON-SSR-CONFIG-MIB",
+        "object": "cfgLastError"
+      },
+      {
+        "module": "CTRON-SSR-CONFIG-MIB",
+        "object": "cfgLastErrorReason"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "configGroup20": {
+    "name": "configGroup20",
+    "oid": "1.3.6.1.4.1.52.2501.1.230.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CTRON-SSR-CONFIG-MIB",
+        "object": "cfgTransferOp"
+      },
+      {
+        "module": "CTRON-SSR-CONFIG-MIB",
+        "object": "cfgManagerAddress"
+      },
+      {
+        "module": "CTRON-SSR-CONFIG-MIB",
+        "object": "cfgFileName"
+      },
+      {
+        "module": "CTRON-SSR-CONFIG-MIB",
+        "object": "cfgActivateTransfer"
+      },
+      {
+        "module": "CTRON-SSR-CONFIG-MIB",
+        "object": "cfgTransferStatus"
+      },
+      {
+        "module": "CTRON-SSR-CONFIG-MIB",
+        "object": "cfgActivateFile"
+      },
+      {
+        "module": "CTRON-SSR-CONFIG-MIB",
+        "object": "cfgLastError"
+      },
+      {
+        "module": "CTRON-SSR-CONFIG-MIB",
+        "object": "cfgLastErrorReason"
+      },
+      {
+        "module": "CTRON-SSR-CONFIG-MIB",
+        "object": "cfgActiveImageVersion"
+      },
+      {
+        "module": "CTRON-SSR-CONFIG-MIB",
+        "object": "cfgActiveImageBootLocation"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SSR-CONFIG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CTRON-SSR-CONFIG-MIB"
+  }
+}

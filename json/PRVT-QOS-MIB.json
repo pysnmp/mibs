@@ -1,0 +1,5283 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "PRVT-SWITCH-MIB": [
+      "prvt-products"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "StorageType",
+      "RowPointer",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "prvtQosMIB": {
+    "name": "prvtQosMIB",
+    "oid": "1.3.6.1.4.1.738.1.7.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-03-23 00:00",
+        "description": "Added support for QOS over VLAN."
+      },
+      {
+        "revision": "2009-04-24 00:00",
+        "description": "Changed hqosVirtualSchedulerParent to type TNamedItemOrEmpty. Added some TCs. Miscellaneous additional clean up."
+      },
+      {
+        "revision": "2008-10-01 00:00",
+        "description": "Miscellaneous clean up."
+      },
+      {
+        "revision": "2007-11-17 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "serviceAccessSwitch": {
+    "name": "serviceAccessSwitch",
+    "oid": "1.3.6.1.4.1.738.1.7",
+    "class": "objectidentity"
+  },
+  "TNamedItem": {
+    "name": "TNamedItem",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TNamedItemOrEmpty": {
+    "name": "TNamedItemOrEmpty",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TQEncapVal": {
+    "name": "TQEncapVal",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "TLspExpValue": {
+    "name": "TLspExpValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Dot1PPriority": {
+    "name": "Dot1PPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TFCName": {
+    "name": "TFCName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TFCNameOrEmpty": {
+    "name": "TFCNameOrEmpty",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "be": 1,
+          "l2": 2,
+          "af": 3,
+          "l1": 4,
+          "h2": 5,
+          "ef": 6,
+          "h1": 7,
+          "nc": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TDSCPValue": {
+    "name": "TDSCPValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TItemDescription": {
+    "name": "TItemDescription",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TQueueId": {
+    "name": "TQueueId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TIngressQueueId": {
+    "name": "TIngressQueueId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TEgressQueueId": {
+    "name": "TEgressQueueId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TSapIngressPolicyId": {
+    "name": "TSapIngressPolicyId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TSapIngressPolicyIdOrNone": {
+    "name": "TSapIngressPolicyIdOrNone",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TSapEgressPolicyId": {
+    "name": "TSapEgressPolicyId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TSapEgressPolicyIdOrNone": {
+    "name": "TSapEgressPolicyIdOrNone",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TNetworkPolicyId": {
+    "name": "TNetworkPolicyId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TNetworkPolicyIdOrNone": {
+    "name": "TNetworkPolicyIdOrNone",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TItemMatch": {
+    "name": "TItemMatch",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "false": 2,
+          "true": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TPriority": {
+    "name": "TPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "high": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TPriorityOrDefault": {
+    "name": "TPriorityOrDefault",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "high": 2,
+          "default": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TProfile": {
+    "name": "TProfile",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in": 1,
+          "out": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TCIRRate": {
+    "name": "TCIRRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TPIRRate": {
+    "name": "TPIRRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TRateValue": {
+    "name": "TRateValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "TLevel": {
+    "name": "TLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TWeight": {
+    "name": "TWeight",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TTreshold": {
+    "name": "TTreshold",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 25,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TConformanceLevel": {
+    "name": "TConformanceLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "green": 1,
+          "yellow": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TShaperId": {
+    "name": "TShaperId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "TTailDropId": {
+    "name": "TTailDropId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "TSredId": {
+    "name": "TSredId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "TSSchedulingProfile": {
+    "name": "TSSchedulingProfile",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "TSlopePolicy": {
+    "name": "TSlopePolicy",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "tFCObjects": {
+    "name": "tFCObjects",
+    "oid": "1.3.6.1.4.1.738.1.7.1.1",
+    "class": "objectidentity"
+  },
+  "hqosSapIngressObjects": {
+    "name": "hqosSapIngressObjects",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2",
+    "class": "objectidentity"
+  },
+  "hqosSapEgressObjects": {
+    "name": "hqosSapEgressObjects",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3",
+    "class": "objectidentity"
+  },
+  "hqosNetworkObjects": {
+    "name": "hqosNetworkObjects",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4",
+    "class": "objectidentity"
+  },
+  "hqosNetworkQueueObjects": {
+    "name": "hqosNetworkQueueObjects",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5",
+    "class": "objectidentity"
+  },
+  "hqosSchedulerObjects": {
+    "name": "hqosSchedulerObjects",
+    "oid": "1.3.6.1.4.1.738.1.7.1.6",
+    "class": "objectidentity"
+  },
+  "tWredObjects": {
+    "name": "tWredObjects",
+    "oid": "1.3.6.1.4.1.738.1.7.1.7",
+    "class": "objectidentity"
+  },
+  "tCongestionAvoidanceProfileObjects": {
+    "name": "tCongestionAvoidanceProfileObjects",
+    "oid": "1.3.6.1.4.1.738.1.7.1.8",
+    "class": "objectidentity"
+  },
+  "tShaperObjects": {
+    "name": "tShaperObjects",
+    "oid": "1.3.6.1.4.1.738.1.7.1.9",
+    "class": "objectidentity"
+  },
+  "tWfqObjects": {
+    "name": "tWfqObjects",
+    "oid": "1.3.6.1.4.1.738.1.7.1.10",
+    "class": "objectidentity"
+  },
+  "qosSchedulingProfileObjects": {
+    "name": "qosSchedulingProfileObjects",
+    "oid": "1.3.6.1.4.1.738.1.7.1.11",
+    "class": "objectidentity"
+  },
+  "qosServicePolicyObjects": {
+    "name": "qosServicePolicyObjects",
+    "oid": "1.3.6.1.4.1.738.1.7.1.12",
+    "class": "objectidentity"
+  },
+  "qosNetworkPolicyObjects": {
+    "name": "qosNetworkPolicyObjects",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13",
+    "class": "objectidentity"
+  },
+  "qosGlobalObjects": {
+    "name": "qosGlobalObjects",
+    "oid": "1.3.6.1.4.1.738.1.7.1.14",
+    "class": "objectidentity"
+  },
+  "qosServiceObjects": {
+    "name": "qosServiceObjects",
+    "oid": "1.3.6.1.4.1.738.1.7.1.15",
+    "class": "objectidentity"
+  },
+  "qosInterfaceObjects": {
+    "name": "qosInterfaceObjects",
+    "oid": "1.3.6.1.4.1.738.1.7.1.16",
+    "class": "objectidentity"
+  },
+  "qosStatisticsObjects": {
+    "name": "qosStatisticsObjects",
+    "oid": "1.3.6.1.4.1.738.1.7.1.17",
+    "class": "objectidentity"
+  },
+  "qosVlanPolicyObjects": {
+    "name": "qosVlanPolicyObjects",
+    "oid": "1.3.6.1.4.1.738.1.7.1.18",
+    "class": "objectidentity"
+  },
+  "qosVlanObjects": {
+    "name": "qosVlanObjects",
+    "oid": "1.3.6.1.4.1.738.1.7.1.19",
+    "class": "objectidentity"
+  },
+  "tFCNameTable": {
+    "name": "tFCNameTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tFCNameEntry": {
+    "name": "tFCNameEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "tFCValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tFCValue": {
+    "name": "tFCValue",
+    "oid": "1.3.6.1.4.1.738.1.7.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tFCRowStatus": {
+    "name": "tFCRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tFCStorageType": {
+    "name": "tFCStorageType",
+    "oid": "1.3.6.1.4.1.738.1.7.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tFCName": {
+    "name": "tFCName",
+    "oid": "1.3.6.1.4.1.738.1.7.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFCName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tFCNameLastChanged": {
+    "name": "tFCNameLastChanged",
+    "oid": "1.3.6.1.4.1.738.1.7.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapIngressTable": {
+    "name": "hqosSapIngressTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapIngressEntry": {
+    "name": "hqosSapIngressEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosSapIngressIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hqosSapIngressIndex": {
+    "name": "hqosSapIngressIndex",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TSapIngressPolicyId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapIngressRowStatus": {
+    "name": "hqosSapIngressRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hqosSapIngressDescription": {
+    "name": "hqosSapIngressDescription",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemDescription",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosSapIngressDefaultDscpFC": {
+    "name": "hqosSapIngressDefaultDscpFC",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapIngressDefaultVptFC": {
+    "name": "hqosSapIngressDefaultVptFC",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapIngressLastChanged": {
+    "name": "hqosSapIngressLastChanged",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapIngressQueueTable": {
+    "name": "hqosSapIngressQueueTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapIngressQueueEntry": {
+    "name": "hqosSapIngressQueueEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosSapIngressIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosSapIngressQueue",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosSapIngressQueueParent",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hqosSapIngressQueue": {
+    "name": "hqosSapIngressQueue",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TIngressQueueId",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapIngressQueueParent": {
+    "name": "hqosSapIngressQueueParent",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItemOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapIngressQueueRowStatus": {
+    "name": "hqosSapIngressQueueRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hqosSapIngressQueueLevel": {
+    "name": "hqosSapIngressQueueLevel",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosSapIngressQueueServWfq": {
+    "name": "hqosSapIngressQueueServWfq",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 61
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosSapIngressQueueType": {
+    "name": "hqosSapIngressQueueType",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "unicast": 1,
+          "multicast": 2,
+          "broadcast": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosSapIngressQueueHiPriority": {
+    "name": "hqosSapIngressQueueHiPriority",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosSapIngressQueueWred": {
+    "name": "hqosSapIngressQueueWred",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TSlopePolicy",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosSapIngressQueueLastChanged": {
+    "name": "hqosSapIngressQueueLastChanged",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapIngressDSCPTable": {
+    "name": "hqosSapIngressDSCPTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapIngressDSCPEntry": {
+    "name": "hqosSapIngressDSCPEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosSapIngressIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosSapIngressDSCP",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hqosSapIngressDSCP": {
+    "name": "hqosSapIngressDSCP",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TDSCPValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapIngressDSCPRowStatus": {
+    "name": "hqosSapIngressDSCPRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hqosSapIngressDSCPFC": {
+    "name": "hqosSapIngressDSCPFC",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFCNameOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosSapIngressDSCPConformance": {
+    "name": "hqosSapIngressDSCPConformance",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TConformanceLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosSapIngressDSCPLastChanged": {
+    "name": "hqosSapIngressDSCPLastChanged",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapIngressDot1pTable": {
+    "name": "hqosSapIngressDot1pTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapIngressDot1pEntry": {
+    "name": "hqosSapIngressDot1pEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosSapIngressIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosSapIngressDot1pValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hqosSapIngressDot1pValue": {
+    "name": "hqosSapIngressDot1pValue",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1PPriority",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapIngressDot1pRowStatus": {
+    "name": "hqosSapIngressDot1pRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hqosSapIngressDot1pFC": {
+    "name": "hqosSapIngressDot1pFC",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFCNameOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosSapIngressDot1pConformance": {
+    "name": "hqosSapIngressDot1pConformance",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TConformanceLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hqosSapIngressDot1pLastChanged": {
+    "name": "hqosSapIngressDot1pLastChanged",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapIngressFCTable": {
+    "name": "hqosSapIngressFCTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapIngressFCEntry": {
+    "name": "hqosSapIngressFCEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosSapIngressIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosSapIngressFCNumber",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosSapIngressFCQueueType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hqosSapIngressFCNumber": {
+    "name": "hqosSapIngressFCNumber",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFCNameOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapIngressFCQueueType": {
+    "name": "hqosSapIngressFCQueueType",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "unicast": 1,
+          "multicast": 2,
+          "broadcast": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapIngressFCRowStatus": {
+    "name": "hqosSapIngressFCRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hqosSapIngressFCQueue": {
+    "name": "hqosSapIngressFCQueue",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TIngressQueueId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosSapIngressFCQueueParent": {
+    "name": "hqosSapIngressFCQueueParent",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItemOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosSapIngressFCLastChanged": {
+    "name": "hqosSapIngressFCLastChanged",
+    "oid": "1.3.6.1.4.1.738.1.7.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hqosSapEgressTable": {
+    "name": "hqosSapEgressTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapEgressEntry": {
+    "name": "hqosSapEgressEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosSapEgressIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hqosSapEgressIndex": {
+    "name": "hqosSapEgressIndex",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TSapEgressPolicyId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapEgressRowStatus": {
+    "name": "hqosSapEgressRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hqosSapEgressDescription": {
+    "name": "hqosSapEgressDescription",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemDescription",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosSapEgressLastChanged": {
+    "name": "hqosSapEgressLastChanged",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapEgressQueueTable": {
+    "name": "hqosSapEgressQueueTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapEgressQueueEntry": {
+    "name": "hqosSapEgressQueueEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosSapEgressIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosSapEgressQueueIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosSapEgressQueueParent",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hqosSapEgressQueueIndex": {
+    "name": "hqosSapEgressQueueIndex",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TEgressQueueId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapEgressQueueParent": {
+    "name": "hqosSapEgressQueueParent",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItemOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapEgressQueueRowStatus": {
+    "name": "hqosSapEgressQueueRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hqosSapEgressQueueLevel": {
+    "name": "hqosSapEgressQueueLevel",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosSapEgressQueueServWfq": {
+    "name": "hqosSapEgressQueueServWfq",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosSapEgressQueueType": {
+    "name": "hqosSapEgressQueueType",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "unicast": 1,
+          "multicast": 2,
+          "broadcast": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosSapEgressQueueHiPriority": {
+    "name": "hqosSapEgressQueueHiPriority",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosSapEgressQueueWred": {
+    "name": "hqosSapEgressQueueWred",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TSlopePolicy",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosSapEgressQueueLastChanged": {
+    "name": "hqosSapEgressQueueLastChanged",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapEgressFCTable": {
+    "name": "hqosSapEgressFCTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapEgressFCEntry": {
+    "name": "hqosSapEgressFCEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosSapEgressIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosSapEgressFCNumber",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosSapEgressFCEntryType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hqosSapEgressFCNumber": {
+    "name": "hqosSapEgressFCNumber",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFCNameOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapEgressFCEntryType": {
+    "name": "hqosSapEgressFCEntryType",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "unicast": 1,
+          "multicast": 2,
+          "broadcast": 3,
+          "dscp": 4,
+          "dot1p": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSapEgressFCRowStatus": {
+    "name": "hqosSapEgressFCRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hqosSapEgressFCQueue": {
+    "name": "hqosSapEgressFCQueue",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TEgressQueueId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosSapEgressFCQueueParent": {
+    "name": "hqosSapEgressFCQueueParent",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItemOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosSapEgressFCDot1PValue": {
+    "name": "hqosSapEgressFCDot1PValue",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1PPriority",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosSapEgressFCDSCPValue": {
+    "name": "hqosSapEgressFCDSCPValue",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TDSCPValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosSapEgressFCLastChanged": {
+    "name": "hqosSapEgressFCLastChanged",
+    "oid": "1.3.6.1.4.1.738.1.7.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosNetworkPolicyTable": {
+    "name": "hqosNetworkPolicyTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosNetworkPolicyEntry": {
+    "name": "hqosNetworkPolicyEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosNetworkPolicyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hqosNetworkPolicyIndex": {
+    "name": "hqosNetworkPolicyIndex",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNetworkPolicyId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosNetworkPolicyRowStatus": {
+    "name": "hqosNetworkPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hqosNetworkPolicyDescription": {
+    "name": "hqosNetworkPolicyDescription",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemDescription",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosNetworkPolicyIngressDefaultActionFC": {
+    "name": "hqosNetworkPolicyIngressDefaultActionFC",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFCNameOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosNetworkPolicyIngressConformance": {
+    "name": "hqosNetworkPolicyIngressConformance",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TConformanceLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosNetworkPolicyEgressRemark": {
+    "name": "hqosNetworkPolicyEgressRemark",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hqosNetworkPolicyLastChanged": {
+    "name": "hqosNetworkPolicyLastChanged",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosNetworkIngressLSPEXPTable": {
+    "name": "hqosNetworkIngressLSPEXPTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosNetworkIngressLSPEXPEntry": {
+    "name": "hqosNetworkIngressLSPEXPEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosNetworkPolicyIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosNetworkIngressLSPEXP",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hqosNetworkIngressLSPEXP": {
+    "name": "hqosNetworkIngressLSPEXP",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TLspExpValue",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosNetworkIngressLSPEXPRowStatus": {
+    "name": "hqosNetworkIngressLSPEXPRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hqosNetworkIngressLSPEXPFC": {
+    "name": "hqosNetworkIngressLSPEXPFC",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFCNameOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosNetworkIngressLSPEXPConformance": {
+    "name": "hqosNetworkIngressLSPEXPConformance",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TConformanceLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosNetworkIngressLSPEXPLastChanged": {
+    "name": "hqosNetworkIngressLSPEXPLastChanged",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosNetworkEgressFCTable": {
+    "name": "hqosNetworkEgressFCTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosNetworkEgressFCEntry": {
+    "name": "hqosNetworkEgressFCEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosNetworkPolicyIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosNetworkEgressFCNumber",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosNetworkEgressFCConformance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hqosNetworkEgressFCNumber": {
+    "name": "hqosNetworkEgressFCNumber",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFCNameOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosNetworkEgressFCRowStatus": {
+    "name": "hqosNetworkEgressFCRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hqosNetworkEgressFCLspExpValue": {
+    "name": "hqosNetworkEgressFCLspExpValue",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TLspExpValue",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosNetworkEgressFCDot1Priority": {
+    "name": "hqosNetworkEgressFCDot1Priority",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1PPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosNetworkEgressFCLastChanged": {
+    "name": "hqosNetworkEgressFCLastChanged",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosNetworkEgressFCConformance": {
+    "name": "hqosNetworkEgressFCConformance",
+    "oid": "1.3.6.1.4.1.738.1.7.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TConformanceLevel",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosNetworkQueuePolicyTable": {
+    "name": "hqosNetworkQueuePolicyTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosNetworkQueuePolicyEntry": {
+    "name": "hqosNetworkQueuePolicyEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosNetworkQueuePolicy",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hqosNetworkQueuePolicy": {
+    "name": "hqosNetworkQueuePolicy",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosNetworkQueuePolicyRowStatus": {
+    "name": "hqosNetworkQueuePolicyRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hqosNetworkQueuePolicyDescription": {
+    "name": "hqosNetworkQueuePolicyDescription",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemDescription",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosNetworkQueuePolicyLastChanged": {
+    "name": "hqosNetworkQueuePolicyLastChanged",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosNetworkQueueTable": {
+    "name": "hqosNetworkQueueTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosNetworkQueueEntry": {
+    "name": "hqosNetworkQueueEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosNetworkQueuePolicy",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosNetworkQueue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hqosNetworkQueue": {
+    "name": "hqosNetworkQueue",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TQueueId",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosNetworkQueueRowStatus": {
+    "name": "hqosNetworkQueueRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hqosNetworkQueueParent": {
+    "name": "hqosNetworkQueueParent",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItemOrEmpty",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosNetworkQueueLevel": {
+    "name": "hqosNetworkQueueLevel",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosNetworkQueueWfqProfile": {
+    "name": "hqosNetworkQueueWfqProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosNetworkQueueType": {
+    "name": "hqosNetworkQueueType",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "unicast": 1,
+          "multicast": 2,
+          "broadcast": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosNetworkQueueHiPriority": {
+    "name": "hqosNetworkQueueHiPriority",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "hqosNetworkQueueWred": {
+    "name": "hqosNetworkQueueWred",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TSlopePolicy",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 57,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosNetworkQueueShaper": {
+    "name": "hqosNetworkQueueShaper",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TShaperId",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 17,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosNetworkQueueLastChanged": {
+    "name": "hqosNetworkQueueLastChanged",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosNetworkQueueFCTable": {
+    "name": "hqosNetworkQueueFCTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosNetworkQueueFCEntry": {
+    "name": "hqosNetworkQueueFCEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosNetworkQueuePolicy",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosNetworkQueueFCNumber",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosNetworkQueueFCType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hqosNetworkQueueFCNumber": {
+    "name": "hqosNetworkQueueFCNumber",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFCNameOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosNetworkQueueFCType": {
+    "name": "hqosNetworkQueueFCType",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "unicast": 1,
+          "multicast": 2,
+          "broadcast": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosNetworkQueueFCRowStatus": {
+    "name": "hqosNetworkQueueFCRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hqosNetworkQueueFC": {
+    "name": "hqosNetworkQueueFC",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TQueueId",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosNetworkQueueFCLastChanged": {
+    "name": "hqosNetworkQueueFCLastChanged",
+    "oid": "1.3.6.1.4.1.738.1.7.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSchedulerPolicyTable": {
+    "name": "hqosSchedulerPolicyTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSchedulerPolicyEntry": {
+    "name": "hqosSchedulerPolicyEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosSchedulerPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosSchedulerPolicyType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hqosSchedulerPolicyName": {
+    "name": "hqosSchedulerPolicyName",
+    "oid": "1.3.6.1.4.1.738.1.7.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSchedulerPolicyRowStatus": {
+    "name": "hqosSchedulerPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hqosSchedulerPolicyType": {
+    "name": "hqosSchedulerPolicyType",
+    "oid": "1.3.6.1.4.1.738.1.7.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ingress": 1,
+          "egress": 2,
+          "network": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosSchedulerPolicyDescription": {
+    "name": "hqosSchedulerPolicyDescription",
+    "oid": "1.3.6.1.4.1.738.1.7.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemDescription",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosSchedulerPolicyLastChanged": {
+    "name": "hqosSchedulerPolicyLastChanged",
+    "oid": "1.3.6.1.4.1.738.1.7.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosVirtualSchedulerTable": {
+    "name": "hqosVirtualSchedulerTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosVirtualSchedulerEntry": {
+    "name": "hqosVirtualSchedulerEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosSchedulerPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosSchedulerPolicyType",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosVirtualSchedulerName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "hqosVirtualSchedulerLevel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hqosVirtualSchedulerName": {
+    "name": "hqosVirtualSchedulerName",
+    "oid": "1.3.6.1.4.1.738.1.7.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosVirtualSchedulerRowStatus": {
+    "name": "hqosVirtualSchedulerRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hqosVirtualSchedulerDescription": {
+    "name": "hqosVirtualSchedulerDescription",
+    "oid": "1.3.6.1.4.1.738.1.7.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemDescription",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosVirtualSchedulerParent": {
+    "name": "hqosVirtualSchedulerParent",
+    "oid": "1.3.6.1.4.1.738.1.7.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItemOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosVirtualSchedulerLevel": {
+    "name": "hqosVirtualSchedulerLevel",
+    "oid": "1.3.6.1.4.1.738.1.7.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TLevel",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hqosVirtualSchedulerPriority": {
+    "name": "hqosVirtualSchedulerPriority",
+    "oid": "1.3.6.1.4.1.738.1.7.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "high": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosVirtualSchedulerWfqProfile": {
+    "name": "hqosVirtualSchedulerWfqProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosVirtualSchedulerShaper": {
+    "name": "hqosVirtualSchedulerShaper",
+    "oid": "1.3.6.1.4.1.738.1.7.1.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TShaperId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hqosVirtualSchedulerLastChanged": {
+    "name": "hqosVirtualSchedulerLastChanged",
+    "oid": "1.3.6.1.4.1.738.1.7.1.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tWredProfileTable": {
+    "name": "tWredProfileTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tWredProfileEntry": {
+    "name": "tWredProfileEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "tWredProfile",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tWredProfile": {
+    "name": "tWredProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TSlopePolicy",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tWredRowStatus": {
+    "name": "tWredRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tWredDescription": {
+    "name": "tWredDescription",
+    "oid": "1.3.6.1.4.1.738.1.7.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemDescription",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tWredGreenStartAverage": {
+    "name": "tWredGreenStartAverage",
+    "oid": "1.3.6.1.4.1.738.1.7.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tWredGreenMaxAverage": {
+    "name": "tWredGreenMaxAverage",
+    "oid": "1.3.6.1.4.1.738.1.7.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tWredGreenProbability": {
+    "name": "tWredGreenProbability",
+    "oid": "1.3.6.1.4.1.738.1.7.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tWredYellowStartAverage": {
+    "name": "tWredYellowStartAverage",
+    "oid": "1.3.6.1.4.1.738.1.7.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tWredYellowMaxAverage": {
+    "name": "tWredYellowMaxAverage",
+    "oid": "1.3.6.1.4.1.738.1.7.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tWredYellowProbability": {
+    "name": "tWredYellowProbability",
+    "oid": "1.3.6.1.4.1.738.1.7.1.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tWredRedStartAverage": {
+    "name": "tWredRedStartAverage",
+    "oid": "1.3.6.1.4.1.738.1.7.1.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tWredRedMaxAverage": {
+    "name": "tWredRedMaxAverage",
+    "oid": "1.3.6.1.4.1.738.1.7.1.7.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tWredRedProbability": {
+    "name": "tWredRedProbability",
+    "oid": "1.3.6.1.4.1.738.1.7.1.7.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tWredLastChanged": {
+    "name": "tWredLastChanged",
+    "oid": "1.3.6.1.4.1.738.1.7.1.7.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosTailDropProfileTable": {
+    "name": "qosTailDropProfileTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosTailDropProfileEntry": {
+    "name": "qosTailDropProfileEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosTailDropProfile",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosTailDropProfile": {
+    "name": "qosTailDropProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTailDropId",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosTailDropRowStatus": {
+    "name": "qosTailDropRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "qosMaxTailDropYellowTreshold": {
+    "name": "qosMaxTailDropYellowTreshold",
+    "oid": "1.3.6.1.4.1.738.1.7.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTreshold",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosMaxTailDropRedTreshold": {
+    "name": "qosMaxTailDropRedTreshold",
+    "oid": "1.3.6.1.4.1.738.1.7.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTreshold",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosSredProfileTable": {
+    "name": "qosSredProfileTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosSredProfileEntry": {
+    "name": "qosSredProfileEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosTailDropProfile",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosSredProfile": {
+    "name": "qosSredProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TSredId",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosSredRowStatus": {
+    "name": "qosSredRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "qosMaxSredYellowTreshold": {
+    "name": "qosMaxSredYellowTreshold",
+    "oid": "1.3.6.1.4.1.738.1.7.1.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTreshold",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosMaxSredYellowProbaility": {
+    "name": "qosMaxSredYellowProbaility",
+    "oid": "1.3.6.1.4.1.738.1.7.1.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTreshold",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosMaxSredRedTreshold": {
+    "name": "qosMaxSredRedTreshold",
+    "oid": "1.3.6.1.4.1.738.1.7.1.8.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTreshold",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosMaxSredRedProbability": {
+    "name": "qosMaxSredRedProbability",
+    "oid": "1.3.6.1.4.1.738.1.7.1.8.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTreshold",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tShaperProfileTable": {
+    "name": "tShaperProfileTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tShaperProfileEntry": {
+    "name": "tShaperProfileEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "tShaperProfileType",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "tShaperProfile",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "tShaperProfileDirection",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "tShaperProfileLevel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tShaperProfileType": {
+    "name": "tShaperProfileType",
+    "oid": "1.3.6.1.4.1.738.1.7.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qos": 1,
+          "hqos": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tShaperProfile": {
+    "name": "tShaperProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TShaperId",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 216
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tShaperProfileDirection": {
+    "name": "tShaperProfileDirection",
+    "oid": "1.3.6.1.4.1.738.1.7.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "serviceIngress": 1,
+          "serviceEgress": 2,
+          "networkEgress": 3,
+          "vlanEgress": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tShaperProfileLevel": {
+    "name": "tShaperProfileLevel",
+    "oid": "1.3.6.1.4.1.738.1.7.1.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "port": 1,
+          "queue": 2,
+          "l1Scheduler": 3,
+          "l2Scheduler": 4,
+          "qosPolicy": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tShaperRowStatus": {
+    "name": "tShaperRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tShaperDescription": {
+    "name": "tShaperDescription",
+    "oid": "1.3.6.1.4.1.738.1.7.1.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemDescription",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tShaperCIR": {
+    "name": "tShaperCIR",
+    "oid": "1.3.6.1.4.1.738.1.7.1.9.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TRateValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tShaperPIR": {
+    "name": "tShaperPIR",
+    "oid": "1.3.6.1.4.1.738.1.7.1.9.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TRateValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tShaperCBS": {
+    "name": "tShaperCBS",
+    "oid": "1.3.6.1.4.1.738.1.7.1.9.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tShaperMBS": {
+    "name": "tShaperMBS",
+    "oid": "1.3.6.1.4.1.738.1.7.1.9.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 6000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tShaperLastChanged": {
+    "name": "tShaperLastChanged",
+    "oid": "1.3.6.1.4.1.738.1.7.1.9.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tWfqServiceProfileTable": {
+    "name": "tWfqServiceProfileTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tWfqServiceProfileEntry": {
+    "name": "tWfqServiceProfileEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "tWfqServiceProfileNumber",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "tWfqServiceProfileDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tWfqServiceProfileNumber": {
+    "name": "tWfqServiceProfileNumber",
+    "oid": "1.3.6.1.4.1.738.1.7.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 61
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tWfqServiceProfileDirection": {
+    "name": "tWfqServiceProfileDirection",
+    "oid": "1.3.6.1.4.1.738.1.7.1.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ingress": 1,
+          "egress": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tWfqServiceProfileRowStatus": {
+    "name": "tWfqServiceProfileRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tWfqServiceProfileWeight": {
+    "name": "tWfqServiceProfileWeight",
+    "oid": "1.3.6.1.4.1.738.1.7.1.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tWfqNetworkProfileTable": {
+    "name": "tWfqNetworkProfileTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tWfqNetworkProfileEntry": {
+    "name": "tWfqNetworkProfileEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "tWfqNetworkProfileNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tWfqNetworkProfileNumber": {
+    "name": "tWfqNetworkProfileNumber",
+    "oid": "1.3.6.1.4.1.738.1.7.1.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tWfqNetworkProfileRowStatus": {
+    "name": "tWfqNetworkProfileRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tWfqNetworkProfileWeight": {
+    "name": "tWfqNetworkProfileWeight",
+    "oid": "1.3.6.1.4.1.738.1.7.1.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 220
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tWfqNetworkProfileCIRWeight": {
+    "name": "tWfqNetworkProfileCIRWeight",
+    "oid": "1.3.6.1.4.1.738.1.7.1.10.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 220
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tWfqSchedulerProfileTable": {
+    "name": "tWfqSchedulerProfileTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.10.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tWfqSchedulerProfileEntry": {
+    "name": "tWfqSchedulerProfileEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.10.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "tWfqSchedulerProfileNumber",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "tWfqSchedulerProfileDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tWfqSchedulerProfileNumber": {
+    "name": "tWfqSchedulerProfileNumber",
+    "oid": "1.3.6.1.4.1.738.1.7.1.10.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tWfqSchedulerProfileDirection": {
+    "name": "tWfqSchedulerProfileDirection",
+    "oid": "1.3.6.1.4.1.738.1.7.1.10.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ingress": 1,
+          "egress": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tWfqSchedulerProfileRowStatus": {
+    "name": "tWfqSchedulerProfileRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.10.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tWfqSchedulerProfileWeight": {
+    "name": "tWfqSchedulerProfileWeight",
+    "oid": "1.3.6.1.4.1.738.1.7.1.10.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 220
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tWfqSchedulerProfileCIRWeight": {
+    "name": "tWfqSchedulerProfileCIRWeight",
+    "oid": "1.3.6.1.4.1.738.1.7.1.10.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 220
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosSchedulingProfileTable": {
+    "name": "qosSchedulingProfileTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosSchedulingProfileEntry": {
+    "name": "qosSchedulingProfileEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosSchedulingProfile",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosSchedulingProfileDirection",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosSchedulingType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosSchedulingProfile": {
+    "name": "qosSchedulingProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 26
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosSchedulingProfileDirection": {
+    "name": "qosSchedulingProfileDirection",
+    "oid": "1.3.6.1.4.1.738.1.7.1.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ingress": 1,
+          "egress": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosSchedulingType": {
+    "name": "qosSchedulingType",
+    "oid": "1.3.6.1.4.1.738.1.7.1.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sp": 1,
+          "wrr": 2,
+          "hybrid-1": 3,
+          "hybrid-2": 4,
+          "hybrid-3": 5,
+          "hybrid-4": 6,
+          "hybrid-5": 7,
+          "hybrid-6": 8,
+          "drr": 9,
+          "mdrr-1": 10,
+          "mdrr-2": 11,
+          "mdrr-3": 12,
+          "mdrr-4": 13,
+          "mdrr-5": 14,
+          "mdrr-6": 15
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosSchedulingRowStatus": {
+    "name": "qosSchedulingRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.11.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "qosSchedulingQ1Weight": {
+    "name": "qosSchedulingQ1Weight",
+    "oid": "1.3.6.1.4.1.738.1.7.1.11.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosSchedulingQ2Weight": {
+    "name": "qosSchedulingQ2Weight",
+    "oid": "1.3.6.1.4.1.738.1.7.1.11.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosSchedulingQ3Weight": {
+    "name": "qosSchedulingQ3Weight",
+    "oid": "1.3.6.1.4.1.738.1.7.1.11.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosSchedulingQ4Weight": {
+    "name": "qosSchedulingQ4Weight",
+    "oid": "1.3.6.1.4.1.738.1.7.1.11.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosSchedulingQ5Weight": {
+    "name": "qosSchedulingQ5Weight",
+    "oid": "1.3.6.1.4.1.738.1.7.1.11.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosSchedulingQ6Weight": {
+    "name": "qosSchedulingQ6Weight",
+    "oid": "1.3.6.1.4.1.738.1.7.1.11.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosSchedulingQ7Weight": {
+    "name": "qosSchedulingQ7Weight",
+    "oid": "1.3.6.1.4.1.738.1.7.1.11.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosSchedulingQ8Weight": {
+    "name": "qosSchedulingQ8Weight",
+    "oid": "1.3.6.1.4.1.738.1.7.1.11.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosServicePolicyTable": {
+    "name": "qosServicePolicyTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosServicePolicyEntry": {
+    "name": "qosServicePolicyEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosServicePolicy",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosServicePolicy": {
+    "name": "qosServicePolicy",
+    "oid": "1.3.6.1.4.1.738.1.7.1.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosServicePolicyRowStatus": {
+    "name": "qosServicePolicyRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "qosServicePolicyDescription": {
+    "name": "qosServicePolicyDescription",
+    "oid": "1.3.6.1.4.1.738.1.7.1.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemDescription",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosServiceIngressPolicyTable": {
+    "name": "qosServiceIngressPolicyTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.12.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosServiceIngressPolicyEntry": {
+    "name": "qosServiceIngressPolicyEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.12.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosServicePolicy",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosServPolicyShaperProfile": {
+    "name": "qosServPolicyShaperProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.12.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TShaperId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosServPolicySchedulingProfile": {
+    "name": "qosServPolicySchedulingProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.12.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TSSchedulingProfile",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosServPolicyTailDropProfile": {
+    "name": "qosServPolicyTailDropProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.12.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTailDropId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosServiceIngressQueueTable": {
+    "name": "qosServiceIngressQueueTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.12.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosServiceIngressQueueEntry": {
+    "name": "qosServiceIngressQueueEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.12.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosServicePolicy",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosServInQueueQueue": {
+    "name": "qosServInQueueQueue",
+    "oid": "1.3.6.1.4.1.738.1.7.1.12.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TQueueId",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosServInQueueRowStatus": {
+    "name": "qosServInQueueRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.12.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "qosServInQueueTailDropProfile": {
+    "name": "qosServInQueueTailDropProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.12.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTailDropId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosServInQueueShaperProfile": {
+    "name": "qosServInQueueShaperProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.12.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TShaperId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosNetworkPolicyTable": {
+    "name": "qosNetworkPolicyTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosNetworkPolicyEntry": {
+    "name": "qosNetworkPolicyEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosNetworkPolicy",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosNetworkPolicy": {
+    "name": "qosNetworkPolicy",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosNetworkPolicyRowStatus": {
+    "name": "qosNetworkPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "qosNetworkPolicyDescription": {
+    "name": "qosNetworkPolicyDescription",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemDescription",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosNetworkIngressTable": {
+    "name": "qosNetworkIngressTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosNetworkIngressEntry": {
+    "name": "qosNetworkIngressEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosNetworkPolicy",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosNetworkIngressFC": {
+    "name": "qosNetworkIngressFC",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFCNameOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosNetworkIngressConformance": {
+    "name": "qosNetworkIngressConformance",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TConformanceLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosTrustDot1pMode": {
+    "name": "qosTrustDot1pMode",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosTrustDot1pModePreservePriority": {
+    "name": "qosTrustDot1pModePreservePriority",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosTrustDscpMode": {
+    "name": "qosTrustDscpMode",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosNetworkEgressTable": {
+    "name": "qosNetworkEgressTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosNetworkEgressEntry": {
+    "name": "qosNetworkEgressEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosNetworkPolicy",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosNetPolicySchedulingProfile": {
+    "name": "qosNetPolicySchedulingProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TSSchedulingProfile",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosNetPolicyShaperProfile": {
+    "name": "qosNetPolicyShaperProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TShaperId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosNetPolicyTailDropProfile": {
+    "name": "qosNetPolicyTailDropProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTailDropId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosNetPolicySredProfile": {
+    "name": "qosNetPolicySredProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TSredId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosNetworkEgressQueueTable": {
+    "name": "qosNetworkEgressQueueTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosNetworkEgressQueueEntry": {
+    "name": "qosNetworkEgressQueueEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosNetworkPolicy",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosNetworkQueue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosNetworkQueue": {
+    "name": "qosNetworkQueue",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TQueueId",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosNetworkQueueRowStatus": {
+    "name": "qosNetworkQueueRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "qosNetworkQueueShaperProfile": {
+    "name": "qosNetworkQueueShaperProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TShaperId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosNetworkQueueTailDropProfile": {
+    "name": "qosNetworkQueueTailDropProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTailDropId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosNetworkQueueSredProfile": {
+    "name": "qosNetworkQueueSredProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.13.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TSredId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosGlobalIngressMapTable": {
+    "name": "qosGlobalIngressMapTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosGlobalIngressMapEntry": {
+    "name": "qosGlobalIngressMapEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosIngressMapType",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosIngressMapValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosIngressMapType": {
+    "name": "qosIngressMapType",
+    "oid": "1.3.6.1.4.1.738.1.7.1.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1p": 1,
+          "dscp": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosIngressMapValue": {
+    "name": "qosIngressMapValue",
+    "oid": "1.3.6.1.4.1.738.1.7.1.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosIngressRowStatus": {
+    "name": "qosIngressRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.14.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "qosIngressFC": {
+    "name": "qosIngressFC",
+    "oid": "1.3.6.1.4.1.738.1.7.1.14.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFCNameOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosIngressFCConformance": {
+    "name": "qosIngressFCConformance",
+    "oid": "1.3.6.1.4.1.738.1.7.1.14.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TConformanceLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosGlobalEgressRemarkTable": {
+    "name": "qosGlobalEgressRemarkTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.14.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosGlobalEgressRemarkEntry": {
+    "name": "qosGlobalEgressRemarkEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.14.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosEgressFC",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosEgressFCConformance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosEgressFC": {
+    "name": "qosEgressFC",
+    "oid": "1.3.6.1.4.1.738.1.7.1.14.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFCNameOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosEgressFCConformance": {
+    "name": "qosEgressFCConformance",
+    "oid": "1.3.6.1.4.1.738.1.7.1.14.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TConformanceLevel",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosEgressRowStatus": {
+    "name": "qosEgressRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.14.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "qosEgressRemarkType": {
+    "name": "qosEgressRemarkType",
+    "oid": "1.3.6.1.4.1.738.1.7.1.14.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1p": 1,
+          "dscp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosEgressRemarkValue": {
+    "name": "qosEgressRemarkValue",
+    "oid": "1.3.6.1.4.1.738.1.7.1.14.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosServiceTable": {
+    "name": "qosServiceTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.15.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosServiceEntry": {
+    "name": "qosServiceEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.15.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosServiceIndex": {
+    "name": "qosServiceIndex",
+    "oid": "1.3.6.1.4.1.738.1.7.1.15.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosServiceRowStatus": {
+    "name": "qosServiceRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.15.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "qosServicePolicyOnServ": {
+    "name": "qosServicePolicyOnServ",
+    "oid": "1.3.6.1.4.1.738.1.7.1.15.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "qosServiceSapTable": {
+    "name": "qosServiceSapTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.15.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosServiceSapEntry": {
+    "name": "qosServiceSapEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.15.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosServiceIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosServiceSapPortId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosServiceSapEncapValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosServiceSapPortId": {
+    "name": "qosServiceSapPortId",
+    "oid": "1.3.6.1.4.1.738.1.7.1.15.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosServiceSapEncapValue": {
+    "name": "qosServiceSapEncapValue",
+    "oid": "1.3.6.1.4.1.738.1.7.1.15.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TQEncapVal",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosServiceSapRowStatus": {
+    "name": "qosServiceSapRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.15.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "qosServiceSapPolicyEnable": {
+    "name": "qosServiceSapPolicyEnable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.15.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosInterfaceTable": {
+    "name": "qosInterfaceTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.16.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosInterfaceEntry": {
+    "name": "qosInterfaceEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.16.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosInterfaceIndex": {
+    "name": "qosInterfaceIndex",
+    "oid": "1.3.6.1.4.1.738.1.7.1.16.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosInterfaceRowStatus": {
+    "name": "qosInterfaceRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.16.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "qosInterfacePolicy": {
+    "name": "qosInterfacePolicy",
+    "oid": "1.3.6.1.4.1.738.1.7.1.16.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "qosStatisticsTable": {
+    "name": "qosStatisticsTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.17.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosStatisticsEntry": {
+    "name": "qosStatisticsEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.17.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosStatInterfaceIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosQueueIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosStatInterfaceIndex": {
+    "name": "qosStatInterfaceIndex",
+    "oid": "1.3.6.1.4.1.738.1.7.1.17.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosQueueIndex": {
+    "name": "qosQueueIndex",
+    "oid": "1.3.6.1.4.1.738.1.7.1.17.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TQueueId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosReceivedBytes": {
+    "name": "qosReceivedBytes",
+    "oid": "1.3.6.1.4.1.738.1.7.1.17.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosDroppedBytes": {
+    "name": "qosDroppedBytes",
+    "oid": "1.3.6.1.4.1.738.1.7.1.17.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosClearStatistics": {
+    "name": "qosClearStatistics",
+    "oid": "1.3.6.1.4.1.738.1.7.1.17.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "qosVlanPolicyTable": {
+    "name": "qosVlanPolicyTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.18.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosVlanPolicyEntry": {
+    "name": "qosVlanPolicyEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.18.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosVlanPolicy",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosVlanPolicy": {
+    "name": "qosVlanPolicy",
+    "oid": "1.3.6.1.4.1.738.1.7.1.18.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosVlanPolicyDescription": {
+    "name": "qosVlanPolicyDescription",
+    "oid": "1.3.6.1.4.1.738.1.7.1.18.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemDescription",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosVlanPolicyRowStatus": {
+    "name": "qosVlanPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.18.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "qosVlanIngressPolicyTable": {
+    "name": "qosVlanIngressPolicyTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.18.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosVlanIngressPolicyEntry": {
+    "name": "qosVlanIngressPolicyEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.18.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosVlanPolicy",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosVlanPolicyShaperProfile": {
+    "name": "qosVlanPolicyShaperProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.18.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TShaperId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosVlanPolicySchedulingProfile": {
+    "name": "qosVlanPolicySchedulingProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.18.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TSSchedulingProfile",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosVlanPolicyTailDropProfile": {
+    "name": "qosVlanPolicyTailDropProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.18.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTailDropId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosVlanIngressQueueTable": {
+    "name": "qosVlanIngressQueueTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.18.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosVlanIngressQueueEntry": {
+    "name": "qosVlanIngressQueueEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.18.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosVlanPolicy",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosVlanInQueueQueue": {
+    "name": "qosVlanInQueueQueue",
+    "oid": "1.3.6.1.4.1.738.1.7.1.18.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TQueueId",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosVlanInQueueShaperProfile": {
+    "name": "qosVlanInQueueShaperProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.18.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TShaperId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosVlanInQueueTailDropProfile": {
+    "name": "qosVlanInQueueTailDropProfile",
+    "oid": "1.3.6.1.4.1.738.1.7.1.18.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTailDropId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosVlanInQueueRowStatus": {
+    "name": "qosVlanInQueueRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.18.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "qosVlanTable": {
+    "name": "qosVlanTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.19.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosVlanEntry": {
+    "name": "qosVlanEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.19.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosVlanIndex": {
+    "name": "qosVlanIndex",
+    "oid": "1.3.6.1.4.1.738.1.7.1.19.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosVlanPolicyOnVlan": {
+    "name": "qosVlanPolicyOnVlan",
+    "oid": "1.3.6.1.4.1.738.1.7.1.19.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "qosVlanRowStatus": {
+    "name": "qosVlanRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.19.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "qosVlanIngressPortTable": {
+    "name": "qosVlanIngressPortTable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.19.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosVlanIngressPortEntry": {
+    "name": "qosVlanIngressPortEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.1.19.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-QOS-MIB",
+        "object": "qosVlanIngressPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosVlanIngressPortId": {
+    "name": "qosVlanIngressPortId",
+    "oid": "1.3.6.1.4.1.738.1.7.1.19.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosVlanPortPolicyEnable": {
+    "name": "qosVlanPortPolicyEnable",
+    "oid": "1.3.6.1.4.1.738.1.7.1.19.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosVlanPortRowStatus": {
+    "name": "qosVlanPortRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.1.19.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-QOS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-QOS-MIB"
+  }
+}

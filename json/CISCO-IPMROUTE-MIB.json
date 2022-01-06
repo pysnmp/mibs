@@ -1,0 +1,1222 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "IPMROUTE-STD-MIB": [
+      "ipMRouteEntry",
+      "ipMRouteInterfaceEntry",
+      "ipMRouteNextHopEntry"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoIpMRouteMIB": {
+    "name": "ciscoIpMRouteMIB",
+    "oid": "1.3.6.1.4.1.9.10.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-03-07 00:00",
+        "description": "Add 32-bit and 64-bit per interface packet counters. These apply to all interfaces, including Point-To-Point types, unlike ifInMulticastPkts etc which only apply to interfaces with multicast at that layer. Also fix import of Unsigned32."
+      },
+      {
+        "revision": "2000-12-22 00:00",
+        "description": "Add ciscoIpMRouteNumberOfEntries. Also add 64-bit counters to represent information for high speed interfaces like OC-192. Deprecate ciscoIpMRouteBps in favour of the 64-bit counter ciscoIpMRouteBps2. ciscoIpMouteMetric deprecated in favour of ciscoIpMouteMetric2 to correctly represent a 32-bit unsigned metric value."
+      },
+      {
+        "revision": "2000-05-15 00:00",
+        "description": "Added MIB support for multicast heartbeat monitoring."
+      },
+      {
+        "revision": "1999-02-08 00:00",
+        "description": "Add ciscoIpMRouteJoinFlag, ciscoIpMRouteMsdpFlag and ciscoIpMRouteProxyJoinFlag."
+      },
+      {
+        "revision": "1996-10-11 00:00",
+        "description": "Obsolete ciscoIpMRouteInLimit and replaced with ciscoIpMRouteInLimit2."
+      }
+    ]
+  },
+  "ciscoIpMRouteMIBObjects": {
+    "name": "ciscoIpMRouteMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoIpMRoute": {
+    "name": "ciscoIpMRoute",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoIpMRouteNumberOfEntries": {
+    "name": "ciscoIpMRouteNumberOfEntries",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteTable": {
+    "name": "ciscoIpMRouteTable",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoIpMRouteEntry": {
+    "name": "ciscoIpMRouteEntry",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ciscoIpMRouteEntry",
+      "module": "CISCO-IPMROUTE-MIB",
+      "object": "ipMRouteEntry"
+    },
+    "status": "current"
+  },
+  "ciscoIpMRoutePruneFlag": {
+    "name": "ciscoIpMRoutePruneFlag",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteSparseFlag": {
+    "name": "ciscoIpMRouteSparseFlag",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteConnectedFlag": {
+    "name": "ciscoIpMRouteConnectedFlag",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteLocalFlag": {
+    "name": "ciscoIpMRouteLocalFlag",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteRegisterFlag": {
+    "name": "ciscoIpMRouteRegisterFlag",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteRpFlag": {
+    "name": "ciscoIpMRouteRpFlag",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteSptFlag": {
+    "name": "ciscoIpMRouteSptFlag",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteBps": {
+    "name": "ciscoIpMRouteBps",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ciscoIpMRouteMetric": {
+    "name": "ciscoIpMRouteMetric",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ciscoIpMRouteMetricPreference": {
+    "name": "ciscoIpMRouteMetricPreference",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteInLimit": {
+    "name": "ciscoIpMRouteInLimit",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Kbits/second",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ciscoIpMRouteLastUsed": {
+    "name": "ciscoIpMRouteLastUsed",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteInLimit2": {
+    "name": "ciscoIpMRouteInLimit2",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Kbits/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteJoinFlag": {
+    "name": "ciscoIpMRouteJoinFlag",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteMsdpFlag": {
+    "name": "ciscoIpMRouteMsdpFlag",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteProxyJoinFlag": {
+    "name": "ciscoIpMRouteProxyJoinFlag",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRoutePkts": {
+    "name": "ciscoIpMRoutePkts",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteDifferentInIfPkts": {
+    "name": "ciscoIpMRouteDifferentInIfPkts",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteOctets": {
+    "name": "ciscoIpMRouteOctets",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteBps2": {
+    "name": "ciscoIpMRouteBps2",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteMetric2": {
+    "name": "ciscoIpMRouteMetric2",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteNextHopTable": {
+    "name": "ciscoIpMRouteNextHopTable",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoIpMRouteNextHopEntry": {
+    "name": "ciscoIpMRouteNextHopEntry",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ciscoIpMRouteNextHopEntry",
+      "module": "CISCO-IPMROUTE-MIB",
+      "object": "ipMRouteNextHopEntry"
+    },
+    "status": "current"
+  },
+  "ciscoIpMRouteNextHopOutLimit": {
+    "name": "ciscoIpMRouteNextHopOutLimit",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Kbits/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteNextHopMacHdr": {
+    "name": "ciscoIpMRouteNextHopMacHdr",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteNextHopPkts": {
+    "name": "ciscoIpMRouteNextHopPkts",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteHeartBeatTable": {
+    "name": "ciscoIpMRouteHeartBeatTable",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoIpMRouteHeartBeatEntry": {
+    "name": "ciscoIpMRouteHeartBeatEntry",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteHeartBeatGroupAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpMRouteHeartBeatGroupAddr": {
+    "name": "ciscoIpMRouteHeartBeatGroupAddr",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoIpMRouteHeartBeatSourceAddr": {
+    "name": "ciscoIpMRouteHeartBeatSourceAddr",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteHeartBeatInterval": {
+    "name": "ciscoIpMRouteHeartBeatInterval",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoIpMRouteHeartBeatWindowSize": {
+    "name": "ciscoIpMRouteHeartBeatWindowSize",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoIpMRouteHeartBeatCount": {
+    "name": "ciscoIpMRouteHeartBeatCount",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteHeartBeatMinimum": {
+    "name": "ciscoIpMRouteHeartBeatMinimum",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoIpMRouteHeartBeatAlertTime": {
+    "name": "ciscoIpMRouteHeartBeatAlertTime",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteHeartBeatStatus": {
+    "name": "ciscoIpMRouteHeartBeatStatus",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoIpMRouteInterfaceTable": {
+    "name": "ciscoIpMRouteInterfaceTable",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoIpMRouteInterfaceEntry": {
+    "name": "ciscoIpMRouteInterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ciscoIpMRouteInterfaceEntry",
+      "module": "CISCO-IPMROUTE-MIB",
+      "object": "ipMRouteInterfaceEntry"
+    },
+    "status": "current"
+  },
+  "ciscoIpMRouteIfInMcastOctets": {
+    "name": "ciscoIpMRouteIfInMcastOctets",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteIfOutMcastOctets": {
+    "name": "ciscoIpMRouteIfOutMcastOctets",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteIfInMcastPkts": {
+    "name": "ciscoIpMRouteIfInMcastPkts",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteIfHCInMcastPkts": {
+    "name": "ciscoIpMRouteIfHCInMcastPkts",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteIfOutMcastPkts": {
+    "name": "ciscoIpMRouteIfOutMcastPkts",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteIfHCOutMcastPkts": {
+    "name": "ciscoIpMRouteIfHCOutMcastPkts",
+    "oid": "1.3.6.1.4.1.9.10.2.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMRouteNotifications": {
+    "name": "ciscoIpMRouteNotifications",
+    "oid": "1.3.6.1.4.1.9.10.2.3",
+    "class": "objectidentity"
+  },
+  "ciscoIpMRouteMissingHeartBeatsNotificationPrefix": {
+    "name": "ciscoIpMRouteMissingHeartBeatsNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.10.2.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoIpMRouteMissingHeartBeatsNotifications": {
+    "name": "ciscoIpMRouteMissingHeartBeatsNotifications",
+    "oid": "1.3.6.1.4.1.9.10.2.3.1.0",
+    "class": "objectidentity"
+  },
+  "ciscoIpMRouteMissingHeartBeats": {
+    "name": "ciscoIpMRouteMissingHeartBeats",
+    "oid": "1.3.6.1.4.1.9.10.2.3.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteHeartBeatSourceAddr"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteHeartBeatInterval"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteHeartBeatWindowSize"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteHeartBeatCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpMRouteMIBConformance": {
+    "name": "ciscoIpMRouteMIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoIpMRouteMIBCompliances": {
+    "name": "ciscoIpMRouteMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.2.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoIpMRouteMIBGroups": {
+    "name": "ciscoIpMRouteMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.2.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoIpMRouteMIBCompliance": {
+    "name": "ciscoIpMRouteMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.2.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIpMRouteMIBGroup",
+        "module": "CISCO-IPMROUTE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoIpMRouteMIBComplianceV11R01": {
+    "name": "ciscoIpMRouteMIBComplianceV11R01",
+    "oid": "1.3.6.1.4.1.9.10.2.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIpMRouteMIBGroupV11R01",
+        "module": "CISCO-IPMROUTE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoIpMRouteMIBComplianceV12R00S": {
+    "name": "ciscoIpMRouteMIBComplianceV12R00S",
+    "oid": "1.3.6.1.4.1.9.10.2.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIpMRouteMIBGroupV12R00S",
+        "module": "CISCO-IPMROUTE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoIpMRouteMIBComplianceV12R28S": {
+    "name": "ciscoIpMRouteMIBComplianceV12R28S",
+    "oid": "1.3.6.1.4.1.9.10.2.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIpMRouteMIBGroupV12R28S",
+        "module": "CISCO-IPMROUTE-MIB"
+      },
+      {
+        "object": "ciscoIpMRouteMIBIfGroup",
+        "module": "CISCO-IPMROUTE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpMRouteMIBGroup": {
+    "name": "ciscoIpMRouteMIBGroup",
+    "oid": "1.3.6.1.4.1.9.10.2.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRoutePruneFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteSparseFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteConnectedFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteLocalFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteRegisterFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteRpFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteSptFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteBps"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteMetric"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteMetricPreference"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteInLimit"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteLastUsed"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteNextHopOutLimit"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteNextHopMacHdr"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoIpMRouteMIBGroupV11R01": {
+    "name": "ciscoIpMRouteMIBGroupV11R01",
+    "oid": "1.3.6.1.4.1.9.10.2.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRoutePruneFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteSparseFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteConnectedFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteLocalFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteRegisterFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteRpFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteSptFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteBps"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteMetric"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteMetricPreference"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteLastUsed"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteInLimit2"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteJoinFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteMsdpFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteProxyJoinFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteNextHopOutLimit"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteNextHopMacHdr"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoIpMRouteMIBHeartBeatGroup": {
+    "name": "ciscoIpMRouteMIBHeartBeatGroup",
+    "oid": "1.3.6.1.4.1.9.10.2.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteHeartBeatSourceAddr"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteHeartBeatInterval"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteHeartBeatWindowSize"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteHeartBeatCount"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteHeartBeatMinimum"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteHeartBeatAlertTime"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteHeartBeatStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpMRouteMIBGroupV12R00S": {
+    "name": "ciscoIpMRouteMIBGroupV12R00S",
+    "oid": "1.3.6.1.4.1.9.10.2.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteNumberOfEntries"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRoutePruneFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteSparseFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteConnectedFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteLocalFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteRegisterFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteRpFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteSptFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteMetricPreference"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteLastUsed"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteInLimit2"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteJoinFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteMsdpFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteProxyJoinFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRoutePkts"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteDifferentInIfPkts"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteOctets"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteBps2"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteMetric2"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteNextHopOutLimit"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteNextHopMacHdr"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteNextHopPkts"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteIfInMcastOctets"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteIfOutMcastOctets"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoIpMRouteMIBNotifGroup": {
+    "name": "ciscoIpMRouteMIBNotifGroup",
+    "oid": "1.3.6.1.4.1.9.10.2.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteMissingHeartBeats"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpMRouteMIBGroupV12R28S": {
+    "name": "ciscoIpMRouteMIBGroupV12R28S",
+    "oid": "1.3.6.1.4.1.9.10.2.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteNumberOfEntries"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRoutePruneFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteSparseFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteConnectedFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteLocalFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteRegisterFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteRpFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteSptFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteMetricPreference"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteLastUsed"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteInLimit2"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteJoinFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteMsdpFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteProxyJoinFlag"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRoutePkts"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteDifferentInIfPkts"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteOctets"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteBps2"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteMetric2"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteNextHopOutLimit"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteNextHopMacHdr"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteNextHopPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpMRouteMIBIfGroup": {
+    "name": "ciscoIpMRouteMIBIfGroup",
+    "oid": "1.3.6.1.4.1.9.10.2.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteIfInMcastOctets"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteIfOutMcastOctets"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteIfInMcastPkts"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteIfHCInMcastPkts"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteIfOutMcastPkts"
+      },
+      {
+        "module": "CISCO-IPMROUTE-MIB",
+        "object": "ciscoIpMRouteIfHCOutMcastPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IPMROUTE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IPMROUTE-MIB"
+  }
+}

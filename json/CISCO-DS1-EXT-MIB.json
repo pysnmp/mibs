@@ -1,0 +1,2539 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "BulkConfigResult",
+      "ConfigIterator"
+    ],
+    "DS1-MIB": [
+      "dsx1TotalEntry",
+      "dsx1FarEndTotalEntry",
+      "dsx1FarEndCurrentEntry",
+      "dsx1ConfigEntry",
+      "dsx1FarEndIntervalEntry",
+      "dsx1CurrentEntry",
+      "dsx1IntervalEntry"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfIntervalCount",
+      "PerfTotalCount",
+      "PerfCurrentCount"
+    ],
+    "RMON-MIB": [
+      "OwnerString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoDs1ExtMIB": {
+    "name": "ciscoDs1ExtMIB",
+    "oid": "1.3.6.1.4.1.9.9.229",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-02-25 00:00",
+        "description": "Add new table: cds1CallConfigTable"
+      },
+      {
+        "revision": "2002-12-30 00:00",
+        "description": "Add the following objects to cds1ConfigTable: cds1Repetition, cds1RepetitionOwner, cds1RepetitionResult. "
+      },
+      {
+        "revision": "2001-09-13 00:00",
+        "description": "Initial version of the MIB module."
+      }
+    ]
+  },
+  "ciscoDs1MIBObjects": {
+    "name": "ciscoDs1MIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.229.1",
+    "class": "objectidentity"
+  },
+  "cds1Config": {
+    "name": "cds1Config",
+    "oid": "1.3.6.1.4.1.9.9.229.1.1",
+    "class": "objectidentity"
+  },
+  "cds1Alarm": {
+    "name": "cds1Alarm",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2",
+    "class": "objectidentity"
+  },
+  "cds1Stats": {
+    "name": "cds1Stats",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3",
+    "class": "objectidentity"
+  },
+  "cds1NotificationPrefix": {
+    "name": "cds1NotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.229.1.4",
+    "class": "objectidentity"
+  },
+  "PerfCurrent24HourCount": {
+    "name": "PerfCurrent24HourCount",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "PerfPrevious24HourCount": {
+    "name": "PerfPrevious24HourCount",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "cds1ConfigTable": {
+    "name": "cds1ConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.229.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cds1ConfigEntry": {
+    "name": "cds1ConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.229.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cds1ConfigEntry",
+      "module": "CISCO-DS1-EXT-MIB",
+      "object": "dsx1ConfigEntry"
+    },
+    "status": "current"
+  },
+  "cds1LineType": {
+    "name": "cds1LineType",
+    "oid": "1.3.6.1.4.1.9.9.229.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "dsx1ESF": 2,
+          "dsx1D4": 3,
+          "dsx1E1": 4,
+          "dsx1E1CRC": 5,
+          "dsx1E1MF": 6,
+          "dsx1E1CRCMF": 7,
+          "dsx1Unframed": 8,
+          "dsx1E1Unframed": 9,
+          "dsx1DS2M12": 10,
+          "dsx2E2": 11,
+          "dsx1E1Q50": 20,
+          "dsx1E1Q50CRC": 21
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cds1LoopbackCodeDetection": {
+    "name": "cds1LoopbackCodeDetection",
+    "oid": "1.3.6.1.4.1.9.9.229.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cds1Repetition": {
+    "name": "cds1Repetition",
+    "oid": "1.3.6.1.4.1.9.9.229.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigIterator",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cds1RepetitionOwner": {
+    "name": "cds1RepetitionOwner",
+    "oid": "1.3.6.1.4.1.9.9.229.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cds1RepetitionResult": {
+    "name": "cds1RepetitionResult",
+    "oid": "1.3.6.1.4.1.9.9.229.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BulkConfigResult",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1CallConfigTable": {
+    "name": "cds1CallConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.229.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cds1CallConfigEntry": {
+    "name": "cds1CallConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.229.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cds1CallConfigEntry",
+      "module": "CISCO-DS1-EXT-MIB",
+      "object": "dsx1ConfigEntry"
+    },
+    "status": "current"
+  },
+  "cds1CallTrunkConditionEnable": {
+    "name": "cds1CallTrunkConditionEnable",
+    "oid": "1.3.6.1.4.1.9.9.229.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cds1CurrentTable": {
+    "name": "cds1CurrentTable",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cds1CurrentEntry": {
+    "name": "cds1CurrentEntry",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cds1CurrentEntry",
+      "module": "CISCO-DS1-EXT-MIB",
+      "object": "dsx1CurrentEntry"
+    },
+    "status": "current"
+  },
+  "cds1CurrentLSESs": {
+    "name": "cds1CurrentLSESs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1CurrentPSASs": {
+    "name": "cds1CurrentPSASs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1IntervalTable": {
+    "name": "cds1IntervalTable",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cds1IntervalEntry": {
+    "name": "cds1IntervalEntry",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cds1IntervalEntry",
+      "module": "CISCO-DS1-EXT-MIB",
+      "object": "dsx1IntervalEntry"
+    },
+    "status": "current"
+  },
+  "cds1IntervalLSESs": {
+    "name": "cds1IntervalLSESs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1IntervalPSASs": {
+    "name": "cds1IntervalPSASs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1TotalTable": {
+    "name": "cds1TotalTable",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cds1TotalEntry": {
+    "name": "cds1TotalEntry",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cds1TotalEntry",
+      "module": "CISCO-DS1-EXT-MIB",
+      "object": "dsx1TotalEntry"
+    },
+    "status": "current"
+  },
+  "cds1TotalLSESs": {
+    "name": "cds1TotalLSESs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1TotalPSASs": {
+    "name": "cds1TotalPSASs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1FarEndCurrentTable": {
+    "name": "cds1FarEndCurrentTable",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cds1FarEndCurrentEntry": {
+    "name": "cds1FarEndCurrentEntry",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cds1FarEndCurrentEntry",
+      "module": "CISCO-DS1-EXT-MIB",
+      "object": "dsx1FarEndCurrentEntry"
+    },
+    "status": "current"
+  },
+  "cds1FarEndCurrentLOFCs": {
+    "name": "cds1FarEndCurrentLOFCs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1FarEndIntervalTable": {
+    "name": "cds1FarEndIntervalTable",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cds1FarEndIntervalEntry": {
+    "name": "cds1FarEndIntervalEntry",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cds1FarEndIntervalEntry",
+      "module": "CISCO-DS1-EXT-MIB",
+      "object": "dsx1FarEndIntervalEntry"
+    },
+    "status": "current"
+  },
+  "cds1FarEndIntervalLOFCs": {
+    "name": "cds1FarEndIntervalLOFCs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1FarEndTotalTable": {
+    "name": "cds1FarEndTotalTable",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cds1FarEndTotalEntry": {
+    "name": "cds1FarEndTotalEntry",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cds1FarEndTotalEntry",
+      "module": "CISCO-DS1-EXT-MIB",
+      "object": "dsx1FarEndTotalEntry"
+    },
+    "status": "current"
+  },
+  "cds1FarEndTotalLOFCs": {
+    "name": "cds1FarEndTotalLOFCs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1AlarmThresholdGroupTable": {
+    "name": "cds1AlarmThresholdGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cds1AlarmThresholdGroupEntry": {
+    "name": "cds1AlarmThresholdGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1AlarmThresholdGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cds1AlarmThresholdGroupIndex": {
+    "name": "cds1AlarmThresholdGroupIndex",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cds1Current15MinBESsThreshold": {
+    "name": "cds1Current15MinBESsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2147483647,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1Current24HrBESsThreshold": {
+    "name": "cds1Current24HrBESsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2147483647,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1Current15MinCSSsThreshold": {
+    "name": "cds1Current15MinCSSsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2147483647,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1Current24HrCSSsThreshold": {
+    "name": "cds1Current24HrCSSsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2147483647,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1Current15MinDMsThreshold": {
+    "name": "cds1Current15MinDMsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2147483647,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1Current24HrDMsThreshold": {
+    "name": "cds1Current24HrDMsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2147483647,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1Current15MinESsThreshold": {
+    "name": "cds1Current15MinESsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 12,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1Current24HrESsThreshold": {
+    "name": "cds1Current24HrESsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 121,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1Current15MinLCVsThreshold": {
+    "name": "cds1Current15MinLCVsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 14,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1Current24HrLCVsThreshold": {
+    "name": "cds1Current24HrLCVsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 134,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1Current15MinLESsThreshold": {
+    "name": "cds1Current15MinLESsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 12,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1Current24HrLESsThreshold": {
+    "name": "cds1Current24HrLESsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 121,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1Current15MinLSESsThreshold": {
+    "name": "cds1Current15MinLSESsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1Current24HrLSESsThreshold": {
+    "name": "cds1Current24HrLSESsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1Current15MinPCVsThreshold": {
+    "name": "cds1Current15MinPCVsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2147483647,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1Current24HrPCVsThreshold": {
+    "name": "cds1Current24HrPCVsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2147483647,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1Current15MinPSASsThreshold": {
+    "name": "cds1Current15MinPSASsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2147483647,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1Current24HrPSASsThreshold": {
+    "name": "cds1Current24HrPSASsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2147483647,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1Current15MinSESsThreshold": {
+    "name": "cds1Current15MinSESsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1Current24HrSESsThreshold": {
+    "name": "cds1Current24HrSESsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1Current15MinSEFSsThreshold": {
+    "name": "cds1Current15MinSEFSsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1Current24HrSEFSsThreshold": {
+    "name": "cds1Current24HrSEFSsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 17,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1Current15MinUASsThreshold": {
+    "name": "cds1Current15MinUASsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1Current24HrUASsThreshold": {
+    "name": "cds1Current24HrUASsThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1AlarmThresholdGroupRowStatus": {
+    "name": "cds1AlarmThresholdGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cds1AlarmConfigTable": {
+    "name": "cds1AlarmConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cds1AlarmConfigEntry": {
+    "name": "cds1AlarmConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cds1AlarmConfigEntry",
+      "module": "CISCO-DS1-EXT-MIB",
+      "object": "dsx1ConfigEntry"
+    },
+    "status": "current"
+  },
+  "cds1StatisticalAlarmSeverity": {
+    "name": "cds1StatisticalAlarmSeverity",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "minor": 1,
+          "major": 2,
+          "none": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "minor",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cds1StatisticalAlarmState": {
+    "name": "cds1StatisticalAlarmState",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "cds1BES15Min": 0,
+        "cds1BES24Hr": 1,
+        "cds1CSS15Min": 2,
+        "cds1CSS24Hr": 3,
+        "cds1DM15Min": 4,
+        "cds1DM24Hr": 5,
+        "cds1ES15Min": 6,
+        "cds1ES24Hr": 7,
+        "cds1PCV15Min": 8,
+        "cds1PCV24Hr": 9,
+        "cds1LCV15Min": 10,
+        "cds1LCV24Hr": 11,
+        "cds1LES15Min": 12,
+        "cds1LES24Hr": 13,
+        "cds1LSES15Min": 14,
+        "cds1LSES24Hr": 15,
+        "cds1PSAS15Min": 16,
+        "cds1PSAS24Hr": 17,
+        "cds1SES15Min": 18,
+        "cds1SES24Hr": 19,
+        "cds1SEFS15Min": 20,
+        "cds1SEFS24Hr": 21,
+        "cds1UAS15Min": 22,
+        "cds1UAS24Hr": 23
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1AlarmUpCount": {
+    "name": "cds1AlarmUpCount",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cds1AlarmDownCount": {
+    "name": "cds1AlarmDownCount",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cds1AlarmThreshold": {
+    "name": "cds1AlarmThreshold",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 150,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cds1AlarmThresholdActiveGroup": {
+    "name": "cds1AlarmThresholdActiveGroup",
+    "oid": "1.3.6.1.4.1.9.9.229.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cds1Current24HrStatsTable": {
+    "name": "cds1Current24HrStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cds1Current24HrStatsEntry": {
+    "name": "cds1Current24HrStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cds1Current24HrESs": {
+    "name": "cds1Current24HrESs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrent24HourCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1Current24HrSESs": {
+    "name": "cds1Current24HrSESs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrent24HourCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1Current24HrSEFSs": {
+    "name": "cds1Current24HrSEFSs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrent24HourCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1Current24HrUASs": {
+    "name": "cds1Current24HrUASs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrent24HourCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1Current24HrCSSs": {
+    "name": "cds1Current24HrCSSs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrent24HourCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1Current24HrPCVs": {
+    "name": "cds1Current24HrPCVs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrent24HourCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1Current24HrLESs": {
+    "name": "cds1Current24HrLESs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrent24HourCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1Current24HrBESs": {
+    "name": "cds1Current24HrBESs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrent24HourCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1Current24HrDMs": {
+    "name": "cds1Current24HrDMs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrent24HourCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1Current24HrLCVs": {
+    "name": "cds1Current24HrLCVs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrent24HourCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1Previous24HrStatsTable": {
+    "name": "cds1Previous24HrStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cds1Previous24HrStatsEntry": {
+    "name": "cds1Previous24HrStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cds1Previous24HrESs": {
+    "name": "cds1Previous24HrESs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfPrevious24HourCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1Previous24HrSESs": {
+    "name": "cds1Previous24HrSESs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfPrevious24HourCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1Previous24HrSEFSs": {
+    "name": "cds1Previous24HrSEFSs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfPrevious24HourCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1Previous24HrUASs": {
+    "name": "cds1Previous24HrUASs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfPrevious24HourCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1Previous24HrCSSs": {
+    "name": "cds1Previous24HrCSSs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfPrevious24HourCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1Previous24HrPCVs": {
+    "name": "cds1Previous24HrPCVs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfPrevious24HourCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1Previous24HrLESs": {
+    "name": "cds1Previous24HrLESs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfPrevious24HourCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1Previous24HrBESs": {
+    "name": "cds1Previous24HrBESs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfPrevious24HourCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1Previous24HrDMs": {
+    "name": "cds1Previous24HrDMs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfPrevious24HourCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1Previous24HrLCVs": {
+    "name": "cds1Previous24HrLCVs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfPrevious24HourCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1Previous24HrLSESs": {
+    "name": "cds1Previous24HrLSESs",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfPrevious24HourCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1ErrStatsTable": {
+    "name": "cds1ErrStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cds1ErrStatsEntry": {
+    "name": "cds1ErrStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cds1LOSCounts": {
+    "name": "cds1LOSCounts",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1OOFCounts": {
+    "name": "cds1OOFCounts",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1RAICounts": {
+    "name": "cds1RAICounts",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1FECounts": {
+    "name": "cds1FECounts",
+    "oid": "1.3.6.1.4.1.9.9.229.1.3.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cds1Notifications": {
+    "name": "cds1Notifications",
+    "oid": "1.3.6.1.4.1.9.9.229.1.4.0",
+    "class": "objectidentity"
+  },
+  "cds1StatThresholdAlarm": {
+    "name": "cds1StatThresholdAlarm",
+    "oid": "1.3.6.1.4.1.9.9.229.1.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1StatisticalAlarmState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs1MIBConformance": {
+    "name": "ciscoDs1MIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.229.3",
+    "class": "objectidentity"
+  },
+  "ciscoDs1MIBCompliances": {
+    "name": "ciscoDs1MIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.229.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoDs1MIBGroups": {
+    "name": "ciscoDs1MIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.229.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoDs1MIBCompliance": {
+    "name": "ciscoDs1MIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.229.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDs1ConfMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1CurrentMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1AlarmConfigGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1Alarm15MinThreshGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1Alarm24HrThreshGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1Current24HrMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1Previous24HrMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1IntervalMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1TotalMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1StatsMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1FarEndStatsMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoDs1MIBComplianceRev1": {
+    "name": "ciscoDs1MIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.229.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDs1ConfMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1CurrentMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1AlarmConfigGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1Alarm15MinThreshGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1Alarm24HrThreshGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1Current24HrMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1Previous24HrMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1IntervalMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1TotalMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1StatsMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1FarEndStatsMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1BulkConfGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoDs1MIBComplianceRev2": {
+    "name": "ciscoDs1MIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.229.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDs1ConfMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1CurrentMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1AlarmConfigGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1AlarmThreshGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1Alarm15MinThreshGroupRev1",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1Alarm24HrThreshGroupRev1",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1Current24HrMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1Previous24HrMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1IntervalMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1TotalMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1StatsMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1FarEndStatsMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1BulkConfGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoDs1MIBComplianceRev3": {
+    "name": "ciscoDs1MIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.229.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDs1ConfMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1CurrentMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1AlarmConfigGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1AlarmThreshGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1Alarm15MinThreshGroupRev1",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1Alarm24HrThreshGroupRev1",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1Current24HrMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1Previous24HrMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1IntervalMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1TotalMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1StatsMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1FarEndStatsMIBGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1BulkConfGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs1CallGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      },
+      {
+        "object": "cds1NEOptionalNotificationsGroup",
+        "module": "CISCO-DS1-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs1ConfMIBGroup": {
+    "name": "ciscoDs1ConfMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.229.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1LineType"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1LoopbackCodeDetection"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs1CurrentMIBGroup": {
+    "name": "ciscoDs1CurrentMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.229.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1CurrentLSESs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1CurrentPSASs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs1IntervalMIBGroup": {
+    "name": "ciscoDs1IntervalMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.229.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1IntervalLSESs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1IntervalPSASs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs1TotalMIBGroup": {
+    "name": "ciscoDs1TotalMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.229.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1TotalLSESs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1TotalPSASs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs1FarEndStatsMIBGroup": {
+    "name": "ciscoDs1FarEndStatsMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.229.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1FarEndCurrentLOFCs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1FarEndIntervalLOFCs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1FarEndTotalLOFCs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs1AlarmConfigGroup": {
+    "name": "ciscoDs1AlarmConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.229.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1StatisticalAlarmSeverity"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1StatisticalAlarmState"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1AlarmUpCount"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1AlarmDownCount"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1AlarmThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1AlarmThresholdActiveGroup"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs1Alarm15MinThreshGroup": {
+    "name": "ciscoDs1Alarm15MinThreshGroup",
+    "oid": "1.3.6.1.4.1.9.9.229.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinLCVsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinLESsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinPCVsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinSEFSsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinUASsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinLSESsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinSESsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinBESsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinDMsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinESsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinCSSsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinPSASsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1AlarmThresholdGroupRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoDs1Alarm24HrThreshGroup": {
+    "name": "ciscoDs1Alarm24HrThreshGroup",
+    "oid": "1.3.6.1.4.1.9.9.229.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrLCVsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrLESsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrPCVsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrSEFSsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrUASsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrLSESsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrSESsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrBESsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrCSSsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrDMsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrESsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrPSASsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1AlarmThresholdGroupRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoDs1Current24HrMIBGroup": {
+    "name": "ciscoDs1Current24HrMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.229.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrESs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrSESs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrSEFSs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrUASs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrCSSs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrPCVs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrLESs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrBESs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrDMs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrLCVs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs1Previous24HrMIBGroup": {
+    "name": "ciscoDs1Previous24HrMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.229.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Previous24HrESs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Previous24HrSESs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Previous24HrSEFSs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Previous24HrUASs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Previous24HrCSSs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Previous24HrPCVs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Previous24HrLESs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Previous24HrBESs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Previous24HrDMs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Previous24HrLCVs"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Previous24HrLSESs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs1StatsMIBGroup": {
+    "name": "ciscoDs1StatsMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.229.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1LOSCounts"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1OOFCounts"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1RAICounts"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1FECounts"
+      }
+    ],
+    "status": "current"
+  },
+  "cds1NEOptionalNotificationsGroup": {
+    "name": "cds1NEOptionalNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.229.3.2.12",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1StatThresholdAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs1BulkConfGroup": {
+    "name": "ciscoDs1BulkConfGroup",
+    "oid": "1.3.6.1.4.1.9.9.229.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Repetition"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1RepetitionOwner"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1RepetitionResult"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs1AlarmThreshGroup": {
+    "name": "ciscoDs1AlarmThreshGroup",
+    "oid": "1.3.6.1.4.1.9.9.229.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1AlarmThresholdGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs1Alarm15MinThreshGroupRev1": {
+    "name": "ciscoDs1Alarm15MinThreshGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.229.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinLCVsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinLESsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinPCVsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinSEFSsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinUASsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinLSESsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinSESsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinBESsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinDMsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinESsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinCSSsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current15MinPSASsThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs1Alarm24HrThreshGroupRev1": {
+    "name": "ciscoDs1Alarm24HrThreshGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.229.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrLCVsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrLESsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrPCVsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrSEFSsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrUASsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrLSESsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrSESsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrBESsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrCSSsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrDMsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrESsThreshold"
+      },
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1Current24HrPSASsThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs1CallGroup": {
+    "name": "ciscoDs1CallGroup",
+    "oid": "1.3.6.1.4.1.9.9.229.3.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DS1-EXT-MIB",
+        "object": "cds1CallTrunkConditionEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DS1-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DS1-EXT-MIB"
+  }
+}

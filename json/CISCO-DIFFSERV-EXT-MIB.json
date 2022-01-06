@@ -1,0 +1,901 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-VSAN-MIB": [
+      "vsanIndex"
+    ],
+    "DIFFSERV-MIB": [
+      "IndexInteger",
+      "IndexIntegerNextFree",
+      "diffServClfrEntry"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "RowPointer",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoDiffServExtMIB": {
+    "name": "ciscoDiffServExtMIB",
+    "oid": "1.3.6.1.4.1.9.9.381",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-11-16 00:00",
+        "description": "Changed max lengths of cdsmClfrName and cdsmFCMultiFieldClfrName to 63 bytes."
+      },
+      {
+        "revision": "2003-12-18 00:00",
+        "description": "Added cdsmClfrNextFreeElement and cdsmFCMultiFieldClfrNextFreeStmt."
+      },
+      {
+        "revision": "2003-12-12 00:00",
+        "description": "Added cdsmChkSumTable. Added cdsmFCMultiFieldMatchWildCard object to cdsmFCMultiFieldMatchStmtTable."
+      },
+      {
+        "revision": "2003-12-05 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoDiffServExtMIBObjects": {
+    "name": "ciscoDiffServExtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.381.1",
+    "class": "objectidentity"
+  },
+  "ciscoDiffServExtMIBConform": {
+    "name": "ciscoDiffServExtMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.381.2",
+    "class": "objectidentity"
+  },
+  "cdsmConfiguration": {
+    "name": "cdsmConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1",
+    "class": "objectidentity"
+  },
+  "CdsmDataDirection": {
+    "name": "CdsmDataDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CdsmFcAddrAndMask": {
+    "name": "CdsmFcAddrAndMask",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 3
+          },
+          {
+            "min": 6,
+            "max": 6
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cdsmDataPathTable": {
+    "name": "cdsmDataPathTable",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmDataPathEntry": {
+    "name": "cdsmDataPathEntry",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmDataPathDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsmDataPathDirection": {
+    "name": "cdsmDataPathDirection",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdsmDataDirection",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmDataPathClfrStart": {
+    "name": "cdsmDataPathClfrStart",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmDataPathStatus": {
+    "name": "cdsmDataPathStatus",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmClfrTable": {
+    "name": "cdsmClfrTable",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmClfrEntry": {
+    "name": "cdsmClfrEntry",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cdsmClfrEntry",
+      "module": "CISCO-DIFFSERV-EXT-MIB",
+      "object": "diffServClfrEntry"
+    },
+    "status": "current"
+  },
+  "cdsmClfrName": {
+    "name": "cdsmClfrName",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmClfrNextFreeElement": {
+    "name": "cdsmClfrNextFreeElement",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexIntegerNextFree",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmFCMultiFieldClfrTable": {
+    "name": "cdsmFCMultiFieldClfrTable",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmFCMultiFieldClfrEntry": {
+    "name": "cdsmFCMultiFieldClfrEntry",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldClfrId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsmFCMultiFieldClfrId": {
+    "name": "cdsmFCMultiFieldClfrId",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmFCMultiFieldClfrName": {
+    "name": "cdsmFCMultiFieldClfrName",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmFCMultiFieldClfrMatch": {
+    "name": "cdsmFCMultiFieldClfrMatch",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmFCMultiFieldClfrStatus": {
+    "name": "cdsmFCMultiFieldClfrStatus",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmFCMultiFieldClfrNextFreeStmt": {
+    "name": "cdsmFCMultiFieldClfrNextFreeStmt",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexIntegerNextFree",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmFCMultiFieldMatchStmtTable": {
+    "name": "cdsmFCMultiFieldMatchStmtTable",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmFCMultiFieldMatchStmtEntry": {
+    "name": "cdsmFCMultiFieldMatchStmtEntry",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldClfrId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldMatchId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsmFCMultiFieldMatchId": {
+    "name": "cdsmFCMultiFieldMatchId",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmFCMultiFieldMatchSrcAddr": {
+    "name": "cdsmFCMultiFieldMatchSrcAddr",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdsmFcAddrAndMask",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmFCMultiFieldMatchDstAddr": {
+    "name": "cdsmFCMultiFieldMatchDstAddr",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdsmFcAddrAndMask",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmFCMultiFieldMatchIntf": {
+    "name": "cdsmFCMultiFieldMatchIntf",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmFCMultiFieldMatchStatus": {
+    "name": "cdsmFCMultiFieldMatchStatus",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmFCMultiFieldMatchWildCard": {
+    "name": "cdsmFCMultiFieldMatchWildCard",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmRateLimitTable": {
+    "name": "cdsmRateLimitTable",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmRateLimitEntry": {
+    "name": "cdsmRateLimitEntry",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmRateLimitId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsmRateLimitId": {
+    "name": "cdsmRateLimitId",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmRateLimitPercent": {
+    "name": "cdsmRateLimitPercent",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmSchedulerQTable": {
+    "name": "cdsmSchedulerQTable",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmSchedulerQEntry": {
+    "name": "cdsmSchedulerQEntry",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmSchedulerQNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsmSchedulerQNum": {
+    "name": "cdsmSchedulerQNum",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmSchedulerQWeight": {
+    "name": "cdsmSchedulerQWeight",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdsmChkSumTable": {
+    "name": "cdsmChkSumTable",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmChkSumEntry": {
+    "name": "cdsmChkSumEntry",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsmChkSumValue": {
+    "name": "cdsmChkSumValue",
+    "oid": "1.3.6.1.4.1.9.9.381.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDiffServExtMIBCompliances": {
+    "name": "ciscoDiffServExtMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.381.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoDiffServExtMIBGroups": {
+    "name": "ciscoDiffServExtMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.381.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoDiffServExtMIBCompliance": {
+    "name": "ciscoDiffServExtMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.381.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDiffServExtGroup",
+        "module": "CISCO-DIFFSERV-EXT-MIB"
+      },
+      {
+        "object": "ciscoDiffServVsanGroup",
+        "module": "CISCO-DIFFSERV-EXT-MIB"
+      },
+      {
+        "object": "ciscoDiffServSchedQGroup",
+        "module": "CISCO-DIFFSERV-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoDiffServExtMIBComplianceR1": {
+    "name": "ciscoDiffServExtMIBComplianceR1",
+    "oid": "1.3.6.1.4.1.9.9.381.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDiffServExtGroup1",
+        "module": "CISCO-DIFFSERV-EXT-MIB"
+      },
+      {
+        "object": "ciscoDiffServVsanGroup",
+        "module": "CISCO-DIFFSERV-EXT-MIB"
+      },
+      {
+        "object": "ciscoDiffServSchedQGroup",
+        "module": "CISCO-DIFFSERV-EXT-MIB"
+      },
+      {
+        "object": "ciscoDiffServChkSumGroup",
+        "module": "CISCO-DIFFSERV-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoDiffServExtMIBComplianceR2": {
+    "name": "ciscoDiffServExtMIBComplianceR2",
+    "oid": "1.3.6.1.4.1.9.9.381.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDiffServExtGroup2",
+        "module": "CISCO-DIFFSERV-EXT-MIB"
+      },
+      {
+        "object": "ciscoDiffServVsanGroup",
+        "module": "CISCO-DIFFSERV-EXT-MIB"
+      },
+      {
+        "object": "ciscoDiffServSchedQGroup",
+        "module": "CISCO-DIFFSERV-EXT-MIB"
+      },
+      {
+        "object": "ciscoDiffServChkSumGroup",
+        "module": "CISCO-DIFFSERV-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDiffServVsanGroup": {
+    "name": "ciscoDiffServVsanGroup",
+    "oid": "1.3.6.1.4.1.9.9.381.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmDataPathClfrStart"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmDataPathStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDiffServExtGroup": {
+    "name": "ciscoDiffServExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.381.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmClfrName"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldClfrName"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldClfrMatch"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldClfrStatus"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldMatchSrcAddr"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldMatchDstAddr"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldMatchIntf"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldMatchStatus"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmRateLimitPercent"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoDiffServSchedQGroup": {
+    "name": "ciscoDiffServSchedQGroup",
+    "oid": "1.3.6.1.4.1.9.9.381.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmSchedulerQWeight"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDiffServExtGroup1": {
+    "name": "ciscoDiffServExtGroup1",
+    "oid": "1.3.6.1.4.1.9.9.381.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmClfrName"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldClfrName"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldClfrMatch"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldClfrStatus"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldMatchSrcAddr"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldMatchDstAddr"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldMatchIntf"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldMatchStatus"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldMatchWildCard"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmRateLimitPercent"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoDiffServChkSumGroup": {
+    "name": "ciscoDiffServChkSumGroup",
+    "oid": "1.3.6.1.4.1.9.9.381.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmChkSumValue"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDiffServExtGroup2": {
+    "name": "ciscoDiffServExtGroup2",
+    "oid": "1.3.6.1.4.1.9.9.381.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmClfrName"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmClfrNextFreeElement"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldClfrName"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldClfrMatch"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldClfrStatus"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldClfrNextFreeStmt"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldMatchSrcAddr"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldMatchDstAddr"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldMatchIntf"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldMatchStatus"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmFCMultiFieldMatchWildCard"
+      },
+      {
+        "module": "CISCO-DIFFSERV-EXT-MIB",
+        "object": "cdsmRateLimitPercent"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DIFFSERV-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DIFFSERV-EXT-MIB"
+  }
+}

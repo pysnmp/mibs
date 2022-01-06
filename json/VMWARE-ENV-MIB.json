@@ -1,0 +1,1638 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ],
+    "VMWARE-PRODUCTS-MIB": [
+      "vmwESX"
+    ],
+    "VMWARE-ROOT-MIB": [
+      "vmwProductSpecific",
+      "vmwNotifications"
+    ],
+    "VMWARE-TC-MIB": [
+      "VmwCIMAlertTypes",
+      "VmwCIMSeverity",
+      "VmwSubsystemStatus",
+      "VmwCimName",
+      "VmwCIMAlertFormat",
+      "VmwLongSnmpAdminString",
+      "VmwSubsystemTypes"
+    ]
+  },
+  "vmwEnvironmentalMIB": {
+    "name": "vmwEnvironmentalMIB",
+    "oid": "1.3.6.1.4.1.6876.4.20.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-06-05 00:00",
+        "description": "This revision deprecates the previous CIM based implementation. The vmwEnvTable now maps directly to an IPMI System Event Log allowing for simpler identification and management. vmwEnvSource.0 will now report ipmi(4) on agents implementing this mib module version. The first implementation of vmwEnvTable adds vmwEnvHrDeviceIndex and changes vmwEnvHardwareTime syntax from TimeTicks to DateAndTime"
+      },
+      {
+        "revision": "2010-05-12 00:00",
+        "description": "This revision adds support for CIM OMC_IpmiAlertIndication as the source of events instead of only IPMI sensors thus more areas of hardware can be reported on. This required a new notification set to be defined replacing previous notifications."
+      },
+      {
+        "revision": "2008-10-30 00:00",
+        "description": "Introduce vmwESXNotification to match ESX 3.5 agent."
+      },
+      {
+        "revision": "2007-12-27 00:00",
+        "description": "This is the first revision of this MIB module."
+      }
+    ]
+  },
+  "vmwEnv": {
+    "name": "vmwEnv",
+    "oid": "1.3.6.1.4.1.6876.4.20",
+    "class": "objectidentity"
+  },
+  "vmwESXNotifications": {
+    "name": "vmwESXNotifications",
+    "oid": "1.3.6.1.4.1.6876.4.1.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vmwEnvNumber": {
+    "name": "vmwEnvNumber",
+    "oid": "1.3.6.1.4.1.6876.4.20.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwEnvLastChange": {
+    "name": "vmwEnvLastChange",
+    "oid": "1.3.6.1.4.1.6876.4.20.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwSELCapacity": {
+    "name": "vmwSELCapacity",
+    "oid": "1.3.6.1.4.1.6876.4.20.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwEnvTable": {
+    "name": "vmwEnvTable",
+    "oid": "1.3.6.1.4.1.6876.4.20.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vmwEnvEntry": {
+    "name": "vmwEnvEntry",
+    "oid": "1.3.6.1.4.1.6876.4.20.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vmwEnvIndex": {
+    "name": "vmwEnvIndex",
+    "oid": "1.3.6.1.4.1.6876.4.20.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vmwSubsystemType": {
+    "name": "vmwSubsystemType",
+    "oid": "1.3.6.1.4.1.6876.4.20.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VmwSubsystemTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwHardwareStatus": {
+    "name": "vmwHardwareStatus",
+    "oid": "1.3.6.1.4.1.6876.4.20.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VmwSubsystemStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwEventDescription": {
+    "name": "vmwEventDescription",
+    "oid": "1.3.6.1.4.1.6876.4.20.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwEnvHardwareTime": {
+    "name": "vmwEnvHardwareTime",
+    "oid": "1.3.6.1.4.1.6876.4.20.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwEnvHrDeviceIndex": {
+    "name": "vmwEnvHrDeviceIndex",
+    "oid": "1.3.6.1.4.1.6876.4.20.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwEnvSelSensorNumber": {
+    "name": "vmwEnvSelSensorNumber",
+    "oid": "1.3.6.1.4.1.6876.4.20.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwEnvSource": {
+    "name": "vmwEnvSource",
+    "oid": "1.3.6.1.4.1.6876.4.20.100",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "sensors": 2,
+          "indications": 3,
+          "ipmi": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwEnvIPMI": {
+    "name": "vmwEnvIPMI",
+    "oid": "1.3.6.1.4.1.6876.4.25",
+    "class": "objectidentity"
+  },
+  "vmwEnvIpmiSelFull": {
+    "name": "vmwEnvIpmiSelFull",
+    "oid": "1.3.6.1.4.1.6876.4.1.0.390",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwSELCapacity"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwEnvIpmiSelMemoryRaised": {
+    "name": "vmwEnvIpmiSelMemoryRaised",
+    "oid": "1.3.6.1.4.1.6876.4.1.0.400",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSelSensorNumber"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvHardwareTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEventDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwEnvIpmiSelMemoryCleared": {
+    "name": "vmwEnvIpmiSelMemoryCleared",
+    "oid": "1.3.6.1.4.1.6876.4.1.0.401",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSelSensorNumber"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvHardwareTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEventDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwEnvIpmiSelPowerSupplyRaised": {
+    "name": "vmwEnvIpmiSelPowerSupplyRaised",
+    "oid": "1.3.6.1.4.1.6876.4.1.0.410",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSelSensorNumber"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvHardwareTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEventDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwEnvIpmiSelPowerSupplyCleared": {
+    "name": "vmwEnvIpmiSelPowerSupplyCleared",
+    "oid": "1.3.6.1.4.1.6876.4.1.0.411",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSelSensorNumber"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvHardwareTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEventDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwEnvIpmiSelFanRaised": {
+    "name": "vmwEnvIpmiSelFanRaised",
+    "oid": "1.3.6.1.4.1.6876.4.1.0.420",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSelSensorNumber"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvHardwareTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEventDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwEnvIpmiSelFanCleared": {
+    "name": "vmwEnvIpmiSelFanCleared",
+    "oid": "1.3.6.1.4.1.6876.4.1.0.421",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSelSensorNumber"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvHardwareTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEventDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwEnvIpmiSelCpuRaised": {
+    "name": "vmwEnvIpmiSelCpuRaised",
+    "oid": "1.3.6.1.4.1.6876.4.1.0.430",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSelSensorNumber"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvHardwareTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEventDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwEnvIpmiSelCpuCleared": {
+    "name": "vmwEnvIpmiSelCpuCleared",
+    "oid": "1.3.6.1.4.1.6876.4.1.0.431",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSelSensorNumber"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvHardwareTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEventDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwEnvInIndications": {
+    "name": "vmwEnvInIndications",
+    "oid": "1.3.6.1.4.1.6876.4.20.101",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwEnvLastIn": {
+    "name": "vmwEnvLastIn",
+    "oid": "1.3.6.1.4.1.6876.4.20.102",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwEnvOutNotifications": {
+    "name": "vmwEnvOutNotifications",
+    "oid": "1.3.6.1.4.1.6876.4.20.103",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwEnvInErrs": {
+    "name": "vmwEnvInErrs",
+    "oid": "1.3.6.1.4.1.6876.4.20.104",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwEnvIndOidErrs": {
+    "name": "vmwEnvIndOidErrs",
+    "oid": "1.3.6.1.4.1.6876.4.20.105",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwEnvCvtValueErrs": {
+    "name": "vmwEnvCvtValueErrs",
+    "oid": "1.3.6.1.4.1.6876.4.20.106",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwEnvCvtSyntaxErrs": {
+    "name": "vmwEnvCvtSyntaxErrs",
+    "oid": "1.3.6.1.4.1.6876.4.20.107",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwEnvCvtOidErrs": {
+    "name": "vmwEnvCvtOidErrs",
+    "oid": "1.3.6.1.4.1.6876.4.20.108",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwEnvGetClassErrs": {
+    "name": "vmwEnvGetClassErrs",
+    "oid": "1.3.6.1.4.1.6876.4.20.109",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwEnvPropertySkips": {
+    "name": "vmwEnvPropertySkips",
+    "oid": "1.3.6.1.4.1.6876.4.20.110",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwEnvIndicationSkips": {
+    "name": "vmwEnvIndicationSkips",
+    "oid": "1.3.6.1.4.1.6876.4.20.111",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwEnvHardwareEvent": {
+    "name": "vmwEnvHardwareEvent",
+    "oid": "1.3.6.1.4.1.6876.0.301",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwSubsystemType"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwHardwareStatus"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEventDescription"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvHardwareTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vmwESXEnvHardwareEvent": {
+    "name": "vmwESXEnvHardwareEvent",
+    "oid": "1.3.6.1.4.1.6876.4.1.0.301",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwSubsystemType"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwHardwareStatus"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEventDescription"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvHardwareTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vmwEnvCIM": {
+    "name": "vmwEnvCIM",
+    "oid": "1.3.6.1.4.1.6876.4.30",
+    "class": "objectidentity"
+  },
+  "vmwEnvDescription": {
+    "name": "vmwEnvDescription",
+    "oid": "1.3.6.1.4.1.6876.4.30.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VmwLongSnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "vmwEnvEventTime": {
+    "name": "vmwEnvEventTime",
+    "oid": "1.3.6.1.4.1.6876.4.30.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "vmwEnvIndicationTime": {
+    "name": "vmwEnvIndicationTime",
+    "oid": "1.3.6.1.4.1.6876.4.30.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "vmwEnvPerceivedSeverity": {
+    "name": "vmwEnvPerceivedSeverity",
+    "oid": "1.3.6.1.4.1.6876.4.30.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VmwCIMSeverity",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "vmwEnvAlertType": {
+    "name": "vmwEnvAlertType",
+    "oid": "1.3.6.1.4.1.6876.4.30.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VmwCIMAlertTypes",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "vmwEnvSysCreationClassName": {
+    "name": "vmwEnvSysCreationClassName",
+    "oid": "1.3.6.1.4.1.6876.4.30.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VmwCimName",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "vmwEnvAlertingElement": {
+    "name": "vmwEnvAlertingElement",
+    "oid": "1.3.6.1.4.1.6876.4.30.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VmwCimName",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "vmwEnvAlertingFormat": {
+    "name": "vmwEnvAlertingFormat",
+    "oid": "1.3.6.1.4.1.6876.4.30.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VmwCIMAlertFormat",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "vmwEnvSystemName": {
+    "name": "vmwEnvSystemName",
+    "oid": "1.3.6.1.4.1.6876.4.30.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VmwCimName",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "vmwEnvProviderName": {
+    "name": "vmwEnvProviderName",
+    "oid": "1.3.6.1.4.1.6876.4.30.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VmwCimName",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "vmwESXEnvHardwareAlert": {
+    "name": "vmwESXEnvHardwareAlert",
+    "oid": "1.3.6.1.4.1.6876.4.1.0.302",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvDescription"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvEventTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIndicationTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvPerceivedSeverity"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertType"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSysCreationClassName"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertingElement"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertingFormat"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSystemName"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvProviderName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vmwESXEnvBatteryAlert": {
+    "name": "vmwESXEnvBatteryAlert",
+    "oid": "1.3.6.1.4.1.6876.4.1.0.303",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvDescription"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvEventTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIndicationTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvPerceivedSeverity"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertType"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSysCreationClassName"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertingElement"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertingFormat"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSystemName"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvProviderName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vmwESXEnvChassisAlert": {
+    "name": "vmwESXEnvChassisAlert",
+    "oid": "1.3.6.1.4.1.6876.4.1.0.304",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvDescription"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvEventTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIndicationTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvPerceivedSeverity"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertType"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSysCreationClassName"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertingElement"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertingFormat"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSystemName"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvProviderName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vmwESXEnvThermalAlert": {
+    "name": "vmwESXEnvThermalAlert",
+    "oid": "1.3.6.1.4.1.6876.4.1.0.305",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvDescription"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvEventTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIndicationTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvPerceivedSeverity"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertType"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSysCreationClassName"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertingElement"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertingFormat"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSystemName"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvProviderName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vmwESXEnvDiskAlert": {
+    "name": "vmwESXEnvDiskAlert",
+    "oid": "1.3.6.1.4.1.6876.4.1.0.306",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvDescription"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvEventTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIndicationTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvPerceivedSeverity"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertType"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSysCreationClassName"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertingElement"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertingFormat"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSystemName"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvProviderName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vmwESXEnvPowerAlert": {
+    "name": "vmwESXEnvPowerAlert",
+    "oid": "1.3.6.1.4.1.6876.4.1.0.307",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvDescription"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvEventTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIndicationTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvPerceivedSeverity"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertType"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSysCreationClassName"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertingElement"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertingFormat"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSystemName"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvProviderName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vmwESXEnvProcessorAlert": {
+    "name": "vmwESXEnvProcessorAlert",
+    "oid": "1.3.6.1.4.1.6876.4.1.0.308",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvDescription"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvEventTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIndicationTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvPerceivedSeverity"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertType"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSysCreationClassName"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertingElement"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertingFormat"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSystemName"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvProviderName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vmwESXEnvMemoryAlert": {
+    "name": "vmwESXEnvMemoryAlert",
+    "oid": "1.3.6.1.4.1.6876.4.1.0.309",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvDescription"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvEventTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIndicationTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvPerceivedSeverity"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertType"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSysCreationClassName"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertingElement"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertingFormat"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSystemName"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvProviderName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vmwESXEnvBIOSAlert": {
+    "name": "vmwESXEnvBIOSAlert",
+    "oid": "1.3.6.1.4.1.6876.4.1.0.310",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvDescription"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvEventTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIndicationTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvPerceivedSeverity"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertType"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSysCreationClassName"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertingElement"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertingFormat"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSystemName"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvProviderName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vmwEnvironmentalMIBConformance": {
+    "name": "vmwEnvironmentalMIBConformance",
+    "oid": "1.3.6.1.4.1.6876.4.20.10.2",
+    "class": "objectidentity"
+  },
+  "vmwEnvironmentMIBCompliances": {
+    "name": "vmwEnvironmentMIBCompliances",
+    "oid": "1.3.6.1.4.1.6876.4.20.10.2.1",
+    "class": "objectidentity"
+  },
+  "vmwEnvMIBGroups": {
+    "name": "vmwEnvMIBGroups",
+    "oid": "1.3.6.1.4.1.6876.4.20.10.2.2",
+    "class": "objectidentity"
+  },
+  "vmwEnvMIBBasicCompliance4": {
+    "name": "vmwEnvMIBBasicCompliance4",
+    "oid": "1.3.6.1.4.1.6876.4.20.10.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vmwEnvCIMToSNMP",
+        "module": "VMWARE-ENV-MIB"
+      },
+      {
+        "object": "vmwEnvironmentGroup2",
+        "module": "VMWARE-ENV-MIB"
+      },
+      {
+        "object": "vmwESXEnvNotificationGroup3",
+        "module": "VMWARE-ENV-MIB"
+      },
+      {
+        "object": "vmwESXEnvNotificationGroup3",
+        "module": "VMWARE-ENV-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwEnvMIBBasicCompliance3": {
+    "name": "vmwEnvMIBBasicCompliance3",
+    "oid": "1.3.6.1.4.1.6876.4.20.10.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vmwEnvAlertGroup",
+        "module": "VMWARE-ENV-MIB"
+      },
+      {
+        "object": "vmwESXEnvNotificationGroup2",
+        "module": "VMWARE-ENV-MIB"
+      },
+      {
+        "object": "vmwESXEnvNotificationGroup2",
+        "module": "VMWARE-ENV-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "vmwEnvMIBBasicCompliance2": {
+    "name": "vmwEnvMIBBasicCompliance2",
+    "oid": "1.3.6.1.4.1.6876.4.20.10.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vmwEnvironmentGroup",
+        "module": "VMWARE-ENV-MIB"
+      },
+      {
+        "object": "vmwESXEnvNotificationGroup",
+        "module": "VMWARE-ENV-MIB"
+      },
+      {
+        "object": "vmwEnvNotificationGroup",
+        "module": "VMWARE-ENV-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vmwEnvMIBBasicCompliance": {
+    "name": "vmwEnvMIBBasicCompliance",
+    "oid": "1.3.6.1.4.1.6876.4.20.10.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vmwEnvironmentGroup",
+        "module": "VMWARE-ENV-MIB"
+      },
+      {
+        "object": "vmwEnvNotificationGroup",
+        "module": "VMWARE-ENV-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "vmwEnvCIMToSNMP": {
+    "name": "vmwEnvCIMToSNMP",
+    "oid": "1.3.6.1.4.1.6876.4.20.10.2.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSource"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvInIndications"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvLastIn"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvOutNotifications"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvInErrs"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIndOidErrs"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvCvtValueErrs"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvCvtSyntaxErrs"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvCvtOidErrs"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvGetClassErrs"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvPropertySkips"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIndicationSkips"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwEnvAlertGroup": {
+    "name": "vmwEnvAlertGroup",
+    "oid": "1.3.6.1.4.1.6876.4.20.10.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSource"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvInIndications"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvLastIn"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvOutNotifications"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvInErrs"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIndOidErrs"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvCvtValueErrs"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvCvtSyntaxErrs"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvCvtOidErrs"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvGetClassErrs"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvPropertySkips"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIndicationSkips"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvDescription"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvEventTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIndicationTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvPerceivedSeverity"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertType"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSysCreationClassName"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertingElement"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvAlertingFormat"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSystemName"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvProviderName"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "vmwEnvironmentGroup": {
+    "name": "vmwEnvironmentGroup",
+    "oid": "1.3.6.1.4.1.6876.4.20.10.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvNumber"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvLastChange"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwSubsystemType"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwHardwareStatus"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEventDescription"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvHardwareTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vmwEnvNotificationGroup": {
+    "name": "vmwEnvNotificationGroup",
+    "oid": "1.3.6.1.4.1.6876.4.20.10.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvHardwareEvent"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vmwESXEnvNotificationGroup": {
+    "name": "vmwESXEnvNotificationGroup",
+    "oid": "1.3.6.1.4.1.6876.4.20.10.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwESXEnvHardwareEvent"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vmwESXEnvNotificationGroup2": {
+    "name": "vmwESXEnvNotificationGroup2",
+    "oid": "1.3.6.1.4.1.6876.4.20.10.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwESXEnvHardwareAlert"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwESXEnvBatteryAlert"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwESXEnvChassisAlert"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwESXEnvThermalAlert"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwESXEnvDiskAlert"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwESXEnvPowerAlert"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwESXEnvProcessorAlert"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwESXEnvMemoryAlert"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwESXEnvBIOSAlert"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vmwESXEnvNotificationGroup3": {
+    "name": "vmwESXEnvNotificationGroup3",
+    "oid": "1.3.6.1.4.1.6876.4.20.10.2.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIpmiSelFull"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIpmiSelMemoryRaised"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIpmiSelMemoryCleared"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIpmiSelPowerSupplyRaised"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIpmiSelPowerSupplyCleared"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIpmiSelFanRaised"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIpmiSelFanCleared"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIpmiSelCpuRaised"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIpmiSelCpuCleared"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwEnvironmentGroup2": {
+    "name": "vmwEnvironmentGroup2",
+    "oid": "1.3.6.1.4.1.6876.4.20.10.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvNumber"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvLastChange"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwSELCapacity"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwSubsystemType"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwHardwareStatus"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEventDescription"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvHardwareTime"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvHrDeviceIndex"
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvSelSensorNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-ENV-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "VMWARE-ENV-MIB"
+  }
+}

@@ -1,0 +1,587 @@
+{
+  "imports": {
+    "class": "imports",
+    "DIAL-CONTROL-MIB": [
+      "AbsoluteCounter32"
+    ],
+    "HH3C-OID-MIB": [
+      "hh3cVoice"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
+    ]
+  },
+  "hh3cVoCallHistory": {
+    "name": "hh3cVoCallHistory",
+    "oid": "1.3.6.1.4.1.25506.2.39.16",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-02-17 00:00",
+        "description": "The initial version of this MIB file."
+      }
+    ]
+  },
+  "Hh3cGUid": {
+    "name": "Hh3cGUid",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cCodecType": {
+    "name": "Hh3cCodecType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "g711a": 1,
+          "g711u": 2,
+          "g723r53": 3,
+          "g723r63": 4,
+          "g729r8": 5,
+          "g729a": 6,
+          "g726r16": 7,
+          "g726r24": 8,
+          "g726r32": 9,
+          "g726r40": 10,
+          "unknown": 11,
+          "g729br8": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cVoiceCallHistoryObjects": {
+    "name": "hh3cVoiceCallHistoryObjects",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1",
+    "class": "objectidentity"
+  },
+  "hh3cCallHistoryTable": {
+    "name": "hh3cCallHistoryTable",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cCallHistoryEntry": {
+    "name": "hh3cCallHistoryEntry",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-VOICE-CALL-HISTORY-MIB",
+        "object": "hh3cCallHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCallHistoryIndex": {
+    "name": "hh3cCallHistoryIndex",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cCallHistorySetupTime": {
+    "name": "hh3cCallHistorySetupTime",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCallHistoryConnectTime": {
+    "name": "hh3cCallHistoryConnectTime",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCallHistoryTerminateTime": {
+    "name": "hh3cCallHistoryTerminateTime",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCallHistoryPeerAddress": {
+    "name": "hh3cCallHistoryPeerAddress",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCallHistoryPeerId": {
+    "name": "hh3cCallHistoryPeerId",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCallHistoryLogicalIfIndex": {
+    "name": "hh3cCallHistoryLogicalIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCallHistoryCallOrigin": {
+    "name": "hh3cCallHistoryCallOrigin",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "originate": 1,
+          "answer": 2,
+          "callback": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCallHistoryChargedUnits": {
+    "name": "hh3cCallHistoryChargedUnits",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCallHistoryInfoType": {
+    "name": "hh3cCallHistoryInfoType",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "speech": 2,
+          "unrestrictedDigital": 3,
+          "unrestrictedDigital56": 4,
+          "restrictedDigital": 5,
+          "audio31": 6,
+          "audio7": 7,
+          "video": 8,
+          "packetSwitched": 9,
+          "fax": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCallHistoryTransmitPackets": {
+    "name": "hh3cCallHistoryTransmitPackets",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCallHistoryTransmitBytes": {
+    "name": "hh3cCallHistoryTransmitBytes",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCallHistoryReceivePackets": {
+    "name": "hh3cCallHistoryReceivePackets",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCallHistoryReceiveBytes": {
+    "name": "hh3cCallHistoryReceiveBytes",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVoiceCallHistoryTable": {
+    "name": "hh3cVoiceCallHistoryTable",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cVoiceCallHistoryEntry": {
+    "name": "hh3cVoiceCallHistoryEntry",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-VOICE-CALL-HISTORY-MIB",
+        "object": "hh3cCallHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVoCallHistoryConnectionId": {
+    "name": "hh3cVoCallHistoryConnectionId",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cGUid",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVoCallHistoryTxDuration": {
+    "name": "hh3cVoCallHistoryTxDuration",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVoCallHistoryVoiceTxDuration": {
+    "name": "hh3cVoCallHistoryVoiceTxDuration",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVoCallHistoryFaxTxDuration": {
+    "name": "hh3cVoCallHistoryFaxTxDuration",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVoCallHistoryCoderType": {
+    "name": "hh3cVoCallHistoryCoderType",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cCodecType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVoCallHistoryImgPageCount": {
+    "name": "hh3cVoCallHistoryImgPageCount",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVoiceVoIPCallHistoryTable": {
+    "name": "hh3cVoiceVoIPCallHistoryTable",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cVoiceVoIPCallHistoryEntry": {
+    "name": "hh3cVoiceVoIPCallHistoryEntry",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-VOICE-CALL-HISTORY-MIB",
+        "object": "hh3cCallHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVoVoIPCallHistoryConnectionId": {
+    "name": "hh3cVoVoIPCallHistoryConnectionId",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cGUid",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVoVoIPCallHistoryRemSigIPType": {
+    "name": "hh3cVoVoIPCallHistoryRemSigIPType",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVoVoIPCallHistoryRemSigIPAddr": {
+    "name": "hh3cVoVoIPCallHistoryRemSigIPAddr",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVoVoIPCallHistoryRemSigPort": {
+    "name": "hh3cVoVoIPCallHistoryRemSigPort",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVoVoIPCallHistoryRemMedIPType": {
+    "name": "hh3cVoVoIPCallHistoryRemMedIPType",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVoVoIPCallHistoryRemMedIPAddr": {
+    "name": "hh3cVoVoIPCallHistoryRemMedIPAddr",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVoVoIPCallHistoryRemMedPort": {
+    "name": "hh3cVoVoIPCallHistoryRemMedPort",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVoVoIPCallHistorySessProtocol": {
+    "name": "hh3cVoVoIPCallHistorySessProtocol",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "h323": 2,
+          "sip": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVoVoIPCallHistoryCoderType": {
+    "name": "hh3cVoVoIPCallHistoryCoderType",
+    "oid": "1.3.6.1.4.1.25506.2.39.16.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cCodecType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-VOICE-CALL-HISTORY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-VOICE-CALL-HISTORY-MIB"
+  }
+}

@@ -1,0 +1,3329 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-SMI": [
+      "sleMgmt"
+    ],
+    "SLE-TC-MIB": [
+      "SleControlStatusType",
+      "SleControlRequestResultType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sleVRRP": {
+    "name": "sleVRRP",
+    "oid": "1.3.6.1.4.1.6296.101.57",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1970-01-01 00:00",
+        "description": "OSFPv2"
+      }
+    ]
+  },
+  "sleVrrpBase": {
+    "name": "sleVrrpBase",
+    "oid": "1.3.6.1.4.1.6296.101.57.1",
+    "class": "objectidentity"
+  },
+  "sleVrrpBaseInfo": {
+    "name": "sleVrrpBaseInfo",
+    "oid": "1.3.6.1.4.1.6296.101.57.1.1",
+    "class": "objectidentity"
+  },
+  "sleVrrpBaseInfoCompatibleV2": {
+    "name": "sleVrrpBaseInfoCompatibleV2",
+    "oid": "1.3.6.1.4.1.6296.101.57.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrpBaseInfoVMac": {
+    "name": "sleVrrpBaseInfoVMac",
+    "oid": "1.3.6.1.4.1.6296.101.57.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrpBaseInfoDelegate": {
+    "name": "sleVrrpBaseInfoDelegate",
+    "oid": "1.3.6.1.4.1.6296.101.57.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrpBaseControl": {
+    "name": "sleVrrpBaseControl",
+    "oid": "1.3.6.1.4.1.6296.101.57.1.2",
+    "class": "objectidentity"
+  },
+  "sleVrrpBaseControlRequest": {
+    "name": "sleVrrpBaseControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.57.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setVrrpBaseCompatibleV2": 1,
+          "setVrrpBaseVmacStatus": 2,
+          "setVrrpBaseDelegate": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrpBaseControlStatus": {
+    "name": "sleVrrpBaseControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.57.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrpBaseControlTimer": {
+    "name": "sleVrrpBaseControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.57.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrpBaseControlTimeStamp": {
+    "name": "sleVrrpBaseControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.57.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrpBaseControlReqResult": {
+    "name": "sleVrrpBaseControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.57.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrpBaseControlCompatibleV2": {
+    "name": "sleVrrpBaseControlCompatibleV2",
+    "oid": "1.3.6.1.4.1.6296.101.57.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrpBaseControlVMac": {
+    "name": "sleVrrpBaseControlVMac",
+    "oid": "1.3.6.1.4.1.6296.101.57.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrpBaseControlDelegate": {
+    "name": "sleVrrpBaseControlDelegate",
+    "oid": "1.3.6.1.4.1.6296.101.57.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrpSess": {
+    "name": "sleVrrpSess",
+    "oid": "1.3.6.1.4.1.6296.101.57.2",
+    "class": "objectidentity"
+  },
+  "sleVrrp4Session": {
+    "name": "sleVrrp4Session",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1",
+    "class": "objectidentity"
+  },
+  "sleVrrp4SessionTable": {
+    "name": "sleVrrp4SessionTable",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleVrrp4SessionEntry": {
+    "name": "sleVrrp4SessionEntry",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionVrId",
+        "implied": 0
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleVrrp4SessionVrId": {
+    "name": "sleVrrp4SessionVrId",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessionIfIndex": {
+    "name": "sleVrrp4SessionIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessionStatus": {
+    "name": "sleVrrp4SessionStatus",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessionAcceptMode": {
+    "name": "sleVrrp4SessionAcceptMode",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessionAdvertisementInterval": {
+    "name": "sleVrrp4SessionAdvertisementInterval",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessionCircuitFailOverIfIndex": {
+    "name": "sleVrrp4SessionCircuitFailOverIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessionCircuitFailOverPriorityDelta": {
+    "name": "sleVrrp4SessionCircuitFailOverPriorityDelta",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessionPreemptMode": {
+    "name": "sleVrrp4SessionPreemptMode",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessionPriority": {
+    "name": "sleVrrp4SessionPriority",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessionSwitchBackDelay": {
+    "name": "sleVrrp4SessionSwitchBackDelay",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessionVirtualIpVal": {
+    "name": "sleVrrp4SessionVirtualIpVal",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessionVirtualIpOwner": {
+    "name": "sleVrrp4SessionVirtualIpOwner",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unSet": 0,
+          "set": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessionCompatibleV2": {
+    "name": "sleVrrp4SessionCompatibleV2",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessionControl": {
+    "name": "sleVrrp4SessionControl",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.2",
+    "class": "objectidentity"
+  },
+  "sleVrrp4SessionControlRequest": {
+    "name": "sleVrrp4SessionControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createVrrp4Sess": 1,
+          "delVrrp4Sess": 2,
+          "setVrrp4SessStatus": 3,
+          "setVrrp4SessAcceptMode": 4,
+          "setVrrp4SessAdvInterval": 5,
+          "delVrrp4SessAdvInterval": 6,
+          "setVrrp4SessCircuitFailOver": 7,
+          "delVrrp4SessCircuitFailOver": 8,
+          "setVrrp4SessPreemptMode": 9,
+          "setVrrp4SessPriority": 10,
+          "delVrrp4SessPriority": 11,
+          "setVrrp4SessSwitchBackDelay": 12,
+          "delVrrp4SessSwitchBackDelay": 13,
+          "setVrrp4SessVirtualIp": 14,
+          "delVrrp4SessVirtualIp": 15,
+          "setVrrp4SessCompatibleV2": 16
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp4SessionControlStatus": {
+    "name": "sleVrrp4SessionControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessionControlTimer": {
+    "name": "sleVrrp4SessionControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp4SessionControlTimeStamp": {
+    "name": "sleVrrp4SessionControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessionControlReqResult": {
+    "name": "sleVrrp4SessionControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessionControlVrId": {
+    "name": "sleVrrp4SessionControlVrId",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp4SessionControlIfIndex": {
+    "name": "sleVrrp4SessionControlIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp4SessionControlSessionStatus": {
+    "name": "sleVrrp4SessionControlSessionStatus",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp4SessionControlAcceptMode": {
+    "name": "sleVrrp4SessionControlAcceptMode",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp4SessionControlAdvertisementInterval": {
+    "name": "sleVrrp4SessionControlAdvertisementInterval",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp4SessionControlCircuitFailOverIfIndex": {
+    "name": "sleVrrp4SessionControlCircuitFailOverIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp4SessionControlCircuitFailOverPriorityDelta": {
+    "name": "sleVrrp4SessionControlCircuitFailOverPriorityDelta",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp4SessionControlPreemptMode": {
+    "name": "sleVrrp4SessionControlPreemptMode",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp4SessionControlPriority": {
+    "name": "sleVrrp4SessionControlPriority",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp4SessionControlSwitchBackDelay": {
+    "name": "sleVrrp4SessionControlSwitchBackDelay",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp4SessionControlVirtualIpVal": {
+    "name": "sleVrrp4SessionControlVirtualIpVal",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp4SessionControlVirtualIpOwner": {
+    "name": "sleVrrp4SessionControlVirtualIpOwner",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unset": 0,
+          "set": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp4SessionControlCompatibleV2": {
+    "name": "sleVrrp4SessionControlCompatibleV2",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp4SessionNotification": {
+    "name": "sleVrrp4SessionNotification",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.3",
+    "class": "objectidentity"
+  },
+  "sleVrrp4SessInfoTable": {
+    "name": "sleVrrp4SessInfoTable",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleVrrp4SessInfoEntry": {
+    "name": "sleVrrp4SessInfoEntry",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoVrId",
+        "implied": 0
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleVrrp4SessInfoVrId": {
+    "name": "sleVrrp4SessInfoVrId",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp4SessInfoIfIndex": {
+    "name": "sleVrrp4SessInfoIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessInfoVrfName": {
+    "name": "sleVrrp4SessInfoVrfName",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessInfoVrfFibId": {
+    "name": "sleVrrp4SessInfoVrfFibId",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessInfoSessionAdminState": {
+    "name": "sleVrrp4SessInfoSessionAdminState",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessInfoSessionState": {
+    "name": "sleVrrp4SessInfoSessionState",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 1,
+          "backup": 2,
+          "master": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessInfoSessionStateInitMsg": {
+    "name": "sleVrrp4SessInfoSessionStateInitMsg",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": -1,
+          "adminDown": 0,
+          "interfaceNotRunning": 1,
+          "circuitDown": 2,
+          "noSubnet": 3,
+          "virtualIpUnset": 4,
+          "inSwitchBackDelay": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessInfoVirtualIp": {
+    "name": "sleVrrp4SessInfoVirtualIp",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessInfoVirtualIpOwner": {
+    "name": "sleVrrp4SessInfoVirtualIpOwner",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unset": 0,
+          "set": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessInfoConfiguredPriority": {
+    "name": "sleVrrp4SessInfoConfiguredPriority",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessInfoCurrentPriority": {
+    "name": "sleVrrp4SessInfoCurrentPriority",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessInfoSwitchBackDelay": {
+    "name": "sleVrrp4SessInfoSwitchBackDelay",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessInfoAdvertisementInterval": {
+    "name": "sleVrrp4SessInfoAdvertisementInterval",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessInfoMasterAdvertisementInterval": {
+    "name": "sleVrrp4SessInfoMasterAdvertisementInterval",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessInfoSkewTime": {
+    "name": "sleVrrp4SessInfoSkewTime",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessInfoAcceptMode": {
+    "name": "sleVrrp4SessInfoAcceptMode",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessInfoPreemptMode": {
+    "name": "sleVrrp4SessInfoPreemptMode",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessInfoMonitorCircuitIfIndex": {
+    "name": "sleVrrp4SessInfoMonitorCircuitIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessInfoMonitorCircuitPrioDelta": {
+    "name": "sleVrrp4SessInfoMonitorCircuitPrioDelta",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessInfoMonitorCircuitState": {
+    "name": "sleVrrp4SessInfoMonitorCircuitState",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessInfoMulticastMembershipOn": {
+    "name": "sleVrrp4SessInfoMulticastMembershipOn",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "joined": 1,
+          "left": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessInfoCompatibleV2": {
+    "name": "sleVrrp4SessInfoCompatibleV2",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessStatTable": {
+    "name": "sleVrrp4SessStatTable",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleVrrp4SessStatEntry": {
+    "name": "sleVrrp4SessStatEntry",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessStatVrid",
+        "implied": 0
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessStatIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleVrrp4SessStatVrid": {
+    "name": "sleVrrp4SessStatVrid",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp4SessStatIfIndex": {
+    "name": "sleVrrp4SessStatIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessStatChecksumErrors": {
+    "name": "sleVrrp4SessStatChecksumErrors",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessStatVersionErrors": {
+    "name": "sleVrrp4SessStatVersionErrors",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessStatVridErrors": {
+    "name": "sleVrrp4SessStatVridErrors",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessStatMasterTransitions": {
+    "name": "sleVrrp4SessStatMasterTransitions",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessStatAdvertisementsRcvd": {
+    "name": "sleVrrp4SessStatAdvertisementsRcvd",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessStatPktsRcvdAdvertisementIntervalErrors": {
+    "name": "sleVrrp4SessStatPktsRcvdAdvertisementIntervalErrors",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessStatPktsRcvdIpTtlErros": {
+    "name": "sleVrrp4SessStatPktsRcvdIpTtlErros",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessStatPktsRcvdZeroPriority": {
+    "name": "sleVrrp4SessStatPktsRcvdZeroPriority",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessStatPktsSentZeroPriority": {
+    "name": "sleVrrp4SessStatPktsSentZeroPriority",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessStatPktsRcvdInvalidType": {
+    "name": "sleVrrp4SessStatPktsRcvdInvalidType",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessStatPktsRcvdAddressListErrors": {
+    "name": "sleVrrp4SessStatPktsRcvdAddressListErrors",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessStatPktsRcvdPacketLengthErrors": {
+    "name": "sleVrrp4SessStatPktsRcvdPacketLengthErrors",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessStatPktsRcvdUnknownAuthenticationType": {
+    "name": "sleVrrp4SessStatPktsRcvdUnknownAuthenticationType",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessStatPktsRcvdIpCountMismatch": {
+    "name": "sleVrrp4SessStatPktsRcvdIpCountMismatch",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessStatDiscontinuityTime": {
+    "name": "sleVrrp4SessStatDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp4SessStatRefreshRate": {
+    "name": "sleVrrp4SessStatRefreshRate",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6Session": {
+    "name": "sleVrrp6Session",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2",
+    "class": "objectidentity"
+  },
+  "sleVrrp6SessionTable": {
+    "name": "sleVrrp6SessionTable",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleVrrp6SessionEntry": {
+    "name": "sleVrrp6SessionEntry",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionVrId",
+        "implied": 0
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleVrrp6SessionVrId": {
+    "name": "sleVrrp6SessionVrId",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessionIfIndex": {
+    "name": "sleVrrp6SessionIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessionStatus": {
+    "name": "sleVrrp6SessionStatus",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessionAcceptMode": {
+    "name": "sleVrrp6SessionAcceptMode",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessionAdvertisementInterval": {
+    "name": "sleVrrp6SessionAdvertisementInterval",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessionCircuitFailOverIfIndex": {
+    "name": "sleVrrp6SessionCircuitFailOverIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessionCircuitFailOverPriorityDelta": {
+    "name": "sleVrrp6SessionCircuitFailOverPriorityDelta",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessionPreemptMode": {
+    "name": "sleVrrp6SessionPreemptMode",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessionPriority": {
+    "name": "sleVrrp6SessionPriority",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessionSwitchBackDelay": {
+    "name": "sleVrrp6SessionSwitchBackDelay",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessionVirtualIpVal": {
+    "name": "sleVrrp6SessionVirtualIpVal",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessionVirtualIpOwner": {
+    "name": "sleVrrp6SessionVirtualIpOwner",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unSet": 0,
+          "set": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessionControl": {
+    "name": "sleVrrp6SessionControl",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.2",
+    "class": "objectidentity"
+  },
+  "sleVrrp6SessionControlRequest": {
+    "name": "sleVrrp6SessionControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createVrrp6Sess": 1,
+          "delVrrp6Sess": 2,
+          "setVrrp6SessStatus": 3,
+          "setVrrp6SessAcceptMode": 4,
+          "setVrrp6SessAdvInterval": 5,
+          "delVrrp6SessAdvInterval": 6,
+          "setVrrp6SessCircuitFailOver": 7,
+          "delVrrp6SessCircuitFailOver": 8,
+          "setVrrp6SessPreemptMode": 9,
+          "setVrrp6SessPriority": 10,
+          "delVrrp6SessPriority": 11,
+          "setVrrp6SessSwitchBackDelay": 12,
+          "delVrrp6SessSwitchBackDelay": 13,
+          "setVrrp6SessVirtualIp": 14,
+          "delVrrp6SessVirtualIp": 15
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp6SessionControlStatus": {
+    "name": "sleVrrp6SessionControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessionControlTimer": {
+    "name": "sleVrrp6SessionControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp6SessionControlTimeStamp": {
+    "name": "sleVrrp6SessionControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessionControlReqResult": {
+    "name": "sleVrrp6SessionControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessionControlVrId": {
+    "name": "sleVrrp6SessionControlVrId",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp6SessionControlIfIndex": {
+    "name": "sleVrrp6SessionControlIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp6SessionControlSessionStatus": {
+    "name": "sleVrrp6SessionControlSessionStatus",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp6SessionControlAcceptMode": {
+    "name": "sleVrrp6SessionControlAcceptMode",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp6SessionControlAdvertisementInterval": {
+    "name": "sleVrrp6SessionControlAdvertisementInterval",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp6SessionControlCircuitFailOverIfIndex": {
+    "name": "sleVrrp6SessionControlCircuitFailOverIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp6SessionControlCircuitFailOverPriorityDelta": {
+    "name": "sleVrrp6SessionControlCircuitFailOverPriorityDelta",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp6SessionControlPreemptMode": {
+    "name": "sleVrrp6SessionControlPreemptMode",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp6SessionControlPriority": {
+    "name": "sleVrrp6SessionControlPriority",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp6SessionControlSwitchBackDelay": {
+    "name": "sleVrrp6SessionControlSwitchBackDelay",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp6SessionControlVirtualIpVal": {
+    "name": "sleVrrp6SessionControlVirtualIpVal",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp6SessionControlVirtualIpOwner": {
+    "name": "sleVrrp6SessionControlVirtualIpOwner",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unset": 0,
+          "set": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp6SessionNotification": {
+    "name": "sleVrrp6SessionNotification",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.3",
+    "class": "objectidentity"
+  },
+  "sleVrrp6SessInfoTable": {
+    "name": "sleVrrp6SessInfoTable",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleVrrp6SessInfoEntry": {
+    "name": "sleVrrp6SessInfoEntry",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoVrId",
+        "implied": 0
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleVrrp6SessInfoVrId": {
+    "name": "sleVrrp6SessInfoVrId",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp6SessInfoIfIndex": {
+    "name": "sleVrrp6SessInfoIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessInfoVrfName": {
+    "name": "sleVrrp6SessInfoVrfName",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessInfoVrfFibId": {
+    "name": "sleVrrp6SessInfoVrfFibId",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessInfoSessionAdminState": {
+    "name": "sleVrrp6SessInfoSessionAdminState",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessInfoSessionState": {
+    "name": "sleVrrp6SessInfoSessionState",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 1,
+          "backup": 2,
+          "master": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessInfoSessionStateInitMsg": {
+    "name": "sleVrrp6SessInfoSessionStateInitMsg",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": -1,
+          "adminDown": 0,
+          "interfaceNotRunning": 1,
+          "circuitDown": 2,
+          "noSubnet": 3,
+          "virtualIpUnset": 4,
+          "inSwitchBackDelay": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessInfoVirtualIp": {
+    "name": "sleVrrp6SessInfoVirtualIp",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessInfoVirtualIpOwner": {
+    "name": "sleVrrp6SessInfoVirtualIpOwner",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unset": 0,
+          "set": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessInfoConfiguredPriority": {
+    "name": "sleVrrp6SessInfoConfiguredPriority",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessInfoCurrentPriority": {
+    "name": "sleVrrp6SessInfoCurrentPriority",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessInfoSwitchBackDelay": {
+    "name": "sleVrrp6SessInfoSwitchBackDelay",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessInfoAdvertisementInterval": {
+    "name": "sleVrrp6SessInfoAdvertisementInterval",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessInfoMasterAdvertisementInterval": {
+    "name": "sleVrrp6SessInfoMasterAdvertisementInterval",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessInfoSkewTime": {
+    "name": "sleVrrp6SessInfoSkewTime",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessInfoAcceptMode": {
+    "name": "sleVrrp6SessInfoAcceptMode",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessInfoPreemptMode": {
+    "name": "sleVrrp6SessInfoPreemptMode",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessInfoMonitorCircuitIfIndex": {
+    "name": "sleVrrp6SessInfoMonitorCircuitIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessInfoMonitorCircuitPrioDelta": {
+    "name": "sleVrrp6SessInfoMonitorCircuitPrioDelta",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessInfoMonitorCircuitState": {
+    "name": "sleVrrp6SessInfoMonitorCircuitState",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessInfoMulticastMembershipOn": {
+    "name": "sleVrrp6SessInfoMulticastMembershipOn",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "joined": 1,
+          "left": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessInfoCompatibleV2": {
+    "name": "sleVrrp6SessInfoCompatibleV2",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessStatTable": {
+    "name": "sleVrrp6SessStatTable",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleVrrp6SessStatEntry": {
+    "name": "sleVrrp6SessStatEntry",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessStatVrid",
+        "implied": 0
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessStatIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleVrrp6SessStatVrid": {
+    "name": "sleVrrp6SessStatVrid",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVrrp6SessStatIfIndex": {
+    "name": "sleVrrp6SessStatIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessStatChecksumErrors": {
+    "name": "sleVrrp6SessStatChecksumErrors",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessStatVersionErrors": {
+    "name": "sleVrrp6SessStatVersionErrors",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessStatVridErrors": {
+    "name": "sleVrrp6SessStatVridErrors",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessStatMasterTransitions": {
+    "name": "sleVrrp6SessStatMasterTransitions",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessStatAdvertisementsRcvd": {
+    "name": "sleVrrp6SessStatAdvertisementsRcvd",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessStatPktsRcvdAdvertisementIntervalErrors": {
+    "name": "sleVrrp6SessStatPktsRcvdAdvertisementIntervalErrors",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessStatPktsRcvdIpTtlErros": {
+    "name": "sleVrrp6SessStatPktsRcvdIpTtlErros",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessStatPktsRcvdZeroPriority": {
+    "name": "sleVrrp6SessStatPktsRcvdZeroPriority",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessStatPktsSentZeroPriority": {
+    "name": "sleVrrp6SessStatPktsSentZeroPriority",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessStatPktsRcvdInvalidType": {
+    "name": "sleVrrp6SessStatPktsRcvdInvalidType",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessStatPktsRcvdAddressListErrors": {
+    "name": "sleVrrp6SessStatPktsRcvdAddressListErrors",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessStatPktsRcvdPacketLengthErrors": {
+    "name": "sleVrrp6SessStatPktsRcvdPacketLengthErrors",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessStatPktsRcvdUnknownAuthenticationType": {
+    "name": "sleVrrp6SessStatPktsRcvdUnknownAuthenticationType",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessStatPktsRcvdIpCountMismatch": {
+    "name": "sleVrrp6SessStatPktsRcvdIpCountMismatch",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessStatDiscontinuityTime": {
+    "name": "sleVrrp6SessStatDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVrrp6SessStatRefreshRate": {
+    "name": "sleVrrp6SessStatRefreshRate",
+    "oid": "1.3.6.1.4.1.6296.101.57.2.2.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleISISGroup": {
+    "name": "sleISISGroup",
+    "oid": "1.3.6.1.4.1.6296.101.57.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrpBaseInfoCompatibleV2"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrpBaseInfoVMac"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrpBaseInfoDelegate"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrpBaseControlRequest"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrpBaseControlStatus"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrpBaseControlTimer"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrpBaseControlTimeStamp"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrpBaseControlReqResult"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrpBaseControlCompatibleV2"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrpBaseControlVMac"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrpBaseControlDelegate"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionVrId"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionIfIndex"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionStatus"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionAcceptMode"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionAdvertisementInterval"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionCircuitFailOverIfIndex"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionCircuitFailOverPriorityDelta"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionPreemptMode"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionPriority"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionSwitchBackDelay"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionVirtualIpVal"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionVirtualIpOwner"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionCompatibleV2"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionControlRequest"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionControlStatus"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionControlTimer"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionControlTimeStamp"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionControlReqResult"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionControlVrId"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionControlIfIndex"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionControlSessionStatus"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionControlAcceptMode"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionControlAdvertisementInterval"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionControlCircuitFailOverIfIndex"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionControlCircuitFailOverPriorityDelta"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionControlPreemptMode"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionControlPriority"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionControlSwitchBackDelay"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionControlVirtualIpVal"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionControlVirtualIpOwner"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessionControlCompatibleV2"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionVrId"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionIfIndex"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionStatus"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionAcceptMode"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionAdvertisementInterval"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionCircuitFailOverIfIndex"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionCircuitFailOverPriorityDelta"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionPreemptMode"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionPriority"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionSwitchBackDelay"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionVirtualIpVal"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionVirtualIpOwner"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionControlRequest"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionControlStatus"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionControlTimer"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionControlTimeStamp"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionControlReqResult"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionControlVrId"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionControlIfIndex"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionControlSessionStatus"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionControlAcceptMode"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionControlAdvertisementInterval"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionControlCircuitFailOverIfIndex"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionControlCircuitFailOverPriorityDelta"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionControlPreemptMode"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionControlPriority"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionControlSwitchBackDelay"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionControlVirtualIpVal"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessionControlVirtualIpOwner"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoVrId"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoIfIndex"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoVrfName"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoVrfFibId"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoSessionAdminState"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoSessionState"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoVirtualIp"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoVirtualIpOwner"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoConfiguredPriority"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoCurrentPriority"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoSwitchBackDelay"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoAdvertisementInterval"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoMasterAdvertisementInterval"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoSkewTime"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoAcceptMode"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoPreemptMode"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoMonitorCircuitIfIndex"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoMonitorCircuitPrioDelta"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoMonitorCircuitState"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoMulticastMembershipOn"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessStatVrid"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessStatIfIndex"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessStatChecksumErrors"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessStatVersionErrors"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessStatVridErrors"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessStatMasterTransitions"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessStatAdvertisementsRcvd"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessStatPktsRcvdAdvertisementIntervalErrors"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessStatPktsRcvdIpTtlErros"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessStatPktsRcvdZeroPriority"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessStatPktsSentZeroPriority"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessStatPktsRcvdInvalidType"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessStatPktsRcvdAddressListErrors"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessStatPktsRcvdPacketLengthErrors"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessStatPktsRcvdUnknownAuthenticationType"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessStatPktsRcvdIpCountMismatch"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessStatDiscontinuityTime"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessStatRefreshRate"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessStatVrid"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessStatIfIndex"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessStatChecksumErrors"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessStatVersionErrors"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessStatVridErrors"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessStatMasterTransitions"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessStatAdvertisementsRcvd"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessStatPktsRcvdAdvertisementIntervalErrors"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessStatPktsRcvdIpTtlErros"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessStatPktsRcvdZeroPriority"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessStatPktsSentZeroPriority"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessStatPktsRcvdInvalidType"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessStatPktsRcvdAddressListErrors"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessStatPktsRcvdPacketLengthErrors"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessStatPktsRcvdUnknownAuthenticationType"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessStatPktsRcvdIpCountMismatch"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessStatDiscontinuityTime"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessStatRefreshRate"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoCompatibleV2"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp4SessInfoSessionStateInitMsg"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoVrId"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoIfIndex"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoVrfName"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoVrfFibId"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoSessionAdminState"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoSessionState"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoSessionStateInitMsg"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoVirtualIp"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoVirtualIpOwner"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoConfiguredPriority"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoCurrentPriority"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoSwitchBackDelay"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoAdvertisementInterval"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoMasterAdvertisementInterval"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoSkewTime"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoAcceptMode"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoPreemptMode"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoMonitorCircuitIfIndex"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoMonitorCircuitPrioDelta"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoMonitorCircuitState"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoMulticastMembershipOn"
+      },
+      {
+        "module": "SLE-VRRP-MIB",
+        "object": "sleVrrp6SessInfoCompatibleV2"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-VRRP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:16 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SLE-VRRP-MIB"
+  }
+}

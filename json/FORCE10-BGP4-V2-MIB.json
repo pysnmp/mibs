@@ -1,0 +1,4307 @@
+{
+  "imports": {
+    "class": "imports",
+    "FORCE10-SMI": [
+      "f10Experiment"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressPrefixLength",
+      "InetAddress",
+      "InetPortNumber",
+      "InetAutonomousSystemNumber",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "mib-2",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowPointer",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "f10BgpM2": {
+    "name": "f10BgpM2",
+    "oid": "1.3.6.1.4.1.6027.20.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-04-27 12:00",
+        "description": "This is a Force10 proprietary vesrion of the draft-ietf-idr-bgp4-mibv2-05.txt MIB as proposed by the IETF Inter-Domain Routing Working Group. This mib will be obsolete when IANA-number is assigned. The following objects are added by Force10. - Added to BgpM2PeerCounterstable f10BgpM2PeerInKeepalives, f10BgpM2PeerOutKeepalives, f10BgpM2PeerInOpen, f10BgpM2PeerOutOpen, f10BgpM2PeerInRteRefresh, f10BgpM2PeerOutRteRefresh - Added to BgpM2PrefixCountersTable f10BgpM2PrefixWdrawnByPeer, f10BgpM2PrefixWdrawnFromPeer"
+      }
+    ]
+  },
+  "F10BgpM2Identifier": {
+    "name": "F10BgpM2Identifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "displayhint": "1d.",
+    "status": "current"
+  },
+  "F10BgpM2Afi": {
+    "name": "F10BgpM2Afi",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "F10BgpM2Safi": {
+    "name": "F10BgpM2Safi",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "F10BgpM2Community": {
+    "name": "F10BgpM2Community",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "displayhint": "2d:",
+    "status": "current"
+  },
+  "F10BgpM2ExtendedCommunity": {
+    "name": "F10BgpM2ExtendedCommunity",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "1x:",
+    "status": "current"
+  },
+  "f10BgpM2BaseScalars": {
+    "name": "f10BgpM2BaseScalars",
+    "oid": "1.3.6.1.4.1.6027.20.1.1",
+    "class": "objectidentity"
+  },
+  "f10BgpM2BaseNotifications": {
+    "name": "f10BgpM2BaseNotifications",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.0",
+    "class": "objectidentity"
+  },
+  "f10BgpM2Established": {
+    "name": "f10BgpM2Established",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerLocalAddrType"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerLocalAddr"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerRemoteAddrType"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerRemoteAddr"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerLastErrorReceived"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerState"
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2BackwardTransition": {
+    "name": "f10BgpM2BackwardTransition",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerLocalAddrType"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerLocalAddr"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerRemoteAddrType"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerRemoteAddr"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerLastErrorReceived"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerLastErrorReceivedText"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerState"
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2Version": {
+    "name": "f10BgpM2Version",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.1",
+    "class": "objectidentity"
+  },
+  "f10BgpM2VersionTable": {
+    "name": "f10BgpM2VersionTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2VersionEntry": {
+    "name": "f10BgpM2VersionEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2VersionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2VersionIndex": {
+    "name": "f10BgpM2VersionIndex",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2VersionSupported": {
+    "name": "f10BgpM2VersionSupported",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2SupportedCapabilities": {
+    "name": "f10BgpM2SupportedCapabilities",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.2",
+    "class": "objectidentity"
+  },
+  "f10BgpM2CapabilitySupportAvailable": {
+    "name": "f10BgpM2CapabilitySupportAvailable",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2SupportedCapabilitiesTable": {
+    "name": "f10BgpM2SupportedCapabilitiesTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2SupportedCapabilitiesEntry": {
+    "name": "f10BgpM2SupportedCapabilitiesEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2SupportedCapabilityCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2SupportedCapabilityCode": {
+    "name": "f10BgpM2SupportedCapabilityCode",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2SupportedCapability": {
+    "name": "f10BgpM2SupportedCapability",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2AsSize": {
+    "name": "f10BgpM2AsSize",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "twoOctet": 1,
+          "fourOctet": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2LocalAs": {
+    "name": "f10BgpM2LocalAs",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2LocalIdentifier": {
+    "name": "f10BgpM2LocalIdentifier",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10BgpM2Identifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2BaseScalarExtensions": {
+    "name": "f10BgpM2BaseScalarExtensions",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.7",
+    "class": "objectidentity"
+  },
+  "f10BgpM2BaseScalarNonCapExts": {
+    "name": "f10BgpM2BaseScalarNonCapExts",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.7.1",
+    "class": "objectidentity"
+  },
+  "f10BgpM2BaseScalarCapExts": {
+    "name": "f10BgpM2BaseScalarCapExts",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.7.2",
+    "class": "objectidentity"
+  },
+  "f10BgpM2BaseScalarRouteReflectExts": {
+    "name": "f10BgpM2BaseScalarRouteReflectExts",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.7.1.2796",
+    "class": "objectidentity"
+  },
+  "f10BgpM2RouteReflector": {
+    "name": "f10BgpM2RouteReflector",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.7.1.2796.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2ClusterId": {
+    "name": "f10BgpM2ClusterId",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.7.1.2796.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10BgpM2Identifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2BaseScalarASConfedExts": {
+    "name": "f10BgpM2BaseScalarASConfedExts",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.7.1.3065",
+    "class": "objectidentity"
+  },
+  "f10BgpM2ConfederationRouter": {
+    "name": "f10BgpM2ConfederationRouter",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.7.1.3065.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2ConfederationId": {
+    "name": "f10BgpM2ConfederationId",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.7.1.3065.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2BaseScalarConfiguration": {
+    "name": "f10BgpM2BaseScalarConfiguration",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.8",
+    "class": "objectidentity"
+  },
+  "f10BgpM2CfgBaseScalarStorageType": {
+    "name": "f10BgpM2CfgBaseScalarStorageType",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f10BgpM2CfgLocalAs": {
+    "name": "f10BgpM2CfgLocalAs",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f10BgpM2CfgLocalIdentifier": {
+    "name": "f10BgpM2CfgLocalIdentifier",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10BgpM2Identifier",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f10BgpM2CfgBaseScalarExtensions": {
+    "name": "f10BgpM2CfgBaseScalarExtensions",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.8.4",
+    "class": "objectidentity"
+  },
+  "f10BgpM2CfgBaseScalarNonCapExts": {
+    "name": "f10BgpM2CfgBaseScalarNonCapExts",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.8.4.1",
+    "class": "objectidentity"
+  },
+  "f10BgpM2CfgBaseScalarCapExts": {
+    "name": "f10BgpM2CfgBaseScalarCapExts",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.8.4.2",
+    "class": "objectidentity"
+  },
+  "f10BgpM2CfgBaseScalarReflectorExts": {
+    "name": "f10BgpM2CfgBaseScalarReflectorExts",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.8.4.1.2796",
+    "class": "objectidentity"
+  },
+  "f10BgpM2CfgRouteReflector": {
+    "name": "f10BgpM2CfgRouteReflector",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.8.4.1.2796.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f10BgpM2CfgClusterId": {
+    "name": "f10BgpM2CfgClusterId",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.8.4.1.2796.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10BgpM2Identifier",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f10BgpM2CfgBaseScalarASConfedExts": {
+    "name": "f10BgpM2CfgBaseScalarASConfedExts",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.8.4.1.3065",
+    "class": "objectidentity"
+  },
+  "f10BgpM2CfgConfederationRouter": {
+    "name": "f10BgpM2CfgConfederationRouter",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.8.4.1.3065.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f10BgpM2CfgConfederationId": {
+    "name": "f10BgpM2CfgConfederationId",
+    "oid": "1.3.6.1.4.1.6027.20.1.1.8.4.1.3065.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f10BgpM2Peer": {
+    "name": "f10BgpM2Peer",
+    "oid": "1.3.6.1.4.1.6027.20.1.2",
+    "class": "objectidentity"
+  },
+  "f10BgpM2PeerData": {
+    "name": "f10BgpM2PeerData",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.1",
+    "class": "objectidentity"
+  },
+  "f10BgpM2PeerTable": {
+    "name": "f10BgpM2PeerTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2PeerEntry": {
+    "name": "f10BgpM2PeerEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerInstance",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerLocalAddrType",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerLocalAddr",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerRemoteAddrType",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerRemoteAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2PeerInstance": {
+    "name": "f10BgpM2PeerInstance",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerIdentifier": {
+    "name": "f10BgpM2PeerIdentifier",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10BgpM2Identifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerState": {
+    "name": "f10BgpM2PeerState",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "connect": 2,
+          "active": 3,
+          "opensent": 4,
+          "openconfirm": 5,
+          "established": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerStatus": {
+    "name": "f10BgpM2PeerStatus",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "halted": 1,
+          "running": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerConfiguredVersion": {
+    "name": "f10BgpM2PeerConfiguredVersion",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerNegotiatedVersion": {
+    "name": "f10BgpM2PeerNegotiatedVersion",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerLocalAddrType": {
+    "name": "f10BgpM2PeerLocalAddrType",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerLocalAddr": {
+    "name": "f10BgpM2PeerLocalAddr",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerLocalPort": {
+    "name": "f10BgpM2PeerLocalPort",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerLocalAs": {
+    "name": "f10BgpM2PeerLocalAs",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerRemoteAddrType": {
+    "name": "f10BgpM2PeerRemoteAddrType",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerRemoteAddr": {
+    "name": "f10BgpM2PeerRemoteAddr",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerRemotePort": {
+    "name": "f10BgpM2PeerRemotePort",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerRemoteAs": {
+    "name": "f10BgpM2PeerRemoteAs",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerIndex": {
+    "name": "f10BgpM2PeerIndex",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerErrors": {
+    "name": "f10BgpM2PeerErrors",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.2",
+    "class": "objectidentity"
+  },
+  "f10BgpM2PeerErrorsTable": {
+    "name": "f10BgpM2PeerErrorsTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2PeerErrorsEntry": {
+    "name": "f10BgpM2PeerErrorsEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f10BgpM2PeerErrorsEntry",
+      "module": "FORCE10-BGP4-V2-MIB",
+      "object": "f10BgpM2PeerEntry"
+    },
+    "status": "current"
+  },
+  "f10BgpM2PeerLastErrorReceived": {
+    "name": "f10BgpM2PeerLastErrorReceived",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerLastErrorSent": {
+    "name": "f10BgpM2PeerLastErrorSent",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerLastErrorReceivedTime": {
+    "name": "f10BgpM2PeerLastErrorReceivedTime",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerLastErrorSentTime": {
+    "name": "f10BgpM2PeerLastErrorSentTime",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerLastErrorReceivedText": {
+    "name": "f10BgpM2PeerLastErrorReceivedText",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerLastErrorSentText": {
+    "name": "f10BgpM2PeerLastErrorSentText",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerLastErrorReceivedData": {
+    "name": "f10BgpM2PeerLastErrorReceivedData",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4075
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerLastErrorSentData": {
+    "name": "f10BgpM2PeerLastErrorSentData",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4075
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerTimers": {
+    "name": "f10BgpM2PeerTimers",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.3",
+    "class": "objectidentity"
+  },
+  "f10BgpM2PeerEventTimesTable": {
+    "name": "f10BgpM2PeerEventTimesTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2PeerEventTimesEntry": {
+    "name": "f10BgpM2PeerEventTimesEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f10BgpM2PeerEventTimesEntry",
+      "module": "FORCE10-BGP4-V2-MIB",
+      "object": "f10BgpM2PeerEntry"
+    },
+    "status": "current"
+  },
+  "f10BgpM2PeerFsmEstablishedTime": {
+    "name": "f10BgpM2PeerFsmEstablishedTime",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerInUpdatesElapsedTime": {
+    "name": "f10BgpM2PeerInUpdatesElapsedTime",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerConfiguredTimersTable": {
+    "name": "f10BgpM2PeerConfiguredTimersTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2PeerConfiguredTimersEntry": {
+    "name": "f10BgpM2PeerConfiguredTimersEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f10BgpM2PeerConfiguredTimersEntry",
+      "module": "FORCE10-BGP4-V2-MIB",
+      "object": "f10BgpM2PeerEntry"
+    },
+    "status": "current"
+  },
+  "f10BgpM2PeerConnectRetryInterval": {
+    "name": "f10BgpM2PeerConnectRetryInterval",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerHoldTimeConfigured": {
+    "name": "f10BgpM2PeerHoldTimeConfigured",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerKeepAliveConfigured": {
+    "name": "f10BgpM2PeerKeepAliveConfigured",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 21845
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerMinASOrigInterval": {
+    "name": "f10BgpM2PeerMinASOrigInterval",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerMinRouteAdverInterval": {
+    "name": "f10BgpM2PeerMinRouteAdverInterval",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerNegotiatedTimersTable": {
+    "name": "f10BgpM2PeerNegotiatedTimersTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2PeerNegotiatedTimersEntry": {
+    "name": "f10BgpM2PeerNegotiatedTimersEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f10BgpM2PeerNegotiatedTimersEntry",
+      "module": "FORCE10-BGP4-V2-MIB",
+      "object": "f10BgpM2PeerEntry"
+    },
+    "status": "current"
+  },
+  "f10BgpM2PeerHoldTime": {
+    "name": "f10BgpM2PeerHoldTime",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerKeepAlive": {
+    "name": "f10BgpM2PeerKeepAlive",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 21845
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerCapabilities": {
+    "name": "f10BgpM2PeerCapabilities",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.4",
+    "class": "objectidentity"
+  },
+  "f10BgpM2PeerCapsAnnouncedTable": {
+    "name": "f10BgpM2PeerCapsAnnouncedTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2PeerCapsAnnouncedEntry": {
+    "name": "f10BgpM2PeerCapsAnnouncedEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerIndex",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerCapAnnouncedCode",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerCapAnnouncedIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2PeerCapAnnouncedCode": {
+    "name": "f10BgpM2PeerCapAnnouncedCode",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerCapAnnouncedIndex": {
+    "name": "f10BgpM2PeerCapAnnouncedIndex",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerCapAnnouncedValue": {
+    "name": "f10BgpM2PeerCapAnnouncedValue",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerCapsReceivedTable": {
+    "name": "f10BgpM2PeerCapsReceivedTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2PeerCapsReceivedEntry": {
+    "name": "f10BgpM2PeerCapsReceivedEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerIndex",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerCapReceivedCode",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerCapReceivedIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2PeerCapReceivedCode": {
+    "name": "f10BgpM2PeerCapReceivedCode",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerCapReceivedIndex": {
+    "name": "f10BgpM2PeerCapReceivedIndex",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerCapReceivedValue": {
+    "name": "f10BgpM2PeerCapReceivedValue",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerCounters": {
+    "name": "f10BgpM2PeerCounters",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6",
+    "class": "objectidentity"
+  },
+  "f10BgpM2PeerCountersTable": {
+    "name": "f10BgpM2PeerCountersTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2PeerCountersEntry": {
+    "name": "f10BgpM2PeerCountersEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f10BgpM2PeerCountersEntry",
+      "module": "FORCE10-BGP4-V2-MIB",
+      "object": "f10BgpM2PeerEntry"
+    },
+    "status": "current"
+  },
+  "f10BgpM2PeerInUpdates": {
+    "name": "f10BgpM2PeerInUpdates",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerOutUpdates": {
+    "name": "f10BgpM2PeerOutUpdates",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerInTotalMessages": {
+    "name": "f10BgpM2PeerInTotalMessages",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerOutTotalMessages": {
+    "name": "f10BgpM2PeerOutTotalMessages",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerFsmEstablishedTrans": {
+    "name": "f10BgpM2PeerFsmEstablishedTrans",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerInKeepalives": {
+    "name": "f10BgpM2PeerInKeepalives",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerOutKeepalives": {
+    "name": "f10BgpM2PeerOutKeepalives",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerInOpen": {
+    "name": "f10BgpM2PeerInOpen",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerOutOpen": {
+    "name": "f10BgpM2PeerOutOpen",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerInRteRefresh": {
+    "name": "f10BgpM2PeerInRteRefresh",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerOutRteRefresh": {
+    "name": "f10BgpM2PeerOutRteRefresh",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PrefixCountersTable": {
+    "name": "f10BgpM2PrefixCountersTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2PrefixCountersEntry": {
+    "name": "f10BgpM2PrefixCountersEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerIndex",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PrefixCountersAfi",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PrefixCountersSafi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2PrefixCountersAfi": {
+    "name": "f10BgpM2PrefixCountersAfi",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10BgpM2Afi",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PrefixCountersSafi": {
+    "name": "f10BgpM2PrefixCountersSafi",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10BgpM2Safi",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PrefixInPrefixes": {
+    "name": "f10BgpM2PrefixInPrefixes",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PrefixInPrefixesAccepted": {
+    "name": "f10BgpM2PrefixInPrefixesAccepted",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PrefixInPrefixesRejected": {
+    "name": "f10BgpM2PrefixInPrefixesRejected",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PrefixOutPrefixes": {
+    "name": "f10BgpM2PrefixOutPrefixes",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PrefixWdrawnByPeer": {
+    "name": "f10BgpM2PrefixWdrawnByPeer",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PrefixWdrawnFromPeer": {
+    "name": "f10BgpM2PrefixWdrawnFromPeer",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.6.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerExtensions": {
+    "name": "f10BgpM2PeerExtensions",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.7",
+    "class": "objectidentity"
+  },
+  "f10BgpM2PeerNonCapExts": {
+    "name": "f10BgpM2PeerNonCapExts",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.7.1",
+    "class": "objectidentity"
+  },
+  "f10BgpM2PeerCapExts": {
+    "name": "f10BgpM2PeerCapExts",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.7.2",
+    "class": "objectidentity"
+  },
+  "f10BgpM2PeerRouteReflectionExts": {
+    "name": "f10BgpM2PeerRouteReflectionExts",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.7.1.2796",
+    "class": "objectidentity"
+  },
+  "f10BgpM2PeerReflectorClientTable": {
+    "name": "f10BgpM2PeerReflectorClientTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.7.1.2796.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2PeerReflectorClientEntry": {
+    "name": "f10BgpM2PeerReflectorClientEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.7.1.2796.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f10BgpM2PeerReflectorClientEntry",
+      "module": "FORCE10-BGP4-V2-MIB",
+      "object": "f10BgpM2PeerEntry"
+    },
+    "status": "current"
+  },
+  "f10BgpM2PeerReflectorClient": {
+    "name": "f10BgpM2PeerReflectorClient",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.7.1.2796.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonClient": 0,
+          "client": 1,
+          "meshedClient": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerASConfederationExts": {
+    "name": "f10BgpM2PeerASConfederationExts",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.7.1.3065",
+    "class": "objectidentity"
+  },
+  "f10BgpM2PeerConfedMemberTable": {
+    "name": "f10BgpM2PeerConfedMemberTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.7.1.3065.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2PeerConfedMemberEntry": {
+    "name": "f10BgpM2PeerConfedMemberEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.7.1.3065.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f10BgpM2PeerConfedMemberEntry",
+      "module": "FORCE10-BGP4-V2-MIB",
+      "object": "f10BgpM2PeerEntry"
+    },
+    "status": "current"
+  },
+  "f10BgpM2PeerConfedMember": {
+    "name": "f10BgpM2PeerConfedMember",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.7.1.3065.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PeerConfiguration": {
+    "name": "f10BgpM2PeerConfiguration",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8",
+    "class": "objectidentity"
+  },
+  "f10BgpM2CfgPeerAdminStatusTable": {
+    "name": "f10BgpM2CfgPeerAdminStatusTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerAdminStatusEntry": {
+    "name": "f10BgpM2CfgPeerAdminStatusEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerAdminStatus": {
+    "name": "f10BgpM2CfgPeerAdminStatus",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stop": 1,
+          "start": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerNextIndex": {
+    "name": "f10BgpM2CfgPeerNextIndex",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerTable": {
+    "name": "f10BgpM2CfgPeerTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerEntry": {
+    "name": "f10BgpM2CfgPeerEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgPeerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerConfiguredVersion": {
+    "name": "f10BgpM2CfgPeerConfiguredVersion",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f10BgpM2CfgAllowVersionNegotiation": {
+    "name": "f10BgpM2CfgAllowVersionNegotiation",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerLocalAddrType": {
+    "name": "f10BgpM2CfgPeerLocalAddrType",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerLocalAddr": {
+    "name": "f10BgpM2CfgPeerLocalAddr",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerLocalAs": {
+    "name": "f10BgpM2CfgPeerLocalAs",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerRemoteAddrType": {
+    "name": "f10BgpM2CfgPeerRemoteAddrType",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerRemoteAddr": {
+    "name": "f10BgpM2CfgPeerRemoteAddr",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerRemoteAs": {
+    "name": "f10BgpM2CfgPeerRemoteAs",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerEntryStorageType": {
+    "name": "f10BgpM2CfgPeerEntryStorageType",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerError": {
+    "name": "f10BgpM2CfgPeerError",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "notActivated": 1,
+          "errDuplicatePeeringSession": 2,
+          "activated": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerBgpPeerEntry": {
+    "name": "f10BgpM2CfgPeerBgpPeerEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerRowEntryStatus": {
+    "name": "f10BgpM2CfgPeerRowEntryStatus",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerIndex": {
+    "name": "f10BgpM2CfgPeerIndex",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerStatus": {
+    "name": "f10BgpM2CfgPeerStatus",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "halted": 1,
+          "running": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerTimersTable": {
+    "name": "f10BgpM2CfgPeerTimersTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerTimersEntry": {
+    "name": "f10BgpM2CfgPeerTimersEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f10BgpM2CfgPeerTimersEntry",
+      "module": "FORCE10-BGP4-V2-MIB",
+      "object": "f10BgpM2CfgPeerEntry"
+    },
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerConnectRetryInterval": {
+    "name": "f10BgpM2CfgPeerConnectRetryInterval",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerHoldTimeConfigured": {
+    "name": "f10BgpM2CfgPeerHoldTimeConfigured",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerKeepAliveConfigured": {
+    "name": "f10BgpM2CfgPeerKeepAliveConfigured",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 21845
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerMinASOrigInterval": {
+    "name": "f10BgpM2CfgPeerMinASOrigInterval",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerMinRouteAdverInter": {
+    "name": "f10BgpM2CfgPeerMinRouteAdverInter",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerExtensions": {
+    "name": "f10BgpM2CfgPeerExtensions",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.5",
+    "class": "objectidentity"
+  },
+  "f10BgpM2CfgPeerNonCapExts": {
+    "name": "f10BgpM2CfgPeerNonCapExts",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.5.1",
+    "class": "objectidentity"
+  },
+  "f10BgpM2CfgPeerCapExts": {
+    "name": "f10BgpM2CfgPeerCapExts",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.5.2",
+    "class": "objectidentity"
+  },
+  "f10BgpM2CfgPeerRouteReflectionExts": {
+    "name": "f10BgpM2CfgPeerRouteReflectionExts",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.5.1.2796",
+    "class": "objectidentity"
+  },
+  "f10BgpM2CfgPeerReflectorClientTable": {
+    "name": "f10BgpM2CfgPeerReflectorClientTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.5.1.2796.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerReflectorClientEntry": {
+    "name": "f10BgpM2CfgPeerReflectorClientEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.5.1.2796.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f10BgpM2CfgPeerReflectorClientEntry",
+      "module": "FORCE10-BGP4-V2-MIB",
+      "object": "f10BgpM2CfgPeerEntry"
+    },
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerReflectorClient": {
+    "name": "f10BgpM2CfgPeerReflectorClient",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.5.1.2796.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonClient": 0,
+          "client": 1,
+          "meshedClient": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerASConfederationExts": {
+    "name": "f10BgpM2CfgPeerASConfederationExts",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.5.1.3065",
+    "class": "objectidentity"
+  },
+  "f10BgpM2CfgPeerConfedMemberTable": {
+    "name": "f10BgpM2CfgPeerConfedMemberTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.5.1.3065.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerConfedMemberEntry": {
+    "name": "f10BgpM2CfgPeerConfedMemberEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.5.1.3065.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f10BgpM2CfgPeerConfedMemberEntry",
+      "module": "FORCE10-BGP4-V2-MIB",
+      "object": "f10BgpM2PeerEntry"
+    },
+    "status": "current"
+  },
+  "f10BgpM2CfgPeerConfedMember": {
+    "name": "f10BgpM2CfgPeerConfedMember",
+    "oid": "1.3.6.1.4.1.6027.20.1.2.8.5.1.3065.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f10BgpM2Rib": {
+    "name": "f10BgpM2Rib",
+    "oid": "1.3.6.1.4.1.6027.20.1.3",
+    "class": "objectidentity"
+  },
+  "f10BgpM2NlriTable": {
+    "name": "f10BgpM2NlriTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2NlriEntry": {
+    "name": "f10BgpM2NlriEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerIndex",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2NlriAfi",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2NlriSafi",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2NlriPrefix",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2NlriPrefixLen",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2NlriIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2NlriIndex": {
+    "name": "f10BgpM2NlriIndex",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2NlriAfi": {
+    "name": "f10BgpM2NlriAfi",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10BgpM2Afi",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2NlriSafi": {
+    "name": "f10BgpM2NlriSafi",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10BgpM2Safi",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2NlriPrefixType": {
+    "name": "f10BgpM2NlriPrefixType",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2NlriPrefix": {
+    "name": "f10BgpM2NlriPrefix",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2NlriPrefixLen": {
+    "name": "f10BgpM2NlriPrefixLen",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2NlriBest": {
+    "name": "f10BgpM2NlriBest",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2NlriCalcLocalPref": {
+    "name": "f10BgpM2NlriCalcLocalPref",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrIndex": {
+    "name": "f10BgpM2PathAttrIndex",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2NlriOpaqueType": {
+    "name": "f10BgpM2NlriOpaqueType",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "bgpMplsLabelStack": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2NlriOpaquePointer": {
+    "name": "f10BgpM2NlriOpaquePointer",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2AdjRibsOutTable": {
+    "name": "f10BgpM2AdjRibsOutTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2AdjRibsOutEntry": {
+    "name": "f10BgpM2AdjRibsOutEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerIndex",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2NlriAfi",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2NlriSafi",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2NlriPrefix",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2NlriPrefixLen",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2AdjRibsOutIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2AdjRibsOutIndex": {
+    "name": "f10BgpM2AdjRibsOutIndex",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2AdjRibsOutRoute": {
+    "name": "f10BgpM2AdjRibsOutRoute",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrCount": {
+    "name": "f10BgpM2PathAttrCount",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrTable": {
+    "name": "f10BgpM2PathAttrTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrEntry": {
+    "name": "f10BgpM2PathAttrEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2PathAttrOrigin": {
+    "name": "f10BgpM2PathAttrOrigin",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "igp": 1,
+          "egp": 2,
+          "incomplete": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrNextHopAddrType": {
+    "name": "f10BgpM2PathAttrNextHopAddrType",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrNextHop": {
+    "name": "f10BgpM2PathAttrNextHop",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrMedPresent": {
+    "name": "f10BgpM2PathAttrMedPresent",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrMed": {
+    "name": "f10BgpM2PathAttrMed",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrLocalPrefPresent": {
+    "name": "f10BgpM2PathAttrLocalPrefPresent",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrLocalPref": {
+    "name": "f10BgpM2PathAttrLocalPref",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrAtomicAggregate": {
+    "name": "f10BgpM2PathAttrAtomicAggregate",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atomicAggregatePresent": 1,
+          "atomicAggregateMissing": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrAggregatorAS": {
+    "name": "f10BgpM2PathAttrAggregatorAS",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrAggregatorAddr": {
+    "name": "f10BgpM2PathAttrAggregatorAddr",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10BgpM2Identifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2AsPathCalcLength": {
+    "name": "f10BgpM2AsPathCalcLength",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2AsPathString": {
+    "name": "f10BgpM2AsPathString",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2AsPathIndex": {
+    "name": "f10BgpM2AsPathIndex",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2AsPath4byteTable": {
+    "name": "f10BgpM2AsPath4byteTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2AsPath4byteEntry": {
+    "name": "f10BgpM2AsPath4byteEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f10BgpM2AsPath4byteEntry",
+      "module": "FORCE10-BGP4-V2-MIB",
+      "object": "f10BgpM2PathAttrEntry"
+    },
+    "status": "current"
+  },
+  "f10BgpM2AsPath4bytePathPresent": {
+    "name": "f10BgpM2AsPath4bytePathPresent",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2AsPath4byteAggregatorAS": {
+    "name": "f10BgpM2AsPath4byteAggregatorAS",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2AsPath4byteCalcLength": {
+    "name": "f10BgpM2AsPath4byteCalcLength",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2AsPath4byteString": {
+    "name": "f10BgpM2AsPath4byteString",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2AsPath4byteIndex": {
+    "name": "f10BgpM2AsPath4byteIndex",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2AsPathTable": {
+    "name": "f10BgpM2AsPathTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2AsPathTableEntry": {
+    "name": "f10BgpM2AsPathTableEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrIndex",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2AsPathSegmentIndex",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2AsPathElementIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2AsPathSegmentIndex": {
+    "name": "f10BgpM2AsPathSegmentIndex",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2AsPathElementIndex": {
+    "name": "f10BgpM2AsPathElementIndex",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2AsPathType": {
+    "name": "f10BgpM2AsPathType",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "asSet": 1,
+          "asSequence": 2,
+          "confedSequence": 3,
+          "confedSet": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2AsPathElementValue": {
+    "name": "f10BgpM2AsPathElementValue",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrUnknownTable": {
+    "name": "f10BgpM2PathAttrUnknownTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrUnknownEntry": {
+    "name": "f10BgpM2PathAttrUnknownEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrIndex",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrUnknownIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2PathAttrUnknownIndex": {
+    "name": "f10BgpM2PathAttrUnknownIndex",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrUnknownType": {
+    "name": "f10BgpM2PathAttrUnknownType",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrUnknownValue": {
+    "name": "f10BgpM2PathAttrUnknownValue",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4070
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrExtensions": {
+    "name": "f10BgpM2PathAttrExtensions",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8",
+    "class": "objectidentity"
+  },
+  "f10BgpM2PathAttrNonCapExts": {
+    "name": "f10BgpM2PathAttrNonCapExts",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8.1",
+    "class": "objectidentity"
+  },
+  "f10BgpM2PathAttrCapExts": {
+    "name": "f10BgpM2PathAttrCapExts",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8.2",
+    "class": "objectidentity"
+  },
+  "f10BgpM2PathAttrRouteReflectionExts": {
+    "name": "f10BgpM2PathAttrRouteReflectionExts",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8.1.2796",
+    "class": "objectidentity"
+  },
+  "f10BgpM2PathAttrOriginatorIdTable": {
+    "name": "f10BgpM2PathAttrOriginatorIdTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8.1.2796.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrOriginatorIdEntry": {
+    "name": "f10BgpM2PathAttrOriginatorIdEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8.1.2796.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2PathAttrOriginatorId": {
+    "name": "f10BgpM2PathAttrOriginatorId",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8.1.2796.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10BgpM2Identifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrClusterTable": {
+    "name": "f10BgpM2PathAttrClusterTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8.1.2796.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrClusterEntry": {
+    "name": "f10BgpM2PathAttrClusterEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8.1.2796.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrIndex",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrClusterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2PathAttrClusterIndex": {
+    "name": "f10BgpM2PathAttrClusterIndex",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8.1.2796.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrClusterValue": {
+    "name": "f10BgpM2PathAttrClusterValue",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8.1.2796.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10BgpM2Identifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrCommunityExts": {
+    "name": "f10BgpM2PathAttrCommunityExts",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8.1.1997",
+    "class": "objectidentity"
+  },
+  "f10BgpM2PathAttrCommTable": {
+    "name": "f10BgpM2PathAttrCommTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8.1.1997.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrCommEntry": {
+    "name": "f10BgpM2PathAttrCommEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8.1.1997.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrIndex",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrCommIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2PathAttrCommIndex": {
+    "name": "f10BgpM2PathAttrCommIndex",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8.1.1997.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrCommValue": {
+    "name": "f10BgpM2PathAttrCommValue",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8.1.1997.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10BgpM2Community",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrExtCommTable": {
+    "name": "f10BgpM2PathAttrExtCommTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8.1.3501",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrExtCommEntry": {
+    "name": "f10BgpM2PathAttrExtCommEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8.1.3501.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrIndex",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrExtCommIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2PathAttrExtCommIndex": {
+    "name": "f10BgpM2PathAttrExtCommIndex",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8.1.3501.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2PathAttrExtCommValue": {
+    "name": "f10BgpM2PathAttrExtCommValue",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8.1.3501.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10BgpM2ExtendedCommunity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2LinkLocalNextHopTable": {
+    "name": "f10BgpM2LinkLocalNextHopTable",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8.1.2545",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10BgpM2LinkLocalNextHopEntry": {
+    "name": "f10BgpM2LinkLocalNextHopEntry",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8.1.2545.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2LinkLocalNextHopPresent": {
+    "name": "f10BgpM2LinkLocalNextHopPresent",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8.1.2545.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2LinkLocalNextHop": {
+    "name": "f10BgpM2LinkLocalNextHop",
+    "oid": "1.3.6.1.4.1.6027.20.1.3.8.1.2545.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BgpM2Conformance": {
+    "name": "f10BgpM2Conformance",
+    "oid": "1.3.6.1.4.1.6027.20.1.4",
+    "class": "objectidentity"
+  },
+  "f10BgpM2MIBCompliances": {
+    "name": "f10BgpM2MIBCompliances",
+    "oid": "1.3.6.1.4.1.6027.20.1.4.1",
+    "class": "objectidentity"
+  },
+  "f10BgpM2MIBGroups": {
+    "name": "f10BgpM2MIBGroups",
+    "oid": "1.3.6.1.4.1.6027.20.1.4.2",
+    "class": "objectidentity"
+  },
+  "f10BgpM2MIBCompliance": {
+    "name": "f10BgpM2MIBCompliance",
+    "oid": "1.3.6.1.4.1.6027.20.1.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "f10BgpM2TimersGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2CountersGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2AsPathGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2As4byteGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2BaseGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2ErrorsGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2PeerGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2PathAttributesGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2MIBNotificationsGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2CommunitiesGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2ExtCommunitiesGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2RouteReflectionGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2AsConfederationGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2TimersGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2CountersGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2CapabilitiesGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2AsPathGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2As4byteGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2BaseGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2ErrorsGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2PeerGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2PathAttributesGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2PeerConfigurationGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2PeerRouteReflectorCfgGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2PeerAsConfederationCfgGroup",
+        "module": "FORCE10-BGP4-V2-MIB"
+      },
+      {
+        "object": "f10BgpM2Rfc2545Group",
+        "module": "FORCE10-BGP4-V2-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2CommunitiesGroup": {
+    "name": "f10BgpM2CommunitiesGroup",
+    "oid": "1.3.6.1.4.1.6027.20.1.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrCommIndex"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrCommValue"
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2ExtCommunitiesGroup": {
+    "name": "f10BgpM2ExtCommunitiesGroup",
+    "oid": "1.3.6.1.4.1.6027.20.1.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrExtCommIndex"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrExtCommValue"
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2RouteReflectionGroup": {
+    "name": "f10BgpM2RouteReflectionGroup",
+    "oid": "1.3.6.1.4.1.6027.20.1.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2RouteReflector"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2ClusterId"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerReflectorClient"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrOriginatorId"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrClusterIndex"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrClusterValue"
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2AsConfederationGroup": {
+    "name": "f10BgpM2AsConfederationGroup",
+    "oid": "1.3.6.1.4.1.6027.20.1.4.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2ConfederationRouter"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2ConfederationId"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerConfedMember"
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2TimersGroup": {
+    "name": "f10BgpM2TimersGroup",
+    "oid": "1.3.6.1.4.1.6027.20.1.4.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerFsmEstablishedTime"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerInUpdatesElapsedTime"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerConnectRetryInterval"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerHoldTimeConfigured"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerKeepAliveConfigured"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerMinASOrigInterval"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerMinRouteAdverInterval"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerHoldTime"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerKeepAlive"
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2CountersGroup": {
+    "name": "f10BgpM2CountersGroup",
+    "oid": "1.3.6.1.4.1.6027.20.1.4.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerInUpdates"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerOutUpdates"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerInTotalMessages"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerOutTotalMessages"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerFsmEstablishedTrans"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerInKeepalives"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerOutKeepalives"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerInOpen"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerOutOpen"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerInRteRefresh"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerOutRteRefresh"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PrefixCountersAfi"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PrefixCountersSafi"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PrefixInPrefixes"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PrefixInPrefixesAccepted"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PrefixInPrefixesRejected"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PrefixOutPrefixes"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PrefixWdrawnByPeer"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PrefixWdrawnFromPeer"
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2CapabilitiesGroup": {
+    "name": "f10BgpM2CapabilitiesGroup",
+    "oid": "1.3.6.1.4.1.6027.20.1.4.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CapabilitySupportAvailable"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2SupportedCapabilityCode"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2SupportedCapability"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerCapAnnouncedCode"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerCapAnnouncedIndex"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerCapAnnouncedValue"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerCapReceivedCode"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerCapReceivedIndex"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerCapReceivedValue"
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2AsPathGroup": {
+    "name": "f10BgpM2AsPathGroup",
+    "oid": "1.3.6.1.4.1.6027.20.1.4.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2AsPathSegmentIndex"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2AsPathElementIndex"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2AsPathType"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2AsPathElementValue"
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2As4byteGroup": {
+    "name": "f10BgpM2As4byteGroup",
+    "oid": "1.3.6.1.4.1.6027.20.1.4.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2AsSize"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2AsPath4bytePathPresent"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2AsPath4byteAggregatorAS"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2AsPath4byteCalcLength"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2AsPath4byteString"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2AsPath4byteIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2BaseGroup": {
+    "name": "f10BgpM2BaseGroup",
+    "oid": "1.3.6.1.4.1.6027.20.1.4.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2LocalAs"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2LocalIdentifier"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2VersionIndex"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2VersionSupported"
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2ErrorsGroup": {
+    "name": "f10BgpM2ErrorsGroup",
+    "oid": "1.3.6.1.4.1.6027.20.1.4.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerLastErrorReceived"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerLastErrorReceivedData"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerLastErrorReceivedTime"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerLastErrorReceivedText"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerLastErrorSent"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerLastErrorSentData"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerLastErrorSentTime"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerLastErrorSentText"
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2PeerGroup": {
+    "name": "f10BgpM2PeerGroup",
+    "oid": "1.3.6.1.4.1.6027.20.1.4.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerInstance"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerIdentifier"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerState"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerStatus"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerConfiguredVersion"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerNegotiatedVersion"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerLocalAddrType"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerLocalAddr"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerLocalPort"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerLocalAs"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerRemoteAddrType"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerRemoteAddr"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerRemotePort"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerRemoteAs"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PeerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2PathAttributesGroup": {
+    "name": "f10BgpM2PathAttributesGroup",
+    "oid": "1.3.6.1.4.1.6027.20.1.4.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrCount"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2AsPathCalcLength"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2AsPathElementValue"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2AsPathIndex"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2AsPathString"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2AsPathType"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2NlriAfi"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2NlriBest"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2NlriPrefixType"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2NlriPrefix"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2NlriPrefixLen"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2NlriSafi"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2NlriOpaqueType"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2NlriOpaquePointer"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2NlriIndex"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2NlriCalcLocalPref"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2AdjRibsOutIndex"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2AdjRibsOutRoute"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrAggregatorAS"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrAggregatorAddr"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrAtomicAggregate"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrIndex"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrLocalPref"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrLocalPrefPresent"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrMed"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrMedPresent"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrNextHop"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrNextHopAddrType"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrOrigin"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrUnknownIndex"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrUnknownType"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2PathAttrUnknownValue"
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2PeerConfigurationGroup": {
+    "name": "f10BgpM2PeerConfigurationGroup",
+    "oid": "1.3.6.1.4.1.6027.20.1.4.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgBaseScalarStorageType"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgLocalAs"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgLocalIdentifier"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgPeerAdminStatus"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgPeerNextIndex"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgPeerConfiguredVersion"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgAllowVersionNegotiation"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgPeerLocalAddrType"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgPeerLocalAddr"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgPeerLocalAs"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgPeerRemoteAddrType"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgPeerRemoteAddr"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgPeerRemoteAs"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgPeerEntryStorageType"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgPeerError"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgPeerBgpPeerEntry"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgPeerRowEntryStatus"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgPeerIndex"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgPeerStatus"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgPeerConnectRetryInterval"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgPeerHoldTimeConfigured"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgPeerKeepAliveConfigured"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgPeerMinASOrigInterval"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgPeerMinRouteAdverInter"
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2PeerRouteReflectorCfgGroup": {
+    "name": "f10BgpM2PeerRouteReflectorCfgGroup",
+    "oid": "1.3.6.1.4.1.6027.20.1.4.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgRouteReflector"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgClusterId"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgPeerReflectorClient"
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2PeerAsConfederationCfgGroup": {
+    "name": "f10BgpM2PeerAsConfederationCfgGroup",
+    "oid": "1.3.6.1.4.1.6027.20.1.4.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgConfederationRouter"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgConfederationId"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2CfgPeerConfedMember"
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2MIBNotificationsGroup": {
+    "name": "f10BgpM2MIBNotificationsGroup",
+    "oid": "1.3.6.1.4.1.6027.20.1.4.2.17",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2Established"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2BackwardTransition"
+      }
+    ],
+    "status": "current"
+  },
+  "f10BgpM2Rfc2545Group": {
+    "name": "f10BgpM2Rfc2545Group",
+    "oid": "1.3.6.1.4.1.6027.20.1.4.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2LinkLocalNextHopPresent"
+      },
+      {
+        "module": "FORCE10-BGP4-V2-MIB",
+        "object": "f10BgpM2LinkLocalNextHop"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/FORCE10-BGP4-V2-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:13 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "FORCE10-BGP4-V2-MIB"
+  }
+}

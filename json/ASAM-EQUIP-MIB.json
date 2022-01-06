@@ -1,0 +1,3847 @@
+{
+  "imports": {
+    "class": "imports",
+    "ASAM-ALARM-MIB": [
+      "AsamAlarmSeverityType"
+    ],
+    "ASAM-TC-MIB": [
+      "AsamProfileName",
+      "AsamProfileRefCount",
+      "AsamNextProfileIndex",
+      "NetworkTimeInSeconds",
+      "AsamProfileIndex",
+      "AsamProfilePointer"
+    ],
+    "ITF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "IpAddress",
+      "Unsigned32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
+    ],
+    "SYSTEM-MIB": [
+      "asam"
+    ]
+  },
+  "asamEquipmentMIB": {
+    "name": "asamEquipmentMIB",
+    "oid": "1.3.6.1.4.1.637.61.1.23",
+    "class": "objectidentity"
+  },
+  "EqptHolderIndex": {
+    "name": "EqptHolderIndex",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    }
+  },
+  "EqptPowerSupplyIndex": {
+    "name": "EqptPowerSupplyIndex",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    }
+  },
+  "EqptPowerRftcIndex": {
+    "name": "EqptPowerRftcIndex",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    }
+  },
+  "EqptPowerRftcLineStatus": {
+    "name": "EqptPowerRftcLineStatus",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "notconnected": 1,
+          "highimpedant": 2,
+          "earthfault": 3
+        }
+      }
+    }
+  },
+  "EqptHolderIndexOrZero": {
+    "name": "EqptHolderIndexOrZero",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    }
+  },
+  "EqptSlotIndex": {
+    "name": "EqptSlotIndex",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    }
+  },
+  "EqptCustAlarmProfileOutputType": {
+    "name": "EqptCustAlarmProfileOutputType",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "triggered": 1,
+          "notTriggered": 2
+        }
+      }
+    }
+  },
+  "EqptCustAlarmProfilePolarityType": {
+    "name": "EqptCustAlarmProfilePolarityType",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inversed": 1,
+          "normal": 2
+        }
+      }
+    }
+  },
+  "EqptPortMappingIndex": {
+    "name": "EqptPortMappingIndex",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "eqptAsam": {
+    "name": "eqptAsam",
+    "oid": "1.3.6.1.4.1.637.61.1.23.1",
+    "class": "objectidentity"
+  },
+  "eqptAsamId": {
+    "name": "eqptAsamId",
+    "oid": "1.3.6.1.4.1.637.61.1.23.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptAsamRestart": {
+    "name": "eqptAsamRestart",
+    "oid": "1.3.6.1.4.1.637.61.1.23.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "restartWithSelfTest": 1,
+          "restartWithoutSelfTest": 2,
+          "restartHot": 5,
+          "initialValue": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptMaxRacksPerAsam": {
+    "name": "eqptMaxRacksPerAsam",
+    "oid": "1.3.6.1.4.1.637.61.1.23.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptMaxShelvesPerRack": {
+    "name": "eqptMaxShelvesPerRack",
+    "oid": "1.3.6.1.4.1.637.61.1.23.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptMaxSlotsPerShelf": {
+    "name": "eqptMaxSlotsPerShelf",
+    "oid": "1.3.6.1.4.1.637.61.1.23.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptHwNumberOfChanges": {
+    "name": "eqptHwNumberOfChanges",
+    "oid": "1.3.6.1.4.1.637.61.1.23.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptProtNumberOfChanges": {
+    "name": "eqptProtNumberOfChanges",
+    "oid": "1.3.6.1.4.1.637.61.1.23.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptRestartNumberOfChanges": {
+    "name": "eqptRestartNumberOfChanges",
+    "oid": "1.3.6.1.4.1.637.61.1.23.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptFanMode": {
+    "name": "eqptFanMode",
+    "oid": "1.3.6.1.4.1.637.61.1.23.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "eco": 1,
+          "protect": 2,
+          "classic": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptHolderTable": {
+    "name": "eqptHolderTable",
+    "oid": "1.3.6.1.4.1.637.61.1.23.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptHolderEntry": {
+    "name": "eqptHolderEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.23.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptHolderId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "eqptHolderId": {
+    "name": "eqptHolderId",
+    "oid": "1.3.6.1.4.1.637.61.1.23.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptHolderIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptHolderClass": {
+    "name": "eqptHolderClass",
+    "oid": "1.3.6.1.4.1.637.61.1.23.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mainIqHcl": 1,
+          "extIq": 2,
+          "extHcl": 3,
+          "mainEthernet": 4,
+          "extEthernet": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptHolderPlannedType": {
+    "name": "eqptHolderPlannedType",
+    "oid": "1.3.6.1.4.1.637.61.1.23.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptHolderActualType": {
+    "name": "eqptHolderActualType",
+    "oid": "1.3.6.1.4.1.637.61.1.23.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptHolderAdminStatus": {
+    "name": "eqptHolderAdminStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.23.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unlock": 1,
+          "lock": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptHolderOperStatus": {
+    "name": "eqptHolderOperStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.23.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptHolderOperError": {
+    "name": "eqptHolderOperError",
+    "oid": "1.3.6.1.4.1.637.61.1.23.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-error": 1,
+          "type-mismatch": 2,
+          "holder-missing": 3,
+          "holder-installation-missing": 4,
+          "defense": 15
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptHolderAvailStatus": {
+    "name": "eqptHolderAvailStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.23.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 1,
+          "failed": 3,
+          "notInstalled": 5,
+          "offLine": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptHolderDescription": {
+    "name": "eqptHolderDescription",
+    "oid": "1.3.6.1.4.1.637.61.1.23.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptHolderContainerId": {
+    "name": "eqptHolderContainerId",
+    "oid": "1.3.6.1.4.1.637.61.1.23.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptHolderContainerOffset": {
+    "name": "eqptHolderContainerOffset",
+    "oid": "1.3.6.1.4.1.637.61.1.23.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptHolderMode": {
+    "name": "eqptHolderMode",
+    "oid": "1.3.6.1.4.1.637.61.1.23.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ntbntio-supported": 1,
+          "ntbntio-unsupported": 2,
+          "ntb-unsupported": 3,
+          "ntbntioextlt-unsupported": 4,
+          "ntio-unsupported": 6,
+          "ngpon-supported": 7,
+          "gpon-supported": 8,
+          "ngpon-port-reduced": 9
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptHolderSerialNumber": {
+    "name": "eqptHolderSerialNumber",
+    "oid": "1.3.6.1.4.1.637.61.1.23.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptHolderVariant": {
+    "name": "eqptHolderVariant",
+    "oid": "1.3.6.1.4.1.637.61.1.23.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptHolderICScode": {
+    "name": "eqptHolderICScode",
+    "oid": "1.3.6.1.4.1.637.61.1.23.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardTable": {
+    "name": "eqptBoardTable",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptBoardEntry": {
+    "name": "eqptBoardEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "eqptSlotId": {
+    "name": "eqptSlotId",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptSlotIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptSlotPlannedType": {
+    "name": "eqptSlotPlannedType",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptSlotActualType": {
+    "name": "eqptSlotActualType",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptSlotPowerStatus": {
+    "name": "eqptSlotPowerStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "powerUp": 1,
+          "powerDown": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptBoardAdminStatus": {
+    "name": "eqptBoardAdminStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unlock": 1,
+          "lock": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptBoardOperStatus": {
+    "name": "eqptBoardOperStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardOperError": {
+    "name": "eqptBoardOperError",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-error": 1,
+          "type-mismatch": 2,
+          "board-missing": 3,
+          "board-installation-missing": 4,
+          "no-planned-board": 5,
+          "waiting-for-sw": 6,
+          "init-boot-failed": 7,
+          "init-download-failed": 8,
+          "init-connection-failed": 9,
+          "init-configuration-failed": 10,
+          "board-reset-protection": 11,
+          "invalid-parameter": 12,
+          "temperature-alarm": 13,
+          "tempshutdown": 14,
+          "defense": 15,
+          "board-not-licensed": 16,
+          "sem-power-fail": 17,
+          "sem-ups-fail": 18,
+          "board-in-incompatible-slot": 19,
+          "download-ongoing": 21,
+          "unknown-error": 255
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardAvailStatus": {
+    "name": "eqptBoardAvailStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 1,
+          "inTest": 2,
+          "failed": 3,
+          "powerOff": 4,
+          "notInstalled": 5,
+          "offLine": 6,
+          "dependency": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardRestart": {
+    "name": "eqptBoardRestart",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "with-selftest": 1,
+          "without-selftest": 2,
+          "hot-restart": 5,
+          "initialValue": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptBoardSwOverruleStatus": {
+    "name": "eqptBoardSwOverruleStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-overrule": 1,
+          "overrule": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptBoardContainerId": {
+    "name": "eqptBoardContainerId",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardContainerOffset": {
+    "name": "eqptBoardContainerOffset",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardInventoryAlcatelCompanyId": {
+    "name": "eqptBoardInventoryAlcatelCompanyId",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardInventoryTypeName": {
+    "name": "eqptBoardInventoryTypeName",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardInventoryPBACode": {
+    "name": "eqptBoardInventoryPBACode",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardInventoryFPBACode": {
+    "name": "eqptBoardInventoryFPBACode",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardInventoryICScode": {
+    "name": "eqptBoardInventoryICScode",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardInventoryCLEICode": {
+    "name": "eqptBoardInventoryCLEICode",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardInventorySerialNumber": {
+    "name": "eqptBoardInventorySerialNumber",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardInventoryLastFailedTest": {
+    "name": "eqptBoardInventoryLastFailedTest",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptSlotPlannedCapabilityProfile": {
+    "name": "eqptSlotPlannedCapabilityProfile",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AsamProfilePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptBoardCustAlarmProfile": {
+    "name": "eqptBoardCustAlarmProfile",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AsamProfilePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptBoardLastRestartCause": {
+    "name": "eqptBoardLastRestartCause",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "poweron": 1,
+          "unknown": 2,
+          "watchdog": 3,
+          "coldreset": 4,
+          "warmreset": 5,
+          "hotreset": 6,
+          "hotreload": 7,
+          "cleandata": 8,
+          "emergencybuild": 9,
+          "poweronreset": 10,
+          "commitfailure": 11,
+          "timezonemodified": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardLastRestartTime": {
+    "name": "eqptBoardLastRestartTime",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NetworkTimeInSeconds",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardRestartNumberOfChanges": {
+    "name": "eqptBoardRestartNumberOfChanges",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardRelatedMgntEntityIPAddress": {
+    "name": "eqptBoardRelatedMgntEntityIPAddress",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardRelatedMgntEntityPairedNumber": {
+    "name": "eqptBoardRelatedMgntEntityPairedNumber",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardDualHostIPAddress": {
+    "name": "eqptBoardDualHostIPAddress",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptBoardDualHostLsmLocation": {
+    "name": "eqptBoardDualHostLsmLocation",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptHolderIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptBoardIfSlotId": {
+    "name": "eqptBoardIfSlotId",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardRestartCountPerLt": {
+    "name": "eqptBoardRestartCountPerLt",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardClearRestartCountPerLt": {
+    "name": "eqptBoardClearRestartCountPerLt",
+    "oid": "1.3.6.1.4.1.637.61.1.23.3.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptShelfSummaryTable": {
+    "name": "eqptShelfSummaryTable",
+    "oid": "1.3.6.1.4.1.637.61.1.23.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptShelfSummaryEntry": {
+    "name": "eqptShelfSummaryEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.23.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptHolderId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "eqptShelfHwNumberOfChanges": {
+    "name": "eqptShelfHwNumberOfChanges",
+    "oid": "1.3.6.1.4.1.637.61.1.23.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptShelfSlotSummaryOccupation": {
+    "name": "eqptShelfSlotSummaryOccupation",
+    "oid": "1.3.6.1.4.1.637.61.1.23.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptShelfBoardSummaryAdmin": {
+    "name": "eqptShelfBoardSummaryAdmin",
+    "oid": "1.3.6.1.4.1.637.61.1.23.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptShelfBoardSummaryAvail": {
+    "name": "eqptShelfBoardSummaryAvail",
+    "oid": "1.3.6.1.4.1.637.61.1.23.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptShelfBoardSummaryOper": {
+    "name": "eqptShelfBoardSummaryOper",
+    "oid": "1.3.6.1.4.1.637.61.1.23.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptShelfBoardSummaryTypeMismatch": {
+    "name": "eqptShelfBoardSummaryTypeMismatch",
+    "oid": "1.3.6.1.4.1.637.61.1.23.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptShelfBoardSummaryAlarm": {
+    "name": "eqptShelfBoardSummaryAlarm",
+    "oid": "1.3.6.1.4.1.637.61.1.23.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptProt": {
+    "name": "eqptProt",
+    "oid": "1.3.6.1.4.1.637.61.1.23.5",
+    "class": "objectidentity"
+  },
+  "eqptProtNextProtGroupId": {
+    "name": "eqptProtNextProtGroupId",
+    "oid": "1.3.6.1.4.1.637.61.1.23.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptProtGroupTable": {
+    "name": "eqptProtGroupTable",
+    "oid": "1.3.6.1.4.1.637.61.1.23.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptProtGroupEntry": {
+    "name": "eqptProtGroupEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.23.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptProtGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "eqptProtGroupId": {
+    "name": "eqptProtGroupId",
+    "oid": "1.3.6.1.4.1.637.61.1.23.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptProtGroupType": {
+    "name": "eqptProtGroupType",
+    "oid": "1.3.6.1.4.1.637.61.1.23.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "one-plus-one": 1,
+          "one-for-N": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptProtGroupNumberOfChanges": {
+    "name": "eqptProtGroupNumberOfChanges",
+    "oid": "1.3.6.1.4.1.637.61.1.23.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptProtGroupSwitchoverCount": {
+    "name": "eqptProtGroupSwitchoverCount",
+    "oid": "1.3.6.1.4.1.637.61.1.23.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptProtGroupLastSwitchoverReason": {
+    "name": "eqptProtGroupLastSwitchoverReason",
+    "oid": "1.3.6.1.4.1.637.61.1.23.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noSwitchOver": 1,
+          "forcedActive": 2,
+          "boardNotPresent": 3,
+          "extenderChainFailure": 4,
+          "linkFailure": 5,
+          "watchDogTimeOut": 6,
+          "fileSystemCorrupt": 7,
+          "configurationMismatch": 8,
+          "boardUnplanned": 9,
+          "boardLocked": 10,
+          "shelfDefense": 11,
+          "revertiveSwitchOver": 12,
+          "lanxFailure": 13,
+          "lanxHwFailure": 14,
+          "lanxSdkFailure": 15,
+          "dpoeAppFailure": 16,
+          "dpoeUnreachable": 17
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptProtGroupEpsQuenchfactor": {
+    "name": "eqptProtGroupEpsQuenchfactor",
+    "oid": "1.3.6.1.4.1.637.61.1.23.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1440000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptProtGroupAlarmBitmap": {
+    "name": "eqptProtGroupAlarmBitmap",
+    "oid": "1.3.6.1.4.1.637.61.1.23.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptProtGroupAdminStatus": {
+    "name": "eqptProtGroupAdminStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.23.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unlock": 1,
+          "lock": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptProtGroupAdminProtElement": {
+    "name": "eqptProtGroupAdminProtElement",
+    "oid": "1.3.6.1.4.1.637.61.1.23.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptProtGroupOperProtElement": {
+    "name": "eqptProtGroupOperProtElement",
+    "oid": "1.3.6.1.4.1.637.61.1.23.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptProtGroupRowStatus": {
+    "name": "eqptProtGroupRowStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.23.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptProtElementTable": {
+    "name": "eqptProtElementTable",
+    "oid": "1.3.6.1.4.1.637.61.1.23.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptProtElementEntry": {
+    "name": "eqptProtElementEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.23.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "eqptProtElementGroupId": {
+    "name": "eqptProtElementGroupId",
+    "oid": "1.3.6.1.4.1.637.61.1.23.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptProtElementType": {
+    "name": "eqptProtElementType",
+    "oid": "1.3.6.1.4.1.637.61.1.23.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "spare": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptProtElementStandbyStatus": {
+    "name": "eqptProtElementStandbyStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.23.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "providing-service": 1,
+          "hot-standby": 2,
+          "cold-standby": 3,
+          "idle": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptProtElementRedcyCtrlStatus": {
+    "name": "eqptProtElementRedcyCtrlStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.23.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "forced-active": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptProtElementRowStatus": {
+    "name": "eqptProtElementRowStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.23.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptProtElementStandbyStatuschangeReason": {
+    "name": "eqptProtElementStandbyStatuschangeReason",
+    "oid": "1.3.6.1.4.1.637.61.1.23.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "protectionGroupLocked": 1,
+          "forcedActive": 2,
+          "peerLinkUnAvailable": 3,
+          "peerLocked": 4,
+          "peerNotPlanned": 5,
+          "peerNotPluggedIn": 6,
+          "databaseNotInSync": 7,
+          "lanxDynamicDataNotSynced": 8,
+          "lanxSdkFailure": 9,
+          "lanxRecovSdkFailure": 10,
+          "lanxHwFailure": 11,
+          "lanxDynDataSyncFailure": 12,
+          "lanxStaticSyncFailure": 13,
+          "lanxPeerCommFailure": 14,
+          "lanxFailure": 15,
+          "linkGroupNotAvailable": 16,
+          "ltNotEnabled": 17,
+          "lanxHiGigFailure": 18,
+          "lanxReconcileFailure": 19,
+          "lanxDiscoveryFailure": 20,
+          "dpoeAppFailure": 21,
+          "dpoeCommFailure": 22,
+          "dpoeSyncFailure": 23,
+          "dpoeUnreachable": 24
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptProfile": {
+    "name": "eqptProfile",
+    "oid": "1.3.6.1.4.1.637.61.1.23.6",
+    "class": "objectidentity"
+  },
+  "eqptProfileTable": {
+    "name": "eqptProfileTable",
+    "oid": "1.3.6.1.4.1.637.61.1.23.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptProfileEntry": {
+    "name": "eqptProfileEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.23.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "eqptProfileId": {
+    "name": "eqptProfileId",
+    "oid": "1.3.6.1.4.1.637.61.1.23.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AsamProfileIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptProfileName": {
+    "name": "eqptProfileName",
+    "oid": "1.3.6.1.4.1.637.61.1.23.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AsamProfileName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptProfileDescription": {
+    "name": "eqptProfileDescription",
+    "oid": "1.3.6.1.4.1.637.61.1.23.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptProfileApplicabilityTable": {
+    "name": "eqptProfileApplicabilityTable",
+    "oid": "1.3.6.1.4.1.637.61.1.23.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptProfileApplicabilityEntry": {
+    "name": "eqptProfileApplicabilityEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.23.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptProfileId",
+        "implied": 0
+      },
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptBoardType",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "eqptBoardType": {
+    "name": "eqptBoardType",
+    "oid": "1.3.6.1.4.1.637.61.1.23.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptDefaultProfile": {
+    "name": "eqptDefaultProfile",
+    "oid": "1.3.6.1.4.1.637.61.1.23.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptTestChainTable": {
+    "name": "eqptTestChainTable",
+    "oid": "1.3.6.1.4.1.637.61.1.23.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptTestChainEntry": {
+    "name": "eqptTestChainEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.23.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptHolderId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "eqptTestChainShelfToTapUp": {
+    "name": "eqptTestChainShelfToTapUp",
+    "oid": "1.3.6.1.4.1.637.61.1.23.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptTestChainExtTestHeadToTapUp": {
+    "name": "eqptTestChainExtTestHeadToTapUp",
+    "oid": "1.3.6.1.4.1.637.61.1.23.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfile": {
+    "name": "eqptCustAlarmProfile",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8",
+    "class": "objectidentity"
+  },
+  "eqptCustAlarmProfileIndexNext": {
+    "name": "eqptCustAlarmProfileIndexNext",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AsamNextProfileIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileTable": {
+    "name": "eqptCustAlarmProfileTable",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileEntry": {
+    "name": "eqptCustAlarmProfileEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptCustAlarmProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileIndex": {
+    "name": "eqptCustAlarmProfileIndex",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AsamProfileIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileName": {
+    "name": "eqptCustAlarmProfileName",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AsamProfileName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileUsedStatus": {
+    "name": "eqptCustAlarmProfileUsedStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AsamProfileRefCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileRowStatus": {
+    "name": "eqptCustAlarmProfileRowStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileMnemonic1": {
+    "name": "eqptCustAlarmProfileMnemonic1",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileDescription1": {
+    "name": "eqptCustAlarmProfileDescription1",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileVisibleOutput1": {
+    "name": "eqptCustAlarmProfileVisibleOutput1",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptCustAlarmProfileOutputType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileAudibleOutput1": {
+    "name": "eqptCustAlarmProfileAudibleOutput1",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptCustAlarmProfileOutputType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfilePolarity1": {
+    "name": "eqptCustAlarmProfilePolarity1",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptCustAlarmProfilePolarityType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileSeverity1": {
+    "name": "eqptCustAlarmProfileSeverity1",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AsamAlarmSeverityType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileMnemonic2": {
+    "name": "eqptCustAlarmProfileMnemonic2",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileDescription2": {
+    "name": "eqptCustAlarmProfileDescription2",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileVisibleOutput2": {
+    "name": "eqptCustAlarmProfileVisibleOutput2",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptCustAlarmProfileOutputType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileAudibleOutput2": {
+    "name": "eqptCustAlarmProfileAudibleOutput2",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptCustAlarmProfileOutputType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfilePolarity2": {
+    "name": "eqptCustAlarmProfilePolarity2",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptCustAlarmProfilePolarityType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileSeverity2": {
+    "name": "eqptCustAlarmProfileSeverity2",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AsamAlarmSeverityType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileMnemonic3": {
+    "name": "eqptCustAlarmProfileMnemonic3",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileDescription3": {
+    "name": "eqptCustAlarmProfileDescription3",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileVisibleOutput3": {
+    "name": "eqptCustAlarmProfileVisibleOutput3",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptCustAlarmProfileOutputType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileAudibleOutput3": {
+    "name": "eqptCustAlarmProfileAudibleOutput3",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptCustAlarmProfileOutputType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfilePolarity3": {
+    "name": "eqptCustAlarmProfilePolarity3",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptCustAlarmProfilePolarityType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileSeverity3": {
+    "name": "eqptCustAlarmProfileSeverity3",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AsamAlarmSeverityType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileMnemonic4": {
+    "name": "eqptCustAlarmProfileMnemonic4",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileDescription4": {
+    "name": "eqptCustAlarmProfileDescription4",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileVisibleOutput4": {
+    "name": "eqptCustAlarmProfileVisibleOutput4",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptCustAlarmProfileOutputType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileAudibleOutput4": {
+    "name": "eqptCustAlarmProfileAudibleOutput4",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptCustAlarmProfileOutputType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfilePolarity4": {
+    "name": "eqptCustAlarmProfilePolarity4",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptCustAlarmProfilePolarityType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileSeverity4": {
+    "name": "eqptCustAlarmProfileSeverity4",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AsamAlarmSeverityType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileMnemonic5": {
+    "name": "eqptCustAlarmProfileMnemonic5",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileDescription5": {
+    "name": "eqptCustAlarmProfileDescription5",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileVisibleOutput5": {
+    "name": "eqptCustAlarmProfileVisibleOutput5",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptCustAlarmProfileOutputType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileAudibleOutput5": {
+    "name": "eqptCustAlarmProfileAudibleOutput5",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptCustAlarmProfileOutputType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfilePolarity5": {
+    "name": "eqptCustAlarmProfilePolarity5",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptCustAlarmProfilePolarityType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileSeverity5": {
+    "name": "eqptCustAlarmProfileSeverity5",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AsamAlarmSeverityType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileMappingTable": {
+    "name": "eqptCustAlarmProfileMappingTable",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileMappingEntry": {
+    "name": "eqptCustAlarmProfileMappingEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptCustAlarmProfileMappingName",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileMappingName": {
+    "name": "eqptCustAlarmProfileMappingName",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AsamProfileName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptCustAlarmProfileMappingIndex": {
+    "name": "eqptCustAlarmProfileMappingIndex",
+    "oid": "1.3.6.1.4.1.637.61.1.23.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AsamProfileIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptMtaTest": {
+    "name": "eqptMtaTest",
+    "oid": "1.3.6.1.4.1.637.61.1.23.9",
+    "class": "objectidentity"
+  },
+  "eqptMtaTestHeadType": {
+    "name": "eqptMtaTestHeadType",
+    "oid": "1.3.6.1.4.1.637.61.1.23.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "four-wire": 1,
+          "two-wire": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptBoardThermalSensorTable": {
+    "name": "eqptBoardThermalSensorTable",
+    "oid": "1.3.6.1.4.1.637.61.1.23.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptBoardThermalSensorEntry": {
+    "name": "eqptBoardThermalSensorEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.23.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptBoardThermalSensorId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "eqptBoardThermalSensorId": {
+    "name": "eqptBoardThermalSensorId",
+    "oid": "1.3.6.1.4.1.637.61.1.23.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardThermalSensorActualTemperature": {
+    "name": "eqptBoardThermalSensorActualTemperature",
+    "oid": "1.3.6.1.4.1.637.61.1.23.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardThermalSensorTcaThresholdLow": {
+    "name": "eqptBoardThermalSensorTcaThresholdLow",
+    "oid": "1.3.6.1.4.1.637.61.1.23.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardThermalSensorTcaThresholdHigh": {
+    "name": "eqptBoardThermalSensorTcaThresholdHigh",
+    "oid": "1.3.6.1.4.1.637.61.1.23.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardThermalSensorShutdownThresholdLow": {
+    "name": "eqptBoardThermalSensorShutdownThresholdLow",
+    "oid": "1.3.6.1.4.1.637.61.1.23.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardThermalSensorShutdownThresholdHigh": {
+    "name": "eqptBoardThermalSensorShutdownThresholdHigh",
+    "oid": "1.3.6.1.4.1.637.61.1.23.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPortMappingTable": {
+    "name": "eqptPortMappingTable",
+    "oid": "1.3.6.1.4.1.637.61.1.23.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptPortMappingEntry": {
+    "name": "eqptPortMappingEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.23.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptPortMappingLogPortNbr",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "eqptPortMappingLogPortNbr": {
+    "name": "eqptPortMappingLogPortNbr",
+    "oid": "1.3.6.1.4.1.637.61.1.23.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptPortMappingIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptPortMappingLogPortType": {
+    "name": "eqptPortMappingLogPortType",
+    "oid": "1.3.6.1.4.1.637.61.1.23.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uplink": 1,
+          "downlink": 2,
+          "hostlink": 3,
+          "internal": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPortMappingPhyPortSlot": {
+    "name": "eqptPortMappingPhyPortSlot",
+    "oid": "1.3.6.1.4.1.637.61.1.23.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptSlotIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPortMappingPhyPortType": {
+    "name": "eqptPortMappingPhyPortType",
+    "oid": "1.3.6.1.4.1.637.61.1.23.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 1,
+          "sfp": 2,
+          "xfp": 3,
+          "vp": 5,
+          "eth": 10,
+          "mcast": 11,
+          "ai": 12,
+          "ieee": 13,
+          "cfp": 14
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPortMappingPhyPortNbr": {
+    "name": "eqptPortMappingPhyPortNbr",
+    "oid": "1.3.6.1.4.1.637.61.1.23.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPortMappingLSMSlot": {
+    "name": "eqptPortMappingLSMSlot",
+    "oid": "1.3.6.1.4.1.637.61.1.23.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptSlotIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPortMappingChanges": {
+    "name": "eqptPortMappingChanges",
+    "oid": "1.3.6.1.4.1.637.61.1.23.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPortMappingGlobalChangeCounter": {
+    "name": "eqptPortMappingGlobalChangeCounter",
+    "oid": "1.3.6.1.4.1.637.61.1.23.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPortProtectionTable": {
+    "name": "eqptPortProtectionTable",
+    "oid": "1.3.6.1.4.1.637.61.1.23.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptPortProtectionEntry": {
+    "name": "eqptPortProtectionEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.23.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptPortProtectionPortId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "eqptPortProtectionPortId": {
+    "name": "eqptPortProtectionPortId",
+    "oid": "1.3.6.1.4.1.637.61.1.23.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPortProtectionRowStatus": {
+    "name": "eqptPortProtectionRowStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.23.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptPortProtectionPairedPortId": {
+    "name": "eqptPortProtectionPairedPortId",
+    "oid": "1.3.6.1.4.1.637.61.1.23.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptPortProtectionPortStatus": {
+    "name": "eqptPortProtectionPortStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.23.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPortProtectionPairedPortStatus": {
+    "name": "eqptPortProtectionPairedPortStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.23.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPortProtectionSwitchCommand": {
+    "name": "eqptPortProtectionSwitchCommand",
+    "oid": "1.3.6.1.4.1.637.61.1.23.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "mandatory"
+  },
+  "eqptPortProtectionLastSwitchReason": {
+    "name": "eqptPortProtectionLastSwitchReason",
+    "oid": "1.3.6.1.4.1.637.61.1.23.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPortProtectionNumberOfSwitchovers": {
+    "name": "eqptPortProtectionNumberOfSwitchovers",
+    "oid": "1.3.6.1.4.1.637.61.1.23.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPortProtectionLookupTable": {
+    "name": "eqptPortProtectionLookupTable",
+    "oid": "1.3.6.1.4.1.637.61.1.23.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptPortProtectionLookupEntry": {
+    "name": "eqptPortProtectionLookupEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.23.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptPortProtectionLookupPortId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "eqptPortProtectionLookupPortId": {
+    "name": "eqptPortProtectionLookupPortId",
+    "oid": "1.3.6.1.4.1.637.61.1.23.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPortProtectionLookupPrimaryPortId": {
+    "name": "eqptPortProtectionLookupPrimaryPortId",
+    "oid": "1.3.6.1.4.1.637.61.1.23.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardPlannedResourceTable": {
+    "name": "eqptBoardPlannedResourceTable",
+    "oid": "1.3.6.1.4.1.637.61.1.23.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptBoardPlannedResourceEntry": {
+    "name": "eqptBoardPlannedResourceEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.23.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptBoardPlannedResourceId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "eqptBoardPlannedResourceId": {
+    "name": "eqptBoardPlannedResourceId",
+    "oid": "1.3.6.1.4.1.637.61.1.23.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptBoardPlannedResourceCurrentValue": {
+    "name": "eqptBoardPlannedResourceCurrentValue",
+    "oid": "1.3.6.1.4.1.637.61.1.23.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardPlannedResourceMaxValue": {
+    "name": "eqptBoardPlannedResourceMaxValue",
+    "oid": "1.3.6.1.4.1.637.61.1.23.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptBoardPlannedResourceDescription": {
+    "name": "eqptBoardPlannedResourceDescription",
+    "oid": "1.3.6.1.4.1.637.61.1.23.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerTable": {
+    "name": "eqptPowerTable",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptPowerEntry": {
+    "name": "eqptPowerEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptPowerId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "eqptPowerId": {
+    "name": "eqptPowerId",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptHolderIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptPowerAdminMode": {
+    "name": "eqptPowerAdminMode",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-powermgnt": 0,
+          "ac": 1,
+          "ac-and-dc-local": 2,
+          "dc-network": 3,
+          "dc-network-and-dc-local": 4,
+          "dc-local": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptPowerOperMode": {
+    "name": "eqptPowerOperMode",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-powermgnt": 0,
+          "ac": 1,
+          "ac-and-dc-local": 2,
+          "dc-network": 3,
+          "dc-network-and-dc-local": 4,
+          "dc-local": 5,
+          "battery-fallback": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerBatType": {
+    "name": "eqptPowerBatType",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-configured": 0,
+          "agm-vrla-PbCa-battery": 1,
+          "agm-vrla-Pure-Pb-battery": 2,
+          "flooded-battery": 3,
+          "gel-battery": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptPowerBatStartCapacity": {
+    "name": "eqptPowerBatStartCapacity",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptPowerBatPlannedLifetime": {
+    "name": "eqptPowerBatPlannedLifetime",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptPowerBatState": {
+    "name": "eqptPowerBatState",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-configured": 0,
+          "no-data": 1,
+          "charging": 2,
+          "charged": 3,
+          "discharging": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerBatFailure": {
+    "name": "eqptPowerBatFailure",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "voltage-good": 1,
+          "voltage-out-of-range": 2,
+          "over-voltage": 3,
+          "over-temperature": 4,
+          "battery-depleted": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerBatTemperature": {
+    "name": "eqptPowerBatTemperature",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerBatActualCapacity": {
+    "name": "eqptPowerBatActualCapacity",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerBatDefenseMode": {
+    "name": "eqptPowerBatDefenseMode",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-defense": 0,
+          "voice-priority": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptPowerBatDefenseThreshold": {
+    "name": "eqptPowerBatDefenseThreshold",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "eqptPowerACState": {
+    "name": "eqptPowerACState",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-powermgnt": 0,
+          "active": 1,
+          "active-failure": 2,
+          "failure": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerACFailure": {
+    "name": "eqptPowerACFailure",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "voltage-good": 1,
+          "voltage-out-of-range": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerNDCaState": {
+    "name": "eqptPowerNDCaState",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-powermgnt": 0,
+          "active": 1,
+          "active-failure": 2,
+          "failure": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerNDCaFailure": {
+    "name": "eqptPowerNDCaFailure",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "voltage-good": 1,
+          "low-voltage": 2,
+          "under-voltage": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerNDCbState": {
+    "name": "eqptPowerNDCbState",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-powermgnt": 0,
+          "active": 1,
+          "active-failure": 2,
+          "failure": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerNDCbFailure": {
+    "name": "eqptPowerNDCbFailure",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "voltage-good": 1,
+          "low-voltage": 2,
+          "under-voltage": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerLDCaState": {
+    "name": "eqptPowerLDCaState",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-powermgnt": 0,
+          "active": 1,
+          "active-failure": 2,
+          "failure": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerLDCaFailure": {
+    "name": "eqptPowerLDCaFailure",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "voltage-good": 1,
+          "voltage-out-of-range": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerLDCbState": {
+    "name": "eqptPowerLDCbState",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-powermgnt": 0,
+          "active": 1,
+          "active-failure": 2,
+          "failure": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerLDCbFailure": {
+    "name": "eqptPowerLDCbFailure",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "voltage-good": 1,
+          "voltage-out-of-range": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerInVoltage": {
+    "name": "eqptPowerInVoltage",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerInCurrent": {
+    "name": "eqptPowerInCurrent",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerInConsumedPower": {
+    "name": "eqptPowerInConsumedPower",
+    "oid": "1.3.6.1.4.1.637.61.1.23.18.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerSupplyTable": {
+    "name": "eqptPowerSupplyTable",
+    "oid": "1.3.6.1.4.1.637.61.1.23.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptPowerSupplyEntry": {
+    "name": "eqptPowerSupplyEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.23.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptPowerSupplyId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "eqptPowerSupplyId": {
+    "name": "eqptPowerSupplyId",
+    "oid": "1.3.6.1.4.1.637.61.1.23.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptPowerSupplyIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptPowerSupplyPartNumber": {
+    "name": "eqptPowerSupplyPartNumber",
+    "oid": "1.3.6.1.4.1.637.61.1.23.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 13,
+            "max": 13
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerSupplyCleiCode": {
+    "name": "eqptPowerSupplyCleiCode",
+    "oid": "1.3.6.1.4.1.637.61.1.23.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 11,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerSupplySerNumber": {
+    "name": "eqptPowerSupplySerNumber",
+    "oid": "1.3.6.1.4.1.637.61.1.23.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 19,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerSupplyVin": {
+    "name": "eqptPowerSupplyVin",
+    "oid": "1.3.6.1.4.1.637.61.1.23.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerSupplyIin": {
+    "name": "eqptPowerSupplyIin",
+    "oid": "1.3.6.1.4.1.637.61.1.23.19.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerSupplyVout": {
+    "name": "eqptPowerSupplyVout",
+    "oid": "1.3.6.1.4.1.637.61.1.23.19.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerSupplyIout": {
+    "name": "eqptPowerSupplyIout",
+    "oid": "1.3.6.1.4.1.637.61.1.23.19.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerSupplyTemperature": {
+    "name": "eqptPowerSupplyTemperature",
+    "oid": "1.3.6.1.4.1.637.61.1.23.19.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerSupplyFaultVin": {
+    "name": "eqptPowerSupplyFaultVin",
+    "oid": "1.3.6.1.4.1.637.61.1.23.19.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-error": 0,
+          "input-overvoltage-fault": 1,
+          "input-overvoltage-warning": 2,
+          "input-undervoltage-warning": 3,
+          "input-undervoltage-fault": 4,
+          "input-ac-nok-fault": 5,
+          "input-ac-nok-warning": 6,
+          "unit-off-for-insufficient-input-voltage": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerSupplyFaultVout": {
+    "name": "eqptPowerSupplyFaultVout",
+    "oid": "1.3.6.1.4.1.637.61.1.23.19.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-error": 0,
+          "output-overvoltage-fault": 1,
+          "output-overvoltage-warning": 2,
+          "output-undervoltage-warning": 3,
+          "output-undervoltage-fault": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerSupplyFaultIin": {
+    "name": "eqptPowerSupplyFaultIin",
+    "oid": "1.3.6.1.4.1.637.61.1.23.19.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-error": 0,
+          "input-overcurrent-fault": 1,
+          "input-overcurrent-warning": 2,
+          "input-overpower-warning": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerSupplyFaultIout": {
+    "name": "eqptPowerSupplyFaultIout",
+    "oid": "1.3.6.1.4.1.637.61.1.23.19.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-error": 0,
+          "output-overcurrent-fault": 1,
+          "output-overcurrent-warning": 2,
+          "output-undercurrent-warning": 3,
+          "output-undercurrent-fault": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerSupplyFaultTemperature": {
+    "name": "eqptPowerSupplyFaultTemperature",
+    "oid": "1.3.6.1.4.1.637.61.1.23.19.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-error": 0,
+          "overtemperature-fault": 1,
+          "overtemperature-warning": 2,
+          "undertemperature-warning": 3,
+          "undertemperature-fault": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerSupplyFaultCml": {
+    "name": "eqptPowerSupplyFaultCml",
+    "oid": "1.3.6.1.4.1.637.61.1.23.19.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-error": 0,
+          "invalid-or-unsupported-command-received": 1,
+          "invalid-or-unsupported-data-received": 2,
+          "packet-error-check-failed": 3,
+          "memory-fault-detected": 4,
+          "processor-fault-detected": 5,
+          "other-communication-fault": 6,
+          "other-memory-or-logic-fault": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerSupplyPresent": {
+    "name": "eqptPowerSupplyPresent",
+    "oid": "1.3.6.1.4.1.637.61.1.23.19.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 0,
+          "no": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerSupplyFaultDetected": {
+    "name": "eqptPowerSupplyFaultDetected",
+    "oid": "1.3.6.1.4.1.637.61.1.23.19.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerSupplyRftc": {
+    "name": "eqptPowerSupplyRftc",
+    "oid": "1.3.6.1.4.1.637.61.1.23.20",
+    "class": "objectidentity"
+  },
+  "eqptPowerRftcTable": {
+    "name": "eqptPowerRftcTable",
+    "oid": "1.3.6.1.4.1.637.61.1.23.20.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptPowerRftcEntry": {
+    "name": "eqptPowerRftcEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.23.20.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptPowerRftcId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "eqptPowerRftcId": {
+    "name": "eqptPowerRftcId",
+    "oid": "1.3.6.1.4.1.637.61.1.23.20.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptHolderIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerRftcVCommon": {
+    "name": "eqptPowerRftcVCommon",
+    "oid": "1.3.6.1.4.1.637.61.1.23.20.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "eqptPowerRftcICommon": {
+    "name": "eqptPowerRftcICommon",
+    "oid": "1.3.6.1.4.1.637.61.1.23.20.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "eqptPowerRftcTHotspot": {
+    "name": "eqptPowerRftcTHotspot",
+    "oid": "1.3.6.1.4.1.637.61.1.23.20.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "eqptPowerRftcTAmbient": {
+    "name": "eqptPowerRftcTAmbient",
+    "oid": "1.3.6.1.4.1.637.61.1.23.20.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "eqptPowerRftcSWVersion": {
+    "name": "eqptPowerRftcSWVersion",
+    "oid": "1.3.6.1.4.1.637.61.1.23.20.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "eqptPowerRftcHWVersion": {
+    "name": "eqptPowerRftcHWVersion",
+    "oid": "1.3.6.1.4.1.637.61.1.23.20.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "eqptPowerRftcHWRevision": {
+    "name": "eqptPowerRftcHWRevision",
+    "oid": "1.3.6.1.4.1.637.61.1.23.20.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "eqptPowerRftcSerialnumber": {
+    "name": "eqptPowerRftcSerialnumber",
+    "oid": "1.3.6.1.4.1.637.61.1.23.20.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "eqptPowerRftcManufacturer": {
+    "name": "eqptPowerRftcManufacturer",
+    "oid": "1.3.6.1.4.1.637.61.1.23.20.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "eqptPowerRftcLineCount": {
+    "name": "eqptPowerRftcLineCount",
+    "oid": "1.3.6.1.4.1.637.61.1.23.20.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "eqptPowerRftcLineTable": {
+    "name": "eqptPowerRftcLineTable",
+    "oid": "1.3.6.1.4.1.637.61.1.23.20.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eqptPowerRftcLineEntry": {
+    "name": "eqptPowerRftcLineEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.23.20.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptPowerRftcId",
+        "implied": 0
+      },
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptPowerRftcLineId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "eqptPowerRftcLineId": {
+    "name": "eqptPowerRftcLineId",
+    "oid": "1.3.6.1.4.1.637.61.1.23.20.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eqptPowerRftcLineStatus": {
+    "name": "eqptPowerRftcLineStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.23.20.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqptPowerRftcLineStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ASAM-EQUIP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:05 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ASAM-EQUIP-MIB"
+  }
+}

@@ -1,0 +1,3892 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "huaweiUtility"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
+    ]
+  },
+  "hwCluster": {
+    "name": "hwCluster",
+    "oid": "1.3.6.1.4.1.2011.6.7",
+    "class": "moduleidentity"
+  },
+  "RowStatus": {
+    "name": "RowStatus",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "notReady": 3,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6
+        }
+      }
+    }
+  },
+  "hwClusterObject": {
+    "name": "hwClusterObject",
+    "oid": "1.3.6.1.4.1.2011.6.7.1",
+    "class": "objectidentity"
+  },
+  "hgmpEventsV2": {
+    "name": "hgmpEventsV2",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.0",
+    "class": "objectidentity"
+  },
+  "hgmpMemberfailure": {
+    "name": "hgmpMemberfailure",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberDeviceId"
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpMemberRecover": {
+    "name": "hgmpMemberRecover",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberDeviceId"
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpMemberStatusChange": {
+    "name": "hgmpMemberStatusChange",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberDeviceId"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheClusterRole"
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpMemberAdd": {
+    "name": "hgmpMemberAdd",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberDeviceId"
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpSetVLANSecurity": {
+    "name": "hgmpSetVLANSecurity",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noSecurity": 0,
+          "security": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "security",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpHandShakeInterval": {
+    "name": "hgmpHandShakeInterval",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpHandShakeHoldtime": {
+    "name": "hgmpHandShakeHoldtime",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpGrpMemberTableChange": {
+    "name": "hgmpGrpMemberTableChange",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpMemberDisconRate": {
+    "name": "hgmpMemberDisconRate",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpCmdLanswitchFlag": {
+    "name": "hgmpCmdLanswitchFlag",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpCmdClusterName": {
+    "name": "hgmpCmdClusterName",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpMngPriIpSegCMIP": {
+    "name": "hgmpMngPriIpSegCMIP",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "AC100001",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpMngPriIpMask": {
+    "name": "hgmpMngPriIpMask",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "FFFFF000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpFtpServer": {
+    "name": "hgmpFtpServer",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpTftpServer": {
+    "name": "hgmpTftpServer",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpSnmpHost": {
+    "name": "hgmpSnmpHost",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpLogHost": {
+    "name": "hgmpLogHost",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpGrpMemberTable": {
+    "name": "hgmpGrpMemberTable",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpGrpMemberEntry": {
+    "name": "hgmpGrpMemberEntry",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberDeviceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpGrpMemberDeviceId": {
+    "name": "hgmpGrpMemberDeviceId",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpGrpMemberSerial": {
+    "name": "hgmpGrpMemberSerial",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2047
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpGrpMemberIpAddr": {
+    "name": "hgmpGrpMemberIpAddr",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpGrpMemberName": {
+    "name": "hgmpGrpMemberName",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpGrpMemberPassword": {
+    "name": "hgmpGrpMemberPassword",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpGrpMemberPlatform": {
+    "name": "hgmpGrpMemberPlatform",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpGrpMemberStatus": {
+    "name": "hgmpGrpMemberStatus",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "fault": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "fault",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpGrpMemberDisconCount": {
+    "name": "hgmpGrpMemberDisconCount",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpGrpMemberEnrollTime": {
+    "name": "hgmpGrpMemberEnrollTime",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpGrpMemberOperate": {
+    "name": "hgmpGrpMemberOperate",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpMemberResetTable": {
+    "name": "hgmpMemberResetTable",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpMemberResetEntry": {
+    "name": "hgmpMemberResetEntry",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMemberResetMAC",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpMemberResetMAC": {
+    "name": "hgmpMemberResetMAC",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpMemberEraseflash": {
+    "name": "hgmpMemberEraseflash",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noErase": 0,
+          "erase": 1,
+          "cannotget": 65535
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpClusterRole": {
+    "name": "hgmpClusterRole",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "roleCMDSW": 1,
+          "roleMEMBERSW": 2,
+          "roleBAKSW": 3,
+          "roleCASW": 16,
+          "roleUNISW": 17
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "roleUNISW",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpClusterMaxPoolNum": {
+    "name": "hgmpClusterMaxPoolNum",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpClusterCmdSwMac": {
+    "name": "hgmpClusterCmdSwMac",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpRun": {
+    "name": "hgmpRun",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpClusterAutojoin": {
+    "name": "hgmpClusterAutojoin",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpClusterDiscAgingTime": {
+    "name": "hgmpClusterDiscAgingTime",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 18
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpPlugAndPlayStatus": {
+    "name": "hgmpPlugAndPlayStatus",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpMultiMacAddress": {
+    "name": "hgmpMultiMacAddress",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpManageVlan": {
+    "name": "hgmpManageVlan",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpSftpServer": {
+    "name": "hgmpSftpServer",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNdpAdminTable": {
+    "name": "hgmpUnrelatedPortNdpAdminTable",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.26",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNdpAdminEntry": {
+    "name": "hgmpUnrelatedPortNdpAdminEntry",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.26.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNdpAdminCmdId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNdpAdminCmdId": {
+    "name": "hgmpUnrelatedPortNdpAdminCmdId",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.26.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNdpAdminGroupType": {
+    "name": "hgmpUnrelatedPortNdpAdminGroupType",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.26.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allMembers": 1,
+          "deviceType": 2,
+          "memberIdList": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "allMembers",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNdpAdminGroupValue": {
+    "name": "hgmpUnrelatedPortNdpAdminGroupValue",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.26.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNdpAdminStatus": {
+    "name": "hgmpUnrelatedPortNdpAdminStatus",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.26.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNdpAdminRowStatus": {
+    "name": "hgmpUnrelatedPortNdpAdminRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.26.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNdpResultTable": {
+    "name": "hgmpUnrelatedPortNdpResultTable",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.27",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNdpResultEntry": {
+    "name": "hgmpUnrelatedPortNdpResultEntry",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.27.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNdpAdminCmdId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNdpResultMemberMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNdpResultMemberMac": {
+    "name": "hgmpUnrelatedPortNdpResultMemberMac",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.27.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNdpResultMemberId": {
+    "name": "hgmpUnrelatedPortNdpResultMemberId",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.27.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2047
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNdpResult": {
+    "name": "hgmpUnrelatedPortNdpResult",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.27.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "failure": 2,
+          "running": 3,
+          "timeout": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNtdpAdminTable": {
+    "name": "hgmpUnrelatedPortNtdpAdminTable",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.28",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNtdpAdminEntry": {
+    "name": "hgmpUnrelatedPortNtdpAdminEntry",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.28.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNtdpAdminCmdId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNtdpAdminCmdId": {
+    "name": "hgmpUnrelatedPortNtdpAdminCmdId",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.28.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNtdpAdminGroupType": {
+    "name": "hgmpUnrelatedPortNtdpAdminGroupType",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.28.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allMembers": 1,
+          "deviceType": 2,
+          "memberIdList": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "allMembers",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNtdpAdminGroupValue": {
+    "name": "hgmpUnrelatedPortNtdpAdminGroupValue",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.28.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNtdpAdminStatus": {
+    "name": "hgmpUnrelatedPortNtdpAdminStatus",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.28.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNtdpAdminRowStatus": {
+    "name": "hgmpUnrelatedPortNtdpAdminRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.28.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNtdpResultTable": {
+    "name": "hgmpUnrelatedPortNtdpResultTable",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.29",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNtdpResultEntry": {
+    "name": "hgmpUnrelatedPortNtdpResultEntry",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.29.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNtdpAdminCmdId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNtdpResultMemberMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNtdpResultMemberMac": {
+    "name": "hgmpUnrelatedPortNtdpResultMemberMac",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.29.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNtdpResultMemberId": {
+    "name": "hgmpUnrelatedPortNtdpResultMemberId",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.29.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2047
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNtdpResult": {
+    "name": "hgmpUnrelatedPortNtdpResult",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.29.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "failure": 2,
+          "running": 3,
+          "timeout": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpBatchUpgradeTable": {
+    "name": "hgmpBatchUpgradeTable",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.30",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpBatchUpgradeEntry": {
+    "name": "hgmpBatchUpgradeEntry",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.30.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchUpgradeCmdId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpBatchUpgradeCmdId": {
+    "name": "hgmpBatchUpgradeCmdId",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.30.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpBatchUpgradeGroupType": {
+    "name": "hgmpBatchUpgradeGroupType",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.30.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allMembers": 1,
+          "deviceType": 2,
+          "memberIdList": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "allMembers",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hgmpBatchUpgradeGroupValue": {
+    "name": "hgmpBatchUpgradeGroupValue",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.30.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hgmpBatchUpgradeFileType": {
+    "name": "hgmpBatchUpgradeFileType",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.30.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "versionFile": 1,
+          "patchFile": 2,
+          "configFile": 3,
+          "pafFile": 4,
+          "licenseFile": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hgmpBatchUpgradeFileName": {
+    "name": "hgmpBatchUpgradeFileName",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.30.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hgmpBatchUpgradeRowStatus": {
+    "name": "hgmpBatchUpgradeRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.30.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hgmpBatchUpgradeResultTable": {
+    "name": "hgmpBatchUpgradeResultTable",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.31",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpBatchUpgradeResultEntry": {
+    "name": "hgmpBatchUpgradeResultEntry",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.31.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchUpgradeCmdId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchUpgradeResultMemberMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpBatchUpgradeResultMemberMac": {
+    "name": "hgmpBatchUpgradeResultMemberMac",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.31.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpBatchUpgradeResultMemberId": {
+    "name": "hgmpBatchUpgradeResultMemberId",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.31.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2047
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpBatchUpgradeResult": {
+    "name": "hgmpBatchUpgradeResult",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.31.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "failure": 2,
+          "running": 3,
+          "timeout": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpBatchRebootTable": {
+    "name": "hgmpBatchRebootTable",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.32",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpBatchRebootEntry": {
+    "name": "hgmpBatchRebootEntry",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.32.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchRebootCmdId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpBatchRebootCmdId": {
+    "name": "hgmpBatchRebootCmdId",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.32.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpBatchRebootGroupType": {
+    "name": "hgmpBatchRebootGroupType",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.32.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allMembers": 1,
+          "deviceType": 2,
+          "memberIdList": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "allMembers",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hgmpBatchRebootGroupValue": {
+    "name": "hgmpBatchRebootGroupValue",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.32.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hgmpBatchRebootRowStatus": {
+    "name": "hgmpBatchRebootRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.32.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hgmpBatchRebootResultTable": {
+    "name": "hgmpBatchRebootResultTable",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.33",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpBatchRebootResultEntry": {
+    "name": "hgmpBatchRebootResultEntry",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.33.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchRebootCmdId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchRebootResultMemberMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpBatchRebootResultMemberMac": {
+    "name": "hgmpBatchRebootResultMemberMac",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.33.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpBatchRebootResultMemberId": {
+    "name": "hgmpBatchRebootResultMemberId",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.33.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2047
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpBatchRebootResult": {
+    "name": "hgmpBatchRebootResult",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.33.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "failure": 2,
+          "running": 3,
+          "timeout": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpBatchSaveTable": {
+    "name": "hgmpBatchSaveTable",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.34",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpBatchSaveEntry": {
+    "name": "hgmpBatchSaveEntry",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.34.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSaveCmdId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpBatchSaveCmdId": {
+    "name": "hgmpBatchSaveCmdId",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.34.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpBatchSaveGroupType": {
+    "name": "hgmpBatchSaveGroupType",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.34.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allMembers": 1,
+          "deviceType": 2,
+          "memberIdList": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "allMembers",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hgmpBatchSaveGroupValue": {
+    "name": "hgmpBatchSaveGroupValue",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.34.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hgmpBatchSaveRowStatus": {
+    "name": "hgmpBatchSaveRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.34.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hgmpBatchSaveResultTable": {
+    "name": "hgmpBatchSaveResultTable",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.35",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpBatchSaveResultEntry": {
+    "name": "hgmpBatchSaveResultEntry",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.35.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSaveCmdId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSaveResultMemberMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpBatchSaveResultMemberMac": {
+    "name": "hgmpBatchSaveResultMemberMac",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.35.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpBatchSaveResultMemberId": {
+    "name": "hgmpBatchSaveResultMemberId",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.35.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2047
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpBatchSaveResult": {
+    "name": "hgmpBatchSaveResult",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.35.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "failure": 2,
+          "running": 3,
+          "timeout": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpBatchSynchronizeCfgFileTable": {
+    "name": "hgmpBatchSynchronizeCfgFileTable",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.36",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpBatchSynchronizeCfgFileEntry": {
+    "name": "hgmpBatchSynchronizeCfgFileEntry",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.36.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSynchronizeCfgFileCmdId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpBatchSynchronizeCfgFileCmdId": {
+    "name": "hgmpBatchSynchronizeCfgFileCmdId",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.36.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpBatchSynchronizeCfgFileGroupType": {
+    "name": "hgmpBatchSynchronizeCfgFileGroupType",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.36.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allMembers": 1,
+          "deviceType": 2,
+          "memberIdList": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "allMembers",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hgmpBatchSynchronizeCfgFileGroupValue": {
+    "name": "hgmpBatchSynchronizeCfgFileGroupValue",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.36.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hgmpBatchSynchronizeCfgFileRowStatus": {
+    "name": "hgmpBatchSynchronizeCfgFileRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.36.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hgmpBatchSynchronizeCfgFileResultTable": {
+    "name": "hgmpBatchSynchronizeCfgFileResultTable",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.37",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpBatchSynchronizeCfgFileResultEntry": {
+    "name": "hgmpBatchSynchronizeCfgFileResultEntry",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.37.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSynchronizeCfgFileCmdId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSynchronizeCfgFileResultMemberMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpBatchSynchronizeCfgFileResultMemberMac": {
+    "name": "hgmpBatchSynchronizeCfgFileResultMemberMac",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.37.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpBatchSynchronizeCfgFileResultMemberId": {
+    "name": "hgmpBatchSynchronizeCfgFileResultMemberId",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.37.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2047
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpBatchSynchronizeCfgFileResult": {
+    "name": "hgmpBatchSynchronizeCfgFileResult",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.37.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "failure": 2,
+          "running": 3,
+          "timeout": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpMemberRebootTimeoutValue": {
+    "name": "hgmpMemberRebootTimeoutValue",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStackObject": {
+    "name": "hwStackObject",
+    "oid": "1.3.6.1.4.1.2011.6.7.2",
+    "class": "objectidentity"
+  },
+  "hgmpStackEventsV2": {
+    "name": "hgmpStackEventsV2",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.0",
+    "class": "objectidentity"
+  },
+  "hgmpStackMemberfailure": {
+    "name": "hgmpStackMemberfailure",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberDeviceId"
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpStackMemberRecover": {
+    "name": "hgmpStackMemberRecover",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberDeviceId"
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpStackMemberStatusChange": {
+    "name": "hgmpStackMemberStatusChange",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberDeviceId"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheClusterRole"
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpStackMemberTableChange": {
+    "name": "hgmpStackMemberTableChange",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpStackMemberDisconRate": {
+    "name": "hgmpStackMemberDisconRate",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpMainLanswitchFlag": {
+    "name": "hgmpMainLanswitchFlag",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpStackIpPoolStartIP": {
+    "name": "hgmpStackIpPoolStartIP",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "AC1F0001",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpStackIpPoolLength": {
+    "name": "hgmpStackIpPoolLength",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpStackMemberTable": {
+    "name": "hgmpStackMemberTable",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpStackMemberEntry": {
+    "name": "hgmpStackMemberEntry",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberDeviceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpStackMemberDeviceId": {
+    "name": "hgmpStackMemberDeviceId",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpStackMemberSerial": {
+    "name": "hgmpStackMemberSerial",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2047
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpStackMemberIpAddr": {
+    "name": "hgmpStackMemberIpAddr",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpStackMemberName": {
+    "name": "hgmpStackMemberName",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpStackMemberPassword": {
+    "name": "hgmpStackMemberPassword",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpStackMemberPlatform": {
+    "name": "hgmpStackMemberPlatform",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpStackMemberStatus": {
+    "name": "hgmpStackMemberStatus",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "fault": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "fault",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpStackMemberDisconCount": {
+    "name": "hgmpStackMemberDisconCount",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpStackMemberEnrollTime": {
+    "name": "hgmpStackMemberEnrollTime",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpStackRole": {
+    "name": "hgmpStackRole",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "roleCMDSW": 1,
+          "roleMEMBERSW": 2,
+          "roleBAKSW": 3,
+          "roleCASW": 16,
+          "roleUNISW": 17
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "roleUNISW",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpStackMaxPoolNum": {
+    "name": "hgmpStackMaxPoolNum",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpStackMainSwMac": {
+    "name": "hgmpStackMainSwMac",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpStackIpPoolMask": {
+    "name": "hgmpStackIpPoolMask",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "FFFF0000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwNTDPObject": {
+    "name": "hwNTDPObject",
+    "oid": "1.3.6.1.4.1.2011.6.7.4",
+    "class": "objectidentity"
+  },
+  "hgmpNTDPCollectTopTime": {
+    "name": "hgmpNTDPCollectTopTime",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpNTDPHopRange": {
+    "name": "hgmpNTDPHopRange",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpNTDPRun": {
+    "name": "hgmpNTDPRun",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpNTDPPortDelay": {
+    "name": "hgmpNTDPPortDelay",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpNTDPHopDelay": {
+    "name": "hgmpNTDPHopDelay",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpNTDPLastTopCollectDuration": {
+    "name": "hgmpNTDPLastTopCollectDuration",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpNTDPCacheChange": {
+    "name": "hgmpNTDPCacheChange",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpNTDPTOPTableChange": {
+    "name": "hgmpNTDPTOPTableChange",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpNTDPInterfaceTable": {
+    "name": "hgmpNTDPInterfaceTable",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpNTDPInterfaceEntry": {
+    "name": "hgmpNTDPInterfaceEntry",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPInterfaceIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpNTDPInterfaceIfIndex": {
+    "name": "hgmpNTDPInterfaceIfIndex",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpNTDPInterfaceEnable": {
+    "name": "hgmpNTDPInterfaceEnable",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hgmpNTDPCacheTable": {
+    "name": "hgmpNTDPCacheTable",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpNTDPCacheEntry": {
+    "name": "hgmpNTDPCacheEntry",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheHashIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheDeviceID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpNTDPCacheHashIndex": {
+    "name": "hgmpNTDPCacheHashIndex",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpNTDPCacheDeviceID": {
+    "name": "hgmpNTDPCacheDeviceID",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpNTDPCacheClusterName": {
+    "name": "hgmpNTDPCacheClusterName",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpNTDPCacheClusterRole": {
+    "name": "hgmpNTDPCacheClusterRole",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "roleCOSW": 1,
+          "roleMSW": 2,
+          "roleBKSW": 3,
+          "roleCASW": 16,
+          "roleUNISW": 17
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 17,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpNTDPCacheCapabilities": {
+    "name": "hgmpNTDPCacheCapabilities",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpNTDPCacheVersion": {
+    "name": "hgmpNTDPCacheVersion",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpNTDPCachePlatform": {
+    "name": "hgmpNTDPCachePlatform",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpNTDPCacheMngVLAN": {
+    "name": "hgmpNTDPCacheMngVLAN",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpNTDPCacheHop": {
+    "name": "hgmpNTDPCacheHop",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpNTDPTopTable": {
+    "name": "hgmpNTDPTopTable",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hgmpNTDPTopEntry": {
+    "name": "hgmpNTDPTopEntry",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopHashIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopEdgeStartDevID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopEdgeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hgmpNTDPTopHashIndex": {
+    "name": "hgmpNTDPTopHashIndex",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpNTDPTopEdgeStartDevID": {
+    "name": "hgmpNTDPTopEdgeStartDevID",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpNTDPTopEdgeIndex": {
+    "name": "hgmpNTDPTopEdgeIndex",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpNTDPTopEdgeEndDevID": {
+    "name": "hgmpNTDPTopEdgeEndDevID",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpNTDPTopEdgeStartPort": {
+    "name": "hgmpNTDPTopEdgeStartPort",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpNTDPTopEdgeStartPortFullDuplex": {
+    "name": "hgmpNTDPTopEdgeStartPortFullDuplex",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "full": 1,
+          "half": 2,
+          "auto": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "half",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpNTDPTopEdgeStartPortSpeed": {
+    "name": "hgmpNTDPTopEdgeStartPortSpeed",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpNTDPTopEdgeEndPort": {
+    "name": "hgmpNTDPTopEdgeEndPort",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpNTDPTopEdgeStartPortIfIndex": {
+    "name": "hgmpNTDPTopEdgeStartPortIfIndex",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hgmpNTDPTopEdgeEndPortIfIndex": {
+    "name": "hgmpNTDPTopEdgeEndPortIfIndex",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNDPObject": {
+    "name": "hwNDPObject",
+    "oid": "1.3.6.1.4.1.2011.6.7.5",
+    "class": "objectidentity"
+  },
+  "hwNDPStatus": {
+    "name": "hwNDPStatus",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwNDPHelloTimer": {
+    "name": "hwNDPHelloTimer",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwNDPAgingTime": {
+    "name": "hwNDPAgingTime",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 6,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwNDPChange": {
+    "name": "hwNDPChange",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNDPPortTable": {
+    "name": "hwNDPPortTable",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwNDPPortEntry": {
+    "name": "hwNDPPortEntry",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwNDPIfIndex": {
+    "name": "hwNDPIfIndex",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNDPPortStatus": {
+    "name": "hwNDPPortStatus",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwNDPPortNbTable": {
+    "name": "hwNDPPortNbTable",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwNDPPortNbEntry": {
+    "name": "hwNDPPortNbEntry",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortNbDeviceId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortNbPortName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwNDPPortNbDeviceId": {
+    "name": "hwNDPPortNbDeviceId",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNDPPortNbPortName": {
+    "name": "hwNDPPortNbPortName",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNDPPortNbDeviceName": {
+    "name": "hwNDPPortNbDeviceName",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNDPPortNbPortMode": {
+    "name": "hwNDPPortNbPortMode",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "full": 1,
+          "half": 2,
+          "auto": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNDPPortNbProductVer": {
+    "name": "hwNDPPortNbProductVer",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNDPPortNbHardVer": {
+    "name": "hwNDPPortNbHardVer",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNDPPortNbBootromVer": {
+    "name": "hwNDPPortNbBootromVer",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNDPPortNbSoftVer": {
+    "name": "hwNDPPortNbSoftVer",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNDPPortNbAgingtime": {
+    "name": "hwNDPPortNbAgingtime",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwClusterConformance": {
+    "name": "hwClusterConformance",
+    "oid": "1.3.6.1.4.1.2011.6.7.6",
+    "class": "objectidentity"
+  },
+  "hwClusterGroups": {
+    "name": "hwClusterGroups",
+    "oid": "1.3.6.1.4.1.2011.6.7.6.1",
+    "class": "objectidentity"
+  },
+  "currentObjectGroup": {
+    "name": "currentObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.6.7.6.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpSetVLANSecurity"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpHandShakeInterval"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpHandShakeHoldtime"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberTableChange"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMemberDisconRate"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpCmdLanswitchFlag"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpCmdClusterName"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMngPriIpSegCMIP"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMngPriIpMask"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpFtpServer"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpTftpServer"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpSnmpHost"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpLogHost"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberDeviceId"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberSerial"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberIpAddr"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberName"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberPassword"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberPlatform"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberDisconCount"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberEnrollTime"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberOperate"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMemberResetMAC"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMemberEraseflash"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpClusterRole"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpClusterMaxPoolNum"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpClusterCmdSwMac"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpRun"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpClusterAutojoin"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpClusterDiscAgingTime"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpPlugAndPlayStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMultiMacAddress"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpManageVlan"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpSftpServer"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNdpAdminGroupType"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNdpAdminGroupValue"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNdpAdminStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNdpAdminRowStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNdpResultMemberId"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNdpResult"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNtdpAdminGroupType"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNtdpAdminGroupValue"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNtdpAdminStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNtdpAdminRowStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNtdpResultMemberId"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNtdpResult"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchUpgradeGroupType"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchUpgradeGroupValue"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchUpgradeFileType"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchUpgradeFileName"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchUpgradeRowStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchUpgradeResultMemberId"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchUpgradeResult"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchRebootGroupType"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchRebootGroupValue"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchRebootRowStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchRebootResultMemberId"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchRebootResult"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSaveGroupType"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSaveGroupValue"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSaveRowStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSaveResultMemberId"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSaveResult"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSynchronizeCfgFileGroupType"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSynchronizeCfgFileGroupValue"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSynchronizeCfgFileRowStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSynchronizeCfgFileResultMemberId"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSynchronizeCfgFileResult"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMemberRebootTimeoutValue"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberTableChange"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberDisconRate"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMainLanswitchFlag"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackIpPoolStartIP"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackIpPoolLength"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberDeviceId"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberSerial"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberIpAddr"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberName"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberPassword"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberPlatform"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberDisconCount"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberEnrollTime"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackRole"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMaxPoolNum"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMainSwMac"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackIpPoolMask"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCollectTopTime"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPHopRange"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPRun"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPPortDelay"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPHopDelay"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPLastTopCollectDuration"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheChange"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTOPTableChange"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPInterfaceEnable"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheHashIndex"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheDeviceID"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheClusterName"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheClusterRole"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheCapabilities"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheVersion"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCachePlatform"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheMngVLAN"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheHop"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopHashIndex"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopEdgeStartDevID"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopEdgeIndex"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopEdgeEndDevID"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopEdgeStartPort"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopEdgeStartPortFullDuplex"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopEdgeStartPortSpeed"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopEdgeEndPort"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopEdgeStartPortIfIndex"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopEdgeEndPortIfIndex"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPHelloTimer"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPAgingTime"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPChange"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPIfIndex"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortNbDeviceId"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortNbPortName"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortNbDeviceName"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortNbPortMode"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortNbProductVer"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortNbHardVer"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortNbBootromVer"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortNbSoftVer"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortNbAgingtime"
+      }
+    ],
+    "status": "current"
+  },
+  "currentNotificationGroup": {
+    "name": "currentNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.6.7.6.1.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMemberfailure"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMemberRecover"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMemberStatusChange"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMemberAdd"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberfailure"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberRecover"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberStatusChange"
+      }
+    ],
+    "status": "current"
+  },
+  "hwClusterCompliances": {
+    "name": "hwClusterCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.7.6.2",
+    "class": "objectidentity"
+  },
+  "basicCompliance": {
+    "name": "basicCompliance",
+    "oid": "1.3.6.1.4.1.2011.6.7.6.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "currentObjectGroup",
+        "module": "HUAWEI-HGMP-MIB"
+      },
+      {
+        "object": "currentNotificationGroup",
+        "module": "HUAWEI-HGMP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-HGMP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-HGMP-MIB"
+  }
+}

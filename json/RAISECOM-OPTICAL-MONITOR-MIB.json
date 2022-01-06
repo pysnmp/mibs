@@ -1,0 +1,876 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "RAISECOM-BASE-MIB": [
+      "raisecomAgent"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "SWITCH-TC": [
+      "EnableVar"
+    ]
+  },
+  "raisecomOpticalMonitorMIB": {
+    "name": "raisecomOpticalMonitorMIB",
+    "oid": "1.3.6.1.4.1.8886.1.9",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-06-06 00:00",
+        "description": "The initial revision of this MIB."
+      }
+    ]
+  },
+  "OpticalParameterType": {
+    "name": "OpticalParameterType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "temperature": 1,
+          "supplyVoltage": 2,
+          "biasCurrent": 3,
+          "txOutputPower": 4,
+          "receivedPower": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OpticalParameterValue": {
+    "name": "OpticalParameterValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000000,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "OpticalPMPeriod": {
+    "name": "OpticalPMPeriod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fifteenMin": 1,
+          "twentyFourHour": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "raisecomOpticalMonitorMIBObjects": {
+    "name": "raisecomOpticalMonitorMIBObjects",
+    "oid": "1.3.6.1.4.1.8886.1.9.1",
+    "class": "objectidentity"
+  },
+  "raisecomOpticalMonGroup": {
+    "name": "raisecomOpticalMonGroup",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.1",
+    "class": "objectidentity"
+  },
+  "raisecomOpticalPMGroup": {
+    "name": "raisecomOpticalPMGroup",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.2",
+    "class": "objectidentity"
+  },
+  "raisecomTranceiverInfoTable": {
+    "name": "raisecomTranceiverInfoTable",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomTranceiverInfoEntry": {
+    "name": "raisecomTranceiverInfoEntry",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomTranceiverType": {
+    "name": "raisecomTranceiverType",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomTranceiverConnectorType": {
+    "name": "raisecomTranceiverConnectorType",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomTranceiverWavelength": {
+    "name": "raisecomTranceiverWavelength",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomTranceiverVendorName": {
+    "name": "raisecomTranceiverVendorName",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomTranceiverVendorPN": {
+    "name": "raisecomTranceiverVendorPN",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomTranceiverVendorSN": {
+    "name": "raisecomTranceiverVendorSN",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomTransceiverFiberType": {
+    "name": "raisecomTransceiverFiberType",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "single-mode": 1,
+          "multi-mode": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomTransceiverTransferDistance": {
+    "name": "raisecomTransceiverTransferDistance",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalMonTable": {
+    "name": "raisecomOpticalMonTable",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomOpticalMonEntry": {
+    "name": "raisecomOpticalMonEntry",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalMonParameterType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalMonParameterType": {
+    "name": "raisecomOpticalMonParameterType",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomOpticalParameterValue": {
+    "name": "raisecomOpticalParameterValue",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalParamHighAlarmThresh": {
+    "name": "raisecomOpticalParamHighAlarmThresh",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalParamHighWarningThresh": {
+    "name": "raisecomOpticalParamHighWarningThresh",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalParamLowAlarmThresh": {
+    "name": "raisecomOpticalParamLowAlarmThresh",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalParamLowWarningThresh": {
+    "name": "raisecomOpticalParamLowWarningThresh",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalParamAlarmStatus": {
+    "name": "raisecomOpticalParamAlarmStatus",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "high-alarm-threshold": 1,
+          "high-warning-threshold": 2,
+          "low-alarm-threshold": 3,
+          "low-warning-threshold": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalParamAlarmLastValue": {
+    "name": "raisecomOpticalParamAlarmLastValue",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalParamAlarmLastChange": {
+    "name": "raisecomOpticalParamAlarmLastChange",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalMon15MinValidIntervals": {
+    "name": "raisecomOpticalMon15MinValidIntervals",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalMon24HrValidIntervals": {
+    "name": "raisecomOpticalMon24HrValidIntervals",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalMonValidStatus": {
+    "name": "raisecomOpticalMonValidStatus",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalNotifyEnable": {
+    "name": "raisecomOpticalNotifyEnable",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomOpticalDigitalDiagnoticEnable": {
+    "name": "raisecomOpticalDigitalDiagnoticEnable",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomOpticalPMCurrentTable": {
+    "name": "raisecomOpticalPMCurrentTable",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomOpticalPMCurrentEntry": {
+    "name": "raisecomOpticalPMCurrentEntry",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalPMCurrentPeriod",
+        "implied": 0
+      },
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalPMCurrentParamType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalPMCurrentPeriod": {
+    "name": "raisecomOpticalPMCurrentPeriod",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalPMPeriod",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomOpticalPMCurrentParamType": {
+    "name": "raisecomOpticalPMCurrentParamType",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomOpticalPMCurrentMaxParam": {
+    "name": "raisecomOpticalPMCurrentMaxParam",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalPMCurrentMinParam": {
+    "name": "raisecomOpticalPMCurrentMinParam",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalPMCurrentMeanParam": {
+    "name": "raisecomOpticalPMCurrentMeanParam",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalPMIntervalTable": {
+    "name": "raisecomOpticalPMIntervalTable",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomOpticalPMIntervalEntry": {
+    "name": "raisecomOpticalPMIntervalEntry",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalPMIntervalPeriod",
+        "implied": 0
+      },
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalPMIntervalNumber",
+        "implied": 0
+      },
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalPMIntervalParamType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalPMIntervalPeriod": {
+    "name": "raisecomOpticalPMIntervalPeriod",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalPMPeriod",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomOpticalPMIntervalNumber": {
+    "name": "raisecomOpticalPMIntervalNumber",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomOpticalPMIntervalParamType": {
+    "name": "raisecomOpticalPMIntervalParamType",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomOpticalPMIntervalMaxParam": {
+    "name": "raisecomOpticalPMIntervalMaxParam",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalPMIntervalMinParam": {
+    "name": "raisecomOpticalPMIntervalMinParam",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalPMIntervalMeanParam": {
+    "name": "raisecomOpticalPMIntervalMeanParam",
+    "oid": "1.3.6.1.4.1.8886.1.9.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomOpticalMonitorMIBNotifications": {
+    "name": "raisecomOpticalMonitorMIBNotifications",
+    "oid": "1.3.6.1.4.1.8886.1.9.2",
+    "class": "objectidentity"
+  },
+  "raisecomOpticalMonParameterStatus": {
+    "name": "raisecomOpticalMonParameterStatus",
+    "oid": "1.3.6.1.4.1.8886.1.9.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalParameterValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalMonitorMIBConformance": {
+    "name": "raisecomOpticalMonitorMIBConformance",
+    "oid": "1.3.6.1.4.1.8886.1.9.3",
+    "class": "objectidentity"
+  },
+  "raisecomOpticalMonitorMIBCompliances": {
+    "name": "raisecomOpticalMonitorMIBCompliances",
+    "oid": "1.3.6.1.4.1.8886.1.9.3.1",
+    "class": "objectidentity"
+  },
+  "raisecomOpticalMonitorMIBGroups": {
+    "name": "raisecomOpticalMonitorMIBGroups",
+    "oid": "1.3.6.1.4.1.8886.1.9.3.2",
+    "class": "objectidentity"
+  },
+  "raisecomOpticalMonitorMIBCompliance": {
+    "name": "raisecomOpticalMonitorMIBCompliance",
+    "oid": "1.3.6.1.4.1.8886.1.9.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "raisecomOpticalMIBMonGroup",
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB"
+      },
+      {
+        "object": "raisecomOpticalMIBThresholdGroup",
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB"
+      },
+      {
+        "object": "raisecomOpticalMIBPMGroup",
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB"
+      },
+      {
+        "object": "raisecomOpticalMIBNotifyEnableGroup",
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB"
+      },
+      {
+        "object": "raisecomOpticalMIBNotifGroup",
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalMIBMonGroup": {
+    "name": "raisecomOpticalMIBMonGroup",
+    "oid": "1.3.6.1.4.1.8886.1.9.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalParameterValue"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalMIBThresholdGroup": {
+    "name": "raisecomOpticalMIBThresholdGroup",
+    "oid": "1.3.6.1.4.1.8886.1.9.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalParamHighAlarmThresh"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalParamHighWarningThresh"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalParamLowAlarmThresh"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalParamLowWarningThresh"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalParamAlarmStatus"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalParamAlarmLastValue"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalParamAlarmLastChange"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalMIBPMGroup": {
+    "name": "raisecomOpticalMIBPMGroup",
+    "oid": "1.3.6.1.4.1.8886.1.9.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalMon15MinValidIntervals"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalMon24HrValidIntervals"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalPMCurrentMaxParam"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalPMCurrentMinParam"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalPMCurrentMeanParam"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalPMIntervalMaxParam"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalPMIntervalMinParam"
+      },
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalPMIntervalMeanParam"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalMIBNotifyEnableGroup": {
+    "name": "raisecomOpticalMIBNotifyEnableGroup",
+    "oid": "1.3.6.1.4.1.8886.1.9.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalNotifyEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomOpticalMIBNotifGroup": {
+    "name": "raisecomOpticalMIBNotifGroup",
+    "oid": "1.3.6.1.4.1.8886.1.9.3.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RAISECOM-OPTICAL-MONITOR-MIB",
+        "object": "raisecomOpticalMonParameterStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/raisecom/RAISECOM-OPTICAL-MONITOR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RAISECOM-OPTICAL-MONITOR-MIB"
+  }
+}

@@ -1,0 +1,3551 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADSL-LINE-MIB": [
+      "adslLineConfProfileName",
+      "adslLineAlarmConfProfileName",
+      "AdslLineProfileName"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfIntervalCount",
+      "PerfCurrentCount"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "VariablePointer",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSdslLineMIB": {
+    "name": "ciscoSdslLineMIB",
+    "oid": "1.3.6.1.4.1.9.9.155",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-08-20 10:00",
+        "description": "The object cSdslStucCurrGain and cSdslSturCurrGain are deprecated to remove the range. The new objects added are cSdslStucCurrGainRev and cSdslSturCurrGainRev."
+      },
+      {
+        "revision": "2001-04-09 10:13",
+        "description": "Added cSdslSturAnnex for G.shdsl CPE device. Also updated description for cSdslStucAnnex. "
+      },
+      {
+        "revision": "2001-01-30 16:00",
+        "description": "Added cSdslLineEquipmentType, cSdslLineAutoRateEnable. cSdslShdslLineMaxRate, cSdslStucPsdMaskType, cSdslStucAnnex, and cSdslStucThresholdSnrMgn. Changed default for cSdslLineMaxRate. Updated description for SNR and output pwr profile settings."
+      }
+    ]
+  },
+  "SdslPerfTimeElapsed": {
+    "name": "SdslPerfTimeElapsed",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "SdslPerfCurrDayCount": {
+    "name": "SdslPerfCurrDayCount",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "SdslPerfPrevDayCount": {
+    "name": "SdslPerfPrevDayCount",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "SdslStuxDefect": {
+    "name": "SdslStuxDefect",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "lossOfSignal": 0,
+        "lossOfSignalQuality": 1,
+        "noPeerStuPresent": 2,
+        "lossOfSyncFailure": 3
+      }
+    },
+    "status": "current"
+  },
+  "ciscoSdslLineMIBObjects": {
+    "name": "ciscoSdslLineMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.155.1",
+    "class": "objectidentity"
+  },
+  "cSdslLineTable": {
+    "name": "cSdslLineTable",
+    "oid": "1.3.6.1.4.1.9.9.155.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSdslLineEntry": {
+    "name": "cSdslLineEntry",
+    "oid": "1.3.6.1.4.1.9.9.155.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSdslLineCoding": {
+    "name": "cSdslLineCoding",
+    "oid": "1.3.6.1.4.1.9.9.155.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "base2b1q": 2,
+          "tcPam": 3,
+          "optis": 4,
+          "cap": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslLineFraming": {
+    "name": "cSdslLineFraming",
+    "oid": "1.3.6.1.4.1.9.9.155.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "hdsl": 3,
+          "gShdsl": 4,
+          "hdsl2": 5,
+          "ds1": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslLineSpecific": {
+    "name": "cSdslLineSpecific",
+    "oid": "1.3.6.1.4.1.9.9.155.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslLineConfProfile": {
+    "name": "cSdslLineConfProfile",
+    "oid": "1.3.6.1.4.1.9.9.155.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdslLineProfileName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSdslLineAlarmConfProfile": {
+    "name": "cSdslLineAlarmConfProfile",
+    "oid": "1.3.6.1.4.1.9.9.155.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdslLineProfileName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSdslStucPhysTable": {
+    "name": "cSdslStucPhysTable",
+    "oid": "1.3.6.1.4.1.9.9.155.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSdslStucPhysEntry": {
+    "name": "cSdslStucPhysEntry",
+    "oid": "1.3.6.1.4.1.9.9.155.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSdslStucInvSerialNumber": {
+    "name": "cSdslStucInvSerialNumber",
+    "oid": "1.3.6.1.4.1.9.9.155.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucInvVendorId": {
+    "name": "cSdslStucInvVendorId",
+    "oid": "1.3.6.1.4.1.9.9.155.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucInvVersionNumber": {
+    "name": "cSdslStucInvVersionNumber",
+    "oid": "1.3.6.1.4.1.9.9.155.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucState": {
+    "name": "cSdslStucState",
+    "oid": "1.3.6.1.4.1.9.9.155.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "idle": 2,
+          "training": 3,
+          "steadyState": 4,
+          "testing": 5,
+          "downloading": 6,
+          "downloadFailed": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucDefect": {
+    "name": "cSdslStucDefect",
+    "oid": "1.3.6.1.4.1.9.9.155.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslStuxDefect",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucCurrRate": {
+    "name": "cSdslStucCurrRate",
+    "oid": "1.3.6.1.4.1.9.9.155.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2320000
+          }
+        ]
+      }
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucCurrSnrMgn": {
+    "name": "cSdslStucCurrSnrMgn",
+    "oid": "1.3.6.1.4.1.9.9.155.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "tenth dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucCurrGain": {
+    "name": "cSdslStucCurrGain",
+    "oid": "1.3.6.1.4.1.9.9.155.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "tenth dB",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cSdslStucCurrOutputPwr": {
+    "name": "cSdslStucCurrOutputPwr",
+    "oid": "1.3.6.1.4.1.9.9.155.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "tenth dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucCurrAtn": {
+    "name": "cSdslStucCurrAtn",
+    "oid": "1.3.6.1.4.1.9.9.155.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "tenth dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucCurrGainRev": {
+    "name": "cSdslStucCurrGainRev",
+    "oid": "1.3.6.1.4.1.9.9.155.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "tenth dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPhysTable": {
+    "name": "cSdslSturPhysTable",
+    "oid": "1.3.6.1.4.1.9.9.155.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSdslSturPhysEntry": {
+    "name": "cSdslSturPhysEntry",
+    "oid": "1.3.6.1.4.1.9.9.155.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSdslSturInvSerialNumber": {
+    "name": "cSdslSturInvSerialNumber",
+    "oid": "1.3.6.1.4.1.9.9.155.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturInvVendorId": {
+    "name": "cSdslSturInvVendorId",
+    "oid": "1.3.6.1.4.1.9.9.155.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturInvVersionNumber": {
+    "name": "cSdslSturInvVersionNumber",
+    "oid": "1.3.6.1.4.1.9.9.155.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturState": {
+    "name": "cSdslSturState",
+    "oid": "1.3.6.1.4.1.9.9.155.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "training": 2,
+          "steadyState": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturDefect": {
+    "name": "cSdslSturDefect",
+    "oid": "1.3.6.1.4.1.9.9.155.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslStuxDefect",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturCurrRate": {
+    "name": "cSdslSturCurrRate",
+    "oid": "1.3.6.1.4.1.9.9.155.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2320000
+          }
+        ]
+      }
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturCurrSnrMgn": {
+    "name": "cSdslSturCurrSnrMgn",
+    "oid": "1.3.6.1.4.1.9.9.155.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "tenth dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturCurrGain": {
+    "name": "cSdslSturCurrGain",
+    "oid": "1.3.6.1.4.1.9.9.155.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "tenth dB",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cSdslSturCurrOutputPwr": {
+    "name": "cSdslSturCurrOutputPwr",
+    "oid": "1.3.6.1.4.1.9.9.155.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturCurrAtn": {
+    "name": "cSdslSturCurrAtn",
+    "oid": "1.3.6.1.4.1.9.9.155.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "tenth dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturCurrGainRev": {
+    "name": "cSdslSturCurrGainRev",
+    "oid": "1.3.6.1.4.1.9.9.155.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "tenth dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfDataTable": {
+    "name": "cSdslStucPerfDataTable",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSdslStucPerfDataEntry": {
+    "name": "cSdslStucPerfDataEntry",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSdslStucPerfLOSs": {
+    "name": "cSdslStucPerfLOSs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfLOSQs": {
+    "name": "cSdslStucPerfLOSQs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfCVs": {
+    "name": "cSdslStucPerfCVs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfESs": {
+    "name": "cSdslStucPerfESs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfSESs": {
+    "name": "cSdslStucPerfSESs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfUASs": {
+    "name": "cSdslStucPerfUASs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfInits": {
+    "name": "cSdslStucPerfInits",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucUnavailRsrcs": {
+    "name": "cSdslStucUnavailRsrcs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfValidIntervals": {
+    "name": "cSdslStucPerfValidIntervals",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfInvalidIntervals": {
+    "name": "cSdslStucPerfInvalidIntervals",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfCurr15MinTimeElapse": {
+    "name": "cSdslStucPerfCurr15MinTimeElapse",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfTimeElapsed",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 899
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfCurr15MinLOSs": {
+    "name": "cSdslStucPerfCurr15MinLOSs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfCurr15MinLOSQs": {
+    "name": "cSdslStucPerfCurr15MinLOSQs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfCurr15MinCVs": {
+    "name": "cSdslStucPerfCurr15MinCVs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfCurr15MinESs": {
+    "name": "cSdslStucPerfCurr15MinESs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfCurr15MinSESs": {
+    "name": "cSdslStucPerfCurr15MinSESs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfCurr15MinUASs": {
+    "name": "cSdslStucPerfCurr15MinUASs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfCurr15MinInits": {
+    "name": "cSdslStucPerfCurr15MinInits",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfCurr15MinUnavlRsrcs": {
+    "name": "cSdslStucPerfCurr15MinUnavlRsrcs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfCurr1DayTimeElapsed": {
+    "name": "cSdslStucPerfCurr1DayTimeElapsed",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfTimeElapsed",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86399
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfCurr1DayLOSs": {
+    "name": "cSdslStucPerfCurr1DayLOSs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfCurr1DayLOSQs": {
+    "name": "cSdslStucPerfCurr1DayLOSQs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfCurr1DayCVs": {
+    "name": "cSdslStucPerfCurr1DayCVs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfCurr1DayESs": {
+    "name": "cSdslStucPerfCurr1DayESs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfCurr1DaySESs": {
+    "name": "cSdslStucPerfCurr1DaySESs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfCurr1DayUASs": {
+    "name": "cSdslStucPerfCurr1DayUASs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfCurr1DayInits": {
+    "name": "cSdslStucPerfCurr1DayInits",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfCurr1DayUnavlRsrcs": {
+    "name": "cSdslStucPerfCurr1DayUnavlRsrcs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfPrev1DayMoniSecs": {
+    "name": "cSdslStucPerfPrev1DayMoniSecs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfPrev1DayLOSs": {
+    "name": "cSdslStucPerfPrev1DayLOSs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfPrevDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfPrev1DayLOSQs": {
+    "name": "cSdslStucPerfPrev1DayLOSQs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfPrevDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfPrev1DayCVs": {
+    "name": "cSdslStucPerfPrev1DayCVs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfPrevDayCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfPrev1DayESs": {
+    "name": "cSdslStucPerfPrev1DayESs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfPrevDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfPrev1DaySESs": {
+    "name": "cSdslStucPerfPrev1DaySESs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfPrevDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfPrev1DayUASs": {
+    "name": "cSdslStucPerfPrev1DayUASs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfPrevDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfPrev1DayInits": {
+    "name": "cSdslStucPerfPrev1DayInits",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfPrevDayCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucPerfPrev1DayUnavlRsrcs": {
+    "name": "cSdslStucPerfPrev1DayUnavlRsrcs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.6.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfPrevDayCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfDataTable": {
+    "name": "cSdslSturPerfDataTable",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSdslSturPerfDataEntry": {
+    "name": "cSdslSturPerfDataEntry",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSdslSturPerfLOSs": {
+    "name": "cSdslSturPerfLOSs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfLOSQs": {
+    "name": "cSdslSturPerfLOSQs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfCVs": {
+    "name": "cSdslSturPerfCVs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfESs": {
+    "name": "cSdslSturPerfESs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfSESs": {
+    "name": "cSdslSturPerfSESs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfUASs": {
+    "name": "cSdslSturPerfUASs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfValidIntervals": {
+    "name": "cSdslSturPerfValidIntervals",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfInvalidIntervals": {
+    "name": "cSdslSturPerfInvalidIntervals",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfCurr15MinTimeElapse": {
+    "name": "cSdslSturPerfCurr15MinTimeElapse",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfTimeElapsed",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 899
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfCurr15MinLOSs": {
+    "name": "cSdslSturPerfCurr15MinLOSs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfCurr15MinLOSQs": {
+    "name": "cSdslSturPerfCurr15MinLOSQs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfCurr15MinCVs": {
+    "name": "cSdslSturPerfCurr15MinCVs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfCurr15MinESs": {
+    "name": "cSdslSturPerfCurr15MinESs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfCurr15MinSESs": {
+    "name": "cSdslSturPerfCurr15MinSESs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfCurr15MinUASs": {
+    "name": "cSdslSturPerfCurr15MinUASs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfCurr1DayTimeElapsed": {
+    "name": "cSdslSturPerfCurr1DayTimeElapsed",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfTimeElapsed",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86399
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfCurr1DayLOSs": {
+    "name": "cSdslSturPerfCurr1DayLOSs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfCurr1DayLOSQs": {
+    "name": "cSdslSturPerfCurr1DayLOSQs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfCurr1DayCVs": {
+    "name": "cSdslSturPerfCurr1DayCVs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfCurr1DayESs": {
+    "name": "cSdslSturPerfCurr1DayESs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfCurr1DaySESs": {
+    "name": "cSdslSturPerfCurr1DaySESs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfCurr1DayUASs": {
+    "name": "cSdslSturPerfCurr1DayUASs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfPrev1DayMoniSecs": {
+    "name": "cSdslSturPerfPrev1DayMoniSecs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfPrev1DayLOSs": {
+    "name": "cSdslSturPerfPrev1DayLOSs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfPrevDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfPrev1DayLOSQs": {
+    "name": "cSdslSturPerfPrev1DayLOSQs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfPrevDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfPrev1DayCVs": {
+    "name": "cSdslSturPerfPrev1DayCVs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfPrevDayCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfPrev1DayESs": {
+    "name": "cSdslSturPerfPrev1DayESs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfPrevDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfPrev1DaySESs": {
+    "name": "cSdslSturPerfPrev1DaySESs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfPrevDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturPerfPrev1DayUASs": {
+    "name": "cSdslSturPerfPrev1DayUASs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.7.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdslPerfPrevDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucIntervalTable": {
+    "name": "cSdslStucIntervalTable",
+    "oid": "1.3.6.1.4.1.9.9.155.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSdslStucIntervalEntry": {
+    "name": "cSdslStucIntervalEntry",
+    "oid": "1.3.6.1.4.1.9.9.155.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSdslStucIntervalNumber": {
+    "name": "cSdslStucIntervalNumber",
+    "oid": "1.3.6.1.4.1.9.9.155.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSdslStucIntervalValidData": {
+    "name": "cSdslStucIntervalValidData",
+    "oid": "1.3.6.1.4.1.9.9.155.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucIntervalLOSs": {
+    "name": "cSdslStucIntervalLOSs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucIntervalLOSQs": {
+    "name": "cSdslStucIntervalLOSQs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucIntervalCVs": {
+    "name": "cSdslStucIntervalCVs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucIntervalESs": {
+    "name": "cSdslStucIntervalESs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucIntervalSESs": {
+    "name": "cSdslStucIntervalSESs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucIntervalUASs": {
+    "name": "cSdslStucIntervalUASs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucIntervalInits": {
+    "name": "cSdslStucIntervalInits",
+    "oid": "1.3.6.1.4.1.9.9.155.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslStucIntervalUnavlRsrcs": {
+    "name": "cSdslStucIntervalUnavlRsrcs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturIntervalTable": {
+    "name": "cSdslSturIntervalTable",
+    "oid": "1.3.6.1.4.1.9.9.155.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSdslSturIntervalEntry": {
+    "name": "cSdslSturIntervalEntry",
+    "oid": "1.3.6.1.4.1.9.9.155.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSdslSturIntervalNumber": {
+    "name": "cSdslSturIntervalNumber",
+    "oid": "1.3.6.1.4.1.9.9.155.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSdslSturIntervalValidData": {
+    "name": "cSdslSturIntervalValidData",
+    "oid": "1.3.6.1.4.1.9.9.155.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturIntervalLOSs": {
+    "name": "cSdslSturIntervalLOSs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturIntervalLOSQs": {
+    "name": "cSdslSturIntervalLOSQs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturIntervalCVs": {
+    "name": "cSdslSturIntervalCVs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturIntervalESs": {
+    "name": "cSdslSturIntervalESs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturIntervalSESs": {
+    "name": "cSdslSturIntervalSESs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslSturIntervalUASs": {
+    "name": "cSdslSturIntervalUASs",
+    "oid": "1.3.6.1.4.1.9.9.155.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSdslLineConfProfileTable": {
+    "name": "cSdslLineConfProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.155.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSdslLineConfProfileEntry": {
+    "name": "cSdslLineConfProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.155.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADSL-LINE-MIB",
+        "object": "adslLineConfProfileName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "cSdslLineMaxRate": {
+    "name": "cSdslLineMaxRate",
+    "oid": "1.3.6.1.4.1.9.9.155.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 144000,
+            "max": 144000
+          },
+          {
+            "min": 272000,
+            "max": 272000
+          },
+          {
+            "min": 400000,
+            "max": 400000
+          },
+          {
+            "min": 528000,
+            "max": 528000
+          },
+          {
+            "min": 784000,
+            "max": 784000
+          },
+          {
+            "min": 1040000,
+            "max": 1040000
+          },
+          {
+            "min": 1168000,
+            "max": 1168000
+          },
+          {
+            "min": 1552000,
+            "max": 1552000
+          },
+          {
+            "min": 2064000,
+            "max": 2064000
+          },
+          {
+            "min": 2320000,
+            "max": 2320000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 784000,
+        "format": "decimal"
+      }
+    },
+    "units": "bps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSdslLineFramingMode": {
+    "name": "cSdslLineFramingMode",
+    "oid": "1.3.6.1.4.1.9.9.155.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "hdsl": 3,
+          "gShdsl": 4,
+          "hdsl2": 5,
+          "ds1": 6
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSdslStucTargetSnrMgn": {
+    "name": "cSdslStucTargetSnrMgn",
+    "oid": "1.3.6.1.4.1.9.9.155.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 310
+          }
+        ]
+      }
+    },
+    "units": "tenth dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSdslStucMaxSnrMgn": {
+    "name": "cSdslStucMaxSnrMgn",
+    "oid": "1.3.6.1.4.1.9.9.155.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 310
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "units": "tenth dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSdslStucMinSnrMgn": {
+    "name": "cSdslStucMinSnrMgn",
+    "oid": "1.3.6.1.4.1.9.9.155.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 310
+          }
+        ]
+      }
+    },
+    "units": "tenth dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSdslStucOutputPwr": {
+    "name": "cSdslStucOutputPwr",
+    "oid": "1.3.6.1.4.1.9.9.155.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 310
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 130,
+        "format": "decimal"
+      }
+    },
+    "units": "tenth dBm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSdslShdslLineMaxRate": {
+    "name": "cSdslShdslLineMaxRate",
+    "oid": "1.3.6.1.4.1.9.9.155.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "r2376000": 2376000,
+          "r2312000": 2312000,
+          "r2056000": 2056000,
+          "r1552000": 1552000,
+          "r1544000": 1544000,
+          "r1160000": 1160000,
+          "r1032000": 1032000,
+          "r784000": 784000,
+          "r776000": 776000,
+          "r520000": 520000,
+          "r392000": 392000,
+          "r264000": 264000,
+          "r200000": 200000,
+          "r136000": 136000,
+          "r72000": 72000
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "r776000",
+        "format": "enum"
+      }
+    },
+    "units": "bps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSdslStucPsdMaskType": {
+    "name": "cSdslStucPsdMaskType",
+    "oid": "1.3.6.1.4.1.9.9.155.1.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "symmetric": 1,
+          "asymmetric": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "symmetric",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSdslStucAnnex": {
+    "name": "cSdslStucAnnex",
+    "oid": "1.3.6.1.4.1.9.9.155.1.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "annexA": 1,
+          "annexB": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "annexA",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSdslLineEquipmentType": {
+    "name": "cSdslLineEquipmentType",
+    "oid": "1.3.6.1.4.1.9.9.155.1.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stuR": 1,
+          "stuC": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "stuR",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSdslLineAutoRateEnable": {
+    "name": "cSdslLineAutoRateEnable",
+    "oid": "1.3.6.1.4.1.9.9.155.1.14.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSdslStucThresholdSnrMgn": {
+    "name": "cSdslStucThresholdSnrMgn",
+    "oid": "1.3.6.1.4.1.9.9.155.1.14.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 310
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "tenth dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSdslSturAnnex": {
+    "name": "cSdslSturAnnex",
+    "oid": "1.3.6.1.4.1.9.9.155.1.14.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "annexA": 1,
+          "annexB": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "annexA",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSdslLineAlarmConfProfileTable": {
+    "name": "cSdslLineAlarmConfProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.155.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSdslLineAlarmConfProfileEntry": {
+    "name": "cSdslLineAlarmConfProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.155.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADSL-LINE-MIB",
+        "object": "adslLineAlarmConfProfileName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "cSdslStucThreshMinRate": {
+    "name": "cSdslStucThreshMinRate",
+    "oid": "1.3.6.1.4.1.9.9.155.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 310
+          }
+        ]
+      }
+    },
+    "units": "bps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSdslStucThreshMinSnrMgn": {
+    "name": "cSdslStucThreshMinSnrMgn",
+    "oid": "1.3.6.1.4.1.9.9.155.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 310
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "tenth dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoSdslLineMIBNotificationsPrefix": {
+    "name": "ciscoSdslLineMIBNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.9.9.155.2",
+    "class": "objectidentity"
+  },
+  "ciscoSdslLineMIBNotifications": {
+    "name": "ciscoSdslLineMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.155.2.0",
+    "class": "objectidentity"
+  },
+  "ciscoSdslLineMIBConformance": {
+    "name": "ciscoSdslLineMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.155.3",
+    "class": "objectidentity"
+  },
+  "ciscoSdslLineMIBCompliances": {
+    "name": "ciscoSdslLineMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.155.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoSdslLineMIBGroups": {
+    "name": "ciscoSdslLineMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.155.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoSdslLineMIBStucCompliance": {
+    "name": "ciscoSdslLineMIBStucCompliance",
+    "oid": "1.3.6.1.4.1.9.9.155.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cSdslStucBasicGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslStucPMCounterGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslStucRateAdaptiveGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslSturGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslStucPM15MinIntervalGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslStucPM1DayIntervalGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslSturPMCounterGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslSturPM15MinIntervalGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslSturPM1DayIntervalGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslStucAlarmConfProfileGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSdslLineMIBSturCompliance": {
+    "name": "ciscoSdslLineMIBSturCompliance",
+    "oid": "1.3.6.1.4.1.9.9.155.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cSdslSturBasicGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslSturPMCounterGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslSturPM15MinIntervalGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslSturPM1DayIntervalGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSdslLineMIBStucComplianceRev1": {
+    "name": "ciscoSdslLineMIBStucComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.155.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cSdslStucBasicGroupRev1",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslStucPMCounterGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslStucRateAdaptiveGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslSturGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslStucPM15MinIntervalGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslStucPM1DayIntervalGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslSturPMCounterGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslSturPM15MinIntervalGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslSturPM1DayIntervalGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslStucAlarmConfProfileGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdslLineMIBSturComplianceRev1": {
+    "name": "ciscoSdslLineMIBSturComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.155.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cSdslSturBasicGroupRev1",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslSturPMCounterGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslSturPM15MinIntervalGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      },
+      {
+        "object": "cSdslSturPM1DayIntervalGroup",
+        "module": "CISCO-SDSL-LINE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdslStucBasicGroup": {
+    "name": "cSdslStucBasicGroup",
+    "oid": "1.3.6.1.4.1.9.9.155.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineCoding"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineFraming"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineSpecific"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineConfProfile"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineAlarmConfProfile"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucInvSerialNumber"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucInvVendorId"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucInvVersionNumber"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucState"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucDefect"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucCurrRate"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucCurrSnrMgn"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucCurrGain"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucCurrOutputPwr"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucCurrAtn"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineMaxRate"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineFramingMode"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucTargetSnrMgn"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucOutputPwr"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cSdslSturBasicGroup": {
+    "name": "cSdslSturBasicGroup",
+    "oid": "1.3.6.1.4.1.9.9.155.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineCoding"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineFraming"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineSpecific"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturInvSerialNumber"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturInvVendorId"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturInvVersionNumber"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturState"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturDefect"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturCurrRate"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturCurrSnrMgn"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturCurrGain"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturCurrOutputPwr"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturCurrAtn"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cSdslSturGroup": {
+    "name": "cSdslSturGroup",
+    "oid": "1.3.6.1.4.1.9.9.155.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturInvSerialNumber"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturInvVendorId"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturInvVersionNumber"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturState"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturDefect"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturCurrRate"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturCurrSnrMgn"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturCurrGain"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturCurrOutputPwr"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cSdslStucPMCounterGroup": {
+    "name": "cSdslStucPMCounterGroup",
+    "oid": "1.3.6.1.4.1.9.9.155.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfLOSs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfLOSQs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfCVs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfESs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfSESs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfUASs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfInits"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucUnavailRsrcs"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdslStucPM15MinIntervalGroup": {
+    "name": "cSdslStucPM15MinIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.9.155.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfValidIntervals"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfInvalidIntervals"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfCurr15MinTimeElapse"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfCurr15MinLOSs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfCurr15MinLOSQs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfCurr15MinCVs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfCurr15MinESs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfCurr15MinSESs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfCurr15MinUASs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfCurr15MinInits"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfCurr15MinUnavlRsrcs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucIntervalValidData"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucIntervalLOSs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucIntervalLOSQs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucIntervalCVs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucIntervalESs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucIntervalSESs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucIntervalUASs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucIntervalInits"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucIntervalUnavlRsrcs"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdslStucPM1DayIntervalGroup": {
+    "name": "cSdslStucPM1DayIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.9.155.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfCurr1DayTimeElapsed"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfCurr1DayLOSs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfCurr1DayLOSQs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfCurr1DayCVs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfCurr1DayESs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfCurr1DaySESs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfCurr1DayUASs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfCurr1DayInits"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfCurr1DayUnavlRsrcs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfPrev1DayMoniSecs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfPrev1DayLOSs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfPrev1DayLOSQs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfPrev1DayCVs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfPrev1DayESs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfPrev1DaySESs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfPrev1DayUASs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfPrev1DayInits"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPerfPrev1DayUnavlRsrcs"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdslSturPMCounterGroup": {
+    "name": "cSdslSturPMCounterGroup",
+    "oid": "1.3.6.1.4.1.9.9.155.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfLOSs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfLOSQs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfCVs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfESs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfSESs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfUASs"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdslSturPM15MinIntervalGroup": {
+    "name": "cSdslSturPM15MinIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.9.155.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfValidIntervals"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfInvalidIntervals"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfCurr15MinTimeElapse"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfCurr15MinLOSs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfCurr15MinLOSQs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfCurr15MinCVs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfCurr15MinESs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfCurr15MinSESs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfCurr15MinUASs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturIntervalLOSs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturIntervalLOSQs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturIntervalCVs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturIntervalESs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturIntervalSESs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturIntervalUASs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturIntervalValidData"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdslSturPM1DayIntervalGroup": {
+    "name": "cSdslSturPM1DayIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.9.155.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfCurr1DayTimeElapsed"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfCurr1DayLOSs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfCurr1DayLOSQs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfCurr1DayCVs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfCurr1DayESs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfCurr1DaySESs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfCurr1DayUASs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfPrev1DayMoniSecs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfPrev1DayLOSs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfPrev1DayLOSQs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfPrev1DayCVs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfPrev1DayESs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfPrev1DaySESs"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturPerfPrev1DayUASs"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdslStucRateAdaptiveGroup": {
+    "name": "cSdslStucRateAdaptiveGroup",
+    "oid": "1.3.6.1.4.1.9.9.155.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucCurrRate"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucMaxSnrMgn"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucMinSnrMgn"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucThreshMinRate"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdslStucAlarmConfProfileGroup": {
+    "name": "cSdslStucAlarmConfProfileGroup",
+    "oid": "1.3.6.1.4.1.9.9.155.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucThreshMinRate"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucThreshMinSnrMgn"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdslStucBasicGroupRev1": {
+    "name": "cSdslStucBasicGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.155.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineCoding"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineFraming"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineSpecific"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineConfProfile"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineAlarmConfProfile"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucInvSerialNumber"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucInvVendorId"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucInvVersionNumber"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucState"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucDefect"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucCurrRate"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucCurrSnrMgn"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucCurrGain"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucCurrOutputPwr"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucCurrAtn"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineMaxRate"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineFramingMode"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucTargetSnrMgn"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucMaxSnrMgn"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucMinSnrMgn"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucOutputPwr"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslShdslLineMaxRate"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPsdMaskType"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucAnnex"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineEquipmentType"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineAutoRateEnable"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucThresholdSnrMgn"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cSdslSturBasicGroupRev1": {
+    "name": "cSdslSturBasicGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.155.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineCoding"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineFraming"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturInvSerialNumber"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturInvVendorId"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturInvVersionNumber"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturState"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturDefect"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturCurrRate"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturCurrSnrMgn"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturCurrGain"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturCurrOutputPwr"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturCurrAtn"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslShdslLineMaxRate"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineEquipmentType"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineAutoRateEnable"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturAnnex"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cSdslStucBasicGroupRev2": {
+    "name": "cSdslStucBasicGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.155.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineCoding"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineFraming"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineSpecific"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineConfProfile"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineAlarmConfProfile"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucInvSerialNumber"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucInvVendorId"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucInvVersionNumber"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucState"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucDefect"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucCurrRate"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucCurrSnrMgn"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucCurrGainRev"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucCurrOutputPwr"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucCurrAtn"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineMaxRate"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineFramingMode"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucTargetSnrMgn"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucMaxSnrMgn"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucMinSnrMgn"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucOutputPwr"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslShdslLineMaxRate"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucPsdMaskType"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucAnnex"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineEquipmentType"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineAutoRateEnable"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslStucThresholdSnrMgn"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdslSturBasicGroupRev2": {
+    "name": "cSdslSturBasicGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.155.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineCoding"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineFraming"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturInvSerialNumber"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturInvVendorId"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturInvVersionNumber"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturState"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturDefect"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturCurrRate"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturCurrSnrMgn"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturCurrGainRev"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturCurrOutputPwr"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturCurrAtn"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslShdslLineMaxRate"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineEquipmentType"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslLineAutoRateEnable"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturAnnex"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdslSturGroupRev1": {
+    "name": "cSdslSturGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.155.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturInvSerialNumber"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturInvVendorId"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturInvVersionNumber"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturState"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturDefect"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturCurrRate"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturCurrSnrMgn"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturCurrGainRev"
+      },
+      {
+        "module": "CISCO-SDSL-LINE-MIB",
+        "object": "cSdslSturCurrOutputPwr"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SDSL-LINE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SDSL-LINE-MIB"
+  }
+}

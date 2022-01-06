@@ -1,0 +1,104 @@
+{
+  "imports": {
+    "class": "imports",
+    "PRVT-SWITCH-MIB": [
+      "switch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "prvtOprLedMgmtMIB": {
+    "name": "prvtOprLedMgmtMIB",
+    "oid": "1.3.6.1.4.1.738.1.5.110",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-07-29 00:00",
+        "description": "Initial revision history"
+      }
+    ]
+  },
+  "LedValues": {
+    "name": "LedValues",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "green-stable": 1,
+          "green-blinking": 2,
+          "amber-stable": 3,
+          "amber-blinking": 4,
+          "red-stable": 5,
+          "red-blinking": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "prvtOprLedMgmtObjects": {
+    "name": "prvtOprLedMgmtObjects",
+    "oid": "1.3.6.1.4.1.738.1.5.110.1",
+    "class": "objectidentity"
+  },
+  "prvtOprLedMgmtNotifications": {
+    "name": "prvtOprLedMgmtNotifications",
+    "oid": "1.3.6.1.4.1.738.1.5.110.2",
+    "class": "objectidentity"
+  },
+  "prvtOprLedMgmtConformance": {
+    "name": "prvtOprLedMgmtConformance",
+    "oid": "1.3.6.1.4.1.738.1.5.110.3",
+    "class": "objectidentity"
+  },
+  "prvtOprLedSatus": {
+    "name": "prvtOprLedSatus",
+    "oid": "1.3.6.1.4.1.738.1.5.110.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LedValues",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "green-stable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-OPR-LED-MANAGEMENT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-OPR-LED-MANAGEMENT-MIB"
+  }
+}

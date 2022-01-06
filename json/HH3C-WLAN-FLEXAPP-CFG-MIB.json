@@ -1,0 +1,2092 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-DOT11-REF-MIB": [
+      "hh3cDot11"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
+    ]
+  },
+  "hh3cWlanFlexAppCFG": {
+    "name": "hh3cWlanFlexAppCFG",
+    "oid": "1.3.6.1.4.1.25506.2.75.19",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-05-26 18:00",
+        "description": "Added new nodes."
+      }
+    ]
+  },
+  "hh3cWlanModuleConfigGroup": {
+    "name": "hh3cWlanModuleConfigGroup",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.1",
+    "class": "objectidentity"
+  },
+  "hh3cWlanIOTConfigGroup": {
+    "name": "hh3cWlanIOTConfigGroup",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.2",
+    "class": "objectidentity"
+  },
+  "hh3cWlanModuleNotifyGroup": {
+    "name": "hh3cWlanModuleNotifyGroup",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.3",
+    "class": "objectidentity"
+  },
+  "hh3cWlanBLEConfigGroup": {
+    "name": "hh3cWlanBLEConfigGroup",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4",
+    "class": "objectidentity"
+  },
+  "hh3cWlanAEConfigGroup": {
+    "name": "hh3cWlanAEConfigGroup",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.5",
+    "class": "objectidentity"
+  },
+  "hh3cWlanCommonConfigGroup": {
+    "name": "hh3cWlanCommonConfigGroup",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.6",
+    "class": "objectidentity"
+  },
+  "hh3cWlanCUPIDConfigGroup": {
+    "name": "hh3cWlanCUPIDConfigGroup",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.7",
+    "class": "objectidentity"
+  },
+  "hh3cWlanFPConfigGroup": {
+    "name": "hh3cWlanFPConfigGroup",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.8",
+    "class": "objectidentity"
+  },
+  "hh3cWlanModuleConfigTable": {
+    "name": "hh3cWlanModuleConfigTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWlanModuleConfigEntry": {
+    "name": "hh3cWlanModuleConfigEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanAPSerialID",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanModuleID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cWlanAPSerialID": {
+    "name": "hh3cWlanAPSerialID",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWlanModuleID": {
+    "name": "hh3cWlanModuleID",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWlanModuleType": {
+    "name": "hh3cWlanModuleType",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "ble": 1,
+          "iot": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanModuleStatus": {
+    "name": "hh3cWlanModuleStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanModuleReset": {
+    "name": "hh3cWlanModuleReset",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "reboot": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanModuleRstFac": {
+    "name": "hh3cWlanModuleRstFac",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "restore": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanModuleUpWareStatus": {
+    "name": "hh3cWlanModuleUpWareStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanModuleTxPower": {
+    "name": "hh3cWlanModuleTxPower",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanModuleManualUpdate": {
+    "name": "hh3cWlanModuleManualUpdate",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanModuleInfoTable": {
+    "name": "hh3cWlanModuleInfoTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWlanModuleInfoEntry": {
+    "name": "hh3cWlanModuleInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cDot11IOTAPSerialID",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cDot11IOTModuleID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11IOTAPSerialID": {
+    "name": "hh3cDot11IOTAPSerialID",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11IOTModuleID": {
+    "name": "hh3cDot11IOTModuleID",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11IOTModuleType": {
+    "name": "hh3cDot11IOTModuleType",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "h3c": 1,
+          "iot": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11IOTModuleModel": {
+    "name": "hh3cDot11IOTModuleModel",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11IOTModuleHwVersion": {
+    "name": "hh3cDot11IOTModuleHwVersion",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11IOTModuleSwVersion": {
+    "name": "hh3cDot11IOTModuleSwVersion",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot11IOTModuleSerialId": {
+    "name": "hh3cDot11IOTModuleSerialId",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cWlanIOTConfigTable": {
+    "name": "hh3cWlanIOTConfigTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWlanIOTConfigEntry": {
+    "name": "hh3cWlanIOTConfigEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanIOTAPSerialID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cWlanIOTAPSerialID": {
+    "name": "hh3cWlanIOTAPSerialID",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWlanIOTEngineAdd": {
+    "name": "hh3cWlanIOTEngineAdd",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanIOTEnginePort": {
+    "name": "hh3cWlanIOTEnginePort",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanModuleTraps": {
+    "name": "hh3cWlanModuleTraps",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.3.0",
+    "class": "objectidentity"
+  },
+  "hh3cWlanModuleInsertTrap": {
+    "name": "hh3cWlanModuleInsertTrap",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanTrapAPMacAddress"
+      },
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanTrapModuleID"
+      },
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanTrapModulePhyType"
+      },
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanTrapModuleModel"
+      },
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanTrapModuleHwVersion"
+      },
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanTrapModuleSwVersion"
+      },
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanTrapModuleSequenceId"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cWlanModuleRomveTrap": {
+    "name": "hh3cWlanModuleRomveTrap",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanTrapAPMacAddress"
+      },
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanTrapModuleID"
+      },
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanTrapModulePhyType"
+      },
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanTrapModuleModel"
+      },
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanTrapModuleHwVersion"
+      },
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanTrapModuleSwVersion"
+      },
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanTrapModuleSequenceId"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cWlanModuleMissMatch": {
+    "name": "hh3cWlanModuleMissMatch",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanTrapAPMacAddress"
+      },
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanTrapModuleID"
+      },
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanTrapModuleCfgType"
+      },
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanTrapModulePhyType"
+      },
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanTrapModuleModel"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cWlanModuleTrapVarObjects": {
+    "name": "hh3cWlanModuleTrapVarObjects",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.3.1",
+    "class": "objectidentity"
+  },
+  "hh3cWlanTrapAPMacAddress": {
+    "name": "hh3cWlanTrapAPMacAddress",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cWlanTrapModuleID": {
+    "name": "hh3cWlanTrapModuleID",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cWlanTrapModuleCfgType": {
+    "name": "hh3cWlanTrapModuleCfgType",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "h3c": 1,
+          "iot": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cWlanTrapModulePhyType": {
+    "name": "hh3cWlanTrapModulePhyType",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "h3c": 1,
+          "iot": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cWlanTrapModuleModel": {
+    "name": "hh3cWlanTrapModuleModel",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cWlanTrapModuleHwVersion": {
+    "name": "hh3cWlanTrapModuleHwVersion",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cWlanTrapModuleSwVersion": {
+    "name": "hh3cWlanTrapModuleSwVersion",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cWlanTrapModuleSequenceId": {
+    "name": "hh3cWlanTrapModuleSequenceId",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cWlanBLEConfigTable": {
+    "name": "hh3cWlanBLEConfigTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWlanBLEConfigEntry": {
+    "name": "hh3cWlanBLEConfigEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanBLEAPSerialID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cWlanBLEAPSerialID": {
+    "name": "hh3cWlanBLEAPSerialID",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWlanBLEStatus": {
+    "name": "hh3cWlanBLEStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanBLEEngineAdd": {
+    "name": "hh3cWlanBLEEngineAdd",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanBLEEnginePort": {
+    "name": "hh3cWlanBLEEnginePort",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanBLEVendorPort": {
+    "name": "hh3cWlanBLEVendorPort",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanBLERssiStatus": {
+    "name": "hh3cWlanBLERssiStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanBLERssiThreshold": {
+    "name": "hh3cWlanBLERssiThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanBLEConnectPassword": {
+    "name": "hh3cWlanBLEConnectPassword",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanBLECommandPassword": {
+    "name": "hh3cWlanBLECommandPassword",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanBLEReportStatus": {
+    "name": "hh3cWlanBLEReportStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanBLEReportInterval": {
+    "name": "hh3cWlanBLEReportInterval",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "Second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanBLEAgingTime": {
+    "name": "hh3cWlanBLEAgingTime",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "units": "Second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanBLERealTimeReportStatus": {
+    "name": "hh3cWlanBLERealTimeReportStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanBLERealTimePrefix": {
+    "name": "hh3cWlanBLERealTimePrefix",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 8,
+            "max": 18
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanBLEModuleConfigTable": {
+    "name": "hh3cWlanBLEModuleConfigTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWlanBLEModuleConfigEntry": {
+    "name": "hh3cWlanBLEModuleConfigEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanBLEModuleAPSerialID",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanBLEModuleID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cWlanBLEModuleAPSerialID": {
+    "name": "hh3cWlanBLEModuleAPSerialID",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWlanBLEModuleID": {
+    "name": "hh3cWlanBLEModuleID",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWlanBLEAdvReportStatus": {
+    "name": "hh3cWlanBLEAdvReportStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanBLEAdvReportInterval": {
+    "name": "hh3cWlanBLEAdvReportInterval",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 50,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "Second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanBLEAdvUUID": {
+    "name": "hh3cWlanBLEAdvUUID",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanBLEAdvMajorID": {
+    "name": "hh3cWlanBLEAdvMajorID",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanBLEAdvMinorID": {
+    "name": "hh3cWlanBLEAdvMinorID",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanAEConfigTable": {
+    "name": "hh3cWlanAEConfigTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWlanAEConfigEntry": {
+    "name": "hh3cWlanAEConfigEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanAEAPSerialID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cWlanAEAPSerialID": {
+    "name": "hh3cWlanAEAPSerialID",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWlanAEStatus": {
+    "name": "hh3cWlanAEStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanAEEngineAddr": {
+    "name": "hh3cWlanAEEngineAddr",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanAEEnginePort": {
+    "name": "hh3cWlanAEEnginePort",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanAEVendorPort": {
+    "name": "hh3cWlanAEVendorPort",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanAETimeStamp": {
+    "name": "hh3cWlanAETimeStamp",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absolute": 1,
+          "relative": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanAEVersion": {
+    "name": "hh3cWlanAEVersion",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v2": 2,
+          "v3": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanAETagMultiAddr": {
+    "name": "hh3cWlanAETagMultiAddr",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanAEEngineDetection": {
+    "name": "hh3cWlanAEEngineDetection",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanAEReportMode": {
+    "name": "hh3cWlanAEReportMode",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "central": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanAERadioConfigTable": {
+    "name": "hh3cWlanAERadioConfigTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWlanAERadioConfigEntry": {
+    "name": "hh3cWlanAERadioConfigEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanAERadioAPSerialID",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanAEAPRadioID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cWlanAERadioAPSerialID": {
+    "name": "hh3cWlanAERadioAPSerialID",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWlanAEAPRadioID": {
+    "name": "hh3cWlanAEAPRadioID",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWlanAERadioStatus": {
+    "name": "hh3cWlanAERadioStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanAEMUStatus": {
+    "name": "hh3cWlanAEMUStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanAETagStatus": {
+    "name": "hh3cWlanAETagStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanCommonConfigTable": {
+    "name": "hh3cWlanCommonConfigTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWlanCommonConfigEntry": {
+    "name": "hh3cWlanCommonConfigEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanCommonAPSerialID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cWlanCommonAPSerialID": {
+    "name": "hh3cWlanCommonAPSerialID",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWlanDilutionStatus": {
+    "name": "hh3cWlanDilutionStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanDilutionFactor": {
+    "name": "hh3cWlanDilutionFactor",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanDilutionTimeout": {
+    "name": "hh3cWlanDilutionTimeout",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "Second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanIgnoreBeacon": {
+    "name": "hh3cWlanIgnoreBeacon",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanRateLimitStatus": {
+    "name": "hh3cWlanRateLimitStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanRateLimitCir": {
+    "name": "hh3cWlanRateLimitCir",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 8,
+            "max": 1300000
+          }
+        ]
+      }
+    },
+    "units": "Kbps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanRateLimitCbs": {
+    "name": "hh3cWlanRateLimitCbs",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 500,
+            "max": 130000000
+          }
+        ]
+      }
+    },
+    "units": "Bytes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanClientRateLimitStatus": {
+    "name": "hh3cWlanClientRateLimitStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanClientRateLimitCir": {
+    "name": "hh3cWlanClientRateLimitCir",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1300000
+          }
+        ]
+      }
+    },
+    "units": "Kbps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanClientRateLimitCbs": {
+    "name": "hh3cWlanClientRateLimitCbs",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 80,
+            "max": 130000000
+          }
+        ]
+      }
+    },
+    "units": "Bytes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanRssiStatus": {
+    "name": "hh3cWlanRssiStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanRssiThreshold": {
+    "name": "hh3cWlanRssiThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanIgnoreApFrame": {
+    "name": "hh3cWlanIgnoreApFrame",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanCUPIDConfigTable": {
+    "name": "hh3cWlanCUPIDConfigTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWlanCUPIDConfigEntry": {
+    "name": "hh3cWlanCUPIDConfigEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanCupidAPSerialID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cWlanCupidAPSerialID": {
+    "name": "hh3cWlanCupidAPSerialID",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWlanCupidStatus": {
+    "name": "hh3cWlanCupidStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanCupidEngineAddr": {
+    "name": "hh3cWlanCupidEngineAddr",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanCupidEnginePort": {
+    "name": "hh3cWlanCupidEnginePort",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanCupidVendorPort": {
+    "name": "hh3cWlanCupidVendorPort",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanCupidReportStatus": {
+    "name": "hh3cWlanCupidReportStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanCupidReportInterval": {
+    "name": "hh3cWlanCupidReportInterval",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "Second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanCupidUnassSta": {
+    "name": "hh3cWlanCupidUnassSta",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanCupidUnassMeasureSta": {
+    "name": "hh3cWlanCupidUnassMeasureSta",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanCupidReportMode": {
+    "name": "hh3cWlanCupidReportMode",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "central": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanCUPIDReportFormat": {
+    "name": "hh3cWlanCUPIDReportFormat",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.7.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "general": 1,
+          "lightweight": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanFPConfigTable": {
+    "name": "hh3cWlanFPConfigTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWlanFPConfigEntry": {
+    "name": "hh3cWlanFPConfigEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-WLAN-FLEXAPP-CFG-MIB",
+        "object": "hh3cWlanFPAPSerialID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cWlanFPAPSerialID": {
+    "name": "hh3cWlanFPAPSerialID",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWlanFPStatus": {
+    "name": "hh3cWlanFPStatus",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanFPEngineAddr": {
+    "name": "hh3cWlanFPEngineAddr",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanFPEnginePort": {
+    "name": "hh3cWlanFPEnginePort",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanFPVendorPort": {
+    "name": "hh3cWlanFPVendorPort",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanFPRawFrameReport": {
+    "name": "hh3cWlanFPRawFrameReport",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanFPMUReport": {
+    "name": "hh3cWlanFPMUReport",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanFPReportMode": {
+    "name": "hh3cWlanFPReportMode",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.8.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "central": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanFPReportFormat": {
+    "name": "hh3cWlanFPReportFormat",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.8.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "general": 1,
+          "lightweight": 2,
+          "cupidhybrid": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWlanFPTagMultiAddr": {
+    "name": "hh3cWlanFPTagMultiAddr",
+    "oid": "1.3.6.1.4.1.25506.2.75.19.8.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-WLAN-FLEXAPP-CFG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-WLAN-FLEXAPP-CFG-MIB"
+  }
+}

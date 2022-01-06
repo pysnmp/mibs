@@ -1,0 +1,177 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cEpon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cEponFBMibObjects": {
+    "name": "hh3cEponFBMibObjects",
+    "oid": "1.3.6.1.4.1.25506.2.42.6",
+    "class": "moduleidentity"
+  },
+  "hh3cEponFBMIB": {
+    "name": "hh3cEponFBMIB",
+    "oid": "1.3.6.1.4.1.25506.2.42.6.1",
+    "class": "objectidentity"
+  },
+  "hh3cEponFBMIBTable": {
+    "name": "hh3cEponFBMIBTable",
+    "oid": "1.3.6.1.4.1.25506.2.42.6.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cEponFBMIBEntry": {
+    "name": "hh3cEponFBMIBEntry",
+    "oid": "1.3.6.1.4.1.25506.2.42.6.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-EPON-FB-MIB",
+        "object": "hh3cEponFBGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEponFBGroupIndex": {
+    "name": "hh3cEponFBGroupIndex",
+    "oid": "1.3.6.1.4.1.25506.2.42.6.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cEponFBGroupRowStatus": {
+    "name": "hh3cEponFBGroupRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.42.6.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cEponFBMasterPort": {
+    "name": "hh3cEponFBMasterPort",
+    "oid": "1.3.6.1.4.1.25506.2.42.6.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cEponFBSlavePort": {
+    "name": "hh3cEponFBSlavePort",
+    "oid": "1.3.6.1.4.1.25506.2.42.6.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cEponFBMasterPortStatus": {
+    "name": "hh3cEponFBMasterPortStatus",
+    "oid": "1.3.6.1.4.1.25506.2.42.6.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEponFBSlavePortStatus": {
+    "name": "hh3cEponFBSlavePortStatus",
+    "oid": "1.3.6.1.4.1.25506.2.42.6.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEponFBSwitchover": {
+    "name": "hh3cEponFBSwitchover",
+    "oid": "1.3.6.1.4.1.25506.2.42.6.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "true": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-EPON-FB-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-EPON-FB-MIB"
+  }
+}

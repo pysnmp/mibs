@@ -1,0 +1,96 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "AGENT-CAPABILITIES"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoMacNotificationCapability": {
+    "name": "ciscoMacNotificationCapability",
+    "oid": "1.3.6.1.4.1.9.7.327",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-07-09 00:00",
+        "description": "Add capability statement cmnCapabilityV12R0233SXHPCat6K."
+      },
+      {
+        "revision": "2004-02-05 00:00",
+        "description": "Add capability statement cmnCapabilityCatOSV08R0301Cat6K and add VARIATION for cmnCapabilityV12R0217SXCat6K."
+      },
+      {
+        "revision": "2003-11-12 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cmnCapabilityCatOSV08R0101Cat4K": {
+    "name": "cmnCapabilityCatOSV08R0101Cat4K",
+    "oid": "1.3.6.1.4.1.9.7.327.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1) on Catalyst 4000 series\n                        devices.",
+    "status": "current"
+  },
+  "cmnCapabilityCatOSV08R0101Cat6K": {
+    "name": "cmnCapabilityCatOSV08R0101Cat6K",
+    "oid": "1.3.6.1.4.1.9.7.327.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1) on Catalyst 6000/6500\n                        and Cisco 7600 series devices.",
+    "status": "current"
+  },
+  "cmnCapabilityV12R0217SXCat6K": {
+    "name": "cmnCapabilityV12R0217SXCat6K",
+    "oid": "1.3.6.1.4.1.9.7.327.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(17)SX on Catalyst 6000/6500\n                         and Cisco 7600 series devices.",
+    "status": "current"
+  },
+  "cmnCapabilityCatOSV08R0301Cat6K": {
+    "name": "cmnCapabilityCatOSV08R0301Cat6K",
+    "oid": "1.3.6.1.4.1.9.7.327.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1) on Catalyst 6000/6500\n                        and Cisco 7600 series devices.",
+    "status": "current"
+  },
+  "cmnCapabilityV12R0233SXHPCat6K": {
+    "name": "cmnCapabilityV12R0233SXHPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.327.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXH on Catalyst 6000/6500.",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MAC-NOTIFICATION-CAPABILITY",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-MAC-NOTIFICATION-CAPABILITY"
+  }
+}

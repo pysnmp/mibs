@@ -1,0 +1,1417 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "PRVT-SWITCH-MIB": [
+      "switch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ]
+  },
+  "prvtSpanningTreeMIB": {
+    "name": "prvtSpanningTreeMIB",
+    "oid": "1.3.6.1.4.1.738.1.5.107",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-04-06 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "PrvtStInstIdTC": {
+    "name": "PrvtStInstIdTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtStInstIdExceptZeroTC": {
+    "name": "PrvtStInstIdExceptZeroTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtStPortIdTC": {
+    "name": "PrvtStPortIdTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "x",
+    "status": "current"
+  },
+  "PrvtStBridgeIdTC": {
+    "name": "PrvtStBridgeIdTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "2d.1x:1x:1x:1x:1x:1x",
+    "status": "current"
+  },
+  "PrvtStLearnModeTC": {
+    "name": "PrvtStLearnModeTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "standard": 1,
+          "temporary-disabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtStLinkTypeTC": {
+    "name": "PrvtStLinkTypeTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "pointToPoint": 2,
+          "shared": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtStPortRoleTC": {
+    "name": "PrvtStPortRoleTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "root": 2,
+          "designated": 3,
+          "alternate": 4,
+          "backup": 5,
+          "master": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtStPortStateTC": {
+    "name": "PrvtStPortStateTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forward": 1,
+          "block": 2,
+          "learn": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtStPortPriorityTC": {
+    "name": "PrvtStPortPriorityTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 32,
+            "max": 32
+          },
+          {
+            "min": 48,
+            "max": 48
+          },
+          {
+            "min": 64,
+            "max": 64
+          },
+          {
+            "min": 80,
+            "max": 80
+          },
+          {
+            "min": 96,
+            "max": 96
+          },
+          {
+            "min": 112,
+            "max": 112
+          },
+          {
+            "min": 128,
+            "max": 128
+          },
+          {
+            "min": 144,
+            "max": 144
+          },
+          {
+            "min": 160,
+            "max": 160
+          },
+          {
+            "min": 176,
+            "max": 176
+          },
+          {
+            "min": 192,
+            "max": 192
+          },
+          {
+            "min": 208,
+            "max": 208
+          },
+          {
+            "min": 224,
+            "max": 224
+          },
+          {
+            "min": 240,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtStBridgePriorityTC": {
+    "name": "PrvtStBridgePriorityTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4096,
+            "max": 4096
+          },
+          {
+            "min": 8192,
+            "max": 8192
+          },
+          {
+            "min": 12288,
+            "max": 12288
+          },
+          {
+            "min": 16384,
+            "max": 16384
+          },
+          {
+            "min": 20480,
+            "max": 20480
+          },
+          {
+            "min": 24576,
+            "max": 24576
+          },
+          {
+            "min": 28672,
+            "max": 28672
+          },
+          {
+            "min": 32768,
+            "max": 32768
+          },
+          {
+            "min": 36864,
+            "max": 36864
+          },
+          {
+            "min": 40960,
+            "max": 40960
+          },
+          {
+            "min": 45056,
+            "max": 45056
+          },
+          {
+            "min": 49152,
+            "max": 49152
+          },
+          {
+            "min": 53248,
+            "max": 53248
+          },
+          {
+            "min": 57344,
+            "max": 57344
+          },
+          {
+            "min": 61440,
+            "max": 61440
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "prvtStNotifications": {
+    "name": "prvtStNotifications",
+    "oid": "1.3.6.1.4.1.738.1.5.107.0",
+    "class": "objectidentity"
+  },
+  "prvtStObjects": {
+    "name": "prvtStObjects",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1",
+    "class": "objectidentity"
+  },
+  "prvtStCommon": {
+    "name": "prvtStCommon",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1",
+    "class": "objectidentity"
+  },
+  "prvtStProviderBridgeAddress": {
+    "name": "prvtStProviderBridgeAddress",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1d": 0,
+          "dot1ad": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStMaxAge": {
+    "name": "prvtStMaxAge",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 6,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStHelloTime": {
+    "name": "prvtStHelloTime",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStForwardDelay": {
+    "name": "prvtStForwardDelay",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStPriority": {
+    "name": "prvtStPriority",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtStBridgePriorityTC",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStTimeSinceTopologyChange": {
+    "name": "prvtStTimeSinceTopologyChange",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStTopChanges": {
+    "name": "prvtStTopChanges",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStPortTable": {
+    "name": "prvtStPortTable",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtStPortEntry": {
+    "name": "prvtStPortEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SPANNING-TREE-MIB",
+        "object": "prvtStPortIfName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtStPortIfName": {
+    "name": "prvtStPortIfName",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStPortRowStatus": {
+    "name": "prvtStPortRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStPortBpduTx": {
+    "name": "prvtStPortBpduTx",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStPortBpduRx": {
+    "name": "prvtStPortBpduRx",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStPortDetectBpduLoss": {
+    "name": "prvtStPortDetectBpduLoss",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStPortCiscoCompliant": {
+    "name": "prvtStPortCiscoCompliant",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStPortEdge": {
+    "name": "prvtStPortEdge",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStPortEdgeStatus": {
+    "name": "prvtStPortEdgeStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStPortEdgeFlush": {
+    "name": "prvtStPortEdgeFlush",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStPortLinkType": {
+    "name": "prvtStPortLinkType",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtStLinkTypeTC",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStPortLinkTypeStatus": {
+    "name": "prvtStPortLinkTypeStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtStLinkTypeTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStPortRestrictedRoot": {
+    "name": "prvtStPortRestrictedRoot",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStPortRestrictedTcn": {
+    "name": "prvtStPortRestrictedTcn",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStPortPathCost": {
+    "name": "prvtStPortPathCost",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStPortPriority": {
+    "name": "prvtStPortPriority",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtStPortPriorityTC",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStPortAdminStatus": {
+    "name": "prvtStPortAdminStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.8.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStPortState": {
+    "name": "prvtStPortState",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.8.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtStPortStateTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStPortRole": {
+    "name": "prvtStPortRole",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.8.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtStPortRoleTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStPortDesPCost": {
+    "name": "prvtStPortDesPCost",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.8.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStPortDesBridgeID": {
+    "name": "prvtStPortDesBridgeID",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.8.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStPortDesPortID": {
+    "name": "prvtStPortDesPortID",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.8.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtStPortIdTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStTxHoldCount": {
+    "name": "prvtStTxHoldCount",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStLearnMode": {
+    "name": "prvtStLearnMode",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtStLearnModeTC",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStStp": {
+    "name": "prvtStStp",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.2",
+    "class": "objectidentity"
+  },
+  "prvtStStpProtocolDisabled": {
+    "name": "prvtStStpProtocolDisabled",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStRstp": {
+    "name": "prvtStRstp",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.3",
+    "class": "objectidentity"
+  },
+  "prvtStRstpProtocolDisabled": {
+    "name": "prvtStRstpProtocolDisabled",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStMstp": {
+    "name": "prvtStMstp",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4",
+    "class": "objectidentity"
+  },
+  "prvtStMstpProtocolDisabled": {
+    "name": "prvtStMstpProtocolDisabled",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStMstpRegionName": {
+    "name": "prvtStMstpRegionName",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStMstpRegionRevision": {
+    "name": "prvtStMstpRegionRevision",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStMstpMaxHops": {
+    "name": "prvtStMstpMaxHops",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStMstpMigrationDelay": {
+    "name": "prvtStMstpMigrationDelay",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStMstpInstTable": {
+    "name": "prvtStMstpInstTable",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtStMstpInstEntry": {
+    "name": "prvtStMstpInstEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SPANNING-TREE-MIB",
+        "object": "prvtStMstpInstId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtStMstpInstId": {
+    "name": "prvtStMstpInstId",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtStInstIdExceptZeroTC",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtStMstpInstRowStatus": {
+    "name": "prvtStMstpInstRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStMstpInstPriority": {
+    "name": "prvtStMstpInstPriority",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtStBridgePriorityTC",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStMstpInstTimeSinceTopChng": {
+    "name": "prvtStMstpInstTimeSinceTopChng",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStMstpInstTopChanges": {
+    "name": "prvtStMstpInstTopChanges",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStMstpInstStatTable": {
+    "name": "prvtStMstpInstStatTable",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtStMstpInstStatEntry": {
+    "name": "prvtStMstpInstStatEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SPANNING-TREE-MIB",
+        "object": "prvtStMstpInstId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtStMstpInstStatRRootID": {
+    "name": "prvtStMstpInstStatRRootID",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStMstpInstStatRemHopCount": {
+    "name": "prvtStMstpInstStatRemHopCount",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStMstpVlanPerInstTable": {
+    "name": "prvtStMstpVlanPerInstTable",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtStMstpVlanPerInstEntry": {
+    "name": "prvtStMstpVlanPerInstEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SPANNING-TREE-MIB",
+        "object": "prvtStMstpVlanPerInstVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtStMstpVlanPerInstVlanId": {
+    "name": "prvtStMstpVlanPerInstVlanId",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtStMstpVlanPerInstRowStatus": {
+    "name": "prvtStMstpVlanPerInstRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStMstpVlanPerInstMstId": {
+    "name": "prvtStMstpVlanPerInstMstId",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtStInstIdTC",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStMstpInstPortTable": {
+    "name": "prvtStMstpInstPortTable",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtStMstpInstPortEntry": {
+    "name": "prvtStMstpInstPortEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SPANNING-TREE-MIB",
+        "object": "prvtStPortIfName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SPANNING-TREE-MIB",
+        "object": "prvtStMInstPortInstId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtStMInstPortInstId": {
+    "name": "prvtStMInstPortInstId",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtStInstIdExceptZeroTC",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStMInstPortRowStatus": {
+    "name": "prvtStMInstPortRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStMInstPortPathCost": {
+    "name": "prvtStMInstPortPathCost",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStMInstPortPriority": {
+    "name": "prvtStMInstPortPriority",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtStPortPriorityTC",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStMInstPortAdminStatus": {
+    "name": "prvtStMInstPortAdminStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStMInstPortState": {
+    "name": "prvtStMInstPortState",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtStPortStateTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStMInstPortFwdTrans": {
+    "name": "prvtStMInstPortFwdTrans",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStMInstPortStatRole": {
+    "name": "prvtStMInstPortStatRole",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtStPortRoleTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStMInstPortDesPCost": {
+    "name": "prvtStMInstPortDesPCost",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStMInstPortDesBridgeID": {
+    "name": "prvtStMInstPortDesBridgeID",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStMInstPortDesPortID": {
+    "name": "prvtStMInstPortDesPortID",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.4.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtStPortIdTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStFRing": {
+    "name": "prvtStFRing",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.5",
+    "class": "objectidentity"
+  },
+  "prvtStFRingProtocolDisabled": {
+    "name": "prvtStFRingProtocolDisabled",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStFRingPrefLink": {
+    "name": "prvtStFRingPrefLink",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStFRingInstTable": {
+    "name": "prvtStFRingInstTable",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtStFRingInstEntry": {
+    "name": "prvtStFRingInstEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SPANNING-TREE-MIB",
+        "object": "prvtStFRingInstPort1",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SPANNING-TREE-MIB",
+        "object": "prvtStFRingInstPort2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtStFRingInstPort1": {
+    "name": "prvtStFRingInstPort1",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtStFRingInstPort2": {
+    "name": "prvtStFRingInstPort2",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtStFRingInstRowStatus": {
+    "name": "prvtStFRingInstRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.107.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "stTopologyChange": {
+    "name": "stTopologyChange",
+    "oid": "1.3.6.1.4.1.738.1.5.107.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "stNewRoot": {
+    "name": "stNewRoot",
+    "oid": "1.3.6.1.4.1.738.1.5.107.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "mstTopologyChange": {
+    "name": "mstTopologyChange",
+    "oid": "1.3.6.1.4.1.738.1.5.107.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SPANNING-TREE-MIB",
+        "object": "prvtStMInstPortStatRole"
+      },
+      {
+        "module": "PRVT-SPANNING-TREE-MIB",
+        "object": "prvtStTimeSinceTopologyChange"
+      }
+    ],
+    "status": "current"
+  },
+  "mstNewRoot": {
+    "name": "mstNewRoot",
+    "oid": "1.3.6.1.4.1.738.1.5.107.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SPANNING-TREE-MIB",
+        "object": "prvtStMInstPortStatRole"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-SPANNING-TREE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-SPANNING-TREE-MIB"
+  }
+}

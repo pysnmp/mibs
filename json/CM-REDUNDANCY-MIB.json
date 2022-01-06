@@ -1,0 +1,489 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADVA-MIB": [
+      "fsp150cm"
+    ],
+    "CM-ENTITY-MIB": [
+      "neIndex",
+      "CardType"
+    ],
+    "ENTITY-MIB": [
+      "PhysicalIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowStatus",
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "VariablePointer"
+    ]
+  },
+  "cmRedundancyMIB": {
+    "name": "cmRedundancyMIB",
+    "oid": "1.3.6.1.4.1.2544.1.12.15",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-02-24 00:00",
+        "description": "Notes from release 200902240000Z, (1)MIB version ready for release FSP150CM 5.1."
+      }
+    ]
+  },
+  "cmRedundancyObjects": {
+    "name": "cmRedundancyObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.15.1",
+    "class": "objectidentity"
+  },
+  "cmRedundancyNotifications": {
+    "name": "cmRedundancyNotifications",
+    "oid": "1.3.6.1.4.1.2544.1.12.15.2",
+    "class": "objectidentity"
+  },
+  "cmRedundancyConformance": {
+    "name": "cmRedundancyConformance",
+    "oid": "1.3.6.1.4.1.2544.1.12.15.3",
+    "class": "objectidentity"
+  },
+  "CmRedundancyArch": {
+    "name": "CmRedundancyArch",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loadbalance": 1,
+          "activestandby": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmRedundancyStandbyMode": {
+    "name": "CmRedundancyStandbyMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cold": 1,
+          "warm": 2,
+          "hot": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmRedundancyState": {
+    "name": "CmRedundancyState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmRedundancySyncStatus": {
+    "name": "CmRedundancySyncStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "out-of-synchronize": 2,
+          "bulk-synchronize": 3,
+          "incremental-synchronize": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmRedundancySwitchOverReason": {
+    "name": "CmRedundancySwitchOverReason",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "latestUpdatedData": 2,
+          "userTrigger": 3,
+          "cardReset": 4,
+          "cardRemoval": 5,
+          "softwareFailure": 6,
+          "hardwareFailure": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmRedundancySyncMode": {
+    "name": "CmRedundancySyncMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "automatically": 1,
+          "manually": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmRedundancyAction": {
+    "name": "CmRedundancyAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "force": 1,
+          "manual": 2,
+          "releaseforce": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmRedundancyUnitState": {
+    "name": "CmRedundancyUnitState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "normal": 2,
+          "maintenance": 3,
+          "faultisolation": 4,
+          "lock": 5,
+          "extracted": 6,
+          "init": 7,
+          "stanbdby": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cmRedundancyGroupTable": {
+    "name": "cmRedundancyGroupTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.15.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmRedundancyGroupEntry": {
+    "name": "cmRedundancyGroupEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.15.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-REDUNDANCY-MIB",
+        "object": "cmRedundancyGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmRedundancyGroupIndex": {
+    "name": "cmRedundancyGroupIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.15.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmRedundancyGroupUserLabel": {
+    "name": "cmRedundancyGroupUserLabel",
+    "oid": "1.3.6.1.4.1.2544.1.12.15.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmRedundancyGroupType": {
+    "name": "cmRedundancyGroupType",
+    "oid": "1.3.6.1.4.1.2544.1.12.15.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CardType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmRedundancyGroupSyncEnabled": {
+    "name": "cmRedundancyGroupSyncEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.15.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmRedundancyGroupActiveCard": {
+    "name": "cmRedundancyGroupActiveCard",
+    "oid": "1.3.6.1.4.1.2544.1.12.15.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmRedundancyGroupActiveCardState": {
+    "name": "cmRedundancyGroupActiveCardState",
+    "oid": "1.3.6.1.4.1.2544.1.12.15.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmRedundancyUnitState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmRedundancyGroupStandbyCard": {
+    "name": "cmRedundancyGroupStandbyCard",
+    "oid": "1.3.6.1.4.1.2544.1.12.15.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmRedundancyGroupStandbyCardState": {
+    "name": "cmRedundancyGroupStandbyCardState",
+    "oid": "1.3.6.1.4.1.2544.1.12.15.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmRedundancyUnitState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmRedundancyGroupLastSwitchOverTime": {
+    "name": "cmRedundancyGroupLastSwitchOverTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.15.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmRedundancyGroupLastSwitchOverReason": {
+    "name": "cmRedundancyGroupLastSwitchOverReason",
+    "oid": "1.3.6.1.4.1.2544.1.12.15.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmRedundancySwitchOverReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmRedundancyGroupState": {
+    "name": "cmRedundancyGroupState",
+    "oid": "1.3.6.1.4.1.2544.1.12.15.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmRedundancyState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmRedundancyGroupSyncStatus": {
+    "name": "cmRedundancyGroupSyncStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.15.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmRedundancySyncStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmRedundancyGroupAction": {
+    "name": "cmRedundancyGroupAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.15.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmRedundancyAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmRedundancyCompliances": {
+    "name": "cmRedundancyCompliances",
+    "oid": "1.3.6.1.4.1.2544.1.12.15.3.1",
+    "class": "objectidentity"
+  },
+  "cmRedundancyGroups": {
+    "name": "cmRedundancyGroups",
+    "oid": "1.3.6.1.4.1.2544.1.12.15.3.2",
+    "class": "objectidentity"
+  },
+  "cmRedundancyCompliance": {
+    "name": "cmRedundancyCompliance",
+    "oid": "1.3.6.1.4.1.2544.1.12.15.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmRedundancyObjectGroup",
+        "module": "CM-REDUNDANCY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cmRedundancyObjectGroup": {
+    "name": "cmRedundancyObjectGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.15.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CM-REDUNDANCY-MIB",
+        "object": "cmRedundancyGroupIndex"
+      },
+      {
+        "module": "CM-REDUNDANCY-MIB",
+        "object": "cmRedundancyGroupUserLabel"
+      },
+      {
+        "module": "CM-REDUNDANCY-MIB",
+        "object": "cmRedundancyGroupType"
+      },
+      {
+        "module": "CM-REDUNDANCY-MIB",
+        "object": "cmRedundancyGroupSyncEnabled"
+      },
+      {
+        "module": "CM-REDUNDANCY-MIB",
+        "object": "cmRedundancyGroupActiveCard"
+      },
+      {
+        "module": "CM-REDUNDANCY-MIB",
+        "object": "cmRedundancyGroupActiveCardState"
+      },
+      {
+        "module": "CM-REDUNDANCY-MIB",
+        "object": "cmRedundancyGroupStandbyCard"
+      },
+      {
+        "module": "CM-REDUNDANCY-MIB",
+        "object": "cmRedundancyGroupStandbyCardState"
+      },
+      {
+        "module": "CM-REDUNDANCY-MIB",
+        "object": "cmRedundancyGroupLastSwitchOverTime"
+      },
+      {
+        "module": "CM-REDUNDANCY-MIB",
+        "object": "cmRedundancyGroupLastSwitchOverReason"
+      },
+      {
+        "module": "CM-REDUNDANCY-MIB",
+        "object": "cmRedundancyGroupState"
+      },
+      {
+        "module": "CM-REDUNDANCY-MIB",
+        "object": "cmRedundancyGroupSyncStatus"
+      },
+      {
+        "module": "CM-REDUNDANCY-MIB",
+        "object": "cmRedundancyGroupAction"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-REDUNDANCY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CM-REDUNDANCY-MIB"
+  }
+}

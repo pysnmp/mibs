@@ -1,0 +1,929 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "EntPhysicalIndexOrZero"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "AutonomousType",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "ciscoLicenseMIB": {
+    "name": "ciscoLicenseMIB",
+    "oid": "1.3.6.1.4.1.9.9.359",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-01-31 00:00",
+        "description": "Added following enums to LicenseType: multilink(10) ppp(11) "
+      },
+      {
+        "revision": "2003-06-06 00:00",
+        "description": "Initial version of the mib module."
+      }
+    ]
+  },
+  "celMIBNotifications": {
+    "name": "celMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.359.0",
+    "class": "objectidentity"
+  },
+  "celMIBObjects": {
+    "name": "celMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.359.1",
+    "class": "objectidentity"
+  },
+  "celGeneral": {
+    "name": "celGeneral",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1",
+    "class": "objectidentity"
+  },
+  "LicenseType": {
+    "name": "LicenseType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "none": 2,
+          "reserved": 3,
+          "singleService": 4,
+          "multiService": 5,
+          "channelization": 6,
+          "ima": 7,
+          "mfr": 8,
+          "rateControl": 9,
+          "multilink": 10,
+          "ppp": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "celLicenseConfigHistoryTable": {
+    "name": "celLicenseConfigHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "celLicenseConfigHistoryEntry": {
+    "name": "celLicenseConfigHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celLicenseConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "celLicenseConfigIndex": {
+    "name": "celLicenseConfigIndex",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "celLicenseEntityVendorType": {
+    "name": "celLicenseEntityVendorType",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celLicenseSerialNumber": {
+    "name": "celLicenseSerialNumber",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celLicenseInstallEntitySerNum": {
+    "name": "celLicenseInstallEntitySerNum",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celLicenseUpdateTimeStamp": {
+    "name": "celLicenseUpdateTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celLicenseConfigHistoryIndex": {
+    "name": "celLicenseConfigHistoryIndex",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celLicenseUpdateSequenceNum": {
+    "name": "celLicenseUpdateSequenceNum",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celLicenseUpdateMethod": {
+    "name": "celLicenseUpdateMethod",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celLicenseConfigDetailTable": {
+    "name": "celLicenseConfigDetailTable",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "celLicenseConfigDetailEntry": {
+    "name": "celLicenseConfigDetailEntry",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celLicenseConfigIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celLicenseConfigType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "celLicenseConfigType": {
+    "name": "celLicenseConfigType",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LicenseType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "celLicenseTypeDescr": {
+    "name": "celLicenseTypeDescr",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celLicenseConfigCount": {
+    "name": "celLicenseConfigCount",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celPoolLicenseTable": {
+    "name": "celPoolLicenseTable",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "celPoolLicenseEntry": {
+    "name": "celPoolLicenseEntry",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celPoolLicenseIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "celPoolLicenseIndex": {
+    "name": "celPoolLicenseIndex",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "celPoolLicenseEntityVendorType": {
+    "name": "celPoolLicenseEntityVendorType",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celPoolLicenseType": {
+    "name": "celPoolLicenseType",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LicenseType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celPoolLicensesInstalled": {
+    "name": "celPoolLicensesInstalled",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celPoolLicensesInUse": {
+    "name": "celPoolLicensesInUse",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celPoolLicenseMaxUsage": {
+    "name": "celPoolLicenseMaxUsage",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celInUseLicenseTable": {
+    "name": "celInUseLicenseTable",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "celInUseLicenseEntry": {
+    "name": "celInUseLicenseEntry",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celInUseSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celInUseLicenseType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "celInUseSlotIndex": {
+    "name": "celInUseSlotIndex",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "celInUseLicenseType": {
+    "name": "celInUseLicenseType",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LicenseType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "celEntPhysicalIndex": {
+    "name": "celEntPhysicalIndex",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celInUseLicenseDescr": {
+    "name": "celInUseLicenseDescr",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celInUseLicenses": {
+    "name": "celInUseLicenses",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celNeededLicenses": {
+    "name": "celNeededLicenses",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celOperationExpiryTmStamp": {
+    "name": "celOperationExpiryTmStamp",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celPhysicallyProgLicenseTable": {
+    "name": "celPhysicallyProgLicenseTable",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "celPhysicallyProgLicenseEntry": {
+    "name": "celPhysicallyProgLicenseEntry",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celPhysicallyProgSlotNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celPhysicallyProgLicenseType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "celPhysicallyProgSlotNumber": {
+    "name": "celPhysicallyProgSlotNumber",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "celPhysicallyProgLicenseType": {
+    "name": "celPhysicallyProgLicenseType",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LicenseType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "celPhysicallyProgEntIndex": {
+    "name": "celPhysicallyProgEntIndex",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celPhysicallyProgLicTypeDescr": {
+    "name": "celPhysicallyProgLicTypeDescr",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celPhysicallyProgLicenses": {
+    "name": "celPhysicallyProgLicenses",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celPhysicallyProgLicenseStatus": {
+    "name": "celPhysicallyProgLicenseStatus",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "noInstallableLic": 2,
+          "hasInstallableLic": 3,
+          "alreadyInstalled": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celPhysicallyProgLicInstSysName": {
+    "name": "celPhysicallyProgLicInstSysName",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celPhysicallyProgLicInstSerNum": {
+    "name": "celPhysicallyProgLicInstSerNum",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celPhysicallyProgLicSerialNum": {
+    "name": "celPhysicallyProgLicSerialNum",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celPhysicallyProgLicUseTmStamp": {
+    "name": "celPhysicallyProgLicUseTmStamp",
+    "oid": "1.3.6.1.4.1.9.9.359.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "celMIBConformance": {
+    "name": "celMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.359.2",
+    "class": "objectidentity"
+  },
+  "celMIBCompliances": {
+    "name": "celMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.359.2.1",
+    "class": "objectidentity"
+  },
+  "celMIBGroups": {
+    "name": "celMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.359.2.2",
+    "class": "objectidentity"
+  },
+  "celMIBCompliance": {
+    "name": "celMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.359.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "celMIBGroup",
+        "module": "CISCO-LICENSE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "celMIBGroup": {
+    "name": "celMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.359.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celLicenseEntityVendorType"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celLicenseSerialNumber"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celLicenseInstallEntitySerNum"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celLicenseUpdateTimeStamp"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celLicenseConfigHistoryIndex"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celLicenseUpdateSequenceNum"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celLicenseUpdateMethod"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celLicenseConfigCount"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celLicenseTypeDescr"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celPoolLicenseEntityVendorType"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celPoolLicenseType"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celPoolLicensesInstalled"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celPoolLicensesInUse"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celPoolLicenseMaxUsage"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celInUseLicenseDescr"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celInUseLicenses"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celEntPhysicalIndex"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celNeededLicenses"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celOperationExpiryTmStamp"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celPhysicallyProgLicenses"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celPhysicallyProgEntIndex"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celPhysicallyProgLicTypeDescr"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celPhysicallyProgLicenseStatus"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celPhysicallyProgLicInstSysName"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celPhysicallyProgLicInstSerNum"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celPhysicallyProgLicSerialNum"
+      },
+      {
+        "module": "CISCO-LICENSE-MIB",
+        "object": "celPhysicallyProgLicUseTmStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LICENSE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LICENSE-MIB"
+  }
+}

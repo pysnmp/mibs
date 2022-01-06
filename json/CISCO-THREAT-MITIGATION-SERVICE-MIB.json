@@ -1,0 +1,1173 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoThreatMitigationServiceMIB": {
+    "name": "ciscoThreatMitigationServiceMIB",
+    "oid": "1.3.6.1.4.1.9.9.603",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-01-09 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoTmsMIBNotifs": {
+    "name": "ciscoTmsMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.603.0",
+    "class": "objectidentity"
+  },
+  "ciscoTmsMIBObjects": {
+    "name": "ciscoTmsMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.603.1",
+    "class": "objectidentity"
+  },
+  "ciscoTmsMIBConform": {
+    "name": "ciscoTmsMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.603.2",
+    "class": "objectidentity"
+  },
+  "ciTmsConsumerGlobals": {
+    "name": "ciTmsConsumerGlobals",
+    "oid": "1.3.6.1.4.1.9.9.603.1.1",
+    "class": "objectidentity"
+  },
+  "ciTmsConsumerGroup": {
+    "name": "ciTmsConsumerGroup",
+    "oid": "1.3.6.1.4.1.9.9.603.1.2",
+    "class": "objectidentity"
+  },
+  "ciTmsConsumerThreat": {
+    "name": "ciTmsConsumerThreat",
+    "oid": "1.3.6.1.4.1.9.9.603.1.3",
+    "class": "objectidentity"
+  },
+  "ciTiTmsConsumerNotifs": {
+    "name": "ciTiTmsConsumerNotifs",
+    "oid": "1.3.6.1.4.1.9.9.603.1.4",
+    "class": "objectidentity"
+  },
+  "CTmsConsumerState": {
+    "name": "CTmsConsumerState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CTmsConsumerRegistrationStatus": {
+    "name": "CTmsConsumerRegistrationStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notRegistered": 1,
+          "registrationRequestSent": 2,
+          "registered": 3,
+          "registrationFailed": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CTmsThreatStatus": {
+    "name": "CTmsThreatStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "active": 2,
+          "inactive": 3,
+          "created": 4,
+          "pending": 5,
+          "activationFailed": 6,
+          "inactivationFailed": 7,
+          "deleted": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CTmsActionType": {
+    "name": "CTmsActionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ignore": 1,
+          "aclDrop": 2,
+          "fpmDrop": 3,
+          "redirect": 4,
+          "police": 5,
+          "setIPDscp": 6,
+          "localException": 7,
+          "quarantine": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CTmsActionParamIdType": {
+    "name": "CTmsActionParamIdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noParams": 1,
+          "cir": 2,
+          "bir": 3,
+          "be": 4,
+          "nexthop": 5,
+          "dscpVal": 6,
+          "vlanId": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CTmsActionParamType": {
+    "name": "CTmsActionParamType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unsigned": 1,
+          "networkAddress": 2,
+          "string": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciTmsActiveThreats": {
+    "name": "ciTmsActiveThreats",
+    "oid": "1.3.6.1.4.1.9.9.603.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciTmsInActiveThreats": {
+    "name": "ciTmsInActiveThreats",
+    "oid": "1.3.6.1.4.1.9.9.603.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciTmsConsumerDeviceId": {
+    "name": "ciTmsConsumerDeviceId",
+    "oid": "1.3.6.1.4.1.9.9.603.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciTmsGroupsMaxEntries": {
+    "name": "ciTmsGroupsMaxEntries",
+    "oid": "1.3.6.1.4.1.9.9.603.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32767,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciTmsThreatsMaxEntries": {
+    "name": "ciTmsThreatsMaxEntries",
+    "oid": "1.3.6.1.4.1.9.9.603.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciTmsThreatActionMaxEntries": {
+    "name": "ciTmsThreatActionMaxEntries",
+    "oid": "1.3.6.1.4.1.9.9.603.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciTmsInterfaceMaxEntries": {
+    "name": "ciTmsInterfaceMaxEntries",
+    "oid": "1.3.6.1.4.1.9.9.603.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciTmsConsumerState": {
+    "name": "ciTmsConsumerState",
+    "oid": "1.3.6.1.4.1.9.9.603.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CTmsConsumerState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciTmsGroupTable": {
+    "name": "ciTmsGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.603.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciTmsGroupEntry": {
+    "name": "ciTmsGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.603.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsGroupId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsControllerIpType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsControllerIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciTmsGroupId": {
+    "name": "ciTmsGroupId",
+    "oid": "1.3.6.1.4.1.9.9.603.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciTmsControllerIpType": {
+    "name": "ciTmsControllerIpType",
+    "oid": "1.3.6.1.4.1.9.9.603.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciTmsControllerIp": {
+    "name": "ciTmsControllerIp",
+    "oid": "1.3.6.1.4.1.9.9.603.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciTmsGroupConsumerRegStatus": {
+    "name": "ciTmsGroupConsumerRegStatus",
+    "oid": "1.3.6.1.4.1.9.9.603.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CTmsConsumerRegistrationStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciTmsGroupNotifEnable": {
+    "name": "ciTmsGroupNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.603.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciTmsGroupStorageType": {
+    "name": "ciTmsGroupStorageType",
+    "oid": "1.3.6.1.4.1.9.9.603.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciTmsGroupRowStatus": {
+    "name": "ciTmsGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.603.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciTmsThreatTable": {
+    "name": "ciTmsThreatTable",
+    "oid": "1.3.6.1.4.1.9.9.603.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciTmsThreatEntry": {
+    "name": "ciTmsThreatEntry",
+    "oid": "1.3.6.1.4.1.9.9.603.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatOwner",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsGroupId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsControllerIpType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsControllerIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciTmsThreatOwner": {
+    "name": "ciTmsThreatOwner",
+    "oid": "1.3.6.1.4.1.9.9.603.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciTmsThreatId": {
+    "name": "ciTmsThreatId",
+    "oid": "1.3.6.1.4.1.9.9.603.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciTmsThreatVer": {
+    "name": "ciTmsThreatVer",
+    "oid": "1.3.6.1.4.1.9.9.603.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciTmsThreatStatus": {
+    "name": "ciTmsThreatStatus",
+    "oid": "1.3.6.1.4.1.9.9.603.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CTmsThreatStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciTmsThreatClass": {
+    "name": "ciTmsThreatClass",
+    "oid": "1.3.6.1.4.1.9.9.603.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciTmsThreatName": {
+    "name": "ciTmsThreatName",
+    "oid": "1.3.6.1.4.1.9.9.603.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciTmsThreatActiveTimeDuration": {
+    "name": "ciTmsThreatActiveTimeDuration",
+    "oid": "1.3.6.1.4.1.9.9.603.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciTmsThreatPriority": {
+    "name": "ciTmsThreatPriority",
+    "oid": "1.3.6.1.4.1.9.9.603.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciTmsThreatTcdf": {
+    "name": "ciTmsThreatTcdf",
+    "oid": "1.3.6.1.4.1.9.9.603.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciTmsThreatActionTable": {
+    "name": "ciTmsThreatActionTable",
+    "oid": "1.3.6.1.4.1.9.9.603.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciTmsThreatActionEntry": {
+    "name": "ciTmsThreatActionEntry",
+    "oid": "1.3.6.1.4.1.9.9.603.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatOwner",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsGroupId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsControllerIpType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsControllerIp",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatAction",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatActionParamId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciTmsThreatAction": {
+    "name": "ciTmsThreatAction",
+    "oid": "1.3.6.1.4.1.9.9.603.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CTmsActionType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciTmsThreatActionParamId": {
+    "name": "ciTmsThreatActionParamId",
+    "oid": "1.3.6.1.4.1.9.9.603.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CTmsActionParamIdType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciTmsThreatActionParamType": {
+    "name": "ciTmsThreatActionParamType",
+    "oid": "1.3.6.1.4.1.9.9.603.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CTmsActionParamType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciTmsThreatActionParamLength": {
+    "name": "ciTmsThreatActionParamLength",
+    "oid": "1.3.6.1.4.1.9.9.603.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciTmsThreatActionParamValue": {
+    "name": "ciTmsThreatActionParamValue",
+    "oid": "1.3.6.1.4.1.9.9.603.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciTmsThreatActionFailReason": {
+    "name": "ciTmsThreatActionFailReason",
+    "oid": "1.3.6.1.4.1.9.9.603.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciTmsThreatInterfaceTable": {
+    "name": "ciTmsThreatInterfaceTable",
+    "oid": "1.3.6.1.4.1.9.9.603.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciTmsThreatInterfaceEntry": {
+    "name": "ciTmsThreatInterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.9.603.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatOwner",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsGroupId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsControllerIpType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsControllerIp",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciThreatInterfaceMitigationApplied": {
+    "name": "ciThreatInterfaceMitigationApplied",
+    "oid": "1.3.6.1.4.1.9.9.603.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciTmsConsStateChangeNotifEnable": {
+    "name": "ciTmsConsStateChangeNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.603.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoTmsConsStateChange": {
+    "name": "ciscoTmsConsStateChange",
+    "oid": "1.3.6.1.4.1.9.9.603.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsConsumerState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTmsControllerUnreachable": {
+    "name": "ciscoTmsControllerUnreachable",
+    "oid": "1.3.6.1.4.1.9.9.603.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsGroupConsumerRegStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTmsThreatStatusChange": {
+    "name": "ciscoTmsThreatStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.603.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatVer"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatStatus"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTmsMitigationActionFailed": {
+    "name": "ciscoTmsMitigationActionFailed",
+    "oid": "1.3.6.1.4.1.9.9.603.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatActionParamType"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatActionParamLength"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatActionParamValue"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatActionFailReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTmsMIBCompliances": {
+    "name": "ciscoTmsMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.603.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoTmsMIBGroups": {
+    "name": "ciscoTmsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.603.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoTmsMIBCompliance": {
+    "name": "ciscoTmsMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.603.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoTmsConsumerGroup",
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB"
+      },
+      {
+        "object": "ciscoTmsThreatGroup",
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB"
+      },
+      {
+        "object": "ciscoTmsThreatActionGroup",
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB"
+      },
+      {
+        "object": "ciscoTmsThreatInterfaceGroup",
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB"
+      },
+      {
+        "object": "ciscoTmsNotificationGroup",
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTmsConsumerGroup": {
+    "name": "ciscoTmsConsumerGroup",
+    "oid": "1.3.6.1.4.1.9.9.603.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsConsumerDeviceId"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsGroupsMaxEntries"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatsMaxEntries"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatActionMaxEntries"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsInterfaceMaxEntries"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsConsumerState"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsConsStateChangeNotifEnable"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsGroupConsumerRegStatus"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsGroupNotifEnable"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsGroupStorageType"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTmsThreatGroup": {
+    "name": "ciscoTmsThreatGroup",
+    "oid": "1.3.6.1.4.1.9.9.603.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsActiveThreats"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsInActiveThreats"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatVer"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatStatus"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatClass"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatName"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatActiveTimeDuration"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatPriority"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatTcdf"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTmsThreatActionGroup": {
+    "name": "ciscoTmsThreatActionGroup",
+    "oid": "1.3.6.1.4.1.9.9.603.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatActionParamType"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatActionParamLength"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatActionParamValue"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciTmsThreatActionFailReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTmsThreatInterfaceGroup": {
+    "name": "ciscoTmsThreatInterfaceGroup",
+    "oid": "1.3.6.1.4.1.9.9.603.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciThreatInterfaceMitigationApplied"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTmsNotificationGroup": {
+    "name": "ciscoTmsNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.603.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciscoTmsConsStateChange"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciscoTmsControllerUnreachable"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciscoTmsThreatStatusChange"
+      },
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "object": "ciscoTmsMitigationActionFailed"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-THREAT-MITIGATION-SERVICE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB"
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "MPLS-VPN-MIB": [
+      "mplsVpnVrfName"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "hwMACBIND": {
+    "name": "hwMACBIND",
+    "oid": "1.3.6.1.4.1.2011.5.25.9",
+    "class": "moduleidentity"
+  },
+  "hwMacBindMibObjects": {
+    "name": "hwMacBindMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.9.1",
+    "class": "objectidentity"
+  },
+  "hwMacBindEnableFlag": {
+    "name": "hwMacBindEnableFlag",
+    "oid": "1.3.6.1.4.1.2011.5.25.9.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMacBindTable": {
+    "name": "hwMacBindTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.9.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMacBindEntry": {
+    "name": "hwMacBindEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.9.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MACBIND-MIB",
+        "object": "hwMacBindIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMacBindIPAddress": {
+    "name": "hwMacBindIPAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.9.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMacBindMacAddress": {
+    "name": "hwMacBindMacAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.9.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMacBindRowStatus": {
+    "name": "hwMacBindRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.9.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMacBindMibConformance": {
+    "name": "hwMacBindMibConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.9.2",
+    "class": "objectidentity"
+  },
+  "hwMacBindMibGroup": {
+    "name": "hwMacBindMibGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.9.2.1",
+    "class": "objectidentity"
+  },
+  "hwMacBindTableGroup": {
+    "name": "hwMacBindTableGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.9.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MACBIND-MIB",
+        "object": "hwMacBindIPAddress"
+      },
+      {
+        "module": "HUAWEI-MACBIND-MIB",
+        "object": "hwMacBindMacAddress"
+      },
+      {
+        "module": "HUAWEI-MACBIND-MIB",
+        "object": "hwMacBindRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMacBindEnableGroup": {
+    "name": "hwMacBindEnableGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.9.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MACBIND-MIB",
+        "object": "hwMacBindEnableFlag"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-MACBIND-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-MACBIND-MIB"
+  }
+}

@@ -1,0 +1,2071 @@
+{
+  "imports": {
+    "class": "imports",
+    "LUM-REG": [
+      "lumModules",
+      "lumInventoryMIB"
+    ],
+    "LUM-TC": [
+      "MgmtNameString"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "Bits",
+      "Counter64",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowPointer",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
+      "DisplayString",
+      "TruthValue",
+      "DateAndTime",
+      "AutonomousType"
+    ]
+  },
+  "lumInventoryMIBModule": {
+    "name": "lumInventoryMIBModule",
+    "oid": "1.3.6.1.4.1.8708.1.1.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-06-15 00:00",
+        "description": "Changes made for release r29.0: - Changed ORGANIZATION and CONTACT-INFO"
+      },
+      {
+        "revision": "2014-09-30 00:00",
+        "description": "Set invPhysVendorType to deprecated since it is not used any more."
+      },
+      {
+        "revision": "2005-09-14 00:00",
+        "description": "Added minimal compliance groups."
+      },
+      {
+        "revision": "2004-09-30 00:00",
+        "description": "Added table sizes."
+      },
+      {
+        "revision": "2002-03-08 00:00",
+        "description": "Put back softwareRev."
+      },
+      {
+        "revision": "2001-10-30 00:00",
+        "description": "MIB version and testAndIncr hidden - not supported yet. Changed lastChange to DateAndTime."
+      },
+      {
+        "revision": "2001-07-17 00:00",
+        "description": "Added notifications. Added general group with version and testAndIncr. Added addtional alias and persistence meta-information."
+      },
+      {
+        "revision": "2001-05-11 00:00",
+        "description": "Replaced softwareRev with productDataRev. Removed alias and assetId."
+      },
+      {
+        "revision": "2001-05-10 00:00",
+        "description": "The initial revision of this module."
+      }
+    ]
+  },
+  "lumInventoryConfs": {
+    "name": "lumInventoryConfs",
+    "oid": "1.3.6.1.4.1.8708.2.3.1",
+    "class": "objectidentity"
+  },
+  "lumInventoryGroups": {
+    "name": "lumInventoryGroups",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.1",
+    "class": "objectidentity"
+  },
+  "lumInventoryCompl": {
+    "name": "lumInventoryCompl",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.2",
+    "class": "objectidentity"
+  },
+  "lumInventoryMinimalGroups": {
+    "name": "lumInventoryMinimalGroups",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.3",
+    "class": "objectidentity"
+  },
+  "lumInventoryMinimalCompl": {
+    "name": "lumInventoryMinimalCompl",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.4",
+    "class": "objectidentity"
+  },
+  "lumInventoryMIBObjects": {
+    "name": "lumInventoryMIBObjects",
+    "oid": "1.3.6.1.4.1.8708.2.3.2",
+    "class": "objectidentity"
+  },
+  "invPhysical": {
+    "name": "invPhysical",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.1",
+    "class": "objectidentity"
+  },
+  "invGeneral": {
+    "name": "invGeneral",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.2",
+    "class": "objectidentity"
+  },
+  "lumentisInvNotifications": {
+    "name": "lumentisInvNotifications",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.3",
+    "class": "objectidentity"
+  },
+  "invEntities": {
+    "name": "invEntities",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.4",
+    "class": "objectidentity"
+  },
+  "invRelations": {
+    "name": "invRelations",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.5",
+    "class": "objectidentity"
+  },
+  "invInsRemLog": {
+    "name": "invInsRemLog",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.6",
+    "class": "objectidentity"
+  },
+  "PhysicalClass": {
+    "name": "PhysicalClass",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "other": 1,
+          "unknown": 2,
+          "chassis": 3,
+          "backplane": 4,
+          "container": 5,
+          "powerSupply": 6,
+          "fan": 7,
+          "sensor": 8,
+          "module": 9,
+          "port": 10,
+          "stack": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EntityClass": {
+    "name": "EntityClass",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "other": 1,
+          "unknown": 2,
+          "chassis": 3,
+          "backplane": 4,
+          "container": 5,
+          "powerSupply": 6,
+          "fan": 7,
+          "sensor": 8,
+          "module": 9,
+          "port": 10,
+          "stack": 11,
+          "logical": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "InsRemEventType": {
+    "name": "InsRemEventType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "insert": 0,
+          "remove": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "invPhysTable": {
+    "name": "invPhysTable",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "invPhysEntry": {
+    "name": "invPhysEntry",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "invPhysIndex": {
+    "name": "invPhysIndex",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invPhysDescr": {
+    "name": "invPhysDescr",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invPhysVendorType": {
+    "name": "invPhysVendorType",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "invPhysContainedIn": {
+    "name": "invPhysContainedIn",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invPhysClass": {
+    "name": "invPhysClass",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalClass",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invPhysParentRelPos": {
+    "name": "invPhysParentRelPos",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invPhysName": {
+    "name": "invPhysName",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MgmtNameString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invPhysHardwareRev": {
+    "name": "invPhysHardwareRev",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invPhysFirmwareRev": {
+    "name": "invPhysFirmwareRev",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invPhysProductDataRev": {
+    "name": "invPhysProductDataRev",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invPhysSerialNum": {
+    "name": "invPhysSerialNum",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invPhysMfgName": {
+    "name": "invPhysMfgName",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invPhysModelName": {
+    "name": "invPhysModelName",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invPhysIsFRU": {
+    "name": "invPhysIsFRU",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invPhysSoftwareRev": {
+    "name": "invPhysSoftwareRev",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invPhysSoftwareProduct": {
+    "name": "invPhysSoftwareProduct",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invPhysClei": {
+    "name": "invPhysClei",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invPhysAid": {
+    "name": "invPhysAid",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invGeneralLastChangeTime": {
+    "name": "invGeneralLastChangeTime",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invGeneralTestAndIncr": {
+    "name": "invGeneralTestAndIncr",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "invGeneralMibSpecVersion": {
+    "name": "invGeneralMibSpecVersion",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "invGeneralMibImplVersion": {
+    "name": "invGeneralMibImplVersion",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "invGeneralConfigLastChangeTime": {
+    "name": "invGeneralConfigLastChangeTime",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invGeneralPhysTableSize": {
+    "name": "invGeneralPhysTableSize",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invGeneralEntityTableSize": {
+    "name": "invGeneralEntityTableSize",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invGeneralRelationTableSize": {
+    "name": "invGeneralRelationTableSize",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invGeneralInsRemTableSize": {
+    "name": "invGeneralInsRemTableSize",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invGeneralInsRemLastSeqNumber": {
+    "name": "invGeneralInsRemLastSeqNumber",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invNotifyPrefix": {
+    "name": "invNotifyPrefix",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.3.0",
+    "class": "objectidentity"
+  },
+  "invNotificationPhysAdded": {
+    "name": "invNotificationPhysAdded",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysIndex"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysDescr"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysVendorType"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysContainedIn"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysClass"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysParentRelPos"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysName"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysHardwareRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysFirmwareRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysProductDataRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysSerialNum"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysMfgName"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysModelName"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysIsFRU"
+      }
+    ],
+    "status": "current"
+  },
+  "invNotificationPhysRemoved": {
+    "name": "invNotificationPhysRemoved",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysIndex"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysDescr"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysVendorType"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysContainedIn"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysClass"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysParentRelPos"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysName"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysHardwareRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysFirmwareRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysProductDataRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysSerialNum"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysMfgName"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysModelName"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysIsFRU"
+      }
+    ],
+    "status": "current"
+  },
+  "invEntityTable": {
+    "name": "invEntityTable",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "invEntityEntry": {
+    "name": "invEntityEntry",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invEntityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "invEntityIndex": {
+    "name": "invEntityIndex",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invEntityName": {
+    "name": "invEntityName",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MgmtNameString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invEntityObject": {
+    "name": "invEntityObject",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invEntityClass": {
+    "name": "invEntityClass",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntityClass",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invRelationTable": {
+    "name": "invRelationTable",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "invRelationEntry": {
+    "name": "invRelationEntry",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invRelationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "invRelationIndex": {
+    "name": "invRelationIndex",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invRelationEntityIndex1": {
+    "name": "invRelationEntityIndex1",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invRelationEntityName1": {
+    "name": "invRelationEntityName1",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MgmtNameString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invRelationType": {
+    "name": "invRelationType",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "containedIn": 1,
+          "dependsOn": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invRelationEntityIndex2": {
+    "name": "invRelationEntityIndex2",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invRelationEntityName2": {
+    "name": "invRelationEntityName2",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MgmtNameString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invInsRemTable": {
+    "name": "invInsRemTable",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "invInsRemEntry": {
+    "name": "invInsRemEntry",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invInsRemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "invInsRemIndex": {
+    "name": "invInsRemIndex",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invInsRemName": {
+    "name": "invInsRemName",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MgmtNameString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invInsRemEvent": {
+    "name": "invInsRemEvent",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InsRemEventType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invInsRemTimestamp": {
+    "name": "invInsRemTimestamp",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invInsRemEquipmentType": {
+    "name": "invInsRemEquipmentType",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalClass",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invInsRemPhysicalLocation": {
+    "name": "invInsRemPhysicalLocation",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invInsRemClei": {
+    "name": "invInsRemClei",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invInsRemSerialNumber": {
+    "name": "invInsRemSerialNumber",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invInsRemPartNumber": {
+    "name": "invInsRemPartNumber",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invInsRemSeqNumber": {
+    "name": "invInsRemSeqNumber",
+    "oid": "1.3.6.1.4.1.8708.2.3.2.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invPhysGroup": {
+    "name": "invPhysGroup",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysIndex"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysDescr"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysVendorType"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysContainedIn"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysClass"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysParentRelPos"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysName"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysHardwareRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysFirmwareRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysProductDataRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysSerialNum"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysMfgName"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysModelName"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysIsFRU"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "invGeneralGroup": {
+    "name": "invGeneralGroup",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralLastChangeTime"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralMibSpecVersion"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralMibImplVersion"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralTestAndIncr"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "invEventGroup": {
+    "name": "invEventGroup",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.1.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invNotificationPhysAdded"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invNotificationPhysRemoved"
+      }
+    ],
+    "status": "current"
+  },
+  "invGeneralGroupV2": {
+    "name": "invGeneralGroupV2",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralLastChangeTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "invPhysGroupV2": {
+    "name": "invPhysGroupV2",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysIndex"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysDescr"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysVendorType"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysContainedIn"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysClass"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysParentRelPos"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysName"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysHardwareRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysFirmwareRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysProductDataRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysSerialNum"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysMfgName"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysModelName"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysIsFRU"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysSoftwareRev"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "invPhysGroupV3": {
+    "name": "invPhysGroupV3",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysIndex"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysDescr"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysVendorType"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysContainedIn"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysClass"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysParentRelPos"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysName"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysHardwareRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysFirmwareRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysProductDataRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysSerialNum"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysMfgName"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysModelName"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysIsFRU"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysSoftwareRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysSoftwareProduct"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "invEntityGroup": {
+    "name": "invEntityGroup",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invEntityIndex"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invEntityName"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invEntityObject"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invEntityClass"
+      }
+    ],
+    "status": "current"
+  },
+  "invRelationGroup": {
+    "name": "invRelationGroup",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invRelationIndex"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invRelationEntityIndex1"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invRelationEntityName1"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invRelationType"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invRelationEntityIndex2"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invRelationEntityName2"
+      }
+    ],
+    "status": "current"
+  },
+  "invGeneralGroupV3": {
+    "name": "invGeneralGroupV3",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralLastChangeTime"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralConfigLastChangeTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "invGeneralGroupV4": {
+    "name": "invGeneralGroupV4",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralLastChangeTime"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralConfigLastChangeTime"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralPhysTableSize"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralEntityTableSize"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralRelationTableSize"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "invPhysGroupV4": {
+    "name": "invPhysGroupV4",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysIndex"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysDescr"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysContainedIn"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysClass"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysParentRelPos"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysName"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysHardwareRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysFirmwareRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysProductDataRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysSerialNum"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysMfgName"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysModelName"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysIsFRU"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysSoftwareRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysSoftwareProduct"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "invPhysGroupV5": {
+    "name": "invPhysGroupV5",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysIndex"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysDescr"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysContainedIn"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysClass"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysParentRelPos"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysName"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysHardwareRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysFirmwareRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysProductDataRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysSerialNum"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysMfgName"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysModelName"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysIsFRU"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysSoftwareRev"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysSoftwareProduct"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysClei"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invPhysAid"
+      }
+    ],
+    "status": "current"
+  },
+  "invInsRemGroup": {
+    "name": "invInsRemGroup",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invInsRemIndex"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invInsRemName"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invInsRemEvent"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invInsRemTimestamp"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invInsRemEquipmentType"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invInsRemPhysicalLocation"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invInsRemClei"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invInsRemSerialNumber"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invInsRemPartNumber"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invInsRemSeqNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "invGeneralGroupV5": {
+    "name": "invGeneralGroupV5",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralLastChangeTime"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralConfigLastChangeTime"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralPhysTableSize"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralEntityTableSize"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralRelationTableSize"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralInsRemTableSize"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralInsRemLastSeqNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "lumInventoryBasicComplV1": {
+    "name": "lumInventoryBasicComplV1",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "invPhysGroup",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invGeneralGroup",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invEventGroup",
+        "module": "LUM-INVENTORY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "lumInventoryBasicComplV2": {
+    "name": "lumInventoryBasicComplV2",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "invGeneralGroupV2",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invPhysGroup",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invEventGroup",
+        "module": "LUM-INVENTORY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "lumInventoryBasicComplV3": {
+    "name": "lumInventoryBasicComplV3",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.2.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "invGeneralGroupV2",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invPhysGroupV2",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invEventGroup",
+        "module": "LUM-INVENTORY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "lumInventoryBasicComplV4": {
+    "name": "lumInventoryBasicComplV4",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.2.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "invGeneralGroupV2",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invPhysGroupV3",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invEventGroup",
+        "module": "LUM-INVENTORY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "lumInventoryBasicComplV5": {
+    "name": "lumInventoryBasicComplV5",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.2.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "invGeneralGroupV2",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invPhysGroupV3",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invEventGroup",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invEntityGroup",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invRelationGroup",
+        "module": "LUM-INVENTORY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "lumInventoryBasicComplV6": {
+    "name": "lumInventoryBasicComplV6",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.2.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "invGeneralGroupV3",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invPhysGroupV3",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invEventGroup",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invEntityGroup",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invRelationGroup",
+        "module": "LUM-INVENTORY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "lumInventoryBasicComplV7": {
+    "name": "lumInventoryBasicComplV7",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.2.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "invGeneralGroupV4",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invPhysGroupV3",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invEventGroup",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invEntityGroup",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invRelationGroup",
+        "module": "LUM-INVENTORY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "lumInventoryBasicComplV8": {
+    "name": "lumInventoryBasicComplV8",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.2.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "invGeneralGroupV4",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invPhysGroupV4",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invEventGroup",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invEntityGroup",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invRelationGroup",
+        "module": "LUM-INVENTORY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "lumInventoryBasicComplV9": {
+    "name": "lumInventoryBasicComplV9",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.2.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "invGeneralGroupV4",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invPhysGroupV5",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invEventGroup",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invEntityGroup",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invRelationGroup",
+        "module": "LUM-INVENTORY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "lumInventoryBasicComplV10": {
+    "name": "lumInventoryBasicComplV10",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.2.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "invGeneralGroupV5",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invPhysGroupV5",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invEventGroup",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invEntityGroup",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invRelationGroup",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invInsRemGroup",
+        "module": "LUM-INVENTORY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "inventoryGeneralMinimalGroupV1": {
+    "name": "inventoryGeneralMinimalGroupV1",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.3.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralLastChangeTime"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralConfigLastChangeTime"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralPhysTableSize"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralEntityTableSize"
+      },
+      {
+        "module": "LUM-INVENTORY-MIB",
+        "object": "invGeneralRelationTableSize"
+      }
+    ],
+    "status": "current"
+  },
+  "lumInventoryMinimalComplV1": {
+    "name": "lumInventoryMinimalComplV1",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.4.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "inventoryGeneralMinimalGroupV1",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invPhysGroupV3",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invEntityGroup",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invRelationGroup",
+        "module": "LUM-INVENTORY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "lumInventoryMinimalComplV2": {
+    "name": "lumInventoryMinimalComplV2",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.4.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "inventoryGeneralMinimalGroupV1",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invPhysGroupV4",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invEntityGroup",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invRelationGroup",
+        "module": "LUM-INVENTORY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "lumInventoryMinimalComplV3": {
+    "name": "lumInventoryMinimalComplV3",
+    "oid": "1.3.6.1.4.1.8708.2.3.1.4.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "inventoryGeneralMinimalGroupV1",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invPhysGroupV5",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invEntityGroup",
+        "module": "LUM-INVENTORY-MIB"
+      },
+      {
+        "object": "invRelationGroup",
+        "module": "LUM-INVENTORY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/infinera/LUM-INVENTORY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:39:08 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "LUM-INVENTORY-MIB"
+  }
+}

@@ -1,0 +1,417 @@
+{
+  "imports": {
+    "class": "imports",
+    "IANAifType-MIB": [
+      "IANAifType"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifAlias"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfTotalCount",
+      "PerfCurrentCount",
+      "PerfIntervalCount"
+    ],
+    "SL-MAIN-MIB": [
+      "slMain"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Counter32",
+      "Unsigned32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowPointer",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TruthValue",
+      "TimeStamp"
+    ]
+  },
+  "MacAddress": {
+    "name": "MacAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    }
+  },
+  "slFt": {
+    "name": "slFt",
+    "oid": "1.3.6.1.4.1.4515.1.3.30",
+    "class": "moduleidentity"
+  },
+  "slFtGen": {
+    "name": "slFtGen",
+    "oid": "1.3.6.1.4.1.4515.1.3.30.1",
+    "class": "objectidentity"
+  },
+  "slFtSystems": {
+    "name": "slFtSystems",
+    "oid": "1.3.6.1.4.1.4515.1.3.30.1.1",
+    "class": "objectidentity"
+  },
+  "slFtAgnt": {
+    "name": "slFtAgnt",
+    "oid": "1.3.6.1.4.1.4515.1.3.30.1.2",
+    "class": "objectidentity"
+  },
+  "slFtFileTransfer": {
+    "name": "slFtFileTransfer",
+    "oid": "1.3.6.1.4.1.4515.1.3.30.1.2.12",
+    "class": "objectidentity"
+  },
+  "SftpUserLogin": {
+    "name": "SftpUserLogin",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SftpUserPassword": {
+    "name": "SftpUserPassword",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "slFtFileServerIP": {
+    "name": "slFtFileServerIP",
+    "oid": "1.3.6.1.4.1.4515.1.3.30.1.2.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slFtFileName": {
+    "name": "slFtFileName",
+    "oid": "1.3.6.1.4.1.4515.1.3.30.1.2.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slFtFileTransCmd": {
+    "name": "slFtFileTransCmd",
+    "oid": "1.3.6.1.4.1.4515.1.3.30.1.2.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "swDwnLoad": 1,
+          "configDwnLoad": 2,
+          "configUpLoad": 3,
+          "coProcDwnLoad": 4,
+          "stateUpLoad": 5,
+          "dwnLoadUserFile": 6,
+          "upLoadUserFile": 7,
+          "swDwnLoadAndReset": 8,
+          "swUpLoad": 9,
+          "swDwnLoad2BkupStorage": 10,
+          "bootDwnLoad": 11,
+          "bootUpLoad": 12,
+          "swUpLoadFromBkupStorage": 13,
+          "licenseDwnLoad": 14,
+          "configDwnLoadToDefaultFile": 15,
+          "noOp": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slFtTftpRetryTimeOut": {
+    "name": "slFtTftpRetryTimeOut",
+    "oid": "1.3.6.1.4.1.4515.1.3.30.1.2.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slFtTftpTotalTimeOut": {
+    "name": "slFtTftpTotalTimeOut",
+    "oid": "1.3.6.1.4.1.4515.1.3.30.1.2.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slFtTftpStatus": {
+    "name": "slFtTftpStatus",
+    "oid": "1.3.6.1.4.1.4515.1.3.30.1.2.12.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOp": 2,
+          "connecting": 3,
+          "transferringData": 4,
+          "endedTimeOut": 5,
+          "endedOk": 6,
+          "error": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noOp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slFtTftpError": {
+    "name": "slFtTftpError",
+    "oid": "1.3.6.1.4.1.4515.1.3.30.1.2.12.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "0000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slFtFileTransferToSubSystems": {
+    "name": "slFtFileTransferToSubSystems",
+    "oid": "1.3.6.1.4.1.4515.1.3.30.1.2.12.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slFtFileNameWithinProduct": {
+    "name": "slFtFileNameWithinProduct",
+    "oid": "1.3.6.1.4.1.4515.1.3.30.1.2.12.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slFtFileTransferServerPort": {
+    "name": "slFtFileTransferServerPort",
+    "oid": "1.3.6.1.4.1.4515.1.3.30.1.2.12.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slFtFileTransferProtocol": {
+    "name": "slFtFileTransferProtocol",
+    "oid": "1.3.6.1.4.1.4515.1.3.30.1.2.12.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tftp": 1,
+          "sftp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slFtSftpUserLogin": {
+    "name": "slFtSftpUserLogin",
+    "oid": "1.3.6.1.4.1.4515.1.3.30.1.2.12.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SftpUserLogin",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slFtSftpPasswordLogin": {
+    "name": "slFtSftpPasswordLogin",
+    "oid": "1.3.6.1.4.1.4515.1.3.30.1.2.12.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SftpUserPassword",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slFtSystemReset": {
+    "name": "slFtSystemReset",
+    "oid": "1.3.6.1.4.1.4515.1.3.30.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 2,
+          "on": 3,
+          "resetConfig": 4,
+          "resetMapping": 5,
+          "resetStandby": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slFtAgnSwVersionSwapCmd": {
+    "name": "slFtAgnSwVersionSwapCmd",
+    "oid": "1.3.6.1.4.1.4515.1.3.30.1.2.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 2,
+          "mainAndBackup": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slFtSystemsEvents": {
+    "name": "slFtSystemsEvents",
+    "oid": "1.3.6.1.4.1.4515.1.3.30.1.1.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "slFtTftpStatusChangeTrap": {
+    "name": "slFtTftpStatusChangeTrap",
+    "oid": "1.3.6.1.4.1.4515.1.3.30.1.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-FT-MIB",
+        "object": "slFtTftpStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-FT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:54 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SL-FT-MIB"
+  }
+}

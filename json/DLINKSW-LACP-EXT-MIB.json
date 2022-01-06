@@ -1,0 +1,272 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "dlinkSwLacpExtMIB": {
+    "name": "dlinkSwLacpExtMIB",
+    "oid": "1.3.6.1.4.1.171.14.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-01-18 00:00",
+        "description": "Initial revision of this MIB module."
+      }
+    ]
+  },
+  "dLacpExtMIBNotifications": {
+    "name": "dLacpExtMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.4.0",
+    "class": "objectidentity"
+  },
+  "dLacpExtMIBObjects": {
+    "name": "dLacpExtMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.4.1",
+    "class": "objectidentity"
+  },
+  "dLacpExtMIBConformance": {
+    "name": "dLacpExtMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.4.2",
+    "class": "objectidentity"
+  },
+  "dLacpExtLoadBalanceAlgorithm": {
+    "name": "dLacpExtLoadBalanceAlgorithm",
+    "oid": "1.3.6.1.4.1.171.14.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dstIp": 1,
+          "dstMac": 2,
+          "srcDstIp": 3,
+          "srcDstMac": 4,
+          "srcIp": 5,
+          "srcMac": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dLacpExtGroupTable": {
+    "name": "dLacpExtGroupTable",
+    "oid": "1.3.6.1.4.1.171.14.4.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dLacpExtGroupEntry": {
+    "name": "dLacpExtGroupEntry",
+    "oid": "1.3.6.1.4.1.171.14.4.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-LACP-EXT-MIB",
+        "object": "dLacpExtGroupChannelNo",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dLacpExtGroupChannelNo": {
+    "name": "dLacpExtGroupChannelNo",
+    "oid": "1.3.6.1.4.1.171.14.4.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dLacpExtGroupIfIndex": {
+    "name": "dLacpExtGroupIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.4.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dLacpExtGroupType": {
+    "name": "dLacpExtGroupType",
+    "oid": "1.3.6.1.4.1.171.14.4.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "lacp": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dLacpExtGroupMemberPorts": {
+    "name": "dLacpExtGroupMemberPorts",
+    "oid": "1.3.6.1.4.1.171.14.4.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dLacpExtGroupActiveMemberPorts": {
+    "name": "dLacpExtGroupActiveMemberPorts",
+    "oid": "1.3.6.1.4.1.171.14.4.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dLacpExtGroupRowStatus": {
+    "name": "dLacpExtGroupRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.4.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dLacpExtCompliances": {
+    "name": "dLacpExtCompliances",
+    "oid": "1.3.6.1.4.1.171.14.4.2.1",
+    "class": "objectidentity"
+  },
+  "dLacpExtCompliance": {
+    "name": "dLacpExtCompliance",
+    "oid": "1.3.6.1.4.1.171.14.4.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dLacpExtAlgGroup",
+        "module": "DLINKSW-LACP-EXT-MIB"
+      },
+      {
+        "object": "dLacpExtChannelGrpInfoGroup",
+        "module": "DLINKSW-LACP-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dLacpExtGroups": {
+    "name": "dLacpExtGroups",
+    "oid": "1.3.6.1.4.1.171.14.4.2.2",
+    "class": "objectidentity"
+  },
+  "dLacpExtAlgGroup": {
+    "name": "dLacpExtAlgGroup",
+    "oid": "1.3.6.1.4.1.171.14.4.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-LACP-EXT-MIB",
+        "object": "dLacpExtLoadBalanceAlgorithm"
+      }
+    ],
+    "status": "current"
+  },
+  "dLacpExtChannelGrpInfoGroup": {
+    "name": "dLacpExtChannelGrpInfoGroup",
+    "oid": "1.3.6.1.4.1.171.14.4.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-LACP-EXT-MIB",
+        "object": "dLacpExtGroupIfIndex"
+      },
+      {
+        "module": "DLINKSW-LACP-EXT-MIB",
+        "object": "dLacpExtGroupType"
+      },
+      {
+        "module": "DLINKSW-LACP-EXT-MIB",
+        "object": "dLacpExtGroupMemberPorts"
+      },
+      {
+        "module": "DLINKSW-LACP-EXT-MIB",
+        "object": "dLacpExtGroupActiveMemberPorts"
+      },
+      {
+        "module": "DLINKSW-LACP-EXT-MIB",
+        "object": "dLacpExtGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-LACP-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-LACP-EXT-MIB"
+  }
+}

@@ -1,0 +1,1000 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "TN-TC": [
+      "TNDisplayString",
+      "TNInterfaceIndex",
+      "TNSfpTransceiver"
+    ],
+    "TRANSITION-SMI": [
+      "tnProducts"
+    ]
+  },
+  "tnOTDRMib": {
+    "name": "tnOTDRMib",
+    "oid": "1.3.6.1.4.1.868.2.5.155",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-07-01 00:00",
+        "description": "Initial version"
+      }
+    ]
+  },
+  "tnPortMibObjects": {
+    "name": "tnPortMibObjects",
+    "oid": "1.3.6.1.4.1.868.2.5.155.1",
+    "class": "objectidentity"
+  },
+  "tnOTDRBirthCertificate": {
+    "name": "tnOTDRBirthCertificate",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2",
+    "class": "objectidentity"
+  },
+  "tnOTDRPortCaptures": {
+    "name": "tnOTDRPortCaptures",
+    "oid": "1.3.6.1.4.1.868.2.5.155.3",
+    "class": "objectidentity"
+  },
+  "tnOTDRCommand": {
+    "name": "tnOTDRCommand",
+    "oid": "1.3.6.1.4.1.868.2.5.155.4",
+    "class": "objectidentity"
+  },
+  "tnOTDRReport": {
+    "name": "tnOTDRReport",
+    "oid": "1.3.6.1.4.1.868.2.5.155.5",
+    "class": "objectidentity"
+  },
+  "tnOTDRPortInfoTable": {
+    "name": "tnOTDRPortInfoTable",
+    "oid": "1.3.6.1.4.1.868.2.5.155.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnOTDRConfigEntry": {
+    "name": "tnOTDRConfigEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.155.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnOTDRPortInfoInterfaceA0Vendor": {
+    "name": "tnOTDRPortInfoInterfaceA0Vendor",
+    "oid": "1.3.6.1.4.1.868.2.5.155.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortInfoInterfaceA0PartNumber": {
+    "name": "tnOTDRPortInfoInterfaceA0PartNumber",
+    "oid": "1.3.6.1.4.1.868.2.5.155.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortInfoInterfaceA0SerialNumber": {
+    "name": "tnOTDRPortInfoInterfaceA0SerialNumber",
+    "oid": "1.3.6.1.4.1.868.2.5.155.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortInfoInterfaceA0Revision": {
+    "name": "tnOTDRPortInfoInterfaceA0Revision",
+    "oid": "1.3.6.1.4.1.868.2.5.155.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortInfoInterfaceA0DateCode": {
+    "name": "tnOTDRPortInfoInterfaceA0DateCode",
+    "oid": "1.3.6.1.4.1.868.2.5.155.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortInfoInterfaceA0SfpType": {
+    "name": "tnOTDRPortInfoInterfaceA0SfpType",
+    "oid": "1.3.6.1.4.1.868.2.5.155.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNSfpTransceiver",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertInfoTable": {
+    "name": "tnOTDRCertInfoTable",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnOTDRCertEntry": {
+    "name": "tnOTDRCertEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnOTDRCertName": {
+    "name": "tnOTDRCertName",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertPartNbr": {
+    "name": "tnOTDRCertPartNbr",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertSerial": {
+    "name": "tnOTDRCertSerial",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertRevision": {
+    "name": "tnOTDRCertRevision",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertDateCode": {
+    "name": "tnOTDRCertDateCode",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertTransciever": {
+    "name": "tnOTDRCertTransciever",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertDate": {
+    "name": "tnOTDRCertDate",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertTime": {
+    "name": "tnOTDRCertTime",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertReflection1": {
+    "name": "tnOTDRCertReflection1",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertReflection2": {
+    "name": "tnOTDRCertReflection2",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertReflection3": {
+    "name": "tnOTDRCertReflection3",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertReflection4": {
+    "name": "tnOTDRCertReflection4",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertReflection5": {
+    "name": "tnOTDRCertReflection5",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertReflection6": {
+    "name": "tnOTDRCertReflection6",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertReflection7": {
+    "name": "tnOTDRCertReflection7",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertReflection8": {
+    "name": "tnOTDRCertReflection8",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertReflection9": {
+    "name": "tnOTDRCertReflection9",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertReflection10": {
+    "name": "tnOTDRCertReflection10",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertReflection11": {
+    "name": "tnOTDRCertReflection11",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertReflection12": {
+    "name": "tnOTDRCertReflection12",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertReflection13": {
+    "name": "tnOTDRCertReflection13",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertReflection14": {
+    "name": "tnOTDRCertReflection14",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertReflection15": {
+    "name": "tnOTDRCertReflection15",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRCertReflection16": {
+    "name": "tnOTDRCertReflection16",
+    "oid": "1.3.6.1.4.1.868.2.5.155.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortCaptureTable": {
+    "name": "tnOTDRPortCaptureTable",
+    "oid": "1.3.6.1.4.1.868.2.5.155.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnOTDRPortEntry": {
+    "name": "tnOTDRPortEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.155.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN-OTDR-MIB",
+        "object": "tnOTDRPortCaptureId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnOTDRPortCaptureId": {
+    "name": "tnOTDRPortCaptureId",
+    "oid": "1.3.6.1.4.1.868.2.5.155.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnOTDRPortReflection1": {
+    "name": "tnOTDRPortReflection1",
+    "oid": "1.3.6.1.4.1.868.2.5.155.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortReflection2": {
+    "name": "tnOTDRPortReflection2",
+    "oid": "1.3.6.1.4.1.868.2.5.155.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortReflection3": {
+    "name": "tnOTDRPortReflection3",
+    "oid": "1.3.6.1.4.1.868.2.5.155.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortReflection4": {
+    "name": "tnOTDRPortReflection4",
+    "oid": "1.3.6.1.4.1.868.2.5.155.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortReflection5": {
+    "name": "tnOTDRPortReflection5",
+    "oid": "1.3.6.1.4.1.868.2.5.155.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortReflection6": {
+    "name": "tnOTDRPortReflection6",
+    "oid": "1.3.6.1.4.1.868.2.5.155.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortReflection7": {
+    "name": "tnOTDRPortReflection7",
+    "oid": "1.3.6.1.4.1.868.2.5.155.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortReflection8": {
+    "name": "tnOTDRPortReflection8",
+    "oid": "1.3.6.1.4.1.868.2.5.155.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortReflection9": {
+    "name": "tnOTDRPortReflection9",
+    "oid": "1.3.6.1.4.1.868.2.5.155.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortReflection10": {
+    "name": "tnOTDRPortReflection10",
+    "oid": "1.3.6.1.4.1.868.2.5.155.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortReflection11": {
+    "name": "tnOTDRPortReflection11",
+    "oid": "1.3.6.1.4.1.868.2.5.155.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortReflection12": {
+    "name": "tnOTDRPortReflection12",
+    "oid": "1.3.6.1.4.1.868.2.5.155.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortReflection13": {
+    "name": "tnOTDRPortReflection13",
+    "oid": "1.3.6.1.4.1.868.2.5.155.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortReflection14": {
+    "name": "tnOTDRPortReflection14",
+    "oid": "1.3.6.1.4.1.868.2.5.155.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortReflection15": {
+    "name": "tnOTDRPortReflection15",
+    "oid": "1.3.6.1.4.1.868.2.5.155.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortReflection16": {
+    "name": "tnOTDRPortReflection16",
+    "oid": "1.3.6.1.4.1.868.2.5.155.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortDate": {
+    "name": "tnOTDRPortDate",
+    "oid": "1.3.6.1.4.1.868.2.5.155.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortTime": {
+    "name": "tnOTDRPortTime",
+    "oid": "1.3.6.1.4.1.868.2.5.155.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnOTDRPortAction": {
+    "name": "tnOTDRPortAction",
+    "oid": "1.3.6.1.4.1.868.2.5.155.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 0,
+          "setAsCert": 1,
+          "delete": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnOTDRCommandTable": {
+    "name": "tnOTDRCommandTable",
+    "oid": "1.3.6.1.4.1.868.2.5.155.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnOTDRCommandEntry": {
+    "name": "tnOTDRCommandEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.155.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnOTDRCommandAction": {
+    "name": "tnOTDRCommandAction",
+    "oid": "1.3.6.1.4.1.868.2.5.155.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 0,
+          "capture": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnOTDRReportTable": {
+    "name": "tnOTDRReportTable",
+    "oid": "1.3.6.1.4.1.868.2.5.155.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnOTDRReportEntry": {
+    "name": "tnOTDRReportEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.155.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-OTDR-MIB",
+        "object": 1,
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnOTDRDownloadTFTPServer": {
+    "name": "tnOTDRDownloadTFTPServer",
+    "oid": "1.3.6.1.4.1.868.2.5.155.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNDisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnOTDRActivePortsOnly": {
+    "name": "tnOTDRActivePortsOnly",
+    "oid": "1.3.6.1.4.1.868.2.5.155.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnOTDRReportAction": {
+    "name": "tnOTDRReportAction",
+    "oid": "1.3.6.1.4.1.868.2.5.155.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 0,
+          "save": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-OTDR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-OTDR-MIB"
+  }
+}

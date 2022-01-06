@@ -1,0 +1,955 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-JS-SMI": [
+      "jnxJsPolicies"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TimeStamp"
+    ]
+  },
+  "jnxJsSecPolicyMIB": {
+    "name": "jnxJsSecPolicyMIB",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-12-14 00:00",
+        "description": "Creation Date"
+      },
+      {
+        "revision": "2013-07-02 00:00",
+        "description": "Add policy system wide counters for dropped and accepted ipv4 and ipv6 packets"
+      }
+    ]
+  },
+  "jnxJsPolicyNotifications": {
+    "name": "jnxJsPolicyNotifications",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.0",
+    "class": "objectidentity"
+  },
+  "jnxJsPolicyObjects": {
+    "name": "jnxJsPolicyObjects",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1",
+    "class": "objectidentity"
+  },
+  "jnxJsPolicyTrapVars": {
+    "name": "jnxJsPolicyTrapVars",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.2",
+    "class": "objectidentity"
+  },
+  "jnxJsPolicySystemStats": {
+    "name": "jnxJsPolicySystemStats",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3",
+    "class": "objectidentity"
+  },
+  "jnxJsPolicySystemStatsIPv4": {
+    "name": "jnxJsPolicySystemStatsIPv4",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3.1",
+    "class": "objectidentity"
+  },
+  "jnxJsPolicySystemStatsIPv6": {
+    "name": "jnxJsPolicySystemStatsIPv6",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3.2",
+    "class": "objectidentity"
+  },
+  "jnxJsPolicyNumber": {
+    "name": "jnxJsPolicyNumber",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyTable": {
+    "name": "jnxJsPolicyTable",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxJsPolicyEntry": {
+    "name": "jnxJsPolicyEntry",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-JS-POLICY-MIB",
+        "object": "jnxJsPolicyFromZone",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-JS-POLICY-MIB",
+        "object": "jnxJsPolicyToZone",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-JS-POLICY-MIB",
+        "object": "jnxJsPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJsPolicyFromZone": {
+    "name": "jnxJsPolicyFromZone",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxJsPolicyToZone": {
+    "name": "jnxJsPolicyToZone",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxJsPolicyName": {
+    "name": "jnxJsPolicyName",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxJsPolicySequenceNumber": {
+    "name": "jnxJsPolicySequenceNumber",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyAction": {
+    "name": "jnxJsPolicyAction",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 1,
+          "deny": 2,
+          "reject": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyScheduler": {
+    "name": "jnxJsPolicyScheduler",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyState": {
+    "name": "jnxJsPolicyState",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2,
+          "unavailable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsAvailability": {
+    "name": "jnxJsPolicyStatsAvailability",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 1,
+          "unavailable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyPerSecBytesThreshold": {
+    "name": "jnxJsPolicyPerSecBytesThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyPerMinKbytesThreshold": {
+    "name": "jnxJsPolicyPerMinKbytesThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsTable": {
+    "name": "jnxJsPolicyStatsTable",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsEntry": {
+    "name": "jnxJsPolicyStatsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-JS-POLICY-MIB",
+        "object": "jnxJsPolicyFromZone",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-JS-POLICY-MIB",
+        "object": "jnxJsPolicyToZone",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-JS-POLICY-MIB",
+        "object": "jnxJsPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJsPolicyStatsCreationTime": {
+    "name": "jnxJsPolicyStatsCreationTime",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsInputBytes": {
+    "name": "jnxJsPolicyStatsInputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsInputByteRate": {
+    "name": "jnxJsPolicyStatsInputByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsOutputBytes": {
+    "name": "jnxJsPolicyStatsOutputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsOutputByteRate": {
+    "name": "jnxJsPolicyStatsOutputByteRate",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsInputPackets": {
+    "name": "jnxJsPolicyStatsInputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsInputPacketRate": {
+    "name": "jnxJsPolicyStatsInputPacketRate",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsOutputPackets": {
+    "name": "jnxJsPolicyStatsOutputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsOutputPacketRate": {
+    "name": "jnxJsPolicyStatsOutputPacketRate",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsNumSessions": {
+    "name": "jnxJsPolicyStatsNumSessions",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsSessionRate": {
+    "name": "jnxJsPolicyStatsSessionRate",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsSessionDeleted": {
+    "name": "jnxJsPolicyStatsSessionDeleted",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsLookups": {
+    "name": "jnxJsPolicyStatsLookups",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsCountAlarm": {
+    "name": "jnxJsPolicyStatsCountAlarm",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "jnxJsPolicyStatsInBytesInit": {
+    "name": "jnxJsPolicyStatsInBytesInit",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsInBytesRep": {
+    "name": "jnxJsPolicyStatsInBytesRep",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsInByteRtInit": {
+    "name": "jnxJsPolicyStatsInByteRtInit",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsInByteRtRep": {
+    "name": "jnxJsPolicyStatsInByteRtRep",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsOutBytesInit": {
+    "name": "jnxJsPolicyStatsOutBytesInit",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsOutBytesRep": {
+    "name": "jnxJsPolicyStatsOutBytesRep",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsOutByteRtInit": {
+    "name": "jnxJsPolicyStatsOutByteRtInit",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsOutByteRtRep": {
+    "name": "jnxJsPolicyStatsOutByteRtRep",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsInPacketsInit": {
+    "name": "jnxJsPolicyStatsInPacketsInit",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsInPacketsRep": {
+    "name": "jnxJsPolicyStatsInPacketsRep",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsInPacketRtInit": {
+    "name": "jnxJsPolicyStatsInPacketRtInit",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsInPacketRtRep": {
+    "name": "jnxJsPolicyStatsInPacketRtRep",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsOutPacketsInit": {
+    "name": "jnxJsPolicyStatsOutPacketsInit",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsOutPacketsRep": {
+    "name": "jnxJsPolicyStatsOutPacketsRep",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsOutPacketRtInit": {
+    "name": "jnxJsPolicyStatsOutPacketRtInit",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicyStatsOutPacketRtRep": {
+    "name": "jnxJsPolicyStatsOutPacketRtRep",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.1.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicySystemStatsEnabled": {
+    "name": "jnxJsPolicySystemStatsEnabled",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicySystemStatsTotalAllowIPv4Packets": {
+    "name": "jnxJsPolicySystemStatsTotalAllowIPv4Packets",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicySystemStatsTotalAllowIPv4Bytes": {
+    "name": "jnxJsPolicySystemStatsTotalAllowIPv4Bytes",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicySystemStatsTotalAllowIPv4PacketsRate": {
+    "name": "jnxJsPolicySystemStatsTotalAllowIPv4PacketsRate",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicySystemStatsTotalAllowIPv4BytesRate": {
+    "name": "jnxJsPolicySystemStatsTotalAllowIPv4BytesRate",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicySystemStatsTotalDropIPv4Packets": {
+    "name": "jnxJsPolicySystemStatsTotalDropIPv4Packets",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicySystemStatsTotalDropIPv4Bytes": {
+    "name": "jnxJsPolicySystemStatsTotalDropIPv4Bytes",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicySystemStatsTotalDropIPv4PacketsRate": {
+    "name": "jnxJsPolicySystemStatsTotalDropIPv4PacketsRate",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicySystemStatsTotalDropIPv4BytesRate": {
+    "name": "jnxJsPolicySystemStatsTotalDropIPv4BytesRate",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicySystemStatsTotalAllowIPv4Flows": {
+    "name": "jnxJsPolicySystemStatsTotalAllowIPv4Flows",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicySystemStatsTotalAllowIPv4FlowsRate": {
+    "name": "jnxJsPolicySystemStatsTotalAllowIPv4FlowsRate",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicySystemStatsTotalAllowIPv6Packets": {
+    "name": "jnxJsPolicySystemStatsTotalAllowIPv6Packets",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicySystemStatsTotalAllowIPv6Bytes": {
+    "name": "jnxJsPolicySystemStatsTotalAllowIPv6Bytes",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicySystemStatsTotalAllowIPv6PacketsRate": {
+    "name": "jnxJsPolicySystemStatsTotalAllowIPv6PacketsRate",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicySystemStatsTotalAllowIPv6BytesRate": {
+    "name": "jnxJsPolicySystemStatsTotalAllowIPv6BytesRate",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicySystemStatsTotalDropIPv6Packets": {
+    "name": "jnxJsPolicySystemStatsTotalDropIPv6Packets",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicySystemStatsTotalDropIPv6Bytes": {
+    "name": "jnxJsPolicySystemStatsTotalDropIPv6Bytes",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicySystemStatsTotalDropIPv6PacketsRate": {
+    "name": "jnxJsPolicySystemStatsTotalDropIPv6PacketsRate",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicySystemStatsTotalDropIPv6BytesRate": {
+    "name": "jnxJsPolicySystemStatsTotalDropIPv6BytesRate",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicySystemStatsTotalAllowIPv6Flows": {
+    "name": "jnxJsPolicySystemStatsTotalAllowIPv6Flows",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsPolicySystemStatsTotalAllowIPv6FlowsRate": {
+    "name": "jnxJsPolicySystemStatsTotalAllowIPv6FlowsRate",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.4.1.3.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-JS-POLICY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-JS-POLICY-MIB"
+  }
+}

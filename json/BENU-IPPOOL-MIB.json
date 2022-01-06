@@ -1,0 +1,1591 @@
+{
+  "imports": {
+    "class": "imports",
+    "BENU-WAG-MIB": [
+      "benuWAG"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddress",
+      "InetAddressIPv4",
+      "InetAddressType",
+      "InetAddressIPv6"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "iso",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Bits",
+      "mib-2",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "benuIPPoolMIB": {
+    "name": "benuIPPoolMIB",
+    "oid": "1.3.6.1.4.1.39406.2.1.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-08-11 00:00",
+        "description": "Added notifications for bIPPoolAddrExhausted and bIPv6PoolPrefixExhausted."
+      },
+      {
+        "revision": "2015-01-05 00:00",
+        "description": "Updated notification assignments to comply with standards (RFC 2578)."
+      },
+      {
+        "revision": "2013-10-21 00:00",
+        "description": "Version includes IPv6 pools"
+      }
+    ]
+  },
+  "bIPPoolNotifications": {
+    "name": "bIPPoolNotifications",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bIPv4PoolMIBObjects": {
+    "name": "bIPv4PoolMIBObjects",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bIPv4PoolNotifObjects": {
+    "name": "bIPv4PoolNotifObjects",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bIPv6PoolMIBObjects": {
+    "name": "bIPv6PoolMIBObjects",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bIPv6PoolNotifObjects": {
+    "name": "bIPv6PoolNotifObjects",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bIPPoolTable": {
+    "name": "bIPPoolTable",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bIPPoolEntry": {
+    "name": "bIPPoolEntry",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPPoolStatsInterval",
+        "implied": 0
+      },
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPPoolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bIPPoolStatsInterval": {
+    "name": "bIPPoolStatsInterval",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bIPPoolIndex": {
+    "name": "bIPPoolIndex",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bIPPoolIntervalDuration": {
+    "name": "bIPPoolIntervalDuration",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolName": {
+    "name": "bIPPoolName",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolStartAddress": {
+    "name": "bIPPoolStartAddress",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolEndAddress": {
+    "name": "bIPPoolEndAddress",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolTotalAddresses": {
+    "name": "bIPPoolTotalAddresses",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolReservedAddresses": {
+    "name": "bIPPoolReservedAddresses",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolPeakFreeAddresses": {
+    "name": "bIPPoolPeakFreeAddresses",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolPeakUsedAddresses": {
+    "name": "bIPPoolPeakUsedAddresses",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolUsedAddrLowThreshold": {
+    "name": "bIPPoolUsedAddrLowThreshold",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolUsedAddrHighThreshold": {
+    "name": "bIPPoolUsedAddrHighThreshold",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGrpName": {
+    "name": "bIPPoolGrpName",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGroupTable": {
+    "name": "bIPPoolGroupTable",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bIPPoolGroupEntry": {
+    "name": "bIPPoolGroupEntry",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPPoolGroupStatsInterval",
+        "implied": 0
+      },
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPPoolGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bIPPoolGroupStatsInterval": {
+    "name": "bIPPoolGroupStatsInterval",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bIPPoolGroupIndex": {
+    "name": "bIPPoolGroupIndex",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bIPPoolGroupIntervalDuration": {
+    "name": "bIPPoolGroupIntervalDuration",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGroupName": {
+    "name": "bIPPoolGroupName",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGroupTotalAddresses": {
+    "name": "bIPPoolGroupTotalAddresses",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGroupReservedAddresses": {
+    "name": "bIPPoolGroupReservedAddresses",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGroupPeakFreeAddresses": {
+    "name": "bIPPoolGroupPeakFreeAddresses",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGroupPeakUsedAddresses": {
+    "name": "bIPPoolGroupPeakUsedAddresses",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalTable": {
+    "name": "bIPPoolGlobalTable",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bIPPoolGlobalEntry": {
+    "name": "bIPPoolGlobalEntry",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPPoolGlobalStatsInterval",
+        "implied": 0
+      },
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPPoolClientIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bIPPoolGlobalStatsInterval": {
+    "name": "bIPPoolGlobalStatsInterval",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bIPPoolClientIndex": {
+    "name": "bIPPoolClientIndex",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bIPPoolClientName": {
+    "name": "bIPPoolClientName",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalAllocReq": {
+    "name": "bIPPoolGlobalAllocReq",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalAllocReqSucc": {
+    "name": "bIPPoolGlobalAllocReqSucc",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalAllocReqUnSucc": {
+    "name": "bIPPoolGlobalAllocReqUnSucc",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalDupAllocReq": {
+    "name": "bIPPoolGlobalDupAllocReq",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalStaticAllocReq": {
+    "name": "bIPPoolGlobalStaticAllocReq",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalAllocResponses": {
+    "name": "bIPPoolGlobalAllocResponses",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalDeAllocReq": {
+    "name": "bIPPoolGlobalDeAllocReq",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalDeAllocReqSucc": {
+    "name": "bIPPoolGlobalDeAllocReqSucc",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalDeAllocReqUnSucc": {
+    "name": "bIPPoolGlobalDeAllocReqUnSucc",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalInvalidReq": {
+    "name": "bIPPoolGlobalInvalidReq",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalNotAvailCount": {
+    "name": "bIPPoolGlobalNotAvailCount",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalPoolExhaustedCount": {
+    "name": "bIPPoolGlobalPoolExhaustedCount",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalGroupExhaustedCount": {
+    "name": "bIPPoolGlobalGroupExhaustedCount",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalInvalidPoolNameCount": {
+    "name": "bIPPoolGlobalInvalidPoolNameCount",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalInvalidGroupNameCount": {
+    "name": "bIPPoolGlobalInvalidGroupNameCount",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalInvalidIPAddrCount": {
+    "name": "bIPPoolGlobalInvalidIPAddrCount",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalHashInsertFail": {
+    "name": "bIPPoolGlobalHashInsertFail",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalHashDeleteFail": {
+    "name": "bIPPoolGlobalHashDeleteFail",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalRequestedAllocatedMismacth": {
+    "name": "bIPPoolGlobalRequestedAllocatedMismacth",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalRequestedIPNotFree": {
+    "name": "bIPPoolGlobalRequestedIPNotFree",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalGenErrCount": {
+    "name": "bIPPoolGlobalGenErrCount",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalAddrRelDueToIntAdd": {
+    "name": "bIPPoolGlobalAddrRelDueToIntAdd",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalGroupDeAllocReq": {
+    "name": "bIPPoolGlobalGroupDeAllocReq",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalGroupDeAllocReqSucc": {
+    "name": "bIPPoolGlobalGroupDeAllocReqSucc",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalGroupDeAllocReqUnSucc": {
+    "name": "bIPPoolGlobalGroupDeAllocReqUnSucc",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolTotalPoolCreatedEvents": {
+    "name": "bIPPoolTotalPoolCreatedEvents",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolTotalPoolDeletedEvents": {
+    "name": "bIPPoolTotalPoolDeletedEvents",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolGlobalIntervalDuration": {
+    "name": "bIPPoolGlobalIntervalDuration",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.1.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPPoolUsedAddrLow": {
+    "name": "bIPPoolUsedAddrLow",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPPoolName"
+      },
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPPoolTotalAddresses"
+      },
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPPoolUsedAddrLowThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "bIPPoolUsedAddrHigh": {
+    "name": "bIPPoolUsedAddrHigh",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPPoolName"
+      },
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPPoolTotalAddresses"
+      },
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPPoolUsedAddrHighThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "bIPPoolAddrExhausted": {
+    "name": "bIPPoolAddrExhausted",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPPoolName"
+      },
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPPoolTotalAddresses"
+      }
+    ],
+    "status": "current"
+  },
+  "bIPv6PoolTable": {
+    "name": "bIPv6PoolTable",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bIPv6PoolEntry": {
+    "name": "bIPv6PoolEntry",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPv6PoolStatsInterval",
+        "implied": 0
+      },
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPv6PoolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bIPv6PoolStatsInterval": {
+    "name": "bIPv6PoolStatsInterval",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bIPv6PoolIndex": {
+    "name": "bIPv6PoolIndex",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bIPv6PoolIntervalDuration": {
+    "name": "bIPv6PoolIntervalDuration",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolName": {
+    "name": "bIPv6PoolName",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolStartPrefix": {
+    "name": "bIPv6PoolStartPrefix",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolEndPrefix": {
+    "name": "bIPv6PoolEndPrefix",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolTotalPrefixes": {
+    "name": "bIPv6PoolTotalPrefixes",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolReservedPrefixes": {
+    "name": "bIPv6PoolReservedPrefixes",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolPeakFreePrefixes": {
+    "name": "bIPv6PoolPeakFreePrefixes",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolPeakUsedPrefixes": {
+    "name": "bIPv6PoolPeakUsedPrefixes",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolUsedPrefixLowThreshold": {
+    "name": "bIPv6PoolUsedPrefixLowThreshold",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolUsedPrefixHighThreshold": {
+    "name": "bIPv6PoolUsedPrefixHighThreshold",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGrpName": {
+    "name": "bIPv6PoolGrpName",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGroupTable": {
+    "name": "bIPv6PoolGroupTable",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bIPv6PoolGroupEntry": {
+    "name": "bIPv6PoolGroupEntry",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPv6PoolGroupStatsInterval",
+        "implied": 0
+      },
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPv6PoolGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bIPv6PoolGroupStatsInterval": {
+    "name": "bIPv6PoolGroupStatsInterval",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bIPv6PoolGroupIndex": {
+    "name": "bIPv6PoolGroupIndex",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bIPv6PoolGroupIntervalDuration": {
+    "name": "bIPv6PoolGroupIntervalDuration",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGroupName": {
+    "name": "bIPv6PoolGroupName",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGroupTotalPrefixes": {
+    "name": "bIPv6PoolGroupTotalPrefixes",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGroupReservedPrefixes": {
+    "name": "bIPv6PoolGroupReservedPrefixes",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGroupPeakFreePrefixes": {
+    "name": "bIPv6PoolGroupPeakFreePrefixes",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGroupPeakUsedPrefixes": {
+    "name": "bIPv6PoolGroupPeakUsedPrefixes",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalTable": {
+    "name": "bIPv6PoolGlobalTable",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalEntry": {
+    "name": "bIPv6PoolGlobalEntry",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPv6PoolGlobalStatsInterval",
+        "implied": 0
+      },
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPv6PoolClientIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bIPv6PoolGlobalStatsInterval": {
+    "name": "bIPv6PoolGlobalStatsInterval",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bIPv6PoolClientIndex": {
+    "name": "bIPv6PoolClientIndex",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bIPv6PoolClientName": {
+    "name": "bIPv6PoolClientName",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalAllocReq": {
+    "name": "bIPv6PoolGlobalAllocReq",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalAllocReqSucc": {
+    "name": "bIPv6PoolGlobalAllocReqSucc",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalAllocReqUnSucc": {
+    "name": "bIPv6PoolGlobalAllocReqUnSucc",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalDupAllocReq": {
+    "name": "bIPv6PoolGlobalDupAllocReq",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalStaticAllocReq": {
+    "name": "bIPv6PoolGlobalStaticAllocReq",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalAllocResponses": {
+    "name": "bIPv6PoolGlobalAllocResponses",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalDeAllocReq": {
+    "name": "bIPv6PoolGlobalDeAllocReq",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalDeAllocReqSucc": {
+    "name": "bIPv6PoolGlobalDeAllocReqSucc",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalDeAllocReqUnSucc": {
+    "name": "bIPv6PoolGlobalDeAllocReqUnSucc",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalInvalidReq": {
+    "name": "bIPv6PoolGlobalInvalidReq",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalNotAvailCount": {
+    "name": "bIPv6PoolGlobalNotAvailCount",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalPoolExhaustedCount": {
+    "name": "bIPv6PoolGlobalPoolExhaustedCount",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalGroupExhaustedCount": {
+    "name": "bIPv6PoolGlobalGroupExhaustedCount",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalInvalidPoolNameCount": {
+    "name": "bIPv6PoolGlobalInvalidPoolNameCount",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalInvalidGroupNameCount": {
+    "name": "bIPv6PoolGlobalInvalidGroupNameCount",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalInvalidIPAddrCount": {
+    "name": "bIPv6PoolGlobalInvalidIPAddrCount",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalHashInsertFail": {
+    "name": "bIPv6PoolGlobalHashInsertFail",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalHashDeleteFail": {
+    "name": "bIPv6PoolGlobalHashDeleteFail",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalRequestedAllocatedMismacth": {
+    "name": "bIPv6PoolGlobalRequestedAllocatedMismacth",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalRequestedIPNotFree": {
+    "name": "bIPv6PoolGlobalRequestedIPNotFree",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalGenErrCount": {
+    "name": "bIPv6PoolGlobalGenErrCount",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalPrefixRelDueToIntAdd": {
+    "name": "bIPv6PoolGlobalPrefixRelDueToIntAdd",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolTotalPoolCreatedEvents": {
+    "name": "bIPv6PoolTotalPoolCreatedEvents",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolTotalPoolDeletedEvents": {
+    "name": "bIPv6PoolTotalPoolDeletedEvents",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolGlobalIntervalDuration": {
+    "name": "bIPv6PoolGlobalIntervalDuration",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.3.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bIPv6PoolUsedPrefixLow": {
+    "name": "bIPv6PoolUsedPrefixLow",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPv6PoolName"
+      },
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPv6PoolTotalPrefixes"
+      },
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPv6PoolUsedPrefixLowThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "bIPv6PoolUsedPrefixHigh": {
+    "name": "bIPv6PoolUsedPrefixHigh",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPv6PoolName"
+      },
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPv6PoolTotalPrefixes"
+      },
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPv6PoolUsedPrefixHighThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "bIPv6PoolPrefixExhausted": {
+    "name": "bIPv6PoolPrefixExhausted",
+    "oid": "1.3.6.1.4.1.39406.2.1.5.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPv6PoolName"
+      },
+      {
+        "module": "BENU-IPPOOL-MIB",
+        "object": "bIPv6PoolTotalPrefixes"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-IPPOOL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BENU-IPPOOL-MIB"
+  }
+}

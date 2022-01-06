@@ -1,0 +1,126 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "AGENT-CAPABILITIES"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoDs1Capability": {
+    "name": "ciscoDs1Capability",
+    "oid": "1.3.6.1.4.1.9.7.273",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-10-31 00:00",
+        "description": "Added VARIATION for dsx1LineStatusChangeTrapEnable to agent capability statement ciscoDs1CapabilityMARsV12R5T and ciscoDs1CapabilityAS5xxxV12R5T"
+      },
+      {
+        "revision": "2007-09-10 00:00",
+        "description": "Added ciscoDs1CapabilityV5R500 for defining capability for VXSM support in MGX8880 release 5.5.0."
+      },
+      {
+        "revision": "2007-05-11 00:00",
+        "description": "Added ciscoDs1CapabilityMARsV12R5T for 2800, 3800, 3700 series routers and IAD2430 platforms. Added ciscoDs1CapabilityAS5xxxV12R5T for AS5xxx platforms."
+      },
+      {
+        "revision": "2006-06-16 00:00",
+        "description": "Added ciscoDs1CapabilityV5R310 for VXSM support in MGX8880 release 5.3.1."
+      },
+      {
+        "revision": "2005-07-11 00:00",
+        "description": "Added ciscoDs1CapabilityV5R100 for MPSM and VXSM support in MGX8880 release 5.1.0."
+      },
+      {
+        "revision": "2003-12-22 00:00",
+        "description": "ciscoDs1CapabilityV5R00 added for MPSM and VXSM support."
+      },
+      {
+        "revision": "2002-04-28 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoDs1AxsmeCapabilityV3R00": {
+    "name": "ciscoDs1AxsmeCapabilityV3R00",
+    "oid": "1.3.6.1.4.1.9.7.273.1",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 3.0",
+    "status": "current"
+  },
+  "ciscoDs1CapabilityV5R00": {
+    "name": "ciscoDs1CapabilityV5R00",
+    "oid": "1.3.6.1.4.1.9.7.273.2",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 5.0.0",
+    "status": "current"
+  },
+  "ciscoDs1CapabilityV5R100": {
+    "name": "ciscoDs1CapabilityV5R100",
+    "oid": "1.3.6.1.4.1.9.7.273.3",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8880 Release 5.1.0",
+    "status": "current"
+  },
+  "ciscoDs1CapabilityV5R310": {
+    "name": "ciscoDs1CapabilityV5R310",
+    "oid": "1.3.6.1.4.1.9.7.273.4",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8880 Release 5.3.1",
+    "status": "current"
+  },
+  "ciscoDs1CapabilityMARsV12R5T": {
+    "name": "ciscoDs1CapabilityMARsV12R5T",
+    "oid": "1.3.6.1.4.1.9.7.273.6",
+    "class": "agentcapabilities",
+    "productrelease": "IOS 12.5T for Cisco Access Routers and ISRs",
+    "status": "current"
+  },
+  "ciscoDs1CapabilityAS5xxxV12R5T": {
+    "name": "ciscoDs1CapabilityAS5xxxV12R5T",
+    "oid": "1.3.6.1.4.1.9.7.273.7",
+    "class": "agentcapabilities",
+    "productrelease": "IOS 12.5T for Cisco Access Servers",
+    "status": "current"
+  },
+  "ciscoDs1CapabilityV5R500": {
+    "name": "ciscoDs1CapabilityV5R500",
+    "oid": "1.3.6.1.4.1.9.7.273.8",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8880 Release 5.5.0",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DS1-CAPABILITY",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DS1-CAPABILITY"
+  }
+}
